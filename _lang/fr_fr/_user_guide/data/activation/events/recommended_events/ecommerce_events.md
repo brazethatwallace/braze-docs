@@ -16,12 +16,18 @@ Comme les événements eCommerce suivent un schéma prévisible, Braze peut cons
 Les événements eCommerce de Braze et leurs propriétés d'événement segmentables ne sont pas comptabilisés dans les [points de donnée]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Onglet Transactions {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-L'onglet **Transactions** de chaque profil utilisateur offre une vue en temps réel de l'activité commerciale d'un utilisateur en affichant trois indicateurs calculés qui se mettent à jour au fur et à mesure du traitement des événements. Le modèle au niveau de la commande de ces calculs sépare clairement les prix des produits de la valeur totale de la commande.
+## Onglet Commerce {#commerce-tab}
+
+L'onglet **Commerce** de chaque profil utilisateur combine deux modules : **Activité des commandes** (indicateurs calculés de chiffre d'affaires et de commandes) et **Panier actif** (le dernier panier issu des événements `ecommerce.cart_updated`).
+
+### Activité des commandes {#order-activity}
+
+Le module **Activité des commandes** affiche trois indicateurs calculés qui se mettent à jour en temps réel au fur et à mesure du traitement des événements. Le modèle au niveau de la commande de ces calculs sépare clairement les prix des produits de la valeur totale de la commande.
 
 {% alert note %}
-Les événements recommandés pour le commerce électronique ne remplissent pas la section **Historique des achats** de l'onglet **Transactions**. L'historique des achats est alimenté par les événements d'achat hérités. Utilisez les indicateurs du tableau suivant pour le chiffre d'affaires et l'activité de commande provenant des événements recommandés.
+Les événements recommandés pour le commerce électronique ne remplissent pas la section **Historique des achats** de l'onglet **Commerce**. L'historique des achats est alimenté par les événements d'achat hérités. Utilisez les indicateurs du tableau suivant pour le chiffre d'affaires et l'activité de commande provenant des événements recommandés.
 {% endalert %}
 
 | Indicateur | Formule |
@@ -29,9 +35,18 @@ Les événements recommandés pour le commerce électronique ne remplissent pas 
 | Chiffre d'affaires total | somme (`order_placed.total_value`) − somme (`order_refunded.total_value`) |
 | Nombre total de commandes | nombre (distinct `order_placed`) − nombre (distinct `order_cancelled`) |
 | Valeur totale des remboursements | somme (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Section Activité des commandes avec le chiffre d'affaires total, le nombre total de commandes et la valeur totale des remboursements.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Panier actif {#active-cart}
+
+Le module **Panier actif** affiche le dernier panier sur le profil utilisateur. Cette vue est particulièrement utile pendant vos tests. Vous pouvez l'utiliser pour confirmer le contenu du panier, valider les parcours basés sur le panier ou vérifier que les événements `ecommerce.cart_updated` mettent bien à jour le profil comme prévu.
+
+Le **Panier actif** inclut les éléments suivants :
+
+- **ID du panier** — Identifiant du panier ayant reçu en dernier un événement `ecommerce.cart_updated`.
+- **Dernière mise à jour** — Horodatage de la mise à jour la plus récente du panier.
+- **Valeur totale du panier** — Valeur totale des articles dans le panier actuel.
+- **Voir les produits** — Un lien pour ouvrir la liste des produits dans le panier (jusqu'à 50 produits).
 
 ## Orchestration eCommerce {#ecommerce-orchestration}
 
@@ -94,7 +109,7 @@ Utilisez ce modèle lorsque vous souhaitez rappeler aux utilisateurs les article
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-L'événement `ecommerce.cart_updated` utilise un modèle de remplacement. Chaque événement envoyé écrase l'état du panier de l'utilisateur. Utilisez l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} dans votre message pour afficher dynamiquement le contenu actuel du panier au moment de l'envoi.
+L'événement `ecommerce.cart_updated` prend en charge le remplacement complet du panier (chaque événement peut décrire l'intégralité du panier) ou les mises à jour incrémentales en utilisant les valeurs `add` et `remove` pour la propriété facultative `action`. Choisissez une approche par panier et évitez de mélanger les mises à jour par remplacement et incrémentales pour le même `cart_id`. Utilisez l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} dans votre message pour afficher dynamiquement le contenu actuel du panier au moment de l'envoi.
 {% endalert %}
 
 {% endtab %}
@@ -145,15 +160,15 @@ Les événements recommandés pour le commerce électronique alimentent les mêm
 | Rapport | Ce qu'il affiche |
 |---------------------------------------------|-------------------------------------------|
 | Rapport sur les revenus | Chiffre d'affaires total, chiffre d'affaires quotidien moyen, achats quotidiens et chiffre d'affaires par utilisateur au fil du temps, toutes sources confondues, pour la plage de dates et les applications sélectionnées. |
-| Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
-| Analyses des campagnes et des Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
-| Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les campagnes et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la campagne ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
+| Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière Campaign ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
+| Analyses des Campaigns et des Canvas | Chiffre d'affaires total attribué à une Campaign ou un Canvas spécifique dans la fenêtre de conversion principale. |
+| Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les Campaigns et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la Campaign ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
 | Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord Statistiques des segments. |
 | Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le Générateur de rapports. |
 | Générateur de tableaux de bord | Indicateurs de chiffre d'affaires dans les tableaux de bord personnalisés créés dans le Générateur de tableaux de bord. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
-Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une campagne ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
+Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une Campaign ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
 
 {% alert note %}
 Pour éviter le double comptage du chiffre d'affaires, n'envoyez pas à la fois des achats hérités et des événements recommandés pour le commerce électronique pour les mêmes commandes. Si vous prévoyez de passer des achats hérités aux événements recommandés, coordonnez le changement avec votre équipe de compte Braze avant d'effectuer toute modification d'intégration.<br><br>

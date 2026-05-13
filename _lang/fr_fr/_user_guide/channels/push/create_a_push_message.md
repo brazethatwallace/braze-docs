@@ -81,7 +81,7 @@ Il existe plusieurs façons de procéder en fonction de vos sélections précéd
 | Campagne de notification push | Sélectionnez une ou plusieurs plateformes et appareils. Si vous choisissez de cibler plusieurs appareils et plateformes, vous créez automatiquement une campagne push rapide. Cela offre une expérience d'édition optimisée pour rédiger un message pour toutes les plateformes sélectionnées dans un seul éditeur. Consultez [Campagnes push rapides]({{site.baseurl}}/quick_push/) pour comprendre ce qui diffère dans cette expérience d'édition. |
 | Campagne multicanal | Sélectionnez **Add Messaging Channel** pour ajouter des plateformes push supplémentaires. Comme les sélections de plateformes sont spécifiques à chaque variante, vous pouvez tester l'engagement des messages par plateforme. |
 | Canvas | Dans votre étape Message, sélectionnez **+ Add more** pour ajouter des plateformes push supplémentaires. Comme pour les campagnes multicanal, les sélections de plateformes sont spécifiques à chaque variante. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Sélectionner les plateformes push" }
 
 ## Étape 3 : Sélectionner le type de notification (iOS et Android) {#step-3-select-notification-type-ios-and-android}
 
@@ -260,3 +260,16 @@ Si ce n'est pas déjà fait, complétez les sections restantes de votre composan
 Après avoir terminé la construction de votre campagne ou Canvas, vérifiez ses détails. Pour les campagnes, la dernière page vous donne un résumé de la campagne que vous avez conçue. Confirmez tous les détails pertinents, assurez-vous d'avoir testé votre message, puis envoyez-le et observez les données affluer !
 
 Ensuite, consultez [Rapports push]({{site.baseurl}}/user_guide/channels/push/reporting/) pour découvrir comment accéder aux résultats de votre campagne push. Pour les notifications push, vous pourrez consulter les statistiques relatives au nombre de messages envoyés, livrés, rejetés, ouverts et ouverts directement.
+
+### Résolution des problèmes {#troubleshooting}
+
+#### Comportement au clic
+
+Si vous utilisez le comportement au clic par défaut pour votre version du SDK et que la sélection d'une notification push avec une URL web ouvre l'application au lieu du navigateur web, consultez les guides d'intégration suivants pour déterminer la gestion des notifications push :
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+Vous devez assigner votre objet délégué en utilisant `center.delegate = self` de manière synchrone avant que votre application ne termine son lancement, de préférence dans `application:didFinishLaunchingWithOptions:`. Sinon, votre application risque de manquer les notifications push entrantes. Consultez la [documentation `UNUserNotificationCenterDelegate` d'Apple](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) pour en savoir plus.
+{% endalert %}

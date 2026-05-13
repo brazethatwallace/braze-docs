@@ -9,9 +9,16 @@ page_order: 4
 
 > Erfahren Sie, wie Sie doppelte Nutzer:innen finden und zusammenführen, um die Effektivität Ihrer Campaigns und Canvases zu maximieren.
 
-{% alert tip %}
-Um doppelte Nutzer:innen über die Braze REST API zusammenzuführen, lesen Sie [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
-{% endalert %}
+## REST API: Nutzer:innen identifizieren und zusammenführen {#rest-api-identify-and-merge-users}
+
+Die Tools auf dieser Seite führen doppelte Profile im Dashboard zusammen. Sie können Profile auch über die [User-Data-Endpunkte]({{site.baseurl}}/api/endpoints/user_data/) von Braze kombinieren oder umleiten:
+
+- [POST: Nutzer:innen identifizieren]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`): Kombiniert ein Nur-Alias-, Nur-E-Mail- oder Nur-Telefonnummer-Profil mit einem Profil, das eine `external_id` hat.
+- [POST: Nutzer:innen zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): Führt ein Nutzerprofil mit einem anderen zusammen, auch wenn beide Profile bereits eine `external_id` haben. Lesen Sie [Voraussetzungen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) und [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior), bevor Sie diesen Endpunkt aufrufen.
+
+Wenn ein anonymes Profil einem bestehenden identifizierten Profil zugeordnet wird (z. B. durch einen SDK-`changeUser()`-Aufruf oder `/users/identify`), verwaist Braze das anonyme Profil und kopiert nur bestimmte Felder auf das identifizierte Profil. Weitere Informationen finden Sie unter [Was passiert, wenn Sie anonyme Nutzer:innen identifizieren]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
+
+Zusammenführungen von Nutzer:innen sind schwer rückgängig zu machen. Wenn Sie eine komplexe Zusammenführung über mehrere `external_id`-Werte oder große Profilmigrationen planen, wenden Sie sich an Ihren Customer-Success-Manager, bevor Sie sich auf `/users/merge` verlassen.
 
 ## Einzelnes Zusammenführen {#individual-merging}
 

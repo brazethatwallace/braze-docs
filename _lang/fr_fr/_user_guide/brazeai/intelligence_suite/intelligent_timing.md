@@ -6,19 +6,19 @@ description: "Cet article propose un aperçu du timing intelligent (appelé aupa
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"} Timing intelligent {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"} Timing intelligent {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
-> Utilisez le timing intelligent pour transmettre votre message à chaque utilisateur au moment où Braze détermine le moment optimal d'envoi, c'est-à-dire lorsque l'utilisateur est le plus susceptible d'interagir (ouvrir ou cliquer). Cela vous permet de vérifier plus facilement que vous envoyez vos messages à vos utilisateurs à l'heure qui leur convient le mieux, ce qui peut entraîner un engagement accru.
+> Utilisez le timing intelligent pour transmettre votre message à chaque utilisateur au moment où Braze détermine l'heure d'envoi optimale, c'est-à-dire lorsque l'utilisateur est le plus susceptible d'interagir (ouvrir ou cliquer). Cela vous permet de vérifier plus facilement que vous envoyez vos messages à vos utilisateurs à l'heure qui leur convient le mieux, ce qui peut entraîner un engagement accru.
 
 ## À propos du timing intelligent {#about-intelligent-timing}
 
-Braze détermine le moment optimal pour l'envoi en se basant sur une analyse statistique des interactions passées de vos utilisateurs avec votre application et de leurs interactions avec chaque canal de communication. Les données d'interaction suivantes sont utilisées :
+Braze détermine l'heure d'envoi optimale en se basant sur une analyse statistique des interactions passées de vos utilisateurs avec votre application et de leurs interactions avec chaque canal de communication. Les données d'interaction suivantes sont utilisées :
 
 - Horaires des sessions
 - Ouvertures directes de notification push
 - Ouvertures influencées de notification push
 - Clics sur des e-mails
-- Ouvertures d'e-mail (à l'exclusion des [ouvertures de machines]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)
+- Ouvertures d'e-mail (à l'exclusion des [ouvertures de machines]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
 - Clics SMS (uniquement si [le raccourcissement des liens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) et le suivi avancé sont activés)
 
 Par exemple, Sam peut ouvrir régulièrement vos e-mails le matin, mais elle préfère ouvrir votre application et interagir avec les notifications en soirée. Cela signifie que Sam recevrait une campagne e-mail avec le timing intelligent le matin, tandis qu'elle recevrait les campagnes avec notifications push en soirée, quand elle a plus de chances d'interagir.

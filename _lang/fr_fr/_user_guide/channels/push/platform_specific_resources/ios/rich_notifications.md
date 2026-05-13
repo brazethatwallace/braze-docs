@@ -31,6 +31,10 @@ Avant de créer une notification push enrichie pour iOS, notez les détails suiv
 Depuis janvier 2020, les notifications push enrichies iOS peuvent gérer des images de 1038x1038 de moins de 10&nbsp;Mo, mais nous recommandons d'utiliser la taille de fichier la plus petite possible. En pratique, l'envoi de fichiers volumineux peut entraîner un stress réseau inutile et rendre les délais d'expiration de téléchargement plus fréquents.
 {% endalert %}
 
+{% alert important %}
+Les images des notifications push peuvent ne pas s'afficher comme prévu si la taille du fichier image est trop importante, si le rapport hauteur/largeur est incorrect, si le texte dépasse la longueur maximale du message ou si le texte du titre dépasse la longueur maximale du titre.
+{% endalert %}
+
 ### Nombre de caractères {#character-count}
 
 Bien que nous ne puissions pas fournir de règle stricte sur le nombre précis de caractères à inclure dans une notification push, nous [fournissons quelques recommandations]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) à prendre en compte lors de la conception de messages iOS. Il peut y avoir des variations en fonction de la présence d'une image, de l'état de la notification et des paramètres d'affichage de l'appareil de l'utilisateur, ainsi que de la taille de l'appareil. En cas de doute, restez bref et concis.

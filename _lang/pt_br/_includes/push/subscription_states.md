@@ -58,6 +58,14 @@ Você pode atualizar o estado da inscrição de um usuário com o SDK da Braze u
 
 Você pode atualizar o estado de inscrição de um usuário com a REST API da Braze usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para atualizar o atributo [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
 
+### Diferenças entre ativação de push e estado de inscrição push {#differences-between-push-enablement-and-push-subscription-status}
+
+A ativação de push refere-se a se um usuário concedeu permissão em nível de sistema operacional ou navegador para receber notificações em um dispositivo específico. O estado de inscrição push é uma configuração em nível da Braze que representa a preferência global de um usuário para receber push em todo o seu perfil.
+
+Quando a aceitação automática está ativada (o padrão), a Braze atualiza o estado de inscrição push de um usuário para `Opted-In` quando ele autoriza as notificações por push para o seu app ou reativa as permissões nas configurações do sistema (por exemplo, no iOS, Android 13+ e navegadores web compatíveis). Caso contrário, o estado de inscrição push do usuário permanece como `Subscribed` até que você o altere explicitamente usando um método do SDK ou uma chamada à REST API.
+
+A Braze não altera automaticamente o estado de inscrição push de um usuário para `Unsubscribed` quando ele desativa as notificações no nível do sistema operacional, navegador ou app. Para atualizar o estado de inscrição push de um usuário, você deve atualizá-lo na Braze. Por exemplo, se um usuário desativar o push em uma Central de Preferências no app, atualize o estado de inscrição push para `Unsubscribed` na Braze. A Braze não atualiza perfis de usuários com base na sua Central de Preferências. Para alinhar os estados de inscrição com as preferências do usuário no app, chame os métodos apropriados usando o [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS ou Android) ou a [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
+
 ### Verificação do estado de inscrição push {#checking-push-subscription-state}
 
 ![Perfil de usuário de John Doe com o estado de inscrição push definido como Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}

@@ -78,6 +78,50 @@ Comprueba que estás utilizando el tipo correcto de notificación push. Por ejem
 
 Al probar envíos push con usuarios internos, asegúrate de que el usuario que deseas que reciba la notificación push esté actualmente conectado en la aplicación correspondiente. Esto puede provocar que el usuario no reciba una notificación push o que reciba una push para la que crees que no está segmentado.
 
+{% alert note %}
+Si estás enviando mensajes push con imágenes en Android, FCM a veces puede descartar la imagen y solo mostrar el texto en el mensaje push. Este problema generalmente es causado por problemas de conectividad del servidor.
+{% endalert %}
+
+## Error: MismatchSenderID {#error-mismatchsenderid}
+
+MismatchSenderID indica un fallo de autenticación con Firebase Cloud Messaging (FCM). Confirma que tu Firebase sender ID y la clave de API de FCM sean correctos.
+
+Para encontrar la clave de servidor de Firebase correcta y reemplazarla:
+
+1. Ve a la consola de Firebase para tu aplicación.
+2. En **Project Overview**, selecciona **Project Settings**.
+3. En la pestaña **Cloud Messaging**, comprueba que el Sender ID debajo de las claves de API coincida con el de Braze (en **Settings** > **App Settings** > **Cloud Messaging API Key**).
+
+{% alert warning %}
+No cambies tu Sender ID en tu dashboard de Braze. Hacerlo provocará que los registros push existentes se invaliden. Si el Sender ID no coincide, debes encontrar tu proyecto de Firebase con el Sender ID correspondiente.
+{% endalert %}
+
+{:start="4"}
+4. Copia la **Server Key** en **Project credentials**.
+5. En Braze, ve a **Settings** > **App Settings**, selecciona tu aplicación y pega la clave del servidor en el campo **Cloud Messaging API Key** (reemplazando la clave obsoleta).
+6. Selecciona **Save**.
+7. Para verificar, envía una notificación push de prueba a un dispositivo antes y después de cambiar la clave de API sin abrir la aplicación. Esto ayuda a confirmar que los usuarios continúan recibiendo notificaciones push sin necesidad de generar un nuevo ID de registro push (token de push).
+
+## Escenarios de solución de problemas {#troubleshooting-scenarios}
+
+### Notificaciones push retrasadas {#delayed-push-notifications}
+
+Tus notificaciones push pueden retrasarse por estas razones:
+
+- Una conexión de datos débil en el dispositivo
+- Código personalizado en la aplicación que puede suprimir las notificaciones push de Braze
+- Preferencias del usuario para notificaciones push en la configuración del dispositivo
+- Prioridad del mensaje de la notificación push cuando se crea en la campaña o Canvas
+- Retrasos de tráfico o problemas con los proveedores de servicios push (FCM y APNs)
+
+### Las notificaciones push se envían más lento de lo esperado {#push-notifications-are-sending-slower-than-expected}
+
+Asegúrate de que la configuración de tus notificaciones push siga estas mejores prácticas:
+
+- Si estás enviando a audiencias grandes sin considerar el estado de habilitación push, esto puede provocar una velocidad de envío más lenta. En su lugar, considera enviar solo a usuarios con push habilitado para reducir el tamaño de tu audiencia.
+- Si es posible, intenta programar tus campañas con anticipación en lugar de inmediatamente.
+- Si estás dirigiendo notificaciones push a un mayor número de usuarios en un Canvas, puedes anticipar que los pasos de mensaje posteriores en el Canvas requerirán tiempos de procesamiento diferentes a los de una campaña que envía a los usuarios inmediatamente. En este caso, las campañas normalmente terminarían de enviar antes que un Canvas, ya que el primer "paso" de un Canvas es verificar si los usuarios califican para el recorrido de usuario específico.
+
 ## Al hacer clic en una notificación push no se abre la aplicación {#clicking-a-push-notification-doesnt-open-the-app}
 
 Si al hacer clic en una notificación push no se abre tu aplicación, comprueba lo siguiente según tu plataforma.
@@ -118,6 +162,10 @@ Si los enlaces en tus notificaciones push se abren inesperadamente en la aplicac
 2. **Inspecciona el manejo personalizado de enlaces:** Comprueba si la aplicación incluye un manejo personalizado para todos los enlaces `https://`. Las configuraciones personalizadas pueden anular los comportamientos predeterminados. Colabora con tu equipo de desarrollo para revisar y ajustar esta configuración si es necesario.
 3. **Verifica el registro push en iOS:** Para iOS, revisa el paso 1 de la guía de integración push sobre [registrar notificaciones push con APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns). Asegúrate de que tu objeto delegado se asigne de forma sincrónica antes de que la aplicación termine de lanzarse. Este paso debe completarse en el método `application:didFinishLaunchingWithOptions:`.
 4. **Prueba tu integración:** Después de realizar los ajustes, prueba el comportamiento de las notificaciones push en dispositivos iOS y Android para confirmar que el problema se ha resuelto.
+
+### Vínculos profundos con la aplicación aún ejecutándose en segundo plano (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
+
+Si los vínculos profundos funcionan cuando la aplicación no está ejecutándose o cuando el enlace se usa directamente, pero no cuando la aplicación ya está ejecutándose en segundo plano, el problema puede estar relacionado con la forma en que la aplicación maneja el enlace. Comprueba si estás usando alguna biblioteca de terceros que utilice method swizzling. Recomendamos desactivar el swizzling, ya que puede causar problemas con las implementaciones de vínculos profundos.
 
 ## Migrar a una clave de autenticación .p8 {#migrate-to-a-p8-authentication-key}
 

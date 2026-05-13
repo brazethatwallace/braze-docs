@@ -1,6 +1,6 @@
 ## Push-Abo-Status {#push-sub-states}
 
-Ein „Push-Abo-Status“ in Braze identifiziert die globale Präferenz **einer Nutzer:in** für den Wunsch, Push-Benachrichtigungen zu erhalten. Da der Abo-Status nutzerbasiert ist, ist er nicht auf eine bestimmte App begrenzt. Abo-Status werden zu hilfreichen Kennzeichnungen, wenn Sie entscheiden, welche Nutzer:innen Sie für Push-Benachrichtigungen ansprechen möchten.
+Ein „Push-Abo-Status“ in Braze identifiziert die globale Präferenz **einer Nutzer:in** für den Empfang von Push-Benachrichtigungen. Da der Abo-Status nutzerbasiert ist, ist er nicht auf eine bestimmte App begrenzt. Abo-Status werden zu hilfreichen Kennzeichnungen, wenn Sie entscheiden, welche Nutzer:innen Sie für Push-Benachrichtigungen ansprechen möchten.
 
 {% alert note %}
 Der Push-Abo-Status einer Nutzer:in gilt für das gesamte Nutzerprofil, das alle Geräte der Nutzer:in umfasst.
@@ -57,6 +57,14 @@ Sie können den Abo-Status einer Nutzer:in mit dem Braze SDK über die Methode `
 #### REST API
 
 Sie können den Abo-Status einer Nutzer:in mit der Braze REST API aktualisieren, indem Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) verwenden, um das [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/)-Attribut zu aktualisieren.
+
+### Unterschiede zwischen Push-Aktivierung und Push-Abo-Status {#differences-between-push-enablement-and-push-subscription-status}
+
+Push-Aktivierung bezieht sich darauf, ob eine Nutzer:in auf Betriebssystem- oder Browserebene die Berechtigung erteilt hat, Benachrichtigungen auf einem bestimmten Gerät zu empfangen. Der Push-Abo-Status ist eine Einstellung auf Braze-Ebene, die die globale Präferenz einer Nutzer:in für den Empfang von Push-Benachrichtigungen über das gesamte Profil hinweg darstellt.
+
+Wenn das automatische Opt-in aktiviert ist (Standard), aktualisiert Braze den Push-Abo-Status einer Nutzer:in auf `Opted-In`, wenn sie Push-Benachrichtigungen für Ihre App autorisiert oder die Berechtigungen in den Systemeinstellungen wieder aktiviert (zum Beispiel unter iOS, Android 13+ und unterstützten Webbrowsern). Andernfalls bleibt der Push-Abo-Status der Nutzer:in `Subscribed`, bis Sie ihn explizit über eine SDK-Methode oder einen REST API-Aufruf ändern.
+
+Braze ändert den Push-Abo-Status einer Nutzer:in nicht automatisch in `Unsubscribed`, wenn sie Benachrichtigungen auf Betriebssystem-, Browser- oder App-Ebene deaktiviert. Um den Push-Abo-Status einer Nutzer:in zu aktualisieren, müssen Sie ihn in Braze aktualisieren. Wenn eine Nutzer:in beispielsweise Push über ein In-App-Präferenzzentrum deaktiviert, aktualisieren Sie den Push-Abo-Status in Braze auf `Unsubscribed`. Braze aktualisiert Nutzerprofile nicht basierend auf Ihrem Präferenzzentrum. Um Abo-Status mit den In-App-Präferenzen einer Nutzer:in abzugleichen, rufen Sie die entsprechenden Methoden über das [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS oder Android) oder die [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api) auf.
 
 ### Push-Abo-Status prüfen {#checking-push-subscription-state}
 

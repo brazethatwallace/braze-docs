@@ -95,6 +95,14 @@ Vous n'avez qu'une seule chance de demander à un utilisateur l'autorisation d'e
 
 Pour éviter que les utilisateurs ne désactivent les notifications au niveau de l'appareil, ce qui supprime complètement leur jeton de notification push de premier plan, permettez-leur de contrôler leur abonnement push directement dans votre application. Consultez [Mise à jour des états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state) pour plus de détails.
 
+### Utiliser la planification avancée ou ajouter des délais {#use-advanced-scheduling-or-add-delays}
+
+En fonction de la taille de votre audience et du délai de planification de votre notification push, des retards de livraison peuvent survenir. Le temps nécessaire à l'envoi des notifications push dépend de la puissance de traitement allouée. Par exemple, si votre notification push utilise plusieurs appels de Contenu connecté, cela peut augmenter la complexité du templating de la notification push et entraîner des vitesses limitées par la rapidité de réponse des API tierces.
+
+Un payload push plus petit et une priorité de notification plus élevée peuvent contribuer à réduire les délais et à faire évoluer vos messages. Vous pouvez ajouter `Push Enabled = true` dans votre filtre d'audience pour réduire la taille de l'audience afin que seuls les utilisateurs ayant les notifications push activées soient traités pour l'envoi de la Campaign.
+
+Nous recommandons également de minimiser le nombre d'appels API en optimisant les données dont vous avez besoin. Si possible, essayez d'obtenir toutes les données nécessaires en un seul appel API plutôt que d'effectuer plusieurs appels.
+
 ### Comprendre les états d'abonnement push {#understand-push-subscription-states}
 
 L'état d'abonnement push ne garantit pas qu'une notification push sera livrée : les utilisateurs doivent également avoir les notifications push activées pour recevoir des notifications. En effet, un profil utilisateur peut avoir plusieurs appareils avec des autorisations de notification push de premier plan différentes, mais un seul état d'abonnement push.
