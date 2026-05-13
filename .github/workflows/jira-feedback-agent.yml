@@ -3,6 +3,12 @@
 # `GH_TOKEN` is passed via Cursor API `envVars` so the agent's `gh` CLI can open PRs; configure the `GH_TOKEN` repository secret.
 # Caller dispatches `repository_dispatch` with event type `jira-feedback-ticket` and a client_payload
 # containing ticket fields. See Cloud Agents API: https://cursor.com/docs/cloud-agent/api/endpoints
+#
+# Repository secrets (configure in GitHub repo or org settings):
+# - `CURSOR_API_KEY` — Cursor Cloud Agents API
+# - `GH_TOKEN` — PAT for agent `gh` / git in the cloud VM (`envVars`)
+# - `JIRA_USER_EMAIL` — Atlassian account email for Jira REST Basic auth
+# - `JIRA_API_TOKEN` — Atlassian API token (scopes to add comments on issues)
 
 name: Jira feedback — Cursor cloud agent
 
@@ -29,6 +35,8 @@ jobs:
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
           TICKET_ID: ${{ github.event.client_payload.ticket_id }}
         run: |
           set -euo pipefail
@@ -42,6 +50,10 @@ jobs:
           fi
           if [ -z "${GH_TOKEN}" ]; then
             echo "::error::GH_TOKEN repository secret is not set or not available to this workflow"
+            exit 1
+          fi
+          if [ -z "${JIRA_USER_EMAIL}" ] || [ -z "${JIRA_API_TOKEN}" ]; then
+            echo "::error::JIRA_USER_EMAIL and JIRA_API_TOKEN repository secrets must be set for the Jira comment step"
             exit 1
           fi
 
@@ -101,3 +113,55 @@ jobs:
           fi
 
           echo "Cursor Cloud Agent started successfully."
+
+      - name: Comment on Jira ticket (agent started)
+        if: success()
+        env:
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          TICKET_ID: ${{ github.event.client_payload.ticket_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          COMMENT_JSON=$(jq -n \
+            '{
+              body: {
+                version: 1,
+                type: "doc",
+                content: [
+                  {
+                    type: "paragraph",
+                    content: [
+                      {
+                        type: "text",
+                        text: "🤖 Cursor Agent: Picking up this ticket now. A draft PR will appear here shortly — no action needed from you yet."
+                      }
+                    ]
+                  }
+                ]
+              }
+            }')
+
+          AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
+
+          set +e
+          HTTP_CODE=$(curl -sS -o /tmp/jira-comment-response.json -w '%{http_code}' \
+            --request POST \
+            --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/comment" \
+            --header "Authorization: Basic ${AUTH_B64}" \
+            --header 'Content-Type: application/json' \
+            --header 'Accept: application/json' \
+            --data "${COMMENT_JSON}")
+          CURL_EXIT=$?
+          set -e
+
+          echo "Jira comment API HTTP status: ${HTTP_CODE} (curl exit ${CURL_EXIT})"
+          if [ -f /tmp/jira-comment-response.json ]; then
+            cat /tmp/jira-comment-response.json
+            echo
+          fi
+
+          if [ "${CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+            echo "::warning::Jira comment (agent started) failed or was skipped. Workflow continues."
+          fi
