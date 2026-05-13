@@ -25,7 +25,7 @@ LINE をBrazeと統合するには、以下が必要です。
 - [LINE Developers アカウント](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging API チャネル](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Brazeから LINE メッセージを送信すると、アカウントのメッセージクレジットが消費されます。
+Brazeから LINE メッセージを送信すると、アカウントのメッセージクレジットまたはアクションクレジットが消費されます。
 
 {% alert note %}
 **`native_line_id` の設定**: Brazeにユーザー更新を送信することで `native_line_id` を設定できます（例：[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) エンドポイント、[CSV インポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import)、または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を使用）。クライアント側のSDKに `native_line_id` 専用のフィールドがない場合は、これらの方法のいずれかを使用してサーバー側のユーザー更新で送信してください。
@@ -389,7 +389,7 @@ if (user && isLoggedIn && lineUserId) {
 
 [ユーザー照合](#user-id-reconciliation)をセットアップする前に、「Who am I」CanvasまたはCampaignを作成して LINE チャネルをテストできます。
 
-1. 特定のトリガーワードでユーザーのBrazeユーザー ID を返すCanvasをセットアップします。<br><br>トリガーの例<br><br>![特定のサブスクリプショングループにインバウンド LINE を送信したユーザーにCampaignを送信するトリガー。]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>メッセージの例<br><br>![BrazeユーザーIDを表示する LINE メッセージ。]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. 特定のトリガーワードでユーザーのBrazeユーザー ID を返すCanvasをセットアップします。<br><br>トリガーの例<br><br>![特定のサブスクリプショングループにインバウンド LINE を送信したユーザーにCampaignを送信するトリガー。]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>メッセージの例<br><br>![Brazeユーザー ID を表示する LINE メッセージ。]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. Brazeで、Braze ID を使用して特定のユーザーを検索し、必要に応じて変更できます。
 

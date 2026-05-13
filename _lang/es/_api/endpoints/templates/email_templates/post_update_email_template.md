@@ -20,6 +20,10 @@ Puedes acceder al `email_template_id` de una plantilla de correo electrónico na
 
 Todos los campos que no sean `email_template_id` son opcionales, pero debes especificar al menos un campo para actualizarlo.
 
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates). Esto permite que herramientas de IA como Claude y Cursor actualicen plantillas de correo electrónico mediante indicaciones en lenguaje natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Requisitos previos {#prerequisites}

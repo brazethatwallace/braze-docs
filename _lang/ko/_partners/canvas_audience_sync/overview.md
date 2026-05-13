@@ -15,7 +15,7 @@ tool:
 
 ## 기능 가용성 {#feature-availability}
 
-모든 Braze 고객은 Audience Sync to Google 및 Facebook에 즉시 액세스할 수 있으며, 메시지 크레딧을 사용하는 고객은 모든 Audience Sync 파트너에 액세스할 수 있습니다. 메시지 크레딧을 사용하지 않는 고객이 추가 Audience Sync 대상을 잠금 해제하려면 Audience Sync Pro를 구매하세요. 자세한 내용은 Braze 계정 매니저에게 문의하세요.
+모든 Braze 고객은 Audience Sync to Google 및 Facebook에 즉시 액세스할 수 있으며, Action Credits를 사용하는 고객은 모든 Audience Sync 파트너에 액세스할 수 있습니다. Action Credits를 사용하지 않는 고객이 추가 Audience Sync 대상을 잠금 해제하려면 Audience Sync Pro를 구매하세요. 자세한 내용은 Braze 계정 매니저에게 문의하세요.
 
 ## 활용 사례 {#use-cases}
 

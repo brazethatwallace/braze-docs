@@ -17,6 +17,10 @@ description: "この記事では、Brazeのメールテンプレート作成エ�
 
 これらのテンプレートは**テンプレートとメディア**ページで利用できます。このエンドポイントからの応答には`email_template_id`フィールドが含まれており、後続のAPI呼び出しでテンプレートを更新するために使用できます。
 
+{% alert tip %}
+このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)を通じて[`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメールテンプレートを作成できます。
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## 前提条件 {#prerequisites}

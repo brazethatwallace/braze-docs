@@ -113,6 +113,8 @@ https://example.com/{{url_var}}
 
 ### Liquid 변수로 렌더링된 URL 단축하기 {#shorten-urls-rendered-by-liquid-variables}
 
+**지원 채널:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 API 트리거 등록정보에 포함된 URL을 포함하여 Liquid로 렌더링된 URL을 단축합니다. 예를 들어, {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}가 유효한 URL을 나타내는 경우, 메시지를 보내기 전에 해당 URL을 단축하고 추적합니다.
 
 ### `/messages/send` 엔드포인트에서 URL 단축하기 {#shorten-urls-in-messagessend-endpoint}

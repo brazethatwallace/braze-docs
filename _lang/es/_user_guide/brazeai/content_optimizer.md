@@ -12,7 +12,7 @@ page_order: 3
 > El Optimizador de contenidos es un agente que te ayuda a probar y optimizar el contenido de los mensajes a gran escala, utilizando la inteligencia artificial para generar y evaluar automáticamente grandes volúmenes de variantes de contenido.
 
 {% alert important %}
-El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico y notificaciones push. Para obtener ayuda para empezar, ponte en contacto con tu administrador del éxito del cliente.
+El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes SMS/MMS/RCS. Para obtener ayuda para empezar, ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
 
 ## Acerca del Optimizador de contenidos {#about-content-optimizer}
@@ -21,6 +21,7 @@ El Optimizador de contenidos es un agente que se ejecuta en un paso en Canvas. T
 
 - Optimizar las líneas del asunto, el encabezado del cuerpo, el contenido del cuerpo o la llamada a la acción principal de los correos electrónicos.
 - Optimizar títulos y mensajes de las notificaciones push.
+- Optimizar ganchos, cuerpos y llamadas a la acción de los mensajes SMS, MMS y RCS.
 - Mejorar continuamente el rendimiento de los mensajes sin necesidad de configurar pruebas A/B manuales.
 - Probar rápidamente grandes volúmenes de variantes de contenido, aprovechando la inteligencia artificial para la ideación.
 - Eliminar automáticamente el contenido de bajo rendimiento y ampliar el contenido más exitoso.
@@ -38,7 +39,7 @@ Aprende a crear un [paso de Optimizador de contenidos]({{site.baseurl}}/user_gui
 | Formato del contenido del cuerpo | Mejorar la legibilidad y la interacción | Prueba la narración frente a las listas de características, las viñetas frente a los párrafos y la longitud del contenido. |
 | Texto y tono de la llamada a la acción (CTA) | Aumentar los click-throughs | Compara frases de llamada a la acción orientadas a la acción, centradas en los beneficios y en primera persona. |
 | Combinaciones de contenidos temáticos | Descubrir combinaciones de alto rendimiento | Combina y mezcla los componentes temáticos del asunto, el cuerpo y la llamada a la acción para encontrar la mejor combinación global. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Correo electrónico" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email" }
 
 ### Notificaciones push {#push-notifications}
 
@@ -46,7 +47,16 @@ Aprende a crear un [paso de Optimizador de contenidos]({{site.baseurl}}/user_gui
 | --- | --- | --- |
 | Variaciones del título | Aumentar la tasa de apertura | Prueba la claridad, la urgencia, la personalización y el tono en el título de la notificación push. |
 | Estilos del texto del cuerpo | Mejorar la interacción | Compara mensajes concisos, orientados a los beneficios y orientados a la acción en el cuerpo de la notificación push. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificaciones push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push notifications" }
+
+### Mensajes SMS, MMS y RCS {#sms-mms-and-rcs-messages}
+
+| Caso de uso de optimización | Objetivo | Descripción |
+| --- | --- | --- |
+| Variaciones del gancho | Aumentar la interacción | Prueba la urgencia, la personalización y el tono en la primera línea que se muestra en las vistas previas de SMS, los pies de foto de MMS o las introducciones de RCS. |
+| Estilos del texto del cuerpo | Mejorar la interacción | Compara mensajes concisos y orientados a la acción en el cuerpo, incluyendo el texto que acompaña a los medios en MMS y RCS. |
+| Variaciones del texto de la llamada a la acción (CTA) | Aumentar los click-throughs | Compara frases de llamada a la acción orientadas a la acción y conversacionales para enlaces y solicitudes de siguiente paso en SMS, MMS y RCS. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS, MMS, and RCS messages" }
 
 ## Cómo funciona {#how-it-works}
 
@@ -75,15 +85,18 @@ La mejor opción para el Optimizador de contenidos son los Canvas con entrada re
 | Variantes de contenido | Los diferentes valores que puede adoptar un componente de contenido. |
 | Combinaciones de contenido | Mensajes únicos creados mediante la combinación y el emparejamiento de variantes de contenido. |
 | Evento de optimización | Determina cómo el Optimizador de contenidos evalúa el rendimiento y asigna el tráfico a combinaciones de contenido a lo largo del tiempo, como clics o aperturas de correos electrónicos. Se aplica a todos los componentes de contenido de un paso. El Optimizador de contenidos aprende continuamente de este evento y cambia automáticamente la entrega hacia combinaciones de contenido de mayor rendimiento. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceptos clave" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Consideraciones {#considerations}
 
-- El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico y notificaciones push.
+- El Optimizador de contenidos se encuentra actualmente en fase beta y solo está disponible para estos canales: correo electrónico, notificaciones push y mensajes SMS/MMS/RCS.
 - Para correo electrónico, el agente puede generar hasta 125 combinaciones por paso:
    - Hasta 3 componentes por paso
    - Hasta 5 variantes para cada componente
 - Para notificaciones push, el agente puede generar hasta 25 combinaciones por paso:
+   - Hasta 2 componentes por paso
+   - Hasta 5 variantes para cada componente
+- Para mensajes SMS, MMS y RCS, el agente puede generar hasta 25 combinaciones por paso:
    - Hasta 2 componentes por paso
    - Hasta 5 variantes para cada componente
 - Solo se envía un mensaje por usuario y por entrada. No hay memoria de envíos anteriores para reentradas.

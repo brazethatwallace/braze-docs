@@ -21,6 +21,18 @@ Par défaut, pour que vos utilisateurs puissent recevoir vos messages via des no
 Braze ne change pas automatiquement le statut d'abonnement aux notifications push d'un utilisateur vers `Unsubscribed`. Veuillez noter que si l'état d'abonnement push d'un utilisateur est `Unsubscribed`, alors le filtre `Foreground Push Enabled` de l'utilisateur dans la segmentation est `false`.
 {% endalert %}
 
+### Enregistrement push et utilisateurs pouvant être atteints {#push-registration-and-reachable-users}
+
+L'état d'abonnement push reflète la préférence d'un utilisateur, mais le fait qu'il soit compté comme **pouvant être atteint** pour les notifications push dans le tableau de bord dépend également de l'[enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/), c'est-à-dire de la présence d'un jeton de notification push en avant-plan valide sur son profil. Pour savoir comment Braze calcule les comptages au niveau des canaux, consultez [Mesurer la taille d'un Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+
+- **Campaigns push et Canvas :** Les utilisateurs qui ne sont pas enregistrés pour les notifications push ne sont pas inclus dans les **Utilisateurs pouvant être atteints** pour les notifications push Android ou iOS dans les statistiques d'audience, même si leur état d'abonnement push est `Subscribed` ou `Opted-In`.
+- **Autres canaux :** Ces mêmes utilisateurs peuvent toujours être comptés comme pouvant être atteints pour d'autres canaux auxquels ils sont éligibles (par exemple, les e-mails ou les messages in-app).
+- **Segments :** L'appartenance à un Segment suit vos filtres. Les utilisateurs sans enregistrement push restent dans le Segment à moins qu'un filtre ne les exclue (par exemple, **Foreground Push Enabled**). Le nombre total de membres d'un Segment peut être supérieur à la somme des utilisateurs affichés dans les lignes **Utilisateurs pouvant être atteints** spécifiques aux notifications push.
+
+Un profil utilisateur peut afficher un état d'abonnement push `Subscribed` alors qu'aucun jeton de notification push n'est attribué. Ces utilisateurs ne sont toujours pas comptabilisés dans les **Utilisateurs pouvant être atteints** pour les notifications push Android ou iOS tant que Braze n'a pas enregistré un jeton valide.
+
+Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+
 ### Mise à jour des états d'abonnement aux notifications push {#update-push-subscription-state}
 
 Voici les différentes méthodes pour mettre à jour l'état d'abonnement push d'un utilisateur :
@@ -58,13 +70,13 @@ Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec le SDK de 
 
 Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec la REST API de Braze en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour mettre à jour l'attribut [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
 
-### Différences entre l'activation push et le statut d'abonnement push {#differences-between-push-enablement-and-push-subscription-status}
+### Différences entre l'activation push et l'état d'abonnement push {#differences-between-push-enablement-and-push-subscription-status}
 
-L'activation push indique si un utilisateur a accordé l'autorisation au niveau du système d'exploitation ou du navigateur de recevoir des notifications sur un appareil spécifique. Le statut d'abonnement push est un paramètre au niveau de Braze qui représente la préférence globale d'un utilisateur pour la réception de notifications push sur l'ensemble de son profil.
+L'activation push indique si un utilisateur a accordé l'autorisation au niveau du système d'exploitation ou du navigateur de recevoir des notifications sur un appareil spécifique. L'état d'abonnement push est un paramètre au niveau de Braze qui représente la préférence globale d'un utilisateur pour la réception de notifications push sur l'ensemble de son profil.
 
-Lorsque l'abonnement automatique est activé (par défaut), Braze met à jour l'état d'abonnement push d'un utilisateur sur `Opted-In` lorsqu'il autorise les notifications push pour votre application ou réactive les autorisations dans les paramètres de son système (par exemple, sur iOS, Android 13+ et les navigateurs web pris en charge). Dans le cas contraire, l'état d'abonnement push de l'utilisateur reste `Subscribed` jusqu'à ce que vous le modifiiez explicitement à l'aide d'une méthode SDK ou d'un appel REST API.
+Lorsque l'abonnement automatique est activé (comportement par défaut), Braze met à jour l'état d'abonnement push d'un utilisateur à `Opted-In` lorsqu'il autorise les notifications push pour votre application ou réactive les autorisations dans les paramètres de son système (par exemple, sur iOS, Android 13+ et les navigateurs web pris en charge). Dans le cas contraire, l'état d'abonnement push de l'utilisateur reste `Subscribed` jusqu'à ce que vous le modifiiez explicitement à l'aide d'une méthode SDK ou d'un appel à la REST API.
 
-Braze ne change pas automatiquement l'état d'abonnement push d'un utilisateur vers `Unsubscribed` lorsqu'il désactive les notifications au niveau du système d'exploitation, du navigateur ou de l'application. Pour mettre à jour l'état d'abonnement push d'un utilisateur, vous devez le modifier dans Braze. Par exemple, si un utilisateur désactive les notifications push depuis un centre de préférences in-app, mettez à jour l'état d'abonnement push vers `Unsubscribed` dans Braze. Braze ne met pas à jour les profils utilisateurs en fonction de votre centre de préférences. Pour aligner les états d'abonnement avec les préférences in-app d'un utilisateur, appelez les méthodes appropriées à l'aide du [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS ou Android) ou de la [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
+Braze ne change pas automatiquement l'état d'abonnement push d'un utilisateur à `Unsubscribed` lorsqu'il désactive les notifications au niveau du système d'exploitation, du navigateur ou de l'application. Pour mettre à jour l'état d'abonnement push d'un utilisateur, vous devez le modifier dans Braze. Par exemple, si un utilisateur désactive les notifications push depuis un centre de préférences in-app, mettez à jour l'état d'abonnement push à `Unsubscribed` dans Braze. Braze ne met pas à jour les profils utilisateurs en fonction de votre centre de préférences. Pour aligner les états d'abonnement avec les préférences in-app d'un utilisateur, appelez les méthodes appropriées à l'aide du [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS ou Android) ou de la [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
 
 ### Vérification de l'état d'abonnement aux notifications push {#checking-push-subscription-state}
 

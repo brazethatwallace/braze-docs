@@ -20,6 +20,10 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 Todos os campos, exceto o `email_template_id`, são opcionais, mas você precisa especificar pelo menos um campo para atualizar.
 
+{% alert tip %}
+Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates). Isso permite que ferramentas de IA como Claude e Cursor atualizem modelos de e-mail por meio de prompts em linguagem natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}

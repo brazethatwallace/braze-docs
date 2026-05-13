@@ -16,6 +16,10 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Utiliza este punto de conexión para crear un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Esto permite que herramientas de IA como Claude y Cursor creen bloques de contenido mediante indicaciones en lenguaje natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}

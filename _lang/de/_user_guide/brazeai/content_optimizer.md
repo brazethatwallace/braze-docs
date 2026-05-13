@@ -7,12 +7,12 @@ page_type: reference
 page_order: 3
 ---
 
-# Content Optimizer {#content-optimizer}
+# Der Content Optimizer {#content-optimizer}
 
 > Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 
 {% alert important %}
-Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail und Push-Benachrichtigungen. Für Unterstützung beim Einstieg wenden Sie sich bitte an Ihren Customer-Success-Manager.
+Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten. Für Unterstützung beim Einstieg wenden Sie sich bitte an Ihren Customer-Success-Manager.
 {% endalert %}
 
 ## Über den Content Optimizer {#about-content-optimizer}
@@ -21,6 +21,7 @@ Der Content Optimizer ist ein Agent, der in einem Canvas-Schritt ausgeführt wir
 
 - Betreffzeilen, Kopfzeilen, Textinhalte oder primäre CTAs für E-Mails zu optimieren.
 - Titel und Nachrichten für Push-Benachrichtigungen zu optimieren.
+- Hooks, Textkörper und CTAs für SMS-, MMS- und RCS-Nachrichten zu optimieren.
 - Die Performance von Nachrichten kontinuierlich zu verbessern, ohne manuelle A/B-Tests einrichten zu müssen.
 - Große Mengen an Inhaltsvarianten schnell zu testen und dabei KI zur Ideenfindung zu nutzen.
 - Leistungsschwache Inhalte automatisch auszumustern und erfolgreiche Inhalte auszubauen.
@@ -47,6 +48,15 @@ Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_gu
 | Variationen des Titels | Öffnungsrate erhöhen | Testen Sie Klarheit, Dringlichkeit, Personalisierung und Tonalität im Push-Titel. |
 | Stile für den Nachrichtentext | Engagement verbessern | Vergleichen Sie prägnante, vorteilsorientierte und handlungsorientierte Nachrichten im Push-Text. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Benachrichtigungen" }
+
+### SMS-, MMS- und RCS-Nachrichten {#sms-mms-and-rcs-messages}
+
+| Anwendungsfall Optimierung | Ziel | Beschreibung |
+| --- | --- | --- |
+| Hook-Variationen | Engagement steigern | Testen Sie Dringlichkeit, Personalisierung und Tonalität in der ersten Zeile, die in SMS-Vorschauen, MMS-Bildunterschriften oder RCS-Einleitungen angezeigt wird. |
+| Stile für den Nachrichtentext | Engagement verbessern | Vergleichen Sie prägnante und handlungsorientierte Nachrichten im Textkörper, einschließlich Formulierungen, die Medien in MMS und RCS begleiten. |
+| CTA-Text-Variationen | Click-throughs steigern | Vergleichen Sie handlungsorientierte und konversationelle CTA-Formulierungen für Links und Nächste-Schritte-Aufforderungen in SMS, MMS und RCS. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS-, MMS- und RCS-Nachrichten" }
 
 ## Funktionsweise {#how-it-works}
 
@@ -79,15 +89,18 @@ Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintrit
 
 ## Hinweise {#considerations}
 
-- Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail und Push-Benachrichtigungen.
+- Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten.
 - Für E-Mails kann der Agent bis zu 125 Kombinationen pro Schritt generieren:
    - Bis zu 3 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
 - Für Push-Benachrichtigungen kann der Agent bis zu 25 Kombinationen pro Schritt generieren:
    - Bis zu 2 Komponenten pro Schritt
    - Bis zu 5 Varianten für jede Komponente
+- Für SMS-, MMS- und RCS-Nachrichten kann der Agent bis zu 25 Kombinationen pro Schritt generieren:
+   - Bis zu 2 Komponenten pro Schritt
+   - Bis zu 5 Varianten für jede Komponente
 - Pro Nutzer:in und Eintritt wird nur eine Nachricht gesendet. Es gibt keine Speicherung früherer Sendungen bei Wiedereintritten.
-- Marketer müssen Liquid-Tags manuell für jede Komponente im Nachrichten-Editor einfügen, an der Stelle, an der die definierten Inhaltskomponentenvarianten gerendert werden sollen.
+- Marketer müssen Liquid-Tags manuell für jede Komponente im Nachrichten-Editor einfügen, an der Stelle, an der die definierten Inhaltsvarianten gerendert werden sollen.
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 

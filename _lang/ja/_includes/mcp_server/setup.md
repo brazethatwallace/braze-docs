@@ -67,7 +67,7 @@ everything's installed!
 
 ### ステップ 2: APIキーを作成する {#create-api-key}
 
-Braze MCPサーバーは、Brazeユーザープロファイルからデータを返さない39個のエンドポイントをサポートしています。
+Braze MCPサーバーには、読み取り専用エンドポイントと書き込みエンドポイントの両方が含まれています。これらのエンドポイントはBrazeユーザープロファイルからデータを返しません。書き込みエンドポイントを使用すると、エージェントがワークスペース内のコンテンツを作成または更新できます。
 
 APIキーを作成するには：
 
@@ -76,7 +76,7 @@ APIキーを作成するには：
 3. 以下の権限の一部または全部をキーに割り当てます。
 
 {% alert important %}
-エージェントに使用させたい権限のみを割り当ててください。エージェントがBraze内で変更を行うことを防ぐには、`media_library.create`権限を外しておいてください。
+エージェントに使用させたい権限のみを割り当ててください。エージェントがBraze内で変更を行うことを防ぐには、APIキーを作成する際に書き込み権限を外しておいてください。
 {% endalert %}
 
 {% details サポートされている権限の一覧 %}
@@ -100,7 +100,7 @@ APIキーを作成するには：
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
-#### カタログ {#catalogs}
+#### Catalogs
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -109,7 +109,7 @@ APIキーを作成するには：
 | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### クラウドデータ取り込み {#cloud-data-ingestion}
+#### Cloud Data Ingestion
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -119,20 +119,24 @@ APIキーを作成するには：
 
 #### Content Blocks
 
+`content_blocks.create`と`content_blocks.update`の権限は書き込み権限です。エージェントにワークスペース内のコンテンツブロックの作成や更新を許可する場合のみ、これらの権限を追加してください。
+
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### カスタム属性 {#custom-attributes}
+#### Custom Attributes
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### イベント {#events}
+#### Events
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -141,7 +145,7 @@ APIキーを作成するには：
 | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
-#### KPI {#kpis}
+#### KPIs
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -151,23 +155,23 @@ APIキーを作成するには：
 | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### メディアライブラリ {#media-library}
+#### Media Library
 
-このエンドポイントは、Braze MCPサーバーがサポートする書き込みエンドポイントです。エージェントにメディアライブラリへのアセットアップロードを許可する場合のみ、この権限を追加してください。
+`media_library.create`の権限は書き込み権限です。エージェントにメディアライブラリへのアセットアップロードを許可する場合のみ、この権限を追加してください。
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
-#### メッセージ {#messages}
+#### Messages
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
-#### ユーザー設定センター {#preference-center}
+#### Preference Center
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -175,7 +179,7 @@ APIキーを作成するには：
 | [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
 
-#### 購入 {#purchases}
+#### Purchases
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -193,28 +197,28 @@ APIキーを作成するには：
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
 
-#### 送信 {#sends}
+#### Sends
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
 
-#### セッション {#sessions}
+#### Sessions
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
-#### SDK認証キー {#sdk-authentication-keys}
+#### SDK Authentication Keys
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
-#### サブスクリプション {#subscription}
+#### Subscription
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -222,17 +226,21 @@ APIキーを作成するには：
 | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
-#### テンプレート {#templates}
+#### Templates
+
+`templates.email.create`と`templates.email.update`の権限は書き込み権限です。エージェントにワークスペース内のメールテンプレートの作成や更新を許可する場合のみ、これらの権限を追加してください。
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-既存のAPIキーを再利用しないでください。MCPクライアント専用に新しいキーを作成してください。エージェントに必要な権限のみを割り当ててください。エージェントは付与された権限を使用しようとする可能性があるため、Braze内で変更を行わせたくない場合は、`media_library.create`のような書き込み権限を外しておいてください。
+既存のAPIキーを再利用しないでください。MCPクライアント専用に新しいキーを作成してください。エージェントに必要な権限のみを割り当ててください。エージェントは付与された権限を使用しようとする可能性があるため、Braze内で変更を行わせたくない場合は、書き込み権限を外しておいてください。
 {% endalert %}
 
 ### ステップ 3: 識別子とエンドポイントを取得する {#step-3-get-your-identifier-and-endpoint}

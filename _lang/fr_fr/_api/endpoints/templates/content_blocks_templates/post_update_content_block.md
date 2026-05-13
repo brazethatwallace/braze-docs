@@ -16,6 +16,10 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour l
 
 > Utilisez cet endpoint pour mettre à jour un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
+{% alert tip %}
+Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) en utilisant la fonction [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Cela permet à des outils d'intelligence artificielle comme Claude et Cursor de mettre à jour des blocs de contenu par le biais de requêtes en langage naturel.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Conditions préalables {#prerequisites}

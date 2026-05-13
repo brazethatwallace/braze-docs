@@ -29,7 +29,7 @@ page_type: reference
 ベースメッセージはステップの出発点です。各コンテンツコンポーネントのバリアントは、**Content Optimizer Settings**タブで定義された組み合わせに基づいてダイナミックに挿入されます。
 
 {% alert note %}
-ベータ期間中、サポートされるチャネルはメールとプッシュ通知です。
+ベータ期間中、サポートされるチャネルはメール、プッシュ通知、SMS/MMS/RCSです。
 {% endalert %}
 
 {% tabs local %}
@@ -59,6 +59,19 @@ page_type: reference
 - Message
 
 {% endtab %}
+{% tab SMS/MMS/RCS %}
+
+**Messaging Channels**タブから**SMS/MMS/RCS**を選択し、ベースメッセージを作成します。詳しくは、専用の[SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)セクションを参照してください。
+
+コンテンツオプティマイザーエージェントは、このバリアントで指定された**Content**と**Message**の詳細を使用してすべてのメッセージを送信します。新しいデザインから始めることも、このメッセージ用に既存のテンプレートを選択することもできます。このステップでは、メッセージのどのコンポーネントを最適化したいかを検討してください。これらは[ステップ 4](#step-4)で定義します。
+
+最適化がサポートされるコンポーネントは以下のとおりです：
+
+- Hook
+- Body
+- CTA
+
+{% endtab %}
 {% endtabs %}
 
 ### ステップ 3: 配信設定を指定する {#step-3-specify-delivery-settings}
@@ -71,6 +84,7 @@ page_type: reference
 
 - **メール：** ステップごとに最大3つのコンテンツコンポーネントを追加でき、コンポーネントごとに最大5つのバリアントを追加できるため、合計125のユニークなコンテンツの組み合わせが可能です。
 - **プッシュ通知：** ステップごとに最大2つのコンポーネントを追加でき、コンポーネントごとに最大5つのバリアントを追加できるため、合計25のユニークなコンテンツの組み合わせが可能です。
+- **SMS/MMS/RCS：** ステップごとに最大2つのコンテンツコンポーネントを追加でき、コンポーネントごとに最大5つのバリアントを追加できるため、合計25のユニークなコンテンツの組み合わせが可能です。
 
 ![コンテンツオプティマイザーインターフェイスでコンテンツコンポーネントを追加・設定するオプション。Subject、Body Header、Body Content、Primary CTAなどの選択可能なコンポーネントが表示され、それぞれに異なるバリアントを入力するフィールドがあります。]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
@@ -92,7 +106,7 @@ page_type: reference
   - バリアントを手動で作成する。
   - AI生成の提案を使用して、新しいオプションをすばやく探索する。
 
-![メール最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するContent Optimizer Settings インターフェイス。各コンポーネントには異なるバリアントを入力するための入力フィールドがあります。コンポーネント名とバリアントテキストを入力するフィールドが表示されています。]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
+![メール最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するContent Optimizer Settingsインターフェイス。各コンポーネントには異なるバリアントを入力するための入力フィールドがあります。コンポーネント名とバリアントテキストを入力するフィールドが表示されています。]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
 
 {% endtab %}
 {% tab プッシュ通知 %}
@@ -106,6 +120,22 @@ page_type: reference
   - AI生成の提案を使用して、新しいオプションをすばやく探索する。
 
 ![プッシュ最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するContent Optimizer Settings。]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
+
+{% endtab %}
+{% tab SMS/MMS/RCS %}
+
+サブスクリプショングループとメッセージタイプ（該当する場合）を選択した後、SMS/MMS/RCSで最適化するコンポーネントを選択します。サポートされるオプションは以下のとおりです：
+- Hook
+- Body
+- CTA
+{% alert note %}
+SMS/MMS/RCSコンテンツオプティマイザーステップが起動された後は、サブスクリプショングループやメッセージタイプを更新することはできません。
+{% endalert %}
+選択した各コンポーネントについて、そのコンテンツの代替バージョン（バリアント）のセットを定義します。トーン、構造、またはコンテンツが異なる明確で区別しやすいバリアントを使用してください。これにより、コンテンツオプティマイザーがトップパフォーマーをより効果的に特定できます。以下のことが可能です：
+  - バリアントを手動で作成する。
+  - AI生成の提案を使用して、新しいオプションをすばやく探索する。
+
+![SMS/MMS/RCS最適化用のコンテンツコンポーネントを追加・設定するオプションを表示するContent Optimizer Settings。]({% image_buster /assets/img/content_optimizer/add_content_components_sms_rcs_mms.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -133,6 +163,9 @@ Canvasの実行中、エージェントはコンポーネント間でバリア�
 | メール | Primary CTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} |
 | プッシュ | Title | {% raw %}`{% message_component "Title" %}`{% endraw %} |
 | プッシュ | Message | {% raw %}`{% message_component "Message" %}`{% endraw %} |
+| SMS/MMS/RCS | Hook | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
+| SMS/MMS/RCS | Body | {% raw %}`{% message_component "Body" %}`{% endraw %} |
+| SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid references" }
 
 ### ステップ 5: 最適化イベントを選択する {#step-5-select-optimization-event}
@@ -158,19 +191,77 @@ Canvasの実行中、エージェントはコンポーネント間でバリア�
 プッシュ通知の場合、**開封**に対して最適化できます。これは、受信者がプッシュ通知を開封する組み合わせに最適化します。この最適化イベントを使用して、タイトルやメッセージコピーのバリエーションをテストできます。
 
 {% endtab %}
+{% tab SMS/MMS/RCS %}
+
+SMSおよびMMSメッセージの場合、**クリック**に対して最適化できます。RCSメッセージの場合、**既読**または**クリック**に対して最適化できます。
+
+ステップが最適化対象のイベントを持つためには：
+- SMSおよびMMSメッセージにはリンクが含まれている必要があります。
+- RCSメッセージにはリンクまたは提案された返信が含まれている必要があります。
+
+{% alert note %}
+現時点では、コンテンツオプティマイザーを使用したRCSメッセージングはSMSフォールバックをサポートしていません。
+{% endalert %}
+{% endtab %}
 {% endtabs %}
 
 ## ベストプラクティス {#best-practices}
 
-- 一般的に、コンテンツオプティマイザーステップでは複数のコンポーネントをテストすることをお勧めします。
+- 一般的に、コンテンツオプティマイザーステップでは、少ないコンポーネントよりも多くのコンポーネントをテストすることをお勧めします。たとえば、メールで2つのコンポーネントをテストする代わりに、3つをテストしてください。
+- 最良の結果を得るには、合計10以上の組み合わせをテストしてください。
 - クリックに対して最適化する場合は、テストに件名を含めてください。より強力な件名は開封の増加に貢献し、クリックの機会を増やすことができます。
 - 開封に対して最適化する場合は、テストを件名に集中させてください。
+- コンテンツオプティマイザーを初めて使用する場合は、[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)ステップを使用して、オーディエンスの一部のみがコンテンツオプティマイザーステップを含むブランチに入るようにすることを検討してください。たとえば、ユーザーの半分をコンテンツオプティマイザーステップのあるパスに送り、残りの半分を現在の通常コンテンツを送信するメッセージステップのあるコントロールパスに送ることができます。その後、2〜3週間データを収集し、コンテンツオプティマイザーステップへのトラフィックを増やす前にKPIやカウンター指標を比較してください。
+  - 効果的な1対1の比較のために、コンテンツオプティマイザーステップの各コンポーネントのバリアントの1つとして通常のコンテンツを含めることをお勧めします。
+
+## 考慮事項 {#considerations}
+
+- コンテンツオプティマイザーステップでは多言語設定はサポートされていません。代わりに、言語ごとに1つのコンテンツオプティマイザーステップを使用し、パスを個別に分岐させることをお勧めします。
+- コンテンツオプティマイザーコンポーネントのLiquidタグはメッセージステップではサポートされていないため、メッセージステップではLiquidが中断されます。
 
 ## 分析 {#analytics}
 
 パフォーマンスを確認するには、ステップレベルの分析パネルを開いて、コンテンツバリアントごとの指標と全体的な組み合わせのパフォーマンスを確認します。コンテンツオプティマイザーステップは、[メッセージステップと同じ分析]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#analytics)を使用します。
 
 ![3つのボタンのコンテンツオプティマイザー分析と、上昇傾向にある送信の割り当て率。]({% image_buster /assets/img/content_optimizer/content_optimizer_analytics.png %})
+
+### コンポーネント別パフォーマンス {#performance-by-component}
+
+**コンポーネント別パフォーマンス**セクションには、コンテンツオプティマイザーステップの各コンポーネントのパフォーマンスが表示されます。**コンポーネント**列は、テストしているコンテンツコンポーネント（たとえば、**Subject line**や**Primary CTA**）に対応します。**識別子**列は、**Content Optimizer Settings**タブのこのバリアントの識別子に対応します。
+
+ユニーク開封とクリックは、メッセージ送信後7日以内に記録されます。表示される列は、チャネルと選択した最適化イベントによって異なります。
+
+| 指標 | 説明 |
+| --- | --- |
+| 送信数 | このステップでこのコンポーネントのこのバリアントに帰属する送信数です。[*送信数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends)と同じステップレベルの送信カウントを使用します（[組み合わせ別パフォーマンス](#performance-by-combination)テーブル内）。 |
+| 開封数 | このチャネルでこの列が表示される場合、送信後7日以内のこのバリアントの**ユニーク**開封数です。[*ユニーク開封数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens)を参照してください。 |
+| 開封率 | この列が表示される場合、7日以内に少なくとも1回の適格なユニーク開封を記録したこのバリアントの送信の割合です。 |
+| クリック数 | 送信後7日以内のこのバリアントの**ユニーク**クリック数です。[*合計クリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks)、[*ユニーククリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks)、および[ステップ 5: 最適化イベントを選択する](#step-5-select-optimization-event)を参照してください。 |
+| クリック率 | 7日以内に少なくとも1回の適格なユニーククリックを記録したこのバリアントの送信の割合です。[組み合わせ別パフォーマンス](#performance-by-combination)テーブルと同じステップウィンドウを使用します。詳しくは、[ステップ分析が一般的な分析と異なる理由](#why-step-analytics-differ-from-general-analytics)を参照してください。 |
+| 既読数 | この列が表示される場合（たとえば、既読に対して最適化するRCSの場合）、既読確認が有効な消費者がメッセージを読んだ回数をカウントします。[*既読数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads)を参照してください。 |
+| 既読率 | 既読確認が有効なユーザーの中で、このバリアントの送信が既読になった割合です。[*既読率*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Performance by component metrics" }
+
+![コンポーネント別のコンテンツオプティマイザーパフォーマンス分析。コンポーネントごとに個別のテーブルがあり、各バリアントの送信数、クリック数、クリック率が表示されています。]({% image_buster /assets/img/content_optimizer/analytics_performance_by_component.png %})
+
+### 組み合わせ別パフォーマンス {#performance-by-combination}
+
+**組み合わせ別パフォーマンス**セクションには、コンテンツオプティマイザーステップの各組み合わせのパフォーマンスが表示されます。組み合わせとは、この行を定義するバリアントの組み合わせ、つまりテストしている各コンテンツコンポーネントから選択された1つのバリアント（たとえば、件名とPrimary CTAのペア）です。
+
+ユニーク開封とクリックは、メッセージ送信後7日以内に記録されます。表示される列は、チャネルと選択した最適化イベントによって異なります。
+
+| 指標 | 説明 |
+| --- | --- |
+| 送信数 | この組み合わせを使用してこのステップから送信されたメッセージの合計数です。カウントは[*送信数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#sends)と同じ一般的な意味に従い、各組み合わせにスコープされます。 |
+| 開封数 | 送信後7日以内のこの組み合わせのユニーク開封数です。メールのユニーク開封の定義については、[*ユニーク開封数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-opens)を参照してください。 |
+| 開封率 | 7日以内に少なくとも1回の適格なユニーク開封を記録したこの組み合わせの送信の割合です。 |
+| クリック数 | 送信後7日以内のこの組み合わせのユニーククリック数です。Brazeがチャネルごとにクリックを定義する方法については、[*合計クリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#total-clicks)および[*ユニーククリック数*]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#unique-clicks)を参照してください。 |
+| クリック率 | 7日以内に少なくとも1回の適格なユニーククリックを記録したこの組み合わせの送信の割合です。コンテンツオプティマイザーはステップの7日間の重複排除カウントを使用するため、この率は一般的なCampaign分析のクリック率と一致しない場合があります。詳しくは、[ステップ分析が一般的な分析と異なる理由](#why-step-analytics-differ-from-general-analytics)を参照してください。 |
+| [既読数]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#reads) | この列が表示される場合（たとえば、既読に対して最適化するRCSの場合）、既読確認が有効な消費者がメッセージを読んだ回数をカウントします。 |
+| [既読率]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#read-rate) | この列が表示される場合、既読確認が有効なユーザーの中で、この組み合わせの送信が既読になった割合です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Performance by combination metrics" }
+
+![組み合わせ別のコンテンツオプティマイザーパフォーマンス分析テーブル。各コンテンツの組み合わせの送信数、クリック数、クリック率が表示されています。]({% image_buster /assets/img/content_optimizer/analytics_performance_by_combination.png %})
 
 ### ステップ分析が一般的な分析と異なる理由 {#why-step-analytics-differ-from-general-analytics}
 

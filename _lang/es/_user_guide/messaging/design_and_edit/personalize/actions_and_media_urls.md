@@ -113,6 +113,8 @@ https://example.com/{{url_var}}
 
 ### Acortar URL generadas por variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
+**Canales compatibles:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Acortamos las URL que son generadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y rastreamos esa URL antes de enviar el mensaje.
 
 ### Acortar URL en el punto de conexión `/messages/send` {#shorten-urls-in-messagessend-endpoint}
@@ -122,4 +124,4 @@ El acortamiento de enlaces también está habilitado para mensajes exclusivos de
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Sí | Booleano | Establece `link_shortening_enabled` en `true` para activar el acortamiento de enlaces. Para usar el seguimiento, deben estar presentes un `campaign_id` y un `message_variation_id`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Acortar URL en el punto de conexión /messages/send" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }

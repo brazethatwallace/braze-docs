@@ -15,7 +15,7 @@ tool:
 
 ## Verfügbarkeit von Features {#feature-availability}
 
-Alle Kund:innen von Braze haben sofort Zugriff auf Audience Sync mit Google und Facebook. Kund:innen, die Nachrichtenguthaben nutzen, können jedoch auf alle Audience Sync-Partner zugreifen. Um zusätzliche Audience Sync-Ziele für Kund:innen freizuschalten, die keine Nachrichtenguthaben nutzen, erwerben Sie Audience Sync Pro. Kontaktieren Sie Ihren Braze Account Manager für weitere Informationen.
+Alle Kund:innen von Braze haben sofort Zugriff auf Audience Sync mit Google und Facebook. Kund:innen, die Action Credits nutzen, können jedoch auf alle Audience Sync-Partner zugreifen. Um zusätzliche Audience Sync-Ziele für Kund:innen freizuschalten, die keine Action Credits nutzen, erwerben Sie Audience Sync Pro. Kontaktieren Sie Ihren Braze Account Manager für weitere Informationen.
 
 ## Anwendungsfälle {#use-cases}
 

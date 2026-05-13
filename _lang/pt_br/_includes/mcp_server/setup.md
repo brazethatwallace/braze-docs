@@ -67,7 +67,7 @@ everything's installed!
 
 ### Etapa 2: Criar uma chave de API {#create-api-key}
 
-O servidor Braze MCP suporta 39 endpoints que não retornam dados de perfis de usuários da Braze.
+O servidor Braze MCP inclui endpoints somente leitura e de escrita. Eles não retornam dados de perfis de usuários da Braze. Os endpoints de escrita permitem que agentes criem ou atualizem conteúdo no seu espaço de trabalho.
 
 Para criar sua chave de API:
 
@@ -76,7 +76,7 @@ Para criar sua chave de API:
 3. Atribua algumas ou todas as permissões a seguir à sua chave.
 
 {% alert important %}
-Atribua apenas as permissões que você deseja que seu agente use. Para impedir que seu agente faça alterações na Braze, não inclua a permissão `media_library.create`.
+Atribua apenas as permissões que você deseja que seu agente use. Para impedir que seu agente faça alterações na Braze, não inclua permissões de escrita ao criar sua chave de API.
 {% endalert %}
 
 {% details Lista de permissões suportadas %}
@@ -119,10 +119,14 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 
 #### Content Blocks
 
+As permissões `content_blocks.create` e `content_blocks.update` são permissões de escrita. Adicione-as apenas se quiser que seu agente crie ou atualize blocos de conteúdo no seu espaço de trabalho.
+
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 #### Atributos personalizados {#custom-attributes}
@@ -153,7 +157,7 @@ Atribua apenas as permissões que você deseja que seu agente use. Para impedir 
 
 #### Biblioteca de mídia {#media-library}
 
-Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adicione essa permissão apenas se quiser que seu agente faça upload de ativos para sua biblioteca de mídia.
+A permissão `media_library.create` é uma permissão de escrita. Adicione-a apenas se quiser que seu agente faça upload de ativos para sua biblioteca de mídia.
 
 | Endpoint | Permissão necessária |
 |----------|---------------------|
@@ -224,15 +228,19 @@ Esse endpoint é um endpoint de escrita suportado pelo servidor Braze MCP. Adici
 
 #### Modelos {#templates}
 
+As permissões `templates.email.create` e `templates.email.update` são permissões de escrita. Adicione-as apenas se quiser que seu agente crie ou atualize modelos de e-mail no seu espaço de trabalho.
+
 | Endpoint | Permissão necessária |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-Não reutilize uma chave de API existente. Crie uma especificamente para seu cliente MCP. Atribua apenas as permissões que seu agente precisa. Os agentes podem tentar usar qualquer permissão que você conceder, então não inclua permissões de escrita como `media_library.create` se você não quiser que seu agente faça alterações na Braze.
+Não reutilize uma chave de API existente. Crie uma especificamente para seu cliente MCP. Atribua apenas as permissões que seu agente precisa. Os agentes podem tentar usar qualquer permissão que você conceder, então não inclua permissões de escrita se você não quiser que seu agente faça alterações na Braze.
 {% endalert %}
 
 ### Etapa 3: Obtenha seu identificador e endpoint {#step-3-get-your-identifier-and-endpoint}

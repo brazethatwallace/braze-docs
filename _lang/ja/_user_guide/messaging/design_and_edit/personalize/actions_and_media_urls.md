@@ -30,7 +30,7 @@ description: "このリファレンス記事では、Liquid を使用してア�
 ディープリンク内のコロン以降はすべて自由形式のテキストです。その構造と解釈は自由に定義できます。ただし、一般的な慣例として、先頭の `//` やクエリパラメーター（例: `?foo=1&bar=2`）を含む `http:` URL をモデルにすることが多いです。前述の例では、`twitter://user?screen_name=[id]` を使用してアプリ内の特定のプロファイルを起動します。
 
 {% alert important %}
-ラッパーフレームワーク（Flutter や Cordova など）で構築されたアプリの場合、Braze はラッパー固有のディープリンクサポートを提供していません。ネイティブの iOS および Android レイヤーでディープリンクを設定する必要があります。Cordova については、[プッシュ通知でのディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova)を参照してください。
+ラッパーフレームワーク（Flutter や Cordova など）で構築されたアプリの場合、Brazeはラッパー固有のディープリンクサポートを提供していません。ネイティブの iOS および Android レイヤーでディープリンクを設定する必要があります。Cordova については、[プッシュ通知でのディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova)を参照してください。
 {% endalert %}
 
 ### UTM タグとCampaignアトリビューション {#utm-tags-and-campaign-attribution}
@@ -42,18 +42,18 @@ description: "このリファレンス記事では、Liquid を使用してア�
 - `utm_source`: トラフィックのソースの識別子（例: `my_app`）
 - `utm_medium`: Campaignの媒体（例: `newsfeed`）
 - `utm_campaign`: Campaignの識別子（例: `spring_2016_campaign`）
-- `utm_term`: ユーザーをアプリまたは Web サイトに誘導した有料検索キーワードの識別子（例: `pizza`）
+- `utm_term`: ユーザーをアプリまたはWebサイトに誘導した有料検索キーワードの識別子（例: `pizza`）
 - `utm_content`: ユーザーがクリックした特定のリンクまたはコンテンツの識別子（例: `toplink` または `android_iam_button2`）
 
 UTM タグは、通常の HTTP（Web）リンクとディープリンクの両方に埋め込むことができ、Google Analytics で追跡できます。
 
 ##### UTM タグの計算 {#utm-tag-calculations}
 
-Braze はCampaignまたはキャンバスステップ内のすべてのリンクの*合計クリック数*をレポートしますが、これには UTM タグが付いていないリンクも含まれる場合があります。そのため、Google Analytics のCampaignトラッキングリンクでは、Campaignパフォーマンスやレポートビルダーに表示される*合計クリック数*と比較して、異なる（多くの場合低い）結果が表示されることがあります。
+Brazeはキャンペーンまたはキャンバスステップ内のすべてのリンクの*合計クリック数*をレポートしますが、これには UTM タグが付いていないリンクも含まれる場合があります。そのため、Google Analytics のCampaignトラッキングリンクでは、Campaignパフォーマンスやレポートビルダーに表示される*合計クリック数*と比較して、異なる（多くの場合低い）結果が表示されることがあります。
 
-#### Braze での UTM タグの使用 {#using-utm-tags-with-braze}
+#### Brazeでの UTM タグの使用 {#using-utm-tags-with-braze}
 
-通常の HTTP（Web）リンクで UTM タグを使用する場合（例えば、メールCampaignのCampaignアトリビューションを行う場合）、組織がすでに Google Analytics を使用しているなら、[Google の URL ビルダー](https://ga-dev-tools.google/ga4/campaign-url-builder/)を使用して UTM リンクを生成できます。これらのリンクは、他のリンクと同様に Braze Campaignのコピーに簡単に埋め込むことができます。
+通常の HTTP（Web）リンクで UTM タグを使用する場合（例えば、メールキャンペーンのCampaignアトリビューションを行う場合）、組織がすでに Google Analytics を使用しているなら、[Google の URL ビルダー](https://ga-dev-tools.google/ga4/campaign-url-builder/)を使用して UTM リンクを生成できます。これらのリンクは、他のリンクと同様にBraze Campaignのコピーに簡単に埋め込むことができます。
 
 アプリへのディープリンクで UTM タグを使用するには、アプリに関連する [Google Analytics SDK](https://developers.google.com/analytics/devguides/collection/) が統合され、ディープリンクを処理するように正しく設定されている必要があります。不明な場合は開発者に確認してください。
 
@@ -86,9 +86,9 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spri
 {% endtab %}
 {% endtabs %}
 
-## URL での Liquid パーソナライゼーションの使用 {#use-liquid-personalization-in-urls}
+## URLでの Liquid パーソナライゼーションの使用 {#use-liquid-personalization-in-urls}
 
-Braze コンポーザー内で URL を動的に構築できるため、URL にダイナミックな UTM パラメーターを追加したり、ユーザーにユニークなリンクを送信したりできます（例えば、放棄カートや再入荷した特定の製品にユーザーを誘導するなど）。
+Brazeコンポーザー内で URL を動的に構築できるため、URL にダイナミックな UTM パラメーターを追加したり、ユーザーにユニークなリンクを送信したりできます（例えば、放棄カートや再入荷した特定の製品にユーザーを誘導するなど）。
 
 ### サポートされている Liquid パーソナライゼーションタグで URL を作成する {#create-a-url-with-supported-liquid-personalization-tags}
 
@@ -112,6 +112,8 @@ https://example.com/{{url_var}}
 {% endraw %}
 
 ### Liquid 変数でレンダリングされた URL を短縮する {#shorten-urls-rendered-by-liquid-variables}
+
+**サポートされているチャネル:** KakaoTalk、LINE、SMS、RCS、WhatsApp
 
 Liquid でレンダリングされた URL は、API トリガープロパティに含まれるものも含めて短縮されます。例えば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} が有効な URL を表す場合、メッセージを送信する前にその URL を短縮して追跡します。
 

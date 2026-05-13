@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Encurtar URLs renderizadas por variáveis Liquid {#shorten-urls-rendered-by-liquid-variables}
 
+**Canais compatíveis:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Encurtamos URLs que são renderizadas por Liquid, mesmo aquelas incluídas em propriedades de gatilho de API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem.
 
 ### Encurtar URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
@@ -107,7 +109,7 @@ Para orientações sobre redirecionamento, visite [Redirecionamento]({{site.base
 
 ### Eu sei quais usuários individuais estão clicando em uma URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-Sim. Quando o **Rastreamento Avançado** está ativado, você pode redirecionar usuários que clicaram em URLs aproveitando os [filtros de redirecionamento de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) ou os eventos de clique de SMS (`users.messages.sms.ShortLinkClick`) enviados pelo Currents.
+Sim. Quando o **Rastreamento avançado** está ativado, você pode redirecionar usuários que clicaram em URLs aproveitando os [filtros de redirecionamento de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) ou os eventos de clique de SMS (`users.messages.sms.ShortLinkClick`) enviados pelo Currents.
 
 ### O encurtamento de links funciona com deep links ou links universais? {#does-link-shortening-work-with-deep-links-or-universal-links}
 

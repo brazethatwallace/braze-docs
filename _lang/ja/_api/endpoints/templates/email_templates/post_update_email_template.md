@@ -20,6 +20,10 @@ description: "この記事では、「メールテンプレートの更新」Bra
 
 `email_template_id`以外のフィールドはすべてオプションですが、更新するフィールドを少なくとも1つ指定する必要があります。
 
+{% alert tip %}
+このエンドポイントは、[`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates)関数を使用して、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)経由で呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメールテンプレートを更新できます。
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## 前提条件 {#prerequisites}

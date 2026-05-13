@@ -25,7 +25,7 @@ Necesitarás lo siguiente para integrar LINE con Braze:
 - [Cuenta de desarrollador de LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [Canal de API de mensajería de LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-El envío de mensajes LINE desde Braze consume los créditos de mensaje de tu cuenta.
+El envío de mensajes LINE desde Braze consume los créditos de mensaje o de acción de tu cuenta.
 
 {% alert note %}
 **Configurar `native_line_id`**: Puedes configurar `native_line_id` enviando actualizaciones de usuario a Braze (por ejemplo, con el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) o [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). Si tu SDK del lado del cliente no tiene un campo dedicado para `native_line_id`, envíalo en actualizaciones de usuario del lado del servidor usando uno de estos métodos.
@@ -95,7 +95,7 @@ Después de que se complete el proceso de integración, Braze extraerá automát
 
 | Tipo de información | Ubicación |
 | --- | --- |
-| Provider ID | Selecciona tu proveedor y luego ve a ***Settings** > **Basic information** |
+| Provider ID | Selecciona tu proveedor y luego ve a **Settings** > **Basic information** |
 | Channel ID | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Basic settings** |
 | Channel secret | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Basic settings**. |
 | Channel access token | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Messaging API**. Si no hay un token de acceso del canal, selecciona **Issue**. |
@@ -373,7 +373,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Flujos de trabajo
+#### Flujos de trabajo {#user-account-linking-workflows}
 
 ##### Un usuario existente sigue tu canal LINE {#existing-user-follows-your-line-channel}
 

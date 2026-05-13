@@ -16,6 +16,10 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Utiliza este punto de conexión para actualizar un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
+{% alert tip %}
+También puedes llamar a este punto de conexión a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) utilizando la función [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Esto permite que herramientas de IA como Claude y Cursor actualicen bloques de contenido mediante indicaciones en lenguaje natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
