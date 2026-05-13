@@ -21,7 +21,7 @@ Lors de la configuration, il vous sera demandé de fournir une URL de connexion 
 | URL ACS (Assertion Consumer Service) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Pour les domaines de l'Union européenne, l'URL ACS est `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Chez certains IdP, cette URL peut également être appelée URL de réponse, URL de connexion, URL d'audience ou URI d'audience. |
 | ID d'entité | `braze_dashboard` |
 | Clé API RelayState | Accédez à **Paramètres** > **Clés API** et créez une clé API avec les autorisations `sso.saml.login`, puis saisissez la clé API générée comme paramètre `RelayState` dans votre IdP. Pour les étapes détaillées, consultez [Configuration de votre RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions requises" }
 
 ## Configuration de l'authentification unique (SSO) SAML {#setting-up-saml-sso}
 
@@ -57,7 +57,7 @@ Sur la même page, saisissez les informations suivantes :
 | Nom SAML | Ce nom apparaîtra comme texte du bouton sur l'écran de connexion.<br>Il s'agit généralement du nom de votre fournisseur d'identité, comme « Okta ». |
 | URL cible | Cette URL est fournie après la configuration de Braze dans votre IdP.<br> Certains IdP l'appellent URL SSO ou endpoint SAML 2.0. |
 | Certificat | Le certificat `x.509` fourni par votre fournisseur d'identité.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer Braze" }
 
 Assurez-vous que votre certificat `x.509` respecte ce format lorsque vous l'ajoutez au tableau de bord :
 

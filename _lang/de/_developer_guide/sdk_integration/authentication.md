@@ -53,7 +53,9 @@ Bei der Erstellung des JWT werden die folgenden Felder erwartet:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Ja  | Der unterstützte Algorithmus ist `RS256`. |
 | `typ` | Ja  | Der Typ sollte `JWT` entsprechen.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: Erstellen Sie ein JSON Web Token für die aktuelle Nutzer:in" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 **JWT-Payload**
 
@@ -61,7 +63,9 @@ Bei der Erstellung des JWT werden die folgenden Felder erwartet:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Ja  | Das „Subject“ muss die Nutzer-ID sein, die Sie dem Braze SDK beim Aufruf von `changeUser` übergeben.  |
 | `exp` | Ja | Die „Expiration“ gibt an, wann dieses Token ablaufen soll.                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: Erstellen Sie ein JSON Web Token für die aktuelle Nutzer:in" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
+
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 Um mehr über JSON Web Tokens zu erfahren oder die vielen Open-Source-Bibliotheken zu durchsuchen, die diesen Signierungsprozess vereinfachen, besuchen Sie [https://jwt.io](https://jwt.io).
@@ -713,12 +717,12 @@ Sollte bei Ihrer Integration etwas schiefgehen (z. B. wenn Ihre App Token fälsc
 
 Auf der Dashboard-Seite **Einstellungen verwalten** verfügt jede App über drei SDK-Authentifizierungsstatus, die steuern, wie Braze Anfragen überprüft.
 
-| Einstellung| Beschreibung|
+| Einstellung | Beschreibung |
 | ------ | ---------- |
-| **Deaktiviert** | Braze überprüft das für eine Nutzer:in bereitgestellte JWT nicht. (Standardeinstellung)|
+| **Deaktiviert** | Braze überprüft das für eine Nutzer:in bereitgestellte JWT nicht. (Standardeinstellung) |
 | **Optional** | Braze überprüft Anfragen für angemeldete Nutzer:innen, weist aber ungültige Anfragen nicht zurück. |
-| **Erforderlich** | Braze überprüft Anfragen für angemeldete Nutzer:innen und weist ungültige JWTs zurück.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Erforderlich** | Braze überprüft Anfragen für angemeldete Nutzer:innen und weist ungültige JWTs zurück. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
 ![SDK-Authentifizierungseinstellungen im Braze-Dashboard]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -763,19 +767,19 @@ Die Daten sind in Realtime verfügbar, und Sie können den Mauszeiger über Date
 
 ## Fehlercodes {#error-codes}
 
-| Fehlercode| Fehlergrund | Beschreibung | Schritte zur Behebung |
+| Fehlercode | Fehlergrund | Beschreibung | Schritte zur Behebung |
 | --------  | ------------ | ---------  | ---------  |
-| 10 | `EXPIRATION_REQUIRED` | Die Gültigkeitsdauer ist ein Pflichtfeld für die Verwendung von Braze.| Fügen Sie Ihrer JWT-Erstellungslogik ein `exp`- oder Ablaufdatum-Feld hinzu. |
-| 20 | `DECODING_ERROR` | Nicht übereinstimmender Public Key oder ein allgemeiner nicht abgefangener Fehler.| Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
-| 21 | `SUBJECT_MISMATCH` | Die erwarteten und tatsächlichen Subjects stimmen nicht überein.| Das `sub`-Feld sollte dieselbe Nutzer-ID enthalten, die an die SDK-Methode `changeUser` übergeben wurde. |
-| 22 | `EXPIRED` | Das bereitgestellte Token ist abgelaufen.| Verlängern Sie die Gültigkeitsdauer oder aktualisieren Sie Tokens regelmäßig, bevor sie ablaufen. |
-| 23 | `INVALID_PAYLOAD` | Die Payload des Tokens ist ungültig.| Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
-| 24 | `INCORRECT_ALGORITHM` | Der Algorithmus des Tokens wird nicht unterstützt.| Ändern Sie Ihr JWT, um `RS256`-Verschlüsselung zu verwenden. Andere Typen werden nicht unterstützt. |
-| 25 | `PUBLIC_KEY_ERROR` | Der Public Key konnte nicht in das richtige Format konvertiert werden.| Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
-| 26 | `MISSING_TOKEN` | Es wurde kein Token in der Anfrage angegeben.| Stellen Sie sicher, dass Sie beim Aufruf von `changeUser(id, token)` ein Token übergeben und dass Ihr Token nicht leer ist.|
-| 27 | `NO_MATCHING_PUBLIC_KEYS` | Es gibt keine öffentlichen Schlüssel, die mit dem bereitgestellten Token übereinstimmen.| Der im JWT verwendete Private Key stimmt mit keinem der für Ihre App konfigurierten Public Keys überein. Bestätigen Sie, dass Sie die öffentlichen Schlüssel zur richtigen App in Ihrem Workspace hinzugefügt haben, die mit diesem API-Schlüssel übereinstimmt.|
-| 28 | `PAYLOAD_USER_ID_MISMATCH` | Nicht alle Nutzer-IDs in der Anfrage-Payload stimmen wie erforderlich überein.| Dies ist unerwartet und kann zu einer fehlerhaften Payload führen. Öffnen Sie ein Support-Ticket, um Unterstützung zu erhalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| 10 | `EXPIRATION_REQUIRED` | Die Gültigkeitsdauer ist ein Pflichtfeld für die Verwendung von Braze. | Fügen Sie Ihrer JWT-Erstellungslogik ein `exp`- oder Ablaufdatum-Feld hinzu. |
+| 20 | `DECODING_ERROR` | Nicht übereinstimmender Public Key oder ein allgemeiner nicht abgefangener Fehler. | Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
+| 21 | `SUBJECT_MISMATCH` | Die erwarteten und tatsächlichen Subjects stimmen nicht überein. | Das `sub`-Feld sollte dieselbe Nutzer-ID enthalten, die an die SDK-Methode `changeUser` übergeben wurde. |
+| 22 | `EXPIRED` | Das bereitgestellte Token ist abgelaufen. | Verlängern Sie die Gültigkeitsdauer oder aktualisieren Sie Tokens regelmäßig, bevor sie ablaufen. |
+| 23 | `INVALID_PAYLOAD` | Die Payload des Tokens ist ungültig. | Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
+| 24 | `INCORRECT_ALGORITHM` | Der Algorithmus des Tokens wird nicht unterstützt. | Ändern Sie Ihr JWT, um `RS256`-Verschlüsselung zu verwenden. Andere Typen werden nicht unterstützt. |
+| 25 | `PUBLIC_KEY_ERROR` | Der Public Key konnte nicht in das richtige Format konvertiert werden. | Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
+| 26 | `MISSING_TOKEN` | Es wurde kein Token in der Anfrage angegeben. | Stellen Sie sicher, dass Sie beim Aufruf von `changeUser(id, token)` ein Token übergeben und dass Ihr Token nicht leer ist. |
+| 27 | `NO_MATCHING_PUBLIC_KEYS` | Es gibt keine öffentlichen Schlüssel, die mit dem bereitgestellten Token übereinstimmen. | Der im JWT verwendete Private Key stimmt mit keinem der für Ihre App konfigurierten Public Keys überein. Bestätigen Sie, dass Sie die öffentlichen Schlüssel zur richtigen App in Ihrem Workspace hinzugefügt haben, die mit diesem API-Schlüssel übereinstimmt. |
+| 28 | `PAYLOAD_USER_ID_MISMATCH` | Nicht alle Nutzer-IDs in der Anfrage-Payload stimmen wie erforderlich überein. | Dies ist unerwartet und kann zu einer fehlerhaften Payload führen. Öffnen Sie ein Support-Ticket, um Unterstützung zu erhalten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
 
 ## Häufig gestellte Fragen (FAQ) {#faq}
 

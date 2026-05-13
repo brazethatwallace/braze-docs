@@ -72,6 +72,6 @@ A tabela a seguir mostra quantos caracteres você pode adicionar antes que o tex
 | 1 | 46 caracteres |
 | 2 | 20 caracteres |
 | 3 | 11 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}

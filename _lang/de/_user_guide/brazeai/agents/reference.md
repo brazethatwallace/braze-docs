@@ -470,7 +470,7 @@ Wenn Sie Antworten auf eine einfache Feedback-Umfrage formatieren möchten, um z
 | **likelihood_score** | Number |
 | **explanation** | String |
 | **confidence_score** | Number |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erweiterte Schemata" }
 
 ![Agentenkonsole mit drei Ausgabefeldern für Wahrscheinlichkeitswert, Erklärung und Konfidenzwert.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -516,13 +516,9 @@ Sie können bis zu fünf Segmente auswählen, anhand derer der Agent die Segment
 
 Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) auswählen, an die sich Ihr Agent bei seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
 
-## Temperatur {#temperature}
+## Nutzerspezifischer Interaktionsverlauf {#user-history}
 
-Wenn Sie einen Agenten verwenden möchten, um Texte zu generieren, die Nutzer:innen dazu ermutigen, sich in Ihre mobile App einzuloggen, können Sie eine höhere Temperatur einstellen, damit Ihr Agent kreativer ist und die Nuancen der Kontextvariablen nutzt. Wenn Sie einen Agenten zur Generierung von Stimmungswerten einsetzen, empfiehlt es sich möglicherweise, eine niedrigere Temperatur einzustellen, um Spekulationen des Agenten bei negativen Umfrageantworten zu vermeiden. Wir empfehlen, diese Einstellung zu testen und die vom Agenten generierte Ausgabe zu überprüfen, um sie an Ihr Szenario anzupassen.
-
-{% alert note %}
-Temperaturen werden derzeit nicht für die Verwendung mit OpenAI unterstützt.
-{% endalert %}
+Die Interaktionsdaten von Nutzer:innen umfassen ihre letzten Campaign- und Canvas-Öffnungen, Klicks und Conversion-Daten. Sie können diesen Kontext beispielsweise einbeziehen, damit ein Agent ihn bei der Auswertung in einem Canvas referenzieren kann. Der nutzerspezifische Interaktionsverlauf kann auch dazu beitragen, einen Agenten zu beeinflussen, dessen Aufgabe es ist, personalisierte Nachrichtentexte zu verfassen.
 
 ## Agenten duplizieren {#duplicate-agents}
 

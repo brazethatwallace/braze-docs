@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: Envio imediato de mensagens usando apenas a API"
-article_title: "POST: Envio de mensagens imediatamente usando somente a API"
+article_title: "POST: Envio imediato de mensagens usando apenas a API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -95,7 +95,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `external_user_ids` | Opcional | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). |
 | `user_aliases` | Opcional | Vetor de objetos de alias de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
 | `segment_id ` | Opcional | String | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types/#segment-identifier). |
-| `audience` | Opcional | Objeto de público conectado | Veja [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 | `campaign_id` | Opcional* | String | Para saber mais, consulte o [identificador de Campaign]({{site.baseurl}}/api/identifier_types/#campaign-identifier/). <br><br>\*Obrigatório se você deseja realizar o rastreamento das métricas da Campaign (como *Envios*, *Cliques* ou *Bounces*) no dashboard da Braze, ou se deseja ver eventos associados a essa mensagem na [guia Histórico de mensagens]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#messaging-history-tab) do perfil de usuário. |
 | `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types/#send-identifier). |
 | `override_frequency_capping` | Opcional | booleano | Ignore `frequency_capping` para Campaigns, o padrão é `false`. |

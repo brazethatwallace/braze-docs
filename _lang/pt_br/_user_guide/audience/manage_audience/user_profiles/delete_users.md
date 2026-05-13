@@ -23,7 +23,7 @@ Para excluir usuários, você precisa ser administrador ou ter a permissão **De
 |------------|-------------|
 | Delete Users | Exclui permanentemente usuários de forma individual ou em massa. |
 | View User Deletion Records | Visualiza registros de exclusão de usuários. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Sobre a exclusão de usuários {#about-user-deletion}
 
@@ -34,7 +34,7 @@ A exclusão de usuários permite gerenciar seu banco de dados removendo perfis q
 | Tamanho máximo | Você pode excluir até 100 milhões de perfis de usuários ao excluir um segmento. |
 | Período de espera | Todas as exclusões de segmentos exigem um período de espera de 7 dias, mais o tempo necessário para processar as exclusões. |
 | Limite de tarefas | Apenas um segmento pode ser excluído por vez, o que inclui o período de espera de 7 dias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
 
 ## Excluindo usuários {#deleting-users}
 
@@ -132,7 +132,7 @@ Nesta página, você encontra as seguintes informações gerais para todas as ex
 | Solicitante | O usuário que iniciou a solicitação de exclusão. |
 | Nome do segmento | O nome do segmento usado para selecionar os usuários pendentes de exclusão. |
 | Status | Indica se a solicitação de exclusão está pendente, em andamento ou concluída. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
 
 Para mais detalhes sobre uma solicitação específica, selecione <i class="fa-solid fa-eye"></i> para exibir os detalhes do registro de exclusão. Aqui você também pode [cancelar exclusões de segmentos pendentes](#cancel).
 

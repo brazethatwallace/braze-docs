@@ -27,7 +27,7 @@ Braze와 Segment 통합을 사용하면 Segment의 내장 오디언스 빌더인
 | Braze 데이터 가져오기 키 | Engage 오디언스를 코호트로 Braze에 동기화하려면 데이터 가져오기 키를 생성해야 합니다.<br><br>코호트 가져오기는 얼리 액세스 중이며, 이 기능에 액세스하려면 Braze 고객 성공 매니저에게 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 코호트 대상 통합 {#cohorts-destination-integration}
 

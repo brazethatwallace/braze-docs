@@ -86,7 +86,7 @@ Wählen Sie dann das gewünschte LinkedIn-Anzeigenkonto aus. Geben Sie in der Dr
 ![Audience Sync mit LinkedIn, wobei Braze als Anzeigenkonto ausgewählt ist.]({% image_buster /assets/img/linkedin/linkedin20.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Eine neue Zielgruppe erstellen %}
 
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience** und wählen Sie aus, welche Felder Sie mit LinkedIn synchronisieren möchten. Für diese Integration unterstützen wir derzeit Folgendes:
@@ -105,7 +105,7 @@ Braze zeigt am oberen Rand des Schritteditors eine Benachrichtigung an, wenn die
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie die Audience Sync-Komponente betreten.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit einer bestehenden Zielgruppe synchronisieren %}
 
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden LinkedIn-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen aktuell sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe in das Dropdown-Menü ein und wählen Sie **Add to the Audience**. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie die Audience Sync-Komponente betreten.
@@ -184,4 +184,4 @@ Derzeit gibt es keine Begrenzung für die Anzahl der Zielgruppen in Ihrem Linked
 
 ### Warum bleibt ein Segment im Status BUILDING stecken und wird nicht aktualisiert? {#why-is-a-segment-stuck-in-building-status-and-not-updated}
 
-Ein Segment gilt als ungenutzt und wird auf ARCHIVED gesetzt, wenn es 30 Tage lang nicht kontinuierlich in einer Entwurfs- oder aktiven Campaign verwendet wurde. Aus diesem Grund kann es vorkommen, dass ein Segment im Status BUILDING „feststeckt“, wenn Updates zu einem ARCHIVIERTEN Segment gestreamt werden, wodurch es in den Status BUILDING versetzt wird, und kurz bevor es wieder archiviert wird, neue Updates zu dem ungenutzten Segment gestreamt werden.
+Ein Segment gilt als ungenutzt und wird auf ARCHIVED gesetzt, wenn es 30 Tage lang nicht kontinuierlich in einer Entwurfs- oder aktiven Campaign verwendet wurde. Aus diesem Grund kann es vorkommen, dass ein Segment im Status BUILDING „feststeckt“, wenn Updates zu einem archivierten Segment gestreamt werden, wodurch es in den Status BUILDING versetzt wird, und kurz bevor es wieder archiviert wird, neue Updates zu dem ungenutzten Segment gestreamt werden.

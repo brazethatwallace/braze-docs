@@ -57,7 +57,7 @@ Currents 이벤트 스키마의 전체 목록은 [메시지 참여 이벤트]({{
 |----|-----------|
 | `"user"` | `user_id`, `external_user_id`, `device_id`, `timezone`와 같은 사용자 속성을 포함합니다. |
 | `"properties"` | 적용되는 `app/campaign/canvas/platform`과 같은 이벤트의 속성을 포함합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 다운스트림 엔드포인트가 이벤트가 없는 페이로드 또는 빈 요청 본문을 수신하면 결과는 no-op으로 간주되어야 하며, 이 호출로 인해 다운스트림 효과가 발생하지 않아야 합니다. 그러나 여전히 `Authorization` 헤더를 확인해야 하며(일반 API 호출처럼), [유효하지 않은 자격 증명](#authentication)에 대해 `401` 또는 `403`과 같은 적절한 HTTP 응답을 제공해야 합니다. 이를 통해 Braze에 커넥터의 자격 증명이 유효하다는 것을 알릴 수 있습니다.
 
@@ -430,7 +430,7 @@ Braze 재시도 메커니즘이 24시간 이상 이벤트를 전달하지 못하
 
 커넥터 클라이언트에서 인식하는 HTTP 상태 코드는 다음과 같습니다:
 
-<table>
+<table aria-label="Error handling and retry mechanism">
   <caption>오류 처리 및 재시도 메커니즘</caption>
   <thead>
     <tr>
@@ -482,4 +482,4 @@ Braze 재시도 메커니즘이 24시간 이상 이벤트를 전달하지 못하
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

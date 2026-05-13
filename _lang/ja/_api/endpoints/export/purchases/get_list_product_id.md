@@ -31,7 +31,7 @@ description: "この記事では、「製品IDをエクスポートする」Braz
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `page` | オプション | 文字列 | 表示したい製品リストのページ。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 

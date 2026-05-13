@@ -37,7 +37,7 @@ Le nombre de pages d'accueil publiées et de domaines personnalisés que vous po
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Pages d'accueil publiées | Cinq par société | 20 supplémentaires |
 | Domaines personnalisés | Un par société | Cinq supplémentaires |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan tiers" }
 
 ## Ajouter Google Tag Manager à une page d'accueil {#adding-google-tag-manager-to-a-landing-page}
 

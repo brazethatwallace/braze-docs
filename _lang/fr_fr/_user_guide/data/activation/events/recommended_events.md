@@ -58,17 +58,17 @@ Se déclenche lorsqu'un utilisateur consulte une page de détail produit. Cet é
 
 | Nom de la propriété | Type de données | Requis | Description |
 | -------------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product_id`   | String           | Oui      | Identifiant unique du produit (par exemple, SKU ou ID d'article).                                                                                                   |
-| `product_name` | String           | Oui      | Nom d'affichage du produit.                                                                                                                               |
-| `variant_id`   | String           | Oui      | Identifiant de la variante du produit (par exemple, `shirt_medium_blue`).                                                                                            |
-| `image_url`    | String           | Non       | URL de l'image du produit.                                                                                                                                  |
-| `product_url`  | String           | Non       | URL vers la page du produit pour plus de détails.                                                                                                           |
-| `price`        | Float            | Oui      | Prix unitaire de la variante au moment de la consultation.                                                                                                          |
-| `currency`     | String           | Oui      | Code ISO 4217 à trois lettres (par exemple, `USD` ou `EUR`).                                                                                               |
-| `source`       | String           | Oui      | Source d'origine de l'événement (par exemple, `web`, `ios` ou `android`).                                                                               |
-| `type`         | Tableau de chaînes de caractères | Non       | Requis pour utiliser les fonctionnalités de déclenchement par catalogue de Braze pour les alertes de retour en stock et de baisse de prix. Valeurs acceptées : `"price_drop"`, `"back_in_stock"`     |
-| `metadata`     | Objet           | Non       | Paires clé-valeur flexibles. Sous-propriété reconnue : `sku` (String)                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | String           | Oui      | Identifiant unique du produit (par exemple, SKU ou ID d'article). |
+| `product_name` | String           | Oui      | Nom d'affichage du produit. |
+| `variant_id`   | String           | Oui      | Identifiant de la variante du produit (par exemple, `shirt_medium_blue`). |
+| `image_url`    | String           | Non      | URL de l'image du produit. |
+| `product_url`  | String           | Non      | URL vers la page du produit pour plus de détails. |
+| `price`        | Float            | Oui      | Prix unitaire de la variante au moment de la consultation. |
+| `currency`     | String           | Oui      | Code ISO 4217 à trois lettres (par exemple, `USD` ou `EUR`). |
+| `source`       | String           | Oui      | Source d'origine de l'événement (par exemple, `web`, `ios` ou `android`). |
+| `type`         | Tableau de chaînes de caractères | Non | Requis pour utiliser les fonctionnalités de déclenchement par catalogue de Braze pour les alertes de retour en stock et de baisse de prix. Valeurs acceptées : `"price_drop"`, `"back_in_stock"` |
+| `metadata`     | Objet           | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `sku` (String) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Exemple REST API {#rest-api-example}
 
@@ -115,32 +115,32 @@ Le panier crée un objet de mappage des paniers sur le profil utilisateur qui al
 
 #### Propriétés de l'événement
 
-| Propriété        | Type de données | Requis | Description                                                                                                                   |
+| Propriété | Type de données | Requis | Description |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `cart_id`       | String    | Oui      | Identifiant unique du panier. Partagé entre les événements de panier, de paiement et de commande pour le mappage du panier de l'utilisateur.                   |
-| `total_value`   | Float     | Oui      | Valeur monétaire totale du panier.                                                                                             |
-| `subtotal_value`| Float     | Non       | Sous-total du panier (après remise, avant taxes/livraison).                                                                 |
-| `tax`           | Float     | Non       | Total des taxes appliquées au panier.                                                                                                |
-| `shipping`      | Float     | Non       | Coût total de livraison du panier.                                                                                             |
-| `currency`      | String    | Oui      | Code ISO 4217 à trois lettres.                                                                                                   |
-| `products`      | Tableau     | Oui      | Tableau complet des articles actuellement dans le panier. Voir le sous-tableau des propriétés de produit.                                              |
-| `source`        | String    | Oui      | Source d'origine de l'événement.                                                                                             |
-| `metadata`      | Objet    | Non       | Paires clé-valeur flexibles pour des données supplémentaires au niveau de l'événement.                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cart_id`       | String    | Oui      | Identifiant unique du panier. Partagé entre les événements de panier, de paiement et de commande pour le mappage du panier de l'utilisateur. |
+| `total_value`   | Float     | Oui      | Valeur monétaire totale du panier. |
+| `subtotal_value`| Float     | Non      | Sous-total du panier (après remise, avant taxes/livraison). |
+| `tax`           | Float     | Non      | Total des taxes appliquées au panier. |
+| `shipping`      | Float     | Non      | Coût total de livraison du panier. |
+| `currency`      | String    | Oui      | Code ISO 4217 à trois lettres. |
+| `products`      | Tableau   | Oui      | Tableau complet des articles actuellement dans le panier. Voir le sous-tableau des propriétés de produit. |
+| `source`        | String    | Oui      | Source d'origine de l'événement. |
+| `metadata`      | Objet    | Non      | Paires clé-valeur flexibles pour des données supplémentaires au niveau de l'événement. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propriétés de produit (`products[]`) {#product-properties-products}
 
-| Propriété        | Type de données | Requis | Description                                     |
+| Propriété | Type de données | Requis | Description |
 |-----------------|-----------|----------|-------------------------------------------------|
-| `product_id`    | String    | Oui      | Identifiant unique du produit.                      |
-| `product_name`  | String    | Oui      | Nom d'affichage du produit.                           |
-| `variant_id`    | String    | Oui      | Identifiant de la variante.                             |
-| `image_url`     | String    | Non       | URL de l'image du produit.                              |
-| `product_url`   | String    | Non       | URL vers la page du produit.                        |
-| `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier.                    |
-| `price`         | Float     | Oui      | Prix unitaire de la variante.                             |
-| `metadata`      | Objet    | Non       | Paires clé-valeur flexibles (par exemple, `color` ou `size`).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | String    | Oui      | Identifiant unique du produit. |
+| `product_name`  | String    | Oui      | Nom d'affichage du produit. |
+| `variant_id`    | String    | Oui      | Identifiant de la variante. |
+| `image_url`     | String    | Non      | URL de l'image du produit. |
+| `product_url`   | String    | Non      | URL vers la page du produit. |
+| `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier. |
+| `price`         | Float     | Oui      | Prix unitaire de la variante. |
+| `metadata`      | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Exemple REST API
 
@@ -203,33 +203,33 @@ Se déclenche lorsque l'utilisateur initie le processus de paiement (par exemple
 
 #### Propriétés de l'événement
 
-| Propriété       | Type    | Requis | Description                                                                                                      |
+| Propriété | Type | Requis | Description |
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
-| checkout_id    | String  | Oui      | Identifiant unique de la session de paiement.                                                                      |
-| cart_id        | String  | Non       | Identifiant du panier. Partagé entre les événements de panier, de paiement et de commande pour le mappage du panier de l'utilisateur.                     |
-| total_value    | Float   | Oui      | Valeur monétaire totale du paiement.                                                                            |
-| subtotal_value | Float   | Non       | Sous-total (après remise, avant taxes/livraison).                                                                |
-| tax            | Float   | Non       | Total des taxes appliquées au paiement.                                                                               |
-| shipping       | Float   | Non       | Coût total de livraison.                                                                                             |
-| currency       | String  | Oui      | Code ISO 4217 à trois lettres.                                                                                      |
-| products       | Tableau   | Oui      | Articles en cours de paiement. Voir le sous-tableau des propriétés de produit.                                                       |
-| source         | String  | Oui      | Source d'origine de l'événement.                                                                                |
-| metadata       | Objet  | Non       | Paires clé-valeur flexibles. Sous-propriété reconnue : `checkout_url` (String)                                       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| checkout_id    | String  | Oui      | Identifiant unique de la session de paiement. |
+| cart_id        | String  | Non      | Identifiant du panier. Partagé entre les événements de panier, de paiement et de commande pour le mappage du panier de l'utilisateur. |
+| total_value    | Float   | Oui      | Valeur monétaire totale du paiement. |
+| subtotal_value | Float   | Non      | Sous-total (après remise, avant taxes/livraison). |
+| tax            | Float   | Non      | Total des taxes appliquées au paiement. |
+| shipping       | Float   | Non      | Coût total de livraison. |
+| currency       | String  | Oui      | Code ISO 4217 à trois lettres. |
+| products       | Tableau | Oui      | Articles en cours de paiement. Voir le sous-tableau des propriétés de produit. |
+| source         | String  | Oui      | Source d'origine de l'événement. |
+| metadata       | Objet   | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `checkout_url` (String) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propriétés de produit (`products[]`)
 
-| Propriété       | Type de données | Requis | Description                                              |
+| Propriété | Type de données | Requis | Description |
 |----------------|-----------|----------|----------------------------------------------------------|
-| `product_id`   | String    | Oui      | Identifiant unique du produit.                               |
-| `product_name` | String    | Oui      | Nom d'affichage du produit.                                    |
-| `variant_id`   | String    | Oui      | Identifiant de la variante.                                      |
-| `image_url`    | String    | Non       | URL de l'image du produit.                                       |
-| `product_url`  | String    | Non       | URL vers la page du produit.                                 |
-| `quantity`     | Integer   | Oui      | Nombre d'unités dans le panier.                             |
-| `price`        | Float     | Oui      | Prix unitaire de la variante.                                      |
-| `metadata`     | Objet    | Non       | Paires clé-valeur flexibles (par exemple, couleur, taille).            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | String    | Oui      | Identifiant unique du produit. |
+| `product_name` | String    | Oui      | Nom d'affichage du produit. |
+| `variant_id`   | String    | Oui      | Identifiant de la variante. |
+| `image_url`    | String    | Non      | URL de l'image du produit. |
+| `product_url`  | String    | Non      | URL vers la page du produit. |
+| `quantity`     | Integer   | Oui      | Nombre d'unités dans le panier. |
+| `price`        | Float     | Oui      | Prix unitaire de la variante. |
+| `metadata`     | Objet    | Non      | Paires clé-valeur flexibles (par exemple, couleur, taille). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Exemple REST API
 
@@ -298,35 +298,35 @@ Cet événement est le principal moteur de chiffre d'affaires. Il incrémente `t
 
 #### Propriétés de l'événement
 
-| Propriété        | Type de données | Requis | Description                                                                                   |
+| Propriété | Type de données | Requis | Description |
 |-----------------|-----------|----------|-----------------------------------------------------------------------------------------------|
-| `order_id`      | String    | Oui      | Identifiant unique de la commande.                                                              |
-| `cart_id`       | String    | Non       | Identifiant du panier. Partagé entre les événements de panier, de paiement et de commande pour le mappage du panier de l'utilisateur.  |
-| `total_value`   | Float     | Oui      | Valeur monétaire totale de la commande.                                                            |
-| `subtotal_value`| Float     | Non       | Sous-total (après remise, avant taxes/livraison).                                             |
-| `tax`           | Float     | Non       | Total des taxes appliquées à la commande.                                                               |
-| `shipping`      | Float     | Non       | Coût total de livraison.                                                                          |
-| `currency`      | String    | Oui      | Code ISO 4217 à trois lettres.                                                                   |
-| `total_discounts`| Float    | Non       | Montant total des remises appliquées à la commande.                                               |
-| `discounts`     | Tableau     | Non       | Liste détaillée des remises appliquées.                                                           |
-| `products`      | Tableau     | Oui      | Articles de la commande. Voir le sous-tableau des propriétés de produit.                                         |
-| `source`        | String    | Oui      | Source d'origine de l'événement.                                                             |
-| `metadata`      | Objet    | Non       | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String)                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`      | String    | Oui      | Identifiant unique de la commande. |
+| `cart_id`       | String    | Non      | Identifiant du panier. Partagé entre les événements de panier, de paiement et de commande pour le mappage du panier de l'utilisateur. |
+| `total_value`   | Float     | Oui      | Valeur monétaire totale de la commande. |
+| `subtotal_value`| Float     | Non      | Sous-total (après remise, avant taxes/livraison). |
+| `tax`           | Float     | Non      | Total des taxes appliquées à la commande. |
+| `shipping`      | Float     | Non      | Coût total de livraison. |
+| `currency`      | String    | Oui      | Code ISO 4217 à trois lettres. |
+| `total_discounts`| Float    | Non      | Montant total des remises appliquées à la commande. |
+| `discounts`     | Tableau   | Non      | Liste détaillée des remises appliquées. |
+| `products`      | Tableau   | Oui      | Articles de la commande. Voir le sous-tableau des propriétés de produit. |
+| `source`        | String    | Oui      | Source d'origine de l'événement. |
+| `metadata`      | Objet    | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propriétés de produit (`products[]`)
 
-| Propriété        | Type de données | Requis | Description                                 |
+| Propriété | Type de données | Requis | Description |
 |-----------------|-----------|----------|---------------------------------------------|
-| `product_id`    | String    | Oui      | Identifiant unique du produit.                  |
-| `product_name`  | String    | Oui      | Nom d'affichage du produit.                       |
-| `variant_id`    | String    | Oui      | Identifiant de la variante.                         |
-| `image_url`     | String    | Non       | URL de l'image du produit.                          |
-| `product_url`   | String    | Non       | URL vers la page du produit.                    |
-| `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier.                |
-| `price`         | Float     | Oui      | Prix unitaire de la variante.                         |
-| `metadata`      | Objet    | Non       | Paires clé-valeur flexibles (par exemple, `color` ou `size`).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | String    | Oui      | Identifiant unique du produit. |
+| `product_name`  | String    | Oui      | Nom d'affichage du produit. |
+| `variant_id`    | String    | Oui      | Identifiant de la variante. |
+| `image_url`     | String    | Non      | URL de l'image du produit. |
+| `product_url`   | String    | Non      | URL vers la page du produit. |
+| `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier. |
+| `price`         | Float     | Oui      | Prix unitaire de la variante. |
+| `metadata`      | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Exemple REST API
 
@@ -402,35 +402,35 @@ Cet événement décrémente `total_orders` de 1 sur le profil utilisateur. Il n
 
 #### Propriétés de l'événement
 
-| Propriété         | Type    | Requis | Description                                                                                      |
+| Propriété | Type | Requis | Description |
 |------------------|---------|----------|--------------------------------------------------------------------------------------------------|
-| `order_id`       | String  | Oui      | Identifiant unique de la commande.                                                                 |
+| `order_id`       | String  | Oui      | Identifiant unique de la commande. |
 | `total_value`    | Float   | Oui      | Valeur monétaire totale de la commande annulée. Doit être ≥ 0 — envoyez le montant absolu ; Braze gère la décrémentation. |
-| `subtotal_value` | Float   | Non       | Sous-total (après remise, avant taxes/livraison).                                                |
-| `tax`            | Float   | Non       | Total des taxes appliquées à la commande.                                                                  |
-| `shipping`       | Float   | Non       | Coût total de livraison.                                                                             |
-| `currency`       | String  | Oui      | Code ISO 4217 à trois lettres.                                                                      |
-| `total_discounts`| Float   | Non       | Montant total des remises appliquées à la commande.                                                  |
-| `discounts`      | Tableau   | Non       | Liste détaillée des remises appliquées.                                                              |
-| `cancel_reason`  | String  | Oui      | Raison de l'annulation de la commande.                                                                  |
-| `products`       | Tableau   | Oui      | Articles de la commande annulée. Voir le sous-tableau des propriétés de produit.                                  |
-| `source`         | String  | Oui      | Source d'origine de l'événement.                                                                |
-| `metadata`       | Objet  | Non       | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String)                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `subtotal_value` | Float   | Non      | Sous-total (après remise, avant taxes/livraison). |
+| `tax`            | Float   | Non      | Total des taxes appliquées à la commande. |
+| `shipping`       | Float   | Non      | Coût total de livraison. |
+| `currency`       | String  | Oui      | Code ISO 4217 à trois lettres. |
+| `total_discounts`| Float   | Non      | Montant total des remises appliquées à la commande. |
+| `discounts`      | Tableau | Non      | Liste détaillée des remises appliquées. |
+| `cancel_reason`  | String  | Oui      | Raison de l'annulation de la commande. |
+| `products`       | Tableau | Oui      | Articles de la commande annulée. Voir le sous-tableau des propriétés de produit. |
+| `source`         | String  | Oui      | Source d'origine de l'événement. |
+| `metadata`       | Objet   | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propriétés de produit (`products[]`)
 
-| Propriété       | Type de données | Requis | Description                                   |
+| Propriété | Type de données | Requis | Description |
 |----------------|-----------|----------|-----------------------------------------------|
-| `product_id`   | String    | Oui      | Identifiant unique du produit.                    |
-| `product_name` | String    | Oui      | Nom d'affichage du produit.                         |
-| `variant_id`   | String    | Oui      | Identifiant de la variante.                           |
-| `image_url`    | String    | Non       | URL de l'image du produit.                            |
-| `product_url`  | String    | Non       | URL vers la page du produit.                      |
-| `quantity`     | Integer   | Oui      | Nombre d'unités dans le panier.                  |
-| `price`        | Float     | Oui      | Prix unitaire de la variante.                           |
-| `metadata`     | Objet    | Non       | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | String    | Oui      | Identifiant unique du produit. |
+| `product_name` | String    | Oui      | Nom d'affichage du produit. |
+| `variant_id`   | String    | Oui      | Identifiant de la variante. |
+| `image_url`    | String    | Non      | URL de l'image du produit. |
+| `product_url`  | String    | Non      | URL vers la page du produit. |
+| `quantity`     | Integer   | Oui      | Nombre d'unités dans le panier. |
+| `price`        | Float     | Oui      | Prix unitaire de la variante. |
+| `metadata`     | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Exemple REST API
 
@@ -495,31 +495,31 @@ Cet événement décrémente `total_revenue` de la valeur de `total_value` et in
 
 #### Propriétés de l'événement
 
-| Propriété          | Type de données | Requis | Description                                                                                          |
+| Propriété | Type de données | Requis | Description |
 |-------------------|-----------|----------|------------------------------------------------------------------------------------------------------|
-| `order_id`        | String    | Oui      | Identifiant unique de la commande d'origine.                                                            |
+| `order_id`        | String    | Oui      | Identifiant unique de la commande d'origine. |
 | `total_value`     | Float     | Oui      | Valeur monétaire totale du remboursement. Doit être ≥ 0 — envoyez le montant absolu ; Braze gère l'incrémentation de total_refunds. |
-| `currency`        | String    | Oui      | Code ISO 4217 à trois lettres.                                                                          |
-| `total_discounts` | Float     | Non       | Montant total des remises appliquées à l'origine.                                                        |
-| `discounts`       | Tableau     | Non       | Liste détaillée des remises.                                                                          |
-| `products`        | Tableau     | Oui      | Articles remboursés. Voir le sous-tableau des propriétés de produit.                                              |
-| `source`          | String    | Oui      | Source d'origine de l'événement.                                                                    |
-| `metadata`        | Objet    | Non       | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String).                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `currency`        | String    | Oui      | Code ISO 4217 à trois lettres. |
+| `total_discounts` | Float     | Non      | Montant total des remises appliquées à l'origine. |
+| `discounts`       | Tableau   | Non      | Liste détaillée des remises. |
+| `products`        | Tableau   | Oui      | Articles remboursés. Voir le sous-tableau des propriétés de produit. |
+| `source`          | String    | Oui      | Source d'origine de l'événement. |
+| `metadata`        | Objet    | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `order_status_url` (String). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propriétés de produit (`products[]`)
 
-| Propriété        | Type de données | Requis | Description                                           |
+| Propriété | Type de données | Requis | Description |
 |-----------------|-----------|----------|-------------------------------------------------------|
-| `product_id`    | String    | Oui      | Identifiant unique du produit.                            |
-| `product_name`  | String    | Oui      | Nom d'affichage du produit.                                 |
-| `variant_id`    | String    | Oui      | Identifiant de la variante.                                   |
-| `image_url`     | String    | Non       | URL de l'image du produit.                                    |
-| `product_url`   | String    | Non       | URL vers la page du produit.                              |
-| `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier.                          |
-| `price`         | Float     | Oui      | Prix unitaire de la variante.                                   |
-| `metadata`      | Objet    | Non       | Paires clé-valeur flexibles (par exemple, `color` ou `size`).         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | String    | Oui      | Identifiant unique du produit. |
+| `product_name`  | String    | Oui      | Nom d'affichage du produit. |
+| `variant_id`    | String    | Oui      | Identifiant de la variante. |
+| `image_url`     | String    | Non      | URL de l'image du produit. |
+| `product_url`   | String    | Non      | URL vers la page du produit. |
+| `quantity`      | Integer   | Oui      | Nombre d'unités dans le panier. |
+| `price`         | Float     | Oui      | Prix unitaire de la variante. |
+| `metadata`      | Objet    | Non      | Paires clé-valeur flexibles (par exemple, `color` ou `size`). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Exemples REST API {#rest-api-examples}
 
@@ -611,15 +611,15 @@ Lorsque vous envoyez un événement eCommerce, Braze le valide par rapport au sc
 
 Le tableau suivant résume ce que Braze fait automatiquement pour chaque événement lorsque la validation réussit. Pour savoir ce qui se passe en cas d'échec de la validation, consultez [Validation des événements et résolution des problèmes](#event-validation-and-troubleshooting).
 
-| Événement                        | Ce que Braze fait automatiquement                                                                                     |
+| Événement | Ce que Braze fait automatiquement |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `ecommerce.order_placed`     | Incrémente le **chiffre d'affaires total** de `total_value` et le **nombre total de commandes** de 1 sur le profil utilisateur.                     |
-| `ecommerce.order_cancelled`  | Décrémente le **nombre total de commandes** de 1.                                                                                 |
-| `ecommerce.order_refunded`   | Décrémente le **chiffre d'affaires total** de `total_value` et incrémente le **total des remboursements**.                              |
-| `ecommerce.cart_updated`     | Crée ou met à jour l'objet de mappage des paniers sur le profil utilisateur. Le panier expire après 30 jours sans mise à jour.|
-| `ecommerce.product_viewed`   | Aucune modification du profil utilisateur. Disponible pour la segmentation, le déclenchement et les fonctionnalités BrazeAI<sup>TM</sup> (comme les recommandations d'articles).|
-| `ecommerce.checkout_started` | Aucune modification du profil utilisateur. Disponible pour la segmentation et le déclenchement (par exemple, les flux de paiement abandonné).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ecommerce.order_placed`     | Incrémente le **chiffre d'affaires total** de `total_value` et le **nombre total de commandes** de 1 sur le profil utilisateur. |
+| `ecommerce.order_cancelled`  | Décrémente le **nombre total de commandes** de 1. |
+| `ecommerce.order_refunded`   | Décrémente le **chiffre d'affaires total** de `total_value` et incrémente le **total des remboursements**. |
+| `ecommerce.cart_updated`     | Crée ou met à jour l'objet de mappage des paniers sur le profil utilisateur. Le panier expire après 30 jours sans mise à jour. |
+| `ecommerce.product_viewed`   | Aucune modification du profil utilisateur. Disponible pour la segmentation, le déclenchement et les fonctionnalités BrazeAI<sup>TM</sup> (comme les recommandations d'articles). |
+| `ecommerce.checkout_started` | Aucune modification du profil utilisateur. Disponible pour la segmentation et le déclenchement (par exemple, les flux de paiement abandonné). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
 
 {% alert important %}
 Les valeurs dans des devises autres que l'USD sont automatiquement converties en USD en utilisant le taux de change à la date à laquelle l'événement est signalé. Si vous déclarez déjà en USD, codez en dur `USD` comme devise pour éviter toute conversion involontaire.
@@ -709,15 +709,15 @@ Lorsque vous envoyez un événement recommandé eCommerce via `/users/track` ou 
 
 Pour chaque événement dont le nom correspond à un événement recommandé eCommerce, Braze vérifie :
 
-| Vérification                     | Exemple                                                                                                                      |
+| Vérification | Exemple |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Nom de l'événement                | Doit être exact. Par exemple, `ecommerce.cart_updated` est correct — pas `ecommerce.Cart_Updated`, `cartupdated` ou `cart_updated`. |
-| Propriétés requises présentes | `order_placed` nécessite `order_id`, `total_value`, `currency`, `products` et `source`.                                   |
-| Types de données corrects        | `total_value` doit être un nombre ; `currency` doit être une chaîne de caractères ; `products` doit être un tableau.                                   |
-| Pas de propriétés supplémentaires au niveau supérieur | Les champs personnalisés sous properties provoquent un échec. Utilisez l'objet `metadata` à la place.                                         |
-| Contraintes de valeur         | Les champs monétaires doivent être ≥ `0`. `currency` doit être une chaîne ISO 4217 valide.                                                  |
-| Champs par produit        | Chaque élément de `products[]` doit inclure `product_id`, `product_name`, `variant_id`, `quantity` et `price`.                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nom de l'événement | Doit être exact. Par exemple, `ecommerce.cart_updated` est correct — pas `ecommerce.Cart_Updated`, `cartupdated` ou `cart_updated`. |
+| Propriétés requises présentes | `order_placed` nécessite `order_id`, `total_value`, `currency`, `products` et `source`. |
+| Types de données corrects | `total_value` doit être un nombre ; `currency` doit être une chaîne de caractères ; `products` doit être un tableau. |
+| Pas de propriétés supplémentaires au niveau supérieur | Les champs personnalisés sous properties provoquent un échec. Utilisez l'objet `metadata` à la place. |
+| Contraintes de valeur | Les champs monétaires doivent être ≥ `0`. `currency` doit être une chaîne ISO 4217 valide. |
+| Champs par produit | Chaque élément de `products[]` doit inclure `product_id`, `product_name`, `variant_id`, `quantity` et `price`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### Pourquoi nous validons {#why-we-validate}
 
@@ -725,7 +725,7 @@ Les événements eCommerce alimentent des fonctionnalités qui dépendent de don
 
 ### Lorsque la validation réussit {#when-validation-passes}
 
-L'événement est traité comme un événement recommandé eCommerce avec tout le post-traitement associé. Consultez [Schémas des événements](#event-schemas) pour la liste complète des comportements déclenchés par chaque type d'événement.
+L'événement est traité comme un événement recommandé eCommerce avec tout le post-traitement associé. Consultez les [événements recommandés eCommerce](#event-schemas) pour la liste complète des comportements déclenchés par chaque type d'événement.
 
 #### Vérifier un événement réussi {#verify-a-successful-event}
 
@@ -763,12 +763,12 @@ L'endpoint `/users/track` renvoie des erreurs au niveau des champs indiquant que
 
 Les échecs sont également classés en interne et agrégés pour l'e-mail récapitulatif des échecs :
 
-| Type d'échec           | Signification                                           | Exemple                                                        |
+| Type d'échec | Signification | Exemple |
 |------------------------|---------------------------------------------------|----------------------------------------------------------------|
-| `missing_property`     | Un champ requis est absent.                       | `order_placed` envoyé sans `order_id`.                        |
+| `missing_property`     | Un champ requis est absent. | `order_placed` envoyé sans `order_id`. |
 | `extra_property`       | Un champ a été ajouté que le schéma ne définit pas. | Un champ personnalisé `gift_wrapped` au niveau supérieur de `properties` au lieu d'être dans `metadata`. |
-| `unexpected_data_type` | Un champ est du mauvais type.                        | `total_value: "29.99"` (chaîne de caractères) au lieu de `29.99` (nombre).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `unexpected_data_type` | Un champ est du mauvais type. | `total_value: "29.99"` (chaîne de caractères) au lieu de `29.99` (nombre). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
 
 {% alert note %}
 Les noms d'événements qui ne correspondent pas exactement à un événement recommandé (par exemple, `ecommerce.OrderPlaced`) ignorent entièrement la validation et sont enregistrés comme des événements personnalisés ordinaires. Ils apparaissent dans Currents et la segmentation sous le nom que vous avez envoyé, mais ne reçoivent aucun traitement d'événement recommandé et aucune entrée `errors` dans la réponse.

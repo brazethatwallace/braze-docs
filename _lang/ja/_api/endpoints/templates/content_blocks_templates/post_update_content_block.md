@@ -1,7 +1,7 @@
 ---
 nav_title: "POST:コンテンツブロックを更新する"
 article_title: "POST:コンテンツブロックを更新する"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `content` | オプション | 文字列 | Content Blocks内のHTMLまたはテキストコンテンツ。 |
 | `state` | オプション | 文字列 | `active` または `draft` を選択します。指定がない場合のデフォルトは `active` です。 |
 | `tags` | オプション | 文字列の配列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)はすでに存在している必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 ```bash
@@ -105,7 +105,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/upd
 | `Tags must be an array` | タグは文字列の配列としてフォーマットする必要があります（例: `["marketing", "promotional", "transactional"]`）。 |
 | `All tags must be strings` | タグが引用符 (`""`) で囲まれていることを確認してください。 |
 | `Some tags could not be found` | コンテンツブロックの作成時にタグを追加するには、そのタグがすでにBrazeに存在している必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

@@ -99,7 +99,7 @@ Esta tabla muestra cómo cada permiso heredado se mapea a los permisos granulare
 | Equipo | Manage Media Library | View Media Library Assets<br>Edit Media Library Assets<br>Delete Media Library Assets |
 | Equipo | Manage Dashboard Users | Edit Dashboard Users |
 | Equipo | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Segments |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Legacy to granular permissions mapping" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

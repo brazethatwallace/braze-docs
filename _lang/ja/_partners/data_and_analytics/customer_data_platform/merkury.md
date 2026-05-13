@@ -1,7 +1,7 @@
 ---
 nav_title: Merkury
 article_title: Merkury
-description: "この参考記事では、Brazeとアプリ向けエンタープライズIDプラットフォームであるMerkuryのパートナーシップについて概説している。Brazeの顧客は、`MerkuryID`を活用してサイト訪問者の認識率を高めることができる。"
+description: "このリファレンス記事では、BrazeとアプリのエンタープライズIDプラットフォームであるMerkuryとのパートナーシップについて説明します。`MerkuryID`を活用してBrazeの顧客のサイト訪問者認識率を向上させることができます。"
 page_type: partner
 search_tag: Partner
 
@@ -9,60 +9,59 @@ search_tag: Partner
 
 # Merkury
 
-> [Merkury](https://merkury.merkleinc.com/) は、Merkle のエンタープライズアイデンティティプラットフォームです。ファーストパーティ Cookie レスアイデンティティ機能により、ブランドが消費者とのやり取り、エクスペリエンス、収益を最大化できるように支援します。`MerkuryID` は、ブランドの既知および未知の顧客と見込み客のレコード、サイトやアプリの訪問履歴、および消費者データを、1つの永続的な個人 ID に統合します。
+> [Merkury](https://merkury.merkleinc.com/)は、Merkleのエンタープライズアイデンティティプラットフォームです。ファーストパーティCookieレスアイデンティティ機能により、ブランドが消費者とのエンゲージメント、エクスペリエンス、収益を最大化できるように支援します。`MerkuryID`は、ブランドの既知および未知の顧客と見込み客のレコード、サイトやアプリの訪問履歴、および消費者データを、1つの永続的な個人IDに統合します。
 
-_この統合は Merkury によって管理されます。_
+_この統合はMerkuryによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と Merkury の統合により、`MerkuryID` を活用して、Braze のお客様のサイト訪問者認識率を向上させることができます。ブランドのメール購読者である訪問者を認識すると、Merkuryはサブスクライバーのメールアドレスを含むようにプロファイルを更新する。`MerkuryID` の認識機能の向上により、エンゲージメントとパーソナライゼーションの機会が拡大し、送信されるサイト放棄メールの量と関連収益がすぐに増加します。 
+BrazeとMerkuryの統合により、`MerkuryID`を活用してBrazeの顧客のサイト訪問者認識率を向上させることができます。ブランドのメール購読者である訪問者を認識すると、Merkuryはサブスクライバーのメールアドレスを含むようにBrazeプロファイルを更新します。`MerkuryID`の認識機能の向上により、エンゲージメントとパーソナライゼーションの機会が拡大し、送信されるサイト放棄メールの量と関連収益がすぐに増加します。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
-| Merkle アカウント | このパートナーシップを活用するには、Merkle アカウントが必要です。 |
-| Merkleクライアント ID | Merkle の担当者からクライアント ID を取得します。 |
-| マーキュリータグ | Merkle の Merkury タグを Web サイトに配置します。 |
-| Braze RESTおよびSDKエンドポイント | REST または SDK エンドポイントの URL。エンドポイントはインスタンスの [Braze URL]({{site.baseurl}}/api/basics/#endpoints) に応じて異なります。 |
-| Braze REST API キー | `users.track, users.export.ids, users.export.segment, and segments.list`の権限を持つBraze REST APIキー。<br><br>これは **Brazeダッシュボード > [開発者コンソール] > [REST API キー] > [新しい API キーを作成]** で作成できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Merkleアカウント | このパートナーシップを活用するには、Merkleアカウントが必要です。 |
+| MerkleクライアントID | Merkleの担当者からクライアントIDを取得します。 |
+| Merkuryタグ | MerkleのMerkuryタグをWebサイトに配置します。 |
+| Braze RESTおよびSDKエンドポイント | RESTまたはSDKエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
+| Braze REST APIキー | `users.track, users.export.ids, users.export.segment, and segments.list`の権限を持つBraze REST APIキー。<br><br>これは**Brazeダッシュボード > 開発者コンソール > REST APIキー > 新しいAPIキーを作成**で作成できます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert important %}
-Braze への Merkury アイデンティティコネクターのリクエストは、Braze API レート制限仕様の範囲内で動作します。ご質問がある場合は、Braze または Merkle アカウントマネージャーにお問い合わせください。<br><br>Merkuryは、修飾されたセッションの最後に少なくとも1つのリクエストを送信する。
+BrazeへのMerkuryアイデンティティコネクターのリクエストは、Braze APIレート制限仕様の範囲内で動作します。ご質問がある場合は、BrazeまたはMerkleアカウントマネージャーにお問い合わせください。<br><br>Merkuryは、条件を満たしたセッションの最後に少なくとも1つのリクエストを送信します。
 {% endalert %}
 
-## サイドバイサイドの SDK 統合
+## サイドバイサイドのSDK統合 {#side-by-side-sdk-integration}
 
-Merkle のクライアントサイド Merkury タグを使用して Braze デバイスをキャプチャし、識別のためにMerkury ID コネクターエンドポイントに転送します。
+MerkleのクライアントサイドMerkuryタグを使用してBrazeデバイスをキャプチャし、識別のためにMerkuryアイデンティティコネクターエンドポイントに転送します。
 
-### ステップ1:BrazeウェブSDKタグを設定する
+### ステップ1:Braze Web SDKタグを設定する {#step-1-setup-braze-web-sdk-tag}
 
-この統合を使用するには、Web サイトに[Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#install-gtm) を導入している必要があります。
+この統合を使用するには、Webサイトに[Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#install-gtm)を導入している必要があります。
 
-### ステップ2:Merkle の Merkury タグを導入する
+### ステップ2:MerkleのMerkuryタグを導入する {#step-2-deploy-merkles-merkury-tag}
 
-WebサイトにMerkuryタグを配置して、Merkury IDコネクタをWebサイトで利用できるようにする。Merkleアカウントマネージャーから詳しいガイドが提供される。
+WebサイトにMerkuryタグを配置して、MerkuryアイデンティティコネクターをWebサイトで利用できるようにします。Merkleアカウントマネージャーから詳しい手順ガイドが提供されます。
 
-### ステップ 3:カスタム属性を作成する
+### ステップ3:カスタム属性を作成する {#step-3-create-custom-attributes}
 
-Merkuryアイデンティティコネクターは以下のフィールドに値を入力するため、Brazeで[カスタム属性として]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attributes)作成する必要がある。
+Merkuryアイデンティティコネクターは以下のフィールドに値を入力するため、Brazeで[カスタム属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes)として作成する必要があります。
 
 | 属性名 | データタイプ | 説明 |
 | --- | --- | --- |
-| `hmid` | String | Merkle の Merkury ID |
-| `confidence_score` | 数値 | Merkury がどの程度の信頼度で識別できたか (1～8、小さいほど良い) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `hmid` | 文字列 | MerkleのMerkury ID |
+| `confidence_score` | 数値 | Merkuryがどの程度の信頼度で識別できたか（1～8、小さいほど良い） |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3: Create custom attributes" }
 
-### ステップ4:Merkle にユーザーメールユニバースを提供する
+### ステップ4:Merkleにユーザーメールユニバースを提供する {#step-4-provide-merkle-with-user-email-universe}
 
-Merkle では、許容されるメールユニバースのセグメンテーションエクスポートが推奨されています。これは、アクティブな許容ユーザーの日次エクスポートでフォローアップできる。
+Merkleでは、許容されるメールユニバースのセグメンテーションエクスポートを推奨しています。これは、アクティブな許容ユーザーの日次エクスポートでフォローアップできます。
 
-以下のフィールドは必須である：
+以下のフィールドは必須です：
 
 - `braze_id`
 - `external_id`
 - メールアドレス
 
-詳細については、Brazeの担当者に問い合わせること。
-
+詳細については、Brazeの担当者にお問い合わせください。

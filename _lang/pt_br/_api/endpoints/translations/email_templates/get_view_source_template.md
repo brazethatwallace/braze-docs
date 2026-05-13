@@ -32,7 +32,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | Parâmetro     | Obrigatória | Tipo de dados | Descrição                          |
 |---------------|-------------|---------------|------------------------------------|
 | `template_id` | Obrigatória | String        | O ID do seu modelo de e-mail.      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

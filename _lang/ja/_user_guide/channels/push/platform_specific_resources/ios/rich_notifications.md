@@ -41,7 +41,7 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
 
 ユーザーはさまざまな状況でプッシュ通知を表示する可能性があり、以下のように異なる長さのテキストが表示されることがあります。
 
-<table>
+<table aria-label="通知の状態">
   <caption>通知の状態</caption>
 <thead>
   <tr>
@@ -58,7 +58,7 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification states" }
 
 ![ロック画面、展開時、デバイスアクティブ時に表示されるプッシュ通知の例。]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

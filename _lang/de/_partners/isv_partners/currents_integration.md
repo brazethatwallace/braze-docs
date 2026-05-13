@@ -57,7 +57,7 @@ Außerdem weicht ihre Struktur leicht von der flachen Struktur der [Messaging-En
 |----|-----------|
 | `"user"` | Enthält Nutzer:innen-Eigenschaften wie `user_id`, `external_user_id`, `device_id` und `timezone`. |
 | `"properties"` | Enthält Attribute eines Events, wie z. B. die `app/campaign/canvas/platform`, auf die es sich bezieht. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 Wenn ein nachgelagerter Endpunkt eine Payload mit null Events oder einen leeren Anfragekörper empfängt, sollte das Ergebnis als No-Op betrachtet werden, d. h. es sollten keine nachgelagerten Effekte durch diesen Aufruf auftreten. Sie sollten jedoch trotzdem den `Authorization`-Header überprüfen (wie bei einem normalen API-Aufruf) und bei [ungültigen Zugangsdaten](#authentication) eine entsprechende HTTP-Antwort geben, z. B. `401` oder `403`. Damit weiß Braze, dass die Zugangsdaten des Konnektors gültig sind.
 
@@ -430,7 +430,7 @@ Wenn der Wiederholungsmechanismus von Braze ein Event länger als 24 Stunden nic
 
 Die folgenden HTTP-Statuscodes werden von unserem Konnektor-Client erkannt:
 
-<table>
+<table aria-label="Error handling and retry mechanism">
   <caption>Fehlerbehandlung und Wiederholungsmechanismus</caption>
   <thead>
     <tr>
@@ -482,4 +482,4 @@ Die folgenden HTTP-Statuscodes werden von unserem Konnektor-Client erkannt:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

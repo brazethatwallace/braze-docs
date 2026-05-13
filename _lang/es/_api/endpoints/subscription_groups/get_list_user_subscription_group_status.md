@@ -16,7 +16,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 > Utiliza este punto de conexión para obtener el estado de suscripción de un usuario en un grupo de suscripción.
 
-Estos grupos estarán disponibles en la página **Subscription Group**. La respuesta de este punto de conexión incluirá el ID externo y la categoría de suscrito, dado de baja o desconocido para el grupo de suscripción específico solicitado en la llamada a la API. Esto se puede utilizar para actualizar el estado del grupo de suscripción en posteriores llamadas a la API o para mostrarlo en una página web alojada.
+Estos grupos estarán disponibles en la página **Subscription Group**. La respuesta de este punto de conexión incluirá el ID externo y el valor suscrito, dado de baja o desconocido para el grupo de suscripción específico solicitado en la llamada a la API. Esto se puede utilizar para actualizar el estado del grupo de suscripción en posteriores llamadas a la API o para mostrarlo en una página web alojada.
 
 Si quieres ver ejemplos o probar este punto de conexión para **Email Subscription Groups**:
 
@@ -47,8 +47,6 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `email` | Obligatorio* | Cadena | La dirección de correo electrónico del usuario. Se puede pasar como una matriz de cadenas con un máximo de 50.<br><br> Si envías una dirección de correo electrónico y un número de teléfono (sin `external_id`), se producirá un error. |
 | `phone` | Obligatorio* | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | El número de teléfono del usuario. Si no se incluye el correo electrónico, deberás incluir al menos un número de teléfono (con un máximo de 50).<br><br> Si envías una dirección de correo electrónico y un número de teléfono (sin `external_id`), se producirá un error. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 *Se requiere uno de `external_id`, `email` o `phone` para cada usuario.
 

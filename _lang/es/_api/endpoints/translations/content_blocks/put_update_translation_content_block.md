@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Actualizar traducción en un bloque de contenido"
 article_title: "PUT: Actualizar traducción en un bloque de contenido"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -33,12 +33,12 @@ No hay parámetros de ruta para este punto de conexión.
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id` | Obligatoria | Cadena | El ID de tu bloque de contenido. |
-| `locale_id` | Obligatoria | Cadena | El ID (UUID) de la configuración regional. |
-| `translation_map` | Obligatoria | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id` | Obligatorio | Cadena | El ID de tu bloque de contenido. |
+| `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
+| `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

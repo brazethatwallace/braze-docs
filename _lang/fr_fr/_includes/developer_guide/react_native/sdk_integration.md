@@ -85,7 +85,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. La clé API et l'endpoint n
 | `iosPushStoryAppGroup`                        | chaîne de caractères  | iOS uniquement. Le groupe d'applications utilisé pour iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booléen | iOS uniquement. Détermine si l'ID de l'appareil utilise un UUID généré aléatoirement.                                                                                       |
 | `iosForwardUniversalLinks`                    | booléen | iOS uniquement. Indique si le SDK doit automatiquement reconnaître et transmettre les liens universels aux méthodes système (par défaut : `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 L'extrait de code suivant montre un exemple de configuration `app.json` :
 
@@ -444,7 +444,7 @@ Dans votre `app.json`, ajoutez le plugin Braze Expo. Vous pouvez fournir les opt
 | `iosPushStoryAppGroup`                        | chaîne de caractères  | iOS uniquement. Le groupe d'applications utilisé pour iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | booléen | iOS uniquement. Détermine si l'ID de l'appareil utilise un UUID généré aléatoirement.                                                                                       |
 | `iosForwardUniversalLinks`                    | booléen | iOS uniquement. Indique si le SDK doit automatiquement reconnaître et transmettre les liens universels aux méthodes système (par défaut : `false`). Lorsque cette option est activée, le SDK transmet automatiquement les liens universels aux méthodes système définies dans [Prise en charge des liens universels dans votre application](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/). Introduit dans le SDK React Native v11.1.0 et le plugin Expo v3.2.0. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 L'extrait de code suivant montre un exemple de configuration `app.json` :
 
@@ -550,7 +550,7 @@ Exécutez votre application comme indiqué dans la [documentation Expo](https://
 
 #### Méthode 2 : Utiliser React Native CLI {#method-2-using-react-native-cli}
 
-##### Configuration Android {#set-up-android-1}
+##### Configuration Android
 
 **Étape 2.1 : Ajouter le plugin Kotlin Gradle**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Configuration iOS {#set-up-ios-1}
+##### Configuration iOS
 
 **Étape 2.5 : (Facultatif) Configurer le Podfile pour les XCFrameworks dynamiques**
 
@@ -860,7 +860,7 @@ import Braze from "@braze/react-native-sdk";
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
 
-Vous pouvez vérifier que le SDK est bien intégré en consultant les statistiques de session dans le tableau de bord. Si vous exécutez votre application sur l'une ou l'autre plateforme, vous devriez voir une nouvelle session apparaître dans le tableau de bord (dans la section **Aperçu**).
+Vous pouvez vérifier que le SDK est bien intégré en consultant les statistiques de session dans le tableau de bord. Si vous exécutez votre application sur l'une ou l'autre plateforme, vous devriez voir une nouvelle session apparaître dans le tableau de bord (dans la section **Overview**).
 
 L'extrait de code suivant montre comment ouvrir une session pour un utilisateur particulier dans votre application :
 
@@ -871,7 +871,7 @@ Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 Braze.changeUser("{some-user-id}");
 ```
 
-Recherchez l'utilisateur avec `{some-user-id}` dans le tableau de bord sous **Audience** > **Rechercher des utilisateurs**. Vous pouvez y vérifier que les données de session et d'appareil ont bien été enregistrées.
+Recherchez l'utilisateur avec `{some-user-id}` dans le tableau de bord sous **Audience** > **Search Users**. Vous pouvez y vérifier que les données de session et d'appareil ont bien été enregistrées.
 
 {% endtab %}
 {% tab React Native SDK 19.1.0 et antérieur %}

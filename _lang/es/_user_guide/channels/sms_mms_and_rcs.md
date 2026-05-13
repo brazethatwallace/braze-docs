@@ -36,7 +36,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 | Autenticación de dos factores | Entrega códigos de verificación de un solo uso para el inicio de sesión en cuentas y la confirmación de transacciones. |
 | Ofertas promocionales | Llega a los clientes con promociones de tiempo limitado, ventas flash y descuentos personalizados directamente en su teléfono. |
 | Soporte al cliente | Habilita conversaciones bidireccionales para resolver consultas de clientes, recopilar comentarios o confirmar solicitudes de servicio. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Comparación entre SMS, MMS y RCS {#sms-mms-and-rcs-compared}
 
@@ -50,7 +50,7 @@ RCS (servicios de comunicación enriquecida) se basa en SMS con una experiencia 
 
 - Entregar imágenes y video de alta resolución en lugar de solo texto plano.
 - Agregar respuestas y acciones sugeridas para que los clientes puedan responder con un solo toque.
-- Mostrar un perfil de remitente verificado con marca para que los mensajes sean fáciles de confiar.
+- Mostrar un perfil de remitente verificado con marca para que los mensajes resulten fáciles de confiar.
 - Admitir confirmaciones de lectura e indicadores de escritura donde los operadores lo permitan.
 
 RCS es adecuado para casos de uso como actualizaciones transaccionales (envíos, citas), promociones con contenido creativo enriquecido, soporte al cliente con rutas de respuesta rápida, e incorporación o tutoriales que se benefician de medios y acciones estructuradas. Para la configuración y migración desde SMS, consulta [Configuración de RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/).

@@ -204,7 +204,7 @@ Crea archivos de origen en S3 en formato JSON o CSV. Cada archivo debe incluir l
 | `PAYLOAD` | Sí | Una cadena JSON de los campos que se van a sincronizar con el elemento de catálogo en Braze. |
 | `DELETED` | Opcional | Cuando se establece en `true`, se elimina el elemento de catálogo correspondiente del catálogo. |
 | `UPDATED_AT` | *No compatible* | El almacenamiento de archivos no admite columnas `UPDATED_AT`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 Los nombres de archivo deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para ayudar a garantizar la unicidad.

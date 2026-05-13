@@ -16,6 +16,8 @@ Os eventos recomendados de eCommerce estão atualmente em acesso antecipado. Fal
 
 Para visualizar o dashboard de receita de eCommerce, acesse **Analytics** > **Criador de dashboard** e selecione **eCommerce Revenue - Last Touch Attribution**. Esse dashboard reporta a receita atribuída à última Campaign ou Canvas com a qual o usuário interagiu antes de fazer um pedido, dentro da janela de conversão selecionada.
 
+![Dashboard eCommerce Revenue - Last Touch Attribution mostrando estatísticas de receita de eCommerce, pedidos diários realizados e receita média diária de eCommerce, além de um gráfico de receita de eCommerce ao longo do tempo.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
+
 ## Métricas disponíveis {#available-metrics}
 
 | Métrica | Definição |
@@ -27,6 +29,8 @@ Para visualizar o dashboard de receita de eCommerce, acesse **Analytics** > **Cr
 | Receita de eCommerce por Campaign | Receita atribuída detalhada por Campaign. |
 | Receita de eCommerce por Canvas | Receita atribuída detalhada por Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+
+![Gráficos de receita de eCommerce por Campaign e receita de eCommerce por Canvas.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
 ## Modelo de atribuição {#attribution-model}
 
@@ -71,7 +75,6 @@ A receita e a contagem de pedidos usam cálculos padronizados da Braze.
 ### Dados excluídos {#excluded-data}
 
 Compras registradas usando o evento de compra legado não são incluídas. O dashboard **eCommerce Revenue - Last Touch Attribution** atualmente não oferece suporte a recursos vinculados a eventos de compra legados, como LTV ou relatório de receitas dentro de Campaigns ou Canvas.
-
 
 ## Tratamento de moedas {#currency-handling}
 

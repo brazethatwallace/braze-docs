@@ -9,7 +9,7 @@ search_tag: Partner
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents용 Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents용 Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
 > [Amplitude](https://amplitude.com/)는 제품 분석 및 비즈니스 인텔리전스 플랫폼입니다.
 
@@ -21,7 +21,7 @@ Braze와 Amplitude의 양방향 통합을 통해 [Amplitude 코호트를 동기�
 |---|---|
 | Amplitude 계정 | 이 파트너십을 활용하려면 [Amplitude 계정](https://amplitude.com/)이 필요합니다. |
 | Currents | 데이터를 Amplitude로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 데이터 내보내기 통합 {#data-export-integration}
 

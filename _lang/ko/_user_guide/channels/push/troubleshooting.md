@@ -148,7 +148,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데스크탑에서 Chrome 재설정" }
 
 {:start="4"}
 4. DevTools에서 **Application** 탭으로 이동하세요.

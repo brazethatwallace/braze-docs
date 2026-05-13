@@ -21,9 +21,9 @@ _この統合はFriendbuyによって管理されています。_
 | 前提条件 | 説明 |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Friendbuyアカウント | このパートナーシップを活用するには、[Friendbuyアカウント](https://retailer.friendbuy.io/)が必要です。 |
-| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。これは、Brazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。これはBrazeインスタンスのURLに応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Friendbuyの統合 {#integrating-friendbuy}
 
@@ -54,7 +54,7 @@ _この統合はFriendbuyによって管理されています。_
 | **Friendbuy Coupon Status** | 顧客に配布された最新のクーポンコードのステータス。注: ステータスは「distributed」または「redeemed」です。 | 文字列 |
 | **Friendbuy Coupon Currency** | 顧客に配布された最新のクーポンコードに関連する通貨コード（USD、CADなど）またはパーセント（%）。 | 文字列 |
 | **Friendbuy Coupon Campaign ID** | 顧客のために生成されたクーポンコードに関連するCampaign ID。 | 文字列 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
 
 ## デフォルトの動作 {#default-behavior}
 
@@ -74,4 +74,4 @@ Friendbuyは国際標準規格（E.164）を使用して実在する電話番号
 | 電話のみ | 顧客の電話番号のみがBrazeに送信されます。 |
 | どちらも選択しない | 顧客データはBrazeに送信されません。 |
 | 両方 | 顧客のメールアドレスと電話番号がBrazeに送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="チェックボックスの動作" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Checkbox behavior" }

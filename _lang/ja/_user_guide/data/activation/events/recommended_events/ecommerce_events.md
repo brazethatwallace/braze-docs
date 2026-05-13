@@ -29,7 +29,7 @@ eコマース推奨イベントは、**トランザクション**タブの**購�
 | 合計収益 | sum (`order_placed.total_value`) − sum (`order_refunded.total_value`) |
 | 合計注文数 | count (distinct `order_placed`) − count (distinct `order_cancelled`) |
 | 合計返金額 | sum (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
 
 ![合計収益、合計注文数、合計返金額を含む注文アクティビティセクション。]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
 
@@ -77,7 +77,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.product_viewed` |
 | 終了イベント | `ecommerce.product_viewed`、`ecommerce.cart_updated`、`ecommerce.checkout_started`、Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab カート放棄 %}
@@ -91,7 +91,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.cart_updated` |
 | 終了イベント | `ecommerce.cart_updated`、`ecommerce.checkout_started`、Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
 `ecommerce.cart_updated`イベントは置換モデルを使用します。送信されるたびにユーザーのカート状態が上書きされます。メッセージ内で{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用して、送信時の現在のカート内容を動的に表示してください。
@@ -109,7 +109,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.checkout_started` |
 | 終了イベント | Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab 注文確認とアンケート %}
@@ -122,7 +122,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | --- | --- |
 | エントリイベント | `ecommerce.order_placed` |
 | コンバージョンイベント | セッション開始または`ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -151,7 +151,7 @@ eコマース推奨イベントは、顧客が現在使用しているものと�
 | セグメントインサイト | セグメントインサイトダッシュボードにおけるSegment間の収益比較。 |
 | レポートビルダー | レポートビルダーで構築されたカスタムレポートの収益指標。 |
 | ダッシュボードビルダー | ダッシュボードビルダーで構築されたカスタムダッシュボードの収益指標。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 ユーザー以外の計算フィールド（例: CampaignまたはCanvasの収益）の場合、収益はすべてのレポートで同じ方法で計算されます: 注文内の製品ごとに`price`に`quantity`を掛け、各`order_placed`イベント内の製品全体で合計します。
 
@@ -174,7 +174,7 @@ Brazeは、データウェアハウス、BIツール、またはダウンスト�
 | [Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | eコマースイベントはカスタムイベントとして共有されます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入テーブルで利用可能です。 |
 | [SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | SegmentメンバーのCSVエクスポート。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
 | [Segmentごとのユーザープロファイルをエクスポート（API）]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | SegmentメンバーのユーザープロファイルデータがAPI経由で返されます。eコマースイベントはカスタムイベントとして含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### 特定の製品でユーザーをセグメント化するにはどうすればよいですか？ {#how-do-i-segment-users-by-a-specific-product}
 

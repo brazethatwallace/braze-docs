@@ -51,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `content` | Obrigatória | String | Conteúdo HTML ou de texto no bloco de conteúdo. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
 | `tags` | Opcional | Matriz de strings | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) já devem existir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 ```bash
@@ -100,7 +100,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `Tags must be an array` | As tags devem ser formatadas como uma matriz de strings, por exemplo, `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Confira se as tags estão entre aspas (`""`). |
 | `Some tags could not be found` | Para adicionar uma tag ao criar um bloco de conteúdo, a tag já deve existir na Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

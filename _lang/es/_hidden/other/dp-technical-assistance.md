@@ -117,7 +117,7 @@ Ten en cuenta que Braze podría seguir almacenando la dirección de correo elect
     <ul>
         <li>PROPERTIES para USERS_BEHAVIORS_CUSTOMEVENT</li>
         <li>PROPERTIES para USERS_BEHAVIORS_PURCHASE</li>
-        <li>MESSAGE_EXTRAS para:</li>
+        <li>MESSAGE_EXTRAS para:
             <ul>
             <li>USERS_MESSAGES_CONTENTCARD</li>
             <li>USERS_MESSAGES_EMAIL_SEND</li>
@@ -127,6 +127,7 @@ Ten en cuenta que Braze podría seguir almacenando la dirección de correo elect
             <li>USERS_MESSAGES_SMS_SEND</li>
             <li>Futuros eventos de envío de mensajes</li>
             </ul>
+        </li>
     </ul>
     <p>Puedes acceder a esta configuración a través de <b>Company Settings</b> > <b>Admin Settings</b> > <b>Security Settings</b>. Las preferencias de eliminación de datos se establecen por tipo o categoría de evento. Solo un usuario con permisos de administrador puede realizar cambios en esta configuración. Alternativamente, un administrador puede delegar estos permisos a otro usuario.</p>
     <p>Si se configura un tipo de evento o extra de mensaje para que se incluya en el proceso de eliminación, los datos de este campo se eliminarán en adelante para los usuarios para los que estés ejecutando el punto de conexión de la API REST de eliminación de usuarios. Además, cuando selecciones esta preferencia de eliminación, en el siguiente trabajo de eliminación programado, los datos de estos campos se eliminarán de cualquier conjunto de datos anonimizados existente que contenga estos campos. No será posible restaurar los campos de datos eliminados.</p>

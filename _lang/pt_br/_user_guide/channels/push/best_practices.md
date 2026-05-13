@@ -30,7 +30,7 @@ O tamanho máximo da carga útil depende da plataforma.
 | Android | 3.930 bytes |
 | iOS | 3.960 bytes |
 | Kindle | 5.985 bytes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 Se o seu push exceder o tamanho máximo da carga útil, a mensagem pode não ser enviada. Como melhor prática, mantenha sua carga útil em algumas centenas de bytes.
 
@@ -118,9 +118,9 @@ Embora você possa relutar em parar de enviar pushes para usuários que original
 
 ## Defina eventos de conversão para aberturas do app {#set-conversion-events-for-app-opens}
 
-Ao atribuir [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) a uma campanha de push, você pode rastrear aberturas do app por um determinado período após o recebimento da campanha. Definir um evento de conversão para aberturas do app fornece um insight diferente das estatísticas de resultados que você normalmente recebe após uma campanha de push.
+Ao atribuir [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) a uma Campaign de push, você pode rastrear aberturas do app por um determinado período após o recebimento da Campaign. Definir um evento de conversão para aberturas do app fornece um insight diferente das estatísticas de resultados que você normalmente recebe após uma Campaign de push.
 
-Embora todos os resultados de campanhas de push detalhem as aberturas diretas e as aberturas de uma mensagem (que incluem tanto aberturas diretas quanto [aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), o rastreamento de conversão acompanhará qualquer tipo de abertura, seja direta ou por influência.
+Embora todos os resultados de Campaigns de push detalhem as aberturas diretas e as aberturas de uma mensagem (que incluem tanto aberturas diretas quanto [aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)), o rastreamento de conversão acompanhará qualquer tipo de abertura, seja direta ou por influência.
 
 Além disso, ao usar o evento de conversão "abre o app", você está rastreando aberturas do app que ocorrem antes do prazo de conversão (por exemplo, três dias). Isso difere de uma abertura por influência, pois o tempo que um usuário tem para registrar uma abertura por influência pode variar de pessoa para pessoa, dependendo do comportamento de engajamento anterior de cada usuário.
 
@@ -135,12 +135,12 @@ Como as mensagens push são um tipo intrusivo de envio de mensagens que vai dire
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Inaceitável: (i) Criar uma interface para exibir apps, extensões ou plug-ins de terceiros semelhante à App Store ou como uma coleção de interesse geral. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) As notificações por push não devem ser obrigatórias para o funcionamento do app e não devem ser usadas para enviar informações pessoais sensíveis ou confidenciais. As notificações por push não devem ser usadas para fins de promoção ou marketing direto, a menos que os clientes tenham optado explicitamente por recebê-las por meio de linguagem de consentimento exibida na interface do seu app, e você forneça um método no seu app para que o usuário opte por não receber tais mensagens. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) Você não pode monetizar recursos integrados fornecidos pelo hardware ou sistema operacional, como notificações por push, a câmera ou o giroscópio; ou serviços e tecnologias da Apple, como acesso ao Apple Music, armazenamento iCloud ou APIs de Tempo de Uso. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Política da Google Play Store |
 | --- |
 | [Uso não autorizado ou imitação de funcionalidade do sistema](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) Não permitimos apps ou anúncios que imitem ou interfiram na funcionalidade do sistema, como notificações ou avisos. As notificações no nível do sistema podem ser usadas apenas para recursos essenciais de um app, como um app de companhia aérea que notifica os usuários sobre ofertas especiais ou um jogo que notifica os usuários sobre promoções dentro do jogo. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## Artigos relacionados {#related-articles}
 

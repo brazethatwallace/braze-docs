@@ -21,7 +21,7 @@ Die Integration von Braze und Adobe erlaubt es Ihnen, den Informationsfluss zwis
 | Currents | Um Daten zurück in Adobe zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
 | Adobe Experience Platform-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Adobe Experience Platform-Konto](https://experience.adobe.com/#/platform/home). |
 | Berechtigung zum Erstellen eines Konnektors | Sie benötigen die Berechtigung, eine Verbindung zu einer Streaming-Quelle herzustellen, um diese Integration nutzen zu können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -35,7 +35,7 @@ Die Integration von Braze und Adobe erlaubt es Ihnen, den Informationsfluss zwis
 
 Weitere Informationen zu Schemas finden Sie in der Dokumentation von Adobe zur [Erstellung von Schemas](https://experienceleague.adobe.com/en/docs/experience-platform/xdm/tutorials/create-schema-ui).
 
-### 2. Schritt: Verbinden Sie Braze mit der Adobe Experience Platform {#step-2-connect-braze-to-the-adobe-experience-platform}
+### 2. Schritt: Braze mit der Adobe Experience Platform verbinden {#step-2-connect-braze-to-the-adobe-experience-platform}
 
 1. Gehen Sie in Adobe Experience Platform zu **Sources** > **Catalog** > **Marketing automation**.
 2. Wählen Sie **Add data** für Braze-Currents.
@@ -69,7 +69,7 @@ Sammeln Sie die folgenden Zugangsdaten, um sie in Braze einzugeben, damit Braze 
 | Sandbox Name  | Die Sandbox, die mit Ihrer Adobe Experience Platform-Quelle verknüpft ist.   |
 | Dataflow ID   | Die Dataflow-ID, die mit Ihrer Adobe Experience Platform-Quelle verknüpft ist.   |
 | Streaming Endpoint  | Der Streaming-Endpunkt, der mit Ihrer Adobe Experience Platform-Quelle verknüpft ist. Braze konvertiert diesen automatisch in den Batch-Streaming-Endpunkt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Zugangsdaten erfassen" }
 
 ### 4. Schritt: Currents zum Streamen von Daten an Ihre Datenquelle konfigurieren {#step-4-configure-currents-to-stream-data-to-your-data-source}
 

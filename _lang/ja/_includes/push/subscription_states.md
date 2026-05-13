@@ -1,37 +1,37 @@
-## プッシュ通知のサブスクリプションの状態{#push-sub-states}
+## プッシュサブスクリプションの状態 {#push-sub-states}
 
-Brazeの 「プッシュ通知のサブスクリプションの状態」は、プッシュ通知の受信を希望する**ユーザー**のグローバルな嗜好を識別します。サブスクリプションの状態はユーザーベースなので、個々のアプリに固有のものではない。サブスクリプションの状態は、プッシュ通知のターゲットにするユーザーを決定するときに役立つフラグです。
+Brazeの「プッシュサブスクリプションの状態」は、プッシュ通知の受信に対する**ユーザー**のグローバルな設定を識別します。サブスクリプションの状態はユーザーベースであるため、個々のアプリに固有のものではありません。サブスクリプションの状態は、プッシュ通知のターゲットにするユーザーを決定する際に役立つフラグとなります。
 
 {% alert note %}
-ユーザーのプッシュ通知のサブスクリプションの状態は、ユーザーのすべてのデバイスを含むユーザープロファイル全体に適用されます。
+ユーザーのプッシュサブスクリプションの状態は、ユーザーのすべてのデバイスを含むユーザープロファイル全体に適用されます。
 {% endalert %}
 
-以下のサブスクリプション状態オプションが存在する： `Subscribed`, `Opted-In`, および `Unsubscribed`。
+以下のサブスクリプション状態オプションがあります：`Subscribed`、`Opted-In`、および `Unsubscribed`。
 
-デフォルトでは、ユーザーがプッシュ通知でメッセージを受け取るには、プッシュサブスクリプション状態が「許可」または`Subscribed`「拒否」のいずれかでなければならず、かつフォアグラウンド`Opted-In`プッシュがイネーブルドになっている必要がある。メッセージの作成時に、この設定をオーバーライドできます。
+デフォルトでは、ユーザーがプッシュ通知でメッセージを受け取るには、プッシュサブスクリプション状態が `Subscribed` または `Opted-In` のいずれかであり、かつフォアグラウンドプッシュが有効になっている必要があります。メッセージの作成時に、必要に応じてこの設定をオーバーライドできます。
 
-|オプトイン状態|説明|
+| オプトイン状態 | 説明 |
 |---|---|
-|`Subscribed`| Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュ通知のサブスクリプション状態。 |
-|`Opted-In`| ユーザーは、プッシュ通知を受け取ることを明示的に希望した。ユーザーがOSレベルのプッシュ通知プロンプトを受け入れた場合、Brazeは自動的に`Opted-In`そのユーザーのオプトイン状態を「許可済み」に変更する。<br><br>Android 12 またはそれ以前のユーザーには適用されません。|
-|`Unsubscribed`| ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除した。デフォルトでは、Brazeのプッシュキャンペーンは、プッシュ通知に対して`Opted-in`「許可`Subscribed`」または「拒否」設定のユーザーのみを対象とする。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Subscribed` | Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュサブスクリプション状態。 |
+| `Opted-In` | ユーザーがプッシュ通知を受け取ることを明示的に希望しました。ユーザーがOSレベルのプッシュプロンプトを承認した場合、Brazeは自動的にそのユーザーのオプトイン状態を `Opted-In` に変更します。<br><br>Android 12またはそれ以前のユーザーには適用されません。|
+| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除しました。デフォルトでは、Brazeのプッシュ Campaignsは、プッシュ通知に対して `Subscribed` または `Opted-in` のユーザーのみを対象とします。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
 
 {% alert important %}
-Braze で、ユーザーのプッシュ通知のサブスクリプションの状態を自動的に `Unsubscribed` にすることはありません。ユーザーのプッシュサブスクリプション状態が の場合、そのユーザーのセグメンテーションにおける`Unsubscribed``Foreground Push Enabled` フィルターは であることを`false`覚えておけ。
+Brazeがユーザーのプッシュサブスクリプションの状態を自動的に `Unsubscribed` に変更することはありません。ユーザーのプッシュサブスクリプション状態が `Unsubscribed` の場合、そのユーザーのセグメンテーションにおける `Foreground Push Enabled` フィルターは `false` になることを覚えておいてください。
 {% endalert %}
 
-### プッシュ通知のサブスクリプションの状態の更新 {#update-push-subscription-state}
+### プッシュサブスクリプションの状態の更新 {#update-push-subscription-state}
 
-ユーザーのプッシュサブスクリプション状態を更新する以下の方法を検討せよ：
+ユーザーのプッシュサブスクリプション状態を更新する以下の方法を確認してください。
 
-#### 自動オプトイン (デフォルト)
+#### 自動オプトイン（デフォルト） {#automatic-opt-in-default}
 
-Braze はデフォルトで、ユーザーが初めてアプリのプッシュ通知を承認したときに、ユーザーのプッシュ通知のサブスクリプションの状態を `Opted-In` に設定します。Braze はまた、ユーザーがシステム設定でプッシュ許可を無効にした後、再度プッシュ許可を有効にした場合にもこれを行います。
+Brazeはデフォルトで、ユーザーが初めてアプリのプッシュ通知を承認したときに、ユーザーのプッシュサブスクリプション状態を `Opted-In` に設定します。また、ユーザーがシステム設定でプッシュ権限を無効にした後、再度有効にした場合にも同様の処理を行います。
 
 {% tabs local %}
 {% tab android %}
-このデフォルトの動作を無効にするには、Android Studio プロジェクトの `braze.xml` ファイルに次のプロパティを追加します。
+このデフォルトの動作を無効にするには、Android Studioプロジェクトの `braze.xml` ファイルに次のプロパティを追加します。
 
 ```xml
 <bool name="com_braze_optin_when_push_authorized">false</bool>
@@ -39,7 +39,7 @@ Braze はデフォルトで、ユーザーが初めてアプリのプッシュ�
 {% endtab %}
 
 {% tab swift %}
-[Braze Swift SDKバージョン 7.5.0 から](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)、Xcode プロジェクトの `AppDelegate.swift` ファイルに `optInWhenPushAuthorized` の設定を追加することで、この動作を無効にしたり、さらにカスタマイズしたりすることができる：
+[Braze Swift SDKバージョン7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)以降では、Xcodeプロジェクトの `AppDelegate.swift` ファイルに `optInWhenPushAuthorized` の設定を追加することで、この動作を無効にしたり、さらにカスタマイズしたりすることができます。
 
 ```swift
 configuration.optInWhenPushAuthorized = false // disables the default behavior
@@ -50,19 +50,19 @@ AppDelegate.braze = braze
 {% endtab %}
 {% endtabs %}
 
-#### SDKの統合
+#### SDKの統合 {#sdk-integration}
 
-[Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype)、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-push-notification-subscription-type.html)、または [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/set(pushnotificationsubscriptionstate:)) 上で `setPushNotificationSubscriptionType` メソッドを使用して、Braze SDK でユーザーの購読状態を更新できる。例えば、この方法を使って、ユーザーが手動でプッシュ通知を有効または無効にできる設定ページをアプリ内に作成することができる。
+[Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype)、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-push-notification-subscription-type.html)、または[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/set(pushnotificationsubscriptionstate:))で `setPushNotificationSubscriptionType` メソッドを使用して、Braze SDKでユーザーのサブスクリプション状態を更新できます。例えば、このメソッドを使って、ユーザーが手動でプッシュ通知を有効または無効にできる設定ページをアプリ内に作成することができます。
 
 #### REST API
 
-ユーザーのサブスクリプションの状態を更新するには、Braze REST API で[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーの [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object) 属性を更新します。
+ユーザーのサブスクリプション状態を更新するには、Braze REST APIの[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーの [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/) 属性を更新します。
 
-### プッシュ通知のサブスクリプションの状態の確認
+### プッシュサブスクリプションの状態の確認 {#checking-push-subscription-state}
 
-![John Doeのユーザープロファイルで、プッシュ購読の状態がSubscribedに設定されている。]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![John Doeのユーザープロファイルで、プッシュサブスクリプションの状態が購読中に設定されている。]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Brazeでは、以下のいずれかの方法でユーザーのプッシュ通知サブスクリプション状態を確認できる：
+Brazeでは、以下のいずれかの方法でユーザーのプッシュサブスクリプション状態を確認できます。
 
-* **ユーザープロフィール:**Braze ダッシュボードの [**[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)**] ページから、個々のユーザープロファイルにアクセスできます。Eメールアドレス、電話番号、または外部ユーザーIDを介して）ユーザーのプロフィールを見つけた後、**Engagement**タブを選択してユーザーの購読状態を表示し、手動で調整することができる。
-* **REST API でのエクスポート:**Export[Users by segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[Users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルを JSON 形式でエクスポートすることができる。Brazeは、デバイスごとのプッシュ通知イネーブルメント情報を含むプッシュトークンオブジェクトを返す。
+* **ユーザープロファイル：** Brazeダッシュボードの[**ユーザー検索**]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)ページから、個々のユーザープロファイルにアクセスできます。（メールアドレス、電話番号、または外部ユーザーIDを使用して）ユーザーのプロファイルを見つけた後、**Engagement**タブを選択してユーザーのサブスクリプション状態を表示し、手動で調整することができます。
+* **REST APIでのエクスポート：** [Segmentごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。

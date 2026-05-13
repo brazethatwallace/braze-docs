@@ -94,7 +94,7 @@ Para obtener una lista completa de los campos de notificación push, consulta la
 | `brazeProperties` | Objeto | Representa las propiedades de Braze asociadas a la campaña (pares clave-valor). |
 | `ios` | Objeto | Representa campos específicos de iOS. |
 | `android` | Objeto | Representa campos específicos de Android. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Paso 3: Prueba de visualización de notificaciones push {#step-3-test-displaying-push-notifications}
 

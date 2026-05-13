@@ -18,7 +18,7 @@ description: "Saiba como definir e configurar o público do seu agente do BrazeA
 | **Controle aleatório** | Clientes que recebem opções selecionadas aleatoriamente (comparação de referência) |
 | **Business-as-Usual (opcional)** | Clientes que recebem a jornada de marketing atual (para comparação com o desempenho existente) |
 | **Holdout (opcional)** | Clientes que não recebem comunicações (para medir o impacto geral da campanha) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Treatment groups" }
 
 ## Configure seu público {#configure-your-audience}
 

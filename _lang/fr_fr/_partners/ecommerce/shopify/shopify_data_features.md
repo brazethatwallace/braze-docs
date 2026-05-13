@@ -432,7 +432,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,7 +469,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes d
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -515,7 +515,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,7 +544,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -599,7 +599,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -650,7 +650,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -684,7 +684,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -721,7 +721,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
@@ -746,7 +746,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Variable | Liquid templating |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert note %}
@@ -809,7 +809,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 | `shopify_last_order_name` | Le nom de la dernière commande du client. Correspond directement au champ `name` de la ressource de commande. |
 | `shopify_zipcode` | Le code postal du client issu de son adresse par défaut. |
 | `shopify_province` | La province du client issue de son adresse par défaut. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
 
 {% alert important %}
 Un problème connu avec la version actuelle de l'API Shopify empêche l'attribut utilisateur `shopify_last_order_name` de se remplir correctement. Voici l'impact sur les utilisateurs :<br><br>
@@ -886,4 +886,4 @@ Le tableau suivant résume les données incluses dans ce chargement initial.
 | Événements recommandés Braze | Événements personnalisés Shopify | Attributs standard Braze | Statuts d'abonnement Braze |
 | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Prénom</li><li>Nom de famille</li><li>Téléphone</li><li>Ville</li><li>Pays</li><li>Chiffre d'affaires total</li><li>Remboursements totaux</li><li>Total des commandes</li></ul>{:/} | {::nomarkdown}<ul><li>Abonnements marketing par e-mail associés à cette boutique Shopify</li><li>Abonnements marketing par SMS associés à cette boutique Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Données synchronisées" }

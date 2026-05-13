@@ -9,7 +9,7 @@ search_tag: Partner
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude pour Currents {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude pour Currents {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
 > [Amplitude](https://amplitude.com/) est une plateforme d'analyse de produits et d'aide à la décision.
 
@@ -21,7 +21,7 @@ L'intégration bidirectionnelle entre Braze et Amplitude vous permet de [synchro
 |---|---|
 | Compte Amplitude | Un [compte Amplitude](https://amplitude.com/) est nécessaire pour bénéficier de ce partenariat. |
 | Currents | Pour pouvoir exporter des données dans Amplitude, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de l'exportation des données {#data-export-integration}
 

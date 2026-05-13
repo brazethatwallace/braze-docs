@@ -164,9 +164,9 @@ Braze에서 새 [웹훅 Campaign]({{site.baseurl}}/user_guide/channels/webhooks/
 
 ### CSV 파일에서 가져오기 {#from-a-csv-file}
 
-이 섹션에서는 Braze 사용자 데이터를 세그먼트에서 Lytics로 가져오는 방법을 설명합니다.
+이 섹션에서는 Braze 사용자 데이터를 Segment에서 Lytics로 가져오는 방법을 설명합니다.
 
-#### 1단계: 승인 생성 {#step-1-create-an-authorization}
+#### 1단계: 승인 생성
 
 Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Authorization** 대시보드로 이동합니다. **Create New Authorization**를 선택하고 **Custom Integrations**를 검색하여 선택합니다.
 
@@ -184,7 +184,7 @@ Lytics에서 내비게이션 바의 **Data** 콘솔 내 **Authorization** 대시
 
 #### 2단계: Segment 데이터를 CSV로 내보내기 {#step-2-export-your-segment-data-to-csv}
 
-Braze에서 **오디언스** > **Segments**로 이동합니다. 내보내려는 Segment를 찾은 다음 <i class="fas fa-gear" aria-label="Settings"></i>를 선택하고 **CSV Export User Data**를 선택합니다. Segment에서 최대 500,000명의 사용자를 내보낼 수 있습니다. 자세한 내용은 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)를 참조하세요.
+Braze에서 **오디언스** > **Segments**로 이동합니다. 내보내려는 Segment를 찾은 다음 <i class="fas fa-gear" aria-label="설정"></i>을 선택하고 **CSV Export User Data**를 선택합니다. Segment에서 최대 500,000명의 사용자를 내보낼 수 있습니다. 자세한 내용은 [Segment 데이터를 CSV로 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/)를 참조하세요.
 
 #### 3단계: CSV 가져오기 작업 구성 {#step-3-configure-a-csv-import-job}
 

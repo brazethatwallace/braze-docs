@@ -40,7 +40,7 @@ Bevor Sie den Facebook-Audience-Schritt in Canvas einrichten, müssen Sie sicher
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Ein zentrales Tool zur Verwaltung der Facebook-Assets Ihrer Marke (z. B. Anzeigenkonten, Seiten und Apps). |
 | Facebook-Anzeigenkonto | [Facebook](https://www.facebook.com/business/help/910137316041095) | Ein aktives Facebook-Anzeigenkonto, das an den Business Manager Ihrer Marke gebunden ist.<br><br>Stellen Sie sicher, dass Ihr Facebook-Business-Manager-Administrator Ihnen entweder die Berechtigung „Kampagnen verwalten“ oder „Anzeigenkonten verwalten“ für die Facebook-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. Stellen Sie außerdem sicher, dass Sie die Geschäftsbedingungen für Ihr Anzeigenkonto akzeptiert haben. |
 | Facebook-Bedingungen für angepasste Zielgruppen | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Akzeptieren Sie die Facebook-Bedingungen für angepasste Zielgruppen für Ihre Facebook-Anzeigenkonten, die Sie mit Braze verwenden möchten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -148,7 +148,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Facebook verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Facebook synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Facebook-Token oder das Löschen der angepassten Zielgruppe auf Facebook sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas ein Facebook-Schritt ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Es gibt eine Verzögerung bei der Berichterstattung für die Metriken „Nutzer:innen synchronisiert“ und „Fehlerhafte Nutzer:innen“ aufgrund der internen Verarbeitung.
@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <caption>Fehlerbehebung</caption>
   <thead>
     <tr>

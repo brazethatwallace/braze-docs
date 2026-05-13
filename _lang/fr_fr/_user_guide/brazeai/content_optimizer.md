@@ -7,7 +7,7 @@ page_type: reference
 page_order: 3
 ---
 
-# Optimiseur de contenu
+# Optimiseur de contenu {#content-optimizer}
 
 > L'Optimiseur de contenu est un agent qui vous aide à tester et à optimiser le contenu de vos messages à grande échelle, en utilisant l'intelligence artificielle pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
 
@@ -15,7 +15,7 @@ page_order: 3
 L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail et notifications push. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
 {% endalert %}
 
-## À propos de l'Optimiseur de contenu
+## À propos de l'Optimiseur de contenu {#about-content-optimizer}
 
 L'Optimiseur de contenu est un agent qui s'exécute dans une étape du Canvas. Il vous aide à définir les composants du message à tester, à générer des variantes à l'aide de l'intelligence artificielle générative ou d'une saisie manuelle, et à optimiser automatiquement les combinaisons de contenu envoyées aux utilisateurs. Cette fonctionnalité vous permet de :
 
@@ -27,28 +27,28 @@ L'Optimiseur de contenu est un agent qui s'exécute dans une étape du Canvas. I
 
 Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
-### E-mail
+### E-mail {#email}
 
 | Cas d'utilisation de l'optimisation | Objectif | Description |
 | --- | --- | --- |
 | Variantes de la ligne d'objet | Augmenter le taux d'ouverture | Testez le ton, l'urgence, la personnalisation et l'utilisation d'émojis. |
-| Styles de l'en-tête | Renforcer l'engagement | Comparez les messages émotionnels, axés sur la valeur et clairs dans l'en-tête du corps du texte. | 
+| Styles de l'en-tête | Renforcer l'engagement | Comparez les messages émotionnels, axés sur la valeur et clairs dans l'en-tête du corps du texte. |
 | Format du contenu du corps | Améliorer la lisibilité et l'engagement | Testez la narration par rapport aux listes de fonctionnalités, les puces par rapport aux paragraphes et la longueur du contenu. |
 | Ton et texte du CTA | Augmenter les clics | Comparez les formulations d'appel à l'action axées sur l'action, axées sur les avantages et à la première personne. |
 | Combinaisons de contenus thématiques | Découvrir des combinaisons performantes | Combinez les éléments thématiques (objet, corps du texte et CTA) afin de déterminer la meilleure combinaison globale. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-mail" }
 
-### Notifications push
+### Notifications push {#push-notifications}
 
 | Cas d'utilisation de l'optimisation | Objectif | Description |
 | --- | --- | --- |
 | Variantes du titre | Augmenter le taux d'ouverture | Testez la clarté, l'urgence, la personnalisation et le ton dans le titre de la notification push. |
 | Styles du corps du texte | Améliorer l'engagement | Comparez les messages concis, axés sur les avantages et orientés vers l'action dans le corps de la notification push. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notifications push" }
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 L'Optimiseur de contenu utilise un algorithme [multi-armed bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit) non contextuel pour attribuer davantage d'envois aux variantes les plus performantes et réduire l'attribution aux variantes moins performantes. Au fil du temps, cela se traduit par une amélioration continue du contenu de vos messages, avec une intervention manuelle minimale.
 
@@ -60,24 +60,24 @@ L'Optimiseur de contenu est similaire à l'étape Message dans Canvas, avec des 
 
 Chaque utilisateur reçoit un seul message par entrée dans l'étape d'Optimiseur de contenu. Les réentrées sont traitées comme de nouvelles entrées, sans mémoire des variantes précédentes.
 
-## Configuration de l'entrée dans le Canvas
+## Configuration de l'entrée dans le Canvas {#canvas-entry-setup}
 
 Pour obtenir les meilleurs résultats, utilisez l'Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, par exemple dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'agent n'aura pas le temps de tirer des enseignements des premiers résultats. L'étape se comportera alors davantage comme un test A/B statique que comme un moteur d'optimisation en temps réel.
 
 L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée récurrente quotidienne, ainsi qu'aux Canvas déclenchés par événement ou par API avec un volume d'entrées quotidien relativement constant. Si vous utilisez l'Optimiseur de contenu dans des Canvas à envoi unique ou à entrées « en pic » (comme les envois mensuels récurrents), envisagez d'utiliser les [contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) pour lisser les entrées des utilisateurs sur plusieurs jours.
 
-### Concepts clés
+### Concepts clés {#key-concepts}
 
 | Terme                    | Description |
 |-------------------------|-------------|
 | Message de base   | Le modèle de message principal à partir duquel les variantes sont créées, y compris tous les paramètres d'envoi. |
 | Composants de contenu  | Éléments d'un message (par exemple, ligne d'objet ou CTA principal) pouvant être testés et optimisés. Les marketeurs doivent insérer l'étiquette Liquid appropriée dans le message à l'endroit où le composant doit apparaître. |
 | Variantes de contenu    | Les différentes valeurs qu'un composant de contenu peut prendre. |
-| Combinaisons de contenu| Messages uniques créés en combinant différentes variantes de contenu. |
+| Combinaisons de contenu | Messages uniques créés en combinant différentes variantes de contenu. |
 | Événement d'optimisation       | Détermine la manière dont l'Optimiseur de contenu évalue les performances et répartit le trafic vers les combinaisons de contenus au fil du temps, par exemple les clics ou les ouvertures pour les e-mails. S'applique à tous les composants de contenu d'une étape. L'Optimiseur de contenu tire continuellement des enseignements de cet événement et oriente automatiquement la distribution vers les combinaisons de contenus les plus performantes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Concepts clés" }
 
-## Points à prendre en compte
+## Points à prendre en compte {#considerations}
 
 - L'Optimiseur de contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail et notifications push.
 - Pour les e-mails, l'agent peut générer jusqu'à 125 combinaisons par étape :
@@ -91,7 +91,7 @@ L'Optimiseur de contenu est particulièrement adapté aux Canvas à entrée réc
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 
-## Étapes suivantes
+## Étapes suivantes {#next-steps}
 
 - Contactez votre gestionnaire de la satisfaction client pour participer à la version bêta ou pour obtenir une assistance à l'onboarding.
 - Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).

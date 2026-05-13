@@ -23,7 +23,7 @@ Antes de começar, você precisará do seguinte:
 | Uma conta Friendbuy | Uma [conta Friendbuy](https://retailer.friendbuy.io/) é necessária para aproveitar esta parceria. |
 | Uma chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende da URL da sua instância da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integrando o Friendbuy {#integrating-friendbuy}
 
@@ -54,7 +54,7 @@ Volte à sua [conta do Friendbuy](https://retailer.friendbuy.io/) e atualize a p
 | **Friendbuy Coupon Status** | O status do código de cupom mais recente distribuído ao cliente. Nota: o status será "distributed" ou "redeemed" | String |
 | **Friendbuy Coupon Currency** | Código da moeda (USD, CAD, etc.) ou porcentagem (%) associada ao código de cupom mais recente distribuído ao cliente. | String |
 | **Friendbuy Coupon Campaign ID** | O ID da Campaign associado ao código de cupom gerado para um cliente. | String |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atributos personalizados" }
 
 ## Comportamento padrão {#default-behavior}
 

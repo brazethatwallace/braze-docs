@@ -23,7 +23,7 @@ Braze verfügt über drei globale Abo-Status für E-Mail-Nutzer:innen. Diese Sta
 | Opted-in | Eine Nutzer:in hat ausdrücklich bestätigt, dass sie E-Mails erhalten möchte. Wir empfehlen einen expliziten Opt-in-Prozess, um die Zustimmung der Nutzer:innen zum E-Mail-Versand einzuholen. |
 | Abonniert | Eine Nutzer:in hat sich weder abgemeldet noch ausdrücklich für den E-Mail-Empfang entschieden. Dies ist der Standard-Abo-Status, wenn ein Nutzerprofil erstellt wird. |
 | Abgemeldet | Eine Nutzer:in hat sich ausdrücklich von Ihren E-Mails abgemeldet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
 
 {% alert note %}
 Braze zählt Änderungen des Abo-Status nicht als Datenpunkte – weder global noch bei Abo-Gruppen.

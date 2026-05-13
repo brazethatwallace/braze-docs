@@ -36,7 +36,7 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
 | `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner des Nutzerprofils, der von der Kundschaft festgelegt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
 ### Plattformwerte {#platform-values}
 
@@ -52,7 +52,7 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plattformwerte" }
 
 {% enddetails %}
 
@@ -512,7 +512,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Anfrage zur Aktualisierung des global
 | Push-Token-Registrierung | Wenn ein Nutzer durch den Token-Registrierungsprozess aktualisiert wird |
 | List-Unsubscribe | Wenn sich ein Nutzer über Braze-Mailto oder den Ein-Klick-List-Unsubscribe-Header abmeldet |
 | Sonstiges | Umfasst alle anderen Quellen, wie z. B. Demo- oder Anbieter-Synchronisierungsaufträge oder SMS- und WhatsApp-Ereignis-Callbacks |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eigenschaftsdetails" }
 
 
 {% endapi %}
@@ -5911,7 +5911,6 @@ Es ist ein bekanntes Verhalten, dass die Felder `device_model` und `mailbox_prov
 {% endapi %}
 
 {% api %}
-
 ## E-Mail-Wiederholungsereignisse {#email-retry-events}
 
 {% apitags %}
@@ -6121,7 +6120,6 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 {% endapi %}
 
 {% api %}
-
 ## E-Mail-Versand-Ereignisse {#email-send-events}
 
 {% apitags %}
@@ -7464,7 +7462,6 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 {% endapi %}
 
 {% api %}
-
 ## In-App-Nachrichten-Impressionen-Ereignisse {#in-app-message-impression-events}
 
 {% apitags %}
@@ -7709,7 +7706,6 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 {% endapi %}
 
 {% api %}
-
 ## LINE-Abbruchereignisse {#line-abort-events}
 
 {% apitags %}
@@ -12942,6 +12938,7 @@ Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenf
 {% endapi %}
 
 {% api %}
+
 ## SMS-Wiederholungsereignisse {#sms-retry-events}
 
 {% apitags %}
@@ -13123,6 +13120,7 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 {% endapi %}
 
 {% api %}
+
 ## SMS-Versandereignisse {#sms-send-events}
 
 {% apitags %}
@@ -13351,6 +13349,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine SMS sendet.
 {% endapi %}
 
 {% api %}
+
 ## SMS-Kurzlink-Klick-Ereignisse {#sms-short-link-click-events}
 
 {% apitags %}

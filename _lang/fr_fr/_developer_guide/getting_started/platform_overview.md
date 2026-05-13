@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Premiers pas : Aperçu de la plateforme {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Premiers pas : Aperçu de la plateforme {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > Cet article traite des composants et capacités de base de la plateforme Braze. Les liens de cet article renvoient à des rubriques essentielles de Braze.
 
@@ -92,7 +92,7 @@ Après avoir défini un segment, les outils de communication de Braze vous perme
 | [Push web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Envoyez des notifications au navigateur web, même si vos utilisateurs ne sont pas actuellement actifs sur votre site. |
 | [Webhooks]({{site.baseurl}}/about_webhooks/) | Utilisez les webhooks pour déclencher des actions hors application, en fournissant à d'autres systèmes et applications des données en temps réel. |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Entrez directement en contact avec vos utilisateurs et vos clients en tirant parti de la plateforme de messagerie pair à pair très plébiscitée : WhatsApp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Communication multicanale" }
 
 <sup>*Disponible en tant que fonctionnalité supplémentaire.*</sup>
 
@@ -115,7 +115,7 @@ Braze est conçu pour une intégration rapide. Le délai moyen de rentabilisatio
 
 En tant que ressource technique, vous interviendrez dans une grande partie des rouages de Braze. En plus de notre documentation, voici des ressources utiles à conserver dans vos favoris. Au fur et à mesure que vous avancez, gardez notre glossaire des [termes à connaître]({{site.baseurl}}/user_guide/get_started/terms_to_know/) à portée de main au cas où vous auriez des questions sur des termes propres à Braze.
 
-| Ressource | Ce que vous allez apprendre|
+| Ressource | Ce que vous allez apprendre |
 |---|---|
 | [Débogage du SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | Lors de la résolution des problèmes de votre intégration, l'outil de débogage du SDK vous sera d'une grande utilité. Assurez-vous de l'avoir sous la main ! |
 | [Référentiel GitHub public de Braze](https://github.com/braze-inc/) | Vous trouverez, dans notre référentiel GitHub, des informations détaillées sur l'intégration ainsi que des exemples de code. |
@@ -128,4 +128,4 @@ En tant que ressource technique, vous interviendrez dans une grande partie des r
 | [Journaux de modifications du SDK]({{site.baseurl}}/developer_guide/changelogs/) | Braze propose des versions mensuelles prévisibles, en plus des versions ciblant les problèmes critiques et les mises à jour majeures du système d'exploitation. |
 | [Collection Postman de l'API Braze](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Téléchargez notre collection Postman ici.  |
 | [Moniteur d'état du système Braze](https://braze.statuspage.io/) | Notre page d'état est mise à jour chaque fois qu'il y a des incidents ou des pannes. Rendez-vous sur cette page pour vous abonner aux alertes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ressources à mettre en favoris" }

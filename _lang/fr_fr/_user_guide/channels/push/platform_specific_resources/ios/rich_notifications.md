@@ -3,7 +3,7 @@ nav_title: Créer des notifications enrichies
 article_title: "Création de notifications push enrichies pour iOS"
 page_order: 3
 page_type: tutorial
-description: "Ce tutoriel explique comment configurer les notifications enrichies iOS pour vos campagnes Braze."
+description: "Ce tutoriel explique les conditions requises et les étapes pour créer des notifications enrichies iOS pour vos campagnes Braze."
 
 platform: iOS
 channel:
@@ -41,7 +41,7 @@ En tant que bonne pratique, Braze recommande de limiter chaque ligne de texte, t
 
 Vos utilisateurs peuvent voir les notifications push dans différentes situations et peuvent voir des longueurs de texte différentes comme suit.
 
-<table>
+<table aria-label="États de notification">
   <caption>États de notification</caption>
 <thead>
   <tr>
@@ -58,7 +58,7 @@ Vos utilisateurs peuvent voir les notifications push dans différentes situation
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="États de notification" }
 
 ![Exemples de notifications push affichées sur l'écran de verrouillage, en mode étendu et lorsque l'appareil est actif.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

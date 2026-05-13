@@ -29,7 +29,7 @@ WCAG 2.1を満たす最小のSDKバージョンはv3.4.0に近いです。ただ
 | **3.1.2** | マイナー | 画像のデフォルト代替テキスト |
 | **2.4.1** | **メジャー** | セマンティックHTML（`h1`または`button`）、ARIA属性、キーボードナビゲーション、フォーカス管理 |
 | **2.0.5** | マイナー | フォーカス管理、キーボードナビゲーション、ラベル |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
 
 ## サポートされているアクセシビリティ機能 {#supported-accessibility-features}
 

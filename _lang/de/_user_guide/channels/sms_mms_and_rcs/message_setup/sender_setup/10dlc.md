@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# Application-to-Person 10-Digit Long Codes
+# Application-to-Person 10-Digit Long Codes {#application-to-person-10-digit-long-codes}
 
 > A2P 10DLC bezeichnet ein System in den Vereinigten Staaten, das es Unternehmen ermöglicht, Application-to-Person-Nachrichten (A2P) über eine standardmäßige 10-stellige Langcode-Telefonnummer (10DLC) zu senden. Diese registrierten Langcodes erhalten einen höheren Durchsatz, eine bessere Zustellbarkeit und eine verbesserte Compliance im Vergleich zum Standard-Langcode.
 
@@ -44,7 +44,7 @@ Die Registrierung bei A2P 10DLC kann verschiedene Arten von Gebühren umfassen:
 | Registrierungsgebühren | Nominale Gebühren, die bei der Registrierung Ihrer Marke und Ihres Anwendungsfalls in allen großen US-Netzwerken anfallen. |
 | Gebühren für sekundäre Überprüfung | Marken können ihren [Vertrauens-Score](#trust-score) anfechten und eine sekundäre Überprüfung beantragen, um ihren Gesamtdurchsatz zu verbessern; für diesen Prozess fällt eine Gebühr an. |
 | Anbietergebühren | Gebühren, die von Mobilfunkanbietern für ausgehende SMS- und MMS-Nachrichten erhoben werden, die nach der 10DLC-Registrierung an Nutzer:innen gesendet werden. Ab dem 1. Oktober 2021 sind die Anbietergebühren für nicht registrierten Verkehr (Standard-Langcodes) höher als für registrierten Verkehr (10DLC). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Costs" }
 
 Besuchen Sie den Twilio-10DLC-Artikel, um aktuelle [Gebührenschätzungen](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-) einzusehen.
 
@@ -61,7 +61,7 @@ Die Campaign Registry (TCR) ist eine Drittanbieter-Agentur, die einen Reputation
 | Hoch | 75–100 | 75 MPS | 75 MPS | 75 MPS |
 | Mittel | 50–74 | 40 MPS | 40 MPS | 40 MPS |
 | Niedrig | 1–49 | 4 MPS | 4 MPS | 4 MPS |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Brand trust score #trust-score" }
 
 {% alert tip %}
 Unternehmen, die im Russell 3000 Index gelistet sind, erhalten nach der 10DLC-Registrierung und -Überprüfung einen hohen Durchsatz und Vertrauens-Score.
@@ -90,7 +90,7 @@ Abhängig von Ihrem Anwendungsfall variiert der Vertrauens-Score, der benötigt 
 | 2FA | Jede Authentifizierung oder Kontoverifizierung, wie z. B. OTP. |
 | Sicherheitswarnungen | Benachrichtigung über ein kompromittiertes System. |
 | Betrugswarnungen | Nachrichten über potenziell betrügerische Aktivitäten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging use cases" }
 
 {% tabs %}
 {% tab Deklarierter Anwendungsfall %}
@@ -99,9 +99,9 @@ Ein deklarierter Anwendungsfall bedeutet, dass Sie einen bestimmten Nicht-Market
 | Vertrauens-Score | Gesamtdurchsatz zu großen US-Netzwerken | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
 | 75–100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
-| 50–74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
+| 50–74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1–49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Messaging use cases" }
 
 {% endtab %}
 {% tab Gemischter Marketing-Anwendungsfall %}
@@ -113,7 +113,7 @@ Gemischte Marketing-Anwendungsfälle können für Kund:innen registriert werden,
 | 75–100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50–74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1–49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Messaging use cases" }
 
 {% endtab %}
 {% endtabs %}

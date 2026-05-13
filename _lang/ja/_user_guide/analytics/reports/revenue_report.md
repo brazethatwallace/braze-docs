@@ -50,7 +50,7 @@ tool: Reports
     }
 </style>
 
-<table>
+<table aria-label="収益計算の理解">
   <caption>収益計算の理解</caption>
     <thead>
         <tr>
@@ -90,7 +90,7 @@ tool: Reports
 
 ## 収益データのエクスポート {#exporting-revenue-data}
 
-収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="Chart context menu"></i>を選択し、エクスポートオプションを選択します。
+収益データをエクスポートするには、**Performance Over Time**グラフの<i class="fas fa-bars" title="チャートコンテキストメニュー"></i>を選択し、エクスポートオプションを選択します。
 
 {% alert tip %}
 収益データを取得する他の方法をお探しですか？購入行動（および製品の購入）を[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)としてCampaignsやCanvasesに追加してみてください。

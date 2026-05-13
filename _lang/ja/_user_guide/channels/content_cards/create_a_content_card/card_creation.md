@@ -2,7 +2,7 @@
 nav_title: カード作成
 article_title: カード作成
 alias: /card_creation/
-description: "この記事では、キャンペーン起動時またはキャンバスステップエントリ時と、初回インプレッション時のコンテンツカード作成の違いについて説明します。"
+description: "この記事では、キャンペーン起動時またはキャンバスステップエントリ時と、初回インプレッション時のContent Cards作成の違いについて説明します。"
 page_order: 0
 tool: Campaigns
 channel:
@@ -12,7 +12,7 @@ toc_headers: h2
 
 # カード作成 {#card-creation}
 
-> カードの作成タイミングを指定することで、新しいContent Cards CampaignやCanvasステップに対してBrazeがオーディエンスの適格性とパーソナライゼーションを評価するタイミングを選択できます。
+> カードの作成タイミングを指定することで、新しいContent CardsのCampaignやCanvasステップに対してBrazeがオーディエンスの適格性とパーソナライゼーションを評価するタイミングを選択できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -27,7 +27,7 @@ SDKをアップグレードした後、モバイルユーザーはアプリを�
 {% tabs %}
 {% tab Campaign %}
 
-スケジュール配信で新しい[Content Cards Campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)を作成する際、**Delivery**ステップでBrazeがカードを作成するタイミングを選択できます。
+スケジュール配信で新しい[Content CardsのCampaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)を作成する際、**Delivery**ステップでBrazeがカードを作成するタイミングを選択できます。
 
 ![スケジュールされたContent Cardsの配信を編集する際のContent Cardsコントロールセクション。]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -85,7 +85,7 @@ Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messag
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">
   <caption>起動時またはエントリ時と初回インプレッション時のカード作成の違い</caption>
 <thead>
   <tr>

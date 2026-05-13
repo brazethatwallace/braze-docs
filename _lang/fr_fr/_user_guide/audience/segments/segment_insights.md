@@ -9,7 +9,7 @@ tool:
 description: "Cet article pratique vous explique comment utiliser, interpréter et partager les statistiques des segments."
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Statistiques des segments {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Statistiques des segments {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > Découvrez comment utiliser, interpréter et partager les statistiques des segments.
 
@@ -31,7 +31,7 @@ Le segment de référence peut être un segment spécifique que vous sélectionn
 | Chiffre d'affaires à vie en dollars | Chiffre d'affaires moyen à vie en dollars pour les utilisateurs du segment | dépenses à vie de l'utilisateur |
 | Jours depuis le premier achat | Nombre moyen de jours entre la première session et le premier achat des utilisateurs du segment | date du premier achat – date de la première session |
 | Jours depuis le dernier achat | Nombre moyen de jours entre le dernier achat des utilisateurs du segment et maintenant | aujourd'hui – date du dernier achat |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Viewing Segment Insights" }
 
 Vous pouvez facilement partager des comparaisons spécifiques avec vos collègues en utilisant l'URL unique de la page, et vous pouvez également sélectionner l'icône en forme d'œil à côté de chaque segment pour afficher plus d'informations sur ce segment. Ces comparaisons seront réinitialisées lorsque vous changerez d'espace de travail.
 

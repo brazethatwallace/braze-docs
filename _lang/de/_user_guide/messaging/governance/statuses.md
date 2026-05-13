@@ -14,7 +14,7 @@ tool:
 
 ## Nach Status filtern {#filtering-by-status}
 
-Um Ihre Campaigns oder Canvases nach Status zu filtern, wählen Sie **All Statuses** und dann einen Status aus.
+Um Ihre Campaigns oder Canvases nach Status zu filtern, wählen Sie **Alle Status** und dann einen Status aus.
 
 ![Das Dropdown-Menü „Alle Status“ im Braze-Dashboard.]({% image_buster /assets/img/messaging_fundamentals/filter-by-status.png %}){: style="max-width:70%;"}
 
@@ -35,7 +35,7 @@ Dies sind die verfügbaren Status für Campaigns und Canvases:
 | Archiviert | Archivierte Campaigns und Canvases sind Nachrichten, die nicht mehr versendet werden. Diese Campaigns und Canvases werden auch aus den Statistikdiagrammen auf den Seiten [**Startseite**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) und [**Umsatz**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) entfernt. |
 | Gestoppt | Gestoppte Campaigns und Canvases sind pausiert, können aber weiterhin bearbeitet werden. Um ein Canvas fortzusetzen, gehen Sie zum Schritt **Summary** des Canvas-Builders und wählen Sie **Resume Canvas**. Für Campaigns wählen Sie das Menü <i class="fas fa-ellipsis-vertical"></i> und dann **Resume**. Weitere Informationen finden Sie unter [Verhalten gestoppter Canvases](#stopped-canvas-behavior). |
 | Inaktiv | Wenn eine Campaign oder ein Canvas keine Nachrichten mehr versendet, weist Braze einen inaktiven Status zu, um Ihnen bei der Sortierung und Verwaltung Ihrer Liste von Campaigns und Canvases zu helfen. Sie können einsehen, welche Campaigns oder Canvases automatisch gestoppt werden und das zugehörige Stoppdatum. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Status" }
 
 ### Verhalten gestoppter Canvases {#stopped-canvas-behavior}
 
@@ -48,7 +48,7 @@ Wenn ein Canvas gestoppt wird, geschieht Folgendes:
 
 Um das Canvas fortzusetzen, gehen Sie zum Schritt **Summary** des Canvas-Builders und wählen Sie **Resume Canvas**. Bei der Reaktivierung werden alle zuvor gestoppten Nachrichten wie geplant gesendet&#8212;sofern der geplante Zeitpunkt noch nicht verstrichen ist.
 
-## Best Practices
+## Best Practices {#best-practices}
 
 ### Nachrichten nach Status überwachen {#monitor-your-messages-by-status}
 

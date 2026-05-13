@@ -22,7 +22,7 @@ A parceria entre a Braze e a SmarterSends permite combinar o poder da Braze com 
 | Requisito | Descrição |
 | --- | --- |
 | Conta SmarterSends | É necessário ter uma [conta SmarterSends](https://smartersends.com) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com estas permissões: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. Para aumentar a segurança, coloque na lista de permissões o endereço IP da SmarterSends (disponível em sua instância). |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com estas permissões: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. Para aumentar a segurança, coloque na lista de permissões o endereço IP da SmarterSends (disponível em sua instância). |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | ID da campanha da API da Braze | O [ID da campanha da API da Braze]({{site.baseurl}}/api/api_campaigns/) é o identificador exclusivo de todas as campanhas enviadas por meio da SmarterSends. Isso pode ser criado no dashboard da Braze em **Messaging** > **Campaigns**. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -41,7 +41,7 @@ Com a integração da Braze e da SmarterSends, você pode tirar proveito do mark
 
 ### Etapa 1: Criar uma chave da API REST {#step-1-create-a-rest-api-key}
 
-1. Na Braze, acesse **Configurações** > **Chaves de API** e clique em **Criar nova chave de API**.
+1. Na Braze, acesse **Settings** > **API Keys** e clique em **Create New API Key**.
 2. Digite um nome para a chave de API.
 3. Selecione as seguintes permissões para essa chave para permitir que a SmarterSends interaja com seu espaço de trabalho na Braze.
 - `users.track`
@@ -60,7 +60,7 @@ Com a integração da Braze e da SmarterSends, você pode tirar proveito do mark
 
 ### Etapa 2: Criar ou copiar um ID de aplicativo {#step-2-create-or-copy-an-application-id}
 
-1. Em seu espaço de trabalho da Braze, acesse **Configurações** > **Configurações do app**.
+1. Em seu espaço de trabalho da Braze, acesse **Settings** > **App Settings**.
 2. Configure um novo app ou use o ID do aplicativo de um aplicativo existente em seu espaço de trabalho. Note que o ID do aplicativo é rotulado como **API Key**.
 3. Copie e cole esse ID no campo **App ID** na SmarterSends.
 
@@ -71,7 +71,7 @@ Uma campanha de API permite o rastreamento de métricas para todos os e-mails da
 1. Na Braze, [crie uma campanha de API]({{site.baseurl}}/api/api_campaigns/#create-a-new-campaign).
 2. Clique em **Email** em **Select Message Channel** para adicionar um canal de envio de mensagens e começar a rastrear as métricas.
 3. Em seguida, copie e cole o ID da campanha da Braze no campo **Campaign ID** da SmarterSends.
-4. Copie e cole o ID da variação da mensagem da Braze no campo **Message Variant ID** da SmarterSends. Esse será o ID de mensagem padrão usado se você decidir não criar um ID de mensagem para cada grupo na SmarterSends.
+4. Copie e cole o ID da variante da mensagem da Braze no campo **Message Variant ID** da SmarterSends. Esse será o ID de mensagem padrão usado se você decidir não criar um ID de mensagem para cada grupo na SmarterSends.
 5. Para cada grupo que você criar na SmarterSends, adicione uma variante de mensagem à sua campanha de API na Braze. Em seguida, copie o ID da variante da mensagem para o ID da variante da mensagem do grupo na SmarterSends.
 
 {% alert tip %}

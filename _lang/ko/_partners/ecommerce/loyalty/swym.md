@@ -26,7 +26,7 @@ Swym과 Braze의 통합을 통해 쇼핑객의 의도를 판매로 전환하는 
 | Swym | 이커머스 플랫폼(Shopify 또는 BigCommerce)에 Swym Wishlist Plus, Back in Stock 앱 또는 둘 다 설치되어 있어야 하며 Enterprise 플랜을 사용 중이어야 합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -53,9 +53,9 @@ API 키를 보호하기 위해 Swym에서는 일회성 자동 파괴 링크 도�
 
 4. 설정이 완료되면 Swym의 커스텀 이벤트가 Braze에 자동으로 등록됩니다. Braze 대시보드에서 **데이터 설정** > **커스텀 이벤트**로 이동하여 등록된 Swym 이벤트 목록을 확인할 수 있습니다.
 
-5. 해당 커스텀 이벤트의 **Manage Properties**를 선택하면 각 Swym 이벤트의 속성을 볼 수 있습니다. 이러한 속성에는 메시지를 개인화하는 데 사용할 수 있는 이벤트 값이 포함되어 있습니다.
+5. 해당 커스텀 이벤트의 **Manage Properties**를 선택하면 각 Swym 이벤트의 등록정보를 볼 수 있습니다. 이러한 등록정보에는 메시지를 개인화하는 데 사용할 수 있는 이벤트 값이 포함되어 있습니다.
 
-![Braze의 커스텀 속성정보.]({% image_buster /assets/img/swym/braze-custom-properties.png %})
+![Braze의 커스텀 등록정보.]({% image_buster /assets/img/swym/braze-custom-properties.png %})
 
 ### 2단계: Braze에 보내고 싶은 이벤트 구독하기 {#step-2-subscribe-to-events-you-want-to-send-to-braze}
 
@@ -74,7 +74,7 @@ Wishlist Plus 앱에서 **Marketing** 탭으로 이동하여 **Automations** 섹
 | Price Drop alert | 위시리스트에 있는 제품이 할인 판매를 시작하는 경우 |
 | Low Stock alert | 위시리스트에 있는 제품의 재고가 부족한 경우 |
 | Back in Stock alert | 위시리스트에 있는 제품이 재입고된 경우 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Wishlist Plus app events" }
 
 #### Swym Back in Stock Alerts 앱 이벤트 {#swym-back-in-stock-alerts-app-events}
 
@@ -83,11 +83,11 @@ Wishlist Plus 앱에서 **Marketing** 탭으로 이동하여 **Automations** 섹
 | Back in Stock Acknowledgment | 쇼핑객이 제품 재입고 시 알림을 받도록 구독하는 경우 |
 | Restock Alert | 쇼핑객이 재입고 알림을 요청한 제품이 재입고된 경우 |
 | Restock Reminder | 후속 알림(일반적으로 첫 번째 재입고 알림 후 약 24시간 후, 구성 가능) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Back in Stock Alerts app events" }
 
 ### 3단계: Braze Campaign 또는 Canvas 생성하기 {#step-3-create-a-braze-campaign-or-canvas}
 
-쇼핑객을 위한 개인화된 메시지 전달을 자동화하려면 구독한 각 이벤트에 대해 Braze에서 별도의 Campaign 또는 Canvas를 생성해야 합니다. 각 Campaign 또는 Canvas는 특정 이벤트에 따라 트리거되도록 구성하고 해당 이벤트 속성을 사용하여 메시지에 동적 콘텐츠를 채워야 합니다. 단계별 안내는 [시작하기: Campaigns 및 Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)를 참조하세요.
+쇼핑객을 위한 개인화된 메시지 전달을 자동화하려면 구독한 각 이벤트에 대해 Braze에서 별도의 Campaign 또는 Canvas를 생성해야 합니다. 각 Campaign 또는 Canvas는 특정 이벤트에 따라 트리거되도록 구성하고 해당 이벤트 등록정보를 사용하여 메시지에 동적 콘텐츠를 채워야 합니다. 단계별 안내는 [시작하기: Campaigns 및 Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/)를 참조하세요.
 
 ![액션 기반 이벤트.]({% image_buster /assets/img/swym/braze-canvas-setup.png %})
 

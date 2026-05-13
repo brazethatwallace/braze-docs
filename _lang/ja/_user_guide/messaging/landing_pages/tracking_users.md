@@ -47,9 +47,9 @@ BrazeはランディングページのURLを使用して、ユニークなLiquid
 
 Brazeは[ランディングページURL](#page-url)を使用してLiquidタグを自動的に生成します。タグを生成するには、以下の表を参照してください。
 
-|**パーソナライゼーションタイプ**| **Landing Page**を選択します。|
-|**ランディングページ**|[事前に作成した](#prerequisites)ランディングページを選択します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **パーソナライゼーションタイプ** | **Landing Page**を選択します。|
+| **ランディングページ** | [事前に作成した](#prerequisites)ランディングページを選択します。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 2: Liquidタグの生成" }
 
 Liquidタグをメッセージに追加するには、**Insert**を選択するか、スニペットをクリップボードにコピーして手動で追加します。
 

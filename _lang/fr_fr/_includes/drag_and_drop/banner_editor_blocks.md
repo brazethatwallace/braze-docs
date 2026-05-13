@@ -59,7 +59,7 @@ Insère du HTML personnalisé pour des dispositions avancées ou du contenu int�
 | Propriété | Description |
 | --- | --- |
 | Code personnalisé | Ajoutez ou modifiez le HTML (et les ressources associées) pour la bannière. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code personnalisé" }
 
 ### Capture de téléphone {#phone-capture}
 
@@ -88,4 +88,4 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 ## Bon à savoir {#things-to-know}
 
 - **Vidéo :** le compositeur standard n'inclut pas de bloc vidéo dédié. Utilisez **Custom code** pour intégrer un lecteur si nécessaire. Pour en savoir plus, consultez [Bannières : foire aux questions]({{site.baseurl}}/user_guide/channels/banners/faq/).
-- **Liquid :** la plupart du Liquid est pris en charge ; il existe des exceptions telles que les balises de re-rendu de catalogue. Pour en savoir plus, consultez [Bannières : foire aux questions]({{site.baseurl}}/user_guide/channels/banners/faq/).
+- **Liquid :** la plupart du Liquid est pris en charge ; il existe des exceptions telles que les balises de re-rendu de Catalogue. Pour en savoir plus, consultez [Bannières : foire aux questions]({{site.baseurl}}/user_guide/channels/banners/faq/).

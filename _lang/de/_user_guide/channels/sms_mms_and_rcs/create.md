@@ -62,7 +62,7 @@ Die von Ihnen gewählte Abo-Gruppe bestimmt, welche Nachrichtentypen im Composer
 | Nur SMS | SMS |
 | SMS mit MMS-fähigen Nummern | SMS und MMS |
 | RCS-fähig (mit RCS-verifiziertem Sender) | SMS, MMS (falls aktiviert) und RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 Braze empfiehlt dringend, dass jede Abo-Gruppe, die einen RCS-Sender enthält, auch mindestens einen SMS-Code als Fallback umfasst. So wird sichergestellt, dass die Nachricht Ihre Nutzer:innen auch dann per SMS erreicht, wenn eine RCS-Nachricht nicht zugestellt werden kann (z. B. aufgrund von Geräteinkompatibilität oder unvollständiger Carrier-Abdeckung).
@@ -108,7 +108,7 @@ Geben Sie Ihren Nachrichtentext ein und laden Sie dann ein PNG-, JPEG- oder GIF-
 | --- | --- |
 | Größe | Bis zu 600&nbsp;KB |
 | Dateitypen | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### Kontaktkarten {#contact-cards}
 
@@ -177,7 +177,7 @@ RCS-Mediennachrichten ermöglichen es Ihnen, ansprechende Medienformate zu verwe
 | Bild | Unterstützte Formate: JPG, JPEG, GIF |
 | Video | Unterstützte Formate: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Dokument | Unterstütztes Format: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **Hinweise:**
 

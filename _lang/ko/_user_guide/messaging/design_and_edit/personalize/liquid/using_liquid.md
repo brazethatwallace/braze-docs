@@ -6,7 +6,7 @@ description: "이 참조 문서에서는 일반적인 Liquid 활용 사례에 �
 search_rank: 2
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquid 사용 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquid 사용 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > 이 문서에서는 다양한 사용자 속성을 활용하여 메시징에 개인 정보를 동적으로 삽입하는 방법을 설명합니다.
 
@@ -71,20 +71,20 @@ Liquid는 동적 개인화를 작성할 때 염두에 두어야 할 특정 구�
 4. **case 문은 쌍으로 사용합니다:** 모든 `case`에는 블록을 닫는 `endcase`가 필요합니다.
 5. **변수 이름에는 ASCII 문자를 사용해야 합니다:** Liquid 변수 이름(`assign` 또는 `capture`로 생성)은 ASCII 문자, 숫자, 밑줄만 지원합니다. Braze 개인화 속성 이름(`custom_attribute.${...}` 또는 `event_properties.${...}` 내부)에는 비ASCII 문자를 포함할 수 있습니다.
 
-#### Operator와 필터를 사용할 수 있는 위치 {#where-to-use-operators-and-filters}
+#### 연산자와 필터를 사용할 수 있는 위치 {#where-to-use-operators-and-filters}
 
-Operator(`==`, `!=`, `>`, `and`, `or` 등)와 필터(`| size`, `| plus` 등)는 각각 특정 Liquid 컨텍스트에서만 사용할 수 있습니다.
+연산자(`==`, `!=`, `>`, `and`, `or` 등)와 필터(`| size`, `| plus` 등)는 각각 특정 Liquid 컨텍스트에서만 사용할 수 있습니다.
 
-| 컨텍스트 | Operator | 필터 |
+| 컨텍스트 | 연산자 | 필터 |
 |-----------|-----------|---------|
 | `assign` | 지원되지 않음 | 지원됨 |
 | `if`, `elsif`, `unless` | 지원됨 | 지원되지 않음 |
 | `case`, `when` | 동등 비교만 가능[^case_when_ops] | 지원되지 않음 |
 | `for` | 지원되지 않음 | 지원되지 않음 |
 | 배열 접근 (`[ ]`) | 지원되지 않음 | 지원되지 않음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
 
-[^case_when_ops]: `case`와 `when` 태그에서 Liquid는 `case` 표현식을 각 `when` 값과 동등 비교(equality)를 사용하여 비교합니다(`if`와 `elsif`를 `==`로 연결하는 것과 유사). `when` 절 내에서는 `if`와 `elsif`에서처럼 임의의 비교 또는 논리 Operator를 사용할 수 없습니다. 예시는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)을 참조하세요.
+[^case_when_ops]: `case`와 `when` 태그에서 Liquid는 `case` 표현식을 각 `when` 값과 동등 비교(equality)를 사용하여 비교합니다(`if`와 `elsif`를 `==`로 연결하는 것과 유사). `when` 절 내에서는 `if`와 `elsif`에서처럼 임의의 비교 또는 논리 연산자를 사용할 수 없습니다. 예시는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)을 참조하세요.
 
 필터를 지원하지 않는 컨텍스트에서 필터링된 값이 필요한 경우, 먼저 결과를 변수에 할당하세요.
 
@@ -145,7 +145,7 @@ You have more than 3 items!
 
 ##### 비교 결과를 변수에 저장하기 {#store-a-comparison-result-in-a-variable}
 
-`assign` 문에서 Operator를 사용할 수 없습니다. 다음은 잘못된 예입니다:
+`assign` 문에서 연산자를 사용할 수 없습니다. 다음은 잘못된 예입니다:
 
 ```liquid
 {% assign is_vip = total_spend > 100 %}

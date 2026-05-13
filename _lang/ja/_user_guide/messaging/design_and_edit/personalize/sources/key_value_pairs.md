@@ -55,7 +55,7 @@ Apple Push Notification service (APNs) は、キーと値のペアを使用し�
 | badge             | 数値                      | アプリアイコンのバッジとして表示される数値を制御します                                                                                                                              |
 | sound             | 文字列                      | アラートとして再生するサウンドファイルの名前。アプリのバンドルまたは```Library/Sounds```フォルダーに存在する必要があります                                                                                    |
 | content-available | 数値                      | 値1を入力すると、起動時またはセッション再開時に新しい情報が利用可能であることをアプリに通知します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS library" }
 
 
 ##### アラートプロパティライブラリー {#alert-properties-library}
@@ -70,7 +70,7 @@ Apple Push Notification service (APNs) は、キーと値のペアを使用し�
 | loc-key        | 文字列またはnull           | ```Localizable.strings```ファイルから現在のローカライゼーションの通知メッセージを設定するキー                                  |
 | loc-args       | 文字列の配列         | loc-keyのローカライゼーションフォーマット指定子の代わりに表示できる文字列値                                                       |
 | launch-image   | 文字列                  | ユーザーがアクションボタンをタップするかアクションスライドを移動したときに起動画像として使用するアプリバンドル内の画像ファイルの名前 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alert properties library" }
 
 Brazeのメッセージ作成画面は、**alert**と**そのプロパティ**、**content-available**、**sound**、**category**の各キーの作成を自動的に処理します。
 

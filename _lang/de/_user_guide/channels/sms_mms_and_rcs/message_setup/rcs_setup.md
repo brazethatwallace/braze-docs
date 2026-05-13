@@ -32,7 +32,7 @@ Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei 
 - Frankreich
 - Italien
 - Kolumbien
-3. Sie müssen eine oder mehrere RCS-SKUs für 0 $ in Ihrem Vertrag erwerben.
+3. Sie müssen eine oder mehrere RCS-SKUs in Ihrem Vertrag erwerben.
 
 ## 2. Schritt: Einen RCS-verifizierten Sender registrieren {#step-2-register-an-rcs-verified-sender}
 
@@ -48,7 +48,7 @@ Wenn Sie Ihre ausgefüllten Formulare an Braze übermittelt haben, schließen wi
 
 Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Software-Unterstützung der Nutzer:innen individuell unterschiedlich ist, ist SMS-Fallback eine Schlüsselkomponente für ein erfolgreiches RCS-Programm. Wir empfehlen, SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin oder eines Nutzers keine RCS-Nachrichten empfangen kann, wird Ihre Nachricht durch SMS-Fallback trotzdem zugestellt, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
 
-Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
+Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Kampagne bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
 
 ### Zeitrahmen für die Carrier-Genehmigung {#timeline-for-carrier-approval}
 

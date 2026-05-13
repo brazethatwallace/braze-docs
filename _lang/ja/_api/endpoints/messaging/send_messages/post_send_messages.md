@@ -23,7 +23,7 @@ Segmentをターゲットにしている場合、リクエストの記録は[開
 {% multi_lang_include api/payload_size_alert.md %}
 
 {% alert important %}
-このエンドポイントをAPIキャンペーンで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
+このエンドポイントをAPI Campaignで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
 {% endalert %}
 
 ### API送信で新規ユーザーを作成する {#creating-new-users-with-api-sends}
@@ -91,16 +91,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`broadcast`| オプション | ブール値 | CampaignまたはCanvasが対象とするSegment全体にメッセージを送信する場合は、`broadcast` を true に設定する必要があります。このパラメーターはデフォルトで false です（2017年8月31日現在）。<br><br>`broadcast` が true に設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する場合は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `broadcast` | オプション | ブール値 | CampaignまたはCanvasが対象とするSegment全体にメッセージを送信する場合は、`broadcast` を true に設定する必要があります。このパラメーターはデフォルトで false です（2017年8月31日現在）。<br><br>`broadcast` が true に設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定する場合は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
 | `external_user_ids` | オプション | 文字列の配列 | [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)を参照してください。 |
-| `user_aliases`| オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。 |
-|`segment_id `| オプション | 文字列 | [Segment識別子]({{site.baseurl}}/api/identifier_types/#segment-identifier)を参照してください。 |
-|`audience`| オプション | 接続済みオーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
-| `campaign_id`| オプション* | 文字列 | 詳細は[Campaign識別子]({{site.baseurl}}/api/identifier_types/#campaign-identifier/)を参照してください。<br><br>*Campaignの指標（_送信数_、_クリック数_、_バウンス_など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#messaging-history-tab)でこのメッセージに関連するイベントを確認したい場合は必須です。 |
-| `send_id`| オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/#send-identifier)を参照してください。 |
-| `override_frequency_capping`| オプション | ブール値 | Campaignの `frequency_capping` を無視します。デフォルトは `false` です。 |
-| `recipient_subscription_state`| オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、配信登録済みかオプトインしているユーザーのみ（`subscribed`）、または配信停止済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
-|`messages`| オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。 |
+| `user_aliases` | オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/)を参照してください。 |
+| `segment_id ` | オプション | 文字列 | [Segment識別子]({{site.baseurl}}/api/identifier_types/#segment-identifier)を参照してください。 |
+| `audience` | オプション | 接続済みオーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
+| `campaign_id` | オプション* | 文字列 | 詳細は[Campaign識別子]({{site.baseurl}}/api/identifier_types/#campaign-identifier/)を参照してください。<br><br>*Campaignの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/#messaging-history-tab)でこのメッセージに関連するイベントを確認したい場合は必須です。 |
+| `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types/#send-identifier)を参照してください。 |
+| `override_frequency_capping` | オプション | ブール値 | Campaignの `frequency_capping` を無視します。デフォルトは `false` です。 |
+| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、配信登録済みかオプトインしているユーザーのみ（`subscribed`）、または配信停止済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
+| `messages` | オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ## リクエスト例 {#example-request}

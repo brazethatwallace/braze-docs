@@ -30,13 +30,13 @@ Este punto de conexión es solo para Campañas de API. Para utilizar este punto 
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Obligatoria | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/). |
-| `send_id` | Obligatoria | Cadena | Ver [identificador de API de envío]({{site.baseurl}}/api/identifier_types/). |
-| `length` | Obligatoria | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types/). |
+| `send_id` | Obligatorio | Cadena | Ver [identificador de API de envío]({{site.baseurl}}/api/identifier_types/). |
+| `length` | Obligatorio | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
 | `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 

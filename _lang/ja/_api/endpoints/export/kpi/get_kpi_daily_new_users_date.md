@@ -33,7 +33,7 @@ description: "この記事では、「新規ユーザーの日次エクスポー
 | `length` | 必須 | 整数 | 返されるシリーズに含める `ending_at` までの最大日数。1以上100以下でなければなりません。 |
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データシリーズが終了する日付。デフォルトはリクエストの時刻です。 |
 | `app_id` | オプション | 文字列 | [APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページから取得したアプリAPI識別子。除外した場合、ワークスペース内のすべてのアプリの結果が返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 {% raw %}

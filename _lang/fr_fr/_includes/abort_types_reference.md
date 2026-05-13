@@ -23,7 +23,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `trigger_event_blacklisted` | L'événement déclencheur est sur liste de blocage, le message n'a donc pas été envoyé. |
 | `exhausted_retries` | Le message n'a pas pu être envoyé après le nombre maximal de tentatives. |
 | `frequency_capped` | L'utilisateur a déjà reçu le nombre maximal de messages autorisé par les règles de [limite de fréquence]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping) de votre espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
@@ -35,6 +35,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `connected_content_not_supported` | Le [Contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `promo_codes_not_supported` | Les codes de promotion ne sont pas pris en charge dans ce contexte, le message a donc été abandonné. |
 | `catalog_items_rerender_not_supported` | Le re-rendu des éléments de catalogue n'est pas pris en charge dans ce contexte, le message a donc été abandonné. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 {% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | L'URL du média est sur liste de blocage et ne peut pas être utilisée dans les messages. |
 | `blocked_media_url` | L'URL du média a été bloquée par les politiques de sécurité. |
 | `invalid_media_url` | L'URL du média n'est pas valide ou n'a pas pu être résolue. |{% endif %}
@@ -42,7 +43,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `invalid_http_status` | Une requête HTTP a renvoyé un code d'état indiquant un échec. |
 | `http_timeout` | Une requête HTTP a expiré avant de recevoir une réponse. |
 | `missing_hostname` | L'URL de la requête ne contient pas de nom d'hôte. |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 
 {% endunless %}
 
@@ -55,7 +56,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `exhausted_link_shortening_retries` | Le raccourcissement de lien a échoué après le nombre maximal de tentatives. |
 | `missing_email` | L'utilisateur n'a pas d'adresse e-mail dans son profil. |
 | `invalid_domain` | L'adresse e-mail possède un domaine non valide. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email" }
 
 {% endif %}
 
@@ -67,7 +68,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | --- | --- |
 | `invalid_push_payload` | Le payload de la notification push est non valide ou mal formé. |
 | `sdk_not_supported` | La version du SDK sur l'appareil de l'utilisateur ne prend pas en charge ce type de notification push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push" }
 
 {% endif %}
 
@@ -85,7 +86,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `blocked_recipient_country` | Le numéro de téléphone du destinataire se trouve dans un pays bloqué par vos [autorisations géographiques]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/). |
 | `mms_not_supported` | Le MMS n'est pas pris en charge pour ce destinataire ou ce numéro d'envoi. |
 | `no_current_messaging_service` | Aucun service d'envoi de messages actif n'est configuré pour ce groupe d'abonnement. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
 
 {% endif %}
 
@@ -99,7 +100,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `whats_app_invalid_template_message` | Le modèle de message WhatsApp est non valide ou n'a pas été approuvé. |
 | `whats_app_invalid_response_message` | Le message de réponse WhatsApp est non valide. |
 | `whats_app_fatal_provider_error` | Une erreur fatale s'est produite avec le fournisseur WhatsApp, empêchant la distribution du message. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp" }
 
 {% endif %}
 
@@ -110,7 +111,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | Valeur `abort_type` | Description |
 | --- | --- |
 | `line_fatal_provider_error` | Une erreur fatale s'est produite avec le fournisseur LINE, empêchant la distribution du message. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE" }
 
 {% endif %}
 
@@ -121,7 +122,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | Valeur `abort_type` | Description |
 | --- | --- |
 | `kakao_fatal_provider_error` | Une erreur fatale s'est produite avec le fournisseur Kakao, empêchant la distribution du message. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kakao" }
 
 {% endif %}
 
@@ -135,7 +136,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | `content_card_content_invalid` | Le contenu de la Content Card est non valide ou contient des caractères non pris en charge. |
 | `content_card_expiration_invalid` | La date d'expiration de la Content Card est non valide. |
 | `content_card_general` | La Content Card n'a pas pu être créée en raison d'une erreur générale. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Cards" }
 
 {% endif %}
 
@@ -147,7 +148,7 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | --- | --- |
 | `no_longer_in_availability_window` | Le message n'a pas pu être envoyé dans la fenêtre de disponibilité configurée, il a donc été abandonné. |
 | `maximum_impressions_reached` | Le message in-app a déjà atteint son nombre maximal d'impressions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="In-app messages" }
 
 {% endif %}
 
@@ -158,6 +159,6 @@ Ces types d'abandon peuvent survenir sur n'importe quel canal de communication.
 | Valeur `abort_type` | Description |
 | --- | --- |
 | `blocked_webhook_url` | L'URL du webhook a été bloquée par les politiques de sécurité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhooks" }
 
 {% endif %}

@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Canvas内の翻訳を更新"
 article_title: "PUT: Canvas内の翻訳を更新"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -42,7 +42,7 @@ Canvasを起動した後に翻訳を更新したい場合は、まず[メッセ�
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | 必須 | 文字列 | ロケールの識別子（UUID）。 |
 | `translation_map` | 必須 | オブジェクト | 新しい翻訳を収めるオブジェクト。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。

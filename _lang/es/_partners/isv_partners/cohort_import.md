@@ -10,7 +10,7 @@ hidden: true
 
 ## URL de clústeres {#cluster-urls}
 
-Braze aloja nuestra aplicación en varios clústeres repartidos por todo el mundo. La URL de los puntos finales de importación depende del clúster en el que esté alojada la instancia de la empresa del cliente:
+Braze aloja nuestra aplicación en varios clústeres repartidos por todo el mundo. La URL de los puntos de conexión de importación depende del clúster en el que esté alojada la instancia de la empresa del cliente:
 
 | INSTANCIA | PUNTO DE CONEXIÓN REST |
 | ----- | ------------------------------- |
@@ -28,9 +28,9 @@ Braze aloja nuestra aplicación en varios clústeres repartidos por todo el mund
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
 | KR-01 | `https://rest.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL de clústeres" }
 
-## URL del punto de conexión {#endpoint-urls}
+## URL de los puntos de conexión {#endpoint-urls}
 
 Además de que las URL de nivel superior son específicas de cada clúster, cada punto de conexión también es específico de cada socio. Por ejemplo, al importar a nuestro clúster US01, la URL tendría el formato `https://rest.iad-01.braze.com/partners/[partner_name]/…`, donde `[partner_name]` suele ser el nombre de la empresa del socio. Los detalles específicos de cada punto de conexión se describen en las secciones siguientes.
 
@@ -65,7 +65,7 @@ El punto de conexión del nombre de la cohorte puede utilizarse para especificar
 | `cohort_id` | Cadena | Sí | Identificador de la cohorte. Este identificador debe ser único para el cliente especificado. |
 | `name` | Cadena | Sí | Nombre especificado por el cliente para la cohorte. |
 | `created_at` | Cadena | Sí | Marca de tiempo en formato ISO-8601. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Punto de conexión del nombre de la cohorte" }
 
 #### Ejemplo de solicitud: {#example-request}
 
@@ -90,7 +90,7 @@ El punto de conexión de la cohorte de usuarios permite especificar qué usuario
 | `client_secret` | Cadena | Sí | Clave de importación de datos del cliente a cuya cohorte pertenece. |
 | `cohort_id` | Cadena | Sí | Identificador de la cohorte. El identificador debe ser único para el cliente especificado. |
 | `cohort_changes` | Matriz de objetos | Sí | Los objetos pueden tener dos campos. Uno, `user_ids`, es obligatorio y puede ser una matriz de `external_ids`, `device_ids` y `aliases`. Cada elemento es un ID de un usuario cuyo estado en la cohorte ha cambiado. El segundo campo, `should_remove`, es un booleano opcional que indica si los usuarios de este objeto deben eliminarse de la cohorte en lugar de añadirse. El valor predeterminado es false. La longitud máxima combinada de los ID de usuario en una sola solicitud es de 1000.<br/><br/>Los usuarios identificados pueden coincidir por su `external_id` o `alias`. Los usuarios anónimos pueden coincidir por su `device_id`. Si pasas un ID de dispositivo para un usuario identificado, Braze no añadirá ni eliminará a ese usuario. Debes utilizar ID externos o alias para los usuarios identificados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Punto de conexión de la cohorte de usuarios" }
 
 #### Ejemplo de solicitud:
 
@@ -130,6 +130,6 @@ Consulta en la tabla siguiente los códigos de error específicos de los puntos 
 |  | Socio no habilitado para cliente con secreto de cliente: **&#60;client secret&#62;** |
 |  | Acceso no autorizado |
 | `423` | Recurso bloqueado |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 Para una solución de problemas adicional, consulta [Errores y respuestas]({{site.baseurl}}/api/errors/), que cubre los distintos errores y respuestas del servidor que pueden surgir al utilizar la API de Braze.

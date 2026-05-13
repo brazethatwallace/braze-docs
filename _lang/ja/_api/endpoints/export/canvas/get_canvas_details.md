@@ -33,7 +33,7 @@ description: "この記事では、「Canvasの詳細のエクスポート」Bra
 | `canvas_id` | 必須 | 文字列 | [Canvas API識別子]({{site.baseurl}}/api/identifier_types/)を参照してください |
 | `post_launch_draft_version` | オプション | ブール値 | 起動後の下書きがあるCanvasの場合、これを`true`に設定すると、利用可能な下書きの変更が表示されます。デフォルトは`false`です。 |
 | `include_has_translatable_content` | オプション | ブール値 | `true`に設定すると、API応答の各メッセージに`has_translatable_content`フィールドが含まれます。デフォルトは`false`です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 

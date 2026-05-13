@@ -30,7 +30,7 @@ Braze와 GRAVTY® 통합은 두 플랫폼 간에 로열티 데이터와 메시�
 | Braze REST API 키 | `campaigns.trigger.send`, `canvas.trigger.send`, `users.track` 권한이 있는 REST API 키가 필요합니다.<br><br> Braze 대시보드에서 **Settings** > **API Keys**로 이동하여 이 키를 생성하세요. |
 | Braze API 엔드포인트 | Braze REST 엔드포인트입니다(예: `https://rest.fra-01.braze.eu`). 자세한 내용은 [Braze 인스턴스 및 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 참조하세요. |
 | Campaign 또는 Canvas ID | GRAVTY®에서 트리거하는 **Campaigns** 또는 **Canvas** 워크플로의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 활용 사례 {#use-cases}
 

@@ -38,7 +38,7 @@ Une explication possible est que la campagne ou le Canvas a la rééligibilité 
 
 Par exemple, si vous avez un Canvas qui comprend à la fois des notifications push iOS et web, un utilisateur donné possédant un appareil mobile et un ordinateur de bureau peut recevoir plus d'un message.
 
-### Pourquoi les *destinataires uniques* sont-ils supérieurs au nombre d'utilisateurs que j'ai ciblés ? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Pourquoi les *destinataires uniques* sont-ils supérieurs au nombre d'utilisateurs que j'ai ciblés ? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Les *destinataires uniques* peuvent être supérieurs à l'audience attendue, car Braze comptabilise les destinataires uniques quotidiens à des fins de reporting. Cela permet à Braze d'attribuer les conversions dans la fenêtre de conversion chaque fois qu'un utilisateur reçoit le message, au lieu de regrouper plusieurs réceptions en un seul comptage à vie (ce qui fausserait le calcul des conversions).
 
@@ -162,7 +162,7 @@ Pour éviter cela, assurez-vous que vos mises à jour d'attributs personnalisés
 
 ### Pourquoi le nombre d'utilisateurs entrant dans une campagne ne correspond-il pas au nombre attendu ? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
 
 {% alert tip %}
 Pour obtenir une assistance supplémentaire sur la résolution des problèmes de campagne, assurez-vous de contacter l'assistance Braze dans les 30 jours suivant la survenue de votre problème, car nous ne disposons que des 30 derniers jours de journaux de diagnostic.

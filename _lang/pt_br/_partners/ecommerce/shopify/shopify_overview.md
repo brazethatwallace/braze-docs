@@ -19,8 +19,8 @@ A integração da Braze com a Shopify fornece uma solução poderosa para empres
 | Requisito | Descrição |
 | --- | --- |
 | Loja da Shopify | Você tem uma loja Shopify ativa. |
-| Permissões de proprietário ou membro da equipe da loja Shopify | {::nomarkdown}<ul><li>Acesso a todas as configurações Gerais e da Loja Online.</li><li> Permissões adicionais de administrador:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Permissões de proprietário ou membro da equipe da loja Shopify | {::nomarkdown}<ul><li>Acesso a todas as configurações Gerais e da Loja Online.</li><li> Permissões adicionais de administrador:<ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Como integrar {#how-to-integrate}
 
@@ -66,7 +66,7 @@ A Braze usa a integração com a Shopify para suportar múltiplos identificadore
 | Alias de usuário do token de checkout | Um alias que a Braze cria quando o usuário inicia o processo de checkout. Esse token é criado usando o token de checkout da Shopify.<br><br> Se um cliente usar o Shop Pay como opção de checkout acelerado, a Shopify pode ignorar certos eventos padrão de checkout e impedir que a Braze receba os dados necessários para adicionar o alias do token de checkout. |
 | Alias do ID do cliente da Shopify | O ID do cliente da Shopify é atribuído como um alias quando o ID externo é atribuído durante o login da conta ou quando um pedido é feito. |
 | Braze `external_id` | Um identificador único que ajuda a rastrear clientes em dispositivos e plataformas. Isso mantém uma experiência de usuário consistente e melhora a análise de dados, evitando múltiplos perfis quando os usuários trocam de dispositivo ou reinstalam o app.<br><br>A integração da Shopify suporta os seguintes tipos de `external_id`: <br><br>{::nomarkdown}<ul><li>ID do cliente da Shopify (padrão)</li><li>ID externo personalizado</li><li>E-mail com hash (SHA-256)</li><li>E-mail com hash (SHA-1)</li><li>E-mail com hash (MD5)</li><li>E-mail</li></ul>{:/}A Braze atribui um `external_id` aos seus usuários chamando o método changeUser dentro dos SDKs quando: <br><br>{::nomarkdown}<ul><li>Um usuário faz login ou cria uma conta</li><li>Um pedido é feito</li></ul>{:/}<br> Para saber mais sobre o que acontece quando você atribui um `external_id` a um perfil anônimo, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).<br><br>A Braze também aproveitará o `external_id` para atribuir dados comportamentais de eCommerce downstream a partir dos webhooks da Shopify.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronização de usuários e dados" }
 
 A integração requer que os SDKs da Braze e os serviços da Shopify trabalhem juntos para rastrear e atribuir adequadamente os dados da Shopify aos usuários certos em tempo quase real. Para mais detalhes sobre os dados rastreados por meio da integração, veja [Dados da Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/).
 
@@ -98,7 +98,7 @@ Esta tabela mostra quais estados de opt-in de marketing da Shopify correspondem 
 | E-mail inválido | Unsubscribed |
 | SMS inscrito | Subscribed |
 | SMS não inscrito | Unsubscribed |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronizando os opt-ins de marketing por e-mail e SMS da Shopify" }
 
 ### Formulários de inscrição {#sign-up-forms}
 

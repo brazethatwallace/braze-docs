@@ -1,15 +1,15 @@
 ---
-nav_title: mParticle for Currents
-article_title: mParticle for Currents
+nav_title: Currents용 mParticle
+article_title: Currents용 mParticle
 alias: /partners/mparticle_for_currents/
-description: "이 참조 문서에서는 Braze 커런츠와 마케팅 스택의 소스 간에 정보를 수집하고 라우팅하는 고객 데이터 플랫폼인 mParticle 간의 파트너십에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze Currents와 마케팅 스택의 소스 간에 정보를 수집하고 라우팅하는 고객 데이터 플랫폼인 mParticle 간의 파트너십에 대해 설명합니다."
 page_type: partner
 tool: Currents
 search_tag: Partner
 
 ---
 
-# mParticle for Currents
+# Currents용 mParticle {#mparticle-for-currents}
 
 > [mParticle](https://www.mparticle.com)은 여러 소스에서 정보를 수집하여 마케팅 스택의 다양한 위치로 라우팅하는 고객 데이터 플랫폼입니다.
 
@@ -19,7 +19,7 @@ Braze와 mParticle 통합을 통해 두 시스템 간의 정보 흐름을 원활
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Currents | 데이터를 mParticle로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
+| Currents | 데이터를 mParticle로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
 | mParticle 계정 | 이 파트너십을 활용하려면 [mParticle 계정](https://app.mparticle.com/login)이 필요합니다. |
 | mParticle 서버 간 키 및 시크릿 | mParticle 대시보드로 이동하여 mParticle이 iOS, Android 및 웹 플랫폼에 대한 Braze 상호작용 데이터를 수신할 수 있도록 [필요한 피드](#step-1-create-feeds)를 생성하면 얻을 수 있습니다.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

@@ -13,7 +13,7 @@ search_tag: Partner
 > [Amazon S3](https://aws.amazon.com/s3/) est un système de stockage hautement évolutif proposé par Amazon Web Services.
 
 {% alert important %}
-Si vous passez d'un fournisseur de stockage en nuage à un autre, contactez votre gestionnaire de la satisfaction client Braze pour obtenir de l'aide sur la configuration et la validation de votre nouvelle intégration.
+Si vous passez d'un fournisseur de stockage cloud à un autre, contactez votre gestionnaire de la satisfaction client Braze pour obtenir de l'aide sur la configuration et la validation de votre nouvelle intégration.
 {% endalert %}
 
 L'intégration de Braze et d'Amazon S3 propose deux stratégies d'intégration :
@@ -28,7 +28,7 @@ L'intégration de Braze et d'Amazon S3 propose deux stratégies d'intégration :
 | Compte Amazon S3 | Vous devez disposer d'un compte Amazon S3 pour profiter de ce partenariat. |
 | Compartiment S3 dédié | Avant d'intégrer Amazon S3, vous devez créer un compartiment S3 pour votre application.<br><br>Si vous disposez déjà d'un compartiment S3, nous vous recommandons tout de même d'en créer un nouveau spécifiquement pour Braze afin de pouvoir limiter les autorisations. Reportez-vous aux instructions suivantes pour savoir comment créer un nouveau compartiment. |
 | Currents | Pour réexporter des données vers Amazon S3, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. Currents n'est pas nécessaire si vous ne configurez que l'archivage des messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### Création d'un nouveau compartiment S3 {#creating-a-new-s3-bucket}
 
@@ -335,7 +335,7 @@ Une notification vous indique si vos identifiants ont été validés avec succè
 
 ## Comportement à l'exportation {#export-behavior}
 
-Les utilisateurs qui ont intégré une solution de stockage de données dans le cloud et qui exportent via des API, des rapports de tableau de bord ou des rapports CSV constatent le comportement suivant :
+Les utilisateurs qui ont intégré une solution de stockage de données cloud et qui exportent via des API, des rapports de tableau de bord ou des rapports CSV constatent le comportement suivant :
 
 - Toutes les exportations API ne renvoient pas d'URL de téléchargement dans le corps de la réponse et doivent être récupérées via le stockage de données.
 - Tous les rapports de tableau de bord et les rapports CSV sont envoyés par e-mail à l'utilisateur pour téléchargement (aucune autorisation de stockage n'est requise) et sauvegardés sur Data Storage.

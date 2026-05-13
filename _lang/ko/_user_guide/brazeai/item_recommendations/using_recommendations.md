@@ -25,7 +25,7 @@ page_order: 1.2
 
 {% tabs local %}
 {% tab pre-formatted code %}
-![항목 추천을 개인화 유형으로 선택한 "Add Personalization" 모달.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
+![항목 추천을 개인화 유형으로 선택한 개인화 추가 모달.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
 메시지 작성기의 **Add personalization** 섹션에서 Liquid를 생성할 수 있습니다:
 
@@ -44,7 +44,7 @@ page_order: 1.2
 |-------------|-------|
 | **구조** | 각 항목은 `items[index]`로 액세스되며, 인덱스는 0(첫 번째 항목)에서 시작하여 이후 항목에 대해 증가합니다. |
 | **카탈로그 필드** | 배열의 각 항목에는 카탈로그의 필드(열)에 해당하는 키-값 페어가 포함되어 있습니다. 예를 들어 제품 추천을 위한 일반적인 카탈로그 필드에는 다음이 포함됩니다:<br>- `name` 또는 `title`<br>- `price`<br>- `image_url` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
 
 `assign` 태그를 사용하여 `product_recommendation` 데이터를 가져와 변수에 할당합니다.
 
@@ -56,11 +56,11 @@ page_order: 1.2
 
 다음을 교체합니다:
 
-| 입력 안내 | 설명 |
+| 플레이스홀더 | 설명 |
 |-----------|-----------|
 | `recommendation_name` | Braze에서 생성한 AI 추천의 이름입니다. |
 | `items` | 추천 항목 배열을 저장하는 변수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add Liquid code" }
 
 다음으로 배열 인덱싱 및 점 표기법을 사용하여 특정 항목과 해당 필드를 참조합니다:
 
@@ -94,7 +94,7 @@ AI 추천은 여러 제품을 배열로 반환하며, `items[0]`은 첫 번째 �
 {% tab Drag-and-drop%}
 이메일 드래그 앤 드롭 편집기에서 이메일에 이미지 블록을 추가한 다음 이미지 블록을 선택하여 **Image properties**를 엽니다.
 
-![드래그 앤 드롭 편집기의 Image properties 패널]({% image_buster /assets/img/image_with_liquid.png %}){: style="max-width:45%"}
+![드래그 앤 드롭 편집기의 이미지 속성 패널]({% image_buster /assets/img/image_with_liquid.png %}){: style="max-width:45%"}
 
 **Image with Liquid**를 토글한 다음 **Dynamic URL** 필드에 다음을 추가합니다(URL 필드는 줄바꿈을 지원하지 않으므로 코드가 한 줄에 표시되는지 확인하세요):
 
@@ -106,11 +106,11 @@ AI 추천은 여러 제품을 배열로 반환하며, `items[0]`은 첫 번째 �
 
 다음을 교체합니다:
 
-| 입력 안내 | 설명 |
+| 플레이스홀더 | 설명 |
 |-----------|-----------|
 | `recommendation_name` | 추천의 이름입니다. |
 | `image_url_field` | 카탈로그에서 이미지 URL이 포함된 필드의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
 
 미리보기 및 테스트 이메일에 플레이스홀더 이미지를 포함하려면 **Choose image**를 선택한 다음 미디어 라이브러리에서 이미지를 선택하거나 호스팅 사이트의 이미지 URL을 입력합니다.
 {% endtab %}
@@ -127,10 +127,10 @@ HTML 이미지 참조의 경우 카탈로그의 이미지 URL 필드에 이미�
 
 다음을 교체합니다:
 
-| 입력 안내 | 설명 |
+| 플레이스홀더 | 설명 |
 |-----------|-----------|
 | `recommendation_name` | 추천의 이름입니다. |
 | `image_url_field` | 카탈로그에서 이미지 URL이 포함된 필드의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Reference an image (optional)" }
 {% endtab %}
 {% endtabs %}

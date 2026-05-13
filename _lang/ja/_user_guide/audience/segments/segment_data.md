@@ -36,7 +36,7 @@ Segment名を選択すると、Segmentの統計とフィルターを表示した
     }
 </style>
 
-<table>
+<table aria-label="Segment統計">
   <caption>Segment統計</caption>
     <thead>
         <tr>
@@ -73,6 +73,7 @@ Segment名を選択すると、Segmentの統計とフィルターを表示した
 ダッシュボードの[セグメントインサイト]({{site.baseurl}}/user_guide/audience/segments/segment_insights/)ページにアクセスすると、事前に選択されたKPIのセットに基づいて、あるSegmentが別のSegmentと比較してどのようなパフォーマンスを示しているかを確認できます。
 
 ### メッセージングの使用状況 {#messaging-use}
+
 **Messaging Use**セクションには、現在有効なCampaignsおよびCanvasesのうち、どのSegmentをターゲットにしているかが表示されます。
 
 ### メンバーシップの履歴 {#historical-membership}

@@ -35,14 +35,14 @@ description: "この記事では、「カタログ項目を置換」Brazeエン�
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
 | `item_id` | 必須 | 文字列 | カタログ項目のID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、`id` フィールドを除き、カタログに存在するフィールドを含める必要があります。1つのリクエストにつき、1つのアイテムオブジェクトのみが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
@@ -125,6 +125,6 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 | `request-includes-too-many-items` | 1つのリクエストにつき1つのカタログ項目のみ作成できます。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベル以上のネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

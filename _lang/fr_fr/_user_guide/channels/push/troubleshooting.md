@@ -40,7 +40,7 @@ Ces deux endpoints renvoient un objet de jeton de notification push qui inclut l
 
 Assurez-vous que vous faites partie du segment que vous ciblez (s'il s'agit d'une campagne en production et non d'un test). Dans le **User Profile**, vous verrez la liste des segments auxquels l'utilisateur appartient actuellement. N'oubliez pas qu'il s'agit d'une variable en constante évolution, car la segmentation est mise à jour en temps réel.
 
-![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![Liste des segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 Vous pouvez également confirmer que l'utilisateur fait partie du segment en utilisant **User Lookup** lors de la création d'un segment.
 
@@ -52,7 +52,7 @@ Vérifiez les limites de fréquence globales. Il est possible que vous n'ayez pa
 
 Vous pouvez vérifier cela en consultant la [limite de fréquence globale]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) dans le tableau de bord. Si la campagne est configurée pour respecter les règles de limite de fréquence, un certain nombre d'utilisateurs seront impactés par ces paramètres.
 
-![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
+![Détails de la campagne]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Limites de débit {#rate-limits}
 
@@ -98,11 +98,11 @@ Si cliquer sur une notification push n'ouvre pas votre application, vérifiez le
 
 ## Les clics sur les notifications push ouvrent de manière inattendue dans l'application {#push-clicks-unexpectedly-open-in-app}
 
-Si vous rencontrez des problèmes avec des liens dans les notifications push qui s'ouvrent de manière inattendue dans votre application au lieu de votre navigateur web, il peut y avoir un problème avec la configuration de votre campagne ou l'implémentation du SDK. Consultez ces étapes pour obtenir de l'aide.
+Si les liens dans vos notifications push s'ouvrent de manière inattendue dans votre application au lieu de votre navigateur web, il peut y avoir un problème avec la configuration de votre campagne ou l'implémentation du SDK. Consultez ces étapes pour obtenir de l'aide.
 
 ### Vérifiez le comportement au clic {#verify-on-click-behavior}
 
-Dans votre campagne ou étape Canvas, vérifiez que **Open web URL inside mobile app** n'est pas sélectionné. Si c'est le cas, désélectionnez l'option et relancez.
+Dans votre campagne ou étape Canvas, vérifiez que l'option **Open web URL inside mobile app** n'est pas sélectionnée. Si c'est le cas, désélectionnez-la et relancez.
 
 ![Champ « Comportement au clic » de la configuration d'une notification push défini sur « Open web URL » avec « Open web URL inside mobile app » décoché.]({% image_buster /assets/img/push_on_click.png %})
 
@@ -148,7 +148,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Réinitialiser Chrome sur ordinateur" }
 
 {:start="4"}
 4. Dans DevTools, accédez à l'onglet **Application**.
@@ -162,7 +162,7 @@ Vos autorisations push sont maintenant réinitialisées. Ouvrez un nouvel onglet
 
 Si vous avez une notification de votre site visible dans le tiroir de notifications Android :
 
-1. Depuis la notification push, appuyez sur <i class="fas fa-cog" title="Settings"></i> et sélectionnez **Site settings**.
+1. Depuis la notification push, appuyez sur <i class="fas fa-cog" title="Paramètres"></i> et sélectionnez **Site settings**.
 2. Depuis **Site settings**, appuyez sur **Clear & Reset**.
 
 Si vous n'avez pas de notification de votre site ouverte :
@@ -181,8 +181,8 @@ Vos autorisations push sont maintenant réinitialisées. Ouvrez un nouvel onglet
 
 ### Réinitialiser Firefox sur ordinateur {#reset-firefox-on-desktop}
 
-1. À côté de l'URL de votre site, sélectionnez <i class="fa-solid fa-circle-info" alt="info icon"></i> ou <i class="fas fa-lock" alt="lock icon"></i>.
-2. Sous **Permissions**, à côté de **Receive Notifications**, sélectionnez <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> pour effacer les autorisations de notification.
+1. À côté de l'URL de votre site, sélectionnez <i class="fa-solid fa-circle-info" alt="icône d'information"></i> ou <i class="fas fa-lock" alt="icône de cadenas"></i>.
+2. Sous **Permissions**, à côté de **Receive Notifications**, sélectionnez <i class="fa-solid fa-circle-xmark" title="Effacer cette autorisation et redemander"></i> pour effacer les autorisations de notification.
 3. Dans le même menu, sélectionnez **Clear Cookies and Site Data**.
 4. Dans la boîte de dialogue pour confirmer votre choix, sélectionnez **OK**.
 

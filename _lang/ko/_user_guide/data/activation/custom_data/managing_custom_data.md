@@ -8,7 +8,7 @@ description: "이 참조 문서에서는 커스텀 이벤트와 속성을 미리
 
 # 커스텀 데이터 관리 {#manage-custom-data}
 
-> 이 페이지에서는 Campaign 및 Segment에 커스텀 데이터를 미리 채우고, 커스텀 이벤트와 속성 및 등록정보를 관리하고, 데이터 유형을 구성하는 방법을 다룹니다. 커스텀 데이터의 차단 및 삭제에 대해서는 [커스텀 데이터 차단]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.
+> 이 페이지에서는 Campaign(캠페인) 및 Segment에 커스텀 데이터를 미리 채우고, 커스텀 이벤트와 속성 및 등록정보를 관리하고, 데이터 유형을 구성하는 방법을 다룹니다. 커스텀 데이터의 차단 및 삭제에 대해서는 [커스텀 데이터 차단]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.
 
 특히 커스텀 속성을 관리하는 방법(설명 추가, 태그 추가, 속성을 PII로 표시하는 방법 포함)을 알아보려면 [커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)를 참조하세요.
 
@@ -79,7 +79,7 @@ Braze는 전송된 속성 데이터의 데이터 유형을 자동으로 인식�
 | 부울 | `1`, `true`, `t`(대소문자 구분 없음) 입력은 `true`로 저장됩니다 |
 | 부울 | `0`, `false`, `f`(대소문자 구분 없음) 입력은 `false`로 저장됩니다 |
 | 숫자 | 정수 또는 플로트(`1`, `1.5` 등)는 숫자로 저장됩니다 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데이터 유형 변환" }
 
 다양한 데이터 유형 비교에서 노출되는 특정 필터 옵션에 대한 자세한 내용은 [보고 구성]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/)을 확인하세요. 사용 가능한 다양한 데이터 유형에 대한 자세한 내용은 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types)을 참조하세요.
 

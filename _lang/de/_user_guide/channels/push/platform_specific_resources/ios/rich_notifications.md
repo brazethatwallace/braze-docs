@@ -41,7 +41,7 @@ Als Best Practice empfiehlt Braze, jede Textzeile sowohl für den optionalen Tit
 
 Ihre Nutzer:innen können Push-Benachrichtigungen in verschiedenen Situationen sehen und dabei unterschiedliche Textlängen angezeigt bekommen.
 
-<table>
+<table aria-label="Benachrichtigungszustände">
   <caption>Benachrichtigungszustände</caption>
 <thead>
   <tr>
@@ -58,7 +58,7 @@ Ihre Nutzer:innen können Push-Benachrichtigungen in verschiedenen Situationen s
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Benachrichtigungszustände" }
 
 ![Beispiel-Push-Benachrichtigungen für die Anzeige auf dem Sperrbildschirm, im erweiterten Zustand und bei aktivem Gerät.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

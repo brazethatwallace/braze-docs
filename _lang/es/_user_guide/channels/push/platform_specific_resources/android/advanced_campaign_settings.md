@@ -60,7 +60,7 @@ El campo **Firebase Messaging Delivery Priority** te permite controlar si un pus
 |---------|-------------|----------|
 | Normal | Entrega optimizada para la batería que puede retrasarse para conservar batería | Contenido no urgente, ofertas promocionales, actualizaciones de noticias |
 | Alta | Entrega inmediata con mayor consumo de batería | Notificaciones urgentes, alertas críticas, actualizaciones de eventos en vivo, alertas de cuenta, noticias de última hora o recordatorios urgentes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Firebase messaging delivery priority #fcm-priority" }
 
 #### Consideraciones {#considerations}
 
@@ -109,7 +109,7 @@ Consulta la siguiente tabla para los niveles de prioridad que puedes establecer 
 | Predeterminada | La mayoría de las notificaciones. Úsala si tu mensaje no cae explícitamente en ninguno de los otros tipos de prioridad. | `0` |
 | Baja | Información que deseas que los usuarios conozcan pero que no requiere acción inmediata. | `-1`|
 | Mínima | Información contextual o de fondo. | `-2`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority" }
 
 Para más información, consulta la documentación de Google sobre [notificaciones de Android](http://developer.android.com/design/patterns/notifications.html).
 
@@ -137,7 +137,7 @@ Las notificaciones push de Android ofrecen la opción de especificar si tu notif
 | Estado | Información continua sobre el dispositivo o estado contextual. |
 | Sistema | Actualización de estado del sistema o dispositivo. Reservado para uso del sistema. |
 | Transporte | Control de transporte multimedia para reproducción. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push category" }
 
 ## Visibilidad de push {#push-visibility}
 
@@ -148,7 +148,7 @@ Las notificaciones push de Android proporcionan un campo opcional para determina
 | Pública | La notificación aparece en la pantalla de bloqueo |
 | Privada | La notificación se muestra con "Contenido oculto" como mensaje |
 | Secreta | La notificación no se muestra en la pantalla de bloqueo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push visibility" }
 
 Además, los usuarios de Android pueden anular cómo aparecen las notificaciones push en su pantalla de bloqueo cambiando la configuración de privacidad de notificaciones en su dispositivo. Esta configuración anulará la visibilidad de la notificación push.
 

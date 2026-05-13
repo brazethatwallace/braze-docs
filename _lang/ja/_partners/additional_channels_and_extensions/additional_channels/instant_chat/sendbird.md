@@ -1,7 +1,7 @@
 ---
 nav_title: Sendbird
 article_title: Sendbird
-description: "このリファレンス記事では、Braze と Sendbird のパートナーシップについて説明します。Sendbird は、業界をリードするアプリ内メッセージソリューションであり、ユーザーが Sendbird プラットフォームでアプリ内通知を受信できるようにします。"
+description: "このリファレンス記事では、BrazeとSendbirdのパートナーシップについて説明します。Sendbirdは、業界をリードするアプリ内メッセージソリューションであり、ユーザーがSendbirdプラットフォームでアプリ内通知を受信できるようにします。"
 alias: /partners/sendbird/
 page_type: partner
 search_tag: Partner
@@ -29,7 +29,7 @@ BrazeとSendbird Notificationsの共同機能を活用することで、企業�
 | Sendbirdアカウント | このパートナーシップを活用するには、Sendbirdアカウントが必要です。 |
 | Sendbird UIKit | Sendbird UIKitを[iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit)または[Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit)アプリにインストールしておく必要があります。 |
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## ユースケース {#use-cases}
@@ -77,9 +77,9 @@ Brazeの**テンプレートとメディア**から**Webhookテンプレート**
 1. テンプレートの名前を入力し、必要に応じてチームとタグを追加します。
 2. リアルタイムまたはバッチエンドポイントをSendbirdダッシュボードから**Webhook URL**にコピーします。
 3. **Receiver**フィールドで<i class="fas fa-plus"></i>アイコンをクリックし、SendbirdのユーザーIDにマッピングされているユーザー属性を挿入します。
-    - カスタム属性 `sendbird_id` をSendbirdユーザーIDとして使用している場合は `{{ '{{' }}custom_attribute.${sendbird_id}}}`。
-    - BrazeユーザーIDをSendbirdユーザーIDとして使用している場合は `{{ '{{' }}${user_id}}}`。
-4. **Settings**タブで、`SENDBIRD_API_TOKEN` をSendbirdダッシュボードの通知APIトークンに置き換えます。
+    - カスタム属性`sendbird_id`をSendbirdユーザーIDとして使用している場合は`{{ '{{' }}custom_attribute.${sendbird_id}}}`。
+    - BrazeユーザーIDをSendbirdユーザーIDとして使用している場合は`{{ '{{' }}${user_id}}}`。
+4. **Settings**タブで、`SENDBIRD_API_TOKEN`をSendbirdダッシュボードの通知APIトークンに置き換えます。
 5. テンプレートを保存します。
 {% endraw %}
 
@@ -109,5 +109,5 @@ Brazeの**テンプレートとメディア**から**Webhookテンプレート**
 3. CampaignまたはCanvasで通知を作成する場合は、**Event Name**フィールドにカスタムイベントの名前を入力します。
 
 このカスタムイベントは、通知ごとに2回（メッセージが送信された時点と、ユーザーがメッセージを開封した時点）トリガーされます。
-- メッセージが送信されると、カスタムイベントが `SENT` ステータスでトリガーされます。
-- メッセージが読まれると、カスタムイベントが `READ` ステータスでトリガーされます。
+- メッセージが送信されると、カスタムイベントが`SENT`ステータスでトリガーされます。
+- メッセージが読まれると、カスタムイベントが`READ`ステータスでトリガーされます。

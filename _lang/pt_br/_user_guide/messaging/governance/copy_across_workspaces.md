@@ -71,7 +71,7 @@ Observe que a lista a seguir não é abrangente sobre o que é copiado entre esp
 | Estado de inscrição do destinatário |  |
 | Programação recorrente |  |
 | É transacional |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,7 +87,7 @@ Observe que a lista a seguir não é abrangente sobre o que é copiado entre esp
 | Estado de inscrição do destinatário |  |
 | Programação recorrente | Critérios de saída |
 | É transacional |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)) não são copiados para o espaço de trabalho de destino. Reconfigure esses filtros após a cópia.
 
@@ -105,7 +105,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Interação com a Campaign | ID da Campaign |
 | Nome do evento personalizado |  |
 | Nome do produto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -116,7 +116,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Interação com o Canvas | ID do Canvas |
 | Nome do evento personalizado |  |
 | Nome do produto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,7 +132,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Interação com a Campaign | ID da Campaign |
 | Nome do evento personalizado |  |
 | Nome do produto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -143,7 +143,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Interação com o Canvas | ID do Canvas |
 | Nome do evento personalizado |  |
 | Nome do produto |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -159,7 +159,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Tipo | IDs do grupo de teste |
 |  | IDs do modelo de link |
 |  | IDs do grupo de usuários internos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -170,7 +170,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Tipo | IDs do grupo de teste |
 |  | IDs do modelo de link |
 |  | IDs do grupo de usuários internos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -189,7 +189,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Assunto | Modelo de link |
 |  | Alias de link |
 |  | Traduções |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -202,7 +202,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Assunto | Modelo de link |
 |  | Alias de link |
 |  | Traduções |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Pré-cabeçalho |  |
 | CSS inline |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +231,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Pré-cabeçalho |  |
 | CSS inline |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +248,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Assunto | Territórios |
 | Cabeçalhos | Tags |
 | | Traduções |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +260,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Assunto | Territórios |
 | Cabeçalhos | Tags |
 | | Traduções |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Descrição | Chaves de API |
 | Conteúdo | Territórios |
 | Conteúdo HTML e arrastar e soltar | Tags |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -287,7 +287,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Descrição | Chaves de API |
 | Conteúdo | Territórios |
 | Conteúdo HTML e arrastar e soltar | Tags |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +303,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Encurtamento de link | Itens de mídia VCF |
 | Rastreamento de cliques |  |
 | Itens de mídia |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +314,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [Divisão d
 | Encurtamento de link | Itens de mídia VCF |
 | Rastreamento de cliques |  |
 | Itens de mídia |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}

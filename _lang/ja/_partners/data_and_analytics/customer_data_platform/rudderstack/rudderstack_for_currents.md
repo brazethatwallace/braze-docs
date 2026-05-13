@@ -21,7 +21,7 @@ Brazeと RudderStack の統合により、Braze Currentsを利用してBrazeイ�
 | RudderStack アカウント | このパートナーシップを活用するには、[RudderStack アカウント](https://app.rudderstack.com/login)が必要です。 |
 | Brazeの送信先 | RudderStackで[Brazeを送信先として設定する]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration)ことをお勧めします。 |
 | Currents | RudderStackにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -29,7 +29,7 @@ Brazeと RudderStack の統合により、Braze Currentsを利用してBrazeイ�
 
 まず、RudderStack WebアプリでBrazeソースを作成する必要があります。データソースの作成手順は、[RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/) サイトで確認できます。
 
-作業が完了すると、RudderStackから書き込みキーを含むWebhook URLが提供されます。このURLは次のステップで使用します。Webhook URLは、Brazeソースの**設定**タブで確認できます。
+作業が完了すると、RudderStackから書き込みキーを含むWebhook URLが提供されます。このURLは次のステップで使用します。Webhook URLは、Brazeソースの**Settings**タブで確認できます。
 
 ### ステップ 2: Currentを作成する {#step-2-create-current}
 

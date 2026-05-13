@@ -18,7 +18,7 @@ channel:
 
 > Utilisez cet endpoint pour mettre à jour en masse le statut d'abonnement de jusqu'à 50 utilisateurs sur le tableau de bord de Braze.
 
-Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en vous rendant sur la page **Groupe d'abonnement**.
+Vous pouvez accéder au `subscription_group_id` d'un groupe d'abonnement en vous rendant sur la page **Subscription Group**.
 
 Pour consulter des exemples ou tester cet endpoint pour **les groupes d'abonnement par e-mail** :
 
@@ -92,7 +92,7 @@ Lorsque vous créez de nouveaux utilisateurs à l'aide de l'[endpoint `/users/tr
 | `emails` | Requis* | Chaîne de caractères ou tableau de chaînes de caractères | L'adresse e-mail de l'utilisateur, qui peut être transmise sous forme de tableau de chaînes de caractères. Doit inclure au moins une adresse e-mail (50 maximum). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent la même adresse e-mail, tous les utilisateurs partageant cette adresse e-mail sont mis à jour avec les modifications du groupe d'abonnement. |
 | `phones` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Vous pouvez transmettre les numéros de téléphone des utilisateurs sous forme de tableau de chaînes de caractères. Vous devez inclure au moins un numéro de téléphone (jusqu'à 50). Les numéros de téléphone doivent être au format E.164 (par exemple, `+12223334444`). <br><br>Si plusieurs utilisateurs (`external_id`) du même espace de travail partagent le même numéro de téléphone, tous les utilisateurs partageant ce numéro de téléphone sont mis à jour avec les mêmes modifications du groupe d'abonnement. |
 | `use_double_opt_in_logic` | Facultatif | Valeur booléenne | La valeur par défaut est `false` si ce paramètre est omis. Pour les groupes d'abonnement SMS, définissez-le sur `true` pour intégrer l'utilisateur au workflow de [double abonnement SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) lorsque son statut d'abonnement est défini sur `subscribed`. Les utilisateurs intégrés au workflow de double abonnement de cette manière reçoivent au maximum une demande d'abonnement par jour, quel que soit le nombre de fois où ils sont intégrés au workflow. Si ce paramètre est omis ou défini sur `false`, les utilisateurs sont abonnés sans passer par le workflow de double abonnement. Ce paramètre ne s'applique pas aux groupes d'abonnement par e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Sélection de l'identifiant** :

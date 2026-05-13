@@ -29,7 +29,7 @@ Sie können SMS-Opt-ins und Opt-outs mit den folgenden Methoden verfolgen:
 | Segmentierer | Der Segmentierer zeigt die Anzahl der Nutzer:innen in einer bestimmten [Abo-Gruppe]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group) an. Er dedupliziert nicht nach Telefonnummer – wenn mehrere Nutzer:innen dieselbe Telefonnummer teilen, wird jede Instanz separat gezählt. |
 | Abo-Gruppen-Zeitreihe | Bietet einen täglichen Snapshot der Abos für E-Mail und Telefonnummern. Die Zeitreihe zählt Abos, Abmeldungen und erneute Abos. Wenn sich beispielsweise eine Nutzer:in anmeldet, abmeldet und dann erneut anmeldet, wird sie als eine abonnierte Nutzer:in gezählt. |
 | Currents | Verwenden Sie Currents, um [Abo- und Engagement-Ereignisse]({{site.baseurl}}/message_events_glossary/) für Ihr eigenes Reporting zu exportieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS-Opt-ins und Opt-outs verfolgen" }
 
 {% alert note %}
 Die Statistiken _Opt-In_ und _Opt-Out_ im Panel **SMS/MMS/RCS Performance** spiegeln Nutzer:innen wider, die sich über eingehende Keywords an- oder abmelden (z. B. „START“ für Opt-in oder „STOP“ für Opt-out). Diese Zahlen sind in der Regel niedriger als im Segmentierer angezeigt, da sie die Anzahl der Textnachrichten mit diesen Keywords zählen, nicht die Gesamtzahl der für SMS abonnierten Nutzer:innen.
@@ -73,7 +73,7 @@ Diese Tabelle spiegelt die Braze-Abrechnung wider, nicht die Abrechnung Ihres An
 | Zugestellt | Der SMS-Anbieter hat eine Bestätigung der Nachrichtenzustellung vom vorgelagerten Carrier erhalten (und, sofern verfügbar, vom Zielgerät). | Gebühr |
 | Abgelehnt | Der SMS-Anbieter hat eine Ablehnungsbestätigung erhalten, die darauf hinweist, dass die Nachricht nicht zugestellt wurde. Dies kann verschiedene Gründe haben, darunter Inhaltsfilterung durch den Carrier oder Nichtverfügbarkeit des Zielgeräts. | Gebühr |
 | An Carrier gesendet | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | Gebühren können je nach individuellem Nachrichtensendeergebnis anfallen |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Gebühren für SMS-Sendeergebnisse" }
 
 ## *Ablehnungen* mit Snowflake oder Currents abgleichen {#reconcile-rejections-with-snowflake-or-currents}
 

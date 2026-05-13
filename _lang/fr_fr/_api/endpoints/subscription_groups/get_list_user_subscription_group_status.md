@@ -48,8 +48,6 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `phone` | Requis* | Chaîne de caractères au format [E.164](https://en.wikipedia.org/wiki/E.164) | Le numéro de téléphone de l'utilisateur. Si l'e-mail n'est pas inclus, vous devez fournir au moins un numéro de téléphone (avec un maximum de 50).<br><br> Soumettre à la fois une adresse e-mail et un numéro de téléphone (sans `external_id`) entraînera une erreur. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
-
 *Un `external_id`, un `email` ou un `phone` est requis pour chaque utilisateur.
 
 - Pour les groupes d'abonnement SMS et WhatsApp, un `external_id` ou un `phone` est requis. Lorsque les deux sont soumis, seul l'`external_id` est utilisé pour l'interrogation et le numéro de téléphone est appliqué à cet utilisateur.

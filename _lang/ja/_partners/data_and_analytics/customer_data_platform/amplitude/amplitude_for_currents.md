@@ -9,7 +9,7 @@ search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents用Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Currents用Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude-for-currents}
 
 > [Amplitude](https://amplitude.com/) は製品分析およびビジネスインテリジェンスプラットフォームです。
 
@@ -21,7 +21,7 @@ BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.ba
 |---|---|
 | Amplitudeアカウント | このパートナーシップを活用するには、[Amplitudeアカウント](https://amplitude.com/)が必要です。 |
 | Currents | Amplitudeにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## データエクスポートの統合 {#data-export-integration}
 

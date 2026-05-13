@@ -33,7 +33,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `segment_id` | Obrigatória | String | Consulte [Identificador de API do segmento]({{site.baseurl}}/api/identifier_types/).<br><br> O `segment_id` de um determinado segmento pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) na sua conta da Braze, ou você pode usar o [endpoint Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
 | `length` | Obrigatória | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é o horário da solicitação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 {% raw %}

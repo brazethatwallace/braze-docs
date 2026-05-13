@@ -613,7 +613,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Paso 5: Configuración personalizada de seguimiento de datos (avanzada)" style="width: 100%;">
   <caption>Paso 5: Configuración personalizada de seguimiento de datos (avanzada)</caption>
   <thead>
     <tr>
@@ -663,7 +663,7 @@ Los siguientes pasos dependen de tu selección de ID externo:<br><br>
 - **Si seleccionaste ID de cliente de Shopify, correo electrónico o correo electrónico con hash:** Sáltate los pasos 6.1—6.3 y continúa directamente con el paso 6.4.
 {% endalert %}
 
-#### Paso 6.1: Crear el metacampo `braze.external_id` {#step-61-create-the-brazeexternalid-metafield}
+#### Paso 6.1: Crear el metacampo `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
 1. En tu panel de administración de Shopify, ve a **Settings** > **Metafields**.
 2. Selecciona **Customers** > **Add definition**.
@@ -690,7 +690,7 @@ Braze envía los siguientes parámetros a tu punto de conexión:
 | shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
 | shopify_storefront   | Sí      | Cadena    | El nombre del escaparate para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
 | email_address        | No       | Cadena    | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. La lógica de tu punto de conexión debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificaciones del punto de conexión" }
 
 ##### Ejemplo de punto de conexión {#example-endpoint}
 

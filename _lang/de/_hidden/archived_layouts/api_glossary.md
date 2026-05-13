@@ -86,9 +86,9 @@ Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das 
 |---|---|---|---|
 | `modified_after`  | Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder nach dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `modified_before`  |  Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
-| `limit` | Nein | Positive Zahl | Maximale Anzahl der abzurufenden Templates, Standard ist 100, wenn nicht angegeben, der maximal zulässige Wert ist 1000. |
+| `limit` | Nein | Positive Zahl | Maximale Anzahl der abzurufenden Templates. Standard ist 100, wenn nicht angegeben; der maximal zulässige Wert ist 1000. |
 | `offset`  |  Nein | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER-DETAILS" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `email_template_id`  | Ja | String | Der API-Bezeichner Ihres E-Mail-Templates. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER-DETAILS" }
 
 {% endapi %}
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `email_template_id`  | Ja | String | Der API-Bezeichner Ihres E-Mail-Templates. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER-DETAILS" }
 
 {% endapi %}
 
@@ -271,8 +271,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | date_of_last_session | (Datum, an dem die Nutzer:in die App zuletzt verwendet hat) String im ISO-8601-Format oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ`. |
 | dob | (Geburtsdatum) String im Format „JJJJ-MM-TT“, zum Beispiel 1980-12-21. |
 | email | (String) |
-| email_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von E-Mail-Nachrichten registriert), „unsubscribed“ (explizit von E-Mail-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out).  |
-| external_id | (String) Des eindeutigen Nutzer-Bezeichners. |
+| email_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von E-Mail-Nachrichten registriert), „unsubscribed“ (explizit von E-Mail-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out). |
+| external_id | (String) Der eindeutige Nutzer-Bezeichner. |
 | facebook | Hash mit beliebigen der folgenden Werte: `id` (String), `likes` (String-Array), `num_friends` (Ganzzahl). |
 | first_name | (String) |
 | gender | (String) „M“, „F“, „O“ (andere), „N“ (nicht zutreffend), „P“ (möchte ich nicht angeben) oder nil (unbekannt). |
@@ -282,11 +282,11 @@ Authorization: Bearer YOUR-REST-API-KEY
 | last_name | (String) |
 | marked_email_as_spam_at | (String) Datum, an dem die E-Mail der Nutzer:in als Spam markiert wurde. Erscheint im ISO-8601-Format oder im Format yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
 | phone | (String) |
-| push_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von Push-Nachrichten registriert), „unsubscribed“ (explizit von Push-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out).  |
+| push_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von Push-Nachrichten registriert), „unsubscribed“ (explizit von Push-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out). |
 | push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank][26] (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte gesetzt. |
 | twitter | Hash mit beliebigen der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER-DETAILS" }
 
 {% endapi %}
 

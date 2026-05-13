@@ -44,7 +44,7 @@ th:nth-child(5), td:nth-child(5) {
 }
 </style>
 
-<table>
+<table aria-label="Liste der protokollierten Ereignisse und Attribute">
   <caption>Liste der protokollierten Ereignisse und Attribute</caption>
     <thead>
         <tr>
@@ -159,14 +159,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Ereignis</td>
             <td><code>class_type: string</code></td>
-            <td>Wenn Nutzer:innen eine Klasse als Favorit speichern</td>
+            <td>Wenn Nutzer:innen einen Kurs als Favorit speichern</td>
         </tr>
         <tr>
             <td><code>st_unfavorited_class</code></td>
             <td>Steppington</td>
             <td>Ereignis</td>
             <td><code>class_type: string</code></td>
-            <td>Wenn Nutzer:innen eine Klasse aus den Favoriten entfernen</td>
+            <td>Wenn Nutzer:innen einen Kurs aus den Favoriten entfernen</td>
         </tr>
         <tr>
             <td><code>st_started_free_trial</code></td>

@@ -29,7 +29,7 @@ Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder ei
 | Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
 
 {% details Weitere Informationen zu Mindest-SDKs %}
 
@@ -45,7 +45,7 @@ Im Folgenden finden Sie die einzelnen Mindest-SDK-Anforderungen für diese Featu
 | Textlinks*                                                         | Push-Primer anfordern                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
 
 *Wenn Sie einen Link in Ihre In-App-Nachricht einfügen, der auf eine URL weiterleitet, und die Endnutzer:innen nicht die angegebenen Mindest-SDK-Versionen verwenden, wird durch Auswählen des Links die Nachricht geschlossen und die Nutzer:innen können nicht zur Nachricht zurückkehren, um das Formular abzusenden.
 

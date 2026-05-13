@@ -32,7 +32,7 @@ Wenn Nutzer:innen über Katalognachrichten Artikel zu ihrem Warenkorb hinzufüge
 | WhatsApp Business-Konto | Um WhatsApp-Produktnachrichten zu verwenden, müssen Sie ein WhatsApp Business-Konto haben, das mit Braze verbunden ist. |
 | Meta-Katalog | Sie müssen einen Meta-Katalog in Ihrem Commerce Manager einrichten. |
 | Einhaltung der Nutzungsbedingungen | Halten Sie die [Meta Commerce-Nutzungsbedingungen und -Richtlinien](https://www.facebook.com/policies_center/commerce) ein. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Produktnachrichtentypen {#product-message-types}
 

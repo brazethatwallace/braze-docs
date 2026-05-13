@@ -43,10 +43,10 @@ Weitere Informationen zum älteren Arbeitsablauf finden Sie unter [Übersetzunge
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Smartling-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Smartling-Konto](https://dashboard.smartling.com/). |
 | Smartling-Übersetzungsprojekt | Um Ihr Braze-Konto mit Smartling zu verbinden, müssen Sie sich zunächst anmelden und [ein Übersetzungsprojekt erstellen](https://help.smartling.com/hc/en-us/articles/115003074093). |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Diesen können Sie im Braze-Dashboard unter **Settings > API Keys** erstellen. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Diesen können Sie im Braze-Dashboard unter **Einstellungen > API-Schlüssel** erstellen. |
 | Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-Mehrspracheneinstellungen | [Vollständige Mehrspracheneinstellungen in Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

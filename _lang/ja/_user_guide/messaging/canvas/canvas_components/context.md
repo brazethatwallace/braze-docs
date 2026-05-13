@@ -202,7 +202,7 @@ Canvasコンテキストが一般提供されたことにより、以下の詳�
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | いいえ |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | いいえ |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | はい |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="この変更はCanvasエントリプロパティに影響しますか？" }
 
 #### 新しいタイムスタンプの動作がメッセージにどのように影響するかの実用的な例は何ですか？ {#faq-example}
 
@@ -260,7 +260,7 @@ Canvasエントリプロパティは、Canvasコンテキスト変数として�
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | ユーザーのお気に入りの料理ジャンル。 |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | ユーザーが利用可能な割引コード。 |
 | `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | 前の変数を組み合わせたパーソナライズされたメッセージです。メッセージステップでは、Liquidスニペット{% raw %}`{{context.${personalized_message}}}`{% endraw %}を使用してコンテキスト変数を参照し、各ユーザーにパーソナライズされたメッセージを配信できます。また、コンテキストステップを使用して[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list)の値を保存し、Canvas全体の他のステップでテンプレート化することもできます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1つのコンテキストステップ内で変数同士を参照できますか？" }
 
 これは複数のコンテキストステップにまたがっても適用されます。たとえば、次のシーケンスを想像してください：
 

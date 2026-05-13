@@ -27,7 +27,7 @@ channel:
 | 사용자가 기기 설정에서 푸시를 활성화하고 세션을 기록함 | `true` | `true` | 포그라운드 | `Opted-In`** |
 | 사용자가 기기 설정에서 푸시를 비활성화하고 세션을 기록함 | `false` | `false` | 백그라운드 | 업데이트되지 않음 |
 | 사용자가 앱을 삭제함 | 업데이트되지 않음 | 푸시 토큰 만료 시 업데이트됨 | 푸시 토큰 만료 시 업데이트됨 | 업데이트되지 않음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
 
 <sup>* 앱이 임시 푸시를 사용하지 않는 경우, 사용자가 푸시 알림을 허용할 때까지 `Foreground Push Enabled`는 `false`입니다. 앱이 임시 푸시를 사용하는 경우, 첫 번째 세션 시작 시 `Foreground Push Enabled`는 `true`입니다. 자세한 내용은 [임시 승인 및 조용한 푸시](#provisional-push)를 참조하세요.</sup>
 
@@ -41,12 +41,12 @@ channel:
 
 **기본 OS 푸시 권한 프롬프트**
 
-|플랫폼|스크린샷|설명|
+| 플랫폼 | 스크린샷 | 설명 |
 |--|--|--|
-|iOS| ![iOS 기본 푸시 프롬프트로 "My App would like to send you notifications"라는 메시지와 하단에 "Don't Allow"와 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | [임시 푸시](#provisional-push) 권한을 요청할 때는 적용되지 않습니다.|
-|Android| ![Android 푸시 메시지로 "Allow Kitchenerie to send you notifications?"라는 메시지와 하단에 "Allow"와 "Don't allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | 이 푸시 권한은 Android 13에서 도입되었습니다. Android 13 이전에는 푸시를 보내는 데 권한이 필요하지 않았습니다.|
-|웹| ![웹 브라우저의 기본 푸시 프롬프트로 "Braze.com wants to show notification"이라는 메시지와 하단에 "Block"과 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| iOS | ![iOS 기본 푸시 프롬프트로 "My App would like to send you notifications"라는 메시지와 하단에 "Don't Allow"와 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | [임시 푸시](#provisional-push) 권한을 요청할 때는 적용되지 않습니다. |
+| Android | ![Android 푸시 메시지로 "Allow Kitchenerie to send you notifications?"라는 메시지와 하단에 "Allow"와 "Don't allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | 이 푸시 권한은 Android 13에서 도입되었습니다. Android 13 이전에는 푸시를 보내는 데 권한이 필요하지 않았습니다. |
+| 웹 | ![웹 브라우저의 기본 푸시 프롬프트로 "Braze.com wants to show notification"이라는 메시지와 하단에 "Block"과 "Allow" 두 개의 버튼이 표시됩니다.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
 
 ### Android
 
@@ -99,7 +99,7 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 
 앱이나 웹사이트는 기기당 하나의 푸시 구독만 가질 수 있습니다. 따라서 사용자가 기기나 웹사이트에서 로그아웃하고 새 사용자가 로그인하면, 푸시 토큰이 새 사용자에게 재할당됩니다. 이는 사용자 프로필의 **Engagement** 탭에 있는 **Contact Settings** 섹션에 반영됩니다:
 
-![사용자 프로필의 **Engagement** 탭에 있는 푸시 토큰 변경 로그로, 푸시 토큰이 다른 사용자에게 이동된 시점과 해당 토큰이 무엇인지 나열합니다.]({% image_buster /assets/img/push_token_changelog.png %})
+![사용자 프로필의 Engagement 탭에 있는 푸시 토큰 변경 로그로, 푸시 토큰이 다른 사용자에게 이동된 시점과 해당 토큰이 무엇인지 나열합니다.]({% image_buster /assets/img/push_token_changelog.png %})
 
 푸시 제공업체(APNs/FCM)가 하나의 기기에서 여러 사용자를 구분할 방법이 없기 때문에, 기기에서 푸시 대상으로 지정할 사용자를 결정하기 위해 마지막으로 로그인한 사용자에게 푸시 토큰을 전달합니다.
 

@@ -66,18 +66,15 @@ alias: /creating-agents/
 Canvasエージェントの場合、指示文内でLiquidを使用してユーザー属性（名前や姓など）やカスタム属性を参照できます。エージェントの指示内のLiquid変数は、ユーザーがそのステップに入ると自動的にエージェントステップに渡されます。
 {% endalert %}
 
-#### ステップ 3.1: リソースを追加する {#add-resources}
+#### コンテキストを追加する {#add-resources}
 
-**Add resources**を選択し、エージェントが参照できる内容を選択します。これには以下が含まれます。
+**+ Agent context**を選択し、エージェントが参照できる内容を選択します。これには以下が含まれます。
 
 - [カタログフィールド]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields)：エージェントにカタログデータへのアクセス権限を与えることで、より正確な応答が得られます。
 - [Segmentメンバーシップ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context)：エージェントが、ユーザーがどのSegmentに属しているかに基づいて応答をパーソナライズできるようにします。最大5つのSegmentを選択できます。
 - [ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)：エージェントが従うべきブランドボイスとスタイルガイドラインを参照します。例えば、エージェントにジムの会員登録を促すSMSコピーを生成させたい場合、このフィールドを使って事前に定義した太字でモチベーションを高めるガイドラインを参照できます。
 - [すべてのCanvasコンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)：このエージェントが呼び出された際に、ユーザーのすべてのCanvasコンテキストデータを分析します。これには**Instructions**セクションで参照されていない変数も含まれます。
-
-#### ステップ 3.2: オプション設定を追加する {#step-32-add-optional-settings}
-
-**Optional settings**では、エージェントが生成するコピーの[温度]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature)を調整できます。温度を高くすると、エージェントは提供された情報を使ってより創造的になります。
+- [ユーザーインタラクションデータ]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history)：各ユーザーの最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータをエージェントに提供します。
 
 ### ステップ 4: 出力を選択する {#select-output}
 

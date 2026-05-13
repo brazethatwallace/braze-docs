@@ -65,7 +65,7 @@
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | HTML、CSS、JavaScriptの追加、編集、削除ができます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer

@@ -30,7 +30,7 @@ channel: push
 | Android | 3,930バイト |
 | iOS | 3,960バイト |
 | Kindle | 5,985バイト |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 プッシュが最大ペイロードサイズを超えると、メッセージが送信されない場合があります。ベストプラクティスとして、ペイロードは数百バイト以内に収めてください。
 
@@ -135,12 +135,12 @@ Android 13以降では、プッシュ通知を表示する前に許可を取得�
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) 許容されないもの：(i) App Storeに類似した、またはサードパーティのアプリ、拡張機能、プラグインを表示するための一般的な関心のコレクションとしてのインターフェイスの作成。 |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) プッシュ通知はアプリの機能に必須であってはならず、機密性の高い個人情報や秘密情報の送信に使用してはなりません。プッシュ通知は、アプリのUIに表示される同意文言を通じて顧客が明示的にオプトインし、アプリ内でそのようなメッセージの受信をオプトアウトする方法を提供しない限り、プロモーションやダイレクトマーケティングの目的で使用してはなりません。 |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) プッシュ通知、カメラ、ジャイロスコープなどのハードウェアやオペレーティングシステムが提供する組み込み機能、またはApple Musicアクセス、iCloudストレージ、Screen Time APIなどのAppleのサービスやテクノロジーを収益化してはなりません。 |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Google Playストアポリシー |
 | --- |
 | [システム機能の不正使用または模倣](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) 通知や警告などのシステム機能を模倣または妨害するアプリや広告は許可されません。システムレベルの通知は、航空会社アプリが特別セールをユーザーに通知する場合や、ゲームがゲーム内プロモーションをユーザーに通知する場合など、アプリの不可欠な機能にのみ使用できます。 |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## 関連記事 {#related-articles}
 

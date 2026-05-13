@@ -31,7 +31,7 @@ tool: Segments
 | `Catalog field`| `Custom event property`と同じ値を含むカタログ内のフィールド。多くの場合、IDの一種です。eコマースのユースケースでは、`shopify_id`になります。 |
 | `Custom event` | カスタムイベントの名前。`Catalog field`と一致する値を持つプロパティを含む同じイベントです。eコマースのユースケースでは、`Made Order`になります。 |
 | `Custom event property` | `Catalog field`と値が一致するカスタムイベントプロパティの名前。eコマースのユースケースでは、`Shopify_ID`になります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
 
 {: start="4"}
 4. 必要に応じて、カタログ内の特定のフィールド値でセグメント化するために、ユースケースに合わせた追加のオプションフィールドを入力します：
@@ -97,7 +97,7 @@ LIMIT 10
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
 | `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -120,7 +120,7 @@ B2B SaaSプラットフォームがあり、既存顧客の従業員であるユ
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
 
 {% endtab %}
 {% endtabs %}

@@ -76,7 +76,7 @@ Al crear un pie de página personalizado, Braze sugiere usar [atributos para la 
 | URL personalizada de adhesión voluntaria del usuario | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | URL personalizada de suscripción del usuario | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | URL del centro de preferencias de Braze del usuario | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizar con atributos" }
 
 ### Incluir un enlace para cancelar suscripción y un enlace de adhesión voluntaria {#including-an-unsubscribe-link-and-opt-in-link}
 
@@ -94,4 +94,4 @@ Si no incluyes un pie de página de texto sin formato, Braze creará uno automá
 
 ## Consideraciones {#considerations}
 
-Si estás usando [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/), ten en cuenta que {% raw %}`{{${email_footer}}}`{% endraw %} no es una etiqueta de Liquid estándar. Se procesa previamente antes de que Liquid se ejecute, por lo que usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variable de contexto y llamar a la bandera `:rerender` falla silenciosamente. En su lugar, usa un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) para un pie de página de correo electrónico.
+Si estás usando [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/), ten en cuenta que {% raw %}`{{${email_footer}}}`{% endraw %} no es una etiqueta de Liquid estándar. Se procesa previamente antes de que Liquid se ejecute, por lo que usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variable de contexto y llamar a la marca `:rerender` falla silenciosamente. En su lugar, usa un [bloque de contenido]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) para un pie de página de correo electrónico.

@@ -12,7 +12,7 @@ search_rank: 1
 
 # Eine E-Mail mit angepasstem HTML erstellen {#create-an-email-with-custom-html}
 
-> E-Mail-Nachrichten eignen sich hervorragend, um Ihren Nutzern Inhalte nach deren Wünschen zu liefern. Sie sind auch ausgezeichnete Werkzeuge, um Nutzer erneut zu aktivieren, die Ihre App möglicherweise sogar deinstalliert haben. Das Senden von individuell angepassten E-Mail-Nachrichten verbessert das Nutzererlebnis und hilft Ihren Nutzern, den größtmöglichen Mehrwert aus Ihrer App zu ziehen.
+> E-Mail-Nachrichten eignen sich hervorragend, um Ihren Nutzer:innen Inhalte nach deren Wünschen zu liefern. Sie sind auch ausgezeichnete Werkzeuge, um Nutzer:innen erneut zu aktivieren, die Ihre App möglicherweise sogar deinstalliert haben. Das Senden von individuell angepassten E-Mail-Nachrichten verbessert das Nutzererlebnis und hilft Ihren Nutzer:innen, den größtmöglichen Mehrwert aus Ihrer App zu ziehen.
 
 Beispiele für E-Mail-Kampagnen finden Sie in unseren [Fallstudien](https://www.braze.com/customers).
 
@@ -59,7 +59,7 @@ Wenn Sie angepasstes HTML erstellen möchten und Hintergründe in der Gmail-Mobi
 
 ## Schritt 2: Wählen Sie Ihre Bearbeitungserfahrung {#step-2-choose-your-template-and-compose-your-email}
 
-Braze bietet zwei Bearbeitungserfahrungen beim Erstellen einer E-Mail-Campaign: unseren [Drag-and-Drop-Editor]({{site.baseurl}}/dnd/) und unseren Standard-HTML-Editor. Wählen Sie die entsprechende Kachel für die Bearbeitungserfahrung, die Sie bevorzugen.
+Braze bietet zwei Bearbeitungserfahrungen beim Erstellen einer E-Mail-Kampagne: unseren [Drag-and-Drop-Editor]({{site.baseurl}}/dnd/) und unseren Standard-HTML-Editor. Wählen Sie die entsprechende Kachel für die Bearbeitungserfahrung, die Sie bevorzugen.
 
 ![Auswahl zwischen dem Drag-and-Drop-Editor, dem HTML-Editor oder Templates für Ihre E-Mail-Bearbeitungserfahrung.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
@@ -68,7 +68,7 @@ Anschließend können Sie entweder ein vorhandenes [E-Mail-Template]({{site.base
 Wenn Sie den HTML-Editor verwenden und Hintergrundfarben in der Gmail-Mobil-App bei aktiviertem Dark Mode des Geräts konsistent bleiben sollen, lesen Sie [Gmail-Mobil-App und Dark-Mode-Hintergrundfarben](#gmail-dark-mode).
 
 {% alert tip %}
-Wir empfehlen, pro E-Mail-Campaign eine Bearbeitungserfahrung auszuwählen. Wählen Sie beispielsweise entweder den **HTML Classic**- oder den **Block-Editor** in einer einzelnen E-Mail-Campaign, anstatt zwischen Editoren zu wechseln.
+Wir empfehlen, pro E-Mail-Kampagne eine Bearbeitungserfahrung auszuwählen. Wählen Sie beispielsweise entweder den **HTML Classic**- oder den **Block-Editor** in einer einzelnen E-Mail-Kampagne, anstatt zwischen Editoren zu wechseln.
 {% endalert %}
 
 ## Schritt 3: Verfassen Sie Ihre E-Mail {#step-3-compose-your-email}
@@ -206,9 +206,9 @@ E-Mail-Extra-Werte werden nicht an Currents oder Snowflake veröffentlicht. Wenn
 
 Nachdem Sie Ihre E-Mail fertig verfasst haben, testen Sie sie vor dem Senden. Wählen Sie am unteren Rand des Übersichtsbildschirms **Preview and Test**.
 
-Hier können Sie eine Vorschau sehen, wie Ihre E-Mail im Postfach erscheint. Mit der ausgewählten Option **Preview as User** können Sie Ihre E-Mail als zufälliger Nutzer anzeigen, einen bestimmten Nutzer auswählen oder einen angepassten Nutzer erstellen. So können Sie testen, ob Ihre Connected-Content- und Personalisierungsaufrufe wie erwartet funktionieren.
+Hier können Sie eine Vorschau sehen, wie Ihre E-Mail im Postfach erscheint. Mit der ausgewählten Option **Preview as User** können Sie Ihre E-Mail als zufällige:r Nutzer:in anzeigen, eine:n bestimmte:n Nutzer:in auswählen oder eine:n angepasste:n Nutzer:in erstellen. So können Sie testen, ob Ihre Connected-Content- und Personalisierungsaufrufe wie erwartet funktionieren.
 
-Anschließend können Sie **Copy preview link** wählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für einen zufälligen Nutzer aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
+Anschließend können Sie **Copy preview link** wählen, um einen teilbaren Vorschau-Link zu generieren und zu kopieren, der zeigt, wie die E-Mail für eine:n zufällige:n Nutzer:in aussehen wird. Der Link ist sieben Tage gültig, bevor er neu generiert werden muss.
 
 Sie können auch zwischen Desktop-, Mobil- und Klartext-Ansichten wechseln, um ein Gefühl dafür zu bekommen, wie Ihre Nachricht in verschiedenen Kontexten erscheint.
 
@@ -248,11 +248,11 @@ Vor dem Senden markiert der Editor häufige Probleme:
 - Fehlender Abmeldelink
 - Absender-Domain nicht auf der Allowlist (Versand wird stark gedrosselt)
 
-## Schritt 4: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 4: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
-Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie Details zur Verwendung der Braze-Tools zum Erstellen Ihrer E-Mail-Campaign.
+Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie Details zur Verwendung der Braze-Tools zum Erstellen Ihrer E-Mail-Kampagne.
 
 #### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
@@ -275,7 +275,7 @@ Sie können auch wählen, Ihre Campaign nur an Nutzer:innen mit einem bestimmten
 Optional können Sie die Zustellung auch auf eine bestimmte Anzahl von Nutzer:innen innerhalb des Segments begrenzen oder Nutzer:innen erlauben, dieselbe Nachricht bei einer Wiederholung der Campaign zweimal zu erhalten.
 
 {% alert note %}
-Beim Erstellen einer neuen E-Mail-Campaign ist die Kontrollgruppe standardmäßig auf 20 % eingestellt und kann je nach Bedarf für Ihre Campaign angepasst oder entfernt werden.
+Beim Erstellen einer neuen E-Mail-Kampagne ist die Kontrollgruppe standardmäßig auf 20 % eingestellt und kann je nach Bedarf für Ihre Campaign angepasst oder entfernt werden.
 {% endalert %}
 
 ##### Multichannel-Campaigns mit E-Mail und Push {#multichannel-campaigns-with-email-and-push}
@@ -313,4 +313,4 @@ Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte I
 
 Der letzte Abschnitt fasst die von Ihnen entworfene Campaign zusammen. Bestätigen Sie alle relevanten Details und wählen Sie **Launch Campaign**.
 
-Um zu erfahren, wie Sie auf die Ergebnisse Ihrer E-Mail-Campaigns zugreifen können, lesen Sie [E-Mail-Reporting]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Um zu erfahren, wie Sie auf die Ergebnisse Ihrer E-Mail-Kampagnen zugreifen können, lesen Sie [E-Mail-Reporting]({{site.baseurl}}/user_guide/channels/email/reporting/).

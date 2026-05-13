@@ -47,7 +47,7 @@ CSVファイルをアップロードする前に、そのファイルが以下�
 | データタイプ | CSVアップロードでサポートされているデータタイプは、文字列、数値、ブール値、時刻です。APIおよびCDIを通じてのみ利用可能なデータタイプを含む全リストについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)を参照してください。 |
 | フォーマット | 一貫性を保つため、すべてのテキストを小文字でフォーマットしてください。 |
 | エンコーディング | UTF-8エンコーディングでCSVファイルを保存し、アップロードしてください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 CSVファイルを保存するためにより多くのスペースが必要な場合は、カタログのアップグレードの詳細についてBrazeのアカウントマネージャーにお問い合わせください。
@@ -94,7 +94,7 @@ CSVファイルを保存するためにより多くのスペースが必要な�
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
   <caption>チュートリアル: CSVファイルからカタログを作成する</caption>
 <thead>
   <tr>
@@ -218,17 +218,19 @@ REST APIは、JSONオブジェクトや文字列配列を含む、すべての[�
 
 ## カタログストレージ {#tiers}
 
+ストレージ制限の概要については、[データストレージの制限]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)を参照してください。
+
 無料版のカタログでは、会社全体のすべてのCSVファイルの合計で最大100 MBのファイルサイズがサポートされています。一方、Catalogs Proバージョンでは、単一のCSVファイルに対して最大2 GBのファイルサイズがサポートされています。
 
 {% alert important %}
 Brazeダッシュボードに表示されるパッケージのエンタイトルメントは、表示上の理由から最も近い単位に丸められていますが、購入したエンタイトルメントの全量が付与されています。カタログストレージのアップグレードをリクエストするには、Brazeのアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-#### 無料版 {#free-version}
+### 無料版 {#free-version}
 
 無料版カタログのストレージサイズは最大100&nbsp;MBです。100&nbsp;MB未満であれば、アイテム数に制限はありません。
 
-#### Catalogs Pro {#catalogs-pro}
+### Catalogs Pro {#catalogs-pro}
 
 会社レベルで、Catalogs Proの最大ストレージはカタログデータのサイズに基づきます。ストレージサイズのオプションは、5&nbsp;GB、10&nbsp;GB、15&nbsp;GBのいずれかです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
 
@@ -241,7 +243,7 @@ Brazeダッシュボードに表示されるパッケージのエンタイトル
 | 項目値の文字数 | 単一の値に最大5,000文字です。例えば、`description` というラベルのフィールドがある場合、そのフィールド内の最大文字数は5,000文字です。 |
 | 項目列名の文字数 | 最大250文字 |
 | カタログあたりのセレクション数 | カタログあたり最大30セレクション |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
 {% alert important %}
 カタログのLiquidタグは再帰的に使用できません。つまり、同じLiquid評価内で、あるカタログ項目を参照し、そこからさらに別のカタログ項目を呼び出すことはできません。

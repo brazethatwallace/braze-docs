@@ -15,4 +15,4 @@
 | 配置 | グループの水平方向の配置（左揃えまたは中央揃え）です。 |
 | アクセントカラー | チェックボックスコントロールの色です。 |
 | パディング | ブロック周囲の余白です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -12,4 +12,4 @@
 | Altura de línea | Espaciado vertical entre líneas de texto. |
 | Color del texto | Color del texto. |
 | Espaciado entre letras | Espaciado horizontal entre caracteres. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

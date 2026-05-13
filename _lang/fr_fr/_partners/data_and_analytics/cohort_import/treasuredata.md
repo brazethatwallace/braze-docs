@@ -23,7 +23,7 @@ Cette fonctionnalité est actuellement en version bêta. Pour plus d'information
 | Clé d'importation des données Braze | Cette clé peut être récupérée dans le tableau de bord de Braze depuis **Intégrations partenaires** > **Partenaires technologiques**, puis en sélectionnant **Treasure Data**. |
 | Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Adresse IP statique de Treasure Data | L'adresse IP statique de Treasure Data est le point d'accès et la source du lien de cette intégration. Pour déterminer l'adresse IP statique, contactez votre conseiller en satisfaction client Treasure Data ou l'assistance technique de Treasure Data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration de l'importation de données {#data-import-integration}
 
@@ -194,7 +194,7 @@ Créez un nouveau segment ou choisissez un segment existant à synchroniser avec
 | Paramètre des détails de l'activation |	Description	|
 | ----------- | ----------- |
 | Nom de l'activation	| Le nom de votre activation.	|
-| Description de l'activation| Une brève description de l'activation.	|
+| Description de l'activation | Une brève description de l'activation.	|
 | Authentification	| Choisissez l'authentification de la cohorte Braze créée à l'étape 2.	|
 | ID de la cohorte	| Il s'agit de l'identifiant backend de la cohorte qui sera envoyé à Braze. 	|
 | Nom de la cohorte (facultatif)	| C'est le nom qui apparaîtra dans le filtre de cohorte de l'outil de segmentation de Braze. Si ce paramètre n'est pas défini, la valeur `Cohort ID` sera utilisée comme `Cohort Name`.	|

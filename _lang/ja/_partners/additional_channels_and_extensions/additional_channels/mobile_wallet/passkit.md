@@ -16,7 +16,7 @@ _この統合はPassKitによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとPassKitの統合により、Apple ウォレットとGoogle Payのカスタムパスを即時に配信して、オンラインキャンペーンのエンゲージメントを高め、測定できます。その後、利用状況を分析し、リアルタイムに調整することで、位置情報に基づくメッセージやパーソナライズされたダイナミックな更新を顧客のモバイルウォレットに送信し、店舗内のトラフィックを増加させることができます。
+BrazeとPassKitの統合により、Apple ウォレットとGoogle Payのカスタムパスを即時に配信して、オンラインCampaignsのエンゲージメントを高め、測定できます。その後、利用状況を分析し、リアルタイムに調整することで、位置情報に基づくメッセージやパーソナライズされたダイナミックな更新を顧客のモバイルウォレットに送信し、店舗内のトラフィックを増加させることができます。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,9 +24,9 @@ BrazeとPassKitの統合により、Apple ウォレットとGoogle Payのカス�
 | ----------- | ----------- |
 | PassKitアカウント | PassKitアカウントとPassKitアカウントマネージャーが必要です。 |
 | `userDefinedID` | PassKitとBrazeの間でユーザーへのカスタムイベントやカスタム属性を適切に更新するには、Brazeのexternal IDを`userDefinedID`として設定する必要があります。この`userDefinedID`は、PassKitのエンドポイントにAPIコールを行う際に使用されます。 |
-| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**「設定」**>**「APIキー」**から作成できます。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -66,9 +66,9 @@ Brazeでは、SmartPassリンクを設定して、顧客がAndroidまたはiOS�
 
 | コンポーネント | 必須 | タイプ | 説明 |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | 必須 | String | Brazeのexternal IDとして設定され、PassKitからBrazeへのコールバックが機能するために重要です。これにより、会社ユーザーは1つのCampaignで複数のオファーのクーポンを持つことができます。一意であることは必須ではありません。 |
-| `members.member.externalId` | オプション | String | Brazeのexternal IDとして設定します。external IDを使用してメンバーシップパスを更新できます。このフィールドを設定することで、メンバーシッププログラム内でユーザーが一意になります。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+|`person.externalId` | 必須 | 文字列 | Brazeのexternal IDとして設定され、PassKitからBrazeへのコールバックが機能するために重要です。これにより、会社ユーザーは1つのCampaignで複数のオファーのクーポンを持つことができます。一意であることは必須ではありません。 |
+| `members.member.externalId` | オプション | 文字列 | Brazeのexternal IDとして設定します。external IDを使用してメンバーシップパスを更新できます。このフィールドを設定することで、メンバーシッププログラム内でユーザーが一意になります。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
 
 使用可能なすべてのフィールドとそのタイプ、役立つ説明については、[PassKit GitHubのドキュメント](https://github.com/PassKit/smart-pass-link-from-csv-generator)を参照してください。
 
@@ -167,7 +167,7 @@ Content Blockの例では、2つの変数が未定義のままになっている
 
 これは意図的な決定であり、Content Blockの再利用性をサポートします。これらの変数は参照されるだけで、Content Block内で作成されるわけではないので、Content Blockを作り直すことなく変更できます。
 
-たとえば、紹介オファーを変更して、ロイヤルティプログラムに初回ポイントを追加したり、セカンダリメンバーカードやクーポンを作成したりすることがあります。これらのシナリオでは必要なPassKitの`projectURLs`またはパスペイロードが異なる可能性があります。これらはBrazeでCampaignごとに定義します。
+たとえば、紹介オファーを変更して、ロイヤルティプログラムに初回ポイントを追加したり、セカンダリメンバーカードやクーポンを作成したりすることがあります。これらのシナリオではPassKitの`projectURLs`またはパスペイロードが異なる可能性があり、BrazeでCampaignごとに定義します。
 
 #### メッセージ本文を作成する {#composing-the-message-body}
 
@@ -216,11 +216,11 @@ Brazeでは、WebhookのCampaignやCanvas内のWebhookを設定して、ユー�
 
 | データ | タイプ | 説明 |
 | ---- | ---- | ----------- |
-| `externalId` | String | 一意の顧客識別子（メンバーシップ番号など）を使用する既存のシステムとの互換性を得るために、パスレコードに一意のIDを追加できます。このエンドポイントを使用して、パスIDではなく`userDefinedId`と`campaignName`でパスデータを取得できます。この値はCampaign内で一意でなければならず、設定後は変更できません。<br><br>Braze統合では、Brazeのexternal ID {% raw %}`{{${user_id}}}`{% endraw %}を使用することをお勧めします。 |
-| `campaignId`（クーポン）<br><br> `programId`（メンバーシップ） | String | PassKitで作成したCampaignまたはプログラムテンプレートのIDです。これを確認するには、PassKitパスプロジェクトの**Settings**タブに移動します。 |
-| `expiryDate` | ISO8601日時 | パスの有効期限です。有効期限を過ぎると、パスは自動的に無効になります（`isVoided`を参照）。この値はテンプレートとCampaign終了日の値を上書きします。 |
-| `status` | String | `REDEEMED`や`UNREDEEMED`など、クーポンの現在のステータスです。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `externalId` | 文字列 | 一意の顧客識別子（メンバーシップ番号など）を使用する既存のシステムとの互換性を得るために、パスレコードに一意のIDを追加できます。このエンドポイントを使用して、パスIDではなく`userDefinedId`と`campaignName`でパスデータを取得できます。この値はCampaign内で一意でなければならず、設定後は変更できません。<br><br>Braze統合では、Brazeのexternal ID {% raw %}`{{${user_id}}}`{% endraw %}を使用することをお勧めします。 |
+| `campaignId`（クーポン）<br><br> `programId`（メンバーシップ） | 文字列 | PassKitで作成したCampaignまたはプログラムテンプレートのIDです。これを確認するには、PassKitパスプロジェクトの**Settings**タブに移動します。 |
+| `expiryDate` | IO8601日時 | パスの有効期限です。有効期限を過ぎると、パスは自動的に無効になります（`isVoided`を参照）。この値はテンプレートとCampaign終了日の値を上書きします。 |
+| `status` | 文字列 | `REDEEMED`や`UNREDEEMED`など、クーポンの現在のステータスです。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
 
 ### ステップ1: BrazeのWebhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 

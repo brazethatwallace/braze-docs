@@ -41,8 +41,8 @@ Como práctica recomendada, Braze recomienda mantener cada línea de texto tanto
 
 Tus usuarios pueden ver las notificaciones push en una variedad de situaciones diferentes, y podrían ver diferentes longitudes de texto como se indica a continuación.
 
-<table>
-  <caption>Estados de notificación</caption>
+<table aria-label="Notification states">
+  <caption>Notification states</caption>
 <thead>
   <tr>
     <th>Pantalla de bloqueo o centro de notificaciones</th>
@@ -58,7 +58,7 @@ Tus usuarios pueden ver las notificaciones push en una variedad de situaciones d
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification states" }
 
 ![Ejemplos de notificaciones push mostradas en la pantalla de bloqueo, expandidas y con el dispositivo activo.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

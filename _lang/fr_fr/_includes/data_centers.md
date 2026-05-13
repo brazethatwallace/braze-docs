@@ -2,7 +2,7 @@
 | URL du tableau de bord | Endpoint REST | Endpoint SDK |
 | --- | --- | --- |
 | `https://dashboard.au-01.braze.com` | `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 {% endif %}
 
 {% if include.datacenters == "EU" %}
@@ -10,28 +10,28 @@
 | --- | --- | --- |
 | `https://dashboard-01.braze.eu` | `https://rest.fra-01.braze.eu` | `sdk.fra-01.braze.eu` |
 | `https://dashboard-02.braze.eu` | `https://rest.fra-02.braze.eu` | `sdk.fra-02.braze.eu` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 {% endif %}
 
 {% if include.datacenters == "ID" %}
 | URL du tableau de bord | Endpoint REST | Endpoint SDK |
 | --- | --- | --- |
 | `https://dashboard.id-01.braze.com` | `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 {% endif %}
 
 {% if include.datacenters == "JP" %}
 | URL du tableau de bord | Endpoint REST | Endpoint SDK |
 | --- | --- | --- |
 | `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 {% endif %}
 
 {% if include.datacenters == "KR" %}
 | URL du tableau de bord | Endpoint REST | Endpoint SDK |
 | --- | --- | --- |
 | `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 {% endif %}
 
 {% if include.datacenters == "US" %}
@@ -46,12 +46,12 @@
 | `https://dashboard-07.braze.com` | `https://rest.iad-07.braze.com` | `sdk.iad-07.braze.com` |
 | `https://dashboard-08.braze.com` | `https://rest.iad-08.braze.com` | `sdk.iad-08.braze.com` |
 | `https://dashboard.us-10.braze.com` | `https://rest.us-10.braze.com` | `sdk.us-10.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 {% endif %}
 
 {% if include.datacenters == "instances" %}
 | Instance | URL | Endpoint REST | Endpoint SDK |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | US-01 | `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` | `sdk.iad-01.braze.com` |
 | US-02 | `https://dashboard-02.braze.com` | `https://rest.iad-02.braze.com` | `sdk.iad-02.braze.com` |
 | US-03 | `https://dashboard-03.braze.com` | `https://rest.iad-03.braze.com` | `sdk.iad-03.braze.com` |
@@ -67,7 +67,7 @@
 | ID-01 | `https://dashboard.id-01.braze.com` | `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
 | JP-01 | `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
 | KR-01 | `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Tableau" }
 {% endif %}
 
 <!--The following section is the list of IPs for IP allowlisting-->

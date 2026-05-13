@@ -20,7 +20,7 @@ Cette fonctionnalité ne prend pas en charge Shopify Markets ou Markets Pro. Si 
 | ----------- | ----------- |
 | Configurer une boutique Shopify | Assurez-vous d'avoir déjà [configuré au moins une boutique Shopify avec Braze]({{site.baseurl}}/shopify_overview/). |
 | Domaines de vitrine Shopify uniques pour chaque région | La prise en charge de plusieurs boutiques est destinée à être utilisée avec des domaines de boutique Shopify uniques pour différentes vitrines régionales. <br><br>Si vous souhaitez connecter plusieurs sous-marques à Braze, nous vous recommandons de créer des espaces de travail distincts pour chaque sous-marque. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Connexion d'une boutique supplémentaire {#connecting-an-additional-store}
 Après avoir installé l'application Braze sur votre boutique Shopify et installé votre première boutique, sélectionnez **+ Connect New Store**.
@@ -53,11 +53,11 @@ Lorsque vous connectez plusieurs boutiques, les utilisateurs Shopify synchronis�
 
 Vous pouvez choisir parmi les options suivantes pour votre ID externe Braze :
 
-|Option|Description|
+| Option | Description |
 |------|-----------|
-|ID client Shopify|Si vous utilisez l'ID client de Shopify comme ID externe de Braze, chaque boutique générera un ID client unique pour chaque utilisateur. Cela signifie que si un utilisateur interagit avec plusieurs boutiques, il aura des profils distincts dans Braze.|
-|E-mail, e-mail haché ou ID externe personnalisé|Si vous utilisez les types e-mail, e-mail haché ou ID externe personnalisé, les utilisateurs qui interagissent avec plusieurs boutiques verront leurs profils fusionnés en un seul profil consolidé lorsqu'ils se connecteront ou passeront une commande.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| ID client Shopify | Si vous utilisez l'ID client de Shopify comme ID externe de Braze, chaque boutique générera un ID client unique pour chaque utilisateur. Cela signifie que si un utilisateur interagit avec plusieurs boutiques, il aura des profils distincts dans Braze. |
+| E-mail, e-mail haché ou ID externe personnalisé | Si vous utilisez les types e-mail, e-mail haché ou ID externe personnalisé, les utilisateurs qui interagissent avec plusieurs boutiques verront leurs profils fusionnés en un seul profil consolidé lorsqu'ils se connecteront ou passeront une commande. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### Champs fusionnés {#merged-fields}
 
@@ -89,11 +89,11 @@ Dans l'étape **Gérer les utilisateurs** des paramètres de votre connecteur Sh
 {% tab API ou SDK de Braze %}
 Vous pouvez également synchroniser les informations d'abonnement au marketing par e-mail et par SMS directement depuis Shopify à l'aide de l'API ou des SDK de Braze.
 
-|Option|Ressources|
+| Option | Ressources |
 |------|---------|
-|API |- Les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/) pour remplacer directement ce qui est pris en charge par l'intégration<br>- L'[endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) pour définir les données du groupe d'abonnement ou l'[état d'abonnement global à l'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- Le [centre de préférences de Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions/) pour des options de collecte d'abonnement marketing plus personnalisées|
-|SDK |- [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| API | - Les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/) pour remplacer directement ce qui est pris en charge par l'intégration<br>- L'[endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) pour définir les données du groupe d'abonnement ou l'[état d'abonnement global à l'e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- Le [centre de préférences de Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions/) pour des options de collecte d'abonnement marketing plus personnalisées |
+| SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
 {% endtab %}
 {% endtabs %}
 

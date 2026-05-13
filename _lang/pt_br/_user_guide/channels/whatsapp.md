@@ -34,7 +34,7 @@ Para um passo a passo completo, consulte [Configuração do WhatsApp]({{site.bas
 | Lembretes de compromissos | Reduza faltas com lembretes oportunos de compromissos e permita que os clientes confirmem ou remarquem. |
 | Campanhas promocionais | Alcance clientes com promoções direcionadas, lançamentos de produtos e ofertas personalizadas por meio de mensagens com mídia rica. |
 | Conversas bidirecionais | Construa relacionamentos mais profundos com mensagens interativas que permitem que os clientes respondam, façam perguntas e forneçam feedback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Próximas etapas {#next-steps}
 

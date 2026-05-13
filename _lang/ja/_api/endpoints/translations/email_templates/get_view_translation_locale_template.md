@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: メールテンプレートの特定の翻訳とロケールを表示する"
 article_title: "GET: メールテンプレートの特定の翻訳とロケールを表示する"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -33,7 +33,7 @@ description: "この記事では、メールテンプレートの特定の翻訳
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | 必須 | 文字列 | メールテンプレートのID。 |
 | `locale_id`   | オプション | 文字列 | ロケールのID（UUID）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。

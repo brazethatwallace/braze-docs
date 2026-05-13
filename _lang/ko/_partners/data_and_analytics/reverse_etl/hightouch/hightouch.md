@@ -22,7 +22,7 @@ Braze와 Hightouch 통합을 사용하면 데이터 웨어하우스의 최신 �
 | Hightouch 계정 | 이 파트너십을 활용하려면 Hightouch 계정이 필요합니다.
 | Braze REST API 키 | `users.track` 및 `users.export.ids` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다.<br><br>Hightouch는 Braze 인스턴스가 위치한 클러스터 이름이 필요합니다. 예를 들어, Braze 엔드포인트가 `https://rest.iad-01.braze.com`인 경우 `iad-01`만 필요합니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 사용 사례 {#use-cases}
 
@@ -70,5 +70,5 @@ Hightouch를 사용하면 이벤트 및 구매 데이터를 추적하고 Braze�
 ## 통합 데모 {#integration-demo}
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

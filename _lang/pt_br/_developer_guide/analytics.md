@@ -46,7 +46,7 @@ Eventos personalizados são ações realizadas pelos seus usuários; eles são m
 | Verificar se o evento personalizado ocorreu **mais de X (Máx = 50) vezes** | **MAIS DO QUE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 | Verificar se o evento personalizado ocorreu **menos de X (Máx = 50) vezes** | **MENOS QUE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
 | Verificar se o evento personalizado ocorreu **exatamente X (Máx = 50) vezes** | **EXATAMENTE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Eventos personalizados" }
 
 A Braze registra o número de vezes que esses eventos ocorreram, bem como a última vez que foram realizados por cada usuário para segmentação. Na página de análise de dados de **Eventos Personalizados**, você pode ver de forma agregada com que frequência cada evento personalizado ocorre, bem como por segmento ao longo do tempo para uma análise mais detalhada. Isso é particularmente útil para ver como suas campanhas afetaram a atividade de eventos personalizados, observando as linhas cinzas que a Braze sobrepõe na série temporal para indicar a última vez que uma campanha foi enviada.
 
@@ -110,7 +110,7 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 | Verificar se o atributo de string **não corresponde** a uma string inserida| **NÃO É IGUAL** | **STRING** |
 | Verificar se o atributo de string **existe** no perfil de um usuário | **ESTÁ EM BRANCO** | **N/D** |
 | Verificar se o atributo de string **não existe** no perfil de um usuário | **NÃO ESTÁ EM BRANCO** | **N/D** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (caracteres alfanuméricos)" }
 
 {% alert important %}
 Ao segmentar usando o filtro **NÃO CORRESPONDE AO REGEX**, é necessário que já exista um atributo personalizado com um valor atribuído nesse perfil de usuário. A Braze sugere usar a lógica "OU" para verificar se um atributo personalizado está em branco, a fim de segmentar os usuários corretamente.
@@ -125,7 +125,7 @@ Mais recursos sobre regex:
 - [Tutorial de regex](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
 
-#### Arrays
+#### Arrays {#arrays}
 
 Os atributos de array são bons para armazenar listas relacionadas de informações sobre seus usuários. Por exemplo, armazenar as últimas 100 peças de conteúdo que um usuário assistiu em um array permitiria a segmentação de interesses específicos.
 
@@ -153,7 +153,7 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 | Verificar se o atributo do array **contém um valor que corresponde parcialmente** a um valor inserido **OU** expressão regular | **CORRESPONDE A UMA EXPRESSÃO REGULAR** | **STRING** **OU** **EXPRESSÃO REGULAR** |
 | Verificar se o atributo do array **tem algum valor** | **TEM UM VALOR** | **N/D** |
 | Verificar se o atributo do array **está vazio** | **ESTÁ VAZIO** | **N/D** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Arrays" }
 
 {% alert note %}
 Usamos [expressões regulares compatíveis com Perl (PCRE)](http://www.regextester.com/pregsyntax.html).
@@ -181,7 +181,7 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 | Verificar se o atributo de tempo está **em menos de X** **dias no futuro** | **EM MENOS DE** | **NÚMERO DE DIAS NO FUTURO**  |
 | Verificar se o atributo de tempo **existe** no perfil de um usuário | **EM BRANCO** | **N/D** |
 | Verificar se o atributo de tempo **não existe** no perfil de um usuário | **NÃO ESTÁ EM BRANCO** | **N/D** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datas" }
 
 #### Números {#integers}
 
@@ -201,7 +201,7 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 | Verificar se o atributo numérico **não é igual a** um **número**| **NÃO É IGUAL** | **NÚMERO** |
 | Verificar se o atributo numérico **existe** no perfil de um usuário | **EXISTE** | **N/D** |
 | Verificar se o atributo numérico **não existe** no perfil de um usuário | **NÃO EXISTE** | **N/D** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Números" }
 
 #### Booleanos (verdadeiro/falso) {#booleans-truefalse}
 
@@ -214,7 +214,7 @@ A tabela a seguir descreve as opções de segmentação disponíveis para atribu
 | Verificar se o valor booleano **é** | **É**  | **VERDADEIRO**, **FALSO**, **VERDADEIRO OU NÃO DEFINIDO**, ou **FALSO OU NÃO DEFINIDO** |
 | Verificar se o valor booleano **existe** no perfil de um usuário | **EXISTE**  | **N/D** |
 | Verificar se o valor booleano **não existe** no perfil de um usuário | **NÃO EXISTE**  | **N/D** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Booleanos (verdadeiro/falso)" }
 
 ## Eventos de compra / rastreamento de receita {#purchase-events-revenue-tracking}
 
@@ -234,7 +234,7 @@ A tabela a seguir descreve as opções de segmentação disponíveis para evento
 | Verificar se a compra ocorreu **mais de X (Máx = 50) vezes** | **MAIS DO QUE** | nos últimos **Y Dias (Y = 1,3,7,14,21,30)** |
 | Verificar se a compra ocorreu **menos de X (Máx = 50) vezes** | **MENOS QUE** | nos últimos **Y Dias (Y = 1,3,7,14,21,30)** |
 | Verificar se a compra ocorreu **exatamente X (Máx = 50) vezes** | **EXATAMENTE** | nos últimos **Y dias (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Eventos de compra / rastreamento de receita" }
 
 {% alert note %}
 Se você gostaria de segmentar pelo número de vezes que uma compra específica ocorreu, também deve registrar essa compra individualmente como um [atributo personalizado incremental](#integers).

@@ -20,7 +20,7 @@ A integração entre a Braze e a Personalize.AI permite exportar dados da Person
 | Instância da Personalize.AI | Uma instância da Personalize.AI é necessária para aproveitar esta parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões. <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -47,7 +47,7 @@ A integração entre a Braze e a Personalize.AI permite exportar dados da Person
     * **API URL:** adicione a URL do seu endpoint REST da Braze.
 4. Clique em **EXPORT** para exportar dados para a Braze.
 
-Depois que seus dados forem exportados, a Personalize.AI continuará a passar dados para a Braze nos intervalos determinados pela frequência de sincronização que você definiu durante a integração.
+Depois que seus dados forem exportados, a Personalize.AI continuará a enviar dados para a Braze nos intervalos determinados pela frequência de sincronização que você definiu durante a integração.
 
 ## Usando essa integração {#using-this-integration}
 
@@ -55,7 +55,7 @@ A Personalize.AI exporta identificadores usados para direcionamento personalizad
 
 Os atributos de dados importados para a Braze são intuitivamente nomeados para uso em Canvas, seguindo uma terminologia consistente. Por exemplo, o atributo `C402_Target_Variant` na Personalize.AI seria exportado para a Braze como `"P.AI_Model_Treatment"`. Os atributos exportados da Personalize.AI são projetados para não interferir com quaisquer atributos existentes ou rastreamento do seu uso. Esses atributos são validados continuamente para confirmar que você pode referenciá-los com confiança.
 
-Por exemplo, aqui está um conjunto de atributos de clientes conforme eles se relacionam a um exemplo de Canvas focado em churn.
+Por exemplo, aqui está um conjunto de atributos de clientes relacionados a um exemplo de Canvas focado em churn.
 
 | Atributo Personalize.AI | Valor |
 | ----------- | ------------- |
@@ -68,4 +68,4 @@ Por exemplo, aqui está um conjunto de atributos de clientes conforme eles se re
 | `C4_Offer_Value` | $3 |
 | `C4_Item_Recom` | "Caesar Salad" |
 | `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usando essa integração" }

@@ -132,7 +132,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `braze_properties` | オブジェクト    | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios`              | オブジェクト    | iOS固有のフィールドを表します。 |
 | `android`          | オブジェクト    | Android固有のフィールドを表します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### ステップ3：ディープリンクを有効にする（オプション） {#step-3-enable-deep-linking-optional}
 
@@ -463,7 +463,7 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 
 1. React Nativeアプリケーションで `Braze.changeUserId('your-user-id')` メソッドを呼び出して、アクティブユーザーを設定します。
 2. **Campaigns**に移動し、新しいプッシュ通知Campaignを作成します。テストしたいプラットフォームを選択します。
-3. テスト通知を作成し、**テスト**タブに移動します。テストユーザーと同じ `user-id` を追加し、**テストを送信**をクリックします。まもなくデバイスに通知が届くはずです。
+3. テスト通知を作成し、**Test**タブに移動します。テストユーザーと同じ `user-id` を追加し、**Send Test**をクリックします。まもなくデバイスに通知が届くはずです。
 
 ![Brazeのプッシュ通知Campaignでは、自分のユーザーIDをテスト受信者として追加し、プッシュ通知をテストすることができます。]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
 

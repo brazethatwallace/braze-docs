@@ -23,6 +23,10 @@ Dans la section **Segment Details** de la page d'un segment, activez **Analytics
 
 Le suivi peut être activé pour 25 segments maximum dans une application. Braze recommande de suivre les segments qui sont importants pour vous permettre d'analyser les effets de vos Campaigns sur les sessions, le chiffre d'affaires et les achats.
 
+{% alert note %}
+Après l'activation du suivi analytique, un délai peut être nécessaire avant que les données du segment ne soient disponibles. Si les données ne s'affichent pas dans les 24 heures, [contactez l'assistance]({{site.baseurl}}/braze_support/).
+{% endalert %}
+
 ## Visualisation du chiffre d'affaires et des achats au fil du temps {#viewing-revenue-and-purchases-over-time}
 
 Accédez à **Analytics** > **Revenue Report** pour consulter les données sur le [chiffre d'affaires et les achats au fil du temps pour ce segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).

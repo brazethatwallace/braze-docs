@@ -38,7 +38,7 @@ Una posible explicación podría ser que la campaña o Canvas tiene la reelegibi
 
 Por ejemplo, si tienes un Canvas que tiene notificaciones push tanto para iOS como para web, un usuario determinado con dispositivos móviles y de escritorio podría recibir más de un mensaje.
 
-### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatarios únicos* puede ser mayor que la audiencia que esperabas porque Braze rastrea destinatarios únicos diarios para los informes. Esto permite que Braze atribuya conversiones dentro de la ventana de conversión cada vez que un usuario recibe el mensaje, en lugar de colapsar múltiples recepciones en un solo recuento de por vida (lo que distorsionaría las matemáticas de conversión).
 
@@ -162,7 +162,7 @@ Para evitar esto, asegúrate de que las actualizaciones de atributos personaliza
 
 ### ¿Por qué el número de usuarios que entran a una campaña no coincide con el número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 {% alert tip %}
 Para obtener más ayuda con la solución de problemas de campañas, asegúrate de contactar a soporte de Braze dentro de los 30 días posteriores a la ocurrencia de tu problema, ya que solo tenemos los últimos 30 días de registros de diagnóstico.

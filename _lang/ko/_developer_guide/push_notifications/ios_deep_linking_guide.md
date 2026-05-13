@@ -25,7 +25,7 @@ iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입�
 | **커스텀 스킴** | `myapp://products/123` | 푸시 알림, 인앱 메시지, Content Cards | 아니요 — 링크 실패 |
 | **유니버설 링크** | `https://myapp.com/products/123` | 이메일, SMS, 클릭 추적이 있는 채널 | 예 — 웹으로 대체됩니다 |
 | **앱 내에서 웹 URL 열기** | 모든 `https://` URL | 모달 WebView에서 웹 콘텐츠 표시 | 해당 없음 — WebView에 표시됨 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Choosing a link type" }
 
 ### 커스텀 스킴 딥링크 {#custom-scheme-deep-links}
 
@@ -67,7 +67,7 @@ iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입�
 
 ## 각 링크 유형에 필요한 사항 {#what-you-need-for-each-link-type}
 
-### 커스텀 스킴 딥링크 {#custom-scheme-deep-links}
+### 커스텀 스킴 딥링크
 
 | 요구 사항 | 세부 정보 |
 |---|---|
@@ -75,9 +75,9 @@ iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입�
 | `Info.plist` | `CFBundleURLTypes` 아래에 스킴을 등록하고 `LSApplicationQueriesSchemes`에 추가 |
 | 앱 델리게이트 메서드 | URL을 구문 분석하고 이동하도록 `application(_:open:options:)` 구현 |
 | Braze SDK 구성 | 없음 — SDK는 기본적으로 커스텀 스킴 URL을 엽니다 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom scheme deep links" }
 
-### 유니버설 링크 {#universal-links}
+### 유니버설 링크
 
 | 요구 사항 | 세부 정보 |
 |---|---|
@@ -86,20 +86,20 @@ iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입�
 | 앱 델리게이트 메서드 | `NSUserActivity`를 처리하도록 `application(_:continue:restorationHandler:)` 구현 |
 | Braze SDK 구성 | `configuration.forwardUniversalLinks = true` 설정 |
 | BrazeDelegate(선택 사항) | 커스텀 라우팅을 위해 `braze(_:shouldOpenURL:)` 구현(예: Branch) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
 
 {% alert important %}
 Braze를 통해 이메일을 발송하는 경우, 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 링크를 클릭 추적 도메인으로 래핑합니다. AASA 파일은 기본 도메인뿐만 아니라 클릭 추적 도메인에도 호스팅해야 합니다. 전체 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)를 참조하세요.
 {% endalert %}
 
-### "앱 내에서 웹 URL 열기" {#open-web-url-inside-app}
+### "앱 내에서 웹 URL 열기"
 
 | 요구 사항 | 세부 정보 |
 |---|---|
 | AASA 파일 | 필요하지 않음 |
 | 앱 델리게이트 메서드 | 필요 없음 — SDK가 자동으로 처리합니다 |
 | Braze SDK 구성 | 없음 — Campaign 작성기에서 **Open Web URL Inside App**을 선택 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Open Web URL Inside App" }
 
 ## AASA 파일이 필요한 경우 {#when-aasa}
 
@@ -128,7 +128,7 @@ AASA 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user
 | `application(_:open:options:)` | 커스텀 스킴 딥링크(`myapp://`) | 모든 채널에서 커스텀 스킴 딥링크를 사용하는 경우 |
 | `application(_:continue:restorationHandler:)` | 유니버설 링크(`https://`) | 이메일, SMS 또는 `forwardUniversalLinks = true`와 함께 유니버설 링크를 사용하는 경우 |
 | `BrazeDelegate.braze(_:shouldOpenURL:)` | SDK가 여는 모든 URL | 커스텀 라우팅 로직이 필요한 경우(예: Branch, 조건부 처리, 분석) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When you need app code to handle links #when-app-code" }
 
 {% alert tip %}
 Branch 같은 타사 링크 제공업체를 사용하는 경우, URL을 가로채서 해당 제공업체의 SDK로 전달하도록 `BrazeDelegate.braze(_:shouldOpenURL:)`를 구현하세요. 전체 예제는 [딥링킹용 Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)를 참조하세요.

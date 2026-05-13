@@ -48,7 +48,7 @@ Brazeに10DLCの登録支援を依頼された場合は、契約に基づき、�
 | 正式な法人住所（番地、市区町村、州、郵便番号）        |                                                               |                                                              |
 | 会社種別（private、non-profit、government、public（ティッカーシンボルを提供してください）） |                                       |                                                              |
 | 上場企業の場合、ティッカーシンボルを提供してください                         |                                                               |                                                              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Company Information (10DLC)" }
 
 ## SMS Campaign情報 {#sms-campaign-information}
 
@@ -74,4 +74,4 @@ Brazeに10DLCの登録支援を依頼された場合は、契約に基づき、�
 | 1日あたりの推定送信量 | | この特定のユースケース/サブスクリプショングループにおける1日あたりの平均送信メッセージ数の推定値を示してください（例：10,000）。 |
 | コールトゥアクションチェックリスト | | {::nomarkdown} <p>コールトゥアクションには以下を含める必要があります：</p><ol><li>製品の説明</li><li>メッセージ頻度の開示</li><li>完全な利用規約へのリンク</li><li>完全なプライバシーポリシーへのリンク</li><li>STOPキーワードの手順</li><li>HELPキーワードの手順</li><li>「Message and Data Rates」が適用される場合がある旨の開示</li></ol> {:/} |
 | コールトゥアクションの例 | | ![必要な詳細がすべて含まれたコールトゥアクションの例。]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS campaign information" }

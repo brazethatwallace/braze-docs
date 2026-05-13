@@ -31,7 +31,7 @@ search_tag: Partner
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## SDKの統合 {#sdk-integration}
+## SDK統合 {#sdk-integration}
 
 BrazeとInfillionを統合するには、Infillion Location SDKを実装し、Infillionマネージャーアカウントを作成する必要があります。Android、FireOS、iOS向けの以下の統合では、ユーザーが入る新しい場所ごとに固有のカスタムイベントが作成されます。これらのイベントをCampaignsやCanvasesでのトリガーやリターゲティングに使用できます。
 

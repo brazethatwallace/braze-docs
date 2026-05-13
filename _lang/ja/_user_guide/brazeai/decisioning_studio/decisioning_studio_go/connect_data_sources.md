@@ -25,7 +25,7 @@ Decisioning Studio Goは、データアクセスにおいて以下のCEPをサ�
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Braze Currentsエクスポート |
 | **Salesforce Marketing Cloud** | データエクステンション | SQLクエリオートメーション |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## CEP別のデータ要件 {#data-requirements-by-cep}
 

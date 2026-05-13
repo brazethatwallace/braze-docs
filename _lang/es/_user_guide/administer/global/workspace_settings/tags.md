@@ -37,7 +37,7 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="Mejores prácticas #tags-best-practices">
   <caption>Mejores prácticas</caption>
 <thead>
   <tr>

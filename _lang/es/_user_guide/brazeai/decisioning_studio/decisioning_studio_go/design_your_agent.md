@@ -23,7 +23,7 @@ Decisioning Studio Go es una plataforma de autoservicio con capacidades optimiza
 | **Datos del cliente** | Solo interacción | Todos los datos 1P |
 | **Configuración** | Autoservicio | Soporte de servicios de toma de decisiones con IA |
 | **Grupos experimentales** | Go + Control aleatorio + BAU opcional | Totalmente personalizable |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Funciones de Go frente a Pro" }
 
 ## Diseña tu agente Go {#design-your-go-agent}
 
@@ -62,7 +62,7 @@ Considera la posibilidad de crear un segmento específico para tu experimentador
 Las dimensiones son las «palancas» que el agente puede accionar para personalizar la experiencia del cliente. Entre ellas se incluyen dimensiones creativas, como la línea del asunto y la imagen principal, así como dimensiones relacionadas con el tipo de envío, como la frecuencia de los correos electrónicos o la hora del día.
 
 {% alert note %}
-Las dimensiones específicas disponibles dependen de tu CEP y de cómo estén configuradas tus Campaigns. Trabaja con las plantillas y el contenido que has configurado en tu CEP.
+Las dimensiones específicas disponibles dependen de tu CEP y de cómo estén configuradas tus campañas. Trabaja con las plantillas y el contenido que has configurado en tu CEP.
 {% endalert %}
 
 ### Paso 3: Configura tu banco de acciones {#step-3-configure-your-action-bank}
@@ -81,8 +81,8 @@ Decisioning Studio Go crea automáticamente grupos experimentales para medir el 
 |-------|-------------|
 | **Decisioning Studio Go** | Clientes que reciben recomendaciones optimizadas por IA |
 | **Control aleatorio** | Clientes que reciben opciones seleccionadas al azar (comparación con la línea de base) |
-| **Business as Usual (opcional)** | Clientes que reciben tu Campaign actual (si se compara con el rendimiento actual) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Business as Usual (opcional)** | Clientes que reciben tu campaña actual (si se compara con el rendimiento actual) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4: Configura los grupos experimentales" }
 
 {% alert important %}
 Para realizar una comparación precisa, asegúrate de que ningún cliente pueda pertenecer a más de un grupo experimental y de que los clientes se asignen aleatoriamente a los grupos sin sesgos.

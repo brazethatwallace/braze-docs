@@ -108,7 +108,7 @@ Lorsque vous exportez les données utilisateur d'une étape Canvas, le fichier C
 | unsubscribed_from_emails_at | Date de désabonnement aux e-mails  |
 | opted_in_to_emails_at       | Date d'abonnement aux e-mails     |
 | user_aliases                | Alias de l'utilisateur, le cas échéant |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Pour obtenir de l'aide sur les exportations CSV et API, consultez notre article de [résolution des problèmes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).

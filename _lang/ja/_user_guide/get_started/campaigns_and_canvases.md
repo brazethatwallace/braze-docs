@@ -24,7 +24,7 @@ Campaignsはチャネルに応じて独自に構築できますが、Brazeには
 | ABテスト | 単一チャネルをターゲットとするCampaignsの場合、同じCampaignの複数のバージョンを送信して、どれが最も効果的かを確認できます。[多変量Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/)を使用して、最大8つのバージョンでコピー、パーソナライゼーションなどをテストできます。 |
 | API | [APIキャンペーン]({{site.baseurl}}/api/api_campaigns/)では、タイムリーなメッセージをできるだけ早く送信できます。他のCampaignタイプとは異なり、Brazeダッシュボードではメッセージ、受信者、スケジュールを指定しません。代わりに、これらの識別子をAPI呼び出しに渡します。通常、リアルタイムのトランザクションメッセージングや速報ニュースに使用されます。 |
 | トランザクションメール | Brazeの[トランザクションメール]({{site.baseurl}}/user_guide/channels/email/)は、お客様と顧客の間で合意されたトランザクションを円滑に進めるために、自動化された非プロモーションメールメッセージを送信する目的で構築されています。スピードが最も重要な場面で、ビジネスクリティカルな通知を単一のユーザーに送信します。*一部のパッケージでご利用いただけます。* |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 {% alert note %}
 通常CampaignとABテストCampaignは、スケジュール設定（予定されているイベントについてユーザーリストに通知するなど）や、ユーザーのアクションに応じた自動送信（ニュースレターを購読したときにメールを送信するなど）が可能です。[Campaignのスケジューリング]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)の詳細をご覧ください。
@@ -34,7 +34,7 @@ Campaignsはチャネルに応じて独自に構築できますが、Brazeには
 
 BrazeのCampaignsについてさらに詳しく学ぶには、以下の追加リソースをご覧ください。
 
-- Braze Learning: [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
+- Braze Learning: [Campaignのセットアップ](https://learning.braze.com/campaign-setup-delivery-targeting-conversions)
 - [Campaignを作成する]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
 - [アイデアと戦略]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/)
 
@@ -52,7 +52,7 @@ Canvasには、[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/ca
 
 Canvasについてさらに詳しく学ぶには、以下の追加リソースをご覧ください。
 
-- Braze Learning: [Journey Orchestration with Canvas Flow](https://learning.braze.com/path/journey-orchestration-with-canvas-flow)
+- Braze Learning: [Canvas Flowによるジャーニーオーケストレーション](https://learning.braze.com/path/journey-orchestration-with-canvas-flow)
 - [Canvasを作成する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
 - [Canvasの概要]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/canvas_outlines/)
 
@@ -77,7 +77,7 @@ Canvasについてさらに詳しく学ぶには、以下の追加リソース�
 | [コネクテッドTV]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/) | コネクテッドTVプラットフォームでユーザーとエンゲージします。 |
 | [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/) | カスタムHTTPコールバックを使用して、外部システムとのリアルタイム通信および統合を実現します。 |
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | 日本で最も人気のあるメッセージングアプリLINEでユーザーとエンゲージします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging channels" }
 
 <sup>*アドオン機能として利用できます。*</sup>
 

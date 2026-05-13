@@ -22,15 +22,15 @@ BrazeはAPIを通じて渡されたデータを額面通りに処理します。
 
 ## ユーザーを一括更新する必要がありますか？ {#need-to-update-users-in-bulk}
 
-[`/users/track/bulk` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/)を使用して、より大きなバッチを送信し、リクエスト量を削減できます。
+[`/users/track/bulk`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk/)を使用して、より大きなバッチを送信し、リクエスト量を削減できます。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4cf57ea9-9b37-4e99-a02e-4373c9a4ee59 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.track`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
 
-サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com` を許可リストに登録する必要が生じることがあります。
+サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com`を許可リストに登録する必要が生じることがあります。
 
 ## レート制限 {#rate-limit}
 
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 ### リクエストパラメーター {#request-parameters}
 
 {% alert important %}
-以下の表に記載されている各リクエストコンポーネントに対して、`external_id`、`user_alias`、`braze_id`、`email`、`phone` のいずれかを含める必要があります。
+以下の表に記載されている各リクエストコンポーネントに対して、`external_id`、`user_alias`、`braze_id`、`email`、`phone`のいずれかを含める必要があります。
 {% endalert %}
 
 | パラメーター | 必須 | データタイプ | 説明 |
@@ -62,7 +62,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
 | `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
 | `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 識別子の解決 {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | --------------- | ----------- | -------- |
 | プライマリ | `external_id`、`user_alias`、`braze_id` | ユーザープロファイルの検索に使用されます。リクエストオブジェクトごとに許可されるプライマリ識別子は1つのみです。複数を含めると、そのオブジェクトは拒否されます。 |
 | セカンダリ | `email`、`phone` | プライマリ識別子が存在しない場合に**のみ**、ユーザープロファイルの検索に使用されます。プライマリ識別子なしで`email`と`phone`の両方が含まれている場合、`email`が優先されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 プライマリ識別子が存在する場合、同じリクエストオブジェクト内の`email`または`phone`の値は、ユーザー検索の識別子としてではなく、プロファイル属性として扱われます。たとえば、リクエストに`external_id`と`email`の両方が含まれている場合：
 
@@ -87,7 +87,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### メールアドレスでユーザープロファイルを更新する {#update-a-user-profile-by-email-address}
 
-`/users/track` エンドポイントを使用して、メールアドレスでユーザープロファイルを更新できます。
+`/users/track`エンドポイントを使用して、メールアドレスでユーザープロファイルを更新できます。
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
@@ -160,7 +160,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 ### 電話番号でユーザープロファイルを更新する {#update-a-user-profile-by-phone-number}
 
-`/users/track` エンドポイントを使用して、電話番号でユーザープロファイルを更新できます。このエンドポイントは、有効な電話番号を含めた場合にのみ機能します。
+`/users/track`エンドポイントを使用して、電話番号でユーザープロファイルを更新できます。このエンドポイントは、有効な電話番号を含めた場合にのみ機能します。
 
 {% alert important %}
 `email`と`phone`の両方をリクエストに含めると、Brazeはメールを識別子として使用します。
@@ -226,7 +226,7 @@ SMSサブスクリプショングループの場合、グループの`subscripti
 
 ### エイリアスのみのユーザーを作成するリクエスト例 {#example-request-to-create-an-alias-only-user}
 
-`/users/track` エンドポイントを使用して、リクエスト本文で`_update_existing_only`キーに`false`の値を設定することで、エイリアスのみのユーザーを作成できます。この値を省略すると、Brazeはエイリアスのみのユーザープロファイルを作成しません。エイリアスのみのユーザーを使用すると、そのエイリアスを持つプロファイルが1つ存在することが保証されます。これは、Brazeが重複するユーザープロファイルを作成するのを防ぐため、統合を構築する際に特に役立ちます。
+`/users/track`エンドポイントを使用して、リクエスト本文で`_update_existing_only`キーに`false`の値を設定することで、エイリアスのみのユーザーを作成できます。この値を省略すると、Brazeはエイリアスのみのユーザープロファイルを作成しません。エイリアスのみのユーザーを使用すると、そのエイリアスを持つプロファイルが1つ存在することが保証されます。これは、Brazeが重複するユーザープロファイルを作成するのを防ぐため、統合を構築する際に特に役立ちます。
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
@@ -325,7 +325,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 | `EMAIL_BAD_FORMAT` | `email`に指定された値は有効なメールアドレスではありません。 |
 | `EXTERNAL_USER_ID_TOO_LARGE` | `external_id`が最大許容長の987バイトを超えています。 |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info`は有効な属性ではありません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -340,7 +340,7 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 ### `/users/track`を使用してレガシーユーザーデータをインポートするにはどうすればよいですか？ {#how-do-you-use-userstrack-to-import-legacy-user-data}
 まだモバイルアプリを使用していないユーザーのユーザープロファイルを生成するために、Braze APIを通じてデータを送信できます。ユーザーがその後アプリケーションを使用すると、SDKを使用した識別後のすべての情報は、APIコールで作成した既存のユーザープロファイルにマージされます。識別前にSDKによって匿名で記録されたユーザー行動は、既存のAPI生成ユーザープロファイルとのマージ時に失われます。
 
-セグメンテーションツールは、アプリとのエンゲージメントの有無にかかわらず、これらのユーザーを含みます。ユーザーAPI経由でアップロードされたものの、アプリをまだ使用していないユーザーを除外する場合は、`Session Count > 0` フィルターを追加してください。
+セグメンテーションツールは、アプリとのエンゲージメントの有無にかかわらず、これらのユーザーを含みます。ユーザーAPI経由でアップロードされたものの、アプリをまだ使用していないユーザーを除外する場合は、`Session Count > 0`フィルターを追加してください。
 
 ### 重複するユーザープロファイルの作成を避けるにはどうすればよいですか？ {#how-do-i-avoid-creating-duplicate-user-profiles}
 
@@ -379,7 +379,7 @@ Brazeはプロファイルとメールのみのユーザーを作成し、メー
 | `X-RateLimit-Limit` | 期間ごとに許可されるリクエスト数 |
 | `X-RateLimit-Remaining` | 時間枠内に残っているおおよそのリクエスト数 |
 | `X-RateLimit-Reset` | 現在の時間枠がリセットされるまでの残り秒数 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 HTTP `429`エラーが発生した場合、`RateLimit-Limit`、`RateLimit-Remaining`、`RateLimit-Reset`ヘッダーは返されないことに注意してください。エラーが発生すると、これらのヘッダーは`X-Ratelimit-Retry-After`ヘッダーに置き換えられ、リクエストを再開できるまでの秒数を示す整数が返されます。
 

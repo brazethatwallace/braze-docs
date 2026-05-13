@@ -17,13 +17,13 @@ Sie können API-Nutzungswarnungen verwenden, um das Volumen der Anfragen für di
 |--------------|---------|
 | REST API-Endpunkte | Verfolgt die Nutzung aller REST API-Aufrufe, die an das Backend von Braze gesendet werden, wie beispielsweise das Versenden von Nachrichten, das Erstellen von Campaigns oder das Exportieren von Nutzer:innen. |
 | SDK-API-Anfragen | Verfolgt API-Anfragen, die von Braze-SDKs in Client-Apps gestellt werden, wie beispielsweise das Triggern von In-App-Nachrichten oder die Synchronisierung von Nutzerdaten.<br><br>_*Nur für Kund:innen verfügbar, die „Monatlich aktive:r Nutzer:in – CY 24-25“ erworben haben._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
 
 ## Erstellen einer API-Nutzungswarnung {#creating-an-api-usage-alert}
 
 Um eine API-Nutzungswarnung zu erstellen:
 
-1. Gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungswarnungen** und erstellen Sie eine neue Warnung.
+1. Gehen Sie zu **Settings** > **APIs and Identifiers** > **API Usage Alerts** und erstellen Sie eine neue Warnung.
 2. Geben Sie einen Namen für Ihre Warnung ein und wählen Sie die REST API-Endpunkte und API-Schlüssel aus, für die Sie benachrichtigt werden möchten.
 3. Definieren Sie Ihre Warnungskriterien, indem Sie einen oder mehrere Antwortcodes auswählen und die [Schwellenwerte für Warnungen](#api-usage-alert-thresholds) festlegen.
 4. Wenn Sie fertig sind, schalten Sie **Alert enabled** um.
@@ -33,7 +33,7 @@ Um eine API-Nutzungswarnung zu erstellen:
 
 Wenn Sie Ihre Warnungskriterien definieren, können Sie die folgenden Schwellenwerte anpassen:
 
-<table>
+<table aria-label="Alert thresholds #api-usage-alert-thresholds">
   <caption>Schwellenwerte für Warnungen</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ Wenn Sie Ihre Warnungskriterien definieren, können Sie die folgenden Schwellenw
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
 
 ## Einrichten von Warnungsbenachrichtigungen {#setting-up-alert-notifications}
 
@@ -102,40 +102,40 @@ Das Folgende ist ein Beispiel-Payload für den Body eines API-Nutzungswarnungs-W
 Hier sind einige Möglichkeiten, wie Sie Ihre API-Nutzungswarnungen konfigurieren können, um in den folgenden Szenarien benachrichtigt zu werden.
 
 {% tabs local %}
-{% tab api health %}
+{% tab API-Zustand %}
 Sie können Warnungen einrichten, um den allgemeinen Zustand Ihrer API zu überwachen. Zum Beispiel können Sie diese Warnungen einrichten, wenn API-Fehler drastisch ansteigen, z. B. um 20 % gegenüber der vorherigen Stunde.
 
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | Alle Endpunkte | Alle API-Schlüssel | `4XX` und `5XX` | Increased by 10 % | 10 | 1 Stunde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
-{% tab endpoint rate limit %}
+{% tab Endpunkt-Rate-Limit %}
 Lassen Sie sich benachrichtigen, wenn Ihr Workspace das Rate-Limit für den Endpunkt `/users/track` erreicht. Sie können diese Konfiguration auch für andere Braze-Endpunkte anwenden.
 
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | Alle API-Schlüssel | `429` | Greater than or equal | 100 | 1 Stunde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
-{% tab API-triggered campaigns %}
+{% tab API-getriggerte Campaigns %}
 Diese Warnungskonfiguration benachrichtigt Sie, wenn Fehler bei API-getriggerten Campaigns und Canvases auftreten, von denen einige möglicherweise eine hohe Priorität haben.
 
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Alle API-Schlüssel | `4XX` und `5XX` | Greater than or equal | 1 | 1 Stunde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
-{% tab partner integrations %}
+{% tab Partnerintegrationen %}
 Verwenden Sie die folgende Warnungskonfiguration, um benachrichtigt zu werden, wenn eine Partnerintegration keine Daten mehr an Braze sendet.
 
 | Endpunkt | API-Schlüssel | Antwortcode | Schwellenwertbedingung | Schwellenwertvolumen | Innerhalb |
 | --- | --- | --- | --- | --- | --- |
 | Alle Endpunkte | Der API-Schlüssel, der für Ihre Partnerintegration verwendet wird | Alle Antwortcodes | Less than or equal | 0 | 1 Tag |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 {% endtabs %}
 

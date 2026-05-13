@@ -38,13 +38,15 @@ Weitere Informationen zu Conversions finden Sie in unserem [Braze-Lernkurs](http
 
 ### Regeln für das Conversion-Tracking {#conversion-tracking-rules}
 
-Konversions-Events ordnen Nutzer:innen-Aktionen einem Engagement-Punkt zu. Beachten Sie Folgendes dazu, wie Braze mit mehreren Conversions umgeht:
+Konversions-Events ordnen Nutzer:innen-Aktionen einem Engagement-Punkt zu. Im Allgemeinen konvertiert ein:e Nutzer:in, solange ein Konversionsfenster offen ist, höchstens einmal pro Konversions-Event für diese Campaign oder diesen Canvas. Wenn er/sie dieselbe Konversions-Aktion vor Ablauf der Frist mehr als einmal ausführt (z. B. zwei Käufe), zählt Braze dennoch nur eine Conversion für dieses Event. Mehrkanal-Campaigns können eine separate Konversions-Möglichkeit für jeden Messaging-Kanal erfassen, was Konversionsraten über 100 % ergeben kann, wenn Sie die Conversion-Anzahl mit den eindeutigen Empfänger:innen vergleichen (siehe unten).
+
+Beachten Sie Folgendes dazu, wie Braze mit mehreren Conversions umgeht:
 
 - **Einzelkanal-Campaigns:** Conversions erfolgen pro Nutzer:in, nicht pro Gerät. Innerhalb eines einzelnen Kanals konvertiert ein:e Nutzer:in nur einmal pro Konversions-Event, selbst wenn eine Nachricht an mehrere Geräte gesendet wird. Wenn eine Campaign beispielsweise nur ein Konversions-Event hat, das auf „Tätigt einen Kauf“ eingestellt ist, und ein:e Nutzer:in zwei separate Käufe innerhalb der Konversionsfrist tätigt, zählt Braze nur eine Conversion.
 - **Mehrkanal-Campaigns:** Bei Mehrkanal-Campaigns hat jeder Kanal seine eigene Konversions-Möglichkeit. Ein:e Nutzer:in kann einmal pro Kanal konvertieren, nachdem er/sie eine Nachricht auf diesem Kanal erhalten hat. Das bedeutet: Wenn ein:e Nutzer:in Nachrichten auf mehreren Kanälen erhält (z. B. sowohl E-Mail als auch Push) und die Konversions-Aktion ausführt, zählt Braze eine Conversion für jeden Kanal, was dazu führen kann, dass die Konversionsraten 100 % übersteigen.
+- **Canvas-Nachrichtenschritte:** Braze ordnet Conversions, die innerhalb der Konversionsfrist auftreten, dem letzten Canvas-Nachrichtenschritt zu, den der/die Nutzer:in erhalten hat. Nachdem er/sie den nächsten Nachrichtenschritt erhalten hat, wird die Zuordnung auf diesen Schritt verschoben. Braze misst dieses Zeitfenster ab dem Zeitpunkt, an dem der/die Nutzer:in den Canvas betritt, nicht ab jeder einzelnen Nachricht. Braze zählt Conversions auch während Verzögerungszeiträumen zwischen Schritten.
 - Wenn ein:e Nutzer:in ein Konversions-Event innerhalb der Konversionsfristen von zwei separaten Campaigns oder Canvases ausführt, die er/sie erhalten hat, wird die Conversion bei beiden registriert.
 - Ein:e Nutzer:in gilt als konvertiert, wenn er/sie das spezifische Konversions-Event innerhalb des Zeitfensters ausgeführt hat, auch wenn er/sie die Nachricht nicht geöffnet oder angeklickt hat.
-- Bei Canvases basiert das Conversion-Tracking auf der endgültigen Konversionsfrist, die beginnt, wenn ein:e Nutzer:in den Canvas betritt, nicht auf dem Timing einzelner Nachrichten. Braze zählt Conversions auch während Verzögerungszeiträumen zwischen Nachrichten im Canvas.
 
 ### Primäres Konversions-Event {#primary-conversion-event}
 
@@ -81,7 +83,7 @@ Wählen Sie zunächst den allgemeinen Event-Typ aus, den Sie verwenden möchten:
 | **App upgraden** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die App-Version einer der von Ihnen angegebenen Apps aktualisiert (standardmäßig alle Apps im Workspace). Braze führt einen Best-Effort-Zahlenvergleich durch, um festzustellen, ob die Änderung ein Upgrade war. Nicht-numerische Versionen werden als Conversions gezählt, wenn sich die Version ändert. |
 | **E-Mail öffnen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die E-Mail öffnet (nur für E-Mail-Campaigns). |
 | **E-Mail-Link klicken** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie auf einen Link in der E-Mail klickt (nur für E-Mail-Campaigns). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Konversions-Events hinzufügen" }
 
 {% alert important %}
 **Verschachtelte Eigenschaften werden in Konversions-Events nicht unterstützt**. Sie können keine verschachtelten Eigenschaften in Konversions-Events verwenden. Wenn beispielsweise `product_code` oder `product_name` verschachtelte Eigenschaften innerhalb eines `products`-Arrays sind (wie `products[].product_code`), können Sie diese nicht verwenden, um zu prüfen, ob ein bestimmter Produktkauf in einem Konversions-Event getätigt wurde.

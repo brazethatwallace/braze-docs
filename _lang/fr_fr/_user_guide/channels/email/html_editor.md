@@ -52,7 +52,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 {% endtabs %}
 
 {% alert tip %}
-Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les arrière-plans restent cohérents dans l'application mobile Gmail avec le mode sombre activé, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
+Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les arrière-plans restent cohérents dans l'application mobile Gmail avec le mode sombre activé, consultez [Application mobile Gmail et mode sombre](#gmail-dark-mode).
 {% endalert %}
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='email html editor' %}
@@ -112,8 +112,8 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
-  <caption>Application mobile Gmail et mode sombre</caption>
+Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 Pour plus d'informations sur la syntaxe des dégradés, consultez [Les dégradés CSS sur W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -152,7 +152,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="En-têtes d'e-mail" id="reserved-fields">
   <caption>En-têtes d'e-mail</caption>
 <thead>
   <tr>

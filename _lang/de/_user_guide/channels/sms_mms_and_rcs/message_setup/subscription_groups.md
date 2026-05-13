@@ -26,7 +26,7 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 | --------- | ---------- |
 | Abonniert | Nutzer:in ist für den Empfang von SMS und RCS aus einer bestimmten Abo-Gruppe angemeldet. Eine Nutzer:in kann abonniert werden, indem der Abo-Status über die Braze-Abo-API aktualisiert wird oder indem ein Opt-in-Schlüsselwort per SMS gesendet wird. Eine Nutzer:in muss bei einer SMS- oder RCS-Abo-Gruppe abonniert sein, um SMS, RCS oder beides zu empfangen. Wenn [Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) aktiviert ist, müssen Nutzer:innen ihre Opt-in-Absicht bestätigen, bevor ihr Abo-Status auf `Subscribed` aktualisiert wird. |
 | Abgemeldet | Nutzer:in hat sich ausdrücklich vom Nachrichtenempfang Ihrer SMS- und RCS-Abo-Gruppe und den darin enthaltenen Sendetelefonnummern abgemeldet. Die Abmeldung kann durch Senden eines Opt-out-Schlüsselworts per SMS erfolgen, oder Sie können Nutzer:innen über die [Braze-Abo-API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) abmelden. Nutzer:innen, die von einer SMS- und RCS-Abo-Gruppe abgemeldet sind, erhalten keine SMS oder RCS mehr von Sendetelefonnummern, die zu dieser Abo-Gruppe gehören.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Status einer Nutzer:in festlegen {#set-a-users-state}
 
@@ -53,7 +53,7 @@ Wenn Sie einen Webhook zum Aktualisieren von Abo-Gruppen verwenden, wird die Nut
 Um die Abo-Gruppe einer Nutzer:in zu prüfen, verwenden Sie eine der folgenden Methoden:
 
 - **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard zugegriffen werden, indem Sie in der Seitenleiste **Nutzersuche** auswählen. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab „Engagement“ die SMS- und RCS-Abo-Gruppen einer Nutzer:in einsehen.
-- **REST API:** Die Abo-Gruppen einzelner Nutzerprofile können über den [Endpunkt „Abo-Gruppen der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) mithilfe der Braze REST API eingesehen werden.
+- **REST API:** Die Abo-Gruppen einzelner Nutzerprofile können über den [Endpunkt „Abo-Gruppen von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) mithilfe der Braze REST API eingesehen werden.
 
 ## Nachrichten mit einer Abo-Gruppe senden {#send-messages-with-a-subscription-group}
 
@@ -132,7 +132,7 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
 | **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### 3. Schritt: Nutzeraktualisierung-Schritt konfigurieren {#step-3-configure-a-user-update-step}
 

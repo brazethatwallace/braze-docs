@@ -112,7 +112,7 @@ Por ejemplo, para mantener un fondo blanco en una celda, usa esto:
 Reemplaza `#ffffff` con el color que desees.
 
 {% alert note %}
-Este enfoque no se aplica de forma fiable solo a elementos `<table>`, así que establece el degradado en la celda en lugar de solo en la tabla.
+Este enfoque no se aplica de forma fiable solo a elementos `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">`, así que establece el degradado en la celda en lugar de solo en la tabla.
   <caption>Aplicación móvil de Gmail y modo oscuro</caption>
 {% endalert %}
 
@@ -152,7 +152,7 @@ Evita usar las siguientes claves:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>Encabezados de correo electrónico</caption>
 <thead>
   <tr>

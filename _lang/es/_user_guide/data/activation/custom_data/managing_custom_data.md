@@ -1,6 +1,6 @@
 ---
 nav_title: Gestionar datos personalizados
-article_title: Administrar datos personalizados
+article_title: Gestionar datos personalizados
 page_order: 2
 page_type: reference
 description: "Este artículo de referencia explica cómo gestionar eventos y atributos personalizados: rellenar previamente, añadir descripciones y etiquetas, gestionar propiedades del evento, forzar tipos de datos y marcar atributos como PII."
@@ -20,10 +20,10 @@ Para rellenar previamente eventos y atributos personalizados, haz lo siguiente:
 
 1. Ve a **Data Settings** > **Custom Events** o **Custom Attributes** o **Products**.
 
-![Navega hasta Custom Attributes o Custom Events o Products.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
+![Navega hasta Custom Attributes, Custom Events o Products.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
-2. Para añadir un atributo personalizado, un evento o un producto, ve a la página correspondiente y selecciona **Add Custom Attributes** o **Add Custom Events** o **Add Products**.<br><br>Para los atributos personalizados, selecciona un [tipo de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) para este atributo (por ejemplo, booleano o cadena). El tipo de datos de un atributo determina los filtros de segmentación disponibles para ese atributo. <br><br>![Añadir nuevo atributo o evento]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
+2. Para añadir un atributo personalizado, un evento o un producto, ve a la página correspondiente y selecciona **Add Custom Attributes**, **Add Custom Events** o **Add Products**.<br><br>Para los atributos personalizados, selecciona un [tipo de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) para este atributo (por ejemplo, booleano o cadena). El tipo de datos de un atributo determina los filtros de segmentación disponibles para ese atributo. <br><br>![Añadir nuevo atributo o evento]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
 3. Selecciona **Save**.
 
 ### Nombrar eventos y atributos personalizados {#naming-custom-events-and-custom-attributes}
@@ -79,7 +79,7 @@ Si necesitas que todos los datos de usuario existentes coincidan con el nuevo ti
 | Booleano | Las entradas `1`, `true`, `t` (sin distinguir mayúsculas de minúsculas) se almacenan como `true` |
 | Booleano | Las entradas `0`, `false`, `f` (sin distinguir mayúsculas de minúsculas) se almacenan como `false` |
 | Número | Los números enteros o flotantes (como `1`, `1.5`) se almacenan como números |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Coerción de tipos de datos" }
 
 Para obtener más información sobre las opciones de filtro que ofrecen las diferentes comparaciones de tipos de datos, consulta [Configuración de informes]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Para obtener más información sobre los diferentes tipos de datos disponibles, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
 

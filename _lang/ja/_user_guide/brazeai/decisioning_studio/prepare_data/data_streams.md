@@ -22,7 +22,7 @@ description: "このリファレンス記事では、スナップショットデ
 |-------|---------|
 | 顧客識別子 | このレコードが誰を記述しているか |
 | スナップショット日付 | このスナップショットがいつ取得されたか |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 
 ### スナップショットの更新方法 {#how-snapshots-should-be-updated}
 
@@ -53,7 +53,7 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 | イベントタイムスタンプ | イベントが実際に発生した日時 |
 | 作成タイムスタンプ | このレコードがシステムに作成された日時（以下の注記を参照） |
 | イベントプロパティ | イベントに関する追加メタデータ。これが豊富であるほど、Decisioning Studioはカスタマージャーニー全体でイベントをより適切にリンクできます |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 
 {% alert important %}
 イベントタイムスタンプと作成タイムスタンプは異なるフィールドであり、両方とも必須です。イベントタイムスタンプは、アクションが実際に発生した日時を記録します。作成タイムスタンプは、データエントリがシステムに書き込まれた日時を記録しますが、処理の遅延により後になる場合があります。この2つを混同しないでください。

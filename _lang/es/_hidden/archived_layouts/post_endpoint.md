@@ -50,10 +50,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 <!--This is a place for you to describe additional details for the parameters in the request body.-->
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Obligatoria | Matriz de cadenas en formato e.164 | Un conjunto de hasta 50 números de teléfono para modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone_number` | Obligatorio | Matriz de cadenas en formato e.164 | Un conjunto de hasta 50 números de teléfono para modificar. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 

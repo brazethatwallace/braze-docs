@@ -10,4 +10,4 @@
 | Couleur d'arrière-plan | Modifie la couleur de l'arrière-plan du bouton. |
 | Style de bordure | Détermine le style de la bordure du bouton. |
 | Rayon de bordure | Détermine l'arrondi des coins. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

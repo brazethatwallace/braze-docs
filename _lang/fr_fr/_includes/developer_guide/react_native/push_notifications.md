@@ -132,7 +132,7 @@ Pour obtenir la liste complète des champs de notification push, consultez le ta
 | `braze_properties` | Objet    | Représente les propriétés Braze associées à la Campaign (paires clé-valeur). |
 | `ios`              | Objet    | Représente les champs spécifiques à iOS. |
 | `android`          | Objet    | Représente les champs spécifiques à Android. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Étape 3 : Activer la création de liens profonds (facultatif) {#step-3-enable-deep-linking-optional}
 
@@ -469,7 +469,7 @@ Pour les intégrations en flux de travail bare, suivez plutôt les approches nat
 
 ## Utilisation du plugin Expo {#using-the-expo-plugin}
 
-Une fois [les notifications push configurées pour Expo](#reactnative_setting-up-push-notifications), vous pouvez les utiliser pour gérer les comportements de notifications push suivants — sans avoir à écrire de code dans les couches natives Android ou iOS.
+Une fois [les notifications push configurées pour Expo](#reactnative_setting-up-push-notifications), vous pouvez les utiliser pour gérer les comportements de notifications push suivants&#8212;sans avoir à écrire de code dans les couches natives Android ou iOS.
 
 ### Transférer les notifications push Android vers un FMS supplémentaire {#forwarding-android-push-to-additional-fms}
 

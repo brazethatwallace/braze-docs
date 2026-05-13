@@ -30,7 +30,7 @@ La taille maximale du payload dépend de la plateforme.
 | Android | 3 930 octets |
 | iOS | 3 960 octets |
 | Kindle | 5 985 octets |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reduce push notification payload size" }
 
 Si votre notification push dépasse la taille maximale du payload, le message risque de ne pas être envoyé. En tant que bonne pratique, limitez votre payload à quelques centaines d'octets.
 
@@ -135,12 +135,12 @@ De plus, en utilisant l'événement de conversion « ouvre l'application », vou
 | [3.2.2](https://developer.apple.com/app-store/review/guidelines/#unacceptable) Inacceptable : (i) Créer une interface pour afficher des applications, extensions ou plug-ins tiers similaire à l'App Store ou en tant que collection d'intérêt général. |
 | [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) Les notifications push ne doivent pas être nécessaires au fonctionnement de l'application et ne doivent pas être utilisées pour envoyer des informations personnelles sensibles ou confidentielles. Les notifications push ne doivent pas être utilisées à des fins promotionnelles ou de marketing direct, sauf si les clients ont explicitement choisi de les recevoir via un texte de consentement affiché dans l'interface utilisateur de votre application, et que vous fournissez une méthode dans votre application permettant à l'utilisateur de se désabonner de ces messages. |
 | [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) Vous ne pouvez pas monétiser les fonctionnalités intégrées fournies par le matériel ou le système d'exploitation, telles que les notifications push, l'appareil photo ou le gyroscope ; ni les services et technologies Apple, tels que l'accès à Apple Music, le stockage iCloud ou les API Screen Time. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 | Politique du Google Play Store |
 | --- |
 | [Utilisation non autorisée ou imitation de fonctionnalités système](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) Nous n'autorisons pas les applications ou publicités qui imitent ou interfèrent avec les fonctionnalités système, telles que les notifications ou les avertissements. Les notifications au niveau du système ne peuvent être utilisées que pour les fonctionnalités essentielles d'une application, comme une application de compagnie aérienne qui informe les utilisateurs d'offres spéciales, ou un jeu qui informe les utilisateurs de promotions en jeu. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Mobile push regulations for apps" }
 
 ## Articles connexes {#related-articles}
 

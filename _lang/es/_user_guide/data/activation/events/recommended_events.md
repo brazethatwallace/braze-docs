@@ -68,7 +68,7 @@ Se desencadena cuando un usuario ve una página de detalle de producto. Este eve
 | `source`       | String           | Sí      | Fuente de la que se origina el evento (por ejemplo, `web`, `ios` o `android`). |
 | `type`         | Array of strings | No       | Obligatoria para usar las características de desencadenantes de catálogo de Braze para alertas de vuelta en stock y bajada de precio. Valores aceptados: `"price_drop"`, `"back_in_stock"` |
 | `metadata`     | Object           | No       | Pares clave-valor flexibles. Subpropiedad reconocida: `sku` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Ejemplo de REST API {#rest-api-example}
 
@@ -126,7 +126,7 @@ El carrito crea un objeto de mapeado de carritos en el perfil de usuario que ali
 | `products`      | Array     | Sí      | Array completo de artículos actualmente en el carrito. Consulta la subtabla de propiedades de producto. |
 | `source`        | String    | Sí      | Fuente de la que se origina el evento. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles para datos adicionales a nivel de evento. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propiedades de producto (`products[]`) {#product-properties-products}
 
@@ -140,7 +140,7 @@ El carrito crea un objeto de mapeado de carritos en el perfil de usuario que ali
 | `quantity`      | Integer   | Sí      | Número de unidades en el carrito. |
 | `price`         | Float     | Sí      | Precio unitario de la variante. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Ejemplo de REST API
 
@@ -215,7 +215,7 @@ Se desencadena cuando el usuario inicia el flujo de pago (por ejemplo, seleccion
 | products       | Array   | Sí      | Artículos en proceso de pago. Consulta la subtabla de propiedades de producto. |
 | source         | String  | Sí      | Fuente de la que se origina el evento. |
 | metadata       | Object  | No       | Pares clave-valor flexibles. Subpropiedad reconocida: `checkout_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propiedades de producto (`products[]`)
 
@@ -229,7 +229,7 @@ Se desencadena cuando el usuario inicia el flujo de pago (por ejemplo, seleccion
 | `quantity`     | Integer   | Sí      | Número de unidades en el carrito. |
 | `price`        | Float     | Sí      | Precio unitario de la variante. |
 | `metadata`     | Object    | No       | Pares clave-valor flexibles (por ejemplo, color, talla). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Ejemplo de REST API
 
@@ -312,7 +312,7 @@ Este evento es el principal impulsor de ingresos. Incrementa `total_revenue` en 
 | `products`      | Array     | Sí      | Artículos en el pedido. Consulta la subtabla de propiedades de producto. |
 | `source`        | String    | Sí      | Fuente de la que se origina el evento. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles. Subpropiedad reconocida: `order_status_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propiedades de producto (`products[]`)
 
@@ -326,7 +326,7 @@ Este evento es el principal impulsor de ingresos. Incrementa `total_revenue` en 
 | `quantity`      | Integer   | Sí      | Número de unidades en el carrito. |
 | `price`         | Float     | Sí      | Precio unitario de la variante. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Ejemplo de REST API
 
@@ -416,7 +416,7 @@ Este evento decrementa `total_orders` en 1 en el perfil de usuario. No afecta a 
 | `products`       | Array   | Sí      | Artículos en el pedido cancelado. Consulta la subtabla de propiedades de producto. |
 | `source`         | String  | Sí      | Fuente de la que se origina el evento. |
 | `metadata`       | Object  | No       | Pares clave-valor flexibles. Subpropiedad reconocida: `order_status_url` (String) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propiedades de producto (`products[]`)
 
@@ -430,7 +430,7 @@ Este evento decrementa `total_orders` en 1 en el perfil de usuario. No afecta a 
 | `quantity`     | Integer   | Sí      | Número de unidades en el carrito. |
 | `price`        | Float     | Sí      | Precio unitario de la variante. |
 | `metadata`     | Object    | No       | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Ejemplo de REST API
 
@@ -505,7 +505,7 @@ Este evento decrementa `total_revenue` en el valor de `total_value` e incrementa
 | `products`        | Array     | Sí      | Artículos que se reembolsan. Consulta la subtabla de propiedades de producto. |
 | `source`          | String    | Sí      | Fuente de la que se origina el evento. |
 | `metadata`        | Object    | No       | Pares clave-valor flexibles. Subpropiedad reconocida: `order_status_url` (String). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### Propiedades de producto (`products[]`)
 
@@ -519,7 +519,7 @@ Este evento decrementa `total_revenue` en el valor de `total_value` e incrementa
 | `quantity`      | Integer   | Sí      | Número de unidades en el carrito. |
 | `price`         | Float     | Sí      | Precio unitario de la variante. |
 | `metadata`      | Object    | No       | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### Ejemplos de REST API {#rest-api-examples}
 
@@ -619,7 +619,7 @@ La siguiente tabla resume lo que Braze hace automáticamente para cada evento cu
 | `ecommerce.cart_updated`     | Crea o actualiza el objeto de mapeado de carritos en el perfil de usuario. El carrito expira después de 30 días sin una actualización. |
 | `ecommerce.product_viewed`   | Sin cambios en el perfil de usuario. Disponible para segmentación, desencadenantes y características de BrazeAI<sup>TM</sup> (como recomendaciones de artículos). |
 | `ecommerce.checkout_started` | Sin cambios en el perfil de usuario. Disponible para segmentación y desencadenantes (por ejemplo, flujos de pago abandonado). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
 
 {% alert important %}
 Los valores de moneda que no sean USD se convierten automáticamente a USD usando el tipo de cambio de la fecha en que se reporta el evento. Si ya reportas en USD, codifica `USD` como la moneda para evitar conversiones no deseadas.
@@ -717,7 +717,7 @@ Para cada evento cuyo nombre coincida con un evento recomendado de comercio elec
 | Sin propiedades adicionales de nivel superior | Los campos personalizados bajo propiedades causan un fallo. Usa el objeto `metadata` en su lugar. |
 | Restricciones de valores | Los campos monetarios deben ser ≥ `0`. `currency` debe ser una cadena ISO 4217 válida. |
 | Campos por producto | Cada elemento en `products[]` debe incluir `product_id`, `product_name`, `variant_id`, `quantity` y `price`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### Por qué validamos {#why-we-validate}
 
@@ -768,7 +768,7 @@ Los fallos también se clasifican internamente y se agregan para el correo elect
 | `missing_property`     | Falta un campo obligatorio. | `order_placed` enviado sin `order_id`. |
 | `extra_property`       | Se agregó un campo que el esquema no define. | Un campo personalizado `gift_wrapped` en el nivel superior de `properties` en lugar de dentro de `metadata`. |
 | `unexpected_data_type` | Un campo tiene el tipo incorrecto. | `total_value: "29.99"` (cadena) en lugar de `29.99` (número). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
 
 {% alert note %}
 Los nombres de eventos que no coinciden exactamente con un evento recomendado (por ejemplo, `ecommerce.OrderPlaced`) omiten la validación por completo y se registran como eventos personalizados ordinarios. Aparecen en Currents y en la segmentación con el nombre que enviaste, pero no reciben procesamiento de evento recomendado ni una entrada de `errors` en la respuesta.

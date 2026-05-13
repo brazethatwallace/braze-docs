@@ -15,7 +15,7 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
 
-이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 세그먼트를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
+이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 Segments를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
 
 이러한 이벤트는 정의된 스키마를 따르기 때문에, 지원되는 각 기능이 커스텀 등록정보 매핑이나 기능별 구성 없이도 구조화된 데이터를 읽을 수 있습니다.
 
@@ -32,7 +32,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 - 유기한 장바구니 플로우를 위한 장바구니 상태 관리
 - Predictive Events, Predictive Churn, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능을 위한 더 풍부한 데이터
 
-플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 세그먼트를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
+플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 Segment를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
 
 #### 이벤트 이름 지정 {#event-naming}
 
@@ -68,7 +68,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `source`       | 문자열           | 예      | 이벤트가 발생한 소스(예: `web`, `ios`, `android`).                                                                               |
 | `type`         | 문자열 배열 | 아니요       | 재입고 및 가격 인하 알림을 위한 Braze 카탈로그 트리거 기능을 사용하려면 필수입니다. 허용 값: `"price_drop"`, `"back_in_stock"`     |
 | `metadata`     | 오브젝트           | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `sku` (문자열)                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### REST API 예시 {#rest-api-example}
 
@@ -126,7 +126,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`      | 배열     | 예      | 현재 장바구니에 있는 항목의 전체 배열. 제품 등록정보 하위 테이블을 참조하세요.                                              |
 | `source`        | 문자열    | 예      | 이벤트가 발생한 소스.                                                                                             |
 | `metadata`      | 오브젝트    | 아니요       | 추가 이벤트 수준 데이터를 위한 유연한 키-값 페어.                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 제품 등록정보 (`products[]`) {#product-properties-products}
 
@@ -140,7 +140,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                    |
 | `price`         | 플로트     | 예      | 배리언트 단가.                             |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -215,7 +215,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | products       | 배열   | 예      | 결제 중인 항목. 제품 등록정보 하위 테이블을 참조하세요.                                                       |
 | source         | 문자열  | 예      | 이벤트가 발생한 소스.                                                                                |
 | metadata       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `checkout_url` (문자열)                                       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -229,7 +229,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`     | 정수   | 예      | 장바구니에 있는 수량.                             |
 | `price`        | 플로트     | 예      | 배리언트 단가.                                      |
 | `metadata`     | 오브젝트    | 아니요       | 유연한 키-값 페어(예: color, size).            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -312,7 +312,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`      | 배열     | 예      | 주문에 포함된 항목. 제품 등록정보 하위 테이블을 참조하세요.                                         |
 | `source`        | 문자열    | 예      | 이벤트가 발생한 소스.                                                             |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열)                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -326,7 +326,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                |
 | `price`         | 플로트     | 예      | 배리언트 단가.                         |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -416,7 +416,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`       | 배열   | 예      | 취소된 주문의 항목. 제품 등록정보 하위 테이블을 참조하세요.                                  |
 | `source`         | 문자열  | 예      | 이벤트가 발생한 소스.                                                                |
 | `metadata`       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열)                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -430,7 +430,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`     | 정수   | 예      | 장바구니에 있는 수량.                  |
 | `price`        | 플로트     | 예      | 배리언트 단가.                           |
 | `metadata`     | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -505,7 +505,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `products`        | 배열     | 예      | 환불되는 항목. 제품 등록정보 하위 테이블을 참조하세요.                                              |
 | `source`          | 문자열    | 예      | 이벤트가 발생한 소스.                                                                    |
 | `metadata`        | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열).                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 제품 등록정보 (`products[]`)
 
@@ -519,7 +519,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                          |
 | `price`         | 플로트     | 예      | 배리언트 단가.                                   |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시 {#rest-api-examples}
 
@@ -619,7 +619,7 @@ eCommerce 이벤트를 전송하면 Braze는 해당 이벤트 이름에 대한 �
 | `ecommerce.cart_updated`     | 사용자 프로필에 장바구니 매핑 오브젝트를 생성하거나 업데이트합니다. 장바구니는 업데이트 없이 30일이 지나면 만료됩니다.|
 | `ecommerce.product_viewed`   | 사용자 프로필 변경 없음. 세분화, 트리거, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능에 사용할 수 있습니다.|
 | `ecommerce.checkout_started` | 사용자 프로필 변경 없음. 세분화 및 트리거(예: 유기한 결제 플로우)에 사용할 수 있습니다.        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
 
 {% alert important %}
 비 USD 통화 값은 이벤트가 보고된 날짜의 환율을 사용하여 자동으로 USD로 변환됩니다. 이미 USD로 보고하고 있다면 의도하지 않은 변환을 방지하기 위해 통화를 `USD`로 하드코딩하세요.
@@ -717,7 +717,7 @@ USD로만 운영하는 경우, 불필요한 변환을 방지하기 위해 모든
 | 최상위 수준에 추가 등록정보 없음 | 등록정보 아래의 커스텀 필드는 실패를 유발합니다. 대신 `metadata` 오브젝트를 사용하세요.                                         |
 | 값 제약 조건         | 금액 필드는 `0` 이상이어야 합니다. `currency`는 유효한 ISO 4217 문자열이어야 합니다.                                                  |
 | 제품별 필드        | `products[]`의 각 항목에는 `product_id`, `product_name`, `variant_id`, `quantity`, `price`가 포함되어야 합니다.                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### 유효성 검사를 하는 이유 {#why-we-validate}
 
@@ -768,7 +768,7 @@ eCommerce 이벤트는 매출 추적, {% raw %}`{% shopping_cart %}`{% endraw %}
 | `missing_property`     | 필수 필드가 없습니다.                       | `order_placed`가 `order_id` 없이 전송됨.                        |
 | `extra_property`       | 스키마에 정의되지 않은 필드가 추가되었습니다. | `metadata` 내부가 아닌 `properties` 최상위에 커스텀 `gift_wrapped` 필드가 있음. |
 | `unexpected_data_type` | 필드의 유형이 잘못되었습니다.                        | `total_value: "29.99"` (문자열) 대신 `29.99` (숫자)여야 함.   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
 
 {% alert note %}
 추천 이벤트와 정확히 일치하지 않는 이벤트 이름(예: `ecommerce.OrderPlaced`)은 유효성 검사를 완전히 건너뛰고 일반 커스텀 이벤트로 기록됩니다. 전송한 이름으로 Currents 및 세분화에 표시되지만, 추천 이벤트 처리를 받지 않으며 응답에 `errors` 항목이 포함되지 않습니다.

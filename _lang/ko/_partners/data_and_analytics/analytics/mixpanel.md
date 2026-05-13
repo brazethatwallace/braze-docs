@@ -9,7 +9,7 @@ tool: Currents
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
 > [Mixpanel](https://mixpanel.com/)은 Mixpanel에서 다른 플랫폼으로 이벤트를 내보내 더 심층적인 분석을 수행할 수 있는 비즈니스 분석 플랫폼입니다. 수집된 데이터는 커스텀 보고서를 작성하고 사용자 참여 및 리텐션을 측정하는 데 사용할 수 있습니다.
 
@@ -23,7 +23,7 @@ Braze와 Mixpanel 통합을 통해 [Mixpanel 코호트를 Braze로 가져와]({{
 |---|---|
 | Mixpanel 계정 | 이 파트너십을 활용하려면 [Mixpanel 계정](https://mixpanel.com/)이 필요합니다. |
 | Currents | 데이터를 Mixpanel로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 데이터 내보내기 통합 {#data-export-integration}
 

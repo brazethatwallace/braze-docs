@@ -16,7 +16,7 @@ description: "Dieser Referenzartikel beschreibt die Schritte zur Erstellung eine
 | --- | --- |
 | Zwei-Faktor-Authentifizierung oder SSO | Sie müssen die [Zwei-Faktor-Authentifizierung]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) oder [Single Sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) für Ihr Konto aktiviert haben. |
 | Korrekte Berechtigungen | Sie müssen entweder Konto-Admin oder Workspace-Admin sein oder über die Nutzer:innen-Berechtigung „Transformationen verwalten“ verfügen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 1. Schritt: Quellplattform identifizieren {#step-1-identify-a-source-platform}
 
@@ -36,9 +36,9 @@ Dieser Schritt ist optional, aber wir empfehlen, einen Test-Webhook von Ihrer Qu
 
 1. Kopieren Sie die URL aus Ihrer Transformation.
 2. Suchen Sie in Ihrer Quellplattform nach einer „Test senden“-Funktion, um einen Beispiel-Webhook zu generieren, der an diese URL gesendet wird.
-- Wenn Ihre Quellplattform nach einem Anfragetyp fragt, wählen Sie **POST**.
-- Wenn Ihre Quellplattform Authentifizierungsoptionen bietet, wählen Sie **No authentication**.
-- Wenn Ihre Quellplattform nach Geheimnissen fragt, wählen Sie **No secrets**.
+   - Wenn Ihre Quellplattform nach einem Anfragetyp fragt, wählen Sie **POST**.
+   - Wenn Ihre Quellplattform Authentifizierungsoptionen bietet, wählen Sie **No authentication**.
+   - Wenn Ihre Quellplattform nach Geheimnissen fragt, wählen Sie **No secrets**.
 3. Aktualisieren Sie Ihre Seite im Braze-Dashboard, um zu sehen, ob der Webhook empfangen wurde. Wenn er empfangen wurde, sollten Sie unter **Most recent webhook** eine Webhook-Nutzlast sehen.
 
 So sieht es bei Typeform aus:

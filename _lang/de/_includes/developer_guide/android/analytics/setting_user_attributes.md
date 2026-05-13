@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Standard-Nutzerattribute
+## Standard-Nutzerattribute {#default-user-attributes}
 
-### Vordefinierte Methoden
+### Vordefinierte Methoden {#predefined-methods}
 
 Braze stellt vordefinierte Methoden zur Verfügung, um die folgenden Nutzerattribute innerhalb der Klasse [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html) festzulegen. Für Methodenspezifikationen lesen Sie bitte [unser KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html).
 
@@ -20,7 +20,7 @@ Braze stellt vordefinierte Methoden zur Verfügung, um die folgenden Nutzerattri
 Alle String-Werte wie Vorname, Nachname, Land und Wohnort sind auf 255 Zeichen begrenzt.
 {% endalert %}
 
-### Standardattribute festlegen
+### Standardattribute festlegen {#setting-default-attributes}
 
 Um ein Standardattribut für eine Nutzer:in festzulegen, rufen Sie die Methode `getCurrentUser()` auf Ihrer Braze-Instanz auf, um eine Referenz auf die aktuelle Nutzer:in Ihrer App zu erhalten. Anschließend können Sie Methoden aufrufen, um ein Nutzerattribut zu setzen.
 
@@ -48,7 +48,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Standardattribute zurücksetzen
+### Standardattribute zurücksetzen {#unsetting-default-attributes}
 
 Um ein Nutzerattribut zurückzusetzen, übergeben Sie `null` an die entsprechende Methode.
 
@@ -76,11 +76,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## Angepasste Nutzerattribute
+## Angepasste Nutzerattribute {#custom-user-attributes}
 
-Zusätzlich zu den Standard-Nutzerattributen ermöglicht Braze Ihnen auch, angepasste Attribute mit verschiedenen Datentypen zu definieren. Weitere Informationen zu den Segmentierungsoptionen der einzelnen Attribute finden Sie unter [Datenerfassung]({{site.baseurl}}/developer_guide/analytics).
+Zusätzlich zu den Standard-Nutzerattributen ermöglicht Braze Ihnen auch, angepasste Attribute mit verschiedenen Datentypen zu definieren. Weitere Informationen zu den Segmentierungsoptionen der einzelnen Attribute finden Sie unter [Datenerfassung]({{site.baseurl}}/developer_guide/analytics/).
 
-### Angepasste Attribute festlegen
+### Angepasste Attribute festlegen {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab String %}
@@ -121,7 +121,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_INT_VALUE);
-    
+
     // Integer attributes may also be incremented using code like the following:
     brazeUser.incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE);
   }
@@ -328,7 +328,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Angepasste Attribute zurücksetzen
+### Angepasste Attribute zurücksetzen {#unsetting-custom-attributes}
 
 Um ein angepasstes Attribut zurückzusetzen, übergeben Sie den entsprechenden Attributschlüssel an die Methode `unsetCustomUserAttribute`.
 
@@ -356,9 +356,9 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Verschachtelte angepasste Attribute
+### Verschachtelte angepasste Attribute {#nesting-custom-attributes}
 
-Sie können Eigenschaften auch innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Nutzerprofil festgelegt. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
+Sie können Eigenschaften auch innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Nutzerprofil festgelegt. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 {% tabs %}
 {% tab JAVA %}
@@ -393,11 +393,11 @@ braze.getCurrentUser { user ->
 {% endtab %}
 {% endtabs %}
 
-### Verwendung der REST API
+### Verwendung der REST API {#using-the-rest-api}
 
 Sie können auch unsere REST API verwenden, um Nutzerattribute zu setzen oder zurückzusetzen. Weitere Informationen finden Sie unter [Endpunkte für Nutzerdaten]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
-## Nutzer-Abos einrichten
+## Nutzer-Abos einrichten {#setting-user-subscriptions}
 
 Um ein Abo für Ihre Nutzer:innen einzurichten (entweder per E-Mail oder per Push), rufen Sie die Funktionen `setEmailNotificationSubscriptionType()` bzw. `setPushNotificationSubscriptionType()` auf. Beide Funktionen nehmen den enum-Typ `NotificationSubscriptionType` als Argumente entgegen. Dieser Typ hat drei verschiedene Zustände:
 
@@ -412,7 +412,7 @@ Um ein Abo für Ihre Nutzer:innen einzurichten (entweder per E-Mail oder per Pus
 Android verlangt kein explizites Opt-in, um Nutzer:innen Push-Benachrichtigungen zu senden. Wenn eine Nutzer:in für Push registriert ist, wird sie standardmäßig auf `SUBSCRIBED` und nicht auf `OPTED_IN` gesetzt. Weitere Informationen zur Implementierung von Abos und expliziten Opt-ins finden Sie unter [Verwalten von Nutzer-Abonnements]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
 {% endalert %}
 
-### E-Mail-Abos einrichten
+### E-Mail-Abos einrichten {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab JAVA %}
@@ -438,7 +438,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### Push-Benachrichtigungs-Abo einrichten
+### Push-Benachrichtigungs-Abo einrichten {#setting-push-notification-subscription}
 
 {% tabs %}
 {% tab JAVA %}

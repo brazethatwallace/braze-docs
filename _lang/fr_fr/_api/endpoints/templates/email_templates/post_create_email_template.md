@@ -56,7 +56,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `preheader` | Facultatif | Chaîne de caractères | Accroche d'e-mail utilisée pour générer des aperçus chez certains clients. |
 | `tags` | Facultatif | Chaîne de caractères | Les [étiquettes]({{site.baseurl}}/user_guide/messaging/governance/tags/) doivent déjà exister. |
 | `should_inline_css` | Facultatif | Valeur booléenne | Active ou désactive la fonctionnalité `inline_css` par modèle. S'il n'est pas fourni, Braze utilisera le paramètre par défaut pour le groupe d'applications. `true` ou `false` est attendu. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 ```
@@ -94,6 +94,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | Certaines étiquettes sont introuvables | Pour ajouter une étiquette lors de la création d'un modèle d'e-mail, l'étiquette doit déjà exister dans Braze. |
 | L'e-mail doit comporter des noms de Content Blocks valides | L'e-mail peut contenir des Content Blocks qui n'existent pas dans cet environnement. |
 | Valeur non valide pour `should_inline_css`. `true` ou `false` était attendu | Ce paramètre accepte uniquement les valeurs booléennes (true ou false). Assurez-vous que la valeur de `should_inline_css` n'est pas encadrée par des guillemets (`""`), sinon elle est envoyée comme chaîne de caractères. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

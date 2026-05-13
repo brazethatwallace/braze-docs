@@ -61,7 +61,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `preheader` | Optional | String | E-Mail-Preheader, der in einigen Clients zur Erstellung von Vorschauen verwendet wird. |
 | `tags` | Optional | String | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) müssen bereits existieren. |
 | `should_inline_css` | Optional | Boolescher Wert | Aktiviert oder deaktiviert das Feature `inline_css` pro Template. Wenn nicht angegeben, verwendet Braze die Standardeinstellung für die AppGroup. Erwartet wird `true` oder `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -90,6 +90,6 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 | Alle Tags müssen Strings sein | Stellen Sie sicher, dass Ihre Tags in Anführungszeichen (`""`) eingeschlossen sind. |
 | Einige Tags konnten nicht gefunden werden | Um beim Erstellen eines E-Mail-Templates einen Tag hinzuzufügen, muss dieser bereits in Braze vorhanden sein. |
 | Ungültiger Wert für `should_inline_css`. `true` oder `false` wurde erwartet. | Dieser Parameter akzeptiert nur boolesche Werte (true oder false). Stellen Sie sicher, dass der Wert für `should_inline_css` nicht in Anführungszeichen (`""`) eingeschlossen ist, da der Wert sonst als String gesendet wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

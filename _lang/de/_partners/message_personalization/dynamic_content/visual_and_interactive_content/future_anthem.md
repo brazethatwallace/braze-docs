@@ -26,7 +26,7 @@ Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an das Fut
 | Future-Anthem-Konto | Ein Konto bei Future Anthem. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigung für den [`users.track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Diesen können Sie im Braze-Dashboard unter **Settings** > **API Keys** erstellen. |
 | Braze-REST-Endpunkt | Der Braze-[REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), der zu Ihrer Instanz passt, z. B. `rest.iad-01.com`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -58,7 +58,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Akkumulator-Wettempfehlungen (Event-Labels) | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | Objekt |
 | Akkumulator-Wettempfehlungen (numerische Quoten) | `{"Bet_1": 1.5, "Bet_2": 2}` | Objekt |
 | Bet-Builder-Wettempfehlungen | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | Objekt |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab Bonus Recommendations %}
@@ -74,7 +74,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Bet-and-Get-Bonuswert-Empfehlung | 20 | Zahl |
 | Weitere Bonuswert-Empfehlungen | 0 | Zahl |
 | Zukünftiger CLTV | 3126 | Zahl |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab Game Recommendations %}
@@ -89,7 +89,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Up Next (Spielabfolge) | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | Array |
 | Beliebte Spiele | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | Array |
 | Trendspiele | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | Array |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -98,7 +98,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | Unterkategorie | Beispiel | Datentyp |
 | ----------- | ------- | --------- |
 | Zeigt, in welchem Cluster sich der Spieler befindet | High Value Game Diverse | String |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -108,7 +108,7 @@ Dies sind die verfügbaren angepassten Attribute in Braze. Weitere Informationen
 | ----------- | ------- | --------- |
 | Risiko-Score | 0.5 | Zahl |
 | Riskanter Spieler | True | Boolescher Wert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% endtabs %}
