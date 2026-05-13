@@ -56,7 +56,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 | 1072–1224 Zeichen | 8 Segmente |
 | 1225–1377 Zeichen | 9 Segmente |
 | 1378–1530 Zeichen | 10 Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Aufschlüsselung" }
 {% endtab %}
 {% tab UCS-2-Kodierung %}
 | Zeichenanzahl | Wie viele Segmente? |
@@ -71,7 +71,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 | 470–536 Zeichen | 8 Segmente |
 | 537–603 Zeichen | 9 Segmente |
 | 604–670 Zeichen | 10 Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Aufschlüsselung" }
 {% endtab %}
 {% endtabs %}
 

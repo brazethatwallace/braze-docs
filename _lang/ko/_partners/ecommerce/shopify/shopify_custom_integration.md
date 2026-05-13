@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify 커스텀 통합 설정
-article_title: "Shopify 커스텀 통합 설정"
+article_title: Shopify 커스텀 통합 설정
 description: "이 참조 문서에서는 커스텀 스토어프론트를 사용하여 Shopify Hydrogen 스토어 또는 헤드리스 Shopify 스토어에 연결하는 방법을 다룹니다."
 page_type: partner
 search_tag: Partner
@@ -31,7 +31,7 @@ Shopify 헤드리스 스토어를 Braze와 통합하려면 다음 두 가지 목
 
 ### 1단계: Braze 웹사이트 앱 생성 {#step-1}
 
-Braze에서 **Settings** > **App Settings**로 이동한 다음 **Add app**을 선택합니다. 앱 이름으로 "Shopify"를 입력합니다.
+Braze에서 **설정** > **앱 설정**으로 이동한 다음 **앱 추가**를 선택합니다. 앱 이름으로 "Shopify"를 입력합니다.
 
 {% alert warning %}
 스토어 이름은 반드시 "Shopify"로 지정해야 합니다. 그렇지 않으면 통합이 제대로 작동하지 않을 수 있습니다.
@@ -574,13 +574,13 @@ function CartLineUpdateButton({children, lines}) {
 
 ### 1단계: Shopify 스토어 연결 {#step-1-connect-your-shopify-store}
 
-Shopify 파트너 페이지로 이동하여 설정을 시작합니다. 먼저 **Begin Setup**을 선택하여 Shopify App Store에서 Braze 애플리케이션을 설치합니다. 안내된 단계를 따라 설치 프로세스를 완료합니다.
+Shopify 파트너 페이지로 이동하여 설정을 시작합니다. 먼저 **설정 시작**을 선택하여 Shopify App Store에서 Braze 애플리케이션을 설치합니다. 안내된 단계를 따라 설치 프로세스를 완료합니다.
 
 ![Braze 대시보드의 Shopify 통합 설정 페이지.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
 
 ### 2단계: Braze SDK 활성화 {#step-2-enable-braze-sdks}
 
-Shopify Hydrogen 또는 헤드리스 스토어의 경우 **Custom setup** 옵션을 선택합니다.
+Shopify Hydrogen 또는 헤드리스 스토어의 경우 **커스텀 설정** 옵션을 선택합니다.
 
 온보딩 프로세스를 계속하기 전에 Shopify 웹사이트에서 Braze SDK를 활성화했는지 확인합니다.
 
@@ -594,18 +594,13 @@ Shopify 웹훅을 통해 제공되는 더 많은 Shopify 이벤트와 속성을 
 
 ### 4단계: 과거 데이터 백필(선택 사항) {#step-4-historical-backfill-optional}
 
-커스텀 설정을 통해 Shopify 통합을 연결하기 전 지난 90일간의 Shopify 고객 및 주문을 로드할 수 있는 옵션이 있습니다. 이 초기 데이터 로드를 포함하려면 초기 데이터 로드 옵션의 체크박스를 선택합니다.
+커스텀 설정을 통해 [표준 통합]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup)과 동일한 과거 Shopify 데이터 로드를 선택적으로 포함할 수 있습니다: 통합을 완료한 날짜로부터 지난 90일간의 주문 이벤트와 지난 1년간의 고객 프로필. 이 초기 데이터 로드를 포함하려면 초기 데이터 로드 옵션의 체크박스를 선택합니다.
 
 나중에 백필을 수행하려면 지금 초기 설정을 완료하고 나중에 이 단계로 돌아올 수 있습니다.
 
 ![과거 데이터 백필 설정 섹션.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-이 표에는 백필을 통해 초기에 로드되는 데이터가 포함되어 있습니다.
-
-| Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 구독 상태 |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>이메일</li><li>이름</li><li>성</li><li>전화번호</li><li>도시</li><li>국가</li><li>총 매출</li><li>총 환불</li><li>총 주문</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어와 연결된 이메일 마케팅 구독</li><li>이 Shopify 스토어와 연결된 SMS 마케팅 구독</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+초기 로드에 포함되는 전체 데이터 목록, 매출 보고 동작 및 동기화 모니터링에 대해서는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
 
 ### 5단계: 커스텀 데이터 추적 설정(고급) {#step-5-custom-data-tracking-setup-advanced}
 
@@ -618,7 +613,8 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>
@@ -667,12 +663,12 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 - **Shopify 고객 ID, 이메일 또는 해시된 이메일을 선택한 경우:** 6.1~6.3단계를 건너뛰고 바로 6.4단계로 넘어갑니다.
 {% endalert %}
 
-#### 6.1단계: `braze.external_id` 메타필드 생성 {#step-61-create-the-brazeexternalid-metafield}
+#### 6.1단계: `braze.external_id` 메타필드 생성 {#step-61-create-the-brazeexternal_id-metafield}
 
-1. Shopify 관리자 패널에서 **Settings** > **Metafields**로 이동합니다.
-2. **Customers** > **Add definition**을 선택합니다.
-3. **Namespace and key**에 `braze.external_id`를 입력합니다.
-4. **Type**에서 **ID Type**을 선택합니다.
+1. Shopify 관리자 패널에서 **설정** > **메타필드**로 이동합니다.
+2. **고객** > **정의 추가**를 선택합니다.
+3. **네임스페이스 및 키**에 `braze.external_id`를 입력합니다.
+4. **유형**에서 **ID 유형**을 선택합니다.
 
 메타필드가 생성되면 고객을 위해 메타필드를 채웁니다. 다음과 같은 방법을 권장합니다:
 
@@ -689,12 +685,12 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 
 Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 
-| 매개변수            | 필수 | 데이터 유형 | 설명                                                      |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | 예      | 문자열    | Shopify 고객 ID입니다.                                         |
-| shopify_storefront   | 예      | 문자열    | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
-| email_address        | 아니요       | 문자열    | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직은 여기서 null 값을 고려해야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| shopify_customer_id | 필수 | 문자열 | Shopify 고객 ID입니다. |
+| shopify_storefront | 필수 | 문자열 | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
+| email_address | 선택 사항 | 문자열 | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직은 여기서 null 값을 고려해야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="엔드포인트 사양" }
 
 ##### 엔드포인트 예시 {#example-endpoint}
 
@@ -762,7 +758,7 @@ Shopify 직접 통합을 사용하여 인앱 메시지, Content Cards 및 피처
 
 ### 9단계: 설정 완료 {#step-9-finish-setup}
 
-모든 단계를 완료한 후 **Finish Setup**을 선택하여 파트너 페이지로 돌아갑니다. 그런 다음 표시되는 배너에 안내된 대로 Shopify 관리자 페이지에서 Braze 앱 임베드를 활성화합니다.
+모든 단계를 완료한 후 **설정 완료**를 선택하여 파트너 페이지로 돌아갑니다. 그런 다음 표시되는 배너에 안내된 대로 Shopify 관리자 페이지에서 Braze 앱 임베드를 활성화합니다.
 
 ![통합 설정을 완료하기 위해 Shopify에서 Braze 앱 임베드를 활성화하라는 배너.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
 

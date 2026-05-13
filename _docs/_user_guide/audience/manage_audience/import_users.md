@@ -22,7 +22,7 @@ You can use CSV import to record and update the following user attributes and cu
 |Default Attributes|Reserved user attributes recognized by Braze.|`first_name`, `email`|500 MB|
 |Custom Attributes|User attributes unique to your business.|`last_destination_searched`|500 MB|
 |Custom Events|Events unique to your business that represent user actions.|`trip_booked`|50 MB|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
 
 #### Constructing your CSV {#constructing-your-csv}
 

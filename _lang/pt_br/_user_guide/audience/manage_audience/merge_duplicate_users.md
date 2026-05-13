@@ -43,7 +43,7 @@ Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
 
 ## Mesclagem em massa {#bulk-merging}
 
-Quando você mescla usuários duplicados em massa, a Braze encontra perfis com identificadores correspondentes (como um endereço de e-mail) e mescla todos os dados no perfil atualizado mais recentemente que tenha um `external_id`. Se não houver perfis com um `external_id`, o perfil atualizado mais recentemente sem um `external_id` será usado.
+Quando você mescla usuários duplicados em massa, a Braze encontra perfis com identificadores correspondentes (como um endereço de e-mail) e mantém um perfil. A Braze primeiro prioriza perfis com um `external_id` e, em seguida, aplica suas configurações de **Resolving ties**: **Resolve ties using** e **Prioritization**. Se não houver perfis com um `external_id`, a Braze usa **Resolve ties using** e **Prioritization** entre perfis sem um `external_id`. A Braze só mescla usuários quando essas configurações identificam um perfil a ser mantido. Por exemplo, se **Resolve ties using** for **Updated date** e ambos os perfis tiverem o mesmo timestamp de última atualização, a Braze não consegue resolver o empate, então esses usuários não são mesclados.
 
 ### Etapa 1: Acessar Gerenciar público {#step-1-go-to-manage-audience}
 
@@ -70,7 +70,7 @@ No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis 
 | alex@company.com    | A8i3mkd99   | (555) 123-4567     | 65fcaa547f470494d1370 | email                    | TRUE             | FALSE             |
 | alex@company.com    |             | (555) 987-6543     | 65fcaa547f47d004d1348 | email                    | FALSE            | TRUE              |
 | alex@company.com    |             | (555) 321-0987     | 65fcaa547f47d0049135c | email                    | FALSE            | TRUE              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Pré-visualizar os resultados (opcional)" }
 {% endtab %}
 {% endtabs %}
 

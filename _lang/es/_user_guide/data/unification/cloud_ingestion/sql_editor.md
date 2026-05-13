@@ -165,6 +165,10 @@ Después de la validación:
 
 Cuando la validación sea exitosa, continúa a **Next: Notifications** y crea tu sincronización.
 
+{% alert important %}
+Una configuración SQL incorrecta puede llevar a resultados no deseados, incluyendo el consumo excesivo de puntos de datos y riesgos operativos más amplios. Eres responsable de asegurar que la lógica de tu consulta sea correcta y debes previsualizar cuidadosamente todos los resultados antes de activar una sincronización.
+{% endalert %}
+
 ## Restricciones SQL {#sql-constraints}
 
 Tu consulta debe cumplir los siguientes requisitos.
@@ -316,12 +320,13 @@ Cuando ves "No preview available", uno de los siguientes tipos de error subyacen
 | "Unable to connect to the source" | Verifica el nombre de usuario configurado, el localizador de cuenta y la configuración de autenticación por par de claves RSA.<br>Verifica que el almacén esté en ejecución.<br>Confirma el acceso a la red. |
 | "SQL syntax error" | Revisa tu sintaxis SQL. |
 | "Object does not exist or not authorized" | Asegúrate de que el rol tenga acceso `SELECT` a la tabla.<br>Confirma los permisos de base de datos y esquema.<br>Verifica errores tipográficos en el nombre de la tabla. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="&quot;No preview available&quot;" }
 
 ### Se requiere una columna de identidad {#identity-column-required}
 
 Asegúrate de que tu consulta incluya un identificador válido, como `external_id`.
 
-### "`UPDATED_AT` column is missing"
+### Falta la columna `UPDATED_AT` {#updatedat-column-is-missing}
 
 Añade una columna de marca de tiempo para la sincronización incremental.
 

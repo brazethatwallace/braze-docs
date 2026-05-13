@@ -2656,9 +2656,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>도움이 될 수 있는 문서가 있습니다:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>추천 결과를 찾을 수 없습니다.</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2773,7 +2773,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 // Optional: Add a back button to return to the 3-step form
 function addBackButton() {
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Suggestions';
+    backButton.textContent = '추천 콘텐츠로 돌아가기';
     backButton.className = 'submit-btn';
     backButton.style.backgroundColor = 'grey';
     backButton.style.marginTop = '20px';

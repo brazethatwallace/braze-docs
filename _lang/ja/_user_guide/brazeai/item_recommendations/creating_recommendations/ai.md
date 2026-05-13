@@ -130,7 +130,8 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="マッピングの例" class="tg">
+  <caption>マッピングの例</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -167,7 +168,7 @@ AI項目レコメンデーションを使用して、最も人気のある製品
 
 たとえば、カスタムイベント`added_to_cart`を使用して、顧客がチェックアウトする前に類似の製品をおすすめできるようにするとします。イベント`added_to_cart`にはイベントプロパティ`product_sku`があります。
 
-`product_sku`プロパティには、サンプルカタログの`id`列の値のうち少なくとも1つが含まれている必要があります: "ADI-BL-7"、"ADI-RD-8"、"ADI-WH-9"、または "ADI-PP-10"。すべてのカタログ項目にイベントは必要ありませんが、レコメンデーションエンジンの処理に十分なコンテンツを提供するために、いくつかのイベントが必要です。
+`product_sku`プロパティには、サンプルカタログの`id`列の値のうち少なくとも1つが含まれている必要があります: "ADI-BL-7"、"ADI-RD-8"、"ADI-WH-9"、または"ADI-PP-10"。すべてのカタログ項目にイベントは必要ありませんが、レコメンデーションエンジンの処理に十分なコンテンツを提供するために、いくつかのイベントが必要です。
 
 ##### カスタムイベントオブジェクトの例 {#example-custom-event-object}
 

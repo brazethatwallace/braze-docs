@@ -38,6 +38,18 @@ SMS 및 MMS가 여러 인스턴스에 걸쳐 설정되어 있고 잘못된 구�
 
 Braze는 고객 프로필(`user_id`) 수준과 전화번호(`channel_id`) 수준 모두에서 SMS/MMS 구독을 관리합니다. 전화번호가 옵트인 또는 옵트아웃되면 해당 번호를 공유하는 모든 프로필에 업데이트가 적용됩니다. 최종 사용자가 특정 전화번호로 옵트인한 후 전화번호를 변경하는 경우, 새 전화번호는 해당 사용자의 구독 그룹 상태를 상속합니다. 따라서 최종 사용자가 옵트아웃한 후 새 전화번호로 앱이나 웹사이트에 다시 접속하더라도 원치 않는 메시지를 수신하지 않습니다.
 
+## 전화번호 목록 위생 권장 사항 {#phone-number-list-hygiene-recommendations}
+
+전화번호 목록 위생을 유지하면 시간이 지나도 유효한 동의 및 도달 가능성 데이터를 보존할 수 있습니다. Braze는 규정 준수 위험을 줄이고, 동의 기반 메시징 관행을 지원하며, 원래 사용자에게 더 이상 속하지 않을 수 있는 번호로의 발송을 방지하기 위해 일부 전화번호를 유효하지 않음으로 표시합니다.
+
+전화번호가 유효하지 않음으로 표시되는 일반적인 이유는 [유효하지 않은 전화번호 처리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers)를 참조하세요.
+
+유효하지 않은 전화번호를 제거하기 위해 다음 워크플로를 권장합니다:
+
+1. [`/sms/invalid_phone_numbers` 엔드포인트]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/)를 통해 영향을 받는 전화번호를 식별합니다.
+2. 비활성화된 전화번호와 통신사 오류를 수신한 전화번호를 구분합니다.
+3. 비활성화된 전화번호의 경우 사용자에게 전화번호를 재확인합니다. 사용자가 전화번호를 확인한 후 [`/sms/invalid_phone_numbers/remove` 엔드포인트]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/)를 통해 유효하지 않은 목록에서 전화번호를 제거합니다.
+
 ## 트래픽 펌핑 권장 사항 {#traffic-pumping-recommendations}
 
 ### 트래픽 펌핑이란? {#what-is-traffic-pumping}
@@ -48,7 +60,7 @@ Braze는 고객 프로필(`user_id`) 수준과 전화번호(`channel_id`) 수준
 
 * 이러한 종류의 사기를 지원하는 프리미엄 요금 번호는 항상 그런 것은 아니지만, 일반적인 발송 지역 외의 국가에 설정되는 경우가 많습니다.
 * 온라인 양식에서의 비정상적인 메시지 발송 급증은 트래픽 펌핑을 나타낼 수 있습니다.
-    * 비현실적으로 많은 수의 메시지가 발송될 경우 상한을 설정하고 알림을 받을 수 있도록 [캠페인 알림]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/)을 설정하는 것을 권장합니다.
+    * 비현실적으로 많은 수의 메시지가 발송될 경우 상한을 설정하고 알림을 받을 수 있도록 [Campaign 알림]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts/)을 설정하는 것을 권장합니다.
 * 불완전한 온라인 양식은 프로그래밍 방식의 양식 작성을 나타낼 수 있습니다.
 * 온라인 양식을 구축할 때 양식이 완전히 작성되도록 규칙을 설정하고 CAPTCHA와 같은 도구를 사용하여 위험을 최소화하는 것을 권장합니다.
 
@@ -111,4 +123,4 @@ SMS 메시지 본문 상단에 다음 스니펫을 포함하세요. 이 예시�
 
 - {% raw %}`time_zone: ${time_zone}`{% endraw %}를 사용하면 고정된 글로벌 시간이 아닌 각 사용자의 현지 시간을 기준으로 시간 범위를 평가할 수 있습니다. 자세한 내용은 [이 FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer)를 참조하세요.
 - {% raw %}`abort_message()`{% endraw %}에 의해 억제된 메시지는 다음 날로 재스케줄되지 않으며 취소됩니다.
-- {% raw %}기본적으로 중단된 메시지는 표준 캠페인 보고서에 표시되지 않습니다. 그러나 Liquid가 `{% abort_message %}`로 발송을 중단하면 Braze는 이를 메시지 활동 로그에 메시지 오류로 기록합니다(기본적으로 `{% abort_message %}`가 호출된 것으로 표시됩니다). 문자열을 전달하면 해당 사유가 로그에 표시됩니다(예: `{% abort_message('language was nil') %}`){% endraw %}. 대시보드에서 이러한 억제 내역을 확인하려면 고객 성공 매니저에게 연락하여 [메시징 진단 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/)에 대한 액세스를 요청하세요.
+- {% raw %}기본적으로 중단된 메시지는 표준 Campaign 보고서에 표시되지 않습니다. 그러나 Liquid가 `{% abort_message %}`로 발송을 중단하면 Braze는 이를 메시지 활동 로그에 메시지 오류로 기록합니다(기본적으로 `{% abort_message %}`가 호출된 것으로 표시됩니다). 문자열을 전달하면 해당 사유가 로그에 표시됩니다(예: `{% abort_message('language was nil') %}`){% endraw %}. 대시보드에서 이러한 억제 내역을 확인하려면 고객 성공 매니저에게 연락하여 [메시징 진단 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/)에 대한 액세스를 요청하세요.

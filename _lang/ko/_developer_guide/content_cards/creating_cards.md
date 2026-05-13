@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### 2a단계: 비공개 구독자 변수 만들기 {#step-2a-create-a-private-subscriber-variable}
+#### 2a단계: 비공개 구독자 변수 만들기
 
 카드 업데이트를 구독하려면 먼저 커스텀 클래스에서 구독자를 보관할 비공개 변수를 선언합니다:
 
@@ -133,7 +133,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### 2b단계: 업데이트 구독 {#step-2b-subscribe-to-updates}
+#### 2b단계: 업데이트 구독
 
 다음 코드를 추가하여 Braze의 Content Cards 업데이트를 구독합니다. 일반적으로 커스텀 Content Cards 액티비티의 `Activity.onCreate()` 내부에 배치합니다:
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### 2c단계: 구독 취소 {#step-2c-unsubscribe}
+#### 2c단계: 구독 취소
 
 커스텀 액티비티가 화면에서 벗어날 때 구독을 취소합니다. 액티비티의 `onDestroy()` 라이프사이클 메서드에 다음 코드를 추가합니다:
 
@@ -246,7 +246,7 @@ Content Cards를 사용하여 메시지 센터를 시뮬레이션할 수 있습�
 `body`, `title`, `buttonText`와 같은 키에는 마케터가 설정할 수 있는 간단한 문자열 값이 있을 수 있습니다. `terms` 같은 키에는 법무 부서에서 승인한 작은 문구 모음을 제공하는 값이 있을 수 있습니다. `style` 및 `class_type` 같은 키에는 앱이나 사이트에서 카드가 렌더링되는 방식을 결정하기 위해 설정할 수 있는 문자열 값이 있습니다.
 
 {% tabs local %}
-{% tab Reading recommendations %}
+{% tab 읽기 추천 %}
 읽기 추천 카드의 키-값 페어:
 
 | 키         | 값                                                                |
@@ -255,10 +255,10 @@ Content Cards를 사용하여 메시지 센터를 시뮬레이션할 수 있습�
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 
-{% tab New subscriber coupon %}
+{% tab 신규 가입자 쿠폰 %}
 신규 가입자 쿠폰의 키-값 페어:
 
 | 키         | 값                                                            |
@@ -270,7 +270,7 @@ Content Cards를 사용하여 메시지 센터를 시뮬레이션할 수 있습�
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
 

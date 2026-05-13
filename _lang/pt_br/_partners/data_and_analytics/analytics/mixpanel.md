@@ -9,11 +9,13 @@ tool: Currents
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
 > O [Mixpanel](https://mixpanel.com/) é uma plataforma de análise de dados que permite exportar eventos do Mixpanel para outras plataformas para realizar análises mais profundas. Os dados coletados podem então ser usados para criar relatórios personalizados e medir o engajamento e a retenção de usuários.
 
-A integração entre a Braze e o Mixpanel permite a [importação de coortes do Mixpanel para a Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) para criar segmentos da Braze que podem direcionar usuários em futuras Campaigns ou Canvas da Braze. Você também pode usar o Braze Currents para [exportar seus eventos da Braze para o Mixpanel](#data-export-integration) e gerar análises mais detalhadas sobre conversões, retenção e uso do produto.
+A integração entre a Braze e o Mixpanel permite a [importação de coortes do Mixpanel para a Braze]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/) para criar segmentos da Braze que podem direcionar usuários em futuras Campaigns ou Canvas da Braze. A sincronização de coortes atualiza a associação de coortes na Braze e não importa eventos ou propriedades de usuários do Mixpanel. Para mais detalhes, consulte [Importação de coorte do Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration).
+
+Você também pode usar o Braze Currents para [exportar seus eventos da Braze para o Mixpanel](#data-export-integration) e gerar análises mais detalhadas sobre conversões, retenção e uso do produto.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -21,7 +23,7 @@ A integração entre a Braze e o Mixpanel permite a [importação de coortes do 
 |---|---|
 | Conta Mixpanel | É necessário ter uma [conta Mixpanel](https://mixpanel.com/) para aproveitar essa parceria. |
 | Currents | Para exportar dados de volta para o Mixpanel, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado na sua conta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração de exportação de dados {#data-export-integration}
 
@@ -143,7 +145,7 @@ Para reduzir ambiguidades, defina o `braze_external_id` diretamente no Mixpanel.
 
 ### Definição automática de propriedade (SDKs) {#automatic-property-setting-sdks}
 
-O SDK do Mixpanel pode definir o `braze_external_id` automaticamente quando o SDK da Braze está integrado no mesmo aplicativo. Se você implementar o Mixpanel e a Braze juntos, normalmente não será necessário nenhuma configuração adicional além da instalação de ambos os SDKs.
+O SDK do Mixpanel pode definir o `braze_external_id` automaticamente quando o SDK da Braze está integrado no mesmo aplicativo. Se você implementar o Mixpanel e a Braze juntos, normalmente não será necessária nenhuma configuração adicional além da instalação de ambos os SDKs.
 
 {% alert note %}
 O `braze_external_id` não é definido quando `changeUser()` é chamado na Braze; ele é definido quando o Mixpanel inicializa ou inicia uma sessão (durante o "init" ou "start session").

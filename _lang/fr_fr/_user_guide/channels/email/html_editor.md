@@ -10,7 +10,7 @@ channel:
 search_rank: 1
 ---
 
-# Créer un e-mail avec du HTML personnalisé
+# Créer un e-mail avec du HTML personnalisé {#create-an-email-with-custom-html}
 
 > Les e-mails sont un excellent moyen de diffuser du contenu à vos utilisateurs selon leurs préférences. Ils constituent également d'excellents outils pour réengager les utilisateurs qui ont peut-être même désinstallé votre application. L'envoi d'e-mails personnalisés et adaptés améliorera l'expérience de vos utilisateurs et les aidera à tirer le meilleur parti de votre application.
 
@@ -22,7 +22,7 @@ Si c'est la première fois que vous créez une campagne e-mail, nous vous recomm
 - [Projet : Créer un programme d'e-mail marketing de base](https://learning.braze.com/project-build-a-basic-email-marketing-program)
 {% endalert %}
 
-## Étape 1 : Choisir où créer votre message
+## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
 Utilisez les campagnes pour un envoi de messages simple et unique. Utilisez les Canvas pour des parcours utilisateur en plusieurs étapes.
 
@@ -52,7 +52,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 {% endtabs %}
 
 {% alert tip %}
-Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les arrière-plans restent cohérents dans l'application mobile Gmail avec le mode sombre activé, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
+Si vous prévoyez de créer du HTML personnalisé et que vous souhaitez que les arrière-plans restent cohérents dans l'application mobile Gmail avec le mode sombre activé, consultez [Application mobile Gmail et mode sombre](#gmail-dark-mode).
 {% endalert %}
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='email html editor' %}
@@ -71,7 +71,7 @@ Si vous utilisez l'éditeur HTML et que vous souhaitez que les couleurs d'arriè
 Nous recommandons de sélectionner une seule expérience d'édition par campagne e-mail. Par exemple, choisissez soit **HTML Classic** soit **Block editor** dans une même campagne e-mail plutôt que de basculer entre les éditeurs.
 {% endalert %}
 
-## Étape 3 : Rédiger votre e-mail
+## Étape 3 : Rédiger votre e-mail {#step-3-compose-your-email}
 
 Après avoir sélectionné votre modèle, vous verrez un aperçu de votre e-mail où vous pouvez accéder directement à l'éditeur en plein écran pour rédiger votre e-mail, modifier vos informations d'envoi et consulter les avertissements relatifs à la livrabilité ou à la conformité légale. Vous pouvez basculer entre les onglets HTML, classique, texte brut et [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) pendant la rédaction.
 
@@ -112,12 +112,13 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 Pour plus d'informations sur la syntaxe des dégradés, consultez [Les dégradés CSS sur W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
 
-### Étape 3.1 : Ajouter vos informations d'envoi
+### Étape 3.1 : Ajouter vos informations d'envoi {#step-31-add-your-sending-information}
 
 Après avoir terminé la conception et la création de votre e-mail, ajoutez vos informations d'envoi dans **Sending Settings**.
 
@@ -130,13 +131,13 @@ Après avoir terminé la conception et la création de votre e-mail, ajoutez vos
 
 Un aperçu dans le panneau de droite se remplira avec les informations d'envoi que vous avez ajoutées. Ces informations peuvent également être mises à jour en accédant à **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Avancé
+#### Avancé {#advanced}
 
 Sous **Sending Settings** > **Advanced**, activez l'**insertion CSS** pour la compatibilité la plus large avec les clients de messagerie. Si les messages sont tronqués ou si les images s'étirent à la hauteur de la ligne, essayez de désactiver temporairement l'insertion CSS. Certains modèles fonctionnent mieux sans insertion.
 
 Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mail et des extras d'e-mail pour renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing.
 
-##### En-têtes d'e-mail
+##### En-têtes d'e-mail {#email-headers}
 
 Pour ajouter des en-têtes d'e-mail, sélectionnez **Add New Header**. Les en-têtes d'e-mail contiennent des informations sur l'e-mail envoyé. Ces [paires clé-valeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) incluent généralement l'expéditeur, le destinataire, le protocole d'authentification et les informations de routage. Braze ajoute automatiquement les informations d'en-tête requises par la RFC pour que les e-mails atteignent les fournisseurs de boîtes de réception.
 
@@ -151,7 +152,8 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="En-têtes d'e-mail" id="reserved-fields">
+  <caption>En-têtes d'e-mail</caption>
 <thead>
   <tr>
     <th>Champs réservés</th>
@@ -188,7 +190,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 </tbody>
 </table>
 
-##### Ajouter des extras d'e-mail
+##### Ajouter des extras d'e-mail {#adding-email-extras}
 
 Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. Cela ne s'applique qu'aux cas d'utilisation avancés ; n'utilisez donc les extras d'e-mail que si votre entreprise a déjà mis cela en place.
 
@@ -231,7 +233,7 @@ Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent
 Pour l'éditeur par glisser-déposer, ajoutez uniquement les caractères de non-jointure de largeur nulle (‌`&zwnj;`) sans le formatage `<div>` directement dans l'accroche dans la section **Sending Settings**.
 {% endalert %}
 
-### Étape 3.3 : Vérifier les erreurs d'e-mail
+### Étape 3.3 : Vérifier les erreurs d'e-mail {#step-33-check-for-email-errors}
 
 Avant l'envoi, l'éditeur signale les problèmes courants :
 
@@ -246,13 +248,13 @@ Avant l'envoi, l'éditeur signale les problèmes courants :
 - Lien de désabonnement manquant
 - Le domaine d'expéditeur n'est pas dans la liste autorisée (envois fortement limités)
 
-## Étape 4 : Construire le reste de votre campagne ou Canvas
+## Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 Ensuite, construisez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur l'utilisation des outils Braze pour créer votre campagne e-mail.
 
-#### Choisir la planification de distribution ou le déclencheur
+#### Choisir la planification de distribution ou le déclencheur {#choose-delivery-schedule-or-trigger}
 
 Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
@@ -262,7 +264,7 @@ Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est
 
 Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
-#### Choisir les utilisateurs à cibler
+#### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
 Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres. Braze affiche un aperçu en temps réel de la population du segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au segment est calculée juste avant l'envoi.
 
@@ -276,7 +278,7 @@ Vous pouvez également limiter la distribution à un nombre spécifié d'utilisa
 Lors de la création d'une nouvelle campagne e-mail, le groupe de contrôle est défini par défaut à 20 % et peut être ajusté ou supprimé selon les besoins de votre campagne.
 {% endalert %}
 
-##### Campagnes multicanales avec e-mail et push
+##### Campagnes multicanales avec e-mail et push {#multichannel-campaigns-with-email-and-push}
 
 Pour les campagnes multicanales ciblant à la fois les canaux e-mail et push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement accepté reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
@@ -290,7 +292,7 @@ Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagn
 Avec cette configuration, n'incluez aucun filtre dans l'étape **Target Audiences** qui limiterait l'audience à un seul canal (par exemple, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-#### Choisir les événements de conversion
+#### Choisir les événements de conversion {#choose-conversion-events}
 
 Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une campagne. Vous pouvez spécifier l'une des actions suivantes comme événement de conversion :
 
@@ -307,7 +309,7 @@ Si ce n'est pas déjà fait, complétez les sections restantes de vos composants
 {% endtab %}
 {% endtabs %}
 
-## Étape 5 : Vérifier et déployer
+## Étape 5 : Vérifier et déployer {#step-5-review-and-deploy}
 
 La dernière section résume la campagne que vous avez conçue. Confirmez tous les détails pertinents et sélectionnez **Launch Campaign**.
 

@@ -83,6 +83,6 @@ If users enter an action path multiple times and have multiple entries in the ac
 |---|--------------|
 | **Off** | A user can enter an action path more than once. These entries are held in the action path until a trigger action or event is recorded. If the trigger event does not satisfy an entry's property filters (for example, a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) does not match the trigger's property filters), the entry remains in the action path. <br><br>If the trigger event satisfies more than one entry, Braze deduplicates only these entries and immediately advances the earliest matching entry through the relevant action group. |
 | **On** | All entries advance at the end of the relevant evaluation window. No deduplication occurs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases with re-eligibility" }
 
 Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).

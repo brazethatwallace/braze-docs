@@ -22,7 +22,8 @@ LimbikをBrazeで使用するには、以下が必要です。
 | Limbik `account_id` | Limbikのアカウントチームに問い合わせるか、Limbikの`/rest/api/organizations`エンドポイントにGETリクエストを送信してください。 |
 | Limbikアクセストークン（`access_token`） | Limbikの`login`エンドポイントにPOSTリクエストを送信し、返された`access_token`の値を`Authorization`ヘッダーのBearerトークンとして使用してください。 |
 | Braze REST APIキー | 「Messages」権限を持つBraze REST APIキー。Brazeダッシュボードの**設定** > **APIキー**で作成してください。 |
-| Braze `campaign_id` | **メッセージング** > **Campaigns**に移動し、Campaignを選択します。使用したいCampaignがまだ存在しない場合は、作成して保存してください。Campaignページの下部にCampaign API識別子があります。 |
+| Braze `campaign_id` | **Messaging** > **Campaigns**に移動し、Campaignを選択します。使用したいCampaignがまだ存在しない場合は、作成して保存してください。Campaignページの下部にCampaign API識別子があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 予測エンドポイントを使用する前に、まずアクセス可能な組織（`account_id`）を特定する必要があります。ほとんどの顧客は1つの組織のみですが、一部のアカウントでは複数の組織が利用可能な場合があります。
 
@@ -191,7 +192,7 @@ Connected Audienceオブジェクトは、Brazeの「デフォルト」属性に
 
 特定のSegmentsの予測スコアを取得するには、利用可能な国とそれに対応するSegmentsを特定します。
 
-### ステップ1:利用可能な国を一覧表示する {#step-1-list-available-countries}
+### ステップ 1: 利用可能な国を一覧表示する {#step-1-list-available-countries}
 
 アカウントで利用可能な国の一覧を取得します。
 
@@ -203,7 +204,7 @@ curl -X 'GET' \
 
 レスポンスから、使用したい国を特定します。たとえば、米国の`id`は`56`です。
 
-### ステップ2:利用可能なSegmentsを取得する {#step-2-retrieve-available-segments}
+### ステップ 2: 利用可能なSegmentsを取得する {#step-2-retrieve-available-segments}
 
 国IDを取得した後、その国の全Segments一覧を取得します。
 
@@ -279,7 +280,7 @@ curl -X 'GET' \
 
 Limbikを使用して、合成オーディエンスに対するメッセージの推定スコアを作成できます。Limbikの`forecasts/synchronous`エンドポイントを使用してプログラムで実行します。
 
-### オプション1 - 同期予測 {#option-1-synchronous-forecast}
+### オプション 1 - 同期予測 {#option-1-synchronous-forecast}
 
 テンプレート生成からのレスポンスペイロードを、同期予測エンドポイントで直接使用できます。
 
@@ -346,7 +347,7 @@ curl -X 'POST' \
 
 {% enddetails %}
 
-### オプション2:Segmentsを使用した予測ペイロードの準備 {#option-2-prepare-forecast-payload-with-segments}
+### オプション 2: Segmentsを使用した予測ペイロードの準備 {#option-2-prepare-forecast-payload-with-segments}
 
 選択したSegmentsを使用して予測ペイロードを作成します。Segmentsは簡略化されたコンポジットキー形式を使用します。
 

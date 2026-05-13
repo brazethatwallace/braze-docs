@@ -23,10 +23,10 @@ Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Con
 
 ## Voraussetzungen {#prerequisites}
 
-| Anforderungen     | Beschreibung |
+| Anforderungen | Beschreibung |
 |-----------------------|-----------------|
-| Cloudinary-Konto  | Ein [Cloudinary-Konto](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Cloudinary-Konto | Ein [Cloudinary-Konto](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integrationsmethoden {#integration-methods}
 
@@ -39,7 +39,7 @@ Einige dieser Integrationsmethoden nutzen die `f_auto`- und `q_auto`-Cloudinary-
 
 ## Campaign-Assets über Cloudinary DAM auswählen {#select-campaign-assets-through-cloudinary-dam}
 
-Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren Campaigns und Canvases zu verwenden, besteht darin, die URL von der **Asset**-Seite der Cloudinary-Medienbibliothek zu kopieren.
+Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren Braze-Campaigns und Canvases zu verwenden, besteht darin, die URL von der **Asset**-Seite der Cloudinary-Medienbibliothek zu kopieren.
 
 ![Eine Rasteransicht der Bild-Asset-Bibliothek von Cloudinary, wobei oben rechts bei einem der Bilder ein Tooltip „URL kopieren“ hervorgehoben ist.]({% image_buster /assets/img/cloudinary/one.png %})
 
@@ -75,7 +75,7 @@ Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren
 Siehe [Video]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) für spezielle Überlegungen zu Android und iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Videos in GIFs umwandeln %}
 
 ## Videos in GIFs für E-Mails umwandeln {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Targeting-Attribute %}
 
 ## Campaign-Assets dynamisch auf Basis von Targeting-Attributen auswählen {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Wenn keine exakte Übereinstimmung gefunden wird, wählt die Funktion automatisc
 Eine Anleitung zum Erstellen und Anwenden angepasster Funktionen sowie ein Beispiel für eine angepasste Funktion zur Auswahl von Assets und Fallback-Optionen für eine bestimmte Campaign finden Sie im [`braze-personalization`-GitHub-Repo](https://github.com/cloudinary-devs/braze-personalization) von Cloudinary. Für weitere Unterstützung wenden Sie sich bitte an Ihr Cloudinary-Support-Team.
 {% endalert %}
 
-### Voraussetzungen {#prerequisites}
+### Voraussetzungen
 
 Um eine dynamische Auswahl von Assets zu ermöglichen, muss Cloudinary in der Lage sein, eine Reihe von Assets auf der Grundlage von Tags und Metadaten zurückzugeben. Wenn der Zustellungstyp „Liste“ eingeschränkt ist, kann Cloudinary nicht die dynamische Liste bereitstellen, die für die personalisierte Auswahl von Assets in Braze-Campaigns benötigt wird.
 - Heben Sie die Einschränkung des Zustellungstyps „Liste“ auf: Öffnen Sie die Sicherheitseinstellungen in Ihrer Cloudinary-Konsole und deaktivieren Sie den Eintrag „Ressourcenliste“ unter „Eingeschränkte Bildtypen“.
@@ -161,7 +161,7 @@ https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Personalisierte Bilderstellung %}
 
 ## Personalisierte Bilderstellung {#personalized-image-generation}
 

@@ -23,7 +23,7 @@ SalesWingsでは、マーケティングチームとマーケティングオペ�
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | SalesWingsアカウント | このパートナーシップを活用するには、[SalesWingsアカウント](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)が必要です。 |
-| Braze REST APIキー | `users.export.ids` の権限を持つBraze REST APIキー（SalesWingsのインサイトプッシュ機能を使用する場合は `users.track` も必要）。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。 |
+| Braze REST APIキー | `users.export.ids`の権限を持つBraze REST APIキー（SalesWingsのインサイトプッシュ機能を使用する場合は`users.track`も必要）。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
 | Segment.comアカウント（オプション） | Segment.comをご利用の場合は、リードプロファイリングのために、すべてのリードエンゲージメントおよびプロファイルデータの送信とイベントの識別をSegment.com経由で行うことができます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -31,7 +31,7 @@ SalesWingsでは、マーケティングチームとマーケティングオペ�
 ## ユースケース {#use-cases}
 
 {% tabs %}
-{% tab Lead and Account Scoring %}
+{% tab リードとアカウントのスコアリング %}
 
 SalesWingsは、最先端のリードグレーディング機能と[リードスコアリング機能により、リード、取引先責任者、アカウントを選別する柔軟な方法](https://www.saleswingsapp.com/braze-lead-scoring-and-sales-insights?utm_source=braze&utm_campaign=technicaldocs)をBrazeのお客様に提供します。すべてのリードクオリフィケーションデータは、Salesforce CRMや、リード、取引先責任者、アカウント、商談を管理およびレポートするその他のシステムにネイティブにプッシュされます。
 
@@ -39,7 +39,7 @@ SalesWingsは、最先端のリードグレーディング機能と[リードス
 
 _SalesWingsのシンプルなclick-not-codeリードスコアリングモデルの例_
 {% endtab %}
-{% tab Sales and Marketing Alignment %}
+{% tab セールスとマーケティングの連携 %}
 SalesWingsでは、マーケティングチームがマーケティング対象として適格なリードを追跡、選別し、営業チームに受け渡すことができます。SalesWingsのデータはすべてSalesforceにネイティブにプッシュされ、既存のプロセスを微調整したり、リスト、レポート、フローなどを使って新しいプロセスを作成したりするのに活用できます。
 
 ![SalesWingsのリードスコアリングがSalesforce内でリードやコンタクトのリストに優先順位をつける例]({% image_buster /assets/img/saleswings/prioritized_lead_or_contact_list_braze_lead_scoring.png %})
@@ -50,24 +50,24 @@ _SalesWingsリードスコアリングにより、Salesforce内部でネイテ�
 
 _SalesWingsリードスコアリングにより、Salesforce内部でネイティブにアカウントのリストを優先順位付けする方法の例_
 {% endtab %}
-{% tab Lead and Account Grading %}
+{% tab リードとアカウントのグレーディング %}
 SalesWingsでは、Brazeのお客様がプロファイルデータ（通常はCRMデータ）に基づいてリードとアカウントを選別できます。これは「リードグレーディング」、「フィットスコアリング」、「ファームグラフィックスコアリング」とも呼ばれます。Brazeのお客様は、属性データを直接SalesWingsに送信できます。SalesWingsは、総合的なプロファイルスコアリングのためにSalesforce CRMの標準オブジェクトまたはカスタムオブジェクトのデータとレコードを読み取ることができます。
 {% endtab %}
-{% tab Sales Insights for Sales Reps %}
+{% tab 営業担当者向けセールスインサイト %}
 SalesWingsでは、リード、取引先担当者、アカウントに関するセールスインサイトを営業担当者に対して表示できます（Marketo Sales Insightsの代替）。基本的には、BrazeおよびWebエンゲージメントデータを営業チームに対して表示できます。インサイトはSalesforce CRMにネイティブに組み込まれ、他のCRMやシステムにプッシュするか、Brazeのメールで「セールスアラート」として送信することができます。
 
 ![Salesforce内の営業担当者向けセールスインサイトビューの例（他のCRMシステムでも利用可能）]({% image_buster /assets/img/saleswings/marketo_sales_insights_alternative_for_braze.png %})
 
 _Salesforce内の営業担当者向けセールスインサイトビューの例（他のCRMシステムでも利用可能）_
 {% endtab %}
-{% tab Sales Alerts %}
+{% tab セールスアラート %}
 SalesWingsは、ネイティブメールとSlackアラートを提供します。Salesforceでレポートサブスクリプションを設定することで、営業チームが日次、週次、月次のメールレポートを取得できます。さらにZapierとの統合により、SalesWingsのリードクオリフィケーションデータに基づいた追加ワークフローを作成できます。
 
 ![Slackチャンネルを通じたセールスアラートの例]({% image_buster /assets/img/saleswings/smart_watch_alerts.png %})
 
 _Slackチャンネルを使ったセールスアラートの例_
 {% endtab %}
-{% tab Reporting in Salesforce CRM %}
+{% tab Salesforce CRMでのレポート %}
 SalesWingsとSalesforceのネイティブ統合により、WebエンゲージメントデータとBraze Currentsのネイティブ統合によるあらゆるBraze Campaignエンゲージメントに基づいて、リード、取引先責任者、取引先、および商談に関する自動レポートを構築できます。例えば、特定のメールCampaignをクリックした人、アプリやWebサイトで特定のアクションを行った人など、ホットリードのリストを営業チームに表示することができます。
 
 ![BrazeのメールおよびマーケティングエンゲージメントにリンクしたSalesforce内のダッシュボード例。Braze Campaignがセールスの結果や成果に与える影響を確認できます]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
@@ -136,13 +136,13 @@ Current作成フォームの**Credentials**セクションで、[**SalesWings In
 
 追跡可能なURL（例えば、メール一斉送信やURL付きバナー）をクリックしたユーザーを自動的に特定できます。URLを追跡可能にするには、メール、バナー、SMSでWebサイトのURLを修正する2つの方法があり、リンクの末尾にパラメータとIDを追加します。
 
-1. `?braze_id=` の後に {% raw %}`{{${braze_id}}}`{% endraw %} を付加する
+1. `?braze_id=`の後に{% raw %}`{{${braze_id}}}`{% endraw %}を付加する
   - **リンクの例:** {% raw %}`https://www.your-website.com?braze_id={{${braze_id}}}`{% endraw %}<br><br>
 
-2. `?br_user_id=` の後に {% raw %}`{{${user_id}}}`{% endraw %} を付加する
+2. `?br_user_id=`の後に{% raw %}`{{${user_id}}}`{% endraw %}を付加する
   - **リンクの例:** {% raw %}`https://www.client-website.com?br_user_id={{${user_id}}}`{% endraw %}
 
-`braze_id` 変数には、Brazeにより生成されたユーザーの識別子が設定されます。この変数はいつでも使用できます。`br_user_id` 変数には、システム内のユーザーの識別子が設定されます。この変数は、特定の状況（Braze SDKにより作成された匿名ユーザーなど）では使用されない可能性があります。リンクに `braze_id` と `br_user_id` の両方が使用されている場合、SalesWingsは `braze_id` パラメータのみを考慮します。
+`braze_id`変数には、Brazeにより生成されたユーザーの識別子が設定されます。この変数はいつでも使用できます。`br_user_id`変数には、システム内のユーザーの識別子が設定されます。この変数は、特定の状況（Braze SDKにより作成された匿名ユーザーなど）では使用されない可能性があります。リンクに`braze_id`と`br_user_id`の両方が使用されている場合、SalesWingsは`braze_id`パラメータのみを考慮します。
 
 ### SalesWingsのインサイトをBrazeにプッシュする {#pushing-saleswings-insights-to-braze}
 
@@ -156,12 +156,12 @@ BrazeへのSalesWingsインサイトプッシュを有効にすると、SalesWin
 | `sw_lead_link_protected` | 文字列 | SalesWingsのリードプロファイルにアクセスするためのリンク（SalesWingsのダッシュボードアカウントが必要） |
 | `sw_lead_owner` | 文字列 | SalesWingsまたはSalesforce CRMでリードに設定された所有者 |
 | `sw_lead_score` | float | SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定されたメインのSalesWingsリードスコアの値 |
-| `sw_predictive_score` | 文字列 | SalesWingsの[予測スコア](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score)の値で、トラッキングされたアクティビティの回数と新しさに基づいてリードのエンゲージメントを評価します。設定可能な値は `HOT`、`WARM`、`NORMAL`、`COLD` または `FROZEN` です |
+| `sw_predictive_score` | 文字列 | SalesWingsの[予測スコア](https://support.saleswingsapp.com/en/articles/581795-the-predictive-lead-score)の値で、トラッキングされたアクティビティの回数と新しさに基づいてリードのエンゲージメントを評価します。設定可能な値は`HOT`、`WARM`、`NORMAL`、`COLD`または`FROZEN`です |
 | `sw_salesforce_record_id` | 文字列 | Salesforce CRMのリードまたはコンタクトレコードのID |
 | `sw_salesforce_record_url` | 文字列 | Salesforce CRMのリードまたはコンタクトレコードのURL |
 | `sw_session_count` | 整数 | このリードのWebサイトでのトラッキングセッション数 |
 | `sw_tags` | 文字列の配列 | SalesWingsが識別したニーズと興味で、「タグ」として表されます。このリードに適用される、SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定されたSalesWingsタグの名前です |
-| その他のリードスコア属性 | float | SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定された追加のリードスコアごとに1つのカスタム属性。属性名はSalesWingsのスコア名から派生します。例えば、`Likeliness to meet` というスコアはカスタム属性 `sw_likeliness_to_meet` として送信されます。スコアの作成後に名前を変更した場合、SalesWingsは最初のカスタム属性名で同期を継続します。 |
+| その他のリードスコア属性 | float | SalesWings[ルールエンジン](https://helium.saleswings.pro/falcon)で設定された追加のリードスコアごとに1つのカスタム属性。属性名はSalesWingsのスコア名から派生します。例えば、`Likeliness to meet`というスコアはカスタム属性`sw_likeliness_to_meet`として送信されます。スコアの作成後に名前を変更した場合、SalesWingsは最初のカスタム属性名で同期を継続します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 プッシュを有効にすると、SalesWingsのリードプロファイルで基礎となるデータポイントが変更されると、SalesWingsは即座にBrazeへのカスタム属性の送信を開始し、新しい更新がなくても、すべての既存リードを徐々に同期します。

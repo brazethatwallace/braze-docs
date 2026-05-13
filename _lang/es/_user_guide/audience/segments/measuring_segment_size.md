@@ -18,14 +18,14 @@ Braze actualiza la membresía del segmento del usuario a medida que los datos se
 
 ### Cálculo del total de usuarios alcanzables {#total-reachable-users-calculation}
 
-Cada segmento muestra el número total de usuarios que son miembros de ese segmento. Al filtrar por **Usuarios de todas las aplicaciones**, también muestra algunos de los canales de mensajería más utilizados (como notificación push web o correo electrónico) y el número de usuarios alcanzables para esos canales específicos.
+Cada segmento muestra el número total de usuarios que son miembros de ese segmento. Al filtrar por **Users from all apps**, también muestra algunos de los canales de mensajería más utilizados (como notificación push web o correo electrónico) y el número de usuarios alcanzables para esos canales específicos.
 
 Es posible que el número total de usuarios sea diferente del número de usuarios alcanzables por cada canal. Además, no todos los canales aparecen en la tabla de usuarios alcanzables. Por ejemplo, Content Cards, webhooks y WhatsApp no se muestran en el desglose. Esto significa que el recuento total de usuarios alcanzables podría ser mayor que la suma de los usuarios de cada canal mostrado.
 
 ![Una tabla que muestra el total de usuarios alcanzables desglosado por usuarios alcanzables por correo electrónico, push de iOS, push de Android, push web y push de Kindle.]({% image_buster /assets/img_archive/segmenter_reachable_users.png %})
 
-Para que un usuario aparezca como alcanzable a través de un canal determinado, el usuario debe tener ambos:
-* Una dirección de correo electrónico válida o un token de notificaciones push asociado a su perfil, y
+Para que un usuario aparezca como alcanzable a través de un canal determinado, debe cumplir ambas condiciones:
+* Tener una dirección de correo electrónico válida o un token de notificaciones push asociado a su perfil, y
 * Haber optado por recibir o estar suscrito a tu aplicación.
 
 Un solo usuario puede pertenecer a diferentes grupos de usuarios alcanzables. Por ejemplo, un usuario podría tener tanto una dirección de correo electrónico válida como un token de push de Android válido y haber optado por ambos, pero no tener un token de push de iOS asociado. La diferencia entre el total de usuarios alcanzables y la suma de los diferentes canales es el número de usuarios que calificaron para el segmento pero no son alcanzables a través de esos canales de comunicación.
@@ -70,7 +70,7 @@ Ten en cuenta que no todos los canales aparecen en la tabla **Reachable users** 
 
 En los casos en que el _Total_ es mayor que la suma de los canales, la diferencia representa el número de usuarios que calificaron para el segmento pero no son alcanzables a través de esos canales de comunicación.
 
-Para que un usuario aparezca como alcanzable a través de un canal determinado, el usuario debe tener:
+Para que un usuario aparezca como alcanzable a través de un canal determinado, debe tener:
 - Una dirección de correo electrónico válida o un token de notificaciones push asociado a su perfil, y
 - Haber optado por recibir o estar suscrito a tu aplicación.
 
@@ -83,7 +83,7 @@ Los siguientes filtros se aplican para cada canal al determinar los usuarios alc
 | Correo electrónico | **Email Available** es verdadero. |
 | Push | **Foreground Push Enabled** es verdadero. |
 | SMS | **Subscription Group** es cualquier grupo de suscripción SMS. **Invalid Phone Number** es falso. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtros aplicados para usuarios alcanzables por canal específico" }
 
 ## Calcular estadísticas exactas {#calculating-exact-statistics}
 
@@ -117,9 +117,9 @@ Para todos los segmentos, puedes ver un gráfico de membresía histórica que mu
 
 Dado que el objetivo de este gráfico es darte una idea de las tendencias generales de membresía del segmento, el recuento diario es una estimación, similar a cómo el tamaño del segmento es una estimación antes de seleccionar **Calculate Exact Statistics**. Y dado que este gráfico muestra estimaciones, es posible que el tamaño de tu segmento aparezca como "0" en este gráfico, aunque su tamaño real (que se puede determinar después de seleccionar **Calculate Exact Stats**) no sea "0". Es especialmente probable que el gráfico muestre una estimación de "0" si tu segmento es muy pequeño en relación con el tamaño de la población de tu espacio de trabajo.
 
-Por ejemplo, supongamos que tu espacio de trabajo contiene 100 millones de usuarios y tu segmento tiene aproximadamente 700 usuarios. Es posible que en algunos días, ningún usuario esté en el segmento, y ningún usuario caiga en el rango de contenedor aleatorio utilizado para la estimación de membresía histórica, lo que resulta en un recuento de membresía de un día de 0.
+Por ejemplo, supongamos que tu espacio de trabajo contiene 100 millones de usuarios y tu segmento tiene aproximadamente 700 usuarios. Es posible que en algunos días ningún usuario esté en el segmento y ningún usuario caiga en el rango de contenedor aleatorio utilizado para la estimación de membresía histórica, lo que resulta en un recuento de membresía de un día de 0.
 
-Braze estima el recuento de membresía del segmento consultando un subconjunto de tus usuarios y luego extrapolando esos resultados a toda tu audiencia. Esto significa que los resultados del gráfico proporcionan solo una estimación de lo que la membresía del segmento podría ser en ese día, y se espera que también fluctúe de un día a otro porque un muestreo diferente de usuarios puede ser consultado para esta estimación cada día.
+Braze estima el recuento de membresía del segmento consultando un subconjunto de tus usuarios y luego extrapolando esos resultados a toda tu audiencia. Esto significa que los resultados del gráfico proporcionan solo una estimación de lo que la membresía del segmento podría ser en ese día, y se espera que también fluctúe de un día a otro porque una muestra diferente de usuarios puede ser consultada para esta estimación cada día.
 
 {% alert note %}
 Todas las estimaciones pueden ser mayores o menores que el valor mostrado en aproximadamente un 1 % del tamaño total de la población de tu espacio de trabajo. Los espacios de trabajo más grandes con más usuarios tienen más probabilidades de tener estimaciones que pueden diferir de los cálculos exactos en una cantidad numérica mayor, incluso si la diferencia sigue siendo del 1 % de la población de usuarios del espacio de trabajo. Esto significa que se esperan mayores diferencias entre estimaciones y recuentos exactos en espacios de trabajo grandes.
@@ -137,4 +137,4 @@ El recuento de membresía puede cambiar significativamente por varias razones, c
 | Los usuarios se eliminan | Se eliminó un número significativo de usuarios. |
 | Una integración del socio se sincronizó con Braze | Un tercero envió datos a Braze que influyeron significativamente en la membresía del segmento. |
 | Los usuarios inactivos se archivan | Se archivó un número significativo de perfiles inactivos. Por ejemplo, una gran cantidad de usuarios importados por CSV nunca registran actividad y se archivan al mismo tiempo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Razones de cambios significativos" }

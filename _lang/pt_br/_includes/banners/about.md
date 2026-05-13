@@ -22,7 +22,7 @@ Depois que os Banners são integrados a um app ou site, os profissionais de mark
 | Personalização de ofertas | Mostre promoções e incentivos personalizados com base no histórico de navegação, conteúdo do carrinho, nível de inscrição e status de fidelidade de cada usuário. |
 | Engajamento de novos usuários | Guie novos usuários através de fluxos de integração e configuração de conta. |
 | Vendas e promoções | Destaque conteúdo em destaque, produtos em tendência e campanhas de marca em andamento de forma persistente e direta na sua página inicial, sem interromper a experiência do usuário. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
 
 ## Recursos {#features}
 

@@ -26,7 +26,7 @@ Die Integration von Braze und Optimizely ist eine bidirektionale Integration, di
 | Braze-REST-API-Schlüssel         | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` und `canvas.trigger.send`. |
 | Currents                         | Um Daten zurück nach Optimizely zu exportieren, müssen Sie Braze-Currents für Ihr Konto eingerichtet haben. |
 | Optimizely-URL und -Token        | Diese erhalten Sie, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token kopieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -87,8 +87,8 @@ Nachdem Sie die Integration konfiguriert haben, können Sie eine Aktivierung in 
 2. Wählen Sie **Behavioral**, um eine automatisierte, wiederkehrende Synchronisierung einzurichten.
 3. Wählen Sie **Create From Scratch** und geben Sie dann einen Namen für Ihre Aktivierung ein, der die Daten repräsentiert, die Sie mit Braze synchronisieren (z. B. **Braze Data Sync**).
 4. Im Abschnitt **Enrollment** können Sie Daten für Kund:innen synchronisieren, die einem Segment entsprechen, oder Daten für Kund:innen synchronisieren, die ein Ereignis triggern (z. B. wenn ODP registriert, dass ein:e Kund:in eine E-Mail öffnet):
-   - **Kund:innen, die einem Segment entsprechen:** Wählen Sie das gewünschte Segment aus und wählen Sie dann **Next**.<br><br>![Optimizely-Segment auswählen]({% image_buster /assets/img/optimizely/image6_segment.png %})
-   - **Kund:innen, die ein Ereignis triggern:** Erweitern Sie die Dropdown-Liste **Filter** und wählen Sie das ODP-Ereignis aus, das als Auslöser für diese Datensynchronisierung mit Braze dienen soll. Erweitern Sie dann die **Automation Rules** und passen Sie sie wie gewünscht an. <br><br>![Optimizely-Trigger-Ereignis]({% image_buster /assets/img/optimizely/image7_trigger.png %})
+   - **Kund:innen, die einem Segment entsprechen:** Wählen Sie das gewünschte Segment aus und wählen Sie dann **Next**.<br><br>![Optimizely – Segment auswählen]({% image_buster /assets/img/optimizely/image6_segment.png %})
+   - **Kund:innen, die ein Ereignis triggern:** Erweitern Sie die Dropdown-Liste **Filter** und wählen Sie das ODP-Ereignis aus, das als Auslöser für diese Datensynchronisierung mit Braze dienen soll. Erweitern Sie dann die **Automation Rules** und passen Sie sie wie gewünscht an. <br><br>![Optimizely – Trigger-Ereignis]({% image_buster /assets/img/optimizely/image7_trigger.png %})
 5. Erweitern Sie **Touchpoints**, wählen Sie **Touchpoint 1** zur Bearbeitung aus und wählen Sie dann **Braze**.
 6. Erweitern Sie den Abschnitt **Targeting** und wählen Sie dann den **Target Identifier** aus.
 7. Wählen Sie eine der folgenden Optionen für **Add Users To** im Abschnitt **Configure** aus:

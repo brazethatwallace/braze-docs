@@ -1,7 +1,7 @@
 ---
 nav_title: "POST:ユーザーをマージする"
 article_title: "POST:ユーザーをマージする"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `merge_updates` | 必須 | 配列 | オブジェクトの配列。各オブジェクトには `identifier_to_merge` オブジェクトと `identifier_to_keep` オブジェクトが含まれている必要があり、それぞれが `external_id`、`user_alias`、`phone`、または `email` のいずれかでユーザーを参照する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### マージ動作 {#merge-behavior}
 
@@ -113,6 +113,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 - `identified` は `external_id` を持つユーザーを優先することを意味します
 - `unidentified` は `external_id` を持たないユーザーを優先することを意味します
+
+{% alert important %}
+両方のプロファイルに無効な電話番号がある場合、Brazeはそれらをマージしません。無効な番号はE.164形式で保存されておらず、マージジョブはそれらのプロファイルを結合しません。エンドポイントは成功メッセージとともに `202 Accepted` を返すため、HTTP応答ではマージがスキップされたことは示されません。マージする前に、一方または両方のプロファイルの電話番号を修正してください。
+{% endalert %}
 
 ## リクエスト例 {#example-requests}
 
@@ -214,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### most_recently_updated の優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### most_recently_updatedの優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが2人いる場合、このリクエスト例ではユーザーはマージされません。そのメールアドレスを持つ未識別ユーザーが2人存在するためです。このリクエストは、メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが1人だけの場合にのみ機能します。
 
@@ -272,6 +276,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 1回のリクエストで指定できるマージ更新は50件までです。 |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | リクエストの識別子を確認してください。 |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates` に `identifier_to_merge` と `identifier_to_keep` の2つのオブジェクトのみが含まれていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

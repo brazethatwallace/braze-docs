@@ -11,17 +11,17 @@ search_tag: Partner
 
 >[Contentful](https://www.contentful.com/) は、コンテンツの作成、管理、およびあらゆるプラットフォームへの配信を可能にするヘッドレスのコンテンツ管理システムです。コンテンツ管理システム (CMS) とは異なり、Contentful ではコンテンツモデルを作成できるため、どのコンテンツを管理するかを決めることができます。<br><br>このページでは、Contentful の Content Delivery API からデータを取得するように Braze コネクテッドコンテンツを設定する手順について説明します。
 
-統合後は、Contentful の RESTful APIを使用して、Webサイト、モバイルアプリ (iOS、Android、および Windows)、その他の多くのプラットフォームなど、複数のチャネルにわたってコンテンツを配信できます。また、コンテンツをContentful からダイナミックにプルして、Braze Campaignsで使用することもできます。
+統合後は、Contentful の RESTful APIを使用して、Webサイト、モバイルアプリ (iOS、Android、および Windows)、その他の多くのプラットフォームなど、複数のチャネルにわたってコンテンツを配信できます。また、Contentful からコンテンツをダイナミックにプルして、Braze Campaignsで使用することもできます。
 
 ## 前提条件 {#prerequisites}
 
 開始する前に、次のものが必要になります。
 
-| 前提条件          | 説明                        |
+| 前提条件 | 説明 |
 |-----------------------|------------------------------------|
 | Contentful アカウント | Content Delivery APIにアクセスできる Contentful アカウントが必要です。 |
 | Braze アカウント | コネクテッドコンテンツ機能にアクセスできる Braze アカウントが必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -35,7 +35,7 @@ search_tag: Partner
 
 1. 認証情報を使って [Braze にログイン](https://dashboard.braze.com/sign_in)します。
 2. Braze ダッシュボードで、**Templates** > **Content Blocks** > **Create Content Block** > **HTML code editor** の順に移動します。
-3. Contentful の [Contentful Content Delivery API URL](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links) に対してコネクテッドコンテンツリクエストを作成します。Contentful Content Delivery API URLの例は `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries` です。<br><br> 異なるアセットを取得するには、特定の変数を含める必要があります。コネクテッドコンテンツURLリクエストの例は、Contentful の[エントリ](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console)エンドポイントをターゲットにしています。このエンドポイントには `{space_id}` および `{environment_id}`、あるいは `{entry_id}` および `{access_token}` のような変数が必要です。これらはContentful インスタンスから取得できます。このコンテンツブロックの例では、変数をContentful のスペースIDと環境IDに置き換える必要があります。<br><br>Content Delivery API URLの例では、Contentful の利用可能なエンドポイントの1つだけを使用しています。異なるユースケースは、異なるURLを活用することで実現できます。例えば、[Images API](https://www.contentful.com/developers/docs/references/images-api/) を使えば、Contentful に保存されている画像を取り込むことができます。詳しくは、[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) を参照してください。
+3. Contentful の [Contentful Content Delivery API URL](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links) に対してコネクテッドコンテンツリクエストを作成します。Contentful Content Delivery API URLの例は `https://cdn.contentful.com/spaces/{space_id}/environments/{environment_id}/entries` です。<br><br> 異なるアセットを取得するには、特定の変数を含める必要があります。コネクテッドコンテンツURLリクエストの例は、Contentful の[エントリ](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entry/get-a-single-entry/console)エンドポイントをターゲットにしています。このエンドポイントには `{space_id}` および `{environment_id}`、あるいは `{entry_id}` および `{access_token}` のような変数が必要です。これらはContentful インスタンスから取得できます。このContent Blocksの例では、変数をContentful のスペースIDと環境IDに置き換える必要があります。<br><br>Content Delivery API URLの例では、Contentful の利用可能なエンドポイントの1つだけを使用しています。異なるユースケースは、異なるURLを活用することで実現できます。例えば、[Images API](https://www.contentful.com/developers/docs/references/images-api/) を使えば、Contentful に保存されている画像を取り込むことができます。詳しくは、[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) を参照してください。
 
 {% alert note %}
 エンドポイントによっては、新しい変数が必要になる場合があります。たとえば、Images APIには `{asset_id}`、`{unique_id},`、`{name}` が必要です。さらなるガイダンスについては、Contentful にお問い合わせください。
@@ -59,8 +59,8 @@ search_tag: Partner
 
 {: start="4"}
 4. 「Test Endpoint」を使用して、Braze がContentful APIに正常に接続し、目的のデータを取得できることをテストします。
-5. **Done** を選択してコンテンツブロックを保存します。
-6. コンテンツブロックに「Contentful API」などのわかりやすい名前をつけ、**Launch Content Block** を選択します。
+5. **Done** を選択してContent Blocksを保存します。
+6. Content Blocksに「Contentful API」などのわかりやすい名前をつけ、**Launch Content Block** を選択します。
 
 ### ステップ 3: CampaignsやCanvasでコネクテッドコンテンツを使用する {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
@@ -124,7 +124,7 @@ search_tag: Partner
 
 ### APIレスポンス {#api-response}
 
-Contentful APIの認証情報とエンドポイントURLが正しいことを確認してください。APIコールに問題があることを示すエラーメッセージがBraze に表示されていないか確認してください。
+Contentful APIの認証情報とエンドポイントURLが正しいことを確認してください。APIコールに問題があることを示すエラーメッセージがBrazeに表示されていないか確認してください。
 
 ### データマッピング {#data-mapping}
 

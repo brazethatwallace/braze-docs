@@ -11,7 +11,7 @@ description: "Ative seus dados com atributos personalizados, eventos e catálogo
 guide_featured_title: "Dados personalizados"
 guide_featured_list:
   - name: Dados personalizados
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: Tipos de dados
     link: /docs/user_guide/data/activation/custom_data/data_types
@@ -37,7 +37,7 @@ guide_menu_list:
   - name: Glossário de métricas de relatório
     link: /docs/user_guide/analytics/metrics_glossary
     image: /assets/img/braze_icons/book-closed.svg
-  - name: Análise de dados
+  - name: Analytics
     link: /docs/user_guide/analytics
     image: /assets/img/braze_icons/book-closed.svg
   - name: BrazeAI

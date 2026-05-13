@@ -2,7 +2,7 @@
 nav_title: mParticle para Currents
 article_title: mParticle para Currents
 alias: /partners/mparticle_for_currents/
-description: "Este artículo de referencia describe la asociación entre Braze Currents y mParticle, una plataforma de datos de los clientes que recopila y encamina información entre las fuentes de tu pila de marketing."
+description: "Este artículo de referencia describe la asociación entre Braze Currents y mParticle, una plataforma de datos de los clientes que recopila y encamina información entre las fuentes de tu stack de marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -20,11 +20,11 @@ La integración de Braze y mParticle te permite controlar fácilmente el flujo d
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Currents | Para volver a exportar datos a mParticle, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
-| Cuenta mParticle | Se necesita una [cuenta mParticle](https://app.mparticle.com/login) para beneficiarse de esta asociación. |
-| Clave y secreto mParticle de servidor a servidor | Se pueden obtener navegando hasta tu panel de control de mParticle y creando las [fuentes necesarias](#step-1-create-feeds) que permitan a mParticle recibir datos de interacción Braze para las plataformas iOS, Android y Web.|
+| Cuenta de mParticle | Se necesita una [cuenta de mParticle](https://app.mparticle.com/login) para beneficiarse de esta asociación. |
+| Clave y secreto de servidor a servidor de mParticle | Se pueden obtener navegando hasta tu dashboard de mParticle y creando las [fuentes necesarias](#step-1-create-feeds) que permitan a mParticle recibir datos de interacción de Braze para las plataformas iOS, Android y Web.|
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Acerca de las credenciales mParticle {#about-mparticle-credentials}
+## Acerca de las credenciales de mParticle {#about-mparticle-credentials}
 
 mParticle tiene credenciales a nivel de aplicación y a nivel de espacio de trabajo que afectan al modo en que se envían tus eventos.
 

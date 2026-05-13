@@ -1,24 +1,24 @@
 ---
 nav_title: Preguntas frecuentes
-article_title: Preguntas frecuentes sobre campañas
+article_title: Preguntas frecuentes sobre Campaigns
 page_order: 10
 page_type: FAQ
-description: "Esta página ofrece respuestas a preguntas frecuentes sobre campañas."
+description: "Esta página ofrece respuestas a preguntas frecuentes sobre Campaigns."
 tool: Campaigns
 
 ---
 
 # Preguntas frecuentes {#frequently-asked-questions}
 
-> Este artículo ofrece respuestas a algunas preguntas frecuentes sobre campañas.
+> Este artículo ofrece respuestas a algunas preguntas frecuentes sobre Campaigns.
 
 ### ¿Cómo creo una campaña multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Para crear una campaña multicanal, selecciona **Messaging** > **Campaigns**. Luego, selecciona **Create Campaign** > **Multichannel**. Desde aquí, puedes seleccionar entre los siguientes canales de mensajería: Content Cards, correo electrónico, LINE, notificaciones push, SMS/MMS/RCS, webhook o WhatsApp.
+Consulta [Campañas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) en **Crear una campaña** para los pasos de configuración y los canales compatibles.
 
 ### ¿Puedo añadir un grupo de control a mi campaña multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-No, los grupos de control en las campañas están diseñados para mensajería de un solo canal, como Correo electrónico A frente a Correo electrónico B. Como alternativa, prueba a usar [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) para probar diferentes canales, contenido de mensajería y tiempos de entrega.
+Consulta [Grupos de control]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) en **Crear una campaña**. Para pruebas entre canales, usa [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### ¿Cuáles son algunas formas de empezar a probar y optimizar campañas? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ Una posible explicación podría ser que la campaña o Canvas tiene la reelegibi
 
 Por ejemplo, si tienes un Canvas que tiene notificaciones push tanto para iOS como para web, un usuario determinado con dispositivos móviles y de escritorio podría recibir más de un mensaje.
 
-### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatarios únicos* puede ser mayor que la audiencia que esperabas porque Braze rastrea destinatarios únicos diarios para los informes. Esto permite que Braze atribuya conversiones dentro de la ventana de conversión cada vez que un usuario recibe el mensaje, en lugar de colapsar múltiples recepciones en un solo recuento de por vida (lo que distorsionaría las matemáticas de conversión).
 
@@ -48,9 +48,7 @@ El mismo patrón se aplica a las campañas recurrentes y a la reelegibilidad: si
 
 ### ¿Por qué el número de conversiones puede superar el número de usuarios únicos en campañas multicanal? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-En las campañas multicanal, Braze cuenta las conversiones por canal, no por usuario. Cuando un usuario realiza una única acción de conversión dentro de la ventana de conversión, Braze atribuye esa conversión a cada canal desde el cual el usuario recibió un mensaje. Esto significa que si un usuario recibe mensajes en múltiples canales (por ejemplo, tanto correo electrónico como push) y convierte, Braze cuenta múltiples conversiones, una por cada canal. Como resultado, el recuento total de conversiones puede superar el número de usuarios únicos que convirtieron.
-
-Por ejemplo, si una campaña multicanal envía tanto un correo electrónico como una notificación push a un usuario, y ese usuario realiza una acción de conversión después de recibir ambos mensajes y dentro de la ventana de conversión, Braze cuenta esto como dos conversiones, una atribuida al correo electrónico y otra atribuida al push, aunque sea una única acción del mismo usuario.
+Consulta [Conversiones e informes]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) en **Crear una campaña** y [Reglas de seguimiento de conversiones]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) en **Eventos de conversión**.
 
 ### ¿Por qué mi campaña tiene una base de usuarios alcanzables más pequeña que el segmento que estoy usando para la campaña? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -72,7 +70,7 @@ Puedes verificar la zona horaria de tu empresa en la [configuración de empresa]
 
 Braze evalúa a los usuarios para su elegibilidad de entrada en:
 
-- La hora de Samoa (UTC+13) o UTC+14 durante el horario de verano
+- La hora de Samoa (UTC+13) en el día programado
 - La hora local del día programado
 
 Para que un usuario sea elegible para la entrada, debe ser elegible en ambas verificaciones. Por ejemplo, si un Canvas está programado para lanzarse el 7 de agosto de 2021 a las 2 pm en zona horaria local, entonces dirigirse a un usuario ubicado en Nueva York requeriría las siguientes verificaciones de elegibilidad:
@@ -80,7 +78,9 @@ Para que un usuario sea elegible para la entrada, debe ser elegible en ambas ver
 - Nueva York el 6 de agosto de 2021 a las 9 pm
 - Nueva York el 7 de agosto de 2021 a las 2 pm
 
-El usuario debe estar en el segmento durante 24 horas antes del lanzamiento. Si el usuario no es elegible en la primera verificación, entonces Braze no intenta la segunda verificación.
+Para entrar, un usuario debe coincidir con tu audiencia y filtros en ambos momentos de evaluación. Si el usuario no es elegible en la primera verificación, Braze no ejecuta la segunda verificación. No hay una duración mínima de tiempo que un usuario deba haber estado en el segmento antes del lanzamiento. Solo importa la elegibilidad en cada verificación.
+
+Este comportamiento de evaluación es independiente de [con cuánta anticipación programas la campaña en el dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Programar con al menos 24 horas de anticipación es una recomendación porque ayuda a que los mensajes se entreguen a lo largo de toda la ventana de 24 horas de zona horaria local, no un requisito de que cada usuario haya estado en la audiencia durante 24 horas.
 
 #### Ejemplos {#examples}
 
@@ -88,7 +88,7 @@ Por ejemplo, si una campaña está programada para entregarse a las 7 pm UTC, co
 
 Como otro ejemplo, supongamos que quieres crear dos campañas programadas para enviarse el mismo día, una por la mañana y otra por la noche, y añadir un filtro para que los usuarios solo puedan recibir la segunda campaña si ya recibieron la primera. Con la entrega en zona horaria local, algunos usuarios podrían no recibir la segunda campaña. Esto se debe a que verificamos la elegibilidad cuando se identifica la zona horaria del usuario, así que si la hora programada aún no ha ocurrido en su zona horaria, no han recibido la primera campaña, lo que significa que no serán elegibles para la segunda campaña.
 
-Para una representación visual de cómo un usuario podría estar en un segmento durante la primera verificación pero no en la segunda, consulta esta línea de tiempo:
+La siguiente línea de tiempo asume una definición de segmento que incluye una ventana de pertenencia limitada en el tiempo. En este ejemplo, los usuarios salen del segmento 24 horas después de unirse. Ese comportamiento de filtro es una razón por la que un usuario puede pasar la primera verificación y fallar en la segunda.
 
 ![Línea de tiempo de un usuario que entra al segmento antes de la primera verificación y luego sale antes de la segunda.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -102,6 +102,8 @@ Para una representación visual de cómo un usuario podría estar en un segmento
 {% enddetails %}
 
 ### ¿Cómo programo una campaña en zona horaria local? {#how-do-i-schedule-a-local-time-zone-campaign}
+
+La sección anterior describe cuándo Braze evalúa la elegibilidad para la entrega en zona horaria local (las dos verificaciones). Esta sección describe cuándo configuras la programación de la campaña en el dashboard (tiempo de anticipación de programación) y qué usuarios aún reciben el mensaje si programas con menos de 24 horas de aviso.
 
 Al programar una campaña, elige enviarla a una hora designada y luego selecciona **Send campaign to users in their local time zone**.
 
@@ -160,7 +162,7 @@ Para evitar esto, asegúrate de que las actualizaciones de atributos personaliza
 
 ### ¿Por qué el número de usuarios que entran a una campaña no coincide con el número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 {% alert tip %}
 Para obtener más ayuda con la solución de problemas de campañas, asegúrate de contactar a soporte de Braze dentro de los 30 días posteriores a la ocurrencia de tu problema, ya que solo tenemos los últimos 30 días de registros de diagnóstico.

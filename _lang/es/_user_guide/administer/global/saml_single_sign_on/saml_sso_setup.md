@@ -21,7 +21,7 @@ Durante la configuración, se te pedirá que proporciones una URL de inicio de s
 | URL de Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Para dominios de la Unión Europea, la URL de ACS es `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Para algunos IdP, también puede denominarse URL de respuesta, URL de inicio de sesión, URL de audiencia o URI de audiencia. |
 | ID de entidad | `braze_dashboard` |
 | Clave de API de RelayState | Ve a **Configuración** > **Claves de API** y crea una clave de API con permisos `sso.saml.login`, luego introduce la clave de API generada como parámetro `RelayState` en tu IdP. Para conocer los pasos detallados, consulta [Configurar tu RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configurar SAML SSO {#setting-up-saml-sso}
 
@@ -35,9 +35,10 @@ Si planeas usar Okta como tu proveedor de identidad, asegúrate de utilizar la i
 
 | Atributo SAML | ¿Obligatorio? | Atributos SAML aceptados |
 |---|---|---|
-|`email` | Obligatoria | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
+| `email` | Obligatorio | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Opcional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Opcional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 1: Configura tu proveedor de identidad" }
 
 {% alert note %}
 Braze solo requiere `email` en la aserción SAML.
@@ -56,7 +57,7 @@ En la misma página, introduce lo siguiente:
 | Nombre SAML | Aparecerá como el texto del botón en la pantalla de inicio de sesión.<br>Normalmente es el nombre de tu proveedor de identidad, como "Okta". |
 | URL de destino | Se proporciona después de configurar Braze en tu IdP.<br> Algunos IdP lo denominan URL de SSO o punto de conexión SAML 2.0. |
 | Certificado | El certificado `x.509` proporcionado por tu proveedor de identidad.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configura Braze" }
 
 Asegúrate de que tu certificado `x.509` siga este formato cuando lo añadas al dashboard:
 
@@ -90,7 +91,7 @@ Los miembros que opten por usar SSO ya no podrán utilizar su contraseña como l
 
 ## Restricción {#restriction}
 
-Puedes restringir a los miembros de tu organización para que solo inicien sesión con Google SSO o SAML SSO. Para activar las restricciones, ve a **Configuración de seguridad** y selecciona **Forzar solo inicio de sesión con Google SSO** o **Forzar solo inicio de sesión con SAML SSO personalizado**.
+Puedes restringir a los miembros de tu organización para que solo inicien sesión con Google SSO o SAML SSO. Para activar las restricciones, ve a **Configuración de seguridad** y selecciona **Enforce Google SSO only login** o **Enforce custom SAML SSO only login**.
 
 ![Ejemplo de configuración de la sección "Reglas de autenticación" con una longitud mínima de contraseña de 8 caracteres y reutilización de contraseña de 3 veces. Las contraseñas caducarán después de 180 días y los usuarios cerrarán sesión después de 1440 minutos de inactividad.]({% image_buster /assets/img/sso3.png %})
 
@@ -109,7 +110,7 @@ Para ejecutar un rastreo SAML, necesitarás un rastreador SAML. Aquí tienes dos
 
 ### Paso 1: Abre el rastreador SAML {#step-1-open-the-saml-tracer}
 
-Selecciona el rastreador SAML en la barra de navegación de tu navegador. Asegúrate de que **Pausa** no esté seleccionado, ya que esto impedirá que el rastreador SAML capture lo que se envía en las solicitudes SAML. Cuando el rastreador SAML esté abierto, verás que se llena el rastreo.
+Selecciona el rastreador SAML en la barra de navegación de tu navegador. Asegúrate de que **Pause** no esté seleccionado, ya que esto impedirá que el rastreador SAML capture lo que se envía en las solicitudes SAML. Cuando el rastreador SAML esté abierto, verás que se llena el rastreo.
 
 ![Rastreador SAML para Google Chrome.]({% image_buster /assets/img/saml_tracer_example.png %})
 
@@ -119,9 +120,9 @@ Ve a tu dashboard de Braze e intenta iniciar sesión usando SSO. Si encuentras u
 
 ### Paso 3: Exporta y envía a Braze {#step-3-export-and-send-to-braze}
 
-Selecciona **Exportar**. En **Seleccionar perfil de filtro de cookies**, selecciona **Ninguno**. Luego, selecciona **Exportar**. Esto generará un archivo JSON que puedes enviar a soporte de Braze para una solución de problemas más detallada.
+Selecciona **Export**. En **Select cookie-filter profile**, selecciona **None**. Luego, selecciona **Export**. Esto generará un archivo JSON que puedes enviar a soporte de Braze para una solución de problemas más detallada.
 
-![Menú "Preferencias de exportación de rastreo SAML" con la opción "Ninguno" seleccionada.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
+![Menú "Export SAML-trace preferences" con la opción "None" seleccionada.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
 
 ## Solución de problemas {#troubleshooting}
 

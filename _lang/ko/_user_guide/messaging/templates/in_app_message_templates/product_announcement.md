@@ -2,7 +2,7 @@
 nav_title: 제품 공지
 article_title: 제품 공지
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 에디터를 사용하여 신제품 출시에 대한 인지도를 높이는 방법을 다룹니다."
 ---
 

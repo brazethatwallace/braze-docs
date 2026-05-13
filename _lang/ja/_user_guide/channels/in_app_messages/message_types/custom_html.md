@@ -117,7 +117,7 @@ HTMLアップロードでカスタムコードのアプリ内メッセージを�
 | SVG画像 | `.svg` |
 | JavaScriptファイル | `.js` |
 | CSSファイル | `.css` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
 
 Brazeでは、以下の2つの理由からアセットをメディアライブラリにアップロードすることを推奨しています。
 
@@ -128,20 +128,20 @@ Brazeでは、以下の2つの理由からアセットをメディアライブ�
 
 Campaignに新規または既存のアセットを追加できます。
 
-Campaignに新しいアセットを追加するには、ドラッグ＆ドロップセクションを使用してファイルをアップロードします。このセクションで追加されたアセットは、メディアライブラリにも自動的に追加されます。メディアライブラリに既にアップロード済みのアセットを追加するには、**メディアライブラリから追加**を選択します。
+Campaignに新しいアセットを追加するには、ドラッグ＆ドロップセクションを使用してファイルをアップロードします。このセクションで追加されたアセットは、メディアライブラリにも自動的に追加されます。メディアライブラリに既にアップロード済みのアセットを追加するには、**Add from Media Library**を選択します。
 
-アセットが追加されると、**このCampaignのアセット**セクションに表示されます。
+アセットが追加されると、**Assets for this campaign**セクションに表示されます。
 
 アセットのファイル名がローカルHTMLアセットのファイル名と一致する場合、自動的に置き換えられます（例：`cat.png`がアップロードされ、`<img src="cat.png" />`が存在する場合）。
 
-それ以外の場合は、リストからアセットにカーソルを合わせ、<i class="fas fa-copy"></i> **コピー**を選択してファイルのURLをクリップボードにコピーします。次に、リモートアセットを参照する場合と同様に、コピーしたアセットURLをHTMLに貼り付けます。
+それ以外の場合は、リストからアセットにカーソルを合わせ、<i class="fas fa-copy"></i> **Copy**を選択してファイルのURLをクリップボードにコピーします。次に、リモートアセットを参照する場合と同様に、コピーしたアセットURLをHTMLに貼り付けます。
 
 ### HTMLエディター {#html-editor}
 
 HTMLで行った変更は、入力に応じてプレビューパネルに自動的にレンダリングされます。HTMLで使用する[`brazeBridge` JavaScript](#bridge)メソッドは、ダッシュボードでのプレビュー中はユーザープロファイルを更新しません。
 
 {% alert tip %}
-HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **検索**を選択すると、コード内を検索できます。
+HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **Search**を選択すると、コード内を検索できます。
 {% endalert %}
 
 ### ボタントラッキング {#button-tracking-improvements}
@@ -150,11 +150,11 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **検索**
 
 | クリック | メソッド |
 | ---------- | ---------------------------- |
-| ボタン1 | `brazeBridge.logClick('0')` |
-| ボタン2 | `brazeBridge.logClick('1')` |
-| ボディクリック | `brazeBridge.logClick()` |
+| Button 1   | `brazeBridge.logClick('0')` |
+| Button 2   | `brazeBridge.logClick('1')` |
+| Body click | `brazeBridge.logClick()` |
 | カスタムボタントラッキング | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
 
 {% alert note %}
 このボタントラッキング方法は、以前の自動クリックトラッキング方法（`?abButtonId=0`など）に代わるもので、それらは削除されました。
@@ -172,3 +172,4 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass"></i> **検索**
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }

@@ -15,7 +15,7 @@ São necessários créditos de mensagem para acessar e usar os Braze Agents. Se 
 
 Assista a este vídeo para ter uma visão geral dos Braze Agents no Console do agente.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Visão geral dos Braze Agents no Console do agente" %}
 
 ## Por que usar os agentes da Braze? {#why-use-braze-agents}
 
@@ -55,17 +55,16 @@ Os agentes são configurados com instruções (prompts de sistema) que definem c
 | Contexto | Dados passados para o agente em tempo de execução, onde quer que ele esteja implantado, como campos de perfil do usuário ou linhas de catálogo. Essa entrada fornece as informações que o agente usa para gerar saídas. |
 | [Variáveis de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Dados temporários que você pode criar e usar dentro da jornada de um usuário em um Canvas específico. |
 | [Variável de saída]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | A saída que o agente produz quando usado nas etapas do Canvas. As variáveis de saída armazenam o resultado do agente para personalizar o conteúdo ou orientar as jornadas do fluxo de trabalho. As variáveis de saída podem ser uma string, um número ou um tipo de dados booleano. |
-| [Execução](#limitations) | Uma única execução do agente. Isso conta para os seus limites diários. |
+| [Invocação](#limitations) | Uma única execução do agente. Isso conta para os seus limites diários. |
 | [Formato de saída]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | A estrutura de dados predefinida da resposta do agente. |
-| [Temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | O nível de desvio da saída do agente. Isso define o quão preciso ou criativo o seu agente pode ser. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceitos-chave" }
 
 ## Limitações {#limitations}
 
 As seguintes limitações se aplicam:
 
 - Cada agente tem um limite diário padrão de 250.000 execuções, que pode ser aumentado até um máximo de 1.000.000 de execuções por dia. Entre em contato com seu gerente de sucesso do cliente se estiver interessado em aumentar esse limite.
-- Por padrão, cada execução deve ser concluída em 15 segundos. Após 15 segundos, o agente retorna uma resposta `null` onde é usado.
+- Por padrão, cada execução deve ser concluída em 20 segundos. Após 20 segundos, o agente retorna uma resposta `null` onde é usado.
     - Se seus agentes estiverem constantemente excedendo o tempo limite, entre em contato com o gerente da sua conta na Braze para aumentar esse limite.
 - Os dados de entrada estão limitados a 25 KB por solicitação. Entradas mais longas são truncadas.
 

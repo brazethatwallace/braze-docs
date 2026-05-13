@@ -40,7 +40,7 @@ Ambos os endpoints retornarão um objeto de token por push que inclui informaç�
 
 Certifique-se de que você faz parte do segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você verá uma lista de segmentos nos quais o usuário está atualmente incluído. Lembre-se de que essa é uma variável em constante mudança, pois a segmentação é atualizada em tempo real.
 
-![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
+![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
 Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento.
 
@@ -50,9 +50,9 @@ Você também pode confirmar que o usuário faz parte do segmento usando a **Pes
 
 Verifique os limites de frequência globais. É possível que você não tenha recebido a notificação por push porque seu espaço de trabalho tem um limite de frequência global ativo e você já atingiu o limite de notificações por push para o período especificado.
 
-Você pode fazer isso verificando o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) no dashboard. Se a campanha estiver configurada para obedecer às regras do limite de frequência, haverá um número de usuários impactados por essas configurações.
+Você pode fazer isso verificando o [limite de frequência global]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) no dashboard. Se a Campaign estiver configurada para obedecer às regras do limite de frequência, haverá um número de usuários impactados por essas configurações.
 
-![Informações da Campaign]({% image_buster /assets/img_archive/trouble3.png %})
+![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### Limites de taxa {#rate-limits}
 
@@ -103,11 +103,11 @@ Se você está enfrentando problemas com links em notificações por push que ab
 
 ### Verifique o comportamento ao clicar {#verify-on-click-behavior}
 
-Na sua Campaign ou etapa do Canvas, verifique novamente se **Abrir URL da web dentro do app móvel** não está selecionado. Se estiver, desmarque a seleção e relance.
+Na sua Campaign ou etapa do Canvas, verifique novamente se **Open web URL inside mobile app** não está selecionado. Se estiver, desmarque a seleção e relance.
 
-![Campo "Comportamento ao clicar" da configuração de push definido como "Abrir URL da web" com "Abrir URL da web dentro do app móvel" desmarcado.]({% image_buster /assets/img/push_on_click.png %})
+!["On-click behavior" field of configuring a push set to "Open web URL" with "Open web URL inside mobile app" unchecked.]({% image_buster /assets/img/push_on_click.png %})
 
-A interação padrão para o comportamento ao clicar "Abrir URL da web" difere por versão do SDK. Para as versões do SDK iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web serão abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador web padrão do dispositivo.
+A interação padrão para o comportamento ao clicar "Open web URL" difere por versão do SDK. Para as versões do SDK iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web serão abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador web padrão do dispositivo.
 
 Se esse não for o problema, pode haver um problema com sua implementação de push.
 
@@ -124,7 +124,7 @@ Se os links nas suas notificações por push estão abrindo no app inesperadamen
 
 As chaves de autenticação `.p8` da Apple são a abordagem obrigatória para push via APNs na Braze. Diferentemente dos tipos de arquivo de certificado legados, as chaves `.p8` não expiram e suportam todos os seus apps com uma única chave, eliminando a necessidade de renovações anuais de certificados e reduzindo o risco de falhas na entrega de push.
 
-Se você está usando atualmente um certificado `.p12` ou `.pem`, migre para uma chave `.p8` o mais rápido possível. Para instruções sobre como criar e fazer upload de uma chave `.p8`, consulte [Fazer upload do seu certificado de push APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Para orientações da Apple sobre como gerar uma chave `.p8` a partir da sua conta de desenvolvedor, consulte [Comunicar-se com APNs usando tokens de autenticação](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+Se você está usando atualmente um certificado `.p12` ou `.pem`, migre para uma chave `.p8` o mais rápido possível. Para instruções sobre como criar e fazer upload de uma chave `.p8`, consulte [Fazer upload do seu certificado de push APNs]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Para orientações da Apple sobre como gerar uma chave `.p8` a partir da sua conta de desenvolvedor, consulte [Communicate with APNs using authentication tokens](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
 ## Notificações por push para a web não estão funcionando como esperado {#web-push-notifications-arent-behaving-as-expected}
 
@@ -135,8 +135,8 @@ Se você está enfrentando problemas com notificações por push no seu navegado
 
 ### Redefinir o Chrome no desktop {#reset-chrome-on-desktop}
 
-1. Ao lado da URL no navegador Chrome, selecione o ícone de controle deslizante **Exibir informações do site**.
-2. Em **Notificações**, selecione **Redefinir permissão**.
+1. Ao lado da URL no navegador Chrome, selecione o ícone de controle deslizante **View Site Information**.
+2. Em **Notifications**, selecione **Reset permission**.
 3. Abra o Chrome DevTools. A seguir estão os atalhos relevantes por sistema operacional.
 
 <style>
@@ -149,7 +149,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reset Chrome on desktop" }
 
 {:start="4"}
 4. No DevTools, navegue até a guia **Application**.
@@ -163,17 +163,17 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 Se você tem uma notificação do seu site visível na gaveta de notificações do Android:
 
-1. Na notificação por push, toque em <i class="fas fa-cog" title="Configurações"></i> e selecione **Configurações do site**.
-2. Em **Configurações do site**, toque em **Limpar e redefinir**.
+1. Na notificação por push, toque em <i class="fas fa-cog" title="Settings"></i> e selecione **Site settings**.
+2. Em **Site settings**, toque em **Clear & Reset**.
 
 Se você não tem uma notificação do seu site aberta:
 
 1. Abra o Chrome no Android.
 2. Toque no menu <i class="fas fa-ellipsis-vertical"></i>.
-3. Acesse **Configurações** > **Configurações do site** > **Notificações**.
-4. Verifique se as notificações estão definidas como **Perguntar antes de enviar (recomendado)**.
+3. Acesse **Settings** > **Site Settings** > **Notifications**.
+4. Verifique se as notificações estão definidas como **Ask before sending (recommended)**.
 5. Encontre seu site na lista.
-6. Selecione a entrada e toque em **Limpar e redefinir**.
+6. Selecione a entrada e toque em **Clear and Reset**.
 
 Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e teste.
 
@@ -182,9 +182,9 @@ Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e
 
 ### Redefinir o Firefox no desktop {#reset-firefox-on-desktop}
 
-1. Ao lado da URL do seu site, selecione <i class="fa-solid fa-circle-info" alt="ícone de informação"></i> ou <i class="fas fa-lock" alt="ícone de cadeado"></i>.
-2. Em **Permissões**, ao lado de **Receber notificações**, selecione <i class="fa-solid fa-circle-xmark" title="Limpar esta permissão e perguntar novamente"></i> para limpar as permissões de notificação.
-3. No mesmo menu, selecione **Limpar cookies e dados do site**.
+1. Ao lado da URL do seu site, selecione <i class="fa-solid fa-circle-info" alt="info icon"></i> ou <i class="fas fa-lock" alt="lock icon"></i>.
+2. Em **Permissions**, ao lado de **Receive Notifications**, selecione <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> para limpar as permissões de notificação.
+3. No mesmo menu, selecione **Clear Cookies and Site Data**.
 4. Na caixa de diálogo para confirmar sua escolha, selecione **OK**.
 
 Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e teste.
@@ -203,13 +203,13 @@ Estas etapas são apenas para macOS, pois a Apple não oferece suporte a push pa
 {% endalert %}
 
 1. Abra o Safari.
-2. Na [barra de menus do Mac](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac), acesse **Safari** > **Ajustes** > **Sites** > **Notificações**.
+2. Na [barra de menus do Mac](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac), acesse **Safari** > **Settings** > **Websites** > **Notifications**.
 3. Selecione seu site na lista.
-4. Selecione **Remover** para excluir as permissões de notificação do site.
-5. Em seguida, acesse **Privacidade** > **Gerenciar dados do site**.
+4. Selecione **Remove** para excluir as permissões de notificação do site.
+5. Em seguida, acesse **Privacy** > **Manage Website Data**.
 6. Selecione seu site na lista.
-7. Selecione **Remover** ou, para remover todos os dados do site, selecione **Remover tudo**.
-8. Selecione **Concluído**.
+7. Selecione **Remove** ou, para remover todos os dados do site, selecione **Remove All**.
+8. Selecione **Done**.
 
 Suas permissões de push foram redefinidas. Abra uma nova guia para o seu site e teste.
 

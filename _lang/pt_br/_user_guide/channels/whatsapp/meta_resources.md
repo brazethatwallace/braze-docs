@@ -26,6 +26,51 @@ Consulte a documentação da Meta a seguir para orientações sobre nomes de exi
 
 ## Atualizações de produto do WhatsApp {#whatsapp-product-updates}
 
+### 2026: Nomes de usuário comerciais {#2026-business-usernames}
+*Última atualização em maio de 2026*
+
+A Meta está introduzindo nomes de usuário comerciais para o WhatsApp — um nome de exibição opcional que os negócios podem adotar para seu número de telefone do WhatsApp. Quando um nome de usuário é definido, ele aparece nas janelas de chat do WhatsApp e do WhatsApp Business no lugar do número de telefone. Observe que adotar um nome de usuário não oculta seu número de telefone; ele sempre permanece visível no seu perfil comercial.
+
+Os nomes de usuário são únicos em todos os números de telefone do WhatsApp — dois números, sejam de consumidores ou comerciais, não podem compartilhar o mesmo nome de usuário. Eles não diferenciam maiúsculas de minúsculas para fins de unicidade, mas pontos e underscores são tratados como caracteres distintos. Por exemplo, `myid`, `my.id` e `my_id` são todos considerados nomes de usuário diferentes, enquanto `myID` e `myid` são tratados como o mesmo.
+
+Os nomes de usuário comerciais devem atender aos seguintes requisitos de formato:
+
+- Contém apenas letras em inglês (a–z), dígitos (0–9), pontos (`.`) ou underscores (`_`)
+- Tem entre 3 e 35 caracteres
+- Contém pelo menos uma letra em inglês
+- Não começa nem termina com um ponto e não contém dois pontos consecutivos
+- Não começa com `www`
+- Não termina com um sufixo de domínio comum (como `.com`, `.org` ou `.net`)
+
+#### Reivindicando um nome de usuário reservado {#claiming-a-reserved-username}
+
+Antes de o recurso de nome de usuário estar amplamente disponível, a Meta pode ter pré-reservado um nome de usuário para o seu negócio — geralmente correspondendo a um nome de usuário existente de Página do Facebook ou Instagram. Você pode reivindicar esse nome de usuário reservado ou escolher um diferente pelo [WhatsApp Manage](https://business.facebook.com/wa/manage/). Os nomes de usuário reivindicados não são ativados até que a Meta disponibilize o recurso.
+
+Se o nome de usuário reservado corresponder a um já associado à sua Página do Facebook ou conta do Instagram, você deve primeiro vincular seu número de telefone comercial a essa Página ou conta. Você pode fazer isso ao reivindicar o nome de usuário no WhatsApp Manager ou Meta Business Suite, ou adicionando seu número de telefone diretamente da Página ou conta relevante. A vinculação requer controle total da Página ou conta, ou acesso parcial básico com a permissão `manage_phone`.
+
+#### Prioridade de exibição nas janelas de chat {#display-priority-in-chat-windows}
+
+Quando seu perfil comercial aparece em uma janela de chat, o WhatsApp usa a seguinte ordem de prioridade (da mais alta para a mais baixa):
+
+1. Nome do contato salvo
+2. Nome comercial verificado ou nome de Conta Comercial Oficial (OBA)
+3. Nome de usuário
+4. Número de telefone
+
+Para saber mais, consulte a documentação da Meta sobre [nomes de usuário comerciais](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### Abril de 2026: Arquivamento automático de modelos inativos {#april-2026-automatic-archival-of-inactive-templates}
+*Última atualização em abril de 2026*
+
+- A Meta arquiva automaticamente modelos que estão inativos há 12 meses ou mais.
+- O arquivamento automático está ativado para todas as contas do WhatsApp Business e não pode ser desativado.
+- A atividade do modelo inclui criar, editar, enviar, recorrer ou desarquivar um modelo.
+- Modelos arquivados não podem ser enviados e são programados para exclusão permanente após 28 dias.
+- Você pode desarquivar modelos dentro da janela de 28 dias para restaurá-los e cancelar a exclusão programada.
+- As notificações são enviadas pelo webhook `message_template_status_update`, por e-mail e por um banner único no WhatsApp Manager.
+
+Para saber mais, consulte a documentação da Meta sobre [arquivamento de modelos](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### Junho de 2026: IDs de usuário com escopo de negócio {#june-2026-business-scoped-user-ids}
 *Última atualização em março de 2026*
 
@@ -60,7 +105,7 @@ Consulte a documentação da Meta a seguir para orientações sobre nomes de exi
 - Os limites agora são compartilhados entre todos os números de telefone em um portfólio
 - Os portfólios herdam o limite mais alto existente
 - Acesso mais rápido a limites mais altos (em até 6 horas)
-- Risco: Negócios sem um número "ilimitado" podem ver os limites agregados diminuírem
+- Risco: negócios sem um número "ilimitado" podem ver os limites agregados diminuírem
 
 ### 1º de julho de 2025: Reformulação de preços {#july-1-2025-pricing-overhaul}
 *Última atualização em março de 2026*
@@ -244,4 +289,4 @@ Não há um prazo fixo para esse experimento. Sendo assim, um consumidor pode co
 
 ### O que posso fazer se minhas mensagens de marketing não forem entregues devido ao experimento da Meta? {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-Recomendamos usar outros canais da Braze, como e-mail, SMS, notificações por push ou In-App Messages para enviar uma mensagem com conteúdo semelhante aos seus usuários pretendidos.
+Recomendamos usar outros canais da Braze, como e-mail, SMS, notificações por push ou mensagens no app, para enviar uma mensagem com conteúdo semelhante aos seus usuários pretendidos.

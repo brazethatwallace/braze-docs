@@ -20,7 +20,7 @@ Usa este informe para responder preguntas clave sobre interacción, por ejemplo:
 
 - ¿Cuáles fueron las Campaigns o Canvas con mejor rendimiento para una etiqueta o canal específico?
 - ¿Qué variantes de Campaigns multivariantes tuvieron mayor mejora respecto al grupo de control?
-- ¿Qué Campaign de promoción estacional generó una mayor tasa de compra: la oferta de verano, la de otoño o la de invierno?
+- ¿Qué campaña de promoción estacional generó una mayor tasa de compra: la oferta de verano, la de otoño o la de invierno?
 - ¿Qué notificaciones push dentro de este Canvas tuvieron las tasas de apertura más altas?
 - ¿Qué pasos en este grupo de Canvas tuvieron más conversiones?
 - ¿La versión 1 de un correo electrónico de bienvenida o la versión 2 generaron mayor interacción y conversión? ¿Funcionaron los cambios?

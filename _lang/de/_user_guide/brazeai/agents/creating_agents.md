@@ -16,10 +16,9 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 - [Berechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) für den Zugriff auf die **Agentenkonsole** in Ihrem Workspace. Wenden Sie sich an Ihre Braze-Administratoren, falls diese Option nicht angezeigt wird.
 - Berechtigung zum Erstellen und Bearbeiten von angepassten KI-Agenten.
-- Einen [KI-Modellanbieter]({{site.baseurl}}/partners/ai_model_providers/), der mit Braze integriert ist.
 - Eine Idee davon, was der Agent erreichen soll. Braze-Agenten können die folgenden Aktionen unterstützen:
-   - **Messaging:** Generieren Sie Betreffzeilen, Überschriften, Produkttexte oder andere Inhalte.
-   - **Entscheidungsfindung:** Leiten Sie Nutzer:innen in Canvas basierend auf Verhalten, Präferenzen oder angepassten Attributen weiter.
+   - **Personalisiertes Messaging:** Generieren Sie Betreffzeilen, Überschriften, Produkttexte oder andere Inhalte.
+   - **Nutzer:innen-Routing:** Leiten Sie Nutzer:innen in Canvas basierend auf Verhalten, Präferenzen oder angepassten Attributen weiter.
    - **Datenmanagement:** Berechnen Sie Werte, ergänzen Sie Katalogeinträge oder aktualisieren Sie Profilfelder.
 
 ## Funktionsweise {#how-it-works}
@@ -33,7 +32,7 @@ Die folgenden Anwendungsfälle veranschaulichen einige Möglichkeiten, angepasst
 | Bearbeitung von Kundenfeedback | Leiten Sie das Feedback der Nutzer:innen an einen Agenten weiter, um die Stimmung zu analysieren und einfühlsame Follow-up-Nachrichten zu generieren. Bei besonders wertvollen Nutzer:innen kann der Agent die Antwort eskalieren oder Vergünstigungen hinzufügen. |
 | Inhalte lokalisieren | Übersetzen Sie Katalogtexte für globale Campaigns in andere Sprachen oder passen Sie Tonfall und Länge für regionsspezifische Kanäle an. Übersetzen Sie beispielsweise „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für SMS-Campaigns. |
 | Bewertungen oder Feedback zusammenfassen | Fassen Sie die Stimmung oder das Feedback in einem neuen Feld zusammen, beispielsweise durch die Vergabe von Stimmungsbewertungen wie „Positiv“, „Neutral“ oder „Negativ“ oder durch die Erstellung einer kurzen Textzusammenfassung wie „Die meisten Kund:innen erwähnen die hervorragende Passform, bemerken jedoch den langsamen Versand.“ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Funktionsweise" }
 
 ## Einen Agenten erstellen {#create-an-agent}
 
@@ -61,24 +60,21 @@ Richten Sie anschließend die Details für Ihren Agenten ein:
 
 Geben Sie dem Agenten Anweisungen. Wir empfehlen, Anweisungen dafür aufzunehmen, wie der Agent in unerwarteten oder unklaren Szenarien vorgehen soll. Dadurch wird das Risiko minimiert, dass Verwirrung beim Agenten zu Fehlern führt. Anstatt beispielsweise den Agenten nur nach „positiven“ oder „negativen“ Stimmungswerten zu fragen, bitten Sie ihn, „unsicher“ zurückzugeben, wenn er sich nicht entscheiden kann.
 
-Lesen Sie den Abschnitt [Anweisungen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) für bewährte Verfahren und [Beispiele]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) für Anregungen, wie Sie Ihren Agenten anweisen können.
+Lesen Sie den Abschnitt [Anweisungen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) für bewährte Verfahren und [Beispiele]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples) für Anregungen, wie Sie Ihren Agenten anweisen können.
 
 {% alert tip %}
 Für Canvas-Agenten können Sie Liquid in Ihren Anweisungen verwenden, um auf Nutzerattribute wie Vor- und Nachname oder angepasste Attribute zu referenzieren. Jede Liquid-Variable in den Agentenanweisungen wird automatisch an den Agentenschritt übergeben, wenn eine Nutzer:in den Schritt betritt.
 {% endalert %}
 
-#### Schritt 3.1: Ressourcen hinzufügen {#add-resources}
+#### Kontext hinzufügen {#add-resources}
 
-Wählen Sie **Ressourcen hinzufügen** aus, um festzulegen, worauf Ihr Agent zugreifen kann. Dies beinhaltet:
+Wählen Sie **+ Agentenkontext** aus, um festzulegen, worauf Ihr Agent zugreifen kann. Dies beinhaltet:
 
 - [Katalogfelder]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Gewähren Sie dem Agenten Zugriff auf Ihre Katalogdaten für genauere Antworten.
 - [Segmentzugehörigkeit]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Ermöglichen Sie dem Agenten, Antworten basierend auf der Segmentzugehörigkeit der Nutzer:innen zu personalisieren. Sie können bis zu fünf Segmente auswählen.
 - [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Referenzieren Sie die Richtlinien zur Markenstimme und zum Stil, die der Agent befolgen soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
 - [Gesamter Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analysieren Sie alle Canvas-Kontextdaten für eine Nutzer:in, wenn dieser Agent aufgerufen wird, einschließlich aller Variablen, die nicht im Abschnitt **Anweisungen** referenziert werden.
-
-#### Schritt 3.2: Optionale Einstellungen hinzufügen {#step-32-add-optional-settings}
-
-In den **optionalen Einstellungen** können Sie die [Temperatur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) der vom Agenten generierten Texte anpassen. Eine höhere Temperatur ermöglicht es dem Agenten, die bereitgestellten Informationen kreativer zu nutzen.
+- [Nutzer:innen-Interaktionsdaten]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Stellen Sie dem Agenten die aktuellen Öffnungs-, Klick- und Conversion-Daten der jeweiligen Nutzer:innen aus Campaigns und Canvas bereit.
 
 ### 4. Schritt: Ausgabe auswählen {#select-output}
 
@@ -102,7 +98,7 @@ Der **Vorschaubereich** ist eine Instanz des Agenten, die als nebeneinander ange
 Testläufe werden auf Ihr tägliches Ausführungslimit angerechnet.
 {% endalert %}
 
-![Agentenkonsole mit dem Vorschaubereich zum Testen eines angepassten Agenten. Die Oberfläche zeigt ein Feld für Beispieleingaben mit Beispielkundendaten, einen Button „Test ausführen“ und einen Antwortbereich, in dem die Ausgabe des Agenten angezeigt wird.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Agentenkonsole mit dem Vorschaubereich zum Testen eines angepassten Agenten. Die Oberfläche zeigt ein Feld für Beispieleingaben mit Beispielkundendaten, einen Button zum Ausführen des Tests und einen Antwortbereich, in dem die Ausgabe des Agenten angezeigt wird.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Überprüfen Sie die Ausgabe mit kritischem Blick. Berücksichtigen Sie die folgenden Fragen:
 

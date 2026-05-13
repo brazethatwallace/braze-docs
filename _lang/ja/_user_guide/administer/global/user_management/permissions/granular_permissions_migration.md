@@ -14,8 +14,8 @@ tool: Dashboard
 
 移行には以下の利点があります。
 
-- **より精密なコントロール：**細分化された権限は、より細かいコントロール、より優れたセキュリティ、そしてより明確な監視を可能にします。ユーザーは必要なアクセス権限のみを付与されます。
-- **自動マッピング：**現在のすべての権限は、[細分化された対応する権限](#legacy-to-granular-permissions-mapping)に自動的にマッピングされます。変更しない限り、ユーザーは同じアクセスレベルを維持します。
+- **より精密なコントロール：** 細分化された権限は、より細かいコントロール、より優れたセキュリティ、そしてより明確な監視を可能にします。ユーザーは必要なアクセス権限のみを付与されます。
+- **自動マッピング：** 現在のすべての権限は、[細分化された対応する権限](#legacy-to-granular-permissions-mapping)に自動的にマッピングされます。変更しない限り、ユーザーは同じアクセスレベルを維持します。
 
 ## 確認すべき内容 {#what-to-review}
 
@@ -99,7 +99,7 @@ tool: Dashboard
 | チーム | メディアライブラリの管理 | メディアライブラリアセットを表示<br>メディアライブラリアセットを編集<br>メディアライブラリアセットを削除 |
 | チーム | ダッシュボードユーザーの管理 | ダッシュボードユーザーを編集 |
 | チーム | Campaigns、Canvasesの送信 | Campaignsを表示<br>Canvasesを編集<br>Campaignsを起動<br>Canvasesを表示<br>Campaignsを編集<br>Canvasesを起動<br>キャンバステンプレートを表示<br>Segmentsを表示 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Legacy to granular permissions mapping" }
 
 ## よくある質問 {#frequently-asked-questions}
 

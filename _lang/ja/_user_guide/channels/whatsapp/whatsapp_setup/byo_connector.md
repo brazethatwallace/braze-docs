@@ -20,7 +20,7 @@ channel:
 | メッセージングクレジット | WhatsAppメッセージを送信する際に、Brazeメッセージングクレジットを消費します。 |
 | WhatsApp要件 | すべての[WhatsApp要件]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites)を完了してください。 |
 | 電話番号 | 利便性のため、[Infobipを通じて電話番号を取得する](https://www.infobip.com/docs/numbers/getting-started)ことをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## セットアップ {#set-up}
 
@@ -117,4 +117,4 @@ Brazeの既存機能はすべてサポートされていますが、以下のユ
 | --- | --- |
 | BrazeとInfobipの両方で受信メッセージを処理する | いずれかのシステムによってトリガーされるロジックチェーンが発生し、重複した、場合によっては矛盾するメッセージスレッドが生成される可能性があるためです。 |
 | BrazeとInfobipの両方からメッセージを送信する | Brazeに接続されたWhatsApp Business Accountの場合、すべての送信はBrazeから行われます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }

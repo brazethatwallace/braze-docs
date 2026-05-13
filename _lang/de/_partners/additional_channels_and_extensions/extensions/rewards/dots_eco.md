@@ -123,6 +123,6 @@ Damit können Sie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen
 - **Attribute werden im Nachrichtenschritt nicht angezeigt**:
   - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Nutzeraktualisierungsschritt festgelegt haben.
   - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Preview and test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an Nutzer:innen und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
-- **`422`-Fehler (nicht verarbeitbare Entität)**: Bestätigen Sie, dass Ihr App-Token und die Impact-Menge gültig sind.
-- **`401`-Fehler**: Bestätigen Sie, dass das Auth-Token vorhanden und korrekt ist.
+- **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token und die Impact-Menge gültig sind.
+- **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token vorhanden und korrekt ist.
 - **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Send Test to User** und zeigen Sie dann eine Vorschau der Nachricht mit denselben Nutzer:innen an.

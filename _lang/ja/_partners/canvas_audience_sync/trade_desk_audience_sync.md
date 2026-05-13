@@ -8,15 +8,15 @@ tool:
 page_order: 7
 ---
 
-# The Trade Desk への Audience Sync {#audience-sync-to-the-trade-desk}
+# The Trade Deskへの Audience Sync {#audience-sync-to-the-trade-desk}
 
 > Braze Audience Sync to The Trade Deskを使用すると、Brazeのファーストパーティユーザーデータを The Trade Desk に直接ダイナミックに同期し、広告リターゲティング、類似モデリング、抑制に活用できます。
 
 **オーディエンス同期の一般的なユースケース:**
 
-- The Trade Desk で既存ユーザーにパーソナライズ済みキャンペーンをリターゲティングする。
+- The Trade Desk でパーソナライズ済みCampaignsを使用して既存ユーザーをリターゲティングする。
 - 除外ターゲティングのためにファーストパーティデータを The Trade Desk に送信する。
-- ユーザーを新規または既存のオーディエンスやCRMデータセグメントに同期する。
+- ユーザーを新規または既存のオーディエンスやCRMデータSegmentsに同期する。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,7 +26,7 @@ Canvasで The Trade Desk との Audience Sync ステップを設定する前に�
 | --- | --- | --- |
 | APIトークン | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | The Trade Desk プラットフォームで作成された標準APIトークンです。The Trade Desk Audience Syncを使用するCanvasesへの影響を最小限に抑えるため、APIトークンの有効期間を最大1年に設定することをお勧めします。 |
 | The Trade Desk の利用規約とポリシー | The Trade Desk | The Trade Desk へのデータ送信を有効にするには、UID2/CRM参加ポリシーに同意する必要があります。The Trade Desk の担当者に連絡して、The Trade Desk へのデータ配信を有効にするための適切な署名があることを確認してください。<br><br> {::nomarkdown}<ul><li>アカウントでCRMデータ管理アクセスが有効になっていることを確認してください。The Trade Desk の担当者がサポートします。広告主IDが必要です。</li><li>標準APIトークンを準備してください。このページの手順に従って生成できます。</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -75,7 +75,7 @@ EUリージョンが設定された The Trade Desk のオーディエンスに�
 
 ### ステップ 4: Canvasを起動する {#step-4-launch-your-canvas}
 
-The Trade Desk への Audience Syncを設定したら、Canvasを起動する準備が整いました。新しいオーディエンスが作成され、Audience Sync ステップを通過するユーザーは The Trade Desk のこのオーディエンスに渡されます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+The Trade Deskへの Audience Syncを設定したら、Canvasを起動する準備が整いました。新しいオーディエンスが作成され、Audience Sync ステップを通過するユーザーは The Trade Desk のこのオーディエンスに渡されます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
 ## よくある質問 {#frequently-asked-questions}
 

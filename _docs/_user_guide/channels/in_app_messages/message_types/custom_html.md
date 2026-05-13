@@ -117,7 +117,7 @@ The following file types are supported for upload:
 | SVG Images       | `.svg`                            |
 | JavaScript Files | `.js`                             |
 | CSS Files        | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
 
 Braze recommends uploading assets to the media library for two reasons:
 
@@ -154,7 +154,7 @@ You can track performance within your custom code in-app message using the [`bra
 | Button 2   | `brazeBridge.logClick('1')` |
 | Body click | `brazeBridge.logClick()`    |
 | Custom button tracking |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
 
 {% alert note %}
 This method of button tracking replaces the prior automatic click tracking methods (such as `?abButtonId=0`), which have been removed.
@@ -172,4 +172,5 @@ This method of button tracking replaces the prior automatic click tracking metho
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
 

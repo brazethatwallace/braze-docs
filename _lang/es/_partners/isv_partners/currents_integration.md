@@ -57,11 +57,11 @@ Además, su estructura varía ligeramente de la estructura plana de [Eventos de 
 |----|-----------|
 | `"user"` | Contiene propiedades de usuario como `user_id`, `external_user_id`, `device_id` y `timezone`. |
 | `"properties"` | Contiene atributos de un evento, como el `app/campaign/canvas/platform` al que se aplica. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 Si un punto de conexión descendente recibe una carga útil con cero eventos o un cuerpo de solicitud vacío, el resultado debe considerarse un no-op, lo que significa que no deben producirse efectos descendentes a partir de esta llamada. Sin embargo, debes seguir comprobando el encabezado `Authorization` (como harías con una llamada normal a la API) y dar una respuesta HTTP adecuada para [credenciales no válidas](#authentication), como `401` o `403`. Esto permite a Braze saber que las credenciales del conector son válidas.
 
-### Eventos asociados a Campaign {#campaign-associated-events}
+### Eventos asociados a una Campaign {#campaign-associated-events}
 
 A continuación se muestran algunos ejemplos de cargas útiles para varios eventos, tal y como aparecerían si estuvieran asociados a una Campaign:
 
@@ -177,7 +177,7 @@ A continuación se muestran algunos ejemplos de cargas útiles para varios event
 
 A continuación se muestran algunos ejemplos de cargas útiles para varios eventos, tal y como aparecerían si estuvieran asociados a un Canvas:
 
-#### Clic en mensaje dentro de la aplicación {#in-app-message-click}
+#### Clic en mensaje dentro de la aplicación
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ A continuación se muestran algunos ejemplos de cargas útiles para varios event
 }
 ```
 
-#### Envío de notificación push {#push-notification-send}
+#### Envío de notificación push
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ A continuación se muestran algunos ejemplos de cargas útiles para varios event
 }
 ```
 
-#### Apertura de correo electrónico {#email-open}
+#### Apertura de correo electrónico
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ A continuación se muestran algunos ejemplos de cargas útiles para varios event
 }
 ```
 
-#### Entrega de SMS {#sms-delivery}
+#### Entrega de SMS
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -430,7 +430,8 @@ Si el mecanismo de reintento de Braze no entrega un evento durante más de 24 ho
 
 Los siguientes códigos de estado HTTP serán reconocidos por nuestro cliente conector:
 
-<table>
+<table aria-label="Error handling and retry mechanism">
+  <caption>Tratamiento de errores y mecanismo de reintento</caption>
   <thead>
     <tr>
       <th>Código de estado</th>
@@ -481,4 +482,4 @@ Los siguientes códigos de estado HTTP serán reconocidos por nuestro cliente co
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

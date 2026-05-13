@@ -18,11 +18,11 @@ La integración de Braze y Dixa ofrece una mejor visión de todos tus usuarios, 
 
 Antes de empezar, necesitarás lo siguiente:
 
-| Requisito          | Descripción                                                                                                                                                       |
+| Requisito | Descripción |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Una cuenta de Dixa        | Se necesita una cuenta de administrador de Dixa para beneficiarse de esta asociación.                                                                                           |
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia.              |
+| Una cuenta de Dixa | Se necesita una cuenta de administrador de Dixa para beneficiarse de esta asociación. |
+| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}

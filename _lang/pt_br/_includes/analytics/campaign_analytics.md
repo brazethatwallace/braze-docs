@@ -43,32 +43,32 @@ O canal do WhatsApp inclui a taxa de leitura. Esta métrica é entregue apenas p
 {% endif %}
 
 {% if include.channel == "Content Card" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/cc-campaign-details.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/cc-campaign-details.png %})
 
 {% elsif include.channel == "banner" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/banners/campaign_details.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/banners/campaign_details.png %})
 
 {% elsif include.channel == "email" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_email.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_email.png %})
 
 {% elsif include.channel == "push" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_push.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_push.png %})
 
 {% elsif include.channel == "SMS" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_sms.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_sms.png %})
 
 {% elsif include.channel == "in-app message" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_iam.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_iam.png %})
 
 No Canvas, você verá a performance da mensagem no app mapeada no Canvas que você criou. Você pode usar o painel de controle na parte superior da página para limpar outros tipos de envio de mensagens (canais) e visualizar apenas as mensagens no app em seu Canvas.
 
 ![]({% image_buster /assets/img/in-app_message_canvas_reporting.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
-![A seção Informações da campanha.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
+![A seção de informações da campanha.]({% image_buster /assets/img/kakaotalk/campaign_details.png %})
 
 {% elsif include.channel == "webhook" %}
-![Painel de Informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_webhook.png %})
+![Painel de informações da campanha com uma visão geral das métricas usadas para determinar a performance da campanha.]({% image_buster /assets/img/campaign_details_webhook.png %})
 
 {% endif %}
 
@@ -82,7 +82,7 @@ A tabela a seguir resume o que cada rótulo significa.
 | --- | --- |
 | **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **Usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
 | **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable Users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -154,14 +154,14 @@ O painel **Push Performance** descreve o desempenho da sua mensagem em várias d
 
 O painel **SMS/MMS/RCS Performance** descreve o desempenho da sua mensagem em várias dimensões. As métricas neste painel variam dependendo do canal de envio de mensagens escolhido e se você está ou não executando um teste multivariante. Você pode clicar no ícone de <i class="fa fa-eye preview-icon"></i> **Preview** para visualizar sua mensagem para cada variante ou canal.
 
-![Painel de Performance de SMS/MMS/RCS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
+![Painel de performance de SMS/MMS/RCS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Performance do Banner {#banner-performance}
 
 O painel **Banner Performance** descreve o desempenho da sua mensagem em várias dimensões. Essas métricas variam dependendo do seu canal de envio de mensagens e se você está ou não realizando um teste multivariante.
 
-![Painel de Performance de SMS/MMS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![Painel de performance de Banner que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### Performance do KakaoTalk {#kakaotalk-performance}
@@ -220,7 +220,8 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
+    <caption class="sr-only">Métricas de performance de Content Card</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -294,7 +295,8 @@ Para as definições completas de todas as métricas de Banners, consulte o [Glo
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
+    <caption class="sr-only">Métricas de performance de Banner</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -363,7 +365,8 @@ Aqui estão algumas métricas específicas de e-mail que você não verá em out
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
+    <caption class="sr-only">Métricas de performance de e-mail</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -442,7 +445,7 @@ Um clique pode ser registrado sem uma abertura quando o pixel de rastreamento de
 
 Um clique e uma abertura também podem ocorrer em dias diferentes: um usuário pode clicar em 16 de maio com imagens desativadas (sem abertura), e depois abrir no webmail em 17 de maio (abertura registrada então).
 
-##### _Unique clicks_ maior que _Unique opens_ {#higher-unique-clicks-than-unique-opens}
+##### _Unique clicks_ maior que _Unique opens_ {#higher-_unique-clicks_-than-_unique-opens_}
 
 _Unique clicks_ pode ser maior que _Unique opens_ quando as aberturas são subcontadas ou os cliques são inflados:
 
@@ -513,7 +516,8 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
+    <caption class="sr-only">Métricas de performance de mensagem no app</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -581,7 +585,7 @@ Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise 
 | Erros | _Erros_ é o número de erros retornados pelo provedor KakaoTalk (incrementado durante o processo de envio). |
 | Receita | _Receita_ é a receita em dólares dos destinatários da Campaign dentro da janela de conversão primária definida. |
 | Conversões primárias | _Conversões primárias_ é o número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -595,7 +599,8 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
+    <caption class="sr-only">Métricas de performance de push</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -654,6 +659,18 @@ Para uma solução alternativa, também recomendamos a criação de um evento pe
 
 Mesmo que _Direct Opens_ e _Influenced Opens_ incluam a palavra "opens", na verdade são métricas diferentes. _Direct Opens_ refere-se à abertura direta de uma notificação por push, conforme declarado na tabela acima. _Influenced Opens_ refere-se à abertura de um app sem abrir uma notificação por push dentro de um período de tempo específico após recebê-la. Portanto, _Influenced Opens_ refere-se às aberturas do app, não às aberturas de notificação por push.
 
+##### Botões de ação por push e relatórios {#push-action-buttons-and-reporting}
+
+Quando você adiciona [botões de ação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), o painel **Push Performance** pode incluir **Body Clicks**, **Button 1 Clicks** e **Button 2 Clicks** junto com métricas como **Direct Opens**. Essas colunas medem interações diferentes, então compare-as ao interpretar o engajamento.
+
+_Direct Opens_ reflete as métricas do dashboard para interações que contam como uma abertura direta da sua mensagem. Os eventos **Push Notification Open** no [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake descrevem interações de push de forma mais ampla e podem incluir campos opcionais como `button_action_type` (por exemplo, `close`) e `button_string`. Para definições de campos, consulte [Eventos de Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Para **iOS**, as categorias de notificação padrão da Braze (como **Yes** / **No**, **Accept** / **Decline** ou **Confirm** / **Cancel**) usam um pareamento fixo: a primeira ação suporta `OPEN_APP`, uma URI ou um deep link (alinhado com **On-Click Behavior** no criador). A ação complementar usa `CLOSE` por padrão — ela descarta a notificação e não abre o app. Veja o mapeamento padrão em [Objeto de botão de ação por push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados de Campaign com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
+
+Para **Android**, você define o **On-Click Behavior** por botão (**Open App**, **Redirect to Web URL** ou **Deep Link**), então os relatórios seguem as ações que você configura, em vez da divisão padrão `OPEN_APP` / `CLOSE` do iOS.
+
 ##### Por que os envios de push podem exceder os destinatários únicos {#why-push-sends-can-exceed-unique-recipients}
 
 O número de _Sends_ pode exceder o número de _Unique Recipients_ devido aos seguintes motivos:
@@ -683,7 +700,7 @@ O Firebase Cloud Messaging (FCM) pode ter bounces em três casos:
 | Apps desinstalados | Quando uma mensagem tenta ser entregue a um dispositivo e o app pretendido está desinstalado nesse dispositivo, a mensagem será descartada e o ID de registro do dispositivo será invalidado. Qualquer tentativa futura de envio de mensagens para o dispositivo retornará um erro NotRegistered. |
 | App com backup | Quando um app é salvo em backup, seu ID de registro pode se tornar inválido antes que o app seja restaurado. Neste caso, o FCM não armazenará mais o ID de registro do app e o app não receberá mais mensagens. Assim, os IDs de registro **não** devem ser salvos quando um app é salvo em backup. |
 | App atualizado | Quando um app é atualizado, o ID de registro da versão anterior pode não funcionar mais. Assim, um app atualizado deve substituir seu ID de registro existente. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -701,7 +718,8 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
+    <caption class="sr-only">Métricas de performance de SMS, MMS e RCS</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -752,7 +770,8 @@ Aqui estão algumas métricas-chave de webhook que você pode ver na análise de
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
+    <caption class="sr-only">Métricas de performance de webhook</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -787,7 +806,8 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
+    <caption class="sr-only">Métricas de performance do WhatsApp</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -826,7 +846,7 @@ O painel **Historical Performance** permite que você visualize as métricas do 
 
 Para obter uma análise dia a dia, clique no menu <i class="fas fa-bars"></i> hambúrguer e selecione **Download CSV** para receber uma exportação CSV do relatório.
 
-![Um gráfico do painel de Desempenho Histórico com estatísticas de exemplo para um e-mail de fevereiro de 2021 a maio de 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
+![Um gráfico do painel de desempenho histórico com estatísticas de exemplo para um e-mail de fevereiro de 2021 a maio de 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 
 {% if include.channel == "in-app message" %}
 
@@ -842,7 +862,7 @@ Se você optar por enviar apenas para usuários que podem ver a versão mais rec
 
 O painel **Keyword Responses** mostra uma linha do tempo das palavras-chave recebidas com as quais os usuários responderam após receber sua mensagem.
 
-![Painel de Respostas de Palavras-Chave de SMS/MMS/RCS em nível de Campaign que inclui um gráfico de linha da distribuição de palavras-chave ao longo do tempo, e uma seção de Categorias de Palavras-Chave com caixas de seleção marcadas para Opt-In, Opt-Out, Help, Other, More e Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
+![Painel de respostas de palavras-chave de SMS/MMS/RCS em nível de Campaign que inclui um gráfico de linha da distribuição de palavras-chave ao longo do tempo, e uma seção de categorias de palavras-chave com caixas de seleção marcadas para Opt-In, Opt-Out, Help, Other, More e Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
 Aqui, você também pode ver a distribuição de respostas de cada categoria de palavra-chave para determinar os próximos passos para [redirecionamento]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/) e para convenientemente [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 

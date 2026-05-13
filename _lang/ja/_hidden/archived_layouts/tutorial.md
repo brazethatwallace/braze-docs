@@ -32,6 +32,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
@@ -77,7 +78,7 @@ noindex: true
 | -------- | ----------- |
 | Page Title | ページのタイトルは何でも構いません。これは必須です。 |
 | My First Heading | 大文字で記載することをお勧めします。これはオプションです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 ## ステップ2:次に行う {#step-2-do-the-next-thing}
 

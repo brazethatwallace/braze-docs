@@ -29,7 +29,7 @@ Les événements recommandés pour le commerce électronique ne remplissent pas 
 | Chiffre d'affaires total | somme (`order_placed.total_value`) − somme (`order_refunded.total_value`) |
 | Nombre total de commandes | nombre (distinct `order_placed`) − nombre (distinct `order_cancelled`) |
 | Valeur totale des remboursements | somme (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
 
 ![Section Activité des commandes avec le chiffre d'affaires total, le nombre total de commandes et la valeur totale des remboursements.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
 
@@ -77,7 +77,7 @@ Utilisez ce modèle lorsque vous souhaitez ramener les visiteurs pour qu'ils rec
 | Événement d'entrée | `ecommerce.product_viewed` |
 | Événements de sortie | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Événement de conversion | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Panier abandonné %}
@@ -91,7 +91,7 @@ Utilisez ce modèle lorsque vous souhaitez rappeler aux utilisateurs les article
 | Événement d'entrée | `ecommerce.cart_updated` |
 | Événements de sortie | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Événement de conversion | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
 L'événement `ecommerce.cart_updated` utilise un modèle de remplacement. Chaque événement envoyé écrase l'état du panier de l'utilisateur. Utilisez l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %} dans votre message pour afficher dynamiquement le contenu actuel du panier au moment de l'envoi.
@@ -109,7 +109,7 @@ Utilisez ce modèle lorsque vous souhaitez récupérer des achats à l'étape de
 | Événement d'entrée | `ecommerce.checkout_started` |
 | Événement de sortie | Placed Order |
 | Événement de conversion | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Confirmation de commande et enquête %}
@@ -122,7 +122,7 @@ Utilisez ce modèle lorsque vous souhaitez rationaliser la communication post-ac
 | --- | --- |
 | Événement d'entrée | `ecommerce.order_placed` |
 | Événement de conversion | Start Session ou `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,10 +132,9 @@ Utilisez ce modèle lorsque vous souhaitez rationaliser la communication post-ac
 Ces modèles sont conçus comme point de départ. Les personnalisations courantes incluent :
   - **Personnaliser l'e-mail :** chaque modèle inclut un e-mail préconfiguré créé avec l'éditeur glisser-déposer, entièrement modifiable pour correspondre à votre marque et votre contenu.
   - **Ajouter des canaux :** associez l'e-mail avec le push, le SMS ou les messages in-app pour un renforcement cross-canal.
-  Dans chaque modèle, un e-mail préconfiguré est entièrement personnalisable.
   - **Ajouter des délais et des arbres décisionnels :** segmentez les utilisateurs par comportement (par exemple, panier de forte valeur par rapport à un panier de faible valeur) ou définissez des périodes d'attente entre les messages.
   - **Changer le contenu créatif :** remplacez le modèle d'e-mail inclus par le style visuel de votre marque.
-  Utilisez les blocs produit en glisser-déposer (dans le programme d'accès anticipé) pour afficher dynamiquement le contenu du panier abandonné ou les produits consultés sans écrire de Liquid personnalisé.
+  - **Utiliser les blocs produit :** utilisez les blocs produit en glisser-déposer (dans le programme d'accès anticipé) pour afficher dynamiquement le contenu du panier abandonné ou les produits consultés sans écrire de Liquid personnalisé.
 
 Pour des stratégies de cycle de vie plus avancées, y compris des exemples de personnalisation Liquid, consultez les [cas d'utilisation eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
 
@@ -147,12 +146,12 @@ Les événements recommandés pour le commerce électronique alimentent les mêm
 |---------------------------------------------|-------------------------------------------|
 | Rapport sur les revenus | Chiffre d'affaires total, chiffre d'affaires quotidien moyen, achats quotidiens et chiffre d'affaires par utilisateur au fil du temps, toutes sources confondues, pour la plage de dates et les applications sélectionnées. |
 | Tableau de bord Last Touch Attribution Revenue | Chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande. Les événements de contact incluent les clics sur les e-mails, les ouvertures de push, les clics sur les cartes de contenu, les clics sur les messages in-app et les clics sur les liens courts SMS ou WhatsApp. |
-| Analyses de campagne et Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
+| Analyses des campagnes et des Canvas | Chiffre d'affaires total attribué à une campagne ou un Canvas spécifique dans la fenêtre de conversion principale. |
 | Rapport de conversions | Chiffre d'affaires lié aux événements de conversion sur les campagnes et les Canvas.<br> **Remarque :** pour comptabiliser le chiffre d'affaires de `ecommerce.order_placed`, la campagne ou le Canvas doit utiliser le type d'événement de conversion « Place Order » comme événement de conversion. |
 | Statistiques des segments | Comparaisons de chiffre d'affaires entre les segments dans le tableau de bord Statistiques des segments. |
 | Générateur de rapports | Indicateurs de chiffre d'affaires dans les rapports personnalisés créés dans le Générateur de rapports. |
 | Générateur de tableaux de bord | Indicateurs de chiffre d'affaires dans les tableaux de bord personnalisés créés dans le Générateur de tableaux de bord. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 Pour les champs calculés non liés à l'utilisateur (par exemple, le chiffre d'affaires d'une campagne ou d'un Canvas), le chiffre d'affaires est calculé de la même manière dans tous les rapports : `price` multiplié par `quantity` par produit dans la commande, sommé sur l'ensemble des produits de chaque événement `order_placed`.
 
@@ -175,7 +174,7 @@ Braze propose plusieurs moyens d'exporter les données d'événements eCommerce 
 | [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | Les événements eCommerce sont partagés en tant qu'événements personnalisés ; recherchez l'espace de noms `ecommerce.*` pour les trouver. Les produits de chaque commande sont disponibles dans la table des achats. |
 | [Exporter les données de segment en CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Export CSV des membres du segment. Pour inclure les événements eCommerce, sélectionnez-les par nom dans le menu déroulant des événements personnalisés. |
 | [Exporter le profil utilisateur par segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Données de profil utilisateur pour les membres du segment, renvoyées via l'API. Les événements eCommerce sont inclus en tant qu'événements personnalisés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### Comment segmenter les utilisateurs par produit spécifique ? {#how-do-i-segment-users-by-a-specific-product}
 

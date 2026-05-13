@@ -15,14 +15,14 @@ description: "Dieser Referenzartikel behandelt die Verwendung verschachtelter an
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Beschränkungen {#considerations}
+## Hinweise {#considerations}
 
 - Verschachtelte angepasste Attribute sind für angepasste Attribute gedacht, die über das Braze SDK oder die API gesendet werden.
 - Objekte haben eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Objekt 100&nbsp;KB überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.
 - Schlüsselnamen und String-Werte dürfen maximal 255 Zeichen lang sein.
 - Schlüsselnamen dürfen keine Leerzeichen enthalten.
 - Punkte (`.`) und Dollarzeichen (`$`) sind keine unterstützten Zeichen in einer API-Nutzlast, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
-- Nicht alle Braze Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
+- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Schauen Sie in der [Dokumentation des Partners]({{site.baseurl}}/partners/home/) nach, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter verwendet werden, wenn Sie einen Connected Audience API-Aufruf durchführen.
 
 ## API-Beispiel {#api-example}
@@ -251,7 +251,7 @@ Wenn Sie Datumsangaben nicht von Anfang an als Objekt-Eigenschaften erfasst habe
 Bei verschachtelten angepassten Attributen speichert Braze keine Werte, wenn das Jahr kleiner als 0 oder größer als 3000 ist.
 {% endalert %}
 
-## Liquid-Templating
+## Liquid-Templating {#liquid-templating}
 
 Das folgende Liquid-Templating-Beispiel zeigt, wie Sie die angepassten Attribut-Objekt-Eigenschaften referenzieren, die aus der vorherigen API-Anfrage gespeichert wurden, und sie in Ihrem Messaging verwenden können.
 
@@ -285,7 +285,7 @@ So generieren Sie das Schema für Ihr verschachteltes angepasstes Attribut neu:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
 2. Suchen Sie nach Ihrem verschachtelten angepassten Attribut.
-3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus"></i> aus, um das Schema zu verwalten.
+3. Wählen Sie in der Spalte **Attributname** für Ihr Attribut <i class="fas fa-plus" aria-label="Schema verwalten"></i> aus, um das Schema zu verwalten.
 4. Ein Modal wird angezeigt. Wählen Sie **Schema neu generieren**.
 
 Die Option zur Schema-Neugenerierung ist deaktiviert, wenn seit der letzten Neugenerierung weniger als 24 Stunden vergangen sind. Die Schema-Neugenerierung erkennt nur neue Objekte und löscht keine Objekte, die derzeit im Schema vorhanden sind.
@@ -302,7 +302,7 @@ Sie können triggern, wenn sich ein verschachteltes angepasstes Attribut-Objekt 
 
 In einer aktionsbasierten Campaign können Sie beispielsweise eine neue Aktion triggern für **Angepassten Attributwert ändern**, um Nutzer:innen anzusprechen, die ihre Nachbarschaftsbüro-Präferenzen geändert haben.
 
-![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Aktionsbasierte Campaign-Zustellungseinstellungen mit einem Trigger für die Änderung eines angepassten Attributwerts für verschachtelte Präferenzen]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 
@@ -326,7 +326,7 @@ Ein Segment mit den folgenden UND-Filtern:
 
 Diese Nutzer:in würde sich qualifizieren, da der erste Filter auf das „Shoes“-Element zutrifft (80 > 50) und der zweite Filter auf das „Hat“-Element zutrifft (25 < 30). Obwohl kein einzelnes Element beide Bedingungen erfüllt, wird die Nutzer:in dennoch in das Segment aufgenommen.
 
-Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multi-Kriterien-Segmentierung](#multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
+Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
 
 ## Datenpunkte {#data-points}
 

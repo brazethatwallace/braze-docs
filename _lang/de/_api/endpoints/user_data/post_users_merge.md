@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Nutzer:innen zusammenführen"
 article_title: "POST: Nutzer:innen zusammenführen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `merge_updates` | Erforderlich | Array | Ein Objekt-Array. Jedes Objekt sollte ein `identifier_to_merge`-Objekt und ein `identifier_to_keep`-Objekt enthalten, die jeweils eine Nutzer:in entweder über `external_id`, `user_alias`, `phone` oder `email` referenzieren sollten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Zusammenführungsverhalten {#merge-behavior}
 
@@ -113,6 +113,10 @@ Es kann jeweils nur eine der folgenden Optionen im Priorisierungs-Array vorhande
 
 - `identified` bezieht sich auf die Priorisierung einer Nutzer:in mit einer `external_id`
 - `unidentified` bezieht sich auf die Priorisierung einer Nutzer:in ohne eine `external_id`
+
+{% alert important %}
+Wenn beide Profile ungültige Telefonnummern haben, führt Braze sie nicht zusammen. Ungültige Nummern werden nicht im E.164-Format gespeichert, und der Zusammenführungsjob kombiniert diese Profile nicht. Der Endpunkt gibt dennoch `202 Accepted` mit einer Erfolgsmeldung zurück, sodass die HTTP-Antwort nicht darauf hinweist, dass die Zusammenführung übersprungen wurde. Korrigieren Sie die Telefonnummern in einem oder beiden Profilen, bevor Sie die Zusammenführung durchführen.
+{% endalert %}
 
 ## Beispielanfragen {#example-requests}
 
@@ -214,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Zusammenführung einer nicht identifizierten Nutzer:in ohne die most_recently_updated-Priorisierung {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### Zusammenführung einer nicht identifizierten Nutzer:in ohne die most_recently_updated-Priorisierung {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 Wenn es zwei nicht identifizierte Nutzer:innen mit der E-Mail-Adresse `john.smith@braze.com` gibt, führt diese Beispielanfrage keine Nutzer:innen zusammen, da es zwei nicht identifizierte Nutzer:innen mit dieser E-Mail-Adresse gibt. Diese Anfrage funktioniert nur, wenn es lediglich eine nicht identifizierte Nutzer:in mit der E-Mail-Adresse `john.smith@braze.com` gibt.
 
@@ -272,6 +276,6 @@ Die folgende Tabelle listet mögliche Fehlermeldungen auf, die auftreten können
 | `a single request may not contain more than 50 merge updates` | Sie können in einer einzelnen Anfrage nur bis zu 50 Zusammenführungs-Updates angeben. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Überprüfen Sie die Bezeichner in Ihrer Anfrage. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Stellen Sie sicher, dass `merge_updates` nur die beiden Objekte `identifier_to_merge` und `identifier_to_keep` enthält. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

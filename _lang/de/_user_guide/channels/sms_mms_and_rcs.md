@@ -36,7 +36,7 @@ Stellen Sie vor dem Start sicher, dass Folgendes vorhanden ist:
 | Zwei-Faktor-Authentifizierung | Stellen Sie einmalige Verifizierungscodes für die Kontoanmeldung und Transaktionsbestätigung bereit. |
 | Aktionsangebote | Erreichen Sie Kund:innen mit zeitlich begrenzten Aktionen, Flash-Sales und personalisierten Rabatten direkt auf ihrem Telefon. |
 | Kundensupport | Ermöglichen Sie bidirektionale Konversationen, um Kundenanfragen zu lösen, Feedback zu sammeln oder Serviceanfragen zu bestätigen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## SMS, MMS und RCS im Vergleich {#sms-mms-and-rcs-compared}
 

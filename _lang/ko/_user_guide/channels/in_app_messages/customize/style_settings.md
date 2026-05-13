@@ -11,7 +11,7 @@ page_order: 1
 
 !["메시지 스타일" 탭.]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
-## 메시지 수준 스타일 {#set-message-level-styles}
+## 메시지 수준 스타일 {#message-level-styles}
 
 **메시지 스타일** 탭에서 인앱 메시지의 모든 관련 블록에 적용할 특정 스타일을 설정할 수 있습니다. 예를 들어, 메시지 내 모든 텍스트의 글꼴이나 모든 링크의 색상을 커스터마이즈할 수 있습니다.
 
@@ -118,7 +118,7 @@ page_order: 1
 
 ![Liquid 개인화를 추가하는 아이콘.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-인앱 메시지에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 추가하려면, 편집기 도구 모음에서 <i class="fa-solid fa-circle-plus"></i> **Add Personalization**을 선택합니다. 여기에서 기본 속성, 기기 속성, 커스텀 속성 등 다양한 개인화 유형을 추가할 수 있습니다.
+인앱 메시지에 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)를 추가하려면, 편집기 도구 모음에서 <i class="fa-solid fa-circle-plus"></i> **개인화 추가**를 선택합니다. 여기에서 기본 속성, 기기 속성, 커스텀 속성 등 다양한 개인화 유형을 추가할 수 있습니다.
 
 다음으로, 생성된 Liquid 스니펫을 메시지에 삽입합니다. 인앱 메시지를 디자인하고 구축한 후, **미리보기 및 테스트**로 이동하여 메시지를 미리 봅니다.
 
@@ -134,11 +134,11 @@ page_order: 1
 
 ### 스타일을 기본값으로 재설정 {#resetting-styles-to-default}
 
-기본 스타일에서 변경한 속성은 주황색 점으로 표시됩니다. 특정 속성을 기본 스타일로 재설정하려면, 해당 필드 위에 마우스를 올리고 **Reset to default**를 선택합니다.
+기본 스타일에서 변경한 속성은 주황색 점으로 표시됩니다. 특정 속성을 기본 스타일로 재설정하려면, 해당 필드 위에 마우스를 올리고 **기본값으로 재설정**을 선택합니다.
 
 ![텍스트 크기를 기본 크기로 재설정하는 주황색 점.]({% image_buster /assets/img_archive/dnd_iam_reset_styles.gif %}){: style="max-width:45%"}
 
-속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기 버튼"></i>을 선택하고 **Reset to default styles**를 선택하여 선택한 요소의 모든 스타일을 재설정할 수도 있습니다.
+속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기 버튼"></i>을 선택하고 **기본 스타일로 재설정**을 선택하여 선택한 요소의 모든 스타일을 재설정할 수도 있습니다.
 
 ### 스타일 복사 및 붙여넣기 {#copying-and-pasting-styles}
 
@@ -146,9 +146,9 @@ page_order: 1
 
 ![스타일 복사 옵션이 있는 드롭다운 메뉴.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. 요소가 선택된 상태에서, 속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i>를 선택합니다(예: 버튼이 선택된 경우, "Button properties" 옆).
-2. **Copy styles**를 클릭하고 복사한 스타일을 적용할 요소를 선택합니다.
-3. <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i>를 다시 선택하고 **Paste styles**를 선택합니다.
+1. 요소가 선택된 상태에서, 속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i>를 선택합니다(예: 버튼이 선택된 경우, "버튼 속성" 옆).
+2. **스타일 복사**를 클릭하고 복사한 스타일을 적용할 요소를 선택합니다.
+3. <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기"></i>를 다시 선택하고 **스타일 붙여넣기**를 선택합니다.
 
 #### 키보드 단축키 {#keyboard-shortcuts}
 

@@ -22,7 +22,7 @@ Nutzen Sie die Integration von MyPostcard und Braze, um Ihren Kund:innen mühelo
 | MyPostcard B2B-Konto           | Um die Vorteile dieser Integration zu nutzen, müssen Sie sich bei MyPostcard registrieren.                                          |
 | B2B-API-Schlüssel und Zugangsdaten        | Sie finden Ihren API-Schlüssel und die Zugangsdaten im MyPostcard B2B Admin Tool.                                         |
 | Genehmigte MyPostcard B2B-Kampagne | Um die Vorteile dieser Integration zu nutzen, müssen Sie eine Print-Mailing-Kampagne im MyPostcard B2B-Tool einrichten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -50,14 +50,15 @@ Wenn Sie eine einmalige MyPostcard-Webhook-Campaign erstellen oder ein vorhanden
 |---------------|-----------------------------------------------------------|
 | **Webhook URL** | Die Webhook-URL, wie sie im B2B Admin Tool angezeigt wird.             |
 | **Request Body** | Rohtext (JSON-Format, zu finden im B2B Admin Tool).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### Anfragemethode und Header {#request-method-and-headers}
 
 MyPostcard erfordert eine HTTP-Methode zusammen mit den folgenden HTTP-Headern, die in das Template aufgenommen werden müssen.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>Anfragemethode und Header</caption>
   <thead>
     <tr>
       <th><strong>Feld</strong></th>
@@ -84,7 +85,7 @@ MyPostcard erfordert eine HTTP-Methode zusammen mit den folgenden HTTP-Headern, 
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### Anfragetext {#request-body}
 

@@ -99,7 +99,7 @@ Dans cette étape, créez votre source Snowflake dans Braze et validez la connex
 
 #### Étape 2.1 : Ajouter une source Snowflake {#step-21-add-a-snowflake-source}
 
-1. Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**.
+1. Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**.
 2. Sélectionnez **Add data source**.
 3. Sélectionnez **Snowflake**.
 
@@ -125,7 +125,7 @@ De retour dans Braze, sélectionnez **Test connection** pour vérifier l'accès 
 
 ### Étape 3 : Créer une nouvelle synchronisation et écrire votre requête SQL {#step-3-create-a-new-sync-and-write-your-sql-query}
 
-1. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Syncs**.
+1. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Syncs**.
 2. Sélectionnez **Create data sync**.
 3. Choisissez **User Attributes** sous **Data Type**.
 4. Référencez la source Snowflake de l'étape 2.
@@ -164,6 +164,10 @@ Après la validation :
 - Braze synchronise toutes les autres colonnes en tant qu'attributs
 
 Lorsque la validation réussit, continuez vers **Next: Notifications** et créez votre synchronisation.
+
+{% alert important %}
+Une configuration SQL incorrecte peut entraîner des résultats non souhaités, y compris une surconsommation de points de données et des risques opérationnels plus larges. Vous êtes responsable de vous assurer que la logique de votre requête est correcte et devez prévisualiser attentivement tous les résultats avant d'activer une synchronisation.
+{% endalert %}
 
 ## Contraintes SQL {#sql-constraints}
 
@@ -276,7 +280,7 @@ Si votre requête renvoie zéro ligne :
 - Vous pouvez tout de même créer la synchronisation
 - Aucun utilisateur n'est mis à jour tant que des lignes ne sont pas renvoyées
 
-## Prise en charge de PAYLOAD (hérité) {#payload-support-legacy}
+## Prise en charge de `PAYLOAD` (hérité) {#payload-support-legacy}
 
 L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `PAYLOAD` est présente.
 
@@ -306,7 +310,7 @@ Si une exécution de synchronisation est déjà en cours, vos modifications pren
 
 Cette section présente les erreurs courantes et des conseils pour les résoudre.
 
-### Aucun aperçu disponible {#no-preview-available}
+### Aucune prévisualisation disponible {#no-preview-available}
 
 Lorsque vous voyez « No preview available », l'un des types d'erreur sous-jacents suivants peut en être la cause.
 
@@ -316,12 +320,13 @@ Lorsque vous voyez « No preview available », l'un des types d'erreur sous-jace
 | « Unable to connect to the source » | Vérifiez le nom d'utilisateur configuré, le localisateur de compte et la configuration de l'authentification par paire de clés RSA.<br>Vérifiez que l'entrepôt est en cours d'exécution.<br>Confirmez l'accès réseau. |
 | « SQL syntax error » | Vérifiez votre syntaxe SQL. |
 | « Object does not exist or not authorized » | Assurez-vous que le rôle dispose d'un accès `SELECT` à la table.<br>Confirmez les autorisations de base de données et de schéma.<br>Vérifiez les fautes de frappe dans le nom de la table. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aucune prévisualisation disponible" }
 
 ### Colonne d'identité requise {#identity-column-required}
 
 Assurez-vous que votre requête inclut un identifiant valide, tel que `external_id`.
 
-### « La colonne `UPDATED_AT` est manquante » {#updatedat-column-is-missing}
+### La colonne `UPDATED_AT` est manquante {#updatedat-column-is-missing}
 
 Ajoutez une colonne d'horodatage pour la synchronisation incrémentielle.
 

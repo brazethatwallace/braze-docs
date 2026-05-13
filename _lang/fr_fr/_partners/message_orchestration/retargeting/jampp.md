@@ -34,7 +34,7 @@ Cette intégration prend en charge les applications iOS et Android.
 | ID de l'application iOS | Votre identifiant unique d'application Braze pour iOS (tel que « 012345678 »). |
 | Activer la collecte IDFA dans le SDK Braze | La collecte IDFA est facultative dans le SDK Braze et désactivée par défaut. |
 | Collecte de l'ID publicitaire Google via un attribut personnalisé | La collecte de l'ID publicitaire Google est facultative pour les clients et peut être collectée en tant qu'[attribut personnalisé]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -66,7 +66,7 @@ http://tracking.jampp.com/event?kind={{event_name}}&rnd={{rnd}}&app={% if {{most
 Dans l'URL du webhook, vous devez :
 - Définir le nom de l'événement. Ce nom apparaîtra dans votre tableau de bord Jampp.
 - Transmettre l'identifiant unique de votre application pour Android (tel que « com.example ») et iOS (tel que « 012345678 »).
-- Insérer [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) pour l'attribut personnalisé approprié que vous suivez en tant qu'ID publicitaire Google. Notez que l'ID publicitaire Google est indiqué comme `aaid` dans cet exemple, mais vous devrez le remplacer par le nom de l'attribut personnalisé défini par vos développeurs.
+- Insérer du [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid) pour l'attribut personnalisé approprié que vous suivez en tant qu'ID publicitaire Google. Notez que l'ID publicitaire Google est indiqué comme `aaid` dans cet exemple, mais vous devrez le remplacer par le nom de l'attribut personnalisé défini par vos développeurs.
 
 ![L'URL du webhook et la prévisualisation du message affichés dans le générateur de webhooks Braze.]({% image_buster /assets/img/jampp_webhook.png %})
 

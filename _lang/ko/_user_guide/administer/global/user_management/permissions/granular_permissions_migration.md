@@ -32,74 +32,74 @@ tool: Dashboard
 
 ## 레거시에서 세분화된 권한 매핑 {#legacy-to-granular-permissions-mapping}
 
-이 표는 각 레거시 권한이 세분화된 권한에 어떻게 매핑되는지를 보여줍니다. 권한을 업데이트할 때 이 표를 참조하세요. 예를 들어, 사용자에게 "이메일 설정 관리" 레거시 권한과 동일한 접근 권한을 부여하려면 해당 사용자에게 "이메일 설정 보기"와 "이메일 설정 편집" 세분화된 권한을 모두 부여해야 합니다.
+이 표는 각 레거시 권한이 세분화된 권한에 어떻게 매핑되는지를 보여줍니다. 권한을 업데이트할 때 이 표를 참조하세요. 예를 들어, 사용자에게 "Manage Email Settings" 레거시 권한과 동일한 접근 권한을 부여하려면 해당 사용자에게 "View Email Settings"와 "Edit Email Settings" 세분화된 권한을 모두 부여해야 합니다.
 
 | | 레거시 권한 | 세분화된 권한 |
 |---------------|---------------|---------------|
 | **레벨** | **이름** | **이름** |
-| 관리자 | 관리자 | 관리자 |
-| 워크스페이스 | 워크스페이스 관리자 | 워크스페이스 관리자 |
-| 회사 | 워크스페이스 생성 및 삭제 | 워크스페이스 생성 및 삭제 |
-| 회사 | 회사 설정 관리 | 회사 설정 관리 |
-| 워크스페이스 | Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터 접근 | Campaigns 보기<br>Campaigns 편집<br>Campaigns 아카이브<br>Canvases 보기<br>Canvases 편집<br>Canvases 아카이브<br>캔버스 템플릿 보기<br>최대 게재빈도 설정 규칙 보기<br>메시지 우선순위 보기<br>Content Blocks 보기<br>Content Blocks 편집<br>커스텀 속성 보기<br>커스텀 이벤트 보기<br>카탈로그 보기<br>이메일 설정 보기<br>기능 플래그 보기<br>Segments 보기<br>전역 제어 그룹 보기<br>글로벌 사용량 제한 보기<br>IAM 템플릿 보기<br>IAM 템플릿 편집<br>IAM 템플릿 아카이브<br>이메일 템플릿 보기<br>이메일 템플릿 편집<br>이메일 템플릿 아카이브<br>웹훅 템플릿 보기<br>웹훅 템플릿 편집<br>웹훅 템플릿 아카이브<br>이메일 링크 템플릿 보기<br>이메일 링크 템플릿 편집<br>미디어 라이브러리 자산 보기<br>위치 보기<br>위치 편집<br>위치 아카이브<br>배치 보기<br>프로모션 코드 보기<br>프로모션 코드 편집<br>프로모션 코드 내보내기<br>환경설정 센터 보기<br>환경설정 센터 편집<br>푸시 설정 보기<br>오디언스 동기화 설정 보기<br>사용자 병합 기록 보기<br>대시보드 보고서 보기<br>대시보드 보고서 편집<br>대시보드 보고서 삭제<br>현지화 설정 보기<br>Decisioning Studio 에이전트 보기<br>Decisioning Studio 오디언스 보기<br>Decisioning Studio 에이전트 보기<br>Decisioning Studio 가드레일 보기<br>Decisioning Studio 액션 뱅크 보기<br>WhatsApp 설정 보기<br>WhatsApp 플로우 보기<br>WhatsApp 카탈로그 보기<br>Meta의 WhatsApp 메시지 템플릿 보기 |
-| 워크스페이스 | 개발자 콘솔 접근 | API 키 보기<br>API 키 편집<br>내부 사용자 그룹 보기<br>내부 사용자 그룹 편집<br>내부 그룹 삭제<br>메시지 활동 로그 보기<br>이벤트 사용자 로그 보기<br>API 식별자 보기<br>API 사용량 대시보드 보기<br>API 제한 보기<br>API 사용량 알림 보기<br>API 사용량 알림 편집<br>SDK 디버거 보기<br>SDK 디버거 편집 |
-| 워크스페이스 | Campaigns 승인 및 거부 | Campaigns 승인 |
-| 워크스페이스 | Canvases 승인 및 거부 | Canvases 승인 |
-| 워크스페이스 | 사용자 데이터 내보내기 | 사용자 데이터 내보내기 |
-| 워크스페이스 | 사용자 데이터 가져오기 및 업데이트 | 사용자 가져오기 보기<br>사용자 가져오기<br>사용자 데이터 편집 |
-| 워크스페이스 | Segments 편집 | Segments 보기<br>Segments 아카이브<br>Campaigns 보기<br>Campaigns 편집<br>Campaigns 아카이브<br>Canvases 보기<br>Canvases 편집<br>Canvases 아카이브<br>캔버스 템플릿 보기 |
-| 워크스페이스 | Content Blocks 시작 및 관리 | Content Blocks 보기<br>Content Blocks 편집<br>Content Blocks 아카이브<br>Content Blocks 시작 |
-| 워크스페이스 | 미디어 라이브러리 관리 | 미디어 라이브러리 자산 보기<br>미디어 라이브러리 자산 편집<br>미디어 라이브러리 자산 삭제 |
-| 워크스페이스 | 환경설정 센터 시작 | 환경설정 센터 시작 |
-| 워크스페이스 | 앱 관리 | 앱 설정 편집<br>푸시 설정 보기<br>푸시 설정 편집<br>메시지 아카이브 설정 보기<br>메시지 아카이브 설정 편집<br>배치 보기<br>배치 편집<br>배치 아카이브 |
-| 워크스페이스 | 카탈로그 대시보드 권한 관리 | 카탈로그 보기<br>카탈로그 편집<br>카탈로그 내보내기<br>카탈로그 삭제 |
-| 워크스페이스 | 커스텀 이벤트 속성정보 세분화 관리 | 커스텀 이벤트 보기<br>제품 보기<br>커스텀 이벤트 속성정보 세분화 편집<br>구매 속성정보 세분화 편집 |
-| 워크스페이스 | 대시보드 사용자 관리 | 대시보드 사용자 편집 |
-| 워크스페이스 | 이메일 설정 관리 | 이메일 설정 보기<br>이메일 설정 편집 |
-| 워크스페이스 | 이벤트, 속성, 구매 관리 | 커스텀 속성 보기<br>커스텀 속성 편집<br>커스텀 속성 차단 목록<br>커스텀 속성 삭제<br>커스텀 속성 내보내기<br>커스텀 이벤트 보기<br>커스텀 이벤트 편집<br>커스텀 이벤트 차단 목록<br>커스텀 이벤트 삭제<br>커스텀 이벤트 내보내기<br>제품 보기<br>제품 편집<br>제품 차단 목록 |
-| 워크스페이스 | 외부 통합 관리 | 기술 파트너 편집<br>클라우드 데이터 수집 편집<br>Canvases 보기<br>Segments 보기<br>카탈로그 보기<br>카탈로그 편집<br>API 키 보기<br>API 키 편집 |
-| 워크스페이스 | 다국어 설정 관리 | 현지화 설정 보기<br>현지화 설정 편집<br>현지화 설정 삭제 |
-| 워크스페이스 | 구독 그룹 관리 | 구독 편집 |
-| 워크스페이스 | 태그 관리 | 태그 보기<br>태그 편집<br>태그 삭제 |
-| 워크스페이스 | Teams 관리 | Teams 보기<br>Teams 편집<br>Teams 아카이브 |
-| 워크스페이스 | 데이터 변환 보기 | 데이터 변환 보기 |
-| 워크스페이스 | 데이터 변환 편집 | 데이터 변환 편집 |
-| 워크스페이스 | 사용자 데이터 암호화 관리 | 식별자 필드 수준 암호화 편집 |
-| 워크스페이스 | Campaigns, Canvases 전송 | Campaigns 보기<br>Canvases 편집<br>Campaigns 시작<br>Canvases 보기<br>Campaigns 편집<br>Canvases 시작<br>캔버스 템플릿 보기<br>최대 게재빈도 보기<br>최대 게재빈도 편집<br>전역 제어 그룹 보기<br>전역 제어 그룹 편집<br>Segments 보기 |
-| 워크스페이스 | 결제 세부 정보 보기 | 결제 세부 정보 보기 |
-| 워크스페이스 | 커런츠 통합 보기 | 커런츠 통합 보기 |
-| 워크스페이스 | 커런츠 통합 편집 | 커런츠 통합 편집 |
-| 워크스페이스 | PII로 표시된 커스텀 속성 보기 | PII로 표시된 커스텀 속성 보기 |
-| 워크스페이스 | PII 보기 | PII 보기 |
-| 워크스페이스 | PII 준수 고객 프로필 보기 | 고객 프로필 보기 (PII 수정됨) |
-| 워크스페이스 | 사용량 데이터 보기 | 사용량 데이터 보기 |
-| 워크스페이스 | 중복 사용자 병합 | 사용자 병합 기록 보기 |
-| 워크스페이스 | 캔버스 템플릿 생성 및 편집 | 캔버스 템플릿 편집 |
-| 워크스페이스 | 캔버스 템플릿 보기 | 캔버스 템플릿 보기 |
-| 워크스페이스 | 캔버스 템플릿 아카이브 | 캔버스 템플릿 아카이브 |
-| 워크스페이스 | 랜딩 페이지 게시 | 랜딩 페이지 게시 |
-| 워크스페이스 | 랜딩 페이지 초안 생성 | 랜딩 페이지 초안 편집 |
-| 워크스페이스 | 랜딩 페이지 접근 | 랜딩 페이지 보기 |
-| 워크스페이스 | 랜딩 페이지 템플릿 생성 및 편집 | 랜딩 페이지 템플릿 편집 |
-| 워크스페이스 | 랜딩 페이지 템플릿 보기 | 랜딩 페이지 템플릿 보기 |
-| 워크스페이스 | 랜딩 페이지 템플릿 아카이브 | 랜딩 페이지 템플릿 아카이브 |
-| 워크스페이스 | 커스텀 AI 에이전트 보기 | 커스텀 AI 에이전트 보기 |
-| 워크스페이스 | 커스텀 AI 에이전트 편집 | 커스텀 AI 에이전트 편집<br>커스텀 AI 에이전트 아카이브 |
-| 워크스페이스 | 배치 보기 | 배치 보기 |
-| 워크스페이스 | 배치 편집 | 배치 편집 |
-| 워크스페이스 | 배치 아카이브 | 배치 아카이브 |
-| 워크스페이스 | 신규 | 사용자 병합 보기 |
-| 워크스페이스 | 신규 | 사용자 삭제 기록 보기 |
-| 워크스페이스 | 신규 | 배너 템플릿 보기 |
-| 워크스페이스 | 신규 | 배너 템플릿 편집 |
-| 워크스페이스 | 신규 | 배너 템플릿 아카이브 |
-| Teams | Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터 접근 | Campaigns 보기<br>Campaigns 편집<br>Campaigns 아카이브<br>Canvases 보기<br>Canvases 편집<br>Canvases 아카이브<br>캔버스 템플릿 보기<br>Content Blocks 보기<br>Content Blocks 편집<br>미디어 라이브러리 자산 보기<br>이메일 템플릿 보기<br>이메일 템플릿 편집<br>이메일 템플릿 아카이브<br>IAM 템플릿 보기<br>IAM 템플릿 편집<br>IAM 템플릿 아카이브<br>웹훅 템플릿 보기<br>웹훅 템플릿 편집<br>웹훅 템플릿 아카이브<br>이메일 링크 템플릿 보기<br>이메일 링크 템플릿 편집<br>대시보드 보고서 보기<br>대시보드 보고서 편집<br>대시보드 보고서 삭제<br>Segments 보기 |
-| Teams | Segments 편집 | Segments 보기<br>Segments 아카이브<br>Campaigns 보기<br>Campaigns 편집<br>Campaigns 아카이브<br>Canvases 보기<br>Canvases 편집<br>Canvases 아카이브<br>캔버스 템플릿 보기 |
-| Teams | Content Blocks 시작 및 관리 | Content Blocks 보기<br>Content Blocks 편집<br>Content Blocks 아카이브<br>Content Blocks 시작 |
-| Teams | 미디어 라이브러리 관리 | 미디어 라이브러리 자산 보기<br>미디어 라이브러리 자산 편집<br>미디어 라이브러리 자산 삭제 |
-| Teams | 대시보드 사용자 관리 | 대시보드 사용자 편집 |
-| Teams | Campaigns, Canvases 전송 | Campaigns 보기<br>Canvases 편집<br>Campaigns 시작<br>Canvases 보기<br>Campaigns 편집<br>Canvases 시작<br>캔버스 템플릿 보기<br>Segments 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| Admin | Admin | Admin |
+| Workspace | Workspace Admin | Workspace Admin |
+| Company | Create and delete workspaces | Create and delete workspaces |
+| Company | Manage company settings | Manage company settings |
+| Workspace | Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers | View Campaigns<br>Edit Campaigns<br>Archive Campaigns<br>View Canvases<br>Edit Canvases<br>Archive Canvases<br>View Canvas Templates<br>View Frequency Capping Rules<br>View Message Prioritization<br>View Content Blocks<br>Edit Content Blocks<br>View Custom Attributes<br>View Custom Events<br>View Catalogs<br>View Email Settings<br>View Feature Flags<br>View Segments<br>View Global Control Group<br>View Global Rate Limits<br>View IAM Templates<br>Edit IAM Templates<br>Archive IAM Templates<br>View Email Templates<br>Edit Email Templates<br>Archive Email Templates<br>View Webhook Templates<br>Edit Webhook Templates<br>Archive Webhook Templates<br>View Email Link Templates<br>Edit Email Link Templates<br>View Media Library Assets<br>View Locations<br>Edit Locations<br>Archive Locations<br>View Placements<br>View Promotion Codes<br>Edit Promotion Codes<br>Export Promotion Codes<br>View Preference Centers<br>Edit Preference Centers<br>View Push Settings<br>View Audience Sync Settings<br>View User Merge Records<br>View Dashboard Reports<br>Edit Dashboard Reports<br>Delete Dashboard Reports<br>View Localization Settings<br>View Decisioning Studio Agents<br>View Decisioning Studio Audience<br>View Decisioning Studio Agents<br>View Decisioning Studio Guardrails<br>View Decisioning Studio Action Banks<br>View WhatsApp Settings<br>View WhatsApp Flows<br>View WhatsApp Catalog<br>View WhatsApp Message Templates From Meta |
+| Workspace | Access Dev Console | View API Keys<br>Edit API Keys<br>View Internal User Groups<br>Edit Internal User Groups<br>Delete Internal Groups<br>View Message Activity Log<br>View Event User Log<br>View API Identifiers<br>View API Usage Dashboard<br>View API Limits<br>View API Usage Alerts<br>Edit API Usage Alerts<br>View SDK Debugger<br>Edit SDK Debugger |
+| Workspace | Approve and Deny Campaigns | Approve Campaigns |
+| Workspace | Approve and Deny Canvases | Approve Canvases |
+| Workspace | Export User Data | Export User Data |
+| Workspace | Import and Update User Data | View Import Users<br>Import Users<br>Edit User Data |
+| Workspace | Edit Segments | View Segments<br>Archive Segments<br>View Campaigns<br>Edit Campaigns<br>Archive Campaigns<br>View Canvases<br>Edit Canvases<br>Archive Canvases<br>View Canvas Templates |
+| Workspace | Launch and Manage Content Blocks | View Content Blocks<br>Edit Content Blocks<br>Archive Content Blocks<br>Launch Content Blocks |
+| Workspace | Manage Media Library | View Media Library Assets<br>Edit Media Library Assets<br>Delete Media Library Assets |
+| Workspace | Launch Preference Centers | Launch Preference Centers |
+| Workspace | Manage Apps | Edit App Settings<br>View Push Settings<br>Edit Push Settings<br>View Message Archiving Settings<br>Edit Message Archiving Settings<br>View Placements<br>Edit Placements<br>Archive Placements |
+| Workspace | Manage Catalogs Dashboard Permission | View Catalogs<br>Edit Catalogs<br>Export Catalogs<br>Delete Catalogs |
+| Workspace | Manage Custom Event Property Segmentation | View Custom Events<br>View Products<br>Edit Custom Event Property Segmentation<br>Edit Purchase Property Segmentation |
+| Workspace | Manage Dashboard Users | Edit Dashboard Users |
+| Workspace | Manage Email Settings | View Email Settings<br>Edit Email Settings |
+| Workspace | Manage Events, Attributes, Purchases | View Custom Attributes<br>Edit Custom Attributes<br>Blocklist Custom Attributes<br>Delete Custom Attributes<br>Export Custom Attributes<br>View Custom Events<br>Edit Custom Events<br>Blocklist Custom Events<br>Delete Custom Events<br>Export Custom Events<br>View Products<br>Edit Products<br>Blocklist Products |
+| Workspace | Manage External Integrations | Edit Technology Partners<br>Edit Cloud Data Ingestion<br>View Canvases<br>View Segments<br>View Catalogs<br>Edit Catalogs<br>View API Keys<br>Edit API Keys |
+| Workspace | Manage Multi Language Settings | View Localization Settings<br>Edit Localization Settings<br>Delete Localization Settings |
+| Workspace | Manage Subscription Groups | Edit Subscriptions |
+| Workspace | Manage Tags | View Tags<br>Edit Tags<br>Delete Tags |
+| Workspace | Manage Teams | View Teams<br>Edit Teams<br>Archive Teams |
+| Workspace | View Data Transformations | View Data Transformation |
+| Workspace | Edit Data Transformations | Edit Data Transformation |
+| Workspace | Manage User Data Encryption | Edit Identifier Field-Level Encryption |
+| Workspace | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Frequency Caps<br>Edit Frequency Caps<br>View Global Control Group<br>Edit Global Control Group<br>View Segments |
+| Workspace | View Billing Details | View Billing Details |
+| Workspace | View Currents Integrations | View Currents Integrations |
+| Workspace | Edit Currents Integrations | Edit Currents Integrations |
+| Workspace | View Custom Attributes Marked as PII | View Custom Attributes Marked as PII |
+| Workspace | View PII | View PII |
+| Workspace | View User Profiles PII Compliant | View User Profiles (PII Redacted) |
+| Workspace | View Usage Data | View Usage Data |
+| Workspace | Merge Duplicate Users | View User Merge Records |
+| Workspace | Create and Edit Canvas Templates | Edit Canvas Templates |
+| Workspace | View Canvas Templates | View Canvas Templates |
+| Workspace | Archive Canvas Templates | Archive Canvas Templates |
+| Workspace | Publish Landing Pages | Publish Landing Pages |
+| Workspace | Create Landing Page Drafts | Edit Landing Page Drafts |
+| Workspace | Access Landing Pages | View Landing Pages |
+| Workspace | Create and Edit Landing Page Templates | Edit Landing Page Templates |
+| Workspace | View Landing Page Templates | View Landing Page Templates |
+| Workspace | Archive Landing Page Templates | Archive Landing Page Templates |
+| Workspace | View Custom AI Agents | View Custom AI Agents |
+| Workspace | Edit Custom AI Agents | Edit Custom AI Agents<br>Archive Custom AI Agents |
+| Workspace | View Placements | View Placements |
+| Workspace | Edit Placements | Edit Placements |
+| Workspace | Archive Placements | Archive Placements |
+| Workspace | New | View Merge Users |
+| Workspace | New | View User Deletion Records |
+| Workspace | New | View Banner Templates |
+| Workspace | New | Edit Banner Templates |
+| Workspace | New | Archive Banner Templates |
+| Teams | Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers | View Campaigns<br>Edit Campaigns<br>Archive Campaigns<br>View Canvases<br>Edit Canvases<br>Archive Canvases<br>View Canvas Templates<br>View Content Blocks<br>Edit Content Blocks<br>View Media Library Assets<br>View Email Templates<br>Edit Email Templates<br>Archive Email Templates<br>View IAM Templates<br>Edit IAM Templates<br>Archive IAM Templates<br>View Webhook Templates<br>Edit Webhook Templates<br>Archive Webhook Templates<br>View Email Link Templates<br>Edit Email Link Templates<br>View Dashboard Reports<br>Edit Dashboard Reports<br>Delete Dashboard Reports<br>View Segments |
+| Teams | Edit Segments | View Segments<br>Archive Segments<br>View Campaigns<br>Edit Campaigns<br>Archive Campaigns<br>View Canvases<br>Edit Canvases<br>Archive Canvases<br>View Canvas Templates |
+| Teams | Launch and Manage Content Blocks | View Content Blocks<br>Edit Content Blocks<br>Archive Content Blocks<br>Launch Content Blocks |
+| Teams | Manage Media Library | View Media Library Assets<br>Edit Media Library Assets<br>Delete Media Library Assets |
+| Teams | Manage Dashboard Users | Edit Dashboard Users |
+| Teams | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Segments |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Legacy to granular permissions mapping" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

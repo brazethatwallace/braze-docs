@@ -54,7 +54,7 @@ Estas son algunas métricas clave de LINE que puedes ver en tus análisis. Para 
 | Aperturas totales | El número total de veces que los mensajes de LINE enviados fueron abiertos por los usuarios después de alcanzar un umbral mínimo de 20 mensajes por día. |
 | Clics únicos | El número total de mensajes de LINE enviados en los que los usuarios hicieron clic, después de alcanzar un umbral mínimo de 20 mensajes por día. |
 | Clics totales | El número total de veces que los usuarios hicieron clic en los mensajes de LINE enviados después de alcanzar un umbral mínimo de 20 mensajes por día. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de LINE" }
 
 ### Rendimiento histórico {#historical-performance}
 

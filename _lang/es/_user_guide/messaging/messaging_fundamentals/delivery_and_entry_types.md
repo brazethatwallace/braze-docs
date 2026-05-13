@@ -20,7 +20,7 @@ Para las campañas, el tipo de entrega determina cuándo tus usuarios entrarán 
 | **Planificada**       | Este tipo de planificación está diseñado para mensajes únicos que deseas enviar de inmediato, como campañas sobre un evento actual. <br><br>Al enviar mensajes de prueba dirigidos solo a ti o a tu equipo, esta opción te permite entregarlos de inmediato.                                                                                   |
 | **Basada en acciones**    | Los mensajes de entrega basada en acciones, o campañas y Canvas desencadenados por eventos, son muy eficaces para mensajes transaccionales o basados en logros. Puedes desencadenarlos para que se envíen después de que un usuario complete un evento determinado, en lugar de enviar tu mensaje en días específicos.                                                                                           |
 | **Desencadenada por API**   | Los mensajes desencadenados por API te permiten administrar el texto del mensaje, las pruebas multivariante y las reglas de reelegibilidad en el dashboard de Braze, mientras desencadenas la entrega de ese contenido desde tus propios servidores y sistemas. <br><br>La solicitud de API para desencadenar el mensaje también puede incluir datos adicionales para insertarlos en el mensaje en tiempo real mediante plantillas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Delivery and entry types" }
 
 ## Opciones basadas en el tiempo {#time-based-options}
 

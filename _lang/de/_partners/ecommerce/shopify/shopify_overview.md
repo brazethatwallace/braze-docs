@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify Übersicht
-article_title: "Shopify Übersicht"
+article_title: Shopify Übersicht
 description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Shopify, einem globalen Handelsunternehmen, die es Ihnen erlaubt, Ihren Shopify-Shop nahtlos mit Braze zu verbinden, um ausgewählte Shopify-Webhooks an Braze weiterzugeben. Nutzen Sie die kanalübergreifenden Strategien von Braze und Canvas, um Kund:innen zum Abschluss ihrer Käufe zu bewegen oder Nutzer:innen auf der Grundlage ihrer früheren Käufe erneut anzusprechen."
 page_type: partner
 search_tag: Partner
@@ -19,8 +19,8 @@ Die Integration von Braze in Shopify bietet eine leistungsstarke Lösung für E-
 | Anforderung | Beschreibung |
 | --- | --- |
 | Shopify-Shop | Sie haben einen aktiven Shopify-Shop. |
-| Berechtigungen für Shopify-Shop-Besitzer:innen oder Mitarbeiter:innen | {::nomarkdown}<ul><li>Zugang zu allen allgemeinen Einstellungen und den Einstellungen des Online-Shops.</li><li> Zusätzliche Admin-Berechtigungen:</li><ul><li>Bestellungen: Anzeigen</li><li>Kund:in: LesenSchreiben</li><li>Kundenereignisse anzeigen (Web Pixels)</li><li>Einstellungen verwalten</li><li>Von Mitarbeiter:innen/Kollaborateur:innen entwickelte Apps anzeigen</li><li>Apps und Kanäle verwalten/installieren</li><li>Angepasste Pixel verwalten/hinzufügen</li></ul></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Berechtigungen für Shopify-Shop-Besitzer:innen oder Mitarbeiter:innen | {::nomarkdown}<ul><li>Zugang zu allen allgemeinen Einstellungen und den Einstellungen des Online-Shops.</li><li> Zusätzliche Admin-Berechtigungen:<ul><li>Bestellungen: Anzeigen</li><li>Kund:innen: Lesen/Schreiben</li><li>Kundenereignisse anzeigen (Web Pixels)</li><li>Einstellungen verwalten</li><li>Von Mitarbeiter:innen/Kollaborateur:innen entwickelte Apps anzeigen</li><li>Apps und Kanäle verwalten/installieren</li><li>Angepasste Pixel verwalten/hinzufügen</li></ul></li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
 ## Wie Sie integrieren {#how-to-integrate}
 
@@ -30,9 +30,9 @@ Braze bietet zwei Integrationsoptionen für Shopify-Händler, die auf die unters
 
 ## So funktioniert die Integration {#how-the-integration-works}
 
-Wenn Sie in Ihren Konfigurationseinstellungen bereits den historischen Backfill eingerichtet und aktiviert haben, beginnt die erste Datensynchronisierung sofort. Braze importiert alle Kund:innen und Bestellereignisse aus den letzten 90 Tagen vor Ihrer Shopify-Integrationsverbindung. Wenn Braze Ihre Shopify-Kund:innen importiert, weisen wir den `external_id`-Typ zu, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
+Wenn Sie in Ihren Konfigurationseinstellungen bereits den [historischen Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) eingerichtet und aktiviert haben, beginnt die erste Datensynchronisierung sofort.
 
-Wenn Sie die Integration mit einer angepassten externen ID planen (entweder für die [Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) oder die [angepasste Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), müssen Sie Ihre angepasste externe ID als Shopify-Kunden-Metafeld zu allen bestehenden Shopify-Kundenprofilen hinzufügen und dann den [historischen Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) durchführen.
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 Nach der anfänglichen Datensynchronisierung verfolgt Braze kontinuierlich neue Daten und Updates direkt von Shopify und den Braze SDKs.
 
@@ -66,7 +66,7 @@ Braze nutzt die Shopify-Integration, um mehrere Bezeichner zu unterstützen, die
 | Checkout-Token-Nutzer-Alias | Ein Alias, den Braze erstellt, wenn Nutzer:innen den Checkout-Prozess starten. Dieses Token wird mit dem Shopify-Checkout-Token erstellt.<br><br> Wenn Kund:innen Shop Pay als beschleunigte Checkout-Option verwenden, kann Shopify bestimmte Standard-Checkout-Ereignisse umgehen und verhindern, dass Braze die Daten erhält, die zum Hinzufügen des Checkout-Token-Alias benötigt werden. |
 | Shopify-Kunden-ID-Alias | Die Shopify-Kunden-ID wird als Alias zugewiesen, wenn die externe ID bei der Kontoanmeldung oder bei einer Bestellung zugewiesen wird. |
 | Braze `external_id` | Ein eindeutiger Bezeichner, der das Tracking von Kund:innen über verschiedene Geräte und Plattformen hinweg unterstützt. Dies sorgt für ein konsistentes Nutzererlebnis und verbessert die Analytics, indem verhindert wird, dass mehrere Profile entstehen, wenn Nutzer:innen das Gerät wechseln oder die App neu installieren.<br><br>Die Shopify-Integration unterstützt die folgenden `external_id`-Typen: <br><br>{::nomarkdown}<ul><li>Shopify-Kunden-ID (Standard)</li><li>Angepasste externe ID</li><li>Gehashte E-Mail (SHA-256)</li><li>Gehashte E-Mail (SHA-1)</li><li>Gehashte E-Mail (MD5)</li><li>E-Mail</li></ul>{:/}Braze weist Ihren Nutzer:innen eine `external_id` zu, indem die changeUser-Methode innerhalb der SDKs aufgerufen wird, wenn: <br><br>{::nomarkdown}<ul><li>Nutzer:innen sich anmelden oder ein Konto erstellen</li><li>Eine Bestellung aufgegeben wird</li></ul>{:/}<br> Weitere Informationen darüber, was passiert, wenn Sie einem anonymen Profil eine `external_id` zuweisen, finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).<br><br>Braze nutzt die `external_id` auch, um nachgelagerte E-Commerce-Verhaltensdaten von Shopify-Webhooks zuzuordnen.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen- und Datensynchronisierung" }
 
 Für die Integration müssen die Braze SDKs und die Shopify-Dienste zusammenarbeiten, damit die Shopify-Daten in nahezu Echtzeit den richtigen Nutzer:innen zugeordnet und getrackt werden können. Weitere Einzelheiten zu den Daten, die durch die Integration getrackt werden, finden Sie unter [Shopify-Daten]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/).
 
@@ -98,7 +98,7 @@ Diese Tabelle zeigt, welche Opt-in-Status von Shopify-Marketing mit den Status i
 | E-Mail ist ungültig | Abgemeldet |
 | SMS abonniert | Abonniert |
 | SMS abgemeldet | Abgemeldet |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Synchronisierung der Opt-ins für E-Mail- und SMS-Marketing von Shopify" }
 
 ### Registrierungsformulare {#sign-up-forms}
 

@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 플랫폼 개요 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}시작하기: 플랫폼 개요 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > 이 문서에서는 Braze 플랫폼의 기본적인 부분과 기능에 대해 설명합니다. 이 문서의 링크는 필수 Braze 주제로 연결됩니다.
 
@@ -92,9 +92,9 @@ Segment를 정의한 후에는 Braze 메시징 도구를 사용하여 역동적�
 | [웹 푸시]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | 사용자가 현재 사이트에서 활성 상태가 아니더라도 웹 브라우저 알림을 전송합니다. |
 | [웹훅]({{site.baseurl}}/about_webhooks/) | 웹훅을 사용하여 앱 이외의 동작을 트리거해 다른 시스템 및 애플리케이션에 실시간 데이터를 제공합니다. |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | 인기 있는 P2P 메시징 플랫폼인 WhatsApp을 활용하여 사용자 및 고객과 직접 소통하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="멀티 채널 메시징" }
 
-<sup>추가 기능으로 제공됩니다.</sup>
+<sup>*추가 기능으로 제공됩니다.*</sup>
 
 ### 커스텀 가능한 구성 요소 {#customizable-components}
 
@@ -115,7 +115,7 @@ Braze는 신속한 통합을 위해 설계되었습니다. 고객사 전체를 �
 
 기술 리소스로서, Braze의 많은 세부 사항에 참여하게 됩니다. 다음은 설명서 외부에서 북마크에 추가할 수 있는 좋은 리소스입니다. 앞으로 Braze를 사용하면서 용어에 대해 궁금한 점이 있을 때를 대비해 [관련 용어]({{site.baseurl}}/user_guide/get_started/terms_to_know/) 용어집을 잘 보관해 두세요.
 
-| 리소스 | 학습 내용|
+| 리소스 | 학습 내용 |
 |---|---|
 | [SDK 디버깅]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | 통합 문제를 해결할 때, SDK 디버깅 도구가 유용합니다. 항상 준비해 두세요! |
 | [Braze 공용 GitHub](https://github.com/braze-inc/) | 자세한 통합 정보와 샘플 코드는 GitHub 리포지토리에서 확인할 수 있습니다. |
@@ -128,4 +128,4 @@ Braze는 신속한 통합을 위해 설계되었습니다. 고객사 전체를 �
 | [SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs/) | Braze는 중요한 문제와 주요 OS 업데이트에 대한 릴리스 외에도 매월 예측 가능한 릴리스를 제공합니다. |
 | [Braze API Postman 컬렉션](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | 여기에서 Postman 컬렉션을 다운로드하세요.  |
 | [Braze 시스템 상태 모니터](https://braze.statuspage.io/) | 상태 페이지는 인시던트나 장애가 발생할 때마다 업데이트됩니다. 알림을 구독하려면 이 페이지로 이동하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="북마크에 추가할 리소스" }

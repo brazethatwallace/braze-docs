@@ -92,6 +92,10 @@ Das Löschen von Cookies meldet Sie ab, sodass nicht gespeicherte Arbeit verlore
 
 Wenn das Löschen von Browser-Cache und Cookies Ihre Probleme nicht löst, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/).
 
+### „Aw, Snap!“-Fehler in Google Chrome {#aw-snap-error-in-google-chrome}
+
+Wenn Google Chrome einen „Aw, Snap!“-Fehler anzeigt, hat Chrome Probleme beim Laden der Braze-Dashboard-Seite. Schritte zur Fehlerbehebung finden Sie unter [Hilfe bei häufigen Fehlermeldungen in Chrome](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en).
+
 ### „Bitte Seite aktualisieren“ oder „Unerwarteter Fehler“ beim Navigieren im Dashboard {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 
 Dieser Fehler kann auftreten, wenn eine Unternehmensnutzer:in keinem Workspace zugeordnet ist. Zur Fehlerbehebung:

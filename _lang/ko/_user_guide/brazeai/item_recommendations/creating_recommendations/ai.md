@@ -130,7 +130,8 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Example mappings" class="tg">
+  <caption>예시 매핑</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -167,7 +168,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 
 예를 들어, 고객이 결제하기 전에 유사한 제품을 추천할 수 있도록 `added_to_cart` 커스텀 이벤트를 사용하고 싶다고 가정해 보겠습니다. 이벤트 `added_to_cart`에는 `product_sku`라는 이벤트 속성정보가 있습니다.
 
-그러면 `product_sku` 속성정보에는 샘플 카탈로그의 `id` 열에서 적어도 하나의 값이 포함되어야 합니다: "ADI-BL-7", "ADI-RD-8", "ADI-WH-9", 또는 "ADI-PP-10". 모든 카탈로그 항목에 이벤트가 필요하지는 않지만, 추천 엔진이 작업할 수 있는 충분한 콘텐츠를 갖추기 위해 일부는 필요합니다.
+그러면 `product_sku` 속성정보에는 샘플 카탈로그의 `id` 열에서 적어도 하나의 값이 포함되어야 합니다: "ADI-BL-7", "ADI-RD-8", "ADI-WH-9" 또는 "ADI-PP-10". 모든 카탈로그 항목에 이벤트가 필요하지는 않지만, 추천 엔진이 작업할 수 있는 충분한 콘텐츠를 갖추기 위해 일부는 필요합니다.
 
 ##### 예시 커스텀 이벤트 오브젝트 {#example-custom-event-object}
 
@@ -325,7 +326,7 @@ AI 항목 추천을 사용하여 가장 인기 있는 제품을 계산하거나 
 {% endtab %}
 {% endtabs %}
 
-### 6단계: 추천 훈련시키기 {#step-6-train-the-recommendation}
+### 6단계: 추천 훈련 {#step-6-train-the-recommendation}
 
 준비가 되면 **Create Recommendation**을 선택하세요. 이 과정은 완료하는 데 10분에서 36시간이 걸릴 수 있습니다. 추천이 성공적으로 훈련되었거나 생성이 실패한 이유에 대한 설명이 포함된 이메일 업데이트를 받게 됩니다.
 

@@ -18,7 +18,7 @@ tool: Reports
 
 {% api %}
 
-### AMPクリック数 {#amp-clicks}
+## AMPクリック数 {#amp-clicks}
 
 {% apitags %}
 Email
@@ -30,7 +30,7 @@ Email
 
 {% api %}
 
-### AMP開封数 {#amp-opens}
+## AMP開封数 {#amp-opens}
 
 {% apitags %}
 Email
@@ -42,7 +42,7 @@ Email
 
 {% api %}
 
-### オーディエンス {#audience}
+## オーディエンス {#audience}
 
 {% apitags %}
 All
@@ -56,7 +56,7 @@ All
 
 {% api %}
 
-### バウンス数 {#bounces}
+## バウンス数 {#bounces}
 
 {% apitags %}
 Email, Web Push, iOS Push
@@ -68,7 +68,7 @@ Email, Web Push, iOS Push
 |-------|-----------------------|
 | メール | SendGridを使用している顧客のメールバウンスは、ハードバウンス、スパム（`spam_report_drops`）、および無効なアドレスへの送信（`invalid_emails`）で構成されます。<br><br>メールの場合、*バウンス率*は、送信に失敗した、または送信サービスから「返送」もしくは「未受信」と指定された、あるいは対象のメール受信可能ユーザーに受信されなかったメッセージの割合です。|
 | プッシュ | これらのユーザーは、今後のすべてのプッシュ通知から自動的に配信停止されています。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bounces" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -84,7 +84,7 @@ Email, Web Push, iOS Push
 
 {% api %}
 
-### 本文クリック {#body-click}
+## 本文クリック {#body-click}
 
 {% apitags %}
 iOS Push, Android Push
@@ -98,7 +98,7 @@ iOS Push, Android Push
 
 {% api %}
 
-### 本文クリック数 {#body-clicks}
+## 本文クリック数 {#body-clicks}
 
 {% apitags %}
 In-App Message
@@ -112,7 +112,7 @@ In-App Message
 
 {% api %}
 
-### ボタン1クリック数 {#button-1-clicks}
+## ボタン1クリック数 {#button-1-clicks}
 
 {% apitags %}
 In-App Message
@@ -126,7 +126,7 @@ In-App Message
 
 {% api %}
 
-### ボタン2クリック数 {#button-2-clicks}
+## ボタン2クリック数 {#button-2-clicks}
 
 {% apitags %}
 In-App Message
@@ -140,7 +140,7 @@ In-App Message
 
 {% api %}
 
-### Campaign分析 {#campaign-analytics}
+## Campaign分析 {#campaign-analytics}
 
 {% apitags %}
 Feature Flags
@@ -152,7 +152,7 @@ Feature Flags
 
 {% api %}
 
-### 送信された選択肢 {#choices-submitted}
+## 送信された選択肢 {#choices-submitted}
 
 {% apitags %}
 In-App Message
@@ -164,7 +164,7 @@ In-App Message
 
 {% api %}
 
-### クリック対開封率 {#click-to-open-rate}
+## クリック対開封率 {#click-to-open-rate}
 
 {% apitags %}
 Email
@@ -178,7 +178,7 @@ Email
 
 {% api %}
 
-### RCS確認済み配信数またはSMS確認済み配信数 {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
+## RCS確認済み配信数またはSMS確認済み配信数 {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -200,7 +200,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 信頼度 {#confidence}
+## 信頼度 {#confidence}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -212,7 +212,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 確認ページボタン {#confirmation-page-button}
+## 確認ページボタン {#confirmation-page-button}
 
 {% apitags %}
 In-App Message
@@ -224,7 +224,7 @@ In-App Message
 
 {% api %}
 
-### 確認ページの却下数 {#confirmation-page-dismissals}
+## 確認ページの却下数 {#confirmation-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -236,7 +236,7 @@ In-App Message
 
 {% api %}
 
-### コンバージョン (B, C, D) {#conversions-b-c-d}
+## コンバージョン (B, C, D) {#conversions-b-c-d}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -249,13 +249,13 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | メール、プッシュ、Webhook | コンバージョンは初回送信後に追跡されます。|
 | Content Cards | コンバージョンは、ユーザーがContent Cardsを初めて閲覧した時点でカウントされます。|
 | アプリ内メッセージ | コンバージョンは、ユーザーがアプリ内メッセージCampaignを受信して閲覧し、その後、定義されたコンバージョンウィンドウ内で特定のコンバージョンイベントを実行した場合にカウントされます。メッセージをクリックしたかどうかは問いません。<br><br>コンバージョンは、最後に受信したメッセージに帰属します。再適格性が有効な場合、コンバージョンは定義されたコンバージョンウィンドウ内で発生した場合に限り、最後に受信したアプリ内メッセージに割り当てられます。ただし、アプリ内メッセージにすでにコンバージョンが割り当てられている場合、その特定のメッセージに対して新しいコンバージョンを記録することはできません。つまり、各アプリ内メッセージの配信は1つのコンバージョンにのみ関連付けられます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversions (B, C, D)" }
 
 {% endapi %}
 
 {% api %}
 
-### 合計コンバージョン数 {#total-conversions}
+## 合計コンバージョン数 {#total-conversions}
 
 {% apitags %}
 In-App Message
@@ -271,7 +271,7 @@ In-App Message
 
 {% api %}
 
-### メッセージを閉じる {#close-message}
+## メッセージを閉じる {#close-message}
 
 {% apitags %}
 In-App Message
@@ -283,7 +283,7 @@ In-App Message
 
 {% api %}
 
-### コンバージョン率 {#conversion-rate}
+## コンバージョン率 {#conversion-rate}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
@@ -294,7 +294,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | チャネル | 追加情報 |
 |-------|-----------------------|
 | アプリ内メッセージ | アプリ内メッセージの<i>コンバージョン率</i>の計算には、1日あたりの<i>ユニークインプレッション数</i>の指標が使用されます。<br><br>アプリ内メッセージの<i>ユニークインプレッション数</i>は、ワークスペースのタイムゾーンにおける暦日ごとに1回のみカウントされます。ユーザーが目的のアクション（「コンバージョン」）を完了する回数は、同じ暦日内で増加する可能性があります。コンバージョンは1日に複数回発生する可能性がありますが、<i>ユニークインプレッション数</i>は増加しません。そのため、ユーザーが1日に複数回コンバージョンを完了した場合、<i>コンバージョン率</i>はそれに応じて増加する可能性がありますが、<i>ユニークインプレッション数</i>はその暦日に1回のみカウントされます。詳細については、<a href="/docs/user_guide/channels/in_app_messages/reporting/">アプリ内メッセージレポート</a> を参照してください。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion Rate" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -310,7 +310,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### コンバージョンウィンドウ {#conversion-window}
+## コンバージョンウィンドウ {#conversion-window}
 
 {% apitags %}
 All
@@ -322,7 +322,7 @@ All
 
 {% api %}
 
-### 配信数 {#deliveries}
+## 配信数 {#deliveries}
 
 {% apitags %}
 Email, Web Push, iOS Push, Android Push, WhatsApp
@@ -333,7 +333,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 | チャネル | 追加情報 |
 |-------|-----------------------|
 | メール | メール受信可能な相手に正常に送信され、受信されたメッセージの合計数（送信数）を指します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deliveries" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -349,7 +349,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 
 {% api %}
 
-### RCS配信失敗数またはSMS配信失敗数 {#rcs-delivery-failures-or-sms-delivery-failures}
+## RCS配信失敗数またはSMS配信失敗数 {#rcs-delivery-failures-or-sms-delivery-failures}
 
 {% apitags %}
 SMS/MMS
@@ -365,7 +365,7 @@ SMS/MMS
 
 {% api %}
 
-### 配信失敗数 {#delivery-failures}
+## 配信失敗数 {#delivery-failures}
 
 {% apitags %}
 RCS
@@ -381,7 +381,7 @@ RCS
 
 {% api %}
 
-### 配信失敗率 {#failed-delivery-rate}
+## 配信失敗率 {#failed-delivery-rate}
 
 {% apitags %}
 SMS/MMS
@@ -397,7 +397,7 @@ SMS/MMS
 
 {% api %}
 
-### 直接開封数 {#direct-opens}
+## 直接開封数 {#direct-opens}
 
 {% apitags %}
 iOS Push
@@ -411,7 +411,7 @@ iOS Push
 
 {% api %}
 
-### メール送信可能 {#emailable}
+## メール送信可能 {#emailable}
 
 {% apitags %}
 Email
@@ -425,7 +425,7 @@ Email
 
 {% api %}
 
-### エラー数 {#errors}
+## エラー数 {#errors}
 
 {% apitags %}
 Webhook
@@ -437,7 +437,7 @@ Webhook
 
 {% api %}
 
-### 推定実開封数 {#estimated-real-opens}
+## 推定実開封数 {#estimated-real-opens}
 
 {% apitags %}
 Email
@@ -449,7 +449,7 @@ Email
 
 {% api %}
 
-### 失敗数 {#failures}
+## 失敗数 {#failures}
 
 {% apitags %}
 WhatsApp
@@ -463,7 +463,7 @@ WhatsApp
 
 {% api %}
 
-### フィーチャーフラグ実験のパフォーマンス {#feature-flag-experiment-performance}
+## フィーチャーフラグ実験のパフォーマンス {#feature-flag-experiment-performance}
 
 {% apitags %}
 Feature Flags
@@ -475,7 +475,7 @@ Feature Flags
 
 {% api %}
 
-### ハードバウンス {#hard-bounce}
+## ハードバウンス {#hard-bounce}
 
 {% apitags %}
 Email
@@ -489,7 +489,7 @@ Email
 
 {% api %}
 
-### ヘルプ {#help}
+## ヘルプ {#help}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -501,7 +501,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 間接開封数 {#influenced-opens}
+## 間接開封数 {#influenced-opens}
 
 {% apitags %}
 iOS Push, Android Push
@@ -515,7 +515,7 @@ iOS Push, Android Push
 
 {% api %}
 
-### ライフタイム収益 {#lifetime-revenue}
+## ライフタイム収益 {#lifetime-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -527,7 +527,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### ユーザーあたりのライフタイムバリュー {#lifetime-value-per-user}
+## ユーザーあたりのライフタイムバリュー {#lifetime-value-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -539,7 +539,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 1日あたりの平均収益 {#average-daily-revenue}
+## 1日あたりの平均収益 {#average-daily-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -551,7 +551,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 1日あたりの購入数 {#daily-purchases}
+## 1日あたりの購入数 {#daily-purchases}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -563,7 +563,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### ユーザーあたりの1日の収益 {#daily-revenue-per-user}
+## ユーザーあたりの1日の収益 {#daily-revenue-per-user}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
@@ -575,7 +575,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### マシン開封数 {#machine-opens}
+## マシン開封数 {#machine-opens}
 
 {% apitags %}
 Email
@@ -587,7 +587,7 @@ Email
 
 {% api %}
 
-### 開封数 {#opens}
+## 開封数 {#opens}
 
 {% apitags %}
 Web Push, iOS Push, Android Push
@@ -599,7 +599,7 @@ Web Push, iOS Push, Android Push
 
 {% api %}
 
-### オプトアウト {#opt-out}
+## オプトアウト {#opt-out}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -611,7 +611,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### その他の開封数 {#other-opens}
+## その他の開封数 {#other-opens}
 
 {% apitags %}
 Email
@@ -623,7 +623,7 @@ Email
 
 {% api %}
 
-### リトライ保留中 {#pending-retry}
+## リトライ保留中 {#pending-retry}
 
 {% apitags %}
 Email
@@ -635,7 +635,7 @@ Email
 
 {% api %}
 
-### 1次コンバージョン (A) または1次コンバージョンイベント {#primary-conversions-a-or-primary-conversion-event}
+## 1次コンバージョン (A) または1次コンバージョンイベント {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -647,7 +647,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 |-------|-----------------------|
 | メール、プッシュ、Webhook | 初回送信後。|
 | Content Cards、アプリ内メッセージ | ユーザーがContent Cardsまたはメッセージを初めて閲覧した時点。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -663,7 +663,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### 既読数 {#reads}
+## 既読数 {#reads}
 
 {% apitags %}
 WhatsApp
@@ -675,7 +675,7 @@ WhatsApp
 
 {% api %}
 
-### 既読率 {#read-rate}
+## 既読率 {#read-rate}
 
 {% apitags %}
 WhatsApp
@@ -689,7 +689,7 @@ WhatsApp
 
 {% api %}
 
-### 受信済み {#received}
+## 受信済み {#received}
 
 {% apitags %}
 Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS, WhatsApp
@@ -705,13 +705,13 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | SMS/MMS | SMSプロバイダーが上流キャリアおよび送信先デバイスから確認を受信した後に「配信済み」となります。|
 | アプリ内メッセージ | 定義されたトリガーアクションに基づいて表示された時点で受信済みとなります。|
 | WhatsApp | 定義されたトリガーアクションに基づいて表示された時点で受信済みとなります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Received" }
 
 {% endapi %}
 
 {% api %}
 
-### RCS拒否数またはSMS拒否数 {#rcs-rejections-or-sms-rejections}
+## RCS拒否数またはSMS拒否数 {#rcs-rejections-or-sms-rejections}
 
 {% apitags %}
 SMS/MMS, RCS
@@ -733,7 +733,7 @@ SMS/MMS, RCS
 
 {% api %}
 
-### 収益 {#revenue}
+## 収益 {#revenue}
 
 {% apitags %}
 Email
@@ -745,7 +745,7 @@ Email
 
 {% api %}
 
-### 送信済み {#sent}
+## 送信済み {#sent}
 
 {% apitags %}
 SMS/MMS
@@ -759,7 +759,7 @@ SMS/MMS
 
 {% api %}
 
-### 送信数 {#sends}
+## 送信数 {#sends}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
@@ -780,7 +780,7 @@ Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_
 
 {% api %}
 
-### 送信メッセージ数 {#messages-sent}
+## 送信メッセージ数 {#messages-sent}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
@@ -801,7 +801,7 @@ Content Cardsの場合、この指標は[カード作成]({{site.baseurl}}/user_
 
 {% api %}
 
-### キャリアへの送信数 {#sends-to-carrier}
+## キャリアへの送信数 {#sends-to-carrier}
 
 {% apitags %}
 SMS/MMS
@@ -823,7 +823,7 @@ SMS/MMS
 
 {% api %}
 
-### ソフトバウンス {#soft-bounce}
+## ソフトバウンス {#soft-bounce}
 
 {% apitags %}
 Email
@@ -839,7 +839,7 @@ _ソフトバウンス_は_遅延_とは異なります。このリトライ期�
 
 {% api %}
 
-### スパム {#spam}
+## スパム {#spam}
 
 {% apitags %}
 Email
@@ -865,7 +865,7 @@ Email
 
 {% api %}
 
-### 調査ページの却下数 {#survey-page-dismissals}
+## 調査ページの却下数 {#survey-page-dismissals}
 
 {% apitags %}
 In-App Message
@@ -877,7 +877,7 @@ In-App Message
 
 {% api %}
 
-### 調査の送信数 {#survey-submissions}
+## 調査の送信数 {#survey-submissions}
 
 {% apitags %}
 In-App Message
@@ -889,7 +889,7 @@ In-App Message
 
 {% api %}
 
-### 合計クリック数 {#total-clicks}
+## 合計クリック数 {#total-clicks}
 
 {% apitags %}
 Email, Content Cards, SMS/MMS, LINE
@@ -901,7 +901,7 @@ Email, Content Cards, SMS/MMS, LINE
 |-------|-------|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。AMPメールにはHTMLおよびプレーンテキストバージョンの両方で記録されたクリックが含まれます。この数値はスパム対策ツールによって人為的に膨らむ場合があります。|
 | バナー | 配信されたメッセージ内でクリックしたユーザーの合計数（および割合）です。同じユーザーが複数回クリックした場合も含まれます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Clicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -918,7 +918,7 @@ Email, Content Cards, SMS/MMS, LINE
 
 {% api %}
 
-### 合計却下数 {#total-dismissals}
+## 合計却下数 {#total-dismissals}
 
 {% apitags %}
 Content Cards
@@ -940,7 +940,7 @@ Content Cards
 
 {% api %}
 
-### 合計インプレッション数 {#total-impressions}
+## 合計インプレッション数 {#total-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -952,7 +952,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | Content Cards | 特定のContent Cardsに対して記録されたインプレッションの合計数です。同じユーザーに対して複数回増加する可能性があります。|
 | アプリ内メッセージ | 複数のデバイスがあり、再適格性がオフの場合、ユーザーはアプリ内メッセージを1回のみ表示されます。ユーザーが複数のデバイスを使用していても、最初にターゲットされたデバイスでのみ表示されます。これは、プロファイルがデバイスを統合しており、ユーザーがデバイス間で1つのユーザーIDでログインしていることを前提としています。再適格性がオンの場合、ユーザーがアプリ内メッセージを表示するたびにインプレッションが記録されます。詳細については、<a href="/docs/user_guide/channels/in_app_messages/reporting/">アプリ内メッセージレポート</a> を参照してください。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Impressions" }
 
 <span class="calculation-line">計算式: カウント</span>
 
@@ -960,7 +960,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-### 合計開封数 {#total-opens}
+## 合計開封数 {#total-opens}
 
 {% apitags %}
 Email, iOS Push, Android Push, Web Push, LINE
@@ -972,7 +972,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 |-------|-----------------------|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。|
 | AMPメール | HTMLおよびプレーンテキストバージョンの合計開封数です。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Opens" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -992,7 +992,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 
 {% api %}
 
-### 合計収益 {#total-revenue}
+## 合計収益 {#total-revenue}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
@@ -1004,7 +1004,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-### ユニーククリック数 {#unique-clicks}
+## ユニーククリック数 {#unique-clicks}
 
 {% apitags %}
 Email, Content Cards, LINE
@@ -1018,7 +1018,7 @@ Email, Content Cards, LINE
 |-------|-----------------------|
 | メール | 7日間にわたって追跡されます。|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Clicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1035,7 +1035,7 @@ Email, Content Cards, LINE
 
 {% api %}
 
-### ユニーク却下数 {#unique-dismissals}
+## ユニーク却下数 {#unique-dismissals}
 
 {% apitags %}
 Content Cards
@@ -1049,7 +1049,7 @@ Content Cards
 
 {% api %}
 
-### ユニークインプレッション数 {#unique-impressions}
+## ユニークインプレッション数 {#unique-impressions}
 
 {% apitags %}
 In-App Message, Content Cards
@@ -1061,7 +1061,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | アプリ内メッセージ | 再適格性がオンでユーザーがトリガーアクションを実行した場合、ワークスペースのタイムゾーンにおける新しい暦日にユニークインプレッション数が再度増加する可能性があります。再適格性がオンの場合、<i>ユニークインプレッション数</i> = <i>ユニーク受信者数</i>となります。詳細については、<a href="/docs/user_guide/channels/in_app_messages/reporting/">アプリ内メッセージレポート</a> を参照してください。|
 | Content Cards | ユーザーがカードを2回目に閲覧しても、カウントは増加しません。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Impressions" }
 
 <span class="calculation-line">計算式: カウント</span>
 
@@ -1069,7 +1069,7 @@ In-App Message, Content Cards
 
 {% api %}
 
-### ユニーク開封数 {#unique-opens}
+## ユニーク開封数 {#unique-opens}
 
 {% apitags %}
 Email, LINE
@@ -1081,7 +1081,7 @@ Email, LINE
 |-------|-----------------------|
 | メール | 7日間にわたって追跡されます。|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Opens" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1097,7 +1097,7 @@ Email, LINE
 
 {% api %}
 
-### ユニーク受信者数 {#unique-recipients}
+## ユニーク受信者数 {#unique-recipients}
 
 {% apitags %}
 All
@@ -1113,7 +1113,7 @@ All
 
 {% api %}
 
-### 配信停止者数 {#unsubscribers-or-unsub}
+## 配信停止者数 {#unsubscribers-or-unsub}
 
 {% apitags %}
 Email
@@ -1135,7 +1135,7 @@ Email
 
 {% api %}
 
-### 配信停止数 {#unsubscribes}
+## 配信停止数 {#unsubscribes}
 
 {% apitags %}
 Email
@@ -1149,7 +1149,7 @@ Email
 
 {% api %}
 
-### バリエーション {#variation}
+## バリエーション {#variation}
 
 {% apitags %}
 Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp

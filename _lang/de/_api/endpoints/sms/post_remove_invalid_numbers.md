@@ -5,22 +5,22 @@ search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Ungültige Telefonnummern entfernen von Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Ungültige Telefonnummern entfernen“."
 
 ---
 {% api %}
-# Ungültige Telefonnummern entfernen
+# Ungültige Telefonnummern entfernen {#remove-invalid-phone-numbers}
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um "ungültige" Telefonnummern aus unserer Ungültigkeitsliste zu entfernen.
+> Verwenden Sie diesen Endpunkt, um „ungültige“ Telefonnummern aus unserer Ungültigkeitsliste zu entfernen.
 
 Damit können Sie Telefonnummern erneut validieren, nachdem sie als ungültig markiert wurden.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76495aac-8c2d-4e1a-8cac-12e3856ab1d3 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sms.invalid_phone_numbers.remove`.
 
@@ -28,7 +28,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -41,14 +41,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Erforderlich | String-Array im Format e.164  | Eine Reihe von bis zu 50 Telefonnummern zum Ändern. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone_number` | Erforderlich | String-Array im Format e.164 | Ein Array von bis zu 50 Telefonnummern zum Ändern. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \

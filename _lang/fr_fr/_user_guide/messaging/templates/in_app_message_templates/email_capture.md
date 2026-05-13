@@ -2,7 +2,7 @@
 nav_title: Formulaire d'inscription par e-mail
 article_title: Formulaire d'inscription par e-mail
 alias: "/email_capture/"
-page_order: 2
+page_order: 3
 description: "Cette page explique comment créer un formulaire d'inscription par e-mail avec l'éditeur par glisser-déposer de messages in-app."
 ---
 

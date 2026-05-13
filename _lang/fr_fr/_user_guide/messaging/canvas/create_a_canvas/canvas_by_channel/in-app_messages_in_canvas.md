@@ -10,25 +10,25 @@ channel: in-app messages
 
 ---
 
-# Messages in-app dans Canvas
+# Messages in-app dans Canvas {#in-app-messages-in-canvas}
 
 > Vous pouvez ajouter des messages in-app à votre parcours Canvas pour afficher des messages enrichis lorsque vos clients interagissent avec votre application.
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 Avant de pouvoir utiliser des messages in-app dans votre Canvas, assurez-vous d'avoir configuré un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) avec des options de délai et d'audience.
 
-Dans le générateur de Canvas, ajoutez une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) et sélectionnez **Message in-app** comme **Canal de communication**. Vous pouvez personnaliser [la date d'expiration de votre message](#in-app-message-expiration) et le [comportement d'avancement](#advancement-behavior) associé.
+Dans le générateur de Canvas, ajoutez une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) et sélectionnez **In-App Message** comme **Messaging Channel**. Vous pouvez personnaliser [la date d'expiration de votre message](#in-app-message-expiration) et le [comportement d'avancement](#advancement-behavior) associé.
 
-## Ajouter un message in-app à votre parcours utilisateur
+## Ajouter un message in-app à votre parcours utilisateur {#adding-an-in-app-message-to-your-user-journey}
 
 Pour ajouter un message in-app à votre Canvas, procédez comme suit :
 
 1. Ajoutez une étape [Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) à votre parcours utilisateur.
-2. Sélectionnez **Message in-app** pour votre **Canal de communication**.
+2. Sélectionnez **In-App Message** pour votre **Messaging Channel**.
 3. Déterminez [la date d'expiration de votre message](#in-app-message-expiration) et le [comportement d'avancement](#advancement-behavior-options) associé.
 
-## Messages in-app déclenchés
+## Messages in-app déclenchés {#triggered-in-app-messages}
 
 Vous pouvez sélectionner un déclencheur pour que vos messages in-app soient déclenchés au démarrage de la session, ou par des événements personnalisés et des achats.
 
@@ -36,7 +36,7 @@ Une fois les délais écoulés et les options d'audience vérifiées, les messag
 
 Pour les étapes Canvas dont l'entrée est déclenchée par une action, les utilisateurs peuvent entrer dans le Canvas en cours de session. Les messages in-app ne sont activés qu'au démarrage d'une session. Par conséquent, si un utilisateur est en cours de session lorsqu'il atteint l'étape Message, il ne recevra pas le message in-app tant qu'il n'aura pas démarré une nouvelle session et effectué le déclencheur correspondant.
 
-## Expiration des messages in-app
+## Expiration des messages in-app {#in-app-message-expiration}
 
 Vous pouvez choisir la date d'expiration du message in-app. Pendant cette période, le message in-app restera en attente d'être consulté jusqu'à la date d'expiration. Une fois le message in-app envoyé, il ne peut être consulté qu'une seule fois.
 
@@ -46,14 +46,14 @@ Vous pouvez choisir la date d'expiration du message in-app. Pendant cette pério
 |---|---|---|
 | **Une durée après que l'étape est disponible** | Définit l'expiration du message in-app par rapport au moment où l'étape devient disponible pour l'utilisateur. | Un message in-app avec une expiration de deux jours deviendrait disponible lorsque l'utilisateur entre dans l'étape Message et que les options d'audience sont vérifiées. Tout délai avant d'atteindre cette étape proviendrait des étapes de délai précédentes dans votre Canvas. Le message in-app serait alors disponible pendant 2 jours (48 heures) à partir du moment où l'utilisateur entre dans l'étape, et pendant ces deux jours, les utilisateurs pourraient voir le message in-app s'ils ouvrent l'application. |
 | **À une date et une heure spécifiques** | Sélectionnez une date et une heure spécifiques auxquelles le message in-app ne sera plus disponible. | Si vous avez une promotion qui se termine le 30 novembre 2024, sélectionnez cette option pour que les utilisateurs ne voient plus le message in-app associé lorsque la promotion prend fin. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
 Braze vous recommande d'envisager l'utilisation de cette fonctionnalité dans vos Canvas promotionnels et d'onboarding.
 
 {% tabs %}
-  {% tab Promotional %}
+  {% tab Promotionnel %}
 
 Les promotions, coupons et soldes ont souvent des dates d'expiration fixes. Le Canvas suivant devrait alerter vos utilisateurs aux moments les plus opportuns qu'une promotion est disponible, et éventuellement influencer un achat. Cette promotion expire le 28 février 2019 à 11h15 dans le fuseau horaire de votre société.
 
@@ -62,7 +62,8 @@ Les promotions, coupons et soldes ont souvent des dates d'expiration fixes. Le C
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Use cases" class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>Étape Canvas</th>
@@ -108,11 +109,12 @@ Les promotions, coupons et soldes ont souvent des dates d'expiration fixes. Le C
 Les messages in-app expirent en même temps que la promotion pour éviter toute incohérence entre les messages et l'expérience client.
 
   {% endtab %}
-  {% tab User Onboarding %}
+  {% tab Onboarding utilisateur %}
 
 La première impression que vous faites à un utilisateur est peut-être la plus importante. Elle peut déterminer ses futures visites dans votre application. Vos premières communications avec vos utilisateurs doivent être judicieusement planifiées et encourager des visites fréquentes pour favoriser l'utilisation.
 
-<table class="tg">
+<table aria-label="Use cases" class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>Étape Canvas</th>
@@ -161,25 +163,25 @@ Ces notifications push sont espacées autour d'un message in-app pour s'assurer 
 {% endtabs %}
 
 
-## Prioriser les messages in-app
+## Prioriser les messages in-app {#prioritizing-in-app-messages}
 
 Un utilisateur peut déclencher deux messages in-app dans votre Canvas en même temps. Dans ce cas, Braze respectera l'ordre de priorité suivant pour déterminer quel message in-app est affiché.
 
-Sélectionnez **Définir la priorité exacte** et faites glisser les différentes étapes Canvas pour réorganiser leur priorité au sein du Canvas. Par défaut, les étapes situées plus tôt dans une variante du canvas s'affichent avant les étapes ultérieures. Une fois vos étapes dans l'ordre de priorité souhaité, sélectionnez **Appliquer le tri**.
+Sélectionnez **Set exact priority** et faites glisser les différentes étapes Canvas pour réorganiser leur priorité au sein du Canvas. Par défaut, les étapes situées plus tôt dans une variante du Canvas s'affichent avant les étapes ultérieures. Une fois vos étapes dans l'ordre de priorité souhaité, sélectionnez **Apply sort**.
 
 ![Le trieur de priorité avec deux étapes « Welcome IAM » et « Followup IAM ».]({% image_buster /assets/img_archive/canvas_priority2.png %}){: style="max-width:85%"}
 
-### Modifier les brouillons de Canvas actifs
+### Modifier les brouillons de Canvas actifs {#making-changes-to-drafts-of-active-canvases}
 
 Si vous modifiez la priorité des messages in-app dans les **Paramètres d'envoi** d'un brouillon d'un Canvas actif, ces modifications sont appliquées directement au Canvas actif lorsque le trieur de priorité est fermé. Cependant, dans une étape Message, le trieur de priorité sera mis à jour lorsque le brouillon sera lancé, car les paramètres des étapes Canvas s'appliquent au niveau de l'étape.
 
-## Comportement d'avancement
+## Comportement d'avancement {#advancement-behavior}
 
 Les étapes Message font automatiquement avancer tous les utilisateurs qui y entrent. Notez que l'étape n'attend pas que le message in-app soit déclenché ou affiché. Il n'est pas nécessaire de spécifier un comportement d'avancement du message, ce qui simplifie la configuration globale de l'étape.
 
 Lorsqu'un utilisateur entre dans une étape de message in-app, il en sort immédiatement au lieu d'être retenu pendant la fenêtre d'expiration. Dans ce cas, l'ajout d'une étape de délai dans votre parcours utilisateur peut être utile.
 
-Pour utiliser l'option **Avancer lorsque le message est envoyé**, ajoutez un [parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) distinct pour filtrer les utilisateurs qui n'ont pas reçu l'étape précédente.
+Pour utiliser l'option **Advance when message sent**, ajoutez un [parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) distinct pour filtrer les utilisateurs qui n'ont pas reçu l'étape précédente.
 
 {% details Éditeur Canvas d'origine %}
 
@@ -192,7 +194,7 @@ La livraison par événement n'est pas disponible pour les étapes Canvas conten
 Si vous avez plusieurs messages in-app dans un même Canvas, un utilisateur doit démarrer plusieurs sessions pour recevoir chacun de ces messages individuels.
 
 {% alert important %}
-Lorsque l'option **Avancer lorsque le message in-app est actif** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
+Lorsque l'option **Advance When In-App Message Live** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, assurez-vous que l'expiration est plus courte que le délai des étapes suivantes.
 {% endalert %}
 
 #### Étapes avec plusieurs canaux {#steps-multiple-channels}
@@ -200,24 +202,24 @@ Lorsque l'option **Avancer lorsque le message in-app est actif** est sélectionn
 Les étapes contenant un message in-app et un autre canal disposent des options d'avancement suivantes :
 
 | Option | Description |
-|---|---|---|
-| Avancer lorsque le message est envoyé | Les utilisateurs doivent recevoir un e-mail, un webhook ou une notification push, ou consulter le message in-app pour avancer aux étapes suivantes du Canvas. <br> <br> Si le message in-app expire et que l'utilisateur n'a pas reçu l'e-mail, le webhook ou la notification push, ou n'a pas consulté le message in-app, il quittera le Canvas et n'avancera pas aux étapes suivantes. |
-| Avancer l'audience immédiatement | Tous les membres de l'audience de l'étape avancent aux étapes suivantes une fois le délai écoulé, qu'ils aient vu le message mentionné ou non. <br> <br> Les utilisateurs doivent correspondre aux critères de segment et de filtre de l'étape pour avancer aux étapes suivantes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+|---|---|
+| Advance When Message Sent | Les utilisateurs doivent recevoir un e-mail, un webhook ou une notification push, ou consulter le message in-app pour avancer aux étapes suivantes du Canvas. <br> <br> Si le message in-app expire et que l'utilisateur n'a pas reçu l'e-mail, le webhook ou la notification push, ou n'a pas consulté le message in-app, il quittera le Canvas et n'avancera pas aux étapes suivantes. |
+| Immediately Advance Audience | Tous les membres de l'audience de l'étape avancent aux étapes suivantes une fois le délai écoulé, qu'ils aient vu le message mentionné ou non. <br> <br> Les utilisateurs doivent correspondre aux critères de segment et de filtre de l'étape pour avancer aux étapes suivantes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Steps with multiple channels #steps-multiple-channels" }
 
 {% alert important %}
-Lorsque l'option **Audience entière** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, vérifiez que l'expiration est plus courte que le délai des étapes suivantes.
+Lorsque l'option **Entire Audience** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, vérifiez que l'expiration est plus courte que le délai des étapes suivantes.
 {% endalert %}
 
 {% enddetails %}
 
-## Actions de déclenchement
+## Actions de déclenchement {#trigger-actions}
 
 Vous pouvez choisir parmi les actions de déclenchement suivantes pour cibler vos utilisateurs :
 
-- **Effectuer un achat :** Ciblez les utilisateurs qui effectuent un achat quelconque ou un achat spécifique.
-- **Démarrer une session :** Ciblez les utilisateurs qui démarrent une session dans n'importe quelle application ou une application spécifique.
-- **Effectuer un événement personnalisé :** Ciblez les utilisateurs qui effectuent l'événement personnalisé sélectionné (l'événement personnalisé doit être envoyé via le SDK).
+- **Effectuer un achat :** ciblez les utilisateurs qui effectuent un achat quelconque ou un achat spécifique.
+- **Démarrer une session :** ciblez les utilisateurs qui démarrent une session dans n'importe quelle application ou une application spécifique.
+- **Effectuer un événement personnalisé :** ciblez les utilisateurs qui effectuent l'événement personnalisé sélectionné (l'événement personnalisé doit être envoyé via le SDK).
 
 Un utilisateur doit entrer dans l'étape Canvas, démarrer une session, puis effectuer le déclencheur pour recevoir un message in-app. Cela signifie que les mises à jour en cours de session ne sont pas prises en charge. Par exemple, si le déclencheur est le démarrage d'une session, l'utilisateur n'a qu'à entrer dans l'étape Canvas et démarrer une session pour recevoir le message in-app. Si le déclencheur n'est pas le démarrage d'une session, l'utilisateur doit entrer dans l'étape Canvas, démarrer une session, puis effectuer le déclencheur pour recevoir le message in-app.
 
@@ -231,11 +233,11 @@ Les fonctionnalités Canvas suivantes ne sont pas disponibles avec les messages 
 - Critères de sortie
 - Heures calmes
 
-## Propriétés d'événement personnalisé dans un Canvas
+## Propriétés d'événement personnalisé dans un Canvas {#custom-event-properties-in-a-canvas}
 
 Les propriétés d'événement personnalisé dans les messages in-app pour Canvas sont prises en charge. Cependant, ces propriétés proviennent de l'événement personnalisé ou de l'achat qui déclenche le message in-app, situé dans l'étape Message, et non du parcours d'action précédent.
 
-## Points à prendre en compte
+## Points à prendre en compte {#considerations}
 
 Voici quelques points à prendre en compte lors de l'envoi de messages in-app dans un Canvas.
 

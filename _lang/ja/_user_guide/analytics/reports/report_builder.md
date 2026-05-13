@@ -95,7 +95,7 @@ Canvasのバリアントやステップについてレポートする場合は�
 | 合計収益 | Campaigns、Canvases、CampaignsとCanvases、タグで利用可能です。**チャネル**ドリルダウンでは利用できません。 |
 | ユニークインプレッション | Campaigns、Canvases、CampaignsとCanvases、タグで利用可能です。 |
 | ユニーク受信者 | Campaigns、Canvases、CampaignsとCanvases、タグで利用可能です。**チャネル**ドリルダウンでは利用できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### 削除されたメッセージバリアント {#deleted-message-variants}
 

@@ -18,7 +18,7 @@ description: "Learn how to define and configure the audience for your BrazeAI De
 | **Random Control** | Customers who receive randomly selected options (baseline comparison) |
 | **Business-as-Usual (optional)** | Customers who receive the current marketing journey (for comparing against existing performance) |
 | **Holdout (optional)** | Customers who receive no communications (to measure overall campaign impact) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Treatment groups" }
 
 ## Configure your audience
 

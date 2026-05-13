@@ -83,7 +83,7 @@ _Total_が各チャネルの合計よりも高い場合、その差はSegmentに
 | メール | **Email Available**がtrueであること。 |
 | プッシュ | **Foreground Push Enabled**がtrueであること。 |
 | SMS | **Subscription Group**がいずれかのSMSサブスクリプショングループであること。**Invalid Phone Number**がfalseであること。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="チャネル固有の到達可能なユーザーに適用されるフィルター" }
 
 ## 正確な統計の計算 {#calculating-exact-statistics}
 
@@ -137,4 +137,4 @@ Brazeは、ユーザーのサブセットをクエリし、その結果をオー
 | ユーザーの削除 | 大量のユーザーが削除された。 |
 | パートナー連携がBrazeと同期 | サードパーティがBrazeにデータを送信し、Segmentメンバーシップに大きな影響を与えた。 |
 | 休眠ユーザーのアーカイブ | 大量の非アクティブなプロファイルがアーカイブされた。たとえば、CSVインポートされた大量のユーザーがアクティビティを記録せず、同時にアーカイブされた場合。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="大幅な変化の理由" }

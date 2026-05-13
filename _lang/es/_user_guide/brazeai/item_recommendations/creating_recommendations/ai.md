@@ -71,7 +71,7 @@ Por ejemplo, al utilizar la versión pro de las recomendaciones de elementos de 
 
 Si aún no está rellenado, selecciona el [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) del que esta recomendación extraerá los elementos.
 
-#### Paso 3.3: Añade una selección (opcional) {#step-33-add-a-selection-optional}
+#### Paso 3.3: Añadir una selección (opcional) {#step-33-add-a-selection-optional}
 
 Si quieres tener más control sobre tu recomendación, elige una [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) para aplicar filtros personalizados. Las selecciones filtran las recomendaciones por columnas específicas de tu catálogo, como marca, tamaño o ubicación. Las selecciones que contienen Liquid no pueden utilizarse en tu recomendación.
 
@@ -81,7 +81,7 @@ Si quieres tener más control sobre tu recomendación, elige una [selección]({{
 Si no puedes encontrar tu selección, asegúrate de que esté configurada en tu catálogo.
 {% endalert %}
 
-### Paso 4: Selecciona la interacción para impulsar las recomendaciones {#step-4-select-the-interaction-to-drive-recommendations}
+### Paso 4: Seleccionar la interacción para impulsar las recomendaciones {#step-4-select-the-interaction-to-drive-recommendations}
 
 Selecciona el evento para el que quieres que se optimice esta recomendación. Este evento suele ser una compra, pero también puede ser cualquier interacción con un elemento.
 
@@ -100,7 +100,7 @@ Si eliges **Custom Event**, selecciona tu evento de la lista.
 Los eventos personalizados deben tener datos suficientes antes de aparecer en la lista de eventos. Si tu evento personalizado no aparece, puede ser porque el backend de Braze aún no lo ha procesado o porque no hay datos suficientes para el entrenamiento del modelo. Las recomendaciones de IA se basan en datos históricos para generar información, por lo que los eventos recién creados o que se desencadenan con poca frecuencia no estarán disponibles hasta que se recopilen más datos.
 {% endalert %}
 
-### Paso 5: Elige el nombre de la propiedad correspondiente {#property-name}
+### Paso 5: Elegir el nombre de la propiedad correspondiente {#property-name}
 
 Para crear una recomendación, tienes que indicarle a Braze qué campo de tu evento de interacción (evento de pedido realizado, objeto de compra o evento personalizado) tiene el identificador único que coincide con el campo `id` de un elemento en el catálogo. ¿No estás seguro? [Ver requisitos](#requirements).
 
@@ -130,7 +130,8 @@ Los siguientes ejemplos de mapeados hacen referencia a este catálogo de muestra
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Ejemplos de mapeados" class="tg">
+  <caption>Ejemplos de mapeados</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -325,7 +326,7 @@ Este evento tiene una propiedad `"sku": "ADI-RD-8"`, que se mapea al segundo ele
 {% endtab %}
 {% endtabs %}
 
-### Paso 6: Entrena la recomendación {#step-6-train-the-recommendation}
+### Paso 6: Entrenar la recomendación {#step-6-train-the-recommendation}
 
 Cuando estés listo, selecciona **Create Recommendation**. Este proceso puede durar entre 10 minutos y 36 horas. Recibirás una actualización por correo electrónico cuando la recomendación se haya entrenado correctamente o una explicación de por qué puede haber fallado la creación.
 

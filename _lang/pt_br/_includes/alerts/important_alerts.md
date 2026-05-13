@@ -61,7 +61,7 @@ Existem certos navegadores, como os apps Naver para Android e iOS, que não ofer
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-O evento de compra legado está entrando em modo de manutenção. Os eventos de compra existentes continuam funcionando como esperado, mas nenhuma nova funcionalidade está sendo desenvolvida sobre eles, em favor dos eventos recomendados de eCommerce. Você pode continuar usando eventos de compra por tempo indeterminado. A Braze fornecerá aviso prévio bem antes de qualquer data de fim de vida ser definida.
+O evento de compra legado está entrando em modo de manutenção. Clientes existentes da Braze podem continuar usando eventos de compra legados. Eles continuarão funcionando como esperado, mas novas funcionalidades serão desenvolvidas com base nos eventos recomendados de eCommerce daqui em diante. A Braze fornecerá aviso prévio bem antes de qualquer data de fim de vida ser definida. Novos clientes da Braze devem usar os [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), pois os eventos de compra legados não estarão disponíveis.
 {% endalert %}
 
 {% endif %}

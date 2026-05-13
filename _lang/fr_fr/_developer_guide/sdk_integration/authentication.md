@@ -1,20 +1,20 @@
 ---
 page_order: 1.2
 nav_title: Authentification
-article_title: "Configurer l'authentification pour le SDK Braze"
+article_title: Configurer l'authentification pour le SDK Braze
 description: "Cet article de référence couvre l'authentification SDK et la manière d'activer cette fonctionnalité dans le SDK Braze."
 platform:
   - iOS
   - Android
   - Web
-  
+
 ---
 
-# Configurer l'authentification SDK
+# Configurer l'authentification SDK {#set-up-sdk-authentication}
 
 > L'authentification SDK vous permet de fournir des preuves cryptographiques (générées côté serveur) aux requêtes SDK effectuées au nom des utilisateurs connectés.
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 Après avoir activé cette fonctionnalité dans votre application, vous pouvez configurer le tableau de bord de Braze pour qu'il rejette toute requête avec un jeton Web JSON (JWT) invalide ou manquant, ce qui inclut :
 
@@ -25,7 +25,7 @@ Après avoir activé cette fonctionnalité dans votre application, vous pouvez c
 
 Vous pouvez désormais empêcher les utilisateurs connectés non authentifiés d'utiliser la clé API SDK de votre application pour effectuer des actions malveillantes, telles que l'usurpation d'identité d'autres utilisateurs.
 
-## Mise en place de l'authentification
+## Mise en place de l'authentification {#setting-up-authentication}
 
 ### Étape 1 : Configurez votre serveur {#server-side-integration}
 
@@ -53,17 +53,19 @@ Lors de la génération du JWT, les champs suivants sont attendus :
 | ----- | -------- | ----------------------------------- |
 | `alg` | Oui  | L'algorithme pris en charge est `RS256`. |
 | `typ` | Oui  | Le type doit être égal à `JWT`.        |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
-**PAYLOAD JWT**
+**Payload JWT**
 
 | Champ | Requis | Description                                                                            |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Oui  | Le « sujet » doit être égal à l'ID utilisateur que vous fournissez au SDK Braze lorsque vous appelez `changeUser`  |
 | `exp` | Oui | L'« expiration » ou le moment où vous souhaitez que ce jeton expire.                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 Pour en savoir plus sur les jetons Web JSON ou pour parcourir les nombreuses bibliothèques open source qui simplifient ce processus de signature, consultez [https://jwt.io](https://jwt.io).
@@ -79,7 +81,7 @@ Cette fonctionnalité est disponible à partir des [versions SDK suivantes]({{ s
 Pour les intégrations iOS, cette page détaille les étapes pour le SDK Swift de Braze. Pour un exemple d'utilisation dans l'ancien SDK iOS AppboyKit, référez-vous à [ce fichier](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/AppDelegate.m) et à [ce fichier](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/Utils/SdkAuthDelegate.m).
 {% endalert %}
 
-#### Étape 2.1 : Activer l'authentification dans le SDK Braze.
+#### Étape 2.1 : Activer l'authentification dans le SDK Braze {#step-21-enable-authentication-in-the-braze-sdk}
 
 Lorsque cette fonctionnalité est activée, le SDK Braze ajoutera le dernier JWT connu de l'utilisateur actuel aux requêtes réseau effectuées vers les serveurs Braze.
 
@@ -281,7 +283,7 @@ Pour un exemple d'implémentation complet, consultez l'[application exemple du p
 {% endtab %}
 {% endtabs %}
 
-#### Étape 2.2 : Définir le JWT de l'utilisateur actuel
+#### Étape 2.2 : Définir le JWT de l'utilisateur actuel {#step-22-set-the-current-users-jwt}
 
 Lorsque votre application appelle la méthode Braze `changeUser`, fournissez également le JWT qui a été [généré côté serveur](#braze-dashboard).
 
@@ -517,7 +519,7 @@ braze.subscribeToSdkAuthenticationFailures((error) => {
   console.log("Error code:", error.errorCode);
   console.log("User ID:", error.userId);
   // Note: Do not log error.signature as it contains sensitive authentication credentials
-  
+
   // Verify the error.userId matches the currently logged-in user
   // Fetch a new token from your server and set it
   fetchNewSignature(error.userId).then((newSignature) => {
@@ -534,7 +536,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
   Braze.Events.SDK_AUTHENTICATION_ERROR,
   (error) => {
     console.log(`SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.`);
-    
+
     const updated_jwt = getNewTokenSomehow(error);
     Braze.setSdkAuthenticationSignature(updated_jwt);
   }
@@ -607,7 +609,7 @@ BrazePlugin braze = BrazePlugin();
 
 braze.setBrazeSdkAuthenticationErrorCallback((BrazeSdkAuthenticationError error) async {
   print("SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.");
-  
+
   String newSignature = getNewTokenSomehow(error);
   braze.setSdkAuthenticationSignature(newSignature);
 });
@@ -643,7 +645,7 @@ Braze.GetInstance(this).SubscribeToSdkAuthenticationFailures((error) => {
 ```javascript
 BrazePlugin.subscribeToSdkAuthenticationFailures((error) => {
   console.log(`SDK Authentication for ${error.user_id} failed with error code ${error.error_code}.`);
-  
+
   const newSignature = getNewTokenSomehow(error);
   BrazePlugin.setSdkAuthenticationSignature(newSignature);
 });
@@ -691,7 +693,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
   Braze.Events.SDK_AUTHENTICATION_ERROR,
   (error) => {
     console.log(`SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.`);
-    
+
     const updated_jwt = getNewTokenSomehow(error);
     Braze.setSdkAuthenticationSignature(updated_jwt);
   }
@@ -715,12 +717,12 @@ En cas de problème avec votre intégration (par exemple, votre application tran
 
 Dans la page **Gérer les paramètres** du tableau de bord, chaque application dispose de trois états d'authentification SDK qui contrôlent la manière dont Braze vérifie les requêtes.
 
-| Réglage| Description|
+| Réglage | Description |
 | ------ | ---------- |
-| **Désactivé** | Braze ne vérifiera pas le JWT fourni pour un utilisateur. (Paramètre par défaut)|
+| **Désactivé** | Braze ne vérifiera pas le JWT fourni pour un utilisateur. (Paramètre par défaut) |
 | **Facultatif** | Braze vérifiera les requêtes pour les utilisateurs connectés, mais ne rejettera pas les requêtes invalides. |
-| **Requis** | Braze vérifiera les requêtes pour les utilisateurs connectés et rejettera les JWT invalides.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Requis** | Braze vérifiera les requêtes pour les utilisateurs connectés et rejettera les JWT invalides. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -730,30 +732,30 @@ Un JWT invalide sera signalé dans les deux états **Facultatif** et **Requis**,
 
 ## Gérer les clés publiques {#key-management}
 
-### Ajouter une clé publique
+### Ajouter une clé publique {#adding-a-public-key}
 
 Vous pouvez ajouter jusqu'à trois clés publiques pour chaque application : une clé principale, une clé secondaire et une clé tertiaire. Si nécessaire, vous pouvez également ajouter la même clé à plusieurs applications. Pour ajouter une clé publique :
 
-1. Rendez-vous sur le tableau de bord de Braze et sélectionnez **Paramètres** > **Paramètres de l'application**.
+1. Rendez-vous sur le tableau de bord de Braze et sélectionnez **Settings** > **App Settings**.
 2. Choisissez une application dans votre liste d'applications disponibles.
-3. Sous **Authentification SDK**, sélectionnez **Ajouter une clé publique**.
-4. Saisissez une description facultative, collez votre clé publique, puis sélectionnez **Ajouter une clé publique**.
+3. Sous **SDK Authentication**, sélectionnez **Add Public Key**.
+4. Saisissez une description facultative, collez votre clé publique, puis sélectionnez **Add Public Key**.
 
-### Affecter une nouvelle clé principale
+### Affecter une nouvelle clé principale {#assign-a-new-primary-key}
 
 Pour affecter une clé secondaire ou tertiaire comme nouvelle clé principale :
 
-1. Rendez-vous sur le tableau de bord de Braze et sélectionnez **Paramètres** > **Paramètres de l'application**.
+1. Rendez-vous sur le tableau de bord de Braze et sélectionnez **Settings** > **App Settings**.
 2. Choisissez une application dans votre liste d'applications disponibles.
-3. Sous **Authentification SDK**, choisissez une clé et sélectionnez **Gérer** > **Définir comme clé principale**.
+3. Sous **SDK Authentication**, choisissez une clé et sélectionnez **Manage** > **Make Primary Key**.
 
-### Supprimer une clé
+### Supprimer une clé {#deleting-a-key}
 
 Pour supprimer une clé principale, [affectez d'abord une nouvelle clé principale](#assign-a-new-primary-key), puis supprimez votre clé. Pour supprimer une clé non principale :
 
-1. Rendez-vous sur le tableau de bord de Braze et sélectionnez **Paramètres** > **Paramètres de l'application**.
+1. Rendez-vous sur le tableau de bord de Braze et sélectionnez **Settings** > **App Settings**.
 2. Choisissez une application dans votre liste d'applications disponibles.
-3. Sous **Authentification SDK**, choisissez une clé non principale et sélectionnez **Gérer** > **Supprimer la clé publique**.
+3. Sous **SDK Authentication**, choisissez une clé non principale et sélectionnez **Manage** > **Delete Public Key**.
 
 ## Analyses {#analytics}
 
@@ -765,19 +767,19 @@ Les données sont disponibles en temps réel, et vous pouvez survoler les points
 
 ## Codes d'erreur {#error-codes}
 
-| Code d'erreur| Cause de l'erreur | Description | Marche à suivre |
+| Code d'erreur | Cause de l'erreur | Description | Marche à suivre |
 | --------  | ------------ | ---------  | ---------  |
-| 10 | `EXPIRATION_REQUIRED` | L'expiration est un champ obligatoire pour l'utilisation de Braze.| Ajoutez un champ `exp` (expiration) à votre logique de création de JWT. |
-| 20 | `DECODING_ERROR` | Clé publique non correspondante ou erreur générale non détectée.| Copiez votre JWT dans un outil de test JWT pour déterminer pourquoi votre JWT est dans un format invalide. |
-| 21 | `SUBJECT_MISMATCH` | Les sujets attendu et réel ne sont pas les mêmes.| Le champ `sub` doit correspondre à l'ID utilisateur transmis à la méthode SDK `changeUser`. |
-| 22 | `EXPIRED` | Le jeton fourni a expiré.| Prolongez la durée de validité ou actualisez périodiquement les jetons avant leur expiration. |
-| 23 | `INVALID_PAYLOAD` | Le PAYLOAD du jeton est invalide.| Copiez votre JWT dans un outil de test JWT pour déterminer pourquoi votre JWT est dans un format invalide. |
-| 24 | `INCORRECT_ALGORITHM` | L'algorithme du jeton n'est pas pris en charge.| Modifiez votre JWT pour utiliser le chiffrement `RS256`. Les autres types ne sont pas pris en charge. |
-| 25 | `PUBLIC_KEY_ERROR` | La clé publique n'a pas pu être convertie au format approprié.| Copiez votre JWT dans un outil de test JWT pour déterminer pourquoi votre JWT est dans un format invalide. |
-| 26 | `MISSING_TOKEN` | Aucun jeton n'a été fourni dans la requête.| Assurez-vous que vous transmettez un jeton lors de l'appel à `changeUser(id, token)` et que votre jeton n'est pas vide.|
-| 27 | `NO_MATCHING_PUBLIC_KEYS` | Aucune clé publique ne correspond au jeton fourni.| La clé privée utilisée dans le JWT ne correspond à aucune des clés publiques configurées pour votre application. Vérifiez que vous avez bien ajouté les clés publiques à l'application appropriée dans votre espace de travail correspondant à cette clé API.|
-| 28 | `PAYLOAD_USER_ID_MISMATCH` | Tous les ID utilisateur dans le PAYLOAD de la requête ne correspondent pas comme requis.| Ce cas est inattendu et peut entraîner un PAYLOAD malformé. Ouvrez un ticket d'assistance pour obtenir de l'aide. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| 10 | `EXPIRATION_REQUIRED` | L'expiration est un champ obligatoire pour l'utilisation de Braze. | Ajoutez un champ `exp` (expiration) à votre logique de création de JWT. |
+| 20 | `DECODING_ERROR` | Clé publique non correspondante ou erreur générale non détectée. | Copiez votre JWT dans un outil de test JWT pour déterminer pourquoi votre JWT est dans un format invalide. |
+| 21 | `SUBJECT_MISMATCH` | Les sujets attendu et réel ne sont pas les mêmes. | Le champ `sub` doit correspondre à l'ID utilisateur transmis à la méthode SDK `changeUser`. |
+| 22 | `EXPIRED` | Le jeton fourni a expiré. | Prolongez la durée de validité ou actualisez périodiquement les jetons avant leur expiration. |
+| 23 | `INVALID_PAYLOAD` | Le payload du jeton est invalide. | Copiez votre JWT dans un outil de test JWT pour déterminer pourquoi votre JWT est dans un format invalide. |
+| 24 | `INCORRECT_ALGORITHM` | L'algorithme du jeton n'est pas pris en charge. | Modifiez votre JWT pour utiliser le chiffrement `RS256`. Les autres types ne sont pas pris en charge. |
+| 25 | `PUBLIC_KEY_ERROR` | La clé publique n'a pas pu être convertie au format approprié. | Copiez votre JWT dans un outil de test JWT pour déterminer pourquoi votre JWT est dans un format invalide. |
+| 26 | `MISSING_TOKEN` | Aucun jeton n'a été fourni dans la requête. | Assurez-vous que vous transmettez un jeton lors de l'appel à `changeUser(id, token)` et que votre jeton n'est pas vide. |
+| 27 | `NO_MATCHING_PUBLIC_KEYS` | Aucune clé publique ne correspond au jeton fourni. | La clé privée utilisée dans le JWT ne correspond à aucune des clés publiques configurées pour votre application. Vérifiez que vous avez bien ajouté les clés publiques à l'application appropriée dans votre espace de travail correspondant à cette clé API. |
+| 28 | `PAYLOAD_USER_ID_MISMATCH` | Tous les ID utilisateur dans le payload de la requête ne correspondent pas comme requis. | Ce cas est inattendu et peut entraîner un payload malformé. Ouvrez un ticket d'assistance pour obtenir de l'aide. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
 
 ## Foire aux questions (FAQ) {#faq}
 

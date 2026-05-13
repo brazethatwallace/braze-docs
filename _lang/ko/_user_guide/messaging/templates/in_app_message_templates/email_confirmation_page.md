@@ -2,7 +2,7 @@
 nav_title: 확인 페이지가 있는 이메일 가입
 article_title: 확인 페이지가 있는 이메일 가입
 alias: "/email_confirmation_page/"
-page_order: 6
+page_order: 7
 description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편집기를 사용하여 확인 페이지가 포함된 이메일 가입 양식을 만드는 방법을 설명합니다."
 ---
 

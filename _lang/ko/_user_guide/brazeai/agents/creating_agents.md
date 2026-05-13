@@ -8,7 +8,7 @@ alias: /creating-agents/
 
 # 커스텀 에이전트 생성 {#create-custom-agents}
 
-> 커스텀 에이전트를 생성하는 방법, 시작하기 전에 준비해야 할 사항, 그리고 메시징, 의사결정 및 데이터 관리 전반에 걸쳐 에이전트를 활용하는 방법을 알아봅니다. 더 일반적인 정보는 [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
+> 커스텀 에이전트를 생성하는 방법, 시작하기 전에 준비해야 할 사항, 그리고 메시징, 의사결정 및 데이터 관리 전반에 걸쳐 에이전트를 활용하는 방법을 알아봅니다. 더 일반적인 정보는 [Braze 에이전트]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
 
 ## 필수 조건 {#prerequisites}
 
@@ -16,10 +16,9 @@ alias: /creating-agents/
 
 - 워크스페이스에서 **에이전트 콘솔**에 접근할 수 있는 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions). 이 옵션이 보이지 않으면 Braze 관리자에게 확인하세요.
 - 커스텀 AI 에이전트를 생성하고 편집할 수 있는 권한.
-- Braze와 통합된 [AI 모델 제공업체]({{site.baseurl}}/partners/ai_model_providers/).
 - 에이전트가 달성하기를 원하는 목표에 대한 아이디어. Braze 에이전트는 다음과 같은 동작을 지원할 수 있습니다:
-   - **메시징:** 제목란, 헤드라인, 제품 내 카피 또는 기타 콘텐츠를 생성합니다.
-   - **의사결정:** 동작, 선호도 또는 커스텀 속성에 따라 Canvas에서 사용자를 라우팅합니다.
+   - **개인화된 메시징:** 제목란, 헤드라인, 제품 내 카피 또는 기타 콘텐츠를 생성합니다.
+   - **사용자 라우팅:** 동작, 선호도 또는 커스텀 속성에 따라 Canvas에서 사용자를 라우팅합니다.
    - **데이터 관리:** 값을 계산하고, 카탈로그 항목을 보강하거나, 프로필 필드를 새로고침합니다.
 
 ## 작동 방식 {#how-it-works}
@@ -31,9 +30,9 @@ alias: /creating-agents/
 | 활용 사례 | 설명 |
 | --- | --- |
 | 고객 피드백 처리 | 사용자 피드백을 에이전트에 전달하여 감정을 분석하고 공감하는 후속 메시지를 생성합니다. 고가치 사용자의 경우 에이전트가 응답을 에스컬레이션하거나 특전을 포함할 수 있습니다. |
-| 콘텐츠 현지화 | 글로벌 Campaigns을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaigns을 위해 설명을 줄일 수 있습니다. |
+| 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나 SMS Campaign을 위해 설명을 줄일 수 있습니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적과 같은 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## 에이전트 생성 {#create-an-agent}
 
@@ -53,32 +52,29 @@ alias: /creating-agents/
 2. (선택 사항) 에이전트를 필터링하기 위해 태그를 추가합니다.
 3. 에이전트가 사용할 [모델]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models)을 선택합니다.
 4. **Braze Auto** 모델을 사용하지 않는 경우, 모델의 [사고 수준]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels)을 선택합니다. 최소, 낮음, 중간 또는 높음 중에서 선택할 수 있습니다. **최소**로 시작하여 에이전트의 응답을 테스트한 후 필요에 따라 조정하는 것을 권장합니다.
-5. 일일 실행 한도를 설정합니다. 기본값은 250,000으로 설정되어 있지만 1,000,000까지 높일 수 있습니다. 1,000,000 이상으로 한도를 늘리려면 고객 성공 매니저에게 문의하여 자세히 알아보세요.
+5. 일일 호출 한도를 설정합니다. 기본값은 250,000으로 설정되어 있지만 1,000,000까지 높일 수 있습니다. 1,000,000 이상으로 한도를 늘리려면 고객 성공 매니저에게 문의하여 자세히 알아보세요.
 
-![Braze에서 커스텀 에이전트를 생성하기 위한 에이전트 콘솔 인터페이스. 화면에는 에이전트 이름과 설명을 입력하고, 모델을 선택하고, 일일 실행 한도를 설정하는 필드가 표시됩니다.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Braze에서 커스텀 에이전트를 생성하기 위한 에이전트 콘솔 인터페이스. 화면에는 에이전트 이름과 설명을 입력하고, 모델을 선택하고, 일일 호출 한도를 설정하는 필드가 표시됩니다.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### 3단계: 지침 작성 {#agent-instructions}
 
 에이전트에게 지침을 제공합니다. 예기치 않거나 모호한 시나리오에서 에이전트가 수행해야 할 작업에 대한 지침을 포함하는 것이 좋습니다. 이렇게 하면 에이전트의 혼란으로 인한 오류 위험을 최소화할 수 있습니다. 예를 들어, 에이전트에게 "긍정적" 또는 "부정적" 감정 값만 요청하는 대신, 결정할 수 없는 경우 "확신 없음"을 반환하도록 요청하세요.
 
-모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)를 참조하세요.
+모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference/#examples)를 참조하세요.
 
 {% alert tip %}
 Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스텀 속성)을 참조하기 위해 지침에서 Liquid를 사용할 수 있습니다. 에이전트 지침의 모든 Liquid 변수는 사용자가 해당 단계에 진입할 때 자동으로 에이전트 단계로 전달됩니다.
 {% endalert %}
 
-#### 3.1단계: 리소스 추가 {#add-resources}
+#### 컨텍스트 추가 {#add-resources}
 
-에이전트가 참조할 수 있는 항목을 선택하려면 **리소스 추가**를 선택합니다. 여기에는 다음이 포함됩니다:
+에이전트가 참조할 수 있는 항목을 선택하려면 **+ 에이전트 컨텍스트**를 선택합니다. 여기에는 다음이 포함됩니다:
 
 - [카탈로그 필드]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): 보다 정확한 응답을 위해 에이전트에게 카탈로그 데이터에 대한 액세스를 제공합니다.
 - [Segment 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): 에이전트가 사용자가 속한 Segments에 따라 응답을 개인화할 수 있도록 합니다. 최대 5개의 Segments를 선택할 수 있습니다.
 - [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): 에이전트가 따를 브랜드 보이스와 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 체육관 회원 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
 - [모든 Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): 이 에이전트가 호출될 때 **지침** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 Canvas 컨텍스트 데이터를 분석합니다.
-
-#### 3.2단계: 선택적 설정 추가 {#step-32-add-optional-settings}
-
-**선택적 설정**에서 에이전트가 생성하는 카피의 [온도]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature)를 조정할 수 있습니다. 온도가 높을수록 에이전트가 제공된 정보를 바탕으로 더 창의적인 결과를 생성할 수 있습니다.
+- [사용자 상호작용 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): 각 사용자의 최근 Campaign 및 Canvas 열기, 클릭, 전환 데이터를 에이전트에 제공합니다.
 
 ### 4단계: 출력 선택 {#select-output}
 
@@ -99,7 +95,7 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 3. **응답 시뮬레이션**을 선택합니다. 에이전트가 구성에 따라 실행되고 응답을 표시합니다.
 
 {% alert note %}
-테스트 실행은 일일 실행 한도에 포함됩니다.
+테스트 실행은 일일 호출 한도에 포함됩니다.
 {% endalert %}
 
 ![커스텀 에이전트를 테스트하기 위한 미리보기 창을 보여주는 에이전트 콘솔. 인터페이스에는 예시 고객 데이터가 포함된 샘플 입력 필드, 테스트 실행 버튼, 에이전트 출력이 나타나는 응답 영역이 표시됩니다.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

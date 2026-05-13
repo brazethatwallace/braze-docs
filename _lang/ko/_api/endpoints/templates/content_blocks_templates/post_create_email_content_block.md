@@ -51,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `content` | 필수 | 문자열 | 콘텐츠 블록 내의 HTML 또는 텍스트 콘텐츠입니다. |
 | `state` | 선택 사항 | 문자열 | `active` 또는 `draft`를 선택합니다. 지정하지 않으면 기본값은 `active`입니다. |
 | `tags` | 선택 사항 | 문자열 배열 | [태그]({{site.baseurl}}/user_guide/messaging/governance/tags/)가 이미 존재해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 ```bash
@@ -100,7 +100,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 | `Tags must be an array` | 태그는 문자열 배열 형식이어야 합니다(예: `["marketing", "promotional", "transactional"]`). | |
 | `All tags must be strings` | 태그가 따옴표(`""`)로 묶여 있는지 확인하세요. |
 | `Some tags could not be found` | 콘텐츠 블록을 생성할 때 태그를 추가하려면 해당 태그가 Braze에 이미 존재해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

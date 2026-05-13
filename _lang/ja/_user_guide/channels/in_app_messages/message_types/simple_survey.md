@@ -145,7 +145,7 @@ Campaign指標の内訳については、[アプリ内メッセージレポー�
 | 🙂 どちらでもない | `customer_satisfaction` | 3     |
 | 😊 満足 | `customer_satisfaction` | 4     |
 | 😍 非常に満足 | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User satisfaction" }
 
 ユーザーがアンケートを送信すると、選択した値がカスタム属性として記録されます。その後、オーディエンスフィルターを使用してフォローアップCampaignsを作成できます。たとえば、`customer_satisfaction`属性が「1」または「2」のユーザーにウィンバックメッセージをターゲティングできます。
 
@@ -165,7 +165,7 @@ Campaign指標の内訳については、[アプリ内メッセージレポー�
 | イベント招待 | `wants_event_invites`  | `true` |
 | アンケートとフィードバック | `wants_surveys`        | `true` |
 | ヒントとチュートリアル | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification preferences" }
 
 {% endtab %}
 {% tab 顧客の目標を特定する %}
@@ -183,7 +183,7 @@ Campaign指標の内訳については、[アプリ内メッセージレポー�
 | 予約のスケジュール | `product_goal`   | `schedule`|
 | カスタマーサポート | `product_goal`   | `support` |
 | 閲覧のみ | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identify customer goals" }
 
 ユーザーがアンケートを送信すると、選択した値がプロファイルにカスタム属性として記録されます。このデータを使用して、将来のエクスペリエンスをパーソナライズしたり、主な目標に基づいてユーザーをセグメント化したりできます。
 
@@ -203,7 +203,7 @@ Campaign指標の内訳については、[アプリ内メッセージレポー�
 | 使いにくい | `upgrade_reason` | `difficult` |
 | 競合他社を使用中 | `upgrade_reason` | `competitor`|
 | その他の理由 | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Improve conversion rates" }
 
 ユーザーがアンケートを送信すると、選択した値がプロファイルに保存されます。その後、割引オファーやユーザビリティの改善など、特定の反対理由に合わせたCampaignsでこれらのユーザーをターゲティングできます。
 
@@ -225,7 +225,7 @@ Campaign指標の内訳については、[アプリ内メッセージレポー�
 | カスタマイズ | `favorite_features`| `custom`     |
 | 価格／価値 | `favorite_features`| `value`      |
 | コミュニティ | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Favorite features" }
 
 このアンケートは複数選択を使用しているため、ユーザーのプロファイルは選択されたすべての機能値のリストで更新されます。
 

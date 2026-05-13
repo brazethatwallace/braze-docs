@@ -5,8 +5,7 @@ page_order: 2
 page_type: reference
 description: "Este artigo de referência aborda os conceitos de ativação de push e estados de inscrição de push na Braze, incluindo as diferenças fundamentais de comportamento entre iOS, Android e web."
 channel:
-  - push
-
+  - Push
 ---
 
 # Ativação de push e inscrição de push {#push-enablement-and-push-subscription}
@@ -27,7 +26,7 @@ A tabela a seguir mostra como diferentes ações do usuário afetam a ativação
 | O usuário ativa push nas configurações do dispositivo e registra uma sessão | `true` | `true` | Primeiro plano | `Opted-In`** |
 | O usuário desativa push nas configurações do dispositivo e registra uma sessão | `false` | `false` | Segundo plano | Não atualizado |
 | O usuário exclui o app | Não atualizado | Atualizado quando o token de push é retirado | Atualizado quando o token de push é retirado | Não atualizado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
 
 <sup>* Se o app não usar push provisório, `Foreground Push Enabled` será `false` até que o usuário permita notificações por push. Se o app usar push provisório, `Foreground Push Enabled` será `true` no início da primeira sessão. Para saber mais, consulte [Autorização provisória e push silencioso](#provisional-push).</sup>
 
@@ -46,7 +45,7 @@ Como a decisão do usuário é final e você não pode perguntar novamente após
 |iOS| ![Um prompt nativo de push do iOS perguntando "My App would like to send you notifications" com dois botões, "Don't Allow" e "Allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Isso não se aplica ao solicitar permissão de [push provisório](#provisional-push).|
 |Android| ![Uma mensagem de push do Android perguntando "Allow Kitchenerie to send you notifications?" com dois botões, "Allow" e "Don't allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Essa permissão de push foi introduzida no Android 13. Antes do Android 13, a permissão não era necessária para enviar push.|
 |Web| ![Um prompt nativo de push do navegador web perguntando "Braze.com wants to show notification" com dois botões, "Block" e "Allow" na parte inferior da mensagem.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
 
 ### Android
 
@@ -68,7 +67,7 @@ Antes do iOS 12 (lançado em 2018), todos os usuários precisavam fazer opt-in e
 
 No iOS 12, a Apple introduziu a [autorização provisória](https://www.braze.com/resources/articles/mastering-provisional-push), permitindo que marcas enviem notificações por push silenciosas para a central de notificações dos usuários antes que eles façam opt-in explícito, dando a você a chance de demonstrar o valor das suas mensagens antecipadamente. Consulte [autorização provisória]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para saber mais.
 
-### Web
+### Web {#web}
 
 Para Web, você deve solicitar opt-in explícito do usuário por meio do diálogo nativo de permissão do navegador.
 
@@ -99,7 +98,7 @@ Por exemplo, digamos que você tem dois usuários: Charlie e Kim. Se Charlie ati
 
 Um app ou site pode ter apenas uma inscrição de push por dispositivo. Então, quando um usuário sai de um dispositivo ou site e um novo usuário faz login, o token de push é reatribuído ao novo usuário. Isso é refletido no perfil do usuário, na seção **Configurações de contato** da guia **Engajamento**:
 
-![Changelog do token de push na guia **Engajamento** do perfil de um usuário, que lista quando o token de push foi movido para outro usuário e qual era o token.]({% image_buster /assets/img/push_token_changelog.png %})
+![Changelog do token de push na guia Engajamento do perfil de um usuário, que lista quando o token de push foi movido para outro usuário e qual era o token.]({% image_buster /assets/img/push_token_changelog.png %})
 
 Como não há uma forma de os provedores de push (APNs/FCM) distinguirem entre múltiplos usuários em um dispositivo, passamos o token de push para o último usuário que fez login para determinar qual usuário direcionar no dispositivo para push.
 

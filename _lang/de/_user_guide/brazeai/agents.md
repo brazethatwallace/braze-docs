@@ -15,7 +15,7 @@ Für den Zugriff auf und die Nutzung von Braze Agents sind Nachrichtenguthaben e
 
 Sehen Sie sich dieses Video an, um einen Überblick über Braze Agents in der Agentenkonsole zu erhalten.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Warum sollten Sie Braze Agents einsetzen? {#why-use-braze-agents}
 
@@ -25,15 +25,15 @@ In der Praxis können Agenten automatisch Nachrichtentexte erstellen – wie Bet
 
 Über das Messaging hinaus können Agenten Ihre Kataloge bereichern, indem sie Produkt- und Profilfeldwerte berechnen oder generieren und so Ihre Daten aktuell und dynamisch halten. Durch die Übernahme repetitiver oder komplexer Aufgaben ermöglichen sie Ihrem Team, sich auf Strategie und Kreativität zu konzentrieren, anstatt sich mit manuellem Setup zu befassen. Braze Agents agieren eher als Kooperationspartner denn als Hintergrundprozesse – sie unterstützen Sie bei der Lösung von Problemen und erzielen Wirkung in großem Maßstab.
 
-### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden? {#when-to-use-braze-agents-versus-other-brazeai-features}
+### Wann sollten Braze Agents im Vergleich zu anderen BrazeAI-Features eingesetzt werden {#when-to-use-braze-agents-versus-other-brazeai-features}
 
 Verwenden Sie Agenten, um Inhalte anhand des spezifischen Kontexts einer Nutzer:in in Echtzeit zu personalisieren. Wenn ein Agent beispielsweise weiß, dass die bevorzugte Eissorte einer bestimmten Nutzer:in Schokolade ist und das bevorzugte Topping Gummibärchen sind, kann er eine Push-Nachricht erstellen, die speziell auf diese Kombination für diese Nutzer:in zugeschnitten ist, während sie den Canvas durchläuft.
 
-Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung von einem übergeordneten Marketingziel, das er messen und maximieren möchte. Selbst wenn Sie ihn anweisen, generell Texte zu verfassen, die Conversions fördern, verfügt er über keinen Mechanismus, um die Conversion-Auswirkungen seines agentenbasierten Schreibens zu „überwachen“ und diese Daten in zukünftige agentenbasierte Aufrufe zu integrieren. Man kann sich dies als „Stimmungs“-Entscheidung vorstellen, nicht als belohnungsbasierte KI-Entscheidungsfindung.
+Der Agent lernt jedoch nicht durch Versuch und Irrtum und hat keine Vorstellung von einem übergeordneten Marketingziel, das er messen und maximieren möchte. Selbst wenn Sie ihn anweisen, generell Texte zu verfassen, die Conversions fördern, verfügt er über keinen Mechanismus, um die Conversion-Auswirkungen seines agentenbasierten Schreibens zu „überwachen“ und diese Daten in zukünftige agentenbasierte Aufrufe zu integrieren. Man kann sich dies als „Stimmungs“-Entscheidungsfindung vorstellen, nicht als belohnungsbasierte KI-Entscheidungsfindung.
 
 Im Gegensatz dazu sind andere BrazeAI-Tools darauf ausgelegt, die von ihnen gemessenen Metriken zu maximieren. Beispielsweise sind Agenten sehr gut darin, qualitativ zu beurteilen, inwiefern die Eigenschaften einer Nutzer:in deren Wahrscheinlichkeit oder Neigung beeinflussen, eine bestimmte Handlung auszuführen oder ein bestimmtes Produkt zu mögen. Da der Agent jedoch nicht durch Versuch und Irrtum lernt, hat er keine Vorstellung davon, wie er seine Genauigkeit bei der Vorhersage von Wahrscheinlichkeiten messen und das Signal im Laufe der Zeit verbessern kann. Daher übertrifft die Predictive Suite den Agent-Schritt, wenn man die Genauigkeit der Prognosen und die Verbesserungen im Laufe der Zeit betrachtet.
 
-## Features
+## Features {#features}
 
 Zu den Features von Braze Agents gehören:
 
@@ -57,15 +57,14 @@ Agenten werden mit Anweisungen (System-Prompts) konfiguriert, die ihr Verhalten 
 | [Ausgabevariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Die Ausgabe, die der Agent erzeugt, wenn er in Canvas-Schritten verwendet wird. Ausgabevariablen speichern das Ergebnis des Agenten, um Inhalte zu personalisieren oder Workflow-Pfade zu steuern. Ausgabevariablen können vom Datentyp String, Zahl oder Boolescher Wert sein. |
 | [Ausführung](#limitations) | Ein einzelner Durchlauf des Agenten. Dies wird auf Ihre täglichen Limits angerechnet. |
 | [Ausgabeformat]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | Die vordefinierte Datenstruktur der Antwort des Agenten. |
-| [Temperatur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | Der Grad der Abweichung für die Ausgabe des Agenten. Dies bestimmt, wie präzise oder kreativ Ihr Agent sein kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ## Einschränkungen {#limitations}
 
 Es gelten die folgenden Einschränkungen:
 
 - Jeder Agent verfügt über ein standardmäßiges tägliches Ausführungslimit von 250.000 Durchläufen, das auf maximal 1.000.000 Durchläufe pro Tag erhöht werden kann. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie dieses Limit erhöhen möchten.
-- Standardmäßig muss jeder Durchlauf innerhalb von 15 Sekunden abgeschlossen sein. Nach 15 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
+- Standardmäßig muss jeder Durchlauf innerhalb von 20 Sekunden abgeschlossen sein. Nach 20 Sekunden gibt der Agent eine `null`-Antwort zurück, wo immer er verwendet wird.
     - Sollten Ihre Agenten regelmäßig eine Zeitüberschreitung haben, wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 - Die Eingabedaten sind auf 25 KB pro Anfrage begrenzt. Längere Eingaben werden gekürzt.
 

@@ -12,15 +12,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Integration von Inhaltskarten
+# Content-Card-Integration {#content-card-integration}
 
-## Content-Cards-Datenmodell
+## Content-Cards-Datenmodell {#content-cards-data-model}
 
 Das Content-Cards-Datenmodell ist im iOS SDK verfügbar.
 
-### Abrufen der Daten
+### Abrufen der Daten {#getting-the-data}
 
-Um auf das Content-Cards-Datenmodell zuzugreifen, abonnieren Sie die Update-Events für Content-Cards:
+Um auf das Content-Cards-Datenmodell zuzugreifen, abonnieren Sie die Update-Events für Content Cards:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -65,76 +65,76 @@ NotificationCenter.default.addObserver(self, selector:
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie die Kartendaten ändern möchten, nachdem sie von Braze gesendet wurden, empfehlen wir Ihnen, eine Tiefenkopie der Kartendaten lokal zu speichern, die Daten zu aktualisieren und sie selbst anzuzeigen. Die Karten sind zugänglich über [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html).
+Wenn Sie die Kartendaten ändern möchten, nachdem sie von Braze gesendet wurden, empfehlen wir Ihnen, eine Tiefenkopie der Kartendaten lokal zu speichern, die Daten zu aktualisieren und sie selbst anzuzeigen. Die Karten sind über [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html) zugänglich.
 
-## Content-Card-Modell
+## Content-Card-Modell {#content-card-model}
 
 Braze bietet drei Content-Card-Typen: Banner, Bild mit Bildunterschrift und klassisch. Jeder Typ erbt gemeinsame Eigenschaften von einer Basisklasse `ABKContentCard` und hat die folgenden zusätzlichen Eigenschaften.
 
-### Eigenschaften des Basis-Content-Card-Modells - ABKContentCard
+### Eigenschaften des Basis-Content-Card-Modells – ABKContentCard {#base-content-card-model-properties-abkcontentcard}
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
-|`idString` | (Nur Lesen) Die von Braze festgelegte ID der Karte. |
-| `viewed` | Diese Eigenschaft zeigt an, ob der Benutzer die Karte angesehen hat oder nicht.|
+| `idString` | (Nur Lesen) Die von Braze festgelegte ID der Karte. |
+| `viewed` | Diese Eigenschaft zeigt an, ob die Nutzer:in die Karte angesehen hat oder nicht. |
 | `created` | (Nur Lesen) Diese Eigenschaft ist der Unix-Zeitstempel der Erstellungszeit der Karte von Braze. |
-| `expiresAt` | (Nur Lesen) Diese Eigenschaft ist der Unix-Zeitstempel der Ablaufzeit der Karte.|
-| `dismissible` | Diese Eigenschaft gibt an, ob der Nutzer:in die Karte einsteigen kann.|
-| `pinned` | Diese Eigenschaft zeigt an, ob die Karte im Dashboard als "angeheftet" eingerichtet wurde.|
-| `dismissed` | Diese Eigenschaft gibt an, ob der Nutzer:innen die Karte entsorgt hat.|
-| `url` | Die URL, die geöffnet wird, nachdem Sie auf die Karte geklickt haben. Dabei kann es sich um eine HTTP(S)-URL oder eine Protokoll-URL handeln.|
-| `openURLInWebView` | Diese Eigenschaft bestimmt, ob die URL innerhalb der App oder in einem externen Webbrowser geöffnet wird.|
-| `extras`| Eine optionale `NSDictionary` von `NSString` Werten.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `expiresAt` | (Nur Lesen) Diese Eigenschaft ist der Unix-Zeitstempel der Ablaufzeit der Karte. |
+| `dismissible` | Diese Eigenschaft gibt an, ob die Nutzer:in die Karte ausblenden kann. |
+| `pinned` | Diese Eigenschaft zeigt an, ob die Karte im Dashboard als „angeheftet“ eingerichtet wurde. |
+| `dismissed` | Diese Eigenschaft gibt an, ob die Nutzer:in die Karte ausgeblendet hat. |
+| `url` | Die URL, die geöffnet wird, nachdem auf die Karte geklickt wurde. Dabei kann es sich um eine HTTP(S)-URL oder eine Protokoll-URL handeln. |
+| `openURLInWebView` | Diese Eigenschaft bestimmt, ob die URL innerhalb der App oder in einem externen Webbrowser geöffnet wird. |
+| `extras` | Ein optionales `NSDictionary` von `NSString`-Werten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
-### Banner-Content-Card Eigenschaften - ABKBannerContentCard
+### Banner-Content-Card-Eigenschaften – ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
-| `image` | Diese Eigenschaft ist die URL des Bildes der Karte.|
+| `image` | Diese Eigenschaft ist die URL des Bildes der Karte. |
 | `imageAspectRatio` | Diese Eigenschaft ist das Seitenverhältnis des Kartenbildes und dient als Hinweis, bevor das Laden des Bildes abgeschlossen ist. Beachten Sie, dass die Eigenschaft unter bestimmten Umständen nicht übermittelt werden kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
 
-### Eigenschaften von Content-Cards mit Bildunterschriften - ABKCaptionedImageCard
+### Eigenschaften von Content Cards mit Bildunterschriften – ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 
-|Eigenschaft|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
-| `image` | Diese Eigenschaft ist die URL des Bildes der Karte.|
-| `imageAspectRatio` | Bei dieser Eigenschaft handelt es sich um das Seitenverhältnis des Bildes der Karte.|
-| `title` | Der Titeltext für die Karte.|
-| `cardDescription` | Der Text für die Karte.|
-| `domain` | Der Linktext für die Eigenschaft URL, z. B. @"blog.braze.com". Es kann auf der Benutzeroberfläche der Karte angezeigt werden, um die Aktion/Richtung beim Anklicken der Karte anzugeben.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-### Eigenschaften der klassischen Content-Card - ABKClassicContentCard
-
-|Eigenschaft|Beschreibung|
-|---|---|
-| `image` | (Optional) Diese Eigenschaft ist die URL des Bildes der Karte.|
+| `image` | Diese Eigenschaft ist die URL des Bildes der Karte. |
+| `imageAspectRatio` | Diese Eigenschaft ist das Seitenverhältnis des Bildes der Karte. |
 | `title` | Der Titeltext für die Karte. |
-| `cardDescription` | Der Text für die Karte. |
-| `domain` | Der Linktext für die Eigenschaft URL, z. B. @"blog.braze.com". Es kann auf der Benutzeroberfläche der Karte angezeigt werden, um die Aktion und die Richtung des Klickens auf die Karte anzuzeigen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `cardDescription` | Der Fließtext für die Karte. |
+| `domain` | Der Linktext für die Eigenschaft URL, z. B. @"blog.braze.com". Er kann auf der UI der Karte angezeigt werden, um die Aktion/Richtung beim Anklicken der Karte anzugeben. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image Content Card properties - ABKCaptionedImageCard" }
 
-## Karten-Methoden
+### Eigenschaften der klassischen Content-Card – ABKClassicContentCard {#classic-content-card-properties-abkclassiccontentcard}
 
-|Methode|Beschreibung|
+| Eigenschaft | Beschreibung |
 |---|---|
-| `logContentCardImpression` | Protokollieren Sie manuell einen Abdruck in Braze für eine bestimmte Karte. |
-| `logContentCardClicked` | Protokollieren Sie manuell einen Klick auf Braze für eine bestimmte Karte. Das SDK protokolliert einen Klick auf die Karte nur, wenn die Eigenschaft `url` einen gültigen Wert hat. |
-| `logContentCardDismissed` | Protokollieren Sie manuell eine Kündigung in Braze für eine bestimmte Karte. Das SDK protokolliert eine Karten-Ausblendung nur, wenn die Eigenschaft `dismissed` der Karte nicht bereits auf `true` gesetzt ist. |
+| `image` | (Optional) Diese Eigenschaft ist die URL des Bildes der Karte. |
+| `title` | Der Titeltext für die Karte. |
+| `cardDescription` | Der Fließtext für die Karte. |
+| `domain` | Der Linktext für die Eigenschaft URL, z. B. @"blog.braze.com". Er kann auf der UI der Karte angezeigt werden, um die Aktion und Richtung beim Anklicken der Karte anzugeben. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic Content Card properties - ABKClassicContentCard" }
+
+## Karten-Methoden {#card-methods}
+
+| Methode | Beschreibung |
+|---|---|
+| `logContentCardImpression` | Protokollieren Sie manuell eine Impression in Braze für eine bestimmte Karte. |
+| `logContentCardClicked` | Protokollieren Sie manuell einen Klick in Braze für eine bestimmte Karte. Das SDK protokolliert einen Klick auf die Karte nur, wenn die Eigenschaft `url` einen gültigen Wert hat. |
+| `logContentCardDismissed` | Protokollieren Sie manuell eine Karten-Ausblendung in Braze für eine bestimmte Karte. Das SDK protokolliert eine Karten-Ausblendung nur, wenn die Eigenschaft `dismissed` der Karte nicht bereits auf `true` gesetzt ist. |
 | `isControlCard` | Bestimmen Sie, ob eine Karte die Kontrollkarte für einen A/B-Test ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 
-Weitere Einzelheiten finden Sie in der [Dokumentation der Klassenreferenzierung](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_card.html).
+Weitere Einzelheiten finden Sie in der [Dokumentation der Klassenreferenz](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_card.html).
 
-## Integration von View-Controllern und Content-Cards
+## Integration des Content-Cards-View-Controllers {#content-cards-view-controller-integration}
 
-Content-Cards können in zwei View-Controller-Kontexte integriert werden: Navigation oder Modal.
+Content Cards können in zwei View-Controller-Kontexte integriert werden: Navigation oder Modal.
 
-### Kontext "Navigation"
+### Navigationskontext {#navigation-context}
 
-Beispiel für das Pushing einer Instanz von `ABKContentCardsTableViewController` in einen Navigation-Controller:
+Beispiel für das Pushing einer `ABKContentCardsTableViewController`-Instanz in einen Navigation-Controller:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -160,12 +160,12 @@ navigationController?.pushViewController(contentCards, animated: true)
 {% endtabs %}
 
 {% alert note %}
-Um den Titel der Navigationsleiste anzupassen, legen Sie die Eigenschaft title der Instanz `ABKContentCardsTableViewController` `navigationItem` fest.
+Um den Titel der Navigationsleiste anzupassen, legen Sie die Eigenschaft title des `navigationItem` der `ABKContentCardsTableViewController`-Instanz fest.
 {% endalert %}
 
-### Modaler Kontext
+### Modaler Kontext {#modal-context}
 
-Dieses Modal wird verwendet, um den View Controller in einer modalen Ansicht zu präsentieren, mit einer Navigationsleiste oben und einem **Done** Button an der Seite der Leiste.
+Dieses Modal wird verwendet, um den View-Controller in einer modalen Ansicht zu präsentieren, mit einer Navigationsleiste oben und einem **Done**-Button an der Seite der Leiste.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -190,8 +190,8 @@ self.present(contentCards, animated: true, completion: nil)
 {% endtab %}
 {% endtabs %}
 
-Beispiele für View-Controller finden Sie in unserer [Beispiel-App Content-Cards](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp).
+Beispiele für View-Controller finden Sie in unserer [Content-Cards-Beispiel-App](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp).
 
 {% alert note %}
-Um die Kopfzeile anzupassen, stellen Sie die Eigenschaft title der Instanz `navigationItem` ein, die zu der Instanz `ABKContentCardsTableViewController` gehört, die wiederum in der übergeordneten Instanz `ABKContentCardsViewController` eingebettet ist.
+Um die Kopfzeile anzupassen, legen Sie die Eigenschaft title des `navigationItem` fest, das zur `ABKContentCardsTableViewController`-Instanz gehört, die in der übergeordneten `ABKContentCardsViewController`-Instanz eingebettet ist.
 {% endalert %}

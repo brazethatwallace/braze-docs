@@ -13,7 +13,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 |Developers|“Access Dev Console”|
 |Marketers|“Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library, and Preference Centers” <br> “Manage Media Library Assets”|
 |User Management|“Manage Dashboard Users” <br> “Manage Teams”|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
 {% endtab %}
 {% endtabs %}
 
@@ -28,7 +28,7 @@ Roles allow for more structure by bundling together your individual custom permi
 | Marketer - Fashion Brands | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | “Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library, and Preference Center"<br>“Manage Media Library Assets” |
 | Marketer - Skincare Brands | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | “Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library, and Preference Centers” <br>“Manage Media Library Assets” |
 | User Management - All Brands | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | “Manage Dashboard Users”<br>“Manage Teams” |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
 {% endtab %}
 {% endtabs %}
 
@@ -49,7 +49,7 @@ Limited users have specific permissions that allow them to manage certain aspect
 | Permissions | Limited users can edit the permissions of other limited users if they have the "Manage Dashboard Users" permission checked. They can also create new limited users and modify their permission sets. However, they can't create or manage company admin accounts. |
 | Role limitations | If a limited user has all permissions except "App Group Admin", they will still have access to all other permissions typically granted to an workspace admin. |
 | Visibility of permissions | If a limited user has "Manage Dashboard Users" checked for one app group (such as Dev) but not for another (such as Prod), they won't see the Prod app group permissions in their "Manage Users" profile. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
 
 ### Comparing limited users
 
@@ -58,7 +58,7 @@ Limited users have specific permissions that allow them to manage certain aspect
 | App group admin | App Group Admins have permissions specific to managing app groups but do not have the same authority as Company Admins. Limited Users can inherit permissions similar to those of App Group Admins if they have the necessary permissions checked. |
 | Company admin | Company Admins have broader permissions, including the ability to delete dashboard users. However, they cannot delete their own accounts and must contact another Company Admin for that action. |
 | Basic read-only permission | To access certain parts of the dashboard, such as the Technology Partners page, users must have a basic read-only permission. This includes having "Manage External Integrations" enabled, along with permissions for Access Campaigns, Canvases, Cards, Segments, and Media Library. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
 
 ### Limited access error
 
@@ -104,7 +104,7 @@ To manage the following company-level permissions for a user, check or uncheck t
 |----------|-----------|
 |Manage company settings|Allows users to modify any company setting.|
 |Create and delete workspaces|Allows users to create and delete workspaces.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
 
 {% endtab %}
 {% tab Workspace %}
@@ -197,4 +197,4 @@ To download a list of your users and their permissions, go to **Settings** > **C
 |Workspace|Create Custom AI Agents|Allows users to create custom AI agents. This feature is currently in beta.|
 |Workspace|Edit Custom AI Agents|Allows users to edit custom AI agents. This feature is currently in beta.|
 |Workspace|Support Tickets | Create Support Ticket | Create and update Support tickets. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="List of permissions" }

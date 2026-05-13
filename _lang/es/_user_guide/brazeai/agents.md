@@ -15,7 +15,7 @@ Se necesitan créditos de mensajes para acceder y utilizar los agentes de Braze.
 
 Mira este video para obtener un resumen de los agentes de Braze en la Consola de Agente.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## ¿Por qué utilizar los agentes de Braze? {#why-use-braze-agents}
 
@@ -55,17 +55,16 @@ Los agentes se configuran con instrucciones (indicaciones del sistema) que defin
 | Contexto | Datos que se transmiten al agente en tiempo de ejecución, independientemente de dónde se implemente, como campos del perfil de usuario o filas del catálogo. Esta entrada proporciona la información que el agente utiliza para generar resultados. |
 | [Variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | Datos temporales que puedes crear y utilizar dentro del recorrido de un usuario a través de un Canvas específico. |
 | [Variable de salida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | El resultado que produce el agente cuando se utiliza en los pasos en Canvas. Las variables de salida almacenan el resultado del agente para personalizar contenido o guiar las rutas del flujo de trabajo. Las variables de salida pueden ser de tipo cadena, número o booleano. |
-| [Ejecución](#limitations) | Una sola ejecución del agente. Esto cuenta para tus límites diarios. |
+| [Invocación](#limitations) | Una sola ejecución del agente. Esto cuenta para tus límites diarios. |
 | [Formato de salida]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | La estructura de datos predefinida de la respuesta del agente. |
-| [Temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | El nivel de desviación del resultado del agente. Esto define el grado de precisión o creatividad que puede alcanzar tu agente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceptos clave" }
 
 ## Limitaciones {#limitations}
 
 Se aplican las siguientes limitaciones:
 
-- Cada agente tiene un límite de ejecución diario predeterminado de 250 000 ejecuciones, que se puede aumentar hasta un máximo de 1 000 000 de ejecuciones por día. Ponte en contacto con tu administrador del éxito del cliente si te interesa aumentar este límite.
-- De forma predeterminada, cada ejecución debe completarse en un plazo de 15 segundos. Después de 15 segundos, el agente devuelve una respuesta `null` donde se utiliza.
+- Cada agente tiene un límite de invocación diario predeterminado de 250 000 ejecuciones, que se puede aumentar hasta un máximo de 1 000 000 de ejecuciones por día. Ponte en contacto con tu administrador del éxito del cliente si te interesa aumentar este límite.
+- De forma predeterminada, cada ejecución debe completarse en un plazo de 20 segundos. Después de 20 segundos, el agente devuelve una respuesta `null` donde se utiliza.
     - Si tus agentes agotan constantemente el tiempo de espera, ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 - Los datos de entrada están limitados a 25 KB por solicitud. Las entradas más largas se truncan.
 

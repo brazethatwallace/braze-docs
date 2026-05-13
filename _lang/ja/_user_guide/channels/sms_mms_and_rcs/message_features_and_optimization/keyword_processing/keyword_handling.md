@@ -45,7 +45,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 | キーワード | キーワード応答 |
 | -------- | ----------------- |
 | - 有効なUTF-8エンコード文字<br>- カテゴリごとに最大20キーワード<br>- 最大34文字<br>- 最小1文字<br>- スペースを含めることはできない<br>- サブスクリプショングループ全体で大文字小文字を区別せず一意である必要がある | - 空白にはできない<br>- 最大300文字<br>- 有効なUTF-8文字 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キーワードトリガーの追加" }
 
 {% alert tip %}
 これらのキーワードをCampaignsやCanvasesでリターゲティングやメッセージのトリガーにどのように使用できるか知りたい場合は、[ユーザーリターゲティング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)をご覧ください。
@@ -68,7 +68,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 | キーワード | キーワード応答 |
 | -------- | ----------------- |
 | - 有効なUTF-8エンコード文字<br>- カテゴリごとに最大20キーワード<br>- 最大34文字<br>- 最小1文字<br>- スペースを含めることはできない<br>- サブスクリプショングループ全体で大文字小文字を区別せず一意である必要がある | - 空白にはできない<br>- 最大300文字<br>- 有効なUTF-8文字 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="考慮事項" }
 
 {% endtab %}
 {% endtabs %}
@@ -122,7 +122,7 @@ Brazeは、オプトアウトキーワードの完全なセット（[デフォ�
 
 #### Canvas
 
-![アクションベースのCanvasステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
+![アクションベースのキャンバスステップ。トリガーはサブスクリプショングループ「Messaging Service」のキーワードカテゴリ「Other」への受信SMSの送信で、メッセージ本文が正規表現「キャレット記号skip」にマッチします。]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
 #### Campaign
 

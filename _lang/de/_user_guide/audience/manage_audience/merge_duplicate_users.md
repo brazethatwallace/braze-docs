@@ -43,7 +43,7 @@ Doppelte Nutzerprofile können nach dem Zusammenführen nicht wiederhergestellt 
 
 ## Massen-Zusammenführung {#bulk-merging}
 
-Wenn Sie doppelte Nutzer:innen in einer Massen-Zusammenführung verarbeiten, findet Braze Profile mit übereinstimmenden Bezeichnern (z. B. einer E-Mail-Adresse) und führt alle Daten in das zuletzt aktualisierte Profil mit einer `external_id` zusammen. Wenn es keine Profile mit einer `external_id` gibt, wird stattdessen das zuletzt aktualisierte Profil ohne `external_id` verwendet.
+Wenn Sie doppelte Nutzer:innen in einer Massen-Zusammenführung verarbeiten, findet Braze Profile mit übereinstimmenden Bezeichnern (z. B. einer E-Mail-Adresse) und behält ein Profil bei. Braze priorisiert zunächst Profile mit einer `external_id` und wendet dann Ihre Einstellungen unter **Resolving ties** an: **Resolve ties using** und **Prioritization**. Wenn es keine Profile mit einer `external_id` gibt, verwendet Braze **Resolve ties using** und **Prioritization** für Profile ohne `external_id`. Braze führt Nutzer:innen nur zusammen, wenn diese Einstellungen ein beizubehaltendes Profil identifizieren. Wenn beispielsweise **Resolve ties using** auf **Updated date** gesetzt ist und beide Profile denselben Zeitstempel der letzten Aktualisierung haben, kann Braze den Gleichstand nicht auflösen, sodass diese Nutzer:innen nicht zusammengeführt werden.
 
 ### 1. Schritt: Zu „Manage Audience“ navigieren {#step-1-go-to-manage-audience}
 
@@ -70,7 +70,7 @@ Im folgenden Beispiel verwendet Braze die externe ID der Nutzer:innen, um doppel
 | alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email                | TRUE               | FALSE                 |
 | alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email                | FALSE              | TRUE                  |
 | alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email                | FALSE              | TRUE                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Ergebnisse in der Vorschau anzeigen (optional)" }
 {% endtab %}
 {% endtabs %}
 

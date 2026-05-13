@@ -15,11 +15,11 @@ VWOとBrazeを統合することで、VWOの実験データを活用してター
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件     | 説明 |
+| 必要条件 | 説明 |
 |-----------------|-------------|
-| VWOアカウント     | 実験データにアクセスできるVWOアカウント。 |
-| Brazeアカウント   | Webページに[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)が統合されたアクティブなBrazeアカウント。また、イベントプロパティのセグメンテーションを有効にする必要があります。リクエストするには、[考慮事項](#request-event-property-segmentation)を参照してください。 |
-{: .reset-td-br_1 .reset-td-br_2 role="presentation"}
+| VWOアカウント | 実験データにアクセスできるVWOアカウントが必要です。 |
+| Brazeアカウント | Webページに[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)が統合されたアクティブなBrazeアカウントが必要です。また、イベントプロパティのセグメンテーションを有効にする必要があります。リクエストするには、[考慮事項](#request-event-property-segmentation)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## VWOとBrazeの統合 {#integrating-vwo-with-braze}
 
@@ -69,7 +69,8 @@ VWOは、Campaign実験データを以下のフォーマットでカスタムイ
 
 イベントプロパティセグメンテーションを使用するには、事前にBrazeで有効にしておく必要があります。次のテンプレートを使用して、Brazeカスタマーサクセスマネージャーまたはサポートチームに問い合わせてください。
 
-   <table>
+   <table aria-label="Request event property segmentation">
+     <caption>Request event property segmentation</caption>
    <thead>
       <tr>
          <th>フィールド</th>
@@ -94,13 +95,13 @@ VWOは、Campaign実験データを以下のフォーマットでカスタムイ
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Request event property segmentation" }
 
 ### Brazeデータポイント {#braze-data-points}
 
 VWOからBrazeに送信されるカスタムイベント（セグメンテーションで有効になっているすべてのイベントプロパティを含む）は、Brazeインスタンスのデータポイントを記録します。
 
-### 制限事項 {#considerations}
+### 制限事項
 
 現在、この統合はテストデータのリアルタイム同期をサポートしていません。テストデータがBrazeに表示されるまで、最大15分ほど遅れる場合があります。
 

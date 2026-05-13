@@ -159,7 +159,7 @@ Im Folgenden finden Sie Methoden für verschiedene Plattformen, die zum Setzen a
 
 Alle im **Nutzerprofil** gespeicherten Daten, einschließlich angepasster Attributdaten, werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) ist.
 
-## Datentypen für angepasste Attribute {#custom-attribute-data-types}
+## Datentypen für angepasste Attribute
 
 Angepasste Attribute sind äußerst flexible Werkzeuge, die ein präzises Targeting ermöglichen.
 
@@ -184,7 +184,7 @@ Für **boolesche** Attribute stehen die folgenden Segmentierungsoptionen zur Ver
 | Prüfen, ob der boolesche Wert entweder true, false, true oder nicht gesetzt, oder false oder nicht gesetzt **ist** | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** oder **FALSE OR NOT SET** | Wenn dieser Filter `coffee_drinker` angibt, stimmt ein:e Nutzer:in unter folgenden Umständen mit diesem Filter überein: <br> {::nomarkdown}<ul><li>Wenn dieser Filter <code>true</code> ist und der/die Nutzer:in den Wert <code>coffee_drinker</code> hat</li><li>Wenn dieser Filter <code>false</code> ist und der/die Nutzer:in den Wert <code>coffee_drinker</code> nicht hat</li><li>Wenn dieser Filter <code>true or not set</code> ist und der/die Nutzer:in den Wert <code>coffee_drinker</code> oder keinen Wert hat</li><li>Wenn dieser Filter <code>false or not set</code> ist und der/die Nutzer:in <code>coffee_drinker</code> oder keinen Wert hat</li></ul>{:/} |
 | Prüfen, ob der boolesche Wert im Nutzerprofil **vorhanden** und nicht null ist | **IS NOT BLANK**  | **N/A** | Wenn dieser Filter `coffee_drinker` angibt und ein Nutzerprofil einen Wert für das Attribut `coffee_drinker` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
 | Prüfen, ob der boolesche Wert im Nutzerprofil **nicht vorhanden** oder null ist | **IS BLANK**  | **N/A** | Wenn dieser Filter `coffee_drinker` angibt und ein Nutzerprofil entweder das Attribut `coffee_drinker` nicht hat oder der Wert für `coffee_drinker` null ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab Zahlen %}
@@ -203,7 +203,7 @@ Für **Zahlen**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfü
 | Prüfen, ob das numerische Attribut **kleiner als** eine **Zahl** ist| **LESS THAN** | **NUMBER** | Wenn dieser Filter `10` angibt und ein Nutzerprofil einen Wert kleiner als `10` hat, stimmt der/die Nutzer:in mit diesem Filter überein. |
 | Prüfen, ob das numerische Attribut im Nutzerprofil **vorhanden** und nicht null ist | **IS NOT BLANK** | **N/A** | Wenn ein Nutzerprofil das angegebene numerische Attribut enthält, unabhängig vom Wert, stimmt der/die Nutzer:in mit diesem Filter überein. |
 | Prüfen, ob das numerische Attribut im Nutzerprofil **nicht vorhanden** oder null ist | **IS BLANK** | **N/A** | Wenn ein Nutzerprofil das angegebene numerische Attribut nicht enthält oder der Wert des Attributs null ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Details zu Zahlenattributen {#number-attribute-details}
 
@@ -227,7 +227,7 @@ Für **String**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfü
 | Prüfen, ob das String-Attribut **mit keinem** der eingegebenen Strings genau übereinstimmt | **IS NONE OF** |**STRING**<br>Case-sensitiv; mehrere Strings erlaubt (maximal 256) | Wenn dieser Filter `book`, `bookmark` und `reading light` angibt und ein Nutzerprofil keinen dieser Strings enthält, stimmt der/die Nutzer:in mit dem Filter überein.|
 | Prüfen, ob das String-Attribut **teilweise mit einem** der eingegebenen Strings übereinstimmt | **CONTAINS ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings erlaubt (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil `gold` in einem beliebigen String enthält, wie z. B. `gold_tier` oder `former_gold_tier`, stimmt der/die Nutzer:in mit dem Filter überein. |
 | Prüfen, ob das String-Attribut **nicht teilweise mit einem** der eingegebenen Strings übereinstimmt | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Strings erlaubt (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil `gold` in keinem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -261,7 +261,7 @@ Für **Array**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfüg
 | Prüfen, ob das Array-Attribut **keinen Wert enthält, der teilweise mit einem** der eingegebenen Werte übereinstimmt | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Case-sensitiv; mehrere Werte erlaubt (maximal 256) | Wenn dieser Filter `gold` angibt und ein Nutzerprofil-Array `gold` in keinem String enthält, stimmt der/die Nutzer:in mit diesem Filter überein. Das bedeutet, dass Nutzer:innen mit String-Werten wie `gold_tier` und `former_gold_tier` nicht mit diesem Filter übereinstimmen.|
 | Prüfen, ob das Array-Attribut **alle** eingegebenen Werte enthält | **IS ALL OF** | **STRING**<br>Case-sensitiv; mehrere Werte erlaubt (maximal 256) | Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Nutzerprofil alle diese Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein. Der/die Nutzer:in kann auch `horror` oder andere Werte haben und trotzdem mit diesem Filter übereinstimmen.|
 | Prüfen, ob das Array-Attribut **nicht alle** eingegebenen Werte enthält | **ISN'T ALL OF** | **STRING**<br>Case-sensitiv; mehrere Werte erlaubt (maximal 256)|  Wenn dieser Filter `sci-fi, fantasy, romance` angibt und ein Nutzerprofil nicht alle diese Werte hat, stimmt der/die Nutzer:in mit diesem Filter überein.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 Weitere Informationen zur Verwendung regulärer Ausdrücke (Regex) finden Sie in diesen Ressourcen:
@@ -296,7 +296,7 @@ Für **Zeit**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfügu
 | Prüfen, ob das Zeitattribut **in weniger als X Tagen** in der Zukunft liegt | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Wenn dieser Filter `7` angibt und ein Nutzerprofil ein Datum hat, das weniger als sieben Tage in der Zukunft liegt, stimmt der/die Nutzer:in mit diesem Filter überein.|
 | Prüfen, ob das Zeitattribut im Nutzerprofil **vorhanden** und nicht null ist | **IS NOT BLANK** | **N/A** | Wenn dieser Filter ein Zeitattribut angibt, das in einem Nutzerprofil vorhanden ist, stimmt der/die Nutzer:in mit diesem Filter überein.|
 | Prüfen, ob das Zeitattribut im Nutzerprofil **nicht vorhanden** oder null ist | **IS BLANK** | **N/A** | Wenn dieser Filter ein Zeitattribut angibt, das nicht in einem Nutzerprofil vorhanden ist, stimmt der/die Nutzer:in mit diesem Filter überein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### Details zu Zeitattributen {#time-attribute-details}
 
@@ -331,7 +331,7 @@ Wir haben die Liste der verfügbaren Operatoren für Attributfilter, Filter für
 | String | does not equal | is none of | Mindestens 1 Wert |
 | Array | includes value | includes any of | Mindestens 1 Wert |
 | Array | doesn't include value | includes none of | Mindestens 1 Wert |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## Datentypen für Event-Eigenschaften {#event-property-data-types}
 
@@ -401,7 +401,7 @@ Kataloge unterstützen die in der Tabelle [Definitionen](#definitions) aufgefüh
 | Zeit | Datum und Uhrzeit im [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Format oder als Unix-Zeitstempel in Sekunden. | ✅ Ja | ✅ Ja |
 | JSON-Objekt (Objekt) | Verschachteltes Objekt mit Schlüssel-Wert-Paaren. Wird in der Plattform angezeigt, kann aber nur über die API oder CDI erstellt oder aktualisiert werden. | ❌ Nein | ✅ Ja |
 | String-Array (Array) | Eine Liste von Strings. Wird in der Plattform angezeigt, kann aber nur über die API oder CDI erstellt oder aktualisiert werden. Maximal 100 Elemente. | ❌ Nein | ✅ Ja |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### Format und Beispiele {#format-and-examples}
 
@@ -413,6 +413,6 @@ Kataloge unterstützen die in der Tabelle [Definitionen](#definitions) aufgefüh
 | Zahl | Ganzzahl oder Dezimalzahl | <code>42</code> oder <code>19.99</code> |
 | Objekt | JSON-Objekt | <code>{"key": "value", "price": 10}</code> |
 | Array | String-Array | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
 Informationen zum Erstellen und Aktualisieren von Katalogen finden Sie unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).

@@ -27,7 +27,7 @@ La siguiente tabla muestra cómo las diferentes acciones del usuario afectan la 
 | El usuario habilita push desde la configuración del dispositivo y registra una sesión | `true` | `true` | Primer plano | `Opted-In`** |
 | El usuario deshabilita push desde la configuración del dispositivo y registra una sesión | `false` | `false` | Segundo plano | No actualizado |
 | El usuario elimina la aplicación | No actualizado | Actualizado cuando se retira el token push | Actualizado cuando se retira el token push | No actualizado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="iOS user actions and push status #ios-user-actions-push-status" }
 
 <sup>* Si la aplicación no utiliza push provisional, `Foreground Push Enabled` es `false` hasta que el usuario permita las notificaciones push. Si la aplicación utiliza push provisional, `Foreground Push Enabled` es `true` al inicio de la primera sesión. Para más información, consulta [Autorización provisional y push silencioso](#provisional-push).</sup>
 
@@ -41,12 +41,12 @@ Dado que la decisión del usuario es definitiva y no puedes volver a preguntar d
 
 **Avisos nativos de permiso push del sistema operativo**
 
-|Plataforma|Captura de pantalla|Descripción|
+| Plataforma | Captura de pantalla | Descripción |
 |--|--|--|
-|iOS| ![Un aviso push nativo de iOS que pregunta "Mi App desea enviarte notificaciones" con dos botones, "Don't Allow" y "Allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Esto no aplica cuando se solicita permiso de [push provisional](#provisional-push).|
-|Android| ![Un mensaje push de Android que pregunta "¿Permitir que Kitchenerie te envíe notificaciones?" con dos botones, "Allow" y "Don't allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Este permiso push se introdujo en Android 13. Antes de Android 13, no se requería permiso para enviar push.|
-|Web| ![Un aviso push nativo del navegador web que pregunta "Braze.com quiere mostrar notificaciones" con dos botones, "Block" y "Allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| iOS | ![Un aviso push nativo de iOS que pregunta "My App would like to send you notifications" con dos botones, "Don't Allow" y "Allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/ios-push-prompt.png %}){: style="max-width:410px;"} | Esto no aplica cuando se solicita permiso de [push provisional](#provisional-push). |
+| Android | ![Un mensaje push de Android que pregunta "Allow Kitchenerie to send you notifications?" con dos botones, "Allow" y "Don't allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/android-push-prompt.png %}){: style="max-width:410px;"} | Este permiso push se introdujo en Android 13. Antes de Android 13, no se requería permiso para enviar push. |
+| Web | ![Un aviso push nativo del navegador web que pregunta "Braze.com wants to show notification" con dos botones, "Block" y "Allow" en la parte inferior del mensaje.]({% image_buster /assets/img/push_implementation_guide/web-push-prompt.png %}){: style="max-width:410px;"} | |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push permission" }
 
 ### Android
 
@@ -56,7 +56,7 @@ A partir de [Android 13]({{site.baseurl}}/developer_guide/platforms/android/andr
 
 ### iOS
 
-![Una notificación en el Centro de notificaciones del sistema con un mensaje en la parte inferior que pregunta "¿Seguir recibiendo notificaciones de la aplicación Yachtr?" con dos botones debajo para "Keep" o "Turn Off"]({% image_buster /assets/img/push_implementation_guide/ios-provisional-push.png %}){: style="float:right;max-width:430px;width:40%;margin-left:15px;border:0"}
+![Una notificación en el centro de notificaciones del sistema con un mensaje en la parte inferior que pregunta "Keep receiving notifications from the Yachtr app?" con dos botones debajo para "Keep" o "Turn Off"]({% image_buster /assets/img/push_implementation_guide/ios-provisional-push.png %}){: style="float:right;max-width:430px;width:40%;margin-left:15px;border:0"}
 
 Tu aplicación puede solicitar push provisional o push autorizado.
 
@@ -68,7 +68,7 @@ Antes de iOS 12 (lanzado en 2018), todos los usuarios debían adherirse explíci
 
 En iOS 12, Apple introdujo la [autorización provisional](https://www.braze.com/resources/articles/mastering-provisional-push), que permite a las marcas enviar notificaciones push silenciosas al centro de notificaciones de sus usuarios antes de que se adhieran explícitamente, dándote la oportunidad de demostrar el valor de tus mensajes de forma temprana. Consulta [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para obtener más información.
 
-### Web
+### Web {#web}
 
 Para Web, debes solicitar la adhesión voluntaria explícita del usuario a través del diálogo de permiso nativo del navegador.
 

@@ -43,7 +43,7 @@ Adicione as Campaigns e mensagens de Canvas que você deseja compilar no seu rel
 - Selecionar manualmente Campaigns e Canvas
 - Selecionar automaticamente Campaigns e Canvas com base em regras específicas
 
-![Tela para escolher mensagens de campanha e Canvas no relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Selecionar manualmente Campaigns ou Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,13 @@ As tags devem corresponder a pelo menos uma Campaign ou Canvas para que o relat�
 
 A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canvas que você selecionou. Por exemplo, se você selecionou mensagens de e-mail, poderá visualizar apenas as estatísticas relevantes de e-mail. Se você escolheu uma combinação de e-mail e push, poderá visualizar as estatísticas desses dois canais.
 
-![Tela da etapa Add Stats com as estatísticas disponíveis para os canais selecionados]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+
+Os relatórios de engajamento agregam dados por Campaign ou Canvas, não no nível do espaço de trabalho. Para monitorar o volume total de envios ou impressões em todas as Campaigns e Canvas ativos, como envios e impressões por canal em todo o espaço de trabalho, use o [Criador de relatórios]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Envios para operadora* está descontinuado, mas continuará sendo suportado para usuários que já o utilizam.
+{% endalert %}
 
 | Canal | Estatísticas disponíveis |
 | ------| --------------|
@@ -71,11 +77,7 @@ A etapa **Add Stats** mostra as estatísticas para os tipos de Campaigns ou Canv
 | Mensagem no app | Impressões, Cliques, Cliques no primeiro botão, Cliques no segundo botão |
 | Webhook  |  Envios, Erros |
 | SMS | Envios, Envios para operadora, Entregas confirmadas, Falhas de entrega, Rejeições |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Envios para operadora* está descontinuado, mas continuará sendo suportado para usuários que já o utilizam.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### Etapa 4: Concluir a configuração do relatório {#step-4-complete-report-setup}
 
@@ -98,7 +100,15 @@ Por padrão, o intervalo de dados exibido é baseado no fuso horário da sua emp
 
 Por padrão, os dados exibidos nos relatórios de engajamento são diários (um dia). Para visualizar esses dados em intervalos diferentes, escolha um número explícito de dias ou semanas para agregar os dados do relatório. Assim, em vez de ver métricas diárias, você pode visualizar seu engajamento por semana, mês, trimestre ou similar. Caso uma agregação baseada em tempo não seja suficiente, você também pode optar por exportar dados no nível de Campaign ou Canvas.
 
-![Opções para ajustar a exibição dos dados do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### Exibir dados por Campaign ou Canvas completo {#show-data-by-entire-campaign-or-canvas}
+
+Quando você seleciona **Show Data by Entire Campaign or Canvas**, a Braze agrega as métricas em blocos de 1.825 dias (cinco anos) ao longo do intervalo de datas do relatório.
+
+Se o intervalo de datas abranger mais de um bloco, você poderá ver várias linhas para a mesma Campaign ou Canvas com datas diferentes na coluna de data. Algumas linhas podem incluir apenas métricas registradas mais adiante no intervalo (por exemplo, cancelamentos de inscrição). As datas também podem ser anteriores ao início dos seus envios no espaço de trabalho, pois refletem os limites dos blocos na exportação, e não apenas o seu primeiro envio.
+
+Para alinhar a coluna de data com o momento em que suas Campaigns e Canvas selecionados realmente enviaram, defina a [data de início do relatório em **Selecionar período**](#select-time-frame) para a data mais antiga que você deseja no arquivo — normalmente quando essas mensagens começaram a ser enviadas — em vez de manter o intervalo padrão que retrocede até a mensagem selecionada mais antiga.
 
 #### Programar seu relatório {#schedule-your-report}
 
@@ -107,7 +117,7 @@ Existem duas opções ao programar seu relatório:
 - **Send immediately:** Após o lançamento do relatório, a Braze enviará este relatório imediatamente.
 - **Send at a designated time:** Essa opção oferece flexibilidade para escolher com que frequência você recebe este relatório. Você pode optar por enviar este relatório a cada número definido de dias, semanas ou meses. Também é possível definir quando parar de enviar o relatório.
 
-![Opções para agendar o envio do relatório de engajamento]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Etapa 5: Revisar e lançar {#step-5-review-and-launch}
 
@@ -130,7 +140,7 @@ Certifique-se de que as datas no relatório de engajamento correspondam às data
 Se os totais parecerem incorretos em uma planilha, limpe os filtros extras na exportação. Você pode somar as linhas diárias para reconciliá-las com os totais do Canvas ou da Campaign para o mesmo intervalo de datas.
 
 {% alert note %}
-Se você deseja uma única linha agregada para o intervalo completo em vez de buckets diários, semanais ou outros recorrentes, defina **Data Display** como **Show Data by Entire Campaign or Canvas**.
+Se você deseja linhas agregadas por Campaign ou Canvas completo em vez de buckets diários, semanais ou outros recorrentes, defina **Data Display** como **Show Data by Entire Campaign or Canvas**. Se a contagem de linhas ou as datas parecerem incorretas no CSV, consulte [Exibir dados por Campaign ou Canvas completo](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Cliques duplicados em botões em mensagens no app HTML {#duplicate-button-clicks-in-html-in-app-messages}

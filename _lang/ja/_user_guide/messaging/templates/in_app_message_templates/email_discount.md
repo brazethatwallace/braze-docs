@@ -2,7 +2,7 @@
 nav_title: 割引付きメールサインアップ
 article_title: 割引付きメールサインアップ
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "このリファレンスページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用して、新規サブスクライバーに割引を提供するメールサインアップフォームを作成する方法について説明します。"
 ---
 
@@ -26,7 +26,7 @@ description: "このリファレンスページでは、アプリ内メッセー
 
 ### ステップ 3:メールサインアップコンポーネントをカスタマイズする {#step-3-customize-your-email-sign-up-component}
 
-メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループ**購読中**が設定されます。ユーザーを特定のサブスクリプショングループにオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)を参照してください。
+メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループ**Subscribed**が設定されます。ユーザーを特定のサブスクリプショングループにオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)を参照してください。
 
 メールキャプチャ要素のプレースホルダーテキストとラベルテキストをカスタマイズできます。
 

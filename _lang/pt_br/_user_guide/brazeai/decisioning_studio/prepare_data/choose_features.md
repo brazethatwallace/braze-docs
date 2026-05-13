@@ -26,7 +26,7 @@ Existem quatro categorias comuns de features de clientes:
 | **Propensão do usuário** | Scores derivados de modelos para a probabilidade do cliente fazer algo | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Comportamental do usuário** | Resumos da atividade do cliente em um período de tempo | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Ambiental** | Sinais contextuais externos ao cliente | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types of customer features" }
 
 Juntos, esses tipos de features fornecem ao modelo as informações necessárias para identificar segmentos, distinguir entre clientes e adaptar recomendações de acordo.
 

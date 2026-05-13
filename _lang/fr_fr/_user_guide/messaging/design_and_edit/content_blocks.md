@@ -11,11 +11,11 @@ tool:
 
 ---
 
-# Blocs de contenu
+# Blocs de contenu {#content-blocks}
 
 > Les blocs de contenu vous permettent de gérer du contenu réutilisable et cross-canal depuis un emplacement unique et centralisé. Utilisez-les pour créer une apparence cohérente dans vos campagnes, distribuer les mêmes codes promotionnels sur différents canaux, ou créer des ressources prédéfinies pour un envoi de messages cohérent à grande échelle. Vous pouvez également créer et gérer vos blocs de contenu [via l'API]({{site.baseurl}}/api/endpoints/templates/).
 
-## Créer un bloc de contenu
+## Créer un bloc de contenu {#create-a-content-block}
 
 Il existe deux types de blocs de contenu : glisser-déposer et HTML. Chaque type correspond à son éditeur.
 
@@ -36,7 +36,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 {% endtab %}
 {% endtabs %}
 
-### Spécifications des blocs de contenu
+### Spécifications des blocs de contenu {#content-block-specifications}
 
 | Attribut du bloc de contenu | Spécifications |
 |---|---|
@@ -45,7 +45,7 @@ Chaque bloc de contenu glisser-déposer est limité à une seule ligne. Cependan
 | Taille du contenu | Maximum de 50 Ko. |
 | Emplacement | Les blocs de contenu ne peuvent pas être utilisés dans un pied de page d'e-mail, mais vous pouvez [créer un bloc de contenu qui inclut un pied de page](#email-footers) pour l'utiliser dans vos e-mails. |
 | Création | Éditeur HTML ou éditeur glisser-déposer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 Lors de la création de blocs de contenu, il peut être utile de visualiser le HTML et le Liquid en ajoutant des sauts de ligne. Si ces sauts de ligne sont conservés lors de l'envoi, vous risquez d'avoir des espaces superflus qui peuvent affecter le rendu du bloc. Pour éviter cela, utilisez la balise **Capture** sur votre bloc avec le filtre **&#124; strip**.
@@ -58,7 +58,7 @@ Lors de la création de blocs de contenu, il peut être utile de visualiser le H
 {% endraw %}
 {% endalert %}
 
-## Utiliser les blocs de contenu
+## Utiliser les blocs de contenu {#use-content-blocks}
 
 Après avoir créé votre bloc de contenu, vous pouvez l'insérer dans vos messages à l'aide de l'éditeur ou de Liquid.
 
@@ -76,7 +76,7 @@ Les blocs de contenu ajoutés par glisser-déposer ne sont **pas liés** au bloc
 
 Un désalignement dans l'éditeur glisser-déposer peut se produire lorsque plusieurs blocs de contenu sont ajoutés à un seul bloc de ligne. Essayez d'utiliser des blocs de ligne séparés pour maintenir l'alignement de votre contenu au niveau de la ligne.
 
-### Utiliser Liquid
+### Utiliser Liquid {#using-liquid}
 
 Pour insérer un bloc de contenu à l'aide de Liquid :
 
@@ -95,12 +95,13 @@ Dans l'éditeur glisser-déposer, vous pouvez également ajouter un bloc de cont
 Les blocs de contenu insérés via Liquid **sont liés** au bloc de contenu d'origine et refléteront toute modification apportée au modèle.
 {% endalert %}
 
-### Bon à savoir
+### Bon à savoir {#things-to-know}
 
 - L'utilisation de blocs de contenu HTML dans des e-mails glisser-déposer **ou** de blocs de contenu glisser-déposer dans des e-mails HTML peut entraîner des problèmes de rendu inattendus. En effet, l'éditeur glisser-déposer génère du HTML et du CSS qui rendent le contenu de manière dynamique, tandis que l'éditeur HTML est plus statique.
+- Si vous insérez un bloc de contenu glisser-déposer à l'aide de Liquid, Braze n'inclut pas les styles provenant du `<head>` HTML du bloc. Les styles responsifs, tels que le CSS spécifique aux appareils mobiles, peuvent ne pas s'afficher comme prévu. Si le bloc repose sur du CSS responsif, ajoutez ce CSS au message ou au modèle qui inclut le bloc de contenu.
 - Les propriétés d'événement Canvas ne sont prises en charge que dans un Canvas. Si vous référencez un bloc de contenu avec des propriétés d'entrée Canvas dans une campagne, elles ne seront pas renseignées.
 
-## Prévisualiser les blocs de contenu
+## Prévisualiser les blocs de contenu {#preview-content-blocks}
 
 Après avoir ajouté un bloc de contenu dans une campagne ou un Canvas actif, vous pouvez le prévisualiser depuis la bibliothèque de blocs de contenu en survolant le bloc de contenu et en sélectionnant l'icône <i class="fa fa-eye preview-icon"></i> **Preview**.
 
@@ -108,7 +109,7 @@ Cette prévisualisation inclut des informations sur le bloc de contenu telles qu
 
 ![Prévisualisation d'un bloc de contenu « Workout_Promo » pour le cyclisme et la danse qui a une inclusion.]({% image_buster /assets/img/preview_tab_content_block.png %}){: style="max-width:60%;"}
 
-## Imbriquer des blocs de contenu
+## Imbriquer des blocs de contenu {#nest-content-blocks}
 
 Les blocs de contenu peuvent être imbriqués, mais une seule fois. Vous pouvez imbriquer le bloc de contenu A dans le bloc de contenu B, mais vous ne pourrez pas ensuite imbriquer le bloc de contenu B dans le bloc de contenu C.
 
@@ -116,7 +117,7 @@ Les blocs de contenu peuvent être imbriqués, mais une seule fois. Vous pouvez 
 Rien ne vous empêchera d'imbriquer un troisième niveau de bloc de contenu, mais le contenu ne se développera pas au-delà du deuxième niveau d'imbrication. Le contenu et l'extrait de code Liquid sont supprimés du message.
 {% endalert %}
 
-## Mettre à jour et copier des blocs de contenu
+## Mettre à jour et copier des blocs de contenu {#update-and-copy-content-blocks}
 
 Si vous choisissez de mettre à jour un bloc de contenu, il sera mis à jour dans tous les messages où il est inséré via Liquid. Si le bloc de contenu est importé à l'aide du menu déroulant **Content Blocks** sous **Rows** dans l'éditeur glisser-déposer, il ne sera pas mis à jour dans tous les messages.
 
@@ -134,13 +135,13 @@ Les blocs de contenu ne peuvent pas être utilisés dans un pied de page d'e-mai
 2. Ajoutez le pied de page à un bloc de contenu dans la **Content Blocks Library**.
 3. Ajoutez ce bloc de contenu à vos modèles d'e-mail ou messages.
 
-## Archiver des blocs de contenu
+## Archiver des blocs de contenu {#archive-content-blocks}
 
 ![Menu déroulant des paramètres développé affichant trois options : Archive, Duplicate et Copy to workspace.]({% image_buster /assets/img/template_archive_cog.png %}){: style="max-width:20%;float:right;margin-left:15px;" }
 
 Une fois que vous avez terminé d'utiliser un bloc de contenu, vous pouvez l'archiver depuis la page **Templates**. Les blocs de contenu archivés sont en lecture seule : vous devez donc désarchiver le bloc de contenu avant de le modifier. Les blocs de contenu ne peuvent pas être archivés s'ils sont utilisés dans des messages.
 
-### Bonnes pratiques
+### Bonnes pratiques {#best-practices}
 
 - Lorsque votre bloc n'est utilisé que dans quelques e-mails, nous vous recommandons d'archiver le bloc obsolète et de mettre à jour vos messages en production avec un bloc plus récent qui n'a pas été archivé.
 - Lorsque votre bloc ne contient qu'une faute de frappe ou nécessite une modification mineure, nous ne recommandons pas d'archiver le bloc. Mettez plutôt le bloc à jour et continuez vos envois !

@@ -7,7 +7,7 @@ tool: Currents
 search_tag: Partner
 ---
 
-# Currents の Zeotap {#zeotap-for-currents}
+# Currentsの Zeotap {#zeotap-for-currents}
 
 > [Zeotap](https://zeotap.com/) は、アイデンティティ解決、インサイト、データ強化を提供して、モバイルオーディエンスを発見、理解できるようにする次世代の顧客データプラットフォームです。
 
@@ -23,11 +23,11 @@ BrazeとZeotapの統合により、Zeotapの顧客SegmentsをBrazeのユーザ�
 | --- | --- |
 |Zeotapアカウント | このパートナーシップを活用するには、[Zeotapアカウント](https://zeotap.com/)が必要です。 |
 | Currents | Zeotapにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 実装 {#implementation}
 
-### ステップ1: Currentsソースを作成する {#step-1-create-a-currents-source}
+### ステップ1:Currentsソースを作成する {#step-1-create-a-currents-source}
 
 1. Zeotapで、**Integrate** の下の **Sources** に移動します。
 2. **Create Source** を選択します。
@@ -38,10 +38,10 @@ BrazeとZeotapの統合により、Zeotapの顧客SegmentsをBrazeのユーザ�
 7. **Create Source** を選択します。
 8. **Implementation Details** タブに移動し、**API URL** と **Write Key** をメモします。<br><br>![API URLとWrite Keyを含むBraze Currentsの実装詳細。]({% image_buster /assets/img/zeotap/implementation_details.png %})
 
-### ステップ2: Currentsでデータストリーミングを設定する {#step-2-configure-data-streaming-in-currents}
+### ステップ2:Currentsでデータストリーミングを設定する {#step-2-configure-data-streaming-in-currents}
 
 1. Brazeで、**パートナー連携** > **データのエクスポート** に移動します。
-2. **Create New Current** および **Custom Currents Export** を選択します。<br><br>![「Custom Currents Export」を含むドロップダウンが表示された「Create New Current」ボタン。]({% image_buster /assets/img/zeotap/custom_currents_export.png %}){: style="max-width:60%;"}<br><br>
+2. **Create New Current** と **Custom Currents Export** を選択します。<br><br>![「Custom Currents Export」を含むドロップダウンが表示された「Create New Current」ボタン。]({% image_buster /assets/img/zeotap/custom_currents_export.png %}){: style="max-width:60%;"}<br><br>
 3. 統合名と、統合でエラーが発生した場合に連絡を受けるメールアドレスを入力します。
 4. **Credentials** の下に、[ステップ1](#step-1-create-a-currents-source)でメモした次の情報を入力します。
 - API URLを **Endpoint** として入力

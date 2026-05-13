@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
 
-멀티채널 캠페인을 만들려면 **메시징** > **Campaigns**를 선택합니다. 그런 다음 **캠페인 생성** > **멀티채널**을 선택합니다. 여기에서 Content Cards, 이메일, LINE, 푸시 알림, SMS/MMS/RCS, 웹훅 또는 WhatsApp 등의 메시징 채널을 선택할 수 있습니다.
+설정 단계와 지원되는 채널에 대해서는 **캠페인 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)을 참조하세요.
 
 ### 멀티채널 캠페인에 대조군을 추가할 수 있나요? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-아니요, 캠페인의 대조군은 이메일 A 대 이메일 B와 같은 단일 채널 메시징을 위한 것입니다. 대안으로 다양한 채널, 메시징 콘텐츠 및 전달 타이밍을 테스트하려면 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)를 사용해 보세요.
+**캠페인 생성**의 [대조군]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups)을 참조하세요. 크로스채널 테스트의 경우 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)를 사용하세요.
 
 ### 캠페인 테스트 및 최적화를 시작하는 방법에는 어떤 것이 있나요? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ tool: Campaigns
 
 예를 들어, iOS와 웹 푸시 알림이 모두 포함된 Canvas가 있는 경우, 모바일과 데스크탑 기기를 모두 가진 사용자는 두 개 이상의 메시지를 받을 수 있습니다.
 
-### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *고유 수신자*는 Braze가 보고를 위해 일별 고유 수신자를 추적하기 때문에 예상한 오디언스보다 높을 수 있습니다. 이를 통해 Braze는 사용자가 메시지를 받을 때마다 전환 기간 내의 전환을 귀속시킬 수 있으며, 여러 수신을 하나의 평생 카운트로 축소하지 않습니다(그렇게 하면 전환 계산이 왜곡됩니다).
 
@@ -48,9 +48,7 @@ tool: Campaigns
 
 ### 멀티채널 캠페인에서 전환 수가 고유 사용자 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-멀티채널 캠페인의 경우, Braze는 사용자별이 아닌 채널별로 전환을 집계합니다. 사용자가 전환 기간 내에 단일 전환 동작을 수행하면, Braze는 해당 사용자가 메시지를 받은 각 채널에 전환을 귀속시킵니다. 즉, 사용자가 여러 채널(예: 이메일과 푸시 모두)에서 메시지를 받고 전환하면, Braze는 각 채널에 대해 하나씩 여러 전환을 집계합니다. 결과적으로 총 전환 수가 전환한 고유 사용자 수를 초과할 수 있습니다.
-
-예를 들어, 멀티채널 캠페인이 사용자에게 이메일과 푸시 알림을 모두 보내고, 해당 사용자가 두 메시지를 모두 받은 후 전환 기간 내에 하나의 전환 동작을 수행하면, Braze는 이를 이메일에 귀속된 하나와 푸시에 귀속된 하나, 총 두 건의 전환으로 집계합니다. 동일한 사용자의 단일 동작임에도 불구하고 말입니다.
+**캠페인 생성**의 [전환 및 보고]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions)와 **전환 이벤트**의 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)을 참조하세요.
 
 ### 캠페인에 사용하는 Segment보다 도달 가능 사용자 기반이 더 작은 이유는 무엇인가요? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -72,7 +70,7 @@ Braze는 사용자의 기기에서 자동으로 시간대를 결정합니다. �
 
 Braze는 다음 시점에 사용자의 진입 적격성을 평가합니다:
 
-- 사모아 시간(UTC+13) 또는 서머타임 기간 중 UTC+14
+- 스케줄된 날의 사모아 시간(UTC+13)
 - 스케줄된 날의 현지 시간
 
 사용자가 진입 자격을 얻으려면 두 가지 확인을 모두 통과해야 합니다. 예를 들어, Canvas가 2021년 8월 7일 오후 2시 현지 시간대에 시작하도록 스케줄된 경우, 뉴욕에 있는 사용자를 타겟팅하려면 다음과 같은 적격성 확인이 필요합니다:
@@ -80,7 +78,9 @@ Braze는 다음 시점에 사용자의 진입 적격성을 평가합니다:
 - 2021년 8월 6일 뉴욕 시간 오후 9시
 - 2021년 8월 7일 뉴욕 시간 오후 2시
 
-사용자는 시작 24시간 전에 Segment에 있어야 합니다. 첫 번째 확인에서 사용자가 적격하지 않으면 Braze는 두 번째 확인을 시도하지 않습니다.
+진입하려면 사용자가 두 평가 시점 모두에서 오디언스 및 필터에 일치해야 합니다. 첫 번째 확인에서 사용자가 적격하지 않으면 Braze는 두 번째 확인을 실행하지 않습니다. 사용자가 시작 전에 Segment에 있어야 하는 최소 시간은 없습니다. 각 확인 시점의 적격성만 중요합니다.
+
+이 평가 동작은 [대시보드에서 캠페인을 얼마나 미리 스케줄하는지](#how-do-i-schedule-a-local-time-zone-campaign)와는 별개입니다. 최소 24시간 전에 스케줄하는 것은 메시지가 전체 24시간 현지 시간대 기간에 걸쳐 전달되도록 돕는 권장 사항이지, 각 사용자가 24시간 동안 오디언스에 있어야 한다는 요구 사항이 아닙니다.
 
 #### 예시 {#examples}
 
@@ -88,7 +88,7 @@ Braze는 다음 시점에 사용자의 진입 적격성을 평가합니다:
 
 또 다른 예로, 같은 날에 발송되도록 스케줄된 두 개의 캠페인(하나는 아침, 하나는 저녁)을 만들고, 사용자가 첫 번째 캠페인을 이미 받은 경우에만 두 번째 캠페인을 받을 수 있도록 필터를 추가한다고 가정해 보겠습니다. 현지 시간대 전달을 사용하면 일부 사용자가 두 번째 캠페인을 받지 못할 수 있습니다. 이는 사용자의 시간대가 식별될 때 적격성을 확인하기 때문인데, 해당 시간대에서 스케줄된 시간이 아직 도래하지 않았다면 첫 번째 캠페인을 받지 못한 것이므로 두 번째 캠페인에 적격하지 않게 됩니다.
 
-첫 번째 확인 시점에는 Segment에 있었지만 두 번째 확인 시점에는 없을 수 있는 사용자의 시각적 예시는 다음 타임라인을 참조하세요:
+다음 타임라인은 시간 제한 멤버십 기간을 포함하는 Segment 정의를 가정합니다. 이 예시에서 사용자는 가입 후 24시간이 지나면 Segment에서 이탈합니다. 이 필터 동작은 사용자가 첫 번째 확인을 통과하고 두 번째 확인에서 실패할 수 있는 이유 중 하나입니다.
 
 ![첫 번째 확인 전에 Segment에 진입한 후 두 번째 확인 전에 이탈하는 사용자의 타임라인.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -102,6 +102,8 @@ Braze는 다음 시점에 사용자의 진입 적격성을 평가합니다:
 {% enddetails %}
 
 ### 현지 시간대 캠페인은 어떻게 스케줄하나요? {#how-do-i-schedule-a-local-time-zone-campaign}
+
+이전 섹션에서는 Braze가 현지 시간대 전달의 적격성을 평가하는 시점(두 가지 확인)을 설명합니다. 이 섹션에서는 대시보드에서 캠페인 스케줄을 설정하는 시점(스케줄 리드 타임)과 24시간 미만의 사전 통지로 스케줄하는 경우 어떤 사용자가 여전히 메시지를 받는지를 설명합니다.
 
 캠페인을 스케줄할 때 지정된 시간에 보내도록 선택한 다음 **사용자의 현지 시간대에 맞춰 캠페인 발송**을 선택합니다.
 

@@ -38,6 +38,18 @@ Lorsque les SMS et MMS ont été configurés sur plusieurs instances et qu'en ra
 
 Braze gère les abonnements SMS/MMS à la fois au niveau du profil utilisateur (`user_id`) et au niveau du numéro de téléphone (`channel_id`). Lorsqu'un numéro de téléphone est abonné ou désabonné, la mise à jour s'applique à tous les profils partageant ce numéro. Dans le cas où un utilisateur final s'est abonné avec un certain numéro de téléphone, puis change de numéro, le nouveau numéro héritera du statut du groupe d'abonnement de l'utilisateur. En conséquence, si un utilisateur final s'est désabonné, puis revient sur l'application ou le site web avec un nouveau numéro de téléphone, il ne recevra pas de messages non souhaités.
 
+## Recommandations pour l'hygiène de la liste des numéros de téléphone {#phone-number-list-hygiene-recommendations}
+
+Maintenir l'hygiène de votre liste de numéros de téléphone vous aide à conserver des données de consentement et de joignabilité valides au fil du temps. Braze marque certains numéros de téléphone comme invalides afin de réduire les risques de non-conformité, de soutenir les pratiques d'envoi de messages basées sur le consentement et d'éviter d'envoyer des messages à des numéros qui pourraient ne plus appartenir à l'utilisateur d'origine.
+
+Pour connaître les raisons pour lesquelles les numéros de téléphone sont généralement marqués comme invalides, consultez [Gestion des numéros de téléphone invalides]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+Nous recommandons le flux de travail suivant pour supprimer les numéros de téléphone invalides :
+
+1. Identifiez les numéros de téléphone concernés via l'[endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Différenciez les numéros de téléphone désactivés des numéros de téléphone ayant reçu des erreurs de l'opérateur.
+3. Pour les numéros de téléphone désactivés, vérifiez à nouveau le numéro auprès de l'utilisateur. Une fois que l'utilisateur a confirmé son numéro de téléphone, supprimez le numéro de la liste des numéros invalides via l'[endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+
 ## Recommandations contre le trafic frauduleux (traffic pumping) {#traffic-pumping-recommendations}
 
 ### Qu'est-ce que le traffic pumping ? {#what-is-traffic-pumping}

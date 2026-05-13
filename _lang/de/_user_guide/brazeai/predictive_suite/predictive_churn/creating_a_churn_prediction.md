@@ -62,7 +62,7 @@ Braze zeigt Ihnen die geschätzte Größe Ihrer Prognosezielgruppe an. Wenn Sie 
 Die Prognosezielgruppe darf 100 Millionen Nutzer:innen nicht überschreiten.
 {% endalert %}
 
-Wenn das Prognosefenster 14 Tage oder weniger beträgt, **darf** das Zeitfenster für Filter, die mit „Zuletzt …“ beginnen, wie „Zuletzt verwendete App“ und „Zuletzt getätigter Kauf“, **das in der Churn-Definition angegebene Churn-Fenster nicht überschreiten**. Wenn Ihre Churn-Definition beispielsweise ein Zeitfenster von 14 Tagen hat, darf das Zeitfenster für die „Zuletzt …“-Filter 14 Tage nicht überschreiten.
+Wenn das Prognosefenster 14 Tage oder weniger beträgt, **darf** das Zeitfenster für Filter, die mit „Last…“ beginnen, wie „Last Used App“ und „Last placed an order“, **das in der Churn-Definition angegebene Churn-Fenster nicht überschreiten**. Wenn Ihre Churn-Definition beispielsweise ein Zeitfenster von 14 Tagen hat, darf das Zeitfenster für die „Last…“-Filter 14 Tage nicht überschreiten.
 
 Das Churn-Fenster wird anhand der Anzahl der Tage seit dem letzten Ausführen des Modells berechnet. Wenn das Churn-Fenster also 15 Tage beträgt und das Modell zuletzt am 1. Dezember ausgeführt wurde, analysiert das Modell den Zeitraum vom 16. bis zum 30. November, um die Nutzer:innen-Aktivität für die Zielgruppenberechtigung und das Training zu erfassen.
 

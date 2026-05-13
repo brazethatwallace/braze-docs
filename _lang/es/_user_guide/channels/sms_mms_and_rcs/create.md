@@ -25,8 +25,8 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
-2. Selecciona **SMS/MMS/RCS** o, para campañas dirigidas a múltiples canales, selecciona **Multicanal**.
+1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
+2. Selecciona **SMS/MMS/RCS** o, para campañas dirigidas a múltiples canales, selecciona **Multichannel**.
 3. Ponle a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas concretas.
@@ -34,7 +34,7 @@ search_rank: 1
    * Braze te permite incluir variantes tanto de SMS como de RCS dentro de una misma campaña, para que puedas comparar el rendimiento de cada una.
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
+Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ El grupo de suscripción que selecciones determina qué tipos de mensaje están 
 | Solo SMS | SMS |
 | SMS con números habilitados para MMS | SMS y MMS |
 | Habilitado para RCS (con remitente verificado para RCS) | SMS, MMS (si está habilitado) y RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 Braze recomienda encarecidamente que cada grupo de suscripción que contenga un remitente RCS incluya también al menos un código SMS como alternativa. Esto garantiza que, si un mensaje RCS no se entrega (por ejemplo, debido a incompatibilidad del dispositivo o cobertura incompleta del operador), el mensaje llegue igualmente al usuario a través de SMS.
@@ -108,7 +108,7 @@ Introduce el cuerpo de tu mensaje y luego sube una imagen PNG, JPEG o GIF desde 
 | --- | --- |
 | Tamaño | Hasta 600&nbsp;KB |
 | Tipos de archivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### Tarjetas de contacto {#contact-cards}
 
@@ -131,10 +131,10 @@ Mira este breve recorrido para ver cómo crear un mensaje de texto o multimedia 
 
 Elige entre un tipo de mensaje de **Texto** o **Multimedia**.
 
-![Opciones para seleccionar entre un tipo de mensaje de Texto o Multimedia.]({% image_buster /assets/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
+![Opciones para seleccionar entre un tipo de mensaje de texto o multimedia.]({% image_buster /assets/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
 
 {% subtabs %}
-{% subtab Text %}
+{% subtab Texto %}
 
 Los mensajes de texto RCS se centran en el texto como medio. Si tu mensaje tiene hasta 160 caracteres sin elementos enriquecidos, se factura como un mensaje RCS básico. Si superas los 160 caracteres o usas un elemento enriquecido, se factura como un mensaje RCS enriquecido (único) con un límite de 3072 caracteres.
 
@@ -154,7 +154,7 @@ Los mensajes de texto RCS se centran en el texto como medio. Si tu mensaje tiene
 - En algunos casos, puede ser más rentable enviar mensajes de texto largos a través de RCS que con SMS, porque los mensajes SMS más largos se dividen en múltiples segmentos facturables, mientras que los mensajes RCS se facturan por mensaje.
 
 {% endsubtab %}
-{% subtab Media %}
+{% subtab Multimedia %}
 
 Los mensajes multimedia RCS te permiten usar formatos de medios atractivos que no son posibles con SMS, incluyendo archivos de imagen, video y documentos.
 
@@ -177,7 +177,7 @@ Los mensajes multimedia RCS te permiten usar formatos de medios atractivos que n
 | Imagen | Formatos admitidos: JPG, JPEG, GIF |
 | Video | Formatos admitidos: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Documento | Formato admitido: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **Consideraciones:**
 
@@ -224,7 +224,7 @@ Los flujos de trabajo de mensajes conversacionales te permiten responder dinámi
 {: start="2"}
 2. Conecta ese mensaje a una ruta de acción con un grupo de acciones para cada respuesta sugerida.
 3. Para cada grupo de acciones:
-   - Selecciona el desencadenante **Enviar un mensaje SMS entrante**.
+   - Selecciona el desencadenante **Send an SMS inbound message**.
    - Establece el cuerpo del mensaje para que sea igual a la respuesta sugerida correspondiente.
 
 ![Paso de ruta de acción configurado con tres grupos de acciones, uno para cada respuesta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -238,9 +238,9 @@ Los flujos de trabajo de mensajes conversacionales te permiten responder dinámi
 
 ## Paso 4: Previsualiza y prueba tu mensaje {#step-4-preview-and-test-your-message}
 
-Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Prueba** para enviar un SMS, MMS o RCS de prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
+Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Test** para enviar un SMS, MMS o RCS de prueba a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
-![Vista previa del texto SMS desde la pestaña Prueba del compositor. En la sección de perfil, el campo Nombre está configurado como "James". En la sección de vista previa, el SMS ahora dice "Hola James, ¡agradecemos tu apoyo!"]({% image_buster /assets/img/sms_campaign_test.png %})
+![Vista previa del texto SMS desde la pestaña Test del compositor. En la sección de perfil, el campo Nombre está configurado como "James". En la sección de vista previa, el SMS ahora dice "Hola James, ¡agradecemos tu apoyo!"]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert tip %}
 Si deseas probar en cuántos segmentos se puede dividir tu SMS, prueba la longitud de tu texto con la [calculadora de segmentos SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).

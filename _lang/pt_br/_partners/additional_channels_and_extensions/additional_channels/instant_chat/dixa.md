@@ -18,11 +18,11 @@ A integração da Braze com a Dixa oferece uma visão melhor de todos os seus us
 
 Antes de começar, você precisará do seguinte:
 
-| Pré-requisito          | Descrição                                                                                                                                                       |
+| Pré-requisito | Descrição |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Uma conta da Dixa        | É necessário ter uma conta de administrador da Dixa para aproveitar essa parceria.                                                                                           |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com as permissões `users.export.ids` e `email.status`.<br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Um endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância.              |
+| Uma conta da Dixa | É necessário ter uma conta de administrador da Dixa para aproveitar essa parceria. |
+| Uma chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.export.ids` e `email.status`.<br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| Um endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -85,8 +85,8 @@ A Dixa usa webhooks para enviar dados para a Braze. Você deve ser um administra
 
 O primeiro passo é criar uma transformação de dados na Braze.
 
-1. Acesse **Configurações de dados** > **Transformações de dados** > **Criar transformação**.
-2. Selecione **Start from scratch**, selecione o destino **POST: Track Users** e selecione **Criar transformação**.
+1. Acesse **Data Settings** > **Data Transformations** > **Create transformation**.
+2. Selecione **Start from scratch**, selecione o destino **POST: Track Users** e selecione **Create transformation**.
 3. No editor de transformação, copie o código de exemplo de **Exemplo de ferramenta de transformação** abaixo e insira-o no campo **Transformation code**. Selecione **Save**, copie a **Webhook URL** e abra a Dixa.
 4. Na Dixa, acesse **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
 5. Na página de configurações do webhook, cole a URL da Braze e ative os eventos que deseja rastrear. **Conversation created** é um bom ponto de partida para rastrear as conversas dos clientes.

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Zendesk Chat
 
-> [Zendesk Chat](https://www.zendesk.com/service/messaging/)は、各プラットフォームのWebhookを使用して双方向のSMS会話を設定します。ユーザーがサポートをリクエストすると、Zendeskにチケットが作成されます。エージェントの応答はAPIトリガーのSMS Campaignを通じてBrazeに転送され、ユーザーの返信はZendeskに送り返されます。
+> [Zendesk Chat](https://www.zendesk.com/service/messaging/)は、各プラットフォームのwebhookを使用して双方向のSMS会話を設定します。ユーザーがサポートをリクエストすると、Zendeskにチケットが作成されます。エージェントの応答はAPIトリガーのSMS Campaignを通じてBrazeに転送され、ユーザーの返信はZendeskに送り返されます。
 
 ## 前提条件 {#prerequisites}
 
@@ -20,6 +20,7 @@ search_tag: Partner
 | Zendeskアカウント | このパートナーシップを利用するには、Zendeskアカウントが必要です。|
 | Zendesk Basic認証トークン | Zendesk Basic認証トークンは、BrazeからZendeskへのアウトバウンドWebhookリクエストに使用されます。|
 | Braze REST APIキー | `campaigns.trigger.send` 権限を持つBraze REST APIキー。これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -85,8 +86,8 @@ Feel free to respond directly to this number!
 1. 新しい**カテゴリ**を作成します（例：**Trigger a message**）。
 2. 新しい**トリガー**を作成します（例：**Respond via SMS Braze**）。
 3. **Conditions**で以下を選択します：
-- **Ticket > Comment**が**Present and requester can see comment**を選択すると、新しいパブリックコメントがチケット更新に含まれるたびにメッセージがトリガーされます。
-- **Ticket > Update**が**Web service (API)**該当しないを選択すると、ユーザーがBrazeからメッセージを送信しても携帯電話に転送されません。Zendeskからのメッセージのみが転送されます。
+- **Ticket>Comment**が**Present and requester can see comment**：新しいパブリックコメントがチケット更新に含まれるたびにメッセージがトリガーされます。
+- **Ticket>Update**が**Web service (API)**に該当しない：ユーザーがBrazeからメッセージを送信しても携帯電話に転送されません。Zendeskからのメッセージのみが転送されます。
 
 ![Respond via SMS Braze。]({% image_buster /assets/img/zendesk/instant_chat/chat6.png %}){: style="max-width:70%;"}
 
@@ -121,11 +122,11 @@ Feel free to respond directly to this number!
 
 ![チケットがクローズされたときにユーザーを更新する。]({% image_buster /assets/img/zendesk/instant_chat/chat8.png %}){: style="max-width:70%;"}
 
-**API-Triggered delivery**を選択し、Campaign IDをコピーします。
+**API Triggered delivery**を選択し、Campaign IDをコピーします。
 
 次に、チケットがクローズされたときにBrazeに通知するトリガーを設定します：
 - カテゴリー：**Trigger a message**
-- Conditionsで、**Ticket > Ticket Status**を選択し、**Solved**に変更します。
+- Conditionsで、**Ticket>Ticket Status**を選択し、**Solved**に変更します。
 
 ![Zendeskで設定された解決済みチケット。]({% image_buster /assets/img/zendesk/instant_chat/chat9.png %}){: style="max-width:70%;"}
 
@@ -165,7 +166,7 @@ Feel free to respond directly to this number!
 |--------------------|--------------------------------------------------------------------------------------|
 | Webhook Campaign 1 | Zendeskに新しいチケットを作成します。 |
 | Webhook Campaign 2 | 顧客からインバウンドで送信されたすべての会話型SMSレスポンスをZendeskに転送します。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ6：インバウンドSMS転送を設定する" }
 
 #### ステップ6.1：SMSキーワードカテゴリを作成する {#step-61-create-an-sms-keyword-category}
 
@@ -176,7 +177,7 @@ Brazeダッシュボードで、**Audience**に移動し、**SMSサブスクリ�
 | Keyword Category | キーワードカテゴリの名前（例：`ZendeskSMS1`）。 |
 | Keywords | カスタムキーワード（例：`SUPPORT`）。 |
 | Reply Message | キーワードが検出されたときに送信されるメッセージ（例：「カスタマーサービス担当者がまもなくご連絡します。」）。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ6.1：SMSキーワードカテゴリを作成する" }
 
 ![BrazeのSMSキーワードカテゴリの例。]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 

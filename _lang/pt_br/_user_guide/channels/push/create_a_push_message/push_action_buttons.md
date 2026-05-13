@@ -13,7 +13,7 @@ channel:
 
 > Os botões de ação por push permitem definir conteúdo e ações para botões ao usar notificações por push da Braze para iOS e Android. Com os botões de ação, seus usuários podem interagir diretamente com o app a partir de uma notificação, sem precisar abrir a experiência do app.
 
-![Uma notificação por push do iOS com dois botões de ação por push: Aceitar e Recusar.]({% image_buster /assets/img_archive/push_action_example.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
+![Uma notificação por push do iOS com dois botões de ação por push: Accept e Decline.]({% image_buster /assets/img_archive/push_action_example.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
 ## Criando botões de ação {#creating-action-buttons}
 
@@ -41,6 +41,8 @@ Para usar botões de ação nas suas mensagens push do iOS, faça o seguinte:
 {% alert note %}
 Devido à forma como o iOS lida com botões, é necessário realizar etapas adicionais de integração ao configurar botões de ação por push, que estão descritas na nossa [documentação para desenvolvedores]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). Em particular, você precisa configurar as categorias do iOS ou selecionar entre certas opções de botões padrão. Para integrações Android, esses botões funcionam automaticamente.
 {% endalert %}
+
+Pares predefinidos como **Yes** / **No** mapeiam o segundo botão para uma ação de descarte (**CLOSE**) por padrão, então ele não abre o app da mesma forma que o primeiro botão. **_Aberturas diretas_** não incluem esse tipo de toque, mas os dados de **Push Notification Open** no Currents ou Snowflake ainda podem registrá-lo com `button_action_type` e `button_string`. Para saber mais, consulte [Botões de ação por push e relatórios]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -70,6 +72,6 @@ A tabela a seguir mostra quantos caracteres você pode adicionar antes que o tex
 | 1 | 46 caracteres |
 | 2 | 20 caracteres |
 | 3 | 11 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}

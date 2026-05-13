@@ -30,14 +30,14 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter      | Required | Data Type | Description          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Required | String    | Name of the catalog. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request parameters
 
 | Parameter   | Required | Data Type | Description                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `selection` | Required | Object    | An object that contains selection criteria. See [catalog selection object]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) for a full breakdown of the object and its fields. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Selection object parameters
 
@@ -51,7 +51,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `results_limit`  | Optional | Integer   | The maximum number of results to return. Must be a number between 1 and 50. |
 | `sort_field`     | Optional | String    | The field to sort results by. This must be paired with `sort_order`. If both `sort_field` and `sort_order` are not present, the results are randomized. |
 | `sort_order`     | Optional | String    | The order to sort results. Accepted values are `"asc"` (ascending) or `"desc"` (descending). This must be paired with `sort_field`. If both `sort_field` and `sort_order` are not present, the results are randomized. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Selection object parameters" }
 
 {% alert note %}
 The `sort_field` and `sort_order` parameters must be used together. If you provide one without the other, or if you omit both parameters, the selection results are returned in a randomized order.
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter operators" }
 
 {% alert note %}
 The API supports a maximum of four filters per selection request. In the Braze dashboard, you can add up to 10 filters per selection. Filters are applied in the order they appear in the array.
@@ -156,6 +156,6 @@ The following table lists possible returned errors and their associated troubles
 | `invalid-sort-field`                 | Check if the selection sort field is valid.                                                   |
 | `invalid-sort-order`                 | Check if the selection sort order is valid.                                                   |
 | `selection-contains-too-many-arrays` | Check if the selection contains more than one field with `array` type. Only one is supported. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -23,7 +23,7 @@ The Braze and Grouparoo integration syncs warehouse data to Braze. Automatic syn
 | Grouparoo account and project | A Grouparoo account and project are required to take advantage of this partnership.<br><br>This integration is possible to use with the free community edition and enterprise solutions provided by Grouparoo. Setup will take place in the Grouparoo configuration user interface. |
 | Braze REST API key | A Braze REST API key with users and track permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL](https://www.grouparoo.com/). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

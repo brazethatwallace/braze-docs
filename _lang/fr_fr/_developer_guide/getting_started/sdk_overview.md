@@ -5,7 +5,7 @@ description: "Cet article de référence d'onboarding fournit un aperçu techniq
 page_order: 0
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Aperçu du SDK pour les développeurs {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}Aperçu du SDK pour les développeurs {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Avant de commencer à intégrer les SDK Braze, vous vous demandez peut-être exactement ce que vous concevez et intégrez. Vous pourriez être curieux de savoir comment personnaliser davantage le SDK pour mieux répondre à vos besoins. Cet article peut vous aider à répondre à toutes vos questions concernant le SDK.
 
@@ -50,7 +50,7 @@ Le SDK Braze met les données en cache (sessions, événements personnalisés, e
 | Excellente | 10 secondes |
 | Bonne | 30 secondes |
 | Mauvaise | 60 secondes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data upload and download" }
 
 S'il n'y a pas de connexion réseau, les données sont mises en cache localement sur l'appareil jusqu'à ce que la connexion réseau soit rétablie. Lorsque la connexion est rétablie, les données sont envoyées à Braze.
 
@@ -98,7 +98,7 @@ Pour plus de détails sur l'utilisation, reportez-vous à la rubrique [Stockage]
 
 ## Quelle est la version du SDK que j'utilise ? {#what-version-of-the-sdk-am-i-on}
 
-Vous pouvez utiliser le tableau de bord pour voir la version du SDK d'une application particulière en sélectionnant **Paramètres > Paramètres des applications**. La **version du SDK en production** indique la version la plus élevée du SDK Braze utilisée par votre application en production la plus récente pour au moins 5 % de vos utilisateurs.
+Vous pouvez utiliser le tableau de bord pour voir la version du SDK d'une application particulière en sélectionnant **Paramètres** > **Paramètres des applications**. La **version du SDK en production** indique la version la plus élevée du SDK Braze utilisée par votre application en production la plus récente pour au moins 5 % de vos utilisateurs.
 
 ![Une application nommée Swifty dans un espace de travail. La version du SDK en production est la 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 

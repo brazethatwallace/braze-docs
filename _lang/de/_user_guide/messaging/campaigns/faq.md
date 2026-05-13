@@ -3,22 +3,22 @@ nav_title: FAQ
 article_title: FAQ zu Campaigns
 page_order: 10
 page_type: FAQ
-description: "Diese Seite bietet Antworten auf häufig gestellte Fragen zu Campaigns."
+description: "Diese Seite enthält Antworten auf häufig gestellte Fragen zu Campaigns."
 tool: Campaigns
 
 ---
 
 # Häufig gestellte Fragen {#frequently-asked-questions}
 
-> Dieser Artikel bietet Antworten auf einige häufig gestellte Fragen zu Campaigns.
+> Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zu Campaigns.
 
 ### Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
 
-Um eine Multichannel-Kampagne zu erstellen, wählen Sie **Messaging** > **Campaigns**. Wählen Sie dann **Kampagne erstellen** > **Multichannel**. Von hier aus können Sie aus den folgenden Messaging-Kanälen wählen: Content Cards, E-Mail, LINE, Push-Benachrichtigungen, SMS/MMS/RCS, Webhook oder WhatsApp.
+Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Campaign erstellen**.
 
 ### Kann ich meiner Multichannel-Kampagne eine Kontrollgruppe hinzufügen? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Nein, Kontrollgruppen in Campaigns sind für Einkanal-Messaging gedacht, wie z. B. E-Mail A versus E-Mail B. Als Alternative können Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) verwenden, um verschiedene Kanäle, Messaging-Inhalte und Zustellzeitpunkte zu testen.
+Informationen dazu finden Sie unter [Kontrollgruppen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) in **Campaign erstellen**. Für kanalübergreifende Tests verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### Welche Möglichkeiten gibt es, Campaigns zu testen und zu optimieren? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ Eine mögliche Erklärung könnte sein, dass bei der Campaign oder dem Canvas di
 
 Wenn Sie beispielsweise ein Canvas haben, das sowohl iOS- als auch Web-Push-Benachrichtigungen enthält, kann eine bestimmte Nutzerin oder ein bestimmter Nutzer mit sowohl Mobil- als auch Desktop-Geräten mehr als eine Nachricht erhalten.
 
-### Warum ist die Anzahl der *eindeutigen Empfänger:innen* höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Warum ist die Anzahl der *eindeutigen Empfänger:innen* höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Die Anzahl der *eindeutigen Empfänger:innen* kann höher sein als die erwartete Zielgruppe, da Braze für die Berichterstattung tägliche eindeutige Empfänger:innen erfasst. Dadurch kann Braze Conversions innerhalb des Conversion-Fensters jedes Mal zuordnen, wenn eine Nutzerin oder ein Nutzer die Nachricht erhält, anstatt mehrere Empfänge zu einem einzigen Lifetime-Zähler zusammenzufassen (was die Conversion-Berechnung verzerren würde).
 
@@ -48,9 +48,7 @@ Dasselbe Muster gilt für wiederkehrende Campaigns und die erneute Berechtigung:
 
 ### Warum kann die Anzahl der Conversions die Anzahl der eindeutigen Nutzer:innen bei Multichannel-Campaigns übersteigen? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Bei Multichannel-Campaigns zählt Braze Conversions pro Kanal, nicht pro Nutzer:in. Wenn eine Nutzerin oder ein Nutzer eine einzelne Conversion-Aktion innerhalb des Conversion-Fensters durchführt, ordnet Braze diese Conversion jedem Kanal zu, über den die Person eine Nachricht erhalten hat. Das bedeutet: Wenn eine Nutzerin oder ein Nutzer Nachrichten über mehrere Kanäle erhält (z. B. sowohl E-Mail als auch Push) und konvertiert, zählt Braze mehrere Conversions – eine für jeden Kanal. Dadurch kann die Gesamtzahl der Conversions die Anzahl der eindeutigen Nutzer:innen übersteigen, die konvertiert haben.
-
-Wenn beispielsweise eine Multichannel-Campaign sowohl eine E-Mail als auch eine Push-Benachrichtigung an eine Nutzerin oder einen Nutzer sendet und diese Person nach dem Erhalt beider Nachrichten und innerhalb des Conversion-Fensters eine Conversion-Aktion durchführt, zählt Braze dies als zwei Conversions – eine der E-Mail und eine dem Push zugeordnet – obwohl es sich um eine einzelne Aktion derselben Person handelt.
+Informationen dazu finden Sie unter [Conversions und Berichterstattung]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) in **Campaign erstellen** und [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) in **Konversions-Events**.
 
 ### Warum hat meine Campaign eine kleinere erreichbare Nutzerbasis als das Segment, das ich für die Campaign verwende? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -58,7 +56,7 @@ Wenn Sie eine [Globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/glob
 
 ### Was bietet die Zustellung nach Ortszeit? {#what-does-local-time-zone-delivery-offer}
 
-Die Zustellung nach Ortszeit ermöglicht es Ihnen, Messaging-Campaigns basierend auf der individuellen Zeitzone der Nutzer:innen an ein Segment zuzustellen. Ohne Zustellung nach Ortszeit werden Campaigns basierend auf den Zeitzonen-Einstellungen Ihres Unternehmens in Braze geplant.
+Die Zustellung nach Ortszeit ermöglicht es Ihnen, Messaging-Kampagnen basierend auf der individuellen Zeitzone der Nutzer:innen an ein Segment zuzustellen. Ohne Zustellung nach Ortszeit werden Campaigns basierend auf den Zeitzonen-Einstellungen Ihres Unternehmens in Braze geplant.
 
 Beispielsweise würde ein in London ansässiges Unternehmen, das eine Campaign um 12 Uhr mittags sendet, Nutzer:innen an der Westküste Amerikas um 4 Uhr morgens erreichen. Wenn Ihre App nur in bestimmten Ländern verfügbar ist, stellt dies möglicherweise kein Risiko für Sie dar. Andernfalls empfehlen wir dringend, das Senden von Push-Benachrichtigungen in den frühen Morgenstunden an Ihre Nutzerbasis zu vermeiden.
 
@@ -72,7 +70,7 @@ Sie können die Zeitzone Ihres Unternehmens in Ihren [Unternehmenseinstellungen]
 
 Braze wertet die Eintrittsberechtigung der Nutzer:innen aus zu:
 
-- Samoa-Zeit (UTC+13) oder UTC+14 während der Sommerzeit
+- Samoa-Zeit (UTC+13) am geplanten Tag
 - Der Ortszeit des geplanten Tages
 
 Damit eine Nutzerin oder ein Nutzer eintrittsberechtigt ist, muss sie oder er beide Prüfungen bestehen. Wenn beispielsweise ein Canvas am 7. August 2021 um 14 Uhr Ortszeit gestartet werden soll, erfordert das Targeting einer Nutzerin oder eines Nutzers in New York die folgenden Berechtigungsprüfungen:
@@ -80,7 +78,9 @@ Damit eine Nutzerin oder ein Nutzer eintrittsberechtigt ist, muss sie oder er be
 - New York am 6. August 2021 um 21 Uhr
 - New York am 7. August 2021 um 14 Uhr
 
-Die Nutzerin oder der Nutzer muss 24 Stunden vor dem Start im Segment sein. Wenn die Nutzerin oder der Nutzer bei der ersten Prüfung nicht berechtigt ist, versucht Braze die zweite Prüfung nicht.
+Die Nutzerin oder der Nutzer muss zu beiden Auswertungszeitpunkten Ihrer Zielgruppe und Ihren Filtern entsprechen. Wenn die Nutzerin oder der Nutzer bei der ersten Prüfung nicht berechtigt ist, führt Braze die zweite Prüfung nicht durch. Es gibt keine Mindestdauer, die eine Nutzerin oder ein Nutzer vor dem Start im Segment gewesen sein muss. Nur die Berechtigung bei jeder Prüfung ist entscheidend.
+
+Dieses Auswertungsverhalten ist unabhängig davon, [wie weit im Voraus Sie die Campaign im Dashboard planen](#how-do-i-schedule-a-local-time-zone-campaign). Die Planung mindestens 24 Stunden im Voraus ist eine Empfehlung, da sie dazu beiträgt, dass Nachrichten über das gesamte 24-Stunden-Ortszeitfenster zugestellt werden – es ist keine Voraussetzung, dass jede Nutzerin oder jeder Nutzer 24 Stunden lang in der Zielgruppe gewesen sein muss.
 
 #### Beispiele {#examples}
 
@@ -88,7 +88,7 @@ Wenn beispielsweise eine Campaign für 19 Uhr UTC zugestellt werden soll, beginn
 
 Ein weiteres Beispiel: Angenommen, Sie möchten zwei Campaigns erstellen, die am selben Tag gesendet werden sollen – eine morgens und eine abends – und einen Filter hinzufügen, dass Nutzer:innen die zweite Campaign nur erhalten können, wenn sie die erste bereits erhalten haben. Bei der Zustellung nach Ortszeit erhalten einige Nutzer:innen möglicherweise die zweite Campaign nicht. Das liegt daran, dass wir die Berechtigung prüfen, wenn die Zeitzone der Nutzerin oder des Nutzers identifiziert wird. Wenn der geplante Zeitpunkt in ihrer Zeitzone noch nicht eingetreten ist, haben sie die erste Campaign noch nicht erhalten und sind daher nicht für die zweite Campaign berechtigt.
 
-Eine visuelle Darstellung, wie eine Nutzerin oder ein Nutzer bei der ersten Prüfung im Segment sein kann, aber nicht bei der zweiten, finden Sie in dieser Zeitleiste:
+Die folgende Zeitleiste geht von einer Segment-Definition aus, die ein zeitlich begrenztes Mitgliedschaftsfenster enthält. In diesem Beispiel verlassen Nutzer:innen das Segment 24 Stunden nach ihrem Beitritt. Dieses Filterverhalten ist ein Grund, warum eine Nutzerin oder ein Nutzer die erste Prüfung bestehen, aber die zweite nicht bestehen kann.
 
 ![Zeitleiste, die zeigt, wie eine Nutzerin oder ein Nutzer vor der ersten Prüfung in das Segment eintritt und es dann vor der zweiten Prüfung wieder verlässt.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -103,7 +103,9 @@ Eine visuelle Darstellung, wie eine Nutzerin oder ein Nutzer bei der ersten Prü
 
 ### Wie plane ich eine Ortszeit-Campaign? {#how-do-i-schedule-a-local-time-zone-campaign}
 
-Wenn Sie eine Campaign planen, wählen Sie den Versand zu einem bestimmten Zeitpunkt und dann **Kampagne an Nutzer:innen in ihrer Ortszeit senden**.
+Im vorherigen Abschnitt wird beschrieben, wann Braze die Berechtigung für die Zustellung nach Ortszeit auswertet (die beiden Prüfungen). In diesem Abschnitt geht es darum, wann Sie den Campaign-Zeitplan im Dashboard festlegen (Vorlaufzeit für die Planung) und welche Nutzer:innen die Nachricht noch erhalten, wenn Sie mit weniger als 24 Stunden Vorlauf planen.
+
+Wenn Sie eine Campaign planen, wählen Sie den Versand zu einem bestimmten Zeitpunkt und dann **Campaign an Nutzer:innen in ihrer Ortszeit senden**.
 
 Braze empfiehlt dringend, alle Ortszeit-Campaigns 24 Stunden im Voraus zu planen. Da eine solche Campaign über einen ganzen Tag hinweg gesendet werden muss, stellt die Planung 24 Stunden im Voraus sicher, dass Ihre Nachricht Ihr gesamtes Segment erreicht. Sie können diese Campaigns jedoch bei Bedarf auch weniger als 24 Stunden im Voraus planen. Beachten Sie, dass Braze keine Nachrichten an Nutzer:innen sendet, die den Sendezeitpunkt um mehr als 1 Stunde verpasst haben.
 
@@ -132,7 +134,7 @@ Wenn die Campaign geplant ist, müssen Sie Änderungen an allem außer der Nachr
 
 ### Ich habe meine geplante Campaign aktualisiert. Warum wurde sie nicht gestartet? {#i-updated-my-scheduled-campaign-why-didnt-it-launch}
 
-Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Kampagne aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass der geplante Startzeitpunkt bereits verstrichen ist. Anstatt die Campaign für denselben Zeitpunkt zu planen, wählen Sie **Senden, sobald die Kampagne gestartet wird**.
+Dies kann passieren, wenn eine Campaign genau zu dem Zeitpunkt gestartet werden soll, zu dem sie aktualisiert wurde. Wenn es beispielsweise gerade 15:10 Uhr ist und Sie die Campaign auf 15:10 Uhr geändert und **Campaign aktualisieren** ausgewählt haben, ist es jetzt nach 15:10 Uhr, was bedeutet, dass der geplante Startzeitpunkt bereits verstrichen ist. Anstatt die Campaign für denselben Zeitpunkt zu planen, wählen Sie **Senden, sobald die Campaign gestartet wird**.
 
 ### Was ist die „sichere Zone“, bevor Nachrichten einer geplanten Campaign eingereiht werden? {#what-is-the-safe-zone-before-messages-on-a-scheduled-campaign-are-enqueued}
 
@@ -206,7 +208,7 @@ Aktionsbasierte Zustellungs-Campaigns oder Event-getriggerte Campaigns sind sehr
 | Vorteile | Nachteile |
 | ---- | ---- |
 | • Sichtbarkeit eingehender JSON-Payloads in der Plattform (wenn das Event von einer Testnutzerin oder einem Testnutzer getriggert wird) über das **Nachrichten-Aktivitätsprotokoll**<br><br>• Personalisierungselemente sind in den angepassten Event-Eigenschaften enthalten<br><br>• Angepasste Events können verwendet werden, um Segmente von Nutzer:innen zu erstellen, die für die Nachricht berechtigt sind | • Verbraucht Datenpunkte |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aktionsbasiert" }
 
 #### API-getriggert {#api-triggered}
 
@@ -215,7 +217,7 @@ API-getriggerte und servergetriggerte Campaigns sind ideal für die Handhabung k
 | Vorteile | Hinweise |
 | ---- | ---- |
 | • Verbraucht keine Datenpunkte<br><br>• Personalisierungselemente sind in den JSON-Payload-Eigenschaften enthalten | • Ermöglicht es nicht, ein Segment von Nutzer:innen zu erstellen, die für die Nachricht in den JSON-Payload-Eigenschaften berechtigt sind<br><br>• Eingehende JSON-Payloads können nicht über das **Nachrichten-Aktivitätsprotokoll** eingesehen werden |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API-getriggert" }
 
 ### Was sollte ich angeben, wenn ich ein Support-Ticket für einen „Request Timed Out“-Fehler einreiche? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 

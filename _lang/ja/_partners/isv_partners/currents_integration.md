@@ -1,24 +1,24 @@
 ---
-nav_title: カスタム Currents コネクター
+nav_title: カスタムCurrentsコネクター
 alias: /currents_connector/
 hidden: true
 ---
 
-# カスタム Currents コネクター {#custom-currents-connector}
+# カスタムCurrentsコネクター {#custom-currents-connector}
 
-> カスタム Currents コネクターを統合して、Brazeからイベントデータをリアルタイムで取得し、分析、レポート、オートメーションのカスタマイズを拡張する方法を紹介します。
+> カスタムCurrentsコネクターを統合して、Brazeからイベントデータをリアルタイムで取得し、分析、レポート、オートメーションのカスタマイズを拡張する方法を紹介します。
 
 ## 前提条件 {#prerequisites}
 
-Brazeでカスタム Currents コネクターを統合するには、エンドポイントURLと[オプションの認証トークン](#authentication)を指定する必要があります。
+BrazeでカスタムCurrentsコネクターを統合するには、エンドポイントURLと[オプションの認証トークン](#authentication)を指定する必要があります。
 
-さらに、Brazeに複数のアプリグループがある場合は、グループごとにカスタム Currents コネクターを設定する必要があります。ただし、すべてのアプリグループを同じエンドポイントに向けることも、`your_app_group_key="Brand A"` のように `GET` パラメーターを追加したエンドポイントに向けることもできます。
+さらに、Brazeに複数のアプリグループがある場合は、グループごとにカスタムCurrentsコネクターを設定する必要があります。ただし、すべてのアプリグループを同じエンドポイントに向けることも、`your_app_group_key="Brand A"` のように `GET` パラメーターを追加したエンドポイントに向けることもできます。
 
 ## データ損失の防止 {#preventing-data-loss}
 
 ### エラー監視 {#error-monitoring}
 
-データの損失やサービスの中断を避けるためには、エンドポイントを常に監視し、24時間以内にハードエラーやダウンタイムに対処することが欠かせません。
+データの損失やサービスの中断を避けるためには、エンドポイントを常に監視し、24時間以内にハードエラーやダウンタイムに対処することが不可欠です。
 
 ほとんどのエラータイプ（サーバーエラー、ネットワーク接続エラーなど）に対して、Brazeは最大24時間、イベント送信のキューとリトライを続けます。それ以降、送信されなかったイベントはドロップされます。エラー率や稼働率に常に問題があるコネクターは自動的に停止されます。
 
@@ -53,13 +53,13 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 
 さらに、その構造は[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に見られるフラットな構造とは若干異なります。具体的には、以下の2つのサブオブジェクトが含まれます。
 
-|名前|説明|
+| 名前 | 説明 |
 |----|-----------|
-|`"user"`| `user_id`、`external_user_id`、`device_id`、`timezone` などのユーザープロパティが格納されます。|
-|`"properties"`|`app/campaign/canvas/platform` など、適用されるイベントの属性が含まれます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `"user"` | `user_id`、`external_user_id`、`device_id`、`timezone` などのユーザープロパティが格納されます。|
+| `"properties"` | `app/campaign/canvas/platform` など、適用されるイベントの属性が含まれます。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
-ダウンストリームエンドポイントがゼロイベントまたは空のリクエスト本文を含むペイロードを受信した場合、その結果はno-opとみなされ、このコールからはダウンストリームの影響が発生しないことになります。ただし、`Authorization` ヘッダーをチェックし（通常のAPIコールの際と同様に）、[無効な認証情報](#authentication)に対しては `401` や `403` などの適切なHTTPレスポンスを返す必要があります。これにより、Brazeはコネクターの認証情報が有効であることを認識できます。
+ダウンストリームエンドポイントがゼロイベントまたは空のリクエスト本文を含むペイロードを受信した場合、その結果はno-opとみなされ、このコールからはダウンストリームへの影響が発生しないようにする必要があります。ただし、（通常のAPIコールの場合と同様に）`Authorization` ヘッダーをチェックし、[無効な認証情報](#authentication)に対しては `401` や `403` などの適切なHTTPレスポンスを返す必要があります。これにより、Brazeはコネクターの認証情報が有効であることを認識できます。
 
 ### Campaign関連イベント {#campaign-associated-events}
 
@@ -177,7 +177,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 
 以下は、Canvasに関連付けられた場合に表示される、さまざまなイベントのペイロード例です。
 
-#### アプリ内メッセージのクリック {#in-app-message-click}
+#### アプリ内メッセージのクリック
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 }
 ```
 
-#### プッシュ通知の送信 {#push-notification-send}
+#### プッシュ通知の送信
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 }
 ```
 
-#### メール開封 {#email-open}
+#### メール開封
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 }
 ```
 
-#### SMS配信 {#sms-delivery}
+#### SMS配信
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -402,7 +402,7 @@ Authorization: Bearer 0p3n5354m3==
 
 ## バージョニング {#versioning}
 
-HTTPコネクター統合からのリクエストはすべて、実行するCurrentsリクエストのバージョンを指定するカスタムヘッダーを含めて送信されます。
+HTTPコネクター統合からのリクエストはすべて、Currentsリクエストのバージョンを指定するカスタムヘッダーを含めて送信されます。
 
 ```plaintext
 Braze-Currents-Version: 1
@@ -430,7 +430,8 @@ Brazeの再試行メカニズムが24時間以上イベントの配信に失敗�
 
 以下のHTTPステータスコードがコネクタークライアントによって認識されます。
 
-<table>
+<table aria-label="Error handling and retry mechanism">
+  <caption>エラー処理と再試行のメカニズム</caption>
   <thead>
     <tr>
       <th>ステータスコード</th>
@@ -481,4 +482,4 @@ Brazeの再試行メカニズムが24時間以上イベントの配信に失敗�
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

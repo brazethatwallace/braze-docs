@@ -10,10 +10,10 @@ page_order: 5
 
 # Propriedades de entrada persistentes {#persistent-entry-properties}
 
-> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais curadas.
+> Quando um Canvas é disparado por um evento personalizado, uma compra ou uma chamada de API, você pode usar metadados da chamada de API, do evento personalizado ou do evento de compra para personalização em cada etapa do fluxo de trabalho do seu Canvas. Você pode usar essas propriedades para enviar mensagens mais direcionadas.
 
 {% alert important %}
-As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atualizado do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).
+As propriedades de entrada persistentes são um artefato do editor original do Canvas, então existem referências depreciadas a termos como propriedades de entrada do Canvas que permanecem para referência histórica. Para o editor atual do Canvas, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/).<br><br>Para usar propriedades de entrada persistentes no editor atual do Canvas, você deve criar um novo Canvas ou [clonar]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/) um existente para o editor atual.
 {% endalert %}
 
 ## Uso de propriedades de entrada {#using-entry-properties}
@@ -34,7 +34,7 @@ O objeto de propriedades de entrada do Canvas tem um limite máximo de tamanho d
 
 ## Atualizando o Canvas para usar propriedades de entrada {#updating-canvas-to-use-entry-properties}
 
-Se um Canvas ativo que anteriormente não incluía nenhuma mensagem usando `canvas_entry_properties` for editado para incluir `canvas_entry_properties`, o valor correspondente a essa propriedade não estará disponível para usuários que entraram no Canvas antes de `canvas_entry_properties` ser adicionado. Os valores serão salvos apenas para usuários que entrarem no Canvas após a alteração ser feita.
+Se um Canvas ativo que anteriormente não incluía nenhuma mensagem usando `canvas_entry_properties` for editado para incluir `canvas_entry_properties`, o valor correspondente a essa propriedade não estará disponível para usuários que entraram no Canvas antes de `canvas_entry_properties` ser adicionado ao Canvas. Os valores serão salvos apenas para usuários que entrarem no Canvas após a alteração ser feita.
 
 Por exemplo, se você lançou inicialmente um Canvas que não usava nenhuma propriedade de entrada em 3 de novembro e depois adicionou uma nova propriedade `product_name` ao Canvas em 11 de novembro, os valores de `product_name` seriam salvos apenas para usuários que entraram no Canvas a partir de 11 de novembro.
 

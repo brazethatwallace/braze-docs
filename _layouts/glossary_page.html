@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: false
 hide_breadcrumb: false
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -160,18 +162,39 @@ $(document).ready(function() {
     return found;
   }
 
+  var noResultsTimer = null;
+  var countTimer = null;
+  var innerTimer = null;
+  var lastAnnouncedCount = -1;
+  var altChar = false;
+
   function generate_glossarys(glossary_hash) {
     var result_cnt = 0;
-    $('#results_msg').hide();
+    var resultsMsg = $('#results_msg');
+    var resultsCount = $('#results_count');
+    var resultsCountLive = $('#results_count_live');
+    var resultsMsgLive = $('#results_msg_live');
+
+    clearTimeout(noResultsTimer);
+    clearTimeout(countTimer);
+    clearTimeout(innerTimer);
+    resultsCount.hide();
+    resultsMsg.hide();
+
+    var total_cnt = glossary_hash['sorted'].length;
+    var selected_vals = [];
+    $('.glossary_filter_div input[type="checkbox"]:checked').each(function(k,v){
+      selected_vals.push($(this).val());
+    });
+    var search_str = $('#glossary_search').val().toLowerCase();
+    var showall = !selected_vals.length && !search_str.length;
+
     for (var i = 0; i < glossary_hash['sorted'].length;i++){
       var cur_glossary = glossary_hash['data'][glossary_hash['sorted'][i]];
       var cur_filter_text = glossary_hash['search'][glossary_hash['sorted'][i]];
       var toappend = true;
       var filtered = true;
-      var selected_vals = [];
-      $('.glossary_filter_div input[type="checkbox"]:checked').each(function(k,v){
-       selected_vals.push($(this).val());
-      })
+
       if (selected_vals.length) {
          toappend = false;
          // Don't filter if item is set to all tags
@@ -183,7 +206,6 @@ $(document).ready(function() {
          }
        }
 
-        var search_str = $('#glossary_search').val().toLowerCase();
         if (search_str.length ) {
          toappend = false;
          if (!matchterms(search_str, cur_filter_text)) {
@@ -203,9 +225,39 @@ $(document).ready(function() {
         }
 
     }
-    if (!result_cnt) {
-      $('#results_msg').html('<p>No glossarys matching these filters</p>');
-      $('#results_msg').show();
+    if (!showall) {
+      if (!result_cnt) {
+        resultsMsg.show().text('No terms matching these filters');
+        noResultsTimer = setTimeout(function() {
+          resultsCountLive.text('');
+          resultsMsgLive.text('');
+          innerTimer = setTimeout(function() {
+            resultsMsgLive.text('No terms matching these filters');
+          }, 150);
+        }, 900);
+      } else {
+        var message = 'Showing ' + result_cnt + ' of ' + total_cnt + ' terms';
+        resultsCount.show().text(message);
+        resultsMsgLive.text('');
+        countTimer = setTimeout(function() {
+          var message = 'Showing ' + result_cnt + ' of ' + total_cnt + ' terms';
+          var liveMessage = message;
+          if (result_cnt === lastAnnouncedCount) {
+            altChar = !altChar;
+            if (altChar) liveMessage += ' ';
+          }
+          lastAnnouncedCount = result_cnt;
+          resultsCountLive.text('');
+          innerTimer = setTimeout(function() {
+            resultsCountLive.text(liveMessage);
+          }, 150);
+        }, 900);
+      }
+    } else {
+      resultsMsg.text('');
+      resultsCountLive.text('');
+      resultsMsgLive.text('');
+      lastAnnouncedCount = -1;
     }
 
   };
@@ -235,7 +287,7 @@ $(document).ready(function() {
     generate_glossarys(glossary_hash);
   }
 
-  $('#glossary_search').on('keyup',function(e){
+  $('#glossary_search').on('input',function(e){
     generate_glossarys(glossary_hash);
   });
   var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
@@ -258,8 +310,11 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="glossary-main">
-
-    <div id="content_start"></div>
+    <div class="sr-only">
+      <div id="results_count_live" role="status" aria-atomic="true"></div>
+      <div id="results_msg_live" role="alert" aria-atomic="true"></div>
+    </div>
+    <div id="content_start" tabindex="-1"></div>
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
     </div>
@@ -269,7 +324,8 @@ $(document).ready(function() {
     <p class="glossary_text">  {{ page.glossary_top_text }} </p>
 
     <div id="glossary_filter">
-        <label for="glossary_search" id="glossary_label"><span class="sr-only">Search glossary</span><input id="glossary_search" type="search" placeholder="Search" /></label>
+        <label for="glossary_search" id="glossary_label"><span class="sr-only">Search glossary</span><input id="glossary_search" type="text" role="searchbox" placeholder="Search" aria-describedby="search-hint" /></label>
+        <span id="search-hint" class="sr-only">Results update automatically as you type.</span>
         <div id="glossary_filter_title">{{ page.glossary_filter_text }}</div>
         {%- for tag in page.glossary_tags -%}
         <div class="glossary_filter_div">
@@ -280,6 +336,8 @@ $(document).ready(function() {
         {%- endfor -%}
 
     </div>
+
+    <div id="results_count"></div>
 
     <div id="glossary_list" class="flex mx-auto">
 
@@ -337,8 +395,11 @@ $(document).ready(function() {
 
     {% include footer.html class="footer_glossary" %}
 </div>
-{%- unless hide_toc -%}
 <div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  {%- unless hide_toc -%}
   <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>
-{%- endunless -%}

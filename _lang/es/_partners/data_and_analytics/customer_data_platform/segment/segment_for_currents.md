@@ -23,7 +23,7 @@ La integración de Braze y Segment te permite aprovechar Braze Currents para exp
 | Cuenta de Segment | Se necesita una [cuenta de Segment](https://app.segment.com/login) para beneficiarse de esta asociación. |
 | Destino Braze | Ya debes haber [configurado Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) en tu integración de Segment.<br><br>Esto incluye proporcionar el centro de datos de Braze y la clave de API REST correctos en tu [configuración de conexión]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
 | Currents | Para volver a exportar datos a Segment, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -37,7 +37,7 @@ Es importante mantener actualizada tu clave de escritura de Segment. Si las cred
 
 ### Paso 2: Crear un nuevo conector de Currents {#step-2-create-a-new-currents-connector}
 
-1. En Braze, ve a **Integraciones de socios** > **Exportación de datos**.
+1. En Braze, ve a **Partner Integrations** > **Data Export**.
 2. Haz clic en **+ Create New Current** > **Segment Data Export**.
 3. A continuación, proporciona el nombre de la integración, el correo electrónico de contacto, la clave de escritura de Segment y la región de Segment.
 

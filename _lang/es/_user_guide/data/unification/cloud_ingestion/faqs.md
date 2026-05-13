@@ -152,6 +152,58 @@ CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincron
 Para evitar estos comportamientos en el futuro, recomendamos utilizar valores `UPDATED_AT` que aumenten monotónicamente y no actualizar la tabla durante la ejecución de la sincronización programada.
 {% endalert %}
 
+## ¿Necesito valores `UPDATED_AT` mayoritariamente distintos para importaciones CDI grandes? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+
+Sí. Para ejecuciones de gran volumen (por ejemplo, más de aproximadamente 10 millones de filas), asegúrate de que tus datos de origen tengan valores `UPDATED_AT` mayoritariamente distintos. Si demasiadas filas comparten la misma marca de tiempo, es más probable que CDI vuelva a seleccionar filas en las marcas de tiempo límite en ejecuciones posteriores. Esto puede aumentar las sincronizaciones duplicadas y el consumo de puntos de datos.
+
+Para más información sobre el comportamiento de CDI en los límites, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+
+### ¿Dónde ejecuto estas comprobaciones SQL? {#where-do-i-run-these-sql-checks}
+
+Ejecuta las comprobaciones directamente en el editor SQL de tu almacén de datos, contra la misma tabla o vista utilizada por tu integración CDI:
+
+- Snowflake: **Projects** > **Worksheets** (para más información, consulta [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
+- Redshift: Query Editor v2 (para más información, consulta [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
+- BigQuery: BigQuery Studio SQL workspace (para más información, consulta [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks: SQL editor (SQL warehouse) (para más información, consulta [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Fabric: SQL query editor
+
+Sigue este proceso antes de habilitar o escalar una sincronización grande:
+
+1. Identifica la tabla o vista de origen CDI exacta y la ventana de sincronización que deseas validar.
+2. Abre el editor SQL de tu almacén y selecciona la misma base de datos y esquema utilizados por CDI, luego usa un rol con acceso de lectura a la tabla o vista de origen.
+3. Ejecuta la consulta de recuento de marcas de tiempo distintas para medir cuántos valores `UPDATED_AT` distintos existen en esa ventana.
+4. Ejecuta la consulta que agrupa por `UPDATED_AT` y cuenta filas para encontrar marcas de tiempo con recuentos de filas inusualmente altos.
+5. Si muchas filas comparten marcas de tiempo idénticas, ajusta tu proceso de ingesta para que los lotes consecutivos utilicen valores `UPDATED_AT` progresivamente más recientes, o aumenta la precisión de las marcas de tiempo para que las filas estén más distribuidas.
+6. Vuelve a ejecutar ambas consultas hasta que la concentración se reduzca, luego lanza o escala tu sincronización.
+7. Después del lanzamiento, monitoriza **CDI** > **Sync Log** para detectar un volumen de resincronización inesperado en las marcas de tiempo límite.
+
+Usa comprobaciones como estas en tu almacén:
+
+```sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNT(DISTINCT UPDATED_AT) AS distinct_timestamps,
+  ROUND(COUNT(*) * 1.0 / NULLIF(COUNT(DISTINCT UPDATED_AT), 0), 2) AS avg_rows_per_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
+```
+
+```sql
+SELECT
+  UPDATED_AT,
+  COUNT(*) AS rows_at_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP)
+GROUP BY UPDATED_AT
+ORDER BY rows_at_timestamp DESC
+LIMIT 20;
+```
+
+Si tu almacén no admite `LIMIT` (por ejemplo, Fabric), usa una sintaxis equivalente como `TOP`.
+
 ## ¿Por qué una sincronización CDI con un número pequeño de filas puede tardar varios minutos? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
 Una sincronización CDI incluye un periodo de inicio fijo antes de que comience el procesamiento de filas. Dado que este tiempo de inicio es similar independientemente del tamaño de la sincronización, una sincronización pequeña puede tardar varios minutos y parecer más lenta en filas por minuto. El tiempo total de sincronización sigue dependiendo de la complejidad de la consulta de origen, la forma de los datos y la capacidad disponible en tu almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).

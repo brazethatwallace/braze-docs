@@ -2,7 +2,7 @@
 nav_title: Cadastro de e-mail com confirmação
 article_title: Cadastro de e-mail com página de confirmação
 alias: "/email_confirmation_page/"
-page_order: 6
+page_order: 7
 description: "Esta página explica como usar o editor de arrastar e soltar de mensagens no app para criar um formulário de cadastro de e-mail com uma página de confirmação."
 ---
 

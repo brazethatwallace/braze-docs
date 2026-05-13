@@ -26,6 +26,51 @@ Lesen Sie die folgende Meta-Dokumentation für Hinweise zu Anzeigenamen, Telefon
 
 ## WhatsApp-Produktupdates {#whatsapp-product-updates}
 
+### 2026: Geschäftliche Nutzernamen {#2026-business-usernames}
+*Zuletzt aktualisiert: Mai 2026*
+
+Meta führt geschäftliche Nutzernamen für WhatsApp ein – einen optionalen Anzeigenamen, den Unternehmen für ihre WhatsApp-Telefonnummer übernehmen können. Wenn ein Nutzername festgelegt ist, erscheint er in den Chat-Fenstern der WhatsApp- und WhatsApp-Business-App anstelle der Telefonnummer. Beachten Sie, dass die Übernahme eines Nutzernamens Ihre Telefonnummer nicht verbirgt; sie bleibt immer in Ihrem Unternehmensprofil sichtbar.
+
+Nutzernamen sind über alle WhatsApp-Telefonnummern hinweg eindeutig – keine zwei Nummern, weder von Verbraucher:innen noch von Unternehmen, können denselben Nutzernamen teilen. Für die Eindeutigkeit wird nicht zwischen Groß- und Kleinschreibung unterschieden, aber Punkte und Unterstriche werden als unterschiedliche Zeichen behandelt. Zum Beispiel sind `myid`, `my.id` und `my_id` alle unterschiedliche Nutzernamen, während `myID` und `myid` als identisch behandelt werden.
+
+Geschäftliche Nutzernamen müssen die folgenden Formatanforderungen erfüllen:
+
+- Enthält nur englische Buchstaben (a–z), Ziffern (0–9), Punkte (`.`) oder Unterstriche (`_`)
+- Ist zwischen 3 und 35 Zeichen lang
+- Enthält mindestens einen englischen Buchstaben
+- Beginnt oder endet nicht mit einem Punkt und enthält keine zwei aufeinanderfolgenden Punkte
+- Beginnt nicht mit `www`
+- Endet nicht mit einem gängigen Domain-Suffix (wie `.com`, `.org` oder `.net`)
+
+#### Einen reservierten Nutzernamen beanspruchen {#claiming-a-reserved-username}
+
+Bevor die Nutzernamen-Funktion allgemein verfügbar ist, hat Meta möglicherweise einen Nutzernamen für Ihr Unternehmen vorab reserviert – typischerweise passend zu einem bestehenden Facebook-Seiten- oder Instagram-Nutzernamen. Sie können diesen reservierten Nutzernamen beanspruchen oder einen anderen über [WhatsApp Manage](https://business.facebook.com/wa/manage/) wählen. Beanspruchte Nutzernamen werden erst aktiviert, wenn Meta die Funktion verfügbar macht.
+
+Wenn der reservierte Nutzername mit einem bereits mit Ihrer Facebook-Seite oder Ihrem Instagram-Konto verknüpften übereinstimmt, müssen Sie zunächst Ihre geschäftliche Telefonnummer mit dieser Seite oder diesem Konto verknüpfen. Sie können dies beim Beanspruchen des Nutzernamens im WhatsApp Manager oder in der Meta Business Suite tun, oder indem Sie Ihre Telefonnummer direkt von der entsprechenden Seite oder dem Konto hinzufügen. Die Verknüpfung erfordert entweder die vollständige Kontrolle über die Seite oder das Konto oder einen grundlegenden Teilzugriff mit der Berechtigung `manage_phone`.
+
+#### Anzeige-Priorität in Chat-Fenstern {#display-priority-in-chat-windows}
+
+Wenn Ihr Unternehmensprofil in einem Chat-Fenster erscheint, verwendet WhatsApp die folgende Prioritätsreihenfolge (von höchster zu niedrigster):
+
+1. Gespeicherter Kontaktname
+2. Verifizierter Unternehmensname oder Official Business Account (OBA)-Name
+3. Nutzername
+4. Telefonnummer
+
+Weitere Informationen finden Sie in Metas Dokumentation zu [geschäftlichen Nutzernamen](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### April 2026: Automatische Archivierung inaktiver Templates {#april-2026-automatic-archival-of-inactive-templates}
+*Zuletzt aktualisiert: April 2026*
+
+- Meta archiviert automatisch Templates, die seit 12 Monaten oder länger inaktiv sind.
+- Die automatische Archivierung ist für alle WhatsApp-Geschäftskonten aktiviert und kann nicht deaktiviert werden.
+- Template-Aktivität umfasst das Erstellen, Bearbeiten, Senden, Einlegen eines Einspruchs oder Dearchivieren eines Templates.
+- Archivierte Templates können nicht gesendet werden und sind nach 28 Tagen zur endgültigen Löschung vorgesehen.
+- Sie können Templates innerhalb des 28-Tage-Fensters dearchivieren, um sie wiederherzustellen und die geplante Löschung abzubrechen.
+- Benachrichtigungen werden über den `message_template_status_update`-Webhook, per E-Mail und über ein einmaliges WhatsApp-Manager-Banner gesendet.
+
+Weitere Informationen finden Sie in Metas Dokumentation zur [Template-Archivierung](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### Juni 2026: Geschäftsbezogene Nutzer-IDs {#june-2026-business-scoped-user-ids}
 *Zuletzt aktualisiert: März 2026*
 

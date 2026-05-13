@@ -56,7 +56,7 @@ Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limit
 | 1072 - 1224 caractères | 8 segments |
 | 1225 - 1377 caractères | 9 segments |
 | 1378 - 1530 caractères | 10 segments |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détail des segments" }
 {% endtab %}
 {% tab Encodage UCS-2 %}
 | Nombre de caractères | Combien de segments ? |
@@ -71,7 +71,7 @@ Quel que soit le type d'encodage, chaque message SMS envoyé par Braze est limit
 | 470 - 536 caractères | 8 segments |
 | 537 - 603 caractères | 9 segments |
 | 604 - 670 caractères | 10 segments |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Détail des segments" }
 {% endtab %}
 {% endtabs %}
 

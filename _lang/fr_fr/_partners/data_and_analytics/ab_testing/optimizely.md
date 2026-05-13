@@ -44,21 +44,21 @@ L'intégration entre Braze et Optimizely est une intégration bidirectionnelle q
 ![Autorisation Optimizely.]({% image_buster /assets/img/optimizely/image1_authorization.png %})
 
 {:start="6"}
-6. Dans ODP, développez la section **Segments** et sélectionnez des Segments spécifiques dans la liste **Segments to Sync**, ou sélectionnez **Import All Customers** pour synchroniser tous les Segments.
+6. Dans ODP, développez la section **Segments** et sélectionnez des segments spécifiques dans la liste **Segments to Sync**, ou sélectionnez **Import All Customers** pour synchroniser tous les segments.
 7. Ajoutez les [mappages de champs supplémentaires](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/29918568615949-Integrate-Braze%23h_01J6Z1P53JVDBFZ758Q78CK1QB&sa=D&source=editors&ust=1733948158380300&usg=AOvVaw3WSAND5ie3LCVuSxUlLanR) souhaités entre Braze et ODP.
 8. Sélectionnez **Save**.
 
-![Synchronisation de Segments Braze dans Optimizely.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
+![Synchronisation de segments Braze dans Optimizely.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
 
 {% alert tip %}
-Vous devez sélectionner des Segments pour importer des profils clients Braze. Si vous ne sélectionnez aucun Segment, l'intégration n'importera aucun profil client.
+Vous devez sélectionner des segments pour importer des profils clients Braze. Si vous ne sélectionnez aucun segment, l'intégration n'importera aucun profil client.
 {% endalert %}
 
 ### Étape 2 : Mapper les champs de données {#step-2-map-data-fields}
 
 L'intégration dispose de mappages de champs de données par défaut entre Braze et ODP. Par exemple, le champ **Email** dans Braze est mappé au champ **Last Seen Email** dans ODP.
 
-![Champs de mappage entre Optimizely et Braze pour les Segments.]({% image_buster /assets/img/optimizely/image3_emailmapfield.png %})
+![Champs de mappage entre Optimizely et Braze pour les segments.]({% image_buster /assets/img/optimizely/image3_emailmapfield.png %})
 
 #### Mapper des champs supplémentaires (facultatif) {#map-additional-fields-optional}
 
@@ -68,7 +68,7 @@ Si vous souhaitez mapper des champs de données supplémentaires de Braze vers O
 2. Sélectionnez le champ ODP dans la liste déroulante **ODP Customer Fields**.
 3. Sélectionnez **Save Field Map**.
 
-![Enregistrement des mappages de champs pour les Segments Braze dans Optimizely.]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
+![Enregistrement des mappages de champs pour les segments Braze dans Optimizely.]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
 
 #### Supprimer les mappages de champs non requis (facultatif) {#delete-non-required-field-mappings-optional}
 
@@ -77,7 +77,7 @@ Vous pouvez également supprimer les mappages de champs de données qui ne sont 
 1. Dans la section **Segments** de l'application, sélectionnez le mappage de champ que vous souhaitez supprimer dans la liste déroulante **Field Map**.
 2. Sélectionnez **Delete Field Map**.
 
-![Suppression des mappages de champs pour les Segments Braze dans Optimizely.]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
+![Suppression des mappages de champs pour les segments Braze dans Optimizely.]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
 
 ### Étape 3 : Synchroniser les données d'Optimizely Data Platform (ODP) vers Braze {#step-3-sync-data-from-optimizely-data-platform-odp-to-braze}
 
@@ -86,8 +86,8 @@ Après avoir configuré l'intégration, vous pouvez mettre en place une activati
 1. Accédez à **Activation** > **Engage** et sélectionnez **Create New Campaign**.
 2. Sélectionnez **Behavioral** pour mettre en place une synchronisation automatique et récurrente.
 3. Sélectionnez **Create From Scratch**, puis saisissez un nom pour votre activation qui représente les données que vous synchronisez vers Braze (par exemple **Braze Data Sync**).
-4. Dans la section **Enrollment**, vous pouvez synchroniser les données des clients qui correspondent à un Segment ou synchroniser les données des clients qui déclenchent un événement (par exemple, lorsqu'ODP enregistre qu'un client ouvre un e-mail) :
-   - **Clients qui correspondent à un Segment :** Sélectionnez le Segment souhaité, puis sélectionnez **Next**.<br><br>![Sélection de Segment dans Optimizely.]({% image_buster /assets/img/optimizely/image6_segment.png %})
+4. Dans la section **Enrollment**, vous pouvez synchroniser les données des clients qui correspondent à un segment ou synchroniser les données des clients qui déclenchent un événement (par exemple, lorsqu'ODP enregistre qu'un client ouvre un e-mail) :
+   - **Clients qui correspondent à un segment :** Sélectionnez le segment souhaité, puis sélectionnez **Next**.<br><br>![Sélection de segment dans Optimizely.]({% image_buster /assets/img/optimizely/image6_segment.png %})
    - **Clients qui déclenchent un événement :** Développez la liste déroulante **Filter** et sélectionnez l'événement ODP à utiliser comme déclencheur pour cette synchronisation de données vers Braze. Développez ensuite **Automation Rules** et ajustez selon vos besoins. <br><br>![Événement déclencheur dans Optimizely.]({% image_buster /assets/img/optimizely/image7_trigger.png %})
 5. Développez **Touchpoints**, sélectionnez pour modifier **Touchpoint 1**, puis sélectionnez **Braze**.
 6. Développez la section **Targeting**, puis sélectionnez le **Target Identifier**.

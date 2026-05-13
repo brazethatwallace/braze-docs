@@ -65,7 +65,7 @@ Link shortening is also turned on for API-only messages through the [`/messages/
 | --------- | ---------| --------- | ----------- |
 |`link_shortening_enabled`| Optional | Boolean | Set `link_shortening_enabled` to `true` to turn on link shortening and campaign-level click tracking. To use tracking, a `campaign_id` and `message_variation_id` must be present.|
 |`user_click_tracking_enabled`| Optional | Boolean | Set `user_click_tracking_enabled` to `true` to turn on link shortening, and campaign-level and user-level click tracking. You can use the tracked data to create segments of users who clicked URLs.<br><br> To use this parameter, `link_shortening_enabled` must be `true`, and a `campaign_id` and `message_variation_id` must be present. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 For a full list of request parameters, go to [request parameters]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 

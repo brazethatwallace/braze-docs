@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：統合の概要 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：統合の概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > この記事では、オンボーディングプロセスの基本的な概要を説明します。
 
@@ -199,7 +199,7 @@ QAを始める前に、本番環境とテスト環境がセットアップされ
 |                           | Content Cardsが配信され、指標が記録されていることをテストします。 |
 |                           | コネクテッドコンテンツを促進します（例：AccuWeather）。 |
 |                           | すべてのメッセージチャネルの統合が正しく連携していることを確認します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quality assurance #qa" }
 
 {% alert note %}
 SDK統合のQAを行う際、[SDKデバッガー]({{site.baseurl}}/developer_guide/sdk_integration/debugging/)を使用すれば、アプリの冗長ロギングをオンにすることなく問題のトラブルシューティングを行うことができます。

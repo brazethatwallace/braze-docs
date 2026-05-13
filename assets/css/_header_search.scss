@@ -356,7 +356,7 @@ $search_icon: $white;
 						&.content {
 							display: block;
 							width: 100%;
-							color: $grey-manatee;
+							color: $grey-dust; // $grey-manatee → darkened for 6.2:1 on white/grey-athens
 							font-size: 13px;
 							line-height: 1.5;
 						}

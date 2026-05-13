@@ -12,7 +12,7 @@ You can use these methods by passing your `BrazeInAppMessage` instance to log an
 | `hideCurrentInAppMessage()`                               | Dismisses the currently displayed in-app message.                                     |
 | `performInAppMessageAction(inAppMessage)`                 | Performs the action for an in-app message.                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | Performs the action for an in-app message button.                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Methods for logging" }
 
 ## Handling message data
 

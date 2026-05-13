@@ -14,7 +14,7 @@ page_order: 3
 Quando você configura um agente, pode escolher o modelo que ele usa para gerar respostas. Você tem duas opções: usar um modelo fornecido pela Braze ou trazer sua própria chave de API.
 
 {% alert important %}
-O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a segmentos. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
+O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a Segments. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
 {% endalert %}
 
 ### Opção 1: Use um modelo fornecido pela Braze {#option-1-use-a-braze-powered-model}
@@ -51,6 +51,7 @@ Alguns provedores de LLM podem permitir que você ajuste o nível de raciocínio
 | **Baixo** | Tarefas que se beneficiam de um pouco mais de raciocínio, mas não precisam de análise profunda. |
 | **Médio** | Tarefas com múltiplas etapas ou nuances (como analisar várias entradas para recomendar uma ação). |
 | **Alto** | Raciocínio complexo, casos extremos ou quando você precisa que o modelo trabalhe as etapas antes de responder. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de raciocínio" }
 
 Recomendamos começar com **Mínimo** e testar as respostas do seu agente. Depois, você pode ajustar o nível de raciocínio para **Baixo** ou **Médio** se perceber que o agente está tendo dificuldade em fornecer respostas precisas. Em casos raros, um nível de raciocínio **Alto** pode ser necessário, embora usar esse nível possa resultar em altos custos de token e tempos de resposta mais longos ou maior risco de erros de timeout. Se seu agente está tendo dificuldade em equilibrar raciocínio com múltiplas etapas e tempos de resposta razoáveis, considere dividir seu caso de uso em mais de um agente que possam trabalhar juntos em um Canvas ou catálogo.
 
@@ -69,6 +70,13 @@ Cada provedor de LLM tem uma combinação ligeiramente diferente de capacidades 
 - Se modelos de menor custo ou níveis de raciocínio mais baixos estiverem tendo dificuldade com o caso de uso ou gerando saídas inconsistentes ou imprecisas, considere ajustar para modelos de custo mais alto ou níveis de raciocínio mais altos.
 - Durante os testes, certifique-se de equilibrar a confiabilidade e a precisão com o uso de tokens e a duração da invocação.
 - Cada caso de uso pode ter um modelo e nível de raciocínio ideais diferentes. Recomendamos testar minuciosamente para verificar a qualidade consistente sem timeouts.
+
+### Limites de taxa {#rate-limits}
+
+Os seguintes limites de taxa se aplicam por espaço de trabalho:
+
+- **Modelo fornecido pela Braze:** 1.000 invocações por minuto
+- **Trazendo sua própria chave de API:** 2.500 invocações por minuto
 
 ## Escrevendo instruções {#writing-instructions}
 
@@ -155,6 +163,61 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 <output_example>
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
+```
+{% endraw %}
+
+{% endtab %}
+{% tab Descadastramento por SMS %}
+
+{% raw %}
+```
+ROLE
+You are a compliance-focused classifier for inbound customer messages.
+
+PRIMARY TASK
+Given a single inbound message from a user, decide whether it should be treated as a request to opt out of future messaging (unsubscribe, stop, revoke consent).
+
+OUTPUT (STRICT)
+Return a single boolean only:
+- true = treat as an opt-out request
+- false = do not treat as an opt-out request
+Do not output any other words, punctuation, or explanation.
+
+COMPLIANCE INTENT (NON-LEGAL GUIDANCE)
+Classify conservatively to reduce the risk of sending messages after a user revokes consent. This supports common requirements and expectations in laws and standards such as TCPA (US SMS consent and revocation), GDPR (withdrawal of consent and right to object to marketing), and other subscription management regimes. When in doubt, return true.
+
+DECISION RULES
+Return true if ANY of the following are present:
+1) Explicit opt-out keywords or phrases:
+   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
+   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
+2) A clear request to stop a specific channel:
+   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
+3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
+   - A standalone thumbs down (:-1:) or "thumbs down"
+   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
+   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
+Return false if ALL of the following are true:
+- The user is clearly engaging with the content or asking a question, and
+- There is no explicit opt-out intent
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
+
+EDGE CASES
+- If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
+- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
+- If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
+
+EXAMPLES
+Input: “STOP” → true
+Input: “unsubscribe” → true
+Input: “Please stop texting me” → true
+Input: “Remove me from your list” → true
+Input: “:-1:” → true
+Input: “I hate this. Leave me alone.” → true
+Input: “This is the worst, you suck” → true
+Input: “Stop by tomorrow?” → false
+Input: “Can you stop the delivery?” → false
+Input: “This sucks—what’s the promo code?” → false
 ```
 {% endraw %}
 
@@ -407,7 +470,7 @@ Se você quiser formatar respostas de uma pesquisa de feedback simples para dete
 | **likelihood_score** | Número |
 | **explanation** | String |
 | **confidence_score** | Número |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquemas avançados" }
 
 ![Console do agente mostrando três campos de saída para pontuação de probabilidade, explicação e pontuação de confiança.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -443,23 +506,19 @@ Escolha catálogos específicos para um agente referenciar e forneça ao seu age
 
 ![O catálogo "restaurants" e a coluna "Loyalty_Program" selecionados para o agente pesquisar.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-## Contexto de associação a segmentos {#segment-membership-context}
+## Contexto de associação a Segments {#segment-membership-context}
 
-Você pode selecionar até cinco segmentos para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação a segmentos selecionada para um segmento "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do agente, o agente pode verificar se cada usuário é membro de cada segmento que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+Você pode selecionar até cinco Segments para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação a Segments selecionada para um Segment "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
 
-![O segmento "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+![O Segment "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## Diretrizes da marca {#brand-guidelines}
 
 Você pode selecionar [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) para o seu agente seguir em suas respostas. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz motivacional predefinida.
 
-## Temperatura {#temperature}
+## Histórico de interação específico do usuário {#user-history}
 
-Se o seu objetivo é usar um agente para gerar textos que incentivem os usuários a fazer login no seu app móvel, você pode definir uma temperatura mais alta para que seu agente seja mais criativo e use as nuances das variáveis de contexto. Se você estiver usando um agente para gerar pontuações de sentimento, pode ser ideal definir uma temperatura mais baixa para evitar qualquer especulação do agente sobre respostas negativas de pesquisas. Recomendamos testar essa configuração e revisar a saída gerada pelo agente para se adequar ao seu cenário.
-
-{% alert note %}
-Temperaturas não são suportadas atualmente para uso com OpenAI.
-{% endalert %}
+Os dados de interação de um usuário incluem aberturas, cliques e dados de conversão recentes de Campaigns e Canvas. Por exemplo, você pode incluir esse contexto para um agente referenciar quando ele é avaliado em um Canvas. O histórico de interação específico do usuário também pode ajudar a influenciar um agente quando sua função é escrever textos de mensagens personalizadas.
 
 ## Duplicar agentes {#duplicate-agents}
 

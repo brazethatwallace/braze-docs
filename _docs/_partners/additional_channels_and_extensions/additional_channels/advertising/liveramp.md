@@ -28,7 +28,7 @@ Snowflake's [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-s
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Snowflake Account | You need a Snowflake account with admin-level permissions.                                                                                                                                      |
 | LiveRamp Account  | Contact your LiveRamp account team or [snowflake@liveramp.com](mailto:snowflake@liveramp.com) to discuss the required LiveRamp applications within Snowflake.                              |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Setting up the integration
 
@@ -58,7 +58,7 @@ Next, create a data table with the [required format](https://docs.liveramp.com/i
 | Email Only      | The user's email addresses, such as `alex-lee@email.com`. |
 | Device          | This includes 3rd-party cookies, Mobile Advertising IDs (MAIDs), Connected TV IDs (CTV IDs), and RampIDs (resolved to a Household RampID). |
 | CIDs            | These are identifiers from a platform partner or an identity sync with LiveRamp, such as your internal Customer ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Create a data table" }
 
 #### Braze identifiers
 
@@ -70,7 +70,7 @@ Braze’s event logs contain identifiers you can use within the LiveRamp native 
 | `EMAIL_ADDRESS`   | Email address which can be used in conjunction with LiveRamp’s Email Only Resolution services |
 | `TO_PHONE_NUMBER` | Phone number, which can be used in conjunction with LiveRamp’s PII Resolution services. |
 | `EXTERNAL_USER_ID` | The external ID associated with a user, which can be used in conjunction with LiveRamp’s Device Resolution services (CID). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze identifiers" }
 
 {% alert important %}
 The use of any client or brand-specific custom identifiers within LiveRamp’s application requires an [identity sync with LiveRamp](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html).

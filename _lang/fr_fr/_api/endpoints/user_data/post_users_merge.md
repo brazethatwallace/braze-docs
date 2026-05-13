@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `merge_updates` | Requis | Tableau | Un tableau d'objets. Chaque objet doit contenir un objet `identifier_to_merge` et un objet `identifier_to_keep`, qui doivent chacun référencer un utilisateur par `external_id`, `user_alias`, `phone` ou `email`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Comportement de fusion {#merge-behavior}
 
@@ -113,6 +113,10 @@ Une seule des options suivantes peut exister à la fois dans le tableau de prior
 
 - `identified` donne la priorité à un utilisateur ayant un `external_id`
 - `unidentified` donne la priorité à un utilisateur n'ayant pas d'`external_id`
+
+{% alert important %}
+Si les deux profils ont des numéros de téléphone invalides, Braze ne les fusionne pas. Les numéros invalides ne sont pas stockés au format E.164, et la tâche de fusion ne combine pas ces profils. L'endpoint renvoie tout de même `202 Accepted` avec un message de succès, de sorte que la réponse HTTP n'indique pas que la fusion a été ignorée. Corrigez les numéros de téléphone sur l'un ou les deux profils avant de procéder à la fusion.
+{% endalert %}
 
 ## Exemples de requêtes {#example-requests}
 
@@ -214,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### Fusionner un utilisateur non identifié sans inclure la priorisation most_recently_updated {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### Fusionner un utilisateur non identifié sans inclure la priorisation most_recently_updated {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 S'il existe deux utilisateurs non identifiés avec l'adresse e-mail `john.smith@braze.com`, cette requête ne fusionne aucun utilisateur, car il y a deux utilisateurs non identifiés avec cette adresse e-mail. Cette requête ne fonctionne que s'il n'y a qu'un seul utilisateur non identifié avec l'adresse e-mail `john.smith@braze.com`.
 
@@ -272,6 +276,6 @@ Le tableau suivant répertorie les messages d'erreur possibles.
 | `a single request may not contain more than 50 merge updates` | Vous pouvez spécifier jusqu'à 50 fusions dans une seule requête. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | Vérifiez les identifiants dans votre requête. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | Vérifiez que `merge_updates` ne contient que les deux objets `identifier_to_merge` et `identifier_to_keep`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

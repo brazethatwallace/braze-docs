@@ -1,4 +1,4 @@
-O encurtamento de links e o rastreamento de cliques permitem que você encurte automaticamente URLs contidos em mensagens SMS ou RCS e colete análise de dados de taxa de cliques, fornecendo métricas de engajamento adicionais para ajudar a entender como os usuários estão interagindo com suas Campaigns.
+O encurtamento de links e o rastreamento de cliques permitem que você encurte automaticamente URLs contidas em mensagens SMS ou RCS e colete análise de dados de taxa de cliques, fornecendo métricas de engajamento adicionais para ajudar a entender como os usuários estão interagindo com suas campanhas.
 
 O encurtamento de links e o rastreamento de cliques podem ser ativados no [nível da variante de mensagem]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto em Campaigns quanto em Canvas.
 
@@ -63,9 +63,9 @@ O encurtamento de links também é ativado para mensagens somente via API por me
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`link_shortening_enabled`| Opcional | booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign. Para usar o rastreamento, um `campaign_id` e `message_variation_id` devem estar presentes.|
-|`user_click_tracking_enabled`| Opcional | booleano | Defina `user_click_tracking_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign e do usuário. Você pode usar os dados rastreados para criar segmentos de usuários que clicaram em URLs.<br><br> Para usar este parâmetro, `link_shortening_enabled` deve ser `true`, e um `campaign_id` e `message_variation_id` devem estar presentes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `link_shortening_enabled` | Opcional | booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign. Para usar o rastreamento, um `campaign_id` e `message_variation_id` devem estar presentes.|
+| `user_click_tracking_enabled` | Opcional | booleano | Defina `user_click_tracking_enabled` como `true` para ativar o encurtamento de links e o rastreamento de cliques no nível da Campaign e do usuário. Você pode usar os dados rastreados para criar segmentos de usuários que clicaram em URLs.<br><br> Para usar este parâmetro, `link_shortening_enabled` deve ser `true`, e um `campaign_id` e `message_variation_id` devem estar presentes. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 Para uma lista completa de parâmetros de solicitação, acesse [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 
@@ -117,7 +117,7 @@ O encurtamento de links não funciona com deep links. Como alternativa, você po
 Teste a experiência do usuário antes de implementar o encurtamento de links com links universais para confirmar que atende às suas expectativas.
 {% endalert %}
 
-### Os `send_ids` estão associados a eventos de clique de SMS? {#are-sendids-associated-with-sms-click-events}
+### Os `send_ids` estão associados a eventos de clique de SMS? {#are-send_ids-associated-with-sms-click-events}
 
 Não. No entanto, se você tiver o rastreamento avançado ativado, geralmente pode associar `send_ids` a eventos de clique usando o [Criador de consultas]({{site.baseurl}}/query_builder/) para consultar dados do Currents com esta consulta:
 

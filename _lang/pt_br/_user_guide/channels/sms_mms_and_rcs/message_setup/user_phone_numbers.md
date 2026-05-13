@@ -31,7 +31,7 @@ Veja alguns exemplos mostrando as diferenças entre a formatação local e o for
 | EUA | `4155552671` | 1 | `+14155552671` |
 | Reino Unido | `2071838750` | 44 | `+442071838750` |
 | Brasil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formato recomendado" }
 
 ## Importando números de telefone {#importing-phone-numbers}
 

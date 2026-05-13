@@ -63,6 +63,12 @@ Im Schritt **Add Stats** werden Ihnen Statistiken für die Typen der ausgewählt
 
 ![Statistiken zum Engagement-Bericht hinzufügen]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
+Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Workspace-Ebene. Um das gesamte Sende- oder Impressionsvolumen über alle aktiven Campaigns und Canvases hinweg zu überwachen, z. B. kanalübergreifende Sends und Impressionen für einen gesamten Workspace, verwenden Sie den [Berichts-Builder]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Sends an Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits verwenden, weiterhin unterstützt.
+{% endalert %}
+
 | Kanal | Verfügbare Statistiken |
 | ------| --------------|
 | E-Mail | Sends, Öffnungen, eindeutige Öffnungen, Klicks, eindeutige Klicks, Click-to-Open, Abmeldungen, Bounces, zugestellt, als Spam gemeldet |
@@ -72,10 +78,6 @@ Im Schritt **Add Stats** werden Ihnen Statistiken für die Typen der ausgewählt
 | Webhook  |  Sends, Fehler |
 | SMS | Sends, Sends an Carrier, bestätigte Zustellungen, Zustellungsfehler, Ablehnungen |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Sends an Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits verwenden, weiterhin unterstützt.
-{% endalert %}
 
 ### 4. Schritt: Berichtseinrichtung abschließen {#step-4-complete-report-setup}
 
@@ -99,6 +101,14 @@ Standardmäßig basiert der angezeigte Datenbereich auf der Zeitzone Ihres Unter
 Standardmäßig werden die Daten in den Engagement-Berichten täglich (ein Tag) angezeigt. Um diese Daten in anderen Intervallen anzuzeigen, wählen Sie eine explizite Anzahl von Tagen oder Wochen, um die Daten für den Bericht zu aggregieren. Anstatt tägliche Metriken zu sehen, können Sie Ihr Engagement also nach Woche, Monat, Quartal oder ähnlich betrachten. Sollte eine zeitbasierte Aggregation nicht ausreichen, können Sie die Daten auch auf Campaign- oder Canvas-Ebene exportieren.
 
 ![Datenabdeckung des Engagement-Berichts]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### Daten nach gesamter Campaign oder Canvas anzeigen {#show-data-by-entire-campaign-or-canvas}
+
+Wenn Sie **Show Data by Entire Campaign or Canvas** auswählen, aggregiert Braze die Metriken in Blöcken von 1.825 Tagen (fünf Jahre) über den Zeitraum des Berichts hinweg.
+
+Wenn der Zeitraum mehr als einen Block umfasst, sehen Sie möglicherweise mehrere Zeilen für dieselbe Campaign oder denselben Canvas mit unterschiedlichen Daten in der Datumsspalte. Einige Zeilen enthalten möglicherweise nur Metriken, die später im Zeitraum erfasst wurden (z. B. Abmeldungen). Daten können auch Jahre vor dem Beginn Ihres Versands im Workspace liegen, da sie die Block-Grenzen im Export widerspiegeln und nicht nur Ihren ersten Versand.
+
+Um die Datumsspalte mit dem tatsächlichen Versandzeitpunkt Ihrer ausgewählten Campaigns und Canvases abzugleichen, setzen Sie das [Startdatum des Berichts unter **Zeitraum auswählen**](#select-time-frame) auf das früheste Datum, das Sie in der Datei haben möchten – in der Regel den Zeitpunkt, an dem diese Nachrichten gesendet wurden – anstatt den Standardbereich zu verwenden, der bis zur ältesten ausgewählten Nachricht zurückreicht.
 
 #### Bericht planen {#schedule-your-report}
 
@@ -130,7 +140,7 @@ Stellen Sie sicher, dass die Daten im Engagement-Bericht mit den Daten in der Ca
 Wenn die Summen in einer Tabellenkalkulation falsch aussehen, entfernen Sie zusätzliche Filter aus dem Export. Sie können die täglichen Zeilen summieren, um sie mit den Canvas- oder Campaign-Gesamtwerten für denselben Zeitraum abzugleichen.
 
 {% alert note %}
-Wenn Sie eine einzelne aggregierte Zeile für den gesamten Zeitraum anstelle von täglichen, wöchentlichen oder anderen wiederkehrenden Buckets möchten, setzen Sie **Data Display** auf **Show Data by Entire Campaign or Canvas**.
+Wenn Sie Zeilen nach gesamter Campaign oder Canvas aggregiert haben möchten anstatt nach täglichen, wöchentlichen oder anderen wiederkehrenden Buckets, setzen Sie **Data Display** auf **Show Data by Entire Campaign or Canvas**. Wenn Zeilenanzahl oder Daten in der CSV falsch aussehen, siehe [Daten nach gesamter Campaign oder Canvas anzeigen](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Doppelte Button-Klicks in HTML-In-App-Nachrichten {#duplicate-button-clicks-in-html-in-app-messages}

@@ -28,7 +28,7 @@ Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de
 | Fonctionnalité | Autorisations utilisateur requises |
 | --- | --- |
 | Types&nbsp;de&nbsp;messages | Vous avez besoin de ces autorisations pour ajouter des paramètres régionaux et des traductions aux Campaigns et aux Canvas :<br><br> {::nomarkdown}Autorisations granulaires : <ul><li>Modifier les Campaigns</li><li>Modifier les Canvas</li></ul> Autorisations héritées : <ul><li>Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia, emplacements, codes de promotion et centres de préférences</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}
 {% tab Modèles %}
@@ -36,7 +36,7 @@ Regardez la vidéo suivante pour un aperçu facultatif de la configuration et de
 | Fonctionnalité | Autorisations utilisateur requises |
 | --- | --- |
 | Modèles | Vous avez besoin de ces autorisations pour le type de modèle auquel vous souhaitez ajouter des paramètres régionaux et des traductions :<br><br> {::nomarkdown}Autorisations granulaires : <ul><li>Modifier les modèles d'e-mail</li><li>Modifier les modèles de messages in-app</li><li>Modifier les modèles de Content Blocks</li></ul> Autorisations héritées : <ul><li>Accéder aux Campaigns, Canvas, cartes, Content Blocks, indicateurs de fonctionnalité, Segments, bibliothèque multimédia, emplacements, codes de promotion et centres de préférences</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ Les URL statiques sont saisies manuellement dans l'éditeur (par exemple, `https
 | --- | --- |
 | Gardez le protocole (`https://`) en dehors des balises de traduction. N'encadrez que le domaine et le chemin (par exemple, `example.com/en`). | Les traducteurs peuvent accidentellement modifier ou supprimer des caractères spéciaux, ce qui entraîne des liens brisés. |
 | N'incluez pas les paramètres de requête dans les balises de traduction (par exemple, `?utm_source=promo`). | Les traducteurs peuvent accidentellement modifier ou supprimer des caractères spéciaux, ce qui entraîne des liens brisés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL standard (statiques)" }
 
 Une URL standard qui suit les deux recommandations est :
 
@@ -87,7 +87,7 @@ Si votre URL est générée avec Liquid (par exemple, {% raw %}`{% landing_page_
 | --- | --- |
 | N'encadrez l'URL générée par Liquid dans des balises de traduction que si elle doit être localisée. | La syntaxe Liquid doit être soigneusement préservée pour s'afficher correctement. |
 | N'incluez pas les paramètres de requête (par exemple, `?utm_source=promo`) dans les balises de traduction. | Les traducteurs peuvent accidentellement modifier ou supprimer des caractères spéciaux, ce qui entraîne des liens brisés. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL générées par Liquid" }
 
 Une URL générée par Liquid qui suit les deux recommandations est :
 
@@ -227,13 +227,13 @@ Les URL utilisent deux caractères spéciaux pour contrôler ce fonctionnement :
 | URL standard | Oui | Utilisez `&` à la fin de l'URL (après la balise de traduction fermante) si elle contient déjà `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Générée par Liquid | Non | Utilisez `?` après les balises de traduction fermantes si l'URL générée n'en contient pas déjà un. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Générée par Liquid | Oui | Utilisez `&` après la balise de traduction fermante si l'URL générée contient déjà un `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Suivi des liens e-mail" }
 
 ### Paramètres de langue et accessibilité {#language-settings-and-accessibility}
 
-Pour les canaux basés sur HTML (e-mail, message in-app, bannières, pages d'accueil et Content Cards), Braze ajoute un attribut de langue d'accessibilité (`lang`) au message rendu. Cet attribut aide les technologies d'assistance comme les lecteurs d'écran à interpréter et prononcer correctement le texte.
+Commencez par [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) dans [Accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) pour le contexte WCAG, le comportement par canal et éditeur (y compris les pages d'accueil), et les paramètres d'**accessibilité** au niveau du message.
 
-Sans cela, un lecteur d'écran suppose que le contenu est dans la langue par défaut que l'utilisateur a définie sur son appareil lors de la configuration. Si le message est dans une langue différente, le lecteur d'écran peut ne pas tout prononcer correctement.
+Lorsque vous utilisez des **messages multilingues**, alignez la langue d'accessibilité avec chaque paramètre régional afin que les envois localisés déclarent la langue appropriée.
 
 #### Configurer la langue d'accessibilité {#configuring-the-accessibility-language}
 
@@ -241,15 +241,13 @@ Vous pouvez définir la langue d'accessibilité à deux niveaux :
 
 ##### Au niveau du message {#message-level}
 
-Dans les paramètres de votre message, accédez à la section **Accessibilité** et sélectionnez une langue dans le menu déroulant ou utilisez Liquid pour définir dynamiquement la langue d'accessibilité. Cela s'applique à tout le contenu du message.
+Au niveau du message, définissez la langue d'accessibilité dans la section **Accessibilité** des paramètres de votre message. Pour sélectionner une langue, utiliser Liquid et connaître les limitations par canal, consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ##### Au niveau du paramètre régional {#locale-level}
 
-Pour les messages multilingues, définissez la langue d'accessibilité sur chaque paramètre régional dans les **Paramètres de localisation**. Lorsque de nouveaux messages sont créés, {% raw %}`{{accessibility_language}}`{% endraw %} est sélectionné par défaut dans la section **Accessibilité**. Cela associe la langue d'accessibilité à vos paramètres régionaux.
+Pour les messages multilingues, définissez la langue d'accessibilité pour chaque paramètre régional dans les **Paramètres de localisation**. Vous pouvez utiliser {% raw %}`{{accessibility_language}}`{% endraw %} dans la section **Accessibilité** afin que la langue du document ou de la carte corresponde aux valeurs de ces paramètres régionaux.
 
-#### Normes {#standards}
-
-La langue d'accessibilité correspond à l'attribut HTML `lang`, une [exigence WCAG 2.1 de niveau A](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (critère de succès 3.1.1). Pour le contenu multilingue, vous pouvez également définir la langue sur des blocs de contenu individuels en utilisant l'attribut `lang` directement dans votre HTML.
+Le fait que ce jeton apparaisse par défaut pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les messages in-app et les bannières se comportent différemment des pages d'accueil et des e-mails par glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) pour plus de détails.
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
@@ -298,4 +296,4 @@ Oui. Si vous utilisez un CSV, commencez par effectuer la modification dans le fi
 | Les balises de traduction contiennent des URL complètes ou des URL générées par Liquid. | Les balises de traduction contenant des URL sont identifiées au cas où des problèmes de liens brisés ou de suivi des liens surviendraient. |
 | Les balises de traduction incluent des paramètres de requête. | Les balises de traduction contenant des paramètres de requête sont identifiées au cas où des problèmes de liens brisés ou de suivi des liens surviendraient. |
 | Les balises de traduction contiennent des attributs ou des structures HTML. | Les balises de traduction contenant des attributs ou des structures HTML sont identifiées au cas où des problèmes de styles et de formatage surviendraient. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quelles validations ou vérifications supplémentaires Braze effectue-t-il ?" }

@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### Comment créer une campagne multicanale ? {#how-do-i-create-a-multichannel-campaign}
 
-Pour créer une campagne multicanale, sélectionnez **Messaging** > **Campaigns**. Ensuite, sélectionnez **Create Campaign** > **Multichannel**. Vous pouvez alors choisir parmi les canaux de communication suivants : Content Cards, e-mail, LINE, notifications push, SMS/MMS/RCS, webhook ou WhatsApp.
+Consultez [Campagnes multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) dans **Créer une campagne** pour les étapes de configuration et les canaux pris en charge.
 
 ### Puis-je ajouter un groupe de contrôle à ma campagne multicanale ? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Non, les groupes de contrôle dans les campagnes sont conçus pour les communications monocanales, comme E-mail A versus E-mail B. Comme alternative, essayez d'utiliser [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) pour tester différents canaux, contenus de messages et délais de livraison.
+Consultez [Groupes de contrôle]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) dans **Créer une campagne**. Pour les tests cross-canal, utilisez [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### Quels sont les moyens de commencer à tester et optimiser les campagnes ? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ Une explication possible est que la campagne ou le Canvas a la rééligibilité 
 
 Par exemple, si vous avez un Canvas qui comprend à la fois des notifications push iOS et web, un utilisateur donné possédant un appareil mobile et un ordinateur de bureau peut recevoir plus d'un message.
 
-### Pourquoi les *destinataires uniques* sont-ils supérieurs au nombre d'utilisateurs que j'ai ciblés ? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Pourquoi les *destinataires uniques* sont-ils supérieurs au nombre d'utilisateurs que j'ai ciblés ? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Les *destinataires uniques* peuvent être supérieurs à l'audience attendue, car Braze comptabilise les destinataires uniques quotidiens à des fins de reporting. Cela permet à Braze d'attribuer les conversions dans la fenêtre de conversion chaque fois qu'un utilisateur reçoit le message, au lieu de regrouper plusieurs réceptions en un seul comptage à vie (ce qui fausserait le calcul des conversions).
 
@@ -48,9 +48,7 @@ Le même schéma s'applique aux campagnes récurrentes et à la rééligibilité
 
 ### Pourquoi le nombre de conversions peut-il dépasser le nombre d'utilisateurs uniques pour les campagnes multicanales ? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Pour les campagnes multicanales, Braze comptabilise les conversions par canal, et non par utilisateur. Lorsqu'un utilisateur effectue une seule action de conversion dans la fenêtre de conversion, Braze attribue cette conversion à chaque canal par lequel l'utilisateur a reçu un message. Cela signifie que si un utilisateur reçoit des messages sur plusieurs canaux (par exemple, e-mail et push) et convertit, Braze comptabilise plusieurs conversions, une pour chaque canal. Par conséquent, le nombre total de conversions peut dépasser le nombre d'utilisateurs uniques ayant converti.
-
-Par exemple, si une campagne multicanale envoie à la fois un e-mail et une notification push à un utilisateur, et que cet utilisateur effectue une action de conversion après avoir reçu les deux messages et dans la fenêtre de conversion, Braze comptabilise cela comme deux conversions, une attribuée à l'e-mail et une attribuée au push, même s'il s'agit d'une seule action du même utilisateur.
+Consultez [Conversions et reporting]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) dans **Créer une campagne** et [Règles de suivi des conversions]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) dans **Événements de conversion**.
 
 ### Pourquoi ma campagne a-t-elle une base d'utilisateurs atteignables plus petite que le segment que j'utilise pour la campagne ? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -72,7 +70,7 @@ Vous pouvez vérifier le fuseau horaire de votre entreprise dans les [paramètre
 
 Braze évalue l'éligibilité des utilisateurs à l'entrée aux moments suivants :
 
-- Heure des Samoa (UTC+13) ou UTC+14 pendant l'heure d'été
+- Heure des Samoa (UTC+13) le jour planifié
 - L'heure locale du jour planifié
 
 Pour qu'un utilisateur soit éligible à l'entrée, il doit être éligible aux deux vérifications. Par exemple, si un Canvas est planifié pour être lancé le 7 août 2021 à 14 h en fuseau horaire local, le ciblage d'un utilisateur situé à New York nécessiterait les vérifications d'éligibilité suivantes :
@@ -80,7 +78,9 @@ Pour qu'un utilisateur soit éligible à l'entrée, il doit être éligible aux 
 - New York le 6 août 2021 à 21 h
 - New York le 7 août 2021 à 14 h
 
-L'utilisateur doit être dans le segment pendant 24 heures avant le lancement. Si l'utilisateur n'est pas éligible lors de la première vérification, Braze ne tente pas la seconde.
+Pour entrer, un utilisateur doit correspondre à votre audience et à vos filtres aux deux moments d'évaluation. Si l'utilisateur n'est pas éligible lors de la première vérification, Braze ne tente pas la seconde. Il n'y a pas de durée minimale pendant laquelle un utilisateur doit avoir été dans le segment avant le lancement. Seule l'éligibilité à chaque vérification compte.
+
+Ce comportement d'évaluation est distinct de [la planification anticipée de la campagne dans le tableau de bord](#how-do-i-schedule-a-local-time-zone-campaign). Planifier au moins 24 heures à l'avance est une recommandation, car cela aide les messages à être distribués sur l'ensemble de la fenêtre de 24 heures en fuseau horaire local, et non une exigence que chaque utilisateur ait été dans l'audience pendant 24 heures.
 
 #### Exemples {#examples}
 
@@ -88,7 +88,7 @@ Par exemple, si une campagne est planifiée pour être livrée à 19 h UTC, nous
 
 Autre exemple : supposons que vous souhaitiez créer deux campagnes planifiées pour être envoyées le même jour — une le matin et une le soir — et ajouter un filtre pour que les utilisateurs ne puissent recevoir la seconde campagne que s'ils ont déjà reçu la première. Avec la livraison en fuseau horaire local, certains utilisateurs pourraient ne pas recevoir la seconde campagne. En effet, nous vérifions l'éligibilité lorsque le fuseau horaire de l'utilisateur est identifié, et si l'heure planifiée n'est pas encore arrivée dans leur fuseau horaire, ils n'ont pas reçu la première campagne, ce qui signifie qu'ils ne seront pas éligibles pour la seconde.
 
-Pour une représentation visuelle de la façon dont un utilisateur peut être dans un segment lors de la première vérification mais pas lors de la seconde, consultez cette chronologie :
+La chronologie suivante suppose une définition de segment qui inclut une fenêtre d'appartenance limitée dans le temps. Dans cet exemple, les utilisateurs quittent le segment 24 heures après y être entrés. Ce comportement de filtre est l'une des raisons pour lesquelles un utilisateur peut réussir la première vérification et échouer à la seconde.
 
 ![Chronologie d'un utilisateur entrant dans le segment avant la première vérification, puis le quittant avant la seconde.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -103,13 +103,15 @@ Pour une représentation visuelle de la façon dont un utilisateur peut être da
 
 ### Comment planifier une campagne en fuseau horaire local ? {#how-do-i-schedule-a-local-time-zone-campaign}
 
+La section précédente décrit quand Braze évalue l'éligibilité pour la livraison en fuseau horaire local (les deux vérifications). Cette section décrit quand vous définissez la planification de la campagne dans le tableau de bord (délai de planification) et quels utilisateurs reçoivent tout de même le message si vous planifiez avec moins de 24 heures de préavis.
+
 Lors de la planification d'une campagne, choisissez de l'envoyer à une heure désignée, puis sélectionnez **Send campaign to users in their local time zone**.
 
 Braze recommande fortement de planifier toutes les campagnes en fuseau horaire local 24 heures à l'avance. Comme une telle campagne doit être envoyée sur une journée entière, la planifier 24 heures à l'avance garantit que votre message atteindra l'ensemble de votre segment. Cependant, vous pouvez planifier ces campagnes moins de 24 heures à l'avance si nécessaire. Gardez à l'esprit que Braze n'enverra pas de messages aux utilisateurs qui ont manqué l'heure d'envoi de plus d'une heure.
 
 Par exemple, s'il est 13 h et que vous planifiez une campagne en fuseau horaire local pour 15 h, la campagne sera immédiatement envoyée à tous les utilisateurs dont l'heure locale est entre 15 h et 16 h, mais pas aux utilisateurs dont l'heure locale est 17 h. De plus, l'heure d'envoi que vous choisissez pour votre campagne ne doit pas encore être passée dans le fuseau horaire de votre entreprise.
 
-La modification d'une campagne en fuseau horaire local planifiée moins de 24 heures à l'avance ne modifiera pas la planification du message. Si vous décidez de modifier une campagne en fuseau horaire local pour l'envoyer à une heure ultérieure (par exemple, 19 h au lieu de 18 h), les utilisateurs qui faisaient partie du segment ciblé lorsque l'heure d'envoi originale a été choisie recevront toujours le message à l'heure originale (18 h). Si vous modifiez un fuseau horaire local pour envoyer à une heure antérieure (par exemple, 16 h au lieu de 17 h), la campagne sera tout de même envoyée à tous les membres du segment à l'heure originale (17 h).
+La modification d'une campagne en fuseau horaire local planifiée moins de 24 heures à l'avance ne modifiera pas la planification du message. Si vous décidez de modifier une campagne en fuseau horaire local pour l'envoyer à une heure ultérieure (par exemple, 19 h au lieu de 18 h), les utilisateurs qui faisaient partie du segment ciblé lorsque l'heure d'envoi originale a été choisie recevront toujours le message à l'heure originale (18 h). Si vous modifiez une campagne en fuseau horaire local pour envoyer à une heure antérieure (par exemple, 16 h au lieu de 17 h), la campagne sera tout de même envoyée à tous les membres du segment à l'heure originale (17 h).
 
 {% alert note %}
 Pour les composants Canvas, les utilisateurs n'ont pas besoin d'être dans le composant pendant 24 heures pour recevoir le composant suivant du parcours utilisateur pour la livraison en fuseau horaire local.
@@ -160,7 +162,7 @@ Pour éviter cela, assurez-vous que vos mises à jour d'attributs personnalisés
 
 ### Pourquoi le nombre d'utilisateurs entrant dans une campagne ne correspond-il pas au nombre attendu ? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
 
 {% alert tip %}
 Pour obtenir une assistance supplémentaire sur la résolution des problèmes de campagne, assurez-vous de contacter l'assistance Braze dans les 30 jours suivant la survenue de votre problème, car nous ne disposons que des 30 derniers jours de journaux de diagnostic.

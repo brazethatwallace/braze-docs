@@ -4,39 +4,39 @@ article_title: おすすめイベント
 alias: /recommended_events/
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Braze が e コマースイベント向けに提供するおすすめイベントについて説明します。"
+description: "このリファレンス記事では、Brazeがeコマースイベント向けに提供するおすすめイベントについて説明します。"
 ---
 
 # おすすめイベント {#recommended-events}
 
-> おすすめイベントは、定義済みの JSON スキーマを持つ標準化されたカスタムイベントを送信するフレームワーク上に構築されています。おすすめイベントを送信すると、Braze は取り込み時にスキーマに対してバリデーションを行い、自動フィールド計算やカート管理など、汎用カスタムイベントでは適用されない特別な後処理を実行します。特定の業界向けイベントセットについては、CampaignsやCanvasesの専用アクションベーストリガーなど、Braze が特別な処理をサポートする場合があります。
+> おすすめイベントは、定義済みのJSONスキーマを持つ標準化されたカスタムイベントを送信するフレームワーク上に構築されています。おすすめイベントを送信すると、Brazeは取り込み時にスキーマに対してバリデーションを行い、自動フィールド計算やカート管理など、汎用カスタムイベントでは適用されない特別な後処理を実行します。特定の業界向けイベントセットについては、CampaignsやCanvasesの専用アクションベーストリガーなど、Brazeが特別な処理をサポートする場合があります。
 
-## e コマース推奨イベント {#ecommerce-recommended-events}
+## eコマース推奨イベント {#ecommerce-recommended-events}
 
-[e コマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Braze はデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
+[eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
 
-これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、e コマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるSegmentの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquid タグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
+これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、*合計収益*、*合計注文数*、*合計返金額*の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるSegmentの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
 
 これらのイベントは定義済みスキーマに従うため、サポートされる各機能は、カスタムプロパティマッピングや機能ごとの設定なしに構造化データを読み取ることができます。
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-### e コマースイベントの仕組み {#how-ecommerce-events-work}
+### eコマースイベントの仕組み {#how-ecommerce-events-work}
 
-e コマースイベントは、事前定義された名前とプロパティスキーマを持つカスタムイベントです。Braze SDKまたは[`/users/track` REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して送信し、Braze は取り込み時に各イベントをスキーマに対してバリデーションします。バリデーションに合格すると、Braze は収益フィールドの計算やユーザープロファイルのカート状態管理など、そのイベントタイプに固有の後処理を自動的に適用します。
+eコマースイベントは、事前定義された名前とプロパティスキーマを持つカスタムイベントです。Braze SDKまたは[`/users/track` REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して送信し、Brazeは取り込み時に各イベントをスキーマに対してバリデーションします。バリデーションに合格すると、Brazeは収益フィールドの計算やユーザープロファイルのカート状態管理など、そのイベントタイプに固有の後処理を自動的に適用します。
 
-e コマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
+eコマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
 
 - Campaigns、Canvases、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
-- 計算済み e コマースユーザープロファイルフィールド (**合計収益**、**合計注文数**、**合計返金額**)
+- 計算済みeコマースユーザープロファイルフィールド (**合計収益**、**合計注文数**、**合計返金額**)
 - カート放棄フロー向けのカート状態管理
 - Predictive Events、Predictive Churn、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
 
-また、プラットフォームがカスタムイベントをサポートする場所であれば、e コマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed` イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started` イベントでフィルタリングするSegmentを構築したり、Currentsを通じて `ecommerce.order_placed` イベントをエクスポートしたりできます。
+また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするSegmentを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
 
 #### イベント命名 {#event-naming}
 
-イベント名は正確で、大文字と小文字が区別され、ドット区切りです。常に正規フォーマットを使用してください。イベント名が6つの正規名のいずれかと正確に一致しない場合、Braze はそれを標準カスタムイベントとして扱い、e コマースの後処理は行われません。
+イベント名は正確で、大文字と小文字が区別され、ドット区切りです。常に正規フォーマットを使用してください。イベント名が6つの正規名のいずれかと正確に一致しない場合、Brazeはそれを標準カスタムイベントとして扱い、eコマースの後処理は行われません。
 
 イベントのカスタマイズや名前変更はできません。
 
@@ -45,30 +45,30 @@ e コマースイベントは、他のカスタムイベントが機能するす
 
 #### イベントスキーマ {#event-schemas}
 
-6つの e コマース推奨イベントは、購入ジャーニーのステージに対応しています。ユーザーが対応するアクションを完了した時点で各イベントを発火させてください。
+6つのeコマース推奨イベントは、購入ジャーニーのステージに対応しています。ユーザーが対応するアクションを完了した時点で各イベントを発火させてください。
 
-![6つの e コマース推奨イベント (product_viewed、cart_updated、checkout_started、order_placed、order_cancelled、order_refunded) を通じたユーザージャーニーの図]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![6つのeコマース推奨イベント (product_viewed、cart_updated、checkout_started、order_placed、order_cancelled、order_refunded) を通じたユーザージャーニーの図]({% image_buster /assets/img/Shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-ユーザーが商品詳細ページを閲覧した時点でトリガーします。このイベントは、Braze カタログの[在庫復活通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)および[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)と互換性があります。
+ユーザーが商品詳細ページを閲覧した時点でトリガーします。このイベントは、Brazeカタログの[在庫復活通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)および[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)と互換性があります。
 
 #### イベントプロパティ {#event-properties}
 
 | プロパティ名 | データタイプ | 必須 | 説明 |
 | -------------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product_id` | 文字列 | はい | 一意の製品識別子 (例: SKU またはアイテム ID)。 |
-| `product_name` | 文字列 | はい | 商品の表示名。 |
-| `variant_id` | 文字列 | はい | 製品バリアントの識別子 (例: `shirt_medium_blue`)。 |
-| `image_url` | 文字列 | いいえ | 商品画像の URL。 |
-| `product_url` | 文字列 | いいえ | 詳細情報がある製品ページの URL。 |
-| `price` | フロート | はい | 閲覧時のバリアント単価。 |
-| `currency` | 文字列 | はい | 3文字の ISO 4217 コード (例: `USD` または `EUR`)。 |
-| `source` | 文字列 | はい | イベントの発生元 (例: `web`、`ios`、`android`)。 |
-| `type` | 文字列の配列 | いいえ | Braze のカタログトリガー機能 (在庫復活および値下げアラート) を使用するために必須。許容値: `"price_drop"`、`"back_in_stock"` |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `sku` (文字列) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | 文字列           | はい      | 一意の製品識別子 (例: SKUまたはアイテムID)。                                                                                                   |
+| `product_name` | 文字列           | はい      | 商品の表示名。                                                                                                                               |
+| `variant_id`   | 文字列           | はい      | 製品バリアントの識別子 (例: `shirt_medium_blue`)。                                                                                            |
+| `image_url`    | 文字列           | いいえ       | 商品画像のURL。                                                                                                                                  |
+| `product_url`  | 文字列           | いいえ       | 詳細情報がある製品ページのURL。                                                                                                           |
+| `price`        | フロート            | はい      | 閲覧時のバリアント単価。                                                                                                          |
+| `currency`     | 文字列           | はい      | 3文字のISO 4217コード (例: `USD` または `EUR`)。                                                                                               |
+| `source`       | 文字列           | はい      | イベントの発生元 (例: `web`、`ios`、`android`)。                                                                               |
+| `type`         | 文字列の配列 | いいえ       | Brazeのカタログトリガー機能 (在庫復活および値下げアラート) を使用するために必須。許容値: `"price_drop"`、`"back_in_stock"`     |
+| `metadata`     | オブジェクト           | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `sku` (文字列)                                                                                   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### REST APIの例 {#rest-api-example}
 
@@ -105,42 +105,42 @@ e コマースイベントは、他のカスタムイベントが機能するす
 
 ユーザーのカートの内容が変更されるたびにトリガーします。
 
-このイベントは置換モデルを使用しており、各呼び出しには変更されたアイテムだけでなく、完全な現在のカート配列を含める必要があります。Braze は送信された配列で以前のカート状態を上書きします。
+このイベントは置換モデルを使用しており、各呼び出しには変更されたアイテムだけでなく、完全な現在のカート配列を含める必要があります。Brazeは送信された配列で以前のカート状態を上書きします。
 
 このイベントからメッセージングをトリガーするには、CanvasおよびCampaignsの**カート更新イベントの実行**トリガーを使用します。このトリガーには、カートがショッピングファネルを進行するのを停止する特別な処理が含まれています。
 
 {% alert tip %}
-カートはユーザープロファイル上にカートマッピングオブジェクトを作成し、{% raw %}`{% shopping_cart %}`{% endraw %} Liquid タグを動作させます。カートは更新なしで30日後に期限切れになります。2つのユーザープロファイルがマージされた場合、Braze は両方のカートを保持します。
+カートはユーザープロファイル上にカートマッピングオブジェクトを作成し、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを動作させます。カートは更新なしで30日後に期限切れになります。2つのユーザープロファイルがマージされた場合、Brazeは両方のカートを保持します。
 {% endalert %}
 
 #### イベントプロパティ
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ        | データタイプ | 必須 | 説明                                                                                                                   |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
-| `cart_id` | 文字列 | はい | カートの一意の識別子。ユーザーのカートマッピングのために、カート、チェックアウト、注文イベント間で共有されます。 |
-| `total_value` | フロート | はい | カートの合計金額。 |
-| `subtotal_value` | フロート | いいえ | カートの小計 (割引後、税/送料前)。 |
-| `tax` | フロート | いいえ | カートに適用される合計税額。 |
-| `shipping` | フロート | いいえ | カートの合計送料。 |
-| `currency` | 文字列 | はい | 3文字の ISO 4217 コード。 |
-| `products` | 配列 | はい | 現在カートにあるアイテムの完全な配列。製品プロパティのサブテーブルを参照してください。 |
-| `source` | 文字列 | はい | イベントの発生元。 |
-| `metadata` | オブジェクト | いいえ | 追加のイベントレベルデータ用の柔軟なキーと値のペア。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cart_id`       | 文字列    | はい      | カートの一意の識別子。ユーザーのカートマッピングのために、カート、チェックアウト、注文イベント間で共有されます。                   |
+| `total_value`   | フロート     | はい      | カートの合計金額。                                                                                             |
+| `subtotal_value`| フロート     | いいえ       | カートの小計 (割引後、税/送料前)。                                                                 |
+| `tax`           | フロート     | いいえ       | カートに適用される合計税額。                                                                                                |
+| `shipping`      | フロート     | いいえ       | カートの合計送料。                                                                                             |
+| `currency`      | 文字列    | はい      | 3文字のISO 4217コード。                                                                                                   |
+| `products`      | 配列     | はい      | 現在カートにあるアイテムの完全な配列。製品プロパティのサブテーブルを参照してください。                                              |
+| `source`        | 文字列    | はい      | イベントの発生元。                                                                                             |
+| `metadata`      | オブジェクト    | いいえ       | 追加のイベントレベルデータ用の柔軟なキーと値のペア。                                                                     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 製品プロパティ (`products[]`) {#product-properties-products}
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ        | データタイプ | 必須 | 説明                                     |
 |-----------------|-----------|----------|-------------------------------------------------|
-| `product_id` | 文字列 | はい | 一意の製品識別子。 |
-| `product_name` | 文字列 | はい | 商品の表示名。 |
-| `variant_id` | 文字列 | はい | バリアント識別子。 |
-| `image_url` | 文字列 | いいえ | 商品画像の URL。 |
-| `product_url` | 文字列 | いいえ | 製品ページの URL。 |
-| `quantity` | 整数 | はい | カート内のユニット数。 |
-| `price` | フロート | はい | バリアント単価。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア (例: `color` や `size`)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | 文字列    | はい      | 一意の製品識別子。                      |
+| `product_name`  | 文字列    | はい      | 商品の表示名。                           |
+| `variant_id`    | 文字列    | はい      | バリアント識別子。                             |
+| `image_url`     | 文字列    | いいえ       | 商品画像のURL。                              |
+| `product_url`   | 文字列    | いいえ       | 製品ページのURL。                        |
+| `quantity`      | 整数   | はい      | カート内のユニット数。                    |
+| `price`         | フロート     | はい      | バリアント単価。                             |
+| `metadata`      | オブジェクト    | いいえ       | 柔軟なキーと値のペア (例: `color` や `size`)。   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST APIの例
 
@@ -203,33 +203,33 @@ e コマースイベントは、他のカスタムイベントが機能するす
 
 #### イベントプロパティ
 
-| プロパティ | タイプ | 必須 | 説明 |
+| プロパティ       | タイプ    | 必須 | 説明                                                                                                      |
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
-| checkout_id | 文字列 | はい | チェックアウトセッションの一意の識別子。 |
-| cart_id | 文字列 | いいえ | カート識別子。ユーザーのカートマッピングのために、カート、チェックアウト、注文イベント間で共有されます。 |
-| total_value | フロート | はい | チェックアウトの合計金額。 |
-| subtotal_value | フロート | いいえ | 小計 (割引後、税/送料前)。 |
-| tax | フロート | いいえ | チェックアウトに適用される合計税額。 |
-| shipping | フロート | いいえ | 合計送料。 |
-| currency | 文字列 | はい | 3文字の ISO 4217 コード。 |
-| products | 配列 | はい | チェックアウト中のアイテム。製品プロパティのサブテーブルを参照してください。 |
-| source | 文字列 | はい | イベントの発生元。 |
-| metadata | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `checkout_url` (文字列) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| checkout_id    | 文字列  | はい      | チェックアウトセッションの一意の識別子。                                                                      |
+| cart_id        | 文字列  | いいえ       | カート識別子。ユーザーのカートマッピングのために、カート、チェックアウト、注文イベント間で共有されます。                     |
+| total_value    | フロート   | はい      | チェックアウトの合計金額。                                                                            |
+| subtotal_value | フロート   | いいえ       | 小計 (割引後、税/送料前)。                                                                |
+| tax            | フロート   | いいえ       | チェックアウトに適用される合計税額。                                                                               |
+| shipping       | フロート   | いいえ       | 合計送料。                                                                                             |
+| currency       | 文字列  | はい      | 3文字のISO 4217コード。                                                                                      |
+| products       | 配列   | はい      | チェックアウト中のアイテム。製品プロパティのサブテーブルを参照してください。                                                       |
+| source         | 文字列  | はい      | イベントの発生元。                                                                                |
+| metadata       | オブジェクト  | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `checkout_url` (文字列)                                       |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 製品プロパティ (`products[]`)
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ       | データタイプ | 必須 | 説明                                              |
 |----------------|-----------|----------|----------------------------------------------------------|
-| `product_id` | 文字列 | はい | 一意の製品識別子。 |
-| `product_name` | 文字列 | はい | 商品の表示名。 |
-| `variant_id` | 文字列 | はい | バリアント識別子。 |
-| `image_url` | 文字列 | いいえ | 商品画像の URL。 |
-| `product_url` | 文字列 | いいえ | 製品ページの URL。 |
-| `quantity` | 整数 | はい | カート内のユニット数。 |
-| `price` | フロート | はい | バリアント単価。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア (例: color、size)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | 文字列    | はい      | 一意の製品識別子。                               |
+| `product_name` | 文字列    | はい      | 商品の表示名。                                    |
+| `variant_id`   | 文字列    | はい      | バリアント識別子。                                      |
+| `image_url`    | 文字列    | いいえ       | 商品画像のURL。                                       |
+| `product_url`  | 文字列    | いいえ       | 製品ページのURL。                                 |
+| `quantity`     | 整数   | はい      | カート内のユニット数。                             |
+| `price`        | フロート     | はい      | バリアント単価。                                      |
+| `metadata`     | オブジェクト    | いいえ       | 柔軟なキーと値のペア (例: color、size)。            |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST APIの例
 
@@ -298,35 +298,35 @@ e コマースイベントは、他のカスタムイベントが機能するす
 
 #### イベントプロパティ
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ        | データタイプ | 必須 | 説明                                                                                   |
 |-----------------|-----------|----------|-----------------------------------------------------------------------------------------------|
-| `order_id` | 文字列 | はい | 注文の一意の識別子。 |
-| `cart_id` | 文字列 | いいえ | カート識別子。ユーザーのカートマッピングのために、カート、チェックアウト、注文イベント間で共有されます。 |
-| `total_value` | フロート | はい | 注文の合計金額。 |
-| `subtotal_value` | フロート | いいえ | 小計 (割引後、税/送料前)。 |
-| `tax` | フロート | いいえ | 注文に適用される合計税額。 |
-| `shipping` | フロート | いいえ | 合計送料。 |
-| `currency` | 文字列 | はい | 3文字の ISO 4217 コード。 |
-| `total_discounts` | フロート | いいえ | 注文に適用された割引の合計額。 |
-| `discounts` | 配列 | いいえ | 適用された割引の詳細リスト。 |
-| `products` | 配列 | はい | 注文内のアイテム。製品プロパティのサブテーブルを参照してください。 |
-| `source` | 文字列 | はい | イベントの発生元。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url` (文字列) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`      | 文字列    | はい      | 注文の一意の識別子。                                                              |
+| `cart_id`       | 文字列    | いいえ       | カート識別子。ユーザーのカートマッピングのために、カート、チェックアウト、注文イベント間で共有されます。  |
+| `total_value`   | フロート     | はい      | 注文の合計金額。                                                            |
+| `subtotal_value`| フロート     | いいえ       | 小計 (割引後、税/送料前)。                                             |
+| `tax`           | フロート     | いいえ       | 注文に適用される合計税額。                                                               |
+| `shipping`      | フロート     | いいえ       | 合計送料。                                                                          |
+| `currency`      | 文字列    | はい      | 3文字のISO 4217コード。                                                                   |
+| `total_discounts`| フロート    | いいえ       | 注文に適用された割引の合計額。                                               |
+| `discounts`     | 配列     | いいえ       | 適用された割引の詳細リスト。                                                           |
+| `products`      | 配列     | はい      | 注文内のアイテム。製品プロパティのサブテーブルを参照してください。                                         |
+| `source`        | 文字列    | はい      | イベントの発生元。                                                             |
+| `metadata`      | オブジェクト    | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url` (文字列)                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 製品プロパティ (`products[]`)
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ        | データタイプ | 必須 | 説明                                 |
 |-----------------|-----------|----------|---------------------------------------------|
-| `product_id` | 文字列 | はい | 一意の製品識別子。 |
-| `product_name` | 文字列 | はい | 商品の表示名。 |
-| `variant_id` | 文字列 | はい | バリアント識別子。 |
-| `image_url` | 文字列 | いいえ | 商品画像の URL。 |
-| `product_url` | 文字列 | いいえ | 製品ページの URL。 |
-| `quantity` | 整数 | はい | カート内のユニット数。 |
-| `price` | フロート | はい | バリアント単価。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア (例: `color` や `size`)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | 文字列    | はい      | 一意の製品識別子。                  |
+| `product_name`  | 文字列    | はい      | 商品の表示名。                       |
+| `variant_id`    | 文字列    | はい      | バリアント識別子。                         |
+| `image_url`     | 文字列    | いいえ       | 商品画像のURL。                          |
+| `product_url`   | 文字列    | いいえ       | 製品ページのURL。                    |
+| `quantity`      | 整数   | はい      | カート内のユニット数。                |
+| `price`         | フロート     | はい      | バリアント単価。                         |
+| `metadata`      | オブジェクト    | いいえ       | 柔軟なキーと値のペア (例: `color` や `size`)。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST APIの例
 
@@ -402,35 +402,35 @@ e コマースイベントは、他のカスタムイベントが機能するす
 
 #### イベントプロパティ
 
-| プロパティ | タイプ | 必須 | 説明 |
+| プロパティ         | タイプ    | 必須 | 説明                                                                                      |
 |------------------|---------|----------|--------------------------------------------------------------------------------------------------|
-| `order_id` | 文字列 | はい | 注文の一意の識別子。 |
-| `total_value` | フロート | はい | キャンセルされる注文の合計金額。0以上である必要があります。絶対値を送信してください。Braze が減少処理を行います。 |
-| `subtotal_value` | フロート | いいえ | 小計 (割引後、税/送料前)。 |
-| `tax` | フロート | いいえ | 注文に適用される合計税額。 |
-| `shipping` | フロート | いいえ | 合計送料。 |
-| `currency` | 文字列 | はい | 3文字の ISO 4217 コード。 |
-| `total_discounts` | フロート | いいえ | 注文に適用された割引の合計額。 |
-| `discounts` | 配列 | いいえ | 適用された割引の詳細リスト。 |
-| `cancel_reason` | 文字列 | はい | 注文がキャンセルされた理由。 |
-| `products` | 配列 | はい | キャンセルされた注文内のアイテム。製品プロパティのサブテーブルを参照してください。 |
-| `source` | 文字列 | はい | イベントの発生元。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url` (文字列) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`       | 文字列  | はい      | 注文の一意の識別子。                                                                 |
+| `total_value`    | フロート   | はい      | キャンセルされる注文の合計金額。0以上である必要があります。絶対値を送信してください。Brazeが減少処理を行います。 |
+| `subtotal_value` | フロート   | いいえ       | 小計 (割引後、税/送料前)。                                                |
+| `tax`            | フロート   | いいえ       | 注文に適用される合計税額。                                                                  |
+| `shipping`       | フロート   | いいえ       | 合計送料。                                                                             |
+| `currency`       | 文字列  | はい      | 3文字のISO 4217コード。                                                                      |
+| `total_discounts`| フロート   | いいえ       | 注文に適用された割引の合計額。                                                  |
+| `discounts`      | 配列   | いいえ       | 適用された割引の詳細リスト。                                                              |
+| `cancel_reason`  | 文字列  | はい      | 注文がキャンセルされた理由。                                                                  |
+| `products`       | 配列   | はい      | キャンセルされた注文内のアイテム。製品プロパティのサブテーブルを参照してください。                                  |
+| `source`         | 文字列  | はい      | イベントの発生元。                                                                |
+| `metadata`       | オブジェクト  | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url` (文字列)                   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 製品プロパティ (`products[]`)
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ       | データタイプ | 必須 | 説明                                   |
 |----------------|-----------|----------|-----------------------------------------------|
-| `product_id` | 文字列 | はい | 一意の製品識別子。 |
-| `product_name` | 文字列 | はい | 商品の表示名。 |
-| `variant_id` | 文字列 | はい | バリアント識別子。 |
-| `image_url` | 文字列 | いいえ | 商品画像の URL。 |
-| `product_url` | 文字列 | いいえ | 製品ページの URL。 |
-| `quantity` | 整数 | はい | カート内のユニット数。 |
-| `price` | フロート | はい | バリアント単価。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア (例: `color` や `size`)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`   | 文字列    | はい      | 一意の製品識別子。                    |
+| `product_name` | 文字列    | はい      | 商品の表示名。                         |
+| `variant_id`   | 文字列    | はい      | バリアント識別子。                           |
+| `image_url`    | 文字列    | いいえ       | 商品画像のURL。                            |
+| `product_url`  | 文字列    | いいえ       | 製品ページのURL。                      |
+| `quantity`     | 整数   | はい      | カート内のユニット数。                  |
+| `price`        | フロート     | はい      | バリアント単価。                           |
+| `metadata`     | オブジェクト    | いいえ       | 柔軟なキーと値のペア (例: `color` や `size`)。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST APIの例
 
@@ -495,31 +495,31 @@ e コマースイベントは、他のカスタムイベントが機能するす
 
 #### イベントプロパティ
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ          | データタイプ | 必須 | 説明                                                                                          |
 |-------------------|-----------|----------|------------------------------------------------------------------------------------------------------|
-| `order_id` | 文字列 | はい | 元の注文の一意の識別子。 |
-| `total_value` | フロート | はい | 返金の合計金額。0以上である必要があります。絶対値を送信してください。Braze が total_refunds への増加処理を行います。 |
-| `currency` | 文字列 | はい | 3文字の ISO 4217 コード。 |
-| `total_discounts` | フロート | いいえ | 元々適用されていた割引の合計額。 |
-| `discounts` | 配列 | いいえ | 割引の詳細リスト。 |
-| `products` | 配列 | はい | 返金対象のアイテム。製品プロパティのサブテーブルを参照してください。 |
-| `source` | 文字列 | はい | イベントの発生元。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url` (文字列)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `order_id`        | 文字列    | はい      | 元の注文の一意の識別子。                                                            |
+| `total_value`     | フロート     | はい      | 返金の合計金額。0以上である必要があります。絶対値を送信してください。Brazeがtotal_refundsへの増加処理を行います。 |
+| `currency`        | 文字列    | はい      | 3文字のISO 4217コード。                                                                          |
+| `total_discounts` | フロート     | いいえ       | 元々適用されていた割引の合計額。                                                        |
+| `discounts`       | 配列     | いいえ       | 割引の詳細リスト。                                                                          |
+| `products`        | 配列     | はい      | 返金対象のアイテム。製品プロパティのサブテーブルを参照してください。                                              |
+| `source`          | 文字列    | はい      | イベントの発生元。                                                                    |
+| `metadata`        | オブジェクト    | いいえ       | 柔軟なキーと値のペア。認識されるサブプロパティ: `order_status_url` (文字列)。                      |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### 製品プロパティ (`products[]`)
 
-| プロパティ | データタイプ | 必須 | 説明 |
+| プロパティ        | データタイプ | 必須 | 説明                                           |
 |-----------------|-----------|----------|-------------------------------------------------------|
-| `product_id` | 文字列 | はい | 一意の製品識別子。 |
-| `product_name` | 文字列 | はい | 商品の表示名。 |
-| `variant_id` | 文字列 | はい | バリアント識別子。 |
-| `image_url` | 文字列 | いいえ | 商品画像の URL。 |
-| `product_url` | 文字列 | いいえ | 製品ページの URL。 |
-| `quantity` | 整数 | はい | カート内のユニット数。 |
-| `price` | フロート | はい | バリアント単価。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア (例: `color` や `size`)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `product_id`    | 文字列    | はい      | 一意の製品識別子。                            |
+| `product_name`  | 文字列    | はい      | 商品の表示名。                                 |
+| `variant_id`    | 文字列    | はい      | バリアント識別子。                                   |
+| `image_url`     | 文字列    | いいえ       | 商品画像のURL。                                    |
+| `product_url`   | 文字列    | いいえ       | 製品ページのURL。                              |
+| `quantity`      | 整数   | はい      | カート内のユニット数。                          |
+| `price`         | フロート     | はい      | バリアント単価。                                   |
+| `metadata`      | オブジェクト    | いいえ       | 柔軟なキーと値のペア (例: `color` や `size`)。         |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST APIの例 {#rest-api-examples}
 
@@ -605,33 +605,33 @@ e コマースイベントは、他のカスタムイベントが機能するす
 {% endtab %}
 {% endtabs %}
 
-### e コマースイベントの後処理 {#ecommerce-event-post-processing}
+### eコマースイベントの後処理 {#ecommerce-event-post-processing}
 
-e コマースイベントを送信すると、Braze はそのイベント名に対して期待されるスキーマに対してバリデーションを行います。
+eコマースイベントを送信すると、Brazeはそのイベント名に対して期待されるスキーマに対してバリデーションを行います。
 
-以下の表は、バリデーションに合格した場合に Braze が各イベントに対して自動的に行う処理をまとめたものです。バリデーションに失敗した場合の動作については、[イベントバリデーションとトラブルシューティング](#event-validation-and-troubleshooting)を参照してください。
+以下の表は、バリデーションに合格した場合にBrazeが各イベントに対して自動的に行う処理をまとめたものです。バリデーションに失敗した場合の動作については、[イベントのバリデーションとトラブルシューティング](#event-validation-and-troubleshooting)を参照してください。
 
-| イベント | Braze が自動的に行う処理 |
+| イベント                        | Brazeが自動的に行う処理                                                                                     |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `ecommerce.order_placed` | ユーザープロファイル上で**合計収益**を `total_value` だけ増加させ、**合計注文数**を1増加させます。 |
-| `ecommerce.order_cancelled` | **合計注文数**を1減少させます。 |
-| `ecommerce.order_refunded` | **合計収益**を `total_value` だけ減少させ、**合計返金額**を増加させます。 |
-| `ecommerce.cart_updated` | ユーザープロファイル上にカートマッピングオブジェクトを作成または更新します。カートは更新なしで30日後に期限切れになります。 |
-| `ecommerce.product_viewed` | ユーザープロファイルの変更はありません。セグメンテーション、トリガー、およびBrazeAI<sup>TM</sup>機能 (アイテムのおすすめなど) で利用可能です。 |
-| `ecommerce.checkout_started` | ユーザープロファイルの変更はありません。セグメンテーションおよびトリガー (例: チェックアウト放棄フロー) で利用可能です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ecommerce.order_placed`     | ユーザープロファイル上で**合計収益**を `total_value` だけ増加させ、**合計注文数**を1増加させます。                     |
+| `ecommerce.order_cancelled`  | **合計注文数**を1減少させます。                                                                                 |
+| `ecommerce.order_refunded`   | **合計収益**を `total_value` だけ減少させ、**合計返金額**を増加させます。                              |
+| `ecommerce.cart_updated`     | ユーザープロファイル上にカートマッピングオブジェクトを作成または更新します。カートは更新なしで30日後に期限切れになります。|
+| `ecommerce.product_viewed`   | ユーザープロファイルの変更はありません。セグメンテーション、トリガー、およびBrazeAI<sup>TM</sup>機能 (アイテムのおすすめなど) で利用可能です。|
+| `ecommerce.checkout_started` | ユーザープロファイルの変更はありません。セグメンテーションおよびトリガー (例: チェックアウト放棄フロー) で利用可能です。        |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce event post-processing" }
 
 {% alert important %}
 米ドル以外の通貨値は、イベントが報告された日の為替レートを使用して自動的に米ドルに変換されます。すでに米ドルで報告している場合は、意図しない変換を避けるために通貨を `USD` にハードコードしてください。
 {% endalert %}
 
-## e コマースイベントの実装 {#implement-ecommerce-events}
+## eコマースイベントの実装 {#implement-ecommerce-events}
 
-e コマースイベントは、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (サーバーサイド) またはクライアント[SDKメソッド]({{site.baseurl}}/developer_guide/sdk_integration/) `logCustomEvent` を通じて送信できます。
+eコマースイベントは、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (サーバーサイド) またはクライアント[SDKメソッド]({{site.baseurl}}/developer_guide/sdk_integration/) `logCustomEvent` を通じて送信できます。
 
 ### サーバーサイドでイベントを送信する {#send-events-server-side}
 
-`/users/track` エンドポイントを使用して、バックエンドから e コマースイベントを送信します。各イベントには、正確なイベント名、ユーザーの `external_id`、およびイベントスキーマに一致するプロパティオブジェクトが必要です。
+`/users/track`エンドポイントを使用して、バックエンドからeコマースイベントを送信します。各イベントには、正確なイベント名、ユーザーの `external_id`、およびイベントスキーマに一致するプロパティオブジェクトが必要です。
 
 ```json
 POST /users/track
@@ -673,17 +673,17 @@ POST /users/track
 
 ### データポイントと課金 {#data-points-and-billing}
 
-e コマースイベントは[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を消費しません。データポイント使用量に影響を与えることなく記録できます。
+eコマースイベントは[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を消費しません。データポイント使用量に影響を与えることなく記録できます。
 
 ### イベントサイズの制限 {#event-size-limit}
 
-`/users/track` に送信されるイベントプロパティは、イベントあたり102,400バイト (100 KB) が上限です。トリガーされたCampaignおよびCanvasメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) および [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) に送信される `trigger_properties` のデフォルト上限は51,200バイト (50 KB) とより厳しくなっています。
+`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト (100 KB) が上限です。トリガーされたCampaignおよびCanvasメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)に送信される `trigger_properties` のデフォルト上限は51,200バイト (50 KB) とより厳しくなっています。
 
-ベストプラクティスとして、トリガー、パーソナライゼーション、またはイベントのアトリビューションに必要な製品情報のみを送信してください。説明、完全なバリアントリスト、在庫、代替画像などのリッチな製品詳細は Braze カタログに保存してください。メッセージ送信時に `product_id` または `variant_id` でこれらの詳細を参照します。`metadata` オブジェクトは、メッセージングで使用する注文または製品固有のコンテキストに対して選択的に使用してください。
+ベストプラクティスとして、トリガー、パーソナライゼーション、またはイベントのアトリビューションに必要な製品情報のみを送信してください。説明、完全なバリアントリスト、在庫、代替画像などのリッチな製品詳細はBrazeカタログに保存してください。メッセージ送信時に `product_id` または `variant_id` でこれらの詳細を参照します。`metadata` オブジェクトは、メッセージングで使用する注文または製品固有のコンテキストに対して選択的に使用してください。
 
 ### 通貨の処理 {#currency-handling}
 
-Braze は米ドル以外の通貨値を、イベントが報告された日の為替レートを使用して自動的に米ドルに変換します。この変換された値が収益指標に表示されます。
+Brazeは米ドル以外の通貨値を、イベントが報告された日の為替レートを使用して自動的に米ドルに変換します。この変換された値が収益指標に表示されます。
 
 {% alert tip %}
 米ドルのみで運用している場合は、不要な変換を避けるためにすべてのイベントで `"currency": "USD"` をハードコードしてください。
@@ -695,37 +695,37 @@ Braze は米ドル以外の通貨値を、イベントが報告された日の�
 
 ### メタデータの柔軟性 {#metadata-flexibility}
 
-イベントレベルおよび製品レベルの metadata オブジェクトは任意のキーと値のペアを受け入れるため、コアスキーマを変更せずにカスタムディメンションを付加できます。一般的な例としては、`order_status_url`、`gift_wrapped`、`loyalty_points_earned`、`warehouse_id` などがあります。これらのプロパティは、Liquid パーソナライゼーション、Currentsエクスポート、および[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を通じたセグメンテーションで利用可能です。
+イベントレベルおよび製品レベルのmetadataオブジェクトは任意のキーと値のペアを受け入れるため、コアスキーマを変更せずにカスタムディメンションを付加できます。一般的な例としては、`order_status_url`、`gift_wrapped`、`loyalty_points_earned`、`warehouse_id` などがあります。これらのプロパティは、Liquidパーソナライゼーション、Currentsエクスポート、および[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を通じたセグメンテーションで利用可能です。
 
 {% alert important %}
 おすすめイベントは厳密なスキーマを使用します。そのため、プロパティのトップレベルにカスタムプロパティを追加するとバリデーションに失敗します。すべてのカスタムプロパティは、イベントレベルの `metadata` オブジェクトまたは `products[]` 内の製品レベルの `metadata` オブジェクトに配置してください。これらはトップレベルフィールドと同様に、Liquid、Currents、セグメンテーションで利用可能です。
 {% endalert %}
 
-## イベントバリデーションとトラブルシューティング {#event-validation-and-troubleshooting}
+## イベントのバリデーションとトラブルシューティング {#event-validation-and-troubleshooting}
 
-おすすめ e コマースイベントを `/users/track` または任意の Braze SDKを通じて送信すると、Braze はおすすめイベントの処理中にペイロードをイベントの JSON スキーマに対してバリデーションします。バリデーションは、名前がおすすめイベントと正確に一致するすべてのイベント (例: `ecommerce.order_placed` や `ecommerce.cart_updated`) に対して自動的に実行されます。
+おすすめeコマースイベントを `/users/track` または任意のBraze SDKを通じて送信すると、Brazeはおすすめイベントの処理中にペイロードをイベントのJSONスキーマに対してバリデーションします。バリデーションは、名前がおすすめイベントと正確に一致するすべてのイベント (例: `ecommerce.order_placed` や `ecommerce.cart_updated`) に対して自動的に実行されます。
 
 ### バリデーション内容 {#what-we-validate}
 
-名前が e コマース推奨イベントと一致する各イベントについて、Braze は以下をチェックします:
+名前がeコマース推奨イベントと一致する各イベントについて、Brazeは以下をチェックします:
 
-| チェック項目 | 例 |
+| チェック項目                     | 例                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| イベント名 | 正確である必要があります。例えば、`ecommerce.cart_updated` が正しく、`ecommerce.Cart_Updated`、`cartupdated`、`cart_updated` は不正です。 |
-| 必須プロパティの存在 | `order_placed` には `order_id`、`total_value`、`currency`、`products`、`source` が必要です。 |
-| 正しいデータタイプ | `total_value` は数値、`currency` は文字列、`products` は配列である必要があります。 |
-| トップレベルの余分なプロパティがないこと | プロパティ直下のカスタムフィールドは失敗の原因になります。代わりに `metadata` オブジェクトを使用してください。 |
-| 値の制約 | 金額フィールドは `0` 以上である必要があります。`currency` は有効な ISO 4217 文字列である必要があります。 |
-| 製品ごとのフィールド | `products[]` 内の各アイテムには `product_id`、`product_name`、`variant_id`、`quantity`、`price` が含まれている必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| イベント名                | 正確である必要があります。例えば、`ecommerce.cart_updated` が正しく、`ecommerce.Cart_Updated`、`cartupdated`、`cart_updated` は不正です。 |
+| 必須プロパティの存在 | `order_placed` には `order_id`、`total_value`、`currency`、`products`、`source` が必要です。                                   |
+| 正しいデータタイプ        | `total_value` は数値、`currency` は文字列、`products` は配列である必要があります。                                   |
+| トップレベルの余分なプロパティがないこと | プロパティ直下のカスタムフィールドは失敗の原因になります。代わりに `metadata` オブジェクトを使用してください。                                         |
+| 値の制約         | 金額フィールドは `0` 以上である必要があります。`currency` は有効なISO 4217文字列である必要があります。                                                  |
+| 製品ごとのフィールド        | `products[]` 内の各アイテムには `product_id`、`product_name`、`variant_id`、`quantity`、`price` が含まれている必要があります。                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### バリデーションを行う理由 {#why-we-validate}
 
-e コマースイベントは、収益トラッキング、{% raw %}`{% shopping_cart %}`{% endraw %} Liquid タグ、カート放棄トリガー、レポートなど、一貫性のある予測可能なデータに依存する機能を動作させます。ペイロードがスキーマから逸脱すると、これらの機能はサイレントな不正確さ (誤った収益合計、欠落したカート、壊れたトリガー) を生み出します。バリデーションは、下流の機能が予測どおりに動作するようにコントラクトを事前に強制します。
+eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグ、カート放棄トリガー、レポートなど、一貫性のある予測可能なデータに依存する機能を動作させます。ペイロードがスキーマから逸脱すると、これらの機能はサイレントな不正確さ (誤った収益合計、欠落したカート、壊れたトリガー) を生み出します。バリデーションは、下流の機能が予測どおりに動作するようにコントラクトを事前に強制します。
 
 ### バリデーションに合格した場合 {#when-validation-passes}
 
-イベントは、関連するすべての後処理を伴う e コマース推奨イベントとして処理されます。各イベントタイプによってトリガーされる動作の完全なリストについては、[イベントスキーマ](#event-schemas)を参照してください。
+イベントは、関連するすべての後処理を伴うeコマース推奨イベントとして処理されます。各イベントタイプによってトリガーされる動作の完全なリストについては、[イベントスキーマ](#event-schemas)を参照してください。
 
 #### 成功したイベントの確認 {#verify-a-successful-event}
 
@@ -739,7 +739,7 @@ e コマースイベントは、収益トラッキング、{% raw %}`{% shopping
 
 イベントはおすすめイベントとして処理されません。具体的には:
 
-- **イベントは完全にドロップされます。** 無効なおすすめ e コマースイベントはユーザープロファイルに記録されず、Currentsに表示されず、セグメンテーションでも利用できません。
+- **イベントは完全にドロップされます。** 無効なおすすめeコマースイベントはユーザープロファイルに記録されず、Currentsに表示されず、セグメンテーションでも利用できません。
 - 以下を含む下流のおすすめイベント機能は実行されません:
   - 収益トラッキング (収益レポート、`total_revenue` などのユーザー計算フィールド)
   - ユーザープロファイル上のカートオブジェクトの更新
@@ -747,12 +747,12 @@ e コマースイベントは、収益トラッキング、{% raw %}`{% shopping
 
 エラーの報告方法は取り込みパスによって異なります:
 
-- **REST API (`/users/track`):** 各無効なイベントはレスポンスの errors 配列で報告されます。各エントリには、どのイベントが失敗したか (インデックス) と理由 (タイプ) が記載されます。トップレベルの message フィールドは引き続き「success」と表示されますが、これはリクエストが Braze に到達したことを意味するだけで、すべてのイベントが有効であったことを意味するものではありません。レスポンスの errors 配列を常に確認してください。
-- **Braze SDK:** SDK 呼び出しは即座に返され、バリデーションはバックグラウンドで実行されるため、エラーはアプリに返されません。e コマースイベントのバリデーション失敗を確認するには、失敗サマリーメール ([失敗の確認](#find-failures)を参照) を監視してください。
+- **REST API (`/users/track`):** 各無効なイベントはレスポンスのerrors配列で報告されます。各エントリには、どのイベントが失敗したか (インデックス) と理由 (タイプ) が記載されます。トップレベルのmessageフィールドは引き続き「success」と表示されますが、これはリクエストがBrazeに到達したことを意味するだけで、すべてのイベントが有効であったことを意味するものではありません。レスポンスのerrors配列を常に確認してください。
+- **Braze SDK:** SDK呼び出しは即座に返され、バリデーションはバックグラウンドで実行されるため、エラーはアプリに返されません。eコマースイベントのバリデーション失敗を確認するには、失敗サマリーメール ([失敗の確認](#find-failures)を参照) を監視してください。
 
 #### APIエラーレスポンスの例 {#example-api-error-response}
 
-`/users/track` エンドポイントは、どのプロパティが失敗したか、およびその理由を示すフィールドレベルのエラーを返します。トップレベルの `message` はイベントがパイプラインに受け入れられたため `"success"` を返す場合があることに注意してください。`errors` 配列がスキーマバリデーションに失敗したフィールドを示します。以下のエラーレスポンスの例を参照してください。
+`/users/track`エンドポイントは、どのプロパティが失敗したか、およびその理由を示すフィールドレベルのエラーを返します。トップレベルの `message` はイベントがパイプラインに受け入れられたため `"success"` を返す場合があることに注意してください。`errors` 配列がスキーマバリデーションに失敗したフィールドを示します。以下のエラーレスポンスの例を参照してください。
 
 ```json
 {
@@ -763,12 +763,12 @@ e コマースイベントは、収益トラッキング、{% raw %}`{% shopping
 
 失敗は内部的にも分類され、失敗サマリーメール用に集計されます:
 
-| 失敗タイプ | 意味 | 例 |
+| 失敗タイプ           | 意味                                           | 例                                                        |
 |------------------------|---------------------------------------------------|----------------------------------------------------------------|
-| `missing_property` | 必須フィールドが欠落しています。 | `order_placed` が `order_id` なしで送信された場合。 |
-| `extra_property` | スキーマで定義されていないフィールドが追加されました。 | カスタムの `gift_wrapped` フィールドが `metadata` 内ではなく `properties` のトップに配置された場合。 |
-| `unexpected_data_type` | フィールドのタイプが間違っています。 | `total_value: "29.99"` (文字列) が `29.99` (数値) の代わりに送信された場合。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `missing_property`     | 必須フィールドが欠落しています。                       | `order_placed` が `order_id` なしで送信された場合。                        |
+| `extra_property`       | スキーマで定義されていないフィールドが追加されました。 | カスタムの `gift_wrapped` フィールドが `metadata` 内ではなく `properties` のトップに配置された場合。 |
+| `unexpected_data_type` | フィールドのタイプが間違っています。                        | `total_value: "29.99"` (文字列) が `29.99` (数値) の代わりに送信された場合。   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
 
 {% alert note %}
 おすすめイベントと正確に一致しないイベント名 (例: `ecommerce.OrderPlaced`) は、バリデーションを完全にスキップし、通常のカスタムイベントとして記録されます。送信した名前でCurrentsおよびセグメンテーションに表示されますが、おすすめイベントの処理は行われず、レスポンスに `errors` エントリも含まれません。
@@ -776,21 +776,21 @@ e コマースイベントは、収益トラッキング、{% raw %}`{% shopping
 
 #### 失敗の確認 {#find-failures}
 
-Braze はワークスペース管理者に、おすすめイベントのバリデーション失敗のサマリーをメールで送信するため、すべてのイベントを手動で監視することなくインテグレーションの問題を特定して修正できます。
+Brazeはワークスペース管理者に、おすすめイベントのバリデーション失敗のサマリーをメールで送信するため、すべてのイベントを手動で監視することなくインテグレーションの問題を特定して修正できます。
 
 サマリーメールには以下が含まれます:
 
 - **合計エラー数:** レポート期間のエラー数。
 - **イベント別エラー:** 各おすすめイベントタイプ (例: `ecommerce.cart_updated` や `ecommerce.order_placed`) で失敗したイベント数の内訳。これを使用して、インテグレーションのどのイベントに最初に対応すべきかを特定します。
-- **ソース別エラー:** API と SDKの分割。これにより、どのインテグレーションが失敗を生成しているかを特定できます。
+- **ソース別エラー:** APIとSDKの分割。これにより、どのインテグレーションが失敗を生成しているかを特定できます。
 
-これらのメールを受信していない場合や受信者リストを確認したい場合は、Braze アカウントチームにお問い合わせください。
+これらのメールを受信していない場合や受信者リストを確認したい場合は、Brazeアカウントチームにお問い合わせください。
 
 #### 失敗の診断と修正 {#diagnose-and-fix-failures}
 
 失敗サマリーメールを受信した場合:
 
-1. **失敗しているイベントとソースを特定します。** メールはイベント名とインテグレーションソース (`sdk` 対 `rest_api`) ごとに失敗を分離するため、どのインテグレーションに修正が必要かを特定できます。同じイベントを送信する複数のソースがある場合 (例: ストアフロント SDKとバックエンド Webhook の両方が `cart_updated` を送信している場合)、それぞれ独立して対処してください。
+1. **失敗しているイベントとソースを特定します。** メールはイベント名とインテグレーションソース (`sdk` 対 `rest_api`) ごとに失敗を分離するため、どのインテグレーションに修正が必要かを特定できます。同じイベントを送信する複数のソースがある場合 (例: ストアフロントSDKとバックエンドWebhookの両方が `cart_updated` を送信している場合)、それぞれ独立して対処してください。
 2. **ペイロードを[イベントスキーマ](#event-schemas)のスキーマと比較します。** ほとんどの失敗は以下の3つのパターンのいずれかに該当します:
    - `missing_property`: 必須フィールドが欠落しています。解決するには、必須フィールドを追加してください。
    - `extra_property`: カスタムフィールドが `properties` のトップレベルにあります。解決するには、カスタムフィールドを `metadata` (イベントレベル) または `products[].metadata` (製品ごと) 内に移動してください。

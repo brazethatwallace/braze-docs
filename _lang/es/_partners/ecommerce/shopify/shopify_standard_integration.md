@@ -1,6 +1,6 @@
 ---
 nav_title: Configuración de la integración estándar de Shopify
-article_title: "Configuración de la integración estándar de Shopify"
+article_title: Configuración de la integración estándar de Shopify
 description: "Este artículo de referencia describe cómo configurar la integración estándar de Shopify."
 page_type: partner
 search_tag: Partner
@@ -14,10 +14,10 @@ page_order: 1
 
 ## Paso 1: Conecta tu tienda Shopify {#step-1-connect-your-shopify-store}
 
-1. En Braze, ve a **Integraciones de socios** > **Socios tecnológicos** y busca "Shopify".
+1. En Braze, ve a **Partner Integrations** > **Technology Partners** y busca "Shopify".
 
 {% alert note %}
-Si utilizas la navegación antigua, puedes encontrar **Socios tecnológicos** en **Integraciones**.
+Si utilizas la navegación antigua, puedes encontrar **Technology Partners** en **Integrations**.
 {% endalert %}
 
 {: start="2"}
@@ -32,7 +32,7 @@ Si tu cuenta de Shopify está asociada a más de una tienda, puedes cambiar la t
 4. Tras instalar la aplicación Braze, se te redirigirá a Braze para que confirmes el espacio de trabajo que deseas conectar a Shopify. Una tienda Shopify solo puede conectarse a un espacio de trabajo. Si necesitas cambiar, selecciona el espacio de trabajo correcto.<br><br>![Una ventana que te pide que confirmes que estás en el espacio de trabajo correcto.]({% image_buster /assets/img/Shopify/confirm_workspace1.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. Selecciona **Begin setup**.<br><br>!["Configuración de la integración" con un campo para introducir el dominio y un botón para iniciar la configuración.]({% image_buster /assets/img/Shopify/choose_account.png %})
+5. Selecciona **Begin setup**.<br><br>![Configuración de la integración con un campo para introducir el dominio y un botón para iniciar la configuración.]({% image_buster /assets/img/Shopify/choose_account.png %})
 
 ## Paso 2: Habilitar los SDK web de Braze {#step-2-enable-braze-web-sdks}
 
@@ -62,7 +62,7 @@ Los siguientes eventos estarán habilitados de forma predeterminada en la integr
 | Eventos recomendados por Braze | Eventos personalizados de Shopify | Atributos personalizados de Shopify |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Producto visto</li><li>Carrito actualizado</li><li>Pago iniciado</li><li>Pedido realizado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 Para más información sobre los datos que se rastrean a través de la integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
 
@@ -70,24 +70,9 @@ Para más información sobre los datos que se rastrean a través de la integraci
 
 ### Configuración del relleno histórico {#historical-backfill-setup}
 
-A través de la configuración estándar, puedes activar el relleno histórico para dirigirte a clientes anteriores. Esto importa tus pedidos de Shopify de los últimos 90 días y los perfiles de clientes del último año. Ambos plazos se cuentan a partir de la fecha en que completas tu integración. Para ello, marca la casilla de verificación para incluir la carga inicial de datos como parte de tu integración.
+En el paso **Track Shopify data**, marca la casilla de verificación para incluir la carga inicial de datos históricos como parte de tu integración.
 
-{% alert note %}
-Los datos del relleno histórico no se incluyen en los informes de ingresos. Los eventos de pedido realizado rellenados solo están disponibles para segmentación.
-{% endalert %}
-
-![Alternar relleno histórico de datos.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-Esta tabla contiene los datos que se cargarán inicialmente a través del relleno.
-
-| Eventos recomendados por Braze | Eventos personalizados de Shopify | Atributos estándar de Braze | Estados de suscripción de Braze |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Pedido realizado</li><li>Pedido cancelado</li><li>Pedido reembolsado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Correo electrónico</li><li>Nombre</li><li>Apellido</li><li>Teléfono</li><li>Ciudad</li><li>País</li><li>Ingresos totales</li><li>Reembolsos totales</li><li>Pedidos totales</li></ul>{:/} | {::nomarkdown}<ul><li>Suscripciones de marketing por correo electrónico asociadas a esta tienda Shopify</li><li>Suscripciones de marketing por SMS asociadas a esta tienda Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-Si ya eres cliente de Braze con Campaigns o Canvas activos, revisa [las características de los datos de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) para obtener más detalles.
-{% endalert %}
+Para saber qué se importa, el comportamiento de los informes de ingresos, capturas de pantalla de la configuración y orientación si ya utilizas Braze con Campaigns o Canvas activos, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### (Avanzado) Configuración personalizada del seguimiento de datos {#advanced-custom-data-tracking-setup}
 
@@ -100,7 +85,8 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="(Avanzado) Configuración personalizada del seguimiento de datos" style="width: 100%;">
+  <caption>(Avanzado) Configuración personalizada del seguimiento de datos</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>
@@ -166,7 +152,7 @@ Los siguientes pasos dependen de tu selección de ID externo:<br><br>
 - **Si seleccionaste ID de cliente de Shopify, correo electrónico o correo electrónico con hash:** Sáltate los pasos 4.1—4.3 y continúa directamente con el paso 4.4.
 {% endalert %}
 
-### Paso 4.1: Crea el metacampo `braze.external_id` {#step-41-create-the-brazeexternalid-metafield}
+### Paso 4.1: Crea el metacampo `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
 1. En tu panel de administración de Shopify, ve a **Settings** > **Metafields and metaobjects**.
 2. Selecciona **Customers** > **Add definition**.
@@ -194,7 +180,7 @@ Braze envía los siguientes parámetros a tu punto de conexión:
 | shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
 | shopify_storefront   | Sí      | Cadena    | El nombre de la tienda para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
 | email_address        | No       | Cadena    | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. Tu lógica de punto de conexión debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### Ejemplo de punto de conexión {#example-endpoint}
 

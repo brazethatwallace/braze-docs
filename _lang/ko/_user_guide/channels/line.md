@@ -35,7 +35,7 @@ LINE 사용 가능 여부는 Braze 패키지에 따라 다릅니다. 시작하�
 | 고객지원 | 양방향 대화를 통해 문의를 처리하고, 제품 정보를 제공하며, 문제를 해결합니다. |
 | 주문 알림 | 주문 확인, 배송 업데이트, 전달 알림으로 고객에게 최신 정보를 제공합니다. |
 | 이벤트 참여 | 초대장, 리마인더, 후속 메시지로 이벤트 참석률과 참여를 높입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 

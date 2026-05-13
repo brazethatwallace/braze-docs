@@ -1,10 +1,4 @@
-{%-assign hide_nav_filter = page.hide_nav_filter -%}
 {%-assign nav_level = page.nav_level -%}
-
-
-{%-unless hide_nav_filter -%}
-{%-assign hide_nav_filter = layout.hide_nav_filter -%}
-{%-endunless -%}
 
 {%-unless nav_level -%}
 {%-assign nav_level = layout.nav_level -%}
@@ -12,43 +6,40 @@
 {%-unless nav_level -%}
 {%-assign nav_level = 2 -%}
 {%-endunless -%}
+{%- assign _rail_collapse_icon = site.baseurl | append: '/assets/img/sidebar-rail-collapse.svg' -%}
+{%- assign _rail_expand_icon = site.baseurl | append: '/assets/img/sidebar-rail-expand.svg' -%}
+{%- assign _esc_hint_before = site.data.i18n[site.language]['nav_flyout_esc_hint_before'] | default: 'Press ' -%}
+{%- assign _esc_hint_after = site.data.i18n[site.language]['nav_flyout_esc_hint_after'] | default: ' to close the menu' -%}
+{%- assign _flyout_hint = site.data.i18n[site.language]['nav_flyout_shortcut_hint'] | default: 'Press Arrow down to open the documentation menu without expanding the sidebar.' -%}
 
-<button id="sidebar_toggle" class="btn btn-info d-print-none" href="#" aria-label="Side Navigation Toggle" title="Side Navigation Toggle">
-   <i class="fas fa-chevron-left"></i>
-</button>
-{%- unless hide_nav_filter -%}
-<div id="nav_filter" class="flex-column flex-nowrap   ">
-  <form id="filter-form"   >
-    <div class="input-group">
-      <input type="text" class="form-control has-clear " name="nav_filter_input" id="nav_filter_input" placeholder="Filter Topics..." aria-label="Filter" />
-      <div class="input-group-append">
-      <i id="filter-action" class="fa"></i>
-      </div>
-
+<div class="left-nav-primary">
+  <div class="left-nav-collapsed-slot">
+    <button type="button" id="sidebar_toggle" class="left-nav-rail-toggle" aria-label="{{ site.data.i18n[site.language]['collapse_navigation'] | default: 'Collapse navigation' }}" title="{{ site.data.i18n[site.language]['collapse_navigation'] | default: 'Collapse navigation' }}" aria-expanded="true" aria-controls="doc_nav_flyout" aria-keyshortcuts="ArrowDown" data-rail-src-narrow="{{ _rail_collapse_icon }}" data-rail-src-widen="{{ _rail_expand_icon }}">
+      <img id="sidebar_toggle_icon" class="sidebar-toggle-icon" src="{{ _rail_collapse_icon }}" width="24" height="24" alt="" decoding="async" aria-hidden="true" />
+    </button>
+    <span id="sidebar_toggle_flyout_hint" class="sr-only" hidden>{{ _flyout_hint }}</span>
+  </div>
+  <div id="doc_nav_flyout" class="doc-nav-flyout">
+    <nav class="bd-links left-nav-doc navbar-light" id="left_navmenu" aria-label="{{ site.data.i18n[site.language]['documentation_nav'] | default: 'Documentation' }}">
+      {%- assign collection = page.collection -%}
+      {%- if page.custom_collection -%}
+        {%- assign collection = page.custom_collection -%}
+      {%- endif -%}
+    {%-UrlNavMenu {{nav_level}}|{{collection}} -%}
+    </nav>
+    <div class="doc-nav-flyout-toolbar">
+      <p class="doc-nav-flyout-escape-hint" aria-hidden="true">{{ _esc_hint_before }}<kbd>Esc</kbd>{{ _esc_hint_after }}</p>
     </div>
-
-  </form>
+  </div>
 </div>
-{%- endunless -%}
-
-<nav class="bd-links navbar navbar-expand-lg navbar-light" id="left_navmenu" aria-label="Left Navigation" title="Left Navigation">
-  {%- unless hide_nav_filter -%}
-    <div id="filter-msg"  class="flex-column flex-nowrap d-none"></div>
-  {%- endunless -%}
-  {%- assign collection = page.collection -%}
-  {%- if page.custom_collection -%}
-    {%- assign collection = page.custom_collection -%}
-  {%- endif -%}
-{%-UrlNavMenu {{nav_level}}|{{collection}} -%}
-</nav>
-<div id="nav_bottom" style="">
+<div id="nav_bottom">
   <!-- a href="https://www.braze.com/terms/" target="_blank"><div class="nav_bottom_item"><i class="fa fa-balance-scale"></i> LEGAL</div></a>
   <a href="https://learning.braze.com" target="_blank"><div class="nav_bottom_item"><i class="fa fa-flask"></i> Braze Learning </div></a -->
-  <a id="status-indicator" href="https://braze.statuspage.io" target="_blank">
+  <a id="status-indicator" href="https://braze.statuspage.io" target="_blank" rel="noopener noreferrer">
     <div class="nav_bottom_item">
 
-      <div class="status-title">{{ site.data.i18n[site.language]['braze_status'] || default: "BRAZE SYSTEM STATUS"}}</div>
-      <div class="color-dot"></div><div class="color-description">{{ site.data.i18n[site.language]['braze_status_check'] || default: "Checking Status" }}</div>
+      <div class="status-title">{{ site.data.i18n[site.language]['braze_status'] | default: "BRAZE SYSTEM STATUS"}}</div>
+      <div class="color-dot"></div><div class="color-description">{{ site.data.i18n[site.language]['braze_status_check'] | default: "Checking Status" }}</div>
   </div></a>
 </div>
 

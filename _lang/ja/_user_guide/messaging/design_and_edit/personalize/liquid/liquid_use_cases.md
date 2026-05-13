@@ -1466,7 +1466,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージCampaignを送信する {#time-reoccurring-iam-window}
+### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージCampaignを送信する {#time-reocurring-iam-window}
 
 このユースケースでは、ユーザーの現在の時刻が設定された時間枠内にある場合にメッセージを表示します。
 
@@ -1796,3 +1796,5 @@ Default copy
 {% endraw %}
 
 {% endapi %}
+
+このライブラリの多くの例では、条件が満たされない場合に送信をスキップするために`abort_message`タグを使用しています。Liquidによる送信中止の完全なリファレンス（日付や時間ベースのパターンを含む）については、[Liquidメッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を参照してください。

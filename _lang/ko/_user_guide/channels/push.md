@@ -30,7 +30,7 @@ search_rank: 3
 | 첫 구매 | 사용자가 앱 사용에 익숙해지면 푸시 알림을 사용하여 인앱 구매자로 전환하는 데 도움을 줄 수 있습니다. |
 | 새로운 기능 | 푸시 알림은 이탈한 사용자에게 앱으로 다시 돌아오게 할 수 있는 새로운 기능을 알리는 데 효과적입니다. |
 | 시간 제한 혜택 | 혜택에 시간 제한이 있는 경우, 푸시는 만료 전에 사용자에게 알리는 좋은 방법입니다. 이러한 메시지는 일반적으로 높은 긴급성을 전달하며, 최근 이탈한 사용자에게 앱을 상기시키는 데 최적입니다. 예를 들어, 앱이 게임이고 매일 연속 플레이 시 인게임 화폐 보너스를 제공하는 경우, 일정 일수에 도달한 후 연속 기록이 위험에 처해 있다고 알리는 것은 효과적인 푸시가 될 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
 
 ## 푸시 메시지 규정 {#push-message-regulations}
 
@@ -46,7 +46,7 @@ search_rank: 3
 | Apple [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) | 푸시는 앱 작동에 필수적이어서는 안 되며, 민감한 개인 정보나 기밀 정보를 전달해서는 안 됩니다. 고객이 앱 UI의 동의 문구를 통해 명시적으로 옵트인하고 앱에서 옵트아웃할 수 있는 경우가 아니라면, 프로모션이나 다이렉트 마케팅에 푸시를 사용하지 마세요. |
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | 푸시 알림, 카메라, 자이로스코프 등의 내장 기능이나 Apple Music, iCloud 등의 Apple 서비스를 수익화해서는 안 됩니다. |
 | Google Play — [시스템 기능의 무단 사용 또는 모방](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | 앱은 시스템 알림을 모방하거나 방해해서는 안 됩니다. 시스템 수준 알림은 앱의 핵심 기능에만 사용해야 합니다(예: 항공사 앱이 사용자에게 특가 정보를 알리거나, 게임이 사용자에게 인게임 프로모션을 알리는 경우). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 메시지 규정" }
 
 ## 다음 단계 {#next-steps}
 

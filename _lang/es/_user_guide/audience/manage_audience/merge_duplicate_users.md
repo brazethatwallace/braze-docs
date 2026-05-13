@@ -43,7 +43,7 @@ Los perfiles de usuario duplicados no se pueden recuperar después de la fusión
 
 ## Fusión masiva {#bulk-merging}
 
-Cuando fusionas usuarios duplicados de forma masiva, Braze encuentra perfiles con identificadores coincidentes (como una dirección de correo electrónico) y fusiona todos sus datos en el perfil actualizado más recientemente que tenga un `external_id`. Si no hay perfiles con un `external_id`, se utilizará en su lugar el perfil actualizado más recientemente sin un `external_id`.
+Cuando fusionas usuarios duplicados de forma masiva, Braze encuentra perfiles con identificadores coincidentes (como una dirección de correo electrónico) y conserva un perfil. Braze primero prioriza los perfiles con un `external_id` y luego aplica tu configuración de **Resolving ties**: **Resolve ties using** y **Prioritization**. Si no hay perfiles con un `external_id`, Braze usa **Resolve ties using** y **Prioritization** entre los perfiles sin un `external_id`. Braze solo fusiona usuarios cuando esta configuración identifica un perfil para conservar. Por ejemplo, si **Resolve ties using** es **Updated date** y ambos perfiles tienen la misma marca de tiempo de última actualización, Braze no puede resolver el empate, por lo que esos usuarios no se fusionan.
 
 ### Paso 1: Ir a Gestionar audiencia {#step-1-go-to-manage-audience}
 
@@ -65,12 +65,12 @@ En el siguiente ejemplo, Braze utiliza el ID externo del usuario para marcar per
 
 {% tabs local %}
 {% tab example csv file %}
-| Dirección de correo electrónico | ID externo | Número de teléfono | ID de Braze           | Identificador para la regla | Perfil a conservar | Perfil a fusionar |
-| ------------------------------- | ---------- | ------------------ | --------------------- | --------------------------- | ------------------ | ----------------- |
-| alex@company.com                | A8i3mkd99  | (555) 123-4567     | 65fcaa547f470494d1370 | email                       | TRUE               | FALSE             |
-| alex@company.com                |            | (555) 987-6543     | 65fcaa547f47d004d1348 | email                       | FALSE              | TRUE              |
-| alex@company.com                |            | (555) 321-0987     | 65fcaa547f47d0049135c | email                       | FALSE              | TRUE              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
+| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
+| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
+| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Previsualizar los resultados (opcional)" }
 {% endtab %}
 {% endtabs %}
 

@@ -19,7 +19,7 @@ Mettez ensuite à jour votre fichier `app.json` pour Android et iOS :
 
 #### Étape 1.2 : Ajouter votre ID d'expéditeur Google {#step-12-add-your-google-sender-id}
 
-Tout d'abord, accédez à la console Firebase, ouvrez votre projet, puis sélectionnez <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**.
+Tout d'abord, accédez à la console Firebase, ouvrez votre projet, puis sélectionnez <i class="fa-solid fa-gear" aria-label="Paramètres"></i>&nbsp;**Settings** > **Project settings**.
 
 ![Le projet Firebase avec le menu « Settings » ouvert.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
@@ -127,12 +127,12 @@ Pour obtenir la liste complète des champs de notification push, consultez le ta
 | `badge_count`      | Nombre   | Représente le nombre de badges de la notification. |
 | `timestamp`        | Nombre | Représente l'heure à laquelle le payload a été reçu par l'application. |
 | `is_silent`        | Valeur booléenne   | Si la valeur est `true`, le payload est reçu silencieusement. Pour plus de détails sur l'envoi de notifications push silencieuses sur Android, consultez [Notifications push silencieuses sur Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Pour plus de détails sur l'envoi de notifications push silencieuses sur iOS, consultez [Notifications push silencieuses sur iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Valeur booléenne   | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, comme la synchronisation des géorepérages, la synchronisation des indicateurs de fonctionnalité ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
+| `is_braze_internal`| Valeur booléenne   | La valeur sera `true` si un payload de notification a été envoyé pour une fonctionnalité interne du SDK, comme la synchronisation des indicateurs de fonctionnalité ou le suivi des désinstallations. Le payload est reçu silencieusement par l'utilisateur. |
 | `image_url`        | Chaîne de caractères    | Spécifie l'URL associée à l'image de la notification. |
 | `braze_properties` | Objet    | Représente les propriétés Braze associées à la Campaign (paires clé-valeur). |
 | `ios`              | Objet    | Représente les champs spécifiques à iOS. |
 | `android`          | Objet    | Représente les champs spécifiques à Android. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Étape 3 : Activer la création de liens profonds (facultatif) {#step-3-enable-deep-linking-optional}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Étape 3.2 : Gérer les liens profonds à partir d'un état fermé {#step-32-handle-deep-links-from-a-closed-state}
+#### Étape 3.2 : Gérer les liens profonds à partir d'un état fermé
 
 En plus des scénarios de base gérés par [React Native Linking](https://reactnative.dev/docs/linking), implémentez la méthode `Braze.getInitialPushPayload` et récupérez la valeur `url` pour prendre en compte les liens profonds provenant de notifications push qui ouvrent votre application lorsqu'elle n'est pas en cours d'exécution. Par exemple :
 
@@ -469,7 +469,7 @@ Pour les intégrations en flux de travail bare, suivez plutôt les approches nat
 
 ## Utilisation du plugin Expo {#using-the-expo-plugin}
 
-Une fois [les notifications push configurées pour Expo](#reactnative_setting-up-push-notifications), vous pouvez les utiliser pour gérer les comportements de notifications push suivants — sans avoir à écrire de code dans les couches natives Android ou iOS.
+Une fois [les notifications push configurées pour Expo](#reactnative_setting-up-push-notifications), vous pouvez les utiliser pour gérer les comportements de notifications push suivants&#8212;sans avoir à écrire de code dans les couches natives Android ou iOS.
 
 ### Transférer les notifications push Android vers un FMS supplémentaire {#forwarding-android-push-to-additional-fms}
 

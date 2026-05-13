@@ -22,7 +22,7 @@ Une fois les bannières intégrées à une application ou à un site web, les ma
 | Personnalisation des offres | Présentez des promotions et des incitations personnalisées en fonction de l'historique de navigation, du contenu du panier, du niveau d'abonnement et du statut de fidélité de chaque utilisateur. |
 | Ciblage de l'engagement des nouveaux utilisateurs | Accompagnez les nouveaux utilisateurs tout au long du processus d'onboarding et de la configuration de leur compte. |
 | Soldes et promotions | Mettez en avant le contenu phare, les produits tendance et les campagnes de marque en cours de manière persistante et directement sur votre page d'accueil, sans perturber l'expérience utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pourquoi utiliser des bannières ?" }
 
 ## Fonctionnalités {#features}
 
@@ -74,13 +74,13 @@ Voici ce que vous devez savoir sur les dimensions et la taille des bannières :
 - Le HTML occupe toute la largeur du conteneur dans lequel il est affiché.
 - Nous vous recommandons de créer un élément de dimension fixe et de tester ces dimensions dans le compositeur.
 
-## Limitations {#limitations}
+## Limitations
 
 Chaque espace de travail peut prendre en charge jusqu'à 200 campagnes de bannières actives. Si cette limite est atteinte, vous devrez [archiver ou désactiver]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) une campagne existante avant d'en créer une nouvelle.
 
 De plus, les messages de bannière ne prennent pas en charge les fonctionnalités suivantes :
 
-- Campagnes déclenchées par API et par événement
+- Campaigns déclenchées par API et par événement
 - Contenu connecté
 - Codes promotionnels
 - `catalog_items` utilisant [l'étiquette `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)

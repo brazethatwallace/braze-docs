@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify 표준 통합 설정
-article_title: "Shopify 표준 통합 설정"
+article_title: Shopify 표준 통합 설정
 description: "이 참조 문서에서는 표준 Shopify 통합을 설정하는 방법을 설명합니다."
 page_type: partner
 search_tag: Partner
@@ -62,7 +62,7 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 | Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Shopify 커스텀 속성 |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Product viewed</li><li>Cart updated</li><li>Checkout started</li><li>Order placed</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
 
@@ -70,24 +70,9 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 
 ### 과거 데이터 백필 설정 {#historical-backfill-setup}
 
-표준 설정을 통해 과거 데이터 백필을 활성화하여 이전 고객을 타겟팅할 수 있습니다. 이 기능은 지난 90일간의 Shopify 주문과 지난 1년간의 고객 프로필을 가져옵니다. 두 기간 모두 통합을 완료한 날짜부터 역산됩니다. 이를 위해 통합의 일부로 초기 데이터 로드를 포함하는 체크박스를 선택하세요.
+**Track Shopify data** 단계에서 통합의 일부로 초기 과거 데이터 로드를 포함하려면 체크박스를 선택합니다.
 
-{% alert note %}
-과거 백필 데이터는 매출 보고에 포함되지 않습니다. 백필된 주문 완료 이벤트는 세분화에만 사용할 수 있습니다.
-{% endalert %}
-
-![과거 데이터 백필 토글.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-이 표에는 백필을 통해 초기 로드되는 데이터가 포함되어 있습니다.
-
-| Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 구독 상태 |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어와 연결된 이메일 마케팅 구독</li><li>이 Shopify 스토어와 연결된 SMS 마케팅 구독</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-활성 Campaigns 또는 Canvases가 있는 기존 Braze 고객인 경우 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
-{% endalert %}
+가져오는 항목, 매출 보고 동작, 설정 스크린샷, 그리고 활성 Campaigns 또는 Canvases와 함께 이미 Braze를 사용하고 있는 경우의 안내는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
 
 ### (고급) 커스텀 데이터 추적 설정 {#advanced-custom-data-tracking-setup}
 
@@ -100,7 +85,8 @@ Braze SDK를 사용하면 이 통합의 표준 이벤트를 넘어서는 커스�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="(고급) 커스텀 데이터 추적 설정" style="width: 100%;">
+  <caption>(고급) 커스텀 데이터 추적 설정</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>
@@ -145,7 +131,7 @@ braze.logCustomEvent(
 
 이벤트 또는 커스텀 속성을 기록하려면 사용자의 기기에서 SDK가 초기화(활동 수신 대기)되어 있어야 합니다. 커스텀 데이터 기록에 대해 자세히 알아보려면 [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) 및 [logCustomEvent object](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)를 참조하세요.
 
-## 4단계: 사용자 관리 방법 구성하기 {#step-4}
+## 4단계: 사용자 관리 방법 구성 {#step-4}
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 
@@ -166,7 +152,7 @@ braze.logCustomEvent(
 - **Shopify 고객 ID, 이메일 또는 해시된 이메일을 선택한 경우:** 4.1~4.3단계를 건너뛰고 바로 4.4단계로 진행합니다.
 {% endalert %}
 
-### 4.1단계: `braze.external_id` 메타필드 만들기 {#step-41-create-the-brazeexternalid-metafield}
+### 4.1단계: `braze.external_id` 메타필드 만들기 {#step-41-create-the-brazeexternal_id-metafield}
 
 1. Shopify 관리자 패널에서 **Settings** > **Metafields and metaobjects**로 이동합니다.
 2. **Customers** > **Add definition**을 선택합니다.
@@ -194,7 +180,7 @@ Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 | shopify_customer_id  | 예      | 문자열    | Shopify 고객 ID입니다.                                         |
 | shopify_storefront   | 예      | 문자열    | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
 | email_address        | 아니요       | 문자열    | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직에서 null 값을 처리할 수 있어야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### 엔드포인트 예시 {#example-endpoint}
 

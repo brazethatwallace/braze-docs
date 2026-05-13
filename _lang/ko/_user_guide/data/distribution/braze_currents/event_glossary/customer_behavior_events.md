@@ -1,7 +1,7 @@
 ---
 nav_title: 고객 행동 및 사용자 이벤트
 layout: customer_behavior_events_glossary
-page_order: 1
+page_order: 4
 excerpt_separator: ""
 page_type: glossary
 description: "이 용어집에는 Braze가 Currents를 사용하여 추적하고 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 고객 행동 및 사용자 이벤트가 나열되어 있습니다."
@@ -17,15 +17,15 @@ search_rank: 7
 
 {% details 고객 행동 및 사용자 이벤트 구조와 플랫폼 값 설명 %}
 
-### 이벤트 구조
+### 이벤트 구조 {#event-structure}
 
 이 고객 행동 및 사용자 이벤트 분석은 일반적으로 고객 행동 또는 사용자 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성요소에 대한 확실한 이해를 바탕으로 개발자와 비즈니스 인텔리전스 전략 팀은 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 다른 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![구매 이벤트를 보여주는 사용자 이벤트의 분류로, 사용자별 속성, 행동별 속성 및 기기별 속성으로 그룹화된 나열된 등록정보]({% image_buster /assets/img/customer_engagement_event.png %})
+![구매 이벤트를 보여주는 사용자 이벤트의 분류로, 사용자별 등록정보, 행동별 등록정보 및 기기별 등록정보로 그룹화되어 있습니다]({% image_buster /assets/img/customer_engagement_event.png %})
 
-고객 행동 및 사용자 이벤트는 **사용자별** 속성, **행동별** 속성, **기기별** 속성으로 구성됩니다.
+고객 행동 및 사용자 이벤트는 **사용자별** 등록정보, **행동별** 등록정보, **기기별** 등록정보로 구성됩니다.
 
-### 플랫폼 값
+### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
 <br>다음 표에서는 반환 가능한 값을 자세히 설명합니다:
@@ -39,13 +39,18 @@ search_rank: 7
 | 웹 | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="플랫폼 값" }
 
 {% enddetails %}
 
 {% alert important %}
 저장 스키마는 데이터 웨어하우스 저장 파트너(예: Google Cloud Storage, Amazon S3 및 Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트와 대상 조합은 아직 일반적으로 사용할 수 없습니다. 다양한 파트너가 지원하는 이벤트에 대한 자세한 내용은 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하여 각 페이지를 확인하세요.<br><br>또한, Currents는 페이로드가 900&nbsp;KB를 초과하는 지나치게 큰 이벤트는 삭제한다는 점에 유의하세요.
 {% endalert %}
+
+{% alert note %}
+이 용어집의 많은 이벤트는 SDK에서 시작됩니다. `token_state_change`와 같은 일부 이벤트는 SDK 또는 백엔드에서 시작될 수 있습니다(예: 푸시 반송에 대한 응답으로). `sdk_version`, `gender`, `language`, `country` 필드는 SDK에서 시작된 이벤트에만 설정됩니다. 백엔드에서 시작된 이벤트이거나 해당 정보를 사용할 수 없거나 사용자에 대해 설정되지 않은 경우, 이러한 필드는 `null`일 수 있습니다.
+{% endalert %}
+
 
 {% api %}
 ## 무작위 버킷 번호 업데이트 이벤트 {#random-bucket-number-update-events}
@@ -54,7 +59,7 @@ search_rank: 7
 Random Bucket Number
 {% endapitags %}
 
-이 사용자 이벤트는 워크스페이스 내에서 새 사용자가 생성될 때마다 발생합니다. 이 이벤트 동안 각 신규 사용자에게 무작위 버킷 번호가 할당되며, 이를 사용하여 무작위 사용자들의 균일하게 분포된 세그먼트를 생성할 수 있습니다. 이를 사용하여 무작위 버킷 번호 값의 범위를 그룹화하고 캠페인 및 캠페인 배리언트 간의 성과를 비교할 수 있습니다.
+이 사용자 이벤트는 워크스페이스 내에서 새 사용자가 생성될 때마다 발생합니다. 이 이벤트 동안 각 신규 사용자에게 무작위 버킷 번호가 할당되며, 이를 사용하여 무작위 사용자의 균일하게 분포된 세그먼트를 생성할 수 있습니다. 이를 사용하여 무작위 버킷 번호 값의 범위를 그룹화하고 Campaigns 및 캠페인 배리언트 간의 성과를 비교할 수 있습니다.
 
 {% alert important %}
 이 Currents 이벤트는 "모든 이벤트 커넥터"를 구매한 고객만 사용할 수 있으며, Amazon S3, Microsoft Azure 및 Google Cloud Storage와 같은 저장 이벤트 커넥터에만 사용할 수 있습니다.
@@ -201,11 +206,12 @@ Custom Events
 {% endtab %}
 {% endtabs %}
 
-#### 등록정보 세부 정보
+#### 등록정보 세부 정보 {#property-details}
 
 - 커스텀 이벤트의 경우, 페이로드에는 해당 이벤트와 연결된 모든 [커스텀 이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties)도 포함됩니다.
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우, 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. 자세한 내용은 여기에서 확인하세요: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
+
 {% endapi %}
 
 {% api %}
@@ -439,6 +445,7 @@ Locations
 
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우, 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. 자세한 내용은 여기에서 확인하세요: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
+
 {% endapi %}
 
 {% api %}
@@ -579,6 +586,7 @@ Purchases
 - 구매 이벤트의 경우, 페이로드에는 해당 이벤트와 연결된 모든 [구매 이벤트 등록정보]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties)도 포함됩니다.
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우, 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. 자세한 내용은 여기에서 확인하세요: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
+
 {% endapi %}
 
 {% api %}
@@ -1291,15 +1299,15 @@ Push, Token State Change
   - 푸시 반송이 발생하면(예: 제거로 인한 경우), `sdk_version` 필드는 비어 있습니다.
 - 푸시 토큰이 Braze에 들어올 때마다 생애 주기 이벤트가 기록됩니다. `push_token_state_change_type` 필드에는 세 가지 유형의 토큰 변경 이벤트("add", "update", "remove")가 기록됩니다.
 
-#### 이벤트 유형
+#### 이벤트 유형 {#event-types}
 
-##### 추가
+##### 추가 {#add}
 
 새 토큰이 등록될 때 "add" 이벤트가 수집됩니다. 사용자가 새 기기에서 앱을 처음 열거나, 이전에 토큰이 없었던 사용자에 대해 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 통해 `push_tokens`로 설정될 때 발생합니다.
 
-##### 업데이트
+##### 업데이트 {#update}
 
-기존 토큰의 속성이 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`.
+기존 토큰의 등록정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`.
 
 {% alert note %}
 대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 캠페인 전송을 통해 나중에 정리됩니다.<br><br>
@@ -1307,7 +1315,7 @@ Push, Token State Change
 `push_token`은 변경되지 않고 `device_id`만 변경되는 경우는 극히 드뭅니다(이 경우 OS가 재설치 후 동일한 토큰 문자열을 반환해야 합니다).
 {% endalert %}
 
-##### 제거
+##### 제거 {#remove}
 
 Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니다. 이는 여러 가지 이유로 발생할 수 있습니다:
 
@@ -1315,7 +1323,7 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 - 사일런트 푸시를 통한 제거 감지
 - REST API 또는 APNs 피드백 서비스를 통해 토큰이 제거됨
 
-##### 추가 및 제거 쌍
+##### 추가 및 제거 쌍 {#add-and-remove-pairs}
 
 추가 및 제거 쌍은 두 가지 범주로 나뉩니다:
 
@@ -1331,7 +1339,7 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 익명 프로필이 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) 엔드포인트를 통해 식별되면, `user_id`는 변경되지 않으며 토큰 상태 변경 이벤트가 발생하지 않습니다.
 {% endalert %}
 
-#### 최신 활성 토큰 상태 쿼리
+#### 최신 활성 토큰 상태 쿼리 {#querying-for-the-latest-active-token-state}
 
 각 사용자의 현재 푸시 토큰 상태를 확인하려면, 토큰 상태 변경 이벤트를 `push_token`, `user_id`, `app_id`로 파티션한 다음 `time_ms`를 내림차순으로 정렬하고 "remove" 이벤트를 필터링합니다. 내부적으로 토큰은 사용자당 토큰 문자열과 `app_id`로 키가 지정됩니다. `device_id`를 파티션 키로 사용하는 것은 권장되지 않습니다. `device_id`는 변경 가능한 속성이며, 이를 기준으로 파티션을 나누면 단일 토큰의 생애 주기가 여러 파티션에 걸쳐 분할될 수 있기 때문입니다.
 

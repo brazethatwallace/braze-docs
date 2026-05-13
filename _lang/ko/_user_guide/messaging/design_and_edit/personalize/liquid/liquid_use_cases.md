@@ -1796,3 +1796,5 @@ Default copy
 {% endraw %}
 
 {% endapi %}
+
+이 라이브러리의 많은 예시에서는 조건이 충족되지 않을 때 발송을 건너뛰기 위해 `abort_message` 태그를 사용합니다. Liquid를 사용한 발송 중단에 대한 전체 참조(날짜 및 시간 기반 패턴 포함)는 [Liquid 메시지 중단하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)를 참조하세요.

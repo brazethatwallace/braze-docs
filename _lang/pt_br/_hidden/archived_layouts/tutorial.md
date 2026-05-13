@@ -32,6 +32,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
@@ -77,7 +78,7 @@ Certifique-se de definir parâmetros ou elementos que os usuários possam precis
 | -------- | ----------- |
 | Page Title | Você pode dar qualquer título à sua página. Isso é obrigatório. |
 | My First Heading | Recomendamos colocar isso em letras maiúsculas. Isso também é opcional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo de código" }
 
 ## Etapa 2: Faça a próxima coisa {#step-2-do-the-next-thing}
 

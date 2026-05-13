@@ -21,7 +21,7 @@ The Braze and Adobe integration allows you to seamlessly control the flow of inf
 | Currents | To export data back into Adobe, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
 | Adobe Experience Platform account | An [Adobe Experience Platform account](https://experience.adobe.com/#/platform/home) is required to take advantage of this partnership. |
 | Permission to create a connector | You need permissions to create a streaming source connection to use this integration. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -69,7 +69,7 @@ Collect the following credentials to input into Braze, which will allow Braze to
 | Sandbox Name  | The sandbox associated with your Adobe Experience Platform source.   |
 | Dataflow ID   | The dataflow ID associated with your Adobe Experience Platform source.   |
 | Streaming Endpoint  | The streaming endpoint associated with your Adobe Experience Platform source. Braze automatically converts this to the batch streaming endpoint. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Gather credentials" }
 
 ### Step 4: Configure Currents to stream data to your data source
 

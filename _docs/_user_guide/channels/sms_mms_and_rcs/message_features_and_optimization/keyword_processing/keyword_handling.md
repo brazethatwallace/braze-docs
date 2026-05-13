@@ -45,7 +45,7 @@ The following rules apply to keywords and keyword responses:
 | Keywords | Keyword responses |
 | -------- | ----------------- |
 | - Valid UTF-8 encoded characters<br>- Maximum of 20 keywords per category total<br>- Maximum length of 34 characters<br>- Minimum length of 1 character <br>- Cannot contain spaces<br>- Required to be case insensitive and unique across the subscription group | - Cannot be blank<br>- Maximum length of 300 characters<br>- Valid UTF-8 characters |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Add keyword triggers" }
 
 {% alert tip %}
 Interested in seeing how these keywords can be used in your campaigns and Canvases to retarget and trigger messages? Visit [User retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) for more information.
@@ -68,7 +68,7 @@ You can manage your own responses that are sent to users after they text in a ke
 | Keywords | Keyword responses |
 | -------- | ----------------- |
 | - Valid UTF-8 encoded characters<br>- Maximum of 20 keywords per category total<br>- Maximum length of 34 characters<br>- Minimum length of 1 character <br>- Cannot contain spaces<br>- Required to be case insensitive and unique across the subscription group | - Cannot be blank<br>- Maximum length of 300 characters<br>- Valid UTF-8 characters |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }
 
 {% endtab %}
 {% endtabs %}

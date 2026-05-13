@@ -13,11 +13,11 @@ search_tag: Partner
 
 _Diese Integration wird von Denada gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
 Die Integration von Braze und Denada ermöglicht es Ihnen, in Denada erstellte E-Mail-Templates direkt nach Braze zu exportieren – einschließlich des automatischen Bild-Uploads in die Braze-Medienbibliothek. Dies vereinfacht den Prozess von der kreativen Ideenfindung bis zur Kampagnenausführung.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Folgendes ist für die Nutzung dieser Integration erforderlich:
 
@@ -28,7 +28,7 @@ Folgendes ist für die Nutzung dieser Integration erforderlich:
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
 Denada wurde für Marketer und Fachexpert:innen entwickelt, die markengerechte E-Mail-Inhalte ohne Design- oder Programmierkenntnisse erstellen möchten. Es eignet sich besonders für alle, die:
 - Konversationelle KI nutzen möchten, um schnell E-Mail-Templates zu generieren und direkt nach Braze zu übertragen
@@ -37,7 +37,7 @@ Denada wurde für Marketer und Fachexpert:innen entwickelt, die markengerechte E
 
 ## Integration
 
-### 1. Schritt: Integration konfigurieren
+### 1. Schritt: Integration konfigurieren {#step-1-configure-your-integration}
 
 Wählen Sie in Denada Ihren Unternehmensnamen in der unteren linken Ecke aus und gehen Sie dann zu **Team settings** > **Add integration**.
 
@@ -47,7 +47,7 @@ Wählen Sie **Braze** als Integration aus, geben Sie dann Ihren Braze-**API-Schl
 Dies ist eine einmalige Einrichtung. Sobald Ihre Zugangsdaten validiert sind, wird Ihre Konfiguration für alle zukünftigen Exporte gespeichert.
 {% endalert %}
 
-### 2. Schritt: Ein Template nach Braze exportieren
+### 2. Schritt: Ein Template nach Braze exportieren {#step-2-export-a-template-to-braze}
 
 Öffnen Sie in Denada ein E-Mail-Template im Editor und wählen Sie **Export** > **Braze**.
 
@@ -59,8 +59,8 @@ Wenn bereits ein Template mit demselben Namen in Braze existiert, erkennt Denada
 
 Wählen Sie **Export**. Denada rendert das Template in HTML, lädt Bilder nach Braze hoch und erstellt oder aktualisiert das E-Mail-Template in Ihrem Braze-Konto.
 
-## Nutzung der Integration
+## Nutzung der Integration {#using-the-integration}
 
-Sie finden Ihre hochgeladenen Denada-E-Mails in Braze unter **Templates und Medien** > **E-Mail-Templates**. Sie können sofort in jeder Braze-Kampagne oder jedem Canvas verwendet werden.
+Sie finden Ihre hochgeladenen Denada-E-Mails in Braze unter **Templates und Medien** > **E-Mail-Templates**. Sie können sofort in jeder Braze-Campaign oder jedem Canvas verwendet werden.
 
 Denada verfolgt vorherige Exporte, sodass nachfolgende Exporte desselben Templates das bestehende Braze-Template aktualisieren können, anstatt Duplikate zu erstellen.

@@ -30,7 +30,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ----------|-----------| ---------|------ |
 | `start_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD| Fecha de inicio del intervalo para recuperar las cancelaciones de suscripción; debe ser anterior a end_date. La API la trata como medianoche en hora UTC. |
 | `end_date` | Opcional <br>(ver nota) | Cadena en formato AAAA-MM-DD | Fecha de finalización del intervalo para recuperar las cancelaciones de suscripción. La API la trata como medianoche en hora UTC. |

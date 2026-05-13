@@ -20,7 +20,7 @@ L'intégration de Braze et de Personalize.AI vous permet d'exporter des données
 | Instance Personalize.AI | Une instance Personalize.AI est nécessaire pour profiter de ce partenariat. |
 | Clé REST API de Braze | Une clé REST API Braze avec toutes les autorisations. <br><br>Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -68,4 +68,4 @@ Voici, par exemple, un ensemble d'attributs clients en rapport avec un exemple d
 | `C4_Offer_Value` | $3 |
 | `C4_Item_Recom` | "Caesar Salad" |
 | `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Utiliser cette intégration" }

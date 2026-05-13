@@ -63,7 +63,7 @@ Use templates to quickly reuse this webhook across the Braze platform.
 | Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTP method | `POST` |
 | Request Body | JSON Key/Value Pairs |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### Body property key values
 
@@ -75,7 +75,7 @@ Select **+ Add New Body Property** for each of the key/value pairs you want to m
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### Request headers
 
@@ -85,7 +85,7 @@ Select **+ Add New Header** for each of the following request headers.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4" }
 4. Select **Save Template**.
@@ -119,7 +119,7 @@ This example specifically demonstrates how to update a lead’s lead stage to �
 |Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTP method | `PATCH` |
 | Request Body | JSON Key/Value Pairs |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### Body property key values
 
@@ -128,7 +128,7 @@ Select **+ Add New Body Property** for the following key/value pair. Note that `
 | Key | Value |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### Request headers
 
@@ -138,7 +138,7 @@ Select **+ Add New Header** for each of the following request headers.
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role=”presentation” }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4"}
 4. Select **Save Template**.

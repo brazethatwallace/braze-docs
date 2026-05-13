@@ -1,6 +1,6 @@
 ---
 nav_title: "PUT : Mise à jour de la traduction dans une campagne"
-article_title: "PUT : Mettre à jour la traduction dans une campagne"
+article_title: "PUT : Mise à jour de la traduction dans une campagne"
 search_tag: Endpoint
 page_order: 1
 
@@ -41,7 +41,7 @@ Cet endpoint n'a pas de paramètres de chemin.
 | `message_variation_id` | Requis | Chaîne de caractères | L'ID de la variation de votre message. |
 | `locale_id` | Requis | Chaîne de caractères | L'ID (UUID) de la locale. |
 | `translation_map` | Requis | Objet | Objet contenant les nouvelles traductions. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), disponibles dans la réponse de l'endpoint GET.

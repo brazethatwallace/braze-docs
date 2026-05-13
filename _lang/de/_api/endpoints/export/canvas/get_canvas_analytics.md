@@ -39,7 +39,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `include_variant_breakdown` | Optional | Boolescher Wert | Ob Varianten-Statistiken einbezogen werden sollen oder nicht (Standard ist `false`). |
 | `include_step_breakdown` | Optional | Boolescher Wert | Ob Schritt-Statistiken einbezogen werden sollen oder nicht (Standard ist `false`). |
 | `include_deleted_step_data` | Optional | Boolescher Wert | Ob Schritt-Statistiken für gelöschte Schritte einbezogen werden sollen oder nicht (Standard ist `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 

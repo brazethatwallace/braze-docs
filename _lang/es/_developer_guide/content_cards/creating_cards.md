@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### Paso 2a: Crea una variable de suscriptor privada {#step-2a-create-a-private-subscriber-variable}
+#### Paso 2a: Crea una variable de suscriptor privada
 
 Para suscribirte a las actualizaciones de tarjetas, primero declara una variable privada en tu clase personalizada para almacenar tu suscriptor:
 
@@ -133,7 +133,7 @@ Para suscribirte a las actualizaciones de tarjetas, primero declara una variable
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### Paso 2b: Suscríbete a las actualizaciones {#step-2b-subscribe-to-updates}
+#### Paso 2b: Suscríbete a las actualizaciones
 
 Añade el siguiente código para suscribirte a las actualizaciones de Content Cards de Braze, normalmente dentro del `Activity.onCreate()` de tu actividad personalizada de Content Cards:
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### Paso 2c: Cancela la suscripción {#step-2c-unsubscribe}
+#### Paso 2c: Cancela la suscripción
 
 Cancela la suscripción cuando tu actividad personalizada deje de estar visible. Añade el siguiente código al método de ciclo de vida `onDestroy()` de tu actividad:
 
@@ -246,22 +246,22 @@ Por ejemplo, es posible que quieras crear dos tarjetas de mensaje: una llamada a
 Claves como `body`, `title` y `buttonText` pueden tener simples valores de cadena que tus especialistas en marketing pueden establecer. Claves como `terms` pueden tener valores que proporcionen una pequeña colección de frases aprobadas por tu departamento jurídico. Las claves como `style` y `class_type` tienen valores de cadena que puedes configurar para determinar cómo se muestra tu tarjeta en tu aplicación o sitio web.
 
 {% tabs local %}
-{% tab Reading recommendations %}
+{% tab Recomendaciones de lectura %}
 Pares clave-valor de la tarjeta de recomendación de lectura:
 
-| Clave         | Valor                                                                |
+| Clave | Valor |
 |------------|----------------------------------------------------------------------|
 | `body`       | Add your interests to your Politer Weekly profile for personal reading recommendations. |
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 {% endtab %}
 
-{% tab New subscriber coupon %}
+{% tab Cupón de nuevo suscriptor %}
 Pares clave-valor para un nuevo cupón de suscriptor:
 
-| Clave         | Valor                                                            |
+| Clave | Valor |
 |------------|------------------------------------------------------------------|
 | `title`      | Subscribe for unlimited games                                    |
 | `body`       | End of Summer Special - Enjoy 10% off Politer games              |
@@ -270,7 +270,7 @@ Pares clave-valor para un nuevo cupón de suscriptor:
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Example" }
 {% endtab %}
 {% endtabs %}
 

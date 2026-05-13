@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake データ共有 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake データ共有 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > Snowflakeの[セキュアデータ共有](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)を使用すると、一般的なデータプロバイダーとの関係で生じるワークフローの摩擦や遅延、障害点、不要なコストを心配することなく、BrazeのSnowflakeポータル上のデータに安全にアクセスできます。データ共有は、以下の統合または[Snowflakeリーダーアカウント]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)を通じて設定できます。
 
@@ -36,7 +36,7 @@ Snowflakeのデータ共有の詳細については、[セキュアデータ共�
 | ----------- | ----------- |
 | Brazeへのアクセス | データ共有を設定するには、Brazeアカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。 |
 | Snowflakeアカウント | `admin` 権限を持つSnowflakeアカウント。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## セキュアデータ共有の設定 {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ Snowflakeでは、データ共有は[データプロバイダー](https://docs.s
 
 ### ステップ1: Brazeからデータシェアを送信する {#step-1-send-the-datashare-from-braze}
 
-1. Brazeで、**パートナー連携** > **データ共有**に移動します。
+1. Brazeで、**Partner Integrations** > **Data Sharing**に移動します。
 2. Snowflakeアカウントの詳細とロケーターを入力します。アカウントロケーターを取得するには、送信先アカウントで `SELECT CURRENT_ACCOUNT()` を実行します。
 3. CRRシェアを使用している場合は、クラウドプロバイダーとリージョンを指定します。
 4. 完了したら、**Create Datashare**を選択します。これにより、データシェアがSnowflakeアカウントに送信されます。
@@ -87,7 +87,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニーク識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルのユニーク識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## 重要な情報と制限事項 {#important-information-and-limitations}
 

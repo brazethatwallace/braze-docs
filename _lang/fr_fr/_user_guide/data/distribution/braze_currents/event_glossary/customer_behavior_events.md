@@ -1,7 +1,7 @@
 ---
 nav_title: Comportement des clients et événements utilisateurs
 layout: customer_behavior_events_glossary
-page_order: 1
+page_order: 4
 excerpt_separator: ""
 page_type: glossary
 description: "Ce glossaire répertorie les différents comportements des clients et événements utilisateur que Braze peut suivre et envoyer via Currents à des entrepôts de données désignés."
@@ -17,7 +17,7 @@ Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseu
 
 {% details Explication de la structure des comportements des clients et des événements utilisateur, et des valeurs de plateforme %}
 
-### Structure d'événement
+### Structure d'événement {#event-structure}
 
 Cette ventilation des comportements des clients et des événements utilisateur montre le type d'informations généralement incluses dans un comportement client ou un événement utilisateur. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques axés sur les données, et tirer parti des précieux indicateurs fournis.
 
@@ -25,7 +25,7 @@ Cette ventilation des comportements des clients et des événements utilisateur 
 
 Les comportements des clients et les événements utilisateur se composent de propriétés **propres à l'utilisateur**, de propriétés **propres au comportement** et de propriétés **propres à l'appareil**.
 
-### Valeurs de la plateforme
+### Valeurs de la plateforme {#platform-values}
 
 Certains événements renvoient une valeur `platform` qui spécifie la plateforme de l'appareil de l'utilisateur.
 <br>Le tableau suivant détaille les valeurs retournées possibles :
@@ -39,13 +39,18 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
 {% alert important %}
 Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons à des partenaires de stockage d'entrepôt de données (tels que Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations énumérées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.<br><br>Notez également que Currents abandonnera les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
 {% endalert %}
+
+{% alert note %}
+De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
+{% endalert %}
+
 
 {% api %}
 ## Événements de mise à jour du numéro de compartiment aléatoire {#random-bucket-number-update-events}
@@ -54,7 +59,7 @@ Les schémas de stockage s'appliquent aux données d'événements sous forme de 
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -201,11 +206,12 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 {% endtab %}
 {% endtabs %}
 
-#### Détails de la propriété
+#### Détails de la propriété {#property-details}
 
 - Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -439,6 +445,7 @@ Cet événement est déclenché lorsqu'un utilisateur se rend à un emplacement 
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -579,6 +586,7 @@ Les achats sont des événements personnalisés spéciaux et sont accompagnés d
 - Pour les événements d'achat, le payload sera également rempli avec toutes les [propriétés d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
+
 {% endapi %}
 
 {% api %}
@@ -1288,26 +1296,26 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
   - Si vous avez configuré l'[autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), ce champ sera défini sur `true` pour les jetons provisoires. Tous les autres jetons de notification push auront la valeur `false`.
 - Le champ `sdk_version` ne sera rempli que si le changement d'état du jeton est initié par le SDK.
   - Si un événement SDK `changeUser` déclenche le transfert du jeton d'un utilisateur à un autre, le champ `sdk_version` sera rempli.
-  - En cas de rebond push (par exemple, suite à une désinstallation), le champ `sdk_version` restera vide.
+  - En cas de rebond de notification push (par exemple, suite à une désinstallation), le champ `sdk_version` restera vide.
 - Chaque fois qu'un jeton de notification push entre dans Braze, les événements de son cycle de vie sont enregistrés. Trois types d'événements de modification de jeton (« add », « update » et « remove ») sont enregistrés dans le champ `push_token_state_change_type`.
 
-#### Types d'événements
+#### Types d'événements {#event-types}
 
-##### Add
+##### Add {#add}
 
 Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. Cela se produit lorsqu'un utilisateur ouvre l'application pour la première fois sur un nouvel appareil, ou lorsqu'un jeton est défini via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) avec `push_tokens` pour un utilisateur qui n'en avait pas auparavant.
 
-##### Update
+##### Update {#update}
 
 Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`.
 
 {% alert note %}
-Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de campagnes.<br><br>
+Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de Campaigns.<br><br>
 
 Il serait extrêmement rare que seul le `device_id` change sans que le `push_token` ne change (cela nécessiterait que le système d'exploitation renvoie la même chaîne de caractères après la réinstallation).
 {% endalert %}
 
-##### Remove
+##### Remove {#remove}
 
 Un événement « remove » autonome est ingéré lorsque Braze supprime un jeton. Cela peut se produire pour plusieurs raisons :
 
@@ -1315,7 +1323,7 @@ Un événement « remove » autonome est ingéré lorsque Braze supprime un jeto
 - Détection de désinstallation via une notification push silencieuse
 - Jeton supprimé via la REST API ou le service de retour APNs
 
-##### Paires add et remove
+##### Paires add et remove {#add-and-remove-pairs}
 
 Les paires add et remove se répartissent en deux catégories :
 
@@ -1331,7 +1339,7 @@ Les paires add et remove se répartissent en deux catégories :
 Si un profil anonyme est identifié via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/), le `user_id` ne change pas et aucun événement de modification de l'état du jeton n'est émis.
 {% endalert %}
 
-#### Requête sur l'état actuel du jeton actif
+#### Requête sur l'état actuel du jeton actif {#querying-for-the-latest-active-token-state}
 
 Pour déterminer l'état actuel du jeton de notification push de chaque utilisateur, partitionnez les événements de changement d'état du jeton par `push_token`, `user_id` et `app_id`, puis ordonnez-les par `time_ms` décroissant et filtrez les événements « remove ». En interne, un jeton est identifié par sa chaîne de caractères et son `app_id` par utilisateur. Il n'est pas recommandé d'utiliser `device_id` comme clé de partition, car `device_id` est un attribut modifiable et le partitionnement selon cette clé pourrait diviser le cycle de vie d'un jeton unique entre plusieurs partitions.
 

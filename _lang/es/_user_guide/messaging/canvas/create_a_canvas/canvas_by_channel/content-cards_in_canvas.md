@@ -43,7 +43,7 @@ Ten precaución al establecer una fecha de expiración con más de 30 días de a
 
 ### Comportamiento de expiración {#expiration-behavior}
 
-La Content Card permanece disponible en la fuente del usuario hasta que alcanza su fecha de expiración, incluso si el usuario avanza a pasos posteriores en el recorrido de Canvas. Si no quieres que la Content Card esté en vivo cuando se entreguen los siguientes pasos del Canvas, asegúrate de que la expiración sea más corta que el retraso en los pasos posteriores.
+La Content Card permanece disponible en la fuente del usuario hasta que alcanza su fecha de expiración, incluso si el usuario avanza a pasos posteriores en el recorrido de Canvas. Si no quieres que la Content Card esté activa cuando se entreguen los siguientes pasos del Canvas, asegúrate de que la expiración sea más corta que el retraso en los pasos posteriores.
 
 Después de que una Content Card expire, se eliminará automáticamente de la fuente del usuario durante la siguiente actualización, incluso si no la ha visto todavía.
 

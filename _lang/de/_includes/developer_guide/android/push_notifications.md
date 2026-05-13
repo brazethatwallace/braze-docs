@@ -4,18 +4,18 @@
 
 Die folgenden Features sind in das Braze Android SDK integriert. Um andere Features für Push-Benachrichtigungen zu nutzen, müssen Sie für Ihre App [Push-Benachrichtigungen einrichten](#android_setting-up-push-notifications).
 
-|Feature|Beschreibung|
+| Feature | Beschreibung |
 |-------|-----------|
-|Push Stories|Android-Push Stories sind standardmäßig in das Braze Android SDK integriert. Weitere Informationen finden Sie unter [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Push Primer|Push-Primer-Campaigns ermutigen Ihre Nutzer:innen, Push-Benachrichtigungen auf ihrem Gerät für Ihre App zu aktivieren. Dies kann ohne SDK-Anpassung mit unserem [No-Code-Push-Primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/) geschehen.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Push Stories | Android-Push Stories sind standardmäßig in das Braze Android SDK integriert. Weitere Informationen finden Sie unter [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/). |
+| Push Primer | Push-Primer-Campaigns ermutigen Ihre Nutzer:innen, Push-Benachrichtigungen auf ihrem Gerät für Ihre App zu aktivieren. Dies kann ohne SDK-Anpassung mit unserem [No-Code-Push-Primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/) geschehen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## Über den Lebenszyklus der Push-Benachrichtigung {#push-notification-lifecycle}
 
 Das folgende Flussdiagramm zeigt, wie Braze den Lebenszyklus der Push-Benachrichtigung handhabt, z. B. die Aufforderung zur Erteilung von Berechtigungen, die Generierung von Token und die Zustellung von Nachrichten.
 
 {% tabs local %}
-{% tab Granting permissions %}
+{% tab Berechtigungen erteilen %}
 ```mermaid
 ---
 config:
@@ -84,7 +84,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Generating push tokens %}
+{% tab Push-Token generieren %}
 ```mermaid
 ---
 config:
@@ -133,7 +133,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Displaying notifications %}
+{% tab Benachrichtigungen anzeigen %}
 ```mermaid
 ---
 config:
@@ -185,7 +185,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 Ein Beispiel für eine App, die FCM mit dem Braze Android SDK verwendet, finden Sie unter [Braze: Beispiel-App für Firebase Push](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push).
 {% endalert %}
 
-### Rate-Limits {#rate-limits}
+### Rate-Limits
 
 Die Firebase Cloud Messaging (FCM) API hat ein standardmäßiges Rate-Limit von 600.000 Anfragen pro Minute. Wenn Sie dieses Limit erreichen, wird Braze es in einigen Minuten automatisch erneut versuchen. Um eine Erhöhung anzufordern, wenden Sie sich an den [Firebase Support](https://firebase.google.com/support).
 
@@ -371,7 +371,7 @@ Um zu verhindern, dass Braze jedes Mal unnötige Netzwerkanfragen auslöst, wenn
 Sie können entweder einen neuen, einen bestehenden oder einen nicht von Braze stammenden Firebase Messaging Service erstellen. Wählen Sie die Option, die am besten zu Ihren Anforderungen passt.
 
 {% tabs local %}
-{% tab New %}
+{% tab Neu %}
 Braze enthält einen Dienst, der den Push-Empfang und das Öffnen von Intents verarbeitet. Die Klasse `BrazeFirebaseMessagingService` muss in Ihrer `AndroidManifest.xml` registriert werden:
 
 ```xml
@@ -390,7 +390,7 @@ Vor Braze SDK 3.1.1 wurde `AppboyFcmReceiver` verwendet, um FCM-Push zu verarbei
 {% endalert %}
 {% endtab %}
 
-{% tab Existing %}
+{% tab Bestehend %}
 Wenn Sie bereits einen Firebase Messaging Service registriert haben, können Sie [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)-Objekte über [`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html) an Braze übergeben. Diese Methode zeigt nur dann eine Benachrichtigung an, wenn das [`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)-Objekt von Braze stammt, und ignoriert es andernfalls sicher.
 
 {% subtabs %}
@@ -434,7 +434,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Non-Braze %}
+{% tab Nicht-Braze %}
 Wenn Sie einen weiteren Firebase Messaging Service verwenden möchten, können Sie auch einen Fallback-Firebase-Messaging-Dienst angeben, der aufgerufen wird, wenn Ihre Anwendung einen Push erhält, der nicht von Braze stammt.
 
 Geben Sie in Ihrer `braze.xml` Folgendes an:
@@ -753,7 +753,7 @@ Wenn Ihr Limit für Firebase Cloud Messaging (FCM) überschritten wird, gibt Goo
 
 Um Ihr aktuelles Limit zu überprüfen, gehen Sie zu **Google Cloud Console** > **APIs & Services** > **Firebase Cloud Messaging API** > **Quotas & System Limits** oder besuchen Sie die [Seite FCM API Quotas](https://console.cloud.google.com/apis/api/fcm.googleapis.com/quotas).
 
-### Best Practices {#best-practices}
+### Best Practices
 
 Wir empfehlen die folgenden Best Practices, um die Fehlerquote niedrig zu halten.
 

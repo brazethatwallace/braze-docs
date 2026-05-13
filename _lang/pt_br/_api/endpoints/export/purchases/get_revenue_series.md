@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `unit` | Opcional | String | Unidade de tempo entre os pontos de dados. Pode ser dia ou hora; o padrão é dia. |
 | `app_id` | Opcional | String | Identificador de API do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Se excluído, serão retornados os resultados de todos os apps em um espaço de trabalho. |
 | `product` | Opcional | String | Nome do produto para filtrar a resposta. Se excluído, os resultados de todos os apps serão retornados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

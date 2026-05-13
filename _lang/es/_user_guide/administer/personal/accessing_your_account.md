@@ -92,6 +92,10 @@ Borrar las cookies cierra tu sesión, por lo que se perderá el trabajo no guard
 
 Si borrar la caché y las cookies de tu navegador no resuelve tus problemas, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/).
 
+### Error "Aw, Snap!" en Google Chrome {#aw-snap-error-in-google-chrome}
+
+Si Google Chrome muestra un error "Aw, Snap!", Chrome tiene problemas para cargar la página del dashboard de Braze. Para conocer los pasos de solución de problemas, consulta [Obtener ayuda con mensajes de error comunes en Chrome](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en).
+
 ### "Please Refresh Page" o "Unexpected Error" al navegar por el dashboard {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 
 Este error puede aparecer cuando un usuario de la empresa no pertenece a ningún espacio de trabajo. Para solucionarlo:

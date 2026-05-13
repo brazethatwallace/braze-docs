@@ -28,12 +28,12 @@ Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes i
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito             | Descripción                                                                                                                                                                                                                                                                              |
+| Requisito | Descripción |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pipeline de Snowplow       | Necesitas un pipeline de Snowplow en funcionamiento.                                                                                                                                                                                                                                          |
-| Acceso a la consola de Snowplow | Debes tener acceso a la consola de Snowplow para configurar los reenviadores de eventos.                                                                                                                                                                                                                                |
-| Clave de API REST de Braze      | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze     | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia.                                                                                                                                     |
+| Pipeline de Snowplow | Necesitas un pipeline de Snowplow en funcionamiento. |
+| Acceso a la consola de Snowplow | Debes tener acceso a la consola de Snowplow para configurar los reenviadores de eventos. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -42,7 +42,7 @@ Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes i
 Utiliza cualquiera de los numerosos eventos enriquecidos que Snowplow recopila por defecto, o define tus propios eventos personalizados para dar forma a recorridos del cliente aún más granulares que tengan sentido para tu negocio. Aprovecha los ricos datos de comportamiento de Snowplow para diseñar embudos de clientes y desbloquear valor para tus equipos de marketing y producto, ayudándoles a maximizar la conversión y el uso del producto a través de Braze.
 
 ### Segmentación dinámica {#dynamic-segmentation}
-Crea audiencias dinámicas en Braze basadas en los datos de comportamiento de alta calidad de Snowplow: a medida que los usuarios realizan acciones en tu producto, aplicación o sitio web, puedes aprovechar los datos de comportamiento en tiempo real que Snowplow recopila para añadir o eliminar automáticamente usuarios de los Segments relevantes en Braze.
+Crea audiencias dinámicas en Braze basadas en los datos de comportamiento de alta calidad de Snowplow: a medida que los usuarios realizan acciones en tu producto, aplicación o sitio web, puedes aprovechar los datos de comportamiento en tiempo real que Snowplow recopila para añadir o eliminar automáticamente usuarios de los segmentos relevantes en Braze.
 
 ## Integración {#integration}
 
