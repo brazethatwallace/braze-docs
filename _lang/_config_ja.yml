@@ -36,7 +36,8 @@ collections:
   partners:
     title: テクノロジーパートナー
   help:
-    title: ヘルプ
+    output: true
+    default_nav_url: home/
   hidden: # Hidden pages not directly linked via navigation
     title: Braze
   docs_pages: # Site specific pages. ie main redirects and search
