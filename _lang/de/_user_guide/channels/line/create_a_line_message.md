@@ -103,7 +103,7 @@ Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen die [erneute Ber
 
 [Stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach der Ebene oder Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
-Wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen Sie dieses Segment optional mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
+Definieren Sie die Zielgruppe über Braze **Segments** und verfeinern Sie Ihre **Segments**-Auswahl mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) optional weiter. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
 
 ### Konversions-Events wählen {#choose-conversion-events}
 

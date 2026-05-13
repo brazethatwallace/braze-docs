@@ -110,7 +110,7 @@ Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL a
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine gekürzte URL generiert. Die tatsächliche gekürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
 {% endalert %}
 
-## Reporting {#reporting}
+## Berichte und Auswertung {#reporting}
 
 Die LINE-Performance-Tabelle enthält die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu LINE-Metriken finden Sie unter [LINE-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/line/reporting/).
 

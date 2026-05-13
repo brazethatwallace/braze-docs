@@ -1,5 +1,5 @@
 ---
-nav_title: "Abo-Gruppen"
+nav_title: Abo-Gruppen
 article_title: SMS- und RCS-Abo-Gruppen
 page_order: 4
 description: "Dieser Referenzartikel behandelt Abo-Gruppen, Abo-Status und den Einrichtungsprozess von Abo-Gruppen für SMS-, MMS- und RCS-Kanäle."

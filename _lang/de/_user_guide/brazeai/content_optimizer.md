@@ -7,7 +7,7 @@ page_type: reference
 page_order: 3
 ---
 
-# Content Optimizer {#content-optimizer}
+# Der Content Optimizer {#content-optimizer}
 
 > Der Content Optimizer ist ein Agent, der Ihnen dabei hilft, Nachrichteninhalte in großem Umfang zu testen und zu optimieren. Dabei wird KI eingesetzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 

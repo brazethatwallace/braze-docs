@@ -285,10 +285,10 @@ LINE-IDs werden automatisch von Braze empfangen, wenn Nutzer:innen Ihrem Kanal f
 
 Es gibt zwei Möglichkeiten, eine LINE-ID mit einem bestehenden Braze-Nutzerprofil zu kombinieren:
 
-- [LINE Login](#line-login)
+- [LINE-Anmeldung (LINE Login)](#line-login)
 - [Nutzerkontoverknüpfung](#user-account-linking)
 
-### LINE Login {#line-login}
+### LINE-Anmeldung (LINE Login) {#line-login}
 
 Diese Methode nutzt Social-Media-Logins zur Abstimmung. Wenn sich Nutzer:innen in Ihrer App anmelden, erhalten sie die Option, [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) zu verwenden, um ein Nutzerkonto zu erstellen oder sich anzumelden.
 
@@ -309,7 +309,7 @@ Um die korrekte LINE-ID für alle Nutzer:innen zu erhalten, richten Sie LINE Log
 
 5. Senden Sie die neuen oder aktualisierten Nutzerinformationen an Braze über den [`/user/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users/), [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
 
-#### Workflows {#workflows}
+#### Abläufe mit LINE Login {#workflows}
 
 ##### Bestehende:r Follower:in verwendet LINE Login {#existing-follower-uses-line-login}
 
@@ -373,7 +373,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Workflows
+#### Abläufe bei der Nutzerkontoverknüpfung {#user-account-linking-workflows}
 
 ##### Bestehende Nutzer:innen folgen Ihrem LINE-Kanal {#existing-user-follows-your-line-channel}
 

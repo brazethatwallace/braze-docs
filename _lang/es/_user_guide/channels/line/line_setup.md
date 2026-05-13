@@ -373,7 +373,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Flujos de trabajo
+#### Flujos de trabajo {#user-account-linking-workflows}
 
 ##### Un usuario existente sigue tu canal LINE {#existing-user-follows-your-line-channel}
 

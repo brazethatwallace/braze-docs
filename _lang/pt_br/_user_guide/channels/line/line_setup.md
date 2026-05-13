@@ -285,10 +285,10 @@ Os IDs LINE são recebidos automaticamente pela Braze quando um usuário segue s
 
 Existem duas maneiras de combinar um ID LINE com um perfil de usuário existente na Braze:
 
-- [LINE Login](#line-login)
+- [Login com LINE (LINE Login)](#line-login)
 - [Vinculação de conta de usuário](#user-account-linking)
 
-### LINE Login {#line-login}
+### Login com LINE (LINE Login) {#line-login}
 
 Este método usa logins de redes sociais para reconciliação. Quando um usuário faz login no seu app, ele tem a opção de usar o [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) para criar uma conta de usuário ou fazer login.
 
