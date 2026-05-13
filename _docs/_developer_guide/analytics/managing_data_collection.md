@@ -27,4 +27,8 @@ description: "Learn how to manage data collection for the Braze SDK."
 {% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
 {% endsdktab %}
 
+{% sdktab roku %}
+{% multi_lang_include developer_guide/roku/analytics/managing_data_collection.md %}
+{% endsdktab %}
+
 {% endsdktabs %}
