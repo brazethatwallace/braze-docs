@@ -13,9 +13,8 @@ description: "This reference article lists advanced filters, examples, and how t
 ## Encoding filters
 
 {% raw %}
-| filter name | filter description | example input | example output |
+| Filter name | Filter description | Example input | Example output |
 |---|---|---|---|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Encoding filters" }
 `md5` | Returns md5 encoded string | `{{'hey' | md5}}` | 6057f13c496ecf7fd777ceb9e79ae285 |
 `sha1` | Returns sha1 encoded string | `{{'hey' | sha1}}` | 7f550a9f4c44173a37664d938f1355f0f92a47a7 |
 `sha2` | Returns sha2 (256-bit, also known as SHA-256) encoded string | `{{'hey' | sha2}}` | fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204 |
@@ -28,7 +27,7 @@ description: "This reference article lists advanced filters, examples, and how t
 
 ## URL filters
 
-| filter name | filter description | example input | example output |
+| Filter name | Filter description | Example input | Example output |
 |---|---|---|---|
 | `url_escape` | Identifies all characters in a string that are not allowed in URLS, and replaces the characters with their escaped variants | `{{'hey<>hi' | url_escape}}` | hey%3C%3Ehi |
 | `url_param_escape` | Replaces all characters in a string that are not allowed in URLs with their escaped variants, including the ampersand (&) | `{{'hey<&>hi' | url_param_escape}}` | hey%3C%26%3Ehi |
@@ -49,7 +48,7 @@ The `assign` tag can be combined with HTML to save you time and effort when crea
 
 ## Property accessor filter
 
-| filter name | filter description |
+| Filter name | Filter description |
 |---|---|---|---|
 | `property_accessor` | Takes a hash and hash key and returns the value in that hash at that key |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Property accessor filter" }
@@ -70,23 +69,23 @@ There is no way to instantiate a hash as a variable (such as an expression) in L
 
 ## Number formatting filters
 
-| filter name | filter description | example input | example output |
+| Filter name | Filter description | Example input | Example output |
 |---|---|---|---|
 | `number_with_delimiter` | Formats a number with commas | `{{ 123456 | number_with_delimiter }}` | 123,456 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number formatting filters" }
 
-## JSON escape / string escape filter
+## JSON escape or string escape filter
 
-| filter name | filter description |
+| Filter name | Filter description |
 |---|---|
 | `json_escape` | Escapes any special characters in a string (such as double quote `""` and backslash '\'). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON escape / string escape filter" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="JSON escape or string escape filter" }
 
 This filter should always be used when personalizing a string in a JSON dictionary and is useful for webhooks in particular.
 
 ## JSON-formatting filters
 
-| filter name | filter description |
+| Filter name | Filter description |
 |---|---|
 | `json_parse` | Converts a JSON string into a corresponding data structure, such as an object or array. | 
 | `as_json_string` | Converts a data structure, such as an object or array, into a corresponding JSON string. | 
