@@ -17,8 +17,12 @@ tool:
 Attribute triggers are available for the following scenarios:
 
 - Subscription state updates.
-- Boolean, integer, string, or date custom attribute values change to any value.
+- Boolean, integer, or string custom attribute values change to any value.
 - Boolean, integer, or string custom attribute values change to a specific value.
+
+{% alert important %}
+**Date-type custom attributes** are not available as attribute trigger options in the dashboard (they do not appear in the attribute trigger picker). Use a different delivery trigger or channel workflow if you need to react to date changes.
+{% endalert %}
 
 To start using attribute triggers, create a campaign or Canvas component and select **Action-Based Delivery** as your delivery method. Then, select the attribute trigger that you'd like to use.
 
@@ -58,7 +62,7 @@ For change attribute, the trigger is evaluated first, then the audience criteria
 
 #### Any new value option
 
-Use the `Change Custom Attribute Value` trigger with the `any new value` option to target users when a boolean, integer, string or date value changes to any new value.
+Use the `Change Custom Attribute Value` trigger with the `any new value` option to target users when a boolean, integer, or string value changes to any new value.
 
 For example, target users when their number of reward points changes to let them know how many points they now have. In this example, let's say that a user has 85 reward points and you've set up a campaign to trigger when the reward point attribute changes to any new value. If this user's reward point attribute value changes to any new value (such as 83, 84, 86, and so on), then the campaign will trigger.
 

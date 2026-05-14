@@ -74,6 +74,10 @@ Consider the following scenario:
 
 This means users who received the campaign on February 15 are not eligible for the campaign to be sent on March 15. (A user can be marked as having "received" the campaign due to shared channel identifiers—for example, if they share an email or phone number with someone who received, opened, or clicked the message.) If the campaign is set to send daily at 8 am with re-eligibility of 1 day, and there's a latency in sending the message, users who received the campaign at 8:30 am are not re-eligible yet on the following day at 8 am.
 
+## Content Cards
+
+When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive **another** card while an earlier card from the same campaign is still in their feed, which can look like **duplicate** cards. To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
+
 ## Multivariate testing
 
 For multivariate testing, Braze determines variant re-eligibility for all campaigns, triggered in-app messages, and Canvases using the following rules:
