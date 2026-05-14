@@ -32,7 +32,7 @@ Si tu cuenta de Shopify está asociada a más de una tienda, puedes cambiar la t
 4. Tras instalar la aplicación Braze, se te redirigirá a Braze para que confirmes el espacio de trabajo que deseas conectar a Shopify. Una tienda Shopify solo puede conectarse a un espacio de trabajo. Si necesitas cambiar, selecciona el espacio de trabajo correcto.<br><br>![Una ventana que te pide que confirmes que estás en el espacio de trabajo correcto.]({% image_buster /assets/img/Shopify/confirm_workspace1.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. Selecciona **Begin setup**.<br><br>!["Configuración de la integración" con un campo para introducir el dominio y un botón para iniciar la configuración.]({% image_buster /assets/img/Shopify/choose_account.png %})
+5. Selecciona **Begin setup**.<br><br>![Configuración de la integración con un campo para introducir el dominio y un botón para iniciar la configuración.]({% image_buster /assets/img/Shopify/choose_account.png %})
 
 ## Paso 2: Habilitar los SDK web de Braze {#step-2-enable-braze-web-sdks}
 
@@ -62,7 +62,7 @@ Los siguientes eventos estarán habilitados de forma predeterminada en la integr
 | Eventos recomendados por Braze | Eventos personalizados de Shopify | Atributos personalizados de Shopify |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Producto visto</li><li>Carrito actualizado</li><li>Pago iniciado</li><li>Pedido realizado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 Para más información sobre los datos que se rastrean a través de la integración, consulta [Características de los datos de Shopify]({{site.baseurl}}/shopify_data_features/).
 
@@ -85,7 +85,8 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="(Avanzado) Configuración personalizada del seguimiento de datos" style="width: 100%;">
+  <caption>(Avanzado) Configuración personalizada del seguimiento de datos</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>
@@ -151,7 +152,7 @@ Los siguientes pasos dependen de tu selección de ID externo:<br><br>
 - **Si seleccionaste ID de cliente de Shopify, correo electrónico o correo electrónico con hash:** Sáltate los pasos 4.1—4.3 y continúa directamente con el paso 4.4.
 {% endalert %}
 
-### Paso 4.1: Crea el metacampo `braze.external_id` {#step-41-create-the-brazeexternalid-metafield}
+### Paso 4.1: Crea el metacampo `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
 1. En tu panel de administración de Shopify, ve a **Settings** > **Metafields and metaobjects**.
 2. Selecciona **Customers** > **Add definition**.
@@ -179,7 +180,7 @@ Braze envía los siguientes parámetros a tu punto de conexión:
 | shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
 | shopify_storefront   | Sí      | Cadena    | El nombre de la tienda para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
 | email_address        | No       | Cadena    | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. Tu lógica de punto de conexión debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### Ejemplo de punto de conexión {#example-endpoint}
 

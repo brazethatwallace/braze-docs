@@ -25,6 +25,7 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
 | Frontアカウント | このパートナーシップを利用するには、Frontアカウントが必要です。|
 | Brazeデータ変換Webhook URL | [Brazeデータ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation/)は、Frontからの受信webhookを再フォーマットして、Brazeの/users/trackエンドポイントで受け入れられるようにするために使用されます。|
 | Front REST APIキー | Front REST APIキーを使用して、BrazeからFrontへのアウトバウンドWebhookリクエストを行います。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -82,7 +83,7 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
 
 ### ステップ2:アウトバウンドSMS Campaignを作成する {#step-2-create-an-outbound-sms-campaign}
 
-次に、FrontからのWebhookをリッスンするSMS Campaignと、顧客に対するカスタムSMS応答を作成します。
+次に、Frontからのwebhookをリッスンし、顧客にカスタムSMS応答を送信するSMS Campaignを作成します。
 
 #### ステップ2.1:メッセージを作成する {#step-21-compose-your-message}
 
@@ -100,17 +101,17 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
 
 #### 2.2 配信をスケジュールする {#22-schedule-the-delivery}
 
-配信タイプには**Action-Based delivery**を選択し、カスタムイベントトリガーには**Outbound SMS Sent**を選択します。
+配信タイプには**アクションベースの配信**を選択し、カスタムイベントトリガーには**Outbound SMS Sent**を選択します。
 
-![「Schedule Delivery」ページ。]({% image_buster /assets/img/front/custom_event_trigger.png %})
+![「配信スケジュール」ページ。]({% image_buster /assets/img/front/custom_event_trigger.png %})
 
 {% alert note %}
 このカスタムイベントは、ユーザーのプロファイルに書き込むデータ変換です。エージェントメッセージはこのイベントのイベントプロパティとして保存されます。
 {% endalert %}
 
-最後に、**Delivery Controls**で再適格性を有効にします。
+最後に、**配信コントロール**で再適格性を有効にします。
 
-![「Delivery Controls」で再適格性が有効になっている。]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![「配信コントロール」で再適格性が有効になっている。]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
 ### ステップ3:カスタムチャネルを作成する {#step-3-create-a-custom-channel}
 
@@ -134,18 +135,18 @@ Frontのダッシュボードで、**Settings** > **Channels** > **Add Channels*
 |---|---|
 | Webhook Campaign 1 | ライブチャットの会話が要求されていることをFrontに通知します。|
 | Webhook Campaign 2 | 顧客からインバウンドで送信されたすべての会話型SMS応答をFrontの受信トレイに転送します。|
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5: Set up inbound-SMS forwarding" }
 
 #### ステップ5.1:SMSキーワードカテゴリを作成する {#step-51-create-an-sms-keyword-category}
 
-Brazeのダッシュボードで、**Audience**に移動し、**SMSサブスクリプショングループ**を選択して、**Add Custom Keyword**を選択します。Frontの専用SMSキーワードカテゴリを作成するには、次のフィールドに記入してください。
+Brazeのダッシュボードで、**Audience**に移動し、**SMSサブスクリプショングループ**を選択して、**Add Custom Keyword**を選択します。Front専用のSMSキーワードカテゴリを作成するには、次のフィールドに記入してください。
 
 | フィールド | 説明 |
 |---|---|
 | キーワードカテゴリ | キーワードカテゴリの名前（例：`FrontSMS1`）。|
 | キーワード | カスタムキーワード（例：`TIMETOMOW`）。一般的な言葉を避けて、誤ってトリガーされないようにしてください。キーワードは大文字と小文字を区別しないため、`lawn`は`LAWN`と一致します。|
 | 返信メッセージ | キーワードが検出されたときに送信されるメッセージ（例：「造園業者からまもなく連絡があります」）。|
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 5.1: Create an SMS keyword category" }
 
 ![BrazeのSMSキーワードカテゴリの例。]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -184,11 +185,11 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 **Schedule Delivery**で、**Action-Based Delivery**を選択し、トリガータイプとして**Send an SMS Inbound Message**を選択します。また、[以前に設定した](#step-51-create-an-sms-keyword-category)SMSサブスクリプショングループとキーワードカテゴリを追加します。
 
-![最初のWebhook Campaignの「Schedule Delivery」ページ。]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
+![最初のWebhook Campaignの「配信スケジュール」ページ。]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
-**Delivery Controls**で再適格性を有効にします。
+**配信コントロール**で再適格性を有効にします。
 
-![最初のWebhook Campaignの「Delivery Controls」で再適格性が選択されている。]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![最初のWebhook Campaignの「配信コントロール」で再適格性が選択されている。]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
 #### ステップ5.4:2番目のWebhook Campaignを作成する {#step-54-create-your-second-webhook-campaign}
 
@@ -198,11 +199,11 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 **Schedule Delivery**で、**アクションベースのトリガー**と**SMSサブスクリプショングループ**を[最初の配信](#step-53-schedule-the-first-delivery)と同じに設定します。ただし、**キーワードカテゴリ**には**Other**を選択してください。
 
-![2つ目のWebhook Campaignの「Schedule Delivery」ページ。キーワードカテゴリとして「Other」が選択されている。]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
+![2つ目のWebhook Campaignの「配信スケジュール」ページ。キーワードカテゴリとして「Other」が選択されている。]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
 
 #### ステップ5.6:オーディエンスフィルターを追加する {#step-56-add-an-audience-filter}
 
-これで、Webhook Campaignが顧客からのインバウンドSMS応答を転送できるようになりました。ライブチャット用のメッセージのみが転送されるようにSMS応答をフィルタリングするには、**Last Received Message From Specific Campaign**セグメンテーションフィルターを**Target Audiences**ステップに追加します。
+これで、Webhook Campaignが顧客からのインバウンドSMS応答を転送できるようになりました。ライブチャット用のメッセージのみが転送されるようにSMS応答をフィルタリングするには、**Last Received Message From Specific Campaign**セグメンテーションフィルターを**ターゲットオーディエンス**ステップに追加します。
 
 ![「Last Received Message From Specific Campaign」を選択したオーディエンスフィルター。]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 

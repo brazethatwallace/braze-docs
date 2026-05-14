@@ -59,7 +59,7 @@ CampaignまたはCanvasでコントロールグループや複数のバリアン
 
 | Campaign | セッション開始、購入、カスタムイベントの実行、メッセージエンゲージメントイベント |
 | Canvas | セッション開始、購入、カスタムイベントの実行、キャンバスステップの受信、ステップとのインタラクション |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available funnel report events" }
 
 {% alert note %}
 **ステップとのインタラクション**レポートイベントは、メールまたはプッシュメッセージングチャネルを使用するキャンバスステップでのみ使用できます。

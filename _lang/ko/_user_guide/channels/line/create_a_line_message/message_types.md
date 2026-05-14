@@ -15,7 +15,7 @@ alias: /line/create/message_types/
 
 > 이 문서에서는 작성할 수 있는 LINE 메시지 유형과 관련 사양 및 제한 사항을 다룹니다.
 
-LINE 메시지를 작성할 때 메시지 유형을 작성기로 드래그 앤 드롭한 다음 커스텀할 수 있습니다.
+LINE 메시지를 작성할 때 메시지 유형을 작성기로 드래그 앤 드롭한 다음 커스터마이징할 수 있습니다.
 
 ![텍스트, 이미지, 리치 메시지, 카드 기반 메시지 등 작성기 편집기로 드래그할 수 있는 메시지 유형이 표시된 메시지 유형 패널.]({% image_buster /assets/img/line/line_message_types.png %}){: style="max-width:40%;"}
 
@@ -53,7 +53,7 @@ URL 이미지는 다음과 같은 사용 사례에 활용합니다:
 | 이미지 파일 URL 길이 | 최대 2,000자  |
 | 이미지 형식          | PNG, JPEG             |
 | 파일 크기     |  최대 10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL image" }
 
 ## 리치 메시지 (이미지 맵) {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ LINE 리치 메시지는 이미지의 특정 영역을 선택하면 열리는 �
 | 이미지 형식          | PNG(투명 가능), JPEG             |
 | 종횡비          | 1:1 (너비:높이)
 | 파일 크기     |  최대 10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image map" }
 
 ### URI 링크 {#uri-link}
 
@@ -82,7 +82,7 @@ LINE 리치 메시지는 이미지의 특정 영역을 선택하면 열리는 �
 |--------------------------|----------------------------|
 | 글자 수      | 최대 1,000 |
 | 스킴              | HTTP, HTTPS, LINE, tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URI link" }
 
 ### 텍스트
 
@@ -106,7 +106,7 @@ LINE 카드 기반 메시지를 사용하면 사용자가 캐러셀처럼 여러
 | 열                  | 최대 10개 |
 | 종횡비             | 직사각형: 1.51:1 <br> 정사각형: 1:1  |
 | 제목                    | 최대 40자
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message" }
 
 
 ### 이미지
@@ -117,7 +117,7 @@ LINE 카드 기반 메시지를 사용하면 사용자가 캐러셀처럼 여러
 | 이미지 형식              | JPEG 또는 PNG |
 | 너비                     | 1,024픽셀  |
 | 파일 크기                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 
 ### 텍스트
@@ -126,4 +126,4 @@ LINE 카드 기반 메시지를 사용하면 사용자가 캐러셀처럼 여러
 |-------------------------|----------------------------|
 | 글자 수              | 최대 120자(이미지 또는 제목 없음) <br> 최대 60자(이미지 또는 제목이 포함된 메시지)  |
 | 동작                 | 최대 3개 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text" }

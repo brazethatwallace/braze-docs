@@ -59,7 +59,7 @@ Inserts custom HTML for advanced layouts or embedded content (for example video)
 | Property | Description |
 | --- | --- |
 | Custom code | Add or edit HTML (and related assets) for the Banner. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### Phone capture
 

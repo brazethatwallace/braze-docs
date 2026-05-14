@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sessions | DAU |
 | | Segment size |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
 
 ### Revenue dashboard
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Purchases (all) | DAU |
 | Select purchases (such as a gift card or product ID) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
 
 ### Custom event dashboard
 
@@ -85,5 +85,5 @@ table td {
 | Custom event count | MAU |
 |  | DAU |
 |  | Segment size (only segments that have [analytics tracking]({{site.baseurl}}/viewing_and_understanding_segment_data/) enabled can be used) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
 

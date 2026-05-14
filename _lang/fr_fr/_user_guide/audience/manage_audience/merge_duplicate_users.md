@@ -9,9 +9,16 @@ page_order: 4
 
 > Découvrez comment trouver et fusionner les utilisateurs en double afin de maximiser l'efficacité de vos Campaigns et Canvas.
 
-{% alert tip %}
-Pour fusionner les utilisateurs en double à l'aide de la REST API de Braze, consultez [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
-{% endalert %}
+## REST API : identifier et fusionner les utilisateurs {#rest-api-identify-and-merge-users}
+
+Les outils de cette page fusionnent les profils en double dans le tableau de bord. Vous pouvez également combiner ou réorienter des profils via les [endpoints User Data]({{site.baseurl}}/api/endpoints/user_data/) de Braze :
+
+- [POST : Identifier les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`) : combine un profil uniquement alias, uniquement e-mail ou uniquement numéro de téléphone avec un profil possédant un `external_id`.
+- [POST : Fusionner les utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`) : fusionne un profil utilisateur dans un autre, y compris lorsque les deux profils possèdent déjà un `external_id`. Consultez les [Conditions préalables]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) et le [Comportement de la fusion]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) avant d'appeler cet endpoint.
+
+Lorsqu'un profil anonyme est associé à un profil identifié existant (par exemple via un appel SDK `changeUser()` ou `/users/identify`), Braze rend orphelin le profil anonyme et ne copie que certains champs sur le profil identifié. Pour en savoir plus, consultez [Que se passe-t-il lorsque vous identifiez des utilisateurs anonymes]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
+
+Les fusions d'utilisateurs sont difficiles à annuler. Si vous prévoyez une fusion complexe impliquant plusieurs valeurs `external_id` ou des migrations de profils à grande échelle, contactez votre gestionnaire de la satisfaction client Braze pour obtenir des conseils avant de vous appuyer sur `/users/merge`.
 
 ## Fusion individuelle {#individual-merging}
 
@@ -70,7 +77,7 @@ Dans l'exemple suivant, Braze utilise l'ID externe de l'utilisateur pour signale
 | alex@company.com | A8i3mkd99   | (555) 123-4567      | 65fcaa547f470494d1370 | email                     | TRUE               | FALSE              |
 | alex@company.com |             | (555) 987-6543      | 65fcaa547f47d004d1348 | email                     | FALSE              | TRUE               |
 | alex@company.com |             | (555) 321-0987      | 65fcaa547f47d0049135c | email                     | FALSE              | TRUE               |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Prévisualiser les résultats (facultatif)" }
 {% endtab %}
 {% endtabs %}
 

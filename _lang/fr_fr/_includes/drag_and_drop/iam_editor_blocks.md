@@ -63,7 +63,7 @@ Insère du code HTML, CSS ou JavaScript personnalisé pour une personnalisation 
 | Propriété | Description |
 | --- | --- |
 | Code personnalisé | Permet d'ajouter, de modifier ou de supprimer du code HTML, CSS et JavaScript pour un message in-app. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code personnalisé" }
 
 ### Capture de numéro de téléphone {#phone-capture}
 

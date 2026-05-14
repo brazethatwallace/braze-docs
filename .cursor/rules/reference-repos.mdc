@@ -2,7 +2,6 @@
 description: Reference Braze SDK and product repos for verifying docs content
 alwaysApply: true
 ---
-
 # Reference repos for content verification
 
 When verifying documentation (SDK behavior, APIs, product behavior), use the following repos in this workspace as source-of-truth. Prefer searching and citing these over docs alone.
@@ -26,6 +25,20 @@ When verifying documentation (SDK behavior, APIs, product behavior), use the fol
 | `event-replay` | Event replay |
 | `event-modeling-service` | Event modeling |
 | `platform` | Main Braze platform (backend/product) |
+
+### Where to search in the platform repo
+
+The platform repo uses a domain-driven architecture — most feature logic lives in `shared_code/domains/` rather than `api/app/models/`. Always search `shared_code/domains/` first or you'll miss most business logic.
+
+| What you're looking for | Where to search |
+|------------------------|----------------|
+| Feature behavior & business rules | `shared_code/domains/` → `api/app/models/`, `api/lib/` |
+| UI labels, tooltips, helper text | `dashboard/app/javascript/src/` |
+| Validation rules & error messages | `shared_code/domains/` + `dashboard/app/javascript/src/` |
+| Default values & numeric limits | `dashboard/app/javascript/src/lib/shared_constants.json`, then `shared_code/domains/`, `api/config/` |
+| Channel-specific logic (push, email, SMS) | `shared_code/domains/channel_*/` |
+
+**Feature naming conventions:** Braze product names map predictably to code names — Canvas → `canvas`, Campaigns → `campaign`, Content Cards → `content_card`, In-App Messages → `in_app_message`, Segments → `segment`.
 
 ### Localized UI terms (translations)
 
@@ -60,3 +73,8 @@ Keep your reference repos current when verifying SDK behavior, APIs, or product 
 **How to pull:** From the parent folder (the one containing `braze-docs` and the reference repos), run `git pull --ff-only` in each repo you need, or use a loop to update several at once.
 
 If you're unsure whether a repo is current, run a pull before you rely on it for verification.
+
+### Verification rules
+
+- **Don't guess.** If you can't find the behavior in the code, say so. Don't infer or speculate — flag it as unverified.
+- **Flag discrepancies.** If the codebase contradicts the docs, say so explicitly: "The docs say X, but the code shows Y." Don't silently reconcile them.

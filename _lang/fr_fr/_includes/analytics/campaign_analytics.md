@@ -82,7 +82,7 @@ Le tableau suivant résume la signification de chaque libellé.
 | --- | --- |
 | **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -220,7 +220,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
+    <caption class="sr-only">Indicateurs de performance des Content Cards</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -294,7 +295,8 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
+    <caption class="sr-only">Indicateurs de performance des bannières</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -363,7 +365,8 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
+    <caption class="sr-only">Indicateurs de performance des e-mails</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -442,7 +445,7 @@ Un clic peut être enregistré sans ouverture lorsque le pixel d'ouverture ne se
 
 Un clic et une ouverture peuvent également se produire à des jours différents : un utilisateur peut cliquer le 16 mai avec les images désactivées (pas d'ouverture), puis ouvrir dans le webmail le 17 mai (ouverture enregistrée à ce moment-là).
 
-##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-unique-clicks-than-unique-opens}
+##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-_unique-clicks_-than-_unique-opens_}
 
 Les _clics uniques_ peuvent être supérieurs aux _ouvertures uniques_ lorsque les ouvertures sont sous-comptabilisées ou que les clics sont gonflés :
 
@@ -513,7 +516,8 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
+    <caption class="sr-only">Indicateurs de performance des messages in-app</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -581,7 +585,7 @@ Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos anal
 | Erreurs | Les _erreurs_ correspondent au nombre d'erreurs renvoyées par le fournisseur KakaoTalk (incrémenté pendant le processus d'envoi). |
 | Chiffre d'affaires | Le _chiffre d'affaires_ est le revenu en dollars provenant des destinataires de la campagne dans la fenêtre de conversion principale définie. |
 | Conversions principales | Les _conversions principales_ correspondent au nombre de fois qu'un événement défini s'est produit après l'interaction avec ou la consultation d'un message reçu d'une campagne Braze. Cet événement défini est déterminé par vous lors de la création de la campagne. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -595,7 +599,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
+    <caption class="sr-only">Indicateurs de performance des notifications push</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -695,7 +700,7 @@ Les rebonds Firebase Cloud Messaging (FCM) peuvent se produire dans trois cas :
 | Applications désinstallées | Lorsqu'un message tente une livraison à un appareil et que l'application prévue est désinstallée sur cet appareil, le message est supprimé et l'ID d'enregistrement de l'appareil est invalidé. Toute future tentative d'envoi de message à l'appareil renverra une erreur NotRegistered. |
 | Application sauvegardée | Lorsqu'une application est sauvegardée, son ID d'enregistrement peut cesser d'être valide avant la restauration de l'application. Dans ce cas, FCM ne conservera plus l'ID d'enregistrement de l'application et l'application ne recevra plus de messages. Ainsi, les ID d'enregistrement ne doivent **pas** être enregistrés lors de la sauvegarde d'une application. |
 | Application mise à jour | Lorsqu'une application est mise à jour, l'ID d'enregistrement de la version précédente peut ne plus fonctionner. Une application mise à jour doit donc remplacer son ID d'enregistrement existant. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -713,7 +718,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
+    <caption class="sr-only">Indicateurs de performance SMS, MMS et RCS</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -764,7 +770,8 @@ Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos a
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
+    <caption class="sr-only">Indicateurs de performance des webhooks</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -799,7 +806,8 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
+    <caption class="sr-only">Indicateurs de performance WhatsApp</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -836,7 +844,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page.
 
-Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars" aria-label="Ouvrir le menu de navigation"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
+Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
 ![Graphique du panneau Performances historiques avec des exemples de statistiques pour un e-mail envoyé entre février 2021 et mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

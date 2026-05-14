@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
 article_title: "PUT: Übersetzung in einem Content-Block aktualisieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -36,9 +36,9 @@ Für diesen Endpunkt gibt es keine Pfadparameter.
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | Erforderlich | String | Die ID Ihres Content-Blocks. |
-| `locale_id`| Erforderlich | String | Die ID (UUID) der Locale. |
+| `locale_id` | Erforderlich | String | Die ID (UUID) der Locale. |
 | `translation_map` | Erforderlich | Objekt | Objekt, das die neuen Übersetzungen enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

@@ -2,7 +2,7 @@
 nav_title: Iterate
 article_title: Iterate
 alias: /partners/iterate/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Iterate, die es Ihnen erlaubt, Kundendaten durch Umfragen anzureichern, um zusätzliche Insights zu gewinnen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Iterate, die es Ihnen ermöglicht, Kundendaten durch Umfragen anzureichern, um zusätzliche Insights zu gewinnen."
 page_type: partner
 search_tag: Partner
 
@@ -10,82 +10,80 @@ search_tag: Partner
 
 # Iterate
 
-> [Iterate](https://iteratehq.com) bietet Ihnen Umfragen und Feedback-Tools, mit denen Sie von Ihren Kunden lernen können, und bietet benutzerfreundliche Forschungserlebnisse, die an Ihre Marke angepasst sind.
+> [Iterate](https://iteratehq.com) bietet Umfrage- und Feedback-Tools, mit denen Sie von Ihren Kund:innen lernen können, und stellt benutzerfreundliche Forschungserlebnisse bereit, die zu Ihrer Marke passen.
 
 _Diese Integration wird von Iterate gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Iterate in Braze erlaubt es Ihnen, Umfragen von Iterate nativ und nahtlos in Ihrem Produkt oder Ihren Kampagnen bereitzustellen. Umfragen können als angepasste Attribute in Braze aufgezeichnet werden, was es Ihnen erlaubt, sich ein vollständiges Bild von Ihren Nutzer:innen zu machen oder leistungsstarke neue Zielgruppen und Segmente zu erstellen.
+Die Integration von Iterate in Braze ermöglicht es Ihnen, Iterate-Umfragen nativ und nahtlos in Ihrem Produkt oder Ihren Campaigns bereitzustellen. Umfrageantworten können als angepasste Nutzer:innen-Attribute in Braze aufgezeichnet werden, sodass Sie sich ein vollständiges Bild Ihrer Nutzer:innen machen oder leistungsstarke neue Zielgruppen und Segmente erstellen können.
 
-Mit dem in Ihrer App oder Website installierten Braze SDK können Sie die in Braze verfügbaren Segmentierungs- und Targeting-Tools nutzen, um Umfragen über In-App-Nachrichten an einen bestimmten Teil Ihrer Zielgruppe zuzustellen, der auf einem beliebigen Auslöser oder angepassten Segment basiert. Iterate Umfragen können auch direkt in Ihre E-Mail Kampagnen eingebettet oder als Link in Ihre Push- oder andere Kampagnen eingebunden werden.
+Mit dem in Ihrer App oder Website installierten Braze SDK können Sie die in Braze verfügbaren Segmentierungs- und Targeting-Tools nutzen, um Umfragen über In-App-Nachrichten an einen bestimmten Teil Ihrer Zielgruppe zuzustellen – basierend auf einem beliebigen Auslöser oder angepassten Segment. Iterate-Umfragen können auch direkt in Ihre E-Mail-Campaigns eingebettet oder als Links in Ihre Push- oder andere Campaign-Typen eingebunden werden.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Herkunft |
 |---|---|
-|Konto iterieren | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Iterate-Konto](https://iteratehq.com). |
-| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit `users.track` Berechtigungen. Um Umfragen über In-App-Nachrichten von Braze zu versenden, benötigen Sie außerdem die Berechtigung `kpi.mau.data_series`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.|
-| Braze REST Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Iterate-Konto | Ein [Iterate-Konto](https://iteratehq.com) ist erforderlich, um diese Partnerschaft zu nutzen. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Um Umfragen über Braze In-App Messages zu versenden, benötigen Sie außerdem die Berechtigung `kpi.mau.data_series`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="Voraussetzungen" }
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
-Mit Iterate können Sie nahezu alle Arten von Daten erfassen. Von persönlichen Daten (Name, Alter, E-Mail) über Performance-Daten (NPS, Kundenzufriedenheit, Sternebewertungen) bis hin zu Präferenzen (bevorzugtes Gerät, bevorzugte Kommunikationsfrequenz) oder Persönlichkeit (Lieblingsbuch, -hund oder -katze). Was Sie fragen, bleibt ganz Ihnen überlassen, ebenso wie die Art der Daten, die Sie erfassen oder Zielgruppen, die Sie aufbauen möchten.
+Mit Iterate können Sie nahezu alle Arten von Daten erfassen – von persönlichen Informationen (Name, Alter, E-Mail) über Performance-Daten (NPS, Kundenzufriedenheit, Sternebewertungen) und Präferenzen (bevorzugtes Gerät, bevorzugte Kommunikationshäufigkeit) bis hin zu Persönlichkeitsmerkmalen (Lieblingsbuch, Hunde- oder Katzenmensch). Was Sie fragen, bleibt ganz Ihnen überlassen – ebenso wie die Art der Daten, die Sie erfassen, oder die Zielgruppen, die Sie aufbauen möchten.
 
 ## Integration
 
-### Die ersten Schritte: Verbinden Sie Braze mit Iterate
+### Erste Schritte: Braze mit Iterate verbinden {#getting-started-connect-braze-with-iterate}
 
-Melden Sie sich bei Ihrem Iterate-Konto an und fügen Sie Ihren Braze REST Endpunkt und Ihren REST API-Schlüssel auf der Seite **Unternehmenseinstellungen** hinzu.
+Melden Sie sich bei Ihrem Iterate-Konto an und fügen Sie Ihren Braze REST-Endpunkt und Ihren REST-API-Schlüssel auf der Seite **Unternehmenseinstellungen** hinzu.
 
-### Stellen Sie Umfragen als In-App-Nachricht zu
+### Umfragen als In-App-Nachricht zustellen {#deliver-surveys-as-an-in-app-message}
 
-#### Schritt 1: Erstellen Sie Ihre Umfrage
+#### 1. Schritt: Erstellen Sie Ihre Umfrage {#step-1-create-your-survey}
 
-Bevor Sie Ihre Umfrage erstellen, schalten Sie in den Iterate-Einstellungen die Option **In-App-Nachricht-Umfragen aktivieren** um.
+Bevor Sie Ihre Umfrage erstellen, aktivieren Sie in den Iterate-Einstellungen den Schalter **Enable in-app message surveys**.
 
-Als nächstes erstellen Sie eine neue Umfrage in Iterate und fügen die relevanten Umfragen hinzu. Bei Bedarf können Sie auch eine Nachricht einfügen, die vor der Umfrage angezeigt wird. Wählen Sie als Umfragetyp **Senden über Braze In-App-Nachrichten** aus.
+Erstellen Sie anschließend eine neue Umfrage in Iterate und fügen Sie relevante Umfragefragen hinzu. Bei Bedarf können Sie auch eine Eingabeaufforderung einfügen, die vor der Umfrage angezeigt wird. Wählen Sie als Umfragetyp **Send via Braze In-App Message** aus.
 
-Sobald Ihre Umfrage abgeschlossen ist, kopieren Sie auf dem Tab **Veröffentlichen** den Code Snippet unter **Kopieren und fügen Sie Ihren Einbettungscode ein**.
+Sobald Ihre Umfrage fertiggestellt ist, kopieren Sie auf dem Tab **Publish** das Code-Snippet unter **Copy and paste your embed code**.
 
-#### Schritt 2: Teilen Sie Ihre Umfrage
+#### 2. Schritt: Teilen Sie Ihre Umfrage {#step-2-share-your-survey}
 
-Erstellen Sie in Braze eine neue In-App Messaging-Kampagne, wählen Sie als Messaging-Typ **Custom Code** aus und fügen Sie Ihren Code-Snippet in die Nachricht ein. Als nächstes wählen Sie für das Verhalten bei einem Klick auf die Nachricht **Warten, bis der Nutzer:innen die Nachricht aufhebt**.
+Erstellen Sie in Braze eine neue In-App-Messaging-Campaign, wählen Sie als Messaging-Typ **Custom Code** aus und fügen Sie Ihr Code-Snippet in die Nachricht ein. Wählen Sie anschließend als Klickverhalten der Nachricht **Wait for User to Dismiss**.
 
-Richten Sie Ihre Kampagne wie jede andere In-App-Messaging-Kampagne ein, indem Sie eine Zustellung wählen und eine Zielgruppe anvisieren.
+Richten Sie Ihre Campaign wie jede andere In-App-Messaging-Campaign ein, indem Sie eine Zustellmethode wählen und eine Zielgruppe festlegen.
 
-### Stellen Sie Umfragen per E-Mail oder Push zu
+### Umfragen per E-Mail oder Push zustellen {#deliver-surveys-through-email-or-push}
 
-#### Schritt 1: Erstellen Sie Ihre Umfrage
+#### 1. Schritt: Erstellen Sie Ihre Umfrage
 
-Erstellen Sie eine neue E-Mail- oder Link-Umfrage in Iterate und fügen Sie relevante Umfragen hinzu. Nachdem Sie die Fragen geschrieben und das Design angepasst haben, wählen Sie **Umfrage senden > Integrationen > Braze.**
+Erstellen Sie eine neue E-Mail- oder Link-Umfrage in Iterate und fügen Sie relevante Umfragefragen hinzu. Nachdem Sie die Fragen formuliert und das Design angepasst haben, wählen Sie **Send survey > Integrations > Braze**.
 
-Sie sehen dann die Konfigurationsoptionen zum Senden von Antworten an Braze. Schalten Sie die Integration ein, um das Senden von Antworten für diese Umfrage an Braze zu ermöglichen. 
+Anschließend sehen Sie die Konfigurationsoptionen zum Senden von Antworten an Braze. Aktivieren Sie die Integration, um das Senden von Antworten für diese Umfrage an Braze zu ermöglichen.
 
-#### Schritt 2: Teilen Sie Ihre Umfrage
+#### 2. Schritt: Teilen Sie Ihre Umfrage
 
-Ihre Umfrage kann auf zwei Arten weitergegeben werden: indem Sie die erste Frage in Ihre Nachricht einbetten oder einen direkten Link zur Umfrage auf der Iterate-Plattform einfügen.
+Ihre Umfrage kann auf zwei Arten geteilt werden: indem Sie die erste Frage in Ihre Nachricht einbetten oder einen direkten Link zur Umfrage auf der Iterate-Plattform einfügen.
 
-![Iterate Link-Optionen]({% image_buster /assets/img/iterate.png %})
+![Iterate-Link-Optionen]({% image_buster /assets/img/iterate.png %})
 
-- **Den Code einbetten**
-  - Kopieren Sie den Code-Snippet unter **E-Mail-Einbettungscode** im Abschnitt Integration von Braze auf dem Tab **Umfrage senden**. Fügen Sie den Code in den HTML-Code Ihrer Braze E-Mail an der Stelle ein, an der der Anfang der Umfrage erscheinen soll. 
-  - Wenn Sie Probleme mit der Darstellung der Umfragen haben oder wenn diese falsch formatiert sind, müssen Sie im Nachrichten-Editor auf den Tab **Sendeinfo** gehen und die Option **Inline CSS** deaktivieren.
-- **Einen Link einfügen**
-  - Kopieren Sie den Link unter **Umfrage-Link** im Abschnitt Integration von Braze auf dem Tab **Umfrage senden**. Beachten Sie, dass das Liquid, das im Link {% raw %}`?user_braze_id={{${braze_id}}}`{% endraw %} enthalten ist, für jeden Nutzer:innen beim Senden automatisch ersetzt wird.
+- **Code einbetten**
+  - Kopieren Sie das Code-Snippet unter **Email embed code** im Abschnitt „Braze-Integration“ auf dem Tab **Send survey**. Fügen Sie den Code in den HTML-Code Ihrer Braze-E-Mail an der Stelle ein, an der der Anfang der Umfrage erscheinen soll.
+  - Wenn Sie Schwierigkeiten bei der Darstellung der Umfragefragen haben oder diese falsch formatiert erscheinen, müssen Sie im Nachrichten-Editor auf den Tab **Sending Info** gehen und die Option **Inline CSS** deaktivieren.
+- **Link einfügen**
+  - Kopieren Sie den Link unter **Survey Link** im Abschnitt „Braze-Integration“ auf dem Tab **Send survey**. Beachten Sie, dass das im Link enthaltene Liquid {% raw %}`?user_braze_id={{${braze_id}}}`{% endraw %} beim Senden automatisch für jede:n Nutzer:in ersetzt wird.
 
-### Nächste Schritte: Aufbau von Nachfolgekampagnen
+### Nächste Schritte: Folgekampagnen aufbauen {#next-steps-build-follow-up-campaigns}
 
-Wenn Nutzer:innen antworten, werden ihre Profile mit Echtzeitdaten aufgefüllt. Diese Daten können verwendet werden, um Nutzer:innen zu segmentieren und personalisierte Kampagnen zu versenden. Wenn Sie beispielsweise die Frage "Gefallen Ihnen unsere Produkte?" gestellt haben, könnten Sie Segmente von Nutzer:innen erstellen, die das angepasste Attribut `Do you enjoy our products?` haben und mit "Ja" oder "Nein" geantwortet haben, und diese Nutzer:innen als Zielgruppe zusammenstellen.
+Wenn Nutzer:innen antworten, werden ihre Profile in Echtzeit mit Daten befüllt. Diese Daten können verwendet werden, um Nutzer:innen zu segmentieren und personalisierte Folgekampagnen zu versenden. Wenn Sie beispielsweise die Frage „Gefallen Ihnen unsere Produkte?“ gestellt haben, könnten Sie Segmente von Nutzer:innen erstellen, die das angepasste Nutzer:innen-Attribut `Do you enjoy our products?` haben und mit „Ja“ oder „Nein“ geantwortet haben, und diese Nutzer:innen gezielt ansprechen.
 
-## Angepasste Events brauen
+## Angepasste Events in Braze {#braze-custom-events}
 
-Wenn ein Nutzer:in eine Umfrage antwortet, triggert Iterate ein angepasstes Event innerhalb von Braze namens `survey-question-response`. Mit angepassten Events können Sie eine beliebige Anzahl und Art von Folgekampagnen triggern.
+Wenn Nutzer:innen eine Umfragefrage beantworten, triggert Iterate ein angepasstes Event innerhalb von Braze namens `survey-question-response`. Angepasste Events ermöglichen es Ihnen, eine beliebige Anzahl und Art von Folgekampagnen zu triggern.
 
-## Namen von Nutzer:innen-Attributen anpassen
+## Namen von Nutzer:innen-Attributen anpassen {#customize-user-attribute-names}
 
-Standardmäßig ist das für eine Frage angelegte Nutzer:in-Attribut dasselbe wie die Eingabeaufforderung.
-In einigen Fällen möchten Sie dies vielleicht anpassen. Klicken Sie dazu im Schritt **Umfrage erstellen** auf die Dropdown-Liste **Namen der Nutzer:innen anpassen** und geben Sie die gewünschten angepassten Namen ein.
-
-
+Standardmäßig entspricht das für eine Frage erstellte Nutzer:innen-Attribut dem Fragetext.
+In einigen Fällen möchten Sie dies möglicherweise anpassen. Klicken Sie dazu im Schritt **Umfrage erstellen** auf das Dropdown-Menü **Customize user attribute names** und geben Sie die gewünschten angepassten Namen ein.

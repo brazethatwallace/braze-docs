@@ -61,7 +61,7 @@ Eine KakaoTalk-Textnachricht ist die einfachste Form der Kommunikation: eine Sta
 | Inhalt | Textinhalt, einschließlich Emojis und Liquid-Personalisierung |
 | Textkapazität | Bis zu 1.000 Zeichen |
 | Buttons | Bis zu 5 optionale Buttons. Derzeit kann dies nur verwendet werden, um beim Klick eine URL zu öffnen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spezifikationen" }
 
 ![Eine KakaoTalk-Textnachricht im Composer.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
@@ -79,7 +79,7 @@ Ein Bild ist eine Nachricht, die ein visuelles Element mit unterstützendem Text
 | Empfohlene Breite | 500px |
 | Dateigröße | Bis zu 500kb |
 | Seitenverhältnis | Muss zwischen 2:1 (breit) und 3:4 (hoch) liegen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Allgemeine Spezifikationen" }
 
 Schmale und breite Bildnachrichten haben jeweils unterschiedliche Zeichenanzahl- und Button-Anforderungen.
 
@@ -99,7 +99,7 @@ Eine schmale Bildnachricht zeigt ein etwas höheres, schmales Bild mit umfangrei
 | Buttons | Bis zu 5 optionale Buttons |
 | Bildquelle | Bilder können über die Braze-Medienbibliothek oder eine direkte URL hinzugefügt werden |
 | Anpassung | Sie können das Klickverhalten für das Bild festlegen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spezifikationen" }
 
 ![Eine schmale KakaoTalk-Nachricht.]({% image_buster /assets/img/kakaotalk/narrow_image.png %})
 
@@ -119,7 +119,7 @@ Eine breite Bildnachricht zeigt ein prominentes breites Bild, das sich für wirk
 | Buttons | Bis zu 2 optionale Buttons |
 | Bildquelle | Bilder können über die Braze-Medienbibliothek oder eine direkte URL hinzugefügt werden |
 | Anpassung | Sie können das Klickverhalten des Bildes festlegen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spezifikationen" }
 
 ![Eine breite KakaoTalk-Nachricht.]({% image_buster /assets/img/kakaotalk/wide_image.png %})
 
@@ -151,7 +151,7 @@ Listenelement-Nachrichten bestehen aus einer Kopfzeile, einem Artikellisten-Bere
 | Kopfzeile | Bis zu 250 Zeichen |
 | Artikeltitel | Bis zu 25 Zeichen |
 | Website-URL (pro Artikel) | Bis zu 250 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spezifikationen" }
 
 ![Eine KakaoTalk-Listenelement-Nachricht.]({% image_buster /assets/img/kakaotalk/item_list.png %})
 
@@ -194,7 +194,7 @@ Nachdem Sie Ihre Testnutzer:innen ausgewählt haben, wählen Sie **Send Test**. 
 Um eine Nachricht für bestehende Nutzer:innen in der Vorschau anzuzeigen und eine Testnachricht zu senden, benötigen Sie die Berechtigung „View PII“. Sie können eine Nachricht für benutzerdefinierte Nutzer:innen ohne diese Berechtigungen in der Vorschau anzeigen und als Test senden.
 {% endalert %}
 
-Um die Ergebnisse eines Versands zu überprüfen oder Probleme zu beheben, gehen Sie zu **Einstellungen** > **Nachrichten-Aktivitätsprotokoll**. Weitere Informationen finden Sie unter [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+Um die Ergebnisse eines Versands zu überprüfen oder Probleme zu beheben, gehen Sie zu **Settings** > **Message Activity Log**. Weitere Informationen finden Sie unter [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
 
 ## 5. Schritt: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 

@@ -44,7 +44,7 @@ Utiliza la IA de LILT para obtener traducciones inmediatas y ajustadas a la marc
 | Una cuenta LILT   | Es necesario tener una cuenta LILT para beneficiarse de esta asociación.  |
 | Una clave de API REST de Braze  | Una clave de API REST de Braze con los siguientes permisos:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Crea esta clave en el panel de Braze desde **Settings** > **API Keys**. |
 | Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 
 ## Integración {#integration}

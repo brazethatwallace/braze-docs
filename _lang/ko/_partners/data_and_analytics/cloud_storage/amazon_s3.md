@@ -28,7 +28,7 @@ Braze와 Amazon S3 통합에는 두 가지 통합 전략이 있습니다:
 | Amazon S3 계정 | 이 파트너십을 이용하려면 Amazon S3 계정이 필요합니다. |
 | 전용 S3 버킷 | Amazon S3와 통합하기 전에 앱용 S3 버킷을 생성해야 합니다.<br><br>이미 S3 버킷이 있는 경우에도 권한을 제한할 수 있도록 Braze 전용 새 버킷을 만드는 것을 권장합니다. 새 버킷을 만드는 방법은 다음 지침을 참조하세요. |
 | Currents | 데이터를 Amazon S3로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### 새 S3 버킷 만들기 {#creating-a-new-s3-bucket}
 

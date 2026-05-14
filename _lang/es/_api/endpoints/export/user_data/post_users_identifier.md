@@ -62,7 +62,7 @@ Para los clientes que se hayan incorporado a Braze a partir del 22 de agosto de 
 | `email_address` | Opcional | Cadena | Dirección de correo electrónico del usuario. |
 | `phone` | Opcional | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de teléfono del usuario. |
 | `fields_to_export` | Opcional* | Matriz de cadenas | Nombre de los campos de datos de usuario a exportar.<br><br>*Este campo es necesario para utilizar el límite de velocidad más rápido de 40 solicitudes por segundo. Si se omite, se utilizará en su lugar el límite de velocidad predeterminado de 250 solicitudes por minuto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 *Obligatorio para clientes que se hayan incorporado a Braze a partir del 22 de agosto de 2024.
 
@@ -123,7 +123,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y Canvas que recibió. |
 | `uninstalled_at` | Marca de tiempo | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación. |
 | `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 Ten en cuenta que el punto de conexión `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este punto de conexión es más lento que otros puntos de conexión de la REST API.
 

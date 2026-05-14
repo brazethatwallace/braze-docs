@@ -82,7 +82,7 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 | --- | --- |
 | **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはSegmentビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentsでは、誤差が生じることがあります。 |
 | **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
@@ -220,7 +220,8 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table>
+<table aria-label="コンテンツカードの指標">
+    <caption class="sr-only">コンテンツカードのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -294,7 +295,8 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table>
+<table aria-label="バナーの指標">
+    <caption class="sr-only">バナーのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -363,7 +365,8 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table>
+<table aria-label="メールの指標">
+    <caption class="sr-only">メールのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -442,7 +445,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 クリックと開封が異なる日に記録されることもあります。ユーザーが5月16日に画像オフの状態でクリックし（開封なし）、5月17日にウェブメールで開封する（その時点で開封が記録される）場合があります。
 
-##### *ユニーククリック数*が*ユニーク開封数*を上回る場合 {#higher-unique-clicks-than-unique-opens}
+##### *ユニーククリック数*が*ユニーク開封数*を上回る場合 {#higher-_unique-clicks_-than-_unique-opens_}
 
 *ユニーククリック数*は、開封が過少カウントされたりクリックが膨張したりすると、*ユニーク開封数*を上回ることがあります。
 
@@ -513,7 +516,8 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
     }
 </style>
 
-<table>
+<table aria-label="アプリ内メッセージの指標">
+    <caption class="sr-only">アプリ内メッセージのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -581,7 +585,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 | エラー数 | *エラー数*は、KakaoTalkプロバイダーから返されたエラーの数です（送信プロセス中に増加します）。 |
 | 収益 | *収益*は、設定された1次コンバージョン期間内のCampaign受信者からのドル建て収益です。 |
 | 1次コンバージョン数 | *1次コンバージョン数*は、Braze Campaignから受信したメッセージを操作または閲覧した後に、定義されたイベントが発生した回数です。この定義されたイベントは、Campaign構築時に設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -595,7 +599,8 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
     }
 </style>
 
-<table>
+<table aria-label="プッシュの指標">
+    <caption class="sr-only">プッシュのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -695,7 +700,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 | アンインストールされたアプリケーション | メッセージがデバイスに配信されようとして、そのデバイスで対象のアプリがアンインストールされている場合、メッセージは破棄され、デバイスの登録IDは無効になります。今後そのデバイスにメッセージを送信しようとすると、NotRegisteredエラーが返されます。 |
 | バックアップされたアプリケーション | アプリケーションがバックアップされると、アプリケーションが復元される前に登録IDが無効になる可能性があります。この場合、FCMはアプリケーションの登録IDを保存しなくなり、アプリケーションはメッセージを受信しなくなります。そのため、アプリケーションのバックアップ時に登録IDを保存すべきでは**ありません**。 |
 | 更新されたアプリケーション | アプリケーションが更新されると、以前のバージョンの登録IDが使えなくなることがあります。そのため、更新されたアプリケーションは既存の登録IDを置き換える必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -713,7 +718,8 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table>
+<table aria-label="SMS、MMS、RCSの指標">
+    <caption class="sr-only">SMS、MMS、RCSのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -764,7 +770,8 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table>
+<table aria-label="Webhookの指標">
+    <caption class="sr-only">Webhookのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>
@@ -799,7 +806,8 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table>
+<table aria-label="WhatsAppの指標">
+    <caption class="sr-only">WhatsAppのパフォーマンス指標</caption>
     <thead>
         <tr>
             <th>指標</th>

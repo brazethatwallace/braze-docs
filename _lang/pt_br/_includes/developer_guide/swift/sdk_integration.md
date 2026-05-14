@@ -35,6 +35,7 @@ O SDK Swift da Braze separa os recursos em bibliotecas independentes para fornec
 | `BrazeKit`      | Biblioteca principal do SDK que fornece suporte para análise de dados e notificações por push. |
 | `BrazeLocation` | Biblioteca de localização que fornece suporte para análise de dados de local e monitoramento de geofence. |
 | `BrazeUI`       | Biblioteca de interface do usuário fornecida pela Braze para mensagens no app, Content Cards e Banners. Importe esta biblioteca se você pretende usar os componentes de UI padrão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -48,6 +49,7 @@ O SDK Swift da Braze separa os recursos em bibliotecas independentes para fornec
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | Biblioteca de extensão de serviço de notificação que fornece suporte para notificações por push avançadas. |
 | `BrazePushStory`           | Biblioteca de extensão de conteúdo de notificação que fornece suporte para Push Stories. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -95,6 +97,7 @@ O SDK Swift da Braze separa os recursos em bibliotecas independentes para fornec
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | Biblioteca de localização que fornece suporte para análise de dados de local e monitoramento de geofence. |
 | `pod 'BrazeUI'`       | Biblioteca de interface do usuário fornecida pela Braze para mensagens no app, Content Cards e Banners. Importe esta biblioteca se você pretende usar os componentes de UI padrão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ O SDK Swift da Braze separa os recursos em bibliotecas independentes para fornec
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | Biblioteca de extensão de serviço de notificação que fornece suporte para notificações por push avançadas. |
 | `pod 'BrazePushStory'`           | Biblioteca de extensão de conteúdo de notificação que fornece suporte para Push Stories. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -150,8 +154,9 @@ O SDK Swift da Braze contém uma variedade de XCFrameworks independentes, o que 
 | `BrazeKitCompat`           | Não       | Biblioteca de compatibilidade contendo todas as classes e métodos `Appboy` e `ABK*` que estavam disponíveis na versão `Appboy-iOS-SDK` 4.X.X. Para mais informações sobre o uso, consulte o cenário de migração mínima no [guia de migração](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
 | `BrazeUICompat`            | Não       | Biblioteca de compatibilidade contendo todas as classes e métodos `ABK*` que estavam disponíveis na biblioteca `AppboyUI` da versão `Appboy-iOS-SDK` 4.X.X. Para mais informações sobre o uso, consulte o cenário de migração mínima no [guia de migração](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
 | `SDWebImage`               | Não       | Dependência usada apenas por `BrazeUICompat` no cenário de migração mínima. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### Etapa 1.3: Prepare seus arquivos {#step-13-prepare-your-files}
 
@@ -476,14 +481,15 @@ Para uma visão centralizada em todas as plataformas, veja [Registro detalhado](
 
 O nível de registro padrão para o SDK Swift da Braze é `.error`&#8212;é também o nível mínimo suportado quando os registros estão habilitados. Esta é a lista completa de níveis de registro:
 
-| Swift       | Objective-C              | Descrição                                                  |
+| Swift       | Objective-C              | Descrição |
 | ----------- | ------------------------ | ------------------------------------------------------------ |
-| `.debug`    | `BRZLoggerLevelDebug`    | Registrar informações de depuração + `.info` + `.error`.              |
+| `.debug`    | `BRZLoggerLevelDebug`    | Registrar informações de depuração + `.info` + `.error`. |
 | `.info`     | `BRZLoggerLevelInfo`     | Registrar informações gerais do SDK (alterações de usuário, etc.) + `.error`. |
-| `.error`    | `BRZLoggerLevelError`    | Registrar erros.                                                  |
-| `.disabled` | `BRZLoggerLevelDisabled` | Nenhum registro ocorre.                                           |
+| `.error`    | `BRZLoggerLevelError`    | Registrar erros. |
+| `.disabled` | `BRZLoggerLevelDisabled` | Nenhum registro ocorre. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### Definindo o nível de registro {#setting-the-log-level}
 

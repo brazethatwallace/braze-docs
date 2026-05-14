@@ -37,7 +37,7 @@ O número de landing pages publicadas e domínios personalizados que você pode 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Landing pages publicadas                                                                 | Cinco por empresa | 20 adicionais |
 | Domínios personalizados          | Um por empresa | Cinco adicionais |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de plano" }
 
 ## Adicionando o Google Tag Manager a uma landing page {#adding-google-tag-manager-to-a-landing-page}
 
@@ -64,6 +64,12 @@ Para mais detalhes sobre a implementação do Google Tag Manager, consulte a [do
 
 O corpo da landing page pode ter até 500 KB.
 
+### As landing pages conseguem lidar com cenários de alto tráfego? {#can-landing-pages-handle-high-traffic-scenarios}
+
+Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, de modo que o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de páginas em cache não contam para os limites de taxa.
+
+Para landing pages personalizadas (usando personalização com Liquid), os limites de taxa se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
+
 ### Existem requisitos técnicos para publicar uma landing page? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
 Não, não há requisitos técnicos.
@@ -74,7 +80,7 @@ Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar o
 
 ### Posso criar um webhook dentro de uma landing page? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Não, mas o evento **Submitted a Landing Page form** pode atuar como gatilho para Canvas ou campanhas de webhook:
+Não, mas o evento **Submitted a Landing Page form** pode atuar como gatilho para Canvas ou Campaigns de webhook:
 
 - **Canvas:** Use o evento **Submitted a Landing Page form** como gatilho de entrada do Canvas e adicione uma etapa de webhook.
 - **Campaign:** Use o evento **Submitted a Landing Page form** para disparar com base no envio do formulário.

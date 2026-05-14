@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Link Aliasing {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}Link Aliasing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > Verwenden Sie Link Aliasing, um erkennbare, selbst erstellte Namen zur Identifizierung von Links zu erstellen, die in E-Mail-Nachrichten von Braze gesendet werden. Diese Links stehen für Segmentierungs-Retargeting, aktionsbasiertes Triggern und Link-Analytics zur Verfügung.
 
@@ -73,14 +73,14 @@ Wenn Link Aliasing aktiviert ist, werden Nachrichten, Content Blocks und Link-Te
 
 Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Aliasing-Ergebnisse und Erklärungen dafür, wie der ursprüngliche Link mit Link Aliasing aktualisiert wird.
 
-### Permalink
+### Permalink {#permalink}
 
 **Logik:** Braze fügt ein Fragezeichen (?) ein und fügt den ersten Query-Parameter in die URL ein.
 
 | Link im E-Mail-Body    | Link mit Aliasing                     |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permalink" }
 
 ### Link mit weiteren Query-Parametern {#link-with-more-query-parameters}
 
@@ -89,16 +89,16 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body                                            | Link mit Aliasing                                                             |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit weiteren Query-Parametern" }
 
-### HTML-Link
+### HTML-Link {#html-link}
 
 **Logik:** Braze erkennt, dass ein Link eine URL ist und bereits ein Fragezeichen (?) vorhanden ist, sodass der `lid`-Query-Parameter nach dem Fragezeichen angehängt wird.
 
 | Link im E-Mail-Body                                                | Link mit Aliasing                                                                |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML-Link" }
 
 ### Link mit Anker {#link-with-anchor}
 
@@ -107,7 +107,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body                               | Link mit Aliasing                                                |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker" }
 
 ### Link mit Anker und Capture-Tag {#link-with-anchor-and-capture-tag}
 
@@ -116,7 +116,7 @@ Die folgenden Tabellen zeigen Beispiele für Links in einem E-Mail-Body, Link-Al
 | Link im E-Mail-Body                                                                        | Link mit Aliasing                                                                                           |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link mit Anker und Capture-Tag" }
 
 ## Link-Aliase verfolgen {#tracking-link-aliases}
 
@@ -199,7 +199,7 @@ Das Verhalten von `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns
 _Update vermerkt im August 2019._
 {% endalert %}
 
-## Link Aliasing in Content Blocks
+## Link Aliasing in Content Blocks {#link-aliasing-in-content-blocks}
 
 Bei neuen Content Blocks werden die Links modifiziert, wobei Braze jedem Link, wo zutreffend, ein `lid={{placeholder}}` anhängt. Dieser Platzhalterwert wird aufgelöst, wenn er in eine E-Mail-Nachrichtenvariante eingefügt wird.
 

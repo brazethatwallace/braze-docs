@@ -19,10 +19,10 @@ Após [configurar o servidor MCP da Braze]{% if include.section == "user" %}({{s
 - Engenheiros de CRM criando fluxos de trabalho de agentes em várias etapas.
 - Profissionais de marketing técnico experimentando consultas em linguagem natural.
 
-O servidor MCP da Braze suporta 39 endpoints que não retornam dados dos perfis de usuários da Braze. Você pode escolher quais endpoints atribuir à sua chave de API da Braze para controlar o que um agente pode acessar ou alterar.
+O servidor MCP da Braze inclui endpoints somente leitura e de escrita. Eles não retornam dados dos perfis de usuários da Braze. Você escolhe quais endpoints atribuir à sua chave de API da Braze, e essa escolha controla o que um agente pode ler, criar ou atualizar. Para a lista completa de endpoints disponíveis e suas permissões necessárias, veja [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Atribua apenas as permissões de chave de API que você deseja que seu agente tenha. Se você não quiser que seu agente faça alterações na Braze, certifique-se de deixar as permissões de escrita desativadas. Agentes podem tentar gravar dados por meio de qualquer permissão que você conceder.
+Atribua apenas as permissões de chave de API que você deseja que seu agente tenha. Se você não quiser que seu agente faça alterações na Braze, deixe as permissões de escrita desativadas ao criar sua chave de API. Agentes podem tentar gravar dados por meio de qualquer permissão de escrita que você conceder.
 {% endalert %}
 
 ## Exemplo de uso {#usage-example}
@@ -51,7 +51,7 @@ Os clientes MCP podem acessar endpoints que não retornam IPI. Você controla qu
 
 ### Meu cliente MCP pode alterar dados da Braze? {#can-my-mcp-client-change-braze-data}
 
-O servidor expõe apenas o endpoint de escrita `/media_library/create`, que permite fazer upload de ativos de mídia na sua Biblioteca de mídia. Se você não quiser que seu agente faça essas alterações na Braze, deixe a permissão `media_library.create` desmarcada ao criar sua chave de API.
+Sim. O servidor expõe um conjunto focado de endpoints de escrita que permitem que agentes criem ou atualizem conteúdo no seu espaço de trabalho, como ativos da Biblioteca de mídia, modelos de e-mail e blocos de conteúdo. Cada endpoint de escrita requer sua própria permissão de chave de API. Se você não quiser que seu agente faça uma determinada alteração na Braze, deixe essa permissão desativada ao criar sua chave de API. Para a lista completa de funções de escrita e suas permissões necessárias, veja [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 ### Posso usar um servidor MCP de terceiros para a Braze? {#can-i-use-a-third-party-mcp-server-for-braze}
 

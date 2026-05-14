@@ -61,7 +61,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 | Mobile Apps | iOS、Android、Vega SDK |
 | Web Browsers | Web SDK |
 | Mobile AppsとWeb Browsersの両方 | iOS、Android、Vega、Web SDK |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## ステップ 3:メッセージタイプを指定する {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>メッセージタイプ</caption>
 <thead>
   <tr>
     <th>メッセージタイプ</th>
@@ -133,7 +134,8 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 
 これらのアプリ内メッセージは、ニーズに合わせてカスタマイズできます。
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>高度なメッセージタイプ</caption>
 <thead>
   <tr>
     <th>メッセージタイプ</th>
@@ -239,7 +241,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のアプリ内メッセージの表示や追加のメッセージングのトリガーに使用できます。 |
 | カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。 |
 | プッシュ許可をリクエスト | ネイティブのプッシュ許可を表示します。[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)の詳細と、プッシュのためのユーザー準備の[ベストプラクティス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices)をお読みください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 注意：__プッシュ許可をリクエスト__、__カスタムイベントを記録__、__カスタム属性を記録__オプションには、以下のSDK最小バージョンが必要です。
 
@@ -285,7 +287,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | 背景色 | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。これはメッセージ全体の背景で、テキスト本文の背後にはっきりと表示されます。 |
 | 画面オーバーレイ | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。新しいBraze SDKバージョンでのみ利用可能です。これはメッセージ全体の周りのフレームです。 |
 | シェブロンまたはその他のメッセージ閉じオプション | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 送信前に必ずメッセージを[プレビューしてテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してください。
 
@@ -352,7 +354,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 - **デフォルト優先度バケット：**2つのCampaignsが同じトリガーを共有し、デフォルト（中）優先度を使用している場合、最後に作成されたCampaignがトリガーを受け取ります。
 - **特定の優先度バケット：**複数のCampaignsが同じトリガーを共有し、特定の優先度バケットに割り当てられている場合、そのバケットに最も最近割り当てられたCampaignがトリガーを受け取ります。
 
-これらのバケット内で優先度を設定するには、**Set Exact Priority**をクリックし、Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
+これらのバケット内で優先度を設定するには、**正確な優先度を設定**をクリックし、Campaignsをドラッグ＆ドロップして正しい優先度に並べ替えることができます。
 
 ![アプリ内メッセージのCampaignとCanvasの優先度設定の例。]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 

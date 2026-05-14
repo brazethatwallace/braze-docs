@@ -89,7 +89,7 @@ Chaque modèle a une langue assignée, vous devez donc créer une campagne ou un
 
 Si vous ajoutez du texte dans une langue qui s'écrit de droite à gauche, notez que l'apparence finale des messages de droite à gauche dépend en grande partie de la façon dont les fournisseurs de services les affichent. Pour les bonnes pratiques de rédaction de messages de droite à gauche qui s'affichent aussi fidèlement que possible, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
 
-#### Variables
+#### Variables {#variables}
 
 Si vous avez ajouté des variables lors de la création du modèle WhatsApp dans le Meta Business Manager, ces variables apparaîtront comme des espaces vides dans le compositeur de messages. Remplacez ces espaces vides par du Liquid ou du texte brut. Pour utiliser du texte brut, utilisez le format « texte ici » encadré par des doubles accolades. Si vous avez choisi d'inclure des images lors de la création de votre modèle, vous pouvez télécharger ou ajouter des images depuis la bibliothèque multimédia ou en référençant une URL d'image. Dans la mesure du possible, nous recommandons de télécharger les images directement dans votre bibliothèque multimédia pour garantir la cohérence et la fiabilité.
 
@@ -202,7 +202,7 @@ Les fonctionnalités suivantes sont prises en charge pour les messages WhatsApp 
 | Documents | Les documents peuvent être intégrés dans le corps du texte. Les fichiers doivent être hébergés via une URL. | < 100 Mo | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | Vidéos | Les vidéos peuvent être intégrées dans le corps du texte. Les fichiers doivent être hébergés via une URL ou dans la [bibliothèque multimédia Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | < 16 Mo | `.3gp`, `.mp4` |
 | Audio | L'audio n'est pris en charge que via les messages de réponse. Les fichiers doivent être hébergés via une URL. | < 16 Mo | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Messages sortants" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -214,11 +214,11 @@ Les fonctionnalités suivantes sont prises en charge pour les messages WhatsApp 
 | ------- | ------- | ------------------ |
 | Corps du texte | Seules les chaînes de caractères standard sont prises en charge. | — |
 | Images | Les images doivent être en 8 bits et utiliser un modèle de couleur RVB ou RVBA. Les fichiers doivent faire moins de 5 Mo. | `.jpg`, `.png` |
-| Audio | Seuls les fichiers Ogg encodés avec le codec Opus sont pris en charge. Les autres formats Ogg ne le sont pas. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (Opus only)` |
+| Audio | Seuls les fichiers Ogg encodés avec le codec Opus sont pris en charge. Les autres formats Ogg ne le sont pas. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (Opus uniquement)` |
 | Documents | Les documents sont pris en charge via les pièces jointes de messages. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | Vidéo | Seuls le codec vidéo H.264 et le codec audio AAC sont pris en charge. Les vidéos doivent avoir soit un seul flux audio, soit aucun flux audio. | `.mp4`, `.3gp` |
 | Liens CTA | Différents types d'appel à l'action (CTA) sont pris en charge. Pour plus de détails, consultez [Types d'appel à l'action](#ctas). | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages entrants" }
 
 ### Types d'appel à l'action {#ctas}
 
@@ -233,4 +233,4 @@ Les types d'appel à l'action suivants sont pris en charge pour les messages Wha
 | Modèles de messages avec code promo | Disponible uniquement pour les modèles de messages. <br>Ceux-ci peuvent être ouverts et modifiés comme les autres modèles de messages, et sont compatibles avec Liquid et les codes de promotion Braze. |
 | Messages de réponse CTA | Créez un message de réponse qui inclut un bouton d'appel à l'action. |
 | [Messages de réponse de type liste]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Créez un message de réponse qui inclut une liste de 10 options maximum parmi lesquelles les utilisateurs peuvent choisir. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types d'appel à l'action" }

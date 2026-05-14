@@ -32,7 +32,7 @@ guide_menu_list:
 - name: カタログAPIエンドポイント
   link: /docs/api/endpoints/catalogs/
   image: /assets/img/braze_icons/server-01.svg
-- name: ドラッグアンドドロップ製品ブロック
+- name: ドラッグ＆ドロップ製品ブロック
   link: /docs/dnd_product_blocks/
   image: /assets/img/braze_icons/columns-01.svg
 ---
@@ -68,10 +68,12 @@ guide_menu_list:
 
 Liquidを使用してカタログ情報を取得する方法の例については、[カタログを作成する]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/)の追加のユースケースを参照してください。
 
-#### データ保存の制限 {#data-storage-limitations}
+## データ保存の制限 {#data-storage-limitations}
 
 カタログのデータストレージは、カタログアイテムのサイズに基づいて制限されます。これは、アップロードしたCSVファイルのサイズとは異なる場合があります。
 
 カタログの無料バージョンの場合、許可されるストレージ容量は最大100&nbsp;MBです。ストレージが100&nbsp;MBを超えない限り、アイテム数は無制限です。
 
 Catalogs Proの場合、ストレージサイズのオプションは5&nbsp;GB、10&nbsp;GB、15&nbsp;GB、または50&nbsp;GBです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
+
+カタログストレージのアップグレードが必要な場合は、Brazeアカウントマネージャーにお問い合わせください。プランの詳細と利用資格については、[カタログストレージ]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers)を参照してください。

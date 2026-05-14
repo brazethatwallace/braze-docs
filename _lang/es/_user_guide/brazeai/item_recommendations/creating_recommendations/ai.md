@@ -130,7 +130,8 @@ Los siguientes ejemplos de mapeados hacen referencia a este catálogo de muestra
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Ejemplos de mapeados" class="tg">
+  <caption>Ejemplos de mapeados</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>

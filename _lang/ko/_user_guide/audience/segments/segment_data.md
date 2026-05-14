@@ -36,7 +36,8 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
     }
 </style>
 
-<table>
+<table aria-label="Segment 통계">
+  <caption>Segment 통계</caption>
     <thead>
         <tr>
             <th>통계</th>

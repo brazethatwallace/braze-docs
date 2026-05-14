@@ -81,6 +81,7 @@ Remplacez les éléments suivants :
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | Votre jeton de génération dynamique de coupon. |
 | `CAMPAIGN_ID`                     | Votre ID de campagne.                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Générer une signature et construire une URL" }
 
 ### Étape 3 : Ajouter le code de coupon au corps du message {#step-3-append-coupon-code-to-message-body}
 
@@ -126,7 +127,7 @@ Pour intégrer le code de coupon dans une image :
 3. Intégrez votre lien dans une balise HTML {% raw %}`<img>`{% endraw %}.
 
 {% tabs local %}
-{% tab example input %}
+{% tab exemple d'entrée %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,7 +135,7 @@ Pour intégrer le code de coupon dans une image :
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab exemple de sortie %}
 ![Résultat du rendu de la balise image du code de coupon.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
@@ -150,4 +151,4 @@ Pour intégrer le code de coupon dans une image :
 | `usage_exceeded` | L'utilisation de la campagne de ce code de coupon est complète. Veuillez réessayer ultérieurement. | L'utilisation du code dépasse le nombre d'utilisateurs autorisés à l'utiliser. Par exemple, si la configuration du tableau de bord permet à un code d'être utilisé par 3 000 utilisateurs et que le nombre d'utilisateurs dépasse 3 000, cette erreur sera générée. |
 | `usage_exceeded_by_guest` | Ce code promo a déjà été traité. | L'utilisation du code par un utilisateur dépasse le nombre de fois qu'un utilisateur peut l'utiliser. Par exemple, la configuration du tableau de bord permet à un seul code d'être utilisé trois fois par un utilisateur. Si le code est utilisé plus fréquemment, cette erreur est générée. |
 | `already_used_by_other_guest` | Ce code promo a déjà été utilisé par un autre invité. | Un autre utilisateur a déjà utilisé le code. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages d'erreur" }

@@ -24,7 +24,7 @@ Adds text for headers within the email.
 | Line height | Modifies the distance between lines of text. |
 | Letter spacing | Modifies the distance in between each character. |
 | Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### Paragraph
 
@@ -42,7 +42,7 @@ Enters text into the message. A toolbar helps with font and text editing functio
 | Line height | Modifies the distance between lines of text. |
 | Letter spacing | Modifies the distance in between each character. |
 | Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### List
 
@@ -64,7 +64,7 @@ Adds a bulleted list.
 | Line height | Modifies the distance between lines of text. |
 | Letter spacing | Modifies the distance in between each character. |
 | Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### Button
 
@@ -74,7 +74,7 @@ Adds a standard button. Properties allow for editing styling and setting link be
 |---|---|
 | Button options | Sets various button options, such as font, size, width, color, and padding. |
 | Button hover | The style of the button when a user hovers over it using a mouse or trackpad. Includes the button's background color, font color, and border styles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### On-click behavior
 
@@ -85,7 +85,7 @@ Adds a standard button. Properties allow for editing styling and setting link be
 | Mail to, subject, and body | For the **Send email** link type, sets the recipient email address, subject, and content that will populate in a draft email when the user selects the button. |
 | Tel | For the **Make call** and **Send SMS** link type, sets the phone number the user will call or text when selecting the button. |
 | Message | For the **Send SMS** link type, sets the content that will populate in a draft SMS message when the user selects the button. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### Divider
 
@@ -97,7 +97,7 @@ Inserts a solid, dotted, or dashed line to help with spacing.
 | Line | The different line formats, whether dotted, dashed, or solid. You can also modify the thickness and color of the divider line. |
 | Width | Adjusts the spread of the divider in increments of 5. |
 | Align | Moves the line to be either left, center, or right-oriented. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### Spacer
 
@@ -106,7 +106,7 @@ Adds space or padding between other blocks.
 | Property | Description |
 |---|---|
 | Height | Adjusts the height of the spacer block. The default is 60px. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### Image
 
@@ -124,7 +124,7 @@ Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/
 | Image with rounded corners | Renders the image with rounded corners. By default, images are rendered with squared corners. |
 | Action | Triggers an action when the user clicks the image. |
 | Block options | Sets padding around the image block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 For **Auto width**, automatic image resizing picks the best size for the image based on a combination of image width and available space in the layout:
@@ -143,7 +143,7 @@ Creates a link to video content. Only YouTube and Vimeo are supported.
 | Play icon style | Includes different options for the play button located at the top of a video image. |
 | Play icon color | Option to select either **Light** or **Dark** for the play button. |
 | Play icon size | Choose the pixel size for the play button. Predefined range from 50&nbsp;px to 80&nbsp;px (incremented by 5&nbsp;px). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Videos hosted by Vimeo only work if they are set to public. All other security settings available within Vimeo (for example, "Hide from Vimeo.com") generate a different link format that is not supported by this Content Block. These types of links are altered by the builder, which prevents Braze from generating a thumbnail.
@@ -159,7 +159,7 @@ Inserts social media platform icons. You can upload custom images for brand-spec
 | Configure icon collection | Sets the URL for each social icon. Includes the **More options** toggle to edit the title and alternative text. |
 | Align | Moves the social icon to be left, center, or right-oriented. |
 | Icon spacing | Determines the spacing between each social icon. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### Icons
 
@@ -177,7 +177,7 @@ Inserts an icon. You can upload custom images. Braze uses an oversized placehold
 | Icon size | Determines the size of your icon. |
 | Icon spacing | Modifies the space of the icon. |
 | Icon padding | Modifies the padding of the icon. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -186,7 +186,7 @@ Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Co
 | Property | Description |
 |---|---|
 | HTML | Add or edit raw HTML, including [Liquid]({{site.baseurl}}/liquid/) for personalization or conditional logic. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menu
 
@@ -206,7 +206,7 @@ Creates a flexible menu for the message you're designing.
 | Mobile menu | Includes options to modify the icon size, color, and icon type when shown on a mobile device. |
 | Item padding | Modifies the padding by using either the **+** or **-** button, or by entering a specific number. |
 | All sides | Sets a consistent padding number if item padding is disabled. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### Product
 
@@ -228,7 +228,7 @@ Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messag
 | Max products per row | Sets how many products appear per row: **1**, **2**, or **3** (**3** is only available when orientation is **Image center**). |
 | Product spacing | Sets spacing between products: **Auto** or **Custom**. |
 | Custom spacing | *(When **Custom** is selected)* Sets the gap in pixels between products. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## Personalization
 

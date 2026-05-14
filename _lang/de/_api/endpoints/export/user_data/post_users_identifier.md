@@ -62,9 +62,9 @@ Für Kund:innen, die am oder nach dem 22. August 2024 das Onboarding mit Braze d
 | `email_address` | Optional | String | E-Mail-Adresse der Nutzer:in. |
 | `phone` | Optional | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Telefonnummer der Nutzer:in. |
 | `fields_to_export` | Optional* | String-Array | Name der zu exportierenden Nutzerdatenfelder.<br><br>*Dieses Feld ist erforderlich, um das schnellere Rate-Limit von 40 Anfragen pro Sekunde zu nutzen. Wird es weggelassen, wird stattdessen das Standard-Rate-Limit von 250 Anfragen pro Minute verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-*Erforderlich für Kund:innen, die am oder nach dem 22. August 2024 bei Braze onboarded haben.
+*Erforderlich für Kund:innen, die am oder nach dem 22. August 2024 das Onboarding bei Braze durchgeführt haben.
 
 ## Beispielanfrage {#example-request}
 ```
@@ -123,7 +123,7 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `total_revenue` | Gleitkommazahl | Gesamtumsatz, der dieser Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvases, die sie erhalten haben, getätigt haben. |
 | `uninstalled_at` | Zeitstempel | Datum und Uhrzeit der Deinstallation der App durch die Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde. |
 | `user_aliases` | Objekt | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification), das `alias_name` und `alias_label` enthält, falls vorhanden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 Beachten Sie, dass der Endpunkt `/users/export/ids` das gesamte Nutzerprofil zusammenstellt, einschließlich Daten wie alle erhaltenen Campaigns und Canvases, alle durchgeführten angepassten Events, alle getätigten Käufe und alle angepassten Attribute. Infolgedessen ist dieser Endpunkt langsamer als andere REST-API-Endpunkte.
 

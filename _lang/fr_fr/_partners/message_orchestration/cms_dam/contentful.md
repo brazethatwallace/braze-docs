@@ -17,7 +17,7 @@ Une fois l'intégration effectuée, vous pouvez utiliser les API RESTful de Cont
 
 Avant de commencer, vous aurez besoin des éléments suivants :
 
-| Condition préalable          | Description                        |
+| Condition préalable | Description |
 |-----------------------|------------------------------------|
 | Un compte Contentful | Vous devez disposer d'un compte Contentful avec accès à l'API de distribution de contenu. |
 | Un compte Braze | Vous devez disposer d'un compte Braze avec accès à la fonctionnalité de Contenu connecté. |

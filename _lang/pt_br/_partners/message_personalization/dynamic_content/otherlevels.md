@@ -27,7 +27,7 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito          | Descrição                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta OtherLevels   | É necessário ter uma conta OtherLevels para aproveitar essa parceria.                                                                     |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões de `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões de `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
 | Um endpoint REST da Braze | [Seu URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -132,7 +132,7 @@ Substitua o seguinte:
 | `TALENT_TEMPLATE` | Um ID de modelo de talento. A OtherLevels trabalhará com você durante o provisionamento da conta para criar um talento (avatar). Você receberá um ou vários IDs de talento que podem ser usados.                                                 |
 | `TALENT_MODEL` | Um ID de modelo de talento. A OtherLevels trabalhará com você durante o provisionamento da conta para criar um talento (avatar). Você receberá um ou vários modelos de talento que podem ser usados.                                                 |
 | `INSERT_SCRIPT` | O roteiro exato que você gostaria que o talento dissesse durante o vídeo.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 Como parte da resposta da API, a OtherLevels retornará uma carga útil JSON indicando uma chamada de API bem-sucedida. O JSON conterá um `recipe_id` exclusivo para identificar o vídeo gerado. O `recipe_id` será necessário na próxima etapa.
 
@@ -144,7 +144,7 @@ Aqui está um exemplo de resposta da API:
 ```
 {% endraw %}
 
-### Etapa 2: Definir o `recipe_id` como um atributo personalizado {#step-2-setting-the-recipeid-as-a-custom-attribute}
+### Etapa 2: Definir o `recipe_id` como um atributo personalizado {#step-2-setting-the-recipe_id-as-a-custom-attribute}
 
 O `recipe_id` recebido na [Etapa 1](#step-1) agora é definido como um atributo personalizado da Braze para o(s) usuário(s) para o(s) qual(is) você deseja enviar os vídeos.
 
@@ -178,7 +178,7 @@ Substitua o seguinte:
 | `BRAZE_API_KEY`         | Sua chave da API REST da Braze com a permissão `users.track`.                                                                                                                                      |
 | `USER_ID`              | O ID do usuário que receberá esse vídeo específico. Para mais exemplos dos identificadores que podem ser usados, consulte [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
 | `RECIPE_ID`       | O `recipe_id` recebido da resposta da API da OtherLevels na [Etapa 1](#step-1).                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Etapa 3: Envio por meio do Conteúdo conectado da Braze {#step-3-sending-through-braze-connected-content}
 
@@ -210,7 +210,7 @@ O plano de fundo do vídeo pode ser especificado na chave `bg_image`.
 | Parâmetro             | Descrição                  |
 |-------------------------|----------------------------|
 | `url`    | URL HTTPS para a imagem de fundo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 O tamanho do plano de fundo do vídeo pode ser especificado na chave `resize_image`. Recomendamos que a imagem de fundo tenha o mesmo tamanho configurado aqui.
 
@@ -218,7 +218,7 @@ O tamanho do plano de fundo do vídeo pode ser especificado na chave `resize_ima
 |-------------------------|----------------------------|
 | `width`    | Largura da imagem de fundo, com opções para os modos retrato e paisagem. |
 | `height`     | Altura da imagem de fundo, com opções para os modos retrato e paisagem.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 As opções de sobreposição de vídeo podem ser especificadas na chave `image_video_overlay`.
 
@@ -229,7 +229,7 @@ As opções de sobreposição de vídeo podem ser especificadas na chave `image_
 | `color`              | Cor da sobreposição especificada em RGB junto com a transparência do vídeo.                                                                   |
 | `y_pos`       | Deslocamento do eixo Y em relação ao centro.                                                              |
 | `x_pos`    | Deslocamento do eixo X em relação ao centro. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Talento e roteiro {#talent-and-script}
 
@@ -242,7 +242,7 @@ O modelo de voz usado para processar scripts de entrada funciona melhor quando v
 | Parâmetro             | Descrição                  |
 |-------------------------|----------------------------|
 | `speed`    | Especifique a velocidade na qual o talento lerá o roteiro. Por exemplo, `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Considerações adicionais {#additional-considerations}
 

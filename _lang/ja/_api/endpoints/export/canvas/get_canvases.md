@@ -38,7 +38,7 @@ Canvasesは、作成時刻順（デフォルトでは古い順）に100件ずつ
 | `include_archived` | オプション | ブール値 | アーカイブされたCanvasesを含めるかどうか。デフォルトは`false`です。 |
 | `sort_direction` | オプション | 文字列 | - 作成時刻を新しいものから古いものへ並べ替える場合: 値`desc`を渡します。<br> - 作成時刻を古いものから新しいものへ並べ替える場合: 値`asc`を渡します。<br><br>`sort_direction`が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
 | `last_edit.time[gt]` | オプション | 時刻 | 結果をフィルターし、指定された時刻以降に編集されたCanvasesのみを返します。形式は`yyyy-MM-DDTHH:mm:ss`です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 

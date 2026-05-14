@@ -9,15 +9,22 @@ page_order: 4
 
 > 重複ユーザーを見つけて統合し、CampaignsやCanvasesの効果を最大化する方法を説明します。
 
-{% alert tip %}
-Braze REST APIを使用して重複ユーザーを統合するには、[POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)を参照してください。
-{% endalert %}
+## REST API: ユーザーの識別と統合 {#rest-api-identify-and-merge-users}
+
+このページのツールは、ダッシュボードで重複プロファイルを統合します。Brazeの[ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data/)を使用して、プロファイルの結合や再ポイントも可能です。
+
+- [POST: ユーザーの識別]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)（`/users/identify`）：エイリアスのみ、メールのみ、または電話番号のみのプロファイルを、`external_id`を持つプロファイルと結合します。
+- [POST: ユーザーの統合]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)（`/users/merge`）：あるユーザープロファイルを別のプロファイルに統合します。両方のプロファイルがすでに`external_id`を持っている場合も含みます。このエンドポイントを呼び出す前に、[前提条件]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites)と[統合の動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を確認してください。
+
+匿名プロファイルが既存の識別済みプロファイルと一致した場合（たとえばSDKの`changeUser()`呼び出しや`/users/identify`を通じて）、Brazeは匿名プロファイルを孤立させ、特定のフィールドのみを識別済みプロファイルにコピーします。詳細については、[匿名ユーザーを識別した場合の動作]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)を参照してください。
+
+ユーザーの統合は元に戻すことが困難です。複数の`external_id`値にまたがる複雑な統合や大規模なプロファイル移行を計画している場合は、`/users/merge`に依存する前に、Brazeカスタマーサクセスマネージャーにガイダンスを求めてください。
 
 ## 個別統合 {#individual-merging}
 
 ユーザー検索で重複プロファイルが返された場合、Brazeダッシュボードのユーザープロファイルから各プロファイルを個別に統合できます。
 
-### ステップ 1:重複プロファイルを検索する {#step-1-search-for-a-duplicate-profile}
+### ステップ1: 重複プロファイルを検索する {#step-1-search-for-a-duplicate-profile}
 
 Brazeで、**Audience** > **User Search**を選択します。
 
@@ -27,7 +34,7 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 ![Brazeダッシュボードの「User Search」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:60%;"}
 
-### ステップ 2:重複を統合する {#step-2-merge-duplicates}
+### ステップ2: 重複を統合する {#step-2-merge-duplicates}
 
 統合プロセスを開始するには、**Merge duplicates**を選択します。
 
@@ -45,13 +52,13 @@ Brazeで、**Audience** > **User Search**を選択します。
 
 重複ユーザーを一括統合すると、Brazeは一致する識別子（メールアドレスなど）を持つプロファイルを検索し、1つのプロファイルを保持します。Brazeはまず`external_id`を持つプロファイルを優先し、次に**Resolving ties**設定（**Resolve ties using**と**Prioritization**）を適用します。`external_id`を持つプロファイルがない場合、Brazeは`external_id`を持たないプロファイル全体に対して**Resolve ties using**と**Prioritization**を使用します。Brazeは、これらの設定で保持するプロファイルが1つに特定できる場合にのみユーザーを統合します。たとえば、**Resolve ties using**が**Updated date**で、両方のプロファイルの最終更新タイムスタンプが同じ場合、Brazeはタイブレークを解決できないため、それらのユーザーは統合されません。
 
-### ステップ 1:Manage Audienceに移動する {#step-1-go-to-manage-audience}
+### ステップ1: オーディエンスを管理に移動する {#step-1-go-to-manage-audience}
 
 Brazeダッシュボードで、**Audience** > **Manage Audience**を選択します。
 
 ![ナビゲーションメニューでハイライトされた「Manage Audience」タイル。]({% image_buster /assets/img/audience_management/duplicate_users/bulk_merging/select_manage_audience.png %}){: style="max-width:60%;"}
 
-### ステップ 2:結果をプレビューする（オプション） {#step-2-preview-the-results-optional}
+### ステップ2: 結果をプレビューする（オプション） {#step-2-preview-the-results-optional}
 
 重複を統合する前に結果をプレビューするには、**Generate list of duplicates**を選択します。
 
@@ -70,7 +77,7 @@ Brazeがプレビューを生成し、CSVファイルとしてメールアドレ
 | alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
 | alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
 | alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Preview the results (optional)" }
 {% endtab %}
 {% endtabs %}
 
@@ -78,7 +85,7 @@ Brazeがプレビューを生成し、CSVファイルとしてメールアドレ
 
 Brazeは、保持されるプロファイルの空のフィールドを、統合されるプロファイルの値で埋めます。埋められるフィールドの一覧については、[統合の動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を参照してください。
 
-### ステップ 3:重複を統合する {#step-3-merge-your-duplicates}
+### ステップ3: 重複を統合する {#step-3-merge-your-duplicates}
 
 プレビューの結果に問題がなければ、**Merge all duplicates**を選択します。
 
@@ -92,7 +99,7 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 
 ルールを使用して、統合実行時に重複プロファイルの解決方法を制御し、最も関連性の高いユーザープロファイルを保持できます。ルールが設定されると、Brazeは条件に一致するプロファイルを保持します。
 
-### ステップ 1:ルールを定義する {#step-1-define-your-rules}
+### ステップ1: ルールを定義する {#step-1-define-your-rules}
 
 1. **Audience** > **Manage Audience** > **Edit rules**に移動します。
 2. **Edit rules**パネルの**Profile to keep**セクションで、重複統合時に保持するプロファイルの**Identifier**を選択します。メールアドレスまたは電話番号を指定できます。
@@ -104,11 +111,11 @@ Brazeは、保持されるプロファイルの空のフィールドを、統合
 
 たとえば、電話番号を持つプロファイルを保持するように設定できます。複数のユーザーが同じ電話番号を持つ場合、**Updated date**フィールドを使用してタイブレークを解決し、最も最近更新されたユーザーを優先できます。
 
-### ステップ 2:結果をプレビューする（オプション）
+### ステップ2: 結果をプレビューする（オプション）
 
 ルールを保存した後、**Generate a list of duplicates**を選択してルールの動作をプレビューできます。Brazeがプレビューを生成し、ルールが適用された場合にどのユーザーが保持され、統合されるかを示すCSVファイルをメールアドレスに送信します。
 
-### ステップ 3:重複を統合する {#step-3-merge-duplicates}
+### ステップ3: 重複を統合する {#step-3-merge-duplicates}
 
 プレビューの結果に問題がなければ、**Manage Audience**ページに戻り、**Merge all duplicates**を選択します。
 

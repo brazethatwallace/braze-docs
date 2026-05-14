@@ -6,7 +6,7 @@ description: "Esta página de referência lista filtros que podem ser usados par
 
 ---
 
-# Filtros
+# Filtros {#filters}
 
 > Este artigo de referência fornece uma visão geral dos filtros em Liquid e aborda quais filtros são suportados pela Braze. Procurando ideias de como usar esses filtros? Confira nossa [biblioteca de casos de uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/).
 
@@ -16,7 +16,7 @@ Filtros são a forma de modificar a saída de números, strings, variáveis e ob
 A Braze não suporta todos os filtros Liquid da Shopify. Esta página tenta listar os filtros Liquid que a Braze testou, mas pode não ser uma lista completa. Sempre teste seu Liquid antes de enviar qualquer mensagem. <br><br>Se você tiver dúvidas sobre um filtro que não está listado aqui, entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
-## Sintaxe de filtro
+## Sintaxe de filtro {#filter-syntax}
 
 {% raw %}
 
@@ -47,7 +47,7 @@ Neste exemplo, `Big Sale` é uma string e `upcase` é o filtro sendo aplicado.
 Os filtros podem ser usados em instruções `assign` e tags de saída {% raw %}(`{{ }}`){% endraw %}, mas não em condicionais (`if`, `elsif`, `unless`), `case`/`when`, loops `for` ou colchetes de acesso a arrays. Para usar um valor filtrado em um desses contextos, atribua o resultado a uma variável primeiro. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Sintaxe para múltiplos filtros
+### Sintaxe para múltiplos filtros {#syntax-for-multiple-filters}
 
 Você pode usar múltiplos filtros em uma única saída. Eles são aplicados da esquerda para a direita.
 
@@ -68,7 +68,7 @@ SALE
 {% endtab %}
 {% endtabs %}
 
-## Filtros de array
+## Filtros de array {#array-filters}
 
 Filtros de array são usados para alterar a saída de arrays.
 
@@ -88,17 +88,17 @@ Filtros de array são usados para alterar a saída de arrays.
 | [sort_natural](https://shopify.dev/api/liquid/sort_natural) | Ordena os itens em um array em ordem alfabética sem distinção entre maiúsculas e minúsculas.                                                | ✅  Sim   |
 | [uniq](https://shopify.dev/api/liquid/filters/uniq)         | Remove quaisquer instâncias duplicadas de elementos em um array.                                                           | ✅  Sim   |
 | [where](https://shopify.dev/api/liquid/where)        | Filtra um array para incluir apenas itens com um valor de propriedade específico.                                             | ✅  Sim   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Array filters" }
 
-## Filtros de cor
+## Filtros de cor {#color-filters}
 
 [Filtros de cor](https://shopify.dev/api/liquid/filters/color-filters) não são suportados na Braze.
 
-## Filtros de fonte
+## Filtros de fonte {#font-filters}
 
 [Filtros de fonte](https://shopify.dev/api/liquid/filters/font-filters) não são suportados na Braze.
 
-## Filtros matemáticos
+## Filtros matemáticos {#math-filters}
 
 Filtros matemáticos permitem que você realize operações matemáticas. Se você usar múltiplos filtros em uma única saída, eles serão aplicados da esquerda para a direita.
 
@@ -115,7 +115,7 @@ Filtros matemáticos permitem que você realize operações matemáticas. Se voc
 | [round](https://shopify.dev/api/liquid/filters/round)      | Arredonda a saída para o inteiro mais próximo ou para o número especificado de casas decimais.  | ✅  Sim   |
 | [times](https://shopify.dev/api/liquid/filters/times)     | Multiplica uma saída por um número.       | ✅  Sim   |
 | [modulo](https://shopify.dev/api/liquid/filters/modulo)    | Divide uma saída por um número e retorna o resto.   | ✅  Sim   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Math filters" }
 
 {% alert tip %}
 Ao dividir inteiros (números inteiros) por inteiros em Liquid, se o resultado for um float (número com decimal), o Liquid arredondará automaticamente para baixo até o inteiro mais próximo. No entanto, dividir inteiros por floats sempre retornará um float. Isso significa que você pode converter seus inteiros em float (1.0, 2.0, 3.0) para retornar um float.
@@ -124,7 +124,7 @@ Ao dividir inteiros (números inteiros) por inteiros em Liquid, se o resultado f
 {% endraw %}
 {% endalert %}
 
-### Operações matemáticas com atributos personalizados
+### Operações matemáticas com atributos personalizados {#mathematical-operations-with-custom-attributes}
 
 Tenha em mente que você não pode realizar operações matemáticas entre dois atributos personalizados.
 
@@ -139,7 +139,7 @@ Este exemplo não funcionaria porque você não pode referenciar múltiplos atri
 1. Uma para atribuir o atributo personalizado a uma variável,
 2. Uma para realizar a adição.
 
-#### Caso de uso: calcular o saldo atual
+#### Caso de uso: calcular o saldo atual {#use-case-calculate-current-balance}
 
 Digamos que queremos calcular o saldo atual de um usuário somando o saldo do cartão-presente e o saldo de recompensas.
 
@@ -170,7 +170,7 @@ You have $35 to spend!
 {% endtab %}
 {% endtabs %}
 
-## Filtros de dinheiro
+## Filtros de dinheiro {#money-filters}
 
 Se você está atualizando um usuário sobre uma compra, um saldo de conta ou qualquer coisa relacionada a dinheiro, você deve usar filtros de dinheiro. Os filtros de dinheiro garantem que os decimais estejam no lugar correto e que nenhuma parte da sua atualização seja perdida (como aquele `0` incômodo no final).
 
@@ -179,7 +179,7 @@ Se você está atualizando um usuário sobre uma compra, um saldo de conta ou qu
 | [money](https://shopify.dev/api/liquid/filters/money)      | Formata números para garantir que os decimais estejam no lugar correto e que zeros não sejam removidos do final de nenhum número.   | ✅  Sim   |
 | [money_with_currency](https://shopify.dev/api/liquid/filters/money_with_currency)    | Formata números com o símbolo da moeda.     | ⛔  Não    |
 | [money_without_currency](https://shopify.dev/api/liquid/filters/money_without_currency)     | Formata números sem o símbolo da moeda.      | ⛔  Não    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Money filters" }
 
 {% alert important %}
 Para formatar corretamente um número com o filtro `money`, remova quaisquer vírgulas do número e adicione o filtro `plus: 0` antes do filtro `money`. Por exemplo, veja o seguinte Liquid:<br><br>
@@ -191,7 +191,7 @@ Para formatar corretamente um número com o filtro `money`, remova quaisquer ví
 {% endraw %}
 {% endalert %}
 
-### Filtro money da Shopify versus filtro money da Braze
+### Filtro money da Shopify versus filtro money da Braze {#shopify-money-filter-versus-braze-money-filter}
 
 {% alert warning %}
 O comportamento do filtro `money` da Shopify difere de como ele é usado na Braze. Consulte os exemplos a seguir para uma representação precisa do comportamento esperado.
@@ -209,7 +209,7 @@ ${{custom_attribute.${account_balance} | money}}
 | :------------------------------------------ | :------------------------------------------ |
 | ![Com filtro money]({% image_buster /assets/img/with_money_filter.png %})                     | ![Sem filtro money]({% image_buster /assets/img/without_money_filter.png %})                  |
 | Onde `account_balance` é inserido como `17.8`. | Onde `account_balance` é inserido como `17.8`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Shopify money filter versus Braze money filter" }
 
 O filtro `money` na Braze difere da Shopify porque não aplica automaticamente casas decimais de acordo com uma configuração predefinida. Por exemplo, considere o seguinte cenário onde `rewards_redeemed` contém o valor `145`:
 
@@ -249,7 +249,7 @@ $1.45
 {% endtab %}
 {% endtabs %}
 
-## Filtros de string
+## Filtros de string {#string-filters}
 
 Filtros de string são usados para manipular as saídas e variáveis de strings. Strings são uma combinação de caracteres alfanuméricos e devem ser envolvidas em aspas retas.
 
@@ -287,9 +287,9 @@ Aspas retas são diferentes de aspas curvas em Liquid. Tenha cuidado ao copiar e
 | [truncate](https://shopify.dev/api/liquid/filters/truncate)    | Trunca uma string até o número de caracteres passado como primeiro parâmetro. Reticências (...) são adicionadas à string truncada e estão incluídas na contagem de caracteres.    | ✅  Sim   |
 | [truncatewords](https://shopify.dev/api/liquid/filters/truncatewords)   | Trunca uma string até o número de palavras passado como primeiro parâmetro. Reticências (...) são adicionadas à string truncada.    | ✅  Sim   |
 | [upcase](https://shopify.dev/api/liquid/filters/upcase)   | Converte uma string em maiúsculas.      | ✅  Sim   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="String filters" }
 
-## Filtros adicionais
+## Filtros adicionais {#additional-filters}
 
 Os filtros gerais a seguir servem para diversos propósitos, incluindo formatação ou conversão de conteúdo.
 
@@ -299,7 +299,7 @@ Os filtros gerais a seguir servem para diversos propósitos, incluindo formataç
 | [default](https://shopify.dev/api/liquid/filters/default)        | Define um valor padrão para qualquer variável sem valor atribuído. Pode ser usado com strings, arrays e hashes.      | ✅  Sim   |
 | [format_address](https://shopify.dev/api/liquid/filters/format_address) | Formata um endereço para exibir os elementos na ordem de acordo com a localidade.        | ⛔  Não    |
 | [highlight](https://shopify.dev/api/liquid/filters/highlight)      | Envolve palavras dentro dos resultados de pesquisa com uma tag HTML `<strong>` com a classe highlight se corresponder aos termos de pesquisa enviados. | ⛔  Não    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Additional filters" }
 
 Você pode encontrar mais filtros suportados, como filtros de codificação e URL, na nossa página de [Filtros avançados]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/).
 

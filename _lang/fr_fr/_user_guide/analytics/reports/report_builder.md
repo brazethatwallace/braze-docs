@@ -87,19 +87,19 @@ Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, 
 | Indicateur | Description |
 | --- | --- |
 | Indicateurs de conversion | Disponibles pour Campaigns, Canvas, Campaigns et Canvas. |
-| Entrées | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. |
+| Entrées | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
 | Date du dernier envoi | Disponible pour Campaigns, Canvas, Campaigns et Canvas. S'affiche uniquement pour les Campaigns planifiées — ne se remplit pas pour les Campaigns déclenchées par une action ou par l'API. |
 | Envois | Disponibles pour chaque canal pertinent. |
-| Messages envoyés | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. |
+| Messages envoyés | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
 | Ligne d'objet | Disponible pour les Campaigns e-mail avec un détail par **Variant**, les Canvas et les Canvas avec un détail par **Variant**. |
-| Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. Non disponible avec le détail par **Channels**. |
-| Impressions uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. |
-| Destinataires uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. Non disponible avec le détail par **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
+| Impressions uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
+| Destinataires uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Variantes de message supprimées {#deleted-message-variants}
 
-Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous décomposez votre rapport par Campaigns ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les *Envois* pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par Campaign, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
+Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous décomposez votre rapport par Campaigns ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les *envois* pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par Campaign, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
 
 ## Consulter un rapport {#viewing-a-report}
 

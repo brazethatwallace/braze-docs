@@ -28,7 +28,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 ## APIの例 {#api-example}
 
 {% tabs local %}
-{% tab Create %}
+{% tab 作成 %}
 以下は、「再生回数が最も多い曲」オブジェクトを使用した `/users/track` の例です。曲のプロパティをキャプチャするために、`most_played_song` をオブジェクトとして、一連のオブジェクトプロパティとともにリストするAPIリクエストを送信します。
 
 ```json
@@ -52,7 +52,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 ```
 
 {% endtab %}
-{% tab Update %}
+{% tab 更新 %}
 既存のオブジェクトを更新するには、リクエストに `_merge_objects` パラメーターを含めたPOSTを `users/track` に送信します。これにより、更新内容が既存のオブジェクトデータとディープマージされます。ディープマージにより、最初のレベルだけでなく、オブジェクトのすべてのレベルが別のオブジェクトにマージされます。この例では、Brazeにすでに `most_played_song` オブジェクトがあり、`most_played_song` オブジェクトに新しいフィールド `year_released` を追加します。
 
 ```json
@@ -90,7 +90,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 {% endalert %}
 
 {% endtab %}
-{% tab Delete %}
+{% tab 削除 %}
 カスタム属性オブジェクトを削除するには、カスタム属性オブジェクトを `null` に設定して `users/track` にPOSTを送信します。
 
 ```json
@@ -285,7 +285,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 1. **データ設定** > **カスタム属性**に移動します。
 2. 階層化カスタム属性を検索します。
-3. 属性の**属性名**列で、<i class="fas fa-plus"></i> を選択してスキーマを管理します。
+3. 属性の**属性名**列で、<i class="fas fa-plus" aria-label="スキーマを管理"></i>を選択してスキーマを管理します。
 4. モーダルが表示されます。**スキーマを再生成**を選択します。
 
 スキーマが最後に再生成されてから24時間未満の場合、スキーマの再生成オプションは無効になります。スキーマの再生成では新しいオブジェクトのみが検出され、スキーマに現在存在するオブジェクトは削除されません。
@@ -326,7 +326,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 このユーザーは対象となります。最初のフィルターは「Shoes」アイテム（80 > 50）に一致し、2番目のフィルターは「Hat」アイテム（25 < 30）に一致するためです。単一のアイテムが両方の条件を満たしていなくても、ユーザーはSegmentに入ります。
 
-配列内の同じアイテムにすべての条件を一致させる必要がある場合は、同じパスで[マルチクライテリアセグメンテーション](#multi-criteria-segmentation)を使用するか、クロスアイテムマッチングを避けるようにデータを再構成してください。
+配列内の同じアイテムにすべての条件を一致させる必要がある場合は、同じパスで[マルチクライテリアセグメンテーション]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation)を使用するか、クロスアイテムマッチングを避けるようにデータを再構成してください。
 
 ## データポイント {#data-points}
 

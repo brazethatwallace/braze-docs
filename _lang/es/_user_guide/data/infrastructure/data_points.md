@@ -113,7 +113,7 @@ Las tablas siguientes tienen carácter ilustrativo. Para conocer las convencione
 | Twitter | Siguiendo |
 | Twitter | Número de tweets |
 | Facebook | Me gusta |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Puntos de datos no facturables (predeterminado)" }
 
 {% endtab %}
 {% tab Billable %}
@@ -167,7 +167,7 @@ table td {
 | Asignación de cohortes de Appsflyer | Todas las asignaciones | |
 | Ubicación más reciente | Todas las ubicaciones más recientes | Entrar o salir de geovallas no registra puntos de datos porque los datos de geovalla no se almacenan en el perfil de usuario. Las geovallas son monitorizadas por los servicios de ubicación de Apple y Google; Braze solo recibe una notificación cuando un usuario activa una geovalla. |
 | Twitter | Nombre de usuario | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Puntos de datos facturables" }
 
 {% endtab %}
 {% endtabs %}

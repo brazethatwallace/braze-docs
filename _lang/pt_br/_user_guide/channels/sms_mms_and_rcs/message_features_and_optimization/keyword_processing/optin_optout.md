@@ -29,7 +29,7 @@ Quer expandir o processamento de descadastramento? Experimente o [descadastramen
 | Opt-in | `START`<br> `YES`<br> `UNSTOP` | Qualquer solicitação recebida com uma dessas palavras-chave de `Opt-In` resultará em uma alteração do estado do grupo de inscrições para `subscribed`. Além disso, o conjunto de remetentes associados a esse grupo de inscrições poderá enviar mensagens SMS, MMS ou RCS para esse cliente (dependendo do tipo de envio de mensagens compatível com os remetentes). <br><br>O usuário receberá sua resposta automática de opt-in definida. |
 | Descadastramento | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | Qualquer solicitação recebida com uma dessas palavras-chave de `Opt-Out` resultará em uma alteração do estado do grupo de inscrições para `unsubscribed`. Além disso, o conjunto de números associados a esse grupo de inscrições não poderá mais enviar mensagens para esse cliente.<br><br>O usuário receberá sua resposta automática de descadastramento definida. |
 | Ajuda | `HELP`<br> `INFO` | O usuário receberá sua resposta automática de ajuda definida. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default keywords" }
 
 Apenas a **mensagem exata de uma única palavra** será processada (sem distinção entre maiúsculas e minúsculas). Palavras-chave como `STOP PLEASE` serão ignoradas, a menos que o [descadastramento aproximado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/) esteja ativado.
 

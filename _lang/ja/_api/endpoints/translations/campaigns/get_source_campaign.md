@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Campaignの翻訳タグのデフォルトソース値を表示する"
 article_title: "GET: Campaignの翻訳タグのデフォルトソース値を表示する"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 3
 
 layout: api_page
@@ -35,7 +35,7 @@ description: "この記事では、Campaignの翻訳ソースエンドポイン�
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。|
 | `locale_id` | オプション | 文字列 | 応答をフィルタリングするためのロケールUUID。|
 | `post_launch_draft_version` | オプション | ブール値 | `true`の場合、最新の公開済みライブバージョンではなく、最新の下書きバージョンを返します。デフォルトは`false`で、最新のライブバージョンを返します。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。

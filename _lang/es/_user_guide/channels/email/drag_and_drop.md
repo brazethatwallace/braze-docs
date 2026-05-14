@@ -18,7 +18,8 @@ tool:
 
 El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como los dos componentes clave para simplificar tu flujo de trabajo, sin necesidad de usar HTML adicional.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="Acerca del editor" style="width: 100%; table-layout: fixed;">
+    <caption>Componentes del editor: contenido y filas</caption>
     <tr>
         <th style="width: 50%;">Contenido</th>
         <th style="width: 50%;">Filas</th>
@@ -32,7 +33,7 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Acerca del editor" }
 
 ### Contenido {#content}
 
@@ -104,11 +105,11 @@ La experiencia de edición de arrastrar y soltar se divide en tres secciones: **
 Cuando estés listo, usa los bloques de contenido de arrastrar y soltar para construir tu correo electrónico.
 
 1. Selecciona el panel **Rows**. Arrastra y suelta las configuraciones de filas en el editor principal. Esto definirá el diseño del contenido de tu correo electrónico.
-- Ten en cuenta que las nuevas configuraciones deben arrastrarse a la parte superior o inferior de una sección existente.
-- Cuando selecciones una configuración de fila, aparecerán los ajustes de **Row Properties** para una mayor personalización de los colores de fondo de la fila, imágenes y tamaños de columna personalizados.
+   - Ten en cuenta que las nuevas configuraciones deben arrastrarse a la parte superior o inferior de una sección existente.
+   - Cuando selecciones una configuración de fila, aparecerán los ajustes de **Row Properties** para una mayor personalización de los colores de fondo de la fila, imágenes y tamaños de columna personalizados.
 2. Selecciona el panel **Content**. Arrastra y suelta los mosaicos de contenido deseados en los componentes de fila.
-- También puedes arrastrar cualquiera de los mosaicos de **Content** al editor principal. Esto crea una fila para el mosaico.
-- Puedes refinar aún más el mosaico seleccionándolo y ajustando los campos en **Content Properties** y **Block Options**. Esto incluye editar el espaciado entre letras, el relleno, la altura de línea y más.
+   - También puedes arrastrar cualquiera de los mosaicos de **Content** al editor principal. Esto crea una fila para el mosaico.
+   - Puedes refinar aún más el mosaico seleccionándolo y ajustando los campos en **Content Properties** y **Block Options**. Esto incluye editar el espaciado entre letras, el relleno, la altura de línea y más.
 
 Consulta [Otras personalizaciones](#other-customizations) para conocer otras formas de personalizar aún más tu correo electrónico de arrastrar y soltar.
 
@@ -191,7 +192,8 @@ El motor subyacente que produce HTML a partir del editor de arrastrar y soltar h
 El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a una carga y renderizado más rápidos, menor recorte en dispositivos móviles y menor consumo de ancho de banda.
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
-- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table>`
+- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Use Inbox Vision">`
+  <caption>Use Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido
@@ -301,7 +303,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `meta` | Proporciona metadatos como la descripción de la página o palabras clave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Establece el título del documento que se muestra en las pestañas del navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Etiqueta | Atributo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
@@ -319,7 +321,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `style` | `type` | Tipo MIME del contenido de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica el medio o dispositivo para el que se aplican los estilos. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sin atributos | La etiqueta `title` no acepta ningún atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Los nombres de los enlaces pueden tener hasta 63 bytes y se truncan automáticamente si exceden el límite.

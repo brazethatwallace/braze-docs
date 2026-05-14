@@ -1,6 +1,6 @@
 ---
 nav_title: "API-Übersicht"
-article_title: API-Übersicht
+article_title: "API-Übersicht"
 page_order: 2.1
 description: "Dieser Referenzartikel behandelt die API-Grundlagen, einschließlich dessen, was eine REST API ist, die Terminologie und eine Übersicht über API-Schlüssel."
 page_type: reference
@@ -27,7 +27,7 @@ alias: /api/api_key/
 | [Abo-Gruppen]({{site.baseurl}}/api/endpoints/subscription_groups/) | Auflistung und Update der im Braze-Dashboard gespeicherten Abo-Gruppen (SMS und E-Mail). |
 | [Templates]({{site.baseurl}}/api/endpoints/templates/)                     | Erstellen und aktualisieren Sie Templates für E-Mail-Messaging und Content Blocks.                   |
 | [Nutzerdaten]({{site.baseurl}}/api/endpoints/user_data/)                     | Identifizieren, tracken und verwalten Sie Ihre Nutzer:innen.                                               |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze REST API-Sammlung" }
 
 ## API-Definitionen {#api-definitions}
 
@@ -39,8 +39,8 @@ Braze verwaltet eine Reihe von verschiedenen Instanzen für unser Dashboard und 
 
 Um Ihren REST-Endpunkt in Braze zu finden:
 
-1. Melden Sie sich bei Braze an und navigieren Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**.
-2. Wählen Sie einen vorhandenen API-Schlüssel aus oder klicken Sie auf **API-Schlüssel erstellen**, um einen neuen Schlüssel zu generieren.
+1. Melden Sie sich bei Braze an und navigieren Sie zu **Settings** > **APIs and Identifiers** > **API Keys**.
+2. Wählen Sie einen vorhandenen API-Schlüssel aus oder klicken Sie auf **Create API Key**, um einen neuen Schlüssel zu generieren.
 3. Kopieren Sie den auf diesem Tab angezeigten REST-Endpunkt und verwenden Sie diesen Endpunkt für Ihre API-Anfragen.
 
 {% alert important %}
@@ -80,8 +80,8 @@ Neben den REST-API-Schlüsseln gibt es auch Bezeichner-Schlüssel, mit denen Sie
 
 So erstellen Sie einen neuen REST-API-Schlüssel:
 
-1. Gehen Sie zu **Einstellungen** > **APIs und Bezeichner**.
-2. Wählen Sie **API-Schlüssel erstellen**.
+1. Gehen Sie zu **Settings** > **APIs and Identifiers**.
+2. Wählen Sie **Create API Key**.
 3. Geben Sie Ihrem neuen Schlüssel einen Namen, um ihn auf einen Blick identifizieren zu können.
 4. Geben Sie [die zulässigen IP-Adressen](#api-ip-allowlisting) und Subnetze für den neuen Schlüssel an.
 5. Wählen Sie aus, welche [Berechtigungen](#rest-api-key-permissions) mit Ihrem neuen Schlüssel verknüpft werden sollen.
@@ -92,7 +92,7 @@ Beachten Sie, dass Sie nach der Erstellung eines neuen API-Schlüssels den Umfan
 
 ### Berechtigungen für REST-API-Schlüssel {#rest-api-key-permissions}
 
-API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in oder einer Gruppe zuweisen können, um deren Zugriff auf bestimmte API-Aufrufe zu beschränken. Um Ihre Liste der API-Schlüssel-Berechtigungen anzuzeigen, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** und wählen Sie Ihren API-Schlüssel aus.
+API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in oder einer Gruppe zuweisen können, um deren Zugriff auf bestimmte API-Aufrufe zu beschränken. Um Ihre Liste der API-Schlüssel-Berechtigungen anzuzeigen, gehen Sie zu **Settings** > **APIs and Identifiers** und wählen Sie Ihren API-Schlüssel aus.
 
 {% tabs %}
 {% tab User Data %}
@@ -110,7 +110,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `users.external_ids.remove` | [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/) | Entfernen der externen ID von bestehenden Nutzer:innen. |
 | `users.alias.update` | [`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update/) | Aktualisieren eines Alias für bestehende Nutzer:innen. |
 | `users.export.global_control_group` | [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) | Abfragen von Nutzerprofil-Informationen in der globalen Kontrollgruppe. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
  {% endtab %}
  {% tab Email %}
@@ -123,7 +123,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `email.bounce.remove` | [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/) | Entfernen von E-Mail-Adressen aus Ihrer Hard-Bounce-Liste. |
 | `email.spam.remove` | [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/) | Entfernen von E-Mail-Adressen aus Ihrer Spam-Liste. |
 | `email.blacklist` | [`/email/blacklist`]({{site.baseurl}}/api/endpoints/email/post_blacklist/) | E-Mail-Adressen auf die Blockliste setzen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Messages %}
@@ -136,7 +136,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `messages.schedule.delete` | [`/messages/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/) | Löschen einer geplanten Nachricht. |
 | `messages.schedule_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | Abfragen aller geplanten Broadcast-Nachrichten. |
 | `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) | Aktualisieren einer iOS Live Activity. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Campaigns %}
@@ -154,7 +154,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `sends.id.create` | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/) | Erstellen einer Sende-ID für das Tracking von Nachrichten-Blasts. |
 | `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Abfragen der URL-Details zu einer bestimmten Nachrichtenvariante in einer Campaign. |
 | `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/) | Ermöglicht das Versenden von transaktionalen Nachrichten über den Endpunkt für transaktionale Nachrichten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Canvas %}
@@ -164,13 +164,13 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `canvas.trigger.send` | [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) | Triggern des Versands eines vorhandenen Canvas. |
 | `canvas.trigger.schedule.create` | [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/) | Planen des Versands eines Canvas mit API-gesteuerter Zustellung. |
 | `canvas.trigger.schedule.update` | [`/canvas/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/) | Aktualisieren eines Canvas mit API-gesteuerter Zustellung. |
-| `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/)| Löschen eines Canvas mit API-gesteuerter Zustellung. |
-| `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |  Abfragen einer Liste von Canvases. |
+| `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/) | Löschen eines Canvas mit API-gesteuerter Zustellung. |
+| `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | Abfragen einer Liste von Canvases. |
 | `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Abfragen von Canvas-Analytics über einen bestimmten Zeitraum. |
 | `canvas.details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | Abfragen von Details zu einem bestimmten Canvas. |
 | `canvas.data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | Abfragen von aggregierten Canvas-Analytics über einen bestimmten Zeitraum. |
 | `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias/) | Abfragen der URL-Details zu einer bestimmten Nachrichtenvariante in einem Canvas-Schritt. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Segments %}
@@ -180,7 +180,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | Abfragen einer Liste von Segmenten. |
 | `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Abfragen von Segment-Analytics über einen bestimmten Zeitraum. |
 | `segments.details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | Abfragen von Details zu einem bestimmten Segment. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Purchases %}
@@ -190,7 +190,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `purchases.product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | Abfragen einer Liste von Produkten, die in Ihrer App gekauft wurden. |
 | `purchases.revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | Abfragen des Gesamtbetrags, der über einen bestimmten Zeitraum pro Tag in Ihrer App ausgegeben wurde. |
 | `purchases.quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | Abfragen der Gesamtzahl der Käufe pro Tag in Ihrer App über einen bestimmten Zeitraum. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Events %}
@@ -199,7 +199,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 |---|---|---|
 | `events.list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | Abfragen einer Liste angepasster Events. |
 | `events.data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | Abfragen von Vorkommen eines angepassten Events über einen bestimmten Zeitraum. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Sessions %}
@@ -207,18 +207,18 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | Berechtigung | Endpunkt | Beschreibung |
 |---|---|---|
 | `sessions.data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | Abfragen der Sitzungen pro Tag über einen bestimmten Zeitraum. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab KPIs %}
 
 | Berechtigung | Endpunkt | Beschreibung |
 |---|---|---|
-| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |  Abfragen von eindeutigen aktiven Nutzer:innen pro Tag über einen bestimmten Zeitraum. |
+| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | Abfragen von eindeutigen aktiven Nutzer:innen pro Tag über einen bestimmten Zeitraum. |
 | `kpi.mau.data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | Abfragen der Gesamtzahl eindeutiger aktiver Nutzer:innen über ein fortlaufendes Zeitfenster von 30 Tagen in einem bestimmten Zeitbereich. |
 | `kpi.new_users.data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | Abfragen von neuen Nutzer:innen pro Tag über einen bestimmten Zeitraum. |
 | `kpi.uninstalls.data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | Abfragen von App-Deinstallationen pro Tag über einen bestimmten Zeitraum. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Templates %}
@@ -229,15 +229,15 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `templates.email.info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | Abfragen von Informationen zu einem bestimmten Template. |
 | `templates.email.list` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | Abfragen einer Liste der E-Mail-Templates. |
 | `templates.email.update` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | Aktualisieren eines im Dashboard gespeicherten E-Mail-Templates. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SSO %}
 
 | Berechtigung | Beschreibung |
-| --- | --- |
+|---|---|
 | `sso.saml.login` | Richten Sie die vom Identitätsanbieter initiierte Anmeldung ein. Weitere Informationen finden Sie unter [Anmeldung durch den Service Provider (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Content Blocks %}
@@ -248,7 +248,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `content_blocks.list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | Abfragen einer Liste der Content Blocks. |
 | `content_blocks.create` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | Erstellen eines neuen Content-Blocks im Dashboard. |
 | `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | Aktualisieren eines bestehenden Content-Blocks im Dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Preference Center %}
@@ -259,7 +259,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `preference_center.list` | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | Auflisten von Präferenzzentren. |
 | `preference_center.update` | [`/preference_center/v1`]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/)<br><br>[`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/) | Erstellen oder Aktualisieren eines Präferenzzentrums. |
 | `preference_center.user.get` | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) | Abrufen eines Links zum Präferenzzentrum für eine:n Nutzer:in. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Subscription %}
@@ -269,7 +269,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `subscription.status.set` | [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) | Abo-Gruppenstatus festlegen. |
 | `subscription.status.get` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | Abrufen des Abo-Gruppenstatus. |
 | `subscription.groups.get` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | Abrufen des Status von Abo-Gruppen, bei denen bestimmte Nutzer:innen explizit angemeldet oder abgemeldet sind. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SMS %}
@@ -278,7 +278,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 |---|---|---|
 | `sms.invalid_phone_numbers` | [`/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/) | Abfragen von ungültigen Telefonnummern. |
 | `sms.invalid_phone_numbers.remove` | [`/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/) | Entfernen der Kennzeichnung für ungültige Telefonnummern von Nutzer:innen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Catalogs %}
@@ -298,7 +298,7 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `catalogs.delete` | [`/catalogs/{catalog_name}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/delete_catalog/) | Löschen eines Katalogs. |
 | `catalogs.get_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | Abrufen von Artikelvorschauen aus einem bestehenden Katalog. |
 | `catalogs.replace_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/) | Ersetzen von Artikeln in einem bestehenden Katalog. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SDK Authentication %}
@@ -309,33 +309,33 @@ API-Schlüssel-Berechtigungen sind Berechtigungen, die Sie einem/einer Nutzer:in
 | `sdk_authentication.primary` | [`/app_group/sdk_authentication/primary`]({{site.baseurl}}/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key/) | Markieren eines SDK-Authentifizierungsschlüssels als Primärschlüssel für Ihre App. |
 | `sdk_authentication.delete` | [`/app_group/sdk_authentication/delete`]({{site.baseurl}}/api/endpoints/sdk_authentication/delete_sdk_authentication_key/) | Löschen eines SDK-Authentifizierungsschlüssels für Ihre App. |
 | `sdk_authentication.keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | Abrufen aller SDK-Authentifizierungsschlüssel für Ihre App. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% endtabs %}
 
 ### REST-API-Schlüssel verwalten {#managing-rest-api-keys}
 
-Unter **Einstellungen** > **APIs und Bezeichner** > Tab **API-Schlüssel** können Sie Details zu vorhandenen REST-API-Schlüsseln einsehen oder diese löschen. Beachten Sie, dass Sie REST-API-Schlüssel nach ihrer Erstellung nicht mehr bearbeiten können.
+Unter **Settings** > **APIs and Identifiers** > Tab **API Keys** können Sie Details zu vorhandenen REST-API-Schlüsseln einsehen oder diese löschen. Beachten Sie, dass Sie REST-API-Schlüssel nach ihrer Erstellung nicht mehr bearbeiten können.
 
-Der Tab **API-Schlüssel** enthält die folgenden Informationen für jeden Schlüssel:
+Der Tab **API Keys** enthält die folgenden Informationen für jeden Schlüssel:
 
 | Feld        | Beschreibung                                                                                                         |
 | ------------ | :------------------------------------------------------------------------------------------------------------------ |
-| API-Schlüsselname | Der Name, der dem Schlüssel bei der Erstellung gegeben wurde.                                                                            |
-| Bezeichner   | Der API-Schlüssel.                                                                                                        |
-| Erstellt von   | Die E-Mail-Adresse des/der Nutzer:in, der/die den Schlüssel erstellt hat. Dieses Feld wird für Schlüssel, die vor Juni 2023 erstellt wurden, als „N/A“ angezeigt. |
-| Erstellungsdatum | Das Datum, an dem dieser Schlüssel erstellt wurde.                                                                                      |
-| Zuletzt gesehen    | Das Datum, an dem dieser Schlüssel zuletzt verwendet wurde. Dieses Feld wird für Schlüssel, die noch nie verwendet wurden, als „N/A“ angezeigt.                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| API Key Name | Der Name, der dem Schlüssel bei der Erstellung gegeben wurde.                                                                            |
+| Identifier   | Der API-Schlüssel.                                                                                                        |
+| Created By   | Die E-Mail-Adresse des/der Nutzer:in, der/die den Schlüssel erstellt hat. Dieses Feld wird für Schlüssel, die vor Juni 2023 erstellt wurden, als „N/A“ angezeigt. |
+| Date Created | Das Datum, an dem dieser Schlüssel erstellt wurde.                                                                                      |
+| Last Seen    | Das Datum, an dem dieser Schlüssel zuletzt verwendet wurde. Dieses Feld wird für Schlüssel, die noch nie verwendet wurden, als „N/A“ angezeigt.                  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Managing REST API keys" }
 
-Um die Details eines API-Schlüssels anzuzeigen, bewegen Sie den Mauszeiger über den Schlüssel und wählen Sie <i class="fa-solid fa-eye" alt="View"></i> **Anzeigen**. Hier sehen Sie alle Berechtigungen dieses Schlüssels, die IPs auf der Whitelist (falls vorhanden) und ob dieser Schlüssel in die IP-Whitelist von Braze aufgenommen wurde.
+Um die Details eines API-Schlüssels anzuzeigen, bewegen Sie den Mauszeiger über den Schlüssel und wählen Sie <i class="fa-solid fa-eye" alt="View"></i> **View**. Hier sehen Sie alle Berechtigungen dieses Schlüssels, die IPs auf der Whitelist (falls vorhanden) und ob dieser Schlüssel in die IP-Whitelist von Braze aufgenommen wurde.
 
 ![Die Liste der API-Schlüssel-Berechtigungen im Braze-Dashboard.]({% image_buster /assets/img_archive/view-api-key.png %})
 
-Beachten Sie, dass Braze beim [Löschen eines/einer Nutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) die zugehörigen API-Schlüssel, die diese Person erstellt hat, nicht löscht. Um einen Schlüssel zu löschen, bewegen Sie den Mauszeiger über den Schlüssel und wählen Sie <i class="fa-solid fa-trash-can" alt="Delete"></i> **Löschen**.
+Beachten Sie, dass Braze beim [Löschen eines/einer Nutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/) die zugehörigen API-Schlüssel, die diese Person erstellt hat, nicht löscht. Um einen Schlüssel zu löschen, bewegen Sie den Mauszeiger über den Schlüssel und wählen Sie <i class="fa-solid fa-trash-can" alt="Delete"></i> **Delete**.
 
-![Ein API-Schlüssel mit dem Namen „Last Seen“, wobei das Papierkorbsymbol hervorgehoben ist und „Löschen“ anzeigt.]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
+![Ein API-Schlüssel mit dem Namen „Last Seen“, wobei das Papierkorbsymbol hervorgehoben ist und „Delete“ anzeigt.]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
 
 ### Sicherheit von REST-API-Schlüsseln {#rest-api-key-security}
 
@@ -359,8 +359,8 @@ REST-API-Schlüssel und SDK-API-Schlüssel haben unterschiedliche Sicherheitspro
 |---|---|---|
 | Zweck | Serverseitige Authentifizierung für die REST API (Nachrichten senden, Daten exportieren, Nutzer:innen verwalten) | Clientseitige Identifikation für das Braze SDK (Datenaufnahme, In-App-Nachrichten, Content Cards) |
 | Sichtbarkeit | **Muss privat bleiben**. Niemals in clientseitigem Code, öffentlichen Repositories oder Nutzeranwendungen preisgeben. | Für die öffentliche Nutzung konzipiert. Wird in Ihrem App-Binary gebündelt oder ist im JavaScript des Webbrowsers sichtbar, ähnlich einer Google-Analytics-Tracking-ID. |
-| Lösung bei Preisgabe | Widerrufen Sie den Schlüssel sofort und erstellen Sie einen Ersatz unter **Einstellungen** > **APIs und Bezeichner** > **API-Schlüssel**. Ein preisgegebener REST-API-Schlüssel kann zum Senden von Nachrichten, Exportieren von Nutzerdaten oder Ändern von Kontoeinstellungen verwendet werden. | Keine Maßnahme erforderlich. Ein SDK-API-Schlüssel kann nur Daten aufnehmen und clientseitiges Messaging abrufen (wie In-App-Nachrichten und Content Cards). Er kann keine Nutzerdaten exportieren, keine Nachrichten in Ihrem Namen senden oder Campaigns ändern. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Lösung bei Preisgabe | Widerrufen Sie den Schlüssel sofort und erstellen Sie einen Ersatz unter **Settings** > **APIs and Identifiers** > **API Keys**. Ein preisgegebener REST-API-Schlüssel kann zum Senden von Nachrichten, Exportieren von Nutzerdaten oder Ändern von Kontoeinstellungen verwendet werden. | Keine Maßnahme erforderlich. Ein SDK-API-Schlüssel kann nur Daten aufnehmen und clientseitiges Messaging abrufen (wie In-App-Nachrichten und Content Cards). Er kann keine Nutzerdaten exportieren, keine Nachrichten in Ihrem Namen senden oder Campaigns ändern. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sicherheit von REST-API-Schlüsseln und SDK-API-Schlüsseln" }
 
 ### API-IP-Allowlisting {#api-ip-allowlisting}
 
@@ -402,7 +402,7 @@ REST-API-Anfragen an Braze werden über den gesamten Anfragepfad hinweg durch TL
 | 3 | Netzwerk-Lastenausgleich (NLB) | Leitet Pakete an die Anwendungsinfrastruktur weiter. NLBs arbeiten auf Layer 4, d. h. es findet kein Layer-7-Proxying statt. Pakete werden ohne Überprüfung oder Änderung auf HTTP-Ebene weitergeleitet. |
 | 4 | NGINX-Ingress | Beendet die interne TLS-Verbindung und leitet die Anfrage weiter. |
 | 5 | Unicorn (Anwendungsserver) | Verarbeitet die authentifizierte Anfrage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sicherheit auf Netzwerkebene" }
 
 Die TLS-Verschlüsselung umfasst jede Verbindung in der Kette. Ihr Server stellt über TLS eine Verbindung zu Cloudflare her, und Cloudflare baut über den NLB eine separate TLS-Verbindung zum NGINX-Ingress auf, sodass Ihr API-Schlüssel und Ihre Anfragedaten während der Übertragung verschlüsselt bleiben.
 

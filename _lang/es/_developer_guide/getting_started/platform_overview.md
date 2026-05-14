@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"} Primeros pasos: Resumen de la plataforma {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}Primeros pasos: Resumen de la plataforma {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > En este artículo se cubren las partes básicas y las capacidades de la plataforma Braze. Los enlaces de este artículo conectan con temas esenciales de Braze.
 
@@ -92,7 +92,7 @@ Después de definir un segmento, las herramientas de mensajería de Braze te per
 | [Notificación push web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | Envía notificaciones al navegador web, aunque tus usuarios no estén activos en tu sitio. |
 | [Webhooks]({{site.baseurl}}/about_webhooks/) | Utiliza webhooks para desencadenar acciones no relacionadas con la aplicación, proporcionando a otros sistemas y aplicaciones datos en tiempo real. |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | Conecta directamente con tus usuarios y clientes aprovechando la popular plataforma de mensajería entre iguales: WhatsApp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mensajería multicanal" }
 
 <sup>*Disponible como característica adicional.*</sup>
 
@@ -101,7 +101,7 @@ Después de definir un segmento, las herramientas de mensajería de Braze te per
 {% gallery %}
 {{site.baseurl}}/assets/img/getting-started/crawl-example.png <br> Todos los componentes de Braze están diseñados para ser accesibles, adaptables y personalizables. Puedes empezar con Braze utilizando los componentes predeterminados de `BrazeUI` y personalizándolos para adaptarlos a las necesidades de tu marca y a tus casos de uso.
 {{site.baseurl}}/assets/img/getting-started/walk-example.png <br> Para ir más allá de las opciones predeterminadas, puedes escribir código personalizado para actualizar el aspecto de un canal de mensajería para que se ajuste más a tu marca. Esto incluye cambiar el tipo de letra, el tamaño de letra y los colores de un componente. Los especialistas en marketing mantienen el control de la audiencia, el contenido, el comportamiento al hacer clic y la caducidad directamente en el dashboard de Braze.
-{{site.baseurl}}/assets/img/getting-started/run-example.png <br> También puedes crear componentes completamente personalizados para controlar el aspecto de tu mensajería, cómo se comporta y cómo interactúan con otros canales de mensajería (por ejemplo, desencadenar una Content Card basada en una notificación push). Braze proporciona métodos del SDK que te permiten registrar métricas como impresiones, clics y descartes en el dashboard de Braze. Cada canal de mensajería dispone de un artículo de análisis para facilitar esta tarea.
+{{site.baseurl}}/assets/img/getting-started/run-example.png <br> También puedes crear componentes completamente personalizados para controlar el aspecto de tu mensajería, cómo se comporta y cómo interactúa con otros canales de mensajería (por ejemplo, desencadenar una Content Card basada en una notificación push). Braze proporciona métodos del SDK que te permiten registrar métricas como impresiones, clics y descartes en el dashboard de Braze. Cada canal de mensajería dispone de un artículo de análisis para facilitar esta tarea.
 {% endgallery %}
 
 <br>
@@ -128,4 +128,4 @@ Como recurso técnico, participarás en muchos de los aspectos prácticos de Bra
 | [Registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs/) | Braze tiene lanzamientos mensuales predecibles, además de lanzamientos para cualquier problema crítico y actualizaciones importantes del SO. |
 | [Colección Postman de la API de Braze](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Descarga aquí nuestra colección de Postman.  |
 | [Monitor de estado del sistema Braze](https://braze.statuspage.io/) | Nuestra página de estado se actualiza siempre que hay incidentes o interrupciones. Ve a esta página para suscribirte a las alertas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Recursos para marcar" }

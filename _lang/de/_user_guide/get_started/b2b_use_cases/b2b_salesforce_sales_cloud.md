@@ -149,10 +149,10 @@ Wählen Sie **+ Add New Header** für jeden der folgenden Anfrage-Header.
 
 Sie können Ihre Templates schnell zu Ihren operativen Workflows in Braze hinzufügen, z. B.:
 
-1. Als Teil einer [Kampagne für neue Leads](#new-lead), die einen Lead in Salesforce erstellt
+1. Als Teil einer [Campaign für neue Leads](#new-lead), die einen Lead in Salesforce erstellt
 2. Als Teil eines [Lead-Scoring-Canvas](#lead-scoring), der Nutzer:innen, die Ihren MQL-Schwellenwert überschritten haben, auf „MQL“ aktualisiert und Salesforce Sales Cloud mit denselben Informationen aktualisiert
 
-### Kampagne für neue Leads {#new-lead}
+### Campaign für neue Leads {#new-lead}
 
 Um einen Lead in Salesforce zu erstellen, wenn Nutzer:innen ihre E-Mail-Adresse angeben, können Sie eine Campaign erstellen, die das Webhook-Template „Update Lead“ verwendet und getriggert wird, wenn Nutzer:innen ihre E-Mail-Adresse hinzufügen (z. B. ein Webformular ausfüllen).
 

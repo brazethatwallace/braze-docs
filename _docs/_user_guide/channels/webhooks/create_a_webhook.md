@@ -97,7 +97,7 @@ The HTTP method you should use varies depending on the endpoint to which you are
 | GET | Retrieves existing information, as opposed to writing new information. By definition, a GET request does not support a request body. |
 | PUT | Updates information on the endpoint, replacing any existing information with what's in the request body. |
 | DELETE | Deletes the resource in the HTTP URL. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### Request body
 
@@ -230,7 +230,7 @@ When the webhook request is sent, the receiving server will return a response co
 | `429` (rate limited)  | No | Yes |
 | `Other 4XX` (client error)  | No | No |
 | `5XX` (server error)   | No | Yes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze retries the above status codes up to five times within 30 minutes using exponential backoff. If we can't reach your endpoint, retries may be spread over a 24-hour period.<br><br>Each webhook is allowed 90 seconds before it times out.

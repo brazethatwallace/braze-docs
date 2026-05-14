@@ -2,10 +2,11 @@
 #
 # Triggers:
 #   - pull_request merged into main whose head branch is nightly snapshot
-#     `auto-deploy-*` (opened by Nightly Release Deploy — see nightly-deploy.yml)
-#     Files to translate come from merge_commit_sha versus its first parent, so the
-#     batch matches whatever English shipped in that deploy PR (not arbitrary main
-#     pushes or stale develop-only diff windows).
+#     `auto-deploy-*` and that PR carries the `Deploy` label (both are set when
+#     Nightly Release Deploy opens the PR — see nightly-deploy.yml). This excludes
+#     unrelated merges into main. Files to translate come from merge_commit_sha
+#     versus its first parent, so the batch matches whatever English shipped in that
+#     deploy PR (not arbitrary main pushes or stale develop-only diff windows).
 #   - workflow_dispatch for catch-up (`since_commit`, `files`), auto stale
 #     detection when both are empty, or orphan-only
 #
@@ -23,6 +24,12 @@
 #      runs and fails, merge-and-publish fails so the run is red (no silent
 #      “success” without a PR).
 #   4. Open one PR targeting develop with all locales
+#
+# Optional Slack (bot token): use the same secrets as Nightly Release Deploy —
+# SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL (channel ID, e.g. C0123…).
+# Invite the bot to the channel. Notifies on success and failure for runs that
+# execute prepare (skipped runs from unrelated PR merges to main post nothing).
+# If secrets are unset, notifications are skipped.
 name: Auto-translate
 
 on:
@@ -91,7 +98,8 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' &&
        github.event.pull_request.merged == true &&
-       startsWith(github.event.pull_request.head.ref, 'auto-deploy-'))
+       startsWith(github.event.pull_request.head.ref, 'auto-deploy-') &&
+       contains(github.event.pull_request.labels.*.name, 'Deploy'))
     runs-on: ubuntu-latest
     outputs:
       count: ${{ steps.changes.outputs.count }}
@@ -272,6 +280,9 @@ jobs:
     if: ${{ needs.prepare.result == 'success' && needs.prepare.outputs.count != '0' && needs.translate-locale.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pull-request-number }}
+      pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -313,7 +324,7 @@ jobs:
         run: python scripts/auto_translate.py check-path-case-collisions
 
       # Matrix locales can diverge on explicit `{#id}` tails when English omits
-      # them but one translation adds a stable fragment (Copilot / PR #13394).
+      # them but one translation adds a stable fragment (PR #13394).
       # Uses translation_results.json so only this run's paths are touched.
       - name: Align heading anchor parity across locales
         if: steps.merge-artifacts.outcome == 'success'
@@ -343,10 +354,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: auto-translate/${{ github.run_id }}
           base: develop
-          title: >-
-            ${{ github.event_name == 'pull_request' &&
-            concat('Auto-translations — nightly deploy PR #', github.event.pull_request.number) ||
-            'Auto-translations — manual run' }}
+          # Quote the YAML value — unquoted '#' after a space starts a YAML comment,
+          # which truncates this line and breaks the '${{ }}' expression (#13594).
+          title: "${{ github.event_name == 'pull_request' && format('Auto-translations — nightly deploy PR #{0}', github.event.pull_request.number) || 'Auto-translations — manual run' }}"
           body-path: translation_pr_body.md
           labels: |
             auto-translation
@@ -356,28 +366,6 @@ jobs:
           add-paths: |
             _lang/
 
-      - name: Request Copilot review
-        if: ${{ steps.merge-artifacts.outcome == 'success' && (steps.orphan.outcome == 'success' || steps.orphan.outcome == 'skipped') && (steps.aliases.outcome == 'success' || steps.aliases.outcome == 'skipped') && steps.create-pr.outputs.pull-request-number }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
-          REPO: ${{ github.repository }}
-        run: |
-          set +e
-          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
-            echo "Requested Copilot review via gh CLI shortcut."
-            exit 0
-          fi
-          echo "gh CLI shortcut failed; falling back to REST API bot login..."
-          if gh api --method POST \
-            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
-            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
-            echo "Requested Copilot review via REST API fallback."
-            exit 0
-          fi
-          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
-
   # --------------------------------------------------------------------------
   # Orphan cleanup only (no translation; after batched catch-up)
   # --------------------------------------------------------------------------
@@ -386,6 +374,9 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.orphan_cleanup_only == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    outputs:
+      pr_number: ${{ steps.create-pr.outputs.pull-request-number }}
+      pr_url: ${{ steps.create-pr.outputs.pull-request-url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -442,28 +433,6 @@ jobs:
           add-paths: |
             _lang/
 
-      - name: Request Copilot review
-        if: steps.create-pr.outputs.pull-request-number
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.create-pr.outputs.pull-request-number }}
-          REPO: ${{ github.repository }}
-        run: |
-          set +e
-          if gh pr edit "$PR_NUMBER" --repo "$REPO" --add-reviewer @copilot; then
-            echo "Requested Copilot review via gh CLI shortcut."
-            exit 0
-          fi
-          echo "gh CLI shortcut failed; falling back to REST API bot login..."
-          if gh api --method POST \
-            "/repos/$REPO/pulls/$PR_NUMBER/requested_reviewers" \
-            -f "reviewers[]=copilot-pull-request-reviewer[bot]"; then
-            echo "Requested Copilot review via REST API fallback."
-            exit 0
-          fi
-          echo "::warning::Could not request Copilot review. PR $PR_NUMBER is open; add reviewer manually if needed."
-
   report-failures:
     needs: [prepare, translate-locale, merge-and-publish]
     if: |
@@ -485,3 +454,86 @@ jobs:
           echo "  translate-locale:   ${{ needs.translate-locale.result }}"
           echo "  merge-and-publish:  ${{ needs.merge-and-publish.result }}"
           exit 1
+
+  notify:
+    name: Slack notification
+    needs: [prepare, translate-locale, merge-and-publish, orphan-cleanup-only, report-failures]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Auto-translate result to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PREPARE_RESULT: ${{ needs.prepare.result }}
+          PREPARE_COUNT: ${{ needs.prepare.outputs.count }}
+          TRANSLATE_RESULT: ${{ needs.translate-locale.result }}
+          MERGE_RESULT: ${{ needs.merge-and-publish.result }}
+          ORPHAN_JOB_RESULT: ${{ needs['orphan-cleanup-only'].result }}
+          REPORT_RESULT: ${{ needs.report-failures.result }}
+          MERGE_PR_URL: ${{ needs.merge-and-publish.outputs.pr_url }}
+          MERGE_PR_NUMBER: ${{ needs.merge-and-publish.outputs.pr_number }}
+          ORPHAN_PR_URL: ${{ needs['orphan-cleanup-only'].outputs.pr_url }}
+          ORPHAN_PR_NUMBER: ${{ needs['orphan-cleanup-only'].outputs.pr_number }}
+          EVENT_NAME: ${{ github.event_name }}
+          DEPLOY_PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_DEPLOY_NOTIFY_CHANNEL:-}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL); skipping."
+            exit 0
+          fi
+
+          if [ "${PREPARE_RESULT}" = "skipped" ]; then
+            echo "Prepare skipped (not a deploy merge or not workflow_dispatch) — not posting to Slack."
+            exit 0
+          fi
+
+          FAILED=
+          if [ "${PREPARE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${ORPHAN_JOB_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${TRANSLATE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${MERGE_RESULT}" = "failure" ]; then FAILED=1; fi
+          if [ "${REPORT_RESULT}" = "failure" ]; then FAILED=1; fi
+
+          if [ -n "${FAILED}" ]; then
+            TEXT=":x: *Auto-translate* failed\n${RUN_URL}"
+          elif [ "${ORPHAN_JOB_RESULT}" = "success" ]; then
+            if [ -n "${ORPHAN_PR_URL:-}" ]; then
+              TEXT=":white_check_mark: *Auto-translate* — orphan cleanup PR opened <${ORPHAN_PR_URL}|#${ORPHAN_PR_NUMBER}>"
+            else
+              TEXT=":white_check_mark: *Auto-translate* — orphan cleanup finished (no PR opened; likely nothing to commit)\n${RUN_URL}"
+            fi
+          elif [ "${PREPARE_COUNT:-0}" = "0" ]; then
+            CONTEXT=
+            if [ "${EVENT_NAME}" = "pull_request" ] && [ -n "${DEPLOY_PR_NUMBER:-}" ]; then
+              CONTEXT=" (after nightly deploy PR #${DEPLOY_PR_NUMBER})"
+            elif [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+              CONTEXT=" (manual run)"
+            fi
+            TEXT=":white_check_mark: *Auto-translate* — no English markdown changes to translate${CONTEXT}\n${RUN_URL}"
+          elif [ "${MERGE_RESULT}" = "success" ] && [ -n "${MERGE_PR_URL:-}" ]; then
+            TEXT=":white_check_mark: *Auto-translate* — opened translation PR <${MERGE_PR_URL}|#${MERGE_PR_NUMBER}>"
+          elif [ "${MERGE_RESULT}" = "success" ]; then
+            TEXT=":white_check_mark: *Auto-translate* finished (merge job succeeded)\n${RUN_URL}"
+          else
+            TEXT="*Auto-translate* finished (${RUN_URL}) — prepare=${PREPARE_RESULT}, translate=${TRANSLATE_RESULT}, merge=${MERGE_RESULT}"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$SLACK_DEPLOY_NOTIFY_CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

@@ -218,7 +218,7 @@ Por último, una vez creada una extensión, puedes utilizarla como filtro al cre
 Campaigns
 {% endapitags %}
 
-Para crear una campaña multicanal, ve a la página **Campaigns**, selecciona **Create Campaign** y luego **Multichannel Campaign**. Cuando estés dentro de una campaña multicanal, selecciona **Add Messaging Channel** en la pestaña de composición para añadir los canales que desees. Haz clic en los iconos de canal que aparecen para alternar entre los distintos compositores de mensajes a medida que elaboras el texto de tu campaña para los distintos canales.
+Consulta [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) en **Crear una campaña** para conocer los pasos de configuración, los canales compatibles y cómo cambiar de compositor.
 
 {% endapi %}
 {% api %}
@@ -393,7 +393,7 @@ Este comportamiento de evaluación es independiente de [con cuánta antelación 
 Campaigns
 {% endapitags %}
 
-El número de usuarios que entran en una campaña puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un [desencadenante por cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios abandonen la campaña si inicialmente no forman parte de la audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran en una campaña puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un [desencadenante por cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios abandonen la campaña si inicialmente no forman parte de la audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 {% endapi %}
 {% api %}
@@ -517,7 +517,7 @@ El segmentador es una estadística más precisa para los datos de usuarios únic
 Canvases
 {% endapitags %}
 
-El número de usuarios que entran en un Canvas puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un desencadenante de [cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios abandonen el Canvas si no forman parte de la audiencia seleccionada antes de que se evalúe cualquier acción desencadenante.
+El número de usuarios que entran en un Canvas puede diferir del número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, la audiencia se evalúa antes del desencadenante (a menos que se utilice un desencadenante de [cambio de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios abandonen el Canvas si no forman parte de la audiencia seleccionada antes de que se evalúe cualquier acción desencadenante.
 
 {% endapi %}
 {% api %}
@@ -571,7 +571,7 @@ Para programar un informe de interacción recurrente, haz lo siguiente:
 
 1. En tu cuenta del dashboard, ve a **Engagement Reports**, en **Data**.
 2. Haz clic en **+ Create New Report**.
-3. Añade las [Campaigns y los mensajes de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente o [por etiqueta]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que desees compilar en tu informe.
+3. Añade las [Campaigns y los mensajes de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente o [por etiqueta]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que desees compilar en tu informe.
 4. [Añade estadísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) a tu informe.
 5. Selecciona la compresión y el delimitador para tu informe.
 6. Introduce las direcciones de correo electrónico de los usuarios de la empresa que deben recibir este informe.

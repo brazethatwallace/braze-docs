@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: APIトリガー配信を使用したCanvasメッセージの送信"
 article_title: "POST: APIトリガー配信を使用したCanvasメッセージの送信"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -16,7 +16,7 @@ description: "この記事では、APIトリガー配信を使用したCanvas送
 
 > このエンドポイントを使用して、APIトリガー配信でCanvasメッセージを送信します。
 
-APIトリガー配信を使用すると、メッセージの内容をBrazeダッシュボードに保存しながら、APIを使用してメッセージの送信タイミングと送信先を指定できます。
+APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボードに保存しながら、APIを使用してメッセージの送信タイミングと送信先を指定できます。
 
 このエンドポイントでメッセージを送信するには、[Canvas ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)（Canvasの構築時に作成されます）が必要です。
 
@@ -40,7 +40,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```json
 {
   "canvas_id": (required, string) see Canvas identifier,
-  "context": (optional, object) personalization key-value pairs that apply to all users in this request,
+  "context": (optional, object) Canvas context properties that apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if `recipients` is omitted,
   "audience": (optional, connected audience object) see connected audience,
   // Including 'audience' will only send to users in the audience
@@ -51,8 +51,8 @@ Authorization: Bearer YOUR-REST-API-KEY
       "external_user_id": (optional, string) external identifier of user to receive message,
       "email": (optional, string) email address of user to receive message,
       "prioritization": (optional, array) prioritization array; required when using email,
-      "context": (optional, object) personalization key-value pairs that apply to this user (these key-value pairs override any keys that conflict with the parent `context`)
-      "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases
+      "context": (optional, object) Canvas context properties for this user; key-value pairs override any keys that conflict with the parent `context`,
+      "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases; if set to `false`, an `attributes` object must also be included,
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }],
     ...
@@ -63,12 +63,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id`| 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-|`context`| オプション | オブジェクト | Canvasエントリプロパティが含まれます。パーソナライゼーションのキーと値のペアは、このリクエストのすべてのユーザーに適用されます。コンテキストオブジェクトは最大50KBです。 |
-|`broadcast`| オプション | ブール値 | BrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたSegment全体にメッセージを送信する場合、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
-|`audience`| オプション| 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience`を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
-|`recipients`| オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>指定されておらず、`broadcast`が`true`に設定されている場合、メッセージはBrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたSegment全体に送信されます。<br><br>`recipients`配列には最大50個のオブジェクトを含めることができ、各オブジェクトには1つの`external_user_id`文字列と`canvas_entry_properties`オブジェクトが含まれます。この呼び出しには`external_user_id`、`user_alias`、または`email`が必要です。リクエストでは1つだけ指定する必要があります。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `context` | オプション | オブジェクト | このリクエストのすべての受信者に対するCanvasコンテキストプロパティです。パーソナライゼーションのキーと値のペアは、受信者ごとの`context`でキーが上書きされない限り、すべてのユーザーに適用されます。`context`オブジェクトは最大50KBです。 |
+| `broadcast` | オプション | ブール値 | BrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたSegment全体にメッセージを送信する場合、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience`を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
+| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、受信者に`attributes`オブジェクトを含める必要があります。<br><br>指定されておらず、`broadcast`が`true`に設定されている場合、メッセージはBrazeダッシュボードでCanvasのターゲットオーディエンスとして設定されたSegment全体に送信されます。<br><br>`recipients`配列には最大50個のオブジェクトを含めることができます。各オブジェクトには`external_user_id`、`user_alias`、または`email`のいずれか1つを正確に含める必要があり、Canvasコンテキストプロパティ用の受信者ごとの`context`オブジェクトを含めることもできます（受信者ごとのキーは競合する場合に親レベルの`context`を上書きします）。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -167,7 +167,10 @@ Canvasがアーカイブされている場合、次の`notice`メッセージが
 APIトリガー配信を使用してCanvasメッセージを送信するAPI呼び出しを行う際には、以下の点を考慮してください。
 
 - **既存ユーザーへの送信**：`send_to_existing_only`が`true`（デフォルト値）に設定されている場合、メッセージはBrazeの既存ユーザーにのみ送信されます。
-- **新規ユーザーの作成**：`send_to_existing_only`が`false`に設定されている場合、`attributes`オブジェクトを含める必要があります。指定されたIDのユーザーが存在しない場合、BrazeはそのユーザーをそのIDと属性で作成してからメッセージを送信します。
+- **新規ユーザーの作成**：`send_to_existing_only`が`false`に設定されている場合、`attributes`オブジェクトを含める必要があります。指定されたIDのユーザーが存在しない場合、BrazeはそのIDと属性でユーザーを作成してからメッセージを送信します。
+- **新規プロファイルには`send_to_existing_only: false`と`attributes`が必要です。** Brazeは同じ受信者内の`attributes`オブジェクトから送信前の作成または更新を実行します。`send_to_existing_only`を`false`に設定しても`attributes`を省略した場合（または空のオブジェクトを送信した場合）、Brazeは同じ方法でプロファイルデータをハイドレートしないため、このパターンが意図する「ユーザーを作成または更新してから送信する」動作は得られません。
+- **メールとSMSのアドレス指定：** まだBrazeに存在しないユーザーへのメールまたはSMSのAPIトリガー送信のほとんどでは、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、サブスクリプショングループのメンバーシップやサブスクリプションステータスもそこで設定できます。
+- **Canvasの適格性：** プロファイルが存在または更新された後も、そのユーザーはCanvasのダッシュボードターゲットオーディエンスとチャネル送信ルール（例：メールのオプトイン済み）に一致する必要があります。一致しない場合、Brazeはメッセージを送信しません。
 - **ユーザーエイリアスの制限**：`send_to_existing_only`フラグはユーザーエイリアスでは使用できません。エイリアスのみのユーザーに送信するには、そのユーザーがすでにBrazeに存在している必要があります。
 - **Segmentターゲティング**：このエンドポイントでは`segment_id`パラメーターはサポートされていません。Segmentをターゲットにするには、BrazeダッシュボードのCanvasのターゲットオーディエンス設定でSegmentを設定し、`broadcast: true`を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで`audience`パラメーターを使用します。
 - **複合ターゲティング**：`recipients`パラメーターを含め、かつダッシュボードでターゲットSegmentを設定した場合、メッセージはAPI呼び出しで指定されたユーザープロファイルのうち、Segmentのフィルターにも一致するものにのみ送信されます。

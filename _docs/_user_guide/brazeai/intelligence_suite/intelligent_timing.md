@@ -147,7 +147,7 @@ The chart shows users who had relevant events to calculate an optimal time in bl
 
 In your Canvas, add a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), then go to **Delivery Settings** and select **Using Intelligent Timing**.
 
-Messages will be sent to users who entered the step that day at their optimal local time. However, if their optimal time has already passed that day, it'll be delivered at that time during the following day instead. Message steps that target multiple channels may send or attempt to send messages at different times for different channels. When the first message in a Message step attempts to send, all users are auto-advanced.
+Messages will be sent to users who entered the step that day at their optimal local time. However, if their optimal time has already passed that day, it'll be delivered at the optimal time during the following day instead. Message steps that target multiple channels may send or attempt to send messages at different times for different channels. When the first message in a Message step attempts to send, all users are auto-advanced.
 
 ### Step 2: Choose a fallback time
 

@@ -32,7 +32,7 @@ Los siguientes casos de uso muestran algunas formas de aprovechar los agentes pe
 | Gestión de los comentarios de los clientes | Transmite los comentarios de los usuarios a un agente para que analice el sentimiento y genere mensajes de seguimiento empáticos. Para los usuarios de alto valor, el agente podría escalar la respuesta o incluir ventajas adicionales. |
 | Localización de contenido | Traduce el texto del catálogo a otro idioma para campañas globales o ajusta el tono y la longitud para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster" o acorta las descripciones para las campañas de SMS. |
 | Resumen de reseñas o comentarios | Resume las opiniones o comentarios en un nuevo campo, por ejemplo, asignando puntuaciones como Positivo, Neutro o Negativo, o creando un breve resumen de texto como "La mayoría de los clientes mencionan que el producto se ajusta muy bien, pero señalan que el envío es lento". |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cómo funciona" }
 
 ## Crear un agente {#create-an-agent}
 
@@ -52,9 +52,9 @@ A continuación, configura los detalles de tu agente:
 2. (opcional) Añade etiquetas para filtrar tu agente.
 3. Elige el [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) que utilizará tu agente.
 4. Si no estás utilizando el modelo **Braze Auto**, selecciona el [nivel de pensamiento]({{site.baseurl}}/user_guide/brazeai/agents/reference/#thinking-levels) del modelo. Puedes elegir entre mínimo, bajo, medio o alto. Te recomendamos que comiences con **Mínimo** y pruebes las respuestas de tu agente, ajustándolo según sea necesario.
-5. Establece un límite de ejecución diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
+5. Establece un límite de invocaciones diario. De forma predeterminada, este valor está establecido en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, ponte en contacto con tu administrador del éxito del cliente para obtener más información.
 
-![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de ejecución diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+![Interfaz de la Consola de Agente para crear un agente personalizado en Braze. La pantalla muestra campos para introducir el nombre y la descripción del agente, seleccionar un modelo y establecer un límite de invocaciones diario.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Paso 3: Escribe las instrucciones {#agent-instructions}
 
@@ -66,18 +66,15 @@ Consulta las [instrucciones de redacción]({{site.baseurl}}/user_guide/brazeai/a
 Para los agentes de Canvas, puedes utilizar Liquid en tus instrucciones para hacer referencia a atributos de los usuarios, como su nombre y apellidos, o atributos personalizados. Cualquier variable Liquid en las instrucciones del agente se pasa automáticamente al paso del agente cuando un usuario entra en el paso.
 {% endalert %}
 
-#### Paso 3.1: Añadir recursos {#add-resources}
+#### Añadir contexto {#add-resources}
 
-Selecciona **Añadir recursos** para elegir lo que tu agente puede consultar. Esto incluye lo siguiente:
+Selecciona **+ Contexto del agente** para elegir lo que tu agente puede consultar. Esto incluye lo siguiente:
 
 - [Campos del catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields): Permite que el agente acceda a los datos de tu catálogo para obtener respuestas más precisas.
 - [Pertenencia a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context): Permite que el agente personalice las respuestas en función de los Segments a los que pertenezca el usuario. Puedes seleccionar hasta cinco Segments.
 - [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/): Consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 - [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/): Analiza todos los datos de contexto de Canvas de un usuario cuando se invoque este agente, incluidas las variables que no se mencionan en la sección **Instrucciones**.
-
-#### Paso 3.2: Añadir configuración opcional {#step-32-add-optional-settings}
-
-En la **Configuración opcional**, puedes ajustar la [temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) del texto generado por el agente. Una temperatura más alta permite al agente utilizar la información proporcionada de forma más creativa.
+- [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history): Proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaign y Canvas de cada usuario.
 
 ### Paso 4: Selecciona la salida {#select-output}
 
@@ -98,7 +95,7 @@ El panel de **vista previa** es una instancia del agente que aparece como un pan
 3. Selecciona **Simular respuesta**. El agente se ejecutará según tu configuración y mostrará su respuesta.
 
 {% alert note %}
-Las ejecuciones de prueba cuentan para tu límite de ejecución diario.
+Las ejecuciones de prueba cuentan para tu límite de invocaciones diario.
 {% endalert %}
 
 ![Consola de Agente que muestra el panel de vista previa para probar un agente personalizado. La interfaz muestra un campo de entradas de muestra con datos de clientes de ejemplo, un botón Ejecutar prueba y un área de respuesta donde aparece la salida del agente.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})

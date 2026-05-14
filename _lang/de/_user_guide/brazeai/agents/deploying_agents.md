@@ -14,7 +14,7 @@ page_order: 2
 
 Sie können Agenten als Schritte in einer Journey verwenden, um Nachrichten zu personalisieren oder Entscheidungen in Echtzeit zu steuern. Detaillierte Einrichtungsschritte finden Sie unter [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Anwendungsfälle {#canvas-use-cases}
+### Anwendungsfälle {#use-cases}
 
 | Anwendungsfall | Beschreibung |
 | --- | --- |
@@ -24,13 +24,13 @@ Sie können Agenten als Schritte in einer Journey verwenden, um Nachrichten zu p
 | Intelligentes Routing | Verwenden Sie Agent-Ausgaben (boolesch oder numerisch), um Nutzer:innen in verschiedene Canvas-Pfade aufzuteilen. Beispielsweise können Nutzer:innen als „gefährdet“ oder „gesund“ klassifiziert und die Messaging-Frequenz entsprechend angepasst werden. |
 | Umfrage- oder Antwortinterpretation | Lassen Sie einen Agenten offene Umfrageantworten oder Freitextfelder analysieren und strukturierte Werte zurückgeben (z. B. Kategorisierung von Absichten oder Bedürfnissen), die nachgelagerte Pfade steuern. |
 | Mehrstufiges Reasoning | Konfigurieren Sie einen Agenten, um Kontextfelder zu kombinieren und komplexe Entscheidungen zu treffen, wie beispielsweise die Empfehlung der nächstbesten Aktion (E-Mail, SMS oder persönliche Kontaktaufnahme) auf Grundlage mehrerer Nutzerattribute. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## Agenten in Katalogen {#agents-in-catalogs}
 
 Sie können einen Agenten auf Katalogfelder anwenden, sodass er automatisch Werte für jede Zeile generiert oder berechnet. Der Agent wird auch für neue Zeilen ausgeführt, die in Zukunft zum Katalog hinzugefügt werden.
 
-### Anwendungsfälle {#catalog-use-cases}
+### Anwendungsfälle
 
 | Anwendungsfall | Beschreibung |
 | --- | --- |
@@ -40,7 +40,7 @@ Sie können einen Agenten auf Katalogfelder anwenden, sodass er automatisch Wert
 | Artikel kategorisieren oder mit Tags versehen | Weisen Sie Tags für die Empfehlungslogik zu, damit Personalisierungsmodelle Produkte effektiver segmentieren können. Beispielsweise können Sie Produkte mit „Outdoor“, „festivaltauglich“ oder „Premium“ taggen. |
 | Inhalte lokalisieren | Übersetzen Sie Katalogtexte für globale Campaigns in andere Sprachen oder passen Sie Tonfall und Länge für regionsspezifische Kanäle an. Übersetzen Sie beispielsweise „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für SMS-Campaigns. |
 | Bewertungen oder Feedback zusammenfassen | Fassen Sie die Stimmung oder das Feedback in einem neuen Feld zusammen, beispielsweise durch die Vergabe von Stimmungsbewertungen wie „Positiv“, „Neutral“ oder „Negativ“ oder durch die Erstellung einer kurzen Textzusammenfassung wie „Die meisten Kund:innen erwähnen die hervorragende Passform, bemerken jedoch den langsamen Versand.“ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ### Schritte {#steps}
 
@@ -53,7 +53,7 @@ Um einen Agenten zu Ihrem Katalogfeld hinzuzufügen:
 3. Weisen Sie diesem Feld einen Agenten zu.
 4. Wählen Sie aus, welche Spalten als Eingabe übergeben werden sollen. Wenn keine ausgewählt sind, hat der Agent Zugriff auf alle Spalten im Katalog.
 5. Entscheiden Sie, ob der Agent Felder neu berechnen soll, wenn Katalogzeilen aktualisiert werden. Wenn Sie diese Option nicht auswählen, wird der Agent nur einmal pro Zeile ausgeführt.
-6. Wählen Sie **Add fields**, um den Agenten bereitzustellen und die Kostenschätzungen zu überprüfen. Das Modal **Cost estimation** zeigt an, wie oft der Agent auf diesem Katalog ausgeführt wird – in etwa entsprechend der Gesamtzahl der Zeilen. Um fortzufahren, wählen Sie **Confirm**.
+6. Wählen Sie **Add fields** aus, um den Agenten bereitzustellen und die Kostenschätzungen zu überprüfen. Das Modal **Cost estimation** zeigt an, wie oft der Agent auf diesem Katalog ausgeführt wird – in etwa entsprechend der Gesamtzahl der Zeilen. Um fortzufahren, wählen Sie **Confirm** aus.
 
 ### Wie Katalogagenten ausgeführt werden {#how-catalog-agents-run}
 
@@ -82,7 +82,7 @@ Angenommen, Sie haben einen Agenten, der Produktbeschreibungen zu einem Katalog 
 | --- | --- |
 | **description** | Text |
 | **confidence_score_out_of_ten** | Zahl |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Antwortfelder definieren" }
 
 Sie können ein Feld namens **product_description** zu einem Katalog hinzufügen und **description** als **Response Field** auswählen, um die Spalte mit den Beschreibungen des Agenten zu füllen.
 

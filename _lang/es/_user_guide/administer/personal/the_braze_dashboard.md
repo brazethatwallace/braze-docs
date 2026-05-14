@@ -50,7 +50,7 @@ El menú vertical de la izquierda organiza las herramientas de Braze por funció
 
 Ubicado en la parte superior de la navegación lateral, el selector de espacio de trabajo te permite moverte entre diferentes espacios de trabajo en tu instancia de Braze. El espacio de trabajo activo aparece resaltado.
 
-Los [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/) ayudan a organizar el contenido por marca, región, línea de producto o equipo. Cada espacio de trabajo incluye sus propios datos, Campaigns y configuración. Tu acceso puede variar entre espacios de trabajo. Por ejemplo, podrías tener acceso de edición en un espacio de trabajo y acceso de solo lectura en otro.
+Los [espacios de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces/) ayudan a organizar el contenido por marca, región, línea de producto o equipo. Cada espacio de trabajo incluye sus propios datos, campañas y configuración. Tu acceso puede variar entre espacios de trabajo. Por ejemplo, podrías tener acceso de edición en un espacio de trabajo y acceso de solo lectura en otro.
 
 Para cambiar de espacio de trabajo, selecciona el menú desplegable de espacio de trabajo en la parte superior de la navegación lateral y elige el espacio de trabajo al que deseas acceder. También puedes [añadir espacios favoritos](#favorite-workspaces) para acceder más rápido a los que usas con más frecuencia.
 
@@ -126,7 +126,7 @@ table td {
 | Moverse entre resultados de búsqueda | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Seleccionar un resultado de búsqueda      | <kbd>Enter</kbd>    |
 | Cerrar el menú de búsqueda       | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
 
 ## Características de productividad {#productivity-features}
 

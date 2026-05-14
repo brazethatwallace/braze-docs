@@ -104,13 +104,13 @@ Braze는 `/users/track` 엔드포인트를 통해 새 사용자를 생성할 때
 {% endalert %}
 
 {% details 상세 /subscription/status/set 요청 %}
-#### 요청 헤더 {#request-headers}
+#### 요청 헤더
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### 요청 본문 {#request-body}
+#### 요청 본문
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -152,7 +152,7 @@ Quikly는 승인을 위해 `HTTP Header`가 필요합니다.
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### 요청 본문 {#request-body}
+#### 요청 본문
 
 ***JSON key/value pairs***를 선택하고 다음 쌍을 추가합니다:
 {% raw %}

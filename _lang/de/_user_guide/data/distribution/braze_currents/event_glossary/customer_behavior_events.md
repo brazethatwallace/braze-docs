@@ -1,7 +1,7 @@
 ---
 nav_title: Kundenverhalten und Nutzer-Events
 layout: customer_behavior_events_glossary
-page_order: 1
+page_order: 4
 excerpt_separator: ""
 page_type: glossary
 description: "In diesem Glossar finden Sie eine Auflistung der verschiedenen Kundenverhaltens- und Nutzer-Events, die Braze mit Currents verfolgen und an ausgewählte Data Warehouses senden kann."
@@ -17,7 +17,7 @@ Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({
 
 {% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
 
-### Event-Struktur
+### Event-Struktur {#event-structure}
 
 Diese Aufschlüsselung des Kundenverhaltens und der Nutzer-Events zeigt, welche Art von Informationen im Allgemeinen in einem Kundenverhaltens- oder Nutzer-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Metriken auszuwerten.
 
@@ -25,7 +25,7 @@ Diese Aufschlüsselung des Kundenverhaltens und der Nutzer-Events zeigt, welche 
 
 Kundenverhaltens- und Nutzer-Events setzen sich aus **nutzerspezifischen** Eigenschaften, **verhaltensspezifischen** Eigenschaften und **gerätespezifischen** Eigenschaften zusammen.
 
-### Plattformwerte
+### Plattformwerte {#platform-values}
 
 Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutzergeräts angibt.
 <br>In der folgenden Tabelle finden Sie die möglichen Rückgabewerte:
@@ -39,13 +39,18 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
 {% alert important %}
 Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner (wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Einige der hier aufgeführten Kombinationen von Events und Zielen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.<br><br>Beachten Sie außerdem, dass Currents Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB verwirft.
 {% endalert %}
+
+{% alert note %}
+Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für den/die Nutzer:in gesetzt sind, können diese Felder `null` sein.
+{% endalert %}
+
 
 {% api %}
 ## Update-Events für zufällige Bucket-Nummern {#random-bucket-number-update-events}
@@ -54,7 +59,7 @@ Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehous
 Random Bucket Number
 {% endapitags %}
 
-Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in in seinem/ihrem Workspace erstellt wird. Dabei wird jedem/jeder neuen Nutzer:in eine zufällige Bucket-Nummer zugewiesen, mit der Sie dann gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellen können. Verwenden Sie diese Funktion, um eine Reihe zufälliger Bucket-Nummern zu gruppieren und die Performance Ihrer Kampagnen und Kampagnenvarianten zu vergleichen.
+Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in in seinem/ihrem Workspace erstellt wird. Dabei wird jedem/jeder neuen Nutzer:in eine zufällige Bucket-Nummer zugewiesen, mit der Sie dann gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellen können. Verwenden Sie diese Funktion, um eine Reihe zufälliger Bucket-Nummern zu gruppieren und die Performance Ihrer Campaigns und Kampagnenvarianten zu vergleichen.
 
 {% alert important %}
 Dieses Currents-Event ist nur für Kund:innen verfügbar, die einen „All Events Connector“ erworben haben, und steht nur für Storage-Event-Konnektoren (wie Amazon S3, Microsoft Azure und Google Cloud Storage) zur Verfügung.
@@ -201,11 +206,12 @@ Dieses Event tritt ein, wenn ein bestimmtes angepasstes Event getriggert wird. V
 {% endtab %}
 {% endtabs %}
 
-#### Details zu den Eigenschaften
+#### Details zu den Eigenschaften {#property-details}
 
 - Bei angepassten Events wird die Payload auch mit allen [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/#custom-event-properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+
 {% endapi %}
 
 {% api %}
@@ -439,6 +445,7 @@ Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort bes
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+
 {% endapi %}
 
 {% api %}
@@ -579,6 +586,7 @@ Käufe sind spezielle angepasste Events und werden mit einem JSON-kodierten Stri
 - Bei Kauf-Events wird die Payload auch mit den [Kauf-Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#purchase-properties) befüllt, die mit dem Event verknüpft sind.
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie den Identifier for Advertisers (IDFA) für iOS und die Google Ad ID für Android explizit über die nativen SDKs erfassen. Mehr erfahren Sie hier: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+
 {% endapi %}
 
 {% api %}
@@ -1291,13 +1299,13 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
   - Wenn ein Push-Bounce auftritt (beispielsweise aufgrund einer Deinstallation), bleibt das Feld `sdk_version` leer.
 - Bei jedem Eingang eines Push-Tokens in Braze werden dessen Lebenszyklus-Events aufgezeichnet. Es gibt drei Arten von Token-Änderungs-Events („add“, „update“ und „remove“), die im Feld `push_token_state_change_type` aufgezeichnet werden.
 
-#### Event-Typen
+#### Event-Typen {#event-types}
 
-##### Hinzufügen
+##### Hinzufügen {#add}
 
 Ein „add“-Event wird erfasst, wenn ein neues Token registriert wird. Dies geschieht, wenn ein:e Nutzer:in die App zum ersten Mal auf einem neuen Gerät öffnet oder wenn ein Token über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Endpunkt mit `push_tokens` für eine:n Nutzer:in gesetzt wird, der/die zuvor noch keines hatte.
 
-##### Aktualisieren
+##### Aktualisieren {#update}
 
 Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token-String selbst ändert. Das Token hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`.
 
@@ -1307,7 +1315,7 @@ In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wied
 Es wäre äußerst ungewöhnlich, wenn sich nur die `device_id` ändern würde, ohne dass sich das `push_token` ändert (dies würde erfordern, dass das Betriebssystem nach der Neuinstallation denselben Token-String zurückgibt).
 {% endalert %}
 
-##### Entfernen
+##### Entfernen {#remove}
 
 Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token entfernt. Dafür kann es mehrere Gründe geben:
 
@@ -1315,7 +1323,7 @@ Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token entfer
 - Deinstallationserkennung durch Silent Push
 - Token über die REST API oder den APNs-Feedback-Dienst entfernt
 
-##### Hinzufügen- und Entfernen-Paare
+##### Hinzufügen- und Entfernen-Paare {#add-and-remove-pairs}
 
 Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 
@@ -1331,7 +1339,7 @@ Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 Wenn ein anonymes Profil über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)-Endpunkt identifiziert wird, ändert sich die `user_id` nicht und es wird kein Token-Statusänderungs-Event ausgelöst.
 {% endalert %}
 
-#### Abfrage des aktuellsten aktiven Token-Status
+#### Abfrage des aktuellsten aktiven Token-Status {#querying-for-the-latest-active-token-state}
 
 Um den aktuellen Push-Token-Status für jede:n Nutzer:in zu ermitteln, partitionieren Sie die Token-Statusänderungs-Events nach `push_token`, `user_id` und `app_id`, sortieren Sie nach `time_ms` absteigend und filtern Sie „remove“-Events heraus. Intern wird ein Token anhand seines Token-Strings und der `app_id` pro Nutzer:in identifiziert. Die Verwendung von `device_id` als Partitionsschlüssel wird nicht empfohlen, da `device_id` ein veränderbares Attribut ist und eine Partitionierung danach den Lebenszyklus eines einzelnen Tokens auf mehrere Partitionen aufteilen könnte.
 

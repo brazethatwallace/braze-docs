@@ -2,4 +2,4 @@
 | --- | --- |
 | バックグラウンドカラー | スペーサーのバックグラウンドカラーを変更します。 |
 | 高さ | スペーサーの高さを変更します。スペーサーのリサイズハンドルを使用して変更することもできます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

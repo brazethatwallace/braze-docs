@@ -87,10 +87,6 @@ Um espaço de trabalho atualiza seu fuso horário de Eastern Time (EST) para Pac
 
 Após essa alteração, um usuário que realiza o evento personalizado às 22h PST em 6 de março de 2026 (que é 1h EST em 7 de março de 2026) agora é incluído no público, pois ele se enquadrou dentro do limite do calendário PST para aquela data.
 
-## Discrepâncias em relatórios {#reporting-discrepancies}
-
-Os fusos horários do espaço de trabalho proporcionam controle preciso sobre o envio de Campaigns, mas você deve estar ciente de possíveis discrepâncias em relatórios enquanto esse recurso está em acesso antecipado. Faça referência cruzada dos pontos de dados e esteja atento ao fuso horário ao analisar relatórios de espaços de trabalho com substituições de fuso horário específicas.
-
 ## Impacto nos dados de desempenho {#impact-on-performance-data}
 
 Atualizar o fuso horário do seu espaço de trabalho afeta como os dados de desempenho são agregados e exibidos no seu dashboard. Como as análises de dados como *usuários ativos diários* (DAU) dependem do fuso horário do espaço de trabalho para definir o início e o fim de um dia de 24 horas, uma alteração nessa configuração desloca essas janelas de relatório.

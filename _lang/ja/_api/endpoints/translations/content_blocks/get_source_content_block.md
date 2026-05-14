@@ -31,9 +31,9 @@ description: "この記事では、コンテンツブロックの翻訳ソース
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id`| 必須 | 文字列 | コンテンツブロックのID。|
-| `locale_id`| オプション | 文字列 | レスポンスをフィルタリングするためのロケールUUID。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `content_block_id` | 必須 | 文字列 | コンテンツブロックのID。 |
+| `locale_id` | オプション | 文字列 | レスポンスをフィルタリングするためのロケールUUID。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントのレスポンスで確認できます。

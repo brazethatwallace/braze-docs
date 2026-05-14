@@ -159,7 +159,7 @@ A seguir estão os métodos em várias plataformas usados para definir atributos
 
 Todos os dados armazenados no **Perfil de usuário**, incluindo dados de atributos personalizados, são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
-## Tipos de dados de atributos personalizados {#custom-attribute-data-types}
+## Tipos de dados de atributos personalizados
 
 Os atributos personalizados são ferramentas extremamente flexíveis que permitem um ótimo direcionamento.
 
@@ -184,7 +184,7 @@ Para atributos **booleanos**, as seguintes opções de segmentação estão disp
 | Verificar se o valor booleano **é** verdadeiro, falso, verdadeiro ou não definido, ou falso ou não definido | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** ou **FALSE OR NOT SET** | Se este filtro especificar `coffee_drinker`, um usuário corresponderá a este filtro nas seguintes circunstâncias: <br> {::nomarkdown}<ul><li>Se este filtro for <code>true</code> e o usuário tiver o valor <code>coffee_drinker</code></li><li>Se este filtro for <code>false</code> e o usuário não tiver o valor <code>coffee_drinker</code></li><li>Se este filtro for <code>true or not set</code> e o usuário tiver o valor <code>coffee_drinker</code> ou nenhum valor</li><li>Se este filtro for <code>false or not set</code> e o usuário não tiver <code>coffee_drinker</code> ou nenhum valor</li></ul>{:/} |
 | Verificar se o valor booleano **existe** no perfil do usuário e não é nulo | **IS NOT BLANK**  | **N/A** | Se este filtro especificar `coffee_drinker` e o usuário tiver um valor para o atributo `coffee_drinker`, o usuário corresponderá a este filtro. |
 | Verificar se o valor booleano **não existe** no perfil do usuário ou é nulo | **IS BLANK**  | **N/A** | Se este filtro especificar `coffee_drinker` e o usuário não tiver o atributo `coffee_drinker` ou o valor de `coffee_drinker` for nulo, o usuário corresponderá a este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab Números %}
@@ -203,7 +203,7 @@ Para atributos **numéricos**, as seguintes opções de segmentação estão dis
 | Verificar se o atributo numérico **é menor que** um **número**| **LESS THAN** | **NUMBER** | Se este filtro especificar `10` e o perfil do usuário tiver um valor menor que `10`, o usuário corresponderá a este filtro. |
 | Verificar se o atributo numérico **existe** no perfil do usuário e não é nulo | **IS NOT BLANK** | **N/A** | Se o perfil do usuário contiver o atributo numérico especificado, independentemente do valor, o usuário corresponderá a este filtro. |
 | Verificar se o atributo numérico **não existe** no perfil do usuário ou é nulo | **IS BLANK** | **N/A** | Se o perfil do usuário não contiver o atributo numérico especificado ou o valor do atributo for nulo, o usuário corresponderá a este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Detalhes de atributos numéricos {#number-attribute-details}
 
@@ -227,7 +227,7 @@ Para atributos de **string**, as seguintes opções de segmentação estão disp
 | Verificar se o atributo de string **não corresponde exatamente a nenhuma** das strings inseridas | **IS NONE OF** |**STRING**<br>Diferencia maiúsculas de minúsculas; múltiplas strings permitidas (máximo de 256) | Se este filtro especificar `book`, `bookmark` e `reading light`, e o perfil do usuário não contiver nenhuma dessas strings, o usuário corresponderá ao filtro.|
 | Verificar se o atributo de string **corresponde parcialmente a qualquer uma** das strings inseridas | **CONTAINS ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplas strings permitidas (máximo de 256) | Se este filtro especificar `gold` e o perfil do usuário contiver `gold` em qualquer string, como `gold_tier` ou `former_gold_tier`, o usuário corresponderá ao filtro. |
 | Verificar se o atributo de string **não corresponde parcialmente a nenhuma** das strings inseridas | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplas strings permitidas (máximo de 256) | Se este filtro especificar `gold` e o perfil do usuário não contiver `gold` em nenhuma string, o usuário corresponderá a este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -261,7 +261,7 @@ Para atributos de **array**, as seguintes opções de segmentação estão dispo
 | Verificar se o atributo de array **não inclui um valor que corresponde parcialmente a nenhum** dos valores inseridos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `gold` e o array do perfil do usuário não contiver `gold` em nenhuma string, o usuário corresponderá a este filtro. Isso significa que usuários com valores de string como `gold_tier` e `former_gold_tier` não corresponderão a este filtro.|
 | Verificar se o atributo de array **inclui todos** os valores inseridos | **IS ALL OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `sci-fi, fantasy, romance` e o perfil do usuário tiver todos esses valores, o usuário corresponderá a este filtro. O usuário também pode ter `horror` ou outros valores e ainda corresponder a este filtro.|
 | Verificar se o atributo de array **não inclui todos** os valores inseridos | **ISN'T ALL OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256)|  Se este filtro especificar `sci-fi, fantasy, romance` e o perfil do usuário não tiver todos esses valores, o usuário corresponderá a este filtro.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 Para saber mais sobre como usar expressões regulares (regex), confira estes recursos:
@@ -296,7 +296,7 @@ Para atributos de **hora**, as seguintes opções de segmentação estão dispon
 | Verificar se o atributo de hora é **menos de X número** de **dias no futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Se este filtro especificar `7` e o perfil do usuário tiver uma data de menos de sete dias no futuro, o usuário corresponderá a este filtro.|
 | Verificar se o atributo de hora **existe** no perfil do usuário e não é nulo | **IS NOT BLANK** | **N/A** | Se este filtro especificar um atributo de hora que está no perfil do usuário, o usuário corresponderá a este filtro.|
 | Verificar se o atributo de hora **não existe** no perfil do usuário ou é nulo | **IS BLANK** | **N/A** | Se este filtro especificar um atributo de hora que não está no perfil do usuário, o usuário corresponderá a este filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### Detalhes de atributos de hora {#time-attribute-details}
 
@@ -331,7 +331,7 @@ Consolidamos a lista de operadores disponíveis para uso em filtros de atributos
 | String | does not equal | is none of | Pelo menos 1 valor |
 | Array | includes value | includes any of | Pelo menos 1 valor |
 | Array | doesn't include value | includes none of | Pelo menos 1 valor |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## Tipos de dados de propriedades de eventos {#event-property-data-types}
 
@@ -374,10 +374,10 @@ Para o esquema completo do objeto de compra e exemplos, consulte [Objeto de comp
 
 Para alterar o tipo de dado de um atributo personalizado ou evento:
 
-1. Acesse **Configurações de dados** e selecione **Atributos personalizados** ou **Eventos personalizados**.
-2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Mais ações**.
-3. Selecione um novo **Tipo de dado** no dropdown.
-4. Selecione **Salvar**.
+1. Acesse **Data Settings** e selecione **Custom Attributes** ou **Custom Events**.
+2. Encontre seu atributo ou evento na lista e selecione <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**.
+3. Selecione um novo **Data type** no dropdown.
+4. Selecione **Save**.
 
 Se você alterar o tipo de dado de um atributo personalizado ou evento (por exemplo, alterando `time` para `string`), considere o seguinte:
 
@@ -401,7 +401,7 @@ Os catálogos são compatíveis com os tipos listados na tabela de [Definições
 | Hora | Data e hora no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou timestamp Unix em segundos. | ✅ Sim | ✅ Sim |
 | Objeto JSON (Objeto) | Objeto aninhado com pares chave-valor. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ❌ Não | ✅ Sim |
 | Array de strings (Array) | Uma lista de strings. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ❌ Não | ✅ Sim |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### Formato e exemplos {#format-and-examples}
 
@@ -413,6 +413,6 @@ Os catálogos são compatíveis com os tipos listados na tabela de [Definições
 | Número | Inteiro ou decimal | <code>42</code> ou <code>19.99</code> |
 | Objeto | Objeto JSON | <code>{"key": "value", "price": 10}</code> |
 | Array | Array de strings | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
 Para criar e atualizar catálogos, consulte [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).

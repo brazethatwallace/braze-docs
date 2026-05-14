@@ -15,11 +15,11 @@ En intégrant VWO à Braze, vous pouvez exploiter les données d'expérience de 
 
 ## Conditions préalables {#prerequisites}
 
-| Condition     | Description |
+| Condition | Description |
 |-----------------|-------------|
-| Compte VWO     | Un compte VWO avec accès aux données d'expérimentation. |
-| Compte Braze   | Un compte Braze actif avec l'intégration du [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) sur votre page web. Vous devez également activer la segmentation des propriétés d'événement. Pour en faire la demande, reportez-vous à la rubrique [Considérations](#request-event-property-segmentation). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Compte VWO | Un compte VWO avec accès aux données d'expérimentation. |
+| Compte Braze | Un compte Braze actif avec l'intégration du [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) sur votre page web. Vous devez également activer la segmentation des propriétés d'événement. Pour en faire la demande, reportez-vous à la rubrique [Considérations](#request-event-property-segmentation). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de VWO avec Braze {#integrating-vwo-with-braze}
 
@@ -54,7 +54,7 @@ En intégrant VWO à Braze, vous pouvez exploiter les données d'expérience de 
 
 ## Flux de données {#data-flow}
 
-VWO envoie les données d'expérience de la campagne à Braze sous la forme d'un événement personnalisé en utilisant le format suivant :
+VWO envoie les données d'expérience de la campagne à Braze sous la forme d'un événement personnalisé au format suivant :
 
 - **Nom de l'événement :** VWO
 - **Propriétés d'événement :** `vwo_campaign_name`, `vwo_variation_name`
@@ -69,7 +69,8 @@ Ces propriétés d'événements personnalisés peuvent également être utilisé
 
 Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous devez l'activer dans Braze. Utilisez le modèle suivant pour contacter votre gestionnaire de la satisfaction client Braze ou l'équipe d'assistance pour obtenir l'accès.
 
-   <table>
+   <table aria-label="Demander la segmentation des propriétés d'événement">
+     <caption>Demander la segmentation des propriétés d'événement</caption>
    <thead>
       <tr>
          <th>Champ</th>
@@ -94,13 +95,13 @@ Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous d
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Demander la segmentation des propriétés d'événement" }
 
 ### Points de données Braze {#braze-data-points}
 
 L'événement personnalisé envoyé par VWO à Braze&#8212;y compris toutes les propriétés d'événement activées pour la segmentation&#8212;enregistrera des points de données dans votre instance Braze.
 
-### Restrictions {#considerations}
+### Remarques
 
 Actuellement, cette intégration ne prend pas en charge la synchronisation en temps réel des données de test. Il peut s'écouler jusqu'à 15 minutes avant que les données de test n'apparaissent dans Braze.
 

@@ -6,7 +6,7 @@ description: "Esta página de referencia describe los operadores que admite Liqu
 
 ---
 
-# Operadores
+# Operadores {#operators}
 
 > Liquid admite muchos [operadores](https://docs.shopify.com/themes/liquid/basics/operators) que puedes usar en tus sentencias condicionales. Esta página cubre los operadores que admite Liquid y proporciona casos de uso de cómo puedes utilizarlos en tus mensajes.
 
@@ -23,13 +23,13 @@ Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis s
 | or | condición A o condición B|
 | and | condición A y condición B|
 | contains | comprueba si una cadena o un arreglo de cadenas contiene una cadena|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
-Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for`, sentencias `case`/`when` ni corchetes de acceso a arreglos. Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for` ni corchetes de acceso a arreglos. En las etiquetas `case` y `when`, cada rama compara la expresión `case` con un valor `when` usando igualdad en lugar de expresiones de operadores arbitrarios. Para ver ejemplos, consulta [Lógica condicional de mensajería]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Agrupar condiciones sin paréntesis
+### Agrupar condiciones sin paréntesis {#grouping-conditions-without-parentheses}
 
 Liquid no admite paréntesis para agrupar expresiones. Para evaluar lógica booleana compleja como `(a and b) or c`, usa sentencias `if` anidadas o variables intermedias.
 
@@ -50,11 +50,11 @@ You qualify for a reward!
 ```
 {% endraw %}
 
-## Tutoriales
+## Tutoriales {#tutorials}
 
 Veamos algunos tutoriales para aprender a usar estos operadores en tus campañas de marketing:
 
-### Elegir un mensaje con un atributo personalizado de tipo entero
+### Elegir un mensaje con un atributo personalizado de tipo entero {#choose-a-message-with-an-integer-custom-attribute}
 
 Enviemos notificaciones push con descuentos promocionales personalizados a usuarios que hayan realizado o no compras. La notificación push usará un atributo personalizado de tipo entero llamado `total_spend` para comprobar el gasto total de un usuario.
 
@@ -111,7 +111,7 @@ Si el atributo personalizado "Total Spend" de un usuario no existe o es igual a 
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
 ```
 
-### Elegir un mensaje con un atributo personalizado de tipo cadena
+### Elegir un mensaje con un atributo personalizado de tipo cadena {#choose-a-message-with-a-string-custom-attribute}
 
 Enviemos notificaciones push a los usuarios y personalicemos el mensaje según el juego más reciente de cada usuario. Esto usará un atributo personalizado de tipo cadena llamado `recent_game` para comprobar qué juego ha jugado un usuario por última vez.
 
@@ -205,7 +205,7 @@ Si un usuario no ha jugado ningún juego o ese atributo personalizado no existe 
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 ```
 
-### Cancelar un mensaje según la ubicación
+### Cancelar un mensaje según la ubicación {#abort-message-based-on-location}
 
 Puedes cancelar un mensaje basándote en prácticamente cualquier cosa. Cancelemos un mensaje si un usuario no se encuentra en un área específica, ya que podría no ser elegible para la promoción, el evento o la entrega.
 
@@ -243,11 +243,11 @@ Stream now!
 
 ![Un compositor de notificaciones push con el código Liquid completo del tutorial.]({% image_buster /assets/img/abort-if.png %})
 
-También puedes [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) basándote en Contenido conectado.
+También puedes [cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/) basándote en contenido conectado.
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
-### La vista previa puede convertir incorrectamente los tipos de propiedad
+### La vista previa puede convertir incorrectamente los tipos de propiedad {#preview-may-incorrectly-coerce-property-types}
 
 Al previsualizar un mensaje en el dashboard, la mayoría de las variables (como los atributos personalizados) se convierten al tipo correcto. Sin embargo, algunas variables no tienen un tipo definido que la vista previa pueda consultar:
 

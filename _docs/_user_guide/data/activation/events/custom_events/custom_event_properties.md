@@ -32,7 +32,7 @@ You cannot use reserved keys as event property names. Using a reserved key in th
 | --- | --- |
 | Custom events | `time` and `event_name` | 
 | Purchase events |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reserved keys" }
 
 ## Using custom event properties
 

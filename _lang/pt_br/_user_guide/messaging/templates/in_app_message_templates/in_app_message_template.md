@@ -24,10 +24,10 @@ A forma de adicionar um modelo depende do seu objetivo:
 
 | Objetivo | O que fazer |
 |------|------------|
-| Salvar um layout de arrastar e soltar para reutilização | No [criador de mensagens no app de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), selecione **Salvar como modelo** depois de sair do editor (primeiro você precisa lançar a campanha OU salvá-la como rascunho). O modelo aparecerá em **Modelos** > **Modelos de mensagens no app** para sua próxima mensagem. |
+| Salvar um layout de arrastar e soltar para reutilização | No [criador de mensagens no app de arrastar e soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), selecione **Salvar como modelo** depois de sair do editor (primeiro você precisa lançar a Campaign OU salvá-la como rascunho). O modelo aparecerá em **Modelos** > **Modelos de mensagens no app** para sua próxima mensagem. |
 | Criar um perfil de cores ou modelo CSS (editor tradicional) | Na página **Modelos de mensagens no app**, selecione **+ Criar** e escolha **Perfil de cores** ou **Modelo CSS**. Para mais informações, consulte [Perfis de cores e modelos CSS](#reusable-color-profiles). |
 | Personalizar um modelo da Braze | [Crie uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) no editor de arrastar e soltar, escolha um modelo da Braze, faça suas personalizações e selecione **Salvar como modelo**. Para descrições de cada modelo da Braze, consulte [Modelos de mensagens no app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Escolher como criar um modelo" }
 
 {% alert note %}
 Perfis de cores e modelos CSS se aplicam ao editor tradicional. Se você usa o editor de arrastar e soltar, utilize as [Configurações de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) para estilização no nível da mensagem.

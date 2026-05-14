@@ -129,6 +129,8 @@ brazecall
 Brazei
 brazexml
 BRZURL
+BSUIDs
+BSUID
 Camila
 Camila’s
 Canva
@@ -216,6 +218,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+drawables
 Dreamhost
 drilldown
 drilldowns
@@ -559,6 +562,7 @@ OROMO
 otherlevels
 OTT
 ouibounce's
+overconsumption
 oversaturating
 Pangle
 Pandoc

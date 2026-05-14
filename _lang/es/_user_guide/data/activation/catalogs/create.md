@@ -3,7 +3,7 @@ nav_title: Crear un catálogo
 article_title: Crear un catálogo
 alias: "/catalogs/"
 page_order: 1
-description: "En este artículo de referencia se explica cómo crear catálogos que hagan referencia a datos de no usuarios en tus Campaigns de Braze a través de Liquid."
+description: "En este artículo de referencia se explica cómo crear catálogos que hagan referencia a datos de no usuarios en tus campañas de Braze a través de Liquid."
 ---
 
 # Crear un catálogo {#create-a-catalog}
@@ -47,7 +47,7 @@ Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisit
 | Tipos de datos | Los tipos de datos compatibles para las cargas CSV incluyen cadenas, números, valores booleanos y horas. Para obtener la lista completa de tipos de datos, incluidos los que solo están disponibles a través de la API y CDI, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formato | Formatea todo el texto en minúsculas para mantener la coherencia. |
 | Codificación | Guarda y carga el archivo CSV utilizando la codificación UTF-8. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Revisa tu archivo CSV" }
 
 {% alert note %}
 ¿Necesitas más espacio para tus archivos CSV? Ponte en contacto con tu director de cuentas de Braze para obtener más información sobre la actualización de tus catálogos.
@@ -94,7 +94,8 @@ Para este tutorial, vamos a utilizar un catálogo que enumera dos juegos, su cos
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creación de un catálogo a partir de un archivo CSV" class="tg">
+  <caption>Tutorial: Creación de un catálogo a partir de un archivo CSV</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -136,7 +137,7 @@ Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Pue
 Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Crear en el navegador %}
 ### Requisitos previos {#prerequisites}
 
 Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para tu espacio de trabajo:
@@ -217,6 +218,8 @@ Por ejemplo, si quieres editar un elemento individual del catálogo, puedes util
 
 ## Almacenamiento de catálogos {#tiers}
 
+Para un resumen rápido de los límites de almacenamiento por plan, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+
 La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 100 MB para todos los archivos CSV combinados de tu empresa, mientras que la versión Catalogs Pro admite tamaños de archivo CSV de hasta 2 GB para un único archivo CSV.
 
 {% alert important %}
@@ -227,7 +230,7 @@ El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad
 
 El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 100&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 100&nbsp;MB.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
 A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (100&nbsp;MB) está incluido en cada uno de estos planes.
 
@@ -240,7 +243,7 @@ La siguiente tabla resume las especificaciones de lo que puedes incluir en los c
 | Caracteres del valor de un elemento | Hasta 5000 caracteres en un solo valor. Por ejemplo, si tienes un campo llamado `description`, el número máximo de caracteres dentro del campo es 5000. |
 | Caracteres del nombre de columna de un elemento | Hasta 250 caracteres |
 | Selecciones por catálogo | Hasta 30 selecciones por catálogo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
 {% alert important %}
 Las etiquetas de Liquid de catálogos no se pueden utilizar de forma recursiva, lo que significa que no puedes hacer referencia a un elemento del catálogo que a su vez llame a un segundo elemento del catálogo dentro de la misma evaluación de Liquid.

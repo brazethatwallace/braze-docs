@@ -56,7 +56,7 @@ Completa los campos obligatorios.
 | Idioma de la plantilla | Selecciona el idioma de tu plantilla. Meta restringe las plantillas a un solo idioma, así que elige el idioma que verá tu audiencia. |
 | Nombre de la plantilla | Introduce un nombre descriptivo que te ayude a identificar esta plantilla más adelante. Los nombres de plantilla no pueden contener espacios; usa guiones bajos o elimina los espacios por completo (como `carousel_example` o `carouselexample`). |
 | Categoría | Se establece automáticamente como **Marketing**. Todos los mensajes de carrusel se categorizan como mensajes de marketing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configurar los ajustes de la plantilla" }
 
 ![Panel de detalles de la plantilla de WhatsApp con una cuenta de WhatsApp Business seleccionada, inglés como idioma de la plantilla y un nombre de plantilla "welcome_message".]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
@@ -112,7 +112,7 @@ El envío de prueba no está disponible hasta que Meta apruebe la plantilla. El 
 
 ## Usar plantillas de carrusel {#use-carousel-templates}
 
-Después de que Meta apruebe tu plantilla de carrusel, puedes usarla en Campaigns y Canvas. El proceso es similar para ambos tipos de mensaje.
+Después de que Meta apruebe tu plantilla de carrusel, puedes usarla en campañas y Canvas. El proceso es similar para ambos tipos de mensaje.
 
 ### Paso 1: Crear un mensaje de WhatsApp {#step-1-create-a-whatsapp-message}
 
@@ -193,4 +193,4 @@ Después de la composición, continúa con el flujo de trabajo de lanzamiento de
 | Las variables no se completan en la prueba | Asegúrate de que la sintaxis de Liquid sea correcta y de que los atributos existan en los perfiles de usuario. Comprueba si hay errores tipográficos en los nombres de las variables y verifica que los valores predeterminados estén configurados donde corresponda. |
 | El nombre de la plantilla tiene espacios | Los nombres de plantilla no pueden contener espacios. Usa guiones bajos en su lugar (`template_name`) o elimina los espacios por completo (`templatename`). |
 | No se puede cambiar el número de tarjetas | El número de tarjetas se fija cuando creas la plantilla y no puede cambiarse después del envío. Si necesitas un número diferente de tarjetas, tendrás que crear una nueva plantilla. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }

@@ -20,7 +20,7 @@ WhatsApp製品メッセージをユーザーに送信すると、ユーザーは
 1. ユーザーがWhatsAppで製品またはカタログメッセージを受信します。
 2. ユーザーがWhatsAppから直接カートに製品を追加します。
 3. ユーザーがWhatsAppで**Place order**をタップします。
-4. Webサイトまたはアプリがbrazeからカートデータを受信し、チェックアウトリンクを生成します。
+4. Webサイトまたはアプリが Brazeからカートデータを受信し、チェックアウトリンクを生成します。
 5. ユーザーがWebサイトまたはアプリに誘導され、チェックアウトを完了します。
 
 ユーザーがカタログメッセージを通じてカートにアイテムを追加すると、Brazeはフォローアップアクション用のWebhookデータを受信します。
@@ -32,7 +32,7 @@ WhatsApp製品メッセージをユーザーに送信すると、ユーザーは
 | WhatsApp Businessアカウント | WhatsApp製品メッセージを使用するには、Brazeに接続されたWhatsApp Businessアカウントが必要です。 |
 | Metaカタログ | Commerce ManagerでMetaカタログを設定する必要があります。 |
 | 規約の遵守 | [Meta Commerce利用規約とポリシー](https://www.facebook.com/policies_center/commerce)に準拠する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 製品メッセージタイプ {#product-message-types}
 

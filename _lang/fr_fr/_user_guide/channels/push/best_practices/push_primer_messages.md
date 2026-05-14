@@ -14,7 +14,7 @@ channel: push
 
 ![Message in-app de push primer pour une application de streaming. La notification indique « Recevoir des notifications push de Movie Cannon ? Les notifications peuvent inclure de nouveaux films, séries TV ou d'autres avis et peuvent être désactivées à tout moment. »]({% image_buster /assets/img_archive/push_primer_iam.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
-Pour créer un message in-app de push primer dans Braze, vous pouvez utiliser le comportement au clic du bouton « Demander l'autorisation push » lors de la création d'un message in-app pour iOS, Android ou le Web.
+Pour créer un message in-app de push primer dans Braze, vous pouvez utiliser le comportement au clic du bouton « Request Push Permission » lors de la création d'un message in-app pour iOS, Android ou le Web.
 
 ## Conditions préalables {#prerequisites}
 
@@ -30,7 +30,7 @@ De plus, notez les détails spécifiques à chaque plateforme suivants :
 |----------|----------------------|
 | **Android 12 et versions antérieures** | L'implémentation de push primers n'est pas recommandée car le push est activé par défaut. |
 | **Android 13+** | Si un utilisateur refuse votre invite d'autorisation push deux fois, Android bloque les invites ultérieures, y compris les messages de push primer de Braze. Pour accorder l'autorisation après cela, les utilisateurs doivent activer manuellement le push pour votre application dans les paramètres de leur appareil. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 {% endtab %}
 
 {% tab swift %}
@@ -80,7 +80,7 @@ Tout d'abord, [créez un message in-app]({{site.baseurl}}/user_guide/channels/in
 
 Pour vous assurer d'avoir suffisamment d'espace pour votre message et vos boutons, utilisez une disposition de message en plein écran ou en fenêtre modale. Si vous choisissez le plein écran, notez qu'une image est requise.
 
-## Étape 2 : Construire votre message {#step-2-build-your-message}
+## Étape 2 : Rédiger votre message {#step-2-build-your-message}
 
 Il est maintenant temps d'ajouter votre texte ! N'oubliez pas qu'un push primer est censé préparer l'utilisateur à activer les notifications push. Dans le corps de votre message, nous vous suggérons de mettre en avant les raisons pour lesquelles vos utilisateurs devraient activer les notifications push. Soyez précis sur le type de notifications que vous souhaitez envoyer et la valeur qu'elles peuvent apporter.
 
@@ -188,7 +188,7 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 
 {% enddetails %}
 
-#### Solution : Utiliser le push primer sans code {#solution-use-the-no-code-push-primer}
+#### Solution : utiliser le push primer sans code {#solution-use-the-no-code-push-primer}
 
 La solution recommandée est d'utiliser le push primer sans code (l'action de bouton « Request Push Permission ») sans filtres de segmentation supplémentaires sur le statut push.
 

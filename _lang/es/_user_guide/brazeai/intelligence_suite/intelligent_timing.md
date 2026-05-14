@@ -6,7 +6,7 @@ description: "Este artículo ofrece un resumen de Intelligent Timing (antes Entr
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
 > Utiliza Intelligent Timing para entregar tu mensaje a cada usuario cuando Braze determine el momento óptimo de envío, que es cuando es más probable que el usuario interactúe (abra o haga clic). Esto te facilita comprobar que estás enviando mensajes a tus usuarios en el momento que prefieren y puede generar una mayor interacción.
 
@@ -18,7 +18,7 @@ Braze calcula el momento óptimo de envío basándose en un análisis estadísti
 - Push Direct Opens
 - Push Influenced Opens
 - Clics en correos electrónicos
-- Aperturas de correo electrónico (excluyendo [aperturas de máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)
+- Aperturas de correo electrónico (excluyendo [aperturas de máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
 - Clics en SMS (solo si se habilitan [el acortamiento de enlaces]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) y el seguimiento avanzado)
 
 Por ejemplo, Sam puede abrir tus correos electrónicos por la mañana con regularidad, pero abre tu aplicación e interactúa con las notificaciones por la tarde. Eso significa que Sam recibiría una campaña por correo electrónico con Intelligent Timing por la mañana, mientras que recibiría campañas con notificaciones push por la tarde, cuando es más probable que interactúe.

@@ -1,5 +1,5 @@
 ---
-nav_title: "Subscription groups"
+nav_title: "구독 그룹"
 article_title: SMS 및 RCS 구독 그룹
 page_order: 4
 description: "이 참조 문서에서는 SMS, MMS, RCS 채널의 구독 그룹, 구독 상태, 구독 그룹 설정 프로세스에 대해 설명합니다."
@@ -26,7 +26,7 @@ SMS 및 RCS 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 
 | --------- | ---------- |
 | 가입됨 | 사용자가 특정 구독 그룹에서 SMS 및 RCS를 수신하도록 가입되어 있습니다. 사용자는 Braze 구독 API를 통해 구독 상태를 업데이트하거나 옵트인 키워드 응답을 문자로 보내 가입할 수 있습니다. SMS 또는 RCS, 혹은 둘 다를 수신하려면 사용자가 SMS 또는 RCS 구독 그룹에 가입되어 있어야 합니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)이 활성화된 경우, 사용자는 구독 상태가 `Subscribed`로 업데이트되기 전에 옵트인 의사를 확인해야 합니다. |
 | 가입 취소됨 | 사용자가 SMS 및 RCS 구독 그룹과 해당 구독 그룹 내 발송 전화번호로부터의 메시징을 명시적으로 옵트아웃했습니다. 옵트아웃 키워드 응답을 문자로 보내 가입을 취소하거나, [Braze 구독 API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 통해 사용자의 가입을 취소할 수 있습니다. SMS 및 RCS 구독 그룹에서 가입 취소된 사용자는 해당 구독 그룹에 속한 발송 전화번호로부터 더 이상 SMS 또는 RCS를 수신하지 않습니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### 사용자 상태 설정 {#set-a-users-state}
 
@@ -111,7 +111,7 @@ RCS 인증 발신자를 추가하는 방법은 두 가지입니다:
 5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
 
 {% alert note %}
-에이전트 콘솔을 사용하면 메시지 크레딧이 소모됩니다.
+에이전트 콘솔을 사용하면 메시지 또는 액션 크레딧이 소모됩니다.
 {% endalert %}
 
 ## SMS 트래픽을 RCS로 마이그레이션 {#migrate-sms-traffic-to-rcs}
@@ -132,7 +132,7 @@ Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 �
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Segment 생성** | 구독 그룹의 모든 사용자 또는 세분화 필터를 사용한 하위 집합(예: 무작위 5~10%)을 포함하는 Segment를 구축합니다. Segment는 각 발송 전에 업데이트되어 현재 사용자 기반을 반영합니다. |
 | **Campaign 또는 Canvas 필터 적용** | Campaign 또는 Canvas의 **타겟 오디언스** 단계에서 오디언스를 세분화합니다. 페이지를 벗어나지 않고 타겟팅 옵션을 조정하여 유연성을 높일 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### 3단계: 사용자 업데이트 단계 구성 {#step-3-configure-a-user-update-step}
 

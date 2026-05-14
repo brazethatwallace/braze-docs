@@ -63,7 +63,7 @@ SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成す
 | Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | HTTPメソッド | `POST` |
 | リクエスト本文 | JSONキーと値のペア |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### 本文プロパティのキー値 {#body-property-key-values}
 
@@ -75,7 +75,7 @@ BrazeからSalesforceにマッピングするキーと値のペアごとに、**
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### リクエストヘッダー {#request-headers}
 
@@ -85,7 +85,7 @@ BrazeからSalesforceにマッピングするキーと値のペアごとに、**
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4" }
 4. **Save Template** を選択します。
@@ -119,7 +119,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 | Webhook URL | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | HTTPメソッド | `PATCH` |
 | リクエスト本文 | JSONキーと値のペア |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compose webhook" }
 
 #### 本文プロパティのキー値
 
@@ -128,7 +128,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 | キー | 値 |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Body property key values" }
 
 #### リクエストヘッダー
 
@@ -138,7 +138,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
 
 {: start="4"}
 4. **Save Template** を選択します。

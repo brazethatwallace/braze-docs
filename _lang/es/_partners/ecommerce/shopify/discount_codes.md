@@ -20,7 +20,7 @@ Se trata de una integración enviada por la comunidad y no está soportada direc
 | --- | --- |
 | Configurar una tienda Shopify | Confirma que ya has [configurado una tienda Shopify con Braze]({{site.baseurl}}/shopify_overview/). |
 | Instalar la aplicación Bulk Discount Code Bot | Descarga la aplicación [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) en la tienda de aplicaciones de Shopify. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Generar códigos de descuento únicos {#generating-unique-discount-codes}
 

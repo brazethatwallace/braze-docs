@@ -2,7 +2,7 @@
 nav_title: Stripo
 article_title: Stripo
 alias: /partners/stripo
-description: "Dieser referenzierende Artikel beschreibt die Partnerschaft zwischen Braze und Stripo, einem E-Mail-Builder per Drag-and-Drop für die Erstellung anspruchsvoller E-Mails mit interaktiven Elementen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Stripo, einem Drag-and-Drop-E-Mail-Template-Builder für die Erstellung anspruchsvoller E-Mails mit interaktiven Elementen."
 page_type: partner
 search_tag: Partner
 
@@ -10,45 +10,43 @@ search_tag: Partner
 
 # Stripo
 
-> [Stripo](https://stripo.email/) ist ein E-Mail-Builder per Drag-and-Drop für die Gestaltung responsiver E-Mails mit interaktiven Elementen. Nutzer:innen von Stripo können mit dem Stripo-Editor auch HTML bearbeiten und entscheiden, welche Elemente auf verschiedenen Geräten angezeigt oder ausgeblendet werden sollen.
+> [Stripo](https://stripo.email/) ist ein Drag-and-Drop-E-Mail-Template-Builder für die Gestaltung responsiver E-Mails mit interaktiven Elementen. Nutzer:innen von Stripo können mit dem Stripo-Editor auch HTML bearbeiten und entscheiden, welche Elemente auf verschiedenen Geräten angezeigt oder ausgeblendet werden sollen.
 
 _Diese Integration wird von Stripo gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Stripo ermöglicht es Ihnen, Ihre angepassten E-Mails von Stripo zu exportieren und als Templates in Braze hochzuladen.
+Die Integration von Braze und Stripo ermöglicht es Ihnen, Ihre angepassten Stripo-E-Mails zu exportieren und als Templates in Braze hochzuladen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ------------| ----------- |
 | Stripo-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Stripo-Konto. |
-| Braze REST API-Schlüssel | Ein Braze REST API-Schlüssel mit vollständigen **Templates-Berechtigungen**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Cluster Instanz | Ihre [Braze-Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) ist auf Ihr Braze-Dashboard und Ihren REST-Endpunkt abgestimmt.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Cluster-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) ist auf Ihr Braze-Dashboard und Ihren REST-Endpunkt abgestimmt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### Schritt 1: Stripo E-Mail erstellen
+### 1. Schritt: Stripo-E-Mail erstellen {#step-1-create-stripo-email}
 
-Erstellen Sie eine Stripo E-Mail in der Stripo-Plattform und klicken Sie auf **Exportieren**. 
+Erstellen Sie eine Stripo-E-Mail auf der Stripo-Plattform und klicken Sie auf **Export**.
 
-![Stripo Export]({% image_buster /assets/img_archive/stripo_export.png %})
+![Stripo-Export]({% image_buster /assets/img_archive/stripo_export.png %})
 
-### Schritt 2: Template nach Braze exportieren
+### 2. Schritt: Template nach Braze exportieren {#step-2-export-template-to-braze}
 
-Wählen Sie in dem nun erscheinenden Dialog **Braze** als Exportmethode aus 
+Wählen Sie in dem erscheinenden Dialog **Braze** als Exportmethode aus.
 
-Als nächstes geben Sie Ihren **Kontonamen** (z.B. den Namen des Workspace), den **API-Schlüssel** und Ihre **Instanz** ein.
+Geben Sie anschließend Ihren **Kontonamen** (z. B. den Workspace-Namen), den **API-Schlüssel** und Ihre **Cluster-Instanz** ein.
 
-![Stripo Formular]({% image_buster /assets/img_archive/stripo_form.png %})
+![Stripo-Formular]({% image_buster /assets/img_archive/stripo_form.png %})
 
 {% alert important %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte werden automatisch diesen API-Schlüssel verwenden.
 {% endalert %}
 
-## Nutzung
+## Nutzung {#usage}
 
-Ihre hochgeladene Stripo-Vorlage finden Sie in Ihrem Braze-Konto im Bereich **Templates & Medien > E-Mail-Vorlagen**. Mit dieser E-Mail-Vorlage können Sie jetzt damit beginnen, ansprechende Nachrichten an Ihre Kund:in zu versenden!
-
-
+Ihr hochgeladenes Stripo-Template finden Sie in Ihrem Braze-Konto im Bereich **Templates und Medien > E-Mail-Templates**. Mit diesem E-Mail-Template können Sie jetzt damit beginnen, ansprechende E-Mail-Nachrichten an Ihre Kund:innen zu versenden!

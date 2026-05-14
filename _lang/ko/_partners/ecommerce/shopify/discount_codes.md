@@ -20,7 +20,7 @@ description: "이 참조 문서에서는 Braze 프로모션 코드와 Shopify Bu
 | --- | --- |
 | Shopify 스토어 설정 | [Braze와 Shopify 스토어를 설정]({{site.baseurl}}/shopify_overview/)했는지 확인합니다. |
 | Bulk Discount Code Bot 앱 설치 | Shopify 앱 스토어에서 [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) 앱을 다운로드합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 고유 할인 코드 생성하기 {#generating-unique-discount-codes}
 

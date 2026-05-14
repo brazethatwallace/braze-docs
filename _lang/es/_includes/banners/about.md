@@ -22,7 +22,7 @@ Una vez que los Banners están integrados en una aplicación o sitio web, los es
 | Personalización de ofertas | Muestra promociones e incentivos personalizados basados en el historial de navegación, el contenido del carrito, el nivel de suscripción y el estado de fidelización de cada usuario. |
 | Interacción con nuevos usuarios | Guía a los nuevos usuarios a través de los flujos de incorporación y la configuración de la cuenta. |
 | Ventas y promociones | Destaca el contenido destacado, los productos de tendencia y las campañas de marca en curso de forma persistente y directa en tu página de inicio sin interrumpir la experiencia del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="¿Por qué utilizar Banners?" }
 
 ## Características {#features}
 

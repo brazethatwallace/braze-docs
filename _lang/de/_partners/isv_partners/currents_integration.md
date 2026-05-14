@@ -57,7 +57,7 @@ Außerdem weicht ihre Struktur leicht von der flachen Struktur der [Messaging-En
 |----|-----------|
 | `"user"` | Enthält Nutzer:innen-Eigenschaften wie `user_id`, `external_user_id`, `device_id` und `timezone`. |
 | `"properties"` | Enthält Attribute eines Events, wie z. B. die `app/campaign/canvas/platform`, auf die es sich bezieht. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Payload examples" }
 
 Wenn ein nachgelagerter Endpunkt eine Payload mit null Events oder einen leeren Anfragekörper empfängt, sollte das Ergebnis als No-Op betrachtet werden, d. h. es sollten keine nachgelagerten Effekte durch diesen Aufruf auftreten. Sie sollten jedoch trotzdem den `Authorization`-Header überprüfen (wie bei einem normalen API-Aufruf) und bei [ungültigen Zugangsdaten](#authentication) eine entsprechende HTTP-Antwort geben, z. B. `401` oder `403`. Damit weiß Braze, dass die Zugangsdaten des Konnektors gültig sind.
 
@@ -177,7 +177,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 
 Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie erscheinen würden, wenn sie mit einem Canvas verbunden wären:
 
-#### In-App-Nachricht-Klick {#in-app-message-click}
+#### In-App-Nachricht-Klick
 
 ```json
 // In-App Message Click: users.messages.inappmessage.Click
@@ -206,7 +206,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 }
 ```
 
-#### Push-Benachrichtigung senden {#push-notification-send}
+#### Push-Benachrichtigung senden
 
 ```json
 // Push Notification Send: users.messages.pushnotification.Send
@@ -233,7 +233,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 }
 ```
 
-#### E-Mail-Öffnung {#email-open}
+#### E-Mail-Öffnung
 
 ```json
 // Email Open: users.messages.email.Open
@@ -259,7 +259,7 @@ Hier finden Sie einige Beispiel-Event-Payloads für verschiedene Events, wie sie
 }
 ```
 
-#### SMS-Zustellung {#sms-delivery}
+#### SMS-Zustellung
 
 ```json
 // SMS Delivery: users.messages.sms.Delivery
@@ -430,7 +430,8 @@ Wenn der Wiederholungsmechanismus von Braze ein Event länger als 24 Stunden nic
 
 Die folgenden HTTP-Statuscodes werden von unserem Konnektor-Client erkannt:
 
-<table>
+<table aria-label="Error handling and retry mechanism">
+  <caption>Fehlerbehandlung und Wiederholungsmechanismus</caption>
   <thead>
     <tr>
       <th>Statuscode</th>
@@ -481,4 +482,4 @@ Die folgenden HTTP-Statuscodes werden von unserem Konnektor-Client erkannt:
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error handling and retry mechanism" }

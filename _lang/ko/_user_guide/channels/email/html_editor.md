@@ -10,7 +10,7 @@ channel:
 search_rank: 1
 ---
 
-# 커스텀 HTML로 이메일 만들기
+# 커스텀 HTML로 이메일 만들기 {#create-an-email-with-custom-html}
 
 > 이메일 메시지는 사용자가 원하는 조건에 맞춰 콘텐츠를 전달하는 데 매우 유용합니다. 또한 앱을 삭제한 사용자를 다시 참여시키는 데에도 훌륭한 도구입니다. 맞춤화된 이메일 메시지를 보내면 사용자 경험이 향상되고, 사용자가 앱에서 최대한의 가치를 얻을 수 있도록 도와줍니다.
 
@@ -29,15 +29,15 @@ search_rank: 1
 {% tabs %}
 {% tab Campaign %}
 
-1. **메시징** > **Campaigns**으로 이동하여 **캠페인 생성**을 선택합니다.
-2. **이메일**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
+1. **Messaging** > **Campaigns**으로 이동하여 **Create Campaign**을 선택합니다.
+2. **Email**을 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **Multichannel**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)와 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가합니다.
    * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 사용할 때 특정 태그로 필터링할 수 있습니다.
 5. Campaign에 필요한 만큼 배리언트를 추가하고 이름을 지정합니다. 이 주제에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/)를 참조하세요.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **Add Variant** 드롭다운에서 **Copy from Variant**를 선택할 수 있습니다.
 {% endalert %}
 {% endtab %}
 {% tab Canvas %}
@@ -68,16 +68,16 @@ Braze는 이메일 Campaign을 만들 때 두 가지 편집 환경을 제공합�
 HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 앱에서 배경색이 일관되게 유지되어야 하는 경우, [Gmail 모바일 앱과 다크 모드 배경색](#gmail-dark-mode)을 참조하세요.
 
 {% alert tip %}
-이메일 Campaign당 하나의 편집 환경을 선택하는 것을 권장합니다. 예를 들어, 단일 이메일 Campaign에서 편집기 간에 전환하지 말고 **HTML Classic** 또는 **블록 편집기** 중 하나를 선택하세요.
+이메일 Campaign당 하나의 편집 환경을 선택하는 것을 권장합니다. 예를 들어, 단일 이메일 Campaign에서 편집기 간에 전환하지 말고 **HTML Classic** 또는 **Block editor** 중 하나를 선택하세요.
 {% endalert %}
 
 ## 3단계: 이메일 작성하기 {#step-3-compose-your-email}
 
 템플릿을 선택하면 이메일 개요가 표시되며, 여기서 전체화면 편집기로 바로 이동하여 이메일을 작성하고, 발송 정보를 변경하고, 전달 가능성 또는 법률 준수에 대한 경고를 확인할 수 있습니다. 작성하는 동안 HTML, 클래식, 일반 텍스트, [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email/) 탭 간에 전환할 수 있습니다.
 
-![HTML에서 재생성 버튼.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
+!["HTML에서 재생성" 버튼.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
-Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML 버전에서 자동으로 일반 텍스트 버전을 업데이트합니다. Braze가 편집을 감지하면 의도적인 변경이 이루어졌다고 판단하여 자동 업데이트를 중단합니다. 자동 동기화를 복원하려면 **일반 텍스트**로 이동하여 **HTML에서 재생성**을 선택합니다(일반 텍스트가 동기화되지 않을 때만 표시됨).
+Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML 버전에서 자동으로 일반 텍스트 버전을 업데이트합니다. Braze가 편집을 감지하면 의도적인 변경이 이루어졌다고 판단하여 자동 업데이트를 중단합니다. 자동 동기화를 복원하려면 **Plaintext**로 이동하여 **Regenerate from HTML**을 선택합니다(일반 텍스트가 동기화되지 않을 때만 표시됨).
 
 {% alert tip %}
 정확한 미리보기와 함께 이메일에 모션을 추가하려면 JavaScript 대신 GIF를 사용하세요. 대부분의 받은편지함에서 JavaScript를 지원하지 않습니다.
@@ -113,32 +113,33 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 {% alert note %}
 이 방법은 `<table>` 요소에만 단독으로 적용하면 안정적으로 작동하지 않으므로, 테이블이 아닌 셀에 그라디언트를 설정하세요.
+  <caption>Gmail 모바일 앱과 다크 모드</caption>
 {% endalert %}
 
 그라디언트 구문에 대한 자세한 내용은 [W3Schools의 CSS 그라디언트](https://www.w3schools.com/css/css3_gradients.asp)를 참조하세요.
 
 ### 3.1단계: 발송 정보 추가하기 {#step-31-add-your-sending-information}
 
-이메일 메시지 디자인과 작성을 완료한 후, **발송 설정**에서 발송 정보를 추가합니다.
+이메일 메시지 디자인과 작성을 완료한 후, **Sending Settings**에서 발송 정보를 추가합니다.
 
-1. **발송 정보**에서 **보낸 사람 표시 이름 + 주소**로 이메일을 선택합니다. **보낸 사람 표시 이름 + 주소 커스터마이즈**를 선택하여 커스터마이즈할 수도 있습니다.
-2. **회신 주소**로 이메일을 선택합니다. **회신 주소 커스터마이즈**를 선택하여 커스터마이즈할 수도 있습니다.
-3. 다음으로, **BCC 주소**로 이메일을 선택하여 이 주소에서 이메일을 볼 수 있도록 합니다.
+1. **Sending Info**에서 **From Display Name + Address**로 이메일을 선택합니다. **Customize From Display Name + Address**를 선택하여 커스터마이즈할 수도 있습니다.
+2. **Reply-To Address**로 이메일을 선택합니다. **Customize Reply-To Address**를 선택하여 커스터마이즈할 수도 있습니다.
+3. 다음으로, **BCC Address**로 이메일을 선택하여 이 주소에서 이메일을 볼 수 있도록 합니다.
 4. 이메일에 제목란을 추가합니다. 선택적으로 프리헤더와 프리헤더 뒤의 공백도 추가할 수 있습니다.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-오른쪽 패널의 미리보기에 추가한 발송 정보가 표시됩니다. 이 정보는 **설정** > **이메일 환경설정** > **발송 구성**으로 이동하여 업데이트할 수도 있습니다.
+오른쪽 패널의 미리보기에 추가한 발송 정보가 표시됩니다. 이 정보는 **Settings** > **Email Preferences** > **Sending Configuration**으로 이동하여 업데이트할 수도 있습니다.
 
 #### 고급 {#advanced}
 
-**발송 설정** > **고급**에서 가장 넓은 클라이언트 지원을 위해 **인라인 CSS**를 켭니다. 메시지가 잘리거나 이미지가 행 높이로 늘어나는 경우, 인라인 CSS를 일시적으로 **끄기**로 해보세요. 일부 템플릿은 인라인 처리 없이 더 잘 작동합니다.
+**Sending Settings** > **Advanced**에서 가장 넓은 클라이언트 지원을 위해 **inline CSS**를 켭니다. 메시지가 잘리거나 이미지가 행 높이로 늘어나는 경우, 인라인 CSS를 일시적으로 **끄기**로 해보세요. 일부 템플릿은 인라인 처리 없이 더 잘 작동합니다.
 
 이메일 헤더와 이메일 추가 정보에 개인화를 추가하여 다른 이메일 서비스 제공업체로 추가 데이터를 보낼 수도 있습니다.
 
 ##### 이메일 헤더 {#email-headers}
 
-이메일 헤더를 추가하려면 **새 헤더 추가**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
+이메일 헤더를 추가하려면 **Add New Header**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
 
 Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더를 추가할 수 있는 유연성을 제공합니다. Braze 플랫폼이 발송 중에 덮어쓰는 몇 가지 예약된 필드가 있습니다.
 
@@ -151,7 +152,8 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
+  <caption>이메일 헤더</caption>
 <thead>
   <tr>
     <th>예약된 필드</th>
@@ -192,7 +194,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 
 이메일 추가 정보를 사용하면 다른 이메일 서비스 제공업체로 추가 데이터를 보낼 수 있습니다. 이는 고급 사용 사례에만 적용되므로, 회사에서 이미 이 기능을 설정한 경우에만 이메일 추가 정보를 사용해야 합니다.
 
-이메일 추가 정보를 추가하려면 **발송 정보**로 이동하여 **새 추가 정보 추가**를 선택합니다.
+이메일 추가 정보를 추가하려면 **Sending Info**로 이동하여 **Add New Extra**를 선택합니다.
 
 {% alert warning %}
 추가된 키-값 페어의 총 크기는 1KB를 초과하지 않아야 합니다. 그렇지 않으면 메시지가 중단됩니다.
@@ -202,23 +204,23 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 
 ### 3.2단계: 메시지 미리보기 및 테스트하기 {#step-3b-preview-and-test-your-message}
 
-이메일 작성을 완료한 후, 발송하기 전에 테스트하세요. 개요 화면 하단에서 **미리보기 및 테스트**를 선택합니다.
+이메일 작성을 완료한 후, 발송하기 전에 테스트하세요. 개요 화면 하단에서 **Preview and Test**를 선택합니다.
 
-여기서 고객의 받은편지함에 이메일이 어떻게 표시되는지 미리볼 수 있습니다. **사용자로 미리보기**를 선택하면 랜덤 사용자로 이메일을 미리보거나, 특정 사용자를 선택하거나, 커스텀 사용자를 만들 수 있습니다. 이를 통해 연결된 콘텐츠와 개인화 호출이 제대로 작동하는지 테스트할 수 있습니다.
+여기서 고객의 받은편지함에 이메일이 어떻게 표시되는지 미리볼 수 있습니다. **Preview as User**를 선택하면 랜덤 사용자로 이메일을 미리보거나, 특정 사용자를 선택하거나, 커스텀 사용자를 만들 수 있습니다. 이를 통해 연결된 콘텐츠와 개인화 호출이 제대로 작동하는지 테스트할 수 있습니다.
 
-그런 다음 **미리보기 링크 복사**를 사용하여 랜덤 사용자에게 이메일이 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
+그런 다음 **Copy preview link**를 사용하여 랜덤 사용자에게 이메일이 어떻게 보이는지 보여주는 공유 가능한 미리보기 링크를 생성하고 복사할 수 있습니다. 이 링크는 7일 후에 재생성해야 합니다.
 
 데스크탑, 모바일, 일반 텍스트 보기 간에 전환하여 다양한 컨텍스트에서 메시지가 어떻게 표시되는지 확인할 수도 있습니다.
 
 {% alert tip %}
-다크 모드 사용자에게 이메일이 어떻게 보이는지 궁금하신가요? **미리보기 및 테스트** 섹션에 있는 **다크 모드 미리보기** 토글을 선택하세요(드래그 앤 드롭 편집기만 해당). HTML 편집기를 사용하는 경우에도 [Gmail 모바일 앱과 다크 모드](#gmail-dark-mode)를 통해 Gmail 모바일 다크 모드 렌더링을 처리할 수 있습니다.
+다크 모드 사용자에게 이메일이 어떻게 보이는지 궁금하신가요? **Preview and Test** 섹션에 있는 **Dark Mode Preview** 토글을 선택하세요(드래그 앤 드롭 편집기만 해당). HTML 편집기를 사용하는 경우에도 [Gmail 모바일 앱과 다크 모드](#gmail-dark-mode)를 통해 Gmail 모바일 다크 모드 렌더링을 처리할 수 있습니다.
 {% endalert %}
 
-최종 확인 준비가 되면 **테스트 발송**을 선택하고 자신이나 테스터 그룹에 테스트 메시지를 보내 이메일이 기기와 클라이언트에서 올바르게 표시되는지 확인합니다.
+최종 확인 준비가 되면 **Test Send**를 선택하고 자신이나 테스터 그룹에 테스트 메시지를 보내 이메일이 기기와 클라이언트에서 올바르게 표시되는지 확인합니다.
 
 ![이메일 작성 시 테스트 발송 옵션과 예시 이메일 미리보기.]({% image_buster /assets/img_archive/newEmailTest.png %})
 
-이메일에 문제가 있거나 변경하고 싶은 사항이 있으면 **이메일 편집**을 선택하여 편집기로 돌아갑니다.
+이메일에 문제가 있거나 변경하고 싶은 사항이 있으면 **Edit Email**을 선택하여 편집기로 돌아갑니다.
 
 {% alert tip %}
 미리보기 텍스트를 지원하는 이메일 클라이언트는 항상 사용 가능한 모든 미리보기 텍스트 공간을 채울 만큼 충분한 문자를 가져옵니다. 그러나 이로 인해 미리보기 텍스트가 불완전하거나 최적화되지 않은 상황이 발생할 수 있습니다.
@@ -228,7 +230,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
 ```
 
-드래그 앤 드롭 편집기의 경우, **발송 설정** 섹션의 프리헤더에 `<div>` 서식 없이 제로 너비 비결합자(‌`&zwnj;`)만 직접 추가합니다.
+드래그 앤 드롭 편집기의 경우, **Sending Settings** 섹션의 프리헤더에 `<div>` 서식 없이 제로 너비 비결합자(‌`&zwnj;`)만 직접 추가합니다.
 {% endalert %}
 
 ### 3.3단계: 이메일 오류 확인하기 {#step-33-check-for-email-errors}
@@ -257,7 +259,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 예약된 시간, 동작 또는 API 트리거를 기반으로 이메일을 전달합니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
 {% alert note %}
-API 트리거 Campaign의 경우, 트리거 동작이 **Campaign과 상호작용**으로 설정되어 있을 때 상호작용으로 **수신** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
+API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**으로 설정되어 있을 때 상호작용으로 **Receive** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
 {% endalert %}
 
 Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
@@ -284,10 +286,10 @@ Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_
 - **사용자 B**는 이메일에 옵트인했지만 푸시가 활성화되어 있지 않습니다. 이 사용자는 이메일을 받지만 푸시를 받지 않습니다.
 - **사용자 C**는 이메일에 옵트인했고 푸시가 활성화되어 있습니다. 이 사용자는 이메일과 푸시를 모두 받습니다.
 
-이를 위해 **오디언스 요약**에서 이 Campaign을 "옵트인한 사용자에게만" 보내도록 선택합니다. 이 옵션은 옵트인한 사용자만 이메일을 받도록 하며, Braze는 기본적으로 푸시가 활성화된 사용자에게만 푸시를 보냅니다.
+이를 위해 **Audience Summary**에서 이 Campaign을 "옵트인한 사용자에게만" 보내도록 선택합니다. 이 옵션은 옵트인한 사용자만 이메일을 받도록 하며, Braze는 기본적으로 푸시가 활성화된 사용자에게만 푸시를 보냅니다.
 
 {% alert important %}
-이 구성에서는 **타겟 오디언스** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
+이 구성에서는 **Target Audiences** 단계에서 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
 #### 전환 이벤트 선택하기 {#choose-conversion-events}
@@ -309,6 +311,6 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 
 ## 5단계: 검토 및 배포하기 {#step-5-review-and-deploy}
 
-마지막 섹션에서는 설계한 Campaign의 요약을 보여줍니다. 모든 관련 세부 정보를 확인하고 **Campaign 시작**을 선택합니다.
+마지막 섹션에서는 설계한 Campaign의 요약을 보여줍니다. 모든 관련 세부 정보를 확인하고 **Launch Campaign**을 선택합니다.
 
 이메일 Campaign의 결과에 액세스하는 방법을 알아보려면 [이메일 보고서]({{site.baseurl}}/user_guide/channels/email/reporting/)를 확인하세요.

@@ -27,7 +27,7 @@ Braze와 AppsFlyer 통합을 통해 AppsFlyer의 모바일 설치 기여도 데�
 | AppsFlyer SDK | 필수 Braze SDK 외에도 [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started)를 설치해야 합니다.
 | 이메일 도메인 설정 완료 | Braze 온보딩 중 이메일 설정의 [IP 및 도메인 설정 단계]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)를 완료해야 합니다. |
 | SSL 인증서 | [SSL 인증서]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate)가 구성되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -128,7 +128,7 @@ Braze가 AppsFlyer로부터 기여도 데이터를 수신하면, Braze의 AppsFl
 | `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 설치 기여도 필터를 사용하여 Braze 대시보드에서 기여도 데이터를 기준으로 사용자 기반을 세분화할 수 있습니다.
 

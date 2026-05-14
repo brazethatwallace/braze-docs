@@ -34,8 +34,8 @@ Criteo에 오디언스 동기화를 설정하기 전에 다음 항목을 생성 
 | 요구 사항 | 출처 | 설명 |
 | --- | --- | --- |
 | Criteo 광고 계정 | [Criteo](https://marketing.criteo.com/) | 브랜드에 연결된 활성 Criteo 광고 계정.<br><br>Criteo 관리자가 오디언스에 접근할 수 있는 적절한 권한을 부여했는지 확인하세요. |
-| [Criteo 광고 가이드라인](https://www.criteo.com/advertising-guidelines/)<br>및<br>[Criteo 브랜드 안전 가이드라인](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | 활성 Criteo 고객으로서 Criteo 캠페인을 시작하기 전에 Criteo의 광고 및 브랜드 안전 가이드라인을 준수할 수 있는지 확인해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [Criteo 광고 가이드라인](https://www.criteo.com/advertising-guidelines/)<br>및<br>[Criteo 브랜드 안전 가이드라인](https://www.criteo.com/wp-content/uploads/2017/11/Criteo-Brand-Safety-Guidelines-UK-March-2016.pdf) | Criteo | 활성 Criteo 고객으로서 Criteo Campaign을 시작하기 전에 Criteo의 광고 및 브랜드 안전 가이드라인을 준수할 수 있는지 확인해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -92,7 +92,7 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 그런 다음 원하는 Criteo 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab 새 오디언스 생성 %}
 **새 오디언스 생성**<br>
 새 오디언스의 이름을 입력하고 **Add Users to Audience**를 선택한 다음 Criteo와 동기화할 필드를 선택합니다. 그런 다음 단계 편집기 하단의 **Create Audience** 버튼을 클릭하여 오디언스를 저장합니다.
 
@@ -104,7 +104,7 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
 새 오디언스로 Canvas를 시작하면 Braze는 사용자가 오디언스 동기화 구성요소에 진입할 때 거의 실시간으로 동기화합니다.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab 기존 오디언스와 동기화 %}
 **기존 오디언스와 동기화**<br>
 Braze는 기존 Criteo 오디언스에 사용자를 추가하여 해당 오디언스를 최신 상태로 유지하는 기능도 제공합니다. 기존 오디언스와 동기화하려면 드롭다운에서 기존 오디언스 이름을 입력하고 **Add to the Audience**를 선택합니다. 그러면 Braze는 사용자가 오디언스 동기화 구성요소에 진입할 때 거의 실시간으로 사용자를 추가합니다.
 
@@ -140,7 +140,7 @@ Criteo의 API 사용량 제한은 분당 250건 이하의 요청만 허용합니
 | 대기 중인 사용자 | 현재 Braze에서 Criteo로 동기화하기 위해 처리 중인 사용자 수. |
 | 오류가 발생한 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Criteo에 동기화되지 않은 사용자 수. 오류의 잠재적 원인에는 유효하지 않은 Criteo 토큰 또는 Criteo에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수. Canvas의 마지막 단계가 오디언스 동기화 구성요소인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 대량 플러셔와 13시간 재시도로 인해 동기화된 사용자 및 오류가 발생한 사용자 측정기준의 보고에 지연이 있을 수 있습니다.

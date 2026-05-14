@@ -202,7 +202,7 @@ Canvas 컨텍스트가 정식 출시됨에 따라 다음 사항이 적용됩니�
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | 아니요 |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | 아니요 |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | 예 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="이 변경이 Canvas 진입 등록정보에 영향을 미치나요?" }
 
 #### 새로운 타임스탬프 동작이 메시지에 어떤 영향을 미칠 수 있는지 실제 예시는 무엇인가요? {#faq-example}
 
@@ -260,7 +260,7 @@ Canvas 진입 등록정보는 Canvas 컨텍스트 변수로 포함됩니다. 즉
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | 사용자가 좋아하는 요리 유형. |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | 사용자에게 제공되는 할인 코드. |
 | `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | 이전 변수를 결합한 개인화된 메시지. 메시지 단계에서 Liquid 스니펫 {% raw %}`{{context.${personalized_message}}}`{% endraw %}를 사용하여 컨텍스트 변수를 참조하고 각 사용자에게 개인화된 메시지를 전달할 수 있습니다. 또한 컨텍스트 단계를 사용하여 [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list) 값을 저장하고 Canvas 전체의 다른 단계에서 템플릿으로 사용할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="단일 컨텍스트 단계에서 변수가 서로를 참조할 수 있나요?" }
 
 이는 여러 컨텍스트 단계에 걸쳐서도 적용됩니다. 예를 들어, 다음 시퀀스를 상상해 보세요:
 

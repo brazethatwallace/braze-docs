@@ -32,7 +32,7 @@ Un objeto de permisos válido es un objeto JSON con los siguientes pares clave-v
 | `companyPermissions` | Opcional | Matriz | Matriz de [cadenas de permisos a nivel de empresa]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente. |
 | `roles` | Opcional | Matriz | Matriz de [objetos de rol]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object). |
 | `appGroup` | Obligatoria | Matriz | Matriz de [objetos de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
 
 ### Objeto de permisos del espacio de trabajo {#workspace-permissions-object}
 
@@ -45,7 +45,7 @@ Un objeto de permisos del espacio de trabajo válido es un objeto JSON con los s
 | `appGroupPermissionSets` | Opcional | Matriz | Matriz con un único [objeto de conjunto de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Obligatoria | Matriz | Matriz de cadenas de permisos a nivel del espacio de trabajo de la tabla de [cadenas de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |
 | `team` | Opcional | Matriz | Matriz de [objetos de permisos del equipo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
 ### Objeto de conjunto de permisos del espacio de trabajo {#workspace-permissions-set-object}
 
@@ -55,7 +55,7 @@ Un objeto de conjunto de permisos del espacio de trabajo válido es un objeto JS
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Opcional | Cadena | Nombre del conjunto de permisos del espacio de trabajo que se está asignando al usuario para este espacio de trabajo. |
 | `appGroupPermissionSetID` | Obligatorio si falta `appGroupPermissionSetName` | Cadena | ID del espacio de trabajo, que sirve como método alternativo para especificar el conjunto de permisos del espacio de trabajo asignado al usuario para este espacio de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### Objeto de permisos del equipo {#team-permissions-object}
 
@@ -66,7 +66,7 @@ Un objeto de permisos del equipo válido es un objeto JSON con los siguientes pa
 | `teamName` | Opcional | Cadena | Nombre del equipo, que puede utilizarse para especificar a qué equipo corresponden los permisos de este objeto. |
 | `teamId` | Obligatorio si falta `teamName` | Cadena | ID del equipo, que sirve como método alternativo para especificar el equipo. |
 | `teamPermissions` | Obligatoria | Matriz | Matriz de cadenas de permisos a nivel de equipo de la tabla de [cadenas de permisos del equipo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el equipo especificado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
 
 ## Objeto de rol {#role-object}
 
@@ -76,7 +76,7 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | --- | --- | --- | --- |
 | `roleName` | Opcional | Cadena | Nombre del rol que se está asignando al usuario. |
 | `roleId` | Obligatorio si falta `roleName` | Cadena | ID del rol, que sirve como método alternativo para especificar el rol. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
 
 ## Anexo {#appendix}
 
@@ -87,7 +87,7 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
 | Create and delete workspaces| `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### Cadenas de permisos del espacio de trabajo {#workspace-strings}
 
@@ -204,7 +204,7 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Delete Catalogs | `delete_catalogs` |
 | View Whatsapp Settings | `view_whatsapp_settings` |
 | Edit Technology Partners | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
 ### Cadenas de permisos del equipo {#team}
 
@@ -257,9 +257,9 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
-### Cadenas del departamento {#department-strings}
+### Cadenas de departamento {#department-strings}
 
 | Como se muestra en la IU | Cadena API SCIM |
 | --- | --- |
@@ -270,4 +270,4 @@ Un objeto de rol válido es un objeto JSON con los siguientes pares clave-valor:
 | Finance | `finance` |
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }

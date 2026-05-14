@@ -202,7 +202,7 @@ Veja um exemplo de como fazer isso:
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | Não |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | Não |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | Sim |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Essa mudança impacta as propriedades de entrada do Canvas?" }
 
 #### Qual é um exemplo prático de como o novo comportamento de timestamp pode afetar minhas mensagens? {#faq-example}
 
@@ -260,7 +260,7 @@ Sim. Todas as variáveis em uma etapa de Contexto são avaliadas em sequência, 
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | O tipo de culinária favorita do usuário. |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | O código de desconto disponível para o usuário. |
 | `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Uma mensagem personalizada que combina as variáveis anteriores. Em uma etapa de Mensagem, você poderia usar o snippet Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para referenciar a variável de contexto e entregar uma mensagem personalizada a cada usuário. Você também poderia usar uma etapa de Contexto para salvar o valor do [código promocional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list) e usá-lo como modelo em outras etapas ao longo do Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="As variáveis podem referenciar umas às outras em uma única etapa de Contexto?" }
 
 Isso também se aplica entre múltiplas etapas de Contexto. Por exemplo, imagine esta sequência:
 

@@ -17,13 +17,13 @@ alias: /delete_users/
 
 ## 前提条件 {#prerequisites}
 
-ユーザーを削除するには、管理者であるか、**Delete Users** 権限を持っている必要があります。ユーザー削除レコードを表示するには、管理者であるか、**View User Deletion Records** 権限を持っている必要があります。以下の権限がユーザーの削除と削除レコードを制御します。
+ユーザーを削除するには、管理者であるか、**Delete Users**権限を持っている必要があります。ユーザー削除レコードを表示するには、管理者であるか、**View User Deletion Records**権限を持っている必要があります。以下の権限がユーザーの削除と削除レコードを制御します。
 
 | 権限 | 説明 |
 |------------|-------------|
 | Delete Users | ユーザーを個別または一括で完全に削除します。 |
 | View User Deletion Records | ユーザー削除レコードを表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユーザー削除について {#about-user-deletion}
 
@@ -34,7 +34,7 @@ alias: /delete_users/
 | 最大サイズ | Segmentを削除する際、最大1億件のユーザープロファイルを削除できます。 |
 | 待機期間 | すべてのSegment削除には、7日間の待機期間と削除処理にかかる時間が必要です。 |
 | ジョブの制限 | 一度に削除できるSegmentは1つのみで、7日間の待機期間が含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
 
 ## ユーザーの削除 {#deleting-users}
 
@@ -42,7 +42,7 @@ Brazeダッシュボードから[個々のユーザー](#delete-individual)ま�
 
 ### 個々のユーザーの削除 {#delete-individual}
 
-Brazeから個々のユーザーを削除するには、**Audience** > **Search Users** に移動し、ユーザーを検索して選択します。重複するユーザープロファイルを削除する場合は、正しいプロファイルを選択していることを確認してください。
+Brazeから個々のユーザーを削除するには、**Audience** > **Search Users**に移動し、ユーザーを検索して選択します。重複するユーザープロファイルを削除する場合は、正しいプロファイルを選択していることを確認してください。
 
 ![Brazeの「Search Users」ページ。]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
 
@@ -50,7 +50,7 @@ Brazeから個々のユーザーを削除するには、**Audience** > **Search 
 単一ユーザーの削除は永続的です。削除後にプロファイルを復元することはできません。
 {% endalert %}
 
-プロファイルページで、<i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User** を選択します。ユーザーがBrazeで完全に削除されるまで数分かかる場合があります。
+プロファイルページで、<i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**を選択します。ユーザーがBrazeで完全に削除されるまで数分かかる場合があります。
 
 ![Brazeのユーザーで、縦三点メニューが開かれ、ユーザーを削除するオプションが表示されている状態。]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
@@ -58,22 +58,22 @@ Brazeから個々のユーザーを削除するには、**Audience** > **Search 
 
 まだ作成していない場合は、削除したいユーザープロファイルを含む[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)してください。重複ユーザーを削除する場合は、すべてのユーザープロファイルを含めるようにしてください。
 
-Brazeで、**Audience** > **Manage Audience** に移動し、**Delete Users** タブを選択します。
+Brazeで、**Audience** > **Manage Audience**に移動し、**Delete Users**タブを選択します。
 
 ![Brazeダッシュボードの「Manage Audience」セクションにある「Delete Users」タブ。]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-**Delete users** を選択し、削除するSegmentを選択してから、**Next** を選択します。
+**Delete users**を選択し、削除するSegmentを選択してから、**Next**を選択します。
 
 ![削除するSegmentが選択されたポップアップウィンドウ。]({% image_buster /assets/img/audience_management/deleting_users/choose_segment_to_delete.png %}){: style="max-width:75%;"}
 
-リクエストを確認するために **DELETE** と入力し、**Delete users** を選択します。
+リクエストを確認するために**DELETE**と入力し、**Delete users**を選択します。
 
 ![確認ボックスに「DELETE」と入力された確認ページ。]({% image_buster /assets/img/audience_management/deleting_users/confirm_segment_delete.png %}){: style="max-width:75%;"}
 
 このSegmentのユーザーはすぐには削除されません。代わりに、次の7日間は削除保留としてマークされます。この期間が過ぎると、ユーザーが削除され、メールで通知されます。
 
 {% alert tip %}
-Segmentの変更に関係なくこれらのユーザーが確実に削除されるように、**Pending Deletion** というSegmentフィルターが自動的に作成されます。このフィルターを[使用して]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)、保留中の削除のステータスを確認できます。
+Segmentの変更に関係なくこれらのユーザーが確実に削除されるように、**Pending Deletion**というSegmentフィルターが自動的に作成されます。このフィルターを[使用して]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)、保留中の削除のステータスを確認できます。
 {% endalert %}
 
 ## Segment削除の確認 {#confirming-segment-deletions}
@@ -86,15 +86,15 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ## Segment削除のキャンセル {#cancel}
 
-保留中のSegment削除をキャンセルするには7日間の猶予があります。キャンセルするには、**Audience** > **Manage Audience** に移動し、**Delete Users** タブを選択します。
+保留中のSegment削除をキャンセルするには7日間の猶予があります。キャンセルするには、**Audience** > **Manage Audience**に移動し、**Delete Users**タブを選択します。
 
 ![Brazeダッシュボードの「Manage Audience」セクションにある「Delete Users」タブ。]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-保留中のSegment削除の横にある <i class="fa-solid fa-eye"></i> を選択して、削除レコードの詳細を開きます。
+保留中のSegment削除の横にある<i class="fa-solid fa-eye"></i>を選択して、削除レコードの詳細を開きます。
 
 ![「Delete Users」タブの保留中のSegment削除。]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
-削除レコードの詳細で、**Cancel deletion** を選択します。
+削除レコードの詳細で、**Cancel deletion**を選択します。
 
 ![「Delete Users」タブの「Deletion Record Details」ウィンドウ。]({% image_buster /assets/img/audience_management/deleting_users/deletion_record_details.png %}){: style="max-width:55%;"}
 
@@ -108,7 +108,7 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 ### Segmentフィルター {#segment-filters}
 
-ユーザーのSegmentの削除をリクエストすると、**Pending Deletion** という[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
+ユーザーのSegmentの削除をリクエストすると、**Pending Deletion**という[Segmentフィルター]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters)が自動的に作成されます。このフィルターを使用して以下のことができます。
 
 - 特定の削除実行日に関連付けられた正確なユーザーセットを確認する。
 - それらのユーザーをCampaignsから除外して、削除前にメッセージを受信しないようにする。
@@ -120,7 +120,7 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 削除される正確なユーザーのリストを取得するには、代わりに[Pending Deletion Segmentフィルター](#segment-filters)を使用してください。
 {% endalert %}
 
-**Audience** > **Manage Audience** に移動し、**Delete Users** タブを選択します。
+**Audience** > **Manage Audience**に移動し、**Delete Users**タブを選択します。
 
 ![Brazeダッシュボードの「Manage Audience」セクションにある「Delete Users」タブ。]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
@@ -128,13 +128,13 @@ Brazeは、削除保留中のプロファイル数を記載した確認メール
 
 | フィールド | 説明 |
 |-------|-------------|
-| リクエスト日 | リクエストが最初に行われた日付です。**Pending Deletion** フィルターと組み合わせて、削除保留中のプロファイルのリストを取得できます。 |
+| リクエスト日 | リクエストが最初に行われた日付です。**Pending Deletion**フィルターと組み合わせて、削除保留中のプロファイルのリストを取得できます。 |
 | リクエスター | 削除リクエストを開始したユーザーです。 |
 | Segment名 | 削除保留中のユーザーを選択するために使用されたSegmentの名前です。 |
 | ステータス | 削除リクエストが保留中、進行中、または完了のいずれであるかを示します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
 
-特定のリクエストの詳細を確認するには、<i class="fa-solid fa-eye"></i> を選択して削除レコードの詳細を表示します。ここから[保留中のSegment削除をキャンセル](#cancel)することもできます。
+特定のリクエストの詳細を確認するには、<i class="fa-solid fa-eye"></i>を選択して削除レコードの詳細を表示します。ここから[保留中のSegment削除をキャンセル](#cancel)することもできます。
 
 ![「Delete Users」タブの保留中のSegment削除。]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 

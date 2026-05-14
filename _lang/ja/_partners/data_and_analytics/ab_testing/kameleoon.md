@@ -1,7 +1,7 @@
 ---
 nav_title: Kameleoon
 article_title: Kameleoon
-description: "KameleoonとBrazeを統合する方法を学ぶ"
+description: "KameleoonとBrazeを統合する方法について説明します"
 alias: /partners/kameleoon/
 page_type: partner
 search_tag: Partner
@@ -19,7 +19,7 @@ search_tag: Partner
 | --- | --- |
 | Kameleoonアカウント | このパートナーシップを利用するには、Kameleoonアカウントが必要です。|
 | Brazeアカウント | Webページに[Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)が統合されたアクティブなBrazeアカウント。また、イベントプロパティセグメンテーションを有効にする必要があります。リクエストするには、[考慮事項](#considerations)を参照してください。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -101,7 +101,8 @@ Brazeを実験のレポートツールとして設定した後、**Experiment co
 
 イベントプロパティセグメンテーションを使用するには、事前にBrazeで有効にしておく必要があります。以下のテンプレートを使用して、Brazeカスタマーサクセスマネージャーまたはサポートチームにアクセスをリクエストしてください。
 
-   <table>
+   <table aria-label="Request event property segmentation">
+     <caption>イベントプロパティセグメンテーションのリクエスト</caption>
    <thead>
       <tr>
          <th>フィールド</th>
@@ -126,7 +127,7 @@ Brazeを実験のレポートツールとして設定した後、**Experiment co
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Request event property segmentation" }
 
 ### Brazeデータポイント {#braze-data-points}
 

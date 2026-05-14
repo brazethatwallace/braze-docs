@@ -82,7 +82,7 @@ Wenn Sie nur bestehende Nutzerprofile in Braze aktualisieren möchten, sollten S
 Wenn Sie ein Nutzerprofil nur mit Alias über den `/users/track`-Endpunkt erstellen, müssen Sie `_update_existing_only` auf `false` setzen. Wenn Sie diesen Wert weglassen, erstellt Braze kein Profil, das nur aus einem Alias besteht.
 {% endalert %}
 
-#### Push-Token importieren {#push-token-import}
+#### Push-Token-Import {#push-token-import}
 
 Bevor Sie Push-Tokens nach Braze importieren, überprüfen Sie, ob dies wirklich erforderlich ist. Wenn die Braze SDKs eingerichtet sind, verarbeiten sie Push-Tokens automatisch, ohne dass sie über die API hochgeladen werden müssen.
 
@@ -118,7 +118,7 @@ Die folgenden Datentypen können als angepasstes Attribut gespeichert werden:
 | Ganzzahlen | Sie können ganzzahlige angepasste Attribute erhöhen, indem Sie ein Objekt mit dem Feld „inc“ und dem hinzuzufügenden Wert zuweisen. <br><br>Beispiel: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Verschachtelte angepasste Attribute | Verschachtelte angepasste Attribute definieren eine Gruppe von Attributen als Eigenschaft eines anderen Attributs. Wenn Sie ein angepasstes Attributobjekt definieren, fügen Sie diesem Objekt eine Reihe von Attributen hinzu. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Strings | Angepasste String-Attribute sind Zeichenfolgen, die zum Speichern von Textdaten verwendet werden. Sie können zum Beispiel Strings verwenden, um Vor- und Nachnamen, E-Mail-Adressen oder Präferenzen zu speichern. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribut-Datentypen" }
 
 {% alert tip %}
 Informationen dazu, wann ein angepasstes Event und wann ein angepasstes Attribut verwendet werden sollte, finden Sie unter [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) und [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -171,7 +171,7 @@ Bei den folgenden Nutzerprofilfeldern wird zwischen Groß- und Kleinschreibung u
 | subscription_groups| Array von Objekten mit `subscription_group_id` und `subscription_state` String, zum Beispiel `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Verfügbare Werte für `subscription_state` sind „subscribed“ und „unsubscribed“.|
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte festgelegt. |
 | twitter | Hash mit einem der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
 
 Sprachwerte, die explizit über diese API festgelegt werden, haben Vorrang vor den Gebietsschemainformationen, die Braze automatisch vom Gerät erhält.
 
@@ -230,7 +230,7 @@ Aufgrund der Natur von Web-Push-Tokens sollten Sie bei der Implementierung von P
 |----------------------|------------|
 | **Service Worker**  | Standardmäßig sucht das Web SDK nach einem Service Worker unter `./service-worker`, sofern keine andere Option angegeben ist, wie beispielsweise `manageServiceWorkerExternally` oder `serviceWorkerLocation`. Wenn Ihr Service Worker nicht richtig eingerichtet ist, kann dies dazu führen, dass Push-Tokens für Ihre Nutzer:innen ablaufen. |
 | **Abgelaufene Tokens**   | Wenn eine Nutzer:in innerhalb von 60 Tagen keine Web-Sitzung gestartet hat, verfällt ihr Push-Token. Da Braze abgelaufene Push-Tokens nicht migrieren kann, müssen Sie einen [Push-Primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) senden, um erneut mit ihnen in Interaktion zu treten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Überlegungen zu Web-Tokens" }
 
 ### Manuelle Migration über API {#manual-migration-through-api}
 

@@ -18,7 +18,8 @@ tool:
 
 드래그 앤 드롭 편집기는 [콘텐츠](#content)와 [행](#rows)을 두 가지 핵심 구성요소로 사용하여 HTML을 추가로 사용하지 않고도 워크플로를 간소화합니다.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
+    <caption>콘텐츠 및 행 편집기 구성요소</caption>
     <tr>
         <th style="width: 50%;">콘텐츠</th>
         <th style="width: 50%;">행</th>
@@ -32,7 +33,7 @@ tool:
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="About the editor" }
 
 ### 콘텐츠 {#content}
 
@@ -191,7 +192,8 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 평균 내보내기 HTML 데이터 크기가 줄어들어 로딩 및 렌더링이 빨라지고, 모바일 클리핑이 줄어들며, 대역폭 소비가 감소했습니다.
 
 조건부 주석과 CSS 미디어 쿼리의 수를 최소화하는 다음 업데이트를 기반으로 HTML 렌더링이 개선되었습니다. 결과적으로 HTML 파일이 더 작고 효율적으로 코딩됩니다.
-- `<div>` 요소 기반 디자인에서 표준 `<table>` 형식 코드베이스로 마이그레이션
+- `<div>` 요소 기반 디자인에서 표준 `<table aria-label="Use Inbox Vision">` 형식 코드베이스로 마이그레이션
+  <caption>Use Inbox Vision</caption>
 - [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)이 간결하게 재코딩됨
 - 최종 HTML 코드가 태그 사이의 공백을 제거하도록 압축됨
 - 투명 구분선이 자동으로 콘텐츠 패딩으로 변환됨
@@ -301,7 +303,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 | `meta` | 페이지 설명이나 키워드와 같은 메타데이터를 제공합니다. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | 내부 CSS 스타일을 삽입합니다. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | 브라우저 탭에 표시되는 문서의 제목을 설정합니다. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | 태그 | 속성 | 설명 | 예시 |
 | --- | --- | --- | --- |
@@ -319,7 +321,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 | `style` | `type` | 스타일 콘텐츠의 MIME 유형입니다. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | 스타일이 적용되는 미디어 또는 기기를 지정합니다. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | 속성 없음 | `title` 태그는 속성을 허용하지 않습니다. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 링크 이름은 최대 63바이트까지 가능하며, 제한을 초과하면 자동으로 잘립니다.

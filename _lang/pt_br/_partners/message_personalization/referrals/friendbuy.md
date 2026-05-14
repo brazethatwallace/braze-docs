@@ -1,6 +1,6 @@
 ---
-nav_title: Friendbuy
-article_title: Friendbuy
+nav_title: AmigoCompra
+article_title: AmigoCompra
 description: "Aprenda a integrar o Friendbuy com a Braze."
 alias: /partners/friendbuy/
 page_type: partner
@@ -18,12 +18,12 @@ _Essa integração é mantida pela Friendbuy._
 
 Antes de começar, você precisará do seguinte:
 
-| Pré-requisito          | Descrição                                                                                                                              |
+| Pré-requisito | Descrição |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Uma conta Friendbuy   | Uma [conta Friendbuy](https://retailer.friendbuy.io/) é necessária para aproveitar esta parceria.                                                              |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**.        |
+| Uma conta Friendbuy | Uma [conta Friendbuy](https://retailer.friendbuy.io/) é necessária para aproveitar esta parceria. |
+| Uma chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende da URL da sua instância da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integrando o Friendbuy {#integrating-friendbuy}
 
@@ -41,20 +41,20 @@ Volte à sua [conta do Friendbuy](https://retailer.friendbuy.io/) e atualize a p
 
 ### Atributos personalizados {#custom-attributes}
 
-| Nome do atributo personalizado            | Definição                                                                                                                                         | Tipo de dados |
+| Nome do atributo personalizado | Definição | Tipo de dados |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Friendbuy Referral Status**    | Os indicadores são categorizados como *Advocate* e os indicados são categorizados como *Referred Friend*                                                          | String    |
-| **Friendbuy Customer Name**      | O nome que o cliente inseriu ao enviar suas informações por meio de um widget de indicação                                                                 | String    |
-| **Friendbuy Referral Link**      | Um link de indicação pessoal (PURL) gerado para um Advocate. Por exemplo, https://fbuy.io/EzcW                                                       | String    |
-| **Friendbuy Date of Last Share** | A data e hora em que o Advocate compartilhou pela última vez com um amigo por qualquer canal de compartilhamento. Se o Advocate ainda não compartilhou, a propriedade não estará visível. | Horário      |
-| **Friendbuy Campaign ID**        | O ID da Campaign associado ao link de indicação pessoal gerado para um Advocate                                                               | String    |
-| **Friendbuy Campaign Name**      | O nome da Campaign associado ao link de indicação pessoal gerado para um Advocate                                                             | String    |
-| **Friendbuy Coupon Code**        | O código de cupom de indicação mais recente distribuído ao cliente. Nota: apenas um código será exibido                                            | String    |
-| **Friendbuy Coupon Value**       | O valor monetário do código de cupom mais recente distribuído ao cliente.                                                                     | Número    |
-| **Friendbuy Coupon Status**      | O status do código de cupom mais recente distribuído ao cliente. Nota: o status será "distributed" ou "redeemed"                            | String    |
-| **Friendbuy Coupon Currency**    | Código da moeda (USD, CAD, etc.) ou porcentagem (%) associada ao código de cupom mais recente distribuído ao cliente.                             | String    |
-| **Friendbuy Coupon Campaign ID** | O ID da Campaign associado ao código de cupom gerado para um cliente.                                                                          | String    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **Friendbuy Referral Status** | Os indicadores são categorizados como *Advocate* e os indicados são categorizados como *Referred Friend* | String |
+| **Friendbuy Customer Name** | O nome que o cliente inseriu ao enviar suas informações por meio de um widget de indicação | String |
+| **Friendbuy Referral Link** | Um link de indicação pessoal (PURL) gerado para um Advocate. Por exemplo, https://fbuy.io/EzcW | String |
+| **Friendbuy Date of Last Share** | A data e hora em que o Advocate compartilhou pela última vez com um amigo por qualquer canal de compartilhamento. Se o Advocate ainda não compartilhou, a propriedade não estará visível. | Horário |
+| **Friendbuy Campaign ID** | O ID da Campaign associado ao link de indicação pessoal gerado para um Advocate | String |
+| **Friendbuy Campaign Name** | O nome da Campaign associado ao link de indicação pessoal gerado para um Advocate | String |
+| **Friendbuy Coupon Code** | O código de cupom de indicação mais recente distribuído ao cliente. Nota: apenas um código será exibido | String |
+| **Friendbuy Coupon Value** | O valor monetário do código de cupom mais recente distribuído ao cliente. | Número |
+| **Friendbuy Coupon Status** | O status do código de cupom mais recente distribuído ao cliente. Nota: o status será "distributed" ou "redeemed" | String |
+| **Friendbuy Coupon Currency** | Código da moeda (USD, CAD, etc.) ou porcentagem (%) associada ao código de cupom mais recente distribuído ao cliente. | String |
+| **Friendbuy Coupon Campaign ID** | O ID da Campaign associado ao código de cupom gerado para um cliente. | String |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Atributos personalizados" }
 
 ## Comportamento padrão {#default-behavior}
 
@@ -68,9 +68,10 @@ O Friendbuy usa o padrão internacional (E.164) para verificar números de telef
 
 ### Comportamento da caixa de seleção {#checkbox-behavior}
 
-| Caixa de seleção marcada | Comportamento                                                        |
+| Caixa de seleção marcada | Comportamento |
 |-------------------|-----------------------------------------------------------------|
-| Apenas e-mail        | Apenas o endereço de e-mail do cliente é enviado para a Braze.             |
-| Apenas telefone        | Apenas o número de telefone do cliente é enviado para a Braze.              |
-| Nenhuma           | Nenhum dado de cliente é enviado para a Braze.                              |
-| Ambas              | O endereço de e-mail e o número de telefone do cliente são enviados para a Braze. |
+| Apenas e-mail | Apenas o endereço de e-mail do cliente é enviado para a Braze. |
+| Apenas telefone | Apenas o número de telefone do cliente é enviado para a Braze. |
+| Nenhuma | Nenhum dado de cliente é enviado para a Braze. |
+| Ambas | O endereço de e-mail e o número de telefone do cliente são enviados para a Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento da caixa de seleção" }

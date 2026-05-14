@@ -54,7 +54,7 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
 | `push_icon_image_url` | large iconパラメーターの値は、画像がホストされている場所にリンクするURLである必要があります。<br> <br> 画像は1:1のアスペクト比にトリミングし、40×40以上にしてください。 |
 | `notification_channel` | これが指定されていない場合、Brazeは[ダッシュボードのフォールバック]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel)チャネルIDで通知ペイロードを送信しようとします。詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/)を参照し、統合時の[通知チャネルの定義]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels)ステップを参照してください。 |
 | `send_to_sync` | `send_to_sync` メッセージの詳細については、[Androidのサイレント通知]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications/#silent-push-notifications)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Additional parameter details" }
 
 ## Androidプッシュアクションボタンオブジェクト {#android-push-action-button-object}
 

@@ -62,7 +62,7 @@ Pour chaque composant de la demande listé dans le tableau suivant, vous devez i
 | `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Facultatif | Tableau d'objets Événement | Voir l'[objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Facultatif | Tableau d'objets Achat | Voir l'[objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Résolution des identifiants {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Chaque objet de la demande doit contenir au moins un identifiant. Le tableau sui
 | --------------- | ----------- | -------- |
 | Primaire | `external_id`, `user_alias`, `braze_id` | Utilisé pour la recherche du profil utilisateur. Un seul identifiant primaire est autorisé par objet de demande — en inclure plusieurs entraîne le rejet de cet objet. |
 | Secondaire | `email`, `phone` | Utilisé pour la recherche du profil utilisateur **uniquement** lorsqu'aucun identifiant primaire n'est présent. Si `email` et `phone` sont tous deux inclus sans identifiant primaire, `email` est prioritaire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 Lorsqu'un identifiant primaire est présent, les valeurs `email` ou `phone` dans le même objet de demande sont traitées comme des attributs de profil, et non comme des identifiants pour la recherche d'utilisateur. Par exemple, si une demande inclut à la fois un `external_id` et un `email` :
 
@@ -325,7 +325,7 @@ Les erreurs suivantes sont spécifiques à l'endpoint `/users/track` et sont ren
 | `EMAIL_BAD_FORMAT` | La valeur fournie pour `email` n'est pas une adresse e-mail valide. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | Le `external_id` dépasse la longueur maximale autorisée de 987 octets. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` n'est pas un attribut valide. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## Foire aux questions {#frequently-asked-questions}
 
@@ -379,7 +379,7 @@ Toutes les réponses non limitées par le débit (c'est-à-dire non `429`) conti
 | `X-RateLimit-Limit`     | Le nombre de demandes autorisées par période de temps |
 | `X-RateLimit-Remaining` | Le nombre approximatif de demandes restantes dans la fenêtre en cours |
 | `X-RateLimit-Reset`     | Le nombre de secondes restantes avant la réinitialisation de la fenêtre actuelle |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 Notez que les en-têtes `RateLimit-Limit`, `RateLimit-Remaining` et `RateLimit-Reset` ne sont pas renvoyés lorsque vous rencontrez une erreur HTTP `429`. Dans ce cas, ces en-têtes sont remplacés par un en-tête `X-Ratelimit-Retry-After` qui renvoie un nombre entier indiquant le nombre de secondes à attendre avant de pouvoir recommencer à envoyer des demandes.
 

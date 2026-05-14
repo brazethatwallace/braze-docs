@@ -10,4 +10,4 @@
 | Color de fondo | Modifica el color del fondo del botón. |
 | Estilo del borde | Determina el estilo del borde del botón. |
 | Radio del borde | Determina qué tan redondeadas son las esquinas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -22,7 +22,7 @@ After Banners are integrated into an app or website, marketers can design and la
 | Personalizing offers | Show personalized promotions and incentives based on each user’s browsing history, cart content, subscription tier, and loyalty status. |
 | Targeting new user engagement | Guide new users through onboarding flows and account setup. |
 | Sales and promotions | Highlight featured content, trending products, and ongoing brand campaigns persistently and directly on your homepage without disrupting the user experience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
 
 ## Features
 

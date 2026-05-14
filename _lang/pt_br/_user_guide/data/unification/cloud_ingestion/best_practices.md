@@ -12,7 +12,7 @@ description: "Esta página fornece uma visão geral da Ingestão de Dados na Nuv
 
 > A Ingestão de Dados na Nuvem da Braze permite que você configure uma conexão direta do seu data warehouse ou sistema de armazenamento de arquivos para a Braze, sincronizando dados relevantes de usuários ou catálogos. Quando você sincroniza esses dados com a Braze, pode aproveitá-los para casos de uso como personalização, acionamento ou segmentação.
 
-## Entendendo a coluna `UPDATED_AT` {#understanding-the-updatedat-column}
+## Entendendo a coluna `UPDATED_AT` {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT` é relevante apenas para integrações de data warehouse, não para sincronizações S3.
@@ -286,7 +286,7 @@ Nesta terceira execução, outra nova linha foi adicionada para `customer_1234` 
 Valores `UPDATED_AT` podem ser ainda mais tardios do que o horário de início da execução de uma determinada sincronização. No entanto, isso não é recomendado, pois empurra o último timestamp `UPDATED_AT` "para o futuro" e sincronizações subsequentes não sincronizarão valores anteriores.
 {% endalert %}
 
-## Use um timestamp UTC para a coluna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updatedat-column}
+## Use um timestamp UTC para a coluna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
 A coluna `UPDATED_AT` deve estar em UTC para evitar problemas com o horário de verão. Prefira funções apenas UTC, como `SYSDATE()` em vez de `CURRENT_DATE()` sempre que possível.
 
@@ -313,7 +313,8 @@ Esse exemplo mostra o processo geral para sincronizar dados pela primeira vez e 
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Exemplo: gerenciando atualizações subsequentes">
+  <caption>Exemplo: gerenciando atualizações subsequentes</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -420,7 +421,8 @@ Nada disso foi sincronizado com a Braze antes, então adicione tudo à tabela de
 
 Uma sincronização é executada, e a Braze registra que você sincronizou todos os dados disponíveis até "2023-03-16 15:00:00". Então, na manhã do dia 2, você tem um ETL que é executado e alguns campos na sua tabela de usuários são atualizados (destacados):
 
-<table>
+<table aria-label="Exemplo: gerenciando atualizações subsequentes">
+  <caption>Exemplo: gerenciando atualizações subsequentes</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -543,7 +545,7 @@ Cada vez que uma sincronização é executada, a Braze procura linhas que não f
 
 O uso de pontos de dados é idêntico usando CDI em comparação com outros métodos de ingestão, como REST APIs ou SDKs, portanto, cabe a você garantir que está apenas adicionando atributos novos ou atualizados nas suas tabelas de origem.
 
-### Separe a coluna `EXTERNAL_ID` da coluna `PAYLOAD` {#separate-externalid-from-payload-column}
+### Separe a coluna `EXTERNAL_ID` da coluna `PAYLOAD` {#separate-external_id-from-payload-column}
 
 O objeto `PAYLOAD` não deve incluir um ID externo ou outro tipo de ID.
 
@@ -683,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Use o timestamp `UPDATED_AT` {#use-the-updatedat-timestamp}
+### Use o timestamp `UPDATED_AT` {#use-the-updated_at-timestamp}
 
 A Braze usa o timestamp `UPDATED_AT` para rastrear quais dados foram sincronizados com sucesso. A CDI também rastreia o número de linhas no último timestamp sincronizado. Se novas linhas forem adicionadas com o mesmo timestamp entre as execuções, a CDI re-sincroniza todas as linhas naquele timestamp, o que pode levar a dados duplicados. Para mais detalhes e dicas, consulte [Evitar re-sincronização de linhas com timestamps duplicados](#avoid-resyncing-rows-with-duplicate-timestamps).
 
@@ -715,6 +717,6 @@ Recomendamos que as consultas sejam concluídas dentro de uma hora para obter de
 | Tipo de dados | Você pode sincronizar atributos de usuário, eventos e compras através da Ingestão de Dados na Nuvem. |
 | Região da Braze | Este produto está disponível em todas as regiões da Braze. Qualquer região da Braze pode se conectar a qualquer região de origem de dados. |
 | Região de origem | A Braze se conectará ao seu data warehouse ou ambiente de nuvem em qualquer região ou provedor de nuvem. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitações do produto" }
 
 <br><br>

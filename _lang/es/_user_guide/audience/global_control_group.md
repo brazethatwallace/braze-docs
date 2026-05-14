@@ -92,7 +92,7 @@ Después de desactivar tu grupo de control, puedes guardar uno nuevo. Cuando int
 
 Si deseas ver qué usuarios están en tu Grupo de control global, puedes exportar los miembros de tu grupo mediante CSV o API.
 
-Para ejecutar una exportación CSV, navega a la pestaña **Global Control Group Settings** y haz clic en <i class="fas fa-download"></i>&nbsp;**Export**. Para exportar mediante API, usa el [punto de conexión `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
+Para ejecutar una exportación CSV, navega a la pestaña **Global Control Group Settings** y haz clic en <i class="fas fa-download" aria-label="Descargar"></i>&nbsp;**Export**. Para exportar mediante API, usa el [punto de conexión `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
 
 {% alert important %}
 Los grupos de control históricos no se conservan, por lo que solo puedes exportar los miembros de tu grupo actual. Asegúrate de exportar cualquier información necesaria antes de desactivar un grupo de control.
@@ -162,7 +162,7 @@ A medida que configuras tus grupos de control globales y ves los informes, estos
 
 #### Números de contenedor aleatorio superpuestos {#overlapping-random-bucket-numbers}
 
-Tu Grupo de control global se forma usando números de contenedor aleatorio, por lo que si estás ejecutando otras pruebas usando filtros de segmento con números de contenedor aleatorio, ten en cuenta que podría haber una superposición entre esos segmentos que creas y los usuarios de tu Grupo de control global.
+Tu Grupo de control global se forma usando números de contenedor aleatorio, por lo que si estás ejecutando otras pruebas usando filtros de Segment con números de contenedor aleatorio, ten en cuenta que podría haber una superposición entre esos segmentos que creas y los usuarios de tu Grupo de control global.
 
 #### Direcciones de correo electrónico duplicadas {#duplicate-email-addresses}
 
@@ -174,7 +174,9 @@ Es posible tener tanto un Grupo de control global como usar un grupo de control 
 
 Los usuarios de tu Grupo de control global no reciben ningún mensaje aparte de aquellos con excepciones de etiquetas, y si añades un control a una campaña o Canvas, Braze retiene una parte de tu grupo de tratamiento global de recibir esa campaña o Canvas en particular. Eso significa que si un miembro del Grupo de control global no es elegible para recibir una campaña o Canvas en particular, no estará presente en el grupo de control de esa campaña o Canvas en particular.
 
-> En resumen, los usuarios del Grupo de control global se filtran de la audiencia de la campaña o Canvas antes de la entrada. De los usuarios que entran en la campaña o Canvas, un porcentaje de ellos se asigna a la variante de control.
+{% alert note %}
+En resumen, los usuarios del Grupo de control global se filtran de la audiencia de la campaña o Canvas antes de la entrada. De los usuarios que entran en la campaña o Canvas, un porcentaje de ellos se asigna a la variante de control.
+{% endalert %}
 
 #### Segmentos del Grupo de control global en la consola para desarrolladores {#global-control-group-segments-on-the-developer-console}
 

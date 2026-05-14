@@ -126,7 +126,7 @@ table td {
 | Se déplacer entre les résultats     | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Sélectionner un résultat            | <kbd>Enter</kbd>    |
 | Fermer le menu de recherche         | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
 
 ## Fonctionnalités de productivité {#productivity-features}
 

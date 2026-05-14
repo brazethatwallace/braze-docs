@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：プラットフォームの概要 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：プラットフォームの概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdeveloper-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-platform-overview}
 
 > この記事では、Brazeプラットフォームの基本的なパーツと機能について説明します。この記事からのリンクは、Brazeの重要なトピックにつながっています。
 
@@ -92,7 +92,7 @@ Segmentを定義した後、Brazeのメッセージングツールを使えば�
 | [Webプッシュ]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/) | ユーザーが現在サイトでアクティブでない場合でも、Webブラウザー通知を送信します。 |
 | [Webhook]({{site.baseurl}}/about_webhooks/) | webhookを使ってアプリ以外のアクションをトリガーし、他のシステムやアプリケーションにリアルタイムデータを提供します。 |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)* | 広く普及しているピアツーピアメッセージングプラットフォームであるWhatsAppを活用して、ユーザーや顧客と直接つながります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Multichannel messaging" }
 
 <sup>*アドオン機能として利用できます。*</sup>
 
@@ -115,7 +115,7 @@ Brazeは迅速な統合のために設計されています。顧客ベース全
 
 テクニカルリソースとして、Brazeの肝心な部分の多くに携わることになります。ドキュメント以外でブックマークしておくとよいリソースを以下に紹介します。今後、Brazeの用語について質問がある場合は、[用語集]({{site.baseurl}}/user_guide/get_started/terms_to_know/)を手元に置いておくとよいでしょう。
 
-| リソース | 学べる内容|
+| リソース | 学べる内容 |
 |---|---|
 | [SDKのデバッグ]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) | 統合をトラブルシューティングする際には、SDKデバッグツールが役に立ちます。必ず手元に置いておきましょう。 |
 | [Braze Public GitHub](https://github.com/braze-inc/) | 統合に関する詳細な情報とサンプルコードについては、GitHubリポジトリを参照してください。 |
@@ -124,8 +124,8 @@ Brazeは迅速な統合のために設計されています。顧客ベース全
 | [iOS（Swift）SDK GitHubリポジトリ](https://github.com/braze-inc/braze-swift-sdk) | Swift SDKのGitHubリポジトリです。 |
 | [iOS（Swift）SDKリファレンス](https://braze-inc.github.io/braze-swift-sdk/) | iOS SDKのクラスドキュメントです。 |
 | [Web SDK GitHubリポジトリ](https://github.com/braze-inc/braze-web-sdk) | Web SDKのGitHubリポジトリです。 |
-| [Web SDKリファレンス](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Web SDKのクラスドキュメントです。 |
+| [Web SDKリファレンス](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | iOS SDKのクラスドキュメントです。 |
 | [SDK変更ログ]({{site.baseurl}}/developer_guide/changelogs/) | Brazeは、重要な問題や主要なOS更新のリリースに加えて、予測可能な毎月のリリースを提供しています。 |
 | [Braze API Postman Collection](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Postman Collectionはこちらからダウンロードできます。  |
 | [Braze System Status Monitor](https://braze.statuspage.io/) | ステータスページは、インシデントや障害が発生するたびに更新されます。アラートをサブスクライブするには、このページにアクセスしてください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Resources to bookmark" }

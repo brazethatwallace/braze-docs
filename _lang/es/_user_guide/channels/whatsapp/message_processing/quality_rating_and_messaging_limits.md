@@ -19,7 +19,7 @@ channel:
 | --- | --- |
 | Calificación de calidad | Una calificación basada en los mensajes recientes que tus clientes han recibido durante los últimos siete días. Esta calificación se determina a partir de los comentarios de tus clientes, como el motivo para bloquear tu número de teléfono y otros problemas reportados. Consulta la documentación de Meta para obtener más información [sobre tu calificación de calidad](https://www.facebook.com/business/help/896873687365001).|
 | Límite de mensajería | El número máximo de conversaciones iniciadas por la empresa que puedes comenzar con cada uno de tus números de teléfono en un período continuo de 24 horas. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definitions" }
 
 ## Incorporación {#onboarding}
 
@@ -29,7 +29,7 @@ Consulta la documentación de Meta para obtener más información sobre [cómo v
 
 ## Rendimiento {#throughput}
 
-Meta inicia cada número de teléfono empresarial registrado con un rendimiento de 80 mensajes por segundo. Las actualizaciones a 1000 mensajes por segundo pueden ocurrir automáticamente o bajo solicitud.
+Meta inicia cada número de teléfono empresarial registrado con un rendimiento de 80 mensajes por segundo. Las actualizaciones a 1000 mensajes por segundo pueden ocurrir automáticamente o bajo solicitud. Información.
 
 Consulta la documentación de Meta para obtener más información sobre tu [rendimiento](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput).
 

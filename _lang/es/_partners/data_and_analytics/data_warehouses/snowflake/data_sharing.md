@@ -8,7 +8,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Uso compartido de datos con Snowflake {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Uso compartido de datos con Snowflake {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > [Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) de Snowflake permite a Braze darte acceso seguro a los datos en nuestro portal de Snowflake sin preocuparte por fricciones o ralentizaciones en el flujo de trabajo, puntos de fallo y costes innecesarios que vienen con las relaciones típicas con proveedores de datos. El uso compartido de datos se puede configurar a través de la siguiente integración o a través de [cuentas de lectura de Snowflake]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts).
 
@@ -36,7 +36,7 @@ Para obtener más información sobre el uso compartido de datos de Snowflake, co
 | ----------- | ----------- |
 | Acceso a Braze | Ponte en contacto con tu administrador de cuenta o administrador del éxito del cliente de Braze para configurar el uso compartido de datos. |
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos de `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Configurar Secure Data Sharing {#setting-up-secure-data-sharing}
 
@@ -87,7 +87,7 @@ Ten en cuenta las siguientes diferencias entre las convenciones de nomenclatura 
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | El identificador único que Braze asigna automáticamente. |
 | `external_id` | `"EXTERNAL_USER_ID"` | El identificador único del perfil de un usuario que establece el cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## Información importante y limitaciones {#important-information-and-limitations}
 

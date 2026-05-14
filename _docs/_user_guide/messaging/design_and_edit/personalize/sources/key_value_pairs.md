@@ -55,7 +55,7 @@ Apple Push Notification service (APNs) supports setting alert preferences and se
 | badge             | number                      | Governs the number that is displayed as the badge on the app icon                                                                                                                              |
 | sound             | string                      | The name of the sound file to play as an alert; must be in the app's bundle or ```Library/Sounds``` folder                                                                                    |
 | content-available | number                      | Input values of 1 signal to the app the availability of new information upon launch or session resumption |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS library" }
 
 
 ##### Alert properties library
@@ -70,7 +70,7 @@ Apple Push Notification service (APNs) supports setting alert preferences and se
 | loc-key        | string or null           | A key that sets the notification message for the current localization from the ```Localizable.strings``` file                                  |
 | loc-args       | array of strings         | String values that can appear in place of the localization format specifiers in loc-key                                                       |
 | launch-image   | strings                  | The name of an image file in the app bundle you wish to be used as the launch image when users tap the action button or move the action slide |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alert properties library" }
 
 The Braze message composer automatically handles the creation of the following keys: **alert** and **its properties**, **content-available**, **sound**, and **category**. 
 
@@ -162,7 +162,14 @@ Marketers should test that silent push notifications trigger expected behavior b
 Upon campaign launch, you should check that you have not received any visible push notification on your test device.
 
 {% alert note %}
-The iOS operating system may [gate notifications]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/silent_push_notifications/#ios-silent-notifications-limitations) for some features (uninstall tracking, geofences, and Push Stories). Note that if you are experiencing difficulties with these features, the iOS's silent notifications gate might be the cause.
+iOS silent-notification gating may cause the following symptoms:
+
+- Lower-than-expected uninstall tracking metrics for iOS users
+- Inconsistent or delayed delivery of silent push notifications
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) that don't display
+- Push Stories that arrive without their expected images, video, or pages
+
+This is an Apple platform limitation rather than a Braze issue. iOS may delay or drop background notifications for some Braze features, including uninstall tracking and Push Stories. For details on what iOS gates and when, see [iOS limitations]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#ios-limitations).
 {% endalert %}
 
 ## In-app messages

@@ -65,7 +65,7 @@
 | 등록정보 | 설명 |
 | --- | --- |
 | 커스텀 코드 | HTML, CSS, JavaScript를 추가, 편집 또는 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer

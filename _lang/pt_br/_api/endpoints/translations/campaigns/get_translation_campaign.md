@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id` | Opcional | String | Um UUID de localidade para filtrar as respostas. |
 | `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão de rascunho mais recente em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

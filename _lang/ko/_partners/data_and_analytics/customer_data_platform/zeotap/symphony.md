@@ -24,7 +24,7 @@ Braze와 Zeotap Symphony 통합을 사용하면 실시간 오케스트레이션�
 | 클라이언트 이름 | Braze 계정의 클라이언트 이름입니다. Braze 콘솔로 이동하여 확인할 수 있습니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키입니다. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | 인스턴스 | Braze 인스턴스는 Braze 온보딩 매니저에게 문의하거나 [API 개요 페이지]({{site.baseurl}}/api/basics/#endpoints)에서 확인할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -81,7 +81,7 @@ Symphony에서 사용자에 대한 필터를 적용하거나 조건을 추가한
 **Data To Send** 탭에서는 Zeotap Catalogue 필드를 Braze로 전송할 수 있는 Braze 필드에 매핑할 수 있습니다. 매핑은 다음 방법 중 하나로 수행할 수 있습니다.
 - **정적 매핑** - Zeotap이 이메일, 전화번호, 이름, 성 등과 같은 관련 Braze 필드에 자동으로 매핑하는 특정 필드가 있습니다.<br>
 - **드롭다운 선택** - 드롭다운 메뉴에 제공된 Braze 필드에 Zeotap에서 수집된 관련 필드를 매핑합니다.<br>![Zeotap에서 설정한 다양한 사용자 특성(예: 언어, 구/군/시, 생일 등).]({% image_buster /assets/img/zeotap/zeotap7.png %}){: style="max-width:70%;"}<br>
-- **커스텀 데이터 입력** - 관련 Zeotap 필드에 매핑된 커스텀 데이터를 추가하고 Braze로 전송합니다.<br>![Zeotap에서 "loyalty_points"를 사용자 특성으로 선택합니다.]({% image_buster /assets/img/zeotap/zeotap8.png %}){: style="max-width:70%;"}
+- **커스텀 데이터 입력** - 관련 Zeotap 필드에 매핑된 커스텀 데이터를 추가하고 Braze로 전송합니다.<br>![Zeotap에서 "loyalty_points"를 사용자 특성으로 선택하는 화면.]({% image_buster /assets/img/zeotap/zeotap8.png %}){: style="max-width:70%;"}
 
 ## 지원되는 속성 {#supported-attributes}
 이 섹션에서 모든 Braze 필드에 대한 자세한 내용을 확인할 수 있습니다.
@@ -109,7 +109,7 @@ Symphony에서 사용자에 대한 필터를 적용하거나 조건을 추가한
 | Language | 드롭다운 선택 | • 허용되는 형식은 `ISO-639-1` 표준입니다(예: en).<br>• 올바른 형식의 언어를 온보딩하고 매핑합니다. |
 | Date of Birth | 드롭다운 선택 | 온보딩 중인 `Date of Birth` 필드에 매핑합니다. |
 | Custom Attribute | 커스텀 데이터 입력 | 사용자 속성을 커스텀 데이터 입력에 매핑하면 Braze로 전송됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported attributes" }
 
 ## Braze 콘솔에서 데이터 보기 {#viewing-data-on-braze-console}
 
@@ -118,10 +118,10 @@ Symphony에서 사용자에 대한 필터를 적용하거나 조건을 추가한
 ![]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
 
 Braze 내 사용자 대시보드의 다양한 섹션에 여러 속성이 표시됩니다.
-- **프로필** 탭에는 사용자 속성이 포함되어 있습니다.
-- **커스텀 속성** 탭에는 사용자가 정의한 커스텀 속성이 포함되어 있습니다.
-- **커스텀 이벤트** 탭에는 사용자가 정의한 커스텀 이벤트가 포함되어 있습니다.
-- **구매** 탭에는 일정 기간 동안 사용자가 수행한 구매가 포함되어 있습니다.
+- **Profile** 탭에는 사용자 속성이 포함되어 있습니다.
+- **Custom Attributes** 탭에는 사용자가 정의한 커스텀 속성이 포함되어 있습니다.
+- **Custom Events** 탭에는 사용자가 정의한 커스텀 이벤트가 포함되어 있습니다.
+- **Purchases** 탭에는 일정 기간 동안 사용자가 수행한 구매가 포함되어 있습니다.
 
 ## 캠페인 생성 {#campaign-creation}
 

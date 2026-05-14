@@ -18,7 +18,8 @@ tool:
 
 O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como os dois componentes principais para simplificar seu fluxo de trabalho, sem uso adicional de HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="Sobre o editor" style="width: 100%; table-layout: fixed;">
+    <caption>Componentes do editor: Conteúdo e Linhas</caption>
     <tr>
         <th style="width: 50%;">Conteúdo</th>
         <th style="width: 50%;">Linhas</th>
@@ -32,7 +33,7 @@ O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como o
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Sobre o editor" }
 
 ### Conteúdo {#content}
 
@@ -191,7 +192,8 @@ O mecanismo subjacente que produz HTML a partir do editor de arrastar e soltar f
 O tamanho médio dos dados HTML exportados foi reduzido, levando a carregamento e renderização mais rápidos, redução de cortes em dispositivos móveis e menor consumo de largura de banda.
 
 A renderização HTML foi aprimorada com base nas seguintes atualizações que minimizam o número de comentários condicionais e consultas de mídia CSS. Como resultado, os arquivos HTML são menores e codificados de forma mais eficiente.
-- Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table>` padrão
+- Migração de um design baseado em elementos `<div>` para uma base de código formatada em `<table aria-label="Usar o Inbox Vision">` padrão
+  <caption>Usar o Inbox Vision</caption>
 - Os [blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) foram recodificados para maior concisão
 - O código HTML final é comprimido para remover espaços em branco entre tags
 - Divisores transparentes são automaticamente convertidos em preenchimento de conteúdo
@@ -301,7 +303,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `meta` | Fornece metadados como descrição da página ou palavras-chave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Define o título do documento exibido nas abas do navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tags e atributos permitidos por tag" }
 
 | Tag | Atributo | Descrição | Exemplo |
 | --- | --- | --- | --- |
@@ -319,7 +321,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `style` | `type` | Tipo MIME do conteúdo de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sem atributos | A tag `title` não aceita nenhum atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tags e atributos permitidos por tag" }
 
 {% alert note %}
 Os nomes dos links podem ter até 63 bytes e são automaticamente truncados se excederem o limite.

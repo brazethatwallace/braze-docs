@@ -28,7 +28,7 @@ La integración de Braze y Amazon S3 presenta dos estrategias de integración:
 | Cuenta de Amazon S3 | Necesitas una cuenta de Amazon S3 para aprovechar esta asociación. |
 | Contenedor de S3 dedicado | Antes de integrarte con Amazon S3, debes crear un contenedor de S3 para tu aplicación.<br><br>Si ya tienes un contenedor de S3, te recomendamos que crees un nuevo contenedor específico para Braze, de modo que puedas limitar los permisos. Consulta las siguientes instrucciones sobre cómo crear un nuevo contenedor. |
 | Currents | Para volver a exportar datos a Amazon S3, necesitas tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) para tu cuenta. Currents no es necesario si solo estás configurando el archivado de mensajes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### Crear un nuevo contenedor de S3 {#creating-a-new-s3-bucket}
 
@@ -265,7 +265,7 @@ Recupera el ID de tu cuenta de Braze y el ID externo de tu cuenta de Braze:
 
 De vuelta en la consola de AWS, selecciona **Another AWS Account** como tipo de selector de entidad de confianza. Proporciona el ID de tu cuenta de Braze, marca la casilla **Require external ID** e introduce el ID externo de Braze. Selecciona **Next** cuando hayas terminado.
 
-![La página S3 "Create Role". Esta página tiene campos para el nombre del rol, la descripción del rol, las entidades de confianza, las políticas y el límite de permisos.]({{site.baseurl}}/assets/img/create_role_2_another.png)
+![La página "Create Role" de S3. Esta página tiene campos para el nombre del rol, la descripción del rol, las entidades de confianza, las políticas y el límite de permisos.]({{site.baseurl}}/assets/img/create_role_2_another.png)
 
 ### Paso 3: Adjuntar política {#role-arn-3}
 

@@ -110,7 +110,7 @@ For each property you'd like to add, fill out the following:
 | Property type | The data type for the property. Supported types include string, boolean, number, timestamp, image URL, and JSON object. | String |
 | Property key | The unique identifier for the property. This key is used in the SDK to access the property. | `color` |
 | Value | The value assigned to the property. Must match the selected property type. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
 
 When you're finished, select **Done**.
 

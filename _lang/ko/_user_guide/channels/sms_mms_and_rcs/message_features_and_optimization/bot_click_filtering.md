@@ -18,7 +18,7 @@ channel:
 
 Braze는 여러 입력을 사용하여 비인간 상호작용(NHI)이라고도 하는 의심되는 봇 클릭을 식별하는 독자적인 감지 시스템을 보유하고 있습니다. 봇 클릭은 클릭률을 부풀려 참여 측정기준을 왜곡할 수 있습니다. 이를 필터링함으로써 Braze는 의사 결정을 위한 신뢰할 수 있는 데이터 수집을 지원합니다.
 
-Braze 시스템은 웹 크롤러, Android 및 iOS 링크 미리보기, CPaaS 보안 소프트웨어와 관련된 사용자 에이전트를 분석합니다. 필터링되는 사용자 에이전트의 몇 가지 예로는 `GoogleBot`, `python-requests/2.32.3`, `Barracuda Sentinel (EE)` 등이 있습니다.
+Braze 시스템은 웹 크롤러, Android 및 iOS 링크 미리보기, CPaaS 보안 소프트웨어와 관련된 사용자 에이전트를 분석합니다. 필터링되는 사용자 에이전트의 몇 가지 예로는 `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3`, `Barracuda Sentinel (EE)` 등이 있습니다.
 
 ## 영향을 받는 측정기준 및 워크플로 {#affected-metrics-and-workflows}
 
@@ -43,7 +43,7 @@ Braze는 SMS 클릭 이벤트에 대해 다음 Currents 필드를 포함합니�
 | --- | --- | --- |
 | `is_suspected_bot_click` | 부울 | 클릭이 의심되는 봇 클릭인지 여부를 나타냅니다. 봇 클릭 필터링이 회사에 활성화될 때까지 모든 사용자에 대해 `null`을 반환합니다. 활성화되면 이후 모든 새 클릭에 대해 `true` 또는 `false`로 채워집니다. |
 | `suspected_bot_click_reason` | 문자열, 배열 | 의심되는 봇 클릭의 이유를 나타냅니다(예: `user_agent`). 필터링이 비활성화된 경우에도 채워져 잠재적인 봇 활동에 대한 인사이트를 제공합니다. 이 필드는 전역적으로 사용 가능하며, 봇 클릭 필터링이 아직 활성화되지 않은 경우에도 모든 사용자에 대해 이유가 채워집니다. 이를 통해 봇 클릭 필터링을 활성화하기 전에 잠재적인 봇 활동에 대한 인사이트를 얻을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS 클릭 이벤트의 Currents 필드" }
 
 ## 쿼리 빌더 템플릿 {#query-builder-template}
 

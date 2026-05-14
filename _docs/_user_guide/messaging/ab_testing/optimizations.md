@@ -32,7 +32,7 @@ Sending the Winning Variant is similar to a standard A/B test. Users in this gro
 | Determine Winning Variant | The metric to optimize for. Choose between *Unique Opens* or *Clicks* for email, *Opens* for push, or *Primary Conversion Rate* for all channels. Selecting *Opens* or *Clicks* to determine the winner does not affect what you choose for the campaign's [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/). <br><br>Keep in mind that if you're using a control group, users in the control group can't perform *Opens* or *Clicks*, so the performance of the control group is guaranteed to be `0`. As a result, the control group can't win the A/B test. However, you may still want to use a control group to track other metrics for users who do not receive a message. |
 | Winning Variant Send Time | The date and time the winning variant is sent. |
 | If No Winning Variant Can Be Determined | What happens if no variant wins by a statistically significant margin. Choose between sending the best performing variant anyway, or ending the test and not sending any further messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Winning Variant" }
 
 ## Personalized Variant
 
@@ -48,7 +48,7 @@ To determine the best variant for each user, Braze will send an initial test to 
 | Determine Personalized Variant | The metric to optimize for. Choose between *Unique Opens* or *Clicks* for email, *Opens* for push, or *Primary Conversion Rate* for all channels. Selecting *Opens* or *Clicks* to determine the winner does not affect what you choose for the campaign's [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/). <br><br>Keep in mind that if you're using a control group, users in the control group can't perform *Opens* or *Clicks*, so the performance of the control group is guaranteed to be `0`. As a result, the control group can't win the A/B test. However, you may still want to use a control group to track other metrics for users who do not receive a message. |
 | Personalized Variant Send Time | The date and time the personalized variant is sent. |
 | If No personalized Variant Can Be Determined | What happens if no Personalized Variants are found. Choose between sending the Winning Variant instead, or ending the test and not sending any further messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalized Variant" }
 
 ## Analytics
 

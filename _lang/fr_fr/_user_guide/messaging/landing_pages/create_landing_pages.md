@@ -41,7 +41,7 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 | Méta-description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
 | Favicon | L'icône qui apparaît à côté du titre du site dans l'onglet du navigateur. | Utilisez un rapport hauteur/largeur de 1:1 et un type de fichier pris en charge : PNG, JPEG ou ICO. |
 | URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### Étape 3 : Personnaliser la page {#step-3-customize-the-page}
 
@@ -68,7 +68,7 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la disposition et la lisibilité. |
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
 ##### Span text {#span-text}
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données 
 | Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne de caractères d'attribut personnalisé à la liste. |
 | Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle n'est pas cochée, son attribut est défini sur `false`. |
 | Groupe de cases à cocher | Les utilisateurs peuvent sélectionner parmi plusieurs choix présentés. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau défini. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
@@ -138,10 +138,6 @@ Si vous n'incluez pas de page de confirmation, les utilisateurs pourraient ne pa
 Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui revient à la page d'accueil d'origine et soumet à nouveau avec des informations mises à jour peut écraser la soumission précédente, ce qui entraîne des données incohérentes.
 {% endalert %}
 
-{% alert important %}
-Si vous configurez un bouton avec **Submit form when button is clicked** activé et utilisez **On-click Behavior** pour ouvrir une URL web dans un nouvel onglet, le bloqueur de pop-ups intégré de Safari sur iOS peut empêcher la navigation de fonctionner. Cela se produit parce que la soumission du formulaire suivie de l'ouverture d'un nouvel onglet est traitée comme un pop-up.<br><br>Pour éviter ce problème, configurez les boutons avec soumission de formulaire pour ouvrir l'URL résultante dans le même onglet (pas un nouvel onglet). Les boutons sans soumission de formulaire peuvent ouvrir des URL dans de nouveaux onglets sans problème.
-{% endalert %}
-
 ### Étape 5 : Prévisualiser la page {#step-5-preview-the-page}
 
 Vous pouvez prévisualiser votre page d'accueil dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page d'accueil en tant que brouillon, vous pouvez visiter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page d'accueil. Vous pouvez également partager l'URL avec des collaborateurs.
@@ -156,9 +152,13 @@ Avant de publier, assurez-vous que :
 
 Lorsque vous êtes prêt, sélectionnez **Publish Landing Page**.
 
+{% alert note %}
+Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y compris les contrôles intégrés de Safari et les extensions tierces) peuvent avoir un impact négatif sur le comportement des pages d'accueil lorsqu'un bouton **Submit** de formulaire ouvre également une autre URL, que cette URL s'ouvre dans le même onglet ou dans un nouvel onglet.
+{% endalert %}
+
 ## Utiliser des modèles {#using-templates}
 
-Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et dans la section **Templates** du tableau de bord (**Templates** > **Landing Page Templates**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
+Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines Campaigns. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et dans la section **Templates** du tableau de bord (**Templates** > **Landing Page Templates**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
 
 ## Gérer les modèles {#managing-templates}
 

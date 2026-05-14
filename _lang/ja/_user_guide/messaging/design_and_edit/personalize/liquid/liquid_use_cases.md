@@ -1796,3 +1796,5 @@ Default copy
 {% endraw %}
 
 {% endapi %}
+
+このライブラリの多くの例では、条件が満たされない場合に送信をスキップするために`abort_message`タグを使用しています。Liquidによる送信中止の完全なリファレンス（日付や時間ベースのパターンを含む）については、[Liquidメッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を参照してください。

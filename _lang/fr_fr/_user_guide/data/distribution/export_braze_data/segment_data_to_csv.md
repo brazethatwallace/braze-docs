@@ -91,7 +91,7 @@ Les éléments suivants sont inclus dans votre exportation en fonction de votre 
 | windows_ad_ids              | ID publicitaires Windows                                 |
 | Custom events               | En fonction de la sélection à l'exportation              |
 | Custom attributes           | En fonction de la sélection à l'exportation              |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
 Lorsque vous exportez les données utilisateur d'une étape Canvas, le fichier CSV inclut tous les utilisateurs qui sont passés par cette étape au cours de la durée de vie de l'étape Canvas. Vous ne pouvez pas limiter l'exportation à une plage de dates ou à une autre fenêtre temporelle. Pour savoir comment effectuer ces exportations, consultez [Exporter les données Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
@@ -108,7 +108,7 @@ Lorsque vous exportez les données utilisateur d'une étape Canvas, le fichier C
 | unsubscribed_from_emails_at | Date de désabonnement aux e-mails  |
 | opted_in_to_emails_at       | Date d'abonnement aux e-mails     |
 | user_aliases                | Alias de l'utilisateur, le cas échéant |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Pour obtenir de l'aide sur les exportations CSV et API, consultez notre article de [résolution des problèmes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).

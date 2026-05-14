@@ -3,15 +3,15 @@ nav_title: カスタムイベント
 article_title: カスタムイベント
 page_order: 1
 page_type: reference
-description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、キャンバスエントリのプロパティ、関連する分析が表示される場所などについて説明します。"
+description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、Canvasエントリプロパティ、関連する分析が表示される場所などについて説明します。"
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、キャンバスエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、「[イベント]({{site.baseurl}}/user_guide/data/activation/events/)」を参照してください。
+> この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、Canvasエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、「[イベント]({{site.baseurl}}/user_guide/data/activation/events/)」を参照してください。
 
-カスタムイベントとは、ユーザーによって実行されたアクションまたはユーザーに関する更新です。カスタムイベントがログに記録されると、任意の数とタイプのフォローアップキャンペーンをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日時に基づいてユーザーをセグメント化できます。これにより、カスタムイベントは、アプリケーション内の高価値のユーザーインタラクションの追跡に最適です。
+カスタムイベントとは、ユーザーによって実行されたアクションまたはユーザーに関する更新です。カスタムイベントがログに記録されると、任意の数とタイプのフォローアップCampaignをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日時に基づいてユーザーをセグメント化できます。これにより、カスタムイベントは、アプリケーション内の高価値のユーザーインタラクションの追跡に最適です。
 
 ## ユースケース {#use-cases}
 
@@ -103,11 +103,11 @@ search_rank: 2
 | カスタムイベントが**X回（最大50回）を超えて**発生したかどうかを確認する | **MORE THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
 | カスタムイベントが**X回（最大50回）未満**発生したかどうかを確認する | **LESS THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
 | カスタムイベントが**正確にX回（最大50回）**発生したかどうかを確認する | **EXACTLY** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="セグメンテーションフィルター" }
 
 ## 分析 {#analytics}
 
-Brazeは、各ユーザーについてカスタムイベントの発生回数と最終実行日時を記録し、セグメンテーションに活用します。これらの分析は、**分析** > **カスタムイベントレポート**に移動して確認できます。
+Brazeは、各ユーザーについてカスタムイベントの発生回数と最終実行日時を記録し、セグメンテーションに活用します。これらの分析は、**Analytics** > **カスタムイベントレポート**に移動して確認できます。
 
 ダッシュボードの**カスタムイベントレポート**ページでは、各カスタムイベントの発生頻度を集計で表示できます。時系列に重ねて表示されるグレーの線は、Campaignが最後に送信された日時を示しており、Campaignがカスタムイベントのアクティビティにどのような影響を与えたかを確認するのに役立ちます。
 

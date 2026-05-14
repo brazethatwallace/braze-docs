@@ -29,7 +29,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Una cuenta de OtherLevels   | Se requiere una cuenta de OtherLevels para aprovechar esta asociación.                                                                     |
 | Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
 | Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 Esta integración requiere llamar a la API de OtherLevels Experience Platform como parte del proceso de generación de video antes de que los mensajes puedan enviarse a tus usuarios desde Braze. Se proporcionan ejemplos cURL como parte de esta documentación; sin embargo, recomendamos usar clientes API como Postman para automatizar las llamadas API.
 
@@ -132,7 +132,7 @@ Sustituye lo siguiente:
 | `TALENT_TEMPLATE` | Un ID de plantilla de talento. OtherLevels trabajará contigo durante el aprovisionamiento de la cuenta para crear un talento (avatar). Se te proporcionará uno o varios ID de talento que podrás utilizar.                                                 |
 | `TALENT_MODEL` | Un ID de modelo de talento. OtherLevels trabajará contigo durante el aprovisionamiento de la cuenta para crear un talento (avatar). Se te proporcionarán uno o varios modelos de talento que podrás utilizar.                                                 |
 | `INSERT_SCRIPT` | El guion exacto que te gustaría que el talento diga durante el video.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Llama a la API de OtherLevels Experience Platform para generar un video" }
 
 Como parte de la respuesta de la API, OtherLevels devolverá una carga útil JSON que indica una llamada a la API exitosa. El JSON contendrá un `recipe_id` único para identificar el video generado. El `recipe_id` será necesario en el siguiente paso.
 
@@ -144,7 +144,7 @@ Aquí tienes un ejemplo de respuesta de la API:
 ```
 {% endraw %}
 
-### Paso 2: Configurar el `recipe_id` como atributo personalizado {#step-2}
+### Paso 2: Configurar el `recipe_id` como atributo personalizado {#step-2-setting-the-recipe_id-as-a-custom-attribute}
 
 El `recipe_id` que recibes del [paso 1](#step-1) se establece ahora como atributo personalizado de Braze para el usuario o usuarios a los que deseas enviar los videos.
 
@@ -178,14 +178,14 @@ Sustituye lo siguiente:
 | `BRAZE_API_KEY`         | Tu clave de API REST de Braze con el permiso `users.track`.                                                                                                                                      |
 | `USER_ID`              | El ID de usuario que recibirá este video en particular. Para más ejemplos de los identificadores que pueden utilizarse, consulta [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
 | `RECIPE_ID`       | El `recipe_id` recibido de la respuesta de la API de OtherLevels en el [paso 1](#step-1).                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configurar el recipe_id como atributo personalizado" }
 
-### Paso 3: Envío a través de Contenido conectado de Braze {#step-3}
+### Paso 3: Envío a través de Contenido conectado de Braze {#step-3-sending-through-braze-connected-content}
 
 Para enviar los videos GenAI como mensajes push de iOS a tus usuarios, sigue estos pasos:
 
-1. Crea una Campaign de notificaciones push de iOS en Braze.
-2. Mientras redactas tu Campaign, ve a la sección **Assets** y pega la siguiente sintaxis de Contenido conectado en el campo **Add from URL**.
+1. Crea una campaña de notificaciones push de iOS en Braze.
+2. Mientras redactas tu campaña, ve a la sección **Assets** y pega la siguiente sintaxis de Contenido conectado en el campo **Add from URL**.
 
 {% raw %}
 ```
@@ -197,7 +197,7 @@ A continuación, sustituye `OTHERLEVELS_PROJECT_KEY` por la clave del proyecto p
 
 {: start="3"}
 3. En el desplegable de **URL file format**, selecciona **MP4**.
-4. Configura el resto de la Campaign (como el contenido del mensaje, el calendario de envío y la audiencia objetivo) según tus preferencias.
+4. Configura el resto de la campaña (como el contenido del mensaje, el calendario de envío y la audiencia objetivo) según tus preferencias.
 
 ![Ejemplo de campos de activos para Contenido conectado.]({% image_buster /assets/img/otherlevels/1.png %})
 
@@ -210,7 +210,7 @@ El fondo del video se puede especificar dentro de la clave `bg_image`.
 | Parámetro             | Descripción                  |
 |-------------------------|----------------------------|
 | `url`    | URL HTTPS para la imagen de fondo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tamaño y atributos del video" }
 
 El tamaño del fondo del video se puede especificar dentro de la clave `resize_image`. Recomendamos que la imagen de fondo tenga el mismo tamaño que el configurado aquí.
 
@@ -218,7 +218,7 @@ El tamaño del fondo del video se puede especificar dentro de la clave `resize_i
 |-------------------------|----------------------------|
 | `width`    | Anchura de la imagen de fondo, con opciones para los modos vertical y horizontal. |
 | `height`     | Altura de la imagen de fondo, con opciones para los modos vertical y horizontal.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tamaño y atributos del video" }
 
 Las opciones de superposición de video se pueden especificar dentro de la clave `image_video_overlay`.
 
@@ -229,7 +229,7 @@ Las opciones de superposición de video se pueden especificar dentro de la clave
 | `color`              | Color de la superposición especificado en RGB junto con la transparencia del video.                                                                   |
 | `y_pos`       | Desplazamiento del eje Y desde el centro.                                                              |
 | `x_pos`    | Desplazamiento del eje X desde el centro. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tamaño y atributos del video" }
 
 ### Talento y guion {#talent-and-script}
 
@@ -242,7 +242,7 @@ El modelo de voz utilizado para procesar guiones de entrada funciona mejor cuand
 | Parámetro             | Descripción                  |
 |-------------------------|----------------------------|
 | `speed`    | Especifica la velocidad a la que el talento leerá el guion. Por ejemplo, `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talento y guion" }
 
 ## Consideraciones adicionales {#additional-considerations}
 

@@ -22,7 +22,7 @@ Se pueden especificar hasta 50 alias de usuario por solicitud.
 
 La **creación de un nuevo usuario solo de alias** requiere que se omita `external_id` en el nuevo objeto alias de usuario. Una vez creado el usuario, utiliza el punto de conexión `/users/track` para asociar el usuario de solo alias con atributos, eventos y compras, y el punto de conexión `/users/identify` para identificar al usuario con un `external_id`.
 
-## Cuando `alias_label` y `alias_name` ya existen {#when-the-alias-label-and-name-already-exist}
+## Cuando `alias_label` y `alias_name` ya existen {#when-alias_label-and-alias_name-already-exist}
 
 La combinación de `alias_label` y `alias_name` debe ser única en toda tu base de usuarios. Para más información, consulta [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
 

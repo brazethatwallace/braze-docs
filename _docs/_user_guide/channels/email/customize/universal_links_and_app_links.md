@@ -33,7 +33,7 @@ This table outlines the key differences between universal links and traditional 
 | Purpose                | Seamlessly link web and app content on iOS and Android devices | Link to specific app content |
 | Function               | Directs to web pages or app content based on context           | Opens specific app screens   |
 | App Installation       | Opens app if the app is installed, otherwise opens web content | Requires app to be installed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
 
 ## Use cases
 

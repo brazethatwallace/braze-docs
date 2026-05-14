@@ -8,13 +8,13 @@ page_order: 2
 
 # 커스텀 에이전트 배포 {#deploy-custom-agents}
 
-> 에이전트를 생성한 후 Canvas 단계 또는 카탈로그 필드에서 커스텀 에이전트를 사용하는 방법을 알아보세요. 소개는 [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
+> 에이전트를 생성한 후 캔버스 단계 또는 카탈로그 필드에서 커스텀 에이전트를 사용하는 방법을 알아보세요. 소개는 [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/)를 참조하세요.
 
 ## Canvas의 에이전트 {#agents-in-canvas}
 
 에이전트를 여정의 단계로 사용하여 메시지를 개인화하거나 실시간으로 의사 결정을 안내할 수 있습니다. 자세한 설정 단계는 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)를 참조하세요.
 
-### 활용 사례 {#canvas-use-cases}
+### 활용 사례 {#use-cases}
 
 | 활용 사례 | 설명 |
 | --- | --- |
@@ -24,13 +24,13 @@ page_order: 2
 | 지능형 라우팅 | 에이전트 출력(부울 또는 숫자)을 사용하여 사용자를 서로 다른 Canvas 경로로 분할합니다. 예를 들어, 사용자를 "위험" 또는 "건강"으로 분류하고 메시징 주기를 그에 맞게 조정합니다. |
 | 설문조사 또는 응답 해석 | 에이전트가 개방형 설문조사 응답이나 자유 텍스트 필드를 구문 분석하여 다운스트림 경로를 유도하는 구조화된 값(예: 의도 또는 필요 분류)을 반환하도록 합니다. |
 | 다단계 추론 | 에이전트가 컨텍스트 필드를 결합하고 여러 사용자 속성을 기반으로 다음 최선의 동작(이메일, SMS 또는 담당자 연결)을 추천하는 등 복잡한 결정을 내리도록 구성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## 카탈로그의 에이전트 {#agents-in-catalogs}
 
 에이전트를 카탈로그 필드에 적용하여 각 행의 값을 자동으로 생성하거나 계산할 수 있습니다. 에이전트는 향후 카탈로그에 추가되는 새로운 행에서도 실행됩니다.
 
-### 활용 사례 {#catalog-use-cases}
+### 활용 사례
 
 | 활용 사례 | 설명 |
 | --- | --- |
@@ -40,7 +40,7 @@ page_order: 2
 | 항목 분류 또는 태그 지정 | 개인화 모델이 제품을 더 효과적으로 세분화할 수 있도록 추천 로직용 태그를 할당합니다. 예를 들어, 제품에 "아웃도어", "페스티벌 준비 완료" 또는 "프리미엄" 태그를 지정합니다. |
 | 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나, 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나, SMS Campaign을 위해 설명을 단축합니다. |
 | 리뷰 또는 피드백 요약 | 감정이나 피드백을 새로운 필드로 요약합니다. 예를 들어, 긍정적, 중립적 또는 부정적 감정 점수를 할당하거나 "대부분의 고객이 좋은 핏을 언급하지만 느린 배송을 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ### 단계 {#steps}
 
@@ -82,7 +82,7 @@ page_order: 2
 | --- | --- |
 | **description** | 텍스트 |
 | **confidence_score_out_of_ten** | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Define response fields" }
 
 카탈로그에 **product_description**이라는 필드를 추가하고 **description**을 **Response Field**로 선택하여 에이전트의 설명으로 열을 채울 수 있습니다.
 
@@ -98,11 +98,11 @@ page_order: 2
 
 ## 에이전트 모니터링 {#monitor-your-agent}
 
-에이전트의 **사용량** 섹션에서 카탈로그와 **캔버스**에서 에이전트가 활발히 사용되고 있는 위치를 참조하고 탐색할 수 있습니다.
+에이전트의 **Usage** 섹션에서 카탈로그와 Canvases에서 에이전트가 활발히 사용되고 있는 위치를 참조하고 탐색할 수 있습니다.
 
-![캔버스에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 사용량 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Canvases에 대해 두 개의 활성 에이전트와 하나의 비활성 에이전트를 보여주는 에이전트 Usage 섹션.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-에이전트의 **로그** 섹션에서 **캔버스**와 카탈로그에서 발생하는 실제 에이전트 호출을 모니터링할 수 있습니다. 날짜 범위, 결과(성공 또는 실패), 호출 위치 등의 정보로 필터링할 수 있습니다. 현재 페이지에 표시된 로그만 내보내려면 **CSV보내기**를 선택할 수도 있습니다.
+에이전트의 **Logs** 섹션에서 Canvases와 카탈로그에서 발생하는 실제 에이전트 호출을 모니터링할 수 있습니다. 날짜 범위, 결과(성공 또는 실패), 호출 위치 등의 정보로 필터링할 수 있습니다. 현재 페이지에 표시된 로그만 내보내려면 **Export CSV**를 선택할 수도 있습니다.
 
 {% alert tip %}
 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에서 일일 호출 한도 오류를 모니터링할 수도 있습니다.
@@ -110,7 +110,7 @@ page_order: 2
 
 ![에이전트 AI Sentiment Score에 대한 로그.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-특정 에이전트 호출에 대해 **보기**를 선택하여 입력, 출력 및 사용자 ID를 확인합니다.
+특정 에이전트 호출에 대해 **View**를 선택하여 입력, 출력 및 사용자 ID를 확인합니다.
 
 ![입력 프롬프트, 출력 응답 및 관련 사용자 ID를 보여주는 에이전트 Random Sports Assignment의 세부 정보 패널.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

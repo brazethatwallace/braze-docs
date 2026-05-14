@@ -32,7 +32,7 @@ A valid permissions object is a JSON object with the following key-value pairs:
 | `companyPermissions` | Optional | Array | Array of [company-level permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_company), in which the presence of the string corresponds to the user having the corresponding permission. |
 | `roles` | Optional | Array | Array of [role objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_role-object). |
 | `appGroup` | Required | Array | Array of [workspace permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
 
 ### Workspace permissions object
 
@@ -45,7 +45,7 @@ A valid app group permission object is a JSON object with the following key-valu
 | `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified workspace. |
 | `team` | Optional | Array | Array of [Team permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
 ### Workspace permissions set object {#workspace-permissions-set-object}
 
@@ -55,7 +55,7 @@ A valid workspace permissions set object is a JSON object with the following key
 | --- | --- | --- | --- |
 | `appGroupPermissionSetName` | Optional | String | Name of the workspace permission set that is being assigned to the user for this workspace. |
 | `appGroupPermissionSetID` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
 ### Team permissions object
 
@@ -66,7 +66,7 @@ A valid team permission object is a JSON object with the following key-value pai
 | `teamName` | Optional | String | Name of the team, which can be used to specify which team the permissions within this object are for. |
 | `teamId` | Required if `teamName` is missing | String | ID of the team, serving as an alternative method of specifying the team. |
 | `teamPermissions` | Required | Array | Array of team-level permission strings from the [teams permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified team. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
 
 ## Role object
 
@@ -76,7 +76,7 @@ A valid role object is a JSON object with the following key value pairs:
 | --- | --- | --- | --- |
 | `roleName` | Optional | String | Name of the role that is being assigned to the user. |
 | `roleId` | Required if `roleName` is missing | String | ID of the role, serving as an alternative method of specifying the role. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
 
 ## Appendix
 
@@ -87,7 +87,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
 | Create and delete workspaces| `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### Workspace permission strings {#workspace-strings}
 
@@ -204,7 +204,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Delete Catalogs | `delete_catalogs` |
 | View Whatsapp Settings | `view_whatsapp_settings` |
 | Edit Technology Partners | `edit_technology_partners` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
 ### Team permission strings {#team}
 
@@ -257,7 +257,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Launch Campaigns | `launch_campaigns` |
 | Launch Canvases | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
 ### Department strings
 
@@ -270,4 +270,4 @@ A valid role object is a JSON object with the following key value pairs:
 | Finance | `finance` |
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }

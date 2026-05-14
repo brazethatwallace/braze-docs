@@ -17,12 +17,12 @@ Utiliza la integración de MyPostcard y Braze para enviar a tus clientes correos
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito                      | Descripción                                                                                                             |
-|----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Cuenta MyPostcard B2B           | Es necesario registrarse en MyPostcard para beneficiarse de esta integración.                                          |
-| Clave de API B2B y credenciales        | Puedes encontrar tu clave de API y las credenciales en la herramienta de administración MyPostcard B2B.                                         |
+| Requisito | Descripción |
+|---|---|
+| Cuenta MyPostcard B2B | Es necesario registrarse en MyPostcard para beneficiarse de esta integración. |
+| Clave de API B2B y credenciales | Puedes encontrar tu clave de API y las credenciales en la herramienta de administración MyPostcard B2B. |
 | Campaña MyPostcard B2B aprobada | Para aprovechar esta integración, necesitas configurar una campaña de correo impreso en la herramienta MyPostcard B2B. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 
@@ -46,18 +46,19 @@ Si utilizas la [navegación antigua]({{site.baseurl}}/user_guide/administer/pers
 
 Si quieres crear una campaña única de webhook de MyPostcard o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña. Rellena los siguientes campos:
 
-| Campo         | Descripción                                               |
-|---------------|-----------------------------------------------------------|
-| **Webhook URL** | La URL del webhook tal y como se muestra en la herramienta de administración B2B.             |
-| **Request Body** | Texto sin formato (formato JSON que se encuentra en la herramienta de administración B2B).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Campo | Descripción |
+|---|---|
+| **Webhook URL** | La URL del webhook tal y como se muestra en la herramienta de administración B2B. |
+| **Request Body** | Texto sin formato (formato JSON que se encuentra en la herramienta de administración B2B). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### Método y encabezados de solicitud {#request-method-and-headers}
 
 MyPostcard requiere que se incluya en la plantilla un método HTTP junto con los siguientes encabezados HTTP.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>Método y encabezados de solicitud</caption>
   <thead>
     <tr>
       <th><strong>Campo</strong></th>
@@ -84,7 +85,7 @@ MyPostcard requiere que se incluya en la plantilla un método HTTP junto con los
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### Cuerpo de la solicitud {#request-body}
 

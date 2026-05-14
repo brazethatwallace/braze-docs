@@ -24,11 +24,11 @@ El [intercambio seguro de datos](https://docs.snowflake.com/en/user-guide/data-s
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito       | Descripción                                                                                                                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cuenta de Snowflake | Necesitas una cuenta de Snowflake con permisos de nivel de administrador.                                                                                                                                      |
-| Cuenta de LiveRamp  | Ponte en contacto con tu equipo de cuentas de LiveRamp o con [snowflake@liveramp.com](mailto:snowflake@liveramp.com) para hablar de las aplicaciones de LiveRamp necesarias dentro de Snowflake.                              |
-{: .reset-td-br-1 .reset-td-br-2 }
+| Requisito | Descripción |
+|---|---|
+| Cuenta de Snowflake | Necesitas una cuenta de Snowflake con permisos de nivel de administrador. |
+| Cuenta de LiveRamp | Ponte en contacto con tu equipo de cuentas de LiveRamp o con [snowflake@liveramp.com](mailto:snowflake@liveramp.com) para hablar de las aplicaciones de LiveRamp necesarias dentro de Snowflake. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Configuración de la integración {#setting-up-the-integration}
 
@@ -52,25 +52,25 @@ Antes de preparar cualquier tabla basada en PII, asegúrate de entender [el filt
 
 A continuación, crea una tabla de datos con el [formato requerido](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html) que se invocará contra la aplicación nativa de LiveRamp. Consulta las siguientes categorías para determinar cuáles de tus identificadores son elegibles para resolución:
 
-| Tipo de identificador | Descripción  |
-|-----------------|--------------|
-| PII completo        | La información de identificación personal (PII) incluye el nombre, la dirección postal, el correo electrónico y el número de teléfono del usuario. **Nota:** No todos los identificadores son necesarios para todos los registros. |
-| Solo correo electrónico      | Las direcciones de correo electrónico del usuario, como `alex-lee@email.com`. |
-| Dispositivo          | Esto incluye cookies de terceros, Mobile Advertising IDs (MAIDs), Connected TV IDs (CTV IDs) y RampIDs (resueltos a un Household RampID). |
-| CID            | Se trata de identificadores de un socio de la plataforma o de una sincronización de identidad con LiveRamp, como tu ID de cliente interno. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Tipo de identificador | Descripción |
+|---|---|
+| PII completo | La información de identificación personal (PII) incluye el nombre, la dirección postal, el correo electrónico y el número de teléfono del usuario. **Nota:** No todos los identificadores son necesarios para todos los registros. |
+| Solo correo electrónico | Las direcciones de correo electrónico del usuario, como `alex-lee@email.com`. |
+| Dispositivo | Esto incluye cookies de terceros, Mobile Advertising IDs (MAIDs), Connected TV IDs (CTV IDs) y RampIDs (resueltos a un Household RampID). |
+| CID | Se trata de identificadores de un socio de la plataforma o de una sincronización de identidad con LiveRamp, como tu ID de cliente interno. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Crear una tabla de datos" }
 
 #### Identificadores de Braze {#braze-identifiers}
 
 Los registros de eventos de Braze contienen identificadores que puedes utilizar dentro de la aplicación nativa de LiveRamp. Para obtener una lista completa de los identificadores disponibles para cada tipo de evento, descarga los [esquemas e identificadores de eventos de Braze]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
 
-| Tipo de identificador | Descripción  |
-|-----------------|--------------|
-| `AD_ID` | Identificadores de publicidad, como `ios_idfa`, `google_ad_id`, `roku_ad_id`, capturados dentro de determinados tipos de eventos, que pueden utilizarse junto con los servicios de resolución de dispositivos de LiveRamp. Por defecto, los ID de publicidad no se recopilan; sin embargo, puedes habilitar el seguimiento siguiendo la [documentación de Braze]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#data-not-collected-by-default). |
-| `EMAIL_ADDRESS`   | Dirección de correo electrónico que puede utilizarse junto con los servicios de resolución solo por correo electrónico de LiveRamp. |
+| Tipo de identificador | Descripción |
+|---|---|
+| `AD_ID` | Identificadores de publicidad, como `ios_idfa`, `google_ad_id`, `roku_ad_id`, capturados dentro de determinados tipos de eventos, que pueden utilizarse junto con los servicios de resolución de dispositivos de LiveRamp. De forma predeterminada, los ID de publicidad no se recopilan&#8212;sin embargo, puedes habilitar el seguimiento siguiendo la [documentación de Braze]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#data-not-collected-by-default). |
+| `EMAIL_ADDRESS` | Dirección de correo electrónico que puede utilizarse junto con los servicios de resolución solo por correo electrónico de LiveRamp. |
 | `TO_PHONE_NUMBER` | Número de teléfono, que puede utilizarse junto con los servicios de resolución PII de LiveRamp. |
 | `EXTERNAL_USER_ID` | El ID externo asociado a un usuario, que puede utilizarse junto con los servicios de resolución de dispositivos (CID) de LiveRamp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de Braze" }
 
 {% alert important %}
 El uso de cualquier identificador personalizado específico del cliente o de la marca dentro de la aplicación de LiveRamp requiere una [sincronización de identidad con LiveRamp](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html).
@@ -112,7 +112,7 @@ $output_table_name
 
 ### Próximos pasos {#next-steps}
 
-Con tus datos ahora seudonimizados a tu codificación dedicada de RampID, tienes la capacidad de compartir las tablas basadas en RampID con la aplicación Managed Activation de LiveRamp para el cumplimiento optimizado con tus socios clave de plataformas publicitarias. La aplicación Activation incluye una interfaz fácil de usar para usuarios de negocio que permite la segmentación adicional y la selección/configuración de socios de destino posteriores. Para más detalles sobre la aplicación, ponte en contacto con el equipo de tu cuenta de LiveRamp o con [snowflake@liveramp.com](mailto:snowflake@liveramp.com).
+Con tus datos ahora seudonimizados a tu codificación dedicada de RampID, tienes la capacidad de compartir las tablas basadas en RampID con la aplicación Managed Activation de LiveRamp para la entrega optimizada a tus socios clave de plataformas publicitarias. La aplicación Activation incluye una interfaz fácil de usar para usuarios de negocio que permite la segmentación adicional y la selección/configuración de socios de destino posteriores. Para más detalles sobre la aplicación, ponte en contacto con el equipo de tu cuenta de LiveRamp o con [snowflake@liveramp.com](mailto:snowflake@liveramp.com).
 
 ## Solución de problemas {#troubleshooting}
 
@@ -142,7 +142,7 @@ La velocidad y el coste de las consultas dependen del tamaño del almacén utili
 
 ### Puntos de referencia de Braze {#braze-benchmarks}
 
-Los puntos de referencia te permiten comparar tus métricas con los estándares del sector, disponibles directamente en el Snowflake Data Exchange.
+Los puntos de referencia te permiten comparar tus métricas con los estándares del sector, disponibles directamente en Snowflake Data Exchange.
 
 ### Cambios con ruptura vs. cambios sin ruptura {#breaking-vs-non-breaking-changes}
 

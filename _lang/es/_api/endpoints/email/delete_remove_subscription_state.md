@@ -1,32 +1,32 @@
 ---
 nav_title: "DELETE: Eliminar el estado de suscripción por dirección de correo electrónico o número de teléfono"
 article_title: "DELETE: Eliminar estado de suscripción por dirección de correo electrónico o número de teléfono"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 0
 hidden: true
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles sobre el punto final de Braze Eliminar estado de suscripción por dirección de correo electrónico o número de teléfono."
+description: "En este artículo se describen los detalles del punto de conexión de Braze Eliminar estado de suscripción por dirección de correo electrónico o número de teléfono."
 
 ---
 
 {% api %}
-# Eliminar el estado de suscripción por dirección de correo electrónico o número de teléfono
+# Eliminar el estado de suscripción por dirección de correo electrónico o número de teléfono {#delete-subscription-state-by-email-address-or-phone-number}
 {% apimethod delete %}
 /users/subscription
 {% endapimethod %}
 
-> Utilice este punto final para eliminar el valor del estado de suscripción basado en una dirección de correo electrónico o un número de teléfono.
+> Utiliza este punto de conexión para eliminar el valor del estado de suscripción basado en una dirección de correo electrónico o un número de teléfono.
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
 | `email` | Sí | Cadena | La dirección de correo electrónico del usuario (debe incluir al menos una dirección y un máximo de 50 direcciones). |
-| `phone` | Sí | Cadena | El número de teléfono del usuario (debe incluir al menos un número de teléfono y como máximo 50 números de teléfono). Le recomendamos que lo facilite en formato E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone` | Sí | Cadena | El número de teléfono del usuario (debe incluir al menos un número de teléfono y como máximo 50 números de teléfono). Te recomendamos que lo facilites en formato E.164. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```http
 Content-Type: application/json
@@ -38,7 +38,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {

@@ -3,13 +3,13 @@ nav_title: 네트워크 설정
 article_title: Braze SDK의 네트워크 설정
 page_order: 4.0
 description: "Braze SDK의 네트워크 설정을 구성하는 방법을 알아보세요."
-platform: 
+platform:
   - Android
   - FireOS
   - Swift
 ---
 
-# 네트워크 설정
+# 네트워크 설정 {#network-settings}
 
 > Braze SDK의 네트워크 설정을 구성하는 방법을 알아보세요.
 

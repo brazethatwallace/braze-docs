@@ -23,8 +23,8 @@ _この統合は Movable Ink によって管理されます。_
 | 必要条件 | 説明 |
 |---|---|
 | Movable Ink アカウント | このパートナーシップを活用するには、Movable Ink アカウントが必要です。 |
-| データソース | データソースを Movable Ink に接続する必要があります。これは、CSV、Web サイトインポート、または API を使用して実行できます。Braze と Movable Ink の間で統一 ID（`external_id` など）を使用してデータを渡していることを確認してください。
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| データソース | データソースを Movable Ink に接続する必要があります。これは、CSV、Web サイトインポート、または API を使用して実行できます。Braze と Movable Ink の間で統一識別子（`external_id` など）を使用してデータを渡していることを確認してください。
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -37,22 +37,22 @@ _この統合は Movable Ink によって管理されます。_
 
 ## サポートされている Movable Ink の機能 {#supported-movable-ink-capabilities}
 
-Intelligent Creative には、ユーザーが利用できる多くのサービスがあります。次のリストに、サポートされている機能を示します。
+Intelligent Creative には、会社ユーザーが利用できる多くのサービスがあります。次のリストに、サポートされている機能を示します。
 
 | Movable Ink の機能 | 機能 | リッチプッシュ通知 | アプリ内メッセージ / Content Cards / メール | 詳細 |
 | ---------------------- |---| ---------------------- | -------------------------------- | ------- |
 | クリエイティブオプティマイザー | A/B コンテンツの表示 | ✗ | ✔ | |
-|| 最適化 | ✗ | ✔* | * Branch のディープリンクソリューションを使用する必要があります |
+| 最適化 | ✗ | ✔* | * Branch のディープリンクソリューションを使用する必要があります |
 | ターゲティングルール | 日付 | ✔* | ✔ | * プッシュ通知は受信時にキャッシュされ、更新されないため、サポートされますが推奨されません |
-|| 曜日 | ✔* | ✔ | * プッシュ通知は受信時にキャッシュされ、更新されないため、サポートされますが推奨されません |
-|| 時刻 | ✔* | ✔ | * プッシュ通知は受信時にキャッシュされ、更新されないため、サポートされますが推奨されません |
+| 曜日 | ✔* | ✔ | * プッシュ通知は受信時にキャッシュされ、更新されないため、サポートされますが推奨されません |
+| 時刻 | ✔* | ✔ | * プッシュ通知は受信時にキャッシュされ、更新されないため、サポートされますが推奨されません |
 | ストーリー/行動アクティビティ | | ✔* | ✔* | * Brazeに使用されるユニークユーザー識別子を、メールサービスプロバイダー (ESP) の識別子にリンクする必要があります |
 | アプリ内のディープリンク | | ✔* | ✔* | * 顧客に効率化されたエクスペリエンスを提供するには、Branch で確立されたディープリンクソリューションを使用するか、Movable Ink のクライアントエクスペリエンスチームによる検証済みソリューションを使用します。 |
 | アプリ | カウントダウンタイマー | ✔* | ✔ | * プッシュ通知は受信時にキャッシュされ、更新されないため、サポートされますが推奨されません |
-|| ポーリング | ✗ | ✔* | * 投票後、アプリを離れてモバイルランディングページに遷移します |
-|| スクラッチオフ | ✔* | ✔* | * クリックすると、スクラッチオフエクスペリエンスのためにアプリを離れます |
-|| 動画 | ✔* | ✔* | * アニメーション GIF のみ。<br>Android の場合、Braze の実装には [GIF サポート]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android)が必要です |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| ポーリング | ✗ | ✔* | * 投票後、アプリを離れてモバイルランディングページに遷移します |
+| スクラッチオフ | ✔* | ✔* | * クリックすると、スクラッチオフエクスペリエンスのためにアプリを離れます |
+| 動画 | ✔* | ✔* | * アニメーション GIF のみ。<br>Android の場合、Braze の実装には [GIF サポート]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android)が必要です |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Supported Movable Ink capabilities" }
 
 ## 統合 {#integration}
 
@@ -63,12 +63,12 @@ CSV、Web サイトインポート、または API 統合のいずれかのデ�
 ![表示されるさまざまなデータソースオプション:CSV アップロード、Web サイト、または API 統合。]({% image_buster /assets/img/movable_ink/movable_ink1.png %})
 
 {% tabs local %}
-{% tab CSV Data Source %}
+{% tab CSV データソース %}
 - **CSV データソース**:各行には、少なくとも1つのSegment列と1つのコンテンツ列が必要です。CSV がアップロードされた後、コンテンツのターゲットとして使用する列を選択します。[CSV ファイルの例]({% image_buster /assets/download_file/movable_ink_CSV.csv %})
 
 ![「CSV」をデータソースとして選択したときに表示されるフィールド。]({% image_buster /assets/img/movable_ink/movable_ink2.png %})
 {% endtab %}
-{% tab Website Data Source %}
+{% tab Web サイトデータソース %}
 - **Web サイトデータソース**:各行には、少なくとも1つのSegment列と1つのコンテンツ列が必要です。CSV がアップロードされたら、コンテンツのターゲットを設定するために使用する列を選択します。
   - このプロセスでは、以下をマッピングする必要があります。
     - Segmentsとして使用されるフィールド
@@ -76,7 +76,7 @@ CSV、Web サイトインポート、または API 統合のいずれかのデ�
 
 ![「Web サイト」をデータソースとして選択したときに表示されるフィールド。]({% image_buster /assets/img/movable_ink/movable_ink3.png %})
 {% endtab %}
-{% tab API Integrations %}
+{% tab API 統合 %}
 - **API 統合**:自社の API を使用して、API レスポンスから直接コンテンツを供給します。
 
 ![「API 統合」をデータソースとして選択したときに表示されるフィールド]({% image_buster /assets/img/movable_ink/movable_ink4.png %})
@@ -112,11 +112,11 @@ Movable Ink のコンテンツを Braze メッセージに含めるには、Mova
 ### ステップ4:Braze エクスペリエンス {#step-4-braze-experience}
 
 {% tabs local %}
-{% tab Email %}
+{% tab メール %}
 Braze プラットフォームで、クリエイティブタグをメール本文に貼り付けます。![]({% image_buster /assets/img/movable_ink/web2.png %}){: style="max-width:90%"}<br><br>
 
 {% endtab %}
-{% tab Push notification %}
+{% tab プッシュ通知 %}
 
 1. Braze プラットフォームの場合:
 	- Android プッシュ:**Push Icon Image** と **Expanded Notification Image** フィールドに URL を貼り付けます。<br>![]({% image_buster /assets/img/movable_ink/android.png %}){: style="max-width:60%"}<br><br>
@@ -125,7 +125,7 @@ Braze プラットフォームで、クリエイティブタグをメール本�
 2. 画像がキャッシュされないようにするため、メッセージの URL の先頭に空の Liquid タグを追加します。<br>{% raw %}`{% if true %}{% endif %}https://movable-ink-image-url-goes-here`{% endraw %}
 
 {% endtab %}
-{% tab In-app message %}
+{% tab アプリ内メッセージ %}
 
 1. Braze プラットフォームで、**Rich Notification Media** フィールドに URL を貼り付けます。![]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
 2. キャッシュの防止に役立つ一意の URL を指定します。Movable Ink のリアルタイム画像が機能し、キャッシュの影響を受けないようにするため、Liquid を使用して Movable Ink 画像 URL の末尾にタイムスタンプを付加します。
@@ -147,8 +147,8 @@ Braze プラットフォームで、クリエイティブタグをメール本�
 
 1. Braze プラットフォームで、**Rich Notification Media** フィールドに URL を貼り付けます。![]({% image_buster /assets/img/movable_ink/image.png %}){: style="max-width:60%"}<br><br>
 2. モバイル:iOS および Android のContent Cardsの画像は、受信時にキャッシュされ、更新されません。
-  - 回避策として、Campaignを毎日、毎週、または毎月の定期的なメッセージとしてスケジュールし、対応する有効期限を設定します。これにより、Content Cardsが再テンプレート化されます。たとえば、1日に1回更新する必要があるContent Cardsは、有効期間が1日に設定された毎日のスケジュール送信として設定する必要があります。
-3. Content Cardsが再テンプレート化されたときに、Movable Ink のリアルタイム画像が機能し、キャッシュの影響を受けないようにするため、Liquid を使用して Movable Ink 画像 URL の末尾にタイムスタンプを付加します。
+  - 回避策として、Campaignを毎日、毎週、または毎月の定期的なメッセージとしてスケジュールし、対応する有効期限を設定します。これにより、Content Cardが再テンプレート化されます。たとえば、1日に1回更新する必要があるContent Cardは、有効期間が1日に設定された毎日のスケジュール送信として設定する必要があります。
+3. Content Cardが再テンプレート化されたときに、Movable Ink のリアルタイム画像が機能し、キャッシュの影響を受けないようにするため、Liquid を使用して Movable Ink 画像 URL の末尾にタイムスタンプを付加します。
 
 これを行うには、次の構文を使用します。必要に応じて画像 URL を置き換えてください。
 {% raw %}

@@ -61,7 +61,7 @@ When a new nightly run opens while an older `auto-deploy-*` deploy PR is still o
 
 Sitemap last-modified updates are a **separate** scheduled workflow ([**Nightly sitemap last-modified update**](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-sitemap-update.yml)) that opens PRs into `develop`; merge those before approving the deploy PR when you want the latest `_data/sitemap_*.json` dates in that release.
 
-Optional Slack alerts for **Nightly Release Deploy** (open PR, nothing to deploy, or failure) use repository secrets `SLACK_BOT_TOKEN` and `SLACK_DEPLOY_NOTIFY_CHANNEL`; see the comments at the top of [`.github/workflows/nightly-deploy.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-deploy.yml).
+Optional Slack alerts for **Nightly Release Deploy** and **Nightly sitemap last-modified update** (success paths and failures) use the same repository secrets `SLACK_BOT_TOKEN` and `SLACK_DEPLOY_NOTIFY_CHANNEL`; see the comments at the top of [`.github/workflows/nightly-deploy.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-deploy.yml) and [`.github/workflows/nightly-sitemap-update.yml`](https://github.com/braze-inc/braze-docs/blob/develop/.github/workflows/nightly-sitemap-update.yml).
 
 ### Usage example
 

@@ -51,10 +51,11 @@ Einige LLM-Anbieter ermöglichen es Ihnen, die Denkstufe eines ausgewählten Mod
 | **Niedrig** | Aufgaben, die von etwas mehr Überlegung profitieren, aber keine tiefgehende Analyse erfordern. |
 | **Mittel** | Mehrstufige oder nuancierte Aufgaben (z. B. Analyse mehrerer Eingaben, um eine Aktion zu empfehlen). |
 | **Hoch** | Komplexe Argumentation, Sonderfälle oder wenn das Modell Schritte durchdenken soll, bevor es antwortet. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Denkstufen" }
 
 Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen. Anschließend können Sie die Denkstufe auf **Niedrig** oder **Mittel** anpassen, wenn der Agent Schwierigkeiten hat, genaue Antworten zu liefern. In seltenen Fällen kann eine **hohe** Denkstufe erforderlich sein, wobei diese Stufe zu hohen Token-Kosten und längeren Antwortzeiten oder einem höheren Risiko von Timeout-Fehlern führen kann. Wenn Ihr Agent Schwierigkeiten hat, mehrstufiges Denken mit angemessenen Antwortzeiten in Einklang zu bringen, sollten Sie Ihren Anwendungsfall in mehrere Agenten aufteilen, die in einem Canvas oder Katalog zusammenarbeiten können.
 
-Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, sodass nur Braze ihn verwenden kann.
+Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected-Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, sodass nur Braze ihn verwenden kann.
 
 {% alert important %}
 Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bestimmungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. Wenn Sie sich dafür entscheiden, Ihren eigenen API-Schlüssel einzubinden, gilt der Anbieter Ihres LLM-Abos gemäß dem Vertrag zwischen Ihnen und Braze als Drittanbieter.
@@ -469,7 +470,7 @@ Wenn Sie Antworten auf eine einfache Feedback-Umfrage formatieren möchten, um z
 | **likelihood_score** | Number |
 | **explanation** | String |
 | **confidence_score** | Number |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erweiterte Schemata" }
 
 ![Agentenkonsole mit drei Ausgabefeldern für Wahrscheinlichkeitswert, Erklärung und Konfidenzwert.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -515,13 +516,9 @@ Sie können bis zu fünf Segmente auswählen, anhand derer der Agent die Segment
 
 Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) auswählen, an die sich Ihr Agent bei seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
 
-## Temperatur {#temperature}
+## Nutzerspezifischer Interaktionsverlauf {#user-history}
 
-Wenn Sie einen Agenten verwenden möchten, um Texte zu generieren, die Nutzer:innen dazu ermutigen, sich in Ihre mobile App einzuloggen, können Sie eine höhere Temperatur einstellen, damit Ihr Agent kreativer ist und die Nuancen der Kontextvariablen nutzt. Wenn Sie einen Agenten zur Generierung von Stimmungswerten einsetzen, empfiehlt es sich möglicherweise, eine niedrigere Temperatur einzustellen, um Spekulationen des Agenten bei negativen Umfrageantworten zu vermeiden. Wir empfehlen, diese Einstellung zu testen und die vom Agenten generierte Ausgabe zu überprüfen, um sie an Ihr Szenario anzupassen.
-
-{% alert note %}
-Temperaturen werden derzeit nicht für die Verwendung mit OpenAI unterstützt.
-{% endalert %}
+Die Interaktionsdaten von Nutzer:innen umfassen ihre letzten Campaign- und Canvas-Öffnungen, Klicks und Conversion-Daten. Sie können diesen Kontext beispielsweise einbeziehen, damit ein Agent ihn bei der Auswertung in einem Canvas referenzieren kann. Der nutzerspezifische Interaktionsverlauf kann auch dazu beitragen, einen Agenten zu beeinflussen, dessen Aufgabe es ist, personalisierte Nachrichtentexte zu verfassen.
 
 ## Agenten duplizieren {#duplicate-agents}
 

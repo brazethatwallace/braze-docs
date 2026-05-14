@@ -28,10 +28,10 @@ Hier sind Richtlinien zur Auswahl der Variablen:
 | Variablenfeld | Beschreibung |
 | --- | --- |
 | `Catalog` | Der Name des Katalogs, den Sie verwenden, um Nutzer:innen anzusprechen. |
-| `Catalog field`| Das Feld in Ihrem Katalog, das dieselben Werte wie Ihre `Custom event property` enthält. Dies ist oft eine Art von ID. Im E-Commerce-Anwendungsfall wäre dies `shopify_id`. |
+| `Catalog field` | Das Feld in Ihrem Katalog, das dieselben Werte wie Ihre `Custom event property` enthält. Dies ist oft eine Art von ID. Im E-Commerce-Anwendungsfall wäre dies `shopify_id`. |
 | `Custom event` | Der Name Ihres angepassten Events, das dasselbe Event ist, das eine Eigenschaft mit Werten enthält, die mit Ihrem `Catalog field` übereinstimmen. Im E-Commerce-Anwendungsfall wäre dies `Made Order`. |
 | `Custom event property` | Der Name Ihrer angepassten Event-Eigenschaft, die Werte mit Ihrem `Catalog field` abgleicht. Im E-Commerce-Beispiel wäre dies `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
 
 {: start="4"}
 4. Füllen Sie bei Bedarf zusätzliche optionale Felder für Ihren Anwendungsfall aus, um nach einem bestimmten Feldwert innerhalb Ihres Katalogs zu segmentieren:
@@ -56,7 +56,7 @@ Es ist zwar nicht möglich, direkt nach Nutzer:innen mit null Events zu suchen, 
 
 Um beispielsweise Nutzer:innen mit weniger als drei Käufen anzusprechen, schreiben Sie zunächst eine Abfrage, die Nutzer:innen mit drei oder mehr Käufen auswählt. Wählen Sie dann **SQL invertieren**, um Nutzer:innen mit weniger als drei Käufen anzusprechen (einschließlich derjenigen mit null Käufen).
 
-![Segmenterweiterung mit dem Namen „Clicked 1-4 emails in the last 30 days“ mit der ausgewählten Option „SQL invertieren“.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:70%;"}
+![Segmenterweiterung mit dem Namen „1–4 E-Mails in den letzten 30 Tagen angeklickt“ mit der ausgewählten Option „SQL invertieren“.]({% image_buster /assets/img_archive/sql_segment_invert_sql.png %}){: style="max-width:70%;"}
 
 {% alert important %}
 Sofern Sie nicht gezielt Nutzer:innen mit null Events ansprechen möchten, müssen Sie SQL nicht invertieren. Wenn **SQL invertieren** ausgewählt ist, bestätigen Sie, dass die Funktion benötigt wird und dass das Segment Ihrer gewünschten Zielgruppe entspricht. Wenn eine Abfrage beispielsweise Nutzer:innen mit mindestens einem Event anspricht, werden bei Invertierung nur Nutzer:innen mit null Events angesprochen.
@@ -77,7 +77,7 @@ Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen reg
 ## Anwendungsfälle {#use-cases}
 
 {% tabs local %}
-{% tab Health %}
+{% tab Gesundheit %}
 
 ### Gesundheits-App {#health-app}
 
@@ -91,13 +91,13 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 
 | Variable | Eigenschaft |
 | --- | --- |
-| `Catalog`| Doctors |
+| `Catalog` | Doctors |
 | `Catalog field` | doctor ID |
-| `Custom event`| Booked Visit|
+| `Custom event` | Booked Visit |
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
-| `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `(Under Filter SQL Results) Value` | Dental |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -115,12 +115,12 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 | Variable | Eigenschaft |
 | --- | --- |
 | `Catalog` | Accounts |
-| `Catalog field `| account ID |
+| `Catalog field ` | account ID |
 | `Custom event` | Event Attendance |
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
 
 {% endtab %}
 {% endtabs %}

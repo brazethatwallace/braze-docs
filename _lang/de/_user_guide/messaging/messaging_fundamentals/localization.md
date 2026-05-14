@@ -14,10 +14,10 @@ tool:
 
 ## So funktioniert es {#how-it-works}
 
-Gebietsschema-Informationen werden im Profil von Nutzer:innen gespeichert, basierend auf Daten, die Sie über ein [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/) (automatisch) oder die [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track) erfassen. Das Gebietsschema enthält die Sprache und eine Regionskennung. Diese Informationen sind im Braze-Segmentierungs-Tool unter **Land** und **Sprache** verfügbar.
+Locale-Informationen werden im Profil von Nutzer:innen gespeichert, basierend auf Daten, die Sie über ein [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/) (automatisch) oder die [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track) erfassen. Das Locale enthält die Sprache und eine Regionskennung. Diese Informationen sind im Braze-Segmentierungs-Tool unter **Land** und **Sprache** verfügbar.
 
 {% alert tip %}
-Technische Details zur Erfassung des Gebietsschemas durch unsere SDKs finden Sie in der offiziellen Dokumentation für [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) und [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
+Technische Details zur Erfassung des Locales durch unsere SDKs finden Sie in der offiziellen Dokumentation für [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) und [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
 {% endalert %}
 
 ## Übersetzungsverwaltung {#translation-management}
@@ -25,7 +25,7 @@ Technische Details zur Erfassung des Gebietsschemas durch unsere SDKs finden Sie
 Ziehen Sie die folgenden Ansätze für die Verwaltung Ihrer Übersetzungen in Betracht.
 
 {% tabs local %}
-{% tab campaign %}
+{% tab Campaign %}
 ### Ein Template für alle {#one-template-for-all}
 
 Bei diesem Ansatz wird die Lokalisierung mithilfe von [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) auf ein einzelnes Template in Braze angewendet. Nach dem Versand zeigt das Dashboard aggregierte Campaign-Analytics an. Das Engagement auf Nutzer:innenebene kann über angepasste Segment-Funnel gemessen werden, z. B. durch die Kombination der Filter **Land** und **Campaign erhalten**.
@@ -34,11 +34,11 @@ Bei diesem Ansatz wird die Lokalisierung mithilfe von [Liquid]({{site.baseurl}}/
 | --- | --- |
 | - Zentralisierter Ansatz<br>- Reduzierte E-Mail-Erstellungszeit, kein Bedarf, eine E-Mail mehrfach zu erstellen | - Manuelle Berichterstellung<br>- Campaign-Bericht zeigt aggregierte Metriken statt Metriken pro Land<br>- Liquid muss gründlich getestet werden, um sicherzustellen, dass es wie erwartet befüllt wird<br>- Je nachdem, wie Sie den Länderwert abrufen oder wie viele Länder Sie eingerichtet haben, kann es schwierig sein, jedes Land zu testen<br>- Schwieriger, Sendungen für bestimmte Zeiten über Zeitzonen hinweg zu planen<br>- Schwieriger zu verwenden, wenn Sie separate Inhalte pro Land senden möchten. |
 | --- | --- | --- |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ein Template für alle" }
 
 ### Ein Template pro Land {#one-template-per-country}
 
-Bei diesem Ansatz werden Templates in verschiedene Versandgebietsschemas aufgeteilt. Nach dem Versand zeigt das Dashboard die Versandanalysen für jedes Land separat an, und alle nachgelagerten [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/#access-currents)-Events auf Nutzer:innenebene werden ebenfalls einer bestimmten Campaign zugeordnet.
+Bei diesem Ansatz werden Templates in verschiedene Versand-Locales aufgeteilt. Nach dem Versand zeigt das Dashboard die Versandanalysen für jedes Land separat an, und alle nachgelagerten [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/#access-currents)-Events auf Nutzer:innenebene werden ebenfalls einer bestimmten Campaign zugeordnet.
 
 - Templates profitieren von der Implementierung von [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/#tags) für Wartungs- und Tracking-Zwecke.
 - Campaigns können die Konfigurationen desselben [Braze-Templates]({{site.baseurl}}/user_guide/messaging/templates/) und derselben [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) übernehmen (z. B. [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/), die Liquid enthalten).
@@ -47,10 +47,10 @@ Bei diesem Ansatz werden Templates in verschiedene Versandgebietsschemas aufgete
 | Vorteile | Überlegungen |
 | --- | --- |
 | - Skalierbar auf mehrere Standorte<br>- Umsatzberichte pro Land innerhalb von Braze (z. B. pro Campaign)<br>- Flexibilität bei stark unterschiedlichen Inhalten pro Land | - Erfordert strategische Strukturierung<br>- Mehr Erstellungsaufwand erforderlich (z. B. separate Campaigns für jedes Land) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ein Template pro Land" }
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 ### Eine Journey für alle {#one-journey-for-all}
 
 Bei diesem Ansatz wird die Lokalisierung innerhalb der [Canvas-Grundlagen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics/#building-the-customer-journey) und mit Liquid gehandhabt, um das Messaging für alle Nutzer:innen zu definieren.
@@ -60,7 +60,7 @@ Nach dem Versand eines Canvas zeigt das Dashboard aggregierte [Canvas-Analytics]
 | Vorteile | Überlegungen |
 | --- | --- |
 | - Zentralisierter Ansatz<br>- Reduzierte E-Mail-Erstellungszeit – kein Bedarf, eine E-Mail mehrfach zu erstellen. | - Manuelle Berichterstellung<br>- Canvas-Bericht zeigt aggregierte Metriken statt Metriken pro Land<br>- Liquid muss gründlich getestet werden, um sicherzustellen, dass es wie erwartet befüllt wird<br>- Je nachdem, wie Sie den Länderwert abrufen oder wie viele Länder Sie eingerichtet haben, kann es schwierig sein, jedes Land zu testen<br>- Schwieriger, Sendungen für bestimmte Zeiten über Zeitzonen hinweg zu planen<br>- Schwieriger zu verwenden, wenn Sie separate Inhalte pro Land senden möchten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eine Journey für alle" }
 
 ### Eine Journey pro Land {#one-journey-per-country}
 
@@ -76,13 +76,13 @@ Nach dem Versand zeigt das Dashboard dynamische Analytics pro Land an, und inner
 | Vorteile | Überlegungen |
 | --- | --- |
 | - Umsatzberichte pro Land innerhalb von Braze (z. B. pro Canvas, Variante oder Schritt)<br>- Flexibilität bei stark unterschiedlichen Inhalten pro Land<br>- Weitere Kanäle können in Zukunft als Teil der Journey hinzugefügt werden | - Erfordert strategische Strukturierung<br>- Mehr Erstellungsaufwand erforderlich (z. B. separate Nachrichtenschritte für jedes Land)<br>- Canvas kann groß und schwer lesbar werden, wenn Sie angepasste, komplexe Journeys für jedes Land in einem einzigen Canvas haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eine Journey pro Land" }
 {% endtab %}
 {% endtabs %}
 
 ## Übersetzte Nachrichten senden {#sending-translated-messages}
 
-Um personalisierte Nachrichten basierend auf der Sprache, dem Gebietsschema oder angepassten Attributen von Nutzer:innen zu senden, verwenden Sie eine der folgenden Methoden.
+Um personalisierte Nachrichten basierend auf der Sprache, dem Locale oder angepassten Attributen von Nutzer:innen zu senden, verwenden Sie eine der folgenden Methoden.
 
 ### Übersetzungs-Liquid-Tags (empfohlen) {#translation-liquid-tag}
 
@@ -93,7 +93,7 @@ Eine vollständige Anleitung finden Sie im [Leitfaden zur Verwendung von Überse
 ### Alternative Ansätze {#alternative-approaches}
 
 {% tabs local %}
-{% tab Custom Liquid %}
+{% tab Angepasstes Liquid %}
 Sie können Ihre Inhalte manuell in den Nachrichtentext einfügen und [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) verwenden, um die korrekte Sprache [bedingt]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) für die Empfänger:innen anzuzeigen. Gehen Sie dazu wie folgt vor:
 
 1. Verfassen Sie Ihre Nachricht und wählen Sie dann **Sprache** aus, um bedingte Liquid-Logik für jede Ihrer ausgewählten Sprachen zu generieren.
@@ -134,7 +134,7 @@ Content Blocks können auch als Übersetzungsverwaltungsprozess genutzt werden, 
 5. Ihr Dienst ruft den [`/content_block/update`-Endpunkt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) auf, um den übersetzten Inhalt zu aktualisieren und den Tag auf „Translation Complete“ zu ändern.
 {% endtab %}
 
-{% tab Catalogs %}
+{% tab Kataloge %}
 [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/) ermöglichen es Ihnen, über API und CSV-Dateien auf Daten aus importierten JSON-Objekten zuzugreifen, um Ihre Nachrichten anzureichern – ähnlich wie angepasste Attribute oder angepasste Event-Eigenschaften über Liquid. Zum Beispiel:
 
 {% subtabs local %}
@@ -226,7 +226,7 @@ Erstellen Sie eine CSV-Datei im folgenden Format:
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Alternative Ansätze" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -241,13 +241,13 @@ Diese Katalogartikel können dann über [Personalisierung]({{site.baseurl}}/user
 {% endraw %}
 {% endtab %}
 
-{% tab Braze partners %}
+{% tab Braze-Partner %}
 Viele Braze-Partner bieten Lokalisierungslösungen an, darunter [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex/#about-transifex) und [Crowdin](https://crowdin.com/). In der Regel nutzen Anwender:innen die Plattform zusammen mit einem internen Team und einer Übersetzungsagentur. Diese Übersetzungen werden dort hochgeladen und sind dann über die REST API zugänglich. Diese Dienste nutzen häufig auch [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), sodass Nutzer:innen die Übersetzungen per API abrufen können.
 
 Zum Beispiel rufen die folgenden Connected-Content-Aufrufe Transifex und Crowdin auf, um eine Übersetzung abzurufen, wobei {% raw %}`{{${language}}}`{% endraw %} verwendet wird, um die korrekte Übersetzung für bestimmte Nutzer:innen zu identifizieren. Diese Übersetzung wird dann im JSON-Block „strings“ gespeichert und referenziert.
 
 {% subtabs local %}
-{% subtab Transifex example %}
+{% subtab Transifex-Beispiel %}
 {% raw %}
 ```liquid
 {% connected_content https://www.transifex.com/api/2/project/example/resource/example/translation/{{${language}}}/strings :basic_auth semc :save strings %}
@@ -255,7 +255,7 @@ Zum Beispiel rufen die folgenden Connected-Content-Aufrufe Transifex und Crowdin
 ```
 {% endraw %}
 {% endsubtab %}
-{% subtab Crowdin example %}
+{% subtab Crowdin-Beispiel %}
 {% raw %}
 ```liquid
 {% connected_content https://api.crowdin.com/api/project/braze-test/export-file?key=you_api_key&language={{${language}}}&file=test.json&export_translated_only=1 :save response %}
@@ -266,11 +266,11 @@ Zum Beispiel rufen die folgenden Connected-Content-Aufrufe Transifex und Crowdin
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Spreadsheets %}
+{% tab Tabellenkalkulationen %}
 Speichern Sie Übersetzungen in einer Tabellenkalkulation und verwenden Sie dann eine der folgenden Methoden, um Ihre Nachricht in der entsprechenden Sprache zu senden.
 
 {% subtabs local %}
-{% subtab Connected Content %}
+{% subtab Connected-Content %}
 Sie können mit einer Übersetzungsagentur zusammenarbeiten, um Übersetzungen in einer Google-Tabelle zu speichern, und diese Inhalte dann über [Braze Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) abfragen. Wenn Sie eine Nachricht senden, wird die entsprechende Übersetzung für alle Nutzer:innen basierend auf deren ausgewählter Sprache in Ihren Campaign-Text eingefügt.
 
 {% alert note %}
@@ -278,7 +278,7 @@ Die Google Sheets API hat ein Limit von 500 Anfragen pro 100 Sekunden pro Projek
 {% endalert %}
 {% endsubtab %}
 
-{% subtab JSON API via SheetDB %}
+{% subtab JSON-API über SheetDB %}
 Diese Option bietet eine alternative Methode, um Google Sheets in JSON-Objekte umzuwandeln, die über Connected-Content abgefragt werden. Indem Sie eine Tabellenkalkulation über SheetDB in eine JSON-API umwandeln, können Sie je nach Häufigkeit der API-Aufrufe aus [mehreren Abo-Stufen](https://sheetdb.io/pricing) wählen.
 
 Die Tabellenstruktur folgt den Schritten in Option 4, aber SheetDB bietet auch [zusätzliche Filter](https://docs.sheetdb.io/#sheetdb-api) zum Abfragen der Objekte.
@@ -294,7 +294,7 @@ Erstellen Sie zunächst die Google-Tabelle so, dass die Sprachen verschiedene Ob
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="1. Schritt: Google-Tabelle formatieren" }
 
 #### 2. Schritt: Sprach-Liquid-Tag in einem Connected-Content-Aufruf verwenden {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 

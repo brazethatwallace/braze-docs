@@ -35,7 +35,7 @@ description: "この記事では、収益データのエクスポートBrazeエ�
 | `unit` | オプション | 文字列 | データポイント間の時間の単位。day または hour を指定でき、デフォルトは day です。 |
 | `app_id` | オプション | 文字列 | [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) ページから取得したアプリAPI 識別子。除外した場合、ワークスペース内のすべてのアプリの結果が返されます。 |
 | `product` | オプション | 文字列 | 応答をフィルターする製品の名前。除外した場合、すべてのアプリの結果が返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 

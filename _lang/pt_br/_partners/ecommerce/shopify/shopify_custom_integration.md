@@ -484,7 +484,7 @@ export async function action({request, context}) {
 Para saber mais sobre os fetchers do Remix, consulte [useFetcher](https://remix.run/docs/ja/main/hooks/use-fetcher).
 
 {: start="3"}
-3. As lojas Hydrogen geralmente definem um componente `CartForm` que gerencia o estado do objeto do carrinho, que é usado ao adicionar, remover e alterar a quantidade de itens em um carrinho. Adicione outro hook `useEffect` no componente `AddToCartButton` que chamará a função `trackCartUpdated` sempre que o estado do fetcher do formulário for alterado (sempre que o carrinho do usuário for atualizado):
+3. As lojas Hydrogen geralmente definem um componente `CartForm` que gerencia o estado do objeto do carrinho, usado ao adicionar, remover e alterar a quantidade de itens em um carrinho. Adicione outro hook `useEffect` no componente `AddToCartButton` que chamará a função `trackCartUpdated` sempre que o estado do fetcher do formulário for alterado (sempre que o carrinho do usuário for atualizado):
 
 ```java
 // Add imports
@@ -613,7 +613,8 @@ Com os SDKs da Braze, você pode rastrear eventos personalizados ou atributos pe
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Etapa 5: Configuração de rastreamento de dados personalizado (avançado)" style="width: 100%;">
+  <caption>Etapa 5: Configuração de rastreamento de dados personalizado (avançado)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>
@@ -662,7 +663,7 @@ As próximas etapas dependem da seleção do seu ID externo:<br><br>
 - **Se você selecionou o ID do cliente do Shopify, e-mail ou e-mail com hash:** Pule as etapas 6.1–6.3 e vá diretamente para a etapa 6.4.
 {% endalert %}
 
-#### Etapa 6.1: Criar o metafield `braze.external_id` {#step-61-create-the-brazeexternalid-metafield}
+#### Etapa 6.1: Criar o metafield `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
 1. No painel de administração do Shopify, acesse **Settings** > **Metafields**.
 2. Selecione **Customers** > **Add definition**.
@@ -689,7 +690,7 @@ A Braze envia os seguintes parâmetros para seu endpoint:
 | shopify_customer_id | Sim | String | O ID do cliente do Shopify. |
 | shopify_storefront | Sim | String | O nome da vitrine para a solicitação. Ex: `<storefront_name>.myshopify.com` |
 | email_address | Não | String | O endereço de e-mail do usuário conectado. <br><br>Esse campo pode estar ausente em determinados cenários de webhook. A lógica do seu endpoint deve levar em conta valores nulos aqui (por exemplo, buscar o e-mail usando o shopify_customer_id se sua lógica interna exigir isso). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificações do endpoint" }
 
 ##### Exemplo de endpoint {#example-endpoint}
 

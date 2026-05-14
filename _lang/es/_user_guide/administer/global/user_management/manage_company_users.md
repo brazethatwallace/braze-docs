@@ -6,11 +6,11 @@ page_type: reference
 description: "Esta página cubre la administración de los usuarios de tu empresa, como añadir y eliminar usuarios, configurar permisos de usuario, crear equipos y administrar la configuración de la empresa."
 ---
 
-# Administrar usuarios de la empresa
+# Administrar usuarios de la empresa {#manage-company-users}
 
 > Aprende a administrar usuarios en la cuenta de tu empresa, incluyendo añadir, suspender y eliminar usuarios.
 
-## Añadir usuarios de la empresa
+## Añadir usuarios de la empresa {#adding-company-users}
 
 Debes tener permisos de administrador para añadir usuarios a tu cuenta de Braze.
 
@@ -30,21 +30,21 @@ El departamento indicado en el perfil de un usuario determina qué tipos de comu
 
 ![Permisos a nivel de espacio de trabajo con una sección para campos de permisos personalizados.]({% image_buster /assets/img/add_new_user_3.png %})
 
-### Requisitos de dirección de correo electrónico
+### Requisitos de dirección de correo electrónico {#email-address-requirements}
 
 Cada dirección de correo electrónico utilizada en una [instancia]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) debe ser única. Esto significa que si intentas añadir una dirección de correo electrónico que ya está asociada a un usuario que tuvo o aún tiene acceso a un espacio de trabajo de la empresa en esa instancia, verás un mensaje de error.
 
 Si tu equipo utiliza Gmail y tienes problemas para añadir una dirección de correo electrónico, puedes crear un alias añadiendo un signo más (+) como "+1" o "+test" a la dirección de correo electrónico. Por ejemplo, `contractor@braze.com` puede tener un alias de `contractor+1@braze.com`. Los correos electrónicos enviados a `contractor+1@braze.com` seguirán entregándose a `contractor@braze.com`, pero el alias será reconocido como una dirección de correo electrónico única.
 
-### ¿Puedo cambiar la dirección de correo electrónico de mi cuenta de Braze?
+### ¿Puedo cambiar la dirección de correo electrónico de mi cuenta de Braze? {#can-i-change-my-braze-accounts-email-address}
 
 Por razones de seguridad, los usuarios no pueden cambiar la dirección de correo electrónico asociada a su cuenta de Braze. Si un usuario desea actualizar su dirección de correo electrónico, un administrador debe [crear una nueva cuenta](#adding-braze-users) con la dirección de correo electrónico preferida.
 
-## Asignar acceso y responsabilidades de usuario
+## Asignar acceso y responsabilidades de usuario {#assigning-user-access-and-responsibilities}
 
 {% multi_lang_include permissions.md content="Differences" %}
 
-## Suspender usuarios de la empresa
+## Suspender usuarios de la empresa {#suspending-company-users}
 
 Suspender a un usuario pone su cuenta en un estado inactivo, donde el usuario ya no puede iniciar sesión, pero los datos asociados a su cuenta se conservan. Solo los administradores pueden suspender o reactivar usuarios de la empresa. Ten en cuenta que los usuarios suspendidos aún pueden recibir notificaciones de Braze.
 
@@ -56,9 +56,11 @@ Los administradores también pueden suspender a un usuario seleccionando su nomb
 
 ![Suspender a un usuario al editar los detalles del usuario.]({% image_buster /assets/img_archive/suspend_user2.png %}){: style="max-width:70%;"}
 
-## Eliminar usuarios de la empresa
+## Eliminar usuarios de la empresa {#deleting-company-users}
 
-Para eliminar a un usuario, ve a **Configuración** > **Usuarios de la empresa**, busca su nombre de usuario y selecciona <i class="fa fa-trash-can"></i> **Eliminar usuario**.
+Para eliminar a un usuario, ve a **Configuración** > **Usuarios de la empresa**, busca el nombre del usuario y selecciona <i class="fa fa-trash-can"></i> **Eliminar usuario**.
+
+Solo los administradores pueden eliminar usuarios de la empresa, y los usuarios de la empresa no pueden eliminar sus propias cuentas. Un administrador no puede eliminar su propia cuenta del dashboard; otro administrador debe hacerlo por él.
 
 ![Eliminar a un usuario.]({% image_buster /assets/img_archive/delete_user_new.png %})
 
@@ -78,15 +80,15 @@ Braze conservará los siguientes datos de la cuenta:
 - Atributos personalizados o datos de prueba asociados a su cuenta
 - Campaigns o Canvas que crearon (pero el nombre del usuario no aparecerá en ellos, como por ejemplo en la columna **Fecha últ. modific.**)
 
-### Impacto de eliminar un usuario del dashboard
+### Impacto de eliminar un usuario del dashboard {#impact-of-deleting-a-dashboard-user}
 
 Cuando se elimina un usuario del dashboard, no hay un impacto significativo en los activos que creó dentro del dashboard, como Campaigns, Segments y Canvas. Sin embargo, el campo **Creada por** de estos activos mostrará un valor "null" en lugar de la dirección de correo electrónico del usuario eliminado.
 
 Si posteriormente se crea un nuevo usuario del dashboard con la misma dirección de correo electrónico que el usuario eliminado, Braze no volverá a asociar los activos creados por el usuario eliminado con el nuevo usuario. El nuevo usuario del dashboard comenzará desde cero y no se le acreditará como creador de ningún activo existente en el dashboard.
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
-### "El correo electrónico ya está en uso" al intentar añadir un usuario
+### "El correo electrónico ya está en uso" al intentar añadir un usuario {#email-is-already-taken-when-trying-to-add-a-user}
 
 Si intentas añadir un nuevo usuario y recibes un error que indica que el correo electrónico ya está en uso, pero no puedes encontrarlo en tu lista de usuarios, ese usuario probablemente existe en una instancia diferente del mismo clúster del dashboard de Braze.
 
@@ -97,7 +99,7 @@ Para crear este nuevo usuario, puedes hacer cualquiera de las siguientes opcione
 
 Si no recibes el mensaje de activación en tu buzón de entrada al usar `testing+01@braze.com`, confirma con tu equipo de TI que puedes recibir mensajes de ese tipo de dirección de correo electrónico. Algunos administradores filtran los mensajes enviados a direcciones de correo electrónico con un `+`.
 
-## Próximos pasos
+## Próximos pasos {#next-steps}
 
 Después de añadir usuarios, administra su acceso:
 

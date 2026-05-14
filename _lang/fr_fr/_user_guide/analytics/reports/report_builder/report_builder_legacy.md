@@ -35,7 +35,7 @@ Essayez d'utiliser les mêmes événements de conversion pour les conversions A,
 
 ### Étape 1 : Créer un nouveau rapport {#step-1-create-a-new-report}
 
-Dans le tableau de bord, accédez à **Analyse** > **Générateur de rapports**.
+Dans le tableau de bord, accédez à **Analytics** > **Générateur de rapports**.
 
 Sélectionnez **Créer un nouveau rapport** et choisissez un rapport de comparaison de Campaigns ou un rapport de comparaison de Canvas.
 
@@ -110,7 +110,7 @@ Sélectionner **ventilation par étapes** vous permet de consulter les indicateu
 
 ![Étapes]({% image_buster /assets/img/campaign_comparison/campaign_comparison2.png %}){: style="max-width:90%;"}
 
-### Message
+### Message {#message}
 
 De manière similaire à une ventilation au niveau des étapes, sélectionner **ventilation par message** affiche le nom des étapes dans chaque ligne. Cependant, dans **modifier les colonnes**, vous aurez accès aux indicateurs au niveau du message, tels que les statistiques spécifiques au canal comme les clics d'e-mail et les ouvertures de notifications push.
 

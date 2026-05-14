@@ -6,13 +6,13 @@ page_type: reference
 description: "Este artículo de referencia explica cómo gestionar etiquetas en el dashboard de Braze, incluyendo la anidación, el cambio de nombre y la organización de etiquetas en Campaigns, Canvas y Segments."
 ---
 
-# Gestión de etiquetas
+# Gestión de etiquetas {#managing-tags}
 
 > Puedes gestionar las etiquetas que utilizas en Campaigns, Canvas y Segments desde una ubicación central. Para renombrar, quitar o añadir etiquetas, ve a **Configuración** > **Gestión de etiquetas**.
 
 Para aprender a añadir etiquetas a Campaigns, Canvas, Segments y datos personalizados, consulta [Etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/).
 
-## Anidar etiquetas
+## Anidar etiquetas {#nesting-tags}
 
 Para organizar aún más tus etiquetas, puedes anidarlas bajo una etiqueta principal. Por ejemplo, puedes mantener todas las etiquetas de festividades anidadas bajo una etiqueta principal `Holidays`, o todas las etiquetas relacionadas con una etapa de tu embudo de marketing bajo una etiqueta principal `Funnel`.
 
@@ -37,7 +37,8 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="Mejores prácticas #tags-best-practices">
+  <caption>Mejores prácticas</caption>
 <thead>
   <tr>
     <th>Embudo</th>
@@ -60,14 +61,14 @@ table td {
 </tbody>
 </table>
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
 Los siguientes son casos de uso comunes para utilizar etiquetas en la gestión del ciclo de vida de tu mensajería.
 
 {% tabs %}
 {% tab Limitación de frecuencia %}
 
-### Limitación de frecuencia
+### Limitación de frecuencia {#throttling}
 
 Limita la frecuencia con la que tus clientes reciben Campaigns de un tipo determinado. Por ejemplo, podrías configurar los siguientes filtros para limitar la frecuencia de las Campaigns promocionales:
 
@@ -78,7 +79,7 @@ Limita la frecuencia con la que tus clientes reciben Campaigns de un tipo determ
 {% endtab %}
 {% tab Informes %}
 
-### Informes
+### Informes {#reporting}
 
 Configura un informe de interacción para supervisar el volumen de todas las Campaigns con una etiqueta determinada. Por ejemplo, si deseas monitorear todas tus Campaigns de push, podrías añadir una etiqueta como `Push Reporting` a esas Campaigns y luego configurar un [informe de interacción]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) para que te envíe un informe de esas Campaigns etiquetadas todos los días.
 

@@ -24,9 +24,9 @@ Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{sit
 
 Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos entrantes de Currents para elaborar informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
-![Desglose de un evento de interacción con un mensaje que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de campaña o Canvas y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Desglose de un evento de interacción con un mensaje que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
 
-Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de campaña/Canvas** y propiedades **específicas del evento**.
+Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de Campaign/Canvas** y propiedades **específicas del evento**.
 
 ### Esquema de ID de usuario {#user-id-schema}
 
@@ -36,7 +36,7 @@ Ten en cuenta las convenciones de nomenclatura para los ID de usuario.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | El identificador único que Braze asigna automáticamente. |
 | `external_id` | `"EXTERNAL_USER_ID"` | El identificador único del perfil de un usuario configurado por el cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### Valores de plataforma {#platform-values}
 
@@ -52,7 +52,7 @@ Algunos eventos devuelven un valor `platform` que especifica la plataforma del d
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 

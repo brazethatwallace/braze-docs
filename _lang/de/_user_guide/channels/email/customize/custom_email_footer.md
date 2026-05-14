@@ -76,7 +76,7 @@ Beim Erstellen einer angepassten Fußzeile empfiehlt Braze die Verwendung von [A
 | Angepasste Opt-in-URL der Nutzer:in | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | Angepasste Abo-URL der Nutzer:in | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | Angepasste Braze-Präferenzzentrum-URL der Nutzer:in | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizing with attributes" }
 
 ### Abmeldelink und Opt-in-Link einbinden {#including-an-unsubscribe-link-and-opt-in-link}
 

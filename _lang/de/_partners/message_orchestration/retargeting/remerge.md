@@ -33,7 +33,7 @@ Die Integration von Braze und Remerge hilft Ihnen, robuste, kanalübergreifende 
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Um ein Remerge-Webhook-Template für zukünftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook Templates**.
+Um ein Remerge-Webhook-Template für zukünftige Campaigns oder Canvases zu erstellen, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook-Templates**.
 
 Wenn Sie eine einmalige Remerge-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 

@@ -15,6 +15,7 @@ This article provides information related to the data the Braze SDK processes as
 |Does your app collect or share any of the required user data types?|Yes, the Braze Android SDK collects data as configured by the app developer. |
 |Is all of the user data collected by your app encrypted in transit?|Yes.|
 |Do you provide a way for users to request that their data be deleted?|Yes.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Questions" }
 
 For more information about handling user requests for their data and deletion, see [Braze Data Retention Information]({{site.baseurl}}/api/data_retention/).
 
@@ -22,7 +23,7 @@ For more information about handling user requests for their data and deletion, s
 
 The data collected by Braze is determined by your specific integration and the user data you choose to collect. To learn more about what data Braze collects by default and how to disable certain attributes, see our [SDK data collection options]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
 
-<table id="datatypes">
+<table aria-label="Data collection" id="datatypes">
     <thead>
         <tr>
             <th width="25%">Category</th>

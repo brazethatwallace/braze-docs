@@ -85,7 +85,8 @@ This section describes the main differences between card creation at campaign la
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">
+  <caption>Differences between creating cards at launch or entry versus at first impression</caption>
 <thead>
   <tr>
     <th class="tg-0pky"></th>

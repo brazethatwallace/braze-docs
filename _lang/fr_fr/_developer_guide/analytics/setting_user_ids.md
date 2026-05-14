@@ -6,7 +6,7 @@ description: "Découvrez comment définir des ID d'utilisateur via le SDK de Bra
 
 ---
 
-# Définir les ID d'utilisateur
+# Définir les ID d'utilisateur {#set-user-ids}
 
 > Découvrez comment définir des ID d'utilisateur via le SDK de Braze. Il s'agit d'identifiants uniques qui vous permettent de suivre les utilisateurs sur différents appareils et plateformes, d'importer leurs données via l'[API de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) et d'envoyer des messages ciblés via l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/). Si vous n'attribuez pas d'ID unique à un utilisateur, Braze lui attribue un ID anonyme à la place. Toutefois, vous ne pourrez pas utiliser ces fonctionnalités tant que vous ne l'aurez pas fait.
 
@@ -14,19 +14,19 @@ description: "Découvrez comment définir des ID d'utilisateur via le SDK de Bra
 Pour les SDK wrapper non répertoriés, utilisez plutôt la méthode native Android ou Swift correspondante.
 {% endalert %}
 
-## À propos des utilisateurs anonymes
+## À propos des utilisateurs anonymes {#about-anonymous-users}
 
 {% multi_lang_include anonymous_users/about_anonymous_users.md %}
 
-### Empêcher le suivi des utilisateurs anonymes
+### Empêcher le suivi des utilisateurs anonymes {#preventing-anonymous-user-tracking}
 
 Si votre cas d'utilisation exige qu'aucune donnée ne soit collectée avant l'identification d'un utilisateur, vous pouvez retarder l'initialisation du SDK Braze jusqu'à ce que l'utilisateur se connecte et qu'un `external_id` soit disponible. Définissez un indicateur dans votre code qui passe à `true` lorsque l'utilisateur se connecte, et n'initialisez le SDK que lorsque cet indicateur est activé.
 
 {% alert warning %}
-Ne retardez l'initialisation que **la première fois** qu'un utilisateur télécharge votre application (avant qu'un `external_id` ne soit défini). Si vous empêchez le SDK de s'initialiser chaque fois qu'un utilisateur se déconnecte ou démarre une nouvelle session, cela interférera avec le préchargement des ressources de messages in-app et de cartes de contenu, ce qui peut entraîner des erreurs de livrabilité pour ces campagnes.
+Ne retardez l'initialisation que **la première fois** qu'un utilisateur télécharge votre application (avant qu'un `external_id` ne soit défini). Si vous empêchez le SDK de s'initialiser chaque fois qu'un utilisateur se déconnecte ou démarre une nouvelle session, cela interférera avec le préchargement des ressources de messages in-app et de cartes de contenu, ce qui peut entraîner des erreurs de livrabilité pour ces Campaigns.
 {% endalert %}
 
-## Définition d'un ID utilisateur
+## Définition d'un ID utilisateur {#setting-a-user-id}
 
 Pour définir un ID utilisateur, appelez la méthode `changeUser()` après la première connexion de l'utilisateur. Les ID doivent être uniques et respecter nos [bonnes pratiques de dénomination](#naming-best-practices).
 
@@ -44,7 +44,7 @@ Si vous préférez utiliser Google Tag Manager, vous pouvez utiliser le type d'�
 
 Veillez à saisir l'ID unique de l'utilisateur actuel dans le champ **External User ID**, généralement rempli à l'aide d'une variable de couche de données envoyée par votre site web.
 
-![Une boîte de dialogue affichant les paramètres de configuration de la balise d'action Braze. Les paramètres inclus sont « tag type » et « external user ID ».]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
+![Boîte de dialogue affichant les paramètres de configuration de la balise d'action Braze. Les paramètres inclus sont « tag type » et « external user ID ».]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
 
 {% tab ANDROID %}
@@ -102,7 +102,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 {% endtab %}
 {% endtabs %}
 
-### Fonctionnement de `changeUser()`
+### Fonctionnement de `changeUser()` {#how-changeuser-works}
 
 Lorsque vous appelez `changeUser()`, les comportements suivants s'appliquent :
 
@@ -119,13 +119,13 @@ L'appel de `changeUser()` déclenche un vidage des données dans le cadre de la 
 N'attribuez pas un ID utilisateur unique et partagé (par exemple, un ID externe par défaut statique) et n'appelez pas `changeUser()` lorsqu'un utilisateur se déconnecte. Cela vous empêcherait de réengager les utilisateurs précédemment connectés sur les appareils partagés, et toutes les données seraient enregistrées sous un seul ID utilisateur, ce qui peut entraîner un comportement inattendu d'autres fonctionnalités. Conservez plutôt une trace de tous les ID utilisateur séparément et assurez-vous que le processus de déconnexion de votre application permet de revenir à un utilisateur précédemment connecté. Lorsqu'une nouvelle session commence, Braze actualise automatiquement les données du profil nouvellement actif.
 {% endalert %}
 
-## Alias d'utilisateur
+## Alias d'utilisateur {#user-aliases}
 
-### Fonctionnement
+### Fonctionnement {#how-they-work}
 
 {% multi_lang_include anonymous_users/about_user_aliases.md %}
 
-### Définition d'un alias d'utilisateur
+### Définition d'un alias d'utilisateur {#setting-a-user-alias}
 
 Un alias d'utilisateur se compose de deux parties : un nom et un libellé. Le nom correspond à l'identifiant lui-même, tandis que le libellé désigne le type d'identifiant auquel il appartient. Par exemple, si vous avez un utilisateur dans une plateforme d'assistance client tierce avec l'ID externe `987654`, vous pouvez lui attribuer un alias dans Braze avec le nom `987654` et le libellé `support_id`, afin de pouvoir le suivre sur l'ensemble des plateformes.
 
@@ -203,7 +203,7 @@ Bien qu'il soit essentiel de nommer correctement vos ID utilisateur dès le dép
 | ID de profil visible ou nom d'utilisateur | JonDoe829525552 |
 | Adresse e-mail | Anna@email.com |
 | ID utilisateur à incrémentation automatique | 123 |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert warning %}
 Évitez de divulguer des informations sur la manière dont vous créez les ID utilisateur, car cela pourrait exposer votre organisation à des attaques malveillantes ou à l'exfiltration de données.

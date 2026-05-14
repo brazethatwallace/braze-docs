@@ -41,7 +41,7 @@ Wir empfehlen die folgenden Best Practices:
 | Meta-Beschreibung | Ein Textausschnitt, der in Suchergebnissen angezeigt wird. | Verwenden Sie zwischen 140 und 160 Zeichen. |
 | Favicon | Das Symbol, das neben dem Website-Titel im Browser-Tab erscheint. | Verwenden Sie ein Seitenverhältnis von 1:1 und einen unterstützten Dateityp wie PNG, JPEG oder ICO. |
 | Seiten-URL | Dies ist der URL-Pfad zu Ihrer Landing-Page. Dieser Wert wird auch referenziert, wenn Sie [Landing-Page-Liquid-Tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) verwenden, die Sie in eine Nachricht einbetten können, um automatisch zu erkennen, wenn Nutzer:innen Ihr Formular absenden. | Dieser Wert muss innerhalb Ihres Workspace eindeutig sein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Website-Details" }
 
 ### 3. Schritt: Die Seite anpassen {#step-3-customize-the-page}
 
@@ -68,7 +68,7 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
 | Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Die Seite anpassen" }
 
 ##### Span-Text {#span-text}
 
@@ -89,7 +89,7 @@ Mit diesen Blöcken können Sie ein Formular erstellen, das von Nutzer:innen üb
 | Dropdown | Nutzer:innen können einen Eintrag aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen aktivieren, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht aktiviert wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
 
 {% alert important %}
 Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.
@@ -138,10 +138,6 @@ Wenn Sie keine Bestätigungsseite einbinden, wissen Nutzer:innen möglicherweise
 Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann es vorkommen, dass Nutzer:innen, die zur ursprünglichen Landing-Page zurückkehren und das Formular mit aktualisierten Informationen erneut absenden, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
 {% endalert %}
 
-{% alert important %}
-Wenn Sie einen Button mit aktivierter Option **Submit form when button is clicked** konfigurieren und **On-click Behavior** verwenden, um eine Web-URL in einem neuen Tab zu öffnen, kann der integrierte Pop-up-Blocker von iOS Safari die Navigation verhindern. Dies geschieht, weil das Absenden eines Formulars gefolgt vom Öffnen eines neuen Tabs als Pop-up behandelt wird.<br><br>Um dieses Problem zu vermeiden, konfigurieren Sie Buttons mit Formularübermittlung so, dass die resultierende URL im selben Tab geöffnet wird (nicht in einem neuen Tab). Buttons ohne Formularübermittlung können URLs problemlos in neuen Tabs öffnen.
-{% endalert %}
-
 ### 5. Schritt: Vorschau der Seite {#step-5-preview-the-page}
 
 Sie können eine Vorschau Ihrer Landing-Page im Tab **Preview** des Editors anzeigen. Nachdem Sie Ihre Landing-Page als Entwurf gespeichert haben, können Sie die URL aufrufen, indem Sie zu **Landing Pages** gehen und neben Ihrer Landing-Page **Copy URL** auswählen. Sie können die URL auch mit Kolleg:innen teilen.
@@ -155,6 +151,10 @@ Stellen Sie vor der Veröffentlichung sicher, dass:
 - Alle erforderlichen Seitenfelder (wie URL-Pfad und Titel) vollständig sind
 
 Wenn Sie bereit sind, wählen Sie **Publish Landing Page**.
+
+{% alert note %}
+Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlich der integrierten Steuerelemente von Safari und Erweiterungen von Drittanbietern) können das Verhalten von Landing-Pages negativ beeinflussen, wenn ein **Submit**-Button eines Formulars gleichzeitig eine andere URL öffnet – unabhängig davon, ob diese URL im selben Tab oder in einem neuen Tab geöffnet wird.
+{% endalert %}
 
 ## Templates verwenden {#using-templates}
 

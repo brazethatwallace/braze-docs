@@ -59,12 +59,12 @@ Brazeでは、ダッシュボードフォールバックチャネルを指定で
 
 チャネルの想定される動作をより理解するために、以下の表を参照してください。
 
-|シナリオ |結果  |
-| ---|-------------
-|**会社ABC**がAndroid OをサポートするSDKに更新<br>**会社ABC**がBrazeダッシュボードにチャネルを追加しない<br>**会社ABC**がSDKデフォルトチャネルの名前を変更しない | Android Oデバイスに送信されるプッシュ通知は「General」というチャネルを作成し、通知は「General」チャネルを通じて送信される
-|**会社XYZ**がAndroid OをサポートするSDKに更新<br>**会社XYZ**がBrazeダッシュボードにチャネルを追加しない<br>**会社XYZ**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知は「Marketing」というチャネルを作成し、通知は「Marketing」チャネルを通じて送信される
-|**会社LMN**がAndroid OをサポートするSDKに更新<br>**会社LMN**がアプリケーションコードで「Promotions」と「Order Updates」の2つのチャネルを定義<br>**会社LMN**が「Promotions」と「Order Updates」のチャネルIDをBrazeダッシュボードに追加<br>**会社LMN**が「Promotions」をダッシュボードフォールバックチャネルに指定<br>**会社LMN**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知はチャネルを作成しない<br><br>マーケターが「Order Updates」または「Marketing」チャネルで通知を送信するよう明示的に指定しない限り、チャネルがダッシュボードに追加される前に作成されたすべての通知は「Promotions」チャネルを通じて送信される<br><br>SDKデフォルトチャネル「Marketing」は、会社が無効なチャネルIDで通知を送信しようとした場合、または明示的に選択された場合にのみ作成・使用される
-|**会社HIJ**がAndroid Oに更新するが、Braze Android SDKを2.1.0以降に更新しない | Android O以降を実行しているユーザーに送信された通知は表示されない |
+| シナリオ | 結果 |
+| ---|-------------|
+| **会社ABC**がAndroid OをサポートするSDKに更新<br>**会社ABC**がBrazeダッシュボードにチャネルを追加しない<br>**会社ABC**がSDKデフォルトチャネルの名前を変更しない | Android Oデバイスに送信されるプッシュ通知は「General」というチャネルを作成し、通知は「General」チャネルを通じて送信される
+| **会社XYZ**がAndroid OをサポートするSDKに更新<br>**会社XYZ**がBrazeダッシュボードにチャネルを追加しない<br>**会社XYZ**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知は「Marketing」というチャネルを作成し、通知は「Marketing」チャネルを通じて送信される
+| **会社LMN**がAndroid OをサポートするSDKに更新<br>**会社LMN**がアプリケーションコードで「Promotions」と「Order Updates」の2つのチャネルを定義<br>**会社LMN**が「Promotions」と「Order Updates」のチャネルIDをBrazeダッシュボードに追加<br>**会社LMN**が「Promotions」をダッシュボードフォールバックチャネルに指定<br>**会社LMN**がSDKデフォルトチャネルの名前を「Marketing」に変更 | Android Oデバイスに送信されるプッシュ通知はチャネルを作成しない<br><br>マーケターが「Order Updates」または「Marketing」チャネルで通知を送信するよう明示的に指定しない限り、チャネルがダッシュボードに追加される前に作成されたすべての通知は「Promotions」チャネルを通じて送信される<br><br>SDKデフォルトチャネル「Marketing」は、会社が無効なチャネルIDで通知を送信しようとした場合、または明示的に選択された場合にのみ作成・使用される
+| **会社HIJ**がAndroid Oに更新するが、Braze Android SDKを2.1.0以降に更新しない | Android O以降を実行しているユーザーに送信された通知は表示されない |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Brazeダッシュボードへのチャネルの追加 {#adding-channels-to-the-braze-dashboard}

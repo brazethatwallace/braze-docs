@@ -23,7 +23,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `trigger_event_blacklisted` | El evento desencadenante está en la lista de bloqueo, por lo que no se envió el mensaje. |
 | `exhausted_retries` | No se pudo enviar el mensaje después del número máximo de intentos de reintento. |
 | `frequency_capped` | El usuario ya recibió el número máximo de mensajes permitidos por las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#about-frequency-capping) de tu espacio de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 {% unless ch == "newsfeedcard" or ch == "rcs" %}
 
@@ -35,6 +35,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `connected_content_not_supported` | El [Contenido conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) no es compatible en este contexto, por lo que se canceló el mensaje. |
 | `promo_codes_not_supported` | Los códigos promocionales no son compatibles en este contexto, por lo que se canceló el mensaje. |
 | `catalog_items_rerender_not_supported` | La re-renderización de elementos del Catálogo no es compatible en este contexto, por lo que se canceló el mensaje. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 {% if ch == "all" or ch == "email" or ch == "push" or ch == "inappmessage" or ch == "contentcard" or ch == "webhook" or ch == "banner" %}| `blacklisted_media_url` | La URL del medio está en la lista de bloqueo y no se puede usar en mensajes. |
 | `blocked_media_url` | La URL del medio fue bloqueada por políticas de seguridad. |
 | `invalid_media_url` | La URL del medio no es válida o no se pudo resolver. |{% endif %}
@@ -42,7 +43,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `invalid_http_status` | Una solicitud HTTP devolvió un código de estado no exitoso. |
 | `http_timeout` | Una solicitud HTTP agotó el tiempo de espera antes de recibir una respuesta. |
 | `missing_hostname` | La URL de la solicitud no tiene un nombre de host. |{% endif %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 
 {% endunless %}
 
@@ -55,7 +56,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `exhausted_link_shortening_retries` | El acortamiento de enlaces falló después del número máximo de reintentos. |
 | `missing_email` | El usuario no tiene una dirección de correo electrónico en su perfil. |
 | `invalid_domain` | La dirección de correo electrónico tiene un dominio no válido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email" }
 
 {% endif %}
 
@@ -67,7 +68,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | --- | --- |
 | `invalid_push_payload` | La carga útil de la notificación push no es válida o tiene un formato incorrecto. |
 | `sdk_not_supported` | La versión del SDK en el dispositivo del usuario no es compatible con este tipo de notificación push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push" }
 
 {% endif %}
 
@@ -85,7 +86,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions/). |
 | `mms_not_supported` | MMS no es compatible para este destinatario o número de envío. |
 | `no_current_messaging_service` | No hay un servicio de mensajería activo configurado para este grupo de suscripción. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
 
 {% endif %}
 
@@ -99,7 +100,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `whats_app_invalid_template_message` | El mensaje de plantilla de WhatsApp no es válido o no está aprobado. |
 | `whats_app_invalid_response_message` | El mensaje de respuesta de WhatsApp no es válido. |
 | `whats_app_fatal_provider_error` | Ocurrió un error fatal con el proveedor de WhatsApp, lo que impidió la entrega del mensaje. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp" }
 
 {% endif %}
 
@@ -110,7 +111,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `line_fatal_provider_error` | Ocurrió un error fatal con el proveedor de LINE, lo que impidió la entrega del mensaje. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE" }
 
 {% endif %}
 
@@ -121,7 +122,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `kakao_fatal_provider_error` | Ocurrió un error fatal con el proveedor de Kakao, lo que impidió la entrega del mensaje. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kakao" }
 
 {% endif %}
 
@@ -135,7 +136,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | `content_card_content_invalid` | El contenido de la Content Card no es válido o contiene caracteres no compatibles. |
 | `content_card_expiration_invalid` | La fecha de expiración de la Content Card no es válida. |
 | `content_card_general` | No se pudo crear la Content Card debido a un error general. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Cards" }
 
 {% endif %}
 
@@ -147,7 +148,7 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | --- | --- |
 | `no_longer_in_availability_window` | El mensaje no se pudo enviar dentro de la ventana de disponibilidad configurada, por lo que se canceló. |
 | `maximum_impressions_reached` | El mensaje dentro de la aplicación ya alcanzó su número máximo de impresiones. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="In-app messages" }
 
 {% endif %}
 
@@ -158,6 +159,6 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `blocked_webhook_url` | La URL del webhook fue bloqueada por políticas de seguridad. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhooks" }
 
 {% endif %}

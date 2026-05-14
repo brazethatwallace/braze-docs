@@ -111,7 +111,7 @@ Aktualisieren Sie das Nutzerprofil mit einer der unter [Abo-Gruppen]({{site.base
 
 Innerhalb des WhatsApp-Nachrichtentemplate-Erstellers können Sie die Option „Marketing-Opt-out“ einfügen. Wenn Sie diese Option verwenden, stellen Sie sicher, dass das Template in einem Canvas mit einem nachfolgenden Schritt für eine Abo-Gruppenänderung verwendet wird.
 
-1. Erstellen Sie ein Nachrichtentemplate mit der Schnellantwort „Marketing-Opt-out“.<br>![Nachrichtentemplate mit einer Fußzeilenoption „Marketing-Opt-out“.]({% image_buster /assets/img/whatsapp/whatsapp121.png %})<br><br>![Abschnitt zur Konfiguration eines Marketing-Opt-out-Buttons.]({% image_buster /assets/img/whatsapp/whatsapp122.png %})<br><br>
+1. Erstellen Sie ein Nachrichtentemplate mit der Schnellantwort „Marketing-Opt-out“.<br>![Nachrichtentemplate mit einer Fußzeilenoption „Marketing opt-out“.]({% image_buster /assets/img/whatsapp/whatsapp121.png %})<br><br>![Abschnitt zur Konfiguration eines Marketing-Opt-out-Buttons.]({% image_buster /assets/img/whatsapp/whatsapp122.png %})<br><br>
 2. Erstellen Sie ein Canvas, das dieses Nachrichtentemplate verwendet.<br><br>
 3. Folgen Sie den Schritten im vorherigen Beispiel, aber mit dem Triggertext „STOP PROMOTIONS“.<br><br>
 4. Aktualisieren Sie den Abo-Status der Nutzer:innen mit einer der unter [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#update-subscription-status) beschriebenen Methoden.

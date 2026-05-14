@@ -3,7 +3,7 @@ nav_title: Rich-Benachrichtigungen erstellen
 article_title: "Rich-Push-Benachrichtigungen für iOS erstellen"
 page_order: 3
 page_type: tutorial
-description: "Dieses Tutorial behandelt die Voraussetzungen und Schritte zum Erstellen von iOS-Rich-Benachrichtigungen für Ihre Braze-Campaigns."
+description: "Dieses Tutorial behandelt die Voraussetzungen und Schritte zum Erstellen von iOS-Rich-Benachrichtigungen für Ihre Braze Campaigns."
 
 platform: iOS
 channel:
@@ -15,7 +15,7 @@ tool:
 
 # Rich-Push-Benachrichtigungen für iOS erstellen {#create-rich-push-notifications-for-ios}
 
-> Rich-Benachrichtigungen ermöglichen eine stärkere Anpassung Ihrer Push-Benachrichtigungen, indem zusätzliche Inhalte über reinen Text hinaus hinzugefügt werden. Android-Benachrichtigungen enthalten bereits seit einiger Zeit Bilder in Push-Benachrichtigungen, die als „Erweiterte Benachrichtigungsbilder“ bezeichnet werden. Ab iOS 10 können Ihre Kund:innen iOS-Push-Benachrichtigungen empfangen, die GIFs, Bilder, Videos oder Audio enthalten.
+> Rich-Benachrichtigungen ermöglichen eine stärkere Anpassung Ihrer Push-Benachrichtigungen, indem zusätzliche Inhalte über reinen Text hinaus hinzugefügt werden. Android-Benachrichtigungen enthalten bereits seit einiger Zeit Bilder in Push-Benachrichtigungen, die als „erweitertes Benachrichtigungsbild“ bezeichnet werden. Ab iOS 10 können Ihre Kund:innen iOS-Push-Benachrichtigungen empfangen, die GIFs, Bilder, Videos oder Audio enthalten.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -31,6 +31,10 @@ Bevor Sie eine Rich-Push-Benachrichtigung für iOS erstellen, beachten Sie die f
 Seit Januar 2020 können iOS-Rich-Push-Benachrichtigungen Bilder mit 1038x1038 Pixeln verarbeiten, die unter 10&nbsp;MB groß sind. Wir empfehlen jedoch, eine möglichst kleine Dateigröße zu verwenden. In der Praxis kann das Senden großer Dateien sowohl unnötige Netzwerkbelastung verursachen als auch Download-Timeouts häufiger auftreten lassen.
 {% endalert %}
 
+{% alert important %}
+Push-Benachrichtigungsbilder werden möglicherweise nicht wie erwartet angezeigt, wenn die Dateigröße des Bildes zu groß ist, das Seitenverhältnis nicht stimmt, der Text die maximale Nachrichtenlänge überschreitet oder der Titeltext die maximale Titellänge überschreitet.
+{% endalert %}
+
 ### Zeichenanzahl {#character-count}
 
 Obwohl wir keine feste Regel für die genaue Anzahl der Zeichen in einer Push-Benachrichtigung angeben können, [bieten wir einige Richtlinien]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) an, die Sie beim Entwerfen von iOS-Nachrichten berücksichtigen sollten. Es kann Abweichungen geben, abhängig vom Vorhandensein eines Bildes, dem Benachrichtigungsstatus und den Anzeigeeinstellungen des Geräts der Nutzer:innen sowie der Gerätegröße. Im Zweifelsfall halten Sie es kurz und prägnant.
@@ -41,7 +45,8 @@ Als Best Practice empfiehlt Braze, jede Textzeile sowohl für den optionalen Tit
 
 Ihre Nutzer:innen können Push-Benachrichtigungen in verschiedenen Situationen sehen und dabei unterschiedliche Textlängen angezeigt bekommen.
 
-<table>
+<table aria-label="Benachrichtigungszustände">
+  <caption>Benachrichtigungszustände</caption>
 <thead>
   <tr>
     <th>Sperrbildschirm oder Mitteilungszentrale</th>
@@ -57,9 +62,9 @@ Ihre Nutzer:innen können Push-Benachrichtigungen in verschiedenen Situationen s
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Benachrichtigungszustände" }
 
-![Beispiel-Push-Benachrichtigungen für Push-Anzeige auf dem Sperrbildschirm, im erweiterten Zustand und bei aktivem Gerät.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
+![Beispiel-Push-Benachrichtigungen für die Anzeige auf dem Sperrbildschirm, im erweiterten Zustand und bei aktivem Gerät.]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 
 {% alert note %}
 Obwohl wir ein Seitenverhältnis von 2:1 für erweiterte Push-Benachrichtigungen empfehlen, wird nahezu jedes Seitenverhältnis unterstützt. Bilder erstrecken sich immer über die gesamte Breite der Benachrichtigung, und die Höhe wird entsprechend angepasst.
@@ -131,7 +136,7 @@ Fügen Sie Ihre Bild-, GIF-, Audio- oder Videodatei im Feld **Rich Notification 
 
 Sie können diese Nachricht auch so einschränken, dass sie nur an Nutzer:innen gesendet wird, deren Gerät iOS 10 oder höher ausführt. Für Nutzer:innen, die nicht auf iOS 10 aktualisiert haben, wird sie als reine Textbenachrichtigung ohne Rich-Inhalte angezeigt, wenn Sie die Option **Only send to devices with Rich Notification support** nicht aktivieren.
 
-![Der Abschnitt „Erweiterte Benachrichtigungsbilder“, in dem Sie ein Bild hinzufügen oder eine Bild-URL eingeben können.]({% image_buster /assets/img_archive/rich_notification_ios10_select.png %}){: style="max-width:70%;" }
+![Der Abschnitt „Erweitertes Benachrichtigungsbild“, in dem Sie ein Bild hinzufügen oder eine Bild-URL eingeben können.]({% image_buster /assets/img_archive/rich_notification_ios10_select.png %}){: style="max-width:70%;" }
 
 ### 3. Schritt: Campaign-Erstellung fortsetzen {#step-3-continue-creating-your-campaign}
 

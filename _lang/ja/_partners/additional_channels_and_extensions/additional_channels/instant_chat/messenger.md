@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/)は、世界で最も人気があるインスタントメッセージングプラットフォームの1つで、1か月あたりのアクティブユーザー数は10億にのぼります。ブランドはこのプラットフォームで、顧客とインテリジェントかつ自動的にやり取りするための魅力的なチャットボットを作成できます。
 
-BrazeとFacebookの統合では、Messenger Platform APIを介してFacebook Messengerのユーザーにメッセージを送信するために、Braze Webhook、セグメンテーション、パーソナライゼーション、トリガー機能が利用されます。カスタムFacebook Messenger Webhookテンプレートは、Brazeプラットフォームの **テンプレート** > **Webhookテンプレート** にあります。
+BrazeとFacebookの統合では、Messenger Platform APIを介してFacebook Messengerのユーザーにメッセージを送信するために、Braze Webhook、セグメンテーション、パーソナライゼーション、トリガー機能が利用されます。カスタムFacebook Messenger Webhookテンプレートは、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**にあります。
 
 Facebook Messengerプラットフォームは、「既存の取引を促進し、他の顧客サポートアクションを提供し、個人が要求したコンテンツを配信する非プロモーションメッセージ」を対象としています。詳細については、[Facebookのプラットフォームガイドライン](https://developers.facebook.com/docs/messenger-platform)と[許容可能なユースケースの例](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable)を参照してください。
 
@@ -29,8 +29,8 @@ Facebook Messengerプラットフォームは、「既存の取引を促進し�
 | Facebook Messengerアプリ| Facebook| [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | Facebookアプリには、アクセストークンなどのMessengerボットの設定が含まれています。
 | アプリボットの審査と承認 | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | ボットを公開する準備ができたら、審査と承認を受けるためにFacebookに提出する必要があります。この審査プロセスにより、MessengerボットがFacebookのポリシーを遵守し、期待どおりに機能することが確認され、Messengerのすべてのユーザーに公開されます。 |
 | ページスコープID (PSID) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Facebook Messengerでメッセージを送信するには、ユーザーのPSIDが必要です。ユーザーがMessengerを介してアプリとやり取りするときに、FacebookによってPSIDが作成されます。このPSIDは、文字列カスタム属性としてBrazeに送信できます。
-| ページアクセストークン | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | これらのアクセストークンは、Facebook Pageに属するデータの読み取り、書き込み、変更を行うAPIに権限を付与することを除き、ユーザーアクセストークンと似ています。ページアクセストークンを取得するには、ユーザーアクセストークンを取得し、`manage_pagespermission`を要求する必要があります。ユーザーアクセストークンを取得したら、Graph APIを使用してページアクセストークンを取得できます。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| ページアクセストークン | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | これらのアクセストークンは、Facebook Pageに属するデータの読み取り、書き込み、変更を行うAPIに権限を付与する点を除き、ユーザーアクセストークンと似ています。ページアクセストークンを取得するには、ユーザーアクセストークンを取得し、`manage_pagespermission`を要求する必要があります。ユーザーアクセストークンを取得したら、Graph APIを使用してページアクセストークンを取得できます。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -39,7 +39,7 @@ Facebook Messengerプラットフォームは、「既存の取引を促進し�
 
 ### ステップ1:PSIDを収集する {#step-1-collect-your-psids}
 
-Facebook Messengerでメッセージを送信するには、ユーザーを識別し、一貫したやり取りを行うためにユーザーのページ固有のID (PSID) を収集する必要があります。PSIDはユーザーのFacebook IDとは異なります。顧客にメッセージを送信する場合または顧客からメッセージが送信される場合は常に、Facebookによりこの識別子が作成されます。
+Facebook Messengerでメッセージを送信するには、ユーザーを識別し、一貫したやり取りを行うためにユーザーのページ固有のID（PSID）を収集する必要があります。PSIDはユーザーのFacebook IDとは異なります。顧客にメッセージを送信する場合または顧客からメッセージが送信される場合は常に、Facebookによりこの識別子が作成されます。
 
 PSIDは、Facebookが提供するさまざまな[エントリポイント](https://developers.facebook.com/docs/messenger-platform/discovery)の1つを使用して確認できます。ユーザーがアプリにメッセージを送ったり、ボタンをタップしたり、メッセージを送信したりといった対話のアクションを行った後は、そのPSIDがWebhookイベントの`sender.id`プロパティに含まれるため、ボットはアクションを行った人を識別できます。
 

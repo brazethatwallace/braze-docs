@@ -36,7 +36,7 @@ To use this endpoint, you'll need a SCIM token. You'll use your service origin a
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `userName@example.com` | Required | String | The user's email. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request parameters
 

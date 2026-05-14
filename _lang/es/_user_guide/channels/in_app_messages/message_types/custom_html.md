@@ -111,13 +111,13 @@ Al crear mensajes dentro de la aplicación de código personalizado con carga de
 
 Los siguientes tipos de archivo son compatibles para la carga:
 
-| Tipo de archivo        | Extensión de archivo              |
+| Tipo de archivo | Extensión de archivo |
 | :--------------- | :-------------------------------- |
-| Archivos de fuentes       | `.ttf`, `.woff`, `.otf`, `.woff2` |
-| Imágenes SVG       | `.svg`                            |
-| Archivos JavaScript | `.js`                             |
-| Archivos CSS        | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Archivos de fuentes | `.ttf`, `.woff`, `.otf`, `.woff2` |
+| Imágenes SVG | `.svg` |
+| Archivos JavaScript | `.js` |
+| Archivos CSS | `.css` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Archivos de activos" }
 
 Braze recomienda subir activos a la biblioteca de medios por dos razones:
 
@@ -148,13 +148,13 @@ Puedes seleccionar <i class="fa-solid fa-magnifying-glass"></i> **Search** dentr
 
 Puedes hacer seguimiento del rendimiento dentro de tu mensaje dentro de la aplicación de código personalizado usando el método JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/). Esto te permite hacer seguimiento programático de "Button 1", "Button 2" y "Body Clicks" usando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` o `brazeBridge.logClick()`, respectivamente.
 
-| Clics     | Método                       |
+| Clics | Método |
 | ---------- | ---------------------------- |
-| Button 1   | `brazeBridge.logClick('0')` |
-| Button 2   | `brazeBridge.logClick('1')` |
-| Clic en el cuerpo | `brazeBridge.logClick()`    |
-| Seguimiento de botón personalizado |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Button 1 | `brazeBridge.logClick('0')` |
+| Button 2 | `brazeBridge.logClick('1')` |
+| Clic en el cuerpo | `brazeBridge.logClick()` |
+| Seguimiento de botón personalizado | `brazeBridge.logClick('your custom name here')` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de botones" }
 
 {% alert note %}
 Este método de seguimiento de botones reemplaza los métodos anteriores de seguimiento automático de clics (como `?abButtonId=0`), que han sido eliminados.
@@ -172,3 +172,4 @@ Este método de seguimiento de botones reemplaza los métodos anteriores de segu
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cambios incompatibles con versiones anteriores" }

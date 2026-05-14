@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}링크 별칭 지정 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}링크 별칭 지정 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > 링크 별칭 지정을 사용하여 Braze에서 발송하는 이메일 메시지의 링크를 식별할 수 있는 사용자 정의 이름을 생성합니다. 이러한 링크는 세분화 리타겟팅, 행동 기반 트리거링 및 링크 분석에 활용할 수 있습니다.
 
@@ -80,7 +80,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permalink" }
 
 ### 추가 쿼리 매개변수가 있는 링크 {#link-with-more-query-parameters}
 
@@ -89,7 +89,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
 
 ### HTML 링크 {#html-link}
 
@@ -98,7 +98,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
 
 ### 앵커가 있는 링크 {#link-with-anchor}
 
@@ -107,7 +107,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
 
 ### 앵커와 캡처 태그가 있는 링크 {#link-with-anchor-and-capture-tag}
 
@@ -116,7 +116,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
 
 ## 링크 별칭 추적 {#tracking-link-aliases}
 

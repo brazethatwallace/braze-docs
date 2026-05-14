@@ -138,7 +138,7 @@ Para mensagens "STOP", inverta a etapa de mensagem que confirma o descadastramen
 ![Uma etapa de mensagem do WhatsApp onde o corpo da mensagem é "START".]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message.png %}){: style="max-width:80%;"}
 
 {: start="2"}
-2. No Canvas, crie uma etapa **Set Up User Update** e para **Action** selecione **Advanced JSON Editor**. <br><br>![Etapa de Atualização de usuário com uma ação de "Advanced JSON Editor".]({% image_buster /assets/img/whatsapp/user_update.png %})<br><br>
+2. No Canvas, crie uma etapa **Set Up User Update** e para **Action** selecione **Advanced JSON Editor**. <br><br>![Etapa de Atualização de usuário com a ação "Advanced JSON Editor".]({% image_buster /assets/img/whatsapp/user_update.png %})<br><br>
 3. Preencha o **User Update object** com a seguinte carga útil JSON, substituindo `XXXXXXXXXXX` pelo ID do seu grupo de inscrições:
 
 {% raw %}

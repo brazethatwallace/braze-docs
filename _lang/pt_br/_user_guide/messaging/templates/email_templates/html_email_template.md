@@ -68,7 +68,7 @@ Existem várias mensagens de erro de e-mail que você pode receber ao fazer uplo
 | `Images over 5&nbsp;MB` | Reduza o número de imagens e tente fazer upload novamente. |
 | `Extra Images` | Pode haver imagens adicionais no seu arquivo que não são referenciadas no arquivo HTML. Isso não causa um erro de falha, mas as imagens extras são descartadas. Se essas imagens deveriam ser referenciadas no arquivo HTML, verifique o conteúdo, corrija quaisquer erros e tente fazer upload novamente.|
 | `Missing Images` | Se houver imagens referenciadas no seu arquivo HTML, mas essas imagens não estiverem incluídas na pasta de imagens do arquivo ZIP, você receberá um erro de arquivo. Inspecione seu arquivo e corrija quaisquer erros (como erros de digitação), ou adicione as imagens ausentes ao seu arquivo ZIP e tente fazer upload novamente.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Observe que, ao baixar os arquivos de Campaigns HTML, etapas do Canvas com mensagens de e-mail ou modelos em uma máquina Windows, o caractere `|` (pipe) não é suportado, então pode ser necessário usar um aplicativo diferente para extrair o conteúdo do download do arquivo ZIP.
 

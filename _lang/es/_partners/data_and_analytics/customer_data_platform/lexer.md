@@ -25,7 +25,7 @@ La integración de Braze y Lexer te permite sincronizar datos entre las dos plat
 | Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de `user` (excepto `user.delete`) y permisos de `segment.list`. El conjunto de permisos puede cambiar a medida que Lexer añada compatibilidad con más objetos de Braze, por lo que es posible que quieras conceder más permisos ahora o planificar la actualización de estos permisos en el futuro.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
 | Punto de conexión REST de Braze | La [URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Contenedor y credenciales de Amazon AWS S3 | Antes de comenzar la integración, debes tener credenciales de acceso para un contenedor de AWS S3 conectado a tu hub de Lexer (puede ser un contenedor creado por ti o uno que Lexer cree y gestione por ti). Visita [Lexer](https://learn.lexer.io/docs/amazon-s3) para obtener orientación sobre este requisito. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

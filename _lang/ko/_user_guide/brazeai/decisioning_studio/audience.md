@@ -18,7 +18,7 @@ description: "BrazeAI Decisioning Studio 에이전트의 오디언스를 정의�
 | **무작위 제어** | 무작위로 선택된 옵션을 받는 고객(기준 비교) |
 | **기존 운영(선택 사항)** | 현재 마케팅 여정을 받는 고객(기존 성과와 비교하기 위함) |
 | **홀드아웃(선택 사항)** | 커뮤니케이션을 받지 않는 고객(전체 캠페인 영향을 측정하기 위함) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Treatment groups" }
 
 ## 오디언스 구성 {#configure-your-audience}
 

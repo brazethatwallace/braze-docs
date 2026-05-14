@@ -27,7 +27,7 @@ La forma de añadir una plantilla depende de tu objetivo:
 | Guardar un diseño de arrastrar y soltar para reutilizarlo | En el [creador de mensajes dentro de la aplicación de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), selecciona **Guardar como plantilla** después de salir del editor (primero debes lanzar la campaña O guardarla como borrador). La plantilla aparecerá en **Plantillas** > **Plantillas de mensajes dentro de la aplicación** para tu próximo mensaje. |
 | Crear un perfil de color o una plantilla CSS (editor tradicional) | En la página **Plantillas de mensajes dentro de la aplicación**, selecciona **+ Crear** y luego elige **Perfil de color** o **Plantilla CSS**. Para más detalles, consulta [Perfiles de color y plantillas CSS](#reusable-color-profiles). |
 | Personalizar una plantilla de Braze | [Crea un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) en el editor de arrastrar y soltar, elige una plantilla de Braze, realiza tus personalizaciones y selecciona **Guardar como plantilla**. Para descripciones de cada plantilla de Braze, consulta [Plantillas de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Elige cómo crear una plantilla" }
 
 {% alert note %}
 Los perfiles de color y las plantillas CSS se aplican al editor tradicional. Si usas el editor de arrastrar y soltar, utiliza la [Configuración de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) para el estilo a nivel de mensaje.

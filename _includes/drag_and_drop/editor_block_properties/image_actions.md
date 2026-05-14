@@ -5,4 +5,4 @@
 | Set separate behaviors for each platform | Customizes the behavior of the image for each platform separately. |
 | On-click behavior | Determines the action when the user clicks the image, such as closing the message, opening a web URL, deep linking into a specific page of the app, going to another page, or [requesting push permission]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/). |
 | Log custom attributes or events | Determines whether clicking the image updates the user's profile with custom data. You can also select the identifier for reporting. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -1,24 +1,24 @@
 ---
 nav_title: Preguntas frecuentes
-article_title: Preguntas frecuentes sobre campañas
+article_title: Preguntas frecuentes sobre Campaigns
 page_order: 10
 page_type: FAQ
-description: "Esta página ofrece respuestas a preguntas frecuentes sobre campañas."
+description: "Esta página ofrece respuestas a preguntas frecuentes sobre Campaigns."
 tool: Campaigns
 
 ---
 
 # Preguntas frecuentes {#frequently-asked-questions}
 
-> Este artículo ofrece respuestas a algunas preguntas frecuentes sobre campañas.
+> Este artículo ofrece respuestas a algunas preguntas frecuentes sobre Campaigns.
 
 ### ¿Cómo creo una campaña multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Para crear una campaña multicanal, selecciona **Messaging** > **Campaigns**. Luego, selecciona **Create Campaign** > **Multichannel**. Desde aquí, puedes seleccionar entre los siguientes canales de mensajería: Content Cards, correo electrónico, LINE, notificaciones push, SMS/MMS/RCS, webhook o WhatsApp.
+Consulta [Campañas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) en **Crear una campaña** para los pasos de configuración y los canales compatibles.
 
 ### ¿Puedo añadir un grupo de control a mi campaña multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-No, los grupos de control en las campañas están diseñados para mensajería de un solo canal, como Correo electrónico A frente a Correo electrónico B. Como alternativa, prueba a usar [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) para probar diferentes canales, contenido de mensajería y tiempos de entrega.
+Consulta [Grupos de control]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) en **Crear una campaña**. Para pruebas entre canales, usa [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### ¿Cuáles son algunas formas de empezar a probar y optimizar campañas? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ Una posible explicación podría ser que la campaña o Canvas tiene la reelegibi
 
 Por ejemplo, si tienes un Canvas que tiene notificaciones push tanto para iOS como para web, un usuario determinado con dispositivos móviles y de escritorio podría recibir más de un mensaje.
 
-### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatarios únicos* puede ser mayor que la audiencia que esperabas porque Braze rastrea destinatarios únicos diarios para los informes. Esto permite que Braze atribuya conversiones dentro de la ventana de conversión cada vez que un usuario recibe el mensaje, en lugar de colapsar múltiples recepciones en un solo recuento de por vida (lo que distorsionaría las matemáticas de conversión).
 
@@ -48,9 +48,7 @@ El mismo patrón se aplica a las campañas recurrentes y a la reelegibilidad: si
 
 ### ¿Por qué el número de conversiones puede superar el número de usuarios únicos en campañas multicanal? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-En las campañas multicanal, Braze cuenta las conversiones por canal, no por usuario. Cuando un usuario realiza una única acción de conversión dentro de la ventana de conversión, Braze atribuye esa conversión a cada canal desde el cual el usuario recibió un mensaje. Esto significa que si un usuario recibe mensajes en múltiples canales (por ejemplo, tanto correo electrónico como push) y convierte, Braze cuenta múltiples conversiones, una por cada canal. Como resultado, el recuento total de conversiones puede superar el número de usuarios únicos que convirtieron.
-
-Por ejemplo, si una campaña multicanal envía tanto un correo electrónico como una notificación push a un usuario, y ese usuario realiza una acción de conversión después de recibir ambos mensajes y dentro de la ventana de conversión, Braze cuenta esto como dos conversiones, una atribuida al correo electrónico y otra atribuida al push, aunque sea una única acción del mismo usuario.
+Consulta [Conversiones e informes]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) en **Crear una campaña** y [Reglas de seguimiento de conversiones]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) en **Eventos de conversión**.
 
 ### ¿Por qué mi campaña tiene una base de usuarios alcanzables más pequeña que el segmento que estoy usando para la campaña? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -164,7 +162,7 @@ Para evitar esto, asegúrate de que las actualizaciones de atributos personaliza
 
 ### ¿Por qué el número de usuarios que entran a una campaña no coincide con el número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 {% alert tip %}
 Para obtener más ayuda con la solución de problemas de campañas, asegúrate de contactar a soporte de Braze dentro de los 30 días posteriores a la ocurrencia de tu problema, ya que solo tenemos los últimos 30 días de registros de diagnóstico.

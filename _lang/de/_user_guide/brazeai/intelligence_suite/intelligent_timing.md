@@ -6,7 +6,7 @@ description: "Dieser Artikel gibt Ihnen einen Überblick über intelligentes Tim
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligentes Timing {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligentes Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
 > Nutzen Sie intelligentes Timing, um Ihre Nachricht an jede:n Nutzer:in zu übermitteln, wenn Braze den optimalen Versandzeitpunkt ermittelt – also den Zeitpunkt, zu dem die Wahrscheinlichkeit für Engagement (Öffnung oder Klick) am höchsten ist. Dadurch können Sie leichter sicherstellen, dass Sie Ihre Nutzer:innen zu deren bevorzugter Zeit erreichen, was zu einem höheren Engagement führen kann.
 
@@ -18,7 +18,7 @@ Braze berechnet den optimalen Versandzeitpunkt auf Grundlage einer statistischen
 - Push-Direktöffnungen
 - Push-beeinflusste Öffnungen
 - E-Mail-Klicks
-- E-Mail-Öffnungen (ohne [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)
+- E-Mail-Öffnungen (ohne [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
 - SMS-Klicks (nur wenn [Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) und erweitertes Tracking aktiviert sind)
 
 So öffnet Sam vielleicht morgens regelmäßig Ihre E-Mails, aber abends öffnet sie Ihre App und interagiert mit Benachrichtigungen. Das bedeutet, dass Sam eine E-Mail-Kampagne mit intelligentem Timing am Morgen erhält, während sie Kampagnen mit Push-Benachrichtigungen am Abend erhält, wenn die Wahrscheinlichkeit größer ist, dass sie sich engagiert.
@@ -69,7 +69,7 @@ Wenn zum Beispiel die Ruhezeiten von 22:00 Uhr bis 6:00 Uhr eingestellt sind und
 
 Um eine Schätzung zu erhalten, wie viele Nutzer:innen die Nachricht in jeder Stunde des Tages erhalten werden, verwenden Sie das Vorschau-Chart (nur Campaigns).
 
-1. Fügen Sie im Schritt **Target Audiences** Segmente oder Filter hinzu.
+1. Fügen Sie im Schritt „Zielgruppen“ Segmente oder Filter hinzu.
 2. Wählen Sie im Abschnitt **Preview Delivery Times for** (der sowohl in den Schritten **Target Audiences** als auch **Schedule Delivery** erscheint) Ihren Kanal aus.
 3. Klicken Sie auf **Refresh Data**.
 

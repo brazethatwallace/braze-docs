@@ -9,7 +9,7 @@ tool:
 description: "Dieser Artikel zeigt Ihnen, wie Sie Segment-Insights verwenden, interpretieren und teilen können."
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Segment-Insights {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Segment-Insights {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > Erfahren Sie, wie Sie Segment-Insights verwenden, interpretieren und teilen können.
 
@@ -31,7 +31,7 @@ Das Baseline-Segment kann entweder ein bestimmtes Segment sein, das Sie auswähl
 | Lifetime-Umsatz in Dollar | Durchschnittlicher Lifetime-Umsatz in Dollar für Segment-Nutzer:innen | Lifetime-Ausgaben der Nutzer:innen |
 | Tage seit dem ersten Kauf | Durchschnittliche Anzahl der Tage zwischen der ersten Sitzung und dem ersten Kauf der Segment-Nutzer:innen | Datum des ersten Kaufs – Datum der ersten Sitzung |
 | Tage seit dem letzten Kauf | Durchschnittliche Anzahl der Tage zwischen dem letzten Kauf der Segment-Nutzer:innen und heute | heute – Datum des letzten Kaufs |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Viewing Segment Insights" }
 
 Sie können bestimmte Vergleiche ganz einfach über die eindeutige URL der Seite mit Ihren Teammitgliedern teilen. Außerdem können Sie das Augensymbol neben jedem Segment auswählen, um weitere Informationen zu diesem Segment anzuzeigen. Diese Vergleiche werden zurückgesetzt, wenn Sie zwischen Workspaces wechseln.
 

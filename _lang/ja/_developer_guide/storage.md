@@ -50,10 +50,10 @@ platform:
 - デバイスの通信事業者（[`CTCarrier` 非推奨](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty/carrier)に関する注記を参照）
 - デバイスのロケール
 - デバイスモデル
-- デバイス OS のバージョン
-- プッシュ許可のステータス
+- デバイスOSのバージョン
+- プッシュ許可ステータス
 - プッシュ表示オプション
-- プッシュ通知が有効
+- プッシュ有効
 - デバイスの解像度
 - デバイスのタイムゾーン
 
@@ -70,7 +70,7 @@ Braze SDKはIDFAを自動的に収集しません。アプリはオプション�
 
 {% tabs %}
 {% tab web %}
-例えば、許可リストに登録するデバイスの言語を指定できます。詳細については、[`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) の `devicePropertyAllowlist` オプションを参照してください。
+例えば、許可リストに登録するデバイスの言語を指定できます。詳細については、[`InitializationOptions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)の `devicePropertyAllowlist` オプションを参照してください。
 
 ```javascript
 import * as braze from"@braze/web-sdk";
@@ -126,14 +126,14 @@ configuration.devicePropertyAllowList = @[
 
 以下のCookieが保存されます。
 
-|Cookie|説明|サイズ|
+| Cookie | 説明 | サイズ |
 | --- | ---- | --- |
-|`ab.storage.userId.[your-api-key]`|現在ログインしているユーザーが変更されたかどうかを判断し、イベントを現在のユーザーに関連付けるために使用されます。|`changeUser` に渡された値のサイズに基づきます|
-|`ab.storage.sessionId.[your-api-key]`|メッセージを同期し、セッション分析を計算するために、ユーザーが新しいセッションを開始しているか既存のセッションを継続しているかを判断するために使用されるランダム生成文字列です。|~200バイト|
-|`ab.storage.deviceId.[your-api-key]`|匿名ユーザーを識別し、ユーザーのデバイスを区別し、デバイスベースのメッセージングを可能にするために使用されるランダム生成文字列です。|~200バイト|
-|`ab.optOut`|`disableSDK` が呼び出されたときにユーザーのオプトアウト設定を格納するために使用されます。|~40バイト|
-|`ab._gd`|ルートレベルのCookieドメインを決定するために一時的に作成（その後削除）されます。これにより、サブドメイン間でSDKが適切に動作できるようになります。|該当なし|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `ab.storage.userId.[your-api-key]` | 現在ログインしているユーザーが変更されたかどうかを判断し、イベントを現在のユーザーに関連付けるために使用されます。 | `changeUser` に渡された値のサイズに基づきます |
+| `ab.storage.sessionId.[your-api-key]` | メッセージを同期し、セッション分析を計算するために、ユーザーが新しいセッションを開始しているか既存のセッションを継続しているかを判断するために使用されるランダム生成文字列です。 | ~200バイト |
+| `ab.storage.deviceId.[your-api-key]` | 匿名ユーザーを識別し、ユーザーのデバイスを区別し、デバイスベースのメッセージングを可能にするために使用されるランダム生成文字列です。 | ~200バイト |
+| `ab.optOut` | `disableSDK` が呼び出されたときにユーザーのオプトアウト設定を格納するために使用されます。 | ~40バイト |
+| `ab._gd` | ルートレベルのCookieドメインを決定するために一時的に作成（その後削除）されます。これにより、サブドメイン間でSDKが適切に動作できるようになります。 | 該当なし |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
 
 ### Cookieの有効期限を変更する {#cookie-expiry}
 

@@ -25,7 +25,7 @@ Hay tres formas de gestionar los enlaces de los mensajes de Braze en tu aplicaci
 | **Esquema personalizado** | `myapp://products/123` | Notificaciones push, mensajes dentro de la aplicación, Content Cards | No, el enlace no funciona |
 | **Enlace universal** | `https://myapp.com/products/123` | Correo electrónico, SMS, canales con seguimiento de clics | Sí, vuelve a la web |
 | **Abrir URL web dentro de la aplicación** | Cualquier URL `https://` | Mostrar contenido web en una WebView modal | N/A — se muestra en WebView |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Elegir un tipo de enlace" }
 
 ### Vínculos profundos con esquema personalizado {#custom-scheme-deep-links}
 
@@ -67,7 +67,7 @@ Esta opción abre una página web dentro de una WebView modal en tu aplicación.
 
 ## Lo que necesitas para cada tipo de enlace {#what-you-need-for-each-link-type}
 
-### Vínculos profundos con esquema personalizado {#custom-scheme-deep-links}
+### Vínculos profundos con esquema personalizado
 
 | Requisito | Detalles |
 |---|---|
@@ -75,9 +75,9 @@ Esta opción abre una página web dentro de una WebView modal en tu aplicación.
 | `Info.plist` | Registra tu esquema en `CFBundleURLTypes` y añádelo a `LSApplicationQueriesSchemes` |
 | Método delegado de la aplicación | Implementa `application(_:open:options:)` para analizar la URL y navegar |
 | Configuración del SDK de Braze | Ninguna: el SDK abre direcciones URL de esquemas personalizados de forma predeterminada |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vínculos profundos con esquema personalizado" }
 
-### Enlaces universales {#universal-links}
+### Enlaces universales
 
 | Requisito | Detalles |
 |---|---|
@@ -86,20 +86,20 @@ Esta opción abre una página web dentro de una WebView modal en tu aplicación.
 | Método delegado de la aplicación | Implementa `application(_:continue:restorationHandler:)` para gestionar `NSUserActivity` |
 | Configuración del SDK de Braze | Establece `configuration.forwardUniversalLinks = true` |
 | BrazeDelegate (opcional) | Implementa `braze(_:shouldOpenURL:)` para enrutamiento personalizado (por ejemplo, Branch) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enlaces universales" }
 
 {% alert important %}
 Si envías correos electrónicos a través de Braze, tu ESP (SendGrid, SparkPost o Amazon SES) envuelve los enlaces en un dominio de seguimiento de clics. Debes alojar el archivo AASA también en tu dominio de seguimiento de clics, no solo en tu dominio principal. Para obtener información sobre la configuración completa, consulta [Enlaces universales y enlaces de aplicaciones]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
 {% endalert %}
 
-### "Abrir URL web dentro de la aplicación" {#open-web-url-inside-app}
+### "Abrir URL web dentro de la aplicación"
 
 | Requisito | Detalles |
 |---|---|
 | Archivo AASA | No es necesario |
 | Método delegado de la aplicación | No es necesario: el SDK se encarga de esto automáticamente |
 | Configuración del SDK de Braze | Ninguna: selecciona **Open Web URL Inside App** en el compositor de la campaña |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abrir URL web dentro de la aplicación" }
 
 ## Cuándo necesitas un archivo AASA {#when-aasa}
 
@@ -128,7 +128,7 @@ El método delegado que implementes dependerá del tipo de enlace que estés uti
 | `application(_:open:options:)` | Vínculos profundos con esquema personalizado (`myapp://`) | Utilizas vínculos profundos con esquema personalizado desde cualquier canal |
 | `application(_:continue:restorationHandler:)` | Enlaces universales (`https://`) | Utilizas enlaces universales desde correo electrónico, SMS o con `forwardUniversalLinks = true` |
 | `BrazeDelegate.braze(_:shouldOpenURL:)` | Todas las URL abiertas por el SDK | Necesitas una lógica de enrutamiento personalizada (por ejemplo, Branch, gestión condicional, análisis) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cuándo necesitas código de aplicación para gestionar enlaces" }
 
 {% alert tip %}
 Si utilizas un proveedor de vínculos externo como Branch, implementa `BrazeDelegate.braze(_:shouldOpenURL:)` para interceptar las URL y reenviarlas al SDK del proveedor. Consulta [Branch para la vinculación en profundidad]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) para ver un ejemplo completo.

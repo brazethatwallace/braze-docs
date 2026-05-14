@@ -23,7 +23,8 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Errores 4XX">
+  <caption>Errores 4XX</caption>
   <thead>
     <tr>
       <th>Código de error</th>
@@ -120,16 +121,16 @@ table td {
 
 Los errores `5XX` indican que hay un problema con el punto de conexión. Estos errores suelen deberse a problemas del servidor.
 
-| Código de error                    | Qué significa                                                                                                                                         |
+| Código de error | Qué significa |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | El punto de conexión encontró una condición inesperada que le impidió completar la solicitud.                                                       |
-| **502 Bad Gateway**           | El punto de conexión recibió una respuesta no válida del servidor ascendente.                                                                                   |
-| **503 Service Unavailable**   | El punto de conexión no puede gestionar actualmente la solicitud debido a una sobrecarga temporal o a mantenimiento.                                                    |
-| **504 Gateway Timeout**       | El punto de conexión no recibió una respuesta oportuna del servidor ascendente.                                                                               |
-| **529 Host Overloaded**       | El host del punto de conexión está sobrecargado y no pudo responder. |
-| **598 Host Unhealthy**        | Braze simuló la respuesta porque el host del punto de conexión está marcado temporalmente como en mal estado. Consulta [Detección de host en mal estado](#unhealthy-host-detection) para más información. |
-| **599 Connection Error**      | Braze experimentó un error de tiempo de espera de conexión de red al intentar establecer una conexión con el punto de conexión, lo que significa que el punto de conexión puede ser inestable o estar caído. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **500 Internal Server Error** | El punto de conexión encontró una condición inesperada que le impidió completar la solicitud. |
+| **502 Bad Gateway** | El punto de conexión recibió una respuesta no válida del servidor ascendente. |
+| **503 Service Unavailable** | El punto de conexión no puede gestionar actualmente la solicitud debido a una sobrecarga temporal o a mantenimiento. |
+| **504 Gateway Timeout** | El punto de conexión no recibió una respuesta oportuna del servidor ascendente. |
+| **529 Host Overloaded** | El host del punto de conexión está sobrecargado y no pudo responder. |
+| **598 Host Unhealthy** | Braze simuló la respuesta porque el host del punto de conexión está marcado temporalmente como en mal estado. Consulta [Detección de host en mal estado](#unhealthy-host-detection) para más información. |
+| **599 Connection Error** | Braze experimentó un error de tiempo de espera de conexión de red al intentar establecer una conexión con el punto de conexión, lo que significa que el punto de conexión puede ser inestable o estar caído. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Errores 5XX" }
 
 ### Resolver errores 5XX {#resolving-5xx-errors}
 

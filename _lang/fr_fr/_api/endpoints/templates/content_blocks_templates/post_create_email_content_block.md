@@ -16,6 +16,10 @@ description: "Cet article présente en détail l'endpoint Braze Créer des Conte
 
 > Utilisez cet endpoint pour créer un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
+{% alert tip %}
+Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) en utilisant la fonction [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Cela permet à des outils d'intelligence artificielle comme Claude et Cursor de créer des blocs de contenu via des requêtes en langage naturel.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
@@ -51,7 +55,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `content` | Requis | Chaîne de caractères | Contenu HTML ou texte dans le bloc de contenu. |
 | `state` | Facultatif | Chaîne de caractères | Choisissez `active` ou `draft`. Défini par défaut sur `active` si non spécifié. |
 | `tags` | Facultatif | Tableau de chaînes de caractères | Les [étiquettes]({{site.baseurl}}/user_guide/messaging/governance/tags/) doivent déjà exister. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 ```bash
@@ -100,7 +104,7 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `Tags must be an array` | Les étiquettes doivent être formatées sous forme de tableau de chaînes de caractères, par exemple `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Assurez-vous que vos étiquettes sont encadrées par des guillemets (`""`). |
 | `Some tags could not be found` | Pour ajouter une étiquette lors de la création d'un bloc de contenu, l'étiquette doit déjà exister dans Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 
 {% endapi %}

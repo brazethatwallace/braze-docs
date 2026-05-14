@@ -164,7 +164,7 @@ Au lieu d'essayer de rattraper le retard et d'envoyer les 6 000 messages restant
 | 7      | 10 000     | 10 000                    |
 | 8      | 5 000      | 10 000                    |
 | 9      | 0          | 6 000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limite de débit et nouvelles tentatives de contenu connecté" }
 
 Les requêtes de contenu connecté ne sont pas limitées indépendamment et suivront la limite de débit des webhooks. Cela signifie que s'il y a un appel de contenu connecté vers un endpoint unique par webhook, vous pouvez vous attendre à 5 000 webhooks et également 5 000 appels de contenu connecté par minute. Notez que la mise en cache peut affecter cela et réduire le nombre d'appels de contenu connecté. De plus, les nouvelles tentatives peuvent augmenter les appels de contenu connecté, nous vous recommandons donc de vérifier que l'endpoint de contenu connecté peut gérer certaines fluctuations.
 

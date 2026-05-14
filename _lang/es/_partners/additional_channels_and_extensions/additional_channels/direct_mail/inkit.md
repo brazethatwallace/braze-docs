@@ -20,13 +20,13 @@ La integración de Braze e Inkit te permite generar documentos y enviarlos por c
 
 ## Requisitos previos {#prerequisites}
 
-|Requisito| Descripción|
-| ---| ---|
-|Cuenta Inkit | Se necesita una [cuenta Inkit](https://www.inkit.com/) para beneficiarse de esta asociación. |
+| Requisito | Descripción |
+| --- | --- |
+| Cuenta Inkit | Se necesita una [cuenta Inkit](https://www.inkit.com/) para beneficiarse de esta asociación. |
 | Clave de API de Inkit<br><br>`<INKIT_API_TOKEN>` | Esta clave se encuentra en tu [dashboard de Inkit](https://app.inkit.io/#/account/integrations), en la pestaña **Development**, y te permitirá conectar tus cuentas de Braze e Inkit.|
-| ID de la plantilla Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Después de crear una plantilla, puedes copiar el ID de plantilla de la pestaña **Plantillas** para utilizarlo en tu plantilla en Braze.<br><br>Por ejemplo, podrías crear una plantilla llamada `invoice_template` en el entorno Inkit con el ID de plantilla: `tmpl_3bDScFl9cwr3OAVR1RSdEC`.
-| Encabezado HTTP | El encabezado HTTP forma parte de la solicitud de API que se envía desde Braze a Inkit. En él, incluirás tu clave de API de Inkit para autenticar y autorizar las llamadas a la API de Inkit. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ID de la plantilla Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Después de crear una plantilla, puedes copiar el ID de plantilla de la pestaña **Templates** para utilizarlo en tu plantilla en Braze.<br><br>Por ejemplo, podrías crear una plantilla llamada `invoice_template` en el entorno Inkit con el ID de plantilla: `tmpl_3bDScFl9cwr3OAVR1RSdEC`.
+| Encabezado HTTP | El encabezado HTTP forma parte de la solicitud de API que envías desde Braze a Inkit. En él, incluirás tu clave de API de Inkit para autenticar y autorizar las llamadas a la API de Inkit. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 
@@ -36,11 +36,11 @@ En la plataforma Inkit, crea una plantilla para utilizarla en tu campaña de Bra
 
 ### Paso 2: Crea tu plantilla de webhook de Braze {#step-2-create-your-braze-webhook-template}
 
-Para crear una plantilla de webhook de Inkit y utilizarla en futuras campañas o Canvas, ve a **Plantillas** > **Plantillas de Webhook** en la plataforma Braze.
+Para crear una plantilla de webhook de Inkit y utilizarla en futuras campañas o Canvas, ve a **Templates** > **Webhook Templates** en la plataforma Braze.
 
 Si deseas crear una campaña de webhook de Inkit única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
 
-![Una selección de plantillas de webhook prediseñadas disponibles en la pestaña Plantillas de Webhook de la sección Plantillas y medios.]({% image_buster /assets/img/inkit-webhook-template.png %})
+![Una selección de plantillas de webhook prediseñadas disponibles en la pestaña Webhook Templates de la sección Plantillas y medios.]({% image_buster /assets/img/inkit-webhook-template.png %})
 
 Una vez que hayas seleccionado la plantilla de webhook de Inkit, deberías ver lo siguiente:
 - **Webhook URL**: En blanco
@@ -91,5 +91,5 @@ El texto sin formato se resaltará automáticamente si se trata de una etiqueta 
 Previsualiza tu solicitud en el panel de **Preview** o ve a la pestaña de **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

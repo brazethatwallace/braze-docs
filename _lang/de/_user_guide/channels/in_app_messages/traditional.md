@@ -61,7 +61,7 @@ Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Ver
 | Mobile Apps | iOS-, Android- und Vega-SDKs |
 | Webbrowser | Web-SDK |
 | Sowohl Mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## Schritt 3: Nachrichtentypen festlegen {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -133,7 +134,8 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 
 Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>Erweiterte Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -239,7 +241,7 @@ Wenn Ihre Kund:innen auf einen Button in Ihrer In-App-Nachricht klicken, stehen 
 | Angepasstes Event protokollieren | Wählen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) zum Auslösen. Kann verwendet werden, um eine weitere In-App-Nachricht anzuzeigen oder zusätzliches Messaging auszulösen. |
 | Angepasstes Attribut protokollieren | Wählen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
 | Push-Berechtigung anfordern | Zeigt die native Push-Berechtigungsabfrage an. Lesen Sie mehr über [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) sowie [Best Practices]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) zur Vorbereitung von Nutzer:innen auf Push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 Hinweis: Die Optionen __Push-Berechtigung anfordern__, __Angepasstes Event protokollieren__ und __Angepasstes Attribut protokollieren__ erfordern die folgenden SDK-Mindestversionen:
 
@@ -285,7 +287,7 @@ Der Inhalt des Tabs **Stil** variiert je nach den im vorherigen Schritt gewählt
 | Hintergrundfarbe | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. Dies ist der Hintergrund der gesamten Nachricht und wird deutlich hinter Ihrem Textkörper angezeigt. |
 | Bildschirm-Overlay | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. Nur für neuere Braze-SDK-Versionen verfügbar. Dies ist der Rahmen um die gesamte Nachricht. |
 | Chevron oder andere Nachricht-schließen-Option | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 [Zeigen Sie immer eine Vorschau an und testen Sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) Ihre Nachricht, bevor Sie sie senden.
 

@@ -16,11 +16,11 @@ channel:
 
 | Condition | Description |
 | --- | --- |
-| Compte Infobip | Un compte Infobip est requis pour utiliser le connecteur BYO WhatsApp.
-| Crédits de messages | Vous consommez des crédits de messages Braze lorsque vous envoyez des messages WhatsApp. |
+| Compte Infobip | Un compte Infobip est requis pour utiliser le connecteur BYO WhatsApp. |
+| Crédits de messages ou d'actions | Vous consommez des crédits d'actions Braze lorsque vous envoyez des messages WhatsApp. |
 | Conditions WhatsApp | Remplissez toutes les [conditions WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
 | Numéro de téléphone | Nous vous suggérons d'[acquérir un numéro de téléphone via Infobip](https://www.infobip.com/docs/numbers/getting-started) pour plus de commodité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Configuration {#set-up}
 
@@ -110,10 +110,11 @@ Confirmez que votre WhatsApp Business Account n'est pas connecté à un autre es
 
 ## Considérations {#considerations}
 
+
 Bien que toutes les fonctionnalités existantes avec Braze soient prises en charge, les cas d'utilisation suivants ne sont actuellement pas pris en charge.
 
 | Cas d'utilisation | Raison |
 | --- | --- |
 | Traitement des messages entrants dans Braze et Infobip | Cela empêche les chaînes logiques déclenchées par l'un ou l'autre système, générant par conséquent des fils de messages en double et potentiellement contradictoires. |
 | Envoi de messages depuis Braze et Infobip | Pour les WhatsApp Business Accounts connectés à Braze, tous les envois proviennent de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considérations" }

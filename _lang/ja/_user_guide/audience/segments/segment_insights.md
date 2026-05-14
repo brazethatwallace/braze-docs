@@ -9,7 +9,7 @@ tool:
 description: "このハウツー記事では、セグメントインサイトの使用方法、解釈方法、共有方法について説明します。"
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントインサイト {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}セグメントインサイト {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > セグメントインサイトの使用方法、解釈方法、共有方法について説明します。
 
@@ -31,7 +31,7 @@ description: "このハウツー記事では、セグメントインサイトの
 | 生涯収益（ドル） | Segmentユーザーの平均生涯収益（ドル） | ユーザーの生涯支出 |
 | 最初の購入までの日数 | Segmentユーザーの最初のセッションから最初の購入までの平均日数 | 最初の購入日 – 最初のセッションの日付 |
 | 最後の購入からの日数 | Segmentユーザーの最後の購入から現在までの平均日数 | 今日 – 最後の購入日 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Viewing Segment Insights" }
 
 ページ固有のURLを使用して、特定の比較をチームメイトと簡単に共有できます。また、各Segmentの横にある目のアイコンを選択すると、そのSegmentに関する詳細情報を表示できます。これらの比較は、ワークスペースを切り替えるとリセットされます。
 
