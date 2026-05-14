@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Comportement de fusion {#merge-behavior}
 
-Le comportement documenté ci-dessous s'applique à toutes les fonctionnalités de Braze qui **ne sont pas** alimentées par Snowflake. Les fusions d'utilisateurs ne seront pas prises en compte pour l'onglet **Historique des messages**, les Extensions de segments, le Générateur de requêtes et Currents.
+Le comportement documenté ci-dessous s'applique à toutes les fonctionnalités de Braze qui **ne sont pas** alimentées par Snowflake. Les fusions d'utilisateurs ne seront pas prises en compte pour l'onglet **Messaging History**, les Extensions de segments, le Générateur de requêtes et Currents.
 
 {% alert important %}
 Cet endpoint ne garantit pas l'ordre de mise à jour des objets `merge_updates`.
@@ -85,7 +85,7 @@ Cet endpoint fusionne les champs suivants s'ils ne sont pas trouvés chez l'util
 - Date du dernier achat (Braze sélectionne la date la plus récente des deux)
 - Résumés des applications
 - Champs Last_X_at (Braze met à jour les champs si ceux du profil orphelin sont plus récents)
-- Données d'interaction de campagne (Braze sélectionne les champs de date les plus récents)
+- Données d'interaction de Campaign (Braze sélectionne les champs de date les plus récents)
 - Résumés de flux de travail (Braze sélectionne les champs de date les plus récents)
 - Historique des messages et de l'engagement des messages
 - Braze fusionne les données de session uniquement si l'application est présente sur les deux profils utilisateurs.
@@ -93,6 +93,8 @@ Cet endpoint fusionne les champs suivants s'ils ne sont pas trouvés chez l'util
 {% alert note %}
 Lors de la fusion d'utilisateurs, l'utilisation de l'endpoint `/users/merge` fonctionne de la même manière que la [méthode `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
+
+Braze gère trois types d'utilisateurs différemment lors de la fusion : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du Groupe de contrôle global. Pour plus de détails, consultez [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
 
 #### Comportement des dates d'événements personnalisés et d'événements d'achat {#custom-event-date-and-purchase-event-date-behavior}
 

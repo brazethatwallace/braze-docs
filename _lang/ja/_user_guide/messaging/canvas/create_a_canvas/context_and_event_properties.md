@@ -22,7 +22,7 @@ tool: Canvas
 | **Liquid** | `context` | `event_properties` |
 | **永続性** | Canvasを使用して構築されたCanvasの期間中、すべての[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)ステップで参照できます。 | - 一度だけ参照できます。<br> - 後続のメッセージステップでは参照できません。 |
 | **Canvasの動作** | Canvasの任意のステップで `context` を参照できます。起動後の動作については、[起動後のCanvasの編集]({{site.baseurl}}/post-launch_edits/#canvas-entry-properties)を参照してください。 | - [アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)ステップの**後**の最初のメッセージステップで `event_properties` を参照できます。ここでのアクションはカスタムイベントまたは購入イベントです。<br> - アクションパスステップのその他のユーザーパスの後では参照できません。<br> - アクションパスとメッセージステップの間に、メッセージ以外のコンポーネントを配置できます。これらのメッセージ以外のコンポーネントの1つがアクションパスステップの場合、ユーザーはそのアクションパスのその他のユーザーパスを通過できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="コンテキストとイベントプロパティ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Context and event properties" }
 
 {% details オリジナルCanvasエディターの詳細 %}
 
@@ -49,7 +49,7 @@ tool: Canvas
 - アクションパスステップに「SMS受信メッセージを送信」または「WhatsApp受信メッセージを送信」トリガーが含まれている場合、後続のCanvasステップにSMSまたはWhatsAppのLiquidプロパティを含めることができます。これはCanvasesでのイベントプロパティの動作と同様です。これにより、メッセージを活用してファーストパーティデータをユーザープロファイルや会話型メッセージングに保存・参照できます。
 
 {% alert note %}
-オーディエンスの適格性は、Canvasエントリ時に一度だけ評価されます。エントリ中にユーザーがマージされた場合、識別されたユーザーはCanvasを続行し、CanvasのSegment基準に対して再評価されることはありません。
+オーディエンスの適格性は、Canvasエントリ時に一度だけ評価されます。エントリ中にユーザーがマージされた場合、識別されたユーザーはCanvasを続行し、Canvasのセグメント基準に対して再評価されることはありません。
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
@@ -65,11 +65,6 @@ tool: Canvas
 {{context.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%H:%M" }}
 ```
 {% endraw %}
-
-#### 例外 {#exceptions}
-
-- Canvasの最初のステップがメッセージステップの場合、タイムスタンプはUTCに正規化されません。
-- Canvas内の順序に関係なく、アプリ内メッセージチャネルを使用するメッセージステップでは、タイムスタンプはUTCに正規化されません。
 
 ## ユースケース {#use-case}
 

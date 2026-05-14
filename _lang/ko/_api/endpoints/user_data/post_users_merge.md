@@ -94,6 +94,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 사용자를 병합할 때 `/users/merge` 엔드포인트를 사용하는 것은 [`changeUser()` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 사용하는 것과 동일한 방식으로 작동합니다.
 {% endalert %}
 
+Braze는 병합 시 삭제 표시된 사용자, 테스트 사용자, 글로벌 컨트롤 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)을 참조하세요.
+
 #### 커스텀 이벤트 날짜 및 구매 이벤트 날짜 동작 {#custom-event-date-and-purchase-event-date-behavior}
 
 이 병합된 필드는 "Y일 동안 X회 이벤트" 필터를 업데이트합니다. 구매 이벤트의 경우 이러한 필터에는 "Y일 내 구매 횟수" 및 "지난 Y일 동안 지출한 금액"이 포함됩니다.
