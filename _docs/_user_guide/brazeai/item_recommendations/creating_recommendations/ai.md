@@ -26,7 +26,7 @@ Use AI item recommendations to calculate the most popular products or create per
 Before you start, you must have the following:
 
 - At least one [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) to use any of the recommendation types described below.
-- Purchase or event data on Braze (custom events or the purchase object) that includes a reference to the item and must match the catalog item IDs.
+- Purchase or event data on Braze (custom events, the order placed event, or the purchase object) that includes a reference to the item and must match the catalog item IDs.
 
 ### Step 1: Create a new recommendation
 
@@ -51,7 +51,7 @@ Give your recommendation a name and optional description.
 
 ### Step 3: Define your recommendation {#recommendation-type}
 
-Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
+Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
 
 {% alert tip %}
 When using **Most Recent** or **AI Personalized**, users with insufficient data to create individualized recommendations will receive **Most Popular** items as a fallback. You can see an approximation of the proportion of users receiving the **Most Popular** fallback displayed on the **Analytics** page. The **Most Popular** fallback only returns items that exist in the linked catalog. 
@@ -90,10 +90,11 @@ You can optimize for:
 - Purchase events with the [Purchase Object]({{site.baseurl}}/api/objects_filters/purchase_object/)
 - Custom events that represent a purchase
 - Custom events that represent any other item interaction (such as product views, clicks, or media plays)
+- Orders placed with the [order placed event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
 
 If you choose **Custom Event**, select your event from the list.
 
-![The "Completed Purchase" custom event selected as how events are currently tracked.]({% image_buster /assets/img/item_recs_3.png %})
+![The "purchase" custom event selected as how events are currently tracked.]({% image_buster /assets/img/item_recs_3.png %})
 
 {% alert note %}
 Custom events must have sufficient data before they appear in the event list. If your custom event doesn’t appear, it may be because the Braze backend hasn’t yet processed it or it lacks enough data for model training. AI recommendations rely on historical data to generate insights, so newly created or rarely triggered events won’t be available until more data is collected.
@@ -101,7 +102,7 @@ Custom events must have sufficient data before they appear in the event list. If
 
 ### Step 5: Choose the corresponding property name {#property-name}
 
-To create a recommendation, you need to tell Braze which field of your interaction event (purchase object or custom event) has the unique identifier that matches an item's `id` field in the catalog. Not sure? [View requirements](#requirements).
+To create a recommendation, you need to tell Braze which field of your interaction event (order placed event, purchase object, or custom event) has the unique identifier that matches an item's `id` field in the catalog. Not sure? [View requirements](#requirements).
 
 Select this field for the **Property Name**.
 
@@ -114,11 +115,11 @@ The **Property Name** field will pre-populate with a list of fields sent through
 There are some requirements for selecting your property:
 
 - Must map to the `id` field of your selected catalog.
+- **If you selected Order Placed Event or are using [eCommerce events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) to train item recommendations:** Enter `products.product_id` for the product ID.
+  - The field can be inside an array of products, or end with an array of IDs. In either case, each product ID will be treated as a separate, sequential event with the same timestamp.
 - **If you selected Purchase Object:** Must be the `product_id` or a field of your interaction event's `properties`.
 - **If you selected Custom Event:** Must be a field of your custom event's `properties`.
 - Nested fields must be typed into the **Property Name** dropdown in dot notation with the format of `event_property.nested_property`. For example, if selecting the nested property `district_name` within the event property `location`, you would enter `location.district_name`.
-- **If using [eCommerce events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) to train item recommendations:** Add `products.product_id` to access the product ID from events.
-- The field can be inside an array of products, or end with an array of IDs. In either case, each product ID will be treated as a separate, sequential event with the same timestamp.
 
 #### Example mappings
 
@@ -129,7 +130,8 @@ The following example mappings both refer to this sample catalog:
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Example mappings" class="tg">
+  <caption>Example mappings</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -292,6 +294,32 @@ This event has a property of `"sku": "ADI-RD-8"`, which maps to the second item 
       }
     }
   ]
+}
+```
+
+{% endtab %}
+{% tab Order placed event %}
+
+##### Example order placed object mapped to product ID
+
+```json
+{
+  "name": "ecommerce.order_placed",
+  "properties": {
+    "order_id": "order_123",
+    "total_value": 200.0,
+    "currency": "USD",
+    "products": [
+      {
+        "product_id": "ADI-BL-7",
+        "product_name": "Adidas Black Size 7",
+        "variant_id": "ADI-BL-7-default",
+        "quantity": 1,
+        "price": 100.0
+      }
+    ],
+    "source": "storefront"
+  }
 }
 ```
 

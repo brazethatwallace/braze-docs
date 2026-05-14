@@ -66,6 +66,8 @@ For further assistance with Canvas and campaign troubleshooting, be sure to cont
 
 ## Email
 
+{% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
+
 #### Things to check
 - **Customer consent**: Before sending out your initial emails, it's important to get permission from your customers first. Refer to [Consent and address collection]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/) and our [Braze Acceptable Use Policy](https://www.braze.com/company/legal/aup) for more information.
 - **Anticipated volume**: 2 million emails per day for a single IP is the general recommendation as long as that volume has been [properly warmed]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming). 

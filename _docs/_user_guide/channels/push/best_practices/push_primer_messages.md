@@ -10,9 +10,9 @@ channel: push
 
 # Push primer in-app messages
 
-![Push primer in-app message for streaming app. The notification reads "Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time."]({% image_buster /assets/img_archive/push_primer_iam.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
+> You get one chance to ask users for push permission, so optimizing your push registration is crucial to maximize the reach of your push messages. Use in-app messages to explain what type of messages your users can expect to receive if they choose to opt in, before showing them the native push prompt. This is referred to as a push primer.
 
-> You only get one chance to ask users for push permission, so optimizing your push registration is crucial to maximize the reach of your push messages. To help achieve this, you can use in-app messages to explain what type of messages your users can expect to receive if they choose to opt in, before showing them the native push prompt. This is referred to as a push primer.
+![Push primer in-app message for streaming app. The notification reads "Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time."]({% image_buster /assets/img_archive/push_primer_iam.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
 To create a push primer in-app message in Braze, you can use the button on-click behavior "Request Push Permission" when creating an in-app message for iOS, Android, or Web.
 
@@ -30,7 +30,7 @@ Additionally, note the following platform-specific details:
 |----------|----------------------|
 | **Android 12 and earlier** | Implementing push primers is not recommended because push is opted-in by default. |
 | **Android 13+** | If a user denies your push permission prompt twice, Android blocks further prompts—including Braze push primer messages. To grant permission after this, users must manually enable push for your app in their device settings. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 {% endtab %}
 
 {% tab swift %}
@@ -76,7 +76,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## Step 1: Create an in-app message
 
-First, [create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/create/), then select your message type and layout.
+First, [create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), then select your message type and layout.
 
 To ensure you have enough space for both your message and buttons, use a fullscreen or modal message layout. If you choose fullscreen, note that an image is required.
 

@@ -68,6 +68,10 @@ To manage a specific segment, hover over it and select the menu icon at the end 
  
 You can also perform bulk actions–specifically, bulk archiving and bulk tagging–by checking the boxes next to multiple segment names.
 
+{% alert tip %}
+If you need a machine-readable export of the existing segments in the workspace (not only the current table view), use the [Export segment list endpoint]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) and paginate through the results. To audit archived segments, review them separately in the **Segments** dashboard using the status filter.
+{% endalert %}
+
 ![Multiple segments selected with "CRM" selected in the "Tag As" dropdown field.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### Changes Since Last Viewed

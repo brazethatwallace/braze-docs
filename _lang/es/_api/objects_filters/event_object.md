@@ -3,25 +3,25 @@ nav_title: "Objeto del evento"
 article_title: Objeto de evento API
 page_order: 6
 page_type: reference
-description: "Este artículo de referencia repasa el objeto evento, qué es y cómo es una parte crucial de las estrategias de campaña basadas en eventos."
+description: "Este artículo de referencia repasa el objeto evento, qué es y cómo es una parte crucial de las estrategias de Campaign basadas en eventos."
 
 ---
 
-# Objeto del evento
+# Objeto del evento {#event-object}
 
 > Este artículo explica los distintos componentes de un objeto evento, cómo puedes utilizarlo y ejemplos en los que inspirarte.
 
-## ¿Qué es un objeto de evento?
+## ¿Qué es un objeto de evento? {#what-is-an-event-object}
 
 Un objeto de evento es un objeto que se pasa a través de la API cuando se produce un evento específico. Los objetos de eventos se alojan en una matriz de eventos. Cada objeto evento de la matriz de eventos representa una única ocurrencia de un evento personalizado por un usuario concreto en el valor de tiempo designado. El objeto evento tiene muchos campos diferentes que te permiten personalizar mediante la configuración y el uso de propiedades del evento en los mensajes, la recopilación de datos y la personalización.
 
-Para obtener información sobre cómo configurar eventos personalizados para una plataforma específica, consulta la Guía de integración de plataformas en la [Guía para desarrolladores]({{site.baseurl}}/developer_guide/home/). Consulta el artículo correspondiente según tu plataforma:
+Para obtener información sobre cómo configurar eventos personalizados para una plataforma específica, consulta la guía de integración de plataformas en la [Guía para desarrolladores]({{site.baseurl}}/developer_guide/home/). Consulta el artículo correspondiente según tu plataforma:
 
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/tracking_custom_events/)
-- [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/tracking_custom_events/)
-- [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/tracking_custom_events/)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
 
-### Cuerpo del objeto
+### Cuerpo del objeto {#object-body}
 
 ```json
 {
@@ -42,25 +42,25 @@ Para obtener información sobre cómo configurar eventos personalizados para una
 }
 ```
 
-- [ID usuario externo]({{site.baseurl}}/api/basics/#user-ids)
+- [ID de usuario externo]({{site.baseurl}}/api/basics/#user-ids)
 - [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types/)
 - [Código de tiempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Algunos pares de identificadores no se pueden utilizar juntos en una sola solicitud. Cuando se `phone`proporcionan tanto`email`  como ,`email`  tiene prioridad sobre `phone`. Para obtener más información, consulta [Resolución]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution) de [identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Algunos pares de identificadores no se pueden utilizar juntos en una sola solicitud. Cuando se proporcionan tanto `email` como `phone`, `email` tiene prioridad sobre `phone`. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
 {% endalert %}
 
-#### Actualizar solo los perfiles existentes
+#### Actualizar solo los perfiles existentes {#update-existing-profiles-only}
 
-Para actualizar solo los perfiles de usuario existentes en Braze, debes pasar la`_update_existing_only`clave con un valor dentro`true` del cuerpo de tu solicitud. Si se omite este valor, Braze creará un nuevo perfil de usuario si `external_id` no existe ya.
+Para actualizar solo los perfiles de usuario existentes en Braze, debes pasar la clave `_update_existing_only` con un valor de `true` dentro del cuerpo de tu solicitud. Si se omite este valor, Braze creará un nuevo perfil de usuario si el `external_id` no existe ya.
 
 {% alert note %}
-Si estás creando un perfil de usuario solo con alias a través del`/users/track`  punto final,`_update_existing_only`  debe establecerse en `false`. Si se omite este valor, no se creará el perfil de solo alias.
+Si estás creando un perfil de usuario solo con alias a través del punto de conexión `/users/track`, `_update_existing_only` debe establecerse en `false`. Si se omite este valor, no se creará el perfil de solo alias.
 {% endalert %}
 
-## Objeto de propiedades del evento
+## Objeto de propiedades del evento {#event-properties-object}
 
-Los eventos personalizados y las compras pueden tener propiedades del evento. Los valores de las "propiedades" deben ser un objeto en el que las claves son los nombres de las propiedades y los valores son los valores de las propiedades. Los nombres de las propiedades deben ser cadenas no vacías de menos o igual a 255 caracteres, sin signos de dólar ($) al principio.
+Los eventos personalizados y las compras pueden tener propiedades del evento. Los valores de las "propiedades" deben ser un objeto en el que las claves son los nombres de las propiedades y los valores son los valores de las propiedades. Los nombres de las propiedades deben ser cadenas no vacías de 255 caracteres o menos, sin signos de dólar ($) al principio.
 
 Los valores de propiedad pueden ser cualquiera de los siguientes tipos de datos:
 
@@ -68,15 +68,15 @@ Los valores de propiedad pueden ser cualquiera de los siguientes tipos de datos:
 | --- | --- |
 | Números | Como [números enteros](https://en.wikipedia.org/wiki/Integer) o [flotantes](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
 | Booleanos | `true` o `false` |
-| Fechas y horas | Deben estar formateadas como cadenas en el formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o en cualquiera de los siguientes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>No se admite dentro de matrices. <br><br>Ten en cuenta que la "T" es un indicador de tiempo, no un marcador de posición, y no debe cambiarse ni eliminarse. <br><br>Los atributos de tiempo sin zona horaria se establecerán de forma predeterminada a medianoche UTC (y se formatearán en el panel como el equivalente a medianoche UTC en la zona horaria de la empresa). <br><br> Los eventos con marcas de tiempo en el futuro serán predeterminados a la hora actual.  |
+| Fechas y horas | Deben estar formateadas como cadenas en el formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) o en cualquiera de los siguientes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>No se admite dentro de matrices. <br><br>Ten en cuenta que la "T" es un indicador de tiempo, no un marcador de posición, y no debe cambiarse ni eliminarse. <br><br>Los atributos de tiempo sin zona horaria se establecerán de forma predeterminada a medianoche UTC (y se formatearán en el dashboard como el equivalente a medianoche UTC en la zona horaria de la empresa). <br><br> Los eventos con marcas de tiempo en el futuro se establecerán de forma predeterminada a la hora actual.  |
 | Cadenas | 255 caracteres o menos. |
 | Matrices | Las matrices no pueden incluir fechas. |
-| Objetos | Los objetos se ingestarán como cadenas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Objetos | Los objetos se ingerirán como cadenas. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Objeto de propiedades del evento" }
 
-Los objetos de propiedades del evento que contienen valores de matrices u objetos pueden tener una carga útil de propiedades del evento de hasta 100 KB.
+Los objetos de propiedades del evento que contienen valores de matrices u objetos pueden tener una carga útil de propiedades del evento de hasta 100&nbsp;KB.
 
-### Claves reservadas
+### Claves reservadas {#reserved-keys}
 
 Las siguientes claves están reservadas y no pueden utilizarse como propiedades del evento personalizado:
 
@@ -84,14 +84,14 @@ Las siguientes claves están reservadas y no pueden utilizarse como propiedades 
 - `event_name`
 
 {% alert important %}
-El uso de claves reservadas como nombres de propiedades del evento personalizado provocará errores de API al enviar solicitudes al  punto`/users/track`final.
+El uso de claves reservadas como nombres de propiedades del evento personalizado provocará errores de API al enviar solicitudes al punto de conexión `/users/track`.
 {% endalert %}
 
-### Persistencia de las propiedades del evento
+### Persistencia de las propiedades del evento {#event-property-persistence}
 
-Las propiedades del evento están diseñadas para filtrar los mensajes desencadenados por sus eventos principales y para personalizarlos con Liquid. De forma predeterminada, no persisten en el perfil de usuario de Braze. Para utilizar los valores de las propiedades del evento en la segmentación, consulta los [eventos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/), donde se detallan los distintos enfoques para almacenar los valores de las propiedades del evento a largo plazo.
+Las propiedades del evento están diseñadas para filtrar los mensajes desencadenados por sus eventos principales y para personalizarlos con Liquid. De forma predeterminada, no persisten en el perfil de usuario de Braze. Para utilizar los valores de las propiedades del evento en la segmentación, consulta los [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), donde se detallan los distintos enfoques para almacenar los valores de las propiedades del evento a largo plazo.
 
-#### Solicitud de ejemplo de evento
+#### Solicitud de ejemplo de evento {#event-example-request}
 
 ```http
 POST https://YOUR_REST_API_URL/users/track
@@ -126,8 +126,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 - [Wiki de código de hora ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)
 
-## Objetos de evento
+## Objetos de evento {#event-objects}
 
-Utilizando el ejemplo proporcionado, podemos ver que alguien vio recientemente un tráiler y después alquiló una película. Aunque no podemos entrar en una campaña y segmentar a los usuarios en función de estas propiedades, sí podemos utilizarlas estratégicamente utilizándolas en forma de recibo, para enviar un mensaje personalizado a través de un canal utilizando Liquid. Por ejemplo, "Hola **Beth**, Gracias por alquilar **El huevo triste** de **Dan Alexander**, aquí tienes algunas películas recomendadas basadas en tu alquiler..."
-
-
+Utilizando el ejemplo proporcionado, podemos ver que alguien vio recientemente un tráiler y después alquiló una película. Aunque no podemos entrar en una Campaign y segmentar a los usuarios en función de estas propiedades, sí podemos utilizarlas estratégicamente en forma de recibo, para enviar un mensaje personalizado a través de un canal utilizando Liquid. Por ejemplo, "Hola **Beth**, gracias por alquilar **The Sad Egg** de **Dan Alexander**, aquí tienes algunas películas recomendadas basadas en tu alquiler..."

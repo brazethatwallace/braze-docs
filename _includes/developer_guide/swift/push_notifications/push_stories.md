@@ -134,12 +134,14 @@ Open the `Info.plist` file of the `Notification Content Extension`, then add and
 | `UNNotificationExtensionDefaultContentHidden`    | Boolean | `YES`                  |
 | `UNNotificationExtensionInitialContentSizeRatio` | Number  | `0.6`                  |
 | `UNNotificationExtensionUserInteractionEnabled`  | Boolean | `YES`                  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Setting the Notification Content Extension plist #notification-content-extension" }
 
 Additionally, add the following top-level `Braze` dictionary to the same `Info.plist` file, replacing `REPLACE_WITH_APPGROUP` with the App Group you created in [Step 2](#enable-capabilities):
 
 | Key              | Type   | Value                    |
 |------------------|--------|--------------------------|
 | `Braze.AppGroup` | String | `REPLACE_WITH_APPGROUP`  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Setting the Notification Content Extension plist #notification-content-extension" }
 
 Your `Info.plist` file should match the following image:
 

@@ -61,6 +61,12 @@ There may be two to five minutes of warm-up time when Braze connects to Classic 
 
 ### Step 1: Set up tables or views
 
+Before you start, review [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) to understand source table requirements compared to `PAYLOAD` formatting requirements.
+
+{% alert note %}
+Your source table or view can include columns that aren't listed for your warehouse in the tabs below (for example, auditing or hashing). Braze reads only the columns described in those tabs; other columns are not used during Cloud Data Ingestion syncs.
+{% endalert %}
+
 {% tabs %}
 {% tab Snowflake %}
 
@@ -244,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 You can name the project, dataset, and table as you'd like, but the column names should match the preceding definition.
 
@@ -328,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 You can name the schema and table as you'd like, but the column names should match the preceding definition.
 

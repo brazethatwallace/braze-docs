@@ -7,6 +7,7 @@ page_order: 0
 tool: Campaigns
 channel:
   - content cards
+toc_headers: h2
 ---
 
 # Card creation
@@ -35,7 +36,7 @@ The following options are available:
 - **At campaign launch:** The previous default behavior for Content Cards. Braze calculates audience eligibility and personalization when the campaign launches, then creates the card and stores it until the user opens your app. 
 - **At first impression (recommended):** When the user next opens your app (starts a new [session](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), Braze determines which Content Cards the user is eligible for, templates any personalization like Liquid or Connected Content, then creates the card. This option usually delivers better performance.
 
-Regardless of your selected option, the Content Card expiration date countdown will begin when the campaign launches.
+Regardless of your selected option, the Content Card expiration date countdown begins when the campaign launches.
 
 {% endtab %}
 {% tab Canvas %}
@@ -49,11 +50,23 @@ The following options are available:
 - **At step entry:** The previous default behavior for Content Cards. Braze calculates audience eligibility when the user enters the Canvas step, then creates the card and stores it until the user opens your app.
 - **At first impression (recommended):** Braze calculates audience eligibility when the user enters the Canvas step. When the user next opens your app (starts a new [session](https://www.braze.com/resources/articles/whats-an-app-session-anyway)), Braze templates any personalization like Liquid or Connected Content, then creates the card. This option delivers better performance in card deliveries and more up-to-date personalization.
 
-Regardless of your selected option, the Content Card expiration date countdown will begin when the user enters the Canvas step.
+Regardless of your selected option, the Content Card expiration date countdown begins when the user enters the Canvas step.
 
 {% alert tip %}
 If you want anonymous users to see a Content Card in their very first session, use a campaign instead of a Canvas. This is because when an anonymous user enters a Canvas, their session has already started, so they won't get the Content Card until they start a new session.
 {% endalert %}
+
+### Removal event
+
+Select the option to remove Content Cards when users complete a purchase or perform a custom event. To use **Perform Custom Event** as the removal event, select context variables or custom attributes for comparisons when using property filters.
+
+![Content Card removal event settings with Perform Custom Event selected and property filters using context variables or custom attributes.]({% image_buster /assets/img/content_card_removal_event.png %})
+
+### Expiration 
+
+In the **Expiration (Time in Feed)** settings, you can select **Personalize duration** to set the expiration of the Content Card using context variables.
+
+![Expiration settings showing Personalize duration configured with a context variable for Content Card expiration.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -72,7 +85,8 @@ This section describes the main differences between card creation at campaign la
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">
+  <caption>Differences between creating cards at launch or entry versus at first impression</caption>
 <thead>
   <tr>
     <th class="tg-0pky"></th>

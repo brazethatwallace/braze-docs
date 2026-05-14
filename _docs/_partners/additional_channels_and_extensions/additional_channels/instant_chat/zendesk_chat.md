@@ -20,6 +20,7 @@ search_tag: Partner
 | A Zendesk account | A Zendesk account is required to take advantage of this partnership.|
 | A Zendesk Basic Authorization Token | A Zendesk Basic Authorization Token is used to make an outbound webhook request from Braze to Zendesk.|
 | A Braze REST API Key  | A Braze REST API key with `campaigns.trigger.send` permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -165,7 +166,7 @@ Next, you’ll create two new webhook campaigns in Braze so you can forward inbo
 |--------------------|--------------------------------------------------------------------------------------|
 | Webhook campaign 1 | Creates a new ticket in Zendesk.                                                     |
 | Webhook campaign 2 | Forwards all conversational SMS responses sent inbound from the customer to Zendesk. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Set up inbound-SMS forwarding" }
 
 #### Step 6.1: Create an SMS keyword category
 
@@ -176,7 +177,7 @@ In the Braze dashboard, go to **Audience**, choose your **SMS subscription group
 | Keyword Category | The name of your keyword category, such as `ZendeskSMS1`.                                                                 |
 | Keywords         | Your custom keywords, such as `SUPPORT`.                                                                                  |
 | Reply Message    | The message that is sent when a keyword is detected, such as "A customer service rep will contact you shortly." |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6.1: Create an SMS keyword category" }
 
 ![An example SMS keyword category in Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 

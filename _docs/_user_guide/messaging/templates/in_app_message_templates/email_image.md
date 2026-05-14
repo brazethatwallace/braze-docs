@@ -2,7 +2,7 @@
 nav_title: Email sign-up with image
 article_title: Email Sign-up with Background Image
 alias: "/email_image/"
-page_order: 4
+page_order: 5
 description: "This page covers how to use the in-app message drag-and-drop editor to show off your brand style with one simple message and build your email list."
 ---
 

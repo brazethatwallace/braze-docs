@@ -1,55 +1,55 @@
 ---
 nav_title: Kontobasierte Segmentierung
-article_title: Einrichtung einer kontenbasierten Segmentierung
+article_title: Kontobasierte Segmentierung einrichten
 page_order: 2
 page_type: reference
-description: "Erfahren Sie, wie Sie die verschiedenen Features von Braze nutzen können, um Ihre Anwendungsfälle für die Segmentierung von B2B-Konten zu unterstützen."
+description: "Erfahren Sie, wie Sie verschiedene Features von Braze nutzen können, um Ihre Anwendungsfälle für die kontobasierte B2B-Segmentierung umzusetzen."
 ---
 
-# Richten Sie eine kontenbasierte Segmentierung ein.
+# Kontobasierte Segmentierung einrichten {#set-up-account-based-segmentation}
 
-> Auf dieser Seite erfahren Sie, wie Sie verschiedene Features von Braze nutzen können, um Ihre Anwendungsfälle für die Segmentierung von B2B-Konten zu unterstützen.
+> Auf dieser Seite erfahren Sie, wie Sie verschiedene Features von Braze nutzen können, um Ihre Anwendungsfälle für die kontobasierte B2B-Segmentierung umzusetzen.
 
-Sie können die B2B-kontenbasierte Segmentierung auf zwei Arten durchführen, je nachdem, wie Sie Ihr [B2B-Datenmodell]({{site.baseurl}}/user_guide/getting_started/b2b_use_cases/b2b_data_models/) eingerichtet haben:
+Sie können die kontobasierte B2B-Segmentierung auf zwei Arten durchführen, je nachdem, wie Sie Ihr [B2B-Datenmodell]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/) eingerichtet haben:
 
 - Wenn Sie [Kataloge für Ihre Geschäftsobjekte](#option-1-when-using-catalogs-for-your-business-objects) verwenden
 - Wenn Sie [verbundene Quellen für Ihre Geschäftsobjekte](#option-2-when-using-connected-sources-for-your-business-objects) verwenden
 
-## B2B-Segmentierung auf der Grundlage von Konten einrichten
+## Kontobasierte B2B-Segmentierung einrichten {#setting-up-b2b-account-based-segmentation}
 
-### Option 1: Wenn Sie Kataloge für Ihre Geschäftsobjekte verwenden
+### Option 1: Wenn Sie Kataloge für Ihre Geschäftsobjekte verwenden {#option-1-when-using-catalogs-for-your-business-objects}
 
-#### Grundlegende SQL-Vorlagensegmentierung
+#### Grundlegende SQL-Template-Segmentierung {#basic-sql-template-segmentation}
 
-Um Ihnen den Einstieg zu erleichtern, haben wir grundlegende SQL-Templates für eine einfache kontenbasierte Segmentierung erstellt.
+Um Ihnen den Einstieg zu erleichtern, haben wir grundlegende SQL-Templates für eine einfache kontobasierte Segmentierung erstellt.
 
-Nehmen wir an, Sie möchten Nutzer:innen eines Targeting-Unternehmenskontos segmentieren. 
+Nehmen wir an, Sie möchten Nutzer:innen segmentieren, die Mitarbeitende eines Ziel-Unternehmenskontos sind.
 
-1. Gehen Sie zu **Zielgruppe** > **Segmenterweiterungen** > **Neue Erweiterung erstellen** > **Mit einer Vorlage beginnen** und wählen Sie die Vorlage **Katalogsegment für Ereignisse**. <br><br> ![Modal „Template auswählen“ mit Segmentoptionen für Events oder Käufe.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>Der SQL-Editor wird automatisch mit einer Vorlage gefüllt, die Benutzer-Event-Daten mit Katalogdaten verknüpft, um Nutzer:innen zu segmentieren, die sich mit bestimmten Katalogartikeln beschäftigen. <br><br>![Ein SQL-Editor für eine neue Erweiterung mit einer geöffneten Registerkarte "Variablen".]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
-2. Verwenden Sie die Registerkarte **Variablen**, um die erforderlichen Felder für Ihre Vorlage bereitzustellen, bevor Sie Ihr Segment erstellen.<br><br>Damit Braze Nutzer:innen auf der Grundlage ihres Engagements für Katalogartikel identifizieren kann, müssen Sie Folgendes tun:
-- Wählen Sie einen Katalog, der ein Katalogfeld enthält
-- Wählen Sie ein angepasstes Event aus, das eine Event-Eigenschaft enthält
-- Stimmen Sie die Werte Ihrer Katalogfelder und Ereigniseigenschaften ab
+1. Gehen Sie zu **Audience** > **Segment Extensions** > **Create New Extension** > **Start with a template** und wählen Sie das Template **Catalog segment for events** aus. <br><br> ![Modal „Template auswählen“ mit Katalogsegment-Optionen für Events oder Käufe.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>Der SQL-Editor wird automatisch mit einem Template befüllt, das Nutzer:innen-Event-Daten mit Katalogdaten verknüpft, um Nutzer:innen zu segmentieren, die mit bestimmten Katalogartikeln interagieren. <br><br>![Ein SQL-Editor für eine neue Erweiterung mit einem geöffneten Tab „Variables“.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
+2. Verwenden Sie den Tab **Variables**, um die erforderlichen Felder für Ihr Template bereitzustellen, bevor Sie Ihr Segment generieren.<br><br>Damit Braze Nutzer:innen anhand ihres Engagements mit Katalogartikeln identifizieren kann, müssen Sie Folgendes tun:
+- Einen Katalog auswählen, der ein Katalogfeld enthält
+- Ein angepasstes Event auswählen, das eine Event-Eigenschaft enthält
+- Die Werte Ihres Katalogfelds und Ihrer Event-Eigenschaft abgleichen
 
-##### Leitlinien für Variablen für B2B-Anwendungsfälle
+##### Leitlinien für Variablen bei B2B-Anwendungsfällen {#variables-guidelines-for-b2b-use-cases}
 
-Wählen Sie die folgenden Variablen für einen Anwendungsfall der kontobasierten Segmentierung im B2B-Bereich aus:
+Wählen Sie die folgenden Variablen für einen Anwendungsfall der kontobasierten B2B-Segmentierung aus:
 
-| Variabel | Eigenschaft |
+| Variable | Eigenschaft |
 | --- | --- |
 | Katalog | Konto-Katalog |
 | Katalogfeld | ID |
 | Angepasstes Event | account_linked |
 | Angepasste Event-Eigenschaft | account_id |
 | (Unter SQL-Ergebnisse filtern) Katalogfeld | Klassifizierung |
-| (unter SQL-Ergebnisse filtern) Wert | Unternehmen |
+| (Unter SQL-Ergebnisse filtern) Wert | Enterprise |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-#### Ausgefeilte SQL-Segmentierung
+#### Ausgefeilte SQL-Segmentierung {#sophisticated-sql-segmentation}
 
-Für eine ausgefeiltere oder komplexere Segmentierung lesen Sie bitte die [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/). Um Ihnen den Einstieg zu erleichtern, finden Sie hier einige SQL-Templates, die Ihnen den Einstieg in die B2B-Kontosegmentierung erleichtern:
+Für eine ausgefeiltere oder komplexere Segmentierung lesen Sie den Abschnitt [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). Um Ihnen den Einstieg zu erleichtern, finden Sie hier einige SQL-Templates, die Ihnen einen Vorsprung bei der kontobasierten B2B-Segmentierung verschaffen:
 
-1. Erstellen Sie ein Segment, das zwei Filter in einem einzigen Katalog vergleicht (z.B. Nutzer:innen, die in der Gastronomie arbeiten, für ein Unternehmenskonto). Sie müssen die Katalog-ID und die ID des Artikels angeben.
+1. Erstellen Sie ein Segment, das zwei Filter in einem einzigen Katalog vergleicht (z. B. Nutzer:innen, die in der Gastronomie für ein Unternehmenskonto arbeiten). Sie müssen die Katalog-ID und die Artikel-ID angeben.
 
 ```sql
 WITH salesforce_accounts AS (
@@ -68,11 +68,11 @@ ON TRY_PARSE_JSON(events.properties):account_id::STRING = salesforce_accounts.id
 WHERE events.name = 'account_linked'
 AND salesforce_accounts.Industry = 'Restaurants'
 AND salesforce_accounts.Classification = 'Enterprise'
-; 
+;
 ```
 
 {: start="2"}
-2\. Erstellen Sie ein Segment, das zwei Filter in zwei separaten Katalogen vergleicht (z. B. Nutzer:innen, die mit Unternehmenszielkonten verknüpft sind, die eine offene „Phase 3“-Opportunity haben).
+2. Erstellen Sie ein Segment, das zwei Filter in zwei separaten Katalogen vergleicht (z. B. Nutzer:innen, die mit Unternehmens-Zielkonten verknüpft sind, die eine offene „Stage 3“-Opportunity haben).
 
 ```sql
 -- Reformat catalog data into a table with columns for each field
@@ -106,11 +106,10 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 ;
 ```
 
-### Option 2: Wenn Sie verbundene Quellen für Ihre Geschäftsobjekte verwenden
+### Option 2: Wenn Sie verbundene Quellen für Ihre Geschäftsobjekte verwenden {#option-2-when-using-connected-sources-for-your-business-objects}
 
-Grundlegende Informationen zur Verwendung verbundener Quellen bei der Segmentierung finden Sie in [den Segment-Erweiterungen von CDI]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/cdi_segments/). Lassen Sie sich von den Vorlagen unter [Bei der Verwendung von Katalogen](#option-1-when-using-catalogs-for-your-business-objects) inspirieren, wie Sie die Quelltabellen formatieren, denn Sie können sie beliebig formatieren.
+Grundlegende Informationen zur Verwendung verbundener Quellen bei der Segmentierung finden Sie unter [CDI-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/). Lassen Sie sich von den Templates unter [Bei der Verwendung von Katalogen](#option-1-when-using-catalogs-for-your-business-objects) inspirieren, wie Sie die Quelltabellen formatieren können – Sie können sie beliebig gestalten.
 
-## Verwendung Ihrer kontobasierten Erweiterung in einem Segment
+## Verwendung Ihrer kontobasierten Erweiterung in einem Segment {#using-your-account-based-extension-in-a-segment}
 
-Nachdem Sie Ihre Segmentierung auf Kontoebene in den obigen Schritten erstellt haben, können Sie diese Segmenterweiterungen direkt in Ihre Targeting-Kriterien übernehmen. Es ist auch einfach, zusätzliche demografische Kriterien für Nutzer:innen hinzuzufügen, wie z.B. die Rolle, das Engagement bei früheren Kampagnen und mehr. Weitere Informationen finden Sie unter [Verwendung Ihrer Erweiterung in einem Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
-
+Nachdem Sie Ihre Segmentierung auf Kontoebene in den obigen Schritten erstellt haben, können Sie diese Segmenterweiterungen direkt in Ihre Targeting-Kriterien übernehmen. Darüber hinaus lassen sich ganz einfach zusätzliche demografische Kriterien für Nutzer:innen hinzufügen, wie z. B. die Rolle, das Engagement bei früheren Kampagnen und mehr. Weitere Informationen finden Sie unter [Verwendung Ihrer Erweiterung in einem Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).

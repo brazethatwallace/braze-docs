@@ -26,7 +26,7 @@ Before you start, you'll need the following:
 | Swym  | Swym Wishlist Plus, Back in Stock apps, or both must be installed on your eCommerce platform (Shopify or BigCommerce), and you must be on the Enterprise plan.       |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -74,7 +74,7 @@ From your Wishlist Plus app, go to the **Marketing** tab and find the **Automati
 | Price Drop alert | Product on a wishlist goes on sale |  
 | Low Stock alert | Product on a wishlist is running low on stock |  
 | Back in Stock alert | Product on a wishlist is restocked |  
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Wishlist Plus app events" }
 
 #### Swym Back in Stock Alerts app events
 
@@ -83,7 +83,7 @@ From your Wishlist Plus app, go to the **Marketing** tab and find the **Automati
 | Back in Stock Acknowledgment | Shopper subscribes to be notified when a product is back in stock |  
 | Restock Alert | Product a shopper requested a back-in-stock alert for is restocked |  
 | Restock Reminder | Follow-up alert (usually approximately 24 hours after the first restock alert, configurable)|   
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Back in Stock Alerts app events" }
 
 ### Step 3: Create a Braze campaign or Canvas
 

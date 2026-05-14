@@ -1,19 +1,19 @@
 {% multi_lang_include developer_guide/prerequisites/cordova.md %}
 
-## カードフィード
+## カードフィード {#card-feeds}
 
-Braze SDK にはデフォルトのカードフィードが含まれています。デフォルトのカードフィードを表示するには、`launchContentCards()` メソッドを使用します。このメソッドは、ユーザーのコンテンツカードの分析トラッキング、却下、レンダリングをすべて行います。
+Braze SDKにはデフォルトのカードフィードが含まれています。デフォルトのカードフィードを表示するには、`launchContentCards()` メソッドを使用します。このメソッドは、ユーザーのContent Cardsの分析トラッキング、非表示、レンダリングをすべて処理します。
 
-## コンテンツカード
+## Content Cards
 
-以下の追加メソッドを使用して、アプリ内にカスタムコンテンツカードフィードを構築できます。
+以下の追加メソッドを使用して、アプリ内にカスタムContent Cardsフィードを構築できます。
 
-|方法 | 説明 |
+| 方法 | 説明 |
 |---|---|
-|`requestContentCardsRefresh()`|Braze SDKサーバーから最新のコンテンツカードを要求するためのバックグラウンドリクエストを送信する。|
-|`getContentCardsFromServer(successCallback, errorCallback)`|Braze SDKからコンテンツカードを取得する。これにより、サーバーから最新のコンテンツカードが要求され、完了時にカードのリストが返されます。||
-|`getContentCardsFromCache(successCallback, errorCallback)`|Braze SDKからコンテンツカードを取得する。これは、前回の更新時に更新されたローカルキャッシュから最新のカードリストを返す。|
-|`logContentCardClicked(cardId)`|指定されたコンテンツカードIDのクリックを記録する。|
-|`logContentCardImpression(cardId)`|与えられたコンテンツカードIDのインプレッションを記録する。|
-|`logContentCardDismissed(cardId)`|指定されたコンテンツカード ID が閉じられたことを記録します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `requestContentCardsRefresh()` | Braze SDKサーバーから最新のContent Cardsをリクエストするバックグラウンドリクエストを送信します。 |
+| `getContentCardsFromServer(successCallback, errorCallback)` | Braze SDKからContent Cardsを取得します。サーバーから最新のContent Cardsをリクエストし、完了時にカードのリストを返します。 |
+| `getContentCardsFromCache(successCallback, errorCallback)` | Braze SDKからContent Cardsを取得します。前回の更新時に更新されたローカルキャッシュから最新のカードリストを返します。 |
+| `logContentCardClicked(cardId)` | 指定されたコンテンツカードIDのクリックを記録します。 |
+| `logContentCardImpression(cardId)` | 指定されたコンテンツカードIDのインプレッションを記録します。 |
+| `logContentCardDismissed(cardId)` | 指定されたコンテンツカードIDの非表示を記録します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Cards" }

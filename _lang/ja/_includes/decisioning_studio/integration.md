@@ -1,27 +1,27 @@
-# BrazeAI Decisioning Studio™ の統合
+# BrazeAI Decisioning Studio™の統合 {#integrating-brazeai-decisioning-studio}
 
-> BrazeAI Decisioning Studio™ を Braze に統合する方法を学習し、AI エキスパートサービスチームと連携して、1:1 の意思決定に AI を適用する[エージェントを構築]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents)し、主要なビジネス指標を改善します。
+> BrazeAI Decisioning Studio™をBrazeに統合する方法を学習し、AIエキスパートサービスチームと連携して、1:1の意思決定にAIを適用する[エージェントを構築]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents/)し、主要なビジネス指標を改善します。
 
 {% multi_lang_include decisioning_studio/alert_multi_platform_support.md %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-統合する前に、有効な BrazeAI Decisioning Studio™ ライセンスが必要になります。詳しい内容をお知りになりたい場合は、[面談をご予約ください](https://www.braze.com/get-started/)。
+統合する前に、有効なBrazeAI Decisioning Studio™ライセンスが必要になります。詳しい内容をお知りになりたい場合は、[面談をご予約ください](https://www.braze.com/get-started/)。
 
-## Decisioning Studio の統合
+## Decisioning Studioの統合 {#integrating-decision-studio}
 
-### ステップ 1: エンドポイントの URL の取得
+### ステップ 1:エンドポイントURLの取得 {#step-1-get-your-endpoint-url}
 
-特定の Braze インスタンスに関連するエンドポイント URL を取得する必要があります。詳細については、[Braze API エンドポイント]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)を参照してください。
+特定のBrazeインスタンスに関連するエンドポイントURLを取得する必要があります。詳細については、[Braze APIエンドポイント]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)を参照してください。
 
-### ステップ 2: API キーの作成
+### ステップ 2:APIキーの作成 {#step-2-create-an-api-key}
 
-Braze で、**[設定]** > **[API キー]** の順で進み、以下の権限を使って新しいキーを作成します。
+Brazeで、**設定** > **APIキー**の順で進み、以下の権限を使って新しいキーを作成します。
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### ステップ 3: BrazeAI Decisioning Studio™ カスタマーサクセスマネージャーへの連絡
+### ステップ 3:BrazeAI Decisioning Studio™カスタマーサクセスマネージャーへの連絡 {#step-3-contact-your-brazeai-decisioning-studio-customer-success-manager}
 
-BrazeAI Decisioning Studio™のカスタマーサクセスマネージャーに連絡し、BrazeAI Decisioning Studio™のイネーブルメントを依頼せよ。Braze API キーとエンドポイント URL を使用して、連携の設定を完了します。
+BrazeAI Decisioning Studio™のカスタマーサクセスマネージャーに連絡し、BrazeAI Decisioning Studio™の有効化を依頼してください。担当者がBraze APIキーとエンドポイントURLを使用して、統合の設定を完了します。
 
-それが完了したら、AI エキスパートサービスチームと一緒に、[製品のエージェント構築を開始]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents)します。各エージェントは特定のビジネス目標に合わせてパーソナライズするため、最適な導入を一緒に設計していきます。
+設定が完了したら、AIエキスパートサービスチームと一緒に、[製品のエージェント構築を開始]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/building_agents/)します。各エージェントは特定のビジネス目標に合わせてカスタマイズされるため、最適な実装を一緒に設計していきます。

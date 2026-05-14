@@ -102,6 +102,7 @@ BASA
 bdocs
 behaviour
 BENA
+BIMI
 Birthdates
 Bitcode
 Blastr
@@ -128,6 +129,8 @@ brazecall
 Brazei
 brazexml
 BRZURL
+BSUIDs
+BSUID
 Camila
 Camila’s
 Canva
@@ -215,6 +218,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+drawables
 Dreamhost
 drilldown
 drilldowns
@@ -308,6 +312,7 @@ GLOBALCONTROLGROUP
 GLOBALSTATECHANGE
 granularization
 granularized
+GRAVTY
 Grindr
 Grotesk
 Grouparoo
@@ -479,6 +484,7 @@ mform
 microsites
 Microsoft
 minimise
+misalign
 miscategorization
 misformat
 misintegration
@@ -556,8 +562,10 @@ OROMO
 otherlevels
 OTT
 ouibounce's
+overconsumption
 oversaturating
 Pangle
+Pandoc
 parentheticals
 passback
 PassKit
@@ -598,6 +606,7 @@ Quikly
 Radar
 RAETO
 RANDOMBUCKETNUMBERUPDATE
+RAWLLMREQUEST
 React
 reactnative
 reapproved
@@ -623,6 +632,7 @@ repoint
 resends
 resulttemplate
 retarget
+retriable
 RETRYSEND
 revenuecat
 RGBA
@@ -725,6 +735,7 @@ Spamhaus
 spamminess
 spammy
 Sparkpost
+Speedrunning
 Splio
 SPLITENTRY
 springsale

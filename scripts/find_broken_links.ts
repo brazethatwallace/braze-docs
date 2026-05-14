@@ -49,6 +49,45 @@ const redirectList: string[] = Object.entries(validurls)
   })
   .map(([from]) => from);
 const docsBasePath = path.join(PROJECT_ROOT, '_docs');
+/** Example and tooling docs under here intentionally use non-resolving links; skip (see contributing playbook). */
+const contributingDirResolved = path.resolve(path.join(docsBasePath, '_contributing'));
+
+/**
+ * Index of every Markdown file under _docs, keyed by lowercase normalized path, so links that
+ * differ only by casing still resolve on Linux (case-sensitive fs.existsSync).
+ */
+function indexMarkdownFilesByLowercasePath(rootDir: string): Map<string, string> {
+  const index = new Map<string, string>();
+  const walk = (dir: string) => {
+    let entries: fs.Dirent[];
+    try {
+      entries = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const ent of entries) {
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) {
+        walk(full);
+      } else if (ent.isFile() && ent.name.endsWith('.md')) {
+        const normalizedFull = path.normalize(full);
+        const key = normalizedFull.toLowerCase();
+        const existing = index.get(key);
+        if (existing === undefined) {
+          index.set(key, normalizedFull);
+        } else if (path.normalize(existing) !== normalizedFull) {
+          console.warn(
+            `[find_broken_links] Case-only path collision for key "${key}": existing "${existing}" vs "${normalizedFull}"`
+          );
+        }
+      }
+    }
+  };
+  walk(rootDir);
+  return index;
+}
+
+const markdownPathByLowercase = indexMarkdownFilesByLowercasePath(docsBasePath);
 interface LinkData {
   sourceFile: string;
   link: string;
@@ -211,6 +250,13 @@ const aliases: string[] = [];
 const permalinks: string[] = [];
 const ignored_files: string[] = [];
 function getLinksRecursive(dir: string) {
+  const dirResolved = path.resolve(dir);
+  if (
+    dirResolved === contributingDirResolved ||
+    dirResolved.startsWith(`${contributingDirResolved}${path.sep}`)
+  ) {
+    return;
+  }
   const files = fs.readdirSync(dir);
   for (const file of files) {
     const filePath = path.join(dir, file);
@@ -238,7 +284,14 @@ const csv: string[] = [];
 // Process each result
 for (const item of links) {
   const fullLink = `/docs${item.link}`;
-  let exists = fs.existsSync(path.join(item.markdownFile));
+  const candidatePath = path.normalize(item.markdownFile);
+  let exists = fs.existsSync(candidatePath);
+  if (!exists) {
+    const resolved = markdownPathByLowercase.get(candidatePath.toLowerCase());
+    if (resolved) {
+      exists = true;
+    }
+  }
   if (!exists) {
     // Check if any redirect matches the link pattern
     const redirectRegex = new RegExp(`(/docs)?${item.link.replace(/\/$/, '')}/?`);
@@ -267,13 +320,19 @@ for (const item of links) {
 
 const deduplicated = Array.from(new Set(csv)).sort();
 
-fs.writeFileSync(
-  path.join(PROJECT_ROOT, 'scripts', 'temp', 'broken-links.csv'),
-  [headers, ...deduplicated].join('\n')
-);
+const csvPath = path.join(PROJECT_ROOT, 'scripts', 'temp', 'broken-links.csv');
+fs.mkdirSync(path.dirname(csvPath), { recursive: true });
+fs.writeFileSync(csvPath, [headers, ...deduplicated].join('\n'));
 
 if (deduplicated.length === 0) {
   console.log('No broken links found.');
 } else {
-  console.log(`${deduplicated.length} broken links were found. The full list can be found at:\n  ${path.join(PROJECT_ROOT, 'scripts/temp/broken-links.csv')}\n`);
+  console.log(
+    `${deduplicated.length} broken links were found. The full list can be found at:\n  ${csvPath}\n`
+  );
+  console.log('Rows (File,Broken Link,Path to Broken Link):');
+  for (const row of deduplicated) {
+    console.log(row);
+  }
+  process.exit(1);
 }

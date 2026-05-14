@@ -111,7 +111,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Purchases per Product | A count of all purchases grouped by product. |
 | Revenue by Channel | Sum of all campaign and Canvas revenue events with a qualifying last-touch event, grouped by channel. | 
 | Revenue Time Series | Sum of all campaign and Canvas revenue events with a qualifying last-touch event, grouped by day in UTC. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
 
 #### Devices and carriers
 
@@ -121,7 +121,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Device Model | Count of users in the selected date range who opened a push notification, grouped by device model. |
 | Device Operating System | Count of users in the selected date range who opened a push notification, grouped by device operating system. |
 | Device Screen Size | Count of users in the selected date range who opened a push notification, grouped by device screen resolution (size). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Devices and carriers" }
 
 #### Segment Insights - Email
 
@@ -141,7 +141,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Bottom 10 Campaigns for Purchase Metrics | Ranked list of campaigns with the lowest purchase conversion metrics from email engagement (configurable metric for ranking).|
 | Top 10 Canvases for Purchase Metrics | Ranked list of Canvases with the highest purchase conversion metrics from email engagement (configurable metric for ranking).|
 | Bottom 10 Canvases for Purchase Metrics | Ranked list of Canvases with the lowest purchase conversion metrics from email engagement (configurable metric for ranking).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment Insights - Email" }
 
 #### Session Analytics
 
@@ -152,7 +152,7 @@ Touches include _Email Click_ (link click), _Content Card Click_, _In-App Messag
 | Campaigns convert to sessions | Count of unique sessions that occurred at the same time as campaign conversions, grouped by campaign ID and ranked by session count.|
 | Canvases convert to sessions | Count of unique sessions that occurred at the same time as Canvas conversions, grouped by Canvas ID and ranked by session count.|
 | Total # of sessions per user | List of top 1,000 users by their total session count within the selected date range.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
 
 ## Share your feedback with us
 

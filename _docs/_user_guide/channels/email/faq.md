@@ -79,9 +79,10 @@ For email campaigns and Canvases, the stop button does not immediately stop the 
 
 While Braze won't send further requests once the campaign or Canvas is stopped, analytics may still increase while the ESP finishes processing requests already in flight.
 
-### Why am I seeing more email clicks than opens?
+### Why am I seeing more _Total Clicks_ than _Total Opens_ in my email analytics?
 
-You may be seeing more clicks than opens for any of the following reasons:
+_Total Opens_ is the count of how many times the email was opened by users, whereas _Total Clicks_ is the count of how many times users clicked within the delivered email, including any type of clicks such as link clicks. You may be seeing more clicks than opens for any of the following reasons:
+
 - Users are performing multiple clicks on the body of the email within a single open.
 - Users click on some email links within the preview pane of their phones. In this case, Braze logs this email as being clicked but not opened.
 - Users reopen an email that they previewed earlier.
@@ -108,11 +109,21 @@ If there are more _Unsubscribes_ than users who clicked the unsubscribe link in 
 
 If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once.
 
+If a user clicks the unsubscribe link twice (for example, if they unsubscribed, subscribed again, then unsubscribed again), this counts twice in email analytics.
+
 ### Can I add a "view this email in a browser" link to my emails?
 
 No. Braze does not offer this functionality. This is because a growing majority of email is opened on mobile devices and in modern email clients, which render images and content without issues.
 
 **Workaround:** To achieve this same result, you can host the content of your email on an external landing page (such as your website), which can then be linked to from the email campaign you are building using the **Link** tool when editing the email body.
+
+### Does Braze automatically turn plain text URLs or "www." text into links?
+
+No. Braze does not scan your message and convert plain text, such as text that starts with `www.` or looks like a URL, into hyperlinks. Only links you define with HTML anchor tags (`<a href="...">`) are processed through normal rendering and link features in Braze.
+
+If a recipient sees plain text shown as a clickable link, that behavior usually comes from their email client (for example, Gmail, Outlook, or Apple Mail). Many clients detect URL-like strings after the message is delivered and turn them into links on the recipient's device. Braze does not control that behavior and cannot turn it off for the recipient.
+
+For predictable link appearance, tracking, and styling, use explicit `<a href>` tags instead of plain text URLs.
 
 ### Why are my users being auto-unsubscribed by email security software?
 
@@ -136,6 +147,16 @@ For more details on how server-side scanning can affect email metrics, refer to 
 
 Machine open percentages are not a reliable measure of actual engagement. For a more accurate view of email performance, focus on *Other Opens* (non-machine opens) and *Unique Clicks*. You can also compare these metrics over time using the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/).
 
+### Why are my deep links not working in Gmail?
+
+Gmail strips all non-HTTP/HTTPS links from email messages. If your deep link uses a custom scheme (such as `myapp://path/to/content`), Gmail will remove it, and the link won't function for recipients reading the email in Gmail. This is a Gmail limitation, not a Braze limitation.
+
+To work around this:
+
+- **Use Universal Links (iOS) or App Links (Android).** These use standard `https://` URLs that open your app when installed and fall back to a web page otherwise. Refer to [Universal Links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/) for setup instructions.
+- **Use a deep linking provider.** Services like [Branch](https://www.branch.io/) generate HTTP-formatted deep links that are compatible with email clients including Gmail.
+- **Set up a redirect endpoint.** Host an `https://` endpoint on your server that redirects to your app's custom-scheme URL. Email clients will preserve the `https://` link, and the redirect handles opening the app.
+
 ### Does the *Unique Opens* metric include *Machine Opens*?
 
 No. *Unique Opens* count only [Other Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#other-opens), which excludes emails identified as machine opens. *Machine Opens* are tracked separately. In the **Campaign Analytics** view and **Report Builder**, you can view both metrics independently.
@@ -154,7 +175,6 @@ This warning can persist for campaigns duplicated from a campaign that did not h
 - After duplicating, duplicate the variant, then remove the original variant. **Do not** select the original variant, or the warning can carry over.
 
 ### What are reasons why my user hasn't received an email campaign?
-
 
 Reasons why a user hasn't received an email campaign include:
 

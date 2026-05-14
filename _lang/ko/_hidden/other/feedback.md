@@ -5,65 +5,57 @@ hide_toc: true
 ---
 
 <fieldset style="margin-top: 60px;">
-<legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">문서 피드백</legend>
+<legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">설명서 피드백</legend>
 <div id="feedback">
     <div id="feedback_section">
-    문서 개선 아이디어가 있거나 잘못된 점을 발견하셨나요? 여러분의 의견을 듣고 싶습니다! 우리 팀은 모든 제출물을 검토하여 더 나은 것을 만들기 위해 노력합니다.<br /><br />
+    문서 개선 아이디어가 있거나 잘못된 점을 발견하셨나요? 여러분의 의견을 듣고 싶습니다! 저희 팀은 모든 제출물을 검토하여 지속적으로 개선하고 있습니다.<br /><br />
 
-    <b>How useful do you find Braze docs, on average?</b><br />
+    <b>Braze 문서가 평균적으로 얼마나 유용하다고 느끼시나요?</b><br />
 
     <div id="feedback_answer_star">
       <div class="rating-list">
         <div class="feedback-star">
           <input type="radio" id="rating_1" name="feedback_rating" value="Very Unhelpful" tabindex="-1">
-          <label for="rating_1" class="star-label" tabindex="0" aria-label="Very Unhelpful">
-            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />Not Useful</label>
+          <label for="rating_1" class="star-label" tabindex="0" aria-label="매우 도움이 안 됨">
+            <i class="fas fa-star" data-value="Very Unhelpful" title="매우 도움이 안 됨"></i><br />1<br />유용하지 않음</label>
         </div>
         <div class="feedback-star">
           <input type="radio" id="rating_2" name="feedback_rating" value="Unhelpful" tabindex="-1">
-          <label for="rating_2" class="star-label" tabindex="0" aria-label="Unhelpful">
-            <i class="fas fa-star" data-value="Unhelpful" title="Unhelpful"></i><br />2<br />
+          <label for="rating_2" class="star-label" tabindex="0" aria-label="도움이 안 됨">
+            <i class="fas fa-star" data-value="Unhelpful" title="도움이 안 됨"></i><br />2<br />
           </label>
         </div>
         <div class="feedback-star">
           <input type="radio" id="rating_3" name="feedback_rating" value="Somewhat Helpful" tabindex="-1">
-          <label for="rating_3" class="star-label" tabindex="0" aria-label="Somewhat helpful">
-            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />Somewhat Useful</label>
+          <label for="rating_3" class="star-label" tabindex="0" aria-label="어느 정도 도움이 됨">
+            <i class="fas fa-star" data-value="Somewhat Helpful" title="어느 정도 도움이 됨"></i><br />3<br />어느 정도 유용함</label>
         </div>
 
         <div class="feedback-star">
           <input type="radio" id="rating_4" name="feedback_rating" value="Helpful" tabindex="-1">
-          <label for="rating_4" class="star-label" tabindex="0" aria-label="Helpful">
-            <i class="fas fa-star" data-value="Helpful" title="Helpful"></i><br />4<br />
+          <label for="rating_4" class="star-label" tabindex="0" aria-label="도움이 됨">
+            <i class="fas fa-star" data-value="Helpful" title="도움이 됨"></i><br />4<br />
           </label>
         </div>
 
         <div class="feedback-star">
           <input type="radio" id="rating_5" name="feedback_rating" value="Very Helpful" tabindex="-1">
-          <label for="rating_5" class="star-label" tabindex="0" aria-label="Very Helpful">
-            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />Very Useful
+          <label for="rating_5" class="star-label" tabindex="0" aria-label="매우 도움이 됨">
+            <i class="fas fa-star" data-value="Very Helpful" title="매우 도움이 됨"></i><br />5<br />매우 유용함
           </label>
         </div>
 
       </div>
     </div>
     <div style="margin-top: 15px;">
-      <b>Share your feedback</b> <br />
-      <textarea id="feedback_comment" placeholder="&quot;I couldn’t find any information about this error message&quot;"></textarea><br />
-        Have questions? Contact our support team for assistance.
+      <b>피드백을 공유해 주세요</b> <br />
+      <textarea id="feedback_comment" placeholder="&quot;이 오류 메시지에 대한 정보를 찾을 수 없었습니다&quot;"></textarea><br />
+        질문이 있으신가요? 고객지원 팀에 문의하여 도움을 받으세요.
     </div>
-    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> Submit feedback </button>
+    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> 피드백 제출 </button>
   </div>
   <div id="feedback_msg">
   </div>
-
-  <hr style="border: 1px solid #CDCDCF;margin-top:48px;"/>
-
-  <h3> 이 문서를 훌륭하게 만드는 데 도움을 주세요</h3>
-
-  브레이즈 문서는 모든 사람이 기여할 수 있는 오픈 소스 프로젝트입니다. 288명 이상의 기여자와 함께하고 오늘 첫 번째 풀 리퀘스트를 제출하세요. <br /><br />
-
-  <button type="submit" onclick="location.href='{{site.baseurl}}/contributing/home'" value="기여하기" class="btn btn-white">기여 시작하기</button>
 
 </div>
 </fieldset>

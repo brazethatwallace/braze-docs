@@ -18,7 +18,8 @@ tool:
 
 The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two key components to simplify your workflow, without additional use of HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
+    <caption>Content and Rows editor components</caption>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
@@ -32,7 +33,7 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="About the editor" }
 
 ### Content
 
@@ -143,7 +144,11 @@ Advanced functionality will appear in the campaign or Canvas composer. In advanc
 
 ### Step 4: Test your email
 
-After adding your sending information, it's time to finally test your email. 
+After adding your sending information, it's time to finally test your email.
+
+{% alert tip %}
+If the email looks different in the editor than in preview or test send, confirm that all tags are closed, image attributes have values, and background images aren't blurred at edges.
+{% endalert %}
 
 Go to the **Preview and Test** section. Here, you have the option of previewing your email as a user or sending a test message. This section also includes [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/), which allows you to check that your email has rendered correctly across different mobile and web clients.
 
@@ -175,9 +180,7 @@ Note that any edits made to an email template won't reflect in a previously gene
 
 Inbox Vision allows you to view your email campaigns from the perspective of email clients and mobile devices. To test your email message using Inbox Vision, select **Inbox Vision** in the **Preview & Test** section and select **Run Inbox Vision**.
 
-{% alert tip %}
-Background images in email messaging may sometimes cause white lines or disconnects to appear between images, so it's important to test and check the finer details of your email message.
-{% endalert %}
+It's important to test and check the finer details of your email message. For example, background images in email messaging may sometimes cause white lines or disconnects to appear between images, or clients such as Windows Outlook may not show background images. Using Inbox Vision can help identify these discrepancies between clients. In this scenario, set a fallback background color so that these images can render as expected.
 
 For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
 
@@ -189,8 +192,9 @@ The underlying engine that produces HTML from the drag-and-drop editor has been 
 Our average exported HTML data footprint size has been reduced, leading to faster loading and rendering, reduced mobile clipping, and reduced bandwidth consumption.
 
 HTML rendering has improved based on the following updates that minimize the number of conditional comments and CSS media queries. As a result, HTML files are smaller and more efficiently coded.
-- Migration from a `<div>` element-based design to a standard `<table>` formatted codebase
-- [Editor blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) have been re-coded for conciseness
+- Migration from a `<div>` element-based design to a standard `<table aria-label="Use Inbox Vision">` formatted codebase
+  <caption>Use Inbox Vision</caption>
+- [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) have been re-coded for conciseness
 - The final HTML code is compressed to remove whitespace between tags
 - Transparent dividers are automatically converted into content padding
 {% enddetails %}
@@ -299,7 +303,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `meta` | Provides metadata such as page description or keywords. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Embeds internal CSS styles. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Sets the title of the document shown in browser tabs. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Tag | Attribute | Description | Example |
 | --- | --- | --- | --- |
@@ -317,7 +321,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `style` | `type` | MIME type of the style content. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Specifies the media or device for which styles apply. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | No attributes | The `title` tag doesn't accept any attributes. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Link names can be up to 63 bytes and are automatically truncated if they exceed the limit.

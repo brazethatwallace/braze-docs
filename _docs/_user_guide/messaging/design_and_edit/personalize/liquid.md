@@ -1,7 +1,7 @@
 ---
 nav_title: Liquid reference
 article_title: Liquid reference
-page_order: 2
+page_order: 3
 layout: dev_guide
 alias: /liquid/
 search_rank: 3
@@ -77,20 +77,6 @@ The following new array and math filters are available for use in your Liquid as
 
 Refer to [Filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) for definitions.
 
-### Liquid updates
-
-#### Color labels
-
-Each Liquid element corresponds to a color, allowing you to differentiate your Liquid at-a-glance in your Liquid editor.
-
-![]({% image_buster /assets/img/liquid_color_code.png %})
-
-#### Predictive Liquid
-
-You can also leverage predictive Liquid for custom attributes, attribute names, and more as you build your personalized messages.
-
-![]({% image_buster /assets/img/liquid_auto_complete.gif %}){: style="max-width:70%;"}
-
 ## Terms to know
 
 These terms are reinterpreted from [**Shopify's documentation**](https://shopify.github.io/liquid/basics/introduction/) based on our level of support.
@@ -104,7 +90,7 @@ These terms are reinterpreted from [**Shopify's documentation**](https://shopify
 | Conditional logic tag | Used to create logic and control the flow of message content. In Braze, conditional logic tags are used to create exceptions and variations in messages based on certain, predefined criteria. | ```{% if ${language} == 'en' %}``` will trigger your message in a designated way in the event that a user has designated "English" as their language. |
 | Filters | Used to change, narrow, or reformat the output of the Liquid object. It's often used to create mathematical operations. | ```{{"Big Sale" | upcase}}``` will cause the words "Big Sale" to appear as "BIG SALE" in the message. |
 | Operators | Used in messages to create dependencies or criteria that can affect which message your user receives. | If a user meets the defined criteria in a message tagged with `{% custom_attribute.${Total_Revenue} > 0%}`, they will receive the message. If not, they will receive another designated message (or not), depending on what you set. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Terms to know" }
 
 {% endraw %}
 

@@ -1,106 +1,106 @@
 ---
 nav_title: Nutzerarchivierung
-article_title: Benutzer Archivierung
+article_title: Nutzerarchivierung
 permalink: /user_archival/
 page_order: 0
 page_type: reference
-description: "Dieser referenzierte Artikel behandelt die Definitionen der Nutzerarchivierung, die Spam-Blockierung und wie Sie Ihre Richtlinie zur Nutzer:innen-Archivierung anpassen können."
+description: "Dieser Referenzartikel behandelt die Definitionen der Nutzerarchivierung, die Spam-Blockierung und wie Sie Ihre Richtlinie zur Nutzerarchivierung anpassen können."
 
 ---
-# Nutzerarchivierung
+# Nutzerarchivierung {#user-archival}
 
-> Jede Woche am Sonntag um 5:30 Uhr EST führt Braze einen Prozess durch, um inaktive und inaktive Nutzer:innen aus den Serviceleistungen; Diensten zu entfernen. Beachten Sie, dass Braze die Nutzerarchivierung erst startet, wenn die Nutzeranzahl im Workspace höher als 250.000 ist.
+> Jeden Sonntag um 5:30 Uhr EST führt Braze einen Prozess durch, um inaktive und inaktive:r Nutzer:in aus den Braze-Diensten zu entfernen. Beachten Sie, dass Braze Nutzer:innen erst archiviert, wenn die Anzahl der Nutzer:innen im Workspace den Schwellenwert von 250.000 erreicht.
 
-Dieses Verfahren soll Braze dabei helfen, genaue Statistiken über die für Kampagnen erreichbaren Zielgruppen zu erstellen. Sie dient auch der Einhaltung von zwei Schlüsselkonzepten der [DSGVO][1]:
+Dieses Verfahren soll Braze dabei helfen, genaue Statistiken über die für Kampagnen erreichbaren Zielgruppen zu erstellen. Es dient auch der Einhaltung von zwei Schlüsselkonzepten der [DSGVO][1]:
 
-1. Der Grundsatz der Speicherbegrenzung – verarbeitete und gespeicherte personenbezogene Daten sollten nicht länger aufbewahrt werden als notwendig
-2. Es gibt einen legitimen Geschäftszweck für die Verarbeitung personenbezogener Daten.
+1. Der Grundsatz der Speicherbegrenzung – verarbeitete und gespeicherte personenbezogene Daten sollten nicht länger aufbewahrt werden als notwendig.
+2. Es muss ein legitimer Geschäftszweck für die Verarbeitung personenbezogener Daten vorliegen.
 
-Das heißt, personenbezogene Daten, die verarbeitet und gespeichert werden, sollten nicht länger als nötig aufbewahrt werden, und personenbezogene Daten sollten nur für legitime Geschäftszwecke verarbeitet werden. Bei archivierten Nutzerkonten wird auch der Abmeldestatus gemäß DSGVO gelöscht.
-
-{% alert important %}
-Die archivierten Nutzer:innen werden dauerhaft gelöscht. <br><br>Sie können [Ihre Richtlinie für die Nutzerarchivierung](#customizing-your-user-archival-policy) mit Canvas [anpassen](#customizing-your-user-archival-policy). Kunden haben die volle Kontrolle darüber, ob ein Nutzer:innen inaktiv oder inaktiv ist. Canvas bietet die Möglichkeit, dies automatisch zu tun, so dass Sie diese Funktion für einige oder alle Ihrer inaktiven oder inaktiven Nutzer:innen effektiv ausschalten können.
-{% endalert %}
-
-## Nutzerarchivierung – Definitionen
-
-### Aktive Nutzer:innen
-
-Für Braze sind "aktive Nutzerkonten" solche, die in einem bestimmten Zeitraum eine Sitzung in einer mobilen App oder Website aufgezeichnet, ein Update oder eine Nachricht erhalten oder mit einer Nachricht interagiert haben.
-
-Wenn Sie Bezeichner zur Identifizierung von Nutzer:innen festlegen, wenn sich ein neuer Nutzer anmeldet, wird er als separater aktiver Nutzer gezählt. Nutzer:innen, die über die API aktualisiert werden, werden auch als aktive Nutzer:innen in dem Zeitraum gezählt, in dem sie aktualisiert werden.
+Das heißt, personenbezogene Daten, die verarbeitet und gespeichert werden, sollten nicht länger als nötig aufbewahrt werden, und personenbezogene Daten sollten nur für legitime Geschäftszwecke verarbeitet werden. Bei archivierten Nutzer:innen wird auch der Abmeldestatus gemäß DSGVO gelöscht.
 
 {% alert important %}
-Sowohl inaktive Nutzer:innen als auch inaktive Nutzer:innen werden archiviert, es sei denn, der Nutzer:innen ist aus den unten aufgeführten Gründen von der Archivierung ausgeschlossen.
+Archivierte Nutzer:innen werden dauerhaft gelöscht. <br><br>Sie können [Ihre Richtlinie zur Nutzerarchivierung anpassen](#customizing-your-user-archival-policy), indem Sie Canvas verwenden. Kund:innen haben die volle Kontrolle darüber, ob Nutzer:innen als inaktiv oder ruhend eingestuft werden. Canvas bietet die Möglichkeit, dies automatisch zu tun, sodass Sie diese Funktion für einige oder alle Ihrer inaktiven oder ruhenden Nutzer:innen effektiv ausschalten können.
 {% endalert %}
 
-### Inaktive Nutzerkonten
+## Definitionen der Nutzerarchivierung {#user-archival-definitions}
 
-"Inaktive Nutzer:innen" sind Nutzer:innen, die nicht erreichbar sind und wahrscheinlich abgewandert sind. Inaktive Nutzer:innen sind diejenigen, die alle diese Kriterien erfüllen:
+### Aktive Nutzer:innen {#active-users}
 
-- Ich kann keine E-Mails empfangen. Sie haben zum Beispiel keine E-Mail-Adresse, oder sie sind von allen E-Mail-Listen abgemeldet.
-- Sie können keine SMS empfangen. Sie haben z.B. keine gültige Telefonnummer, oder sie sind von allen SMS Abo-Gruppen abgemeldet.
-- Kann keinen Push empfangen. Sie haben zum Beispiel die App deinstalliert oder die Push-Berechtigungen deaktiviert.
-- Ich kann keine WhatsApp Nachricht empfangen. Sie haben zum Beispiel keine gültige Telefonnummer oder sind von allen Abo-Gruppen von WhatsApp abgemeldet.
-- Sie können keine LINE Nachricht empfangen. Sie haben zum Beispiel keine LINE ID oder sind von allen LINE Abo-Gruppen abgemeldet.
-- Seit über sechs Monaten keine mobile App benutzt oder Workspace-Website besucht
-- Seit über sechs Monaten keine Workspace-Nachrichten mehr erhalten.
-- Wurde seit mehr als sechs Monaten nicht mehr aktualisiert.
+Braze definiert „aktive Nutzer:innen“ für einen bestimmten Zeitraum als alle Nutzer:innen, die eine Sitzung in einer mobilen App oder Website aufgezeichnet, ein Update erhalten, eine Nachricht erhalten oder mit einer Nachricht interagiert haben.
 
-In diesem Fall können diese Nutzer:innen nicht durch Messaging erreicht werden und zeigen kein Engagement für Ihre Marke. Diese Nutzer:innen haben sich tatsächlich abgewandert.
+Wenn Sie Nutzer-IDs festlegen, um Nutzer:innen zu identifizieren, wenn sich neue Nutzer:innen anmelden, werden diese als separate aktive Nutzer:innen gezählt. Nutzer:innen, die über die API aktualisiert werden, werden ebenfalls als aktive Nutzer:innen in dem Zeitraum gezählt, in dem sie aktualisiert werden.
 
-### Ruhende Nutzerkonten
+{% alert important %}
+Sowohl inaktive als auch ruhende Nutzer:innen werden archiviert, es sei denn, sie sind aus den unten aufgeführten Gründen von der Archivierung ausgeschlossen.
+{% endalert %}
 
-"Inaktive:r Nutzer:in" sind Nutzer:innen, die in den letzten zwölf Monaten nicht aktiv waren und:
+### Inaktive Nutzer:innen {#inactive-users}
 
-- Seit über zwölf Monaten keine mobile App benutzt oder Workspace-Website besucht
-- Seit über zwölf Monaten keine Workspace-Nachrichten mehr erhalten.
-- Wurde seit mehr als 12 Monaten nicht mehr aktualisiert.
+„Inaktive Nutzer:innen“ sind Nutzer:innen, die nicht erreichbar sind und wahrscheinlich abgewandert sind. Inaktive Nutzer:innen sind diejenigen, die alle folgenden Kriterien erfüllen:
 
-## Globale Kontrollgruppe Nutzer:innen
+- Können keine E-Mails empfangen. Sie haben zum Beispiel keine E-Mail-Adresse oder sind von allen E-Mail-Listen abgemeldet.
+- Können keine SMS empfangen. Sie haben zum Beispiel keine gültige Telefonnummer oder sind von allen SMS-Abo-Gruppen abgemeldet.
+- Können keinen Push empfangen. Sie haben zum Beispiel die App deinstalliert oder die Push-Berechtigungen deaktiviert.
+- Können keine WhatsApp-Nachricht empfangen. Sie haben zum Beispiel keine gültige Telefonnummer oder sind von allen WhatsApp-Abo-Gruppen abgemeldet.
+- Können keine LINE-Nachricht empfangen. Sie haben zum Beispiel keine LINE-ID oder sind von allen LINE-Abo-Gruppen abgemeldet.
+- Haben seit über sechs Monaten keine mobile App genutzt oder keine Website in einem Workspace besucht.
+- Haben seit über sechs Monaten keine Nachrichten aus einem Workspace erhalten.
+- Wurden seit mehr als sechs Monaten nicht aktualisiert.
 
-Nutzerkonten aus der globalen Kontrollgruppe auch dann nicht archiviert, wenn sie inaktiv oder ruhend sind. 
+In diesem Fall können diese Nutzer:innen nicht per Messaging erreicht werden und zeigen kein Engagement für Ihre Marke. Diese Nutzer:innen haben sich effektiv abgewandert.
 
-### Behandlungstichprobe
+### Ruhende Nutzer:innen {#dormant-users}
 
-Nutzer:innen der Behandlungsstichprobe in einem Bericht der globalen Kontrollgruppe sind von der Archivierung ausgeschlossen.
+„Ruhende Nutzer:innen“ sind Nutzer:innen, die in den letzten zwölf Monaten keine Aktivität gezeigt haben und:
 
-## Testnutzer:innen
+- Seit über zwölf Monaten keine mobile App genutzt oder keine Website in einem Workspace besucht haben.
+- Seit über zwölf Monaten keine Nachrichten aus einem Workspace erhalten haben.
+- Seit mehr als zwölf Monaten nicht aktualisiert wurden.
 
-Testnutzer werden auch dann nicht archiviert, wenn sie inaktiv oder ruhend sind.
+## Nutzer:innen der globalen Kontrollgruppe {#global-control-group-users}
 
-## Spam-Blockierung
+Nutzer:innen in der globalen Kontrollgruppe werden niemals archiviert, auch wenn sie die Definition von inaktiven oder ruhenden Nutzer:innen erfüllen.
 
-Braze blockiert Nutzerkonten mit mehr als fünf Mio. Sitzungen ("Dummy-Konten") und nimmt ihre SDK-Ereignisse nicht mehr auf, da sie in der Regel das Ergebnis einer fehlerhaften Integration sind. Wenn Sie feststellen, dass dies bei einem rechtmäßigen Nutzer:innen passiert ist, reichen Sie ein Ticket beim Braze [Support]({{site.baseurl}}/braze_support/) ein.
+### Behandlungsstichprobe {#treatment-sample-group}
 
-Um Dummy-Konten in Ihrem Dashboard zu finden, führen Sie die folgenden Schritte durch:
+Nutzer:innen der Behandlungsstichprobe in einem Bericht zur globalen Kontrollgruppe sind von der Archivierung ausgeschlossen.
 
-1. Erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+## Testnutzer:innen {#test-users}
+
+Testnutzer:innen werden niemals archiviert, auch wenn sie die Definition von inaktiven oder ruhenden Nutzer:innen erfüllen.
+
+## Spam-Blockierung {#spam-blocking}
+
+Braze blockiert einzelne Nutzer:innen mit mehr als fünf Millionen Sitzungen („Dummy-Nutzer:innen“) und nimmt deren SDK-Ereignisse nicht mehr auf, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Wenn Sie feststellen, dass dies bei einem/einer legitimen Nutzer:in passiert ist, reichen Sie ein Ticket beim Braze-[Support]({{site.baseurl}}/braze_support/) ein.
+
+Um Dummy-Nutzer:innen in Ihrem Dashboard zu finden, führen Sie die folgenden Schritte durch:
+
+1. Erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 2. Wählen Sie den Filter `Session Count` aus und setzen Sie ihn auf `more than 5,000,000`.
 3. Exportieren Sie das Segment über CSV.
 
-Falls erforderlich, können Sie die Nutzer:innen über den [Endpunkt`/users/delete` ]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) löschen.
+Falls erforderlich, können Sie die Nutzer:innen über den [`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) löschen.
 
-## Archivierungsrichtlinie anpassen
+## Richtlinie zur Nutzerarchivierung anpassen {#customizing-your-user-archival-policy}
 
-Braze bietet Features für die Orchestrierung von Daten, mit denen Sie Ihre Richtlinie für die Nutzerarchivierung anpassen können. Erstellen Sie eine Richtlinie zur Nutzerarchivierung, die Ihnen das Beste aus beiden Welten bietet - mit der Komponente Canvas [User Update]({{site.baseurl}}/user_update/).
+Braze bietet Features zur Daten-Orchestrierung, mit denen Sie Ihre Richtlinie zur Nutzerarchivierung anpassen können. Erstellen Sie eine Richtlinie zur Nutzerarchivierung, die Ihnen das Beste aus beiden Welten bietet – mit der Canvas-Komponente [Nutzeraktualisierung]({{site.baseurl}}/user_update/).
 
 So können Sie:
 
-- Halten Sie sich an die DSGVO und bewährte Datenschutzpraktiken, indem Sie Nutzer:innen-Profile löschen, die nicht mehr von Nutzen sind.
-- Bewahren Sie alle Nutzerprofile auf, für die Sie einen legitimen geschäftlichen Grund haben.
+- Die DSGVO und bewährte Datenschutzpraktiken einhalten, indem Sie Nutzerprofile löschen, die nicht mehr von Nutzen sind.
+- Alle Nutzerprofile aufbewahren, für die Sie einen legitimen geschäftlichen Grund haben.
 
-### Schritte
+### Schritte {#steps}
 
-1. Targeting von Nutzer:innen, die den Archivierungskriterien Ihrer Marke entsprechen und die Sie behalten möchten. Sie könnten zum Beispiel Nutzer:innen behalten, die:
-    - Sie haben zuletzt vor mehr als 23 Wochen eine Nachricht erhalten oder haben noch nie eine Nachricht erhalten<br>UND<br>
+1. Erstellen Sie eine Zielgruppe aus Nutzer:innen, die den Archivierungskriterien Ihrer Marke entsprechen und die Sie behalten möchten. Sie könnten zum Beispiel Nutzer:innen behalten, die:
+    - Zuletzt vor mehr als 23 Wochen eine Nachricht erhalten haben oder noch nie eine Nachricht erhalten haben<br>UND<br>
     - Ihre App zuletzt vor mehr als 23 Wochen genutzt haben oder keine Sitzungen in Ihrer App hatten<br><br>
-      ![Targeting Nutzer:innen, die zuletzt vor mehr als 23 Wochen eine Nachricht erhalten haben, noch nie eine Nachricht aus einer Kampagne oder einem Canvas-Schritt erhalten haben, diese Apps zuletzt vor mehr als 23 Wochen verwendet haben und diese Apps genau null Mal verwendet haben][2].<br><br>
-2. Die Neuqualifizierung bei etwas unter sechs Monaten ansetzen<br><br>
-      ![Eingangskontrollen mit aktivierter Wiederwählbarkeit und einem Wiederwählbarkeitsfenster von 23 Wochen][3].<br><br>
-3. Konfigurieren Sie den Schritt Nutzeraktualisierung, um jedem Profil ein Ereignis hinzuzufügen.<br><br>
-      ![Update-Schritt des Nutzers, der das Ereignis "do_not_archive" zum Profil des Nutzers hinzufügt][4]
-{% details Sample User Update object %}
+      ![Zielgruppe aus Nutzer:innen, die zuletzt vor mehr als 23 Wochen eine Nachricht erhalten haben, noch nie eine Nachricht aus einer Kampagne oder einem Canvas-Schritt erhalten haben, diese Apps zuletzt vor mehr als 23 Wochen verwendet haben und diese Apps genau null Mal verwendet haben.][2]<br><br>
+2. Setzen Sie die Neuqualifizierung auf etwas weniger als sechs Monate.<br><br>
+      ![Eingangskontrollen mit aktivierter Neuqualifizierung und einem Neuqualifizierungsfenster von 23 Wochen.][3]<br><br>
+3. Konfigurieren Sie den Schritt „Nutzeraktualisierung“, um jedem Profil ein Ereignis hinzuzufügen.<br><br>
+      ![Schritt „Nutzeraktualisierung“, der das Ereignis „do_not_archive“ zum Profil der Nutzer:innen hinzufügt.][4]
+{% details Beispiel für ein Nutzeraktualisierungsobjekt %}
 
 {% raw %}
 ```json

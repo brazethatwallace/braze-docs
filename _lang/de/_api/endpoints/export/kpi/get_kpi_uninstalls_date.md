@@ -1,15 +1,15 @@
 ---
-nav_title: "GET: Exportieren Sie KPIs für die tägliche Deinstallation von Apps nach Datum"
-article_title: "GET: KPIs für tägliche Deinstallationen von Apps nach Datum exportieren"
-search_tag: Endpunkt
+nav_title: "GET: KPIs für tägliche App-Deinstallationen nach Datum exportieren"
+article_title: "GET: KPIs für tägliche App-Deinstallationen nach Datum exportieren"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel enthält Details zum Export täglicher App-Deinstallationen nach Datum Braze Endpunkt."
+description: "Dieser Artikel enthält Details zum Braze-Endpunkt „Tägliche App-Deinstallationen nach Datum exportieren“."
 
 ---
 {% api %}
-# Exportieren Sie KPIs für die tägliche Deinstallation von Apps nach Datum
+# KPIs für tägliche App-Deinstallationen nach Datum exportieren {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
 /kpi/uninstalls/data_series
 {% endapimethod %}
@@ -18,7 +18,7 @@ description: "Dieser Artikel enthält Details zum Export täglicher App-Deinstal
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#59c4d592-3e77-42f8-8ff1-d5d250acbeae {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `kpi.uninstalls.data_series`.
 
@@ -26,16 +26,16 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
-| Parameter| Erforderlich | Datentyp | Beschreibung |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 | -------- | -------- | --------- | ----------- |
-| `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Serie enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
-| `ending_at` | Optional | Datetime <br>[(ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird die Zeit der Anfrage verwendet. |
-| `app_id` | Optional | String | Bezeichner der App API, der von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) abgerufen wird. Wenn ausgeschlossen, werden die Ergebnisse für alle Apps im Workspace zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Reihe enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
+| `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
+| `app_id` | Optional | String | App-API-Bezeichner, der von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) abgerufen wird. Wenn nicht angegeben, werden die Ergebnisse für alle Apps im Workspace zurückgegeben. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/data_series?length=14&ending_at=2018-06-28T23:59:59-5:00&app_id={{app_identifier}}' \
@@ -43,7 +43,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/d
 ```
 {% endraw %}
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {

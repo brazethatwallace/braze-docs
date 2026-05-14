@@ -25,7 +25,11 @@ See this article's [Consumption count](#consumption-count) section to understand
 
 To view your data point usage, go to **Settings** > **Billing** and select the **Total Data Points Usage** tab.
 
-For more information on the data point dashboard components, refer to [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
+### Data point refresh schedule
+
+Data point usage is cached (not real-time) every 24 hours. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+
+For more information on the data point dashboard components, see [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
 
 {% alert tip %}
 **Don't waste data points. Only update changing data!**<br><br>
@@ -109,7 +113,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 | Twitter | Following |
 | Twitter | Number of tweets |
 | Facebook | Likes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
 
 {% endtab %}
 {% tab Billable %}
@@ -163,7 +167,7 @@ table td {
 | Appsflyer cohort assignment | All assignments | |
 | Most recent location | All most recent locations | Entering or exiting geofences doesn't log data points because geofence data is not stored against the user profile. Geofences are monitored by Apple and Google location services; Braze only gets notified upon a user triggering a geofence. |
 | Twitter | Username | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
 
 {% endtab %}
 {% endtabs %}

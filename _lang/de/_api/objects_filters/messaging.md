@@ -1,5 +1,5 @@
 ---
-nav_title: Nachrichten Objekte
+nav_title: Nachrichtenobjekte
 config_only: true
 noindex: true
 ---

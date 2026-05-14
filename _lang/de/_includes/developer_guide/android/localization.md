@@ -1,12 +1,12 @@
-# Lokalisierung
+# Lokalisierung {#localization}
 
-> Die Lokalisierung wird im Braze Android SDK unterstützt. Außer Englisch unterstützt Braze noch weitere Sprachen für die integrierten SDK-Nachrichten. Diese beziehen sich auf die Standardmeldungen, die in den mit Braze integrierten Anwendungen angezeigt werden, wie z.B. die Stellen in der App, an denen es Probleme mit der Verbindung gibt (z.B. "Netzwerkverbindung kann nicht hergestellt werden. Bitte versuchen Sie es später noch einmal.") 
+> Die Lokalisierung wird im Braze Android SDK unterstützt. Neben Englisch unterstützt Braze mehrere weitere Sprachen für die integrierten SDK-Nachrichten. Diese beziehen sich auf die Standardmeldungen, die in mit Braze integrierten Anwendungen angezeigt werden, z. B. an Stellen in der App, an denen Verbindungsprobleme auftreten (etwa „Netzwerkverbindung kann nicht hergestellt werden. Bitte versuchen Sie es später noch einmal.“).
 
-Wenn die Sprache des Telefons auf eine der unterstützten Sprachen eingestellt ist, wird jede der Braze-Standardzeichenfolgen, die innerhalb einer integrierten Anwendung ausgelöst werden, automatisch in dieser Sprache angezeigt.
+Wenn die Sprache des Telefons auf eine der unterstützten Sprachen eingestellt ist, werden alle Braze-Standard-Strings, die innerhalb einer integrierten Anwendung getriggert werden, automatisch in dieser Sprache angezeigt.
 
-Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ihren Benutzern in deren Profilen zuweisen können, sehen Sie sich unsere [Liste der Benutzersprachen]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/) an.
+Eine vollständige Liste der unterstützten Sprachen, die Sie Ihren Nutzer:innen in deren Profilen zuweisen können, finden Sie in unserer [Liste der Nutzersprachen]({{site.baseurl}}/user_guide/data/user_data_collection/language_codes/).
 
-## Unterstützte Sprachen
+## Unterstützte Sprachen {#languages-supported}
 
 - Afrikaans
 - Aghem
@@ -34,13 +34,13 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Birmanisch
 - Kambodschanisch
 - Katalanisch
-- Zentralatlas tamazight
+- Zentralatlas-Tamazight
 - Cherokee
 - Chiga
 - Chinesisch
-- Kongo swahili
+- Kongo-Swahili
 - Kornisch
-- Kapverdisches Kreol
+- Kreolisch
 - Kroatisch
 - Tschechisch
 - Dänisch
@@ -81,7 +81,7 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Italienisch
 - Japanisch
 - Javanisch
-- Jola fonyi
+- Jola-Fonyi
 - Kabylisch
 - Kalenjin
 - Kamba
@@ -94,22 +94,22 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Kirgisisch
 - Konkani
 - Koreanisch
-- Koyraboro senni
+- Koyraboro Senni
 - Kurdisch
 - Laotisch
 - Lateinisch
 - Lettisch
 - Lingala
 - Litauisch
-- Luba katanga
+- Luba-Katanga
 - Luo
 - Luxemburgisch
 - Luhya
 - Mazedonisch
 - Machame
-- Makhuwa meetto
+- Makhuwa-Meetto
 - Chimakonde
-- Madegassisch
+- Madagassisch
 - Malaiisch
 - Malayalam
 - Maltesisch
@@ -127,7 +127,7 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Norwegisch
 - Nuer
 - Nyankole
-- Neunorwegisch
+- Nynorsk
 - Oriya
 - Oromo
 - Paschtu
@@ -136,7 +136,7 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Portugiesisch
 - Punjabi
 - Quechua
-- Raeto-Romanze
+- Rätoromanisch
 - Rumänisch
 - Rombo
 - Kirundi
@@ -151,7 +151,7 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Serbisch
 - Shambala
 - Shona
-- Sichuan yi
+- Sichuan Yi
 - Sindhi
 - Singhalesisch
 - Slowakisch
@@ -193,4 +193,3 @@ Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ih
 - Zulu
 
 Weitere Informationen finden Sie in unserem Artikel zur [Android-Lokalisierung](http://developer.android.com/guide/topics/resources/localization.html).
-

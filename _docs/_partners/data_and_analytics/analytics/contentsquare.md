@@ -25,7 +25,7 @@ The Braze and Contentsquare integration allows you to send Live Signals (fraud, 
 | Contentsquare account | A Contentsquare account is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. To create a new key in the Braze dashboard, go to **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({% image_buster /assets/img/contentsquare_custom_events.png %}). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

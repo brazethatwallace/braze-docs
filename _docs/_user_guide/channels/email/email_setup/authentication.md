@@ -10,7 +10,11 @@ channel: email
 
 # Email authentication
 
-> Email authentication is a collection of techniques that equip your emails with verifiable information about its origin.<br><br>Proper authentication is crucial for internet service providers (ISPs) to recognize you as a sender of desirable emails and deliver your mail immediately. Without authentication, your outreach is presumed to be fraudulent. 
+> Email authentication is a collection of techniques that equip your emails with verifiable information about its origin.<br><br>Proper authentication is crucial for internet service providers (ISPs) to recognize you as a sender of desirable emails and deliver your mail immediately. Without authentication, your outreach is presumed to be fraudulent.
+
+{% alert note %}
+No special coordination with Braze is required for **BIMI** (Brand Indicators for Message Identification). Required DNS records and certificates are managed on your side.
+{% endalert %}
 
 ## Methods of authentication
 
@@ -47,7 +51,7 @@ Set a DMARC policy on the root domain so it applies to all subdomains. This avoi
 | None | Tell the mailbox provider to perform no actions against messages that fail. |
 | Quarantine | Tell the mailbox provider to send messages that fail to the spam folder. |
 | Reject | Tell the mailbox provider that messages that fail will go to the spam folder and should be blocked. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
 
 #### How to check your domain's DMARC authentication
 

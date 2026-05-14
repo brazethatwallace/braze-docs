@@ -4,37 +4,39 @@ page_order: 0
 noindex: true
 ---
 
-# Beispiel-Layout: Übersicht
+# Beispiel-Layout: Übersicht {#example-layout-overview}
 
-> Das Übersichtslayout ist gut geeignet, um eine spezielle Navigationsoption am oberen Rand einer Seite zu erstellen, die es Nutzern:innen ermöglicht, durch Klicken auf einen Button zu einem bestimmten Teil einer Seite oder zu einer ganz anderen Seite zu gelangen.
+> Das Übersichtslayout ist gut geeignet, um eine spezielle Navigationsoption am oberen Rand einer Seite zu erstellen, die es Nutzer:innen ermöglicht, durch Klicken auf einen Button zu einem bestimmten Teil einer Seite oder zu einer ganz anderen Seite zu gelangen.
 
-Klassische Beispiele für das SELEKTOR-Layout sind die Seite [SDK Changelogs](https://www.braze.com/docs/developer_guide/changelogs) oder die [Seite In-App-Nachricht Kreative Details](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Klassische Beispiele für das Selektor-Layout sind die Seite [SDK Changelogs](https://www.braze.com/docs/developer_guide/changelogs) oder die Seite [Kreative Details für In-App-Nachrichten](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/).
 
-## Erforderliche Komponenten
+## Erforderliche Komponenten {#required-components}
 
 1. YAML-Notation für Öffnungen und Schließungen. Mit anderen Worten: --- vor dem Inhalt und --- danach.
-2. Anführungszeichen um bestimmte Parameterinhalte. (Header-Parameter, Textparameter, Inhalte mit Bindestrichen oder anderen Sonderzeichen).
-3. Glossar Tags Notation (Dies sind Filter Tags)
+2. Anführungszeichen um bestimmte Parameterinhalte. (Header-Parameter, Textparameter, Inhalte mit Bindestrichen oder anderen Sonderzeichen.)
+3. Glossar-Tags-Notation (Dies sind Filter-Tags)
 
-## Erforderliche Parameter
+## Erforderliche Parameter {#required-parameters}
 
-|Parameter | Inhaltstyp | Details |
+| Parameter | Inhaltstyp | Details |
 |---|---|---|
-|`page_order`| Numerisch | Ordnen Sie die Seite innerhalb des Abschnitts. Diese Reihenfolge wird in der linken Navigation angezeigt. |
-| `nav-title`| Alphanumerisch | Titel, der in der linken Navigation erscheinen wird. |
-|`layout`| Alphanumerisch - Keine Leerzeichen | Wählen Sie ein Layout aus dem [Layoutbereich](https://github.com/Appboy/braze-docs/tree/develop/_layouts) der Dokumentation aus. | 
-|`guide_top_header`|Alphanumerisch | Betiteln Sie Ihre Seite.|
-|`guide_top_text`|Alphanumerisch | Beschreiben Sie Ihre Seite. Dies wird direkt über den Buttons und deren Titel angezeigt. Anführungszeichen um den Inhalt erforderlich. |
-|`guide_featured_title`| Alphanumerisch | Betiteln Sie Ihre Karten. Dies wird direkt über den Buttons angezeigt.
-|`guide_featured_list`| Mehr YAML, Alphanumerisch | Siehe [Format für Leitfaden-Listen](#guide-listing-format) unten. |
+| `page_order` | Numerisch | Ordnen Sie die Seite innerhalb des Abschnitts. Diese Reihenfolge wird in der linken Navigation angezeigt. |
+| `nav-title` | Alphanumerisch | Titel, der in der linken Navigation erscheinen wird. |
+| `layout` | Alphanumerisch – Keine Leerzeichen | Wählen Sie ein Layout aus dem [Layoutbereich](https://github.com/Appboy/braze-docs/tree/develop/_layouts) der Dokumentation aus. |
+| `guide_top_header` | Alphanumerisch | Betiteln Sie Ihre Seite. |
+| `guide_top_text` | Alphanumerisch | Beschreiben Sie Ihre Seite. Dies wird direkt über den Buttons und deren Titel angezeigt. Anführungszeichen um den Inhalt erforderlich. |
+| `guide_featured_title` | Alphanumerisch | Betiteln Sie Ihre Karten. Dies wird direkt über den Buttons angezeigt. |
+| `guide_featured_list` | Mehr YAML, Alphanumerisch | Siehe [Leitfaden-Listenformat](#guide-listing-format) unten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
 
-### Leitfaden-Listenformat
+### Leitfaden-Listenformat {#guide-listing-format}
 
-|Parameter | Inhaltstyp | Details |
+| Parameter | Inhaltstyp | Details |
 |---|---|---|
-|`name`| Alphanumerisch | Benennen Sie das Feld. |
-| `link`| URL oder Pfad | Link zu dem Ort, an dem die Box aufgestellt wird. Muss die vollständige URL enthalten oder (wenn es sich um einen internen Link handelt) `/docs...`  |
-|`image`| Pfad | Link zum Standort des Bildes. |
+| `name` | Alphanumerisch | Benennen Sie das Feld. |
+| `link` | URL oder Pfad | Link zum Ziel des Feldes. Muss die vollständige URL enthalten oder (bei einem internen Link) `/docs...` |
+| `image` | Pfad | Link zum Speicherort des Bildes. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Guide Listing Format" }
 
 Beispiel für das Format:
 
@@ -44,7 +46,7 @@ Beispiel für das Format:
   image: /assets/img/braze_icons/layout-alt-01.svg
 ```
 
-## Beispiel
+## Beispiel {#example}
 
 ```yaml
 ---

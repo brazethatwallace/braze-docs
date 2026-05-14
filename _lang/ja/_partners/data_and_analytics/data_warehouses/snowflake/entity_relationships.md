@@ -1,13 +1,17 @@
 ---
 nav_title: "エンティティのリレーションシップ"
-article_title: Snowflake と Braze のエンティティのリレーションシップ
+article_title: SnowflakeとBrazeのエンティティのリレーションシップ
 page_order: 10
 search_tag: Partner
 ---
 
-# Snowflake と Braze のエンティティのリレーションシップ
+# SnowflakeとBrazeのエンティティのリレーションシップ {#entity-relationships-for-snowflake-and-braze}
 
-> これらは、各メッセージングチャネルの Snowflake と Braze の間のエンティティリレーションシップのリストです。
+> 各メッセージングチャネルにおけるSnowflakeとBrazeの間のエンティティリレーションシップの一覧です。
+
+{% alert important %}
+エンティティリレーションシップ図は、テーブル間の共有フィールドとリレーションシップを示したものであり、完全なテーブルスキーマではありません。フィールドの完全なリストについては、[個別のテーブルスキーマ]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt)を参照してください。
+{% endalert %}
 
 {% sdktabs %}
 {% sdktab Content Cards %}

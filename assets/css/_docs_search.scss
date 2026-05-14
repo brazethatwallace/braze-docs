@@ -77,7 +77,7 @@ $search_tag_color: $grey-athens;
 				height: $search_footer_height;
 				font-size: 13px;
 				line-height: 50px;
-				font-family: $braze-medium;
+				font-family: $braze-bold;
 				color: $braze-purple-dark;
 				position: absolute;
 				right: 0;
@@ -198,7 +198,7 @@ $search_tag_color: $grey-athens;
 
 		div {
 			&.title {
-				font-family: $braze-medium;
+				font-family: $braze-bold;
 				font-size: 14px;
 				color: $search_color;
 				line-height: 1.5;
