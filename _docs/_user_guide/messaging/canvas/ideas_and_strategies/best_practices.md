@@ -52,6 +52,12 @@ Determine the impact of your Canvas messaging by incorporating control groups. T
 Canvas will prevent you from using scheduled send with a time that has already passed. However, it's possible to launch a Canvas during the exact same minute that the campaign is scheduled (or in the seconds before). This can lead to the Canvas missing the scheduled entry time and users not entering the Canvas. We recommend sending Canvases immediately in the event that any campaigns are edited within minutes of the scheduled send time.
 {% endalert %}
 
+{% alert important %}
+**Drafts and stops:** If you **stop** an active Canvas while an unsaved **draft** exists, stopping can discard that draft. Save, launch, or discard the draft before stopping if you need to keep in-progress edits.
+
+**Audience evaluation timing:** Schedule and audience evaluation can differ between **send immediately** entry and scheduled entry—for example, when steps use options that evaluate closer to send time. When you edit audience, schedule, or delivery settings **within minutes** of a scheduled entry or send window, confirm whether users already **enqueued** for the next step will pick up the change (see [Change your Canvas after launch]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/)); when in doubt, stop, duplicate, and relaunch for a clean re-evaluation.
+{% endalert %}
+
 For Canvas steps, consider the following details when scheduling your Canvas:
 
 - Schedule changes will only apply to users who aren't already waiting to receive the step.
