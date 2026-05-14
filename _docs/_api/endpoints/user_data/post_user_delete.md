@@ -112,17 +112,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 
 ## Effects of deleting user profiles {#effects-of-deleting-user-profiles}
 
-When you remove a user with this endpoint, the following fields on the profile are cleared (nulled):
-
-- Any attributes that the user had
-- Email address
-- Phone number
-- External user ID
-- Gender
-- Country
-- Language
-
-The following also applies:
+When you remove a user with this endpoint, the following occurs:
 
 - The user profile is deleted (nulled).
 - Workspace user counts (such as total users on the [analytics home]({{site.baseurl}}/user_guide/analytics/dashboards/home/)) update to account for the removed users.
@@ -130,12 +120,7 @@ The following also applies:
 
 ### Multiple profiles with a shared email address
 
-If you need to merge user profiles that share the same email address:
-
-1. Identify any users with duplicate email addresses.
-2. Export all the attributes of the profile you want to keep.
-3. Import those attributes onto that profile using the API or CSV.
-4. Remove the duplicate profiles with this endpoint so the outdated profiles and the data outlined above are cleared.
+To merge user profiles that share the same email address, call the [`/users/merge` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_users_merg/). 
 
 ## Troubleshooting
 
