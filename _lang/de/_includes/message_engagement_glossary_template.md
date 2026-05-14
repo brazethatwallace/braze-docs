@@ -5,59 +5,63 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar listet die verschiedenen Nachrichten Engagement Events auf, die Braze mit Currents verfolgen und an ausgewählte Data Warehouses senden kann."
+description: "Dieses Glossar listet die verschiedenen Nachrichtenengagement-Events auf, die Braze mit Currents tracken und an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 6
 ---
 
-Speicherschemata gelten für die Flat File-Ereignisdaten, die wir an Data Warehouse Storage Partner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Schemata, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/braze_currents/available_partners/) und auf den entsprechenden Seiten.
+Speicherschemata gelten für die Flat-File-Eventdaten, die wir an Data-Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Für Schemata, die für andere Partner gelten, lesen Sie unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und besuchen Sie die jeweiligen Seiten.
 
-Wenden Sie sich an Ihren Account Manager:in oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Veranstaltungsberechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie brauchen, sehen Sie sich unsere [Bibliothek für Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/) oder unsere [Currents-Beispiele für Daten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+{% alert tip %}
+Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) verfügbar. Für SQL-Tabellenschemata und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
+{% endalert %}
 
-{% details Explanation of message engagement event structure and platform values %}
+Kontaktieren Sie Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek für Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
 
-### Event-Struktur
+{% details Erläuterung der Struktur von Nachrichtenengagement-Events und Plattformwerte %}
 
-Diese Aufschlüsselung der Ereignisse zeigt, welche Art von Informationen im Allgemeinen in einem Ereignis zum Engagement für Nachrichten enthalten sind. Mit einem soliden Verständnis seiner Komponenten können Ihre Entwickler:in und Ihr Business-Intelligence Strategie Team die eingehenden Currents Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Metriken zu nutzen.
+### Event-Struktur {#event-structure}
 
-![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis mit den aufgeführten Eigenschaften zeigt, gruppiert nach benutzerspezifischen Eigenschaften, Kampagnen- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften.]({% image_buster /assets/img/message_engagement_event.png %})
+Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichtenengagement-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Eventdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Metriken auszuwerten.
 
-Nachrichten-Engagement-Ereignisse setzen sich aus **benutzerspezifischen** Eigenschaften, **Kampagnen/Canvas Tracking-Eigenschaften** und **ereignisspezifischen** Eigenschaften zusammen.
+![Aufschlüsselung eines Nachrichtenengagement-Events, das ein E-Mail-Abmelde-Event mit den aufgeführten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und eventspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
 
-### Schema der Nutzer:innen ID
+Nachrichtenengagement-Events bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **eventspezifischen** Eigenschaften.
 
-Beachten Sie die Namenskonventionen für Nutzer:innen.
+### Nutzer-ID-Schema {#user-id-schema}
 
-| Braze Schema | Currents Schema | Beschreibung |
+Beachten Sie die Namenskonventionen für Nutzer-IDs.
+
+| Braze-Schema | Currents-Schema | Beschreibung |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
-| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner des Profils eines Nutzers:in, der vom Kunden festgelegt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der Kundschaft festgelegt wird. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
-### Plattformwerte
+### Plattformwerte {#platform-values}
 
-Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des Nutzergeräts angibt.
-<br>In der folgenden Tabelle finden Sie die möglichen Rückgabewerte:
+Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutzergeräts angibt.
+<br>Die folgende Tabelle zeigt die möglichen Rückgabewerte:
 
-| Nutzer:in-Gerät | Plattformwert |
+| Nutzergerät | Plattformwert |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
 | FireTV | `kindle` |
 | Kindle | `kindle` |
-| Internet | `web` |
+| Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plattformwerte" }
 
 {% enddetails %}
 
 {% alert important %}
-Currents verwirft Events mit übermäßig großen Nutzdaten von mehr als 900 KB.
+Currents verwirft Events mit übermäßig großen Nutzdaten von mehr als 900&nbsp;KB.
 {% endalert %}
 
 {% alert note %}
-Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt Canvas-Details exportieren]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
+Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
 {% endalert %}
 
 {% alert note %}
@@ -71,5 +75,5 @@ Bei bestimmten Feldern kann es länger dauern, bis der neueste Stand angezeigt w
   <li>"experiment_split_name"</li>
   <li>"message_variation_name"</li>
 </ul>
-Wenn eine vollständige Konsistenz erforderlich ist, empfehlen wir, eine Stunde nach dem letzten Update dieser Felder zu warten, bevor Sie Ihre Nachrichten an Ihre Nutzer:innen versenden.
+Wenn vollständige Konsistenz erforderlich ist, empfehlen wir, nach dem letzten Update dieser Felder eine Stunde zu warten, bevor Sie Ihre Nachrichten an Ihre Nutzer:innen versenden.
 {% endalert %}

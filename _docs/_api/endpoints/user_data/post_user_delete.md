@@ -18,7 +18,7 @@ description: "This article outlines details about the Delete users Braze endpoin
 
 Up to 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `phone_numbers` can be included in a single request. Only one of `external_ids`, `user_aliases`, `braze_ids`, `email_addresses`, or `phone_numbers` can be included in a single request.
 
-If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administrative/access_braze/support/) for assistance.
+If you have a use case that can't be solved with bulk user deletion through the API, contact the [Braze Support team]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for assistance.
 
 {% alert warning %}
 Deleting user profiles cannot be undone. It will permanently remove users which may cause discrepancies in your data. Learn more about what happens when you [delete a user profile using the API]({{site.baseurl}}/help/help_articles/api/delete_user/) in our Help documentation.
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids`       | Optional | Array of strings           | Braze user identifiers to be deleted.                                                  |
 | `email_addresses` | Optional | Array of strings           | User emails to be deleted. Refer to [Deleting users by email](#deleting-users-by-email) for more information.                                                             |
 | `phone_numbers` | Optional | Array of strings | User phone numbers to be deleted. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Deleting users by email addresses and phone numbers
 

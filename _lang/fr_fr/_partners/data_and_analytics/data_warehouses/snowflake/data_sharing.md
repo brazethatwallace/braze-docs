@@ -8,15 +8,17 @@ search_tag: Partner
 
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Partage de données Snowflake
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Partage de données Snowflake {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > Le [Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html) de Snowflake permet à Braze de vous donner un accès sécurisé aux données de notre portail Snowflake, sans vous soucier des frictions de workflow, des ralentissements, des points de défaillance et des coûts inutiles liés aux relations classiques avec les fournisseurs de données. Le partage de données peut être configuré via l'intégration suivante ou via les [comptes Snowflake Reader]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts).
+
+Le partage de données Snowflake fait partie de la distribution de données Braze. Pour un aperçu complet des options de distribution de données, consultez [Distribution de données]({{site.baseurl}}/user_guide/data/distribution/).
 
 {% alert tip %}
 **Vous souhaitez accéder à des données de niveau Snowflake sans avoir besoin d'un compte Snowflake ?**<br>Consultez les [comptes Snowflake Reader]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts). Avec les comptes Reader, Braze crée un compte dans lequel vos données sont partagées et vous fournit des identifiants pour vous connecter et accéder à vos données. Ainsi, l'ensemble du partage de données et de la facturation d'utilisation est entièrement géré par Braze.
 {% endalert %}
 
-## À propos du Secure Data Sharing
+## À propos du Secure Data Sharing {#about-secure-data-sharing}
 
 Avec le partage de données, aucune donnée n'est réellement copiée ou transférée entre les comptes. Tout le partage s'effectue via la couche de services et le magasin de métadonnées propres à Snowflake. C'est un concept important, car les données partagées n'occupent aucun espace de stockage dans votre compte et ne contribuent donc pas à vos frais mensuels de stockage de données. Les **seuls** frais concernent les ressources de calcul (comme les entrepôts virtuels) utilisées pour interroger les données partagées.
 
@@ -28,26 +30,26 @@ De plus, grâce aux fonctionnalités intégrées de rôles et d'autorisations de
 
 Pour en savoir plus sur le partage de données Snowflake, consultez l'[Introduction au Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
-| Accès à Braze | Contactez votre responsable de compte Braze ou votre Customer Success Manager pour configurer le partage de données. |
+| Accès à Braze | Contactez votre responsable de compte Braze ou votre gestionnaire de la satisfaction client pour configurer le partage de données. |
 | Compte Snowflake | Un compte Snowflake avec des autorisations `admin`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Configuration du Secure Data Sharing
+## Configuration du Secure Data Sharing {#setting-up-secure-data-sharing}
 
-Chez Snowflake, le partage de données s'effectue entre un [fournisseur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) et un [consommateur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). Dans ce contexte, votre compte Braze est le fournisseur de données, car il crée et envoie le datashare, tandis que votre compte Snowflake est le consommateur de données, car il utilise le datashare pour créer une base de données. Pour plus de détails, consultez [Snowflake : Consommer des données partagées](https://docs.snowflake.com/en/user-guide/data-share-consumers).
+Chez Snowflake, le partage de données s'effectue entre un [fournisseur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) et un [consommateur de données](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). Dans ce contexte, votre compte Braze est le fournisseur de données, car il crée et envoie le datashare&#8212;tandis que votre compte Snowflake est le consommateur de données, car il utilise le datashare pour créer une base de données. Pour plus de détails, consultez [Snowflake : Consommer des données partagées](https://docs.snowflake.com/en/user-guide/data-share-consumers).
 
-### Étape 1 : Envoyer le datashare depuis Braze
+### Étape 1 : Envoyer le datashare depuis Braze {#step-1-send-the-datashare-from-braze}
 
 1. Dans Braze, accédez à **Partner Integrations** > **Data Sharing**.
 2. Saisissez les détails et le localisateur de votre compte Snowflake. Pour obtenir votre localisateur de compte, exécutez `SELECT CURRENT_ACCOUNT()` dans le compte de destination.
 3. Si vous utilisez un partage CRR, spécifiez le fournisseur cloud et la région.
 4. Lorsque vous avez terminé, sélectionnez **Create Datashare**. Le datashare sera alors envoyé à votre compte Snowflake.
 
-### Étape 2 : Créer la base de données dans Snowflake
+### Étape 2 : Créer la base de données dans Snowflake {#step-2-create-the-database-in-snowflake}
 
 1. Après quelques minutes, vous devriez recevoir le datashare entrant dans votre compte Snowflake.
 2. À l'aide du datashare entrant, créez une base de données pour visualiser et interroger les tables. Par exemple :
@@ -63,7 +65,7 @@ Si vous supprimez et recréez un partage dans le tableau de bord de Braze, vous 
 Si vous avez plusieurs espaces de travail partageant des données vers le même compte Snowflake, consultez la [FAQ sur le partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/) pour obtenir des conseils sur la gestion des configurations multi-espaces de travail.
 {% endalert %}
 
-## Utilisation et visualisation
+## Utilisation et visualisation {#usage-and-visualization}
 
 Une fois le partage de données provisionné, créez une base de données à partir du partage de données entrant. Toutes les tables partagées apparaîtront alors dans votre instance Snowflake et seront interrogeables comme n'importe quelle autre donnée stockée dans votre instance. Gardez toutefois à l'esprit que les données partagées sont en lecture seule : elles peuvent uniquement être interrogées, mais ne peuvent être ni modifiées ni supprimées.
 
@@ -77,7 +79,7 @@ Comme pour Currents, vous pouvez utiliser votre Snowflake Secure Data Sharing po
 
 [Téléchargez les schémas de tables brutes ici.]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
 
-### Schéma des ID utilisateur
+### Schéma des ID utilisateur {#user-id-schema}
 
 Notez les différences suivantes entre les conventions de nommage de Braze et de Snowflake pour les ID utilisateur.
 
@@ -87,11 +89,11 @@ Notez les différences suivantes entre les conventions de nommage de Braze et de
 | `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur, défini par le client. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## Informations importantes et limitations
+## Informations importantes et limitations {#important-information-and-limitations}
 
-### Modifications avec et sans rupture
+### Modifications avec et sans rupture {#breaking-versus-non-breaking-changes}
 
-#### Modifications sans rupture
+#### Modifications sans rupture {#non-breaking-changes}
 
 Les modifications sans rupture peuvent survenir à tout moment et apportent généralement des fonctionnalités supplémentaires. Exemples de modifications sans rupture :
 - Ajout d'une nouvelle table ou vue
@@ -101,14 +103,14 @@ Les modifications sans rupture peuvent survenir à tout moment et apportent gén
 Étant donné que les nouvelles colonnes sont considérées comme des modifications sans rupture, Braze recommande fortement de lister explicitement les colonnes souhaitées dans chaque requête plutôt que d'utiliser des requêtes `SELECT *`. Vous pouvez également créer des vues qui nomment explicitement les colonnes, puis interroger ces vues plutôt que les tables directement.
 {% endalert %}
 
-#### Modifications avec rupture
+#### Modifications avec rupture {#breaking-changes}
 
 Dans la mesure du possible, les modifications avec rupture seront précédées d'une annonce et d'une période de migration. Exemples de modifications avec rupture :
 - Suppression d'une table ou vue
 - Suppression d'une colonne d'une table ou vue existante
 - Modification du type ou de la possibilité de valeur nulle d'une colonne existante
 
-### Régions Snowflake
+### Régions Snowflake {#snowflake-regions}
 
 Braze héberge actuellement toutes les données au niveau utilisateur dans les régions AWS Snowflake suivantes :
 
@@ -117,26 +119,26 @@ Braze héberge actuellement toutes les données au niveau utilisateur dans les r
  - AP-Northeast-1 (Tokyo)
  - AP-Southeast-2 (Sydney)
  - AP-Southeast-3 (Jakarta)
- 
+
 Pour les utilisateurs situés en dehors de ces régions, Braze peut fournir un partage de données aux clients communs qui hébergent leur infrastructure Snowflake dans n'importe quelle région AWS, Azure ou GCP.
 
-### Conservation des données
+### Conservation des données {#data-retention}
 
-#### Politique de conservation
+#### Politique de conservation {#retention-policy}
 
 Toute donnée datant de plus de deux ans sera archivée et déplacée vers un stockage à long terme. Dans le cadre du processus d'archivage, tous les événements sont anonymisés et les champs contenant des informations personnelles identifiables (PII) sensibles sont supprimés (cela inclut les champs PII facultatifs comme `properties`). Les données archivées contiennent toujours le champ `user_id`, ce qui permet des analyses par utilisateur sur l'ensemble des données d'événements.
 
 Vous pourrez interroger les deux années les plus récentes de données pour chaque événement dans la vue `USERS_*_SHARED` correspondante. De plus, chaque événement disposera d'une vue `USERS_*_SHARED_ALL` qui peut être interrogée pour obtenir à la fois les données anonymisées et non anonymisées.
 
-#### Données historiques
+#### Données historiques {#historical-data}
 
 L'archive des données d'événements historiques dans Snowflake remonte à avril 2019. Au cours des premiers mois de stockage des données par Braze dans Snowflake, des modifications produit ont été apportées, ce qui peut avoir entraîné des différences mineures dans certaines données ou la présence de valeurs nulles (car nous ne transmettions pas les données dans tous les champs disponibles à cette époque). Il est préférable de considérer que tout résultat incluant des données antérieures à août 2019 peut différer légèrement des attentes.
 
-### Conformité au Règlement Général sur la Protection des Données (RGPD)
+### Conformité au Règlement général sur la protection des données (RGPD) {#general-data-protection-regulation-gdpr-compliance}
 
 {% include partners/snowflake_pii_gdpr.md %}
 
-### Vitesse, performance et coût des requêtes
+### Vitesse, performance et coût des requêtes {#speed-performance-cost-of-queries}
 
 La vitesse, la performance et le coût de toute requête exécutée sur les données dépendent de la taille de l'entrepôt que vous utilisez pour interroger les données. Dans certains cas, selon le volume de données auquel vous accédez pour vos analyses, vous pourriez avoir besoin d'une taille d'entrepôt plus importante pour que la requête aboutisse. Snowflake propose d'excellentes ressources pour vous aider à déterminer la taille optimale, notamment la [Présentation des entrepôts](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) et les [Considérations relatives aux entrepôts](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 

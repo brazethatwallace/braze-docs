@@ -72,7 +72,7 @@ To use this endpoint, you'll need to complete the following:
 
 | Parameter | Required | Data Type| Description  |
 |-----------|----------|----------|--------------|
-| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types/#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) page.  |
+| `app_id` | Required | String | App [API identifier]({{site.baseurl}}/api/identifier_types/#the-app-identifier) retrieved from the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page.  |
 | `activity_id` | Required | String  | Define a custom string as your `activity_id`. You will use this ID when you wish to send update or end events to your Live Activity.  |
 | `activity_attributes_type`  | Required | String | The activity attributes type you define within `liveActivities.registerPushToStart` in your app.  |
 | `activity_attributes` | Required | Object  | The static attribute values for the activity type (such as the sports team names, which don't change). |
@@ -82,7 +82,7 @@ To use this endpoint, you'll need to complete the following:
 | `external_user_ids` | Optional if `segment_id` or `audience` is provided | Array of strings | See [external user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximum 50 external user IDs.  |
 | `segment_id `  | Optional if `external_user_ids` or `audience` is provided | String    | See [segment identifier]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Optional if `external_user_ids` or `segment_id` is provided | Connected audience object  | See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 

@@ -42,7 +42,7 @@ Make sure the following items are created and completed before setting up your G
 | Google Ads Terms and Google Ads Policies | [Google](https://support.google.com/adspolicy/answer/54818?hl=en) | You must accept and ensure you comply with [Google’s Ad Terms](https://payments.google.com/u/0/paymentsinfofinder?hostOrigin=aHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tOjQ0Mw..&sri=-40) and [Google’s Ad Policies](https://support.google.com/adspolicy/answer/6008942?sjid=15557182366992806023-NC), which include the [EU User Consent Policy](https://www.google.com/about/company/user-consent-policy/), as applicable to you, in your use of Braze Audience Sync.<br><br>Consult with your Legal Team on Google’s new EU User Consent Policy to ensure you are collecting appropriate consent in order to use Google Ads’ services for your EEA, UK, and Switzerland end users. |
 | Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) |  Customer Match is not available for all advertisers.<br><br>**To use Customer Match, your account must have:**<br>• A good history of policy compliance<br>• A good payment history<br>• At least 90 days history in Google Ads<br>• More than USD 50,000 total lifetime spend. For advertisers whose accounts are managed in currencies other than USD, your spend amount will be converted to USD using the average monthly conversion rate for that currency.<br><br>If your account does not meet these criteria, then your account is currently ineligible to use Customer Match.<br><br>Connect with your Google Ads representative for more guidance on Customer Match availability for your account. |
 | Google Consent Signals | [Google](https://support.google.com/google-ads/answer/14310715) |  If you want to serve ads to EEA end users using Google’s Customer Match service, you’ll need to pass Braze the following custom attributes (boolean) as part of Google’s  EU User Consent Policy. More details can be found under [Collecting consent for EEA, UK, and Switzerland end users](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ### Required SDK versions
 
@@ -202,7 +202,7 @@ The following table includes metrics and descriptions to help you better underst
 | *Users Errored* | Number of users who were not synced to Google due to an error, after &#126;13 hours of retries. For specific errors, like Google Ads API service disruptions, Canvas will retry the sync for up to &#126;13 hours. If the sync is still not possible at that point, the *User Not Synced* will be populated. |
 | *Users Pending* | Number of users currently being processed by Braze to sync to Google. |
 | *Exited Canvas* | Number of users who have exited the Canvas. This occurs when the last step in a Canvas is a Google step. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 ## Frequently asked questions
 
@@ -225,5 +225,11 @@ Check that your audiences contain at least 5,000 users so that ads can start ser
 ### How do I resolve the "Mobile App IDs Deleted" error?
 
 If you're syncing audiences to Google, this error will trigger if you have selected to sync mobile identifiers as part of your syncs but deleted your mobile app IDs from the Google partner page. To resolve this issue, make sure you've added the appropriate mobile app IDs for iOS and Android to the Google partner page.
+
+### Why did I get a Google Ads invalid credentials email when the dashboard still shows connected?
+
+Braze sends this email automatically when Google's API returns an authorization error. That can happen even when **Google Ads** still appears connected in the dashboard and audiences look like they're syncing—for example, when the connected Google account doesn't have permission for a specific action Google requested, or when Google Ads terms of service still need to be accepted for the account.
+
+Some authorization errors clear on their own. Check your Canvas **Audience Sync** analytics (for example, *Users Synced* and *Users Errored*) to confirm whether users are still syncing. If problems continue, go to **Partner Integrations** > **Technology Partners** > **Google Ads**, find **Google Audience Sync**, and use **Change Account** to reconnect with a Google Ads account that has the required access and completed setup.
 
 

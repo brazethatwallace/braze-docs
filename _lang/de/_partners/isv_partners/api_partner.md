@@ -1,24 +1,24 @@
 ---
-nav_title: Integration von API-Partnern
+nav_title: API-Partnerintegration
 alias: /api_partner_integration/
 hidden: true
 ---
 
-# Integration von API-Partnern
+# API-Partnerintegration {#api-partner-integration}
 
-> Erfahren Sie mehr über die Anforderungen für Partner API Integrationen, wie z.B. die Syntax für `User-Agent` Header.
+> Erfahren Sie mehr über die Anforderungen für API-Partnerintegrationen, z. B. die Syntax für `User-Agent`-Header.
 
 {% alert important %}
-Bisher mussten Partner ihren Namen in das Partnerfeld ihrer API-Anfragen eintragen. Diese Formatierung wird nicht mehr unterstützt, und eine `User-Agent` Kopfzeile ist jetzt erforderlich.
+Bisher mussten Partner ihren Namen im Partnerfeld ihrer API-Anfragen angeben. Diese Formatierung wird nicht mehr unterstützt, und ein `User-Agent`-Header ist jetzt erforderlich.
 {% endalert %}
 
-## Benutzer-Agenten
+## User-Agents
 
-Sie müssen einen `User-Agent` Header einfügen, der die Quelle des Datenverkehrs eindeutig identifiziert. Auf diese Weise können unsere gemeinsamen Kund:innen den Partnerverkehr in den Berichten über die API-Nutzung von Braze sehen, und die Ingenieure von Braze können Integrationen identifizieren, die nicht den Best Practices entsprechen. Im Allgemeinen sollten Sie nur einen einzigen Nutzer:in für Ihren gesamten Datenverkehr verwenden.
+Sie müssen einen `User-Agent`-Header einfügen, der die Quelle des Datenverkehrs eindeutig identifiziert. So können unsere gemeinsamen Kund:innen den Partner-Datenverkehr in den API-Nutzungsberichten von Braze einsehen, und Braze-Ingenieur:innen können Integrationen identifizieren, die nicht den Best Practices entsprechen. Im Allgemeinen sollten Sie nur einen einzigen User-Agent für Ihren gesamten Datenverkehr verwenden.
 
 ### Syntax
 
-Ihr `User-Agent` Header muss dem folgenden Format entsprechen (das dem [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#page-46) Standard ähnelt):
+Ihr `User-Agent`-Header muss dem folgenden Format entsprechen (das dem [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#page-46)-Standard ähnelt):
 
 ```bash
 User-Agent: partner-OrganizationName
@@ -28,19 +28,19 @@ Ersetzen Sie Folgendes:
 
 | Platzhalter | Beschreibung |
 |-------------|-------------|
-| `OrganizationName` | Der Name Ihrer Organisation, formatiert in Pascal-Schrift. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `OrganizationName` | Der Name Ihrer Organisation, formatiert in Pascal Case. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Syntax" }
 
-### Beispiele
+### Beispiele {#examples}
 
-Zum Beispiel wäre der folgende Nutzer:in der Snowflake Cloud Data Ingestion der richtige Agent:
+Das folgende Beispiel zeigt einen korrekten User-Agent für die Cloud-Datenaufnahme von Snowflake:
 
 ```bash
 User-Agent: partner-Snowflake
 ```
 
-Dies wäre jedoch falsch, da es die Quelle des Datenverkehrs nicht eindeutig identifiziert:
+Das folgende Beispiel wäre hingegen falsch, da es die Quelle des Datenverkehrs nicht eindeutig identifiziert:
 
 ```bash
 User-Agent: axios/1.4.0
-``` 
+```

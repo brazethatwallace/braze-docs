@@ -3,23 +3,23 @@ nav_title: Dictionnaire de données
 article_title: Dictionnaire de données pour Braze Pilot
 page_order: 3
 page_type: reference
-description: "Le présent article de référence couvre brièvement les étapes d’intégration dont vos ingénieurs ou développeurs ont besoin."
+description: "Cet article de référence couvre brièvement les étapes d'intégration requises de la part de vos ingénieurs ou développeurs."
 ---
 
-# Dictionnaire de données
+# Dictionnaire de données {#data-dictionary}
 
-> Chaque simulation d'application dans Braze Pilot est conçue pour collecter divers événements et attributs en fonction de l'activité des utilisateurs dans l'application. 
+> Chaque simulation d'application dans Braze Pilot est instrumentée pour collecter divers événements et attributs en fonction de l'activité des utilisateurs dans l'application.
 
-## L'approche des données
+## L'approche des données {#the-approach-to-data}
 
-L'application enregistre les attributs personnalisés et les événements caractéristiques du secteur représenté par la marque fictive. Vous pouvez utiliser ces attributs pour alimenter des démonstrations dans divers cas d'utilisation courants.
-En règle générale, tous les événements et attributs sont précédés d'un code court correspondant à la simulation d'application responsable des données. Par exemple :
+L'application enregistre des attributs personnalisés et des événements caractéristiques du secteur représenté par la marque fictive. Vous pouvez utiliser ces attributs pour alimenter des démonstrations couvrant divers cas d'utilisation courants.
+En règle générale, tous les événements et attributs sont précédés d'un code court correspondant à la simulation d'application responsable des données. Par exemple :
 
 - Toutes les données enregistrées par la simulation de l'application Steppington sont précédées du préfixe `st_`
 - Toutes les données enregistrées par la simulation de l'application PantsLabyrinth sont précédées du préfixe `pl_`
 - Toutes les données enregistrées par la simulation de l'application MovieCanon sont précédées du préfixe `mc_`
 
-## Liste des événements et attributs enregistrés
+## Liste des événements et attributs enregistrés {#list-of-logged-events-and-attributes}
 
 Le tableau suivant répertorie les événements et les attributs enregistrés par Braze Pilot.
 
@@ -44,14 +44,15 @@ th:nth-child(5), td:nth-child(5) {
 }
 </style>
 
-<table>
+<table aria-label="Liste des événements et attributs enregistrés">
+  <caption>Liste des événements et attributs enregistrés</caption>
     <thead>
         <tr>
             <th>Nom</th>
             <th>Application</th>
             <th>Type</th>
             <th>Propriétés</th>
-            <th>Lorsqu'il est enregistré</th>
+            <th>Quand il est enregistré</th>
         </tr>
     </thead>
     <tbody>
@@ -60,14 +61,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>MovieCanon</td>
             <td>Événement</td>
             <td></td>
-            <td>Lorsque l'utilisateur accède à l'application MovieCanon,</td>
+            <td>Lorsque l'utilisateur accède à l'application MovieCanon</td>
         </tr>
         <tr>
             <td><code>mc_watched_movie</code></td>
             <td>MovieCanon</td>
             <td>Événement</td>
             <td><code>title: string</code></td>
-            <td>Lorsque l'utilisateur a terminé de visionner une vidéo</td>
+            <td>Lorsque l'utilisateur termine le visionnage d'une vidéo</td>
         </tr>
         <tr>
             <td><code>mc_viewed_movie_page</code></td>
@@ -116,7 +117,7 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Événement</td>
             <td></td>
-            <td>Lorsque l'utilisateur accède à l'application Steppington,</td>
+            <td>Lorsque l'utilisateur accède à l'application Steppington</td>
         </tr>
         <tr>
             <td><code>st_completed_class</code></td>
@@ -130,7 +131,7 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Événement</td>
             <td><code>benefit_type: string</code></td>
-            <td>Lorsque l'utilisateur consulte l'onglet Steppington+ (s'il est activé avec l'indicateur de fonctionnalité)</td>
+            <td>Lorsque l'utilisateur consulte l'onglet Steppington+ (s'il est activé via l'indicateur de fonctionnalité)</td>
         </tr>
         <tr>
             <td><code>st_viewed_class</code></td>
@@ -158,28 +159,28 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Événement</td>
             <td><code>class_type: string</code></td>
-            <td>Lorsque l'utilisateur ajoute une classe à ses favoris</td>
+            <td>Lorsque l'utilisateur ajoute un cours à ses favoris</td>
         </tr>
         <tr>
             <td><code>st_unfavorited_class</code></td>
             <td>Steppington</td>
             <td>Événement</td>
             <td><code>class_type: string</code></td>
-            <td>Lorsque l'utilisateur supprime une classe de ses favoris</td>
+            <td>Lorsque l'utilisateur retire un cours de ses favoris</td>
         </tr>
         <tr>
             <td><code>st_started_free_trial</code></td>
             <td>Steppington</td>
             <td>Événement</td>
             <td></td>
-            <td>Lorsque l'utilisateur clique sur le bouton <strong>« Commencer l'essai gratuit »</strong></td>
+            <td>Lorsque l'utilisateur sélectionne le bouton <strong>Start Free Trial</strong></td>
         </tr>
         <tr>
             <td><code>st_set_goal</code></td>
             <td>Steppington</td>
             <td>Événement</td>
             <td><code>goal_name: string</code><br><code>goal: number</code><br><code>units: string</code></td>
-            <td>Lorsque l'utilisateur clique sur le bouton <strong>« Commencer l'essai gratuit</strong> ».</td>
+            <td>Lorsque l'utilisateur sélectionne le bouton <strong>Start Free Trial</strong>.</td>
         </tr>
     </tbody>
 </table>

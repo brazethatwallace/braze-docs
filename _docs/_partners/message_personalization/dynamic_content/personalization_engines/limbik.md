@@ -17,12 +17,13 @@ _This integration is maintained by Limbik._
 
 The following are required to use Limbik with Braze:
 
-| Prerequisite | Description |
+| Requirements | Description |
 | --- | --- |
 | Limbik `account_id` | Speak to your Limbik account team, or make a GET request to Limbik’s `/rest/api/organizations` endpoint |
 | Limbik access token (`access_token`) | Make a POST request to Limbik’s `login` endpoint and use the returned `access_token` value as the Bearer token in the `Authorization` header. |
 | Braze REST API key | A Braze REST API key with "Messages" permissions. Create one in the Braze dashboard under **Settings** > **API Keys**. |
 | Braze `campaign_id` | Go to **Messaging** > **Campaigns** and select a campaign. If the campaign you want does not exist yet, create one and save it. At the bottom of the campaign page, find the Campaign API identifier. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Before using any of the forecast endpoints, you must first identify which organization (`account_id`) you have access to. While most customers have only one organization, some accounts may have multiple organizations available.
 

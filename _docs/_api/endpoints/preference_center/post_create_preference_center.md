@@ -65,7 +65,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`confirmation_page_html`| Required | String | The HTML for the confirmation page. |
 |`state` | Optional | String | Choose `active` or `draft`. Defaults to `active` if not specified. |
 |`options` | Optional | Object | Attributes: <br>`meta-viewport-content`: When present, a `viewport` meta tag will be added to the page with `content= <value of attribute>`.<br><br> `link-tags`: Set a favicon for the page. When set, a `<link>` tag with a rel attribute is added to the page.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 The preference center name can't be edited after it's created.
@@ -83,7 +83,7 @@ Refer to the following Liquid tags that can be included in your HTML to generate
 | --------- | ---------|
 |`{{subscribed_state.${email_global}}}`| Get the global email subscribed state for the user (such as "opted_in", "subscribed", or "unsubscribed". |
 |`{{subscribed_state.${<subscription_group_id>}}}`| Get the subscribed state of the specified subscription group for the user (such as "subscribed" or "unsubscribed"). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User subscription state" }
 
 #### Form inputs and action
 
@@ -92,7 +92,7 @@ Refer to the following Liquid tags that can be included in your HTML to generate
 |`{% form_field_name :email_global_state %}`| Indicates that a specific form input element corresponds to the user's global email subscribed state. The user's selection state should be "opted_in", "subscribed", or "unsubscribed" when the form is submitted with selection data for the global email subscribed state. If it's a checkbox, the user will either be "opted_in" or "unsubscribed". For a hidden input, the "subscribed" state will also be valid. |
 |`{% form_field_name :subscription_group <subscription_group_id> %}`| Indicates that a specific form input element corresponds to a given subscription group. The user's selection state should be either "subscribed" or "unsubscribed" when the form is submitted with selection data for a specific subscription group. |
 |`{{preference_center_submit_url}}`| Generates URL for form submission. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Form inputs and action" }
 
 {% endraw %}
 

@@ -14,32 +14,32 @@ search_tag: Airbyte
 
 _Esta integração é mantida pela Airbyte._
 
-## Sobre a integração
+## Sobre a integração {#about-the-integration}
 
-A integração Braze e Airbyte permite que os usuários criem um pipeline de dados para coletar e analisar dados do Braze, conectando todos os seus aplicativos e bancos de dados a um data warehouse central. Depois que os dados são coletados no data warehouse central, as equipes de dados podem explorar os dados da Braze de forma eficaz usando suas ferramentas de business intelligence preferidas.
+A integração Braze e Airbyte permite que os usuários criem um pipeline de dados para coletar e analisar dados da Braze, conectando todos os seus aplicativos e bancos de dados a um data warehouse central. Depois que os dados são coletados no data warehouse central, as equipes de dados podem explorar os dados da Braze de forma eficaz usando suas ferramentas de business intelligence preferidas.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Conta Airbyte Cloud | É necessário ter uma conta [Airbyte Cloud](https://cloud.airbyte.io/workspaces) para usar a integração. |
-| Chave da API REST do Braze | Uma chave da API REST do Braze com todas as permissões. <br><br> Isso pode ser criado no dashboard do Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST  do Braze | Seu endpoint dependerá do URL do Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Conta Airbyte Cloud | É necessário ter uma conta [Airbyte Cloud](https://cloud.airbyte.io/workspaces) para usar esta integração. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | Seu endpoint dependerá da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-1. Em sua conta Airbyte Cloud, navegue até **Sources > + New Source > Set up the Source** (Fontes > + Nova fonte > Configurar fonte).
+1. Em sua conta Airbyte Cloud, navegue até **Sources > + New Source > Set up the Source**.
 2. Digite "Braze" como o nome da fonte e selecione **Braze** na lista suspensa de fontes.
-3. Forneça o URL de seu endpoint, a chave da API REST da Braze e a data de início. Clique em **Set up Source** (Configurar fonte).
+3. Forneça a URL do seu endpoint, a chave da API REST da Braze e a data de início. Clique em **Set up Source**.
 
-### Modos de sincronização suportados
+### Modos de sincronização compatíveis {#supported-sync-modes}
 
-O conector de fonte Braze da Airbyte é compatível com os seguintes [modos de sincronização](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes):
-- **Full Refresh | Overwrite** (Recarregamento completo | Sobrescrever): sincroniza todos os registros da fonte e substitui os dados no destino ao sobrescrevê-los.
-- **Incremental Sync | Append** (Sincronização incremental | Acrescentar): Sincronize novos registros da origem e adicione-os ao destino sem excluir nenhum dado.
+O conector de fonte Braze do Airbyte é compatível com os seguintes [modos de sincronização](https://docs.airbyte.com/cloud/core-concepts#connection-sync-modes):
+- **Full Refresh | Overwrite**: sincroniza todos os registros da fonte e substitui os dados no destino ao sobrescrevê-los.
+- **Incremental Sync | Append**: sincroniza novos registros da origem e adiciona-os ao destino sem excluir nenhum dado.
 
-### Fluxos suportados
+### Fluxos compatíveis {#supported-streams}
 
 - [`campaigns`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f3b0b3ef-04fb-4a31-8570-e6ad88dacb18)
 - [`campaigns_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1)
@@ -56,5 +56,5 @@ O conector de fonte Braze da Airbyte é compatível com os seguintes [modos de s
 - [`segments_analytics`](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e)
 
 {% alert note %}
-Os limites de frequência variam de acordo com o fluxo. Acesse a [tabela de limites de frequência]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) para saber mais.
+Os limites de taxa variam de acordo com o fluxo. Acesse a [tabela de limites de taxa]({{site.baseurl}}/api/api_limits/#rate-limits-by-request-type) para saber mais.
 {% endalert %}

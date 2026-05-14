@@ -2,7 +2,7 @@
 nav_title: AccuWeather
 article_title: AccuWeather
 alias: /partners/accuweather/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und AccuWeather, einer Wetter-API, die Sie zur Personalisierung Ihrer Kampagnen nutzen können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und AccuWeather, einer Wetter-API, die Sie zur Personalisierung Ihrer Marketingkampagnen nutzen können."
 page_type: partner
 search_tag: Partner
 
@@ -10,37 +10,37 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/) ist ein Medienunternehmen, das weltweit Dienste zur Wettervorhersage anbietet. Mit AccuWeather können Sie Ihre Marketing Kampagnen anreichern und personalisieren sowie Übersetzungen durch den Einsatz von Braze [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/about_connected_content/) automatisieren. 
+> [AccuWeather](https://www.accuweather.com/) ist ein Medienunternehmen, das weltweit Dienste zur Wettervorhersage anbietet. Mit AccuWeather können Sie Ihre Marketingkampagnen anreichern und personalisieren sowie Übersetzungen durch den Einsatz von Braze [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) automatisieren.
 
-_Diese Integration wird von Accuweather gepflegt._
+_Diese Integration wird von AccuWeather gepflegt._
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
-| AccuWeather API-Schlüssel | Wenden Sie sich an Ihren Accuweather Account Manager:in, um kompatible API-Schlüssel für Ihre Anfrage-URLs zu erhalten.<br><br>Weitere Anweisungen finden Sie auf der Seite [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| AccuWeather API-Schlüssel | Kontaktieren Sie Ihren AccuWeather Account Manager, um kompatible API-Schlüssel für Ihre Anfrage-URLs zu erhalten.<br><br>Weitere Anweisungen finden Sie auf der Seite [AccuWeather Enterprise API](https://apidev.accuweather.com/developers/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Verfügbare AccuWeather APIs
+## Verfügbare AccuWeather APIs {#available-accuweather-apis}
 
-Im Folgenden finden Sie die AccuWeather APIs, die Sie in Ihren Braze Kampagnen und Canvase referenzieren können.
+Im Folgenden finden Sie die AccuWeather APIs, die Sie in Ihren Braze Campaigns und Canvases referenzieren können.
 
 | API | Beschreibung |
 |---|---|
-|[Standorte](https://apidev.accuweather.com/developers/locationsAPIguide) | Holen Sie sich einen Standortschlüssel für Ihren gewünschten Standort. Verwenden Sie den Standort-Schlüssel, um Wetterdaten von der API für Vorhersage oder aktuelle Bedingungen abzurufen. |
-| [Vorhersage](https://apidev.accuweather.com/developers/forecastsAPIguide) | Erhalten Sie Vorhersageinformationen für einen bestimmten Standort. |
-| [Aktuelle Bedingungen](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) | Rufen Sie Daten zu den aktuellen Bedingungen für einen bestimmten Standort ab. |
-| [Indizes](https://apidev.accuweather.com/developers/indicesApiGuide) | Erhalten Sie tägliche Indexwerte für einen bestimmten Standort. Die Verfügbarkeit des Index ist je nach Standort unterschiedlich. |
-| [Wetteralarme](https://apidev.accuweather.com/developers/weatheralarmsAPIguide) | Erhalten Sie Wetteralarme für einen bestimmten Standort. AccuWeather Wetteralarme werden anhand der täglichen Vorhersagen für einen Standort ermittelt. Für einen Standort besteht ein Alarm, wenn die Wettervorhersage [bestimmte Schwellenwerte](https://apidev.accuweather.com/developers/weatheralarms) erreicht oder überschreitet. |
-| [Warnungen](https://apidev.accuweather.com/developers/alertsApiGuide) | Erhalten Sie Unwetterwarnungen von offiziellen staatlichen Wetterdiensten und führenden globalen Wetterwarnungsanbietern. |
-| [Bildmaterial](https://apidev.accuweather.com/developers/imageryAPIguide) | Holen Sie sich Radar- und Satellitenbilder. |
-| [Tropisch](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Erhalten Sie die aktuelle Position, frühere Positionen und Vorhersagen für tropische Wirbelstürme weltweit. |
-| [Übersetzungen](https://apidev.accuweather.com/developers/translationsApiGuide) | Erhalten Sie eine Liste der verfügbaren Sprachen. Erhalten Sie Übersetzungen für bestimmte Gruppen von Phrasen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | Rufen Sie einen Standortschlüssel für Ihren gewünschten Standort ab. Verwenden Sie den Standortschlüssel, um Wetterdaten von der Forecast- oder Current-Conditions-API abzurufen. |
+| [Forecast](https://apidev.accuweather.com/developers/forecastsAPIguide) | Erhalten Sie Vorhersageinformationen für einen bestimmten Standort. |
+| [Current Conditions](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) | Rufen Sie Daten zu den aktuellen Bedingungen für einen bestimmten Standort ab. |
+| [Indices](https://apidev.accuweather.com/developers/indicesApiGuide) | Erhalten Sie tägliche Indexwerte für einen bestimmten Standort. Die Verfügbarkeit des Index variiert je nach Standort. |
+| [Weather Alarms](https://apidev.accuweather.com/developers/weatheralarmsAPIguide) | Erhalten Sie Wetteralarme für einen bestimmten Standort. AccuWeather Weather Alarms werden anhand der täglichen Vorhersagen für einen Standort ermittelt. Ein Alarm besteht für einen Standort, wenn die Wettervorhersage [bestimmte Schwellenwerte](https://apidev.accuweather.com/developers/weatheralarms) erreicht oder überschreitet. |
+| [Alerts](https://apidev.accuweather.com/developers/alertsApiGuide) | Erhalten Sie Unwetterwarnungen von offiziellen staatlichen Wetterdiensten und führenden globalen Wetterwarnungsanbietern. |
+| [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | Rufen Sie Radar- und Satellitenbilder ab. |
+| [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Erhalten Sie die aktuelle Position, frühere Positionen und Vorhersagen für tropische Wirbelstürme weltweit. |
+| [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | Erhalten Sie eine Liste der verfügbaren Sprachen. Erhalten Sie Übersetzungen für bestimmte Gruppen von Phrasen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare AccuWeather APIs" }
 
-## Connected-Content Beispiel
+## Connected-Content-Beispiel {#connected-content-example}
 
-Das folgende Beispiel zeigt einen Connected-Content-Aufruf, bei dem zwei verschiedene Arten von Nachrichten angezeigt werden, die auf den aktuellen Bedingungen der Postleitzahl eines Nutzers:innen in den USA basieren. Die AccuWeather Standorte und die aktuellen Bedingungen API Endpunkte werden verwendet.
+Das folgende Beispiel zeigt einen Connected-Content-Aufruf, der zwei verschiedene Arten von Nachrichten basierend auf den aktuellen Wetterbedingungen der Postleitzahl einer Nutzer:in in den USA anzeigt. Die AccuWeather-Endpunkte für Locations und Current Conditions werden verwendet.
 {% raw %}
 
 ```liquid
@@ -58,16 +58,16 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-![Eine Connected-Content Push-Nachricht mit dem Inhalt "Es regnet! Schnappen Sie sich einen Regenschirm!", angezeigt auf einem Android Gerät]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
+![Eine Connected-Content-Push-Nachricht mit dem Text „It's raining! Grab an Umbrella!“, angezeigt auf einem Android-Gerät]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
 
 Eine Aufschlüsselung der beiden Connected-Content-Aufrufe finden Sie in den folgenden Beispielen.
 
 {% tabs %}
 {% tab Locations %}
-#### Standorte API Beispiel
+#### Locations-API-Beispiel {#locations-api-example}
 
 {% raw %}
-Innerhalb des ersten Tags `connected_content` wird eine GET-Anfrage an die [Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) gestellt. Für dieses Beispiel können Sie alternativ die `{{${city}}}` des Nutzers nutzen, wenn Sie kein angepasstes Attribut für die Postleitzahl haben.
+Innerhalb des ersten `connected_content`-Tags wird eine GET-Anfrage an die [Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) gestellt. Für dieses Beispiel können Sie alternativ die `{{${city}}}` der Nutzer:in nutzen, wenn Sie kein angepasstes Attribut für die Postleitzahl haben.
 
 ```
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
@@ -152,14 +152,14 @@ Hier sehen Sie ein Beispiel dafür, was AccuWeather als JSON-Objekt zurückgibt:
 ]
 ```
 
-Die ID "Schlüssel" ist eine nützliche Variable, da sie in der zweiten GET-Anfrage verwendet wird.
+Die „Key“-ID ist eine nützliche Variable, da sie in der zweiten GET-Anfrage verwendet wird.
 Dieses JSON-Objekt kann in einer lokalen Variable `location_info` gespeichert werden, indem Sie `:save location_info` nach der URL angeben.
 {% endtab %}
 {% tab Current conditions %}
 
-#### Aktuelle Bedingungen API Beispiel
+#### Current-Conditions-API-Beispiel {#current-conditions-api-example}
 
-Für den zweiten Tag `connected_content` wird eine GET-Anfrage an die [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) gestellt. Der **Standortschlüssel** muss der URL der Anfrage hinzugefügt werden. Hier ist ein Beispiel für den Tag `connected_content`:
+Für den zweiten `connected_content`-Tag wird eine GET-Anfrage an die [Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) gestellt. Der **Standortschlüssel** muss der Anfrage-URL hinzugefügt werden. Hier ist ein Beispiel für den `connected_content`-Tag:
 
 {% raw %}
 ```
@@ -194,11 +194,11 @@ Hier ist das zurückgegebene JSON-Objekt:
 ]
 ```
 
-Wie im Tag `connected_content` zu sehen ist, wird das JSON-Objekt in einer lokalen Variable `local_weather` gespeichert, indem `:save local_weather` nach der URL hinzugefügt wird.
+Wie im `connected_content`-Tag zu sehen ist, wird das JSON-Objekt in einer lokalen Variable `local_weather` gespeichert, indem `:save local_weather` nach der URL hinzugefügt wird.
 
 Sie können testen, wie die Ausgabe von [WeatherText](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) aussehen soll, indem Sie auf `{{local_weather[0].WeatherText}}` verweisen.
 
-Wenn der API-Aufruf mit `{{local_weather[0].WeatherText}}` antwortet und `Rain` zurückgibt, würde der Nutzer:innen den Push erhalten.
+Wenn der API-Aufruf mit `{{local_weather[0].WeatherText}}` antwortet und `Rain` zurückgibt, würde die Nutzer:in den Push erhalten.
 
 {% endraw %}
 {% endtab %}

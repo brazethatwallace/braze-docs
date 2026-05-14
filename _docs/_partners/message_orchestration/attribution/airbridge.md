@@ -25,7 +25,7 @@ The Braze and Airbridge integration lets you pass all non-organic install attrib
 | Airbridge account | An Airbridge account is required to take advantage of this partnership. |
 | iOS or Android app | This integration supports iOS and Android apps. Depending on your platform, code snippets may be required in your application. |
 | Airbridge SDK | In addition to the required Braze SDK, you must install the Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk) or [iOS](https://help.airbridge.io/en/developers/ios-sdk) SDK. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -228,6 +228,7 @@ Assuming you configure your integration as suggested, Braze will map install dat
 | `Campaign` | Install Attribution Campaign | The campaign the installs or deeplink opens are attributed to |
 | `Ad Group` | Install Attribution Adgroup | The ad group the installs or deeplink opens are attributed to |
 | `Ad Creative` | Install Attribution Ad | The ad creative the installs or deeplink opens are attributed to |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
 
 Your user base can be segmented by attribution data in the Braze dashboard using the Install Attribution filters.
 

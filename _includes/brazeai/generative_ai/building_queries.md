@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-You'll need ["View PII" permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) to use Query Builder, since it allows direct access to some customer data.
+You'll need ["View PII" permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to use Query Builder, since it allows direct access to some customer data.
 
 ## Using the Query Builder
 
@@ -73,7 +73,7 @@ If you query for the `CANVAS_ID`, `CANVAS_VARIATION_API_ID`, or `CAMPAIGN_ID`, t
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 This query retrieves all three IDs and their associated name columns with a maximum of 100 rows:
 

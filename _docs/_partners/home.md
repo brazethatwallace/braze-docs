@@ -286,6 +286,8 @@ valid_partner_list:
   url: /docs/partners/celebrus/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY by Loyalty Juggernaut
+  url: /docs/partners/lji/
 - name: Alpaco
   url: /docs/partners/alpaco/
 - name: NiftyImages
@@ -412,6 +414,8 @@ valid_partner_list:
   url: /docs/partners/figma/
 - name: Poq
   url: /docs/partners/poq/
+- name: The Trade Desk
+  url: /docs/partners/trade_desk_audience_sync/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---

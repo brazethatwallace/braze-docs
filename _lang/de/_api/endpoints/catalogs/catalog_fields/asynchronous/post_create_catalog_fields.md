@@ -6,18 +6,18 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Katalogfelder erstellen in Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Katalogfelder erstellen“."
 
 ---
 {% api %}
-# Katalogfelder erstellen
+# Katalogfelder erstellen {#create-catalog-fields}
 {% apimethod post %}
 /catalogs/{catalog_name}/fields
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um mehrere Felder in Ihrem Katalog zu erstellen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.create_fields`.
 
@@ -25,21 +25,21 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog fields' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
-| Parameter      | Erforderlich | Datentyp | Beschreibung          |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 | -------------- | -------- | --------- | -------------------- |
-| `catalog_name` | Erforderlich | String    | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Erforderlich | String | Name des Katalogs. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Parameter der Anfrage
+## Anfrage-Parameter {#request-parameters}
 
-| Parameter | Erforderlich | Datentyp | Beschreibung                                                                                                  |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
-| `fields`  | Erforderlich | Array     | Ein Array, das Feldobjekte enthält. Die Feldobjekte sollten den Namen und den Typ der neuen Felder enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `fields` | Erforderlich | Array | Ein Array, das Feldobjekte enthält. Die Feldobjekte sollten den Namen und den Typ der neuen Felder enthalten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restaurants/fields' \
@@ -67,13 +67,13 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt drei Status Code Antworten für diesen Endpunkt: `202`, `400`, und `404`.
+Es gibt drei Statuscode-Antworten für diesen Endpunkt: `202`, `400` und `404`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `202` könnte den folgenden Antworttext zurückgeben.
 
 ```json
 {
@@ -81,9 +81,9 @@ Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {
@@ -103,17 +103,17 @@ Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
+Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörigen Schritte zur Fehlerbehebung auf.
 
-| Fehler                                | Fehlersuche                                                                                        |
+| Fehler | Fehlerbehebung |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `arbitrary-error`                    | Es ist ein willkürlicher Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/). |
-| `catalog-not-found`                  | Prüfen Sie, ob der Katalogname gültig ist.                                                                  |
-| `company-size-limit-already-reached` | Das Limit für die Katalogspeichergröße ist erreicht.                                                             |
-| `request-includes-too-many-fields`   | Jede Anfrage kann bis zu 50 neue Felder enthalten.                                                          |
-| `catalog-exceeds-fields-limit`       | Der Katalog kann nicht mehr als 500 Felder haben.                                                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `arbitrary-error` | Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den [Support]({{site.baseurl}}/support_contact/). |
+| `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
+| `company-size-limit-already-reached` | Das Limit für die Katalogspeichergröße ist erreicht. |
+| `request-includes-too-many-fields` | Jede Anfrage kann bis zu 50 neue Felder unterstützen. |
+| `catalog-exceeds-fields-limit` | Der Katalog kann nicht mehr als 500 Felder haben. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

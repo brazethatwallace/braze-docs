@@ -10,7 +10,7 @@ search_tag: Partner
 
 # AppsFlyer Audiences
 
-> This article describes how to import user cohorts from AppsFlyer to Braze by using the [AppsFlyer Audiences](https://www.appsflyer.com/product/audiences/) integration. For more information on integrating AppsFlyer and its other functionalities, such as mobile attribution see the main [AppsFlyer article]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer/).
+> This article describes how to import user cohorts from AppsFlyer to Braze by using the [AppsFlyer Audiences](https://www.appsflyer.com/product/audiences/) integration. For more information on integrating AppsFlyer and its other functionalities, such as mobile attribution see the main [AppsFlyer article]({{site.baseurl}}/partners/message_orchestration/deeplinking/appsflyer/appsflyer/).
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ search_tag: Partner
 | AppsFlyer account | An AppsFlyer account is required to take advantage of this partnership. |
 | iOS or Android app | This integration supports iOS and Android apps. Depending on your platform, code snippets may be required in your application. Details on these requirements can be found in step 1 of the integration process. |
 | AppsFlyer SDK | In addition to the required Braze SDK, you must install the [AppsFlyer SDK](https://support.appsflyer.com/hc/en-us/articles/207032126-SDK-integration-overview). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Data import integration
 

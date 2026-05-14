@@ -30,6 +30,7 @@ Additional details around using Recurly with Braze can be found in the [Recurly 
 | Recurly account | An Elite [Recurly](https://recurly.com/) subscription plan with the Braze feature flag enabled is required to take advantage of this partnership. The activation of credit invoices in your Recurly platform is also required.|
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. Because Recurly only uses the `users.track` endpoint, we recommend provisioning a Recurly specific key with only this permission. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -61,7 +62,7 @@ Recurly uses an account's `account_code` as the `external_id` in Braze. Because 
 
 ### Custom events
 
-For effective customer engagement, you must [configure custom events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/) in Braze to receive events triggered by Recurly. Ensure to include each event from Recurly for thorough data integration. These events can also be tracked within [Braze analytics]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#analytics). Once configured, these custom events can be used to segment users or personalize messaging. 
+For effective customer engagement, you must [configure custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) in Braze to receive events triggered by Recurly. Ensure to include each event from Recurly for thorough data integration. These events can also be tracked within [Braze analytics]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#analytics). Once configured, these custom events can be used to segment users or personalize messaging. 
 
 | Braze Custom Event| Recurly Event |
 | ----------- | ----------- |
@@ -77,6 +78,7 @@ For effective customer engagement, you must [configure custom events]({{site.bas
 | Recurly Successful Payment            | Triggered when an invoice is successfully collected                 |
 | Recurly Refund Issued                 | Triggered when a refund is issued                                   |
 | Recurly Failed Recurring Payment      | Triggered when an invoice fails for a subscription renewal          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom events" }
 
 ### Batching and rate limiting
 

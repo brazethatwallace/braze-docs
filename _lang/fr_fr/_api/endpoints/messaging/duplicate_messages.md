@@ -1,5 +1,5 @@
 ---
-nav_title: Envois de messages en double
+nav_title: Dupliquer des messages
 config_only: true
 noindex: true
 ---

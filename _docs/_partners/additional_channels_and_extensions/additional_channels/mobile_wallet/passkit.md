@@ -26,7 +26,7 @@ The Braze and PassKit integration allows you to increase and measure the engagem
 | `userDefinedID` | To appropriately update custom events and custom attributes to your users between PassKit and Braze, you must set the Braze external ID as the `userDefinedID`. This `userDefinedID` is used when making API calls to the PassKit endpoints. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -68,7 +68,7 @@ There are many different components you can include in your payload, but here as
 | --------- | -------- | ---- | ----------- |
 |`person.externalId` | Required | String | Set as the Braze external ID, this is crucial for the callbacks from PassKit back to Braze to work, allowing company users to have coupons for multiple offers in one campaign. Not enforced as unique. |
 | `members.member.externalId` | Optional | String | Set as the Braze external ID, you may use your external ID to update the membership pass. Setting this field enforces the user as unique within the membership program.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
 
 For a full list of available fields, their types, and helpful descriptions, have a look at the [PassKit GitHub documentation](https://github.com/PassKit/smart-pass-link-from-csv-generator).
 
@@ -220,7 +220,7 @@ Before you get started, here are the common JSON payload parameters that you can
 | `campaignId` (coupon) <br><br> `programId` (membership) | String | The ID for the campaign or program template you created in PassKit. To find this, head to the **Settings** tab in your PassKit pass project. |
 | `expiryDate` | IO8601 datetime | The pass expiry date. After the expiry date, the pass is automatically voided (see `isVoided`). This value will override the template and campaign end date value. |
 | `status` | String | The current status of a coupon, such as `REDEEMED` or `UNREDEEMED`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
 
 ### Step 1: Create your Braze webhook template
 
@@ -260,12 +260,12 @@ Your raw text will automatically highlight if it is an applicable Braze tag.
 Preview your request in the **Preview** panel or navigate to the **Test** tab, where you can select a random user, an existing user, or customize your own to test your webhook.
 
 {% alert important %}
-Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/). 
+Remember to save your template before leaving the page! <br>Updated webhook templates can be found in the **Saved Webhook Templates** list when creating a new [webhook campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/). 
 {% endalert %}
 
 ## Retrieve pass details via Connected Content
 
-In addition to creating and updating passes, you can also retrieve your users' pass metadata via Braze [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) to incorporate personalized pass details within your messaging campaigns.
+In addition to creating and updating passes, you can also retrieve your users' pass metadata via Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) to incorporate personalized pass details within your messaging campaigns.
 
 **PassKit Connected Content call**
 

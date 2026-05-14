@@ -19,7 +19,7 @@ By integrating VWO with Braze, you can leverage VWO experiment data to create ta
 |-----------------|-------------|
 | VWO account     | A VWO account with access to experimentation data. |
 | Braze account   | An active Braze account with the [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrated on your webpage. You'll also need event property segmentation enabled. To request it, see [Considerations](#request-event-property-segmentation). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrating VWO with Braze
 
@@ -69,7 +69,8 @@ These custom event properties can also be used for segmentation and targeting.
 
 Before you can use event property segmentation, you'll need it enabled in Braze. Use the following template to contact your Braze CSM or the support team for access.
 
-   <table>
+   <table aria-label="Request event property segmentation">
+     <caption>Request event property segmentation</caption>
    <thead>
       <tr>
          <th>Field</th>
@@ -94,13 +95,13 @@ Before you can use event property segmentation, you'll need it enabled in Braze.
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Request event property segmentation" }
 
 ### Braze data points
 
 The custom event sent from VWO to Braze&#8212;including any event properties enabled for segmentation&#8212;will log data points in your Braze instance.
 
-### Limitations
+### Considerations
 
 Currently, this integration doesn't support real-time sync of test data. There may be a delay of up to 15 minutes for test data to appear in Braze.
 

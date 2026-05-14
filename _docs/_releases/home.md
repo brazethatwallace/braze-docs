@@ -11,9 +11,144 @@ page_type: reference
 # What's new in Braze
 
 {% alert tip %}
-For more information on any of the updates listed on this page, contact your account manager or [open a support ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/). Check out our [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) for more information about our monthly SDK releases, improvements, and breaking changes.
+For more information on any of the updates listed on this page, contact your account manager or [open a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/). Check out our [SDK Changelogs]({{site.baseurl}}/developer_guide/changelogs) for more information about our monthly SDK releases, improvements, and breaking changes.
 {% endalert %}
 
+{% details April 30, 2026 %}
+
+## April 30, 2026 release
+
+### Data & Reporting
+
+#### Quick User Add for individual profile creation
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+You can now create an individual user profile from **Import Users** by selecting **Quick User Add** and entering an email or external ID.
+
+Previously, creating users from this workflow required CSV upload or an automated ingestion method.
+
+For more information, see [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+
+#### Zero-copy CDI syncs for Canvas triggers
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+CDI now supports the `Canvas triggers` data type for zero-copy personalization. You can trigger Canvases from warehouse or S3 data and pass context fields without persisting those fields on Braze user profiles.
+
+Previously, CDI syncs required data to be written to Braze profiles for this type of personalization workflow.
+
+For more information, see [Zero-copy personalization using CDI]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/zero_copy_sync/).
+
+#### eCommerce recommended events
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) cover six steps in the purchase journey: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, and `order_refunded`. When you successfully send these events, Braze validates the data and makes it available to a growing set of platform features.
+
+### Currents and Datashare
+
+#### New Banner and WhatsApp Currents updates
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Currents and Datashare now include a new `Banner.Dismiss` event and additional fields for existing WhatsApp events.
+
+Previously, these Banner dismissal events and WhatsApp fields were not available in export data.
+
+For more information, see [Currents changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).
+
+### Orchestration
+
+#### Multi-language translations
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Compose [multi-language messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) with quick, one-time locale setup that doesn’t require complex code and enables you send to all of your markets with confidence.
+
+#### Granular permissions migration
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Managing who can access your account and perform specific actions is critical for both security and operational efficiency. To give you more control, Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration/), a more flexible and precise way to manage user access across your account.
+
+#### Send to Destination Canvas component
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+The [Send to Destination step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) allows you to send users from one Canvas to another. For example, if you have two Canvases that share messaging for promotional offers, you can use Send to Destination to connect these Canvases.
+
+#### Canvas Context enhancements
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+In Canvas, you can now reference context variables to set:
+
+- A removal event for Content Cards
+- The expiration of Content Cards
+
+For more details, see [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/?tab=canvas).
+
+#### Delivery validation advancement behavior for Message steps
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[Delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) provide an additional check to confirm your audience meets the delivery criteria at message send. If a user doesn’t meet the set delivery validations for a Message step, you can use the **Delivery validations advancement behavior** setting to determine if the user should advance to the next step or exit the Canvas.
+
+#### Workspace messaging rate limits
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Use [workspace messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) to regulate the delivery rate of your outgoing messages from your platform to make sure your users are receiving the messages they need to. Workspace messaging rate limits are rolling out gradually, so you may not see these settings in your dashboard yet.
+
+### Channels & Touchpoints
+
+#### WhatsApp Template Builder
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+The [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/) lets you create and submit WhatsApp message templates directly in Braze—no need to switch between Braze and the Meta Business Manager. After Meta approves your template, use it in as many campaigns and Canvases as you’d like.
+
+#### Shopify product tags, metafields, and collections
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+You can now [sync Shopify product tags, collections, and metafields]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/) from your Shopify store into your Braze catalog. This provides richer product data for personalization, segmentation, and catalog-based messaging without custom workarounds.
+
+### Partnerships
+
+#### GRAVITY - Data and Analytics - Loyalty
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[GRAVTY®](https://www.lji.io/) is an enterprise-grade loyalty platform from Loyalty Juggernaut Inc. (LJI) that enables brands across retail, travel, restaurants (including quick-service restaurants), and financial services to design, manage, and scale next-generation programs—driving measurable growth in engagement, retention, and customer lifetime value through personalized, data-led experiences.
+
+<!-- Use this section to list any new SDKs or SDK updates that are already released. -->
+### SDK
+
+The following SDK updates have been released. For more details, see [SDK changelogs]({{site.baseurl}}/releases/sdk_changelogs/).
+
+#### SDK breaking updates
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
+
+- [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
+    - Delayed initialization support.
+- [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
+    - Bug fixes for In-app messages and Banners.
+- [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
+    - Banner dismissals support.
+- [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
+    - Banner dismissals support.
+- [Android SDK 42.1.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.1.0)
+    - Banner dismissals support.
+- [Braze Segment Android 17.0.0](https://github.com/braze-inc/braze-segment-android/releases/tag/v17.0.0)
+    - This is the final release of the Braze Segment Android plugin because it uses Analytics-Android, which reached end-of-support in March 2026. Migrate to the [Braze Segment Kotlin plugin](https://github.com/braze-inc/braze-segment-kotlin), which uses [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin).
+    - Upgrades native SDK versions.
+
+{% enddetails %}
 {% details April 2, 2026 %}
 
 ## April 2, 2026 release
@@ -139,13 +274,13 @@ The following SDK updates have been released. Breaking updates are listed below;
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Braze has launched a new [data center]({{site.baseurl}}/user_guide/data/data_centers/): JP-01. You can sign up for region-specific data centers when setting up your Braze account.
+Braze has launched a new [data center]({{site.baseurl}}/user_guide/data/infrastructure/data_centers/): JP-01. You can sign up for region-specific data centers when setting up your Braze account.
 
 #### Context variables
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Context variables]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables) are temporary pieces of data you can create and use within a user’s journey through a specific Canvas. Each time a user enters the Canvas—even if they have entered it before—the context variables will be redefined based on the latest entry data and Canvas setup. This approach allows each Canvas entry to maintain its own independent context, allowing users to have multiple active states within the same journey while retaining the specific context for each state.
+[Context variables]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) are temporary pieces of data you can create and use within a user’s journey through a specific Canvas. Each time a user enters the Canvas—even if they have entered it before—the context variables will be redefined based on the latest entry data and Canvas setup. This approach allows each Canvas entry to maintain its own independent context, allowing users to have multiple active states within the same journey while retaining the specific context for each state.
 
 #### Cloud Data Ingestion sources
 
@@ -181,13 +316,13 @@ Braze has launched a new [data center]({{site.baseurl}}/user_guide/data/data_cen
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[CSV user imports]({{site.baseurl}}/user_guide/data/user_data_collection/user_import) now support pre-import validation and detailed error reporting. Before importing, select **Validate file before importing** on the **Import Users** page—Braze will scan your file and generate a report identifying rows that will fail entirely (errors) and rows that will succeed with some values skipped (warnings). You can download the report, fix your CSV, and re-upload, or proceed as-is. After the import completes, a downloadable report of any rows that failed is also available, with the exact reason for each issue.
+[CSV user imports]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/) now support pre-import validation and detailed error reporting. Before importing, select **Validate file before importing** on the **Import Users** page—Braze will scan your file and generate a report identifying rows that will fail entirely (errors) and rows that will succeed with some values skipped (warnings). You can download the report, fix your CSV, and re-upload, or proceed as-is. After the import completes, a downloadable report of any rows that failed is also available, with the exact reason for each issue.
 
 #### Messaging diagnostics dashboard
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-The [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboard/diagnostics_dashboard) provides a high-level breakdown of message sending outcomes, allowing you to spot trends and diagnose potential issues in your messaging setup. This dashboard can help you understand why messages from your campaigns or Canvases may not have been sent as expected.
+The [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/) provides a high-level breakdown of message sending outcomes, allowing you to spot trends and diagnose potential issues in your messaging setup. This dashboard can help you understand why messages from your campaigns or Canvases may not have been sent as expected.
 
 ### BrazeAI<sup>TM</sup>
 
@@ -203,19 +338,19 @@ The [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dash
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/), a more flexible way to manage user access. Refer to [Migrating to granular permissions]({{site.baseurl}}/granular_permissions_migration/) to learn about the migration process, including how legacy permissions map to granular permissions.
+Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), a more flexible way to manage user access. Refer to [Migrating to granular permissions]({{site.baseurl}}/granular_permissions_migration/) to learn about the migration process, including how legacy permissions map to granular permissions.
 
 #### Channel-based rate limiting
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-When setting a delivery speed rate limit for a multi-channel campaign or Canvas, you can choose to set either a shared rate limit or a [channel-based limit]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#multichannel-campaigns-and-canvases). When a multichannel campaign or Canvas uses channel-based rate limiting, the rate limit applies to each of the selected channels. For example, you can set your campaign or Canvas to send a maximum of 5,000 webhooks and 2,500 SMS messages per minute across the campaign or Canvas.
+When setting a delivery speed rate limit for a multi-channel campaign or Canvas, you can choose to set either a shared rate limit or a [channel-based limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#multichannel-campaigns-and-canvases). When a multichannel campaign or Canvas uses channel-based rate limiting, the rate limit applies to each of the selected channels. For example, you can set your campaign or Canvas to send a maximum of 5,000 webhooks and 2,500 SMS messages per minute across the campaign or Canvas.
 
 #### Canvas Context step
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Canvas Context steps]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) let you create and update one or more variables for a user as they move through a Canvas. For example, if you have a Canvas that manages seasonal discounts, you can use a context variable to store a different discount code each time a user enters the Canvas.
+[Canvas Context steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) let you create and update one or more variables for a user as they move through a Canvas. For example, if you have a Canvas that manages seasonal discounts, you can use a context variable to store a different discount code each time a user enters the Canvas.
 
 ### Channels & Touchpoints
 
@@ -223,7 +358,7 @@ When setting a delivery speed rate limit for a multi-channel campaign or Canvas,
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-After adding locales to your workspace, you can [target users in different languages]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) all within a Content Block.
+After adding locales to your workspace, you can [target users in different languages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) all within a Content Block.
 
 ### Partnerships
 
@@ -333,7 +468,7 @@ Built on a non-contextual multi-armed bandit optimizer, Content Optimizer sends 
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-To match eCommerce recommended events with the existing purchase event, we added the ["Places Order" conversion event]({{site.baseurl}}/user_guide/engagement_tools/canvas/ideas_and_strategies/ecommerce_use_cases/#conversions-report), which is similar to “Makes Purchase".
+To match eCommerce recommended events with the existing purchase event, we added the ["Places Order" conversion event]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/#conversions-report), which is similar to “Makes Purchase".
 
 ### Channels & Touchpoints
 
@@ -341,11 +476,11 @@ To match eCommerce recommended events with the existing purchase event, we added
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-After adding locales to your workspace, [target users in different languages]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales#translating-locales) all within a single banner.
+After adding locales to your workspace, [target users in different languages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/#translating-locales) all within a single banner.
 
 #### Configure width for drag-and-drop Content Blocks
 
-[Adjust the width of your Content Block]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/#using-the-editor-to-add-a-content-block) by selecting the button in the navigation menu. The default width is 100% when not specified in your email global style settings; otherwise, the global settings will be honored.
+[Adjust the width of your Content Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/#using-the-editor-to-add-a-content-block) by selecting the button in the navigation menu. The default width is 100% when not specified in your email global style settings; otherwise, the global settings will be honored.
 
 ![A double-sided arrow with an option to edit the width.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 
@@ -353,7 +488,7 @@ After adding locales to your workspace, [target users in different languages]({{
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Use [automated IP warming]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ip_warming/#automated-ip-warming) to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. Braze sends to your most engaged subscribers first, which allows daily volume to grow at a pace that matches best practices.
+Use [automated IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#automated-ip-warming) to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. Braze sends to your most engaged subscribers first, which allows daily volume to grow at a pace that matches best practices.
 
 ### Partnerships
 
@@ -483,23 +618,23 @@ In the [Cloud Data Ingestion **Sync Log** dashboard]({{site.baseurl}}/user_guide
 
 #### Bring Your Own (BYO) WhatsApp connector
 
-The [Bring Your Own (BYO) WhatsApp connector]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/byo_connector/) offers a partnership between Braze and Infobip, in which you give Braze access to your Infobip WhatsApp Business Manager (WABA). This allows you to manage and pay for messaging costs directly with Infobip while using Braze for segmentation, personalization, and campaign orchestration. 
+The [Bring Your Own (BYO) WhatsApp connector]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector/) offers a partnership between Braze and Infobip, in which you give Braze access to your Infobip WhatsApp Business Manager (WABA). This allows you to manage and pay for messaging costs directly with Infobip while using Braze for segmentation, personalization, and campaign orchestration. 
 
 #### Banners in Canvas
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Select **Banners** as a messaging channel in a [Message step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step) for Canvas. Use the drag-and-drop editor to create personalized inline messages, providing non-intrusive, contextually relevant experiences that update automatically at the start of each user session. 
+Select **Banners** as a messaging channel in a [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) for Canvas. Use the drag-and-drop editor to create personalized inline messages, providing non-intrusive, contextually relevant experiences that update automatically at the start of each user session. 
 
 #### Dynamic BCC
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-With [dynamic BCC]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/?tab=bcc%20address#dynamic-bcc), use Liquid in your BCC address. Note that this feature is only available in **Email Preferences** and can’t be set on the campaign itself. Only one BCC address per email recipient is allowed.
+With [dynamic BCC]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=bcc%20address#dynamic-bcc), use Liquid in your BCC address. Note that this feature is only available in **Email Preferences** and can’t be set on the campaign itself. Only one BCC address per email recipient is allowed.
 
 #### Channel-based rate limits
 
-As an alternative to a rate limit that gets shared across an entire multi-channel campaign or Canvas, select a specific rate limit per channel. In this case, the rate limit will apply to each of your selected channels. For example, set your campaign or Canvas to send a maximum of 5,000 webhooks and 2,500 SMS messages per minute across the campaign or Canvas. For more details, see [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting).
+As an alternative to a rate limit that gets shared across an entire multi-channel campaign or Canvas, select a specific rate limit per channel. In this case, the rate limit will apply to each of your selected channels. For example, set your campaign or Canvas to send a maximum of 5,000 webhooks and 2,500 SMS messages per minute across the campaign or Canvas. For more details, see [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
 ### Partnerships
 
@@ -528,23 +663,23 @@ The following SDK updates have been released. Breaking updates are listed below;
 
 #### Adding Google Tag Manager to a landing page
 
-To add Google Tag Manager to your landing pages, add a Custom Code block to your landing page in the drag-and-drop editor, then [insert the Tag Manager code]({{site.baseurl}}/user_guide/engagement_tools/landing_pages#adding-google-tag-manager-to-a-landing-page) into the block.
+To add Google Tag Manager to your landing pages, add a Custom Code block to your landing page in the drag-and-drop editor, then [insert the Tag Manager code]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page) into the block.
 
 ### Orchestration
 
 #### SMS Liquid use case
 
-The [Respond with different messages based on inbound SMS keyword]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/liquid_use_cases#sms-keyword-response) use case incorporates dynamic SMS keyword processing to respond to specific inbound messages with different message copy. For example, you can send different responses when someone texts “START” versus “JOIN”.
+The [Respond with different messages based on inbound SMS keyword]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases#sms-keyword-response) use case incorporates dynamic SMS keyword processing to respond to specific inbound messages with different message copy. For example, you can send different responses when someone texts “START” versus “JOIN”.
 
 #### Allowlisting for Connected Content
 
-You can allowlist specific URLs to be used for [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call). To access this feature, contact your customer success manager.
+You can allowlist specific URLs to be used for [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call). To access this feature, contact your customer success manager.
 
 ### Channels & Touchpoints
 
 #### SMS character encoding
 
-Our [SMS segment calculator]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/#segment-calculator) now has character encoding! Select **Display Character Encoding** to identify which characters are encoded as GSM-7 or UCS-2. 
+Our [SMS segment calculator]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator) now has character encoding! Select **Display Character Encoding** to identify which characters are encoded as GSM-7 or UCS-2. 
 
 ![SMS segment calculator with a sample SMS message entered in the textbox and the character encoding turned on.]({% image_buster /assets/img/sms/character_encoding.png %}){: style="max-width:70%;"}
 
@@ -552,7 +687,7 @@ Our [SMS segment calculator]({{site.baseurl}}/user_guide/message_building_by_cha
 
 Because MM API for WhatsApp doesn’t offer 100% deliverability, it's important to understand how to retarget users who may not have received your message on other channels. 
 
-To retarget users, we recommend building a segment of users who didn’t receive a specific message. To do this, filter by the error code `131049`, which indicates that a marketing template message was not sent due to WhatsApp’s per-user marketing template limit enforcement. You can do this by [using Braze Currents or SQL Segment Extensions]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/optimized_delivery/#retargeting-users-on-other-braze-channels).
+To retarget users, we recommend building a segment of users who didn’t receive a specific message. To do this, filter by the error code `131049`, which indicates that a marketing template message was not sent due to WhatsApp’s per-user marketing template limit enforcement. You can do this by [using Braze Currents or SQL Segment Extensions]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/#retargeting-users-on-other-braze-channels).
 
 ### Partnerships
 
@@ -602,7 +737,7 @@ Use [multi-rule feature flag rollouts]({{site.baseurl}}/developer_guide/feature_
 
 #### Mapping to catalog fields for drag-and-drop product blocks
 
-In your catalog settings, you can select the **Product blocks** toggle to [map to specific fields]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/product_blocks/#catalog-setup) and information in your catalog. This allows you to select which fields to use as the product title, product URL, and image URL.
+In your catalog settings, you can select the **Product blocks** toggle to [map to specific fields]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/#catalog-setup) and information in your catalog. This allows you to select which fields to use as the product title, product URL, and image URL.
 
 #### Frequency capping abort events in Currents
 
@@ -614,29 +749,29 @@ When using Currents, you can now reference `abort_type` in the channel abort eve
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-You can [add a background row image]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/style_settings/#background-image) to an in-app message or landing page in the **Row properties** panel. Toggle on **Background image**, and then provide an image URL or select an image from the [media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/). Finally, configure your alt text, size, position, and whether the image repeats to create patterns across the row.
+You can [add a background row image]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#background-image) to an in-app message or landing page in the **Row properties** panel. Toggle on **Background image**, and then provide an image URL or select an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Finally, configure your alt text, size, position, and whether the image repeats to create patterns across the row.
 
 ![A row background image of a pizza that has a horizontal repeat pattern.]({% image_buster /assets/img_archive/background_row.png %})
 
 #### Copy preview link
 
-Use **Copy preview link** in your [Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create/#step-5-test-your-message-optional), [email custom footers]({{site.baseurl}}/user_guide/message_building_by_channel/email/custom_email_footer/#creating-your-custom-footer), and [email opt-in and unsubscribe pages]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/?tab=custom%20footer#subscription-pages-and-footers) to generate a shareable link that shows how your content will look like for a random user.
+Use **Copy preview link** in your [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#step-5-test-your-message-optional), [email custom footers]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#creating-your-custom-footer), and [email opt-in and unsubscribe pages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/?tab=custom%20footer#subscription-pages-and-footers) to generate a shareable link that shows how your content will look like for a random user.
 
 #### WhatsApp messages with optimized delivery
 
 Use Meta’s advanced AI systems to deliver your marketing messages to more users who are most likely to engage with them, significantly boosting deliverability and message engagement.
 
-[WhatsApp messages with optimized delivery]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/optimized_delivery/) are sent using Meta's new [Marketing Messages Lite API](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/), which provides superior performance compared to the traditional Cloud API. This new sending pipeline helps you better reach users who value and want to receive your messages.
+[WhatsApp messages with optimized delivery]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/) are sent using Meta's new [Marketing Messages Lite API](https://developers.facebook.com/docs/whatsapp/marketing-messages-lite-api/), which provides superior performance compared to the traditional Cloud API. This new sending pipeline helps you better reach users who value and want to receive your messages.
 
 #### WhatsApp Flows
 
 When incorporating a WhatsApp Flow message into a Braze Canvas or campaign, you may want to capture and utilize specific information that users submit through the Flow. Braze needs to receive additional information regarding the structure of the user response, specifically the expected shape of the JSON response, to generate the required nested custom attribute (NCA) schema.
 
-Now you can give Braze the information about the response structure by [saving the Flow response as a custom attribute]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/whatsapp_flows/?tab=recommended%20method#step-1-generate-the-flow-custom-attribute) and completing a test send.
+Now you can give Braze the information about the response structure by [saving the Flow response as a custom attribute]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows/?tab=recommended%20method#step-1-generate-the-flow-custom-attribute) and completing a test send.
 
 #### Editable user preview
 
-You can [edit individual fields from a random or existing user]({{site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/sending_test_messages/?tab=webhook#customizing-an-existing-user) to help test dynamic content within your message. Select **Edit** to convert the selected user into a custom user you can modify.
+You can [edit individual fields from a random or existing user]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=webhook#customizing-an-existing-user) to help test dynamic content within your message. Select **Edit** to convert the selected user into a custom user you can modify.
 
 ![The "Preview as a User" tab with an "Edit" button.]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 
@@ -644,11 +779,11 @@ You can [edit individual fields from a random or existing user]({{site.baseurl}}
 
 #### BrazeAI Decisioning Studio™ Go
 
-You can now set up your integration with [BrazeAI Decisioning Studio™ Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/go) by referencing these configuration articles for:
+You can now set up your integration with [BrazeAI Decisioning Studio™ Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/) by referencing these configuration articles for:
 
-- [Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/go/configuring_braze)
-- [Klaviyo]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo)
-- [Salesforce Marketing Cloud]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/go/configuring_sfmc)
+- [Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
+- [Klaviyo]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
+- [Salesforce Marketing Cloud]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
 
 #### New features for Braze Agents
 
@@ -656,7 +791,7 @@ You can now set up your integration with [BrazeAI Decisioning Studio™ Go]({{si
 
 You can now customize your [Braze Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) by:
 
-- Applying [brand guidelines]({{site.baseurl}}/user_guide/administrative/app_settings/brand_guidelines) for your agent to adhere to in its response. 
+- Applying [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) for your agent to adhere to in its response. 
 - Referencing a catalog to further personalize your message.
 - Structuring an agent's output by providing the [output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#output-format).
 - Adjusting the [temperature]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#temperature) for the level of deviation for your agent's output.
@@ -765,7 +900,7 @@ These new fields were added to the following Currents events:
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Suppression lists]({{site.baseurl}}/user_guide/engagement_tools/segments/suppression_lists) are groups of users who automatically do not receive any campaigns or Canvases. Suppression lists are defined by segment filters, and users enter and exit suppression lists as they meet filter criteria.
+[Suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/) are groups of users who automatically do not receive any campaigns or Canvases. Suppression lists are defined by segment filters, and users enter and exit suppression lists as they meet filter criteria.
 
 #### Zero-copy personalization
 
@@ -777,17 +912,17 @@ Sync Canvas triggers using Cloud Data Ingestion for [zero-copy personalization](
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-You can [create context variable filters]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#context-variable-filters) that use previously-declared context variables in [Audience Paths]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) and [Decision Split]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split) steps.
+You can [create context variable filters]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters) that use previously-declared context variables in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) steps.
 
 ### Unlocking creativity
 
 #### Deal Cards for emails
 
-Use [Deal Cards]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/gmail_promotions_tab) to provide key deal information directly at the top of email bodies. This allows recipients to quickly understand the offer details and take action.
+Use [Deal Cards]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) to provide key deal information directly at the top of email bodies. This allows recipients to quickly understand the offer details and take action.
 
 #### Templates for Banners
 
-When you [compose your Banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners/create), you can now start with a blank template, use a Braze template, or select a saved Banner template.
+When you [compose your Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/), you can now start with a blank template, use a Braze template, or select a saved Banner template.
 
 ### Robust channels
 
@@ -795,7 +930,7 @@ When you [compose your Banner]({{site.baseurl}}/user_guide/message_building_by_c
 
 {% multi_lang_include release_type.md release="General availability" %}
  
-[Suppression lists]({{site.baseurl}}/user_guide/engagement_tools/segments/suppression_lists/) specify groups of users who will never receive messages. Admins can create suppression lists with segment filters to narrow down a user group the same way you would for segmentation.
+[Suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/) specify groups of users who will never receive messages. Admins can create suppression lists with segment filters to narrow down a user group the same way you would for segmentation.
 
 #### LINE click tracking
 
@@ -807,23 +942,23 @@ When [LINE click tracking]({{site.baseurl}}/line/click_tracking/) is turned on, 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[SMS and RCS bot click filtering]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/bot_click_filtering/) enhances campaign analytics and workflows by excluding suspected bot clicks. A “bot click” refers to automated clicks on shortened links in SMS and RCS messages, such as those from web crawlers, Android and iOS link previews, or CPaaS security software. This feature facilitates accurate reporting, segmentation, and orchestration to engage real users.
+[SMS and RCS bot click filtering]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering/) enhances campaign analytics and workflows by excluding suspected bot clicks. A “bot click” refers to automated clicks on shortened links in SMS and RCS messages, such as those from web crawlers, Android and iOS link previews, or CPaaS security software. This feature facilitates accurate reporting, segmentation, and orchestration to engage real users.
 
 #### Transfer WhatsApp phone numbers
 
-Transfer a WhatsApp Business Account (WABA) phone number and its associated subscription group [from one workspace to another]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/transfer_between_workspaces/) within Braze.
+Transfer a WhatsApp Business Account (WABA) phone number and its associated subscription group [from one workspace to another]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/transfer_between_workspaces/) within Braze.
 
 #### WhatsApp Flows response messages and preview
 
-In a Canvas, you can create a WhatsApp message step that uses a [response message]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/whatsapp_flows/?tab=response%20message#configuring-whatsapp-flow-messages-and-responses) and flow message. You can also select **Preview Flow** to preview the Flow directly in Braze to confirm it behaves as expected.
+In a Canvas, you can create a WhatsApp message step that uses a [response message]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows/?tab=response%20message#configuring-whatsapp-flow-messages-and-responses) and flow message. You can also select **Preview Flow** to preview the Flow directly in Braze to confirm it behaves as expected.
 
 #### WhatsApp product messages
 
-[Product messages]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/product_messages/) empower you to send interactive WhatsApp messages that showcase products directly from your Meta catalog.
+[Product messages]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/product_messages/) empower you to send interactive WhatsApp messages that showcase products directly from your Meta catalog.
 
 #### Integrating Braze and WhatsApp with an external system
 
-[Leverage the power of AI chatbots and live agent hand-offs]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_use_cases/external_system/) on the WhatsApp channel to streamline your customer support operations. By automating routine inquiries and seamlessly transitioning to human agents when needed, you can significantly improve response times and enhance the overall customer experience.
+[Leverage the power of AI chatbots and live agent hand-offs]({{site.baseurl}}/user_guide/channels/whatsapp/use_cases/whatsapp_and_external_systems/) on the WhatsApp channel to streamline your customer support operations. By automating routine inquiries and seamlessly transitioning to human agents when needed, you can significantly improve response times and enhance the overall customer experience.
 
 ### AI and ML automation
 
@@ -900,17 +1035,17 @@ You can use custom properties from your Banner campaign to retrieve key–value 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-When using Braze Connected Content, you may find that certain APIs require a token instead of a username and password. Braze can store credentials that hold [token authentication header values]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-token-authentication).
+When using Braze Connected Content, you may find that certain APIs require a token instead of a username and password. Braze can store credentials that hold [token authentication header values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-token-authentication).
 
 #### Promotion codes
 
-You can save promotion codes to a user’s profile through a User Update step. For more information, refer to [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes#save-to-profile).
+You can save promotion codes to a user’s profile through a User Update step. For more information, refer to [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#save-to-profile).
 
 ### Unlocking creativity
 
 #### Braze Pilot
 
-[Braze Pilot]({{site.baseurl}}/user_guide/getting_started/braze_pilot) is a publicly available app for Android and iOS that allows you to launch messages from your Braze dashboard to your phone. Check out [Getting started with Braze Pilot]({{site.baseurl}}/user_guide/getting_started/braze_pilot/getting_started) for a walkthrough of downloading the app, initializing the connection to your Braze dashboard, and completing the setup.
+[Braze Pilot]({{site.baseurl}}/user_guide/get_started/braze_pilot/) is a publicly available app for Android and iOS that allows you to launch messages from your Braze dashboard to your phone. Check out [Getting started with Braze Pilot]({{site.baseurl}}/user_guide/get_started/braze_pilot/getting_started/) for a walkthrough of downloading the app, initializing the connection to your Braze dashboard, and completing the setup.
 
 ### New Braze partnerships
 
@@ -934,115 +1069,5 @@ The following SDK updates have been released. Breaking updates are listed below;
 
 - [Braze Swift SDK 7.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1300)
   - Updates the Braze Swift SDK bindings to require releases from the `13.0.0+` SemVer denomination. This allows compatibility with any version of the Braze SDK from `13.0.0` up to, but not including, `14.0.0`.
-
-{% enddetails %}
-{% details August 19, 2025 %}
-
-## August 19, 2025 release
-
-### Time zone consistency standardization to Canvas Context
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-If you're participating in the [Canvas Context step early access]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context), all timestamps with a datetime type from trigger event properties in action-based Canvases will always be normalized to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). To learn more about this, refer to [Time zone consistency standardization]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context#time-zone-consistency-standardization).
-
-### Data flexibility
-
-#### Self-serve custom domains
-
-{% multi_lang_include release_type.md release="General access" %}
-
-[Self-serve custom domains]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/link_shortening/custom_domains/) empower you to configure and manage your own custom domains for SMS, RCS, and WhatsApp—directly from your Braze dashboard. You can easily add, monitor, and manage up to 10 custom domains in one place.
-
-#### Segment funnel statistics
-
-Select [View funnel statistics]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#viewing-funnel-statistics) to display the statistics for that filter group and see how each added filter impacts your segment statistics. You’ll see an estimated count and percentage for users who are targeted by all filters up to that point. Once the statistics are displayed for a filter group, they will update automatically whenever you change the filters. 
-
-#### New response fields for `/campaigns/details` endpoint for push notifications
-
-The `messages` response for push notifications now includes two new fields:
-
-- `image_url`: An image URL for an Android notification image, an iOS notification image, or a web push icon image.
-- `large_image_url`: A web notification image URL for Android Chrome and Windows web push actions.
-
-#### Defining PII fields
-
-Selecting and [defining certain fields as PII fields]({{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings#view-pii) only affects what Users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.
-
-Consult your legal team to align your dashboard’s settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/api/data_retention/).
-
-#### Sharing a Report Builder download link
-
-You can [share a dashboard link]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/#sharing-a-report) to the report by selecting **Share** and then **Share a link** or **Send or schedule an email**.
-
-### Unlocking creativity
-
-#### Custom head tags for drag-and-drop emails
-
-Use `<head>` tags to add CSS and metadata in your email message. For example, you can use these tags to add a stylesheet or favicon. Liquid is supported in `<head>` tags.
-
-### Robust channels
-
-#### Fuzzy out-out best practices
-
-We've added a [best practices section]({{site.baseurl}}) to help you thoughtfully configure your fuzzy opt-out message and create a clear, compliant, and positive experience for your subscribers.
-
-#### WhatsApp Flows
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-[WhatsApp Flows]({{site.baseurl}}/whatsapp_flows/) is an enhancement to the existing WhatsApp channel, allowing you to create interactive and dynamic messaging experiences. 
-
-#### WhatsApp inbound product questions
-
-Users can respond to your product or catalog message with [product questions]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/product_messages/#receiving-inbound-product-questions). These arrive as inbound messages, which can then be sorted with an Action Path.
-
-Additionally, Braze extracts the product ID and catalog ID from these questions, so if you wish to automate responses or send questions to another team (such as customer support), you can include those details.
-
-### AI and ML automation
-
-#### New BrazeAI™ use case articles
-
-We’ve added new use case articles to help you get the most out of BrazeAI™. These guides highlight practical ways to apply AI to your engagement strategies, including:
-
-- [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_churn/use_case): Identify customers at risk of churning and take action early.
-- [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_events/use_case): Anticipate key user actions and shape experiences in real time.
-- [Recommendations]({{site.baseurl}}/user_guide/brazeai/recommendations/use_case ): Deliver more relevant content and products based on customer behavior.
-
-#### MCP server
-
-{% multi_lang_include release_type.md release="Beta" %}
-
-The [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server/), a secure and read-only connection, lets AI tools like Claude and Cursor access non-PII Braze data to answer questions, analyze trends, and provide insights without altering data.
-
-### SDK updates
-
-The following SDK updates have been released. Breaking updates are listed below; all other updates can be found by checking the corresponding SDK changelogs.
-
-- [Swift SDK 13.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - Extends the functionality of `BrazeSDKAuthDelegate.braze(_:sdkAuthenticationFailedWithError:)` to be triggered for "Optional" authentication errors.
-        - The delegate method `BrazeSDKAuthDelegate.braze(_:sdkAuthenticationFailedWithError:)` will now be triggered for both "Required" and "Optional" authentication errors.
-        - If you want to only handle "Required" SDK authentication errors, add a check ensuring that `BrazeSDKAuthError.optional` is false inside your implementation of this delegate method.
-    - Fixes the usage of `Braze.Configuration.sdkAuthentication` to take effect when enabled.
-        - Previously, the value of this configuration was not consumed by the SDK and the token was always attached to requests if it was present.
-        - Now, the SDK will only attach the SDK authentication token to outgoing network requests when this configuration is enabled.
-    - The setters for all properties of `Braze.FeatureFlag` and all properties of `Braze.Banner` have been made `private`. The properties of these classes are now read-only.
-    - Removes the `Braze.Banner.id` property, which was deprecated in version `11.4.0`.
-        - Instead, use `Braze.Banner.trackingId` to read a banner's campaign tracking ID.
-- [React Native SDK 16.0.0](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)
-    - Updates the native Android SDK version bindings from [Braze Android SDK 36.0.0 to 37.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Updates the native Swift SDK version bindings from [Braze Swift SDK 12.0.0 to 13.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/12.0.0...13.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-        - The `sdkAuthenticationError` event will now trigger for both "Required" and "Optional" authentication errors.
-- [Xamarin SDK 7.0.0](https://github.com/braze-inc/braze-xamarin-sdk/blob/7.0.0/CHANGELOG.md)
-    - Added support for .NET 9.0 for the iOS and Android bindings.
-        - This removes support for .NET 8.0.
-        - This requires a [minimum version of iOS 12.2](https://learn.microsoft.com/en-us/dotnet/maui/whats-new/dotnet-9?view=net-maui-9.0).
-    - Updated the Android binding from [Braze Android 32.0.0 to 37.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v32.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Updated the iOS binding from [Braze Swift SDK 10.0.0 to 12.1.0](https://github.com/braze-inc/braze-swift-sdk/compare/10.0.0...12.1.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - This release contains APIs for the Banners feature but is not currently fully supported by this SDK. If you wish to use Banners in your .NET MAUI app, contact your customer support manager before integrating into your application.
-- [Cordova SDK 13.0.0](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md#1300)
-    - Updated the internal iOS implementation of `enableSdk` method to use `setEnabled`: instead of `_requestEnableSDKOnNextAppRun`, which was deprecated in the Swift SDK.
-    - Calling this method no longer requires the app to be re-launched to take effect. The SDK will now become enabled as soon as this method is executed.
-    - Updated the native Android bridge from [Braze Android SDK `36.0.0` to `37.0.0`](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
 
 {% enddetails %}

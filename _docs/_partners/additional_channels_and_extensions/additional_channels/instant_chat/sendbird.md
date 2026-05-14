@@ -30,7 +30,7 @@ By harnessing the joint capabilities of Braze and Sendbird Notifications, busine
 | Sendbird UIKit | You must have the Sendbird UIKit installed in your [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) or [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit) app. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -67,7 +67,7 @@ Once the extension is installed, click the Sendbird icon in your browser's toolb
 
 ### Step 4: Map Sendbird user ID to Braze user ID
 
-A Sendbird user ID must be added to a Braze user profile as a [custom attribute]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/) for the integration to be used. You can upload and update user profiles via CSV files from the [User import]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv) page. Alternatively, you can use the Braze user ID as the Sendbird user ID.
+A Sendbird user ID must be added to a Braze user profile as a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) for the integration to be used. You can upload and update user profiles via CSV files from the [User import]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv) page. Alternatively, you can use the Braze user ID as the Sendbird user ID.
 
 ### Step 5: Set up your webhook template
 

@@ -1,6 +1,6 @@
 ---
 nav_title: Generaciones anteriores
-article_title: Anterior Generación de mensajes dentro de la aplicación
+article_title: Generaciones anteriores de mensajes dentro de la aplicación
 page_order: 20
 page_type: reference
 description: "Este artículo revisa la información anterior sobre los mensajes dentro de la aplicación en Braze."
@@ -9,26 +9,26 @@ noindex: true
 hidden : true
 ---
 
-# Generaciones anteriores de mensajes dentro de la aplicación
+# Generaciones anteriores de mensajes dentro de la aplicación {#previous-in-app-message-generations}
 
 {% alert important %}
-Esta página revisa la información anterior sobre nuestros mensajes dentro de la aplicación. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra documentación actual sobre [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/).
+Esta página revisa la información anterior sobre nuestros mensajes dentro de la aplicación. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra documentación actual sobre [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/).
 {% endalert %}
 
 ## Universal
 
-Esto revisará la información anterior sobre nuestros mensajes dentro de la aplicación. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra [documentación de resumen de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/).
+Esto revisará la información anterior sobre nuestros mensajes dentro de la aplicación. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra [documentación de resumen de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/).
 
-{% details Fullscreen %}
-Son las más atractivas, pero también las más intrusivas, ya que cubren toda la pantalla de tu usuario. Son geniales para mostrar imágenes grandes y enriquecidas, y pueden ser útiles para transmitir información muy importante, como nuevas características cruciales y promociones que caducan. Como interrumpen más la experiencia del usuario, utilízalos con moderación para los contenidos de máxima prioridad.
+{% details Pantalla completa %}
+Son los más atractivos, pero también los más intrusivos, ya que cubren toda la pantalla de tu usuario. Son geniales para mostrar imágenes grandes y enriquecidas, y pueden ser útiles para transmitir información muy importante, como nuevas características cruciales y promociones que caducan. Como interrumpen más la experiencia del usuario, utilízalos con moderación para los contenidos de máxima prioridad.
 
 ![Mensaje a pantalla completa]({% image_buster /assets/img_archive/braze_fullscreen.png %}){: style="max-width:80%;"}
 
 **Características personalizables**
 
-- Cabecera y cuerpo del texto
+- Encabezado y cuerpo del texto
 - Una imagen grande
-- Hasta dos botones de llamada a la acción con comportamiento separado al hacer clic y vínculos en profundidad
+- Hasta dos botones de llamada a la acción con comportamiento separado al hacer clic y vínculos profundos
 - Diferentes colores para el encabezado y el cuerpo del texto, los botones y el fondo
 - Pares clave-valor
 
@@ -40,16 +40,16 @@ Estos mensajes no son tan intrusivos como los mensajes a pantalla completa, ya q
 
 **Características personalizables**
 
-- Cabecera y cuerpo del texto
+- Encabezado y cuerpo del texto
 - Una imagen o un icono de señal personalizable
-- Hasta dos botones de llamada a la acción con comportamiento separado al hacer clic y vínculos en profundidad
+- Hasta dos botones de llamada a la acción con comportamiento separado al hacer clic y vínculos profundos
 - Diferentes colores para el encabezado y el cuerpo del texto, los botones y el fondo
 - Pares clave-valor
 
 {% enddetails %}
 
-{% details Traditional Slideup %}
-Son el tipo de mensaje menos intrusivo, aunque pueden llamar más o menos la atención según el uso que hagas de los colores y los iconos de las señales. Este puede ser el formato de mensaje a utilizar cuando se incorporan nuevos usuarios y se les dirige hacia características concretas de la aplicación, ya que no detienen la experiencia de la aplicación y permiten una exploración continua.
+{% details Deslizamiento hacia arriba tradicional %}
+Son el tipo de mensaje menos intrusivo, aunque pueden llamar más o menos la atención según el uso que hagas de los colores y los iconos de señales. Este puede ser el formato de mensaje a utilizar cuando se incorporan nuevos usuarios y se les dirige hacia características concretas de la aplicación, ya que no detienen la experiencia de la aplicación y permiten una exploración continua.
 
 ![Mensaje de deslizamiento hacia arriba]({% image_buster /assets/img_archive/stopwatch_slideup_IAM.gif %}){: style="max-width:50%;"}
 
@@ -68,9 +68,9 @@ Son el tipo de mensaje menos intrusivo, aunque pueden llamar más o menos la ate
 
 ## Web
 
-Esto revisará la información anterior sobre mensajes dentro de la aplicación más personalizados. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra [documentación de personalización]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/).
+Esto revisará la información anterior sobre mensajes dentro de la aplicación más personalizados. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra [documentación de personalización]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
 
-{% details Email capture message %}
+{% details Mensaje de captura de correo electrónico %}
 Los mensajes de captura de correo electrónico te permiten pedir fácilmente a los usuarios de tu sitio que envíen su dirección de correo electrónico, tras lo cual estará disponible en el sistema Braze para utilizarla en todas tus campañas de mensajería.
 
 ![Mensaje de captura de correo electrónico]({% image_buster /assets/img_archive/web-email-capture.png %}){: style="max-width:60%;"}
@@ -79,17 +79,17 @@ Los mensajes de captura de correo electrónico te permiten pedir fácilmente a l
 
 **Características personalizables**
 
-- Cabecera, cuerpo y texto del botón de envío
+- Encabezado, cuerpo y texto del botón de envío
 - Una imagen opcional
-- Un enlace opcional a las "Condiciones del servicio".
+- Un enlace opcional a las "Condiciones del servicio"
 - Diferentes colores para el encabezado y el cuerpo del texto, los botones y el fondo
 - Pares clave-valor
 
 {% enddetails %}
 
-{% details Custom HTML Message %}
+{% details Mensaje HTML personalizado %}
 
-Aunque los mensajes predeterminados dentro de la aplicación de Braze pueden personalizarse de diversas formas, puedes obtener un control aún mayor sobre el aspecto y la sensación de tus campañas utilizando mensajes diseñados y creados con HTML, CSS y JavaScript. Con una simple composición, puedes desbloquear funcionalidades y marcas personalizadas que se ajusten a cualquiera de tus necesidades. Los mensajes dentro de la aplicación en HTML permiten un mayor control sobre el aspecto de un mensaje, y todo lo que es compatible con HTML5 también lo es con Braze.
+Aunque los mensajes predeterminados dentro de la aplicación de Braze pueden personalizarse de diversas formas, puedes obtener un control aún mayor sobre el aspecto de tus campañas utilizando mensajes diseñados y creados con HTML, CSS y JavaScript. Con una simple composición, puedes desbloquear funcionalidades y marcas personalizadas que se ajusten a cualquiera de tus necesidades. Los mensajes dentro de la aplicación en HTML permiten un mayor control sobre el aspecto de un mensaje, y todo lo que es compatible con HTML5 también lo es con Braze.
 
 **Puente JavaScript (appboyBridge)**
 
@@ -97,13 +97,13 @@ Los mensajes HTML dentro de la aplicación admiten una interfaz "puente" de Java
 
 {% multi_lang_include archive/appboyBridge.md platform="web" %}
 
-Además, para el seguimiento de los análisis, cualquier elemento `<a>` o `<button>` de tu HTML registrará automáticamente una acción de "clic" en la campaña asociada al mensaje dentro de la aplicación. Para registrar un "clic de botón" en lugar de un "clic de cuerpo", proporciona un valor de cadena de consulta de abButtonId en el href de tu enlace (por ejemplo, `<a href="http://mysite.com?abButtonId=0">click me</a>`), o proporciona un ID en el elemento HTML (por ejemplo, `<a id="0" href="http://mysite.com">click me</a>`). Ten en cuenta que los únicos ID de botón aceptados actualmente son "0" y "1". Un enlace con un ID de botón 0 se representará como "Botón 1" en el panel, mientras que un enlace con un ID de botón 1 se representará como "Botón 2".
+Además, para el seguimiento de los análisis, cualquier elemento `<a>` o `<button>` de tu HTML registrará automáticamente una acción de "clic" en la Campaign asociada al mensaje dentro de la aplicación. Para registrar un "clic de botón" en lugar de un "clic de cuerpo", proporciona un valor de cadena de consulta de abButtonId en el href de tu enlace (por ejemplo, `<a href="http://mysite.com?abButtonId=0">click me</a>`), o proporciona un ID en el elemento HTML (por ejemplo, `<a id="0" href="http://mysite.com">click me</a>`). Ten en cuenta que los únicos ID de botón aceptados actualmente son "0" y "1". Un enlace con un ID de botón 0 se representará como "Button 1" en el dashboard, mientras que un enlace con un ID de botón 1 se representará como "Button 2".
 
 >  Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad: los mensajes dentro de la aplicación en HTML pueden ejecutar JavaScript, por lo que necesitamos que un mantenedor del sitio los habilite.
 
 {% enddetails %}
 
-{% details HTML In App-Message Templates %}
+{% details Plantillas de mensajes HTML dentro de la aplicación %}
 
 Hemos diseñado un conjunto de plantillas HTML5 de mensajes dentro de la aplicación para ayudarte a empezar. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates), que contiene instrucciones detalladas sobre cómo utilizar y personalizar estas plantillas según tus necesidades.
 
@@ -119,35 +119,35 @@ Hemos diseñado un conjunto de plantillas HTML5 de mensajes dentro de la aplicac
 
 <br>
 
-## Especificaciones
+## Especificaciones {#specifications}
 
-Esto revisará la información anterior sobre nuestras especificaciones creativas de mensajes dentro de la aplicación. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra [documentación de especificaciones creativas]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+Esto revisará la información anterior sobre nuestras especificaciones creativas de mensajes dentro de la aplicación. Para ver la información más actualizada sobre nuestra generación actual de mensajes dentro de la aplicación, consulta nuestra [documentación de especificaciones creativas]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/).
 
-### Límites de carácter e imagen
+### Límites de caracteres e imágenes {#character-and-image-limits}
 
 Para todos los tipos de mensajes dentro de la aplicación enumerados en la siguiente tabla, se aplican las siguientes directrices adicionales:
 
-- **Tamaño de imagen recomendado:** 500 KB 
-- **Tamaño máximo de imagen:** 5 MB
+- **Tamaño de imagen recomendado:** 500&nbsp;KB
+- **Tamaño máximo de imagen:** 5&nbsp;MB
 - **Tipos de archivo admitidos:** PNG, JPEG, GIF
 
 | Tipo                               | Relación de aspecto | Número máximo de caracteres |
 | :--------------------------------- | :----------: | :-----------------: |
-| Retrato a pantalla completa (sólo imagen)  |    10:16     |         240         |
+| Retrato a pantalla completa (solo imagen)  |    10:16     |         240         |
 | Retrato a pantalla completa (con texto)   |     5:4      |         240         |
-| Paisaje Pantalla completa (Con texto)  |     16:5     |         240         |
-| Paisaje Pantalla completa (sólo imagen) |    16:10     |         240         |
-| deslizamiento hacia arriba                            |     1:1      |         140         |
-| Modal (Sólo imagen)                 |     1:1      |         140         |
+| Paisaje a pantalla completa (con texto)  |     16:5     |         240         |
+| Paisaje a pantalla completa (solo imagen) |    16:10     |         240         |
+| Deslizamiento hacia arriba                            |     1:1      |         140         |
+| Modal (solo imagen)                 |     1:1      |         140         |
 | Modal (con texto)                  |    29:10     |         140         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Character and image limits" }
 
-### Reducir el tamaño de los archivos de mensajes dentro de la aplicación
+### Reducir el tamaño de los archivos de mensajes dentro de la aplicación {#keeping-in-app-message-file-sizes-small}
 
-Braze recomienda que mantengas el tamaño de tus imágenes y activos HTML lo más bajo posible por varias razones:
+Braze recomienda que mantengas el tamaño de tus imágenes y archivos ZIP de activos HTML lo más pequeño posible por varias razones:
 
 - Las cargas útiles de mensajes HTML e imágenes más pequeñas se descargarán más rápido y se mostrarán de forma más rápida y fiable para tus clientes.
-- Las cargas útiles de mensajes HTML y de imágenes más pequeñas también mantendrán bajos los costes de datos de tus clientes. Los mensajes dentro de la aplicación Braze se descargan en segundo plano al iniciar la sesión, por lo que pueden desencadenarse en tiempo real en función de los criterios que selecciones. Como resultado, si tienes 10 mensajes HTML dentro de la aplicación de 1 MB cada uno, todos tus clientes incurrirían en un gasto de datos de 10 MB, aunque nunca hayan desencadenado todos esos mensajes. Esto puede acumularse rápidamente con el tiempo, a pesar de que los mensajes dentro de la aplicación se almacenan en caché y no se vuelven a descargar de sesión en sesión.
+- Las cargas útiles de mensajes HTML e imágenes más pequeñas también mantendrán bajos los costes de datos de tus clientes. Los mensajes dentro de la aplicación de Braze se descargan en segundo plano al iniciar la sesión, por lo que pueden desencadenarse en tiempo real en función de los criterios que selecciones. Como resultado, si tienes 10 mensajes HTML dentro de la aplicación de 1&nbsp;MB cada uno, todos tus clientes incurrirían en un gasto de datos de 10&nbsp;MB, aunque nunca hayan desencadenado todos esos mensajes. Esto puede acumularse rápidamente con el tiempo, a pesar de que los mensajes dentro de la aplicación se almacenan en caché y no se vuelven a descargar de sesión en sesión.
 
 Las siguientes estrategias son útiles para mantener bajo el tamaño de los archivos:
 
@@ -155,14 +155,10 @@ Las siguientes estrategias son útiles para mantener bajo el tamaño de los arch
 - Asegúrate de no incluir CSS o JavaScript superfluos o duplicados en tus ZIP de activos HTML.
 - Utiliza [ImageOptim](https://imageoptim.com/) en todas las imágenes para comprimirlas al mínimo tamaño posible sin reducir su calidad.
 
-### Especificaciones del iPhone 5
+### Especificaciones del iPhone 5 {#iphone-5-specs}
 
 ![Especificaciones del iPhone 5]({% image_buster /assets/img_archive/In-AppMsg_Mockups+Specs_05.png %})
 
-### Especificaciones del iPhone 6
+### Especificaciones del iPhone 6 {#iphone-6-specs}
 
 ![Especificaciones del iPhone 6]({% image_buster /assets/img_archive/In-AppMsg_Mockups+Specs_06.png %})
-
-
-
-

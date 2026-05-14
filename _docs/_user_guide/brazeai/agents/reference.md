@@ -7,7 +7,7 @@ page_order: 3
 
 # Reference for agents
 
-> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/).
+> As you create custom agents, refer to this article for more information on key settings, such as instructions and output schemas. For an introduction, see [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) and [Frequently asked questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
 ## Models
 
@@ -29,7 +29,7 @@ If you don't see **Braze Auto** as an option in the **Model** dropdown when crea
 
 With this option, you can connect your Braze account with providers like OpenAI, Anthropic, or Google Gemini. If you bring your own API key from an LLM provider, token costs are billed directly through your provider, not through Braze.
 
-We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administrative/app_settings/company_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available.
+We recommend routinely testing the most recent models, as legacy models may be discontinued or deprecated after a few months. You can also sign up for Agent Console notifications in [Notification Preferences]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) to be alerted when Braze detects a model is no longer available.
 
 To set this up:
 
@@ -51,10 +51,11 @@ Some LLM providers may allow you to adjust a selected model's thinking level. Th
 | **Low** | Tasks that benefit from a bit more reasoning but don't need deep analysis. |
 | **Medium** | Multi-step or nuanced tasks (such as analyzing several inputs to recommend an action). |
 | **High** | Complex reasoning, edge cases, or when you need the model to work through steps before answering. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
 We recommend starting with **Minimal** and testing your agent’s responses. Then, you can adjust the thinking level to **Low** or **Medium** if you find the agent is struggling to provide accurate answers. In rare cases, a **High** thinking level may be needed, although using this level can result in high token costs and longer response times or higher risk of timeout errors. If your agent is struggling to balance multi-step reasoning with reasonable response times, consider breaking your use case apart into more than one agent that can work together in a Canvas or catalog.
 
-Braze uses the same IP ranges for outbound LLM calls as for Connected Content. The ranges are listed in the [Connected Content IP allowlist]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#connected-content-ip-allowlisting). If your provider supports IP allowlisting, you can restrict the key to those ranges so only Braze can use it.
+Braze uses the same IP ranges for outbound LLM calls as for Connected Content. The ranges are listed in the [Connected Content IP allowlist]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). If your provider supports IP allowlisting, you can restrict the key to those ranges so only Braze can use it.
 
 {% alert important %}
 When you use a Braze-provided LLM, the providers of such a model will be acting as Braze Sub-processors, subject to the terms of the Data Processing Addendum (DPA) between you and Braze. If you choose to bring your own API key, the provider of your LLM subscription is considered a Third Party Provider under the contract between you and Braze.
@@ -69,6 +70,13 @@ Each LLM provider has a slightly different mix of model capabilities, costs, and
 - If lower cost models or model thinking levels are struggling with the use case or generating inconsistent or inaccurate outputs, consider adjusting to higher cost models or thinking level models.
 - During testing, make sure to balance the reliability and accuracy with token usage and invocation duration.
 - Each use case may have a different optimal model and thinking level. We recommend thoroughly testing to check for consistent quality without timeouts.
+
+### Rate limits
+
+The following rate limits apply per workspace:
+
+- **Braze-powered model:** 1,000 invocations per minute 
+- **Bringing your own API key:** 2,500 invocations per minute 
 
 ## Writing instructions
 
@@ -89,7 +97,7 @@ Here are some general best practices to get you started with prompting:
 
 ### Using Liquid
 
-Including [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) in your agent's instructions can add an extra layer of personalization in its response. You can specify the exact Liquid variable the agent gets and can include it in the context of your prompt. For example, instead of explicitly writing "first name", you can use the Liquid snippet {% raw %}`{{${first_name}}}`{% endraw %}:
+Including [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in your agent's instructions can add an extra layer of personalization in its response. You can specify the exact Liquid variable the agent gets and can include it in the context of your prompt. For example, instead of explicitly writing "first name", you can use the Liquid snippet {% raw %}`{{${first_name}}}`{% endraw %}:
 
 {% raw %}
 ```
@@ -155,6 +163,61 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 <output_example> 
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
+```
+{% endraw %}
+
+{% endtab %}
+{% tab SMS opt-out %}
+
+{% raw %}
+```
+ROLE
+You are a compliance-focused classifier for inbound customer messages.
+
+PRIMARY TASK
+Given a single inbound message from a user, decide whether it should be treated as a request to opt out of future messaging (unsubscribe, stop, revoke consent).
+
+OUTPUT (STRICT)
+Return a single boolean only:
+- true = treat as an opt-out request
+- false = do not treat as an opt-out request
+Do not output any other words, punctuation, or explanation.
+
+COMPLIANCE INTENT (NON-LEGAL GUIDANCE)
+Classify conservatively to reduce the risk of sending messages after a user revokes consent. This supports common requirements and expectations in laws and standards such as TCPA (US SMS consent and revocation), GDPR (withdrawal of consent and right to object to marketing), and other subscription management regimes. When in doubt, return true.
+
+DECISION RULES
+Return true if ANY of the following are present:
+1) Explicit opt-out keywords or phrases:
+   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
+   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
+2) A clear request to stop a specific channel:
+   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
+3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
+   - A standalone thumbs down (:-1:) or "thumbs down"
+   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
+   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
+Return false if ALL of the following are true:
+- The user is clearly engaging with the content or asking a question, and
+- There is no explicit opt-out intent
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
+
+EDGE CASES
+- If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
+- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
+- If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
+
+EXAMPLES
+Input: “STOP” → true
+Input: “unsubscribe” → true
+Input: “Please stop texting me” → true
+Input: “Remove me from your list” → true
+Input: “:-1:” → true
+Input: “I hate this. Leave me alone.” → true
+Input: “This is the worst, you suck” → true
+Input: “Stop by tomorrow?” → false
+Input: “Can you stop the delivery?” → false
+Input: “This sucks—what’s the promo code?” → false
 ```
 {% endraw %}
 
@@ -407,7 +470,7 @@ If you want to format responses to a simple feedback survey to determine how lik
 | **likelihood_score** | Number |
 | **explanation** | String |
 | **confidence_score** | Number |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
 
 ![Agent Console showing three output fields for likelihood score, explanation, and confidence score.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -451,15 +514,11 @@ You can select up to five segments for the agent to cross-reference each user's 
 
 ## Brand guidelines
 
-You can select [brand guidelines]({{site.baseurl}}/user_guide/administrative/app_settings/brand_guidelines) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
+You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) for your agent to adhere to in its responses. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 
-## Temperature
+## User-specific interaction history {#user-history}
 
-If your goal is to use an agent to generate copy to encourage users to log into your mobile app, you can set a higher temperature for your agent to be more creative and use the nuances of the context variables. If you're using an agent to generate sentiment scores, it may be ideal to set a lower temperature to avoid any agent speculation on negative survey responses. We recommend testing this setting and reviewing the agent's generated output to fit your scenario.
-
-{% alert note %}
-Temperatures aren't currently supported for use with OpenAI.
-{% endalert %}
+A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. For example, you can include this context for an agent to reference when it's evaluated in Canvas. User-specific interaction history can also help influence an agent when its job is to write personalized message copy.
 
 ## Duplicate agents
 

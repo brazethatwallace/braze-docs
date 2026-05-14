@@ -11,7 +11,7 @@ description: "This reference article covers how to connect and configure multipl
 > Connect multiple Shopify store domains to a single workspace to have a holistic view of your customers across all markets. Build and launch automation programs and journeys in a single workspace without duplicating efforts across regional stores.  
 
 {% alert important %}
-This feature doesn't support Shopify Markets or Markets Pro. If you would like to request support for these, submit a [product request]({{site.baseurl}}/user_guide/administrative/access_braze/portal/).
+This feature doesn't support Shopify Markets or Markets Pro. If you would like to request support for these, submit a [product request]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
 {% endalert %}
 
 ## Requirements
@@ -20,7 +20,7 @@ This feature doesn't support Shopify Markets or Markets Pro. If you would like t
 | ----------- | ----------- |
 | Set up a Shopify store | Be sure that you've already [set up at least one Shopify store with Braze]({{site.baseurl}}/shopify_overview/). |
 | Unique Shopify storefront domains for each region | Multiple store support is intended for use with unique Shopify store domains for different regional storefronts. <br><br>If you want to connect multiple sub-brands to Braze, we recommend creating separate workspaces for each sub-brand. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Connecting an additional store
 After you install the Braze app to your Shopify store and install your first store, select **+ Connect New Store**.
@@ -57,7 +57,7 @@ You can choose from the following options for your Braze external ID:
 |------|-----------|
 |Shopify Customer ID|If you use Shopify's customer ID as your Braze external ID, each store will generate a unique customer ID for each user. This means that if a user interacts with multiple stores, they will have separate profiles in Braze.|
 |Email, Hashed Email, or Custom External ID|If you use the email, hashed email, or custom external ID types, users who engage with multiple stores will have their profiles merged into a single consolidated profile when they log in or place an order.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### Merged fields
 
@@ -91,9 +91,9 @@ Alternatively, you can sync email and SMS marketing opt-in information directly 
 
 |Option|Resources|
 |------|---------|
-|API |- [Subscription group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups/) to directly replace what is supported by the integration<br>- [`Users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) to set subscription group data or the [global email subscription state]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- [Braze preference center]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/) for more customized marketing opt-in collection options|
+|API |- [Subscription group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups/) to directly replace what is supported by the integration<br>- [`Users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) to set subscription group data or the [global email subscription state]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- [Braze preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions/) for more customized marketing opt-in collection options|
 |SDKs |- [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
 {% endtab %}
 {% endtabs %}
 

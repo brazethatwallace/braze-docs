@@ -11,7 +11,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Personalize o comportamento da mensagem no app ao clicar
+# Personalize o comportamento da mensagem no app ao clicar {#customize-in-app-message-behavior-on-click}
 
 A propriedade `inAppMessageClickActionType` no `ABKInAppMessage` define o comportamento da ação depois que a mensagem no app é clicada. Essa propriedade é somente leitura. Se quiser alterar o comportamento ao clicar na mensagem no app, você poderá chamar o seguinte método em `ABKInAppMessage`:
 
@@ -32,21 +32,21 @@ inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withUR
 {% endtab %}
 {% endtabs %}
 
-O endereço `inAppMessageClickActionType` pode ser definido como um dos seguintes valores:
+O `inAppMessageClickActionType` pode ser definido como um dos seguintes valores:
 
 | `ABKInAppMessageClickActionType` | Comportamento ao clicar |
 | -------------------------- | -------- |
 | `ABKInAppMessageRedirectToURI` | O URI fornecido será exibido quando a mensagem for clicada, e a mensagem será descartada. Note que o parâmetro `uri` não pode ser nulo. |
 | `ABKInAppMessageNoneClickAction` | A mensagem será descartada quando for clicada. Note que o parâmetro `uri` será ignorado e a propriedade `uri` no `ABKInAppMessage` será definida como nula. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customize in-app message behavior on click" }
 
 {% alert important %}
 Para mensagens no app contendo botões, a mensagem `clickAction` também será incluída na carga útil final se a ação de clique for adicionada antes de adicionar o texto do botão.
 {% endalert %}
 
-## Personalização de cliques no corpo de mensagens no app
+## Personalização de cliques no corpo de mensagens no app {#customizing-in-app-message-body-clicks}
 
-O seguinte método [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) é chamado quando uma mensagem no app é clicada:
+O seguinte método delegado [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) é chamado quando uma mensagem no app é clicada:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -65,7 +65,7 @@ func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 {% endtab %}
 {% endtabs %}
 
-## Personalização de cliques no botão de mensagens no app
+## Personalização de cliques no botão de mensagens no app {#customizing-in-app-message-button-clicks}
 
 Para cliques em botões de mensagens no app e botões de mensagens HTML no app (como links), [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) inclui os seguintes métodos delegados:
 
@@ -129,9 +129,8 @@ if inAppMessage is ABKInAppMessageImmersive {
 
 Quando uma mensagem no app tem botões, as únicas ações de clique que serão executadas são as do modelo `ABKInAppMessageButton`. O corpo da mensagem no app não será clicável, mesmo que o modelo `ABKInAppMessage` tenha a ação de clique padrão atribuída.
 
-## Declarações de métodos
+## Declarações de métodos {#method-declarations}
 
 Para saber mais, consulte os seguintes arquivos de cabeçalho:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

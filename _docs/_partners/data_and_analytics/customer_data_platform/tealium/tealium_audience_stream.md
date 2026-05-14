@@ -26,7 +26,7 @@ Tealium AudienceStreams and EventStreams offer both batch and non-batch connecto
 | Tealium account | A [Tealium account](https://my.tealiumiq.com/) with server-side access is required. We recommend also using the client-side integrations to take advantage of this partnership. |
 | REST API key | A Braze REST API key with `users.track`, `users.delete`, and `subscription.status.set` permissions.<br><br>This can be created within **Braze dashboard > Developer Console > REST API Key > Create New API Key**|
 | [Braze REST endpoint]({{site.baseurl}}/api/basics/#endpoints) | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -151,7 +151,7 @@ This action allows you to track user, event, and purchase attributes all in one 
 | Parameters | Description |
 | ---------- | ----------- |
 | User ID | Use this field to map the Tealium user ID field to its Braze equivalent. Map one or more user ID attributes. When multiple IDs are specified, the first non-blank value is picked based on the following priority order: External ID, Braze ID, Alias Name, and Alias Label.<br><br>- External ID and Braze ID should not be specified if importing push tokens.<br>- If specifying a user alias, the alias name and alias label should be set. <br><br>For more information, check out the Braze [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). |
-| User attributes | Use existing Braze user profile field names to update user profile values in the Braze dashboard or add your own custom [user attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object/) data to the user profiles.<br><br>- By default, new users will be created if one does not exist.<br>- By setting **Update Existing Only** to `true`, only existing users will be updated, and no new user will be created.<br>- If a Tealium attribute is empty, it will be converted to null and removed from the Braze user profile. Enrichments should be used if null values should not be sent to Braze to remove a user attribute. |
+| User attributes | Use existing Braze user profile field names to update user profile values in the Braze dashboard or add your own custom [user attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) data to the user profiles.<br><br>- By default, new users will be created if one does not exist.<br>- By setting **Update Existing Only** to `true`, only existing users will be updated, and no new user will be created.<br>- If a Tealium attribute is empty, it will be converted to null and removed from the Braze user profile. Enrichments should be used if null values should not be sent to Braze to remove a user attribute. |
 | Modify user attributes | Use this field to increment or decrement certain user attributes<br><br>- Integer attributes may be incremented by positive or negative integers.<br>- Array attributes may be modified by adding or removing values from existing arrays. |
 | Event | An event represents a single occurrence of a custom event by a particular user at a timestamp. Use this field to track and map event attributes like those in the Braze [event object]({{site.baseurl}}/api/objects_filters/event_object/). <br><br>- Event attribute `Name` is required for every mapped event.<br>- Event attribute `Time` is automatically set to now unless explicitly mapped. <br>- By default, new events will be created if one does not exist. By setting `Update Existing Only` to `true`, only existing events will be updated, and no new event will be created.<br>-  Map array type attributes to add multiple events. Array type attributes must be of equal length.<br>- Single value attributes can be used and applied to each event. |
 | Event template | Provide event templates to be referenced in body data. Templates can be used to transform data before sending it to Braze. Refer to Tealium's [Templates Guide](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) to learn more. |
@@ -159,7 +159,7 @@ This action allows you to track user, event, and purchase attributes all in one 
 | Purchase | Use this field to track and map user purchase attributes like those in the Braze [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object/).<br><br>- Purchase attributes `Product ID`, `Currency`, and `Price` are required for every mapped purchase.<br>- Purchase attribute `Time` is automatically set to now unless explicitly mapped.<br>- By default, new purchases will be created if one does not exist. By setting `Update Existing Only` to `true`, only existing purchases will be updated, and no new purchase will be created.<br>- Map array type attributes to add multiple purchase items. Array type attributes must be of equal length.<br>- Single value attributes can be used and will apply to each item.|
 | Purchase template | Templates can be used to transform data prior to it being sent to Braze.<br>- Define a purchase template if you need nested objects support.<br>- When a purchase template is defined, the configuration set up in the purchases section of your action will be ignored.<br>- Refer to Tealium's [Templates Guide](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) to learn more.|
 | Purchase template variable | Provide product template variables as data input. Refer to Tealium's [Template Variables Guide](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) to learn more. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
@@ -171,7 +171,7 @@ This action allows you to delete users from the Braze dashboard.
 | Parameters | Description |
 | ---------- | ----------- |
 | User ID | Use this field to map the Tealium User ID field to its Braze equivalent.<br><br>- Map one or more user ID attributes. When multiple IDs are specified, the first non-blank value is picked based on the following priority order: External ID, Braze ID, Alias Name, and Alias Label.<br>- When specifying a user alias, Alias Name and Alias Label should both be set.<br><br>For more information, see the Braze [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
@@ -184,7 +184,7 @@ This action allows you to add or remove users from Braze SMS or email subscripti
 | Group type | Use this field to denote if this is an SMS or Email subscription group. |
 | Update type | Map this action to an unsubscribe or subscription event 
 | Attributes | - Subscription group ID (required): The ID of the subscription group related to the group type mapped in the preceding field.<br>- External ID: The external ID of the user.<br><br>Email group specific:<br>- Email: The email address of the user.<br>**If the external ID is not defined, the email will be required.**<br><br>SMS group specific:<br>- Phone: The phone number in E.164 format. For example, +14155552671.<br>**If the external ID is not defined, the phone will be required.** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 
@@ -216,7 +216,7 @@ Refer to Tealium's [Trace documentation](https://docs.tealium.com/server-side/co
 ## Integration demo
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Tealium AudienceStream integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Potential data point overages

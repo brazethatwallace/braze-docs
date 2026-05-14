@@ -1,28 +1,27 @@
 ---
-nav_title: クラウドデータの取り込み
+nav_title: クラウドデータ取り込み
 article_title: クラウドデータ取り込みエンドポイント
 search_tag: Endpoint
 page_order: 0.5
 layout: dev_guide
 alias: /api/cdi/
 
-description: "このランディングページには、Braze Cloud Data Ingestionのエンドポイントがリストされている。"
+description: "このランディングページには、Brazeクラウドデータ取り込みエンドポイントの一覧が掲載されています。"
 page_type: landing
 
 guide_top_header: "クラウドデータ取り込みエンドポイント"
-guide_top_text: "Braze Cloud Data Ingestionエンドポイントを使用して、データウェアハウスの統合と同期を管理する。"
+guide_top_text: "Brazeクラウドデータ取り込みエンドポイントを使用して、データウェアハウスの統合と同期を管理します。"
 
 guide_featured_title: ""
 guide_featured_list:
-  - name: "取得:リスト統合"
+  - name: "GET: 統合一覧の取得"
     link: /docs/api/cdi/get_integration_list/
     image: /assets/img/braze_icons/list.svg
-  - name: "取得:ジョブ同期ステータスを表示する"
+  - name: "GET: ジョブ同期ステータスの一覧取得"
     link: /docs/api/cdi/get_job_sync
     image: /assets/img/braze_icons/list.svg
-  - name: "POST:トリガー同期"
+  - name: "POST: 同期のトリガー"
     link: /docs/api/cdi/post_trigger_sync/
     image: /assets/img/braze_icons/play.svg
 
 ---
-

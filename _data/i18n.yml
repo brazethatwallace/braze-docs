@@ -1,13 +1,25 @@
 en:
   next: NEXT
   previous: PREVIOUS
-  popular_topic: Popular Topics
-  helpful_resources: Helpful Resources
+  popular_topic: Popular topics
+  helpful_resources: Helpful resources
   braze_status: BRAZE SYSTEM STATUS
   braze_status_check: Checking Braze Status
-  edit_github: Edit this page on GitHub
   page_nav_title: On this page
   helpful: "HOW HELPFUL WAS THIS PAGE?"
+  collapse_navigation: Collapse navigation
+  expand_navigation: Expand navigation
+  expand_section: Expand section
+  collapse_section: Collapse section
+  minimize_menu: Minimize menu
+  expand_menu: Expand menu
+  filter_navigation_topics: Filter navigation topics
+  clear_filter: Clear filter
+  documentation_nav: Documentation
+  sidebar_home: Home
+  nav_flyout_esc_hint_before: "Press "
+  nav_flyout_esc_hint_after: " to close the menu"
+  nav_flyout_shortcut_hint: Press Arrow down to open the documentation menu without expanding the sidebar.
 fr:
   next: SUIVANTE
   previous: PRÉCÉDENTE
@@ -15,11 +27,23 @@ fr:
   helpful_resources: Ressources utiles
   braze_status: ÉTAT DU SYSTÈME BRAZE
   braze_status_check: Vérification du statut Braze
-  edit_github: Modifier cette page sur GitHub
   page_nav_title: Sur cette page
   helpful: "CETTE PAGE A-T-ELLE ÉTÉ UTILE?"
   translation_banner: "Cette page a été traduite automatiquement et peut contenir des inexactitudes. Pour signaler une erreur de traduction,"
   translation_banner_link: "ouvrez un ticket sur GitHub"
+  collapse_navigation: Réduire la navigation
+  expand_navigation: Développer la navigation
+  expand_section: Développer la section
+  collapse_section: Réduire la section
+  minimize_menu: Réduire le menu
+  expand_menu: Développer le menu
+  filter_navigation_topics: Filtrer les sujets de navigation
+  clear_filter: Effacer le filtre
+  documentation_nav: Documentation
+  sidebar_home: Accueil
+  nav_flyout_esc_hint_before: "Appuyez sur "
+  nav_flyout_esc_hint_after: " pour fermer le menu"
+  nav_flyout_shortcut_hint: Appuyez sur la flèche vers le bas pour ouvrir le menu de documentation sans développer la barre latérale.
 ja:
   next: 次へ
   previous: 前へ
@@ -27,11 +51,23 @@ ja:
   helpful_resources: 役立つリソース
   braze_status: BRAZE システム ステータス
   braze_status_check: Braze ステータスの確認
-  edit_github: GitHub でこのページを編集
   page_nav_title: このページについて
   helpful: 「このページはどの程度役に立ちましたか?」
   translation_banner: "このページはAIにより自動翻訳されており、不正確な内容が含まれている可能性があります。翻訳の誤りを報告するには、"
   translation_banner_link: "GitHubでイシューを作成してください"
+  collapse_navigation: ナビゲーションを折りたたむ
+  expand_navigation: ナビゲーションを展開する
+  expand_section: セクションを展開する
+  collapse_section: セクションを折りたたむ
+  minimize_menu: メニューを最小化
+  expand_menu: メニューを展開
+  filter_navigation_topics: ナビゲーションのトピックをフィルター
+  clear_filter: フィルターをクリア
+  documentation_nav: ドキュメント
+  sidebar_home: ホーム
+  nav_flyout_esc_hint_before: "メニューを閉じるには "
+  nav_flyout_esc_hint_after: " を押してください"
+  nav_flyout_shortcut_hint: サイドバーを広げずにドキュメントメニューを開くには、下矢印キーを押します。
 ko:
   next: 다음
   previous: 이전
@@ -39,11 +75,23 @@ ko:
   help_resources: 유용한 리소스
   braze_status: 브레이즈 시스템 상태
   braze_status_check: 브레이즈 상태 확인
-  edit_github: GitHub 에서 이 페이지를 편집합니다.
   page_nav_title: 이 페이지에
   helpful: "이 페이지가 얼마나 도움이 되었나요?"
   translation_banner: "이 페이지는 AI로 자동 번역되었으며 부정확한 내용이 포함될 수 있습니다. 번역 오류를 신고하려면"
   translation_banner_link: "GitHub에서 이슈를 생성해 주세요"
+  collapse_navigation: 탐색 접기
+  expand_navigation: 탐색 펼치기
+  expand_section: 섹션 펼치기
+  collapse_section: 섹션 접기
+  minimize_menu: 메뉴 최소화
+  expand_menu: 메뉴 확장
+  filter_navigation_topics: 탐색 주제 필터
+  clear_filter: 필터 지우기
+  documentation_nav: 문서
+  sidebar_home: 홈
+  nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
+  nav_flyout_esc_hint_after: " 키를 누르세요"
+  nav_flyout_shortcut_hint: 사이드바를 넓히지 않고 문서 메뉴를 열려면 아래쪽 화살표 키를 누르세요.
 pt-br:
   next: PRÓXIMO
   previous: ANTERIOR
@@ -51,11 +99,23 @@ pt-br:
   helpful_resources: Recursos úteis
   braze_status: STATUS DO SISTEMA BRAZE
   braze_status_check: Verificando o status do Braze
-  edit_github: Editar esta página no GitHub
   page_nav_title: Nesta página
   helpful: "QUÃO ÚTIL FOI ESTA PÁGINA?"
   translation_banner: "Esta página foi traduzida automaticamente e pode conter imprecisões. Para relatar um erro de tradução,"
   translation_banner_link: "abra um issue no GitHub"
+  collapse_navigation: Recolher navegação
+  expand_navigation: Expandir navegação
+  expand_section: Expandir seção
+  collapse_section: Recolher seção
+  minimize_menu: Minimizar menu
+  expand_menu: Expandir menu
+  filter_navigation_topics: Filtrar tópicos da navegação
+  clear_filter: Limpar filtro
+  documentation_nav: Documentação
+  sidebar_home: Início
+  nav_flyout_esc_hint_before: "Pressione "
+  nav_flyout_esc_hint_after: " para fechar o menu"
+  nav_flyout_shortcut_hint: Pressione a seta para baixo para abrir o menu de documentação sem expandir a barra lateral.
 es:
   next: SIGUIENTE
   previous: ANTERIOR
@@ -63,11 +123,23 @@ es:
   helpful_resources: Recursos útiles
   braze_status: ESTADO DEL SISTEMA BRAZE
   braze_status_check: Verificación del estado de Braze
-  edit_github: Editar esta página en GitHub
   page_nav_title: En esta página
   helpful: "¿QUÉ TAN ÚTIL FUE ESTA PÁGINA?"
   translation_banner: "Esta página fue traducida automáticamente y puede contener errores. Para reportar un error de traducción,"
   translation_banner_link: "abre un issue en GitHub"
+  collapse_navigation: Contraer navegación
+  expand_navigation: Expandir navegación
+  expand_section: Expandir sección
+  collapse_section: Contraer sección
+  minimize_menu: Minimizar menú
+  expand_menu: Expandir menú
+  filter_navigation_topics: Filtrar temas de navegación
+  clear_filter: Borrar filtro
+  documentation_nav: Documentación
+  sidebar_home: Inicio
+  nav_flyout_esc_hint_before: "Pulse "
+  nav_flyout_esc_hint_after: " para cerrar el menú"
+  nav_flyout_shortcut_hint: Pulse la flecha hacia abajo para abrir el menú de documentación sin expandir la barra lateral.
 de:
   next: NÄCHSTES
   previous: VORHERIGES
@@ -75,8 +147,20 @@ de:
   useful_resources: Hilfreiche Ressourcen
   braze_status: BRAZE-SYSTEMSTATUS
   braze_status_check: Braze-Status wird geprüft
-  edit_github: Diese Seite auf GitHub bearbeiten
   page_nav_title: Auf dieser Seite
   useful: "WIE HILFREICH WAR DIESE SEITE?"
   translation_banner: "Diese Seite wurde automatisch übersetzt und kann Ungenauigkeiten enthalten. Um einen Übersetzungsfehler zu melden,"
   translation_banner_link: "erstellen Sie ein Issue auf GitHub"
+  collapse_navigation: Navigation einklappen
+  expand_navigation: Navigation erweitern
+  expand_section: Abschnitt erweitern
+  collapse_section: Abschnitt einklappen
+  minimize_menu: Menü minimieren
+  expand_menu: Menü erweitern
+  filter_navigation_topics: Navigationsthemen filtern
+  clear_filter: Filter löschen
+  documentation_nav: Dokumentation
+  sidebar_home: Startseite
+  nav_flyout_esc_hint_before: "Drücken Sie "
+  nav_flyout_esc_hint_after: ", um das Menü zu schließen"
+  nav_flyout_shortcut_hint: Drücken Sie die Abwärtspfeiltaste, um das Dokumentationsmenü zu öffnen, ohne die Seitenleiste zu erweitern.

@@ -18,7 +18,7 @@ _This integration is maintained by Radar._
 
 The Braze and Radar integration allows you to access sophisticated location-based campaign triggers and user profile enrichment with rich, first-party location data. When Radar geofence or trip tracking events are generated, custom events and user attributes are sent to Braze in real-time. These events and attributes can then be used to trigger location-based campaigns, power last-mile pickup and delivery operations, monitor fleet and shipping logistics, or build user segments based on location patterns. 
 
-Additionally, Radar Geo APIs can be used to enrich or personalize your marketing campaigns through [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/). 
+Additionally, Radar Geo APIs can be used to enrich or personalize your marketing campaigns through [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/). 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Additionally, Radar Geo APIs can be used to enrich or personalize your marketing
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | App identifier | Your [app identifier]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) can be found can be found within the Braze dashboard from **Settings** > **API Keys**. |
 | iOS API key<br>Android API key | These API keys can be found within the Braze dashboard from **Settings** > **App Settings**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Integration
 

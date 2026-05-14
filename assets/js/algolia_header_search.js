@@ -1,3 +1,5 @@
+// NOTE: This file is no longer loaded. Header search has been replaced by SearchUnify
+// (su_header_search.js + CloudFront-hosted searchbox.js). This file is kept for reference only.
 function headerDocSubmit(){
   window.location = base_url + '/search/?query=' + encodeURIComponent($('#header-search-form .aa-Form .aa-Input').val());
   return false;

@@ -278,11 +278,11 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}
-<i>Unsubscribers</i> or <i>Unsub</i> is the number of messages resulting in an unsubscription. Unsubscriptions occur when a user clicks on the Braze unsubscribe link.
+<i>Unsubscribers</i> or <i>Unsub</i> is the number of messages resulting in an unsubscription. Unsubscriptions occur when Braze processes an unsubscribe from the Braze unsubscribe URL in the message body or from the list-unsubscribe header when that path is handled by Braze.
 {% endif %}
 
 {% if include.metric == "Unsubscribes" %}
-<i>Unsubscribes</i> is the number of recipients whose subscription state changed to unsubscribed as a result of clicking the Braze provided unsubscribe URL.
+<i>Unsubscribes</i> is the number of recipients whose subscription state changed to unsubscribed from a Braze-handled unsubscribe path, including the Braze unsubscribe URL in the message body and list-unsubscribe when Braze processes the request.
 {% endif %}
 
 {% if include.metric == "Variation" %}

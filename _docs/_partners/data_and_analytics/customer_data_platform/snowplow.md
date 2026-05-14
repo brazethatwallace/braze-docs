@@ -34,7 +34,7 @@ Leverage Snowplow's rich behavioral data to drive powerful customer-centric inte
 | Snowplow Console access | You must have access to Snowplow Console to configure event forwarders.                                                                                                                                                                                                                                |
 | Braze REST API key      | A Braze REST API key with the following permissions: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename`, and `users.alias.update`. <br><br> You can create this in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint     | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -59,7 +59,7 @@ To create the event forwarder:
 
 When configuring the forwarder, you can choose which Snowplow events to forward and map them to Braze object types:
 
-1. **[User attributes]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: Update user profile data and custom user properties.
+1. **[User attributes]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)**: Update user profile data and custom user properties.
 2. **[Custom events]({{site.baseurl}}/api/objects_filters/event_object)**: Send user actions and behaviors.
 3. **[Purchases]({{site.baseurl}}/api/objects_filters/purchase_object)**: Send transaction data with product details.
 

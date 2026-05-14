@@ -85,7 +85,7 @@ After you set up Context7, include `use context7` in your prompts to signal your
 
 ### React Native SDK
 
-These prompts demonstrate common integration tasks for the [Braze React Native SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/react_sdk_setup/).
+These prompts demonstrate common integration tasks for the [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
 
 #### Initializing the SDK
 
@@ -122,7 +122,7 @@ programmatically. Use context7.
 
 ### Web SDK
 
-These prompts demonstrate common integration tasks for the [Braze Web SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/).
+These prompts demonstrate common integration tasks for the [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
 
 #### Initializing the SDK
 
@@ -168,6 +168,6 @@ You can access the Braze Developer Guide documentation as plain text files optim
 |------|-------------|
 | [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | An index of Braze developer documentation pages with titles and descriptions. Use this as a starting point for discovering available documentation. |
 | [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | The complete Braze developer documentation in a single plain text file, formatted for LLM consumption. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plain text documentation" }
 
 These files follow the [llms.txt standard](https://llmstxt.org/), an emerging convention for making documentation accessible to AI tools. You can reference these files directly in your prompts or paste their contents into an LLM for context.

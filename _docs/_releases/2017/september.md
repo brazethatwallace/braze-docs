@@ -17,7 +17,7 @@ You can now use [Engagement Reports]({{site.baseurl}}/user_guide/data_and_analyt
 
 ## Updates to user profile page
 
-The [User Profile Page]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search) has been updated.
+The [User Profile Page]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#using-user-search) has been updated.
 
 ## Web push notifications that require user action to dismiss
 
@@ -29,7 +29,7 @@ When creating an email message within Braze, you can now easily insert a prehead
 
 ## New API endpoint for raw event export
 
-We've added a new [API endpoint]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges), /raw_data/status, that lets you query to see if a given day has been loaded into the Raw Event Export. You can use it to check if a particular day's raw data is available, to help with debugging and automation.
+We've added a new [API endpoint]({{site.baseurl}}/developer_guide/rest_api/api_network_connectivity_issues/#whitelisting-brazes-api-endpoint-ip-ranges), `/raw_data/status`, that lets you query to see if a given day has been loaded into the Raw Event Export. You can use it to check if a particular day's raw data is available, to help with debugging and automation.
 
 
 

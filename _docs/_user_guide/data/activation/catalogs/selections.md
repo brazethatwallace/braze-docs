@@ -2,14 +2,19 @@
 nav_title: Selections
 article_title: Selections
 page_order: 5
+alias: /catalog_selections/
 description: "This reference article covers how to create and use selections with your catalogs to reference data in your Braze campaigns."
 ---
 
 # Selections
 
-> Selections are groups of data that can be used to personalize a message for each user in your campaign. When you use a selection, you’re essentially setting up custom filters based on specific columns in your catalog. This could include filters for brand, size, location, date added, and more. It gives you control over what you’re showing to users by allowing you to define criteria that items must meet first.<br><br>This page covers how to create and use selections with your catalogs.
+> This page covers how to create and use selections with your [catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/).
 
-After creating a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/), you can further reference your catalog data by incorporating selections in your Braze campaigns or recommendations.
+## How it works
+
+Selections are groups of data that can be used to personalize a message for each user in your campaign. When you use a selection, you’re essentially setting up custom filters based on specific columns in your catalog. This could include filters for brand, size, location, date added, and more. It gives you control over what you’re showing to users by allowing you to define criteria that items must meet first.
+
+After creating a catalog, you can further reference your catalog data by incorporating selections in your Braze campaigns or recommendations.
 
 ![The Selections section in an example catalog.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -17,7 +22,7 @@ After creating a [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/
 
 - You can create up to 30 selections per catalog.
 - You can add up to 10 filters per selection.
-- Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/recommendations/) for example use cases.
+- Selections are great for refining recommendations from Braze catalog data. If you're looking for inspiration, check out [About item recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) for example use cases.
 
 ## Supported operators
 
