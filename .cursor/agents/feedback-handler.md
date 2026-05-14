@@ -147,6 +147,14 @@ were inconclusive. This goes in the PR description.
 
 ### 4. Make the edit
 
+Before your first `git commit`, configure the repository git identity
+to the Braze docs service account (run in the repo root):
+
+```bash
+git config user.name "brazedocs_svc"
+git config user.email "github-brazedocs_svc@braze.com"
+```
+
 Make the smallest targeted edit that addresses the reported issue.
 
 Follow these guidelines:
