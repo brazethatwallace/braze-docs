@@ -12,10 +12,6 @@ channel:
 
 > El creador de plantillas de WhatsApp te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y Meta Business Manager. Una vez que Meta apruebe tu plantilla, úsala en tantas campañas y Canvas como quieras.
 
-{% alert note %}
-El creador de plantillas de WhatsApp se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze para obtener acceso.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -94,7 +90,7 @@ Antes de enviar, previsualiza cómo aparecerá tu mensaje para los destinatarios
 
 ### Paso 6: Envía para revisión {#step-6-submit-for-review}
 
-Selecciona **Enviar** para enviar tu plantilla a Meta para su revisión, lo que normalmente tarda unos minutos pero puede tardar hasta 24 horas. La plantilla aparece en tu página de **Plantillas de WhatsApp** cuando se envía, y el estado se actualiza cuando actualizas la página de **Plantillas de WhatsApp**.
+Selecciona **Submit** para enviar tu plantilla a Meta para su revisión, lo que normalmente tarda unos minutos pero puede tardar hasta 24 horas. La plantilla aparece en tu página de **Plantillas de WhatsApp** cuando se envía, y el estado se actualiza cuando actualizas la página de **Plantillas de WhatsApp**.
 
 ## Categorías de plantillas compatibles {#supported-template-categories}
 

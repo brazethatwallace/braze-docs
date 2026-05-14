@@ -20,6 +20,8 @@ Quando um perfil anônimo é associado a um perfil identificado existente (por e
 
 Mesclagens de usuários são difíceis de desfazer. Se você está planejando uma mesclagem complexa envolvendo múltiplos valores de `external_id` ou grandes migrações de perfis, entre em contato com seu gerente de sucesso do cliente da Braze para orientação antes de usar `/users/merge`.
 
+A Braze trata três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para mais informações, consulte [Comportamento da mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 ## Mesclagem individual {#individual-merging}
 
 Se uma pesquisa de usuários retornar perfis duplicados, você pode mesclar cada perfil individualmente a partir do perfil do usuário no dashboard da Braze.
@@ -72,11 +74,11 @@ No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis 
 
 {% tabs local %}
 {% tab example csv file %}
-| Endereço de e-mail | ID externo | Número de telefone | Braze ID              | Identificador para regra | Perfil a manter | Perfil a mesclar |
-| ------------------- | ----------- | ------------------ | --------------------- | ------------------------ | ---------------- | ----------------- |
-| alex@company.com    | A8i3mkd99   | (555) 123-4567     | 65fcaa547f470494d1370 | email                    | TRUE             | FALSE             |
-| alex@company.com    |             | (555) 987-6543     | 65fcaa547f47d004d1348 | email                    | FALSE            | TRUE              |
-| alex@company.com    |             | (555) 321-0987     | 65fcaa547f47d0049135c | email                    | FALSE            | TRUE              |
+| Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Profile to keep | Profile to merge |
+| ---------------- | ----------- | -------------- | --------------------- | ------------------- | --------------- | ---------------- |
+| alex@company.com | A8i3mkd99   | (555) 123-4567 | 65fcaa547f470494d1370 | email               | TRUE            | FALSE            |
+| alex@company.com |             | (555) 987-6543 | 65fcaa547f47d004d1348 | email               | FALSE           | TRUE             |
+| alex@company.com |             | (555) 321-0987 | 65fcaa547f47d0049135c | email               | FALSE           | TRUE             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Pré-visualizar os resultados (opcional)" }
 {% endtab %}
 {% endtabs %}
@@ -134,3 +136,9 @@ Após a ativação do recurso, a Braze atribuirá automaticamente um horário pa
 {% alert warning %}
 Perfis de usuários duplicados não podem ser recuperados após a mesclagem.
 {% endalert %}
+
+## Artigos relacionados {#related-articles}
+
+- [Comportamento da mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

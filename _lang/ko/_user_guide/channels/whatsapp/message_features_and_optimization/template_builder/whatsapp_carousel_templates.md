@@ -12,10 +12,6 @@ toc_headers: h2
 
 > WhatsApp 캐러셀 템플릿을 사용하면 사용자가 스와이프하여 탐색할 수 있는 인터랙티브 멀티 카드 메시지를 만들 수 있습니다. 각 캐러셀에는 이미지 또는 동영상이 포함된 최대 10개의 카드와 참여를 위한 커스텀 버튼을 포함할 수 있습니다. 이 기능은 제품과 서비스를 소개하거나 여러 단계의 콘텐츠를 시각적으로 매력적인 형식으로 전달하는 데 적합합니다.
 
-{% alert note %}
-WhatsApp 캐러셀 템플릿은 얼리 액세스 중입니다. 이 얼리 액세스에 참여하려면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
-
 ## 필수 조건 {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}

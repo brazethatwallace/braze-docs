@@ -20,6 +20,8 @@ Cuando un perfil anónimo coincide con un perfil identificado existente (por eje
 
 Las fusiones de usuarios son difíciles de deshacer. Si planeas una fusión compleja entre múltiples valores de `external_id` o migraciones de perfiles a gran escala, ponte en contacto con tu administrador del éxito del cliente de Braze para obtener orientación antes de depender de `/users/merge`.
 
+Braze gestiona tres tipos de usuarios de forma diferente al fusionar: usuarios marcados para eliminación, usuarios de prueba y usuarios del Grupo de control global. Para más detalles, consulta [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 ## Fusión individual {#individual-merging}
 
 Si una búsqueda de usuarios devuelve perfiles duplicados, puedes fusionar cada perfil individualmente desde el perfil del usuario en el panel de Braze.
@@ -134,3 +136,9 @@ Una vez activada la función, Braze asignará automáticamente un horario para r
 {% alert warning %}
 Los perfiles de usuario duplicados no se pueden recuperar después de la fusión.
 {% endalert %}
+
+## Artículos relacionados {#related-articles}
+
+- [Comportamiento de la fusión de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)
+- [POST: Fusionar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)
+- [Eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users/)

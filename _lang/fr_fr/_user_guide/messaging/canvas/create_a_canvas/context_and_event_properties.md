@@ -29,7 +29,7 @@ Consultez le tableau suivant pour un résumé des différences entre les propri�
 Vous ne pouvez plus créer ni dupliquer de Canvas avec l'éditeur d'origine. Notez que le contexte Canvas n'est pas pris en charge dans l'éditeur Canvas d'origine. Cette section est donc disponible à titre de référence pour l'utilisation des propriétés d'entrée Canvas et des propriétés d'événement dans l'ancien workflow Canvas.
 
 **Propriétés d'entrée Canvas :**
-- Les propriétés d'entrée persistantes doivent être activées.
+- Les propriétés d'entrées persistantes doivent être activées.
 - Vous ne pouvez référencer `canvas_entry_properties` que dans la première étape complète d'un Canvas. Le Canvas doit être basé sur une action ou déclenché par API.
 
 **Propriétés d'entrée :**
@@ -65,11 +65,6 @@ Compte tenu de ce comportement, Braze recommande fortement d'utiliser un filtre 
 {{context.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%H:%M" }}
 ```
 {% endraw %}
-
-#### Exceptions {#exceptions}
-
-- Les horodatages ne sont pas normalisés en UTC dans la première étape d'un Canvas si cette étape est une étape Message.
-- Les horodatages ne sont pas normalisés en UTC dans les étapes Message utilisant le canal de message in-app, quel que soit leur ordre dans le Canvas.
 
 ## Cas d'utilisation {#use-case}
 
