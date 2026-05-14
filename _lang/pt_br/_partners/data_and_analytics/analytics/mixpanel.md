@@ -52,82 +52,12 @@ Consulte a [documentação de integração](https://help.mixpanel.com/hc/en-us/a
 
 ## Eventos Currents compatíveis {#supported-currents-events}
 
-A Braze oferece suporte à exportação dos seguintes dados listados nos glossários de eventos de [comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) e [engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) do Currents para o Mixpanel:
+A Braze oferece suporte à exportação dos seguintes eventos para o Mixpanel:
 
-### Comportamentos {#behaviors}
-- Evento personalizado: `users.behaviors.CustomEvent`
-- Atribuição da instalação: `users.behaviors.InstallAttribution`
-- Local: `users.behaviors.Location`
-- Compra: `users.behaviors.Purchase`
-- Desinstalação: `users.behaviors.Uninstall`
-- App (primeira sessão, fim da sessão, início da sessão)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Inscrição (mudança de estado global): `users.behaviors.subscription.GlobalStateChange`
-- Grupo de inscrições (mudança de estado): `users.behaviors.subscriptiongroup.StateChange`
+- [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- Abortar: `users_campaigns_abort`
-- Conversão: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- Abortar: `users_canvas_abort`
-- Conversão: `users.canvas.Conversion`
-- Entrada: `users.canvas.Entry`
-- Saída (público correspondente, evento realizado)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Etapa do experimento (conversão, entrada dividida)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Mensagens {#messages}
-- Cartão de conteúdo (abortar, clicar, descartar, impressão, enviar)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- E-mail (abortar, bounce, clicar, entrega, marcar como spam, abrir, enviar, softbounce, cancelar inscrição)
-  - `users.messages.email.Abort`
-  - `users.messages.email.Bounce`
-  - `users.messages.email.Click`
-  - `users.messages.email.Delivery`
-  - `users.messages.email.MarkAsSpam`
-  - `users.messages.email.Open`
-  - `users.messages.email.Send`
-  - `users.messages.email.SoftBounce`
-  - `users.messages.email.Unsubscribe`
-- Mensagem no app (abortar, clicar, impressão)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Notificação por push (abortar, bounce, iOSforeground, abrir, enviar)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (abortar, envio da operadora, entrega, falha na entrega, recebimento de entrada, rejeição, envio, clique em link curto)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (abortar, enviar)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (abortar, entrega, falha, recebimento de entrada, leitura, envio)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+Para a estrutura da carga útil de cada evento, selecione a guia **Mixpanel** no [glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) e no [glossário de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
 
 ## Solução de problemas {#troubleshooting}
 

@@ -16,6 +16,10 @@ description: "Este artigo descreve o endpoint da Braze \"Atualizar blocos de con
 
 > Use esse endpoint para atualizar um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
 
+{% alert tip %}
+Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Isso permite que ferramentas de IA como Claude e Cursor atualizem blocos de conteúdo por meio de prompts em linguagem natural.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
@@ -89,8 +93,8 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | --- | --- |
 | `Content cannot be blank` |
 | `Content must be a string` | Certifique-se de que seu conteúdo esteja encapsulado entre aspas (`""`). |
-| `Content must be smaller than 50kb` | O conteúdo do seu bloco de conteúdo deve ser menor que 50 KB no total. |
-| `Content contains malformed liquid` | O Liquid fornecido não é válido ou não pode ser analisado. Tente novamente com Liquid válido ou entre em contato com o suporte. |
+| `Content must be smaller than 50kb` | O conteúdo do seu bloco de conteúdo deve ter menos de 50 KB no total. |
+| `Content contains malformed liquid` | O Liquid fornecido não é válido ou não pode ser analisado. Tente novamente com um Liquid válido ou entre em contato com o suporte. |
 | `Content Block cannot be referenced within itself` |
 | `Content Block description cannot be blank` |
 | `Content Block description must be a string` | Certifique-se de que a descrição do bloco de conteúdo esteja encapsulada entre aspas (`""`). |

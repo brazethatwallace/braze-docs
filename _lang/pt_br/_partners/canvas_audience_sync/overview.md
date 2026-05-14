@@ -15,7 +15,7 @@ tool:
 
 ## Disponibilidade de recursos {#feature-availability}
 
-Todos os clientes da Braze têm acesso imediato ao Audience Sync para Google e Facebook, mas os clientes que utilizam créditos de mensagem podem acessar todos os parceiros do Audience Sync. Para desbloquear destinos adicionais do Audience Sync para clientes que não utilizam créditos de mensagem, adquira o Audience Sync Pro. Entre em contato com o gerente de conta da Braze para mais detalhes.
+Todos os clientes da Braze têm acesso imediato ao Audience Sync para Google e Facebook, mas os clientes que utilizam Action Credits podem acessar todos os parceiros do Audience Sync. Para desbloquear destinos adicionais do Audience Sync para clientes que não utilizam Action Credits, adquira o Audience Sync Pro. Entre em contato com o gerente de conta da Braze para mais detalhes.
 
 ## Casos de uso {#use-cases}
 
@@ -76,7 +76,7 @@ Para usar um parceiro do Audience Sync Pro, como TikTok, Pinterest, Snapchat ou 
 
 ![Audience Sync Pro sem parceiros selecionados ainda.]({% image_buster /assets/img/audience_sync/audience_sync_pro1.png %}){: style="max-width:75%;"}
 
-Primeiro, selecione os parceiros que você pretende usar clicando em Select Partners. Cada compra do Audience Sync Pro fornecerá 3 destinos alocados do Audience Sync Pro, que estarão disponíveis em cada um dos seus espaços de trabalho no dashboard.
+Primeiro, selecione os parceiros que você pretende usar clicando em **Select Partners**. Cada compra do Audience Sync Pro fornecerá 3 destinos alocados do Audience Sync Pro, que estarão disponíveis em cada um dos seus espaços de trabalho no dashboard.
 
 ![Opção para selecionar até três parceiros para se conectar à Braze.]({% image_buster /assets/img/audience_sync/audience_sync_pro2.png %}){: style="max-width:65%;"}
 

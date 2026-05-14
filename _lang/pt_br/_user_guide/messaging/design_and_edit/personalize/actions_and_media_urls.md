@@ -113,6 +113,8 @@ https://example.com/{{url_var}}
 
 ### Encurte URLs renderizadas por variáveis Liquid {#shorten-urls-rendered-by-liquid-variables}
 
+**Canais compatíveis:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Encurtamos URLs que são renderizadas por Liquid, incluindo aquelas presentes em propriedades de gatilho de API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem.
 
 ### Encurte URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
@@ -122,4 +124,4 @@ O encurtamento de links também está ativado para mensagens somente via API por
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Sim | booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links. Para usar o rastreamento, um `campaign_id` e um `message_variation_id` devem estar presentes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Encurte URLs no endpoint /messages/send" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }

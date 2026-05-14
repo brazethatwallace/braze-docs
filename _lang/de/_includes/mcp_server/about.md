@@ -19,15 +19,15 @@ Nach [der Einrichtung des Braze MCP-Servers]{% if include.section == "user" %}({
 - CRM-Ingenieur:innen, die mehrstufige Agenten-Workflows erstellen.
 - Technische Marketer, die mit Abfragen in natürlicher Sprache experimentieren.
 
-Der Braze MCP-Server unterstützt 39 Endpunkte, die keine Daten aus Braze-Nutzerprofilen zurückgeben. Sie können auswählen, welche Endpunkte Sie Ihrem Braze-API-Schlüssel zuweisen, um zu steuern, worauf ein Agent zugreifen oder was er ändern kann.
+Der Braze MCP-Server umfasst sowohl Lese- als auch Schreib-Endpunkte. Sie geben keine Daten aus Braze-Nutzerprofilen zurück. Sie können auswählen, welche Endpunkte Sie Ihrem Braze-API-Schlüssel zuweisen, und diese Auswahl steuert, was ein Agent lesen, erstellen oder aktualisieren kann. Die vollständige Liste der verfügbaren Endpunkte und der erforderlichen Berechtigungen finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Weisen Sie dem API-Schlüssel nur die Berechtigungen zu, die Ihr Agent haben soll. Wenn Sie nicht möchten, dass Ihr Agent Änderungen in Braze vornimmt, stellen Sie sicher, dass Sie Schreibberechtigungen deaktiviert lassen. Agenten könnten versuchen, Daten über jede Berechtigung zu schreiben, die Sie gewähren.
+Weisen Sie dem API-Schlüssel nur die Berechtigungen zu, die Ihr Agent haben soll. Wenn Sie nicht möchten, dass Ihr Agent Änderungen in Braze vornimmt, lassen Sie beim Erstellen Ihres API-Schlüssels alle Schreibberechtigungen deaktiviert. Agenten könnten versuchen, Daten über jede Schreibberechtigung zu schreiben, die Sie gewähren.
 {% endalert %}
 
 ## Anwendungsbeispiel {#usage-example}
 
-Sie können mit Braze über natürliche Sprache interagieren, indem Sie Tools wie Claude oder Cursor verwenden. Weitere Beispiele und bewährte Verfahren finden Sie unter [Verwendung des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
+Sie können mit Braze über natürliche Sprache interagieren, indem Sie Tools wie Claude oder Cursor verwenden. Weitere Beispiele und Best Practices finden Sie unter [Verwendung des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
 
 {% tabs %}
 {% tab Claude %}
@@ -51,7 +51,7 @@ MCP-Clients können auf Endpunkte zugreifen, die keine PII zurückgeben. Sie ste
 
 ### Kann mein MCP-Client Braze-Daten ändern? {#can-my-mcp-client-change-braze-data}
 
-Der Server stellt nur den Schreib-Endpunkt `/media_library/create` bereit, mit dem Sie Medien-Assets in Ihre Medienbibliothek hochladen können. Wenn Sie nicht möchten, dass Ihr Agent diese Änderungen in Braze vornimmt, lassen Sie die Berechtigung `media_library.create` beim Erstellen Ihres API-Schlüssels deaktiviert.
+Ja. Der Server stellt eine gezielte Auswahl an Schreib-Endpunkten bereit, mit denen Agenten Inhalte in Ihrem Workspace erstellen oder aktualisieren können, z. B. Medienbibliothek-Assets, E-Mail-Templates und Content Blocks. Jeder Schreib-Endpunkt erfordert eine eigene API-Schlüssel-Berechtigung. Wenn Sie nicht möchten, dass Ihr Agent eine bestimmte Änderung in Braze vornimmt, lassen Sie die entsprechende Berechtigung beim Erstellen Ihres API-Schlüssels deaktiviert. Die vollständige Liste der Schreibfunktionen und der erforderlichen Berechtigungen finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 ### Kann ich einen MCP-Server eines Drittanbieters für Braze verwenden? {#can-i-use-a-third-party-mcp-server-for-braze}
 
@@ -63,7 +63,7 @@ Um Nutzerdaten zu schützen und gleichzeitig wertvolle Anwendungsfälle zu unter
 
 ### Kann ich meine API-Schlüssel wiederverwenden? {#can-i-reuse-my-api-keys}
 
-Nein. Sie müssen einen neuen API-Schlüssel für Ihren MCP-Client erstellen. Bitte beachten Sie, dass Sie Ihren KI-Tools nur Zugriff auf das gewähren sollten, womit Sie einverstanden sind, und vermeiden Sie erweiterte Berechtigungen.
+Nein. Sie müssen einen neuen API-Schlüssel für Ihren MCP-Client erstellen. Gewähren Sie Ihren KI-Tools nur Zugriff auf das, womit Sie einverstanden sind, und vermeiden Sie erweiterte Berechtigungen.
 
 ### Wird der Braze MCP-Server lokal oder remote gehostet? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
@@ -71,11 +71,11 @@ Der Braze MCP-Server wird lokal gehostet.
 
 ### Warum listet Cursor ausschließlich Funktionen auf? {#why-is-cursor-only-listing-functions}
 
-Bitte überprüfen Sie, ob Sie sich im Abfrage-Modus oder im Agenten-Modus befinden. Um den MCP-Server nutzen zu können, müssen Sie sich im Agenten-Modus befinden.
+Überprüfen Sie, ob Sie sich im Abfrage-Modus oder im Agenten-Modus befinden. Um den MCP-Server nutzen zu können, müssen Sie sich im Agenten-Modus befinden.
 
 ### Was soll ich tun, wenn der Agent eine Antwort zurückgibt, die mir unkorrekt erscheint? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
 
-Bei der Arbeit mit Tools wie Cursor empfiehlt es sich, das verwendete Modell zu ändern. Wenn Sie beispielsweise die automatische Einstellung verwenden, versuchen Sie, auf ein bestimmtes Modell umzustellen, und experimentieren Sie, um herauszufinden, welches Modell die beste Performance für Ihren Anwendungsfall bietet. Sie können auch versuchen, einen neuen Chat zu starten und die Eingabeaufforderung erneut auszuführen.
+Bei der Arbeit mit Tools wie Cursor empfiehlt es sich, das verwendete Modell zu ändern. Wenn Sie beispielsweise die automatische Einstellung verwenden, versuchen Sie, auf ein bestimmtes Modell umzustellen, und experimentieren Sie, um herauszufinden, welches Modell die beste Performance für Ihren Anwendungsfall bietet. Sie können auch versuchen, einen neuen Chat zu starten und den Prompt erneut auszuführen.
 
 Sollten die Probleme weiterhin bestehen, senden Sie uns bitte eine E-Mail an [mcp-product@braze.com](mailto:mcp-product@braze.com), um uns darüber zu informieren. Wenn möglich, fügen Sie bitte ein Video hinzu und erweitern Sie die Aufruffunktionen, damit wir sehen können, welche Aufrufe der Agent getätigt hat.
 

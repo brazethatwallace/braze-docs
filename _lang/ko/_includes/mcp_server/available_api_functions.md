@@ -1,6 +1,6 @@
 # Braze MCP 서버 기능 {#braze-mcp-server-functions}
 
-> Braze MCP 서버는 특정 Braze REST API 엔드포인트에 매핑되는 API 기능 세트를 노출합니다. Claude 및 Cursor와 같은 MCP 클라이언트는 이러한 기능을 호출하여 비PII 데이터를 검색하고, 비PII 쓰기 동작을 수행할 수 있습니다. 더 일반적인 정보는 [Braze MCP 서버]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}를 참조하세요.
+> Braze MCP 서버는 특정 Braze REST API 엔드포인트에 매핑되는 API 기능 세트를 노출합니다. Claude 및 Cursor와 같은 MCP 클라이언트는 이러한 기능을 호출하여 비PII 데이터를 검색하고, 적절한 권한이 있는 경우 비PII 쓰기 동작을 수행할 수 있습니다. 더 일반적인 정보는 [Braze MCP 서버]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}를 참조하세요.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -61,10 +61,14 @@ MCP 클라이언트는 다음 API 기능을 참조하여 Braze MCP 서버와 상
 
 ### Content Blocks
 
+`create_content_block` 및 `update_content_block` 기능은 쓰기 기능입니다. MCP 클라이언트는 `call_write_function`으로 이를 호출해야 하며, API 키에 해당하는 `content_blocks.create` 또는 `content_blocks.update` 권한이 있어야 합니다.
+
 | 기능 | 엔드포인트 | 설명 |
 |----------|----------|-------------|
 | `get_content_blocks_list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | 사용 가능한 콘텐츠 블록을 나열합니다. |
 | `get_content_blocks_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | 콘텐츠 블록에 대한 정보를 가져옵니다. |
+| `create_content_block` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | 콘텐츠 블록을 생성합니다. `name` 및 `content`가 필수입니다. 선택 필드로 `description`, `state`(`active` 또는 `draft`여야 함), `tags`가 있습니다. |
+| `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | 기존 콘텐츠 블록을 업데이트합니다. `content_block_id`와 하나 이상의 업데이트 가능한 필드(`name`, `content`, `description`, `state`(`active` 또는 `draft`여야 함), `tags`)가 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Blocks" }
 
 ### 커스텀 속성 {#custom-attributes}
@@ -95,7 +99,7 @@ MCP 클라이언트는 다음 API 기능을 참조하여 Braze MCP 서버와 상
 
 ### 미디어 라이브러리 {#media-library}
 
-이것은 Braze MCP 서버의 유일한 쓰기 기능입니다. 이 기능을 사용하려면 API 키에 `media_library.create` 권한이 있어야 합니다.
+`create_media_library_asset` 기능은 쓰기 기능입니다. MCP 클라이언트는 `call_write_function`으로 이를 호출해야 하며, API 키에 `media_library.create` 권한이 있어야 합니다.
 
 | 기능 | 엔드포인트 | 설명 |
 |----------|----------|-------------|
@@ -166,10 +170,14 @@ MCP 클라이언트는 다음 API 기능을 참조하여 Braze MCP 서버와 상
 
 ### 템플릿 {#templates}
 
+`create_email_template` 및 `update_email_template` 기능은 쓰기 기능입니다. MCP 클라이언트는 `call_write_function`으로 이를 호출해야 하며, API 키에 해당하는 `templates.email.create` 또는 `templates.email.update` 권한이 있어야 합니다.
+
 | 기능 | 엔드포인트 | 설명 |
 |----------|----------|-------------|
 | `get_email_templates_list` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | 사용 가능한 이메일 템플릿을 나열합니다. |
 | `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | 이메일 템플릿에 대한 정보를 가져옵니다. |
+| `create_email_template` | [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | 이메일 템플릿을 생성합니다. `template_name`, `subject`, `body`가 필수입니다. 선택 필드로 `plaintext_body`, `preheader`, `tags`, `should_inline_css`가 있습니다. |
+| `update_email_template` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | 기존 이메일 템플릿을 업데이트합니다. `email_template_id`와 하나 이상의 업데이트 가능한 필드(`template_name`, `subject`, `body`, `plaintext_body`, `preheader`, `tags`, `should_inline_css`)가 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Templates" }
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

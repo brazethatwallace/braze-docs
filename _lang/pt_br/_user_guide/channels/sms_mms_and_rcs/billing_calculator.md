@@ -149,4 +149,4 @@ As mensagens Rich Media incluem um arquivo de mídia (imagem, vídeo) ou um Rich
 
 Ao criar sua mensagem, o criador de mensagens exibirá o tipo de faturamento em tempo real por meio de um rótulo (Basic RCS, Single RCS, Rich ou Rich Media), ajudando você a acompanhar os custos antes de enviar.
 
-Seu [dashboard de uso de mensagens]({{site.baseurl}}/message_usage_dashboard/) refletirá esses tipos de faturamento e fornecerá o número de segmentos usados para mensagens dos EUA, oferecendo uma visão transparente do consumo de créditos de mensagem.
+Seu [dashboard de uso de mensagens]({{site.baseurl}}/message_usage_dashboard/) refletirá esses tipos de faturamento e fornecerá o número de segmentos usados para mensagens dos EUA, oferecendo uma visão transparente do consumo de créditos de mensagem ou ação.

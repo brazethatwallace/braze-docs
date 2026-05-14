@@ -15,6 +15,7 @@ validurls['/docs/best_practices/#email'] = '/docs/user_guide/channels/email';
 validurls['/docs/best_practices/email/#managing-email-subscriptions'] = '/docs/user_guide/channels/email/subscriptions';
 validurls['/docs/best_practices/email'] = '/docs/user_guide/channels/email/subscriptions';
 validurls['/docs/best_practices'] = '/docs/help/home';
+validurls['/docs/partners/isv_partners/currents_integration/'] = '/docs/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/';
 
 validurls['/docs/whatsapp_response_messaging'] = '/docs/user_guide/channels/whatsapp/message_processing/messaging_users';
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign_analytics/click_tracking'] = '/docs/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking';

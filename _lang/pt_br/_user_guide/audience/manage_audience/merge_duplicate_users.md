@@ -9,9 +9,16 @@ page_order: 4
 
 > Saiba como encontrar e mesclar usuários duplicados para maximizar a eficácia das suas Campaigns e Canvas.
 
-{% alert tip %}
-Para mesclar usuários duplicados usando a REST API da Braze, consulte [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/).
-{% endalert %}
+## REST API: identificar e mesclar usuários {#rest-api-identify-and-merge-users}
+
+As ferramentas nesta página mesclam perfis duplicados no dashboard. Você também pode combinar ou redirecionar perfis por meio dos [endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data/) da Braze:
+
+- [POST: Identificar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) (`/users/identify`): Combina um perfil somente com alias, somente com e-mail ou somente com número de telefone com um perfil que tenha um `external_id`.
+- [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) (`/users/merge`): Mescla um perfil de usuário em outro, inclusive quando ambos os perfis já possuem um `external_id`. Revise os [Pré-requisitos]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#prerequisites) e o [Comportamento da mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior) antes de chamar esse endpoint.
+
+Quando um perfil anônimo é associado a um perfil identificado existente (por exemplo, por meio de uma chamada `changeUser()` do SDK ou `/users/identify`), a Braze descarta o perfil anônimo e copia apenas determinados campos para o perfil identificado. Para saber mais, consulte [O que acontece quando você identifica usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users).
+
+Mesclagens de usuários são difíceis de desfazer. Se você está planejando uma mesclagem complexa envolvendo múltiplos valores de `external_id` ou grandes migrações de perfis, entre em contato com seu gerente de sucesso do cliente da Braze para orientação antes de usar `/users/merge`.
 
 ## Mesclagem individual {#individual-merging}
 

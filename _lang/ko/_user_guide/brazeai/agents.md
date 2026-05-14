@@ -10,12 +10,12 @@ description: "Braze 에이전트는 콘텐츠를 생성하고, 지능적인 결�
 > Braze 에이전트는 Braze 내에서 생성할 수 있는 AI 기반 도우미입니다. 에이전트는 콘텐츠를 생성하고, 지능적인 결정을 내리며, 데이터를 보강하여 보다 개인화된 고객 경험을 제공할 수 있도록 합니다.
 
 {% alert important %}
-Braze 에이전트에 접근하고 사용하려면 메시지 크레딧이 필요합니다. 현재 메시지 크레딧이 없고 Braze 에이전트를 사용하고 싶다면, 다음 단계를 위해 계정 매니저에게 문의하세요.
+Braze 에이전트에 접근하고 사용하려면 메시지 또는 동작 크레딧이 필요합니다. 현재 동작 크레딧이 없고 Braze 에이전트를 사용하고 싶다면, 다음 단계를 위해 계정 매니저에게 문의하세요.
 {% endalert %}
 
 에이전트 콘솔의 Braze 에이전트에 대한 개요를 보려면 이 동영상을 시청하세요.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="에이전트 콘솔의 Braze 에이전트 개요" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Braze 에이전트를 사용하는 이유 {#why-use-braze-agents}
 
@@ -54,10 +54,10 @@ Braze 에이전트의 기능은 다음과 같습니다:
 | [지침]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | 에이전트에게 제공하는 규칙이나 가이드라인(시스템 프롬프트)입니다. 에이전트가 실행될 때마다 어떻게 동작해야 하는지를 정의합니다. 명확한 지침은 에이전트를 더 신뢰할 수 있고 예측 가능하게 만듭니다. |
 | 컨텍스트 | 에이전트가 배포된 곳에서 런타임에 전달되는 데이터로, 고객 프로필 필드나 카탈로그 행 등이 있습니다. 이 입력은 에이전트가 출력을 생성하는 데 사용하는 정보를 제공합니다. |
 | [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | 특정 Canvas를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. |
-| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Canvas 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
+| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
 | [실행](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
 | [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="핵심 개념" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## 제한 사항 {#limitations}
 

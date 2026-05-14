@@ -85,7 +85,7 @@ Cet endpoint fusionne les champs suivants s'ils ne sont pas trouvés chez l'util
 - Date du dernier achat (Braze sélectionne la date la plus récente des deux)
 - Résumés des applications
 - Champs Last_X_at (Braze met à jour les champs si ceux du profil orphelin sont plus récents)
-- Données d'interaction de Campaign (Braze sélectionne les champs de date les plus récents)
+- Données d'interaction de campagne (Braze sélectionne les champs de date les plus récents)
 - Résumés de flux de travail (Braze sélectionne les champs de date les plus récents)
 - Historique des messages et de l'engagement des messages
 - Braze fusionne les données de session uniquement si l'application est présente sur les deux profils utilisateurs.
@@ -129,7 +129,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -176,7 +175,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -202,7 +200,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -227,7 +224,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {

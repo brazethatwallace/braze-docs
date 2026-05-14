@@ -19,10 +19,10 @@
 - マルチステップのエージェントワークフローを作成するCRMエンジニア。
 - 自然言語クエリを試す技術系マーケター。
 
-Braze MCPサーバーは、Brazeユーザープロファイルからデータを返さない39個のエンドポイントをサポートしています。Braze APIキーに割り当てるエンドポイントを選択することで、エージェントがアクセスまたは変更できる範囲をコントロールできます。
+Braze MCPサーバーには、読み取り専用と書き込みの両方のエンドポイントが含まれています。Brazeユーザープロファイルからデータを返すことはありません。Braze APIキーに割り当てるエンドポイントを選択することで、エージェントが読み取り、作成、または更新できる範囲をコントロールできます。利用可能なエンドポイントの完全なリストと必要な権限については、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
 
 {% alert warning %}
-エージェントに持たせたいAPIキーの権限のみを割り当ててください。エージェントにBraze内で変更を加えさせたくない場合は、書き込み権限をオフのままにしてください。エージェントは、付与された権限を通じてデータの書き込みを試みる可能性があります。
+エージェントに持たせたいAPIキーの権限のみを割り当ててください。エージェントにBraze内で変更を加えさせたくない場合は、APIキーを作成する際に書き込み権限をオフのままにしてください。エージェントは、付与された書き込み権限を通じてデータの書き込みを試みる可能性があります。
 {% endalert %}
 
 ## 使用例 {#usage-example}
@@ -51,9 +51,9 @@ MCPクライアントは、PIIを返さないエンドポイントにアクセ�
 
 ### MCPクライアントはBrazeデータを変更できますか？ {#can-my-mcp-client-change-braze-data}
 
-サーバーが公開している書き込みエンドポイントは `/media_library/create` のみで、メディアライブラリにメディアアセットをアップロードできます。エージェントにBraze内でそのような変更を加えさせたくない場合は、APIキーを作成する際に `media_library.create` 権限のチェックを外してください。
+はい。サーバーは、エージェントがワークスペース内のコンテンツ（メディアライブラリのアセット、メールテンプレート、Content Blocksなど）を作成または更新できる、限定された書き込みエンドポイントのセットを公開しています。各書き込みエンドポイントには、それぞれ独自のAPIキー権限が必要です。エージェントにBraze内で特定の変更を加えさせたくない場合は、APIキーを作成する際にその権限をオフのままにしてください。書き込み機能の完全なリストと必要な権限については、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
 
-### Brazeでサードパーティの MCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
+### BrazeでサードパーティのMCPサーバーを使用できますか？ {#can-i-use-a-third-party-mcp-server-for-braze}
 
 Brazeデータに対してサードパーティのMCPサーバーを使用することは推奨されません。[PyPi](https://pypi.org/project/braze-mcp-server/)でホストされている公式のBraze MCPサーバーのみを使用してください。
 

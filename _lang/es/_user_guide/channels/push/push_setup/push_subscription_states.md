@@ -68,7 +68,7 @@ Antes de iOS 12 (lanzado en 2018), todos los usuarios debían adherirse explíci
 
 En iOS 12, Apple introdujo la [autorización provisional](https://www.braze.com/resources/articles/mastering-provisional-push), que permite a las marcas enviar notificaciones push silenciosas al centro de notificaciones de sus usuarios antes de que se adhieran explícitamente, dándote la oportunidad de demostrar el valor de tus mensajes de forma temprana. Consulta [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push-authentication--quiet-notifications) para obtener más información.
 
-### Web {#web}
+### Push web {#web}
 
 Para Web, debes solicitar la adhesión voluntaria explícita del usuario a través del diálogo de permiso nativo del navegador.
 
@@ -99,7 +99,7 @@ Por ejemplo, supongamos que tienes dos usuarios: Charlie y Kim. Si Charlie ha ha
 
 Una aplicación o sitio web solo puede tener una suscripción push por dispositivo. Así que cuando un usuario cierra sesión en un dispositivo o sitio web, y un nuevo usuario inicia sesión, el token push se reasigna al nuevo usuario. Esto se refleja en el perfil del usuario, en la sección **Contact Settings** de la pestaña **Engagement**:
 
-![Registro de cambios del token push en la pestaña **Engagement** del perfil de un usuario, que muestra cuándo se movió el token push a otro usuario y cuál era el token.]({% image_buster /assets/img/push_token_changelog.png %})
+![Registro de cambios del token push en la pestaña Engagement del perfil de un usuario, que muestra cuándo se movió el token push a otro usuario y cuál era el token.]({% image_buster /assets/img/push_token_changelog.png %})
 
 Dado que no hay forma de que los proveedores push (APNs/FCM) distingan entre múltiples usuarios en un dispositivo, pasamos el token push al último usuario que inició sesión para determinar a qué usuario dirigir en el dispositivo para push.
 
@@ -123,6 +123,26 @@ Un usuario se considera "habilitado para push" o "registrado para push" si tiene
 Para obtener información sobre cómo verificar el estado de registro push, visita [estado de registro push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
 {% endalert %}
 
+## Cómo encontrar información de registro push y registro de cambios {#finding-push-registration-and-changelog-information}
+
+En el dashboard, puedes encontrar información sobre el registro push y los registros de cambios push en:
+
+- **Segmentación** – Filtra por estados de suscripción de los usuarios, estado habilitado, y estado habilitado en primer plano y segundo plano.
+- **Análisis de Campaign** – Consulta las estadísticas push y los comentarios de una sola Campaign o Canvas.
+- **Perfil de usuario (pestaña Engagement)** – Consulta **Contact Settings** y el registro de cambios push de un usuario específico.
+
+Al revisar el estado de habilitación push, **Push Registered for** indica para qué plataformas Braze puede enviar push en primer plano a ese usuario. En iOS y Android, si un usuario ha pasado de push en primer plano habilitado a push en segundo plano habilitado (`remote_notification_enabled`), esto se documentará en el registro de cambios push como "Push token was updated from foreground push enabled to foreground push disabled."
+
+Si el usuario se agrega como usuario de prueba, en **Consola para desarrolladores** > **User Event Log**, el perfil del usuario mostrará una solicitud del SDK con `remote_notification_enabled` como `true` o `false`. Es posible que necesites actualizar el perfil del usuario para ver las actualizaciones, ya que hay un breve retraso para que las actualizaciones del SDK lleguen al perfil del usuario.
+
+**Filtros de segmentación para el estado push en iOS:**
+
+- **Push en primer plano y segundo plano deshabilitado en iOS:** El usuario aún no ha recibido un aviso push.
+- **Push en segundo plano habilitado en iOS:** El usuario ha recibido el aviso push y dijo que no, o dijo que sí y luego desactivó las notificaciones push en la configuración de su dispositivo (reflejado después de que el usuario tenga una sesión).
+- **Push en primer plano habilitado en iOS:** El usuario ha recibido el aviso push y es elegible para recibir push en primer plano.
+
+Los análisis de Campaign reflejarán las estadísticas push en línea con los detalles anteriores. También puedes descargar los perfiles de usuario que ingresaron a la Campaign o Canvas para hacer una referencia cruzada de los perfiles de usuario.
+
 ## Otros escenarios específicos de plataforma {#other-platform-specific-scenarios}
 
 {% tabs %}
@@ -133,6 +153,12 @@ Cuando un usuario acepta el aviso nativo de permiso push, su estado de suscripci
 Para gestionar las suscripciones, puedes usar el método de usuario [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype) para crear una página de configuración de preferencias en tu sitio, después de lo cual puedes filtrar usuarios por estado de cancelación en el dashboard.
 
 Si un usuario deshabilita las notificaciones en su navegador, la siguiente notificación push enviada a ese usuario rebotará, y Braze actualizará el token push del usuario en consecuencia. Esto se usa para gestionar la elegibilidad de los filtros habilitados para push (`Background or Foreground Push Enabled`, `Foreground Push Enabled` y `Foreground Push Enabled for App`). El estado de suscripción establecido en el perfil del usuario es una configuración a nivel de usuario y no cambia cuando un push rebota.
+
+### Errores de token push web 410 {#410-web-push-token-errors}
+
+Si recibes un error `410: Gone`, esto puede ocurrir cuando un usuario deshabilita las notificaciones push web desde el navegador en la configuración de su sistema operativo, o si está iniciando sesión como un usuario diferente en el mismo dispositivo, o si el usuario no ha visitado el sitio web en algún tiempo.
+
+Si recibes un error `410: Endpoint Not Valid`, esto puede significar que el token push web (esencialmente la URL) ha expirado. Esto puede ocurrir si el usuario nunca vuelve a visitar el sitio o si el navegador invalida el token. También puede ocurrir periódicamente (a menudo cada pocos meses), dependiendo del navegador. Cuando el usuario visite el sitio de nuevo, si aún tiene su navegador configurado en "Allow", Braze recopilará automáticamente un token nuevo para el dispositivo. Esto asume que la [opción de inicialización `disablePushTokenMaintenance`](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions) no se está utilizando durante la inicialización del SDK.
 
 {% alert note %}
 Las plataformas web no permiten push en segundo plano ni push silencioso.

@@ -59,7 +59,7 @@ Apps ohne aktiviertes Uninstall-Tracking melden Deinstallationen nur von einer T
 
 ## Uninstall-Tracking für Campaigns {#uninstall-tracking-for-campaigns}
 
-Das Uninstall-Tracking für Campaigns zeigt die Anzahl der Nutzer:innen, die eine bestimmte Campaign erhalten und anschließend Ihre App innerhalb des ausgewählten Zeitraums deinstalliert haben. Dieses Tool gibt Insights darüber, wie Campaigns unbeabsichtigtes negatives Nutzerverhalten fördern können, und hilft dabei, die Gesamtwirksamkeit von Campaigns zu messen.
+Das Uninstall-Tracking für Campaigns zeigt die Anzahl der Nutzer:innen, die eine bestimmte Campaign erhalten und anschließend Ihre App innerhalb des ausgewählten Zeitraums deinstalliert haben. Dieses Tool gibt Aufschluss darüber, wie Campaigns unbeabsichtigtes negatives Nutzerverhalten fördern können, und hilft dabei, die Gesamtwirksamkeit von Campaigns zu messen.
 
 Die Deinstallationsstatistiken für Campaigns befinden sich auf der Seite **Campaign Analytics** der jeweiligen Campaign. Bei Multichannel- und multivariaten Campaigns können die Deinstallationen nach Kanal bzw. Variante aufgeschlüsselt werden.
 
@@ -74,6 +74,10 @@ Braze verfolgt Deinstallationen, indem es beobachtet, wann Push-Nachrichten, die
 * Wenn ein:e Nutzer:in in einem Zeitraum von 24 Stunden drei Campaigns erhält und dann deinstalliert, erhöhen wir die Anzahl der „Deinstallationen“ für alle drei Campaigns.
 
 FCM und APNs unterliegen Einschränkungen hinsichtlich des Uninstall-Trackings. Braze erhöht die Deinstallationszahl nur, wenn FCM oder APNs uns mitteilen, dass ein:e Nutzer:in die App deinstalliert hat. Diese Drittanbietersysteme können uns jedoch jederzeit über Deinstallationen informieren. Verwenden Sie das Uninstall-Tracking, um allgemeine Trends zu erkennen, anstatt präzise Statistiken zu erwarten.
+
+Braze behandelt die folgenden FCM-Antworten als Token-Entfernungs-Antworten (Deinstallation): `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` und `SENDER_ID_MISMATCH`.
+
+Weitere Informationen zur Verwendung des Uninstall-Trackings finden Sie in unserem Blogbeitrag [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
 
 ## Fehlerbehebung {#troubleshooting}
 

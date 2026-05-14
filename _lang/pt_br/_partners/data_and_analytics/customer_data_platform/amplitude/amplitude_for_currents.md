@@ -53,7 +53,7 @@ Mantenha sua chave de API da Amplitude atualizada. Se as credenciais do conector
 
 ### Etapa 2: Criar um Braze Current {#step-2-create-braze-current}
 
-Na Braze, navegue até **Currents > + Criar Current > Criar exportação do Amplitude**. Forneça um nome de integração, e-mail de contato, chave de API de exportação da Amplitude e região da Amplitude nos campos listados. Em seguida, selecione os eventos que deseja rastrear; é fornecida uma lista dos eventos disponíveis. Por fim, clique em **Launch Current**.
+Na Braze, navegue até **Currents > + Create Current > Create Amplitude Export**. Forneça um nome de integração, e-mail de contato, chave de API de exportação da Amplitude e região da Amplitude nos campos listados. Em seguida, selecione os eventos que deseja rastrear; é fornecida uma lista dos eventos disponíveis. Por fim, clique em **Launch Current**.
 
 {% alert note %}
 Os eventos enviados do Braze Currents para a Amplitude contarão para sua cota de volume de eventos da Amplitude.
@@ -73,70 +73,9 @@ Os dispositivos não devem relatar mais de 30 eventos/segundo ou 500 mil eventos
 
 ## Eventos Currents com suporte {#supported-currents-events}
 
-A Braze suporta a exportação dos seguintes dados listados nos glossários de eventos de [comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) e [engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) do Currents para a Amplitude:
+A Braze suporta a exportação dos seguintes eventos para a Amplitude:
 
-### Comportamentos {#behaviors}
-- Evento personalizado: `users.behaviors.CustomEvent`
-- Atribuição da instalação: `users.behaviors.InstallAttribution`
-- Local: `users.behaviors.Location`
-- Compra: `users.behaviors.Purchase`
-- Desinstalação: `users.behaviors.Uninstall`
-- App (primeira sessão, fim da sessão, início da sessão)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Inscrição (mudança de estado global): `users.behaviors.subscription.GlobalStateChange`
-- Grupo de inscrições (mudança de estado): `users.behaviors.subscriptiongroup.StateChange`
+- [Eventos de engajamento com mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- Abortar: `users_campaigns_abort`
-- Conversão: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- Abortar: `users_canvas_abort`
-- Conversão: `users.canvas.Conversion`
-- Entrada: `users.canvas.Entry`
-- Saída (público correspondente, evento realizado)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Etapa do experimento (conversão, entrada dividida)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Mensagens {#messages}
-- Cartão de conteúdo (abortar, clicar, descartar, impressão, enviar)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- E-mail (abortar, bounce, clicar, entrega, markasspam, abrir, enviar, softbounce, cancelar inscrição)
-- Mensagem no app (abortar, clicar, impressão)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Notificação por push (abortar, bounce, iOSforeground, abrir, enviar)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (abortar, envio da operadora, entrega, falha na entrega, recebimento de entrada, rejeição, envio, clique em link curto)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (abortar, enviar)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (abortar, entrega, falha, recebimento de entrada, leitura, envio)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+Para a estrutura da carga útil de cada evento, selecione a guia **Amplitude** no [glossário de eventos de engajamento com mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) e no [glossário de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).

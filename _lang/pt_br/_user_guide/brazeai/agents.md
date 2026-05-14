@@ -10,7 +10,7 @@ description: "Os agentes da Braze podem gerar conteúdo, tomar decisões intelig
 > Os Braze Agents são assistentes alimentados por IA que você pode criar dentro da Braze. Os agentes podem gerar conteúdo, tomar decisões inteligentes e enriquecer seus dados para que você possa oferecer experiências mais personalizadas aos clientes.
 
 {% alert important %}
-São necessários créditos de mensagem para acessar e usar os Braze Agents. Se você não tem créditos de mensagem no momento e deseja usar os Braze Agents, entre em contato com seu gerente de conta para saber as próximas etapas.
+São necessários créditos de mensagem ou créditos de ação para acessar e usar os Braze Agents. Se você não tem créditos de ação no momento e deseja usar os Braze Agents, entre em contato com seu gerente de conta para saber as próximas etapas.
 {% endalert %}
 
 Assista a este vídeo para ter uma visão geral dos Braze Agents no Console do agente.

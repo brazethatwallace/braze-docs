@@ -22,7 +22,7 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 {% tabs %}
 {% tab Campaign %}
-1. **Messaging** > **Campaigns** に移動し、**Create Campaign**を選択します。
+1. **Messaging** > **Campaigns** に移動し、**Create campaign**を選択します。
 2. 複数チャネルをターゲットとするCampaignの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。まだ迷っている場合は、以下の**通常のプッシュCampaignとマルチチャネルプッシュCampaignの選択**を参照してください。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
@@ -79,9 +79,9 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 | 以前の選択 | オプション |
 | --- | --- |
 | プッシュ通知Campaign | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュCampaignが作成されます。これにより、選択したすべてのプラットフォーム向けに1つのメッセージを単一のエディターで作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[クイックプッシュCampaign]({{site.baseurl}}/quick_push/)を参照してください。 |
-| マルチチャネルCampaign | **Add Messaging Channel**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。
+| マルチチャネルCampaign | **Add Messaging Channel**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。 |
 | Canvas | メッセージステップで、**+ Add more**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルCampaignと同様に、プラットフォームの選択は各バリアントに固有です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## ステップ 3: 通知タイプを選択する（iOSおよびAndroid） {#step-3-select-notification-type-ios-and-android}
 
@@ -111,7 +111,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 #### 言語 {#language}
 
-**Add Languages**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquid内の適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**Add Languages**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquidの適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
 
 右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示は、サービスプロバイダーのレンダリング方法に大きく依存します。できるだけ正確に表示される右から左のメッセージを作成するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
 
@@ -260,3 +260,16 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 CampaignまたはCanvasの最後の構築が完了したら、その詳細を確認します。Campaignの場合、最終ページにはデザインしたCampaignの概要が表示されます。関連するすべての詳細を確認し、メッセージをテストしたことを確認してから送信し、データが届くのを見守りましょう！
 
 次に、[プッシュレポート]({{site.baseurl}}/user_guide/channels/push/reporting/)を確認して、プッシュCampaignの結果にアクセスする方法を学びましょう。プッシュ通知では、送信数、配信数、バウンス数、開封数、直接開封数の統計を確認できます。
+
+### トラブルシューティング {#troubleshooting}
+
+#### クリック時の動作
+
+SDKバージョンのデフォルトのクリック時の動作を使用しており、Web URLを含むプッシュ通知を選択するとWebブラウザではなくアプリ内で開く場合は、以下の統合ガイドを確認してプッシュ通知の処理を確認してください。
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+アプリの起動が完了する前に、`application:didFinishLaunchingWithOptions:`内で`center.delegate = self`を使用してデリゲートオブジェクトを同期的に割り当てる必要があります。そうしないと、アプリが受信プッシュ通知を見逃す可能性があります。詳細については、Appleの[`UNUserNotificationCenterDelegate`ドキュメント](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate)を参照してください。
+{% endalert %}

@@ -31,6 +31,10 @@ Bevor Sie eine Rich-Push-Benachrichtigung für iOS erstellen, beachten Sie die f
 Seit Januar 2020 können iOS-Rich-Push-Benachrichtigungen Bilder mit 1038x1038 Pixeln verarbeiten, die unter 10&nbsp;MB groß sind. Wir empfehlen jedoch, eine möglichst kleine Dateigröße zu verwenden. In der Praxis kann das Senden großer Dateien sowohl unnötige Netzwerkbelastung verursachen als auch Download-Timeouts häufiger auftreten lassen.
 {% endalert %}
 
+{% alert important %}
+Push-Benachrichtigungsbilder werden möglicherweise nicht wie erwartet angezeigt, wenn die Dateigröße des Bildes zu groß ist, das Seitenverhältnis nicht stimmt, der Text die maximale Nachrichtenlänge überschreitet oder der Titeltext die maximale Titellänge überschreitet.
+{% endalert %}
+
 ### Zeichenanzahl {#character-count}
 
 Obwohl wir keine feste Regel für die genaue Anzahl der Zeichen in einer Push-Benachrichtigung angeben können, [bieten wir einige Richtlinien]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/) an, die Sie beim Entwerfen von iOS-Nachrichten berücksichtigen sollten. Es kann Abweichungen geben, abhängig vom Vorhandensein eines Bildes, dem Benachrichtigungsstatus und den Anzeigeeinstellungen des Geräts der Nutzer:innen sowie der Gerätegröße. Im Zweifelsfall halten Sie es kurz und prägnant.

@@ -10,12 +10,12 @@ description: "Les agents Braze peuvent générer du contenu, prendre des décisi
 > Les agents Braze sont des assistants alimentés par l'intelligence artificielle que vous pouvez créer dans Braze. Ils peuvent générer du contenu, prendre des décisions intelligentes et enrichir vos données pour vous permettre d'offrir des expériences client plus personnalisées.
 
 {% alert important %}
-Des crédits de message sont nécessaires pour accéder aux agents Braze et les utiliser. Si vous ne disposez pas actuellement de crédits de message et souhaitez utiliser les agents Braze, contactez votre gestionnaire de compte pour connaître la marche à suivre.
+Des crédits de message ou d'action sont nécessaires pour accéder aux agents Braze et les utiliser. Si vous ne disposez pas actuellement de crédits d'action et souhaitez utiliser les agents Braze, contactez votre gestionnaire de compte pour connaître la marche à suivre.
 {% endalert %}
 
 Regardez cette vidéo pour un aperçu des agents Braze dans la Console des agents.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Aperçu des agents Braze dans la Console des agents" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Pourquoi utiliser les agents Braze ? {#why-use-braze-agents}
 

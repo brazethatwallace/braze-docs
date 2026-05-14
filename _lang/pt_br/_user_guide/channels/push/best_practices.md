@@ -95,6 +95,14 @@ Você tem apenas uma chance de pedir permissão de push a um usuário, e depois 
 
 Para evitar que os usuários desativem as notificações no nível do dispositivo, o que remove completamente o token por push em primeiro plano, permita que os usuários controlem sua inscrição de push diretamente no seu app. Consulte [Atualizando estados de inscrição de push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state) para mais informações.
 
+### Use agendamento avançado ou adicione postergações {#use-advanced-scheduling-or-add-delays}
+
+Dependendo do tamanho do seu público e de quanto tempo antes sua mensagem push está agendada, pode haver atrasos na entrega do push. O tempo necessário para enviar pushes depende do poder de processamento alocado. Por exemplo, se sua mensagem push usa várias chamadas de Conteúdo conectado, isso pode aumentar a complexidade da criação do template da mensagem push e resultar em velocidades limitadas pela rapidez com que as APIs de terceiros retornam dados.
+
+Uma carga útil de push menor e uma prioridade de notificação mais alta podem ajudar a reduzir atrasos e escalar suas mensagens. Você pode adicionar `Push Enabled = true` no filtro de público para reduzir o tamanho do público, de modo que apenas usuários com push ativado sejam processados para o envio da Campaign.
+
+Também recomendamos minimizar o número de chamadas de API otimizando os dados necessários. Se possível, tente obter todos os dados necessários em uma única chamada de API em vez de fazer várias chamadas.
+
 ### Entenda os estados de inscrição de push {#understand-push-subscription-states}
 
 O estado de inscrição de push não garante que um push será entregue — os usuários também precisam estar com o push ativado para receber notificações. Isso ocorre porque um perfil de usuário pode ter vários dispositivos com diferentes permissões de push em primeiro plano, mas apenas um único estado de inscrição de push.

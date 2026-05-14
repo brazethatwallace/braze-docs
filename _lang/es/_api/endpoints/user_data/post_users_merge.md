@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Comportamiento de la fusión {#merge-behavior}
 
-El comportamiento que se documenta a continuación es válido para todas las características de Braze que **no** funcionan con Snowflake. Las fusiones de usuarios no se reflejarán en la pestaña **Historial de mensajería**, Extensiones de segmento, Generador de consultas ni Currents.
+El comportamiento que se documenta a continuación es válido para todas las características de Braze que **no** funcionan con Snowflake. Las fusiones de usuarios no se reflejarán en la pestaña **Messaging History**, Extensiones de segmento, Generador de consultas ni Currents.
 
 {% alert important %}
 El punto de conexión no garantiza la secuencia de actualización de los objetos de `merge_updates`.
@@ -129,7 +129,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -176,7 +175,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -202,7 +200,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -227,7 +224,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {

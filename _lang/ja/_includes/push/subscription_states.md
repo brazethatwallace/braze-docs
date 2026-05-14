@@ -14,12 +14,24 @@ Brazeの「プッシュサブスクリプションの状態」は、プッシュ
 |---|---|
 | `Subscribed` | Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュサブスクリプション状態。 |
 | `Opted-In` | ユーザーがプッシュ通知を受け取ることを明示的に希望しました。ユーザーがOSレベルのプッシュプロンプトを承認した場合、Brazeは自動的にそのユーザーのオプトイン状態を `Opted-In` に変更します。<br><br>Android 12またはそれ以前のユーザーには適用されません。|
-| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除しました。デフォルトでは、Brazeのプッシュ Campaignsは、プッシュ通知に対して `Subscribed` または `Opted-in` のユーザーのみを対象とします。|
+| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除しました。デフォルトでは、BrazeのプッシュCampaignsは、プッシュ通知に対して `Subscribed` または `Opted-in` のユーザーのみを対象とします。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
 
 {% alert important %}
 Brazeがユーザーのプッシュサブスクリプションの状態を自動的に `Unsubscribed` に変更することはありません。ユーザーのプッシュサブスクリプション状態が `Unsubscribed` の場合、そのユーザーのセグメンテーションにおける `Foreground Push Enabled` フィルターは `false` になることを覚えておいてください。
 {% endalert %}
+
+### プッシュ登録と到達可能なユーザー {#push-registration-and-reachable-users}
+
+プッシュサブスクリプションの状態はユーザーの設定を反映しますが、ダッシュボードでプッシュの**到達可能**としてカウントされるかどうかは、[プッシュ登録]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)にも依存します。つまり、プロファイルに有効なフォアグラウンドプッシュトークンが存在する必要があります。Brazeがチャネルレベルのカウントを計算する方法については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
+
+- **プッシュCampaignsとCanvases：** プッシュ登録されていないユーザーは、プッシュサブスクリプション状態が `Subscribed` または `Opted-In` であっても、オーディエンス統計のAndroidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**には含まれません。
+- **その他のチャネル：** 同じユーザーでも、対象となる他のチャネル（メールやアプリ内メッセージなど）では到達可能としてカウントされる場合があります。
+- **Segments：** Segmentのメンバーシップはフィルターに従います。プッシュ登録のないユーザーも、フィルターで除外されない限り（例：**Foreground Push Enabled**）、Segmentに残ります。Segmentの合計メンバーシップは、プッシュ固有の**到達可能なユーザー**行に表示されるユーザー数の合計よりも多くなる場合があります。
+
+ユーザープロファイルのプッシュサブスクリプション状態が `Subscribed` であっても、プッシュトークンが割り当てられていない場合があります。そのようなユーザーは、Brazeが有効なトークンを記録するまで、Androidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**にはカウントされません。
+
+フィルターの定義については、[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を参照してください。
 
 ### プッシュサブスクリプションの状態の更新 {#update-push-subscription-state}
 
@@ -56,7 +68,23 @@ AppDelegate.braze = braze
 
 #### REST API
 
-ユーザーのサブスクリプション状態を更新するには、Braze REST APIの[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーの [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/) 属性を更新します。
+ユーザーのサブスクリプション状態を更新するには、Braze REST APIの[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーの[`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/)属性を更新します。
+
+### プッシュ有効化とプッシュサブスクリプション状態の違い {#differences-between-push-enablement-and-push-subscription-status}
+
+プッシュ有効化とは、ユーザーが特定のデバイスでOSまたはブラウザレベルの通知受信許可を付与しているかどうかを指します。プッシュサブスクリプション状態は、Brazeレベルの設定であり、プロファイル全体でプッシュを受信するためのユーザーのグローバルな設定を表します。
+
+自動オプトインが有効（デフォルト）の場合、ユーザーがアプリのプッシュ通知を承認するか、システム設定でプッシュ権限を再度有効にすると（例えば、iOS、Android 13以降、およびサポートされているWebブラウザ）、Brazeはユーザーのプッシュサブスクリプション状態を `Opted-In` に更新します。それ以外の場合、SDKメソッドまたはREST API呼び出しを使用して明示的に変更するまで、ユーザーのプッシュサブスクリプション状態は `Subscribed` のままです。
+
+Brazeは、ユーザーがOS、ブラウザ、またはアプリレベルで通知をオプトアウトした場合でも、ユーザーのプッシュサブスクリプション状態を自動的に `Unsubscribed` に変更することはありません。ユーザーのプッシュサブスクリプション状態を更新するには、Brazeで更新する必要があります。例えば、ユーザーがアプリ内のユーザー設定センターからプッシュを無効にした場合、Brazeでプッシュサブスクリプション状態を `Unsubscribed` に更新してください。Brazeはユーザー設定センターに基づいてユーザープロファイルを自動的に更新しません。サブスクリプション状態をユーザーのアプリ内設定と一致させるには、[SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration)（iOSまたはAndroid）または[REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api)を使用して適切なメソッドを呼び出してください。
+
+### プッシュ有効化とプッシュサブスクリプション状態の違い {#differences-between-push-enablement-and-push-subscription-status}
+
+プッシュ有効化とは、ユーザーが特定のデバイスでOSまたはブラウザレベルの通知受信許可を付与しているかどうかを指します。プッシュサブスクリプション状態は、Brazeレベルの設定であり、プロファイル全体でプッシュを受信するためのユーザーのグローバルな設定を表します。
+
+自動オプトインが有効（デフォルト）の場合、ユーザーがアプリのプッシュ通知を承認するか、システム設定でプッシュ権限を再度有効にすると（例：iOS、Android 13以降、対応するWebブラウザ）、Brazeはユーザーのプッシュサブスクリプション状態を `Opted-In` に更新します。それ以外の場合、SDKメソッドまたはREST API呼び出しを使用して明示的に変更するまで、ユーザーのプッシュサブスクリプション状態は `Subscribed` のままです。
+
+ユーザーがOS、ブラウザ、またはアプリレベルで通知をオプトアウトしても、Brazeがユーザーのプッシュサブスクリプション状態を自動的に `Unsubscribed` に変更することはありません。ユーザーのプッシュサブスクリプション状態を更新するには、Brazeで更新する必要があります。例えば、ユーザーがアプリ内のユーザー設定センターからプッシュを無効にした場合、Brazeでプッシュサブスクリプション状態を `Unsubscribed` に更新してください。Brazeはユーザー設定センターに基づいてユーザープロファイルを自動更新しません。サブスクリプション状態をユーザーのアプリ内設定と一致させるには、[SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration)（iOSまたはAndroid）または[REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api)を使用して適切なメソッドを呼び出してください。
 
 ### プッシュサブスクリプションの状態の確認 {#checking-push-subscription-state}
 

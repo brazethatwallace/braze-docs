@@ -1,5 +1,5 @@
 ---
-nav_title: "POST: Content-Block-Update"
+nav_title: "POST: Content-Block aktualisieren"
 article_title: "POST: Content-Block aktualisieren"
 search_tag: Endpoint
 page_order: 4
@@ -15,6 +15,10 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Content Bl
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) zu aktualisieren.
+
+{% alert tip %}
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) mit der Funktion [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks) aufrufen. So können KI-Tools wie Claude und Cursor Content Blocks über natürlichsprachliche Eingaben aktualisieren.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 

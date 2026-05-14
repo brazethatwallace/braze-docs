@@ -75,7 +75,7 @@ Las notificaciones push deben tratarse con cuidado para dirigirse a los usuarios
 
 Puedes crear una página de configuración en tu aplicación que permita a los usuarios indicar qué notificaciones desean recibir. Un enfoque común es crear un atributo personalizado booleano en Braze que corresponda al estado de configuración de la aplicación. Por ejemplo, una aplicación de noticias podría tener configuraciones de suscripción para noticias de última hora, deportes o política.
 
-Cuando la aplicación de noticias quiere crear una Campaign dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al segmento. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
+Cuando la aplicación de noticias quiere crear una Campaign dirigida solo a usuarios interesados en política, añade el filtro de atributo `Subscribes to Politics` al Segment. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
 
 Para más información sobre cómo establecer atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/#setting-custom-attributes) o [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-attributes-object-specification).
 
@@ -94,6 +94,14 @@ Solo tienes una oportunidad de pedir permiso de push a un usuario, y después de
 ### Añade controles de suscripción push {#add-push-subscription-controls}
 
 Para evitar que los usuarios desactiven las notificaciones a nivel de dispositivo, lo que elimina completamente su token de notificaciones push en primer plano, permite que los usuarios controlen su suscripción push directamente dentro de tu aplicación. Consulta [Actualización de los estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#update-push-subscription-state) para más detalles.
+
+### Usa la planificación avanzada o añade retrasos {#use-advanced-scheduling-or-add-delays}
+
+Dependiendo del tamaño de tu audiencia y de con cuánta anticipación se planifique tu mensaje push, puede haber retrasos en la entrega de las notificaciones push. El tiempo que tarda en enviar las notificaciones push depende de la capacidad de procesamiento asignada. Por ejemplo, si tu mensaje push utiliza varias llamadas de contenido conectado, esto puede aumentar la complejidad de la plantilla del mensaje push y puede resultar en velocidades limitadas por la rapidez con la que las APIs de terceros devuelven datos.
+
+Una carga útil push más pequeña y una prioridad de notificación más alta pueden ayudar a reducir los retrasos y escalar tus mensajes. Puedes añadir `Push Enabled = true` en tu filtro de audiencia para reducir el tamaño de la audiencia de modo que solo se procesen los usuarios con push habilitado para el envío de la Campaign.
+
+También recomendamos minimizar el número de llamadas a la API optimizando los datos que necesitas. Si es posible, intenta obtener todos los datos que necesitas en una sola llamada a la API en lugar de hacer múltiples llamadas.
 
 ### Comprende los estados de suscripción push {#understand-push-subscription-states}
 

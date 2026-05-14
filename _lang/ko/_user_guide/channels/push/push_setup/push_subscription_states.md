@@ -123,6 +123,26 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 푸시 등록 상태를 확인하는 방법에 대한 자세한 내용은 [푸시 등록 상태]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status)를 참조하세요.
 {% endalert %}
 
+## 푸시 등록 및 변경 로그 정보 찾기 {#finding-push-registration-and-changelog-information}
+
+대시보드에서 푸시 등록 및 푸시 변경 로그에 대한 정보를 다음에서 확인할 수 있습니다:
+
+- **세분화** – 사용자의 구독 상태, 활성화 상태, 포그라운드 및 백그라운드 활성화 상태별로 필터링합니다.
+- **Campaign 분석** – 단일 Campaign 또는 Canvas에 대한 푸시 통계 및 피드백을 확인합니다.
+- **사용자 프로필(Engagement 탭)** – 특정 사용자의 **Contact Settings** 및 푸시 변경 로그를 확인합니다.
+
+푸시 활성화 상태를 검토할 때, **Push Registered for**는 Braze가 해당 사용자에게 포그라운드 푸시를 보낼 수 있는 플랫폼을 나타냅니다. iOS 및 Android에서 사용자가 포그라운드 푸시 활성화에서 백그라운드 푸시 활성화(`remote_notification_enabled`)로 전환된 경우, 푸시 변경 로그에 "Push token was updated from foreground push enabled to foreground push disabled."로 기록됩니다.
+
+사용자가 테스트 사용자로 추가된 경우, **개발자 콘솔** > **User Event Log**에서 사용자 프로필에 `remote_notification_enabled`가 `true` 또는 `false`인 SDK 요청이 표시됩니다. SDK 업데이트가 사용자 프로필에 반영되기까지 약간의 지연이 있으므로, 업데이트를 확인하려면 사용자 프로필을 새로고침해야 할 수 있습니다.
+
+**iOS 푸시 상태에 대한 세분화 필터:**
+
+- **iOS 포그라운드 및 백그라운드 푸시 비활성화:** 사용자에게 아직 푸시 프롬프트가 표시되지 않았습니다.
+- **iOS 백그라운드 활성화:** 사용자에게 푸시 프롬프트가 표시되었고 거부했거나, 수락한 후 나중에 기기 설정에서 푸시 알림을 끈 경우입니다(사용자가 세션을 가진 후 반영됨).
+- **iOS 포그라운드 활성화:** 사용자에게 푸시 프롬프트가 표시되었고 포그라운드 푸시를 받을 수 있는 상태입니다.
+
+Campaign 분석은 위의 세부 사항에 맞춰 푸시 통계를 인라인으로 반영합니다. Campaign 또는 Canvas에 진입한 사용자 프로필을 다운로드하여 사용자 프로필을 교차 참조할 수도 있습니다.
+
 ## 기타 플랫폼별 시나리오 {#other-platform-specific-scenarios}
 
 {% tabs %}
@@ -133,6 +153,12 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 구독을 관리하려면 사용자 메서드 [`setPushNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setpushnotificationsubscriptiontype)을 사용하여 사이트에 선호 설정 페이지를 만든 다음, 대시보드에서 옵트아웃 상태별로 사용자를 필터링할 수 있습니다.
 
 사용자가 브라우저에서 알림을 비활성화하면, 해당 사용자에게 보내는 다음 푸시 알림이 반송되며, Braze는 사용자의 푸시 토큰을 그에 맞게 업데이트합니다. 이는 푸시 활성화 필터(`Background or Foreground Push Enabled`, `Foreground Push Enabled` 및 `Foreground Push Enabled for App`)의 적격성을 관리하는 데 사용됩니다. 사용자 프로필에 설정된 구독 상태는 사용자 수준 설정이며 푸시가 반송될 때 변경되지 않습니다.
+
+### 410 웹 푸시 토큰 오류 {#410-web-push-token-errors}
+
+`410: Gone` 오류가 발생하면, 사용자가 OS 설정의 브라우저에서 웹 푸시 알림을 비활성화했거나, 동일한 기기에서 다른 사용자로 로그인하고 있거나, 사용자가 한동안 웹사이트를 방문하지 않은 경우에 발생할 수 있습니다.
+
+`410: Endpoint Not Valid` 오류가 발생하면, 웹 푸시 토큰(본질적으로 URL)이 만료되었음을 의미할 수 있습니다. 이는 사용자가 사이트를 다시 방문하지 않거나 브라우저가 토큰을 무효화한 경우에 발생할 수 있습니다. 또한 브라우저에 따라 주기적으로(보통 몇 개월마다) 발생할 수 있습니다. 사용자가 사이트를 다시 방문할 때 브라우저가 여전히 "허용"으로 설정되어 있으면, Braze는 해당 기기에 대한 새로운 토큰을 자동으로 수집합니다. 이는 SDK 초기화 중에 [`disablePushTokenMaintenance` 초기화 옵션](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#initializationoptions)이 사용되지 않는 것을 전제로 합니다.
 
 {% alert note %}
 웹 플랫폼은 백그라운드 또는 사일런트 푸시를 허용하지 않습니다.

@@ -23,7 +23,7 @@ Antes de criar uma mensagem LINE, faça o seguinte:
 2. Reconheça as políticas, limites e regras de conteúdo.
 3. [Configure sua conexão LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-O envio de mensagens LINE pela Braze consumirá os créditos de mensagem da sua conta.
+O envio de mensagens LINE pela Braze consumirá os créditos de mensagem ou de ação da sua conta.
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 

@@ -111,7 +111,7 @@ Utilisez [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas
 5. Ajoutez une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) pour modifier le statut de l'utilisateur dans le groupe d'abonnement SMS spécifique en « Désabonné ».
 
 {% alert note %}
-L'utilisation de la console des agents consomme des crédits de message.
+L'utilisation de la console des agents consomme des crédits de message ou d'action.
 {% endalert %}
 
 ## Migrer le trafic SMS vers RCS {#migrate-sms-traffic-to-rcs}

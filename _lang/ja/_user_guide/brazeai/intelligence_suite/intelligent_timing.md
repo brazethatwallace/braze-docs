@@ -6,7 +6,7 @@ description: "この記事では、インテリジェントタイミング（旧
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントタイミング {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}インテリジェントタイミング {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
 > インテリジェントタイミングを使用すると、Brazeがユーザーの最適な送信タイミング（ユーザーが最もエンゲージメント（開封またはクリック）する可能性が高いタイミング）を判断し、そのタイミングでメッセージを配信できます。これにより、ユーザーが希望する時間帯にメッセージを送信しているかどうかを確認しやすくなり、エンゲージメントの向上につながります。
 
@@ -147,7 +147,7 @@ Campaignが開始され、ユーザーの最適な時刻が過去1時間未満�
 
 Canvasで[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)を追加し、**Delivery Settings**で**Using Intelligent Timing**を選択します。
 
-メッセージは、その日にステップにエントリしたユーザーに対し、ユーザーの最適なローカル時間に送信されます。ただし、その日の最適な時間がすでに過ぎている場合は、代わりに翌日の同じ時間に配信されます。複数のチャネルをターゲットにしているメッセージステップは、異なるチャネルに対して異なる時間にメッセージを送信するか、または送信しようとすることがあります。メッセージステップの最初のメッセージを送信しようとすると、すべてのユーザーが自動的に進められます。
+メッセージは、その日にステップにエントリしたユーザーに対し、ユーザーの最適なローカル時間に送信されます。ただし、その日の最適な時間がすでに過ぎている場合は、代わりに翌日の最適な時間に配信されます。複数のチャネルをターゲットにしているメッセージステップは、異なるチャネルに対して異なる時間にメッセージを送信するか、または送信しようとすることがあります。メッセージステップの最初のメッセージを送信しようとすると、すべてのユーザーが自動的に進められます。
 
 ### ステップ 2: フォールバック時間を選択する {#step-2-choose-a-fallback-time}
 
@@ -209,17 +209,17 @@ Campaignsとは異なり、インテリジェントタイミングはCanvasレ�
 
 ### 全般 {#general}
 
-#### インテリジェントタイミングは何を予測しますか? {#what-does-intelligent-timing-predict}
+#### インテリジェントタイミングは何を予測しますか？ {#what-does-intelligent-timing-predict}
 
 インテリジェントタイミングは、ユーザーがメッセージを開封またはクリックする可能性が最も高いタイミングを予測することに重点を置き、最適なエンゲージメントのタイミングでメッセージがユーザーに届くようにします。
 
-#### インテリジェントタイミングは曜日ごとに個別に計算されますか? {#is-intelligent-timing-calculated-separately-for-each-day-of-the-week}
+#### インテリジェントタイミングは曜日ごとに個別に計算されますか？ {#is-intelligent-timing-calculated-separately-for-each-day-of-the-week}
 
 いいえ、インテリジェントタイミングは特定の曜日に紐づくものではありません。その代わり、各ユーザー固有のエンゲージメントパターンと、メールやプッシュ通知などの使用しているチャネルに基づいて、送信時間をパーソナライズします。これにより、ユーザーが最も受け取りやすいタイミングでメッセージが届くようになります。
 
 ### 計算 {#calculations}
 
-#### ユーザーごとに最適な時間を計算するために、どのようなデータが使われますか? {#what-data-is-used-to-calculate-the-optimal-time-for-each-user}
+#### ユーザーごとに最適な時間を計算するために、どのようなデータが使われますか？ {#what-data-is-used-to-calculate-the-optimal-time-for-each-user}
 
 最適な時間を計算するために、インテリジェントタイミングは以下を実行します。
 
@@ -231,29 +231,29 @@ Campaignsとは異なり、インテリジェントタイミングはCanvasレ�
   - メール開封数（マシン開封数を除く）
 2. これらのイベントを時間ごとにグループ化し、各ユーザーに最適な送信時間を特定します。
 
-#### マシン開封数は最適時間の計算に含まれますか? {#are-machine-opens-included-when-calculating-optimal-time}
+#### マシン開封数は最適時間の計算に含まれますか？ {#are-machine-opens-included-when-calculating-optimal-time}
 
 いいえ、[マシン開封数]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)は最適時間の計算から除外されます。これは、送信時間が真のユーザーエンゲージメントのみに基づいていることを意味し、Campaignsにとってより正確なタイミングを提供します。
 
-#### 最適な時間はどれくらい正確ですか? {#how-precise-is-the-optimal-time}
+#### 最適な時間はどれくらい正確ですか？ {#how-precise-is-the-optimal-time}
 
 インテリジェントタイミングは、各ユーザーのセッション開始とメッセージ開封イベントに基づいて、各ユーザーの「最もエンゲージメントが高い時間帯」にメッセージをスケジュールします。その時間内では、メッセージのタイミングは5分単位で丸められます。例えば、ユーザーの最適時間が午後4時58分と計算された場合、メッセージは午後5時にスケジュールされます。繁忙期にはシステムの稼動状況により、配信に若干の遅れが生じる可能性があります。
 
-#### 関連するイベントがない場合のフォールバック計算はどうなりますか? {#what-are-the-fallback-calculations-if-there-are-no-relevant-events}
+#### 関連するイベントがない場合のフォールバック計算はどうなりますか？ {#what-are-the-fallback-calculations-if-there-are-no-relevant-events}
 
 ユーザーに関連するイベントが存在しない場合、インテリジェントタイミングはメッセージ設定で設定されたフォールバック設定を使用します。具体的には、カスタムフォールバック時間か、全ユーザーの中でアプリが最もよく使われる時間帯のいずれかです。
 
 ### Campaigns {#campaigns}
 
-#### すべてのタイムゾーンのすべてのユーザーにインテリジェントタイミングCampaignを正常に配信するには、どの程度前もって開始すればよいですか? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
+#### すべてのタイムゾーンのすべてのユーザーにインテリジェントタイミングCampaignを正常に配信するには、どの程度前もって開始すればよいですか？ {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 
 Brazeは、サモア時間（世界で最初に始まるタイムゾーンの1つ）の午前0時に最適な時間を計算します。1日は約48時間に及びます。例えば、オーストラリアに住んでいて最適な時刻が午前12時1分の人には、すでに最適な時刻が過ぎているので、送信するには「遅すぎる」ことになります。このような理由から、アプリを利用する世界各地のすべてのユーザーに適切に配信するには、48時間前にスケジュールする必要があります。
 
-#### インテリジェントタイミングCampaignの送信数がほとんど表示されないのはなぜですか? {#why-is-my-intelligent-timing-campaign-showing-little-to-no-sends}
+#### インテリジェントタイミングCampaignの送信数がほとんど表示されないのはなぜですか？ {#why-is-my-intelligent-timing-campaign-showing-little-to-no-sends}
 
 ユーザーに関連するエンゲージメントイベントが存在しない場合（例えば、クリックや開封がほとんどない新規ユーザーなど）、インテリジェントタイミングは設定されたフォールバック設定を使用します。これは、カスタムフォールバック時間か、全ユーザーの中でアプリが最もよく使われる時間帯のいずれかです。
 
-#### インテリジェントタイミングCampaignがスケジュールされた日付の後に送信されるのはなぜですか? {#why-is-my-intelligent-timing-campaign-sending-past-the-scheduled-date}
+#### インテリジェントタイミングCampaignがスケジュールされた日付の後に送信されるのはなぜですか？ {#why-is-my-intelligent-timing-campaign-sending-past-the-scheduled-date}
 
 ABテストを活用しているために、インテリジェントタイミングCampaignがスケジュールされた日付の後に送信される場合があります。ABテストを使用するCampaignsでは、ABテストの終了後に自動的に勝者バリアントを送信することができ、Campaign送信の期間が長くなります。デフォルトで、インテリジェントタイミングCampaignsは翌日に残りのユーザーに勝者バリアントを送信するようにスケジュールされますが、この送信日を変更できます。
 
@@ -261,7 +261,7 @@ ABテストを活用しているために、インテリジェントタイミン
 
 ### 機能 {#functionality}
 
-#### Brazeは、SegmentフィルターおよびオーディエンスフィルターのSegment適格性基準をいつチェックしますか? {#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters}
+#### BrazeはSegmentフィルターおよびオーディエンスフィルターの適格性基準をいつチェックしますか？ {#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters}
 
 Campaignが開始されると、Brazeは次の2つのチェックを実行します。
 
@@ -270,34 +270,34 @@ Campaignが開始されると、Brazeは次の2つのチェックを実行しま
 
 不適格なSegmentsをターゲットにしないよう、他のCampaign送信に基づいてフィルターをかける場合は注意が必要です。例えば、同じ日に2つのCampaignsを異なる時間に送信し、最初のCampaignを受信したユーザーにのみ2番目のCampaignの受信を許可するフィルターを追加した場合、ユーザーは2番目のCampaignを受信しません。これは、Campaignが最初に作成された時点で対象となるユーザーがおらず、Segmentsが形成されたためです。
 
-#### インテリジェントタイミングCampaignでサイレント時間を使用できますか? {#can-i-use-quiet-hours-in-my-intelligent-timing-campaign}
+#### インテリジェントタイミングCampaignでサイレント時間を使用できますか？ {#can-i-use-quiet-hours-in-my-intelligent-timing-campaign}
 
 サイレント時間はインテリジェントタイミングを使用するCampaignで使用できます。インテリジェントタイミングアルゴリズムはサイレント時間を避けるため、すべての対象ユーザーにメッセージを送信します。とはいえ、メッセージを送信できる時間帯とできない時間帯にポリシーやコンプライアンス、その他の法的な要件がない限り、サイレント時間はオフにすることをお勧めします。
 
-#### ユーザーにとって最適な時間がサイレント時間内だった場合はどうなりますか? {#what-happens-if-the-optimal-time-for-a-user-is-within-the-quiet-hours}
+#### ユーザーにとって最適な時間がサイレント時間内だった場合はどうなりますか？ {#what-happens-if-the-optimal-time-for-a-user-is-within-the-quiet-hours}
 
 決定された最適な時間がサイレント時間内にある場合、Brazeはサイレント時間の最も近い境界を見つけ、サイレント時間の前後の次の許容時間にメッセージをスケジュールします。メッセージは、最適な時間を基準としたサイレント時間の最も近い境界で送信されるようにキューに入れられます。
 
-#### インテリジェントタイミングとレート制限を併用できますか? {#can-i-use-intelligent-timing-and-rate-limiting}
+#### インテリジェントタイミングとレート制限を併用できますか？ {#can-i-use-intelligent-timing-and-rate-limiting}
 
 レート制限はインテリジェントタイミングを使用するCampaignで使用できます。ただし、レート制限の性質上、一部のユーザーは最適なタイミングではない時にメッセージを受け取る可能性があります。特に、レート制限のサイズに対して多くのユーザーが関連イベントを持たないためフォールバック時間にスケジュールされた場合、その傾向が強まります。
 
 インテリジェントタイミングCampaignでレート制限を使用するのは、レート制限を使用しなければならない技術的要件がある場合に限ることをお勧めします。
 
-#### IPウォーミング中にインテリジェントタイミングを使用できますか? {#can-i-use-intelligent-timing-while-ip-warming}
+#### IPウォーミング中にインテリジェントタイミングを使用できますか？ {#can-i-use-intelligent-timing-while-ip-warming}
 
 Brazeでは、最初にIPウォーミングを行うときにインテリジェントタイミングを使用することはお勧めしていません。その動作によっては、1日のボリューム達成が困難になる場合があるためです。この原因は、インテリジェントタイミングがCampaignのSegmentsを2回評価することです。Campaignが最初に作成されたときに1回評価した後、ユーザーに送信する前に2回目を行い、ユーザーがまだそのSegmentにいるべきかを確認します。
 
 これにより、Segmentsのシフトや変更が起きる可能性があり、2回目の評価で一部のユーザーがSegmentから脱落することがよくあります。これらのユーザーは置き換えられず、最大ユーザー上限にどれだけ近づけるかに影響します。
 
-#### アプリの最も人気のある時間はどのようにして判定されますか? {#how-is-the-most-popular-app-time-determined}
+#### アプリの最も人気のある時間はどのようにして判定されますか？ {#how-is-the-most-popular-app-time-determined}
 
 アプリの最も人気の高い時間は、ワークスペースのセッション開始時刻の平均（現地時刻）によって判定されます。この指標は、Campaignの時間をプレビューするとダッシュボードに赤で表示されます。
 
-#### インテリジェントタイミングはマシン開封数を考慮しますか? {#does-intelligent-timing-account-for-machine-opens}
+#### インテリジェントタイミングはマシン開封数を考慮しますか？ {#does-intelligent-timing-account-for-machine-opens}
 
 はい、マシン開封数はインテリジェントタイミングでフィルターにより除外されるため、出力には影響しません。
 
-#### インテリジェントタイミングを可能な限り効果的に機能させるにはどうすればよいですか? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
+#### インテリジェントタイミングを可能な限り効果的に機能させるにはどうすればよいですか？ {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 インテリジェントタイミングは、ユーザーがメッセージを受信した時点での、各ユーザーのメッセージエンゲージメントの個々の履歴を使用します。インテリジェントタイミングを使用する前に、必ず1日の異なる時間帯にユーザーへメッセージを送信してください。これにより、各ユーザーにとって最適なタイミングを「サンプリング」できます。さまざまな時間帯のサンプリングが不十分だと、インテリジェントタイミングがユーザーにとって最適でない送信時刻を選択する可能性があります。

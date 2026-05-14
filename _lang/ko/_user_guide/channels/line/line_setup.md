@@ -25,7 +25,7 @@ LINE을 Braze와 통합하려면 다음이 필요합니다:
 - [LINE 개발자 계정](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE 메시징 API 채널](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차감됩니다.
+Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크레딧이 차감됩니다.
 
 {% alert note %}
 **`native_line_id` 설정**: Braze에 사용자 업데이트를 전송하여 `native_line_id`를 설정할 수 있습니다(예: [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) 사용). 클라이언트 측 SDK에 `native_line_id` 전용 필드가 없는 경우, 이러한 방법 중 하나를 사용하여 서버 측 사용자 업데이트로 전송하세요.

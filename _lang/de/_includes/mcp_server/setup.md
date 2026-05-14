@@ -67,7 +67,7 @@ everything's installed!
 
 ### 2. Schritt: API-Schlüssel erstellen {#create-api-key}
 
-Der Braze MCP-Server unterstützt 39 Endpunkte, die keine Daten aus Braze-Nutzerprofilen zurückgeben.
+Der Braze MCP-Server umfasst sowohl Lese- als auch Schreib-Endpunkte. Sie geben keine Daten aus Braze-Nutzerprofilen zurück. Schreib-Endpunkte ermöglichen es Agenten, Inhalte in Ihrem Workspace zu erstellen oder zu aktualisieren.
 
 So erstellen Sie Ihren API-Schlüssel:
 
@@ -76,7 +76,7 @@ So erstellen Sie Ihren API-Schlüssel:
 3. Weisen Sie Ihrem Schlüssel einige oder alle der folgenden Berechtigungen zu.
 
 {% alert important %}
-Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhindern, dass Ihr Agent Änderungen in Braze vornimmt, lassen Sie die Berechtigung `media_library.create` weg.
+Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhindern, dass Ihr Agent Änderungen in Braze vornimmt, lassen Sie alle Schreibberechtigungen weg, wenn Sie Ihren API-Schlüssel erstellen.
 {% endalert %}
 
 {% details Liste der unterstützten Berechtigungen %}
@@ -119,10 +119,14 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 
 #### Content Blocks
 
+Die Berechtigungen `content_blocks.create` und `content_blocks.update` sind Schreibberechtigungen. Fügen Sie sie nur hinzu, wenn Ihr Agent Content Blocks in Ihrem Workspace erstellen oder aktualisieren soll.
+
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
 | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 #### Angepasste Attribute {#custom-attributes}
@@ -153,7 +157,7 @@ Weisen Sie nur die Berechtigungen zu, die Ihr Agent verwenden soll. Um zu verhin
 
 #### Medienbibliothek {#media-library}
 
-Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP-Server unterstützt wird. Fügen Sie diese Berechtigung nur hinzu, wenn Ihr Agent Assets in Ihre Medienbibliothek hochladen soll.
+Die Berechtigung `media_library.create` ist eine Schreibberechtigung. Fügen Sie sie nur hinzu, wenn Ihr Agent Assets in Ihre Medienbibliothek hochladen soll.
 
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
@@ -224,15 +228,19 @@ Dieser Endpunkt ist ein Schreib-Endpunkt, der vom Braze MCP-Server unterstützt 
 
 #### Templates
 
+Die Berechtigungen `templates.email.create` und `templates.email.update` sind Schreibberechtigungen. Fügen Sie sie nur hinzu, wenn Ihr Agent E-Mail-Templates in Ihrem Workspace erstellen oder aktualisieren soll.
+
 | Endpunkt | Erforderliche Berechtigung |
 |----------|---------------------|
 | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
 | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-Verwenden Sie keinen bereits vorhandenen API-Schlüssel wieder. Erstellen Sie einen speziell für Ihren MCP-Client. Weisen Sie nur die Berechtigungen zu, die Ihr Agent benötigt. Agenten versuchen möglicherweise, jede Berechtigung zu nutzen, die Sie gewähren. Lassen Sie daher Schreibberechtigungen wie `media_library.create` weg, wenn Ihr Agent keine Änderungen in Braze vornehmen soll.
+Verwenden Sie keinen bereits vorhandenen API-Schlüssel wieder. Erstellen Sie einen speziell für Ihren MCP-Client. Weisen Sie nur die Berechtigungen zu, die Ihr Agent benötigt. Agenten versuchen möglicherweise, jede Berechtigung zu nutzen, die Sie gewähren. Lassen Sie daher alle Schreibberechtigungen weg, wenn Ihr Agent keine Änderungen in Braze vornehmen soll.
 {% endalert %}
 
 ### 3. Schritt: Bezeichner und Endpunkt abrufen {#step-3-get-your-identifier-and-endpoint}

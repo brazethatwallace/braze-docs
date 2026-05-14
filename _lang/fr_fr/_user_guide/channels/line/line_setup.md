@@ -25,7 +25,7 @@ Vous aurez besoin des éléments suivants pour intégrer LINE à Braze :
 - [Compte développeur LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [Canal API de messagerie LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-L'envoi de messages LINE depuis Braze consomme les crédits de messages de votre compte.
+L'envoi de messages LINE depuis Braze consomme les crédits de messages ou d'actions de votre compte.
 
 {% alert note %}
 **Définir `native_line_id`** : Vous pouvez définir `native_line_id` en envoyant des mises à jour utilisateur à Braze (par exemple, avec l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) ou l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)). Si votre SDK côté client ne dispose pas d'un champ dédié pour `native_line_id`, envoyez-le dans les mises à jour utilisateur côté serveur en utilisant l'une de ces méthodes.
@@ -285,10 +285,10 @@ Les ID LINE sont automatiquement reçus par Braze lorsqu'un utilisateur suit vot
 
 Il existe deux façons de combiner un ID LINE avec un profil utilisateur Braze existant :
 
-- [LINE Login](#line-login)
+- [Connexion LINE (LINE Login)](#line-login)
 - [Liaison de compte utilisateur](#user-account-linking)
 
-### LINE Login {#line-login}
+### Connexion LINE (LINE Login) {#line-login}
 
 Cette méthode utilise les connexions via les réseaux sociaux pour la réconciliation. Lorsqu'un utilisateur se connecte à votre application, il a la possibilité d'utiliser [LINE Login](https://developers.line.biz/en/docs/line-login/overview/) pour créer un compte utilisateur ou se connecter.
 
@@ -343,7 +343,7 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. Créez un message de suivi qui délivre le code de réduction.
-4. (Facultatif) Créez une Campaign ou un Canvas basé sur une action qui se déclenche lorsque l'utilisateur LINE est identifié pour lui envoyer son code de réduction. <br>![Campaign basée sur une action qui se déclenche lorsque l'utilisateur LINE est identifié.]({% image_buster /assets/img/line/account_link_2.png %})
+4. (Facultatif) Créez une campagne ou un Canvas basé sur une action qui se déclenche lorsque l'utilisateur LINE est identifié pour lui envoyer son code de réduction. <br>![Campagne basée sur une action qui se déclenche lorsque l'utilisateur LINE est identifié.]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### Fonctionnement {#how-it-works}
 
@@ -387,9 +387,9 @@ if (user && isLoggedIn && lineUserId) {
 
 ## Création d'utilisateurs test LINE dans Braze {#creating-line-test-users-in-braze}
 
-Vous pouvez tester votre canal LINE avant de configurer la [réconciliation des ID utilisateur](#user-id-reconciliation) en créant un Canvas ou une Campaign « Qui suis-je ».
+Vous pouvez tester votre canal LINE avant de configurer la [réconciliation des ID utilisateur](#user-id-reconciliation) en créant un Canvas ou une campagne « Qui suis-je ».
 
-1. Configurez un Canvas qui renvoie l'ID utilisateur Braze d'un utilisateur sur un mot déclencheur spécifique. <br><br>Exemple de déclencheur <br><br>![Déclencheur pour envoyer la Campaign aux utilisateurs qui ont envoyé un message LINE entrant à un groupe d'abonnement spécifique.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Exemple de message<br><br>![Message LINE indiquant l'ID utilisateur Braze.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. Configurez un Canvas qui renvoie l'ID utilisateur Braze d'un utilisateur sur un mot déclencheur spécifique. <br><br>Exemple de déclencheur <br><br>![Déclencheur pour envoyer la campagne aux utilisateurs qui ont envoyé un message LINE entrant à un groupe d'abonnement spécifique.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Exemple de message<br><br>![Message LINE indiquant l'ID utilisateur Braze.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. Dans Braze, vous pouvez utiliser l'ID Braze pour rechercher des utilisateurs spécifiques et les modifier selon vos besoins.
 

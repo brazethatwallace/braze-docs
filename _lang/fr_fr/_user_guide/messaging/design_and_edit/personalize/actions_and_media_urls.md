@@ -39,11 +39,11 @@ Pour les applications créées avec des frameworks wrapper (par exemple, Flutter
 
 Les [balises UTM (Urchin Traffic Manager)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) vous permettent d'inclure des détails d'attribution de campagne directement dans les liens. Les balises UTM sont utilisées par Google Analytics pour collecter des données d'attribution de campagne et peuvent servir à suivre les propriétés suivantes :
 
-- `utm_source` : L'identifiant de la source du trafic (par exemple, `my_app`)
-- `utm_medium` : Le support de la campagne (par exemple, `newsfeed`)
-- `utm_campaign` : L'identifiant de la campagne (par exemple, `spring_2016_campaign`)
-- `utm_term` : L'identifiant d'un terme de recherche payante qui a amené l'utilisateur vers votre application ou site web (par exemple, `pizza`)
-- `utm_content` : Un identifiant pour le lien ou contenu spécifique sur lequel l'utilisateur a cliqué (par exemple, `toplink` ou `android_iam_button2`)
+- `utm_source` : l'identifiant de la source du trafic (par exemple, `my_app`)
+- `utm_medium` : le support de la campagne (par exemple, `newsfeed`)
+- `utm_campaign` : l'identifiant de la campagne (par exemple, `spring_2016_campaign`)
+- `utm_term` : l'identifiant d'un terme de recherche payante qui a amené l'utilisateur vers votre application ou site web (par exemple, `pizza`)
+- `utm_content` : un identifiant pour le lien ou contenu spécifique sur lequel l'utilisateur a cliqué (par exemple, `toplink` ou `android_iam_button2`)
 
 Les balises UTM peuvent être intégrées dans les liens HTTP classiques (web) et les liens profonds, et suivies à l'aide de Google Analytics.
 
@@ -113,6 +113,8 @@ https://example.com/{{url_var}}
 
 ### Raccourcir les URL générées par des variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
+**Canaux pris en charge :** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Nous raccourcissons les URL générées par Liquid, y compris celles incluses dans les propriétés de déclenchement API. Par exemple, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} représente une URL valide, nous raccourcissons et suivons cette URL avant d'envoyer le message.
 
 ### Raccourcir les URL dans l'endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
@@ -122,4 +124,4 @@ Le raccourcissement de liens est également activé pour les messages API unique
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Oui | Valeur booléenne | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Raccourcir les URL dans l'endpoint /messages/send" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }

@@ -50,10 +50,10 @@ Weitere Felder ermöglichen es Ihnen, Ihren Namen, eine Unterüberschrift, eine 
 
 ### 4. Schritt: Kontaktkarte speichern {#step-4-saving-your-contact-card}
 
-Nachdem Sie alle erforderlichen Felder ausgefüllt haben, klicken Sie auf **Generate Contact Card**, und die Karte wird automatisch an Ihre Kampagne oder Ihren Canvas angehängt. Von hier aus können Sie eine Nachricht hinzufügen, Ihre Kontaktkarte testen und Ihre Kampagne oder Ihren Canvas starten.
+Nachdem Sie alle erforderlichen Felder ausgefüllt haben, klicken Sie auf **Generate Contact Card**, und die Karte wird automatisch an Ihre **Campaign** oder Ihren Canvas angehängt. Von hier aus können Sie eine Nachricht hinzufügen, Ihre Kontaktkarte testen und Ihre **Campaign** oder Ihren Canvas starten.
 
-Die Kontaktkarte wird auch in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) gespeichert, um sie in zukünftigen Kampagnen und Canvases einfach wiederverwenden zu können.
+Die Kontaktkarte wird auch in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) gespeichert, um sie in zukünftigen **Campaigns** und Canvases einfach wiederverwenden zu können.
 
 ## Eine vorhandene Kontaktkarte hinzufügen {#adding-an-existing-contact-card}
 
-Um eine vorhandene Kontaktkarte hinzuzufügen, erstellen Sie eine Kampagne oder einen Canvas und wählen Sie Ihre gewünschte Abo-Gruppe aus. Anschließend erscheint im Nachrichten-Editor-Fenster die Option **Add Media**. Hier können Sie eine vorhandene Kontaktkartendatei hochladen oder eine über die Medienbibliothek suchen.
+Um eine vorhandene Kontaktkarte hinzuzufügen, erstellen Sie eine **Campaign** oder einen Canvas und wählen Sie Ihre gewünschte Abo-Gruppe aus. Anschließend erscheint im Nachrichten-Editor-Fenster die Option **Add Media**. Hier können Sie eine vorhandene Kontaktkartendatei hochladen oder eine über die Medienbibliothek suchen.

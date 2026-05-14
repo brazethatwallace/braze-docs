@@ -1,6 +1,6 @@
 El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de interacción adicionales para ayudarte a comprender cómo los usuarios interactúan con tus campañas.
 
-El acortamiento de enlaces y el seguimiento de clics se pueden activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto en campañas como en Canvas.
+El acortamiento de enlaces y el seguimiento de clics se pueden activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) tanto en Campaigns como en Canvas.
 
 La longitud de la URL está determinada por el tipo de seguimiento que se active:
 - **Seguimiento básico** habilita el seguimiento de clics a nivel de campaña. Las URL estáticas tendrán una longitud de 20 caracteres, y las URL personalizadas tendrán una longitud de 25 caracteres.
@@ -54,6 +54,8 @@ https://example.com/{{url_var}}
 {% endraw %}
 
 ### Acortar URL renderizadas por variables Liquid {#shorten-urls-rendered-by-liquid-variables}
+
+**Canales compatibles:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
 Acortamos las URL que son renderizadas por Liquid, incluso aquellas incluidas en propiedades de activación por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y hacemos seguimiento de esa URL antes de enviar el mensaje.
 

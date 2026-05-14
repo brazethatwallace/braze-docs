@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Liquid変数によってレンダリングされたURLの短縮 {#shorten-urls-rendered-by-liquid-variables}
 
+**対応チャネル：** KakaoTalk、LINE、SMS、RCS、WhatsApp
+
 LiquidによってレンダリングされたURLは、APIトリガープロパティに含まれるものも含めて短縮されます。たとえば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}が有効なURLを表す場合、メッセージを送信する前にそのURLを短縮してトラッキングします。
 
 ### `/messages/send`エンドポイントでのURL短縮 {#shorten-urls-in-messagessend-endpoint}

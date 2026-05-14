@@ -19,7 +19,7 @@ Die Einrichtung von RCS ist genauso unkompliziert wie die Einrichtung von SMS. L
 
 Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei Kriterien erfüllen:
 
-1. Ihr aktueller Braze-Vertrag muss Message Credits beinhalten.
+1. Ihr aktueller Braze-Vertrag muss Message oder Action Credits beinhalten.
 2. Sie müssen Ihre RCS-Nachrichten an eines der folgenden von Braze unterstützten Länder senden:
 - Vereinigte Staaten
 - Vereinigtes Königreich
@@ -77,7 +77,7 @@ Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie dann 
 | Methode | Beschreibung |
 |---------|-------------|
 | **Ein Segment erstellen** | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segmente werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln. |
-| **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
+| **Kampagnen- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Kampagne oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 ### 3. Schritt: Einen Nutzeraktualisierungs-Schritt konfigurieren {#step-3-configure-a-user-update-step}

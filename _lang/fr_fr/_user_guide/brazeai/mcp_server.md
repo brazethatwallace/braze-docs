@@ -1,7 +1,7 @@
 ---
 nav_title: Serveur Braze MCP
 article_title: À propos du serveur Braze MCP
-description: "Découvrez le serveur Braze MCP, une connexion sécurisée qui permet aux outils d'intelligence artificielle tels que Claude et Cursor d'accéder aux données Braze non personnelles afin de répondre à des questions, d'analyser des tendances et de fournir des informations."
+description: "Découvrez le serveur Braze MCP, une connexion sécurisée qui permet aux outils d'intelligence artificielle tels que Claude et Cursor d'accéder aux données Braze non personnelles afin de répondre à des questions, d'analyser des tendances, de fournir des informations, et bien plus encore."
 page_order: 3
 alias: /mcp/
 ---

@@ -19,10 +19,10 @@
 - 다단계 에이전트 워크플로우를 만드는 CRM 엔지니어.
 - 자연어 쿼리를 실험하는 기술 마케터.
 
-Braze MCP 서버는 Braze 고객 프로필에서 데이터를 반환하지 않는 39개의 엔드포인트를 지원합니다. 에이전트가 접근하거나 변경할 수 있는 항목을 제어하기 위해 Braze API 키에 할당할 엔드포인트를 선택할 수 있습니다.
+Braze MCP 서버는 읽기 전용 및 쓰기 엔드포인트를 모두 포함합니다. Braze 고객 프로필에서 데이터를 반환하지 않습니다. Braze API 키에 할당할 엔드포인트를 선택할 수 있으며, 이 선택에 따라 에이전트가 읽거나 생성하거나 업데이트할 수 있는 항목이 결정됩니다. 사용 가능한 엔드포인트의 전체 목록과 필요한 권한에 대해서는 [사용 가능한 API 기능]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}을 참조하세요.
 
 {% alert warning %}
-에이전트에 부여하려는 API 키 권한만 할당하세요. 에이전트가 Braze에서 변경을 수행하지 않기를 원한다면 쓰기 권한을 비활성화 상태로 두세요. 에이전트는 부여된 모든 권한을 통해 데이터를 쓰려고 시도할 수 있습니다.
+에이전트에 부여하려는 API 키 권한만 할당하세요. 에이전트가 Braze에서 변경을 수행하지 않기를 원한다면 API 키를 생성할 때 쓰기 권한을 비활성화 상태로 두세요. 에이전트는 부여된 모든 쓰기 권한을 통해 데이터를 쓰려고 시도할 수 있습니다.
 {% endalert %}
 
 ## 사용 예시 {#usage-example}
@@ -51,7 +51,7 @@ MCP 클라이언트는 PII를 반환하지 않는 엔드포인트에 접근할 �
 
 ### 내 MCP 클라이언트가 Braze 데이터를 변경할 수 있나요? {#can-my-mcp-client-change-braze-data}
 
-서버는 `/media_library/create` 쓰기 엔드포인트만 노출하며, 이를 통해 미디어 자산을 미디어 라이브러리에 업로드할 수 있습니다. 에이전트가 Braze에서 이러한 변경을 수행하지 않기를 원한다면 API 키를 생성할 때 `media_library.create` 권한을 선택하지 마세요.
+네. 서버는 에이전트가 워크스페이스에서 콘텐츠를 생성하거나 업데이트할 수 있도록 하는 제한된 쓰기 엔드포인트 세트를 노출합니다. 예를 들어 미디어 라이브러리 자산, 이메일 템플릿, Content Blocks 등이 있습니다. 각 쓰기 엔드포인트에는 고유한 API 키 권한이 필요합니다. 에이전트가 Braze에서 특정 변경을 수행하지 않기를 원한다면 API 키를 생성할 때 해당 권한을 비활성화 상태로 두세요. 쓰기 기능의 전체 목록과 필요한 권한에 대해서는 [사용 가능한 API 기능]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}을 참조하세요.
 
 ### Braze에 대해 서드파티 MCP 서버를 사용할 수 있나요? {#can-i-use-a-third-party-mcp-server-for-braze}
 

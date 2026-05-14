@@ -19,7 +19,7 @@ Configurar o RCS é tão simples quanto configurar o SMS. Continue lendo para sa
 
 Para ser elegível para enviar RCS com a Braze, sua empresa deve atender a três critérios iniciais:
 
-1. Seu contrato atual com a Braze deve incluir créditos de mensagem.
+1. Seu contrato atual com a Braze deve incluir créditos de mensagem ou de ação.
 2. Você deve enviar suas mensagens RCS para um dos seguintes países suportados pela Braze:
 - Estados Unidos
 - Reino Unido

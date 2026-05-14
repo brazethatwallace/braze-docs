@@ -73,70 +73,9 @@ Geräte sollten unter normalen Umständen nicht mehr als 30 Events/Sekunde oder 
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 
-Braze unterstützt den Export der folgenden Daten, die in den Currents-Glossaren zu [Nutzerverhalten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) und [Message-Engagement]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) aufgeführt sind, nach Amplitude:
+Braze unterstützt den Export der folgenden Events nach Amplitude:
 
-### Verhalten {#behaviors}
-- Angepasstes Event: `users.behaviors.CustomEvent`
-- Install-Attribution: `users.behaviors.InstallAttribution`
-- Standort: `users.behaviors.Location`
-- Kauf: `users.behaviors.Purchase`
-- Deinstallation: `users.behaviors.Uninstall`
-- App (erste Sitzung, Sitzungsende, Sitzungsbeginn)
-  - `users.behaviors.app.FirstSession`
-  - `users.behaviors.app.SessionEnd`
-  - `users.behaviors.app.SessionStart`
-- Abo (globale Statusänderung): `users.behaviors.subscription.GlobalStateChange`
-- Abo-Gruppe (Statusänderung): `users.behaviors.subscriptiongroup.StateChange`
+- [Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
+- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
 
-### Campaigns
-- Abbruch: `users_campaigns_abort`
-- Conversion: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- Abbruch: `users_canvas_abort`
-- Conversion: `users.canvas.Conversion`
-- Eingang: `users.canvas.Entry`
-- Exit (übereinstimmende Zielgruppe, ausgeführtes Event)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- Experiment-Schritt (Conversion, Split-Eingang)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### Nachrichten {#messages}
-- Content-Card (Abbruch, Klick, Schließen, Impression, Senden)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- E-Mail (Abbruch, Bounce, Klick, Zustellung, Als-Spam-markieren, Öffnung, Senden, Softbounce, Abmelden)
-- In-App-Nachricht (Abbruch, Klick, Impression)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- Push-Benachrichtigung (Abbruch, Bounce, iOS-Vordergrund, Öffnung, Senden)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS (Abbruch, Carrier-Versand, Zustellung, Zustellungsfehler, eingehender Empfang, Ablehnung, Senden, Kurzlink-Klick)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- Webhook (Abbruch, Senden)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp (Abbruch, Zustellung, Fehlschlag, eingehender Empfang, Lesen, Senden)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+Die Payload-Struktur der einzelnen Events finden Sie auf dem Tab **Amplitude** im [Glossar der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).

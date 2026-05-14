@@ -12,10 +12,6 @@ channel:
 
 > The WhatsApp Template Builder lets you create and submit WhatsApp message templates directly in Braze—no need to switch between Braze and the Meta Business Manager. After Meta approves your template, use it in as many campaigns and Canvases as you'd like.
 
-{% alert note %}
-The WhatsApp Template Builder is currently in early access. Contact your Braze account manager for access.
-{% endalert %}
-
 ## Prerequisites
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
