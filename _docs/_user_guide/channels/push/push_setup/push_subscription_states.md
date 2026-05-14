@@ -15,6 +15,32 @@ channel:
 
 {% multi_lang_include push/subscription_states.md %}
 
+## Where push registration and status appear {#where-push-registration-and-status-appear}
+
+You can review push subscription state, registration, and enablement in three main places in Braze:
+
+1. **[User profiles](#user-profiles-and-push-changelog)** on the **Engagement** tab
+2. **[Segmentation](#segmentation-and-push-filters)** in the segment builder
+3. **[Campaign and Canvas analytics](#campaign-and-canvas-analytics)** on each message's analytics page
+
+### User profiles and push changelog {#user-profiles-and-push-changelog}
+
+On a user's profile ([**Search Users**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) > select the user > **Engagement** tab), **Contact Settings** lists push subscription state, **Push Registered For** (which apps and platforms Braze can use to send foreground push to that profile), and the **Push Changelog** for token moves, errors, and registration updates. For how to read **Push Registered For** and foreground versus background authorization, see [Checking push registration status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#checking-push-registration-status).
+
+On iOS and Android, when a device moves from foreground push authorization to background-only (for example, after the user turns off notifications in system settings and the SDK reports the change), the push changelog can include an entry such as "Push token was updated from foreground push enabled to foreground push disabled".
+
+After you expect new SDK data (for example, right after a test session), select **Refresh** on the user profile if values look out of date. There can be a short delay between the SDK flushing data and the profile reflecting the latest push registration.
+
+For users you add to an [internal group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), select **Record User Events for group members** in the **Internal Group Settings** for that group so SDK requests appear in the log. Then open the [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) at **Settings** > **Event User Log**, find the user's SDK requests, and expand the raw payload. You can inspect fields such as `remote_notification_enabled` while validating whether the device reports remote notifications as enabled or disabled.
+
+### Segmentation and push filters {#segmentation-and-push-filters}
+
+In the segment builder, use filters such as **`Foreground Push Enabled`**, **`Foreground Push Enabled for App`**, **`Background or Foreground Push Enabled`**, and push subscription filters to target or audit users by preference and device-level authorization. On iOS, how those filters read for a given user depends on whether they completed the OS prompt, changed settings, or use [provisional authorization](#provisional-push); see [iOS user actions and push status](#ios-user-actions-push-status) and [Other platform-specific scenarios](#foreground-push-enabled).
+
+### Campaign and Canvas analytics {#campaign-and-canvas-analytics}
+
+On a push **Campaign** or **Canvas** analytics page, metrics such as *Sent*, *Bounces*, and *Opens* reflect delivery and engagement for that send. To line those numbers up with individual profiles, export recipients from **Campaign Details** or **Canvas Details** using **User Data** (CSV). For steps and permissions, see [Export campaign data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_campaign_results_data/) and [Export Canvas data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/). If counts between analytics and an export do not match, see [Campaign and Canvas analytics]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/#campaign-and-canvas-analytics) in export troubleshooting.
+
 ## iOS user actions and push status {#ios-user-actions-push-status}
 
 The following table shows how different user actions affect iOS push enablement, foreground or background push registration, and push subscription status in Braze. When a user installs your app and starts their first session, their state is generally as shown in the first row. Each subsequent action may update some of these values but not others.
