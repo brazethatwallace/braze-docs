@@ -36,6 +36,7 @@ When creating a selection filter, the available operators depend on the field ty
 | Time | `before`, `after` |
 | Array | `includes value`, `does not include value` |
 | Geo | `geo within`, `geo outside` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported operators" }
 
 The `is any of` and `is none of` operators are available for string fields and each support up to 10 values.
 
