@@ -87,10 +87,7 @@
   const page_collection_title = '{{page_collection_title}}';
   const page_collection_default_path = '{{page_collection_default_path}}';
   const site_language = '{{ site.language }}';
-  const site_i18n = {};
-  {% for i18n in site.data.i18n[site.language] %}
-  site_i18n['{{i18n[0]}}'] = '{{i18n[1]}}';
-  {%- endfor -%}
+  const site_i18n = {{ site.data.i18n[site.language] | jsonify }};
 </script>
 
 
