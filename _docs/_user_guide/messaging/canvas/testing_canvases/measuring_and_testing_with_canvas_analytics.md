@@ -22,6 +22,10 @@ The top of the **Canvas Details** page contains top-line Canvas statistics. Thes
 
 This is a great place to get a high-level overview to check how your Canvas is performing against your goal.
 
+### Reachable users and exact statistics {#reachable-users-and-exact-statistics}
+
+When **[Calculate exact statistics]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics)** is running for audiences tied to your Canvas, Braze may briefly show a **rounded estimate** in the **Reachable users** area. The exact total replaces the estimate when the calculation finishes. Use **Show Additional Stats** (the dashboard may label this **Show Additional Statistics**) for a fuller per-channel breakdown. The Canvas builder documents the same flow under **Target Population**; see [Calculating target population]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population).
+
 ![]({% image_buster /assets/img_archive/Journey_5.png %})
 
 ### Changes Since Last Viewed
