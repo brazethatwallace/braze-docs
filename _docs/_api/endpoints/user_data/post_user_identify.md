@@ -169,6 +169,10 @@ The `alias_name` field is case-sensitive. A request that returns a `201` status 
 For more information on `alias_name` and `alias_label`, check out our [user aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) documentation.
 {% endalert %}
 
+### Why does my identify request return success but the profile did not merge?
+
+`201 Created` with `message: success` means the request was accepted. It does not guarantee that every alias or email in the payload matched an existing profile—case mismatches on `alias_name`, duplicate profiles, or prioritization rules can result in no visible merge even though the call succeeded. Verify exact alias casing, check for duplicate profiles with [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/), and review [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) when using `emails_to_identify`.
+
 ## Response
 
 ```json
