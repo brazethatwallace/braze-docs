@@ -86,3 +86,7 @@ If users enter an action path multiple times and have multiple entries in the ac
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases with re-eligibility" }
 
 Note that the rankings aren't [editable after launch]({{site.baseurl}}/post-launch_edits/).
+
+### How does the Add an email address trigger work?
+
+The **Add an email address** action group trigger fires when an email address is added or updated on the user profile and that change is recorded during the Action Path **evaluation window**. Behavior matches other attribute-based triggers: the user advances through the action group when the profile change qualifies under your configuration, including any filters on the trigger.
