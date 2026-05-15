@@ -145,5 +145,9 @@ The status code `201` could return the following response body.
 The endpoint accepts only the `email` or `phone` value, not both. If you provide both, you receive this response: `{"message":"Either an email address or a phone number should be provided, but not both."}`
 {% endalert %}
 
+### Why didn't my phone number subscription update apply?
+
+Confirm you sent **E.164**-formatted numbers (for example, `+15555550123`), used the correct `subscription_group_id`, and passed either `email` **or** `phone`—not both—in the same request body. For multi-number updates, use the `phone` array format shown in [SMS and RCS](#sms-and-rcs).
+
 {% endapi %}
 
