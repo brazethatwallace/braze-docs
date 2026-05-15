@@ -1,10 +1,23 @@
 # KB articles — Phase 1 skipped rows
 
-Generated from `_data/kb_articles.csv` on **2026-05-15 00:07 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-05-15 17:45 UTC**.
 
-Most rows below failed an automated Phase 1 gate from `.cursor/rules/salesforce-analyzer.mdc`. Rows skipped only because they appear in `_data/kb_epic_bd6308_tracked_article_ids.txt` would otherwise be actionable — they are excluded so this queue does not duplicate Jira Epic **BD-6308** work. Redundant-with-live-docs, bug-workaround-only, and other manual checks are **not** applied here.
+**Do not hand-edit this file** — it is overwritten by `python3 scripts/generate_kb_phase1_outputs.py` (repo root). Update the CSV (or epic ID list), then re-run that script; the companion `_data/kb_articles_actioned.md` file is refreshed in the same run.
+
+Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/salesforce-analyzer.mdc`. The **actionable** queue (rows that *did* pass) lives in `_data/kb_articles_actioned.md`. Rows skipped only because they appear in `_data/kb_epic_bd6308_tracked_article_ids.txt` would otherwise be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.
 
 **Totals:** 521 CSV rows — **44 actionable**, **477 skipped**.
+
+**Largest skip buckets** (each bullet matches a `##` section below):
+
+- **157** — No locatable on-disk `_docs/...` target after path extraction and IA remaps (insufficient CSV path,…
+- **150** — `implementation_status` first line is `archived`.
+- **97** — `conflict_resolution` is `inconclusive`.
+- **34** — Article is listed on a Jira issue under Epic **BD-6308** (Round 2); excluded from `kb_articles_acti…
+- **18** — `implementation_status` first line is `actioned`.
+- **15** — `target` is `knowledge_article` and the row has no substantive `_docs/` hint (KA-only / no Braze Do…
+- **2** — `target` is `inconclusive`.
+- **1** — All extracted `_docs/...` paths are under `_docs/_help/help_articles/` (not a public edit target).
 
 ## No locatable on-disk `_docs/...` target after path extraction and IA remaps (insufficient CSV path, stale path, or needs manual `doc_path` fix).
 

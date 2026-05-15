@@ -3,9 +3,12 @@
 Generate Phase 1 triage markdown from `_data/kb_articles.csv`.
 
 Writes:
-  - `_data/kb_articles_skipped.md` — skipped rows with a one-line explanation each.
+  - `_data/kb_articles_skipped.md` — skipped rows with a one-line explanation each; intro links to the
+    actionable file, warns not to hand-edit, and summarizes largest skip buckets.
   - `_data/kb_articles_actioned.md` — actionable backlog, batched by shared primary
-    doc target and grouped by inferred vertical (IA bucket) + CSV `team`.
+    doc target and grouped by inferred vertical (IA bucket) + CSV `team`, plus a
+    **product vertical ownership** table (suggested Email/Push/Canvas/API/etc.) with an
+    empty **Product owner** column for DRI fill-in when routing is unclear.
 
 If `_data/kb_epic_bd6308_tracked_article_ids.txt` exists, `article_id` values listed there
 (typically copied from Jira issues under Epic **BD-6308**) are excluded from the actionable
@@ -208,6 +211,64 @@ def infer_vertical(primary_rel: str | None, team: str) -> str:
         if parts[1] in ("_api", "_developer_guide", "_partners", "_hidden", "_docs_pages", "_releases"):
             return parts[1].lstrip("_")
     return "other"
+
+
+def product_vertical_hint(primary_rel: str) -> str:
+    """
+    Braze product vertical for reviewer routing (Email, Push, Canvas, API, etc.).
+    Heuristic from primary `_docs` path; when unclear, ask the DRI to fill the
+    Product owner column in kb_articles_actioned.md.
+    """
+    low = primary_rel.replace("\\", "/").lower()
+    if "_docs/_user_guide/channels/push" in low:
+        return "Push"
+    if "_docs/_user_guide/channels/email" in low:
+        return "Email"
+    if (
+        "_docs/_user_guide/channels/sms" in low
+        or "sms_mms" in low
+        or "/sms_mms_and_rcs/" in low
+    ):
+        return "SMS / MMS / RCS"
+    if "_docs/_user_guide/channels/content_cards" in low:
+        return "Content Cards"
+    if "_docs/_user_guide/channels/in-app" in low or "in_app_messages" in low:
+        return "In-app messages"
+    if "_docs/_user_guide/channels/line" in low:
+        return "LINE"
+    if "_docs/_user_guide/channels/whatsapp" in low:
+        return "WhatsApp"
+    if "_docs/_user_guide/messaging/canvas" in low:
+        if low.rstrip("/").endswith("action_paths.md"):
+            return "Canvas (Email channel triggers — confirm Email vs Canvas PM if needed)"
+        return "Canvas"
+    if "_docs/_user_guide/messaging/" in low:
+        return "Messaging & automation (Campaigns / Canvas-adjacent)"
+    if "_docs/_user_guide/analytics/" in low:
+        return "Analytics"
+    if "braze_currents" in low or "/currents/" in low:
+        return "Currents"
+    if "_docs/_user_guide/data/" in low:
+        return "Data platform"
+    if "_docs/_user_guide/brazeai/" in low:
+        return "Braze AI / Intelligence Suite"
+    if "_docs/_api/" in low:
+        return "API / platform engineering"
+    if "_docs/_developer_guide/" in low:
+        return "SDK & developer integrations"
+    if "_docs/_partners/" in low:
+        if "facebook" in low or "audience_sync" in low:
+            return "Partners (Audience Sync / Facebook)"
+        return "Partners & integrations"
+    if "_docs/_releases/" in low:
+        return "Product updates (cross-channel — confirm channel PM)"
+    if "_docs/_user_guide/administrative/" in low:
+        return "Dashboard & administration"
+    if "_docs/_user_guide/onboarding" in low:
+        return "Onboarding & solution engineering"
+    if "_docs/_user_guide/channels/" in low:
+        return "Channels (confirm Email / Push / etc.)"
+    return "TBD — confirm product owner and update the table below"
 
 
 def conflict_resolution_skip(raw: str | None) -> str | None:
@@ -426,19 +487,41 @@ def main() -> None:
     for c in skipped:
         by_reason[c.skip_reason or "unknown"].append(c)
 
-    skip_lines = [
+    def abbrev_reason(s: str, max_len: int = 100) -> str:
+        t = s.strip()
+        if len(t) <= max_len:
+            return t
+        return t[: max_len - 1] + "…"
+
+    top_buckets = sorted(by_reason.items(), key=lambda kv: -len(kv[1]))[:8]
+    bucket_lines: list[str] = [
+        "**Largest skip buckets** (each bullet matches a `##` section below):",
+        "",
+    ]
+    for reason, items in top_buckets:
+        bucket_lines.append(f"- **{len(items)}** — {abbrev_reason(reason)}")
+    bucket_lines.append("")
+
+    skip_lines: list[str] = [
         "# KB articles — Phase 1 skipped rows",
         "",
         f"Generated from `{CSV_PATH.relative_to(REPO_ROOT)}` on **{now}**.",
         "",
-        "Most rows below failed an automated Phase 1 gate from `.cursor/rules/salesforce-analyzer.mdc`. "
-        "Rows skipped only because they appear in `_data/kb_epic_bd6308_tracked_article_ids.txt` "
-        "would otherwise be actionable — they are excluded so this queue does not duplicate Jira Epic **BD-6308** work. "
-        "Redundant-with-live-docs, bug-workaround-only, and other manual checks are **not** applied here.",
+        "**Do not hand-edit this file** — it is overwritten by `python3 scripts/generate_kb_phase1_outputs.py` "
+        "(repo root). Update the CSV (or epic ID list), then re-run that script; the companion "
+        f"`{ACTIONED_OUT.relative_to(REPO_ROOT)}` file is refreshed in the same run.",
+        "",
+        "Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/salesforce-analyzer.mdc`. "
+        "The **actionable** queue (rows that *did* pass) lives in "
+        f"`{ACTIONED_OUT.relative_to(REPO_ROOT)}`. "
+        "Rows skipped only because they appear in `_data/kb_epic_bd6308_tracked_article_ids.txt` would otherwise "
+        "be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. "
+        "Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.",
         "",
         f"**Totals:** {len(rows)} CSV rows — **{len(actionable)} actionable**, **{len(skipped)} skipped**.",
         "",
     ]
+    skip_lines.extend(bucket_lines)
     for reason in sorted(by_reason.keys(), key=lambda s: (-len(by_reason[s]), s)):
         items = by_reason[reason]
         skip_lines.append(f"## {reason}")
@@ -492,12 +575,30 @@ def main() -> None:
             "",
             "Use when several articles should land in **one PR** touching the same file.",
             "",
+            "### Product vertical ownership (multi-article batches)",
+            "",
+            "When opening a **batched** PR (several KAs, one primary doc), route review to the right "
+            "**product vertical** (Email, Push, SMS, Canvas, API, Partners, SDK, Analytics, Currents, etc.). "
+            "The **Suggested product vertical** column is path-based only — **fill in Product owner** when you "
+            "know the owning team (or correct the suggestion). Agents and scripts should copy the suggested "
+            "vertical into PR descriptions; use **TBD** rows to realign batching after owners are assigned.",
+            "",
         ]
     )
     if not multi_sorted:
         act_lines.append("_No groups of 2+ articles share the same resolved primary file._")
         act_lines.append("")
     else:
+        act_lines.append(
+            "| Primary `_docs` target | Articles | Suggested product vertical | Product owner (your team — **fill in**) |"
+        )
+        act_lines.append("| --- | ---: | --- | --- |")
+        for path_key, group in multi_sorted:
+            hint = product_vertical_hint(path_key)
+            act_lines.append(
+                f"| `{path_key}` | {len(group)} | {hint} |  |"
+            )
+        act_lines.append("")
         for path_key, group in multi_sorted:
             act_lines.append(f"### `{path_key}` — **{len(group)}** articles")
             act_lines.append("")

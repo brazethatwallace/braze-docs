@@ -1,6 +1,6 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-05-15 00:07 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-05-15 17:45 UTC**.
 
 These rows passed automated Phase 1 gates and resolve to an on-disk `_docs/...` file. They are **not** marked `actioned` in the CSV — this file is a **work queue** for Phase 2.
 
@@ -10,6 +10,21 @@ These rows passed automated Phase 1 gates and resolve to an on-disk `_docs/...` 
 ## 1. Multi-article batches (same primary doc)
 
 Use when several articles should land in **one PR** touching the same file.
+
+### Product vertical ownership (multi-article batches)
+
+When opening a **batched** PR (several KAs, one primary doc), route review to the right **product vertical** (Email, Push, SMS, Canvas, API, Partners, SDK, Analytics, Currents, etc.). The **Suggested product vertical** column is path-based only — **fill in Product owner** when you know the owning team (or correct the suggestion). Agents and scripts should copy the suggested vertical into PR descriptions; use **TBD** rows to realign batching after owners are assigned.
+
+| Primary `_docs` target | Articles | Suggested product vertical | Product owner (your team — **fill in**) |
+| --- | ---: | --- | --- |
+| `_docs/_partners/canvas_audience_sync/facebook_audience_sync.md` | 4 | Partners (Audience Sync / Facebook) |  |
+| `_docs/_api/endpoints/user_data/post_user_track.md` | 2 | API / platform engineering |  |
+| `_docs/_developer_guide/sdk_integration/google_tag_manager.md` | 2 | SDK & developer integrations |  |
+| `_docs/_partners/home.md` | 2 | Partners & integrations |  |
+| `_docs/_user_guide/analytics/tracking/segment_analytics_tracking.md` | 2 | Analytics |  |
+| `_docs/_user_guide/messaging/canvas/canvas_components/action_paths.md` | 2 | Canvas (Email channel triggers — confirm Email vs Canvas PM if needed) |  |
+| `_docs/_user_guide/messaging/canvas/canvas_components/experiment_step.md` | 2 | Canvas |  |
+| `_docs/_user_guide/messaging/canvas/troubleshooting.md` | 2 | Canvas |  |
 
 ### `_docs/_partners/canvas_audience_sync/facebook_audience_sync.md` — **4** articles
 

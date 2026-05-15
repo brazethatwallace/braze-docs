@@ -122,8 +122,8 @@ def normalized_implementation_status(raw: str) -> str:
 5. **Verify the gap** — Read the target doc(s); if the suggestion is already satisfied, mark **redundant** and skip.
 6. **Sort backlog** — Default: `priority_tier` ascending (1 first), then `score` descending, then `title`.
 7. **Optional: write tracker files** — After Phase 1 triage, run `python3 scripts/generate_kb_phase1_outputs.py` from the repo root. It reads `_data/kb_articles.csv` and writes:
-   - `_data/kb_articles_skipped.md` — skipped `article_id` values with the **skip reason** (automated gates only; manual “redundant in docs” / workaround checks are not included).
-   - `_data/kb_articles_actioned.md` — **actionable** backlog (not the CSV `actioned` status): rows that pass gates and resolve to an on-disk `_docs/...` file, **batched** by (a) **shared primary doc path** (multi-article → one PR) and (b) **vertical** (IA bucket under `_user_guide/`) plus CSV `team`.
+   - `_data/kb_articles_skipped.md` — skipped `article_id` values with the **skip reason** (automated gates only; manual “redundant in docs” / workaround checks are not included). **Regenerated** with the actionable file; do not hand-edit — intro links to `kb_articles_actioned.md` and summarizes largest skip buckets.
+   - `_data/kb_articles_actioned.md` — **actionable** backlog (not the CSV `actioned` status): rows that pass gates and resolve to an on-disk `_docs/...` file, **batched** by (a) **shared primary doc path** (multi-article → one PR) and (b) **vertical** (IA bucket under `_user_guide/`) plus CSV `team`. Section **1** includes a **Product vertical ownership** table (path-based suggestions such as Email, Push, Canvas, API, Partners, SDK, Analytics) with a **Product owner** column for you to fill when the suggestion is wrong or unknown; batch PRs and Jira tasks should name that vertical for reviewers.
    - **Epic overlap:** If `_data/kb_epic_bd6308_tracked_article_ids.txt` is present, each `article_id` listed there is **omitted** from `kb_articles_actioned.md` when it would otherwise be actionable (so the markdown queue does not duplicate work already filed under Jira Epic **BD-6308**). Those rows appear in `kb_articles_skipped.md` with an epic-specific explanation. Refresh the list when new child issues are added under the epic (JQL: `"Epic Link" = BD-6308`).
 
 ### Per-row output format
@@ -207,7 +207,7 @@ Create the PR **against `develop`** (`--base develop`).
 
 - **Title:** Concise title derived from **`title`** + the docs change (no fabricated `[BD-####]` prefix unless the user supplied that issue for this PR).
 - **Label:** `--label "salesforce migration"`
-- **Body:** Per `.github/PULL_REQUEST_TEMPLATE`; include **`article_id`** and **`title`** from each CSV row in scope; if `notes` contains a Jira or other tracking URL, link it for traceability; cite reference-repo paths used for verification.
+- **Body:** Per `.github/PULL_REQUEST_TEMPLATE`; include **`article_id`** and **`title`** from each CSV row in scope; if `notes` contains a Jira or other tracking URL, link it for traceability; cite reference-repo paths used for verification. For **multi-article / batched** PRs, include a **Product vertical ownership** subsection (Email, Push, Canvas, API, etc.) using `_data/kb_articles_actioned.md` section **1** (ownership table) or the same path heuristic as `scripts/generate_kb_phase1_outputs.py`.
 - **Then:** Create the matching **BD** Jira Task for this PR (**Step 10**).
 
 Reviewers: follow `CODEOWNERS`; fallback `@braze-inc/docs-team` per `.cursor/rules/support-analyzer.mdc`.
@@ -226,7 +226,7 @@ Reviewers: follow `CODEOWNERS`; fallback `@braze-inc/docs-team` per `.cursor/rul
 | **Issue type** | **Task**. |
 | **Epic Link** | Set to the **current** migration epic for the round. Default for *Migrate Salesforce Knowledge Base — Round 2*: **`BD-6308`**. If the user names a different epic key in the session, use that instead. In Atlassian Cloud API / MCP payloads, Epic Link is typically **`customfield_10014`** with the epic issue key (e.g. `BD-6308`). |
 | **Summary** | `Salesforce KB batch - <short topic or vertical>` — mirror the PR’s theme (e.g. channels, SDK, partner, analytics). For a single-article PR, you may use the article `title` snippet instead of “batch”. |
-| **Description** | Include: (1) **GitHub PR** as a markdown link (title + URL); (2) a **Salesforce Knowledge articles** section listing every `article_id` covered by this PR as `ka0VP… — <title>` (same rows as the PR body / CSV). Optionally note doc paths or verification repos. |
+| **Description** | Include: (1) **GitHub PR** as a markdown link (title + URL); (2) a **Salesforce Knowledge articles** section listing every `article_id` covered by this PR as `ka0VP… — <title>` (same rows as the PR body / CSV); (3) for batched or multi-topic PRs, a **Product vertical** line (Email, Push, SMS, Canvas, API, Partners, SDK, Analytics, etc.) taken from the ownership table in `_data/kb_articles_actioned.md` section **1** or from the same heuristic used in PR bodies. Optionally note doc paths or verification repos. |
 | **Labels** | At minimum **`salesforce-migration`** and **`braze.com_docs`**. Use the exact string **`braze.com_docs`** (do **not** use `braze-com-docs` or other variants). |
 
 Do **not** fabricate a `[BD-####]` prefix in the GitHub PR title (Step 9); the **Jira key** comes from the issue **after** creation (or from `notes` if the user already linked a ticket).
