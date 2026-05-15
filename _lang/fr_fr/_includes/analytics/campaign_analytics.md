@@ -445,17 +445,25 @@ Un clic peut être enregistré sans ouverture lorsque le pixel d'ouverture ne se
 
 Un clic et une ouverture peuvent également se produire à des jours différents : un utilisateur peut cliquer le 16 mai avec les images désactivées (pas d'ouverture), puis ouvrir dans le webmail le 17 mai (ouverture enregistrée à ce moment-là).
 
-##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-_unique-clicks_-than-_unique-opens_}
+##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-unique-clicks-than-unique-opens}
 
-Les _clics uniques_ peuvent être supérieurs aux _ouvertures uniques_ lorsque les ouvertures sont sous-comptabilisées ou que les clics sont gonflés :
+Il peut arriver que les _clics uniques_ dépassent largement les _ouvertures uniques_ (par exemple, plusieurs clics uniques pour chaque ouverture unique), même lorsque vous attendez un ratio plus faible de la part de votre audience. Ce phénomène signifie généralement que les ouvertures sont sous-comptabilisées, que les clics sont gonflés, ou les deux. Cela ne signifie toutefois pas que Braze comptabilise mal les clics de manière isolée.
+
+Braze enregistre une ouverture d'e-mail lorsque le pixel de suivi d'ouverture se charge. Ce pixel est une petite image transparente (souvent décrite comme 1 x 1&nbsp;px) que Braze ajoute au HTML du message. Si le pixel ne se charge jamais, aucune ouverture n'est enregistrée pour cette consultation, mais les clics sur les liens peuvent tout de même être comptabilisés — de sorte que votre taux de clic par ouverture et l'équilibre entre ces deux indicateurs peuvent sembler faussés.
 
 **La boîte de réception n'a jamais chargé le pixel de suivi d'ouverture**
 
-Cela peut se produire lorsque :
+Le pixel peut ne pas se charger lorsque :
 
-- Le message est long et le pixel d'ouverture se trouve à la fin. Lorsque le client tronque le message, le pixel est coupé.
-- Le message a atterri dans le dossier spam, où les images distantes (y compris le pixel d'ouverture) ne se chargent souvent pas.
-- La boîte de réception utilise une sécurité plus stricte (fréquent sur les comptes d'entreprise) et l'utilisateur n'a pas encore choisi de charger les images.
+- **Le message est tronqué.** Un HTML long repousse le contenu — y compris le pixel en bas de page — derrière une coupure de type « Afficher le message en entier ». Dans Gmail, les messages de plus d'environ [102 Ko]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) sont souvent tronqués, ce qui peut empêcher le chargement du pixel jusqu'à ce que le message complet soit ouvert (et parfois même pas, selon le client).
+- **Les images sont bloquées ou restreintes.** Une sécurité de boîte de réception plus stricte (courante sur les comptes d'entreprise) peut bloquer les images distantes jusqu'à ce que le destinataire choisisse de les charger, de sorte que le pixel d'ouverture ne se déclenche pas même s'il clique sur les liens suivis.
+- **Le message se trouve dans les dossiers spam ou courrier indésirable.** De nombreux fournisseurs ne chargent pas les images distantes (y compris le pixel d'ouverture) dans ces dossiers par défaut.
+
+**Ce que vous pouvez faire**
+
+- **Troncature :** Raccourcissez et simplifiez le HTML, supprimez les styles ou ressources inutilisés et maintenez la taille globale du message dans les limites du client. Pour Gmail, visez moins d'environ 102 Ko comme décrit dans [Taille des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size).
+- **Sécurité de la boîte de réception et chargement des images :** Seul le destinataire (ou sa politique informatique) peut modifier le chargement des images par défaut.
+- **Placement en spam :** Concentrez-vous sur l'[amélioration de la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) et l'hygiène de vos listes. Si les e-mails atterrissent systématiquement dans le spam et que les indicateurs semblent erronés, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 **Activité de sécurité ou de bots sur les liens**
 

@@ -445,17 +445,25 @@ Ein Klick kann ohne eine Öffnung protokolliert werden, wenn das Öffnungs-Pixel
 
 Ein Klick und eine Öffnung können auch an verschiedenen Tagen stattfinden: Eine Nutzer:in könnte am 16. Mai mit deaktivierten Bildern klicken (keine Öffnung) und dann am 17. Mai im Webmail öffnen (Öffnung wird dann protokolliert).
 
-##### Höhere _Unique Clicks_ als _Unique Opens_ {#higher-_unique-clicks_-than-_unique-opens_}
+##### Höhere _Unique Clicks_ als _Unique Opens_ {#higher-unique-clicks-than-unique-opens}
 
-_Unique Clicks_ können höher sein als _Unique Opens_, wenn Öffnungen zu niedrig gezählt oder Klicks überhöht werden:
+Es kann vorkommen, dass _Unique Clicks_ die _Unique Opens_ deutlich übersteigen (z. B. mehrere eindeutige Klicks pro eindeutiger Öffnung), selbst wenn Sie von Ihrer Zielgruppe ein niedrigeres Verhältnis erwarten. Dieses Muster bedeutet in der Regel, dass Öffnungen zu niedrig gezählt, Klicks überhöht oder beides der Fall ist. Das bedeutet jedoch nicht, dass Braze Klicks isoliert falsch zählt.
+
+Braze protokolliert eine E-Mail-Öffnung, wenn das Öffnungs-Tracking-Pixel geladen wird. Dieses Pixel ist ein kleines transparentes Bild (oft als 1 x 1&nbsp;px beschrieben), das Braze dem Nachrichten-HTML hinzufügt. Wenn das Pixel nie geladen wird, wird für diese Ansicht keine Öffnung protokolliert, aber Link-Klicks können dennoch registriert werden – sodass Ihre Click-to-Open-Rate und das Verhältnis zwischen diesen beiden Metriken verzerrt aussehen können.
 
 **Das Postfach hat das Öffnungs-Tracking-Pixel nie geladen**
 
-Dies kann passieren, wenn:
+Das Pixel wird möglicherweise nicht geladen, wenn:
 
-- Die Nachricht lang ist und das Öffnungs-Pixel am Ende steht. Wenn der Client die Nachricht abschneidet, wird das Pixel abgeschnitten.
-- Die Nachricht im Spam-Ordner gelandet ist, wo Remote-Bilder (einschließlich des Öffnungs-Pixels) oft nicht geladen werden.
-- Das Postfach strengere Sicherheitseinstellungen verwendet (häufig bei Unternehmenskonten) und die Nutzer:in sich noch nicht entschieden hat, Bilder zu laden.
+- **Die Nachricht abgeschnitten wird.** Langes HTML schiebt Inhalte – einschließlich des Pixels am Ende – hinter einen „Gesamte Nachricht anzeigen“-Abschnitt. In Gmail werden Nachrichten, die größer als etwa [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) sind, häufig abgeschnitten, was das Laden des Pixels verhindern kann, bis die vollständige Nachricht geöffnet wird (und manchmal auch dann nicht, je nach Client).
+- **Bilder blockiert oder eingeschränkt sind.** Strengere Posteingangs-Sicherheit (häufig bei Unternehmenskonten) kann Remote-Bilder blockieren, bis die Empfänger:in sich entscheidet, sie zu laden, sodass das Öffnungs-Pixel nicht ausgelöst wird, obwohl getrackte Links angeklickt werden.
+- **Die Nachricht sich im Spam- oder Massenordner befindet.** Viele Anbieter laden Remote-Bilder (einschließlich des Öffnungs-Pixels) in diesen Ordnern standardmäßig nicht.
+
+**Was Sie tun können**
+
+- **Abschneiden:** Kürzen und vereinfachen Sie das HTML, entfernen Sie ungenutzte Styles oder Assets und halten Sie die Gesamtgröße der Nachricht innerhalb der Client-Limits. Für Gmail sollten Sie unter etwa 102&nbsp;KB bleiben, wie unter [E-Mail-Größe]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) beschrieben.
+- **Posteingangs-Sicherheit und Bildladen:** Nur die Empfänger:in (oder deren IT-Richtlinie) kann ändern, ob Bilder standardmäßig geladen werden.
+- **Spam-Platzierung:** Konzentrieren Sie sich auf die [Verbesserung der E-Mail-Zustellbarkeit]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und Listenhygiene. Wenn E-Mails regelmäßig im Spam landen und die Metriken falsch aussehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 **Sicherheits- oder Bot-Aktivität bei Links**
 
@@ -471,7 +479,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
-Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung _Machine Opens_ erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die _Other Opens_ sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
+Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
 Die _Estimated Real Open Rate_ wird 36 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 24 Stunden neu berechnet. Bei wiederkehrenden Kampagnen wird die Schätzung 36 Stunden nach einem weiteren Versand neu berechnet.
 
@@ -844,7 +852,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 Im Panel **Historical Performance** können Sie die Metriken aus dem Panel **Message Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
-Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
+Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars" aria-label="Navigationsmenü öffnen"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
 
 ![Ein Diagramm des Panels „Historical Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

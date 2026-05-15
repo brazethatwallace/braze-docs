@@ -167,6 +167,12 @@ Lassen Sie die betroffene Nutzerin oder den betroffenen Nutzer [den Cache und di
 
 Wenn Sie den Fehler `ERROR_CODE_SSO_INVALID_RELAY_STATE` erhalten, könnte Ihr RelayState falsch konfiguriert oder nicht vorhanden sein. Falls noch nicht geschehen, müssen Sie Ihren RelayState in Ihrem IdP-Verwaltungssystem einrichten. Die Schritte finden Sie unter [Ihren RelayState einrichten](#setting-up-your-relaystate).
 
+### Führt eine erfolgreiche SSO-Anmeldung zurück zur Braze-Anmeldeseite? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Dies kann auftreten, wenn der RelayState nicht korrekt konfiguriert ist. Bestätigen Sie, dass Sie einen API-Schlüssel (unter **Einstellungen** > **API-Schlüssel**) für die IdP-Anmeldung erstellt und diesen API-Schlüssel als `RelayState`-Parameter in Ihrem IdP festgelegt haben. Der RelayState identifiziert, bei welchem Unternehmenskonto Sie sich anmelden. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Ihren RelayState einrichten](#setting-up-your-relaystate).
+
+Wenn Sie sich immer noch nicht anmelden können, [kontaktieren Sie den Braze-Support]({{site.baseurl}}/braze_support/) und fügen Sie nach Möglichkeit einen SAML-Trace bei. Hilfe beim Erfassen eines Trace finden Sie unter [Einen SAML-Trace erhalten](#obtaining-a-saml-trace).
+
 ### Steckt die Nutzerin oder der Nutzer in einer Anmeldeschleife zwischen Okta und Braze fest? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
 Wenn sich eine Nutzerin oder ein Nutzer nicht anmelden kann, weil sie oder er in einer Schleife zwischen Okta SSO und dem Braze-Dashboard feststeckt, müssen Sie in Okta die SSO-URL-Zieladresse auf Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) setzen (z. B. `https://dashboard-07.braze.com`).
