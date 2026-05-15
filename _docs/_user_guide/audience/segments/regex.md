@@ -143,6 +143,14 @@ $( document ).ready(function() {
 
 No. If the value is blank, the user will not be included in the `does not match regex` filter.
 
+#### How do I match any of several exact values (OR logic) for a string custom attribute?
+
+Use alternation with start and end anchors so each value matches exactly and you do not pick up partial matches. For example, to match `gold`, `silver`, or `bronze` exactly:
+
+```
+(^gold$)|(^silver$)|(^bronze$)
+```
+
 #### How do I filter for inbox-specific email addresses when segmenting?
 
 {% raw %}
@@ -199,6 +207,12 @@ Before using regex to filter phone numbers, remember that numbers logged for use
 Assuming you're searching for US phone numbers, use the regex format `1?\d\d\d\d\d\d\d\d\d\d`, where each repetition of `\d` is a digit you want to specify. The first three digits are the area code.
 
 Likewise, the format for UK phone numbers is `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Any other country would be the respective country code, followed by the necessary number of `\d` repetitions for each remaining digit. So in the case of Lithuania with a country code of "3", their regex would be `^\+3\d\d\d\d\d\d\d\d\d\d`.
+
+If your UK mobile numbers are stored **without** a leading `+` in the common format starting with `447` (for example, `447123456789`), you can match them with:
+
+```
+^447\d{9}$
+```
 
 For example, let's say you wanted to filter users by phone number for a specific area code, "718". Use the phone number filter, set it to `matches regex`, and enter the following regex:
 
