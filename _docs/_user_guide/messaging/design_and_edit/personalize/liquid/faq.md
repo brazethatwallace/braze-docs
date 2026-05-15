@@ -140,3 +140,11 @@ Join our VIP program to unlock free shipping.
 {% endcapture %}
 ```
 {% endraw %}
+
+### Do Liquid variables carry between subject line and body?
+
+No. Braze renders each message component separately (for example, subject line, HTML body, preheader, and push title). Assignments or captures you make in one field are not available in another. Repeat the Liquid or Connected Content call in each field that needs the value.
+
+### How should I use campaign names in URLs when the name contains `%` or other special characters?
+
+Campaign names can include characters that are not URL-safe. When you interpolate `{{campaign.${name}}}` (or similar) inside a link, wrap the value with the [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) filter—for example, `{{ campaign.${name} | url_encode }}`—so characters like `%`, spaces, or `&` do not break query strings.

@@ -70,7 +70,7 @@ You have the option to include an `{% else %}` statement in your conditional log
 #### Case and when tags
 {: #case-and-when-tags}
 
-`{% case %}`, `{% when %}`, and `{% endcase %}` work like a switch statement: you set one expression after `case`, and each `when` branch runs when that expression equals the listed value (Liquid uses equality behind the scenes, similar to chaining `if` and `elsif` with `==`). You can list multiple values in one `when` tag by separating them with a comma or `or`. Use `{% else %}` for a fallback when nothing matches, then close with `{% endcase %}`.
+`{% case %}`, `{% when %}`, and `{% endcase %}` work like a switch statement: you set one expression after `case`, and each `when` branch runs when that expression equals the listed value (Liquid uses equality behind the scenes, similar to chaining `if` and `elsif` with `==`). You can list multiple values in one `when` tag by separating them with a comma or `or`. Use `{% else %}` for a fallback when nothing matches, then close with `{% endcase %}`. Make sure each `when` value matches your attribute’s type (for example, quote string literals).
 
 ```liquid
 {% assign handle = 'cake' %}
