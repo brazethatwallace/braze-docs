@@ -1,0 +1,1016 @@
+# KB articles — Phase 1 skipped rows
+
+Generated from `_data/kb_articles.csv` on **2026-05-15 00:07 UTC**.
+
+Most rows below failed an automated Phase 1 gate from `.cursor/rules/salesforce-analyzer.mdc`. Rows skipped only because they appear in `_data/kb_epic_bd6308_tracked_article_ids.txt` would otherwise be actionable — they are excluded so this queue does not duplicate Jira Epic **BD-6308** work. Redundant-with-live-docs, bug-workaround-only, and other manual checks are **not** applied here.
+
+**Totals:** 521 CSV rows — **44 actionable**, **477 skipped**.
+
+## No locatable on-disk `_docs/...` target after path extraction and IA remaps (insufficient CSV path, stale path, or needs manual `doc_path` fix).
+
+**Count:** 157
+
+- **`ka03o000000tTTPAA2`** — Do Users In the Control Variant of a Campaign Count Towards the Audience Size Limit?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka03o000001N3RsAAK`** — How Braze Syncs Email Subscription States
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/managing_user_subscriptions.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka03o000001N9RKAA0`** — Canvas Branching Distribution
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP00000017STYAY`** — Excluding Users Currently Inside Of A Canvas Journey From A Campaign/Segment
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000001IkTYAU`** — API Segment Export Files Available in Increments For S3 & Azure
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000001y6zYAA`** — Currents missing 'session end' events
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000001yBpYAI`** — Intelligent Selection: Re-eligibility
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000002FRBYA2`** — Custom Attribute Data Coercion/Conversion
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/activation/custom_data/custom_attributes.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP0000002OELYA2`** — Percentage mark "%" in Campaign Name breaks URL in Email
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/liquid/faq.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP0000002QsrYAE`** — New User' Stat on the App Usage Page
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000002S0DYAU`** — Unique Recipients is Higher Than Unique Impressions
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000003WUnYAM`** — Segment Membership Evaluation After Quiet Hours
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000003bXhYAI`** — Custom attribute "home_city" not showing on user profile
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/activation/custom_data/custom_attributes.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP0000004NVtYAM`** — Can dashboard Administrators export all of their users Dashboard permissions?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/company_settings/automated_user_provisioning.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP0000004WSjYAM`** — Canvas Error "Too Many Canvas Branches"
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000006vq1YAA`** — SDK Unity installation facing the error This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000007EnpYAE`** — Does turning off List-Unsubscribe headers remove the Gmail Unsubscribe link from emails
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000007GUfYAM`** — Last Purchaseの日付が最新のPurchase eventの日付ではない場合
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000007QFVYA2`** — User eligibility for Winning/Personalized Variant on second send?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/testing/multivariant_testing.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP0000007QsDYAU`** — Why Does a User Keep Being Opted-In to Emails Despite Having Unsubscribed Multiple Times?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/managing_user_subscriptions.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP0000007XYjYAM`** — How can you prevent a user from accessing the account without deleting their dashboard user?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000008HtJYAU`** — Primitive Data Types for Custom Key Value Pairs
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000008f9FYAQ`** — Unique Dismissals Higher than Unique Impressions: Content Card
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP0000008kk1YAA`** — How To Format Currency To European Standards With Liquid
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000AWGLYA4`** — Matches Regex "OR" Statements for String Data Types
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/regex.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000AWLBYA4`** — Close Button methods for Web IAM Modals
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000BFADYA4`** — Intermittent failure to update subscription group
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000CLlRYAW`** — How many Custom Attributes/Events can I have on my dashboard/user profiles?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/activation/custom_data/custom_events.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000DEGTYA4`** — I am unable to make edits to my live Currents integration in the dashboard
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000DpHdYAK`** — What is meant by 'Sent' in the context of Frequency Capping?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000EHPBYA4`** — Cannot find my custom attribute as a trigger option
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/attribute_triggers.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000EOVVYA4`** — How To Extract Value of Open Web URL Inside App from Push
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Ea21YAC`** — How can I efficiently use Intelligent Timing with Little/No Session Data?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/testing/multivariant_testing/multivariate_analytics.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000FvpBYAS`** — Can I supply liquid inside the abort_message tag?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000GCbVYAW`** — How to Configure a Web Content Card to Open a Link in a New Tab?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000GHmTYAW`** — Generate An Image Using AI
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Hg2rYAC`** — Custom Attribute with Array Type Is Listed as a Nested Custom Attribute in Segment Filters
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000HoEvYAK`** — Why am I facing an error Unexpected end token when working with Liquid?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000IbHFYA0`** — What is needed in order for a recipient to receive a test SMS?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/sms_mms_rcs/sms/faqs.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000JLn7YAG`** — Liquid "Case" Conditional Logic
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/liquid/conditional_logic.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000JeZdYAK`** — Discrepancy in the Daily Session Count / DAU for a Specific Date When Viewed on Different Days
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000JgA1YAK`** — Who is Sent "Canvas Messages Delayed 24+ Hours" Email Notifications?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000JmH3YAK`** — User Import using Email as External_ID
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Ju05YAC`** — Does Email Unsubscribe Count Towards Unique Clicks
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000JzPZYA0`** — What Regex Expression can I use to find customers with a UK phone number?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/regex.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000KEJlYAO`** — No canvas options available when selecting 'clicked shortened SMS link'
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/sms_mms_rcs/link_shortening.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000KRAXYA4`** — How to Determine if a User was Previously Part of a Segment
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000KVkPYAW`** — Monthly active users (MAU) Discrepancy between Braze and Amplitude
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000L0UrYAK`** — What's the difference between Geofences & Location Collection?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/locations_and_geofences/location_tracking.md`, `_docs/_user_guide/engagement_tools/locations_and_geofences/creating_geofences.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000L5ntYAC`** — Aborted Message Error "Invalid from email address for recipient:"
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000LSkTYAW`** — Over Quota Email address
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000LSm5YAG`** — How to export Users with Invalid Email Addresses
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000LUfpYAG`** — What happens when I stop a campaign whilst it is sending?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch.md`, `_docs/_user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000LdHhYAK`** — Can you stop an Active Email Campaign/Canvas from sending?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Lhd3YAC`** — Custom Event Not Logging in Braze via Google Tag Manager (GTM)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000LsS1YAK`** — What does "Event was published, but no subscribers were found. But not saving event for publishing later." mean?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000M1tVYAS`** — Email Capture Form Submit Button
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/in-app_messages/traditional/customize/email_capture_form.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000M2BFYA0`** — What users are included in the 'Uninstalled' Filter
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000M2nxYAC`** — Are Custom Attributes Case-Sensitive?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/activation/custom_data/custom_attributes.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000MAS9YAO`** — Does Braze Offer the "View this email in a browser" Feature?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000ME9BYAW`** — Handling Email Blocks (SendGrid)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000MTeTYAW`** — What is the Difference Between a Full Sync and a Partial Sync for Content Cards?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000MXIHYA4`** — Successful SSO Login Returns User to Braze Login Page
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/access_braze/single_sign_on/set_up.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000Mh4jYAC`** — Why is my content block not appearing under 'Row' in the DnD search tool?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000MpiDYAS`** — Content Cards not Refreshing at openSession() (Web SDK)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000MuYDYA0`** — Why Can't I Find a Segment in the Segment Membership Filter?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/segmentation_filters.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000NCWjYAO`** — Can I extract Campaign/Canvas data for a specific date window?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000NEVJYA4`** — Not receiving a test email send (abort message tag)
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/liquid/operators.md`, `_docs/_user_guide/personalization_and_dynamic_content/liquid/liquid_use_cases.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000NYFVYA4`** — Matching External ID In An API Request
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000NgHtYAK`** — Enabling Google SSO in Braze
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000NlavYAC`** — Are there known React and React Native versions needed to work with Braze's React SDK?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000NxAfYAK`** — Exporting Custom Attribute via API
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000OJvxYAG`** — Are GIF's Supported in Android?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/activation/custom_data/custom_attributes.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000OZnpYAG`** — Currents - Microsoft Azure Blob Storage Avro files
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000OgZBYA0`** — 3rd Party Web cookie tracking
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000OhztYAC`** — Parent tag is in use in dashboard, but is not visible for selection when creating a new nested tag with "Add New Tag"
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/tags.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000P5kTYAS`** — Email and SMS - unique recipients greater than sends
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000P6VFYA0`** — A/B Testing (duplicate email addresses)
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/best_practices/duplicate_emails.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000P8TpYAK`** — What is the Impact of Stopping Content Cards Campaigns?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000PKYDYA4`** — Engagement Report CSV Date column
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/analytics/reporting/engagement_reports.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000Pe8jYAC`** — Is there a way to check if a user was part of a segment at a particular time/date?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Pi7VYAS`** — "Received Campaign Variant" segmentation filter does not allow me to select webhook variants.
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000PqHxYAK`** — Multiple App Groups Using The Same Apple Push Certificate
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Pzl3YAC`** — "Campaign is already in delay window, so not enqueueing another" outcome with no delay on campaign
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Q6szYAC`** — When might a user have 0 sessions recorded against their profile?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Q77VYAS`** — Avoiding the Rate Limit Dashboard Error
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000Q7InYAK`** — Sending To Multiple Profiles With the Same Email Address
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/best_practices/duplicate_emails.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000QIZBYA4`** — Is a user considered a reachable user for push if they aren't registered for push?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/push/users_and_subscriptions.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000QKJFYA4`** — Calculate Exact Statistics Shows a Rounded-Up, Instead of Full, Number for Total Reachable Users
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000QRPZYA4`** — SMS subscription groups - best practice to set them up
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000QYAvYAO`** — Push Issues Within mParticle Kit Integration (iOS)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000QZBpYAO`** — Whatsapp template has been falsely flagged - content against Whatsapp's Commerce Policy
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/whatsapp/faqs.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000QbbpYAC`** — Do We Ever Delete Campaigns?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/messaging_fundamentals/archiving.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000QgRpYAK`** — Saving Drag & Drop Template
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/templates_and_media/`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000QlXxYAK`** — How do I use the spacer.gif resource?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000QnZlYAK`** — Connected Content caching [:cache_max_age VS :cache]
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/connected_content/local_connected_content_variables.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000R2AbYAK`** — Total reachable users' count goes up after adding a filter
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RIldYAG`** — Content Block Does Not Render in Email Preview
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RLI5YAO`** — Does Confidence Increase for a Campaign/Canvas Over Time?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/testing/multivariant_testing/faq.md`, `_docs/_user_guide/engagement_tools/testing/multivariant_testing/multivariate_analytics.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000RMajYAG`** — User received email at unexpected time when delivery is in Local Timezone
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/liquid/liquid_use_cases.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000RNOjYAO`** — *INTERNAL* Liquid Parse Error Aborts Message
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RQb7YAG`** — Click Tracking Only Available for Links Directed to a HTTP or HTTPS Site (Can you click track phone numbers? etc.)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RRYnYAO`** — How to Create New User Profiles via REST API?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RSrRYAW`** — Link aliasing for URLs generated via Liquid (append with ? or &)
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/templates/link_aliasing.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000RXSvYAO`** — How Does the Email Capture Form Work?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RXkfYAG`** — What Subscription Status Would Show After Importing Push Tokens? (iOS Only)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Ra5pYAC`** — Dashboard Warning During In-App Message Testing
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/push/users_and_subscriptions.md`, `_docs/_user_guide/message_building_by_channel/push/push_registration.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000Ra7RYAS`** — Limitations for IAM DnD Editor
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RaLxYAK`** — Why are multiple User Profiles associated with the Same Email Address?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RbGPYA0`** — What is defined as a 'Good'  Email Deliverability Rate?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RccHYAS`** — I am getting an Unsubscribe Link warning despite having an unsubscribe link how can I resolve this?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data_and_analytics/user_data_collection/user_import`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000RdTVYA0`** — 550 5.7.1 relaying denied email Error
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/email_settings.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000RdzlYAC`** — Metric counts are different in Email Performance Dashboard vs Engagement Report
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RrD7YAK`** — Can Liquid Variables Assigned In One Component Of The Message Composer Be Used In Another?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/liquid/faq.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000Rt21YAC`** — Scheduled Email Campaign Did Not Send to the Entire Estimated Audience
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000RtDJYA0`** — How Does Braze Calculate Unique Clicks for Email?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000RuCbYAK`** — Email Bounce Reason '554 5.4.7 message timeout ... too many connections...'
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000S1h7YAC`** — Schedule Campaign Sent A Day Before The Schedule Time
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000S3ZFYA0`** — My user has performed the canvas trigger event X times. Why have they entered the canvas less than this?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000S3hJYAS`** — How Do I Create A Dynamic 'Reply-To' Email Address?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/email_settings.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000S59dYAC`** — 550 5.7.1 Our system has detected that this message is likely unsolicited mail
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000S5UbYAK`** — *INTERNAL* High Total Clicks for Email
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000S5nxYAC`** — Interpreting Email Open Likelihood Test Results
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000S6DlYAK`** — How do I Debug / Troubleshoot Connected Content?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000S6QfYAK`** — Email Deduplication for Multiple Users Sharing the Same Email Address: What Is the Expected Behavior?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/best_practices/duplicate_emails.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000SCflYAG`** — Most Recently Used Device Feature For Push Messaging
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000SFAbYAO`** — iOS Push Error Message - InvalidProviderToken
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000SoUvYAK`** — Push Notification: Test and Live Send Is Being Sent/Received By The "Wrong" or Multiple Apps
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000T1WzYAK`** — Why aren't my email image links clickable in the Apple Mail app?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000T937YAC`** — Updating the Apple Push certificate in Braze
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000TAIXYA4`** — How to Check If User Matches Campaign/Canvas Criteria
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/creating_a_segment.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TCllYAG`** — How to recover or setup "All Dashboard Users" or "All Admins" to "Notification Preferences" items
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/company_settings/notification_preferences.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TEdtYAG`** — No purchase/revenue data
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000TIZRYA4`** — What does the "Calculate Exact Statistics" Feature do?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000TJDlYAO`** — Are orphaned users eligible to receive messages?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/user_profiles/duplicate_users.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TM3ZYAW`** — Why Doesn't the Total Reachable Audience Match the Number of App Users Who Are Push Enabled?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/measuring_segment_size.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TfNxYAK`** — DnD content block preview different from compose view
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000ThO9YAK`** — Drag and drop content block loses set mobile styling and alignment
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TiQfYAK`** — How to check SPF, DKIM and DMARC records
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000TjL7YAK`** — IAM A/B Testing Impressions Not Split According to Defined Percentages/Proportions
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/testing/multivariant_testing/`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TkInYAK`** — What are the possible sources for subscription state updates?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000TmqrYAC`** — How to use anchor text for In App Message Slideup.
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/in-app_messages/creative_details/slideup.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000ToFxYAK`** — DeviceTokenNotForTopic iOS Push Notification error
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000Tt4LYAS`** — Are There Size Limits of Canvas Entry Properties Object?
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000TtCPYA0`** — Dashboard Doesn't Load Correctly
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/access_braze/troubleshooting.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TulBYAS`** — Push Subscription State
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/push/users_and_subscriptions.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TvpJYAS`** — Understanding Multiple Rows in USERS_MESSAGES_EMAIL_BOUNCE_SHARED for Hard Bounces
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TwOnYAK`** — Understanding User Profile Push Registration and Push Changelogs
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/message_building_by_channel/push/users_and_subscriptions.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TxmHYAS`** — Unable to add new user to dashboard: "Unable to perform action"
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/manage_your_braze_users/`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000TyGvYAK`** — Close Button on Full Screen HTML In-App Message Covered by Android Status Bar
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000U5qHYAS`** — Push Primer In-App Message Is Not Displaying (Test and Live)
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000UBZ7YAO`** — User Lookup Function isn't returning any results
+  - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
+- **`ka0VP000000UBdxYAG`** — Why is the Regenerate Schema option greyed out for Nested Custom Attributes?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/activation/custom_data/custom_attributes/nested_custom_attribute_support.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000UC5NYAW`** — How to delete a segment of users with a webhook
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/data/unification/user_data/delete_users.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000UCDTYA4`** — What are some Nuances of User Permissions?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/administrative/app_settings/manage_your_braze_users/user_permissions.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000UCoXYAW`** — Why are details missing in the Messaging History tab on a user profile?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_user_guide/engagement_tools/segments/user_profiles.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+- **`ka0VP000000UCuzYAG`** — What does Campaign Interactions Data consists of?
+  - *Explanation:* Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): `_docs/_docs_pages/redirects/messaging_interaction_data.md`. Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`.
+
+## `implementation_status` first line is `archived`.
+
+**Count:** 150
+
+- **`ka03o0000019QNDAA2`** — How to display the month in another language via liquid?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka03o000001NC86AAG`** — How can you view the number of API calls remaining/hour?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000001t45YAA`** — Why Are Users Entering a "Push Enabled" Filtered Canvas But Not Receiving Subsequent Push Notifications?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000001y29YAA`** — Translate the month within the date for users via Liquid
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP00000029vFYAQ`** — Is it possible to use link aliasing with URLs generated from Liquid?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000002CTJYA2`** — Error message: Unable to parse your message
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000002FfhYAE`** — How to abort a message if an object or array on Liquid is empty
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000002RtlYAE`** — How are the metrics on the Overview page calculated?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000002jAjYAI`** — Facebook Audience Syncs time
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP00000046BhYAI`** — How do I export a list of all our users in Braze?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000006fbZYAQ`** — What is the expected behaviour if a user has two browser assigned with valid web push tokens?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000007jbVYAQ`** — What is aliasing and how do we do it?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000008lwDYAQ`** — Why can't I add more Audiences into my Audience Path Step?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP0000008ucwYAA`** — Users have clicked 'yes' to my push primer IAM but I can't send them pushes
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000A79tYAC`** — How do I ensure Intelligent Channel tracking is enabled and contributes to data requirements?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000AW0DYAW`** — Information about the 'This step can't contain event_properties' error in Canvas Flow.
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000AwdpYAC`** — Importing Anonymous Users (API)
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000BnrpYAC`** — Web Push Supported Browsers
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000C5vBYAS`** — The '/catalogs/{catalog_name}/items' endpoint is only returning 50 items, when my catalog contains more than this. Why?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000CMCrYAO`** — Geofence-triggered Push Messages Delivery Delays
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000CxYzYAK`** — /campaigns/details でのキャンペーンステータスの見方
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000D6lxYAC`** — How to Configure Gmail Inbox to Render AMP Emails?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000DVxFYAW`** — Changing The Control Variant Percentage Within a Canvas Post Launch
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000DjFRYA0`** — How to carry out A/B Testing in Canvas within the same Canvas variant?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000EhBZYA0`** — What are the basics for using Segments?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000FUc5YAG`** — Will the user always fall into the same variation when re-entering the canvas?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000FdttYAC`** — My Drag and Drop Email Preview Layout Differs from Build/Design Window When Using Html Blocks
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000FlkzYAC`** — Bigger Canvases are failing to load or the page freezes when making changes
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000FmNhYAK`** — Expected Behavior of "All users who enter this step and meet delivery validations will advance to the next step" on Message Step
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000FyjpYAC`** — Can a user convert more than one Unique Impressions if there is re-eligibility?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000GMz3YAG`** — How to use Plain Text in WhatsApp message body
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000H5jFYAS`** — Are Link Templating and Link Aliasing supported in Drag n Drop Editor ?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000HO2jYAG`** — What happens when URL in capture call entity is encoded
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Hux3YAC`** — Personalization Types
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000I0ETYA0`** — How to Get a List Of Canvases
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000IGBBYA4`** — Data Retention policy
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000JS8fYAG`** — Canvas Persistent Entry Properties GA
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000JibdYAC`** — Update user's push subscription status via API
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000JmddYAC`** — Braze API Endpoint Index
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000KiWLYA0`** — How can I find out more about Liquid Filters and Operators?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000LSpJYAW`** — Are Arrays Supported in User Imports?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Lq3dYAC`** — Are the Push Open Events in Currents, the Total Opens or just Direct Opens?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Lq5FYAS`** — Why are my campaign Push Total Opens higher than my Currents Push Opens for the same campaign?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000MQa9YAG`** — Planning for Inconsistent Email Send Volume Expectations
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000MUvVYAW`** — Promotion Codes Tracking
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000MYKnYAO`** — Advancing Users Through Canvas Steps Behavior
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000MzWHYA0`** — Is it possible to rename or delete existing content blocks?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000N07NYAS`** — What Are The Definitions For Push Opens?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000N321YAC`** — Link Templating in Braze
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000N6HdYAK`** — Using Liquid Logic to Personalize the Language of a Message
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000NCJpYAO`** — What is Contained in the Callback Endpoint Request for the Export Users by Segment Endpoint?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000NFJJYA4`** — Dispatch_id push notification event behavior
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000NJd3YAG`** — Adding or Changing Rate Limits After Canvas/Campaign Launch
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000NLrlYAG`** — AMP Version of Email is Not Shown
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000NeSzYAK`** — Difference between "Push Enabled for App" and "Push Enabled"
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000NywLYAS`** — Can Liquid and Connected Content be used in the Custom Footer of an email?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000OIWrYAO`** — Where can a glossary of Segmentation filters be found?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000OLwAYAW`** — Pulling Historical Data via Segmentation
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Oan7YAC`** — How To Create A Content Card?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Ob4rYAC`** — Why Are React Native Deep Links Not Working?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000OedpYAC`** — How Segment.io (Attribution Partner) Data is Identified
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000OlSPYA0`** — Have I hit my API Rate Limit?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000OliXYAS`** — What is a Data Point?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Ou4HYAS`** — Request to campaigns/trigger/send endpoint returns "campaign_id must be a string of the campaign api identifier"
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000OxdFYAS`** — Email preview error say: There was an error processing the liquid provided
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000P15lYAC`** — Re-eligibility for Multivariate Campaign/Canvas and Triggered in-app messages.
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000P2t3YAC`** — Can I send information from Braze to Amplitude?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000PWazYAG`** — Message Archiving Feature
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000PXaHYAW`** — "Unique Recipient" under content cards
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000PXjxYAG`** — Troubleshooting RegEX
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000PoknYAC`** — Can Triggered In-app Messages be Frequency Capped?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Pv1VYAS`** — Using a Content Block in the Custom Email Footer
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Q3lRYAS`** — Does Liquid Work in the DnD editor?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Q5ldYAC`** — Assign vs Capture Liquid Tags
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Q9inYAC`** — Image Size and Specifications
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QCVNYA4`** — Unsubscribe Button Not Working as Expected
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QGVlYAO`** — Avro Schemas For Currents
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QGp7YAG`** — Amplitude Cohort not Sync'd Successfully into Braze ("We do not have enough data yet for this filter" Error Message)
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QJVFYA4`** — How to check if an email address and/or phone number is already associated with an existing user in Braze?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QJtRYAW`** — Best Practices for Setting Up Retries on 5XX Errors in REST API Calls
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QUldYAG`** — Email Opt-In Campaign Setup
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QaUTYA0`** — Unsubscribe Rates in Email Performance
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QnY9YAK`** — Does Connected Content caching apply across campaigns?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000QvttYAC`** — How often are Geofences refreshed for users
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000R22XYAS`** — Implementing Web Push Notifications
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000R5lBYAS`** — Adding A Sender Logo in Gmail
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000R6anYAC`** — Email Displays a # Sign For The Preference Center URL
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000R7i9YAC`** — How Does "re-evaluate segment membership" Apply to Triggered In-App Message Campaigns With a Delay?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RAT7YAO`** — Inbox Vision / Spam Test not rendering
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RDqnYAG`** — Does rate-limit always send in time?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RFHWYA4`** — Why are My Users Exiting Canvas at Delay Step?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RGS5YAO`** — Expected Behavior When Canvas Exit Event And Conversion Event Are The Same
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RKCLYA4`** — In-App Message Analytics Show 0 Button Clicks
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RQZVYA4`** — Authorization Credentials For Google Ads Are Invalid
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RVJ3YAO`** — CDI Segments feature missing for Segment Extensions
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RYGvYAO`** — How is Distribution of Users Between Variants Calculated?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RadhYAC`** — Gmail Promotions Tab
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RbDBYA0`** — Campaigns in Report Builder With Messages Sent Not Showing Data in Report
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RcSbYAK`** — Message Extras and Currents
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RdtJYAS`** — URL is "null" in Segment Export Response
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000ReqzYAC`** — Images in Rich Push/Extended Notification
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RgpZYAS`** — How do I import users via a CSV file?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000RqNVYA0`** — Meaning of frequency capping rules in the campaign sending settings
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S0ujYAC`** — Connected Audience: Uses and Limitations
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S1CTYA0`** — How To Evaluate Canvas And Campaign Audiences?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S3RBYA0`** — Formatting for DateTime datatype?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S3pNYAS`** — Connected Content and Webhook IP Whitelisting
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S43tYAC`** — Cloud Data Ingestion Integration
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S4wjYAC`** — What is the minimum time interval between triggers for IAMs?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S67JYAS`** — Can I use CDI to add a user alias to an existing user profile in Braze?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000S7OLYA0`** — How to Check Current API Rate Limit Status
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SDDdYAO`** — What are Email Subscription Groups and how do I use them?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SDK5YAO`** — How To Export User Data to S3 Bucket
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SF49YAG`** — Race Conditions Caused by Matching Action Based Triggers and Audience Filters
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SKgXYAW`** — App Version Code Filters
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SLkfYAG`** — Why are Custom attributes not being logged from Simple Survey IAM?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SgsMYAS`** — How to Add or remove Values to an Existing Custom Attribute Array?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Sh3dYAC`** — How to Remove Custom Attributes From User Profiles Via API?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000ShLNYA0`** — Custom Attribute: Time/Date data-type Guidelines
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SmmTYAS`** — Does Braze Support a Per Second Rate Limit?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000So6jYAC`** — Proper Syntax to Utilise Nested Custom Event Property Filter
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000SyvhYAC`** — Defining Rate Limits And Max User Caps in Campaigns
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000T94jYAC`** — How Users’ SMS Subscription Groups Get Set
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TEHJYA4`** — How do I troubleshoot errors encountered while importing users via CSV?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TEkLYAW`** — Segment Users Who Clicked Link Alias
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TG4bYAG`** — What is the difference between Content Card/IAM Impressions, Unique Impressions and Unique Recipients?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TMYDYA4`** — Why is my Custom Attribute Not Logging on User Profile?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TRG9YAO`** — Why is the deeplink not working/opening the URL from the email?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Tb4DYAS`** — How to track button clicks on a custom HTML IAM's close or x button.
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TbKLYA0`** — Why are we seeing failures on Currents?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TcebYAC`** — Canvas/Campaign Re-Eligibility Behavior
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TdE5YAK`** — Creating an in-app message with Drag & Drop
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TlLJYA0`** — How is Most Recent Location updated in Braze?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TnyDYAS`** — Using Intelligent timing, Quiet Hours in combination with Rate Limiting
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000ToPdYAK`** — Addressing Race Conditions in Canvas
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Tp0jYAC`** — Setting Default Values With Liquid
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TqjBYAS`** — Possible Reasons for Large Changes in Segment Membership
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TqrFYAS`** — Size Limit for the /users/export/segment Endpoint
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000Ts6fYAC`** — Why do Email links all have a lid parameter?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TsD7YAK`** — Can I create a segment from CSV Import? Why Aren't CSVs showing up as an audience filters?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TtIrYAK`** — What Is A Race Condition?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TuV3YAK`** — Archived or Inactive In-App Message (IAM) Campaign Still Delivering Impressions
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TwILYA0`** — "Failed to be assigned an LID" error message
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TwNBYA0`** — Custom Attribute Data Types
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000TyVRYA0`** — Liquid: Supported Personalization Tags
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000U2IvYAK`** — How to use AND and OR operators in segment filters
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000UBXVYA4`** — What are the IAM Custom HTML JavaScript Bridge Methods?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000UBcLYAW`** — Why an object from a nested custom attribute is not showing up in the schema?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000UBvhYAG`** — Two In-App Messages are Set to High Priority With The Same Trigger, Which One Will Display?
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+- **`ka0VP000000UCi5YAG`** — CSV Import Does Not Update Users' Profile As Expected
+  - *Explanation:* Dispositioned KA; do not draft new public docs work from this row.
+
+## `conflict_resolution` is `inconclusive`.
+
+**Count:** 97
+
+- **`ka03o000000tU17AAE`** — Currents Timestamps / Epoch Time
+  - *Explanation:* Analyzer context (truncated): Article states 13-digit (millisecond) timestamps are not supported; Ruby Time truncates to 10 digits. Docs do not explicitly state millisecond truncation.
+- **`ka03o000001dRgrAAE`** — How Many Campaigns/Canvases are Checked When Segmenting by Campaign/Canvas Tags?
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/engagement_tools/segments/segmentation_filters.md describe 'Received Message from Campaign or Canvas with Tag' filter but do not mention the 200 campaign/Canvas limit. Knowledge article states B…
+- **`ka03o000001dVxBAAU`** — Delayed Delivery Behavior in Branching IAM Canvas Step's
+  - *Explanation:* Analyzer context (truncated): Article: Branching IAM Canvas step sends IAM immediately; users go IAM path, not eligible for delayed Push. IAM impressions don't affect path. Workarounds: filters or spacer gif. No docs conflict.
+- **`ka0VP0000001fsLYAQ`** — Custom IAM HTML button click does not load
+  - *Explanation:* Analyzer context (truncated): Knowledge article advises testing HTML links in custom IAM; invalid links (e.g. bitpay://) cause button click not to load. No equivalent troubleshooting in IAM docs.
+- **`ka0VP0000002K13YAE`** — Engagement Report - Broken Link Solution
+  - *Explanation:* Analyzer context (truncated): Docs cover email reporting and SendGrid. Knowledge article: Engagement Report broken link workaround - send email to Gmail and open in Chrome; update Report Schedule to send immediately; or turn on link shortener in Send…
+- **`ka0VP0000003O7RYAU`** — Dashboard error when previewing email campaigns
+  - *Explanation:* Analyzer context (truncated): Docs cover email campaigns. Knowledge article: Chrome extension may cause preview error; create new Chrome (no extensions) to test; delete cookies and clear cache. Internal notes: Slack, Related Guru Card, lightning.forc…
+- **`ka0VP0000003WeTYAU`** — Email Preference Center: "We are unable to process this request at this time, please try again later." 
+  - *Explanation:* Analyzer context (truncated): Docs cover Email Preference Center. Knowledge article: 'We are unable to process this request at this time' error when email sent to test user not in app group; add user to app group to resolve. Internal notes: Slack Lin…
+- **`ka0VP0000003XAjYAM`** — Connected Content Call is not returning a response
+  - *Explanation:* Analyzer context (truncated): Knowledge article covers Connected Content returning no response due to NBSP (non-breaking space). Suggests regex tool to find NBSP. Not a data-topic article per se; tangentially related (no response = no data).
+- **`ka0VP0000004hG5YAI`** — Custom Attribute methods for an Array value
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains custom event graph discrepancies between All App vs Segmented App due to segment membership (e.g. All Users - Android includes email/iOS users who performed event outside that app). No equivale…
+- **`ka0VP0000005OHpYAM`** — Hidden Link Appearing In Heatmap.
+  - *Explanation:* Analyzer context (truncated): Docs cover email heatmap and reporting. Knowledge article: use Heatmap to find embedded link; check for content blocks between words or hidden places. Internal notes: case reference https://braze.lightning.force.com/ligh…
+- **`ka0VP0000005gD7YAI`** — User Data Discrepancies when performing tasks via SDK/REST API simultaneously or in close succession.
+  - *Explanation:* Analyzer context (truncated): Knowledge article: minimize SDK/REST race by flush after changeUser, separate calls, time delay. No explicit docs coverage.
+- **`ka0VP0000006bcnYAA`** — Why Conversionbehaviours event from Currents has a different time than the canvas?
+  - *Explanation:* Analyzer context (truncated): KA explains Currents conversion window = canvas max duration + conversion deadline (e.g. 7+7=14 days). Docs at braze_currents.md and conversion_events.md do not explicitly document this relationship for Currents export.
+- **`ka0VP00000070o5YAA`** — I received the error: "Canvas Entry Properties may not be used in In-App Messages."
+  - *Explanation:* Analyzer context (truncated): Article: Canvas entry properties may not be used in IAM by default; request enable_persistent_event_entry_properties. Docs at canvas_entry_properties_event_properties mention Canvas entry properties but may not document …
+- **`ka0VP0000007YD3YAM`** — What to expect when using Engagement Reports in S3
+  - *Explanation:* Analyzer context (truncated): Docs on Data Export and Currents do not explicitly state that Engagement Reports go to S3 when S3 is configured for Data Export but not Currents, and that the 'Send Report To' user receives an email with a link to the re…
+- **`ka0VP0000007fJNYAY`** — Will Receiving a Seed Email Update My User Profile / Analytics?
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/message_building_by_channel/email/testing.md cover seed groups. Knowledge article: Seed Group emails do NOT update user profile 'Campaign Received' or dashboard analytics (Sends).
+- **`ka0VP00000087sLYAQ`** — Data Not Getting to Braze
+  - *Explanation:* Analyzer context (truncated): No direct docs conflict. Knowledge article covers firewall whitelisting (Fastly IP list), MTR test, Fastly Debug for connectivity issues.
+- **`ka0VP0000008BhRYAU`** — When are Users "Kicked" Out of a Canvas via Exception Event?
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains exception event behavior for scheduled vs triggered Canvas steps. Docs cover exit criteria and exception events. No direct conflict; KA provides useful clarification.
+- **`ka0VP000000942nYAA`** — I can't find a purchase value in a segmentation filter
+  - *Explanation:* Analyzer context (truncated): No docs found for bracket notation [5] for exact match in segment filter product_id/purchase value search.
+- **`ka0VP0000009TFhYAM`** — Subscriptions & Usage - How Often is the Data Refreshed for Data Points?
+  - *Explanation:* Analyzer context (truncated): Docs at Billing/Subscriptions cover data point usage; Knowledge article states data is cached every 24 hours, updated nightly ~2am ET. Docs may not specify refresh cadence.
+- **`ka0VP0000009nPhYAI`** — Has Received Message filter from Content Card Campaign
+  - *Explanation:* Analyzer context (truncated): Knowledge article states Has Received Message for Content Card Campaign requires view, not just delivery. Docs at _docs/_user_guide/engagement_tools/segments/segmentation_filters.md list filters but may not explicitly st…
+- **`ka0VP000000ANubYAG`** — Timestamp of Email Subscription
+  - *Explanation:* Analyzer context (truncated): Docs cover email subscription and user data export. Knowledge article describes timestamp sources: User Profile page, Braze Support, Currents users.messages.email.Unsubscribe. Note: Currents/Snowflake only for unsubscrib…
+- **`ka0VP000000AgCTYA0`** — SPF/DKIM Alignment
+  - *Explanation:* Analyzer context (truncated): Docs do not explicitly document SPF/DKIM alignment; Knowledge article explains that sending domains under 'email settings' must align with from addresses (e.g., team.domain.com in SendGrid → @team.domain.com in from addr…
+- **`ka0VP000000CrgTYAS`** — Changes to Custom Unsubscribe Page in Email Settings are not Reflecting in Sent Emails
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains unsubscribe page updates can take a few hours due to caching. No equivalent troubleshooting content found in braze-docs email settings.
+- **`ka0VP000000D19ZYAS`** — Max Devices Rule
+  - *Explanation:* Analyzer context (truncated): Knowledge article: Max 20 devices per user; 21st device triggers FIFO removal; changeUser re-registers. No docs found for 20-device limit. Platform has device_limit_exceeded constant but not 20 specifically.
+- **`ka0VP000000EX7NYAW`** — Is there a set of IPs specifically for storage that can be provided to customers for whitelisting for Azure?
+  - *Explanation:* Analyzer context (truncated): No conflict. Article explains Braze cannot provide IPs for storage whitelisting; docs do not cover this explicitly.
+- **`ka0VP000000Eiu1YAC`** — Why is my Liquid snippet containing Catalog items returning an abort message?
+  - *Explanation:* Analyzer context (truncated): Knowledge article: Catalog item Liquid snippet returning abort - create via Personalisation menu with individual catalog item selections. Docs cover Catalogs and Liquid; platform has catalog_item_liquid cache keys. No di…
+- **`ka0VP000000EtkbYAC`** — Does the Amplitude Destination Support the Send of Anonymous User Data via Braze Currents?
+  - *Explanation:* Analyzer context (truncated): Article says to contact Account/Success Manager for anonymous user Amplitude Currents. Internal notes mention amplitude_anonymous_users_fl feature flip. Docs do not document this feature or enablement process.
+- **`ka0VP000000FquLYAS`** — Missing Fields_To_Export In /Users/Export/Segment Export File
+  - *Explanation:* Analyzer context (truncated): Docs for /users/export/segment may not explicitly list email_unsubscribed_at, email_opted_in_at, push_unsubscribed_at, push_opted_in_at as auto-included when exporting email_subscribe/push_subscribe.
+- **`ka0VP000000GD2vYAG`** — Scheduled Delay For Campaign Delivery
+  - *Explanation:* Analyzer context (truncated): Article states IAM campaign delivery MAX delay is 2 hours. Docs time_based_campaign not found at expected path; no explicit IAM 2-hour limit found in braze-docs.
+- **`ka0VP000000GmwjYAC`** — When is a Canvas Step Logged to a User's Profile?
+  - *Explanation:* Analyzer context (truncated): Docs mention Canvas steps but do not explicitly document when a step is logged (at send time) or multi-channel re-eligibility timestamp behavior. KA adds useful detail.
+- **`ka0VP000000GscLYAS`** — Connected Content and IAM FAQs
+  - *Explanation:* Analyzer context (truncated): Article explains Connected Content call timing with IAM (at delivery, not on click), multiple CC calls per button, REST data in same session. No direct docs conflict found.
+- **`ka0VP000000GxqXYAS`** — Is Random Variant Assignment Based on a User's Random Bucket number?
+  - *Explanation:* Analyzer context (truncated): Knowledge article states random variant assignment is based on user_id and canvas id, not random bucket number. Links to ab_testing_with_random_buckets. Docs at _docs/_user_guide/engagement_tools/canvas/create_a_canvas/c…
+- **`ka0VP000000HPoPYAW`** — Re-Launching an Archived Campaign or Canvas
+  - *Explanation:* Analyzer context (truncated): Knowledge article states to update scheduled start date to near-future or duplicate campaign/Canvas and amend start date to re-launch archived campaign/Canvas. Docs do not explicitly cover re-launching archived campaigns…
+- **`ka0VP000000Ho6rYAC`** — Click track More Than 2 Buttons in a Custom HTML In App Message?
+  - *Explanation:* Analyzer context (truncated): No conflict. Article states HTML with preview supports >2 button click tracking; older IAMs need JS bridge for button 1/2. No explicit docs found for this limitation.
+- **`ka0VP000000JENRYA4`** — Liquid Error Occurs On The Dashboard When Previewing Some Data Types
+  - *Explanation:* Analyzer context (truncated): Docs cover Liquid and canvas entry properties; Knowledge article provides workaround for string-to-number conversion in preview. No direct docs conflict.
+- **`ka0VP000000JWDtYAO`** — Canvas won't save after making changes (No error message displayed)
+  - *Explanation:* Analyzer context (truncated): Knowledge article states Canvas won't save due to empty custom attribute filter; remove empty filter or select attribute. Internal_notes reference Slack, PQ-5575, JIRA MT-1086.
+- **`ka0VP000000JYHJYA4`** — Would User Exit Canvas If Message is Aborted?
+  - *Explanation:* Analyzer context (truncated): Knowledge article states user continues through canvas flow as though message had been sent when message is aborted. Docs at _docs/_user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting.md state 'aborted…
+- **`ka0VP000000Ji3lYAC`** — Users in the Canvas are bigger than the Estimated Audience
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains Estimated Audience = users currently in segment; Canvas Entries can be smaller if users fell out of segment. Docs do not explicitly cover this Estimated Audience vs Canvas Entries discrepancy.
+- **`ka0VP000000LJfZYAW`** — Onboarding Campaigns -  1st Session Based on "Session Start"
+  - *Explanation:* Analyzer context (truncated): Knowledge article recommends: expand filter criteria (e.g. session count up to 1), avoid campaigns triggering on Session Start with strict session count filters—similar to custom event + filters. Addresses race condition…
+- **`ka0VP000000LhrZYAS`** — IAM Campaign Error: Warning: Use of the {% connected_content %} tag with retry is not available for this message type.
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/message_building_by_channel/in-app_messages/traditional/create.md cover IAM; Knowledge article states retry logic not allowed for connected content in HTML IAM.
+- **`ka0VP000000Lt9ZYAS`** — How to Identify and Export Users Who Performed a Specific Custom Event?
+  - *Explanation:* Analyzer context (truncated): No conflict. Article describes segment with Custom Event filter + CSV Export. Docs cover segments and CSV export. Internal notes add merged profiles/orphaned users caveat not in main docs.
+- **`ka0VP000000LtntYAC`** — Can I pull tag information of campaigns and canvases from Currents?
+  - *Explanation:* Analyzer context (truncated): Knowledge article states Currents does not contain/support tags; recommends Export REST API as workaround. Docs do not explicitly state Currents lacks tag support.
+- **`ka0VP000000MIW9YAO`** — What is the API Payload Limit for Braze APIs?
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_api/api_limits.md cover rate limits; Knowledge article states 4MB payload limit, HTTP 413. No explicit 4MB found in api_limits; API docs may have it elsewhere.
+- **`ka0VP000000MOtJYAW`** — Content Cards Pinning/Unpinning Behavior
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/message_building_by_channel/content_cards/create.md state pinned option cannot be updated retroactively; Knowledge article confirms and adds: changing unpinned→pinned after launch applies to fut…
+- **`ka0VP000000MPSnYAO`** — Campaign Last Sent Metric Does Not Match Last Message Send Timestamp
+  - *Explanation:* Analyzer context (truncated): Docs do not explicitly explain why Campaign Last Sent metric may not match last message send timestamp when Send in Local Time Zone is enabled for repeating campaigns.
+- **`ka0VP000000MwgTYAS`** — Why does my historical campaign no longer show any metrics on the Analytics page?
+  - *Explanation:* Analyzer context (truncated): No docs source found for 90-day default reporting window. Knowledge article states campaigns active >90 days ago need adjusted reporting window; changed early 2025 for performance.
+- **`ka0VP000000N4AzYAK`** — Why is the custom font not displaying when previewing in email DND Templates?
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/ cover custom font settings but do not mention the empty text block workaround for preview display.
+- **`ka0VP000000N7yTYAS`** — Why is a Tag No Longer Appended to a Campaign or Canvas?
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains tag no longer appended to campaign/Canvas because tag was deleted; tag deletions not logged to changelogs; /campaign/details and /canvas/details return blank tags. Docs do not explicitly cover …
+- **`ka0VP000000NDpNYAW`** — How to create a Survey In-App Message?
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains how to close/dismiss HTML IAM: appboy://close in href logs body click on both platforms; appboyBridge.closeMessage() logs body click on Android only. Docs may not document this platform differe…
+- **`ka0VP000000NMZJYA4`** — Is it possible to create vanity URLs for Media Library image assets, and if so, how?
+  - *Explanation:* Analyzer context (truncated): Docs do not document vanity URLs for Media Library. Article states Braze does not support changing CDN asset URLs to custom/vanity; supports changing image at existing URL. PQ-10953 says not supported.
+- **`ka0VP000000NjIzYAK`** — Email text is not displaying in Dark Mode
+  - *Explanation:* Analyzer context (truncated): No conflict. Article explains dark mode email rendering (background image vs background color); no equivalent docs found.
+- **`ka0VP000000OOE5YAO`** — Why the Canvas Steps Conversion Rate does not equal the Canvas Variant Total Conversion Rate?
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/engagement_tools/messaging_fundamentals/conversion_events.md cover conversion events and variant-level metrics but do not explain why variant total conversion can exceed sum of step conversions.
+- **`ka0VP000000OVqfYAG`** — Why Are There More Impressions for The Control Group Compared to The Variant in In-App Messages (IAMs)?
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains: control group can have more impressions than variant due to render time—IAMs take time to render (images, connected content, slow regions); users may end session before render, so variant impr…
+- **`ka0VP000000OiPhYAK`** — Button Clicks Not Being Tracked For Custom HTML IAM (button_id string contains an accent)
+  - *Explanation:* Analyzer context (truncated): Docs do not document button_id accent limitation for Custom HTML IAM. Article states button_id string with accents causes click tracking to fail; use button index (0 or 1) or strings without accents.
+- **`ka0VP000000OmgDYAS`** — Custom Event Properties Regex
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/engagement_tools/segments/regex/ cover regex. Article states segmentation uses /gi (case insensitive) but trigger/event properties use /g (case sensitive). Verify docs for this distinction.
+- **`ka0VP000000OndtYAC`** — When does Braze Log Push Open for a User?
+  - *Explanation:* Analyzer context (truncated): Article explains Push Open logged when user clicks push and starts session; rich push expand does not log Push Open. Docs cover push analytics. Timestamp uses device network time — useful clarification not clearly in doc…
+- **`ka0VP000000OyHZYA0`** — Can Data be Migrated Between App Groups and Braze Dashboards Environments
+  - *Explanation:* Analyzer context (truncated): Docs do not have a dedicated article on migrating data between App Groups and Braze Dashboards. The KA covers API key swap, user profile migration, historic data limitations, and push token migration.
+- **`ka0VP000000P5nhYAC`** — Liquid: Event Property Values in Message Composer Preview Mode
+  - *Explanation:* Analyzer context (truncated): Docs do not explicitly document Preview as Custom User for event property values. Article describes workaround: Preview & Test > Custom User > custom event property input.
+- **`ka0VP000000PKBdYAO`** — User Profile Not Appearing in the Segment
+  - *Explanation:* Analyzer context (truncated): Docs on segments and filters do not explicitly call out typo errors (e.g. bc@gmail.com vs abc@gmail.com) as cause of user not appearing in segment.
+- **`ka0VP000000Pal3YAC`** — Do we support an array of arrays in Liquid?
+  - *Explanation:* Analyzer context (truncated): Docs do not explicitly document array-of-arrays limitation in Liquid. Article provides workaround using split filter on string elements.
+- **`ka0VP000000Pc6vYAC`** — How Are Content Card/In-App message Control Group Impressions Being Logged in Currents?
+  - *Explanation:* Analyzer context (truncated): Knowledge article states: when a user logs an impression on content card/IAM in control group, users.campaigns.EnrollInControl is sent instead of users.messages.contentcard.Impression or users.messages.inappmessage.Impre…
+- **`ka0VP000000Pc8XYAS`** — Find Segments That Reference Another Segment
+  - *Explanation:* Analyzer context (truncated): No docs found for Segment Membership filter loop prevention or Messaging Use section.
+- **`ka0VP000000Q6D3YAK`** — Testing Nested Custom Attributes and Nested Objects for Custom Event Properties
+  - *Explanation:* Analyzer context (truncated): Docs do not explicitly document Preview and Send limitation for nested objects. Knowledge article states nested objects cannot be templated in Preview as Custom User (only string or array of strings supported); custom ev…
+- **`ka0VP000000QG17YAG`** — Multi-page IAM with Background Image toggled on applies image to all pages
+  - *Explanation:* Analyzer context (truncated): Knowledge article states: multi-page IAM with Background Image toggled on applies image to ALL pages, not a single page. Workaround: use custom code block with JavaScript for multiple backgrounds. Docs may not document t…
+- **`ka0VP000000QPnZYAW`** — What if Dashboard Users need to Register with Multiple Companies in Braze?
+  - *Explanation:* Analyzer context (truncated): Docs on manage_your_braze_users and adding users cover dashboard users; article adds: same email cannot be used twice across instances; Gmail + aliases (rocky+1@gmail.com); Multi-Company Developers feature for single acc…
+- **`ka0VP000000Qg3dYAC`** — IAM display order if trigger action and priority level are equal.
+  - *Explanation:* Analyzer context (truncated): Knowledge article states: when 2 IAMs have same trigger and same priority, the more recently created displays first; next trigger shows the other (unless re-eligibility). Also notes image size (<500KB recommended) can af…
+- **`ka0VP000000QgejYAC`** — Does the content card ID change or remain the same when sent to a recipient more than once in a campaign?
+  - *Explanation:* Analyzer context (truncated): Docs at _includes/developer_guide/_shared/logging_analytics/content_cards.md describe Content Card ID for logging analytics but do not state whether the card ID changes per send when the same campaign sends to the same r…
+- **`ka0VP000000Qh1JYAS`** — How to Get the View PII Limited Role User Permission Enabled?
+  - *Explanation:* Analyzer context (truncated): Docs on user permissions cover View PII; article states customers must request View PII Limited Role from Account/CSM. Docs may not document this request process.
+- **`ka0VP000000QlrJYAS`** — What FCM Responses are treated as uninstall push?
+  - *Explanation:* Analyzer context (truncated): Knowledge article states FCM responses DEVICE_UNREGISTERED, BAD_REGISTRATION, SENDER_ID_MISMATCH are treated as token removal (uninstall). No equivalent documentation found in braze-docs. Platform channel_push domain use…
+- **`ka0VP000000REjdYAG`** — Why Users Don't Match Segment Criteria Despite Meeting Filter Conditions
+  - *Explanation:* Analyzer context (truncated): Docs on segments and custom attributes do not explicitly state 'last 50 property values in last 30 days' limit or that /users/track datatype update resolves segment mismatch.
+- **`ka0VP000000RFuDYAW`** — Targeting a Non-Existent User via API
+  - *Explanation:* Analyzer context (truncated): Docs on API-triggered campaigns and send_to_existing_only exist but may not fully document: 200 response for non-existent user, cancel with 'Unknown external Id', no Currents events.
+- **`ka0VP000000RGALYA4`** — Understanding the Subscription Group Timeseries
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups cover subscription groups but do not explain the Subscription Group Timeseries (Size vs Unsubscribed Size) or t…
+- **`ka0VP000000RIAXYA4`** — Delay Step Auto Advancement Behavior When a Canvas is Stopped
+  - *Explanation:* Analyzer context (truncated): Knowledge article states users will not auto-advance from delay step if canvas was stopped during the delay. Docs at _docs/_user_guide/engagement_tools/canvas/canvas_components/delay_step.md do not explicitly cover stopp…
+- **`ka0VP000000RKFZYA4`** — Button Click Analytics Not Showing For Drag-and-Drop IAMs
+  - *Explanation:* Analyzer context (truncated): Knowledge article: DnD IAM button click analytics not available at campaign level; workaround is open canvas step analytics. Internal notes cite Slack and JIRA IAM-300.
+- **`ka0VP000000RL3ZYAW`** — Why Is Segment Size Smaller Than Canvas Analytics
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains segment size smaller than Canvas analytics due to unsubscribes in Historical Performance. Docs do not explicitly cover this segment vs Canvas analytics discrepancy.
+- **`ka0VP000000RL8PYAW`** — Why is Drag And Drop Editor Ignoring The Alignment Settings of Some Elements?
+  - *Explanation:* Analyzer context (truncated): Docs do not document DnD alignment troubleshooting (custom CSS/HTML, custom fonts, row duplication). Knowledge article provides stepwise troubleshooting.
+- **`ka0VP000000RWTdYAO`** — Successful Response From /users/delete or users/merge Endpoint But The User Is Not Deleted In Braze
+  - *Explanation:* Analyzer context (truncated): Docs on /users/delete and users/merge exist but do not fully cover: correct external_id/braze_id verification, 5min cache propagation, users without external_id (email-only) workflow.
+- **`ka0VP000000RWWrYAO`** — When does the recalculation of estimated real opens stop?
+  - *Explanation:* Analyzer context (truncated): Article states estimated real open rate never stops regenerating; stabilizes after a few days. Docs do not explicitly cover this behavior.
+- **`ka0VP000000RXRJYA4`** — How to Avoid Duplicate User Creation via Email Capture Forms
+  - *Explanation:* Analyzer context (truncated): Docs cover subscription status get/set endpoints but do not explicitly document this workflow for avoiding duplicate user creation via email capture forms.
+- **`ka0VP000000RY5dYAG`** — Can we see delivery failures from API campaigns or API triggered campaigns?
+  - *Explanation:* Analyzer context (truncated): Article states delivery failures from API campaigns/API triggered campaigns are only visible in Message Activity Log; API returns success if syntax correct. No explicit docs found for this limitation.
+- **`ka0VP000000RanNYAS`** — Liquid / Content Block changes position when switching from HTML > Classic Editor
+  - *Explanation:* Analyzer context (truncated): Docs do not document the known behavior that Liquid/Content Block position changes when switching between HTML and Classic editor. Knowledge article states Braze is working on a consolidated editor and recommends Drag an…
+- **`ka0VP000000RgHhYAK`** — Action Path error when selecting link alias.
+  - *Explanation:* Analyzer context (truncated): Docs at engagement_tools/canvas/canvas_components/action_paths.md cover Action Paths. Knowledge article describes workaround: 'Interact with Step' only available after message step; add message step, add action path, sel…
+- **`ka0VP000000RgnxYAC`** — Snowflake Log for USERS_MESSAGES_EMAIL_UNSUBSCRIBE
+  - *Explanation:* Analyzer context (truncated): Docs at managing_user_subscriptions cover subscription states. Knowledge article clarifies USERS_MESSAGES_EMAIL_UNSUBSCRIBE only logs unsubscribe-link clicks, not REST API. Currents subscription change requires Subscript…
+- **`ka0VP000000RiUnYAK`** — Does a user need to be part of the selected SMS Subscription Group to receive SMS test messages?
+  - *Explanation:* Analyzer context (truncated): No direct conflict. Docs on SMS subscription groups and Content Test Groups exist but do not explicitly state that SMS test messages require user to be in the selected SMS Subscription Group.
+- **`ka0VP000000RsNhYAK`** — What clicks does 'Clicked in-app message' refer to in Clicked/Opened Campaign Segmentation Filter?
+  - *Explanation:* Analyzer context (truncated): Knowledge article: 'Clicked in-app message' in Clicked/Opened Campaign filter includes Body, Button 1, Button 2 clicks; excludes Dismiss and X. Docs at segmentation_filters may not explicitly list this.
+- **`ka0VP000000RvTdYAK`** — Error When Adding New Dashboard User: "Email is already taken"
+  - *Explanation:* Analyzer context (truncated): Docs at _docs/_user_guide/administrative/app_settings/manage_your_braze_users/adding_users_to_your_dashboard/ do not explicitly document 'Email is already taken' error or cross-instance email uniqueness.
+- **`ka0VP000000S9I5YAK`** — My Engagement Report/Report Builder Download link has expired.
+  - *Explanation:* Analyzer context (truncated): No docs found for Engagement Report/Report Builder download link 1-hour expiry. Knowledge article describes expected behavior.
+- **`ka0VP000000S9zdYAC`** — Why can't I fully Access my Braze Dashboard as a user.
+  - *Explanation:* Analyzer context (truncated): Docs do not have a dedicated troubleshooting page for dashboard access issues. Knowledge article covers: wrong cluster, poor connection, browser cache, out-of-date browser, incompatible plugins, server-side issues, login…
+- **`ka0VP000000SFovYAG`** — Triggering Action-Based Campaign/Canvas Custom Event Dated in the Past
+  - *Explanation:* Analyzer context (truncated): No conflict. KA explains backdated custom events can trigger campaigns/canvases if not before campaign start; delay based on event timestamp; abort_delayed_delivery_time FF aborts if trigger >4 hours old. Internal notes …
+- **`ka0VP000000SGUrYAO`** — SMS Subscribes are not accurately reflected in SMS/MMS/RCS Channel Engagement
+  - *Explanation:* Analyzer context (truncated): Docs do not explicitly document that SMS/MMS/RCS Channel Engagement Total-Opt Ins/Outs only includes subscriptions/unsubscribes via Inbound message, not Dashboard/Rest API. The KA provides this clarification.
+- **`ka0VP000000TCnNYAW`** — What does Braze need to do to help set up BIMI(Brand Indicators for Messaging Identification)?
+  - *Explanation:* Analyzer context (truncated): No Braze docs on BIMI setup. Article correctly states all BIMI setup is client-side via DNS; no Braze coordination needed. External links to Litmus and Agari.
+- **`ka0VP000000TGcTYAW`** — Testing Web In-App Messages
+  - *Explanation:* Analyzer context (truncated): Knowledge article: Web IAM test requires push enabled; alternative is segment of internal users. Internal notes reference Lightning case URL, Slack, and 'None of the selected users have matching push tokens' warning.
+- **`ka0VP000000TJX7YAO`** — Help! I accidentally uploaded the wrong CSV to import some promo codes, and I clicked "Save List"
+  - *Explanation:* Analyzer context (truncated): Docs have promotion codes at _docs/user_guide/personalization_and_dynamic_content/promotion_codes/ but no content on undoing wrong CSV import or 'Save List' for promo codes.
+- **`ka0VP000000TcUvYAK`** — Content Card or In-App Message Differs From Preview
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains IAM/Content Card differs from preview due to custom styling or different user profile. Internal notes reference Swift UI customization and platform-specific styling. Docs do not have a dedicate…
+- **`ka0VP000000TlYDYA0`** — Setting Custom Attribute as "" (blank) vs. null
+  - *Explanation:* Analyzer context (truncated): No conflict. KA explains blank vs null for custom attributes. Docs at _docs/_user_guide/data/activation/custom_data/custom_attributes and API user_attributes_object cover data types but may not explicitly contrast "" vs …
+- **`ka0VP000000TqEXYA0`** — Will a Body Click be recorded if the close button on an IAM is clicked?
+  - *Explanation:* Analyzer context (truncated): No conflict. KA documents platform-specific behavior: appboyBridge.closeMessage() logs Body Click on Android but not iOS. Docs at _docs/_user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge…
+- **`ka0VP000000UCyDYAW`** — IAM Display Delays
+  - *Explanation:* Analyzer context (truncated): Knowledge article explains IAM display delays (inapp vs templated_iam, re-evaluate eligibility). Docs may not explicitly cover templated_iam delay or the distinction. No direct conflict found.
+
+## Article is listed on a Jira issue under Epic **BD-6308** (Round 2); excluded from `kb_articles_actioned.md` so the CSV backlog file does not duplicate epic-tracked Phase 2 work.
+
+**Count:** 34
+
+- **`ka03o000000tU8hAAE`** — Difference in bounces between Currents and Deliverability Looker report
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka03o000001NBEcAAO`** — Nesting Images Within A Text Box In The Drag and Drop Editor
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka03o000001dTK2AAM`** — What constitutes as a "received" for a user profile for an email?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP00000013IPYAY`** — How do IP Pools Work When They Contain More Than One IP?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP0000003sofYAA`** — Conversion Clarifications for Canvas
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP0000005R1BYAU`** — Canvas Data Summary Endpoint - Differentiating Between Primary Conversions and Additional Conversions Events
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP0000009V2zYAE`** — How to set up the Redshift data ingestion into Braze
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP0000009YDlYAM`** — Inline CSS Does Not Work With HTML Pulled in by Connected Content
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000FsMfYAK`** — Outlook rendering of emails: CTA buttons appearing as [?it=]
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000JxkLYAS`** — How much data points do API calls use?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000K2TtYAK`** — Default Data Export Destination
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000LZ61YAG`** — Adding Attachments with the /messages/send Endpoint
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000LsrpYAC`** — Understanding the 'Segment is Too Large' Export Error Despite Segment Being Smaller than 500k Users
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000NX1hYAG`** — Troubleshooting layout breaks within the drag and drop editor
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000Nxx3YAC`** — Behavior of IAM Expiration Date in Canvas Step
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000OWJhYAO`** — Arabic Language Format and Alignment in Push Notification
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000OifpYAC`** — Image in catalog is not rendered properly in email
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000PiqfYAC`** — How to extract the raw HTML for an email created in the Drag & Drop editor
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000QMw9YAG`** — Conversion Tracking Rules
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000QyOjYAK`** — What Are the Reasons for Delayed Push Notifications on Android and iOS?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000RIfBYAW`** — Email redirect links are returning 403 error
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000RKKPYA4`** — DMARC failing for Email campaign
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000RRXBYA4`** — User Received An Email That They Should Not Have
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000RUhxYAG`** — What are '410' Web Push Token Errors?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000RafJYAS`** — Image not rendering on Gmail
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000RlqrYAC`** — Why do I not receive a List-Unsubscribe in the header when I have one set up to be sent for my emails?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000Rr8HYAS`** — Font style applied in a Custom HTML Content Block changes unexpectedly when the Content Block is added via Liquid to a Custom HTML Email Template/Campaign
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000SCHZYA4`** — Why can't I change the colour for a button in DnD Editor
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000SmsvYAC`** — How to Export Segment of 500k+ Users.
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000Sn7RYAS`** — Content Card Re-Eligibility Behavior
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000TEPNYA4`** — Why are the Email 'Total Clicks' Higher Than 'Total Opens'?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000TakrYAC`** — Campaign Scheduling and Editing Best Practices
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000To33YAC`** — How do I select more than 60 minutes for the import sync interval time between my data warehouse and Braze?
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+- **`ka0VP000000TySDYA0`** — Targeting Users in a Specific App when the App Group Contains Multiple Apps
+  - *Explanation:* Remove this `article_id` from `_data/kb_epic_bd6308_tracked_article_ids.txt` only after the migration task is cancelled or the article is intentionally re-queued outside the epic.
+
+## `implementation_status` first line is `actioned`.
+
+**Count:** 18
+
+- **`ka0VP0000008k2TYAQ`** — Email Object With Attachment – Security Considerations
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000I3AjYAK`** — Soft Push Prompts - Web
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000Ii93YAC`** — Use Liquid Logic to Abort Messages on Specific Date / Time
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000P1iTYAS`** — How to View Custom Events and their Properties Sent from Shopify to Braze
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000PHC9YAO`** — Facebook Audience Sync Troubleshooting
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000Pf3BYAS`** — Email Subscription Status Does Not Change to "Subscribed" When Email Address Is Updated
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000QNllYAG`** — Why is my SPF (Sender Policy Framework) record failing?
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000RAGDYA4`** — Connected Content requests per message send
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000RKM1YAO`** — How to run a dig command in the terminal for a CNAME record (or any DNS record) in Mac OS
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000RmADYA0`** — Google Analytics UTM Statistics differ from Braze Analytics
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000S34bYAC`** — Turning Off Click Tracking on a Link by Link Basis
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000S9DFYA0`** — "Open Web URL Inside App" Behaviour - draft mode
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000SoJdYAK`** — When Does Braze Evaluate Users For Local Timezone Delivery?
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000TD0HYAW`** — What happens when an email is sent out to multiple profiles all bearing the same email address?
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000TRJNYA4`** — Broken UTM Link In Email Campaign
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000TXLZYA4`** — Asynchronous Processing of API Requests
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000TbDtYAK`** — Composition of a braze_id & external_id
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+- **`ka0VP000000TgFBYA0`** — How Braze handles identifying an anonymous user as a NEW user vs. an already EXISTING user
+  - *Explanation:* Work already recorded as done or superseded in the migration tracker.
+
+## `target` is `knowledge_article` and the row has no substantive `_docs/` hint (KA-only / no Braze Docs PR from CSV).
+
+**Count:** 15
+
+- **`ka0VP0000001FGLYA2`** — When is a Campaign Send Logged to a User's Profile?
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP0000009A4zYAE`** — Exporting Segment Analytics.
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP0000009sCTYAY`** — Ratio Of Unique Email Opens To Unique Clicks Incorrect
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000Hi1RYAS`** — How to Export a List of Users With Access to Your Braze Dashboard
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000Pea9YAC`** — CSV Export User Data vs. CSV Export Email Addresses
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000Q0E5YAK`** — Create NEW User, Send API Trigger Campaign ( Email )
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000QBELYA4`** — Push Stories - How to Debug for iOS and Android
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000RFqzYAG`** — Dashboard Administrator Cannot Delete User
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000RK4HYAW`** — Customer updating Currents credentials
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000RP8nYAG`** — Braze Loading Times out – "Aw Snap!" error populates in Chrome
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000RaPBYA0`** — Missing UTM Parameters (Link Templates)
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000S4K1YAK`** — What are Archived Users in Braze and how/when do they become archived
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000Sh5FYAS`** — Removing/Unsetting A Custom Attribute From A User Profile
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000TImLYAW`** — What information comes to Braze from Mixpanel?
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+- **`ka0VP000000TxeDYAS`** — Merging/Orphaning Users Overview
+  - *Explanation:* Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.
+
+## `target` is `inconclusive`.
+
+**Count:** 2
+
+- **`ka0VP000000NjFlYAK`** — Best practices on handling how emails show in dark mode vs light mode
+  - *Explanation:* Outcome surface for the row is unclear; do not open a Phase 2 docs PR without analyst override.
+- **`ka0VP000000TyjxYAC`** — Snowflake Query - Obtaining Unique Email Opens
+  - *Explanation:* Outcome surface for the row is unclear; do not open a Phase 2 docs PR without analyst override.
+
+## All extracted `_docs/...` paths are under `_docs/_help/help_articles/` (not a public edit target).
+
+**Count:** 1
+
+- **`ka0VP000000R2IfYAK`** — Braze to Braze Webhook > Error: 415 Unsupported Media Type
+  - *Explanation:* Paths: `_docs/_help/help_articles/api/webhook_connected_content_errors.md`
+
+## `implementation_status` first line is `made it "internal only"` — unlisted or non-public disposition; default skip per salesforce-analyzer rule.
+
+**Count:** 1
+
+- **`ka0VP000000MHJxYAO`** — Regular Expressions (RegEx) Guide
+  - *Explanation:* Raw first line: `Made it "Internal only"`.
+
+## conflict_resolution signals manual skip (`human review`).
+
+**Count:** 1
+
+- **`ka0VP000000OgMHYA0`** — When is a user's account flagged as having uninstalled the app? When are they considered to have installed the app?
+  - *Explanation:* `conflict_resolution` (raw): codebase inconclusive. flag for human review.
+
+## conflict_resolution signals manual skip (`no source`).
+
+**Count:** 1
+
+- **`ka0VP000000RElFYAW`** — "Connection reset by peer" Error when making calls via API
+  - *Explanation:* `conflict_resolution` (raw): no source found
