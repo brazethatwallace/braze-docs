@@ -121,6 +121,10 @@ def normalized_implementation_status(raw: str) -> str:
 4. **Map targets** — Prefer `doc_path` when set (ensure path starts with `_docs/`). Supplement with paths embedded in `codebase_evidence` or explicit `_docs/...` strings in `suggested_change`. **Do not use `_docs/_help/help_articles/`** as the edit target.
 5. **Verify the gap** — Read the target doc(s); if the suggestion is already satisfied, mark **redundant** and skip.
 6. **Sort backlog** — Default: `priority_tier` ascending (1 first), then `score` descending, then `title`.
+7. **Optional: write tracker files** — After Phase 1 triage, run `python3 scripts/generate_kb_phase1_outputs.py` from the repo root. It reads `_data/kb_articles.csv` and writes:
+   - `_data/kb_articles_skipped.md` — skipped `article_id` values with the **skip reason** (automated gates only; manual “redundant in docs” / workaround checks are not included).
+   - `_data/kb_articles_actioned.md` — **actionable** backlog (not the CSV `actioned` status): rows that pass gates and resolve to an on-disk `_docs/...` file, **batched** by (a) **shared primary doc path** (multi-article → one PR) and (b) **vertical** (IA bucket under `_user_guide/`) plus CSV `team`.
+   - **Epic overlap:** If `_data/kb_epic_bd6308_tracked_article_ids.txt` is present, each `article_id` listed there is **omitted** from `kb_articles_actioned.md` when it would otherwise be actionable (so the markdown queue does not duplicate work already filed under Jira Epic **BD-6308**). Those rows appear in `kb_articles_skipped.md` with an epic-specific explanation. Refresh the list when new child issues are added under the epic (JQL: `"Epic Link" = BD-6308`).
 
 ### Per-row output format
 
