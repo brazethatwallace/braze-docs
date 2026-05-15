@@ -1,11 +1,10 @@
 # KB articles — Phase 1 actionable backlog
 
-Generated from `_data/kb_articles.csv` on **2026-05-15 17:45 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-05-15 19:14 UTC**.
 
 These rows passed automated Phase 1 gates and resolve to an on-disk `_docs/...` file. They are **not** marked `actioned` in the CSV — this file is a **work queue** for Phase 2.
 
-**Totals:** **44** actionable rows (of 521).
-**Epic BD-6308:** **34** additional rows would have appeared here but are listed in `_data/kb_epic_bd6308_tracked_article_ids.txt` (Jira child issues under the epic); see `_data/kb_articles_skipped.md` for those rows.
+**Totals:** **44** actionable rows (of 266).
 
 ## 1. Multi-article batches (same primary doc)
 

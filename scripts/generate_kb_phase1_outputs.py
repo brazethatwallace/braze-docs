@@ -14,6 +14,11 @@ If `_data/kb_epic_bd6308_tracked_article_ids.txt` exists, `article_id` values li
 (typically copied from Jira issues under Epic **BD-6308**) are excluded from the actionable
 markdown and counted as skipped so the file does not duplicate in-flight epic work.
 
+When CSV `_docs/...` hints use **retired IA paths**, the script tries **scripted path inference**
+(exact maps, prefix rewrites, then unique-basename matches under `_docs/`) before marking a
+row as “no locatable target”. Extend `PATH_INFERENCE_EXACT` / `PATH_INFERENCE_PREFIXES` when you
+confirm new stale→current mappings.
+
 Usage (from repo root):
   python3 scripts/generate_kb_phase1_outputs.py
 
@@ -77,6 +82,169 @@ PATH_FRAG_REMAPS: tuple[tuple[str, str], ...] = (
     ("reeligibility", "re_eligibility"),
     ("dataplatform", "data_platform"),
 )
+
+# --- Path inference (stale CSV `_docs/` → current on-disk targets) ---
+# Keys are `normalize_remapped_doc_path(raw)` outputs (see below). Values are repo-relative `_docs/...` files.
+PATH_INFERENCE_EXACT: dict[str, str] = {
+    "_docs/_user_guide/messaging/campaigns/building_campaigns/rate-limiting.md": (
+        "_docs/_user_guide/messaging/messaging_fundamentals/frequency_capping.md"
+    ),
+    "_docs/_user_guide/channels/email/managing_user_subscriptions.md": (
+        "_docs/_user_guide/channels/email/subscriptions.md"
+    ),
+    "_docs/_user_guide/data/activation/custom_data/custom_attributes.md": (
+        "_docs/_user_guide/data/activation/attributes/custom_attributes.md"
+    ),
+    "_docs/_user_guide/data/activation/custom_data/custom_events.md": (
+        "_docs/_user_guide/data/activation/events/custom_events.md"
+    ),
+    "_docs/_user_guide/personalization_and_dynamic_content/liquid/faq.md": (
+        "_docs/_user_guide/messaging/design_and_edit/personalize/liquid/faq.md"
+    ),
+    "_docs/_user_guide/administrative/app_settings/company_settings/automated_user_provisioning.md": (
+        "_docs/_user_guide/administer/global/user_management/automated_user_provisioning.md"
+    ),
+    "_docs/_user_guide/administrative/access_braze/single_sign_on/set_up.md": (
+        "_docs/_user_guide/administer/global/saml_single_sign_on/saml_sso_setup.md"
+    ),
+    "_docs/_user_guide/channels/sms_mms_rcs/sms/faqs.md": (
+        "_docs/_user_guide/channels/sms_mms_and_rcs/faqs.md"
+    ),
+    "_docs/_user_guide/channels/sms_mms_rcs/link_shortening.md": (
+        "_docs/_user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening.md"
+    ),
+    "_docs/_user_guide/channels/in_app_messages/traditional/customize/email_capture_form.md": (
+        "_docs/_user_guide/channels/in_app_messages/message_types/email_capture_form.md"
+    ),
+    "_docs/_user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support": (
+        "_docs/_user_guide/data/activation/attributes/nested_custom_attribute_support.md"
+    ),
+    "_docs/_user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support.md": (
+        "_docs/_user_guide/data/activation/attributes/nested_custom_attribute_support.md"
+    ),
+}
+
+# Longest-old-prefix first (applied after exact map misses).
+_PATH_INFERENCE_PREFIX_RAW: tuple[tuple[str, str], ...] = (
+    (
+        "_docs/_user_guide/messaging/campaigns/building_campaigns/delivery_types/triggered_delivery/",
+        "_docs/_user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/",
+    ),
+    (
+        "_docs/_user_guide/personalization_and_dynamic_content/liquid/",
+        "_docs/_user_guide/messaging/design_and_edit/personalize/liquid/",
+    ),
+    (
+        "_docs/_user_guide/messaging/locations_and_geofences/",
+        "_docs/_user_guide/audience/locations_and_geofences/",
+    ),
+    (
+        "_docs/_user_guide/messaging/segments/",
+        "_docs/_user_guide/audience/segments/",
+    ),
+    (
+        "_docs/_user_guide/analytics/reporting/",
+        "_docs/_user_guide/analytics/reports/",
+    ),
+    (
+        "_docs/_user_guide/messaging/campaigns/managing_campaigns/",
+        "_docs/_user_guide/messaging/campaigns/manage_campaigns/",
+    ),
+)
+PATH_INFERENCE_PREFIXES: tuple[tuple[str, str], ...] = tuple(
+    sorted(_PATH_INFERENCE_PREFIX_RAW, key=lambda kv: -len(kv[0]))
+)
+
+# Basenames that appear exactly once under `_docs/` (excluding ambiguous short/common names).
+_BASENAME_INDEX_EXCLUDE: frozenset[str] = frozenset(
+    {
+        "faq.md",
+        "index.md",
+        "home.md",
+        "about.md",
+        "readme.md",
+        "changelog.md",
+    }
+)
+_unique_basename_to_rel: dict[str, str] | None = None
+
+
+def normalize_remapped_doc_path(raw: str) -> str:
+    """IA remaps + strip line ranges; used as key for inference maps."""
+    s = raw.strip().replace("\\", "/")
+    s = strip_line_range_suffix(s)
+    return apply_path_remaps(s)
+
+
+def build_unique_basename_index(root: Path) -> dict[str, str]:
+    """Map `filename.md` → single `_docs/...` relative path when unambiguous repo-wide."""
+    by_name: dict[str, list[str]] = defaultdict(list)
+    docs = root / "_docs"
+    if not docs.is_dir():
+        return {}
+    for p in docs.rglob("*.md"):
+        if "_help/help_articles" in str(p):
+            continue
+        try:
+            rel = p.relative_to(root).as_posix()
+        except ValueError:
+            continue
+        if not rel.startswith("_docs/"):
+            continue
+        by_name[p.name].append(rel)
+    out: dict[str, str] = {}
+    for name, paths in by_name.items():
+        if len(paths) != 1:
+            continue
+        if name in _BASENAME_INDEX_EXCLUDE or len(name) < 12:
+            continue
+        out[name] = paths[0]
+    return out
+
+
+def get_unique_basename_index(root: Path) -> dict[str, str]:
+    global _unique_basename_to_rel
+    if _unique_basename_to_rel is None:
+        _unique_basename_to_rel = build_unique_basename_index(root)
+    return _unique_basename_to_rel
+
+
+def resolve_path_with_inference(
+    raw: str,
+    root: Path,
+    basename_index: dict[str, str],
+) -> tuple[Path | None, str | None]:
+    """
+    Resolve CSV `_docs/...` hint to an on-disk file: direct remaps first, then scripted inference.
+    Returns (resolved Path or None, short note for logging / optional queue footnotes).
+    """
+    direct = resolve_existing_path(raw, root)
+    if direct:
+        return direct, None
+
+    norm = normalize_remapped_doc_path(raw)
+    if norm in PATH_INFERENCE_EXACT:
+        alt = PATH_INFERENCE_EXACT[norm]
+        hit = resolve_existing_path(alt, root)
+        if hit:
+            return hit, f"inferred exact map `{norm}` → `{alt}`"
+
+    for old_prefix, new_prefix in PATH_INFERENCE_PREFIXES:
+        if norm.startswith(old_prefix):
+            cand = new_prefix + norm[len(old_prefix) :]
+            hit = resolve_existing_path(cand, root)
+            if hit:
+                return hit, f"inferred prefix `{old_prefix}` → `{new_prefix}` on `{norm}`"
+
+    base = Path(norm).name
+    if base.endswith(".md") and base in basename_index:
+        alt = basename_index[base]
+        if alt != norm:
+            hit = resolve_existing_path(alt, root)
+            if hit:
+                return hit, f"inferred unique basename `{base}` → `{alt}`"
+
+    return None, None
 
 
 def normalized_implementation_status(raw: str | None) -> str:
@@ -150,22 +318,24 @@ def resolved_primary_doc(
     codebase_evidence: str | None,
     suggested_change: str | None,
     root: Path,
-) -> tuple[str | None, Path | None]:
+) -> tuple[str | None, Path | None, str | None]:
     """
     First `_docs/...` path from row fields that resolves to a file under `root`.
-    Returns (normalized `_docs/...` string relative to repo, resolved Path or None).
+    Tries IA remaps, then scripted inference (exact map, prefixes, unique basename).
+    Returns (normalized `_docs/...` string relative to repo, resolved Path or None, inference note or None).
     """
+    uniq = get_unique_basename_index(root)
     for raw in extract_doc_paths(doc_path, codebase_evidence, suggested_change):
-        hit = resolve_existing_path(raw, root)
+        hit, note = resolve_path_with_inference(raw, root, uniq)
         if hit:
             try:
                 rel = hit.relative_to(root)
                 rel_s = rel.as_posix()
                 if rel_s.startswith("_docs/"):
-                    return rel_s, hit
+                    return rel_s, hit, note
             except ValueError:
                 pass
-    return None, None
+    return None, None, None
 
 
 def help_only_paths(
@@ -238,6 +408,12 @@ def product_vertical_hint(primary_rel: str) -> str:
         return "LINE"
     if "_docs/_user_guide/channels/whatsapp" in low:
         return "WhatsApp"
+    if "_docs/_user_guide/administer/" in low:
+        return "Dashboard & administration"
+    if "_docs/_user_guide/messaging/design_and_edit/personalize/connected_content" in low:
+        return "Messaging (Connected Content)"
+    if "_docs/_user_guide/messaging/design_and_edit/personalize/liquid" in low:
+        return "Messaging (Liquid personalization)"
     if "_docs/_user_guide/messaging/canvas" in low:
         if low.rstrip("/").endswith("action_paths.md"):
             return "Canvas (Email channel triggers — confirm Email vs Canvas PM if needed)"
@@ -246,6 +422,8 @@ def product_vertical_hint(primary_rel: str) -> str:
         return "Messaging & automation (Campaigns / Canvas-adjacent)"
     if "_docs/_user_guide/analytics/" in low:
         return "Analytics"
+    if "_docs/_user_guide/audience/" in low:
+        return "Audience & segments"
     if "braze_currents" in low or "/currents/" in low:
         return "Currents"
     if "_docs/_user_guide/data/" in low:
@@ -298,6 +476,7 @@ class RowOut:
     vertical: str = ""
     skip_reason: str | None = None
     skip_context: str | None = None
+    path_inference: str | None = None
 
 
 def classify_row(
@@ -388,7 +567,7 @@ def classify_row(
             ctx="Archive/consolidation-only work with no `_docs/...` path in `doc_path`, evidence, or `suggested_change`.",
         )
 
-    primary_rel, rpath = resolved_primary_doc(doc_path, evidence, suggested, root)
+    primary_rel, rpath, path_inference = resolved_primary_doc(doc_path, evidence, suggested, root)
     if not primary_rel:
         extracted = extract_doc_paths(doc_path, evidence, suggested)
         if extracted:
@@ -396,8 +575,9 @@ def classify_row(
             if len(extracted) > 5:
                 shown += f", … (+{len(extracted) - 5} more)"
             ctx = (
-                f"Extracted `_docs` candidates (none resolve to a file on disk after IA remaps): {shown}. "
-                "Fix `doc_path` / evidence paths or extend remaps in `scripts/generate_kb_phase1_outputs.py`."
+                f"Extracted `_docs` candidates (none resolve after IA remaps and scripted path inference): {shown}. "
+                "Fix `doc_path` / evidence paths or extend `PATH_INFERENCE_EXACT` / `PATH_INFERENCE_PREFIXES` / "
+                "`PATH_FRAG_REMAPS` in `scripts/generate_kb_phase1_outputs.py`."
             )
         else:
             ctx = (
@@ -405,7 +585,7 @@ def classify_row(
                 "(or only non-doc targets such as `platform/...` without a docs path)."
             )
         return skip(
-            "No locatable on-disk `_docs/...` target after path extraction and IA remaps "
+            "No locatable on-disk `_docs/...` target after path extraction, IA remaps, and scripted inference "
             "(insufficient CSV path, stale path, or needs manual `doc_path` fix).",
             ctx=ctx,
         )
@@ -427,6 +607,7 @@ def classify_row(
         resolved_path=rpath,
         vertical=vert,
         skip_reason=None,
+        path_inference=path_inference,
     )
 
 
@@ -610,6 +791,31 @@ def main() -> None:
                 )
             act_lines.append("")
 
+    inferred_rows = [c for c in actionable if c.path_inference]
+    if inferred_rows:
+        act_lines.extend(
+            [
+                "### Scripted path inference used (verify in Phase 2)",
+                "",
+                "These actionable rows had **no direct file hit** for the CSV `_docs/` string; the generator "
+                "matched a current page via `PATH_INFERENCE_EXACT`, `PATH_INFERENCE_PREFIXES`, or a **globally unique** "
+                "`*.md` basename under `_docs/`. Confirm the mapping before merging content.",
+                "",
+                "| article_id | Title | Primary `_docs` target | Inference |",
+                "| --- | --- | --- | --- |",
+            ]
+        )
+        for c in sorted(inferred_rows, key=lambda x: score_key(x.row))[:45]:
+            r = c.row
+            ttl = (r.get("title") or "").replace("|", "\\|")
+            inf = (c.path_inference or "").replace("|", "\\|").replace("`", "'")
+            act_lines.append(
+                f"| `{r.get('article_id', '').strip()}` | {ttl} | `{c.primary_rel}` | {inf} |"
+            )
+        if len(inferred_rows) > 45:
+            act_lines.append(f"| … | _({len(inferred_rows) - 45} more)_ | | |")
+        act_lines.append("")
+
     act_lines.extend(
         [
             "## 2. Batches by vertical (IA bucket) and team",
@@ -644,8 +850,12 @@ def main() -> None:
 
     ACTIONED_OUT.write_text("\n".join(act_lines).rstrip() + "\n", encoding="utf-8")
 
+    inferred_n = sum(1 for c in actionable if c.path_inference)
     print(f"Wrote {SKIPPED_OUT.relative_to(REPO_ROOT)} ({len(skipped)} skipped)")
-    print(f"Wrote {ACTIONED_OUT.relative_to(REPO_ROOT)} ({len(actionable)} actionable)")
+    print(
+        f"Wrote {ACTIONED_OUT.relative_to(REPO_ROOT)} ({len(actionable)} actionable"
+        + (f"; {inferred_n} used scripted path inference)" if inferred_n else ")")
+    )
 
 
 if __name__ == "__main__":
