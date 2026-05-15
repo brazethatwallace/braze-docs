@@ -99,3 +99,13 @@ The conversion window starts when the user enters the Experiment Path step, not 
 {% alert important %}
 If you're using Intelligent Timing on a Message step within an experiment path, the time between experiment entry and the actual message send reduces the effective conversion window for that path. For example, if your experiment has a 5-day conversion window and Intelligent Timing delays the message by 2 days, users on that path only have 3 days after receiving the message to convert within the experiment window—even though the Message step's own analytics track conversions from the time of message send.<br><br>For cleaner experiment analytics, place any delays (such as Delay steps) **before** the Experiment Path step rather than within an experiment path. This way, all paths start from the same point and delays don't consume any of the conversion window.
 {% endalert %}
+
+## Frequently asked questions
+
+### Why do sends differ across paths when the experiment split looks even?
+
+Downstream **Sends** depend on each path’s steps, delays, channel eligibility, and content—not only the percentage split at the Experiment Path. For example, different delays, intelligent send times, or subscription status can change how many users receive a message even when path assignment was balanced. To compare path outcomes, use [Experiment Path analytics](#tracking-performance), which measures conversions from a common entry point.
+
+### How long does the experiment conversion window last?
+
+The **Additional Settings** conversion window (1–30 days) starts when the user **enters** the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) and the alert on Intelligent Timing above.
