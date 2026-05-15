@@ -101,6 +101,16 @@ If we look back to the active users, we can see that even though it contains 29.
 
 This means that even though we specified 90% of users to enter the variant, not all of those users are actually able to receive a push notification. These users who are unable to receive a push notification will still enter the variant regardless.
 
+## Action-based steps and custom event properties
+
+If an **action-based** Canvas or Action Path does not send when you expect, confirm the custom event in the user profile matches the trigger configuration, including **property filters**. Braze evaluates the exact properties sent with the event; if a property is missing or the value does not match the filter, the user will not advance.
+
+Also check the **timestamp** of the event relative to Canvas launch, [entry schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types), and any scheduled delay before the step—events that occur too early or before the user qualifies for the audience will not trigger the step.
+
+{% alert note %}
+In-app messages in Canvas can only be triggered by events from the SDK, not the REST API. See [Why did a user not receive a triggered Canvas step?](#why-did-a-user-not-receive-a-triggered-canvas-step)
+{% endalert %}
+
 ## Why is the Canvas editor freezing or not loading?
 
 If you're making edits to large or complex Canvases with many branches or variants, lots of steps, or very wide flows, the editor may fail to load or freeze. In this case, we recommend the following:
