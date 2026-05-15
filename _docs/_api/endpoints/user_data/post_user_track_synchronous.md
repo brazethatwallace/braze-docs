@@ -285,6 +285,8 @@ Yes, as long as the requests are for different users, or each request updates di
 
 If you're sending multiple requests for a user, for the same attribute, event, or purchase, Braze recommends waiting for a successful response between each request to prevent race conditions from occurring.
 
+If you still see inconsistent profile state when calling `/users/track` for the same user in quick succession, switch those updates to `/users/track/sync` and issue one request at a time, waiting for each `2XX` response before the next. That ordering is the supported way to avoid read-after-write races across tight loops or parallel workers.
+
 ### Why doesn't the response value match the one in my original request?
 
 Although your request is completed, it's possible your custom attribute value didn't update. This can happen when your custom attribute update exceeds the maximum number of characters, exceeds array limits, or if the user does not exist in Braze and you have `_update_existing_only = true`.
