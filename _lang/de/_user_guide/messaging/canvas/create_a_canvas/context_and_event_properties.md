@@ -66,11 +66,6 @@ Angesichts dieses Verhaltens empfiehlt Braze dringend, einen Liquid-Zeitzonen-Fi
 ```
 {% endraw %}
 
-#### Ausnahmen {#exceptions}
-
-- Zeitstempel werden im ersten Schritt eines Canvas nicht auf UTC normalisiert, wenn dieser Schritt ein Nachrichten-Schritt ist.
-- Zeitstempel werden in keinem Nachrichten-Schritt, der den In-App-Nachrichten-Kanal verwendet, auf UTC normalisiert, unabhängig von seiner Reihenfolge im Canvas.
-
 ## Anwendungsfall {#use-case}
 
 ![Ein Aktionspfade-Schritt, gefolgt von einem Verzögerungs-Schritt und einem Nachrichten-Schritt für Nutzer:innen, die einen Artikel zu ihrer Wunschliste hinzugefügt haben, sowie ein Pfad für alle anderen.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}

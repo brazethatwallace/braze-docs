@@ -94,6 +94,8 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 Bei der Zusammenführung von Nutzer:innen funktioniert die Verwendung des Endpunkts `/users/merge` genauso wie die Verwendung der [`changeUser()`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+Braze behandelt drei Nutzertypen bei der Zusammenführung unterschiedlich: zur Löschung markierte Nutzer:innen, Testnutzer:innen und Nutzer:innen der globalen Kontrollgruppe. Weitere Details finden Sie unter [Verhalten bei der Zusammenführung von Nutzer:innen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 #### Verhalten bei angepasstem Event-Datum und Kauf-Event-Datum {#custom-event-date-and-purchase-event-date-behavior}
 
 Diese zusammengeführten Felder aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Geldausgaben in den letzten Y Tagen“.

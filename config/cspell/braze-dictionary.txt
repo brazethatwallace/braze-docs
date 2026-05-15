@@ -218,6 +218,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+drawables
 Dreamhost
 drilldown
 drilldowns
@@ -825,6 +826,7 @@ Typeform's
 Türkiye
 Unarchived
 Unarchiving
+undercounted
 Unfavorited
 unfavorites
 unfavoriting

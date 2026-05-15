@@ -445,17 +445,25 @@ A click can be logged without an open when the open pixel never loads. For examp
 
 A click and open can also land on different days: a user might click on May 16 with images off (no open), then open in webmail on May 17 (open logged then).
 
-##### Higher _Unique clicks_ than _Unique opens_
+##### Higher _Unique clicks_ than _Unique opens_ {#higher-unique-clicks-than-unique-opens}
 
-_Unique clicks_ can be higher than _Unique opens_ when opens are under counted or clicks are inflated:
+You might see _Unique clicks_ far outpace _Unique opens_ (for example, several unique clicks for each unique open) even when you expect a lower ratio from your audience. That pattern usually means opens are undercounted, clicks are inflated, or both. However, this does not mean Braze is mis-counting clicks in isolation.
+
+Braze records an email open when the open tracking pixel loads. That pixel is a small transparent image (often described as 1 x 1&nbsp;px) Braze adds to the message HTML. If the pixel never loads, no open is logged for that view, but link clicks can still register—so your click-to-open rate and the balance between these two metrics can look skewed.
 
 **The mailbox never loaded the open tracking pixel**
 
-This can happen when:
+The pixel might not load when:
 
-- The message is long and the open pixel sits at the end. When the client clips the message, the pixel is cut off.
-- The message landed in spam, where remote images (including the open pixel) often don't load.
-- The mailbox uses stricter security (common on corporate accounts) and the user hasn't chosen to load images yet.
+- **The message is clipped.** Long HTML pushes content—including the pixel at the bottom—behind a "View entire message" style cutoff. In Gmail, messages larger than about [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) are often clipped, which can prevent the pixel from loading until the full message is opened (and sometimes not even then, depending on the client).
+- **Images are blocked or restricted.** Stricter inbox security (common on corporate accounts) can block remote images until the recipient chooses to load them, so the open pixel does not fire even though they click tracked links.
+- **The message is in spam or bulk folders.** Many providers do not load remote images (including the open pixel) in those folders by default.
+
+**What you can do**
+
+- **Clipping:** Shorten and simplify the HTML, remove unused styles or assets, and keep the overall message size within client limits. For Gmail, aim for under about 102&nbsp;KB as described in [Email size]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size).
+- **Inbox security and image loading:** Only the recipient (or their IT policy) can change whether images load by default.
+- **Spam placement:** Focus on [improving email deliverability]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) and list hygiene. If mail is consistently landing in spam and metrics look wrong, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 **Security or bot activity on links**
 

@@ -244,7 +244,7 @@ enum ContentCardClass {
 {% endtab %}
 {% endtabs %}
 
-## カスタムカードレンダリング{#customizing-card-rendering-for-android}
+## カスタムカードレンダリング {#customizing-card-rendering-for-android}
 
 {% tabs local %}
 {% tab Android View System %}

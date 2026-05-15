@@ -10,11 +10,7 @@ channel:
 
 # WhatsApp 템플릿 빌더 {#whatsapp-template-builder}
 
-> WhatsApp 템플릿 빌더를 사용하면 Braze에서 직접 WhatsApp 메시지 템플릿을 생성하고 제출할 수 있으며, Braze와 Meta Business Manager 사이를 오갈 필요가 없습니다. Meta가 템플릿을 승인하면 원하는 만큼 많은 Campaign(캠페인)과 Canvas에서 사용할 수 있습니다.
-
-{% alert note %}
-WhatsApp 템플릿 빌더는 현재 얼리 액세스 단계입니다. 액세스하려면 Braze 계정 매니저에게 문의하세요.
-{% endalert %}
+> WhatsApp 템플릿 빌더를 사용하면 Braze에서 직접 WhatsApp 메시지 템플릿을 생성하고 제출할 수 있으며, Braze와 Meta Business Manager 사이를 오갈 필요가 없습니다. Meta가 템플릿을 승인하면 원하는 만큼 많은 Campaign(캠페인)과 Canvases에서 사용할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 

@@ -141,11 +141,24 @@ in the ticket.
 - If you cannot find relevant source code: proceed based on the
   ticket content and note in the PR description that source code
   verification was not possible.
+- If source code, release notes, or internal specs show the subject
+  is **deprecated**, **retired**, **no longer supported**, or **removed
+  from the dashboard UI**: do **not** document it as a current
+  customer-facing capability. Follow Step 4 under **Never document
+  deprecated, removed, or unavailable product behavior**.
 
 Always record the specific files and lines you checked, even if they
 were inconclusive. This goes in the PR description.
 
 ### 4. Make the edit
+
+Before your first `git commit`, configure the repository git identity
+to the Braze docs service account (run in the repo root):
+
+```bash
+git config user.name "brazedocs_svc"
+git config user.email "github-brazedocs_svc@braze.com"
+```
 
 Make the smallest targeted edit that addresses the reported issue.
 
@@ -155,6 +168,31 @@ Follow these guidelines:
 2. Follow the Braze docs style guide at `_docs/_contributing/style_guide/`.
 3. Keep additions concise — use bullets, tables, and code samples
    where appropriate.
+
+**Never document deprecated, removed, or unavailable product behavior**
+
+You must **never** add, expand, reintroduce, or "preserve for history"
+documentation that teaches customers to use:
+
+- Anything Braze or its SDKs/APIs label or treat as **deprecated**,
+  **legacy**, **retired**, **sunset**, **end-of-life**, or **no longer
+  supported** in code, OpenAPI, release notes, or authoritative
+  internal specs you used in this workflow.
+- Product areas that are **no longer used** for new work (superseded
+  entirely by a replacement) when the ticket is asking you to document
+  the old path as if it were current.
+- **Dashboard UI** that **no longer exists** — pages, tabs, buttons,
+  toggles, wizards, or navigation paths that cannot be reached in the
+  live product. Do not write steps that assume that removed UI is still
+  there.
+
+If the ticket asks you to document any of the above, or your
+verification shows the capability falls into those categories:
+**do not** add new how-to or reference material for it. Note what you
+found in the PR description and flag the reviewer. **Reductive** edits
+are allowed when they **remove** or **correct** misleading text that
+still claims a deprecated or removed surface exists (stay within file
+scope and keep the edit minimal).
 
 Do not:
 - Rewrite sections unrelated to the issue
@@ -311,6 +349,16 @@ Workaround content creates maintenance burden and misleads customers
 once the underlying issue is resolved. Use the Atlassian MCP to
 leave a comment on the ticket flagging it as a likely bug and close
 this run without making an edit.
+
+**The ticket asks you to document deprecated, removed-from-UI, or
+retired product behavior:**
+Do not add documentation that presents that behavior as current or
+recommended. Use the Atlassian MCP to leave a comment on the ticket
+summarizing what you verified (deprecated, removed UI, retired API,
+and so on) and close this run without a how-to edit, unless the ticket
+is strictly about **removing** inaccurate legacy copy — in that case,
+make only the minimal reductive/corrective edit allowed elsewhere in
+this file.
 
 **The ticket does not contain enough information to identify the
 correct fix:**
