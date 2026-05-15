@@ -240,18 +240,18 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 Brazeでは、送信前にメッセージをプレビューしてテストすることを常に推奨しています。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個々のユーザーにテストSMS、MMS、またはRCSメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
 
-![コンポーザーのテストタブからSMSコピーをプレビュー。プロファイルセクションでは、名フィールドが「James」に設定されています。プレビューセクションでは、SMSに「Hi James, we appreciate your support!」と表示されています。]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 SMSがいくつのセグメントに分割されるかをテストしたい場合は、[SMSセグメント計算ツール]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)でコピーの長さをテストしてください。
 {% endalert %}
+
+![コンポーザーのテストタブからSMSコピーをプレビュー。プロファイルセクションでは、名フィールドが「James」に設定されています。プレビューセクションでは、SMSに「Hi James, we appreciate your support!」と表示されています。]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 MMSの場合、アセット（画像とメッセージ本文）の順序はカスタマイズできません。順序は、メッセージを受信する電話に依存します。
 {% endalert %}
 
 {% alert note %}
-RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（たとえば、Google MessagesとApple Messages）によって制御されるため、メッセージの外観は異なる場合があります。Brazeに表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り、実際のデバイスで最終的なレンダリングを検証してください。
+RCSのレンダリングはユーザーのオペレーティングシステム、デバイスメーカー、キャリア、メッセージングアプリ（たとえば、Google MessagesとApple Messages）によって制御されるため、メッセージの外観は異なる場合があります。Brazeに表示されるプレビューは、エンドユーザーが受信するものと正確に一致しない場合があります。可能な限り、実際のデバイスで最終的なレンダリングを検証してください。iOSデバイスでのRCSレンダリングの詳細については、[RCSメッセージがiOSデバイスで正確にレンダリングされないのはなぜですか？]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)を参照してください。
 {% endalert %}
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs)を参照してください。

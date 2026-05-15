@@ -240,18 +240,18 @@ Konversationelle Nachrichten-Workflows ermöglichen es Ihnen, dynamisch auf Nutz
 
 Braze empfiehlt immer, Ihre Nachricht vor dem Versand in der Vorschau anzuzeigen und zu testen. Wechseln Sie zum Tab **Test**, um eine Test-SMS, -MMS oder -RCS-Nachricht an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) oder einzelne Nutzer:innen zu senden, oder zeigen Sie die Nachricht als Nutzer:in direkt in Braze in der Vorschau an.
 
-![Vorschau des SMS-Textes im Tab „Test“ des Composers. Im Profilbereich ist das Feld „Vorname“ auf „James“ gesetzt. Im Vorschaubereich lautet die SMS jetzt „Hi James, wir schätzen Ihre Unterstützung!“]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 Wenn Sie testen möchten, in wie viele Segmente Ihre SMS aufgeteilt werden könnte, testen Sie Ihre Textlänge mit dem [SMS-Segment-Rechner]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Vorschau des SMS-Textes im Tab „Test“ des Composers. Im Profilbereich ist das Feld „Vorname“ auf „James“ gesetzt. Im Vorschaubereich lautet die SMS jetzt „Hi James, wir schätzen Ihre Unterstützung!“]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 Bei MMS kann die Reihenfolge der Assets (Bild und Nachrichtentext) nicht angepasst werden. Die Reihenfolge hängt vom empfangenden Telefon ab.
 {% endalert %}
 
 {% alert note %}
-Da das RCS-Rendering vom Betriebssystem, Gerätehersteller, Carrier und der Messaging-App der Nutzer:innen gesteuert wird (z. B. Google Messages vs. Apple Messages), kann das Erscheinungsbild der Nachricht variieren. Die in Braze angezeigte Vorschau stimmt möglicherweise nicht genau mit dem überein, was Endnutzer:innen erhalten. Validieren Sie das endgültige Rendering nach Möglichkeit auf echten Geräten.
+Da das RCS-Rendering vom Betriebssystem, Gerätehersteller, Carrier und der Messaging-App der Nutzer:innen gesteuert wird (z. B. Google Messages vs. Apple Messages), kann das Erscheinungsbild der Nachricht variieren. Die in Braze angezeigte Vorschau stimmt möglicherweise nicht genau mit dem überein, was Endnutzer:innen erhalten. Validieren Sie das endgültige Rendering nach Möglichkeit auf echten Geräten. Weitere Informationen zum RCS-Rendering auf iOS-Geräten finden Sie unter [Warum wird meine RCS-Nachricht auf iOS-Geräten nicht korrekt dargestellt?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
@@ -297,7 +297,7 @@ Sie können auch angepasste Konversions-Events basierend auf Ihrem spezifischen 
 {% endtab %}
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von multivariaten Tests und Intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) unserer Canvas-Dokumentation.
 
 {% endtab %}
 {% endtabs %}

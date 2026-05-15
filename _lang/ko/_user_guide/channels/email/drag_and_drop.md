@@ -142,6 +142,16 @@ tool:
 고급 기능은 Campaign 또는 Canvas 작성기에 표시됩니다. 고급 기능에서는 인라인 CSS 설정을 수정하고 헤더 또는 추가 키-값 페어를 입력할 수 있습니다(구성된 경우).
 {% endalert %}
 
+#### 이메일 첨부 파일 추가 {#adding-email-attachments}
+
+**발송 설정** > **고급**에서 다음 방법으로 이메일 첨부 파일을 추가할 수 있습니다:
+
+- **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기하여 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본값 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
+- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
+- **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로 파일 크기는 발송 시 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
+
+고려해야 할 구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)을 참조하세요.
+
 ### 4단계: 이메일 테스트 {#step-4-test-your-email}
 
 발송 정보를 추가한 후에는 마지막으로 이메일을 테스트할 차례입니다.

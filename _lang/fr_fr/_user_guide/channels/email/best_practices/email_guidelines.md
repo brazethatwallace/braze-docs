@@ -8,9 +8,11 @@ channel: email
 
 ---
 
-# Bonnes pratiques pour les e-mails
+# Bonnes pratiques pour les e-mails {#email-guidelines}
 
 > Lorsque vous créez votre campagne e-mail, il est important de garder à l'esprit la manière dont vos messages sont reçus par vos différents utilisateurs et fournisseurs de services d'e-mailing (ESP).
+
+## Général {#general}
 
 Voici quelques conseils rapides à garder à l'esprit lors de la création de votre contenu :
 
@@ -23,11 +25,11 @@ Voici quelques conseils rapides à garder à l'esprit lors de la création de vo
 - Braze améliore les temps de chargement en utilisant un réseau de diffusion de contenu mondial pour héberger toutes les images des e-mails.
 - Sur mobile, les colonnes d'images sont étroites (~100 px chacune), de sorte que les lignes multi-images s'affichent toujours correctement (par exemple, quatre images ≈ quatre colonnes utilisables).
 
-### Implémenter du texte alternatif
+## Texte alternatif {#alternative-text}
 
 Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter et, dans certains cas, à remplacer les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour décrire les images, c'est donc l'occasion d'utiliser un langage simple pour fournir des informations clés sur une image.
 
-### Validation des e-mails
+## Validation des e-mails {#email-validation}
 
 {% alert important %}
 La validation est utilisée pour les adresses e-mail du tableau de bord, les adresses e-mail des utilisateurs finaux (vos clients), ainsi que les adresses d'expéditeur et de réponse d'un message e-mail.
@@ -39,7 +41,7 @@ Les adresses e-mail ciblées via les serveurs de Braze doivent être validées c
 
 Pour plus d'informations sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
 
-### Définir les adresses d'expéditeur et de réponse
+## Adresses d'expéditeur et de réponse {#from-and-reply-to-addresses}
 
 Lorsque vous définissez vos adresses d'expéditeur, assurez-vous que le domaine de votre e-mail d'expéditeur correspond à votre domaine d'envoi (par exemple `marketing.yourdomain.com`). Ne pas respecter cette règle peut entraîner un désalignement SPF et DKIM. Toutes les adresses de réponse peuvent être définies sur votre domaine racine.
 
@@ -47,18 +49,28 @@ Lorsque vous définissez vos adresses d'expéditeur, assurez-vous que le domaine
 L'encodage Unicode n'est pas pris en charge dans les adresses d'expéditeur.
 {% endalert %}
 
-## Mise en page (glisser-déposer et HTML personnalisé)
+## Pièces jointes dans les e-mails {#attachments}
+
+Lorsque vous ajoutez des pièces jointes à vos messages e-mail, suivez ces bonnes pratiques de livrabilité :
+
+- Les filtres anti-spam analysent les pièces jointes et peuvent signaler votre message.
+- Les fournisseurs de messagerie mettent parfois plus de temps à accepter les messages contenant des pièces jointes.
+- En dehors des messages individuels, les pièces jointes peuvent donner à votre message une apparence risquée dans la boîte de réception.
+- Limitez chaque pièce jointe à moins de 2&nbsp;Mo.
+- N'envoyez pas d'informations sensibles en pièce jointe. Dirigez plutôt les utilisateurs vers votre portail sécurisé pour les consulter.
+
+## Mise en page (glisser-déposer et HTML personnalisé) {#layout-drag-and-drop-and-custom-html}
 
 La mise en page peut se casser lorsque le HTML/CSS généré par Braze entre en conflit avec du HTML personnalisé. Si cela se produit, procédez comme suit :
 
-- Supprimez d'abord le HTML/CSS personnalisé
-- Vérifiez que les polices personnalisées se chargent correctement dans la prévisualisation
-- Vérifiez le remplissage (padding) des lignes et des colonnes
+- Supprimez d'abord le HTML/CSS personnalisé.
+- Vérifiez que les polices personnalisées se chargent correctement dans la prévisualisation.
+- Vérifiez le remplissage (padding) des lignes et des colonnes.
 - Privilégiez les mises en page basées sur des tableaux et restez dans les limites de largeur de l'éditeur.
 
 Les Content Blocks qui intègrent du HTML provenant de l'extérieur de l'éditeur peuvent également casser la mise en page.
 
-## Utiliser des paramètres UTM dans les URL des e-mails
+## Paramètres UTM dans les URL des e-mails {#utm-parameters-in-email-urls}
 
 Les paramètres UTM balisent les URL à des fins d'analyse. Vous pouvez les construire avec Liquid et des attributs personnalisés.
 
@@ -66,7 +78,7 @@ Les paramètres UTM balisent les URL à des fins d'analyse. Vous pouvez les cons
 - Évitez les espaces et les caractères spéciaux dans les valeurs (utilisez `_` ou `-`).
 - Confirmez que votre outil d'analyse ingère les UTM. Supprimez les espaces de fin dans les blocs Liquid `capture`. Les UTM sont sensibles à la casse.
 
-### Vérifier les détails HTML
+### Vérifier les détails HTML {#check-html-details}
 
 Gardez à l'esprit que certaines balises et certains attributs HTML ne sont pas autorisés, car ils pourraient permettre l'exécution de code malveillant dans le navigateur.
 

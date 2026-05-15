@@ -445,17 +445,25 @@ Se puede registrar un clic sin una apertura cuando el píxel de apertura nunca s
 
 Un clic y una apertura también pueden caer en días diferentes: un usuario podría hacer clic el 16 de mayo con las imágenes desactivadas (sin apertura), y luego abrir en el correo web el 17 de mayo (la apertura se registra entonces).
 
-##### _Clics únicos_ superiores a _Aperturas únicas_ {#higher-_unique-clicks_-than-_unique-opens_}
+##### _Clics únicos_ superiores a _aperturas únicas_ {#higher-unique-clicks-than-unique-opens}
 
-Los _clics únicos_ pueden ser superiores a las _aperturas únicas_ cuando las aperturas están infrarregistradas o los clics están inflados:
+Es posible que los _clics únicos_ superen con creces a las _aperturas únicas_ (por ejemplo, varios clics únicos por cada apertura única) incluso cuando esperas una proporción más baja de tu audiencia. Ese patrón suele significar que las aperturas están infrarregistradas, los clics están inflados, o ambas cosas. Sin embargo, esto no significa que Braze esté contando mal los clics de forma aislada.
+
+Braze registra una apertura de correo electrónico cuando se carga el píxel de seguimiento de apertura. Ese píxel es una pequeña imagen transparente (a menudo descrita como de 1 x 1&nbsp;px) que Braze añade al HTML del mensaje. Si el píxel nunca se carga, no se registra ninguna apertura para esa visualización, pero los clics en los enlaces sí pueden registrarse, por lo que tu tasa de clic-a-apertura y el equilibrio entre estas dos métricas pueden parecer sesgados.
 
 **El buzón nunca cargó el píxel de seguimiento de apertura**
 
-Esto puede ocurrir cuando:
+El píxel podría no cargarse cuando:
 
-- El mensaje es largo y el píxel de apertura está al final. Cuando el cliente recorta el mensaje, el píxel se corta.
-- El mensaje llegó a la carpeta de correo no deseado, donde las imágenes remotas (incluido el píxel de apertura) a menudo no se cargan.
-- El buzón utiliza una seguridad más estricta (habitual en cuentas corporativas) y el usuario aún no ha elegido cargar las imágenes.
+- **El mensaje está recortado.** Un HTML largo empuja el contenido, incluido el píxel en la parte inferior, detrás de un corte del tipo "Ver mensaje completo". En Gmail, los mensajes de más de aproximadamente [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) suelen recortarse, lo que puede impedir que el píxel se cargue hasta que se abra el mensaje completo (y a veces ni siquiera entonces, dependiendo del cliente).
+- **Las imágenes están bloqueadas o restringidas.** Una seguridad de buzón más estricta (habitual en cuentas corporativas) puede bloquear las imágenes remotas hasta que el destinatario elija cargarlas, por lo que el píxel de apertura no se activa aunque hagan clic en los enlaces rastreados.
+- **El mensaje está en la carpeta de correo no deseado o masivo.** Muchos proveedores no cargan las imágenes remotas (incluido el píxel de apertura) en esas carpetas de forma predeterminada.
+
+**Qué puedes hacer**
+
+- **Recorte:** Acorta y simplifica el HTML, elimina estilos o activos no utilizados y mantén el tamaño total del mensaje dentro de los límites del cliente. Para Gmail, intenta que sea inferior a unos 102&nbsp;KB como se describe en [Tamaño del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size).
+- **Seguridad del buzón y carga de imágenes:** Solo el destinatario (o su política de TI) puede cambiar si las imágenes se cargan de forma predeterminada.
+- **Ubicación en correo no deseado:** Céntrate en [mejorar la capacidad de entrega del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) y la higiene de la lista. Si el correo llega constantemente a la carpeta de correo no deseado y las métricas parecen incorrectas, ponte en contacto con el [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 **Actividad de seguridad o bots en los enlaces**
 
@@ -481,7 +489,7 @@ Normalmente se necesitan unos 10 000 correos electrónicos entregados para que l
 
 ###### Consideraciones {#considerations}
 
-La Estimated Real Open Rate solo está disponible en Campaigns y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
+La Estimated Real Open Rate solo está disponible en campañas y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
 
 ##### Gestión del aumento de las tasas de clics {#handling-increases-in-click-rates}
 

@@ -445,17 +445,25 @@ Um clique pode ser registrado sem uma abertura quando o pixel de rastreamento de
 
 Um clique e uma abertura também podem ocorrer em dias diferentes: um usuário pode clicar em 16 de maio com imagens desativadas (sem abertura), e depois abrir no webmail em 17 de maio (abertura registrada então).
 
-##### _Unique clicks_ maior que _Unique opens_ {#higher-_unique-clicks_-than-_unique-opens_}
+##### _Unique clicks_ maior que _Unique opens_ {#higher-unique-clicks-than-unique-opens}
 
-_Unique clicks_ pode ser maior que _Unique opens_ quando as aberturas são subcontadas ou os cliques são inflados:
+Você pode ver _Unique clicks_ superando significativamente _Unique opens_ (por exemplo, vários cliques únicos para cada abertura única) mesmo quando espera uma proporção menor do seu público. Esse padrão geralmente significa que as aberturas estão sendo subcontadas, os cliques estão inflados, ou ambos. No entanto, isso não significa que a Braze está contando cliques incorretamente de forma isolada.
+
+A Braze registra uma abertura de e-mail quando o pixel de rastreamento de abertura é carregado. Esse pixel é uma pequena imagem transparente (geralmente descrita como 1 x 1&nbsp;px) que a Braze adiciona ao HTML da mensagem. Se o pixel nunca for carregado, nenhuma abertura é registrada para aquela visualização, mas os cliques em links ainda podem ser registrados — então sua taxa de clique-para-abertura e o equilíbrio entre essas duas métricas podem parecer distorcidos.
 
 **A caixa de entrada nunca carregou o pixel de rastreamento de abertura**
 
-Isso pode acontecer quando:
+O pixel pode não ser carregado quando:
 
-- A mensagem é longa e o pixel de rastreamento de abertura fica no final. Quando o cliente corta a mensagem, o pixel é removido.
-- A mensagem caiu no spam, onde imagens remotas (incluindo o pixel de rastreamento de abertura) geralmente não são carregadas.
-- A caixa de entrada usa segurança mais rigorosa (comum em contas corporativas) e o usuário ainda não optou por carregar imagens.
+- **A mensagem é cortada.** HTML longo empurra o conteúdo — incluindo o pixel no final — para trás de um corte do tipo "Ver mensagem completa". No Gmail, mensagens maiores que cerca de [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) são frequentemente cortadas, o que pode impedir o carregamento do pixel até que a mensagem completa seja aberta (e às vezes nem assim, dependendo do cliente).
+- **As imagens estão bloqueadas ou restritas.** Segurança mais rigorosa da caixa de entrada (comum em contas corporativas) pode bloquear imagens remotas até que o destinatário opte por carregá-las, então o pixel de abertura não é acionado mesmo que eles cliquem em links rastreados.
+- **A mensagem está em pastas de spam ou lixo.** Muitos provedores não carregam imagens remotas (incluindo o pixel de abertura) nessas pastas por padrão.
+
+**O que você pode fazer**
+
+- **Corte:** Encurte e simplifique o HTML, remova estilos ou ativos não utilizados e mantenha o tamanho geral da mensagem dentro dos limites do cliente. Para o Gmail, mire em menos de cerca de 102&nbsp;KB conforme descrito em [Tamanho do e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size).
+- **Segurança da caixa de entrada e carregamento de imagens:** Apenas o destinatário (ou sua política de TI) pode alterar se as imagens são carregadas por padrão.
+- **Posicionamento em spam:** Concentre-se em [melhorar a entregabilidade de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) e a higiene da lista. Se o e-mail está consistentemente caindo no spam e as métricas parecem erradas, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 **Atividade de segurança ou bots nos links**
 
