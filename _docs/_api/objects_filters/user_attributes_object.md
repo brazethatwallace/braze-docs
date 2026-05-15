@@ -332,3 +332,9 @@ You must have a receiver to handle and display push payloads. To notify the rece
 {% alert note %}
 For some push notification providers, Braze needs to flatten the key-value pairs so that they can be properly interpreted. To flatten key-value pairs for a specific Android app, contact your customer success manager.
 {% endalert %}
+
+## Frequently asked questions
+
+### How do I find users treated as spam or blocked from messaging?
+
+Braze does not expose a single browsable "spam list." Users blocked for abusive or dummy identifiers are described in [Spam blocking]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking). To analyze or export affected users, build a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) using eligibility rules that match your use case (for example, reachable email and push) and cross-check profile fields in **Engagement** > **Search users** or via [/users/export/ids]({{site.baseurl}}/api/endpoints/export/user_data/post_users_export/).
