@@ -22,6 +22,10 @@ If your POST payload was accepted by our servers, then successful messages are m
 
 Note that success means only that the RESTful API payload was correctly formed and passed to our push notification or email or other messaging services. It does not mean that the messages were actually delivered, as additional factors could prevent the message from being delivered (for example, a device could be offline, the push token could be rejected by Apple's servers, or you may have provided an unknown user ID).
 
+### Why does my request return success when no message was delivered?
+
+A `message: success` or `2XX` response means Braze accepted and queued the request for the endpoints involved—not that every recipient received a message. For messaging, delivery still depends on channel eligibility, tokens, provider errors, and content validation. Refer to the [fatal errors]({{site.baseurl}}/api/errors/#fatal-errors) table for HTTP errors that block sends, and to your campaign or Canvas analytics for downstream delivery metrics.
+
 For endpoints like [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), which don't send messages, a success message means only that Braze received the request for processing. If there is no match for the alias after processing, the request is stopped.
 
 If your message is successful but has non-fatal errors, you receive the following response:
