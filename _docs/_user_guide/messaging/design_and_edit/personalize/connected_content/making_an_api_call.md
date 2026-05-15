@@ -243,6 +243,8 @@ Use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content
 
 Using this tool, you can diagnose issues with the request headers, request body, and other information that is being sent in the call.
 
+Also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the `__http_status_code__` key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status—see the [HTTP status codes](#http-status-codes) section above. For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
+
 ## Frequently asked questions
 
 ### Why are there more Connected Content calls than users or sends?
