@@ -38,8 +38,8 @@ Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique um delay conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
-4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após o delay, no momento em que as mensagens forem enviadas.
+3. Escolha um [agendamento de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay) e especifique uma postergação conforme necessário. Observe que etapas contendo mensagens no app não podem ser baseadas em ação.
+4. Filtre seu público para esta etapa, conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando Segments e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
 
@@ -61,7 +61,7 @@ Comece escolhendo quais plataformas devem receber a mensagem. Use essa seleção
 | Apps móveis                     | SDKs iOS, Android e Vega |
 | Navegadores web                    | SDK Web                      |
 | Apps móveis e navegadores web | SDKs iOS, Android, Vega e Web |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## Etapa 3: Especifique seus tipos de mensagem {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>Tipos de mensagem</caption>
 <thead>
   <tr>
     <th>Tipo de mensagem</th>
@@ -133,7 +134,8 @@ Essas mensagens no app são aceitas tanto por apps móveis quanto por aplicaçõ
 
 Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>Tipos de mensagem avançados</caption>
 <thead>
   <tr>
     <th>Tipo de mensagem</th>
@@ -239,7 +241,7 @@ Quando seu cliente clica em um botão na sua mensagem no app, as seguintes açõ
 | Registrar evento personalizado | Escolha um [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para disparar. Pode ser usado para exibir outra mensagem no app ou disparar envio de mensagens adicionais. |
 | Registrar atributo personalizado | Escolha um [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para definir para o usuário atual. |
 | Solicitar permissão de push | Exibe a solicitação nativa de permissão de push. Leia mais sobre [push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), bem como [melhores práticas]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) para preparar os usuários para push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 Observação: as opções __Solicitar permissão de push__, __Registrar evento personalizado__ e __Registrar atributo personalizado__ requerem as seguintes versões mínimas do SDK:
 
@@ -276,7 +278,7 @@ O conteúdo da guia **Style** varia com base nas opções de mensagem escolhidas
 
 | Formatação | Entrada | Descrição |
 |---|---|---|
-| [Perfil de cor]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
+| [Perfil de cor]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aplicar a partir da galeria de modelos de mensagens no app. | Selecione **Apply Template** e escolha na galeria. Em seguida, selecione **Save**. |
 | Alinhamento do texto | Esquerda, centro ou direita. | Disponível apenas para versões mais recentes do SDK da Braze. |
 | Cabeçalho | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
 | Texto | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
@@ -285,7 +287,7 @@ O conteúdo da guia **Style** varia com base nas opções de mensagem escolhidas
 | Cor de fundo | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Este é o fundo de toda a mensagem e será exibido claramente atrás do corpo do texto. |
 | Sobreposição de tela | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. Disponível apenas para versões mais recentes do SDK da Braze. Este é o quadro ao redor de toda a mensagem. |
 | Seta ou outra opção de fechar mensagem | Código de cor HEX. | A cor HEX desejada será exibida. Você também poderá escolher a opacidade da cor. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 Sempre [pré-visualize e teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) sua mensagem antes de enviar.
 
@@ -361,7 +363,7 @@ Para definir prioridades dentro desses agrupamentos, clique em **Set Exact Prior
 Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) escolhendo Segments ou filtros para restringir seu público. Você recebe automaticamente um snapshot de como é a população aproximada desse Segment. Tenha em mente que a associação exata ao Segment é sempre calculada antes de a mensagem ser enviada.
 
 {% alert note %}
-Se houver um delay na etapa de mensagem no app, a associação ao Segment será avaliada após o delay. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
+Se houver uma postergação na etapa de mensagem no app, a associação ao Segment será avaliada após a postergação. Se o usuário for elegível, a mensagem no app será sincronizada na próxima sessão disponível.
 {% endalert %}
 
 ##### Reavaliar elegibilidade da campanha e Liquid {#re-evaluate-campaign-eligibility-and-liquid}
@@ -384,7 +386,7 @@ Não use essa opção para mensagens que podem ser disparadas enquanto o usuári
 
 Dados de usuário que o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) adiciona na mesma sessão podem, às vezes, ser usados na mensagem no app desse usuário. Por exemplo, se um usuário está no público de uma mensagem no app que está aguardando um gatilho, inicia uma sessão e, nessa mesma sessão, a REST API atualiza seu perfil, esses novos dados podem aparecer na mensagem no app quando **Re-evaluate campaign eligibility before displaying** estiver selecionado. A Braze não processará o template da mensagem no app até que seja hora de renderizá-la.
 
-Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com um delay agendado. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
+Se um gatilho envia dados para a Braze e dispara a mensagem no app ao mesmo tempo, a mensagem não pode usar esses dados de perfil recém-atualizados, mesmo com uma postergação agendada. Use dois gatilhos separados: um para enviar os dados e outro para disparar a mensagem no app.
 
 #### Escolha eventos de conversão {#choose-conversion-events}
 

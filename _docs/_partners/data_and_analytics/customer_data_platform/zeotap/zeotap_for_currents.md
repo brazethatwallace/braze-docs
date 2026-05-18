@@ -23,7 +23,7 @@ The custom HTTP connector is currently in beta. If you're interested in setting 
 | --- | --- |
 |Zeotap account | A [Zeotap account](https://zeotap.com/) is required to take advantage of this partnership. |
 | Currents | To export data back into Zeotap, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Implementation
 

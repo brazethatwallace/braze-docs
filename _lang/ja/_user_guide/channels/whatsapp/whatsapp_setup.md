@@ -1,6 +1,6 @@
 ---
 nav_title: "セットアップ"
-article_title: "WhatsApp セットアップ"
+article_title: "WhatsAppセットアップ"
 alias: /partners/whatsapp/
 description: "この記事では、前提条件や推奨される次のステップを含む、Braze WhatsAppチャネルのセットアップ方法について説明します。"
 page_type: partner
@@ -11,9 +11,9 @@ channel:
 search_rank: 2
 ---
 
-# WhatsApp セットアップ {#whatsapp-setup}
+# WhatsAppセットアップ {#whatsapp-setup}
 
-> [WhatsApp](https://www.whatsapp.com/) ビジネスメッセージングは、世界中で利用されている人気のピアツーピアメッセージングプラットフォームで、企業向けの会話ベースのメッセージングを提供しています。
+> [WhatsApp](https://www.whatsapp.com/)ビジネスメッセージングは、世界中で利用されている人気のピアツーピアメッセージングプラットフォームで、企業向けの会話ベースのメッセージングを提供しています。
 
 ## 前提条件 {#prerequisites}
 
@@ -31,11 +31,11 @@ search_rank: 2
 | Meta Business Managerアカウント | このメッセージングチャネルを利用するには、Meta Businessアカウントが必要です。 |
 | WhatsApp Businessアカウント | このメッセージングチャネルを利用するには、WhatsApp Businessアカウントが必要です。 |
 | WhatsApp電話番号 | メッセージングチャネルを使用するには、WhatsAppの[Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)または[On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers)の要件を満たす電話番号を取得する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 連携 {#integration}
 
-### ステップ 1: WhatsApp MessengerをBrazeに接続する {#step-1-connect-whatsapp-messenger-to-braze}
+### ステップ 1:WhatsApp MessengerをBrazeに接続する {#step-1-connect-whatsapp-messenger-to-braze}
 
 Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**WhatsApp**を検索します。
 
@@ -47,7 +47,7 @@ WhatsAppパートナーページで、**Begin Integration**を選択します。
 
 ![BrazeをWhatsAppに接続するための手順。]({% image_buster /assets/img/whatsapp/instructions.png %}){: style="max-width:50%;"}
 
-### ステップ 2: WhatsAppセットアップ {#step-2-whatsapp-setup}
+### ステップ 2:WhatsAppセットアップ {#step-2-whatsapp-setup}
 
 次に、Brazeセットアップワークフローが表示されます。ステップバイステップのウォークスルーについては、[WhatsApp埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)を参照してください。
 
@@ -58,7 +58,7 @@ WhatsAppパートナーページで、**Begin Integration**を選択します。
 
 セットアップが完了すると、ユーザー向けの専用WhatsAppサブスクリプショングループが作成されます。
 
-### ステップ 3: WhatsAppテンプレートを作成する {#step-3-create-whatsapp-templates}
+### ステップ 3:WhatsAppテンプレートを作成する {#step-3-create-whatsapp-templates}
 
 承認済みのWhatsAppメッセージテンプレートのみが、顧客との会話を開始するために使用できます。WhatsAppテンプレートは[Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)で作成できます。BrazeがサポートするWhatsAppメッセージング機能の一覧については、[サポートされているWhatsApp機能]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#supported-whatsapp-features)をご確認ください。
 
@@ -85,7 +85,7 @@ Meta Business Managerで、**Account Tools**の下にある**Message Templates**
 承認済みテンプレートは、任意の数のCampaignやCanvasesで使用できます。また、任意の数のオプトインユーザーに送信することもできます。これは、テンプレートの品質が低下しない限り有効です。
 {% endalert %}
 
-### ステップ 4: WhatsApp Campaignを作成する {#step-4-create-a-whatsapp-campaign}
+### ステップ 4:WhatsApp Campaignを作成する {#step-4-create-a-whatsapp-campaign}
 
 WhatsAppテンプレートが承認されたら、ダッシュボードに移動して[WhatsApp CanvasまたはCampaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を作成できます。
 

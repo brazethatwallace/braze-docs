@@ -22,17 +22,17 @@ Há quatro objetos principais de B2B necessários para executar campanhas B2B.
 | --- | --- |
 | Leads | Um registro de clientes potenciais que demonstraram interesse em um produto ou serviço, mas ainda não foram qualificados como uma oportunidade. |
 | Contatos | Normalmente, indivíduos que foram qualificados e convertidos de lead em contato para buscar uma oportunidade de vendas. |
-| Oportunidades | Um registro que rastreia os detalhes de uma possível venda ou de um negócio em andamento.
+| Oportunidades | Um registro que rastreia os detalhes de uma possível venda ou de um negócio em andamento. |
 | Contas | Um registro de uma organização que é um cliente potencial qualificado, um cliente existente, um parceiro ou um concorrente com um relacionamento de importância semelhante. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
 
 Na Braze, esses quatro objetos são combinados e reduzidos a dois: perfis de usuário e objetos de negócios.
 
 | Objeto B2B da Braze | Descrição | Objetos B2B originais  |
 | --- | --- | --- |
-| Perfis de usuário | Mapeiam diretamente para leads e contatos no seu sistema CRM de vendas. Como os leads são capturados pela Braze, eles são automaticamente criados como leads no seu sistema CRM de vendas. Quando são convertidos em contatos, os IDs e os detalhes dos contatos são sincronizados de volta para a Braze. |Leads<br> Contatos |
+| Perfis de usuário | Mapeiam diretamente para leads e contatos no seu sistema CRM de vendas. Como os leads são capturados pela Braze, eles são automaticamente criados como leads no seu sistema CRM de vendas. Quando são convertidos em contatos, os IDs e os detalhes dos contatos são sincronizados de volta para a Braze. | Leads<br> Contatos |
 | Objetos de negócios | Mapeiam qualquer objeto que não seja de usuário no seu sistema CRM de vendas. Isso inclui objetos específicos de vendas, como objetos de conta e objetos de oportunidade. | Contas<br> Oportunidades |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## Etapa 1: Crie seus objetos de negócios na Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -44,7 +44,7 @@ Há dois métodos para criar e gerenciar seus objetos de negócios na Braze: cat
 | --- | --- |
 | [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) | São objetos de dados independentes (objetos de dados suplementares) no perfil de usuário principal na Braze. Em um contexto B2B, você provavelmente teria catálogos para suas contas e oportunidades. |
 | [Fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Permitem que a Braze consulte diretamente seu data warehouse. É provável que você já esteja sincronizando regularmente seus objetos de lead, contato, oportunidade e conta com o data warehouse. Assim, você pode apontar a segmentação da Braze diretamente para esse data warehouse e ativá-la em um ambiente de cópia zero. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -64,7 +64,8 @@ As tabelas abaixo incluem alguns exemplos de campos que você pode mapear a part
 
 Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear qualquer campo incluído nos objetos do seu CRM.
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
+  <caption>Mapeie seus campos de CRM</caption>
   <tr>
     <th><b>Objeto da Braze</b></th>
     <th><b>Campo da Braze</b></th>
@@ -103,7 +104,8 @@ Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear q
 
 Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear qualquer campo incluído nos objetos do seu CRM.
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
+  <caption>Exemplo de tabela de campos de conta mapeados</caption>
   <tr>
     <th><b>Objeto da Braze</b></th>
     <th><b>Campo da Braze</b></th>
@@ -144,7 +146,7 @@ Neste caso de uso, o Salesforce é o sistema CRM de exemplo. Você pode mapear q
 
 ### Opção 2: Usar fontes conectadas para contas e oportunidades {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
-Fontes conectadas são tabelas de dados hospedadas por você no seu próprio data warehouse e consultadas pelas [extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/) da Braze. Ao contrário dos catálogos, em vez de duplicar seus objetos de negócios (contas e oportunidades) na Braze, você os manteria no seu data warehouse e o usaria como fonte da verdade.
+Fontes conectadas são tabelas de dados hospedadas por você no seu próprio data warehouse e consultadas pelas [Extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/) da Braze. Ao contrário dos catálogos, em vez de duplicar seus objetos de negócios (contas e oportunidades) na Braze, você os manteria no seu data warehouse e o usaria como fonte da verdade.
 
 Para configurar fontes conectadas, consulte [Integração de fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/#integrating-connected-sources).
 
@@ -163,11 +165,11 @@ Primeiro, certifique-se de que a Braze e o CRM de sua escolha tenham um identifi
 
 | Campo da Braze | Objeto CRM (Salesforce) | Campo CRM (Salesforce) | Informações adicionais |
 | --- | --- | --- | --- |
-| `Aliases.salesforce_lead_id` | Lead | `id` |  - Rótulo de alias de usuário: `salesforce_lead_id` <br>- Nome do alias de usuário: `lead_id`|
+| `Aliases.salesforce_lead_id` | Lead | `id` | - Rótulo de alias de usuário: `salesforce_lead_id` <br>- Nome do alias de usuário: `lead_id` |
 | `Aliases.salesforce_contact_id` | Contato | `id` | - Rótulo de alias de usuário: `salesforce_contact_id` <br>- Nome do alias de usuário: `contact_id` |
 | `AccountId` | Contato | `AccountId` |
 | `OpportunityId` (opcional, escalar) <br>ou<br> `Opportunities` (opcional, array) | Oportunidade | `id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
 
 {% alert note %}
 Recomendamos o uso de [aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases) em vez de `external_id` para mapear os identificadores de leads e contatos do Salesforce de volta para a Braze. Isso reduz a quantidade de buscas necessárias ao identificar e executar suas iniciativas de crescimento orientado pelo produto.

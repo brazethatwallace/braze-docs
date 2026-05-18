@@ -29,6 +29,7 @@ Braze Audience Sync to Pinterest ist eine Audience Sync Pro-Integration. Für we
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
+
 Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und/oder akzeptiert wurden, bevor Sie Ihren Pinterest Audience-Schritt in Canvas einrichten.
 
 | Anforderung | Herkunft | Beschreibung |
@@ -52,7 +53,7 @@ Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner
 
 Sie werden dann auf die Pinterest-OAuth-Seite weitergeleitet, um Braze für Ad Account Management und Audience Management zu autorisieren.
 
-Nachdem Sie **Confirm** ausgewählt haben, werden Sie zurück zu Braze geleitet, um die Pinterest-Anzeigenkonten auszuwählen, die Sie synchronisieren möchten.
+Nachdem Sie **Bestätigen** ausgewählt haben, werden Sie zurück zu Braze geleitet, um die Pinterest-Anzeigenkonten auszuwählen, die Sie synchronisieren möchten.
 
 ![Eine Liste der verfügbaren Anzeigenkonten, die Sie mit Pinterest verbinden können.]({% image_buster /assets/img/pinterest/pinterest2.png %}){: style="max-width:80%;"}
 
@@ -79,7 +80,7 @@ Wählen Sie **Pinterest** als gewünschten Audience Sync-Partner aus.
 Wählen Sie dann Ihr gewünschtes Pinterest-Anzeigenkonto aus. Geben Sie im Dropdown **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Eine neue Zielgruppe erstellen %}
 
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience** und wählen Sie aus, welche Felder Sie mit Pinterest synchronisieren möchten. Speichern Sie anschließend Ihre Zielgruppe, indem Sie unten im Schritteditor auf den Button **Create Audience** klicken.
@@ -92,7 +93,7 @@ Braze zeigt oben im Schritteditor eine Benachrichtigung an, wenn die Zielgruppe 
 
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie den Audience Sync-Schritt erreichen.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit einer bestehenden Zielgruppe synchronisieren %}
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Pinterest-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen auf dem neuesten Stand sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe im Dropdown ein und fügen Sie sie hinzu. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie den Audience Sync-Schritt erreichen.
 

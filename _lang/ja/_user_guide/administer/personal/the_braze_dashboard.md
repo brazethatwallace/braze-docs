@@ -126,7 +126,7 @@ table td {
 | 検索結果間を移動する | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | 検索結果を選択する | <kbd>Enter</kbd>    |
 | 検索メニューを閉じる | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キーボードショートカット" }
 
 ## 生産性機能 {#productivity-features}
 

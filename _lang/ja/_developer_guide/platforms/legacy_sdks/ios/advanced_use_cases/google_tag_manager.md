@@ -12,7 +12,7 @@ noindex: true
 
 # Google Tag Manager for iOS
 
-## SDK の初期化{#initializing-ios-google-tag-provider}
+## SDK の初期化 {#initializing-ios-google-tag-provider}
 
 Braze iOS SDK は、[Google Tag Manager](https://tagmanager.google.com/) で設定されたタグによって初期化および制御することができます。
 

@@ -24,7 +24,7 @@ Pour de meilleurs résultats, consultez les recommandations suivantes concernant
 (iOS) 2:1 *Recommandé* | 500&nbsp;Ko | 5&nbsp;Mo | PNG, JPEG, GIF
 (Android) Icône push | 500&nbsp;Ko | 5&nbsp;Mo | PNG, JPEG
 (Android) Notification étendue | 500&nbsp;Ko | 5&nbsp;Mo | PNG, JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
 {% alert note %}
 Les GIF ne sont pas pris en charge dans les notifications push Android. Il s'agit d'une limitation de la plateforme Android, et non d'une limitation de Braze.
@@ -44,7 +44,7 @@ Sur iOS, les notifications push prennent en charge les GIF. Les messages in-app 
 (iOS) Alerte bannière | 80 caractères | 65 caractères
 (Android) Écran de verrouillage | 49 caractères | N/A
 (Android) Tiroir de notifications | 597 caractères | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
 
 Vous vous demandez combien de caractères vous pouvez utiliser dans une notification push iOS sans qu'elle soit tronquée ? Consultez nos [recommandations sur le nombre de caractères iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
 
@@ -56,7 +56,7 @@ Vous vous demandez combien de caractères vous pouvez utiliser dans une notifica
 pré iOS 8 | 0,256 Ko
 post iOS 8 | 2 Ko
 Android (FCM) | 4 Ko
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS and Android push" }
 
 {% endtab %}
 {% tab Exemple d'image %}
@@ -99,14 +99,16 @@ Les notifications avec de grandes images s'affichent au mieux avec une image d'a
 
 | **Navigateur** | **Taille d'icône recommandée**
 | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (les icônes sont configurables par campagne avec Safari 16+ sur macOS 13+)
 Opera | 192x192 ≥
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 
 | **Navigateur** | **Plateforme** | **Taille de la grande image**
 | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 Chrome | Android | Rapport hauteur/largeur 2:1
 Firefox | Android | N/A
 Chrome | Windows | Rapport hauteur/largeur 2:1
@@ -117,13 +119,14 @@ Safari | macOS | N/A
 Chrome | macOS | N/A
 Firefox | macOS | N/A
 Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 
 {% endtab %}
 {% tab Texte %}
 
 | **Navigateur** | **Plateforme** | **Longueur maximale du titre**  | **Longueur maximale du corps du message**
 | --- | --- | --- | ---
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120
@@ -134,7 +137,7 @@ Chrome | macOS | 35 | 50
 Safari | macOS | 38 | 84
 Firefox | macOS | 38 | 42
 Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
 
 {% endtab %}
 {% endtabs %}

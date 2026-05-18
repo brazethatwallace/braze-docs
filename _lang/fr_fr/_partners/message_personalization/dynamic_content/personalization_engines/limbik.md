@@ -21,8 +21,9 @@ Les éléments suivants sont requis pour utiliser Limbik avec Braze :
 | --- | --- |
 | `account_id` Limbik | Contactez votre équipe de compte Limbik, ou effectuez une requête GET vers l'endpoint `/rest/api/organizations` de Limbik. |
 | Jeton d'accès Limbik (`access_token`) | Effectuez une requête POST vers l'endpoint `login` de Limbik et utilisez la valeur `access_token` retournée comme jeton Bearer dans l'en-tête `Authorization`. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations « Messages ». Créez-en une dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
+| Clé REST API Braze | Une clé REST API Braze avec les autorisations « Messages ». Créez-en une dans le tableau de bord de Braze sous **Settings** > **API Keys**. |
 | `campaign_id` Braze | Accédez à **Messaging** > **Campaigns** et sélectionnez une Campaign. Si la Campaign souhaitée n'existe pas encore, créez-en une et enregistrez-la. En bas de la page de la Campaign, trouvez l'identifiant API de la Campaign. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 Avant d'utiliser l'un des endpoints de prévision, vous devez d'abord identifier à quelle organisation (`account_id`) vous avez accès. Bien que la plupart des clients n'aient qu'une seule organisation, certains comptes peuvent avoir plusieurs organisations disponibles.
 
@@ -97,7 +98,7 @@ Vous pouvez utiliser des plateformes API comme Postman pour configurer des workf
 
 {% enddetails %}
 
-## Cas d'utilisation - Générer du contenu de message {#use-case-generating-message-copy}
+## Cas d'utilisation – Générer du contenu de message {#use-case-generating-message-copy}
 
 En utilisant les endpoints REST API de Braze et de Limbik, vous pouvez exploiter les prévisions génératives de Limbik pour créer du contenu de message et l'envoyer via les canaux de communication de Braze, ou ajuster un contenu existant pour améliorer l'impact auprès de votre audience. Les deux plateformes exposent des fonctionnalités que vous pouvez appeler de manière programmatique pour construire des workflows sophistiqués.
 
@@ -160,7 +161,7 @@ La réponse contient les champs clés suivants :
 
 - **`type` :** Le type de message (par exemple, `"Generate"` pour du contenu généré par IA, `"Message"` pour des messages validés)
 - **`displayText` :** Un titre court ou un résumé du message
-- **`additionalDetail` :** **Le contenu complet du message généré par IA** — C'est le champ principal contenant le texte intégral du message que vous pouvez envoyer via votre plateforme de communication
+- **`additionalDetail` :** **Le contenu complet du message généré par IA** – C'est le champ principal contenant le texte intégral du message que vous pouvez envoyer via votre plateforme de communication
 - **`population` :** La population cible et les segments pour ce message
 
 ### Utilisation avec Braze {#using-with-braze}
@@ -179,7 +180,7 @@ Le champ `additionalDetail` de la réponse de Limbik contient le contenu du mess
 }
 ```
 
-## Cas d'utilisation - Détails de l'audience synthétique {#use-case-synthetic-audience-details}
+## Cas d'utilisation – Détails de l'audience synthétique {#use-case-synthetic-audience-details}
 
 Pour approfondir le premier cas d'utilisation, utilisez l'endpoint de Limbik `/rest/api/populations/{account_id}/{population_id}`.
 
@@ -275,11 +276,11 @@ Par exemple, vous pouvez utiliser la clé composite (`fr1::education_level::mast
 
 {% enddetails %}
 
-## Cas d'utilisation - Évaluer le score de prévision {#use-case-evaluating-forecast-score}
+## Cas d'utilisation – Évaluer le score de prévision {#use-case-evaluating-forecast-score}
 
 Vous pouvez utiliser Limbik pour créer un score estimé pour un message auprès d'une audience synthétique. Faites-le de manière programmatique avec l'endpoint `forecasts/synchronous` de Limbik.
 
-### Option 1 - Prévision synchrone {#option-1-synchronous-forecast}
+### Option 1 – Prévision synchrone {#option-1-synchronous-forecast}
 
 Vous pouvez utiliser le payload de réponse de la génération de modèle directement avec l'endpoint de prévision synchrone :
 

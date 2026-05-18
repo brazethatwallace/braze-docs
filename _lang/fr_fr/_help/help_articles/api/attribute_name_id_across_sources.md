@@ -34,7 +34,7 @@ Les attributs de campagne et de Canvas sont liés aux [événements d'engagement
 | ID de la campagne | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | S.O. (utilisé comme entrée pour l'appel API lui-même) | `campaign_id` |
 | Nom de la variante | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | S.O. (mappez le nom de la variante à l'ID de la variante à l'aide de l'endpoint Exporter les détails de la campagne) |
 | ID de la variante | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributs de campagne" }
 
 ## Attributs de Canvas {#canvas-attributes}
 
@@ -48,4 +48,4 @@ Les attributs de campagne et de Canvas sont liés aux [événements d'engagement
 | ID de l'étape | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | `steps.id` | `canvas_step_id` |
 | Canal de message | S.O. | `steps.messages.message_variation_id.channel` | S.O. (inhérent au type d'événement, par exemple envoi push ou ouverture d'e-mail) |
 | ID de message | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `steps.message.message_variation_id` | `canvas_step_message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributs de Canvas" }

@@ -70,10 +70,10 @@ Si consultas por `CANVAS_ID`, `CANVAS_VARIATION_API_ID` o `CAMPAIGN_ID`, sus col
 
 | Nombre del ID | Columna de nombre asociada |
 | --- | --- |
-| `CANVAS_ID` | Nombre del Canvas |
-| `CANVAS_VARIATION_API_ID` | Nombre de la variante en Canvas |
-| `CAMPAIGN_ID` | Nombre de la Campaign |
-{: .reset-td-br-1 .reset-td-br-2 }
+| `CANVAS_ID` | Canvas Name |
+| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CAMPAIGN_ID` | Campaign Name |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consejos" }
 
 Esta consulta recupera los tres ID y sus columnas de nombre asociadas con un máximo de 100 filas:
 

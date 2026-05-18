@@ -10,7 +10,7 @@ tool:
 search_rank: 9
 ---
 
-# Geofences
+# Geofences {#geofences}
 
 > Ein Geofence ist ein virtuelles geografisches Gebiet, das durch Breiten- und Längengrad in Kombination mit einem Radius dargestellt wird und einen Kreis um eine bestimmte globale Position bildet. Geofences können von der Größe eines Gebäudes bis zur Größe einer ganzen Stadt variieren. Sie können Geofences verwenden, um Campaigns in Echtzeit auszulösen, wenn Nutzer:innen deren Grenzen betreten oder verlassen, oder um Follow-up-Campaigns Stunden oder Tage später zu senden.
 
@@ -46,7 +46,6 @@ Die folgende Tabelle beschreibt gängige Geofence-Begriffe:
 
 Geofence-getriggerte Campaigns sind auf iOS und Android verfügbar. Um Geofences zu unterstützen, ist Folgendes erforderlich:
 
-* Ihre Integration muss Hintergrund-Push-Benachrichtigungen unterstützen.
 * Braze-Geofences oder Standorterfassung müssen aktiviert sein.
 * Nutzer:innen müssen den Standortzugriff „Immer erlauben“ gewähren.
 
@@ -134,7 +133,7 @@ Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs 
 Für beste Ergebnisse zeigen Sie den Standort-Primer, wenn Nutzer:innen engagiert sind und wahrscheinlich einen Mehrwert in der Standortfreigabe sehen.
 
 - **Sprechen Sie Nutzer:innen an, die noch keinen Standortzugriff gewährt haben.** Arbeiten Sie mit Ihrem Entwicklungsteam zusammen, um die beste Methode zu bestimmen, Nutzer:innen basierend auf ihrem Standortberechtigungsstatus zu tracken und zu segmentieren.
-- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Ereignissen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
+- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Veranstaltungen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
 - **Vermeiden Sie es, den Primer beim ersten Start zu zeigen.** Warten Sie, bis Nutzer:innen genug Mehrwert aus der App erfahren haben, um ein personalisierteres Erlebnis zu wünschen.
 
 ### 4. Schritt: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}
@@ -192,23 +191,23 @@ Diese Nachfassung gibt Nutzer:innen Kontext, warum das Upgrade auf „Immer erla
 Um einen Geofence zu erstellen, erstellen Sie zuerst ein Geofence-Set.
 
 1. Gehen Sie im Braze-Dashboard zu **Audience** > **Locations**.
-2. Wählen Sie **Geofence-Set erstellen**.
-3. Geben Sie unter **Set-Name** einen Namen für Ihr Geofence-Set ein.
+2. Wählen Sie **Create Geofence Set**.
+3. Geben Sie unter **Set name** einen Namen für Ihr Geofence-Set ein.
 4. (Optional) Fügen Sie Tags hinzu, um Ihr Set zu filtern.
 
 ### 2. Schritt: Die Geofences hinzufügen {#step-2-add-the-geofences}
 
 Fügen Sie als Nächstes Geofences zu Ihrem Geofence-Set hinzu.
 
-1. Wählen Sie **Geofence zeichnen**, um den Kreis auf der Karte zu klicken und zu ziehen. Wiederholen Sie den Vorgang, um bei Bedarf weitere Geofences zu Ihrem Set hinzuzufügen.
-2. (Optional) Wählen Sie **Bearbeiten** und ersetzen Sie die Geofence-Beschreibung durch einen Namen.
-3. (Optional) Wählen Sie **Erweiterte Einstellungen anzeigen** und verwenden Sie diese Einstellungen, um zu steuern, wie Geofence-Analytics aufgezeichnet werden:
-  - Wählen Sie **Analytics für Eintritt aktivieren** und **Analytics für Austritt aktivieren**, um Eintritts- und Austrittsaktivitäten in der [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`-SQL-Tabelle]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) für Berichte und Analysen zu protokollieren.
+1. Wählen Sie **Draw Geofence**, um den Kreis auf der Karte zu klicken und zu ziehen. Wiederholen Sie den Vorgang, um bei Bedarf weitere Geofences zu Ihrem Set hinzuzufügen.
+2. (Optional) Wählen Sie **Edit** und ersetzen Sie die Geofence-Beschreibung durch einen Namen.
+3. (Optional) Wählen Sie **Show Advanced Settings** und verwenden Sie diese Einstellungen, um zu steuern, wie Geofence-Analytics aufgezeichnet werden:
+  - Wählen Sie **Enable Analytics for Enter** und **Enable Analytics for Exit**, um Eintritts- und Austrittsaktivitäten in der [`USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`-SQL-Tabelle]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) für Berichte und Analysen zu protokollieren.
   - Konfigurieren Sie einen Cooldown-Zeitraum, um festzulegen, wie viele Sekunden vergehen müssen, bevor dieselben Nutzer:innen ein weiteres Eintritts- oder Austrittsereignis für diesen Geofence auslösen können. Wenn Sie keinen Cooldown festlegen, beträgt der Standard sechs Stunden.
-  - Verwenden Sie **Android-Benachrichtigungsreaktionsfähigkeit**, um die maximale Verzögerung in Sekunden festzulegen, die Android-Geräte bei der Zustellung von Eintritts- oder Austrittsereignissen an Ihre App verwenden.
+  - Verwenden Sie **Android Notification Responsiveness**, um die maximale Verzögerung in Sekunden festzulegen, die Android-Geräte bei der Zustellung von Eintritts- oder Austrittsereignissen an Ihre App verwenden.
 
 {: start="4" }
-4. Wählen Sie **Geofence-Set speichern**, um zu speichern.
+4. Wählen Sie **Save Geofence Set**, um zu speichern.
 
 {% alert tip %}
 Erstellen Sie Geofences mit einem Radius von mindestens 200 Metern für optimale Funktionalität. Weitere Informationen finden Sie unter [Geofence-Best-Practices](#geofence-best-practices).
@@ -220,11 +219,11 @@ Erstellen Sie Geofences mit einem Radius von mindestens 200 Metern für optimale
 
 Sie können Geofences als GeoJSON-Objekt vom Typ `FeatureCollection` in großen Mengen hochladen. Jeder Geofence ist ein `Point`-Geometrietyp in der Feature-Sammlung. Die Eigenschaften für jedes Feature erfordern einen `radius`-Schlüssel und einen optionalen `name`-Schlüssel für jeden Geofence.
 
-Um Ihre JSON-Datei hochzuladen, wählen Sie **Mehr** > **JSON hochladen**.
+Um Ihre JSON-Datei hochzuladen, wählen Sie **More** > **Upload JSON**.
 
 Beachten Sie beim Erstellen Ihrer Geofences die folgenden Details:
 
-- Der `coordinates`-Wert im GeoJSON ist als `[Längengrad, Breitengrad]` formatiert.
+- Der `coordinates`-Wert im GeoJSON ist als `[Longitude, Latitude]` formatiert.
 - Der maximale Geofence-Radius, der hochgeladen werden kann, beträgt 10.000 Meter (etwa 10 Kilometer oder 6,2 Meilen).
 
 ### Beispiel {#example}
@@ -267,7 +266,7 @@ Nachdem Sie Ihre Geofences konfiguriert haben, können Sie sie verwenden, um Ihr
 
 ### Campaigns und Canvases triggern {#triggering-campaigns-and-canvases}
 
-Um Geofence-Daten als Teil von Campaign- und Canvas-Triggern zu verwenden, wählen Sie **Aktionsbasierte Zustellung** als Zustellungsmethode. Fügen Sie dann eine Triggeraktion **Geofence triggern** hinzu. Wählen Sie schließlich das Geofence-Set und die Geofence-Übergangsereignistypen für Ihre Nachricht. Sie können Nutzer:innen auch mithilfe von Geofence-Ereignissen durch einen Canvas voranbringen.
+Um Geofence-Daten als Teil von Campaign- und Canvas-Triggern zu verwenden, wählen Sie **Action-Based Delivery** als Zustellungsmethode. Fügen Sie dann eine Triggeraktion **Trigger a Geofence** hinzu. Wählen Sie schließlich das Geofence-Set und die Geofence-Übergangsereignistypen für Ihre Nachricht. Sie können Nutzer:innen auch mithilfe von Geofence-Ereignissen durch einen Canvas voranbringen.
 
 ![Eine aktionsbasierte Campaign mit einem Geofence, die ausgelöst wird, wenn Nutzer:innen deutsche Flughäfen betreten.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
 
@@ -284,8 +283,6 @@ Um Geofence-Daten zur Personalisierung einer Nachricht zu verwenden, können Sie
 
 Das Braze SDK fordert Geofences nur einmal pro Tag beim Sitzungsstart an. Wenn Sie nach dem Sitzungsstart Änderungen an den Geofence-Sets vornehmen, müssen Sie 24 Stunden ab dem Zeitpunkt warten, an dem die Sets erstmals heruntergeladen wurden, um das aktualisierte Set zu erhalten.
 
-Wenn Nutzer:innen Hintergrund-Push aktiviert haben, sendet Braze alle 24 Stunden einen stillen Push, wenn Geofence-Sets aktualisiert werden, um die neuesten Standorte auf das Gerät herunterzuladen.
-
 {% alert note %}
 Wenn die Geofences nicht lokal auf das Gerät geladen werden, können Nutzer:innen den Geofence nicht auslösen, selbst wenn sie das Gebiet betreten.
 {% endalert %}
@@ -297,13 +294,12 @@ Wenn die Geofences nicht lokal auf das Gerät geladen werden, können Nutzer:inn
 - Verwenden Sie einen Radius von 200 Metern oder mehr für zuverlässiges Triggern.
 - Vermeiden Sie es, Geofences einzurichten, die sich überlappen oder ineinander verschachtelt sind, da dies Probleme beim Triggern verursachen kann.
 - Ein Geofence kann ein Eintrittsereignis nur einmal alle sechs Stunden auslösen. Dieser Cooldown-Zeitraum wird lokal durchgesetzt. Wenn Nutzer:innen die App deinstallieren oder App-Daten löschen, werden alle Cooldowns zurückgesetzt.
-- Nicht mehr als 20 Geofences insgesamt können auf einem Gerät gespeichert werden. Wenn Nutzer:innen für mehr als 20 berechtigt sind, lädt Braze die nächstgelegenen Standorte basierend auf der Nähe beim Sitzungsstart oder stillen Push-Aktualisierung herunter.
+- Nicht mehr als 20 Geofences insgesamt können auf einem Gerät gespeichert werden. Wenn Nutzer:innen für mehr als 20 berechtigt sind, lädt Braze die nächstgelegenen Standorte basierend auf der Nähe beim Sitzungsstart herunter.
 - Braze sendet nur Geofences innerhalb eines Radius von 2.000 Kilometern um die Nutzer:innen an das Gerät.
 
 ### Geräteanforderungen {#device-requirements}
 
-- Push-Berechtigungen und Standortberechtigungen müssen beide für die App aktiviert sein.
-- Ein gültiger Vordergrund-Push-Token ist erforderlich.
+- Die Nutzer:innen Ihrer Anwendung müssen Standortberechtigungen erteilen. Weitere Informationen finden Sie im Abschnitt [Standortberechtigungen](#location-permissions).
 
 {% alert note %}
 Die grundlegende SDK-Integration aktiviert nur Standort-Tracking. Geofencing erfordert zusätzliche Einrichtungsschritte sowohl für iOS als auch für Android. Details finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences/) im Entwicklerhandbuch.

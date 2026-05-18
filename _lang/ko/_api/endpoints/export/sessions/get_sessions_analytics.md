@@ -1,6 +1,6 @@
 ---
 nav_title: "GET: 시간별로 앱 세션 내보내기"
-article_title: "Get: 시간별 앱 세션 내보내기"
+article_title: "GET: 시간별 앱 세션 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -34,8 +34,8 @@ description: "이 문서에서는 시간별 앱 세션 분석 내보내기 Braze
 | `unit` | 선택 사항 | 문자열 | 데이터 포인트 간의 시간 단위입니다. `day` 또는 `hour`일 수 있으며 기본값은 `day`입니다. |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜입니다. 요청 시점으로 기본 설정됩니다. |
 | `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 가져온 앱 API 식별자로, 특정 앱으로 분석을 제한할 수 있습니다. |
-| `segment_id` | 선택 사항 | 문자열 | [세그먼트 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. 세션을 반환할 분석 활성화 세그먼트를 나타내는 Segment ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | 선택 사항 | 문자열 | [세그먼트 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. 세션을 반환할 분석 활성화 세그먼트를 나타내는 세그먼트 ID입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 {% raw %}

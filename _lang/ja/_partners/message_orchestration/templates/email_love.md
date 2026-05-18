@@ -1,6 +1,6 @@
 ---
 nav_title: "Email Love"
-article_title: Email Love
+article_title: "Email Love"
 description: "Figmaから直接レスポンシブでアクセス可能なHTMLメールをデザインおよびエクスポートできるFigmaプラグインであるEmail LoveとBrazeを統合する方法について説明します。"
 alias: /partners/email_love/
 page_type: partner
@@ -18,7 +18,7 @@ search_tag: Partner
 |------------------------|------------------------------------------------------------------|
 | **Email Loveアカウント** | このパートナーシップを活用するには、Email Loveアカウントが必要です。 |
 | **Braze REST APIキー** | `Templates` 権限がすべて有効化されているBraze REST APIキー。これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## BrazeでのEmail Loveの使用 {#using-email-love-with-braze}
 
@@ -38,7 +38,7 @@ search_tag: Partner
 
 ### ステップ 4:コンポーネントをカスタマイズする {#step-4-customize-the-components}
 
-Figmaのツールを使用してコンポーネントを変更し、テキスト、画像、色、レイアウトの要素を調整して、ブランドに合わせたテンプレートデザインに仕上げます。フッターコンポーネントを追加すると、エクスポート時にBraze配信停止リンクが自動的に含まれます。
+Figmaのツールを使用してコンポーネントを変更し、テキスト、画像、色、レイアウトの要素を調整して、ブランドに合わせたテンプレートデザインに仕上げます。フッターコンポーネントを追加すると、エクスポート時にBrazeの配信停止リンクが自動的に含まれます。
 
 ![Figmaでコンポーネントをカスタマイズする。]({% image_buster /assets/img/email_love/emaillove2_components.png %})
 
@@ -54,7 +54,7 @@ Figmaのツールを使用してコンポーネントを変更し、テキスト
 
 ### ステップ 6:Brazeでメールを編集する {#step-6-edit-your-email-in-braze}
 
-Brazeで、**Templates** > **Edit Templates** > **Edit Message**に移動します。テンプレートエディター内で、メールHTMLを編集するか、**Classic**タブの**Rich Text editor**を使用できます。
+Brazeで、**Templates** > **Edit Templates** > **Edit Message**に移動します。テンプレートエディター内で、メールのHTMLを編集するか、**Classic**タブの**Rich Text editor**を使用できます。
 
 ## サポートとトラブルシューティング {#support-and-troubleshooting}
 

@@ -24,7 +24,7 @@ channel:
 Braze의 SMS, MMS, RCS를 사용하면 키워드 트리거를 생성하고, 커스텀 응답을 정의하며, 여러 언어에 대한 키워드 세트를 정의하고, 커스텀 키워드 카테고리를 설정할 수 있습니다.
 
 {% alert note %}
-Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)을 위해 전체 옵트아웃 키워드 세트([기본 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) 및 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)를 사용합니다.
+Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)을 위해 전체 옵트아웃 키워드 세트([기본 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) 및 [커스텀 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/))를 사용합니다.
 {% endalert %}
 
 {% tabs %}
@@ -45,7 +45,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 | 키워드 | 키워드 응답 |
 | -------- | ----------------- |
 | - 유효한 UTF-8 인코딩 문자<br>- 카테고리당 최대 20개 키워드<br>- 최대 길이 34자<br>- 최소 길이 1자<br>- 공백 포함 불가<br>- 대소문자를 구분하지 않으며 구독 그룹 내에서 고유해야 함 | - 비워둘 수 없음<br>- 최대 길이 300자<br>- 유효한 UTF-8 문자 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="키워드 트리거 추가" }
 
 {% alert tip %}
 이러한 키워드를 Campaigns 및 Canvases에서 메시지를 리타겟팅하고 트리거하는 데 어떻게 사용할 수 있는지 알고 싶으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/)을 참조하세요.
@@ -68,7 +68,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 | 키워드 | 키워드 응답 |
 | -------- | ----------------- |
 | - 유효한 UTF-8 인코딩 문자<br>- 카테고리당 최대 20개 키워드<br>- 최대 길이 34자<br>- 최소 길이 1자<br>- 공백 포함 불가<br>- 대소문자를 구분하지 않으며 구독 그룹 내에서 고유해야 함 | - 비워둘 수 없음<br>- 최대 길이 300자<br>- 유효한 UTF-8 문자 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="고려 사항" }
 
 {% endtab %}
 {% endtabs %}
@@ -116,7 +116,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 
 ### 라이프사이클별 키워드 {#lifecycle-specific-keywords}
 
-고객이 라이프사이클 중 특정 시점(예: 초기 온보딩 중)에만 특정 키워드를 보내 응답을 받을 수 있도록 제한하려는 사용 사례가 있는 경우, Campaign 또는 Canvas에서 **Send inbound SMS to subscription group within keyword category OTHER** 트리거를 사용하고 사용자가 특정 시점에 보낼 수 있는 키워드를 정의할 수 있습니다.
+고객이 라이프사이클 중 특정 시점(예: 초기 온보딩 중)에만 특정 키워드를 보내 응답을 받을 수 있도록 제한하려는 사용 사례가 있는 경우, Campaign 또는 Canvas에서 **Sent inbound SMS to subscription group within keyword category OTHER** 트리거를 사용하고 사용자가 특정 시점에 보낼 수 있는 키워드를 정의할 수 있습니다.
 
 이 트리거는 메시지의 일치 또는 불일치 비교와 정규표현식 일치 또는 불일치 규칙을 사용하여 특정 인바운드 메시지에 대한 필터링을 지원하여 사용자의 입력을 검증합니다.
 

@@ -1796,3 +1796,5 @@ This use case aborts the message when Liquid runs on a given weekday (`Wednesday
 {% endraw %}
 
 {% endapi %}
+
+Many examples in this library use the `abort_message` tag to skip a send when conditions aren't met. For a full reference on aborting sends with Liquid, including date- and time-based patterns, see [Abort Liquid Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).

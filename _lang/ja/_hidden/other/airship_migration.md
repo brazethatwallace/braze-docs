@@ -13,8 +13,8 @@ page_type: reference
 ### トークン管理 {#token-management}
 BrazeはAppleのiOS用デバイストークンを使用します。
 
-| **Brazeの観点:**<br>AirshipからBrazeへの移行プロセスにおいて、顧客がユーザーと継続的にコミュニケーション（プッシュ通知など）できるようにします（100% Brazeへのハードカットオーバーであっても、50% Airship・50% Brazeなどのきめ細かい移行であっても同様です）。|
-{: .reset-td-br-1 role="presentation" }
+| **Brazeの観点:**<br>AirshipからBrazeへの移行プロセスにおいて、顧客がユーザーと継続的にコミュニケーション（プッシュ通知など）できるようにします（100% Brazeへのハードカットオーバーであっても、50% Airship・50% Brazeなどのきめ細かい移行であっても同様です）。 |
+{: .reset-td-br-1 aria-label="Token management" }
 
 #### プッシュトークンの移行 {#push-token-migration}
 
@@ -34,32 +34,32 @@ BrazeはAppleのiOS用デバイストークンを使用します。
 
 #### 複数のプッシュトークン {#multiple-push-tokens}
 
-Brazeでは、ユーザーは複数のプッシュトークン（各デバイスに1つずつ）を持つことができ、有効なプッシュトークンすべてをターゲットにすることで、複数のユーザーデバイスに通知を送信できます。また、ユーザーの最新のデバイスにのみ送信するようにキャンペーンを設定することも可能です。
+Brazeでは、ユーザーは複数のプッシュトークン（各デバイスに1つずつ）を持つことができ、有効なプッシュトークンすべてをターゲットにすることで、複数のユーザーデバイスに通知を送信できます。また、ユーザーの最新のデバイスにのみ送信するようにCampaignを設定することも可能です。
 
-## キャンペーンの設定 {#campaign-configuration}
-高いレベルで言えば、Brazeはカスタマーエンゲージメントの分野において実にユニークなツールです。豊富なカスタマイズオプションと成長し続ける機能セットにより、Brazeに移行されたキャンペーンは、これらのツールのメリットを活用するために再計画することで大きな恩恵を受けることが多いです。当社のキャンペーンプランニングフレームワーク（詳細はCOMまたはSAにお問い合わせください）は、まさにそのために設計されています。
+## Campaignの設定 {#campaign-configuration}
+高いレベルで言えば、Brazeはカスタマーエンゲージメントの分野において実にユニークなツールです。豊富なカスタマイズオプションと成長し続ける機能セットにより、Brazeに移行されたCampaignは、これらのツールのメリットを活用するために再計画することで大きな恩恵を受けることが多いです。当社のCampaignプランニングフレームワーク（詳細はCOMまたはSAにお問い合わせください）は、まさにそのために設計されています。
 
 ### 構成 {#composition}
 #### プッシュ通知 {#push-notifications}
 Brazeはプッシュのために別々のチャネルを必要とします（iOS用とAndroid用）。
 
-| **Brazeの観点:**<br>当社は、顧客が妥協することなく両方のメリットを得られるようにしています。個々のチャネルをフルに活用できることで、マーケターにとっては柔軟性が増し、ユーザーエクスペリエンスも向上します。これにより、各OSの最新機能を採用することができます。例えば、AndroidはiOSより先にリッチ通知をサポートしていました。|
-{: .reset-td-br-1 role="presentation" }
+| **Brazeの観点:**<br>当社は、顧客が妥協することなく両方のメリットを得られるようにしています。個々のチャネルをフルに活用できることで、マーケターにとっては柔軟性が増し、ユーザーエクスペリエンスも向上します。これにより、各OSの最新機能を採用することができます。例えば、AndroidはiOSより先にリッチ通知をサポートしていました。 |
+{: .reset-td-br-1 aria-label="Push notifications" }
 
 Brazeは、Braze SDKがインストールされたアプリケーションをアップデートしていないユーザーにもプッシュ通知を送信できます。Brazeに有効なプッシュトークンがある場合、APNsが残りを処理するため、Braze SDKなしでプッシュ通知を送信できます。プッシュメッセージの**分析はBraze SDKを使用しないビルドでは利用できない**ことに注意してください。
 
 ##### トークンの共有 {#sharing-tokens}
 
-Braze SDKへの移行プロセス中も継続する必要があるライフサイクル固有のキャンペーンの場合、Brazeが有効なプッシュトークンを受け取っていれば、ユーザーはBrazeとAirshipの両方から通知を受け取ることができます。
+Braze SDKへの移行プロセス中も継続する必要があるライフサイクル固有のCampaignの場合、Brazeが有効なプッシュトークンを受け取っていれば、ユーザーはBrazeとAirshipの両方から通知を受け取ることができます。
 
 #### メッセージセンター {#message-center}
-Airshipのメッセージセンター機能を置き換えるには、プッシュ通知と[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)で構成されるマルチチャネルキャンペーンを作成することをお勧めします。Content Cardsをメッセージセンター形式で使用する方法については、[iOS Content Cards実装ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide/#content-cards-in-a-message-center)を参照してください。
+Airshipのメッセージセンター機能を置き換えるには、プッシュ通知と[Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)で構成されるマルチチャネルCampaignを作成することをお勧めします。Content Cardsをメッセージセンター形式で使用する方法については、[iOS Content Cards実装ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/implementation_guide/#content-cards-in-a-message-center)を参照してください。
 
 ### セグメンテーション {#segmentation}
 Brazeは、顧客に豊かなユーザー体験を提供するために、複数の[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/)フィルターを提供しています。
 
-| **Brazeの観点**:<br>BrazeのSegmentsは完全に動的であるため、定義された条件の変化に応じてユーザーはSegmentに入ったり出たりします。|
-{: .reset-td-br-1 role="presentation" }
+| **Brazeの観点**:<br>BrazeのSegmentsは完全に動的であるため、定義された条件の変化に応じてユーザーはSegmentに入ったり出たりします。 |
+{: .reset-td-br-1 aria-label="Segmentation" }
 
 #### ユーザーSegmentの移行 {#user-segment-migration}
 

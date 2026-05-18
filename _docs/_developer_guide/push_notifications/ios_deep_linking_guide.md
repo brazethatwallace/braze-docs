@@ -25,7 +25,7 @@ There are three ways to handle links from Braze messages in your iOS app. Each o
 | **Custom scheme** | `myapp://products/123` | Push, in-app messages, Content Cards | No — link fails |
 | **Universal link** | `https://myapp.com/products/123` | Email, SMS, channels with click tracking | Yes — falls back to web |
 | **Open Web URL Inside App** | Any `https://` URL | Displaying web content in a modal WebView | N/A — displays in WebView |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Choosing a link type" }
 
 ### Custom scheme deep links
 
@@ -75,7 +75,7 @@ This option opens a web page inside a modal WebView within your app. It's handle
 | `Info.plist` | Register your scheme under `CFBundleURLTypes` and add it to `LSApplicationQueriesSchemes` |
 | App delegate method | Implement `application(_:open:options:)` to parse the URL and navigate |
 | Braze SDK configuration | None — the SDK opens custom scheme URLs by default |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom scheme deep links" }
 
 ### Universal links
 
@@ -86,7 +86,7 @@ This option opens a web page inside a modal WebView within your app. It's handle
 | App delegate method | Implement `application(_:continue:restorationHandler:)` to handle `NSUserActivity` |
 | Braze SDK configuration | Set `configuration.forwardUniversalLinks = true` |
 | BrazeDelegate (optional) | Implement `braze(_:shouldOpenURL:)` for custom routing (for example, Branch) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
 
 {% alert important %}
 If you send emails through Braze, your ESP (SendGrid, SparkPost, or Amazon SES) wraps links in a click-tracking domain. You must host the AASA file on your click-tracking domain as well, not only on your primary domain. For complete setup, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
@@ -99,7 +99,7 @@ If you send emails through Braze, your ESP (SendGrid, SparkPost, or Amazon SES) 
 | AASA file | Not required |
 | App delegate method | Not required — the SDK handles this automatically |
 | Braze SDK configuration | None — select **Open Web URL Inside App** in the campaign composer |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label=""Open Web URL Inside App"" }
 
 ## When you need an AASA file {#when-aasa}
 
@@ -128,7 +128,7 @@ Which delegate method you implement depends on the type of link you're using:
 | `application(_:open:options:)` | Custom scheme deep links (`myapp://`) | You use custom scheme deep links from any channel |
 | `application(_:continue:restorationHandler:)` | Universal links (`https://`) | You use universal links from email, SMS, or with `forwardUniversalLinks = true` |
 | `BrazeDelegate.braze(_:shouldOpenURL:)` | All URLs opened by the SDK | You need custom routing logic (for example, Branch, conditional handling, analytics) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When you need app code to handle links #when-app-code" }
 
 {% alert tip %}
 If you use a third-party linking provider like Branch, implement `BrazeDelegate.braze(_:shouldOpenURL:)` to intercept URLs and forward them to the provider's SDK. See [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) for a complete example.

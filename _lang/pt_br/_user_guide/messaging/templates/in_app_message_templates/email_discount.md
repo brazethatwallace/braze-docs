@@ -2,7 +2,7 @@
 nav_title: Cadastro de e-mail com desconto
 article_title: Cadastro de e-mail com desconto
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "Esta página de referência explica como usar o editor de arrastar e soltar de mensagens no app para criar um formulário de cadastro de e-mail que oferece um desconto para novos inscritos."
 ---
 

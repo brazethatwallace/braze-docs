@@ -1,6 +1,6 @@
 ---
 nav_title: "Aperçu de l'API"
-article_title: Aperçu de l'API
+article_title: "Aperçu de l'API"
 page_order: 2.1
 description: "Cet article de référence couvre les fondamentaux de l'API, y compris ce qu'est une API REST, sa terminologie et un aperçu des clés API."
 page_type: reference
@@ -27,7 +27,7 @@ alias: /api/api_key/
 | [Groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups/) | Répertoriez et mettez à jour les groupes d'abonnement SMS et e-mail stockés dans le tableau de bord de Braze. |
 | [Modèles]({{site.baseurl}}/api/endpoints/templates/)                     | Créez et mettez à jour des modèles pour les envois de messages par e-mail et les Content Blocks.                   |
 | [Données utilisateur]({{site.baseurl}}/api/endpoints/user_data/)                     | Identifiez, suivez et gérez vos utilisateurs.                                               |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze REST API collection" }
 
 ## Définitions relatives aux API {#api-definitions}
 
@@ -110,7 +110,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `users.external_ids.remove` | [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/) | Supprimer l'ID externe d'un utilisateur existant. |
 | `users.alias.update` | [`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update/) | Mettre à jour un alias pour un utilisateur existant. |
 | `users.export.global_control_group` | [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) | Interroger les informations de profil utilisateur dans le groupe de contrôle global. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
  {% endtab %}
  {% tab Email %}
@@ -123,7 +123,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `email.bounce.remove` | [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/) | Supprimer des adresses e-mail de votre liste d'échecs d'envoi définitifs. |
 | `email.spam.remove` | [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/) | Supprimer des adresses e-mail de votre liste de spam. |
 | `email.blacklist` | [`/email/blacklist`]({{site.baseurl}}/api/endpoints/email/post_blacklist/) | Ajouter des adresses e-mail à la liste de blocage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Messages %}
@@ -136,7 +136,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `messages.schedule.delete` | [`/messages/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/) | Supprimer un message planifié. |
 | `messages.schedule_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | Interroger tous les messages de diffusion planifiés. |
 | `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) | Mettre à jour une activité en direct iOS. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Campaigns %}
@@ -154,7 +154,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `sends.id.create` | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/) | Créer un ID d'envoi pour le suivi des envois de messages. |
 | `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Interroger les détails des URL d'une variation de message donnée dans une Campaign. |
 | `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/) | Permet d'envoyer des messages transactionnels via l'endpoint de messagerie transactionnelle. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Canvas %}
@@ -164,13 +164,13 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `canvas.trigger.send` | [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) | Déclencher l'envoi d'un Canvas existant. |
 | `canvas.trigger.schedule.create` | [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/) | Planifier l'envoi d'un Canvas avec une distribution déclenchée par l'API. |
 | `canvas.trigger.schedule.update` | [`/canvas/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/) | Mettre à jour un Canvas planifié avec une distribution déclenchée par l'API. |
-| `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/)| Supprimer un Canvas planifié avec une distribution déclenchée par l'API. |
-| `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |  Interroger la liste des Canvas. |
+| `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/) | Supprimer un Canvas planifié avec une distribution déclenchée par l'API. |
+| `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | Interroger la liste des Canvas. |
 | `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | Interroger les données analytiques de Canvas sur une période donnée. |
 | `canvas.details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | Interroger les détails d'un Canvas spécifique. |
 | `canvas.data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | Interroger les cumuls des données analytiques de Canvas sur une période donnée. |
 | `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias/) | Interroger les détails des URL d'une variation de message spécifique au sein d'une étape du Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Segments %}
@@ -180,7 +180,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | Interroger la liste des Segments. |
 | `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | Interroger les données analytiques de Segments sur une période donnée. |
 | `segments.details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | Interroger les détails d'un Segment spécifique. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Purchases %}
@@ -190,7 +190,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `purchases.product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | Interroger la liste des produits achetés dans votre application. |
 | `purchases.revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | Interroger le montant total dépensé par jour dans votre application sur une période donnée. |
 | `purchases.quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | Interroger le nombre total d'achats par jour dans votre application sur une période donnée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Events %}
@@ -199,7 +199,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 |---|---|---|
 | `events.list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | Interroger la liste des événements personnalisés. |
 | `events.data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | Interroger les occurrences d'un événement personnalisé sur une période donnée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Sessions %}
@@ -207,18 +207,18 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | Autorisation | Endpoint | Description |
 |---|---|---|
 | `sessions.data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | Interroger les sessions par jour sur une période donnée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab KPIs %}
 
 | Autorisation | Endpoint | Description |
 |---|---|---|
-| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |  Interroger les utilisateurs actifs uniques par jour sur une période donnée. |
+| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | Interroger les utilisateurs actifs uniques par jour sur une période donnée. |
 | `kpi.mau.data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | Interroger le total des utilisateurs actifs uniques sur une fenêtre glissante de 30 jours sur une période donnée. |
 | `kpi.new_users.data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | Interroger les nouveaux utilisateurs par jour sur une période donnée. |
 | `kpi.uninstalls.data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | Interroger les désinstallations d'applications par jour sur une période donnée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Templates %}
@@ -229,15 +229,15 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `templates.email.info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | Interroger les informations d'un modèle spécifique. |
 | `templates.email.list` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | Interroger la liste des modèles d'e-mail. |
 | `templates.email.update` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | Mettre à jour un modèle d'e-mail stocké sur le tableau de bord. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SSO %}
 
 | Autorisation | Description |
-| --- | --- |
+|---|---|
 | `sso.saml.login` | Configurer l'identification initiée par le fournisseur d'identité. Pour plus d'informations, reportez-vous à l'[identification initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Content Blocks %}
@@ -248,7 +248,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `content_blocks.list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | Interroger la liste des Content Blocks. |
 | `content_blocks.create` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | Créer un nouveau Content Block sur le tableau de bord. |
 | `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | Mettre à jour un Content Block existant sur le tableau de bord. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Preference Center %}
@@ -259,7 +259,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `preference_center.list` | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | Répertorier les centres de préférences. |
 | `preference_center.update` | [`/preference_center/v1`]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/)<br><br>[`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/) | Créer ou mettre à jour un centre de préférences. |
 | `preference_center.user.get` | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) | Obtenir le lien d'un centre de préférences pour un utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Subscription %}
@@ -269,7 +269,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `subscription.status.set` | [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) | Définir le statut du groupe d'abonnement. |
 | `subscription.status.get` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | Obtenir le statut du groupe d'abonnement. |
 | `subscription.groups.get` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | Obtenir le statut des groupes d'abonnement auxquels des utilisateurs spécifiques sont explicitement abonnés ou désabonnés. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SMS %}
@@ -278,7 +278,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 |---|---|---|
 | `sms.invalid_phone_numbers` | [`/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/) | Interroger les numéros de téléphone non valides. |
 | `sms.invalid_phone_numbers.remove` | [`/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/) | Supprimer le marqueur de numéro de téléphone non valide des utilisateurs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Catalogs %}
@@ -292,13 +292,13 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `catalogs.update_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item/) | Mettre à jour un élément unique dans un catalogue existant. |
 | `catalogs.create_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/post_create_catalog_item/) | Créer un élément unique dans un catalogue existant. |
 | `catalogs.delete_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/delete_catalog_item/) | Supprimer un élément unique d'un catalogue existant. |
-| `catalogs.replace_item` | [` /catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item/) | Remplacer un élément unique d'un catalogue existant. |
+| `catalogs.replace_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/put_update_catalog_item/) | Remplacer un élément unique d'un catalogue existant. |
 | `catalogs.create` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog/) | Créer un catalogue. |
 | `catalogs.get` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | Obtenir une liste de catalogues. |
 | `catalogs.delete` | [`/catalogs/{catalog_name}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/delete_catalog/) | Supprimer un catalogue. |
 | `catalogs.get_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | Obtenir un aperçu des éléments d'un catalogue existant. |
 | `catalogs.replace_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/) | Remplacer des éléments dans un catalogue existant. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SDK Authentication %}
@@ -309,7 +309,7 @@ Les autorisations de clés API sont des droits que vous pouvez affecter à un ut
 | `sdk_authentication.primary` | [`/app_group/sdk_authentication/primary`]({{site.baseurl}}/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key/) | Marquer une clé d'authentification SDK comme clé principale pour votre application. |
 | `sdk_authentication.delete` | [`/app_group/sdk_authentication/delete`]({{site.baseurl}}/api/endpoints/sdk_authentication/delete_sdk_authentication_key/) | Supprimer une clé d'authentification SDK pour votre application. |
 | `sdk_authentication.keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | Obtenir toutes les clés d'authentification SDK pour votre application. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% endtabs %}
@@ -327,13 +327,13 @@ L'onglet **API Keys** contient les informations suivantes pour chaque clé :
 | Created By   | L'adresse e-mail de l'utilisateur qui a créé la clé. Ce champ affiche « N/A » pour les clés créées avant juin 2023. |
 | Date Created | Date de création de cette clé.                                                                                      |
 | Last Seen    | Date de la dernière utilisation de cette clé. Ce champ affiche « N/A » pour les clés qui n'ont jamais été utilisées.                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Managing REST API keys" }
 
-Pour afficher les détails d'une clé API, survolez la clé et sélectionnez <i class="fa-solid fa-eye" alt="View"></i> **View**. Vous y trouverez toutes les autorisations dont dispose cette clé, les adresses IP inscrites sur la liste blanche (le cas échéant) et si cette clé est inscrite sur la liste blanche des adresses IP de Braze.
+Pour afficher les détails d'une clé API, survolez la clé et sélectionnez <i class="fa-solid fa-eye" alt="Afficher"></i> **View**. Vous y trouverez toutes les autorisations dont dispose cette clé, les adresses IP inscrites sur la liste d'autorisations (le cas échéant) et si cette clé est inscrite sur la liste d'autorisations d'adresses IP de Braze.
 
 ![La liste des autorisations de la clé API dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/view-api-key.png %})
 
-Notez que lorsque vous [supprimez un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), Braze ne supprime pas les clés API associées créées par cet utilisateur. Pour supprimer une clé, survolez-la et sélectionnez <i class="fa-solid fa-trash-can" alt="Delete"></i> **Delete**.
+Notez que lorsque vous [supprimez un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), Braze ne supprime pas les clés API associées créées par cet utilisateur. Pour supprimer une clé, survolez-la et sélectionnez <i class="fa-solid fa-trash-can" alt="Supprimer"></i> **Delete**.
 
 ![Une clé API nommée « Last Seen » avec l'icône de la corbeille en surbrillance, indiquant « Delete ».]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
 
@@ -360,7 +360,7 @@ Les clés API REST et les clés API SDK présentent des profils de sécurité di
 | Objectif | Authentification côté serveur pour l'API REST (envoi de messages, export de données, gestion des utilisateurs) | Identification côté client pour le SDK Braze (ingestion de données, In-App Messages, Content Cards) |
 | Visibilité | **Doivent rester privées**. Ne jamais les exposer dans du code côté client, des dépôts publics ou des applications utilisateur. | Conçues pour être publiques. Intégrées dans le binaire de votre application ou visibles dans le JavaScript du navigateur web, de manière similaire à un identifiant de suivi Google Analytics. |
 | Solution en cas d'exposition | Révoquez immédiatement la clé et créez-en une nouvelle dans **Settings** > **APIs and Identifiers** > **API Keys**. Une clé API REST exposée peut être utilisée pour envoyer des messages, exporter des données utilisateur ou modifier les paramètres du compte. | Aucune action requise. Une clé API SDK ne peut qu'ingérer des données et récupérer des messages côté client (tels que les In-App Messages et les Content Cards). Elle ne peut pas exporter de données utilisateur, envoyer des messages en votre nom ni modifier des Campaigns. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Security of REST API keys and SDK API keys" }
 
 ### Liste d'adresses IP autorisées {#api-ip-allowlisting}
 
@@ -402,7 +402,7 @@ Les requêtes API REST adressées à Braze sont protégées par le chiffrement T
 | 3 | Équilibreur de charge réseau (NLB) | Transmet les paquets à l'infrastructure applicative. Les NLB fonctionnent au niveau de la couche 4, ce qui signifie qu'il n'y a pas de proxy au niveau de la couche 7. Les paquets sont transférés sans inspection ni modification au niveau HTTP. |
 | 4 | Ingress NGINX | Met fin à la connexion TLS interne et achemine la requête. |
 | 5 | Unicorn (serveur d'applications) | Traite la requête authentifiée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Network-level security" }
 
 Le chiffrement TLS couvre chaque maillon de la chaîne. Votre serveur se connecte à Cloudflare via TLS, et Cloudflare établit une connexion TLS distincte via le NLB vers l'ingress NGINX, de sorte que votre clé API et vos données de requête restent chiffrées pendant le transit.
 

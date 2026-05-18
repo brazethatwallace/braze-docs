@@ -8,13 +8,13 @@ search_tag: Partner
 
 ---
 
-# Configuração do pipeline de eventos ETL
+# Configuração do pipeline de eventos ETL {#etl-event-pipeline-setup}
 
 > Esta página de parceiro oferece um exemplo de configuração de uma consulta de cliques de e-mail para referência ao configurar suas próprias consultas.
 
-Você pode usar essa consulta de cliques em e-mails para analisar as interações com e-mails específicos em suas campanhas e Canvas do Braze.
+Você pode usar essa consulta de cliques em e-mails para analisar as interações com e-mails específicos em suas Campaigns e Canvas da Braze.
 
-## Configure esta consulta
+## Configure esta consulta {#set-up-this-query}
 
 Crie um banco de dados para `BRAZE` e, se não houver nenhum, crie um banco de dados para `BRAZE_CURRENTS;`:
 
@@ -94,11 +94,11 @@ COPY INTO
 show pipes;
 ```
 
-## Faça mais com este exemplo de consulta
+## Faça mais com este exemplo de consulta {#do-more-with-this-query-example}
 
-Copie o endereço `notification_channel` da saída do comando anterior e use-o ao configurar as notificações do bucket S3.
+Copie o `notification_channel` da saída do comando anterior e use-o ao configurar as notificações do bucket S3.
 
-Sincronize manualmente do S3 para o Snowflake para o seguinte nome de canal fornecido:
+Sincronize manualmente do S3 para o Snowflake para o seguinte nome de pipe fornecido:
 ```sql
 ALTER PIPE
   pipe_users_messages_email_click
@@ -113,7 +113,7 @@ SELECT
   )
 ```
 
-Por fim, mostre o histórico de cópias da tabela selecionando `*` de:
+Por fim, exiba o histórico de cópias da tabela selecionando `*` de:
 ```sql
 table(braze_currents.information_schema.copy_history(table_name=>'users_messages_email_click', start_time=> dateadd(hours, -1, current_timestamp())));
 ```

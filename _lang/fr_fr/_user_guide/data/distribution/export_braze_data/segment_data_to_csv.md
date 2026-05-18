@@ -29,6 +29,14 @@ Pour exporter les données de tous vos profils utilisateurs, créez un segment s
 
 Le fichier CSV contient les données de chaque profil utilisateur capturé dans le segment au moment de l'exportation. Vous pouvez exporter n'importe quel segment en sélectionnant l'icône d'engrenage, puis l'exportation CSV. Braze génère le rapport en arrière-plan et l'envoie par e-mail à l'utilisateur actuellement connecté.
 
+## Détails de l'exportation CSV de segment {#segment-csv-export-details}
+
+{% alert note %}
+Les utilisateurs du tableau de bord doivent disposer de l'autorisation **Exporter les données utilisateur** pour utiliser les options d'exportation CSV. S'ils ne disposent pas de cette autorisation, les options d'exportation CSV n'apparaissent pas.
+{% endalert %}
+
+**Exporter les adresses e-mail en CSV** inclut uniquement les lignes des utilisateurs du segment qui possèdent une adresse e-mail. Par exemple, si votre segment contient 100 000 utilisateurs mais que seulement 50 000 ont une adresse e-mail, **Exporter les adresses e-mail en CSV** produit environ 50 000 lignes. **Exporter les données utilisateur en CSV** exporte toutes les données utilisateur du segment.
+
 {% alert important %}
 En raison des limites de taille de fichier, votre exportation peut échouer si la taille estimée de votre segment dépasse 500 000 utilisateurs. Notez que cette restriction est basée sur la taille estimée de votre segment, et non sur le calcul exact. Pour plus de détails, reportez-vous à la section [Exporter des segments volumineux](#exporting-large-segments).
 {% endalert %}
@@ -83,7 +91,7 @@ Les éléments suivants sont inclus dans votre exportation en fonction de votre 
 | windows_ad_ids              | ID publicitaires Windows                                 |
 | Custom events               | En fonction de la sélection à l'exportation              |
 | Custom attributes           | En fonction de la sélection à l'exportation              |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
 Lorsque vous exportez les données utilisateur d'une étape Canvas, le fichier CSV inclut tous les utilisateurs qui sont passés par cette étape au cours de la durée de vie de l'étape Canvas. Vous ne pouvez pas limiter l'exportation à une plage de dates ou à une autre fenêtre temporelle. Pour savoir comment effectuer ces exportations, consultez [Exporter les données Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
@@ -100,7 +108,7 @@ Lorsque vous exportez les données utilisateur d'une étape Canvas, le fichier C
 | unsubscribed_from_emails_at | Date de désabonnement aux e-mails  |
 | opted_in_to_emails_at       | Date d'abonnement aux e-mails     |
 | user_aliases                | Alias de l'utilisateur, le cas échéant |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Pour obtenir de l'aide sur les exportations CSV et API, consultez notre article de [résolution des problèmes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).

@@ -1,6 +1,6 @@
 ---
-nav_title: "Future Anthem"
-article_title: "Future Anthem"
+nav_title: Future Anthem
+article_title: Future Anthem
 description: "Cet article de référence décrit le partenariat entre Braze et Future Anthem, une plateforme d'intelligence artificielle en temps réel pour la personnalisation des paris sportifs et de l'iGaming."
 alias: /partners/future_anthem/
 page_type: partner
@@ -26,7 +26,7 @@ Cette fonctionnalité est actuellement en accès anticipé. Contactez l'équipe 
 | Compte Future Anthem | Un compte Future Anthem. |
 | Clé API REST Braze | Une clé API REST Braze avec la permission pour l'[endpoint `users.track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Vous pouvez la créer dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze | L'[endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) de Braze qui correspond à votre instance, par exemple `rest.iad-01.com`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -42,6 +42,7 @@ L'équipe Customer Success de Future Anthem vous aide à mettre en place votre i
 | Exemples d'attributs dans Future Anthem | Exemples d'attributs dans Braze |
 | ----------------------------------- | --------------------------- |
 | ![Tableau de bord Future Anthem affichant les attributs de profil d'un joueur.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Profil utilisateur Braze affichant les attributs d'objet personnalisé synchronisés depuis Future Anthem.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Intégration" }
 
 ## Attributs personnalisés Braze {#braze-custom-attributes}
 
@@ -57,7 +58,7 @@ Voici les attributs personnalisés Braze disponibles. Pour plus d'informations, 
 | Recommandations de paris accumulateurs (libellés d'événements) | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | Objet |
 | Recommandations de paris accumulateurs (cotes numériques) | `{"Bet_1": 1.5, "Bet_2": 2}` | Objet |
 | Recommandations de paris Bet Builder | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | Objet |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Braze" }
 
 {% endtab %}
 {% tab Bonus Recommendations %}
@@ -73,7 +74,7 @@ Voici les attributs personnalisés Braze disponibles. Pour plus d'informations, 
 | Recommandation de valeur du bonus Bet and Get | 20 | Nombre |
 | Autres recommandations de valeur de bonus | 0 | Nombre |
 | CLTV futur | 3126 | Nombre |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Braze" }
 
 {% endtab %}
 {% tab Game Recommendations %}
@@ -88,7 +89,7 @@ Voici les attributs personnalisés Braze disponibles. Pour plus d'informations, 
 | À suivre (séquençage de jeux) | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | Tableau |
 | Jeux populaires | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | Tableau |
 | Jeux en vogue | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | Tableau |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Braze" }
 
 {% endtab %}
 
@@ -96,8 +97,8 @@ Voici les attributs personnalisés Braze disponibles. Pour plus d'informations, 
 
 | Sous-catégorie | Exemple | Type de données |
 | ----------- | ------- | --------- |
-| Afficher le cluster auquel appartient le joueur | High Value Game Diverse | Chaîne de caractères |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cluster auquel appartient le joueur | High Value Game Diverse | Chaîne de caractères |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Braze" }
 
 {% endtab %}
 
@@ -107,7 +108,7 @@ Voici les attributs personnalisés Braze disponibles. Pour plus d'informations, 
 | ----------- | ------- | --------- |
 | Score de risque | 0.5 | Nombre |
 | Joueur à risque | True | Valeur booléenne |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés Braze" }
 
 {% endtab %}
 {% endtabs %}

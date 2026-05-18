@@ -18,7 +18,7 @@ channel:
 
 Braze cuenta con un sistema de detección propietario que utiliza múltiples entradas para identificar clics sospechosos de bots, también conocidos como interacciones no humanas (NHI). Los clics de bots pueden inflar las tasas de clics, distorsionando las métricas de interacción. Al filtrarlos, Braze facilita la captura de datos fiables para la toma de decisiones.
 
-Nuestro sistema analiza los agentes de usuario asociados con rastreadores web, vistas previas de enlaces de Android e iOS, o software de seguridad CPaaS. Algunos ejemplos de agentes de usuario filtrados incluyen `GoogleBot`, `python-requests/2.32.3` y `Barracuda Sentinel (EE)`.
+Nuestro sistema analiza los agentes de usuario asociados con rastreadores web, vistas previas de enlaces de Android e iOS, o software de seguridad CPaaS. Algunos ejemplos de agentes de usuario filtrados incluyen `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3` y `Barracuda Sentinel (EE)`.
 
 ## Métricas y flujos de trabajo afectados {#affected-metrics-and-workflows}
 
@@ -43,7 +43,7 @@ Braze incluye los siguientes campos de Currents para eventos de clics de SMS:
 | --- | --- | --- |
 | `is_suspected_bot_click` | Booleano | Indica si el clic es un clic sospechoso de bot. Devuelve `null` para todos los usuarios hasta que se habilite el filtrado de clics de bots para tu empresa. Cuando se habilite, se rellenará con `true` o `false` para todos los nuevos clics en adelante. |
 | `suspected_bot_click_reason` | Cadena, Array | Indica el motivo de un clic sospechoso de bot (como `user_agent`). Se rellena incluso si el filtrado está deshabilitado, proporcionando información sobre la actividad potencial de bots. Este campo está disponible globalmente y se rellena con un motivo para todos los usuarios, incluso si el filtrado de clics de bots aún no está habilitado. Esto proporciona información sobre la actividad potencial de bots antes de que habilites el filtrado de clics de bots. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos de Currents en eventos de clics de SMS" }
 
 ## Plantilla del Generador de consultas {#query-builder-template}
 

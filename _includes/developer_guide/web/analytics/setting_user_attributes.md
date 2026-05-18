@@ -56,7 +56,9 @@ window.braze.getUser().setGender("f")
 
 ### Unsetting default attributes
 
-To unset a default user attribute, pass `null` to the related method. For example:
+You can remove or unset a user attribute through your app code, a REST API request, or a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) Canvas step. For array and boolean attributes, use `null`. For other data types, use an empty string (`""`).
+
+To unset a default user attribute with the Web SDK, pass `null` to the related method. For example:
 
 {% tabs local %}
 {% tab First name %}
@@ -218,7 +220,7 @@ To set up a subscription for your users (either email or push), call the functio
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Subscribed, and explicitly opted in |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Subscribed, but not explicitly opted in |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Unsubscribed and/or explicitly opted out |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
 
 When a user is registered for push, the browser forces them to choose to allow or block notifications, and if they choose to allow push, they are set `OPTED_IN` by default. 
 

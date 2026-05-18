@@ -27,11 +27,11 @@ Prenez connaissance des éléments suivants avant de procéder à l'intégration
 <br><br>
 
 | Exigence | Description |
-| ---| --- |
+| --- | --- |
 | Compte Meta Business Manager | Un compte Meta Business est requis pour utiliser ce canal de communication. |
 | Compte WhatsApp Business | Un compte WhatsApp Business est requis pour utiliser ce canal de communication. |
 | Numéro de téléphone WhatsApp | Vous devez acquérir un numéro de téléphone conforme aux exigences de WhatsApp pour l'[API Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou l'[API On-Premises](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) afin d'utiliser le canal de communication. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 

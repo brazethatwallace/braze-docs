@@ -95,7 +95,7 @@ page_order: 3
 | 총 매출 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. **채널** 드릴다운에서는 사용할 수 없습니다. |
 | 고유 노출 횟수 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. |
 | 고유 수신자 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. **채널** 드릴다운에서는 사용할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Metrics availability" }
 
 ### 삭제된 메시지 배리언트 {#deleted-message-variants}
 

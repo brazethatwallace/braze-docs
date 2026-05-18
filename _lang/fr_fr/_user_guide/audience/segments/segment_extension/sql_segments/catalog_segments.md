@@ -10,7 +10,7 @@ tool: Segments
 
 # Segments de catalogue {#catalog-segments}
 
-> Les segments de catalogue sont un type d'extension de segment SQL créé en combinant des données de catalogue avec des données issues d'événements personnalisés ou d'achats. Ils peuvent être référencés dans un segment, puis ciblés par des Campaigns et des Canvas.
+> Les segments de catalogue sont un type d'extension de segment SQL créé en combinant des données de catalogue avec des données issues d'événements personnalisés ou d'achats. Ils peuvent être référencés dans un segment, puis ciblés par des campagnes et des Canvas.
 
 Les segments de catalogue utilisent SQL pour joindre des données provenant de catalogues et des données issues d'événements personnalisés ou d'achats. Pour ce faire, vous devez disposer d'un champ d'identifiant commun entre vos catalogues et vos événements personnalisés ou achats. Par exemple, la valeur d'un ID d'article dans un catalogue doit correspondre à la valeur d'une propriété dans un événement personnalisé.
 
@@ -31,7 +31,7 @@ Voici les directives pour sélectionner les variables :
 | `Catalog field`| Le champ de votre catalogue qui contient les mêmes valeurs que votre `Custom event property`. Il s'agit souvent d'un type d'ID. Dans le cas d'utilisation eCommerce, il s'agirait de `shopify_id`. |
 | `Custom event` | Le nom de votre événement personnalisé, qui est le même événement contenant une propriété dont les valeurs correspondent à votre `Catalog field`. Dans le cas d'utilisation eCommerce, il s'agirait de `Made Order`. |
 | `Custom event property` | Le nom de la propriété de votre événement personnalisé, dont les valeurs correspondent à votre `Catalog field`. Dans l'exemple d'utilisation eCommerce, il s'agirait de `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Créer un segment de catalogue" }
 
 {: start="4"}
 4. Si nécessaire, remplissez les champs facultatifs supplémentaires pour votre cas d'utilisation afin de segmenter par une valeur de champ particulière dans votre catalogue :
@@ -64,7 +64,7 @@ Sauf si vous cherchez spécifiquement à cibler des utilisateurs avec zéro év�
 
 ## Actualiser l'appartenance au segment {#refreshing-segment-membership}
 
-Pour actualiser l'appartenance au segment de n'importe quel segment de catalogue, ouvrez le segment de catalogue et sélectionnez **Actions** > **Actualiser** > **Oui, actualiser**.
+Pour actualiser l'appartenance au segment d'un segment de catalogue, ouvrez le segment de catalogue et sélectionnez **Actions** > **Actualiser** > **Oui, actualiser**.
 
 {% alert tip %}
 Si vous avez créé un segment dans lequel vous vous attendez à ce que des utilisateurs entrent et sortent régulièrement, actualisez manuellement le segment de catalogue qu'il utilise avant de cibler ce segment dans une campagne ou un Canvas.
@@ -97,7 +97,7 @@ Vous configureriez un segment de catalogue en utilisant les variables suivantes 
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
 | `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Application de santé" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -120,7 +120,7 @@ Vous configureriez un segment de catalogue en utilisant les variables suivantes 
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plateforme SaaS" }
 
 {% endtab %}
 {% endtabs %}

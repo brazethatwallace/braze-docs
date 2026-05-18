@@ -28,4 +28,4 @@
 | `brazeBridge.web.registerAppboyPushMessages(successCallback, deniedCallback)`              | Registriert für Web-Push (nur Web). Diese Methode ist ein No-op, wenn sie in einer Nicht-Web-Umgebung aufgerufen wird. [JS Docs](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission)                                        |
 | `brazeBridge.requestPushPermission(successCallback, deniedCallback)` | Registriert für Push über Web, iOS und Android. Hinweis: Die Callbacks der Methode werden nur im Web unterstützt. Diese Methode wurde mit Web SDK v4.0.0, Android SDK v21.0.0 und Swift SDK v5.4.0 eingeführt. [JS Docs](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission) |
 | `brazeBridge.changeUser(id, sdkAuthSignature?)`                                            | Identifiziert die:den Nutzer:in mit einer eindeutigen ID. [JS Docs](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)<br><br>Diese Methode wurde in Web SDK v4.3.0 eingeführt. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

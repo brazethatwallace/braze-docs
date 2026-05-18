@@ -2,7 +2,7 @@
 nav_title: "온보딩 플로우"
 article_title: "온보딩 플로우"
 alias: "/onboarding_flow/"
-page_order: 0
+page_order: 1
 description: "이 페이지에서는 신규 사용자를 환영하고, 혜택을 안내하며, 매력적인 행동 유도 문구를 사용하여 행동을 이끌어내는 방법을 다룹니다."
 ---
 

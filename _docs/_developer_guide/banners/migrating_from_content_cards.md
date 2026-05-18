@@ -792,7 +792,7 @@ Banners only support scheduled delivery campaigns. To migrate a message that was
 | **Content Updates** |
 | Liquid templating refresh | ❌ Once per card at send/launch | ✅ Refreshes on every refresh |
 | Eligibility refresh | ❌ Once per card at send/launch | ✅ Refreshes on every session |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Feature differences" }
 
 ### Product limitations
 

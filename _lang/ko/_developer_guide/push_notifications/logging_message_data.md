@@ -26,7 +26,7 @@ noindex: true
 | --- | --- | --- |
 | 네이티브 푸시 분석 | Braze 푸시 Campaign에 연결된 열기 및 영향받은 열기와 같은 푸시 측정기준 | 푸시 Campaign 분석, Currents 메시지 참여 이벤트, 보고서 빌더 |
 | 커스텀 이벤트 및 속성 | SDK 메서드 또는 `/users/track` 엔드포인트를 통해 정의하고 기록하는 분석 | 고객 프로필, 세분화, 동작 기반 Campaign 및 Canvases, 커스텀 이벤트 분석 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Native push analytics vs. custom event logging" }
 
 {% alert important %}
 커스텀 이벤트(예: `push_notification_opened`)를 기록하는 것은 Braze의 네이티브 푸시 열기 추적과 동일하지 않습니다. 커스텀 이벤트는 네이티브 푸시 Campaign 열기 측정기준이나 푸시 기여도에 반영되지 않습니다.
@@ -176,7 +176,7 @@ Xcode에서 메인 앱 타겟에 `App Groups` 기능을 추가합니다. **App G
 {% endalert %}
 
 {% tabs local %}
-{% tab Custom events %}
+{% tab 커스텀 이벤트 %}
 
 #### 커스텀 이벤트 저장 {#saving-custom-events}
 
@@ -318,7 +318,7 @@ func logPendingCustomEventsIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Custom attributes %}
+{% tab 커스텀 속성 %}
 
 #### 커스텀 속성 저장 {#saving-custom-attributes}
 
@@ -436,7 +436,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab User attributes %}
+{% tab 사용자 속성 %}
 
 #### 사용자 속성 저장 {#saving-user-attributes}
 
@@ -563,7 +563,7 @@ func logPendingUserAttributesIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Helper files %}
+{% tab 헬퍼 파일 %}
 
 #### RemoteStorage 헬퍼 파일 {#remotestorage-helper-file}
 
@@ -803,7 +803,7 @@ extension Dictionary where Key == String, Value == Any {
 | --- | --- |
 | 네이티브 푸시 분석 | Campaign 수준의 푸시 열기 측정기준을 보려면 푸시 Campaign의 **Campaign Analytics** 페이지로 이동합니다. 측정기준 정의는 [영향받은 열기]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)를 참조하세요. 커스텀 분석 뷰를 구축하려면 **Analytics** > **Report Builder (New)**로 이동합니다. 탐색 단계는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 참조하세요. 웨어하우스 수준의 이벤트 스키마는 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)를 참조하세요. |
 | 커스텀 이벤트 및 속성 | 커스텀 이벤트 트렌드를 보려면 **Analytics** > **Custom Events Report**로 이동합니다. 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요. 사용자 수준의 값을 검사하려면 **Search Users** 페이지로 이동하여 프로필을 엽니다. 단계는 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)을 참조하세요. 이러한 값으로 오디언스를 필터링하려면 **Audience** > **Segments**로 이동합니다. 탐색 단계는 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) 및 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)의 필터 옵션을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyzing results" }
 
 커스텀 보고서 생성에 대해서는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 참조하세요.
 

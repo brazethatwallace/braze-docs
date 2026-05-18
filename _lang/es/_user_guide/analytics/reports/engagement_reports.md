@@ -77,7 +77,7 @@ Los informes de interacción agregan datos por campaña o Canvas, no a nivel de 
 | Mensaje dentro de la aplicación | Impresiones, Clics, Clics en el primer botón, Clics en el segundo botón |
 | Webhook  |  Envíos, Errores |
 | SMS | Envíos, Envíos al operador, Entregas confirmadas, Fallos de entrega, Rechazos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### Paso 4: Completar la configuración del informe {#step-4-complete-report-setup}
 
@@ -101,6 +101,14 @@ De forma predeterminada, el rango de datos mostrado se basa en la zona horaria d
 De forma predeterminada, los datos mostrados en los informes de interacción son diarios (un día). Para ver estos datos en diferentes intervalos, elige un número explícito de días o semanas para agregar los datos del informe. Así, en lugar de ver métricas diarias, puedes ver tu interacción por semana, mes, trimestre o similar. Si una agregación centrada en el tiempo no es suficiente, también puedes optar por exportar datos a nivel de campaña o Canvas.
 
 ![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### Mostrar datos por campaña o Canvas completo {#show-data-by-entire-campaign-or-canvas}
+
+Cuando seleccionas **Show Data by Entire Campaign or Canvas**, Braze agrega las métricas en bloques de 1825 días (cinco años) a lo largo del rango de tiempo del informe.
+
+Si el rango de tiempo abarca más de un bloque, es posible que veas varias filas para la misma campaña o Canvas con diferentes fechas en la columna de fecha. Algunas filas pueden incluir solo métricas registradas más adelante en el rango (por ejemplo, cancelaciones de suscripción). Las fechas también pueden ser anteriores a cuando comenzaste a enviar en el espacio de trabajo, porque reflejan los límites de los bloques en la exportación, no solo tu primer envío.
+
+Para alinear la columna de fecha con el momento en que tus campañas y Canvas seleccionados realmente enviaron, establece la [fecha de inicio del informe en **Seleccionar periodo de tiempo**](#select-time-frame) a la fecha más temprana que deseas en el archivo, generalmente cuando esos mensajes comenzaron a enviarse, en lugar de dejar el rango predeterminado que se remonta al mensaje seleccionado más antiguo.
 
 #### Planificar tu informe {#schedule-your-report}
 
@@ -132,7 +140,7 @@ Asegúrate de que las fechas en el informe de interacción coincidan con las fec
 Si los totales parecen incorrectos en una hoja de cálculo, limpia los filtros adicionales en la exportación. Puedes sumar las filas diarias para conciliarlas con los totales de Canvas o campaña para el mismo rango de tiempo.
 
 {% alert note %}
-Si deseas una fila agregada para el rango completo en lugar de contenedores diarios, semanales u otros recurrentes, configura **Data Display** en **Show Data by Entire Campaign or Canvas**.
+Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedores diarios, semanales u otros recurrentes, configura **Data Display** en **Show Data by Entire Campaign or Canvas**. Si los recuentos de filas o las fechas parecen incorrectos en el CSV, consulta [Mostrar datos por campaña o Canvas completo](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Clics de botón duplicados en mensajes dentro de la aplicación HTML {#duplicate-button-clicks-in-html-in-app-messages}

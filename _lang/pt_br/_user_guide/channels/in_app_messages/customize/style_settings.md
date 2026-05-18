@@ -122,15 +122,15 @@ Para adicionar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/pe
 
 Em seguida, pegue o snippet Liquid gerado e insira-o na sua mensagem. Após projetar e criar sua mensagem no app, acesse **Preview & Test** para pré-visualizar sua mensagem.
 
-### Usando o assistente de copywriting com IA {#using-the-ai-copywriter}
+### Usando o Assistente de Copywriting com IA {#using-the-ai-copywriter}
 
-Quando um bloco de texto é selecionado na sua mensagem no app, clique em <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de copywriting com IA"></i> na barra de ferramentas do bloco para abrir o [assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). O assistente de copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
+Quando um bloco de texto é selecionado na sua mensagem no app, clique em <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> na barra de ferramentas do bloco para abrir o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
 
 {% alert tip %}
 Você pode economizar alguns cliques destacando o texto dentro do bloco antes de clicar no ícone. O texto destacado será adicionado à ferramenta, e o texto será gerado imediatamente.
 {% endalert %}
 
-![GIF do assistente de copywriting com IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
+![GIF do Assistente de Copywriting com IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
 ### Redefinindo estilos para o padrão {#resetting-styles-to-default}
 
@@ -154,8 +154,8 @@ Após fazer alterações na estilização de um elemento, você pode copiar e co
 
 Você também pode usar atalhos de teclado para copiar e colar estilos:
 
-| Ação          | Mac                                            | Windows                                           |
-| ------------- | ---------------------------------------------- | ------------------------------------------------- |
-| Copiar estilos  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
+| Ação | Mac | Windows |
+| --- | --- | --- |
+| Copiar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Colar estilos | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

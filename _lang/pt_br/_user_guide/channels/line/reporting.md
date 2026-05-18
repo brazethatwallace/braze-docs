@@ -54,7 +54,7 @@ Aqui estão algumas métricas importantes do LINE que você pode ver na sua aná
 | Total de aberturas | O número total de vezes que as mensagens do LINE enviadas foram abertas pelos usuários após um limite mínimo de 20 mensagens por dia ter sido atingido. |
 | Cliques únicos | O número total de mensagens do LINE enviadas que foram clicadas pelos usuários, após um limite mínimo de 20 mensagens por dia ter sido atingido. |
 | Total de cliques | O número total de vezes que as mensagens do LINE enviadas foram clicadas pelos usuários após um limite mínimo de 20 mensagens por dia ter sido atingido. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas do LINE" }
 
 ### Desempenho histórico {#historical-performance}
 

@@ -26,6 +26,51 @@ Review the following Meta documentation for guidance with display names, phone n
 
 ## WhatsApp product updates
 
+### 2026: Business usernames
+*Last Updated May 2026*
+
+Meta is introducing business usernames for WhatsApp—an optional display name that businesses can adopt for their WhatsApp phone number. When a username is set, it appears in WhatsApp and WhatsApp Business app chat windows in place of the phone number. Note that adopting a username does not hide your phone number; it alway remains visible in your business profile.
+
+Usernames are unique across all WhatsApp phone numbers—no two numbers, consumer or business, can share the same username. They are case-insensitive for the purposes of uniqueness, but periods and underscores are treated as distinct characters. For example, `myid`, `my.id`, and `my_id` are all considered different usernames, whereas `myID` and `myid` are treated as the same.
+
+Business usernames must meet the following format requirements:
+
+- Contains only English letters (a–z), digits (0–9), periods (`.`), or underscores (`_`)
+- Is between 3 and 35 characters long
+- Contains at least one English letter
+- Does not start or end with a period, and does not contain two consecutive periods
+- Does not start with `www`
+- Does not end with a common domain suffix (such as `.com`, `.org`, or `.net`)
+
+#### Claiming a reserved username
+
+Before the username feature is broadly available, Meta may have pre-reserved a username for your business—typically matching an existing Facebook Page or Instagram username. You can claim this reserved username or choose a different one through [WhatsApp Manage](https://business.facebook.com/wa/manage/). Claimed usernames are not activated until Meta makes the feature available.
+
+If the reserved username matches one already associated with your Facebook Page or Instagram account, you must first link your business phone number to that Page or account. You can do this while claiming the username in WhatsApp Manager or Meta Business Suite, or by adding your phone number directly from the relevant Page or account. Linking requires either full control of the Page or account, or basic partial access with the `manage_phone` permission.
+
+#### Display priority in chat windows
+
+When your business profile appears in a chat window, WhatsApp uses the following priority order (highest to lowest):
+
+1. Saved contact name
+2. Verified business name or Official Business Account (OBA) name
+3. Username
+4. Phone number
+
+For more information, see Meta's documentation on [business usernames](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### April 2026: Automatic archival of inactive templates
+*Last Updated April 2026*
+
+- Meta automatically archives templates that have been inactive for 12 months or more.
+- Auto-archival is enabled for all WhatsApp Business Accounts and cannot be disabled.
+- Template activity includes creating, editing, sending, appealing, or unarchiving a template.
+- Archived templates cannot be sent and are scheduled for permanent deletion after 28 days.
+- You can unarchive templates within the 28-day window to restore them and cancel the scheduled deletion.
+- Notifications are sent via the `message_template_status_update` webhook, email, and a one-time WhatsApp Manager banner.
+
+For more information, see Meta's documentation on [template archival](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### June 2026: Business-scoped user IDs
 *Last Updated March 2026*
 

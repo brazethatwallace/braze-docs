@@ -4,11 +4,11 @@
 
 以下の機能はBraze Android SDKに組み込まれています。その他のプッシュ通知機能を利用するには、アプリ向けに[プッシュ通知を設定](#android_setting-up-push-notifications)する必要があります。
 
-|機能|説明|
+| 機能 | 説明 |
 |-------|-----------|
-|Push Stories|AndroidのPush Storiesは、Braze Android SDKにデフォルトで組み込まれています。詳しくは[Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)を参照してください。|
-|プッシュプライマー|プッシュプライマーCampaignでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)を使用して、SDKのカスタマイズなしで行うことができます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Push Stories | AndroidのPush Storiesは、Braze Android SDKにデフォルトで組み込まれています。詳しくは[Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/)を参照してください。|
+| プッシュプライマー | プッシュプライマーCampaignでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)を使用して、SDKのカスタマイズなしで行うことができます。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## プッシュ通知のライフサイクルについて {#push-notification-lifecycle}
 
@@ -246,12 +246,12 @@ Google Cloudで、Androidアプリが使用しているプロジェクトを選�
 
 **JSON**を選択し、**作成**を選択します。FCMプロジェクトIDとは異なるGoogle CloudプロジェクトIDを使用してサービスアカウントを作成した場合は、JSONファイルで`project_id`に割り当てられた値を手動で更新する必要があります。
 
-キーをどこにダウンロードしたかを覚えておいてください。次のステップで必要になります。
+キーをどこにダウンロードしたかを覚えておいてください&#8212;次のステップで必要になります。
 
 ![「JSON」を選択した状態で秘密キーを作成するフォーム。]({% image_buster /assets/img/android/push_integration/generate_json_credentials/select-create.png %}){: style="max-width:65%;"}
 
 {% alert warning %}
-秘密キーが漏洩した場合は、セキュリティリスクが生じる可能性があります。JSON認証情報は安全な場所に保存しておいてください。キーはBrazeにアップロードした後で削除します。
+秘密キーが漏洩した場合は、セキュリティリスクが生じる可能性があります。JSON認証情報は安全な場所に保存しておいてください&#8212;キーはBrazeにアップロードした後で削除します。
 {% endalert %}
 
 ### ステップ6: JSON認証情報をBrazeにアップロードする {#step-6-upload-your-json-credentials-to-braze}
@@ -371,7 +371,7 @@ Braze.configure(this, brazeConfig)
 新規、既存、またはBraze以外のFirebaseメッセージングサービスを作成できます。特定のニーズに最も合うものを選択してください。
 
 {% tabs local %}
-{% tab New %}
+{% tab 新規 %}
 Brazeには、プッシュ受信インテントと開封インテントを処理するサービスが含まれています。`BrazeFirebaseMessagingService`クラスは`AndroidManifest.xml`に登録する必要があります。
 
 ```xml
@@ -390,7 +390,7 @@ Braze SDK 3.1.1より前では、FCMプッシュを処理するために`AppboyF
 {% endalert %}
 {% endtab %}
 
-{% tab Existing %}
+{% tab 既存 %}
 Firebase Messaging Serviceがすでに登録されている場合は、[`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)オブジェクトを[`BrazeFirebaseMessagingService.handleBrazeRemoteMessage()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-firebase-messaging-service/-companion/handle-braze-remote-message.html)経由でBrazeに渡すことができます。このメソッドは[`RemoteMessage`](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)オブジェクトがBrazeから発信された場合にのみ通知を表示し、そうでない場合は安全に無視します。
 
 {% subtabs %}
@@ -434,7 +434,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Non-Braze %}
+{% tab Braze以外 %}
 使用したい別のFirebase Messaging Serviceがある場合は、アプリケーションがBrazeからではないプッシュを受信した場合に呼び出すフォールバックFirebase Messaging Serviceを指定することもできます。
 
 `braze.xml`で次のように指定します。
@@ -631,7 +631,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 #### ディープリンクの追加 {#adding-deep-links}
 
-Brazeダッシュボードではプッシュ通知のCampaignやCanvasで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
+Brazeダッシュボードではプッシュ通知のCampaignやCanvasesで、通知がクリックされたときに開くディープリンクまたはWeb URLを設定できます。
 
 ![Brazeダッシュボードの「クリック時の動作」設定で、ドロップダウンから「アプリケーションへのディープリンク」を選択している状態。]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
@@ -696,7 +696,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 
 #### 表示のテスト {#testing-display}
 
-この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**Campaigns**ページにアクセスし、**プッシュ通知**Campaignを作成します。**Androidプッシュ**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**テストを送信**をクリックします。デバイスにプッシュが表示されます。
+この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**Campaigns**ページにアクセスし、**プッシュ通知**Campaignを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**Send Test**をクリックします。デバイスにプッシュが表示されます。
 
 ![Brazeダッシュボード内のプッシュ通知Campaignの「テスト」タブ。]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 

@@ -13,7 +13,7 @@ page_order: 2
 Puedes administrar los centros de preferencias de arrastrar y soltar existentes desde **Audiencia** > **Centro de preferencias de correo electrónico**:
 
 - Para cambiar el nombre o el contenido de un centro de preferencias, ábrelo desde el dashboard.
-- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier Campaign de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
+- Los centros de preferencias de arrastrar y soltar no se pueden eliminar desde el dashboard. Para quitar uno, primero elimina su etiqueta de Liquid de cualquier campaña de correo electrónico o paso en Canvas, y luego ponte en contacto con [soporte de Braze]({{site.baseurl}}/support_contact/).
 - Si un centro de preferencias eliminado se utilizó en mensajes enviados anteriormente, dejará de funcionar en esos correos electrónicos entregados.
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
@@ -29,7 +29,7 @@ Aquí se mostrará una lista de centros de preferencias personalizados. Seleccio
 
 Los nombres de los centros de preferencias solo pueden contener caracteres alfanuméricos, guiones o guiones bajos. El nombre que proporciones determinará la sintaxis de la etiqueta de Liquid generada.
 
-Esta etiqueta de Liquid se puede incluir en cualquier Campaign de correo electrónico saliente o paso en Canvas y dirigirá a los usuarios al centro de preferencias.
+Esta etiqueta de Liquid se puede incluir en cualquier campaña de correo electrónico saliente o paso en Canvas y dirigirá a los usuarios al centro de preferencias.
 
 ![Un ejemplo de Liquid para un centro de preferencias.]({% image_buster /assets/img/preference_center/preference_center2.png %})
 
@@ -88,7 +88,7 @@ Los bloques representan diferentes tipos de contenido que puedes usar en tu mens
 
 ![Opción para seleccionar bloques, incluyendo título, párrafo, botón, imagen y espaciador.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/dnd/editor_blocks/).
+Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Bloques del editor (centro de preferencias)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
 
 Si estás usando el bloque de código personalizado en tu centro de preferencias, es posible que los marcos en línea no se generen en el código personalizado cuando se entregue a tus usuarios.
 

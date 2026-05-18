@@ -3,7 +3,7 @@ nav_title: Rokt Calendar
 article_title: Rokt Calendar
 description: "이 참조 문서에서는 브랜드가 캘린더 이벤트 및 알림 형태로 1:1 이벤트와 프로모션 커뮤니케이션을 푸시할 수 있게 해주는 동적 캘린더 마케팅 기술인 Rokt Calendar와 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 noindex: true
 hidden: true
 ---
@@ -27,8 +27,8 @@ Braze와 Rokt Calendar 통합을 사용하면 Rokt Calendar 가입자와 해당 
 | Rokt Calendar OAuth 자격 증명 | Rokt Calendar 계정 매니저가 제공하는 이 키를 사용하면 Braze와 Rokt Calendar 계정을 연결할 수 있습니다.<br><br>Braze 대시보드에서 **설정** > **연결된 콘텐츠**에서 생성할 수 있습니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. 이 키를 Rokt Calendar 계정 매니저에게 제공해야 합니다.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | [Braze REST 엔드포인트]({{site.baseurl}}/api/basics/#endpoints) | REST 엔드포인트 URL. 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-| 외부 가입자 ID | Rokt Calendar 구독 프로세스에서 캘린더 가입자를 Braze 사용자와 매칭하는 데 사용되는 식별자입니다. 이것은 Rokt Calendar에 전달하는 값입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 외부 가입자 ID | Rokt Calendar 구독 프로세스에서 캘린더 가입자를 Braze 사용자와 매칭하는 데 사용되는 식별자입니다. 이것은 Rokt Calendar에 전달하는 값입니다.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 오디언스 세분화 {#audience-segmentation}
 
@@ -52,7 +52,7 @@ Rokt Calendar가 새 사용자를 생성하거나 기존 가입자를 Braze 사�
 | `rokt:subscription_id` | 생성된 구독과 관련된 고유 식별자 역할을 하는 구독 ID | `06423672-b6ba-4536-aa36-70788a7a0a36` |
 | `rokt:subscription_method` | 생성된 구독과 관련된 구독 방법(webcal/Google) | `WebCal/f5733866ade2` |
 | `rokt:tags` | 생성된 구독과 관련하여 사용된 캘린더 태그 | `Test Calendar 1/All Teams/f5733866ade2 and Test Calendar 1/TeamI//f5733866ade2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience segmentation #audience-segmentation" }
 
 Rokt Calendar는 사용자가 Rokt 캘린더를 구독하는 즉시 `subscribe` 커스텀 이벤트를 트리거하며, 이는 Braze 세분화에서 사용하거나 Campaign 또는 Canvas 구성요소의 트리거로 사용할 수 있습니다.
 
@@ -182,7 +182,7 @@ Rokt Calendar는 Rokt Calendar 연결된 콘텐츠 자격 증명 이름을 포�
 | `eventEnd` <br>***필수**  | 캘린더에 표시되는 이벤트의 종료 날짜 및 시간 | `2019-02-21T16:00:00` |
 | `eventTz` <br>***필수**  | 캘린더에 표시되는 이벤트의 시간대. 적용 가능한 시간대 목록은 [여기](https://roktcalendar-api.readme.io/docs/timezones)에서 확인할 수 있습니다. | `Eastern Standard Time` |
 | `notifyBefore` <br>***필수**  | 캘린더에 표시되는 이벤트의 알림 시간. 분 단위로 표시됩니다. | `15` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Request body" }
 {% endtab %}
 {% endtabs %}
 

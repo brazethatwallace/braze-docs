@@ -118,7 +118,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | 정수 | 정수 커스텀 속성은 "inc" 필드와 추가할 양을 가진 오브젝트를 할당하여 증가시킬 수 있습니다. <br><br>예시: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 중첩 커스텀 속성 | 중첩 커스텀 속성은 속성 집합을 다른 속성의 등록정보로 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)을 참조하세요. |
 | 문자열 | 문자열 커스텀 속성은 텍스트 데이터를 저장하는 데 사용되는 문자 시퀀스입니다. 예를 들어 문자열을 사용하여 이름과 성, 이메일 주소 또는 환경설정을 저장할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
 
 {% alert tip %}
 커스텀 이벤트와 커스텀 속성을 언제 사용해야 하는지에 대한 지침은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 및 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 참조하세요.
@@ -171,7 +171,7 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있는 익명 프로필
 | subscription_groups| `subscription_group_id` 및 `subscription_state` 문자열이 포함된 오브젝트 배열(예: `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`). `subscription_state`에 사용할 수 있는 값은 "subscribed" 및 "unsubscribed"입니다.|
 | time_zone | (문자열) [IANA 시간대 데이터베이스](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)의 시간대 이름(예: "America/New_York" 또는 "Eastern Time (US & Canada)"). 유효한 시간대 값만 설정됩니다. |
 | twitter | `id`(정수), `screen_name`(문자열, X(구 Twitter) 핸들), `followers_count`(정수), `friends_count`(정수), `statuses_count`(정수) 중 하나를 포함하는 해시입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields" }
 
 이 API를 통해 명시적으로 설정된 언어 값은 Braze가 기기에서 자동으로 수신하는 로케일 정보보다 우선합니다.
 
@@ -230,7 +230,7 @@ Braze를 통합하기 전에 자체적으로 또는 다른 제공업체를 통�
 |----------------------|------------|
 | **서비스 워커**  | 기본적으로 웹 SDK는 `manageServiceWorkerExternally` 또는 `serviceWorkerLocation`과 같은 다른 옵션이 지정되지 않는 한 `./service-worker`에서 서비스 워커를 찾습니다. 서비스 워커가 제대로 설정되어 있지 않으면 사용자의 푸시 토큰이 만료될 수 있습니다. |
 | **만료된 토큰**   | 사용자가 60일 이내에 웹 세션을 시작하지 않으면 푸시 토큰이 만료됩니다. Braze는 만료된 푸시 토큰을 마이그레이션할 수 없으므로, 사용자를 재참여시키기 위해 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)를 보내야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
 
 ### API를 통한 수동 마이그레이션 {#manual-migration-through-api}
 

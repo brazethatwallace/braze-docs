@@ -16,7 +16,7 @@ search_rank: 1
 
 # SMS, MMS 또는 RCS 메시지 만들기 {#create-an-sms-mms-or-rcs-message}
 
-> SMS, MMS, RCS Campaigns는 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자에게 개인화된 경험을 제공하고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 만들 수 있습니다.
+> SMS, MMS, RCS Campaign(캠페인)은 고객에게 직접 도달하고 프로그래밍 방식으로 대화하는 데 매우 유용합니다. Liquid 및 기타 동적 콘텐츠를 사용하여 사용자에게 개인화된 경험을 제공하고, 브랜드와의 자연스러운 사용자 경험을 촉진하고 향상시키는 환경을 만들 수 있습니다.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
@@ -62,7 +62,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 | SMS 전용 | SMS |
 | MMS 지원 번호가 포함된 SMS | SMS 및 MMS |
 | RCS 지원(RCS 인증 발신자 포함) | SMS, MMS(활성화된 경우) 및 RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 Braze는 RCS 발신자를 포함하는 모든 구독 그룹에 대체용 SMS 코드를 하나 이상 포함할 것을 강력히 권장합니다. 이렇게 하면 RCS 메시지가 전달되지 않는 경우(예: 기기 호환성 문제 또는 불완전한 통신사 커버리지) SMS를 통해 사용자에게 메시지가 전달됩니다.
@@ -108,7 +108,7 @@ MMS 메시지를 보내려면 구독 그룹에 MMS 지원 전화번호가 하나
 | --- | --- |
 | 크기 | 최대 600&nbsp;KB |
 | 파일 유형 | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### 연락처 카드 {#contact-cards}
 
@@ -177,7 +177,7 @@ RCS 미디어 메시지를 사용하면 이미지, 동영상, 문서 파일 등 
 | 이미지 | 지원 형식: JPG, JPEG, GIF |
 | 동영상 | 지원 형식: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | 문서 | 지원 형식: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **고려 사항:**
 
@@ -240,18 +240,18 @@ Liquid를 사용할 계획이라면 선택한 개인화에 기본값을 포함�
 
 Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트할 것을 권장합니다. **테스트** 탭으로 전환하여 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트 SMS, MMS 또는 RCS 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리볼 수 있습니다.
 
-![작성기의 테스트 탭에서 SMS 문구를 미리보는 모습. 프로필 섹션에서 이름 필드가 "James"로 설정되어 있습니다. 미리보기 섹션에서 SMS에 "Hi James, we appreciate your support!"라고 표시됩니다.]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 SMS가 몇 개의 세그먼트로 분할될 수 있는지 테스트하려면 [SMS 세그먼트 계산기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)로 문구 길이를 테스트하세요.
 {% endalert %}
+
+![작성기의 테스트 탭에서 SMS 문구를 미리보는 모습. 프로필 섹션에서 이름 필드가 "James"로 설정되어 있습니다. 미리보기 섹션에서 SMS에 "Hi James, we appreciate your support!"라고 표시됩니다.]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 MMS의 경우 자산(이미지 및 메시지 본문)의 순서를 사용자 지정할 수 없습니다. 순서는 메시지를 수신하는 전화기에 따라 달라집니다.
 {% endalert %}
 
 {% alert note %}
-RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종 사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요.
+RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종 사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요. iOS 기기에서의 RCS 렌더링에 대한 자세한 내용은 [iOS 기기에서 RCS 메시지가 정확하게 렌더링되지 않는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)를 참조하세요.
 {% endalert %}
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs)를 참조하세요.

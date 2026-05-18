@@ -16,12 +16,18 @@ eコマースイベントは予測可能なスキーマに従っているため�
 Brazeのeコマースイベントとそのセグメント可能なイベントプロパティは、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)にカウントされません。
 {% endalert %}
 
-## トランザクションタブ {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-各ユーザープロファイルの**トランザクション**タブでは、イベントが処理されるとリアルタイムで更新される3つの計算指標を表示し、ユーザーの商取引アクティビティをライブで確認できます。これらの計算の注文レベルモデルにより、製品価格と注文合計値が明確に分離されます。
+## コマースタブ {#commerce-tab}
+
+各ユーザープロファイルの**コマース**タブは、**注文アクティビティ**（計算された収益と注文の指標）と**アクティブカート**（`ecommerce.cart_updated`イベントからの最新のカート）の2つのモジュールで構成されています。
+
+### 注文アクティビティ {#order-activity}
+
+**注文アクティビティ**モジュールは、イベントが処理されるとリアルタイムで更新される3つの計算指標を表示します。これらの計算の注文レベルモデルにより、製品価格と注文合計値が明確に分離されます。
 
 {% alert note %}
-eコマース推奨イベントは、**トランザクション**タブの**購入履歴**セクションには表示されません。購入履歴はレガシー購入イベントによって入力されます。推奨イベントからの収益と注文アクティビティについては、以下の表の指標を使用してください。
+eコマース推奨イベントは、**コマース**タブの**購入履歴**セクションには表示されません。購入履歴はレガシー購入イベントによって入力されます。推奨イベントからの収益と注文アクティビティについては、以下の表の指標を使用してください。
 {% endalert %}
 
 | 指標 | 計算式 |
@@ -29,15 +35,24 @@ eコマース推奨イベントは、**トランザクション**タブの**購�
 | 合計収益 | sum (`order_placed.total_value`) − sum (`order_refunded.total_value`) |
 | 合計注文数 | count (distinct `order_placed`) − count (distinct `order_cancelled`) |
 | 合計返金額 | sum (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![合計収益、合計注文数、合計返金額を含む注文アクティビティセクション。]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### アクティブカート {#active-cart}
+
+**アクティブカート**モジュールは、ユーザープロファイル上の最新のカートを表示します。このビューはテスト中に特に役立ちます。カートの内容を確認したり、カートベースのジャーニーを検証したり、`ecommerce.cart_updated`イベントが期待どおりにプロファイルを更新しているかを確認したりできます。
+
+**アクティブカート**には以下が含まれます:
+
+- **カートID** — 最後に`ecommerce.cart_updated`イベントを受信したカートの識別子。
+- **最終更新日時** — 最新のカート更新のタイムスタンプ。
+- **カート合計値** — 現在のカート内のラインアイテムの合計値。
+- **製品を表示** — カート内の製品リストを開くリンク（最大50製品）。
 
 ## eコマースオーケストレーション {#ecommerce-orchestration}
 
 ### セグメンテーション {#segmentation}
 
-eコマースイベントはカスタムイベントと同様に動作するため、既存のカスタムイベントフィルターがすべてそのまま使用できます。例えば、「カスタムイベント `ecommerce.order_placed` をX回以上実行した」でフィルタリングできます。
+eコマースイベントはカスタムイベントと同様に動作するため、既存のカスタムイベントフィルターがすべてそのまま使用できます。例えば、「カスタムイベント`ecommerce.order_placed`をX回以上実行した」でフィルタリングできます。
 
 ネストされた製品データ（特定の製品ID、バリアント名、価格しきい値など）に基づくターゲティングには、ネストされたイベントプロパティフィルタリングを備えた[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用してください。これにより、「過去90日間に製品SKU-123を購入したユーザー」のようなオーディエンスを構築したり、同じ注文の異なるプロパティにまたがる条件を組み合わせたりできます。
 
@@ -47,7 +62,7 @@ eコマースイベントはカスタムイベントと同様に動作するた�
 
 ### トリガー {#triggering}
 
-他のカスタムイベントと同様に、Braze全体でeコマースイベントを使用してカスタムイベント実行トリガーを設定できます。放棄カートフローの場合は、**カート更新イベントの実行**トリガーを使用して、カートの更新を適切にキャプチャしてください。
+他のカスタムイベントと同様に、Braze全体でeコマースイベントを使用してカスタムイベント実行トリガーを設定できます。放棄カートフローの場合は、**Perform Cart Updated Event**トリガーを使用して、カートの更新を適切にキャプチャしてください。
 
 さらに、Brazeは専用の**Places Order**トリガーを提供しており、任意の注文確定時、または特定の製品を含む注文時にジャーニーを開始したりアクションを実行したりできます。このトリガーは、製品名、`product_id`、または`variant_id`でフィルタリングして、特定の購入シナリオをターゲットにできます。詳細については、[アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を参照してください。
 
@@ -77,7 +92,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.product_viewed` |
 | 終了イベント | `ecommerce.product_viewed`、`ecommerce.cart_updated`、`ecommerce.checkout_started`、Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab カート放棄 %}
@@ -91,10 +106,10 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.cart_updated` |
 | 終了イベント | `ecommerce.cart_updated`、`ecommerce.checkout_started`、Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-`ecommerce.cart_updated`イベントは置換モデルを使用します。送信されるたびにユーザーのカート状態が上書きされます。メッセージ内で{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用して、送信時の現在のカート内容を動的に表示してください。
+`ecommerce.cart_updated`イベントはカート全体の置換（各イベントでカート全体を記述）またはオプションの`action`プロパティの`add`と`remove`の値を使用した増分更新をサポートしています。カートごとにいずれかのアプローチを選択し、同じ`cart_id`に対して置換と増分カート更新を混在させないでください。メッセージ内で{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用して、送信時の現在のカート内容を動的に表示してください。
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +124,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.checkout_started` |
 | 終了イベント | Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab 注文確認とアンケート %}
@@ -122,7 +137,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | --- | --- |
 | エントリイベント | `ecommerce.order_placed` |
 | コンバージョンイベント | セッション開始または`ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,10 +147,9 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 これらのテンプレートは出発点として設計されています。一般的なカスタマイズには以下が含まれます:
   - **メールのカスタマイズ:** 各テンプレートには、ドラッグ＆ドロップエディターで構築された事前設定済みのメールが含まれており、ブランドやコンテンツに合わせて完全に編集可能です。
   - **チャネルの追加:** メールにプッシュ、SMS、またはアプリ内メッセージを組み合わせて、クロスチャネルの強化を図ります。
-  各テンプレート内には、完全にカスタマイズ可能な事前設定済みのメールがあります。
   - **遅延と条件分岐の追加:** 動作（例: 高額カートと低額カートの比較）やメッセージ間の待機期間でユーザーを分岐させます。
   - **クリエイティブの差し替え:** 含まれているメールテンプレートをブランドのビジュアルスタイルに置き換えます。
-  ドラッグ＆ドロップ製品ブロック（早期アクセスプログラム）を使用して、カスタムLiquidを記述せずに放棄カートの内容や閲覧した製品を動的にレンダリングできます。
+  - **製品ブロックの使用:** ドラッグ＆ドロップ製品ブロック（早期アクセスプログラム）を使用して、カスタムLiquidを記述せずに放棄カートの内容や閲覧した製品を動的にレンダリングできます。
 
 より高度なライフサイクル戦略（Liquidパーソナライゼーションの例を含む）については、[eコマースユースケース]({{site.baseurl}}/ecommerce_use_cases/)を参照してください。
 
@@ -152,9 +166,9 @@ eコマース推奨イベントは、顧客が現在使用しているものと�
 | セグメントインサイト | セグメントインサイトダッシュボードにおけるSegment間の収益比較。 |
 | レポートビルダー | レポートビルダーで構築されたカスタムレポートの収益指標。 |
 | ダッシュボードビルダー | ダッシュボードビルダーで構築されたカスタムダッシュボードの収益指標。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
-ユーザー以外の計算フィールド（例: CampaignまたはCanvasの収益）の場合、収益はすべてのレポートで同じ方法で計算されます: 注文内の製品ごとに`price`に`quantity`を掛け、各`order_placed`イベント内の製品全体で合計します。
+ユーザー以外の計算フィールド（例: CampaignまたはCanvasの収益）の場合、収益はすべてのレポートで同じ方法で計算されます。注文内の製品ごとに`price`に`quantity`を掛け、各`order_placed`イベント内の製品全体で合計します。
 
 {% alert note %}
 収益の二重カウントを避けるため、同じ注文に対してレガシー購入イベントとeコマース推奨イベントの両方を送信しないでください。レガシー購入から推奨イベントへの移行を計画している場合は、統合を変更する前にBrazeアカウントチームと調整してください。<br><br>
@@ -173,9 +187,9 @@ Brazeは、データウェアハウス、BIツール、またはダウンスト�
 |------------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) | eコマースイベントはカスタムイベントとしてストリーミングされます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入として利用可能です。 |
 | [Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | eコマースイベントはカスタムイベントとして共有されます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入テーブルで利用可能です。 |
-| [SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | SegmentメンバーのCSVエクスポート。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
+| [SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | SegmentメンバーのCSVエクスポートです。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
 | [Segmentごとのユーザープロファイルをエクスポート（API）]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | SegmentメンバーのユーザープロファイルデータがAPI経由で返されます。eコマースイベントはカスタムイベントとして含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### 特定の製品でユーザーをセグメント化するにはどうすればよいですか？ {#how-do-i-segment-users-by-a-specific-product}
 

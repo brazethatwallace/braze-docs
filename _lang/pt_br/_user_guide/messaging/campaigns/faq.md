@@ -14,11 +14,11 @@ tool: Campaigns
 
 ### Como crio uma Campaign multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Para criar uma Campaign multicanal, selecione **Messaging** > **Campaigns**. Em seguida, selecione **Create Campaign** > **Multichannel**. A partir daí, você pode selecionar entre os seguintes canais de envio de mensagens: Content Cards, e-mail, LINE, notificações por push, SMS/MMS/RCS, webhook ou WhatsApp.
+Consulte [Campaigns multicanais]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) em **Criar uma Campaign** para etapas de configuração e canais suportados.
 
 ### Posso adicionar um grupo de controle à minha Campaign multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Não, os grupos de controle em Campaigns são destinados ao envio de mensagens em canal individual, como E-mail A versus E-mail B. Como alternativa, experimente usar o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) para testar diferentes canais, conteúdos de mensagens e horários de entrega.
+Consulte [Grupos de controle]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) em **Criar uma Campaign**. Para testes entre canais, use o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### Quais são algumas formas de começar a testar e otimizar Campaigns? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ Uma possível explicação é que a Campaign ou o Canvas tem a reelegibilidade a
 
 Por exemplo, se você tiver um Canvas que possui notificações por push tanto para iOS quanto para web, um determinado usuário com dispositivos móvel e desktop pode receber mais de uma mensagem.
 
-### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatários únicos* pode ser maior do que o público esperado porque a Braze rastreia destinatários únicos diários para fins de relatório. Isso permite que a Braze atribua conversões dentro da janela de conversão cada vez que um usuário recebe a mensagem, em vez de consolidar múltiplos recebimentos em uma única contagem vitalícia (o que distorceria os cálculos de conversão).
 
@@ -48,9 +48,7 @@ O mesmo padrão se aplica a Campaigns recorrentes e à reelegibilidade: se dois 
 
 ### Por que o número de conversões pode exceder o número de usuários únicos em Campaigns multicanais? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Em Campaigns multicanais, a Braze conta as conversões por canal, não por usuário. Quando um usuário realiza uma única ação de conversão dentro da janela de conversão, a Braze atribui essa conversão a cada canal pelo qual o usuário recebeu uma mensagem. Isso significa que, se um usuário receber mensagens em múltiplos canais (por exemplo, e-mail e push) e converter, a Braze conta múltiplas conversões, uma para cada canal. Como resultado, a contagem total de conversões pode exceder o número de usuários únicos que converteram.
-
-Por exemplo, se uma Campaign multicanal envia tanto um e-mail quanto uma notificação por push para um usuário, e esse usuário realiza uma ação de conversão após receber ambas as mensagens e dentro da janela de conversão, a Braze conta isso como duas conversões — uma atribuída ao e-mail e uma atribuída ao push — mesmo sendo uma única ação do mesmo usuário.
+Consulte [Conversões e relatórios]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) em **Criar uma Campaign** e [Regras de rastreamento de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) em **Eventos de conversão**.
 
 ### Por que minha Campaign tem uma base de usuários contatáveis menor do que o segmento que estou usando para a Campaign? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -164,7 +162,7 @@ Para evitar isso, garanta que as atualizações de atributos personalizados ou e
 
 ### Por que o número de usuários entrando em uma Campaign não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% alert tip %}
 Para assistência adicional com solução de problemas de Campaigns, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.

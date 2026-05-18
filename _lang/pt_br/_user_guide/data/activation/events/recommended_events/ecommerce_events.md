@@ -16,12 +16,18 @@ Como os eventos de eCommerce seguem um esquema previsível, a Braze pode criar r
 Os eventos de eCommerce da Braze e suas propriedades de evento segmentáveis não contam como [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Guia Transações {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-A guia **Transações** em cada perfil de usuário oferece uma visualização em tempo real da atividade comercial do usuário, exibindo três métricas calculadas que são atualizadas em tempo real conforme os eventos são processados. O modelo no nível do pedido desses cálculos separa claramente os preços dos produtos do valor total do pedido.
+## Guia Comércio {#commerce-tab}
+
+A guia **Comércio** em cada perfil de usuário combina dois módulos: **Atividade de pedidos** (métricas calculadas de receita e pedidos) e **Carrinho ativo** (o carrinho mais recente dos eventos `ecommerce.cart_updated`).
+
+### Atividade de pedidos {#order-activity}
+
+O módulo **Atividade de pedidos** exibe três métricas calculadas que são atualizadas em tempo real conforme os eventos são processados. O modelo no nível do pedido desses cálculos separa claramente os preços dos produtos do valor total do pedido.
 
 {% alert note %}
-Os eventos recomendados de eCommerce não preenchem a seção **Histórico de compras** da guia **Transações**. O histórico de compras é preenchido por eventos de compra legados. Use as métricas da tabela a seguir para receita e atividade de pedidos a partir de eventos recomendados.
+Os eventos recomendados de eCommerce não preenchem a seção **Histórico de compras** da guia **Comércio**. O histórico de compras é preenchido por eventos de compra legados. Use as métricas da tabela a seguir para receita e atividade de pedidos a partir de eventos recomendados.
 {% endalert %}
 
 | Métrica | Fórmula |
@@ -29,9 +35,18 @@ Os eventos recomendados de eCommerce não preenchem a seção **Histórico de co
 | Receita total | soma (`order_placed.total_value`) − soma (`order_refunded.total_value`) |
 | Total de pedidos | contagem (distintos `order_placed`) − contagem (distintos `order_cancelled`) |
 | Valor total de reembolsos | soma (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Seção Atividade de pedidos com Receita total, Total de pedidos e Valor total de reembolsos.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Carrinho ativo {#active-cart}
+
+O módulo **Carrinho ativo** mostra o carrinho mais recente no perfil do usuário. Essa visualização é especialmente útil durante os testes. Você pode usá-la para confirmar o conteúdo do carrinho, validar jornadas baseadas em carrinho ou verificar se os eventos `ecommerce.cart_updated` estão atualizando o perfil conforme esperado.
+
+O **Carrinho ativo** inclui o seguinte:
+
+- **ID do carrinho** — Identificador do carrinho que recebeu o último evento `ecommerce.cart_updated`.
+- **Última atualização** — Timestamp da atualização mais recente do carrinho.
+- **Valor total do carrinho** — Valor total dos itens de linha no carrinho atual.
+- **Ver produtos** — Um link para abrir a lista de produtos no carrinho (até 50 produtos).
 
 ## Orquestração de eCommerce {#ecommerce-orchestration}
 
@@ -70,14 +85,14 @@ Esses modelos cobrem os fluxos de ciclo de vida de eCommerce mais comuns. Use-os
 
 Reengaja usuários que visualizaram um produto, mas não o adicionaram ao carrinho.
 
-Use este modelo quando quiser trazer navegadores de volta para considerar produtos que visualizaram recentemente, mas não agiram.
+Use este modelo quando quiser trazer navegadores de volta para considerar produtos que visualizaram recentemente, mas sobre os quais não agiram.
 
 | Configuração | Valor |
 | --- | --- |
 | Evento de entrada | `ecommerce.product_viewed` |
 | Eventos de saída | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Evento de conversão | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Carrinho abandonado %}
@@ -91,10 +106,10 @@ Use este modelo quando quiser lembrar os usuários sobre itens no carrinho e inc
 | Evento de entrada | `ecommerce.cart_updated` |
 | Eventos de saída | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Evento de conversão | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-O evento `ecommerce.cart_updated` usa um modelo de substituição. Cada evento enviado sobrescreve o estado do carrinho do usuário. Use a Liquid tag {% raw %}`{% shopping_cart %}`{% endraw %} na sua mensagem para exibir dinamicamente o conteúdo atual do carrinho no momento do envio.
+O evento `ecommerce.cart_updated` suporta substituição completa do carrinho (cada evento pode descrever o carrinho inteiro) ou atualizações incrementais usando os valores `add` e `remove` para a propriedade opcional `action`. Escolha uma abordagem por carrinho e evite misturar atualizações de substituição e incrementais para o mesmo `cart_id`. Use a Liquid tag {% raw %}`{% shopping_cart %}`{% endraw %} na sua mensagem para exibir dinamicamente o conteúdo atual do carrinho no momento do envio.
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +124,7 @@ Use este modelo quando quiser recuperar compras no estágio de maior intenção 
 | Evento de entrada | `ecommerce.checkout_started` |
 | Evento de saída | Placed Order |
 | Evento de conversão | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Confirmação de pedido e pesquisa %}
@@ -122,7 +137,7 @@ Use este modelo quando quiser simplificar a comunicação pós-compra e coletar 
 | --- | --- |
 | Evento de entrada | `ecommerce.order_placed` |
 | Evento de conversão | Start Session ou `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,10 +147,9 @@ Use este modelo quando quiser simplificar a comunicação pós-compra e coletar 
 Esses modelos foram projetados como ponto de partida. Personalizações comuns incluem:
   - **Personalizar o e-mail:** Cada modelo inclui um e-mail pré-configurado criado com o editor de arrastar e soltar, totalmente editável para combinar com sua marca e conteúdo.
   - **Adicionar canais:** Combine e-mail com push, SMS ou mensagens no app para reforço multicanal.
-  Dentro de cada modelo, há um e-mail pré-configurado totalmente personalizável.
   - **Adicionar postergações e divisões de decisão:** Ramifique usuários por comportamento (por exemplo, carrinho de alto valor comparado a carrinho de baixo valor) ou períodos de espera entre mensagens.
   - **Trocar o criativo:** Substitua o modelo de e-mail incluído pelo estilo visual da sua marca.
-  Use blocos de produto de arrastar e soltar (no programa de acesso antecipado) para renderizar dinamicamente o conteúdo do carrinho abandonado ou produtos navegados sem escrever Liquid personalizado.
+  - **Usar blocos de produto:** Use blocos de produto de arrastar e soltar (no programa de acesso antecipado) para renderizar dinamicamente o conteúdo do carrinho abandonado ou produtos navegados sem escrever Liquid personalizado.
 
 Para estratégias de ciclo de vida mais avançadas, incluindo exemplos de personalização com Liquid, consulte [Casos de uso de eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
 
@@ -152,7 +166,7 @@ Os eventos recomendados de eCommerce alimentam as mesmas superfícies de receita
 | Insights de segmento | Comparações de receita entre segmentos no dashboard de insights de segmento. |
 | Criador de relatórios | Métricas de receita em relatórios personalizados criados no Criador de relatórios. |
 | Criador de dashboard | Métricas de receita em dashboards personalizados criados no Criador de dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 Para campos calculados não relacionados ao usuário (por exemplo, receita de Campaign ou Canvas), a receita é calculada da mesma forma em todos os relatórios: `price` multiplicado por `quantity` por produto no pedido, somado entre os produtos em cada evento `order_placed`.
 
@@ -175,7 +189,8 @@ A Braze oferece várias formas de exportar dados de eventos de eCommerce para us
 | [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | Os eventos de eCommerce são compartilhados como eventos personalizados; pesquise o namespace `ecommerce.*` para encontrá-los. Os produtos de cada pedido estão disponíveis na tabela de compras. |
 | [Exportar dados de segmento para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | Exportação CSV de membros do segmento. Para incluir eventos de eCommerce, selecione-os pelo nome no dropdown de eventos personalizados. |
 | [Exportar perfil de usuário por Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Dados de perfil de usuário para membros do segmento, retornados via API. Os eventos de eCommerce são incluídos como eventos personalizados. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
+
 ### Como segmentar usuários por um produto específico? {#how-do-i-segment-users-by-a-specific-product}
 
 O segmentador permite filtrar pelo número de vezes que um usuário realizou um evento de eCommerce. Para filtrar por propriedades específicas do produto (como `product_id` ou `product_name`), use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), que suportam filtragem de propriedades de evento aninhadas. Por exemplo, você pode encontrar todos os usuários que compraram o produto "SKU-123" nos últimos 90 dias.

@@ -24,6 +24,22 @@ Nachdem Sie einen Katalog erstellt haben, können Sie Ihre Katalogdaten weiter r
 - Sie können bis zu 10 Filter pro Auswahl hinzufügen.
 - Auswahlen eignen sich hervorragend zur Verfeinerung von Empfehlungen aus Braze-Katalogdaten. Wenn Sie nach Inspiration suchen, sehen Sie sich die Anwendungsbeispiele unter [Über Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) an.
 
+## Unterstützte Operatoren {#supported-operators}
+
+Beim Erstellen eines Auswahlfilters hängen die verfügbaren Operatoren vom ausgewählten Feldtyp ab.
+
+| Feldtyp | Verfügbare Operatoren |
+| --- | --- |
+| String | `equals`, `does not equal`, `is any of`, `is none of` |
+| Zahl | `equals`, `does not equal`, `greater than`, `less than` |
+| Boolescher Wert | `is` |
+| Zeit | `before`, `after` |
+| Array | `includes value`, `does not include value` |
+| Geo | `geo within`, `geo outside` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte Operatoren" }
+
+Die Operatoren `is any of` und `is none of` sind für String-Felder verfügbar und unterstützen jeweils bis zu 10 Werte.
+
 ## Eine Auswahl erstellen {#creating-a-selection}
 
 Um eine Auswahl zu erstellen, gehen Sie wie folgt vor.
@@ -32,7 +48,7 @@ Um eine Auswahl zu erstellen, gehen Sie wie folgt vor.
 2. Wählen Sie den Tab **Selection** und klicken Sie auf **Create Selection**.
 3. Geben Sie Ihrer Auswahl einen Namen und optional eine Beschreibung.
 4. Wählen Sie unter **Filter Field** die Katalogspalte aus, nach der Sie filtern möchten. String-Felder mit mehr als 1.000 Zeichen können nicht für Filter ausgewählt werden.
-5. Schließen Sie die Definition Ihrer Filterkriterien ab, indem Sie den entsprechenden Operator (z. B. „equals“ oder „does not equal“) und das Attribut auswählen.
+5. Schließen Sie die Definition Ihrer Filterkriterien ab, indem Sie den entsprechenden Operator und das Attribut auswählen. Eine vollständige Liste der Operatoren nach Feldtyp finden Sie unter [Unterstützte Operatoren](#supported-operators).
 6. Im Abschnitt **Sort type** legen Sie fest, wie die Ergebnisse sortiert werden. Standardmäßig werden die Ergebnisse in keiner bestimmten Reihenfolge zurückgegeben. Um die Sortierung nach einem bestimmten Feld festzulegen, deaktivieren Sie **Randomize Sort Order** und geben Sie das **Sort Field** und die **Sort Order** (aufsteigend oder absteigend) an.
 7. Geben Sie im Abschnitt **Results limit** die Ergebnisse ein (bis zu 50).
 8. Wählen Sie **Create Selection**.

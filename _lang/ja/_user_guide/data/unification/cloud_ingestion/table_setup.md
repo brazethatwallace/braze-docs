@@ -19,7 +19,7 @@ CDIユーザーデータ同期では、以下の両方を設定します。
 | --- | --- |
 | ソーステーブルのセットアップ | 必須カラム、ユーザー識別子、`UPDATED_AT`の同期動作 |
 | ペイロードフォーマット | `PAYLOAD`内のJSONフィールド（属性、イベント、購入のオブジェクト構造を含む） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="テーブルセットアップとペイロードフォーマットの違いを理解する" }
 
 Brazeはまずソーステーブルから行を読み取り、次に選択されたデータタイプに基づいて`PAYLOAD`フィールドを検証します。
 
@@ -38,7 +38,7 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 
 テーブルに複数の識別子カラムが含まれている場合でも、各行には一度に1つの識別子タイプのみを含めてください。
 
-### `UPDATED_AT`の要件 {#updatedat-requirements}
+### `UPDATED_AT`の要件 {#updated_at-requirements}
 
 - 夏時間の問題を避けるため、`UPDATED_AT`の値はUTCで保存してください。
 - Brazeは、`UPDATED_AT`が最後に同期された値より後の行を同期します。
@@ -59,7 +59,7 @@ Brazeはまずソーステーブルから行を読み取り、次に選択され
 | `attributes` | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOADカラムをセットアップする" }
 
 階層化属性の場合は、[オブジェクトプロパティとしての日付のキャプチャ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties)に記載されているフォーマットを使用して日付を含めてください。
 

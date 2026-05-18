@@ -35,12 +35,12 @@ Supongamos que quieres segmentar a los usuarios que son empleados de una cuenta 
 
 Selecciona las siguientes variables para un caso de uso de segmentación basada en cuentas B2B:
 
-| Variable | propiedad |
+| Variable | Propiedad |
 | --- | --- |
 | Catálogo | Catálogo de cuentas |
 | Campo del catálogo | Id |
 | Evento personalizado | account_linked |
-| propiedad de evento personalizado | account_id |
+| Propiedad de evento personalizado | account_id |
 | (En Filtrar resultados SQL) Campo del catálogo | Clasificación |
 | (En Filtrar resultados SQL) Valor | Empresa |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -112,4 +112,4 @@ Para obtener información básica sobre cómo utilizar fuentes conectadas en la 
 
 ## Utilizar tu extensión basada en cuentas en un segmento {#using-your-account-based-extension-in-a-segment}
 
-Después de haber creado tu segmentación a nivel de cuenta en los pasos anteriores, puedes incorporar directamente esas extensiones de segmento a tus criterios de segmentación. También es fácil añadir criterios demográficos incrementales de los usuarios, como el rol, la interacción con Campaigns anteriores, y más. Para más información, consulta [Utilizar tu extensión en un segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
+Después de haber creado tu segmentación a nivel de cuenta en los pasos anteriores, puedes incorporar directamente esas extensiones de segmento a tus criterios de segmentación. También es fácil añadir criterios demográficos incrementales de los usuarios, como el rol, la interacción con campañas anteriores, y más. Para más información, consulta [Utilizar tu extensión en un segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).

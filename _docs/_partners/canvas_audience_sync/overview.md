@@ -15,7 +15,7 @@ Tool:
 
 ## Feature availability
 
-All Braze customers immediately have access to Audience Sync to Google and Facebook, but customers on message credits can access all Audience Sync partners. To unlock additional Audience Sync destinations for customers not on message credits, purchase Audience Sync Pro. Contact your Braze account manager for more details.
+All Braze customers immediately have access to Audience Sync to Google and Facebook, but customers on Action Credits can access all Audience Sync partners. To unlock additional Audience Sync destinations for customers not on Action Credits, purchase Audience Sync Pro. Contact your Braze account manager for more details.
 
 ## Use cases
 
@@ -42,7 +42,7 @@ table td {
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat processes 10 queries per second and 100,000 users per request. Braze batches users every 5 seconds. | Yes | Snapchat supports up to 1,000 ad audiences. |
 | [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | Up to 24 hours | N/A | Yes | {::nomarkdown}<ul><li>There is no minimum audience size for CRM audiences in The Trade Desk.</li><li>There is no limit for how many audiences The Trade Desk supports.</li><li>If you sync to an audience with a region set to the EU, phone number is not supported.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | Between 24 and 48 hours | TikTok processes 50 queries per second and 10,000 users per request. Braze batches users every 5 seconds. | Yes | {::nomarkdown}<ul><li>TikTok supports up to 400 ad audiences.</li><li>TikTok audiences require at least 1,000 users to start serving ads.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Overview" }
 <sup>When the rate limit is reached, Braze will retry syncs for 13 hours.</sup>
 
 ## How it works

@@ -32,7 +32,7 @@ description: "이 문서에서는 이메일 템플릿에 대한 모든 번역 �
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | 필수 | 문자열 | 이메일 템플릿의 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 모든 번역 ID는 범용 고유 식별자(UUID)로 간주되며, GET 엔드포인트의 응답에서 확인할 수 있습니다.

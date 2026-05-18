@@ -19,6 +19,7 @@ description: "このリファレンス記事では、Braze REST APIを使用し�
 | **キャンペーンID** | オプション。ダッシュボードでのキャンペーントラッキングなしで送信する場合は省略します。または、各メッセージにAPIキャンペーンIDと`message_variation_id`を付加してダッシュボードでトラッキングします。 | 必須。 |
 | **メッセージの内容** | リクエストに`messages`オブジェクトを含める必要があります（例：`messages.whats_app`、`messages.email`）。 | 受け付けられません。メッセージの内容は、Brazeダッシュボード内のキャンペーンで定義されます。 |
 | **ユースケース** | APIリクエストで内容を完全に指定したメッセージを送信します。 | APIを介して、特定の受信者に対して事前作成されたキャンペーン（ダッシュボード内のコンテンツ）をトリガーします。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
 リクエストとレスポンスの詳細については、[メッセージを即時送信（APIのみ）]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)および[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)のエンドポイントリファレンスを参照してください。
 

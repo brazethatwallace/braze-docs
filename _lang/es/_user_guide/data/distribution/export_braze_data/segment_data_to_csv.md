@@ -19,7 +19,7 @@ Para exportar los datos de un segmento a un CSV, selecciona el menú desplegable
 
 ![Sección de detalles del segmento con el desplegable User Data que muestra las opciones de exportación.]({% image_buster /assets/img_archive/csvexport.png %})
 
-También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear" aria-label="Settings"></i> **Settings** para un segmento:
+También puedes solicitar una exportación CSV desde la página principal de **Segments** seleccionando el desplegable <i class="fas fa-gear"></i> **Settings** para un segmento:
 
 ![Desplegable de configuración en la página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -28,6 +28,14 @@ Para exportar los datos de todos tus perfiles de usuario, crea un segmento sin f
 {% endalert %}
 
 La salida CSV contiene los datos de cada perfil de usuario capturado en el segmento en el momento de la exportación. Puedes exportar cualquier segmento seleccionando el ícono de engranaje y la exportación CSV. Braze generará el informe en segundo plano y lo enviará por correo electrónico al usuario que esté conectado en ese momento.
+
+## Detalles de la exportación CSV de segmentos {#segment-csv-export-details}
+
+{% alert note %}
+Los usuarios del dashboard necesitan el permiso **Export user data** para utilizar las opciones de exportación CSV. Si no tienen este permiso, las opciones de exportación CSV no aparecen.
+{% endalert %}
+
+**Exportación de direcciones de correo electrónico a CSV** solo incluye filas para los usuarios del segmento que tienen una dirección de correo electrónico. Por ejemplo, si tu segmento tiene 100 000 usuarios pero solo 50 000 tienen una dirección de correo electrónico, **Exportación de direcciones de correo electrónico a CSV** produce aproximadamente 50 000 filas. **Exportación de datos de usuario a CSV** exporta todos los datos de usuario del segmento.
 
 {% alert important %}
 Debido a las restricciones de tamaño de los archivos, la exportación puede fallar si el tamaño estimado de tu segmento es superior a 500 000 usuarios. Ten en cuenta que esta restricción utiliza el tamaño estimado de tu segmento, y no el cálculo exacto. Para más detalles, consulta [Exportar segmentos grandes](#exporting-large-segments).
@@ -83,7 +91,7 @@ Dependiendo de tu selección, tu exportación incluirá lo siguiente.
 | windows_ad_ids              | ID de publicidad de Windows                       |
 | Eventos personalizados               | Basado en la selección en la exportación                             |
 | Atributos personalizados           | Basado en la selección en la exportación                             |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
 Cuando exportas datos de usuario de un paso en Canvas, el CSV incluye a todos los usuarios que han pasado por ese paso durante toda la vida útil del paso en Canvas. No puedes limitar la exportación a un rango de fechas u otra ventana de tiempo. Para saber cómo ejecutar estas exportaciones, consulta [Exportar datos de Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
@@ -100,7 +108,7 @@ Cuando exportas datos de usuario de un paso en Canvas, el CSV incluye a todos lo
 | unsubscribed_from_emails_at | Fecha de cancelación de suscripción de correos electrónicos |
 | opted_in_to_emails_at       | Fecha de adhesión voluntaria a correos electrónicos      |
 | user_aliases                | Alias de usuario, en su caso   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Para obtener ayuda con las exportaciones CSV y API, visita nuestro artículo de [solución de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).

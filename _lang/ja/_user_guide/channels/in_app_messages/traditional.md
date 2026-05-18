@@ -54,14 +54,14 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 
 ## ステップ 2:配信プラットフォームを指定する {#step-2-specify-delivery-platforms}
 
-まず、メッセージを受信するプラットフォームを選択します。この選択を使用して、Campaignの配信を特定のアプリセットに制限します。たとえば、モバイルアプリのダウンロードを促すブラウザ内メッセージに**ウェブブラウザ**を選択して、すでにアプリを取得した後にメッセージを受信しないようにすることができます。プラットフォームの選択はバリアントごとに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストすることもできます。
+まず、メッセージを受信するプラットフォームを選択します。この選択を使用して、Campaignの配信を特定のアプリセットに制限します。たとえば、モバイルアプリのダウンロードを促すブラウザ内メッセージに**Web Browsers**を選択して、すでにアプリを取得した後にメッセージを受信しないようにすることができます。プラットフォームの選択はバリアントごとに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストすることもできます。
 
 | プラットフォーム | メッセージ配信 |
 |---------------------------------|------------------------------|
-| モバイルアプリ | iOS、Android、Vega SDK |
-| ウェブブラウザ | Web SDK |
-| モバイルアプリとウェブブラウザの両方 | iOS、Android、Vega、Web SDK |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Mobile Apps | iOS、Android、Vega SDK |
+| Web Browsers | Web SDK |
+| Mobile AppsとWeb Browsersの両方 | iOS、Android、Vega、Web SDK |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## ステップ 3:メッセージタイプを指定する {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>メッセージタイプ</caption>
 <thead>
   <tr>
     <th>メッセージタイプ</th>
@@ -133,7 +134,8 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
 
 これらのアプリ内メッセージは、ニーズに合わせてカスタマイズできます。
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>高度なメッセージタイプ</caption>
 <thead>
   <tr>
     <th>メッセージタイプ</th>
@@ -167,7 +169,7 @@ Canvas固有の詳細情報については、[Canvasのアプリ内メッセー�
       <li>画像のみ</li>
       </ul>
     </td>
-    <td>CSS付きウェブモーダルはWeb SDK固有のもので、<b>ウェブブラウザ</b>を選択した後にのみ使用できます。</td>
+    <td>CSS付きウェブモーダルはWeb SDK固有のもので、<b>Web Browsers</b>を選択した後にのみ使用できます。</td>
     <td>カスタムCSSをアップロードまたは記述して、美しく全体的にカスタムスタイルのメッセージングを作成したい場合に使用します。</td>
   </tr>
 </tbody>
@@ -187,11 +189,11 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ### 言語 {#language}
 
-**言語を追加**を選択し、提供されたリストから希望の言語を選択します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)が挿入されます。コンテンツを記述する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。[利用可能な言語の完全なリスト]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**Add Languages**を選択し、提供されたリストから希望の言語を選択します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic)が挿入されます。コンテンツを記述する前に言語を選択して、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。[利用可能な言語の完全なリスト]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
 
 ### 画像 {#image}
 
-メッセージタイプに応じて、**画像をアップロード**、**バッジを選択**、または**Font Awesome**を使用できます。画像をアップロードするには、**画像を追加**を選択するか、画像URLを入力します。**画像を追加**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択するか、新しい画像を追加できます。各メッセージタイプとプラットフォームには、それぞれ推奨される比率と要件があります。画像を発注または作成する前に、それらを確認してください。
+メッセージタイプに応じて、**Upload Image**、**Pick a Badge**、または**Font Awesome**を使用できます。画像をアップロードするには、**Add Image**を選択するか、画像URLを入力します。**Add Image**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択するか、新しい画像を追加できます。各メッセージタイプとプラットフォームには、それぞれ推奨される比率と要件があります。画像を発注または作成する前に、それらを確認してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -221,7 +223,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 #### プライマリボタンの選択 {#choosing-a-primary-button}
 
-これらのボタンを独自の色でフォーマットする場合は、より望ましい結果にはボタン2を使用することをお勧めします。
+これらのボタンを独自の色でフォーマットする場合は、より望ましい結果にはButton 2を使用することをお勧めします。
 
 つまり、ユーザーに一方のボタンをもう一方よりも多くクリックしてもらいたい場合は、右側に配置してください。右側のボタンは、特にメッセージの他の部分とやや対照的な色や目立つ色を持っている場合、クリックされる可能性が高いことが多いです。これは、左側のボタンがメッセージとより視覚的に溶け込んでいる場合にのみ強調されます。
 
@@ -239,7 +241,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を選択します。別のアプリ内メッセージの表示や追加のメッセージングのトリガーに使用できます。 |
 | カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を選択します。 |
 | プッシュ許可をリクエスト | ネイティブのプッシュ許可を表示します。[プッシュプライミング]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)の詳細と、プッシュのためのユーザー準備の[ベストプラクティス]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices)をお読みください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 注意：__プッシュ許可をリクエスト__、__カスタムイベントを記録__、__カスタム属性を記録__オプションには、以下のSDK最小バージョンが必要です。
 
@@ -247,7 +249,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ### iOSデバイスオプション {#ios-device-options}
 
-必要に応じて、アプリ内メッセージをiOSデバイスのみに送信するように制限できます。これを行うには、**変更**をクリックし、**iOSデバイスにのみ送信**を選択します。
+必要に応じて、アプリ内メッセージをiOSデバイスのみに送信するように制限できます。これを行うには、**Change**をクリックし、**Only send to iOS devices**を選択します。
 
 ### メッセージの閉じ方 {#message-close}
 
@@ -258,7 +260,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 ### スライドアップの位置 {#slide-up-position}
 
-この設定はスライドアップメッセージタイプにのみ適用されます。スライドアップを**アプリ画面の下部から**表示するか、**アプリ画面の上部から**表示するかを選択します。
+この設定はスライドアップメッセージタイプにのみ適用されます。スライドアップを**From Bottom of App Screen**から表示するか、**From Top of App Screen**から表示するかを選択します。
 
 ### HTMLとアセット {#html-and-assets}
 
@@ -276,7 +278,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 
 | フォーマット | 入力 | 説明 |
 |---|---|---|
-| [カラープロファイル]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | アプリ内メッセージテンプレートギャラリーから適用します。 | **テンプレートを適用**を選択し、ギャラリーから選択します。次に、**保存**を選択します。 |
+| [カラープロファイル]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | アプリ内メッセージテンプレートギャラリーから適用します。 | **Apply Template**を選択し、ギャラリーから選択します。次に、**Save**を選択します。 |
 | テキスト配置 | 左、中央、または右。 | 新しいBraze SDKバージョンでのみ利用可能です。 |
 | ヘッダー | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
 | テキスト | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
@@ -285,7 +287,7 @@ Brazeがコードに閉じるボタンまたは却下ボタンが含まれてい
 | 背景色 | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。これはメッセージ全体の背景で、テキスト本文の背後にはっきりと表示されます。 |
 | 画面オーバーレイ | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。新しいBraze SDKバージョンでのみ利用可能です。これはメッセージ全体の周りのフレームです。 |
 | シェブロンまたはその他のメッセージ閉じオプション | 16進数カラーコード。 | 希望の16進数カラーが表示されます。色の不透明度も選択できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 送信前に必ずメッセージを[プレビューしてテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)してください。
 
@@ -322,7 +324,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 - アプリ/ウェブページを開く
 - カスタムイベントを実行する（SDKを使用して送信されたイベントでのみ機能します）
 - 特定のプッシュメッセージを開く
-- 各ユーザーのローカルタイムに合わせて、特定の時間にCampaignを自動的にスケジュールして送信します。
+- 各ユーザーのローカルタイムに合わせて、特定の時間にCampaignsを自動的にスケジュールして送信します。
 - メッセージは、毎日、毎週（オプションで特定の曜日）、または毎月の繰り返しに設定することもできます。
 
 開始日時を選択する必要がありますが、終了日はオプションです。終了日を設定すると、指定された日時以降にその特定のアプリ内メッセージがデバイスに表示されなくなります。
@@ -370,7 +372,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 ![「表示前にCampaignの適格性を再評価する」のチェックボックスが選択されている状態。]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
-**表示前にCampaignの適格性を再評価する**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)変数や[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)がその時点でテンプレート化されます。
+**Re-evaluate campaign eligibility before displaying**を選択すると、送信前にユーザーがこのメッセージの対象であることを確認するために、Brazeへの追加リクエストが行われます。さらに、メッセージが表示される前に、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)変数や[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)がその時点でテンプレート化されます。
 
 これにより、期限切れまたはアーカイブされたCampaigns内のユーザーにアプリ内メッセージが送信されることを防ぎます。ユーザーの適格性を再評価しない場合、メッセージはSDK内にあり、ユーザーがトリガーするのを待っているため、Campaignが期限切れまたはアーカイブされた後でもユーザーはアプリ内メッセージを受信します。
 
@@ -382,7 +384,7 @@ Campaignの残りの部分を構築します。アプリ内メッセージを構
 
 ##### REST APIで追加されたデータをメッセージで使用する {#use-data-added-by-rest-api-in-a-message}
 
-同じセッション内で[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)が追加したユーザーデータは、そのユーザーのアプリ内メッセージで使用できる場合があります。たとえば、ユーザーがトリガーを待っているアプリ内メッセージのオーディエンスに含まれており、セッションを開始し、同じセッション内でREST APIがプロファイルを更新した場合、**表示前にCampaignの適格性を再評価する**が選択されていれば、その新しいデータがアプリ内メッセージに表示される可能性があります。Brazeはレンダリングの時間までアプリ内メッセージをテンプレート化しません。
+同じセッション内で[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)が追加したユーザーデータは、そのユーザーのアプリ内メッセージで使用できる場合があります。たとえば、ユーザーがトリガーを待っているアプリ内メッセージのオーディエンスに含まれており、セッションを開始し、同じセッション内でREST APIがプロファイルを更新した場合、**Re-evaluate campaign eligibility before displaying**が選択されていれば、その新しいデータがアプリ内メッセージに表示される可能性があります。Brazeはレンダリングの時間までアプリ内メッセージをテンプレート化しません。
 
 1つのトリガーがBrazeにデータを送信し、同時にアプリ内メッセージを発火する場合、スケジュールされた遅延があっても、メッセージはその新しく更新されたプロファイルデータを使用できません。代わりに、データを送信するトリガーとアプリ内メッセージをトリガーするトリガーの2つの別々のトリガーを使用してください。
 
@@ -412,7 +414,7 @@ CampaignまたはCanvasの最後の部分の構築が完了したら、詳細を
 
 Brazeは信頼性と速度を重視しています。必要なデータのみをBrazeに送信し、ブランドに価値を提供しなくなったCampaignsはオフにすることをお勧めします。
 
-アクティブな状態のままでメッセージを送信していない、または不要になったアクションベースのアプリ内メッセージCampaignsを処理すると、Brazeサービスの全体的なパフォーマンスが低下します。これらの大量のアイドルCampaignsを処理するために必要な追加時間は、アプリ内メッセージがエンドユーザーのデバイスに表示されるまでの時間が長くなることを意味し、エンドユーザーのエクスペリエンスに影響を与えます。
+アクティブな状態のままでメッセージを送信していない、または不要になったアクションベースのアプリ内メッセージCampaignsを処理すると、お客様および他のお客様に対するBrazeサービスの全体的なパフォーマンスが低下します。これらの大量のアイドルCampaignsを処理するために必要な追加時間により、アプリ内メッセージがエンドユーザーのデバイスに表示されるまでの時間が長くなり、エンドユーザーのエクスペリエンスに影響を与えます。
 
 {% alert important %}
 メッセージ配信の速度を最適化し、タイムアウトを防ぐために、ワークスペースごとに最大200のアクティブなアクションベースのアプリ内メッセージCampaignsを持つことができます。これはCanvasesには適用されません。

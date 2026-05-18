@@ -25,7 +25,7 @@ LINE을 Braze와 통합하려면 다음이 필요합니다:
 - [LINE 개발자 계정](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE 메시징 API 채널](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차감됩니다.
+Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크레딧이 차감됩니다.
 
 {% alert note %}
 **`native_line_id` 설정**: Braze에 사용자 업데이트를 전송하여 `native_line_id`를 설정할 수 있습니다(예: [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트, [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import) 또는 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) 사용). 클라이언트 측 SDK에 `native_line_id` 전용 필드가 없는 경우, 이러한 방법 중 하나를 사용하여 서버 측 사용자 업데이트로 전송하세요.
@@ -38,7 +38,7 @@ Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차�
 | 미인증 계정 | 누구나(개인 또는 법인) 취득할 수 있는 미심사 계정입니다. 이 계정은 회색 배지로 표시되며 LINE 앱 내 검색 결과에 나타나지 않습니다. |
 | 인증 계정 | LINE Yahoo 심사를 통과한 계정입니다. 이 계정은 파란색 배지로 표시되며 LINE 앱 내 검색 결과에 나타납니다.<br><br>이 계정은 일본, 대만, 태국, 인도네시아에 기반한 계정에서만 사용할 수 있습니다. |
 | 프리미엄 계정 | LINE Yahoo 심사를 통과한 계정입니다. 이 계정은 녹색 배지로 표시되며 LINE 앱 내 검색 결과에 나타납니다. 이 계정 유형은 LINE의 재량에 따라 심사 중 자동으로 부여됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of LINE accounts" }
 
 ### 필수 계정 유형 {#required-account-type}
 
@@ -50,8 +50,8 @@ Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차�
 인증 계정은 일본, 대만, 태국, 인도네시아에 기반한 계정에서만 사용할 수 있습니다.
 {% endalert %}
 
-1. LINE **공식 계정** 페이지에서 **설정**을 선택합니다.
-2. **정보 공개 인증 상태**에서 **계정 인증 요청**을 선택합니다.
+1. LINE **Official Account** 페이지에서 **Settings**를 선택합니다.
+2. **Information Disclosure Verification Status**에서 **Request Account Verification**을 선택합니다.
 3. 필수 정보를 입력합니다.
 4. 심사 결과 알림을 기다립니다.
 
@@ -87,10 +87,10 @@ Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나
 
 ### 2.1단계: 웹훅 설정 편집 {#step-21-edit-webhook-settings}
 
-1. LINE에서 **Messaging API** 탭으로 이동하여 **웹훅 설정**을 편집합니다:
-   - **웹훅 URL**을 `https://anna.braze.com/line/events`로 설정합니다.
+1. LINE에서 **Messaging API** 탭으로 이동하여 **Webhook settings**를 편집합니다:
+   - **Webhook URL**을 `https://anna.braze.com/line/events`로 설정합니다.
       - Braze는 통합 시 대시보드 클러스터에 따라 자동으로 다른 URL로 변경합니다.
-   - **웹훅 사용**과 **웹훅 재전송**을 켭니다. <br><br> ![웹훅 URL을 확인하거나 편집하고, '웹훅 사용', '웹훅 재전송', '오류 통계 집계'를 켜거나 끄는 웹훅 설정 페이지.]({% image_buster /assets/img/line/webhook_settings.png %}){: style="max-width:70%;"}
+   - **Use webhook**과 **Webhook redelivery**를 켭니다. <br><br> ![웹훅 URL을 확인하거나 편집하고, 'Use webhook', 'Webhook redelivery', 'Error statistics aggregation'을 켜거나 끄는 웹훅 설정 페이지.]({% image_buster /assets/img/line/webhook_settings.png %}){: style="max-width:70%;"}
 2. **Providers** 탭에서 다음 정보를 기록합니다:
 
 | 정보 유형 | 위치 |
@@ -99,7 +99,7 @@ Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나
 | Channel ID | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Basic settings**로 이동 |
 | Channel secret | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Basic settings**로 이동 |
 | Channel access token | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Messaging API**로 이동. 채널 액세스 토큰이 없으면 **Issue**를 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
 {: start="3"}
 3. **Settings** 페이지 > **Response settings**로 이동하여 다음을 수행합니다:

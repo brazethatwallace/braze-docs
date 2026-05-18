@@ -18,7 +18,7 @@
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **フィーチャーフラグを管理する**                                                      | フィーチャーフラグを表示、作成、編集します。     |
 | **Campaigns、Canvases、カード、フィーチャーフラグ、Segments、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeの権限" }
 
 ## フィーチャーフラグを作成する {#creating-a-feature-flag}
 
@@ -41,7 +41,7 @@
 | ID           | この機能が[ユーザーに対して有効か](#enabled)どうかをチェックするために、コード内で使用する一意のIDです。このIDは後で変更できないため、続ける前に[ID命名のベストプラクティス](#naming-conventions)を確認してください。 |
 | 説明  | フィーチャーフラグに関するコンテキストを提供するオプションの説明です。   |
 | プロパティ   | フィーチャーフラグをリモートで設定するオプションのプロパティです。キャンバスステップやフィーチャーフラグ実験で上書きできます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:詳細を記入する" }
 
 ### ステップ2a:カスタムプロパティを作成する {#step-2a-create-custom-properties}
 
@@ -51,15 +51,16 @@
 {% tab example %}
 次の例では、フィーチャーフラグが指定されたカスタムプロパティを使用して、eコマースストアに在庫切れバナーを表示します。
 
-|プロパティ名|タイプ|値|
+| プロパティ名 | タイプ | 値 |
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
 |`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2a:カスタムプロパティを作成する" }
 
 {% alert tip %}
 追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10 KBに制限されています。プロパティ値とキーの長さはともに255文字に制限されています。
@@ -832,12 +833,12 @@ featureFlagsStreamSubscription.cancel();
 ```
 
 {% subtabs %}
-{% subtab Flutter SDK 18.0.0+ %}
+{% subtab Flutter SDK 18.0.0以降 %}
 
 フィーチャーフラグのデータは、AndroidとiOSの両方のネイティブレイヤーから自動的に転送されます。追加のセットアップは不要です。
 
 {% endsubtab %}
-{% subtab Flutter SDK 17.1.0 and earlier %}
+{% subtab Flutter SDK 17.1.0以前 %}
 
 Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイヤーからのフィーチャーフラグデータの転送には手動セットアップが必要です。アプリケーションには、`BrazePlugin.processFeatureFlags(featureFlags)`を呼び出す`featureFlags.subscribeToUpdates`コールバックが含まれている可能性があります。Flutter SDK 18.0.0に移行するには、`BrazePlugin.processFeatureFlags(_:)`の呼び出しを削除してください。データ転送は自動的に処理されるようになりました。
 
@@ -933,7 +934,7 @@ BEHAVIOR_PRODUCT_FEATURE
 | `BEHAVIOR`  | 機能の動作です。コードでは、その動作がデフォルトで無効になっていることを確認し、フィーチャーフラグ名に`disabled`のような表現を使わないようにしてください。 |
 | `PRODUCT`   | その機能が属する製品です。                                                                                       |
 | `FEATURE`    | 機能の名前です。                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="命名規則" }
 
 `show`が動作、`animation_profile`が製品、`driver`が機能であるフィーチャーフラグの例を次に示します。
 

@@ -10,7 +10,7 @@ tool:
 search_rank: 9
 ---
 
-# Geofences
+# Geofences {#geofences}
 
 > Uma geofence é uma área geográfica virtual, representada por latitude e longitude combinadas com um raio, formando um círculo ao redor de uma posição global específica. As geofences podem variar do tamanho de um edifício ao tamanho de uma cidade inteira. Você pode usar geofences para disparar campanhas em tempo real quando os usuários entram e saem de seus limites, ou enviar campanhas de acompanhamento horas ou dias depois.
 
@@ -38,7 +38,7 @@ A tabela a seguir descreve termos comuns de geofence:
 | Latitude e longitude | O centro geográfico da geofence. |
 | Raio | O raio da geofence em metros, medido a partir do centro geográfico. Defina um raio mínimo de 100 metros a 150 metros para todas as geofences. |
 | Cooldown | Os usuários recebem notificações disparadas por geofence após realizar transições de entrada ou saída em geofences individuais. Após uma transição ocorrer, há um período pré-definido durante o qual esse usuário não pode realizar a mesma transição nessa geofence individual novamente. Esse "cooldown" é pré-definido pela Braze e seu principal objetivo é evitar solicitações de rede desnecessárias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## Pré-requisitos {#prerequisites}
 
@@ -46,7 +46,6 @@ A tabela a seguir descreve termos comuns de geofence:
 
 Campaigns disparadas por geofence estão disponíveis no iOS e Android. Para suportar geofences, é necessário o seguinte:
 
-* Sua integração deve suportar notificações por push em segundo plano.
 * Geofences da Braze ou coleta de localização devem estar ativadas.
 * O usuário deve conceder acesso de localização "Permitir sempre".
 
@@ -75,7 +74,7 @@ Tanto o iOS quanto o Android oferecem múltiplos níveis de acesso à localizaç
 | **Permitir ao usar o app** | Concede acesso à localização sempre que o app está em primeiro plano. Após essa concessão, o iOS pode apresentar um prompt de acompanhamento pedindo ao usuário para fazer upgrade para "Permitir sempre". | Sim. O iOS ativa o monitoramento de localização em segundo plano, incluindo transições de geofence, para apps com essa permissão. |
 | **Permitir sempre** | Concede acesso contínuo à localização, inclusive em segundo plano e quando o app está fechado. | Sim. Isso fornece o monitoramento de geofence mais confiável. |
 | **Não permitir** | Nega todo acesso à localização. | Não. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% tab Android %}
@@ -85,7 +84,7 @@ Tanto o iOS quanto o Android oferecem múltiplos níveis de acesso à localizaç
 | **Ao usar o app** | Concede acesso à localização enquanto o app está em primeiro plano. | Não. No Android, o acesso à localização em segundo plano é necessário para o monitoramento de geofence. |
 | **Permitir sempre** | Concede acesso contínuo à localização, inclusive em segundo plano. No Android 10 e posterior, isso requer um prompt separado após a permissão inicial "Ao usar o app" ser concedida. | Sim. Isso é necessário para geofencing no Android. |
 | **Não permitir** | Nega todo acesso à localização. No Android 13 e posterior, se um usuário negar o prompt de localização duas vezes, o sistema operacional bloqueia prompts adicionais no app. | Não. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% endtabs %}
@@ -98,7 +97,7 @@ No iOS 14+ e Android 12+, os usuários podem escolher entre localização precis
 |---|---|---|
 | **Localização precisa (ativada)** | Precisão na faixa de 5 metros a 50 metros, usando GPS, Wi-Fi e triangulação celular. | As geofences funcionam conforme esperado. Recomendado para todos os casos de uso baseados em geofence. |
 | **Localização aproximada (desativada)** | Precisão de cerca de 3 quilômetros quadrados (aproximadamente 1 milha quadrada). O dispositivo retorna uma área geral em vez de coordenadas exatas. | As geofences não disparam de forma confiável. O dispositivo não consegue determinar com precisão se um usuário está dentro ou fora de um limite de geofence. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
 
 {% alert important %}
 Para que o geofencing funcione de forma confiável, os usuários devem ativar a localização precisa. Inclua essa orientação nas mensagens do seu primer de permissão de localização para que os usuários entendam por que a localização precisa é importante.
@@ -284,8 +283,6 @@ Para usar dados de geofence para personalizar uma mensagem, você pode usar a se
 
 O SDK da Braze solicita geofences apenas uma vez por dia no início da sessão. Se você fizer alterações nos conjuntos de geofences após o início da sessão, precisará aguardar 24 horas a partir do momento em que os conjuntos foram baixados pela primeira vez para receber o conjunto atualizado.
 
-Se o usuário tiver push em segundo plano ativado, a Braze envia um push silencioso a cada 24 horas quando os conjuntos de geofences são atualizados para baixar as localizações mais recentes para o dispositivo.
-
 {% alert note %}
 Se as geofences não forem carregadas no dispositivo localmente, o usuário não poderá disparar a geofence mesmo que entre na área.
 {% endalert %}
@@ -297,13 +294,12 @@ Se as geofences não forem carregadas no dispositivo localmente, o usuário não
 - Use um raio de 200 metros ou mais para disparo confiável.
 - Evite configurar geofences que se sobreponham ou estejam aninhadas umas dentro das outras, pois isso pode causar problemas com o disparo.
 - Uma geofence pode disparar um evento de entrada apenas uma vez a cada seis horas. Esse período de cooldown é aplicado localmente. Se um usuário desinstalar o app ou limpar os dados do app, todos os cooldowns são redefinidos.
-- No máximo 20 geofences no total podem ser armazenadas em um dispositivo. Se o usuário for elegível para mais de 20, a Braze baixa as localizações mais próximas com base na proximidade no início da sessão ou na atualização por push silencioso.
+- No máximo 20 geofences no total podem ser armazenadas em um dispositivo. Se o usuário for elegível para mais de 20, a Braze baixa as localizações mais próximas com base na proximidade no início da sessão.
 - A Braze envia apenas geofences dentro de um raio de 2.000 quilômetros do usuário para o dispositivo.
 
 ### Requisitos do dispositivo {#device-requirements}
 
-- As permissões de push e de localização devem estar ativadas para o app.
-- Um token de push de primeiro plano válido é necessário.
+- Os usuários do seu app devem conceder permissões de localização. Consulte a seção [Permissões de localização](#location-permissions) para saber mais.
 
 {% alert note %}
 A integração básica do SDK ativa apenas o rastreamento de localização. O geofencing requer etapas de configuração adicionais tanto para iOS quanto para Android. Para mais detalhes, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences/) no guia do desenvolvedor.

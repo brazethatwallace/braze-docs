@@ -61,7 +61,7 @@ Es gibt bestimmte Browser, wie die Naver Android- und iOS-Apps, die das Braze-Pr
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-Das bisherige Kauf-Event befindet sich im Wartungsmodus. Bestehende Kauf-Events funktionieren weiterhin wie erwartet, aber es werden keine neuen Funktionen mehr darauf aufgebaut – zugunsten der empfohlenen E-Commerce-Events. Sie können Kauf-Events auf absehbare Zeit weiter verwenden. Braze informiert Sie rechtzeitig, bevor ein Einstellungsdatum festgelegt wird.
+Das bisherige Kauf-Event befindet sich im Wartungsmodus. Bestehende Braze-Kund:innen können bisherige Kauf-Events weiterhin verwenden. Sie funktionieren weiterhin wie erwartet, aber neue Funktionen werden künftig auf Basis der empfohlenen E-Commerce-Events entwickelt. Braze wird Sie rechtzeitig informieren, bevor ein Einstellungsdatum festgelegt wird. Neue Braze-Kund:innen sollten [empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/) verwenden, da bisherige Kauf-Events nicht mehr verfügbar sein werden.
 {% endalert %}
 
 {% endif %}

@@ -76,7 +76,7 @@ Ao criar um rodapé personalizado, a Braze sugere usar [atributos para personali
 | URL personalizada de opt-in do usuário | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | URL personalizada de inscrição do usuário | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | URL personalizada da Central de Preferências da Braze do usuário | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizando com atributos" }
 
 ### Incluindo um link de cancelamento de inscrição e um link de opt-in {#including-an-unsubscribe-link-and-opt-in-link}
 

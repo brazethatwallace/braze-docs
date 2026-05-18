@@ -33,10 +33,10 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Requis | Chaîne de caractères    | L'ID de votre modèle d'e-mail. |
 | `locale_id`   | Facultatif | Chaîne de caractères    | L'ID (UUID) de la locale.           |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
-Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.
+Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), que vous pouvez retrouver dans la réponse de l'endpoint GET.
 {% endalert %}
 
 ## Exemple de requête {#example-request}

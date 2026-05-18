@@ -2,7 +2,7 @@
 nav_title: Registro de correo electrónico con descuento
 article_title: Registro de correo electrónico con descuento
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "Esta página de referencia explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para crear un formulario de registro de correo electrónico que ofrece un descuento a los nuevos suscriptores."
 ---
 

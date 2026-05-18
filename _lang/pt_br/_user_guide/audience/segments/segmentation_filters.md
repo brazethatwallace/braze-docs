@@ -37,11 +37,11 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Permite filtrar com base na associação a Segments em qualquer lugar onde filtros são usados (como Segments, Campaigns e outros) e direcionar vários Segments diferentes dentro de uma única Campaign. <br><br>Observe que Segments que já usam esse filtro não podem ser incluídos ou aninhados em outros Segments, pois isso pode criar um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o Segment ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar Segments dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o Segment que você está tentando incluir usando os mesmos filtros.
+    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
-    description: Depois de criar uma extensão de segmento no dashboard da Braze, você pode optar por incluir/excluir essas extensões no seu Segment.
+    description: Depois de criar uma extensão de segmento no dashboard da Braze, você pode optar por incluir/excluir essas extensões no seu segmento.
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
@@ -81,11 +81,11 @@ glossaries:
     tags:
       - Custom events
   - name: X Custom Event In Y Days
-    description: Determina se um usuário realizou ou não um evento especialmente registrado entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br> <a href="/docs/x-in-y-behavior/"> Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br>Carrinho abandonado exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o Segment é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
+    description: Determina se um usuário realizou ou não um evento especialmente registrado entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br> <a href="/docs/x-in-y-behavior/"> Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br>Carrinho abandonado exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
-    description: Determina se um usuário realizou ou não um evento especialmente registrado em relação a uma propriedade específica entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br><a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br> Adicionado aos favoritos com a propriedade "event_name" exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o Segment é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
+    description: Determina se um usuário realizou ou não um evento especialmente registrado em relação a uma propriedade específica entre 0 e 50 vezes no último número especificado de dias corridos entre 1 e 30. (Dia corrido = 1 dia corrido considera 24-48 horas do histórico do usuário)<br><a href="/docs/x-in-y-behavior/">Saiba mais sobre o comportamento X em Y aqui.</a> <br><br>Exemplo:<br> Adicionado aos favoritos com a propriedade "event_name" exatamente 0 vezes no último 1 dia corrido<br><br>Fuso horário:<br>UTC - Para considerar todos os fusos horários, 1 dia corrido considera 24-48 horas do histórico do usuário, dependendo do momento em que o segmento é avaliado; para 2 dias corridos, considera 48-72 horas do histórico do usuário, e assim por diante.
     tags:
       - Custom events
   - name: Email Address
@@ -97,7 +97,7 @@ glossaries:
     tags:
       - Other Filters
   - name: "Random Bucket #"
-    description: Segmenta seus usuários por um número atribuído aleatoriamente (de 0 a 9999, inclusive). Pode permitir a criação de Segments uniformemente distribuídos de usuários verdadeiramente aleatórios para testes A/B e multivariantes.
+    description: Segmenta seus usuários por um número atribuído aleatoriamente (de 0 a 9999, inclusive). Pode permitir a criação de segmentos uniformemente distribuídos de usuários verdadeiramente aleatórios para testes A/B e multivariantes.
     tags:
       - Other Filters
   - name: Session Count
@@ -221,7 +221,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Soft Bounced
-    description: Segmenta seus usuários por terem sofrido soft bounce X vezes em Y dias. Os filtros de Segment só podem consultar os últimos 30 dias, mas você pode consultar períodos anteriores com extensões de segmento.<br><br>Este filtro opera de forma diferente de um evento de soft bounce no Currents. O filtro de Segment de soft bounce conta um soft bounce se não houve entrega bem-sucedida durante o período de tentativas de 72 horas. No Currents, cada tentativa malsucedida é enviada como um evento de soft bounce.
+    description: Segmenta seus usuários por terem sofrido soft bounce X vezes em Y dias. Os filtros de segmento só podem consultar os últimos 30 dias, mas você pode consultar períodos anteriores com extensões de segmento.<br><br>Este filtro opera de forma diferente de um evento de soft bounce no Currents. O filtro de segmento de soft bounce conta um soft bounce se não houve entrega bem-sucedida durante o período de tentativas de 72 horas. No Currents, cada tentativa malsucedida é enviada como um evento de soft bounce.
     tags:
       - Retargeting
   - name: Has Marked You As Spam
@@ -273,7 +273,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Feature Flags
-    description: O Segment dos seus usuários que possuem uma <a href="/docs/developer_guide/feature_flags/">Feature Flag</a> específica atualmente ativada.
+    description: O segmento dos seus usuários que possuem uma <a href="/docs/developer_guide/feature_flags/">Feature Flag</a> específica atualmente ativada.
     tags:
       - Retargeting
   - name: Subscription Group
@@ -297,7 +297,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
-    description: Segmenta seus usuários que possuem autorização provisória de push ou estão habilitados para push em primeiro plano. Especificamente, essa contagem inclui:<br>1. Usuários iOS que estão provisoriamente autorizados para push. <br>2. Usuários que estão habilitados para push em primeiro plano e cujo status de inscrição de push não é cancelado, para qualquer um dos seus apps. Para esses usuários, essa contagem inclui apenas push em primeiro plano.<br><br>Push em primeiro plano ativado não inclui usuários que cancelaram a inscrição. <br><br>Após segmentar com esse filtro, você pode ver um detalhamento de quem está nesse Segment para Android, iOS e web no painel inferior, chamado <em>Usuários contatáveis</em>.
+    description: Segmenta seus usuários que possuem autorização provisória de push ou estão habilitados para push em primeiro plano. Especificamente, essa contagem inclui:<br>1. Usuários iOS que estão provisoriamente autorizados para push. <br>2. Usuários que estão habilitados para push em primeiro plano e cujo status de inscrição de push não é cancelado, para qualquer um dos seus apps. Para esses usuários, essa contagem inclui apenas push em primeiro plano.<br><br>Push em primeiro plano ativado não inclui usuários que cancelaram a inscrição. <br><br>Após segmentar com esse filtro, você pode ver um detalhamento de quem está nesse segmento para Android, iOS e web no painel inferior, chamado <em>Usuários contatáveis</em>.
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled for App
@@ -377,7 +377,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: Segmenta seus usuários pela contagem total de pedidos que um usuário cancelou nos últimos 2 anos, com base no <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de eCommerce</a> para pedido realizado (espaços de trabalho que não rastreiam eventos de eCommerce não possuem dados para esse filtro). Os usuários são avaliados para esse filtro uma vez por dia.<br><br>Este filtro está em beta. Entre em contato com o gerente de conta da Braze se tiver interesse em usar esse filtro.
+    description: Segmenta seus usuários pela contagem total de pedidos que um usuário cancelou nos últimos 2 anos, com base no <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de eCommerce</a> para pedido cancelado (espaços de trabalho que não rastreiam eventos de eCommerce não possuem dados para esse filtro). Os usuários são avaliados para esse filtro uma vez por dia.<br><br>Este filtro está em beta. Entre em contato com o gerente de conta da Braze se tiver interesse em usar esse filtro.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
@@ -421,7 +421,7 @@ glossaries:
     tags:
       - Demographic attributes
   - name: Birthday
-    description: Segmenta seus usuários pela data de aniversário, conforme indicado dentro do seu app. <br> Usuários com aniversário em 29 de fevereiro são incluídos em Segments que incluem 1º de março.<br><br>Para direcionar aniversários de dezembro ou janeiro, insira apenas a lógica de filtro dentro do período de 12 meses do ano que você está direcionando. Em outras palavras, não insira lógica que consulte o dezembro do ano anterior ou o janeiro do próximo ano. Por exemplo, para direcionar aniversários de dezembro, você pode filtrar por "em 31 de dezembro", "antes de 31 de dezembro" ou "depois de 30 de novembro".
+    description: Segmenta seus usuários pela data de aniversário, conforme indicado dentro do seu app. <br> Usuários com aniversário em 29 de fevereiro são incluídos em segmentos que incluem 1º de março.<br><br>Para direcionar aniversários de dezembro ou janeiro, insira apenas a lógica de filtro dentro do período de 12 meses do ano que você está direcionando. Em outras palavras, não insira lógica que consulte o dezembro do ano anterior ou o janeiro do próximo ano. Por exemplo, para direcionar aniversários de dezembro, você pode filtrar por "em 31 de dezembro", "antes de 31 de dezembro" ou "depois de 30 de novembro".
     tags:
       - Demographic attributes
   - name: Gender
@@ -445,11 +445,11 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Name
-    description: Segmenta pelo nome recente do app do usuário.<br><br>Ao usar "menor que" ou "menor ou igual a", se a versão principal do app não existir, esse filtro retorna <code>true</code> porque o usuário é mais antigo que a versão do app. Isso significa que, se a última versão principal do app do usuário não existir, ele automaticamente corresponde ao filtro.
+    description: Segmenta pelo nome mais recente da versão do app do usuário.<br><br>Ao usar "menor que" ou "menor ou igual a", se a versão principal do app não existir, esse filtro retorna <code>true</code> porque o usuário é mais antigo que a versão do app. Isso significa que, se a última versão principal do app do usuário não existir, ele automaticamente corresponde ao filtro.
     tags:
       - App
   - name: Most Recent App Version Number
-    description: Segmenta pelo número da versão recente do app do usuário.<br><br>Ao usar "menor que" ou "menor ou igual a", se a versão principal do app não existir, esse filtro retorna <code>true</code> porque o usuário é mais antigo que a versão do app. Isso significa que, se a última versão principal do app do usuário não existir, ele automaticamente corresponde ao filtro.<br><br>Pode levar algum tempo para que as versões atuais do app sejam preenchidas. A versão do app no perfil do usuário é atualizada quando a informação é capturada pelo SDK, o que depende de quando os usuários abrem seus apps. Se o usuário não abrir o app, a versão atual não será atualizada. Esses filtros também não se aplicam retroativamente. É recomendável usar "maior que" ou "igual a" para versões atuais e futuras, mas usar filtros de versões passadas pode causar comportamentos inesperados.
+    description: Segmenta pelo número da versão mais recente do app do usuário. O número da versão dentro dos parênteses é usado para filtragem, enquanto o número que o precede é apenas para referência — por exemplo, em "3.7.0(134.0.0.0)", "134.0.0.0" é o número da versão filtrado.<br><br>Ao usar "menor que" ou "menor ou igual a", se a versão principal do app não existir, esse filtro retorna <code>true</code> porque o usuário é mais antigo que a versão do app. Isso significa que, se a última versão principal do app do usuário não existir, ele automaticamente corresponde ao filtro.<br><br>Pode levar algum tempo para que as versões atuais do app sejam preenchidas. A versão do app no perfil do usuário é atualizada quando a informação é capturada pelo SDK, o que depende de quando os usuários abrem seus apps. Se o usuário não abrir o app, a versão atual não será atualizada. Esses filtros também não se aplicam retroativamente. É recomendável usar "maior que" ou "igual a" para versões atuais e futuras, mas usar filtros de versões passadas pode causar comportamentos inesperados.
     tags:
       - App
   - name: Uninstalled
@@ -525,35 +525,35 @@ glossaries:
     tags:
       - Location
   - name: Amplitude Cohorts
-    description: Clientes que usam o Amplitude podem complementar seus Segments escolhendo e importando suas coortes no Amplitude.
+    description: Clientes que usam o Amplitude podem complementar seus segmentos escolhendo e importando suas coortes no Amplitude.
     tags:
       - Cohort membership
   - name: Census Cohorts
-    description: Clientes que usam o Census podem complementar seus Segments escolhendo e importando suas coortes no Census.
+    description: Clientes que usam o Census podem complementar seus segmentos escolhendo e importando suas coortes no Census.
     tags:
       - Cohort membership
   - name: Heap Cohorts
-    description: Clientes que usam o Heap podem complementar seus Segments escolhendo e importando suas coortes no Heap.
+    description: Clientes que usam o Heap podem complementar seus segmentos escolhendo e importando suas coortes no Heap.
     tags:
       - Cohort membership
   - name: Hightouch Cohorts
-    description: Clientes que usam o Hightouch podem complementar seus Segments escolhendo e importando suas coortes no Hightouch.
+    description: Clientes que usam o Hightouch podem complementar seus segmentos escolhendo e importando suas coortes no Hightouch.
     tags:
       - Cohort membership
   - name: Kubit Cohorts
-    description: Clientes que usam o Kubit podem complementar seus Segments escolhendo e importando suas coortes no Kubit.
+    description: Clientes que usam o Kubit podem complementar seus segmentos escolhendo e importando suas coortes no Kubit.
     tags:
       - Cohort membership
   - name: Mixpanel Cohorts
-    description: Clientes que usam o Mixpanel podem complementar seus Segments escolhendo e importando suas coortes no Mixpanel.
+    description: Clientes que usam o Mixpanel podem complementar seus segmentos escolhendo e importando suas coortes no Mixpanel.
     tags:
       - Cohort membership
   - name: Segment Cohorts
-    description: Clientes que usam o Segment podem complementar seus Segments escolhendo e importando suas coortes no Segment.
+    description: Clientes que usam o Segment podem complementar seus segmentos escolhendo e importando suas coortes no Segment.
     tags:
       - Cohort membership
   - name: Tinyclues Cohorts
-    description: Clientes que usam o Tinyclues podem complementar seus Segments escolhendo e importando suas coortes no Tinyclues.
+    description: Clientes que usam o Tinyclues podem complementar seus segmentos escolhendo e importando suas coortes no Tinyclues.
     tags:
       - Cohort membership
   - name: Install Attribution Ad
@@ -565,7 +565,7 @@ glossaries:
     tags:
       - Install attribution
   - name: Install Attribution Campaign
-    description: Segmenta seus usuários pela Campaign de anúncio à qual a instalação foi atribuída.
+    description: Segmenta seus usuários pela campanha de anúncio à qual a instalação foi atribuída.
     tags:
       - Install attribution
   - name: Install Attribution Source
@@ -585,7 +585,7 @@ glossaries:
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Score
-    description: Segmenta seus usuários pela probabilidade de realizar um evento de acordo com uma previsão específica.
+    description: Segmenta seus usuários pela pontuação de probabilidade de realizar um evento de acordo com uma previsão específica.
     tags:
       - Intelligence and predictive
   - name: Intelligent Channel
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segmenta seus usuários pelo campo de número de telefone no formato E.164.<br><br> Quando um número de telefone é enviado para a Braze, a Braze tenta convertê-lo para o <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">formato E.164</a> que é usado para enviar por canais SMS, RCS e WhatsApp. O processo de conversão pode falhar se o número não estiver formatado corretamente, o que resulta no perfil do usuário tendo um número de telefone não formatado, mas não um número de telefone de envio. Este filtro de Segment retorna usuários pelo número de telefone no formato E.164 (quando disponível).<br><br>Casos de uso:<br> - Use esse filtro para entender o tamanho mais preciso do público-alvo ao enviar mensagens SMS, RCS ou WhatsApp.  <br>- Use expressões regulares (regex) com esse filtro para segmentar por números de telefone com um código de país específico. <br>- Use esse filtro para segmentar usuários por números de telefone que falharam no processo de conversão para E.164.
+    description: Segmenta seus usuários pelo campo de número de telefone no formato E.164.<br><br> Quando um número de telefone é enviado para a Braze, a Braze tenta convertê-lo para o <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">formato E.164</a> que é usado para enviar por canais SMS, RCS e WhatsApp. O processo de conversão pode falhar se o número não estiver formatado corretamente, o que resulta no perfil do usuário tendo um número de telefone não formatado, mas não um número de telefone de envio. Este filtro de segmento retorna usuários pelo número de telefone no formato E.164 (quando disponível).<br><br>Casos de uso:<br> - Use esse filtro para entender o tamanho mais preciso do público-alvo ao enviar mensagens SMS, RCS ou WhatsApp.  <br>- Use expressões regulares (regex) com esse filtro para segmentar por números de telefone com um código de país específico. <br>- Use esse filtro para segmentar usuários por números de telefone que falharam no processo de conversão para E.164.
     tags:
       - Other Filters
 ---

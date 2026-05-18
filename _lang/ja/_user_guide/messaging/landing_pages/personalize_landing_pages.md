@@ -50,6 +50,68 @@ Liquidは、識別済みの訪問者と匿名の訪問者の両方に対して�
 - **識別済みユーザー：** Brazeメッセージからランディングページにリンクし、[ランディングページのLiquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/#using-landing-page-liquid-tags)を含めます。これにより、ユーザーがBrazeプロファイルに関連付けられ、ページ体験がパーソナライズされます。
 - **匿名の訪問者：** ランダムな数値や時間帯に応じた挨拶など、文脈に応じたプロファイルに基づかないコンテンツにLiquidを使用します。
 
+## カスタムコードによる外部データの取得 {#fetching-external-data-with-custom-code}
+
+**カスタムコード**ブロックを使用して、外部エンドポイントからデータを取得し、ランディングページに表示できます。このアプローチではクライアント側（ユーザーのブラウザ）でリクエストを行うため、サーバー側のレンダリング遅延なしにページが素早く読み込まれます。
+
+{% alert warning %}
+外部データを取得する場合、実装のセキュリティはお客様の責任となります。API呼び出しで使用される外部識別子はUUIDであるか、同等に安全な命名スキームを使用する必要があります。[ユーザーIDの命名に関するベストプラクティス]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices)を参照してください。
+{% endalert %}
+
+### ユースケース {#use-case}
+
+このパターンは、Brazeに保存されていないユーザー固有のデータを表示する必要がある場合に便利です。例としては、リアルタイムの在庫情報、パーソナライズされたおすすめ、または組織が別のシステムで管理しているその他のデータなどがあります。
+
+### 実装例 {#example-implementation}
+
+この例では、外部APIからユーザーデータを取得する方法を示します。APIエンドポイントをご自身の安全なエンドポイントに置き換え、安全な識別子を使用してください。
+
+{% raw %}
+```html
+<script>
+window.onload = () => {
+  // Use Liquid to template the user's external ID
+  const userId = "{{${user_id}}}";
+
+  const loadUserData = async () => {
+    try {
+      // Replace with your own secure API endpoint
+      const response = await fetch(`https://your-api.example.com/user/${userId}`);
+
+      if (!response.ok) {
+        throw new Error('Failed to load data');
+      }
+
+      const data = await response.json();
+
+      // Update the page with the fetched data
+      document.querySelector("#user-data").textContent = JSON.stringify(data, null, 2);
+      document.querySelector("#user-name").textContent = data.name || "User";
+    } catch (error) {
+      // Handle errors gracefully
+      document.querySelector("#user-data").textContent = "Unable to load data at this time.";
+    }
+  };
+
+  loadUserData();
+};
+</script>
+
+<!-- Display area for fetched data -->
+<p>Welcome, <span id="user-name">Loading...</span></p>
+<pre id="user-data">Loading your information...</pre>
+```
+{% endraw %}
+
+### 考慮事項 {#considerations}
+
+ランディングページで外部データを取得する際は、以下の点にご注意ください。
+
+- **読み込み状態：** エンドポイントが応答するまで、ユーザーにはプレースホルダーテキストが表示されます。ローディングインジケーターやスケルトンスクリーンの追加を検討してください。
+- **エラーハンドリング：** エンドポイントが失敗したり応答が遅い場合、ページが壊れて見える可能性があります。適切なエラーメッセージとフォールバックを実装してください。
+- **パフォーマンス：** ページはすぐに読み込まれますが、データは外部リクエストの完了後に表示されます。最適なユーザー体験のために、APIレスポンスを高速に保ってください。
+- **セキュリティ：** APIエンドポイントが識別子を検証し、ユーザーが閲覧を許可されたデータのみを返すようにしてください。不正利用を防ぐためにレート制限を実装してください。安全な識別子の選択に関するガイダンスについては、[ユーザーIDの命名に関するベストプラクティス]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#naming-best-practices)を参照してください。
+
 ## フォールバックページ {#fallback-pages}
 
 ユーザーが非公開になったページにアクセスしようとすると、ページが現在読み込めないことを示すメッセージが表示されます。ページが非公開になる理由には以下が含まれます。

@@ -47,7 +47,7 @@ CSV 파일을 업로드하기 전에 CSV 파일이 다음 요구 사항을 충�
 | 데이터 유형 | CSV 업로드에서 지원되는 데이터 유형에는 문자열, 숫자, 부울 및 시간이 포함됩니다. API 및 CDI를 통해서만 사용할 수 있는 데이터 유형을 포함한 전체 목록은 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types)을 참조하세요. |
 | 서식 지정 | 일관성을 유지하기 위해 모든 텍스트를 소문자로 포맷합니다. |
 | 인코딩 | UTF-8 인코딩을 사용하여 CSV 파일을 저장하고 업로드합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레이드에 대한 자세한 내용은 Braze 계정 매니저에게 문의하세요.
@@ -94,7 +94,8 @@ CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
+  <caption>튜토리얼: CSV 파일에서 카탈로그 만들기</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -217,6 +218,8 @@ REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈�
 
 ## 카탈로그 저장소 {#tiers}
 
+저장소 한도에 대한 간략한 개요는 [데이터 저장소 제한]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)을 참조하세요.
+
 무료 버전의 카탈로그는 회사 전체의 모든 CSV 파일을 합산하여 최대 100MB의 CSV 파일 크기를 지원하며, 카탈로그 프로 버전은 단일 CSV 파일에 대해 최대 2GB의 CSV 파일 크기를 지원합니다.
 
 {% alert important %}
@@ -240,7 +243,7 @@ Braze 대시보드에 표시되는 패키지 자격은 시각적 편의를 위�
 | 항목 값 문자 수 | 단일 값에 최대 5,000자입니다. 예를 들어 `description`이라는 필드가 있는 경우 해당 필드 내 최대 문자 수는 5,000자입니다. |
 | 항목 열 이름 문자 수 | 최대 250자 |
 | 카탈로그당 선택 항목 수 | 카탈로그당 최대 30개 선택 항목 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
 {% alert important %}
 카탈로그 Liquid 태그는 재귀적으로 사용할 수 없습니다. 즉, 동일한 Liquid 평가 내에서 두 번째 카탈로그 항목을 호출하는 카탈로그 항목을 참조할 수 없습니다.

@@ -28,7 +28,7 @@ These instructions assume the following information is available:
 - Context variable for the city the user last searched
 - Context variable for the user's last survey response
 - **Agent context**
-    - **Canvas context:** All Canvas context variables used in this journey (for example, `city_searched`, `last_survey_response`, and any others your Canvas defines).
+    - **All Canvas context:** Passes any additional context variables to the agent that you didn't already define in your agent instructions, in case they are helpful or relevant
     - **Brand guidelines:** `<Brand guidelines name>` — required so the agent can apply voice, tone, and formatting rules referenced in these instructions.
 
 ### Instructions
@@ -102,7 +102,7 @@ These instructions assume the following information is available:
 - Context variables for the user’s most recent destination
 - Context variable for user feedback as text
 - **Agent context**
-    - **Canvas context:** All Canvas context variables used in this journey (for example, `survey_text`, `trip_destination`, and any others your Canvas defines).
+    - **All Canvas context:** Passes any additional context variables to the agent that you didn't already define in your agent instructions, in case they are helpful or relevant
 
 ### Instructions
 
@@ -168,7 +168,7 @@ These instructions assume the following information is available:
     - Count of premium features used during the free trial
 - Context variable for the day the app was last opened 
 - **Agent context**
-    - **Canvas context:** All Canvas context variables used in this journey (for example, `last_app_session` and any custom attributes the Agent step is configured to receive).
+    - **All Canvas context:** Passes any additional context variables to the agent that you didn't already define in your agent instructions, in case they are helpful or relevant
     - **Segment membership:** To check whether the user is in the segment "Has Valid Payment Method on File"
 
 ### Instructions
@@ -230,6 +230,80 @@ The user IS in the segment: "Has Valid Payment Method on File".
 
 {% api %}
 
+## Classify inbound messages for opt-out intent
+
+{% apitags %}
+Canvas agent
+{% endapitags %}
+
+This use case describes how a Canvas agent can evaluate one inbound customer message at a time and return whether it should be treated as a request to opt out of future messaging (for example, STOP, unsubscribe, or revoke consent). The goal is to output a strict boolean so you can branch journeys conservatively, reducing the risk of messaging after revocation while avoiding false positives when the user is clearly asking a question or continuing to engage.
+
+### Prerequisites
+
+These instructions assume the following information is available:
+
+- Inbound message text available to the agent (for example, a context variable for the user's latest SMS reply or other inbound text)
+- **Agent context**
+    - **All Canvas context:** Passes any additional context variables to the agent that you didn't already define in your agent instructions, in case they are helpful or relevant
+
+### Instructions
+
+{% raw %}
+```
+ROLE
+You are a compliance-focused classifier for inbound customer messages.
+
+PRIMARY TASK
+Given a single inbound message from a user, decide whether it should be treated as a request to opt out of future messaging (unsubscribe, stop, revoke consent).
+
+OUTPUT (STRICT)
+Return a single boolean only:
+- true = treat as an opt-out request
+- false = do not treat as an opt-out request
+Do not output any other words, punctuation, or explanation.
+
+COMPLIANCE INTENT (NON-LEGAL GUIDANCE)
+Classify conservatively to reduce the risk of sending messages after a user revokes consent. This supports common requirements and expectations in laws and standards such as TCPA (US SMS consent and revocation), GDPR (withdrawal of consent and right to object to marketing), and other subscription management regimes. When in doubt, return true.
+
+DECISION RULES
+Return true if ANY of the following are present:
+1) Explicit opt-out keywords or phrases:
+   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
+   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
+2) A clear request to stop a specific channel:
+   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
+3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
+   - A standalone thumbs down (:-1:) or "thumbs down"
+   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
+   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
+Return false if ALL of the following are true:
+- The user is clearly engaging with the content or asking a question, and
+- There is no explicit opt-out intent
+Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
+
+EDGE CASES
+- If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
+- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
+- If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
+
+EXAMPLES
+Input: “STOP” → true
+Input: “unsubscribe” → true
+Input: “Please stop texting me” → true
+Input: “Remove me from your list” → true
+Input: “:-1:” → true
+Input: “I hate this. Leave me alone.” → true
+Input: “This is the worst, you suck” → true
+Input: “Stop by tomorrow?” → false
+Input: “Can you stop the delivery?” → false
+Input: “This sucks—what’s the promo code?” → false
+```
+{% endraw %}
+
+{% endapi %}
+
+{% api %}
+
 ## Write high-converting descriptions that align with brand guidelines
 
 {% apitags %}
@@ -245,7 +319,7 @@ These instructions assume the following information is available:
 - **Agent context**
     - **Catalog fields:**
         - **Catalog:** `<Destination Catalog name>` which contains one row per destination (for example, your in-app destination catalog).
-        - **Fields:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>`
+        - **Fields:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>`, which are column names that map to the destination name, country, primary vibe, and price tier that the instructions use.
     - **Brand guidelines:** StyleRyde's [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)
 
 ### Instructions
@@ -366,76 +440,3 @@ Max Characters: 20
 
 {% endapi %}
 
-{% api %}
-
-## Classify inbound messages for opt-out intent
-
-{% apitags %}
-Canvas agent
-{% endapitags %}
-
-This use case describes how a Canvas agent can evaluate one inbound customer message at a time and return whether it should be treated as a request to opt out of future messaging (for example, STOP, unsubscribe, or revoke consent). The goal is to output a strict boolean so you can branch journeys conservatively, reducing the risk of messaging after revocation while avoiding false positives when the user is clearly asking a question or continuing to engage.
-
-### Prerequisites
-
-These instructions assume the following information is available:
-
-- Inbound message text available to the agent (for example, a context variable for the user's latest SMS reply or other inbound text)
-- **Agent context**
-    - **Canvas context:** Configure the Agent step to receive the inbound message (for example, via a context variable such as `latest_sms_reply` or the field your journey uses) so the agent can return a boolean and you can branch for suppression or subscription handling.
-
-### Instructions
-
-{% raw %}
-```
-ROLE
-You are a compliance-focused classifier for inbound customer messages.
-
-PRIMARY TASK
-Given a single inbound message from a user, decide whether it should be treated as a request to opt out of future messaging (unsubscribe, stop, revoke consent).
-
-OUTPUT (STRICT)
-Return a single boolean only:
-- true = treat as an opt-out request
-- false = do not treat as an opt-out request
-Do not output any other words, punctuation, or explanation.
-
-COMPLIANCE INTENT (NON-LEGAL GUIDANCE)
-Classify conservatively to reduce the risk of sending messages after a user revokes consent. This supports common requirements and expectations in laws and standards such as TCPA (US SMS consent and revocation), GDPR (withdrawal of consent and right to object to marketing), and other subscription management regimes. When in doubt, return true.
-
-DECISION RULES
-Return true if ANY of the following are present:
-1) Explicit opt-out keywords or phrases:
-   - STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
-   - "stop texting me", "stop messaging me", "no more messages", "don’t contact me", "do not contact", "remove me", "take me off your list", "opt me out", "revoke my consent", "withdraw my consent", "I don’t want these", "leave me alone"
-2) A clear request to stop a specific channel:
-   - "don’t text me", "no more texts", "don’t email me", "stop calling me"
-3) Unambiguous negative feedback that functions like revocation of consent (treat as opt-out):
-   - A standalone thumbs down (:-1:) or "thumbs down"
-   - "I hate this", "this is the worst", "you suck", "go away", "go die", "f*** off"
-   - Any brand-configured profanity or hostile phrases that your program treats as opt-out (assume these count as opt-out unless you have explicit context that they should not)
-Return false if ALL of the following are true:
-- The user is clearly engaging with the content or asking a question, and
-- There is no explicit opt-out intent
-Examples: "Stop by the store?", "Can you stop the order?", "This sucks but what’s the discount?", "I hate this product (but keep me updated)".
-
-EDGE CASES
-- If the message contains an opt-out keyword but is obviously not about messaging consent (rare), return false.
-- If the message expresses anger or dissatisfaction and could reasonably be interpreted as “stop contacting me”, return true.
-- If the message is very short, ambiguous, or contains only a negative signal (like :-1:), return true.
-
-EXAMPLES
-Input: “STOP” → true
-Input: “unsubscribe” → true
-Input: “Please stop texting me” → true
-Input: “Remove me from your list” → true
-Input: “:-1:” → true
-Input: “I hate this. Leave me alone.” → true
-Input: “This is the worst, you suck” → true
-Input: “Stop by tomorrow?” → false
-Input: “Can you stop the delivery?” → false
-Input: “This sucks—what’s the promo code?” → false
-```
-{% endraw %}
-
-{% endapi %}

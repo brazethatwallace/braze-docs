@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}링크 별칭 지정 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}링크 별칭 지정 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > 링크 별칭 지정을 사용하여 Braze에서 발송하는 이메일 메시지의 링크를 식별할 수 있는 사용자 정의 이름을 생성합니다. 이러한 링크는 세분화 리타겟팅, 행동 기반 트리거링 및 링크 분석에 활용할 수 있습니다.
 
@@ -31,12 +31,28 @@ Braze는 모든 링크 URL에 `lid`(링크 식별자라고도 함)라는 추가 
 
 ## 링크 별칭 생성 {#creating-a-link-alias}
 
-링크 별칭을 생성하려면 다음 단계를 따르세요:
+{% alert important %}
+**Link Management**는 Braze가 계정에 대해 링크 관리를 활성화하면 캠페인 또는 Canvas 이메일 작성기에 표시됩니다. **링크 별칭**을 생성하고 편집하려면 링크 별칭 지정이 활성화되어 있어야 합니다. **Link Management**가 표시되지 않으면 계정 매니저에게 연락하여 링크 별칭 지정을 활성화하세요.
+{% endalert %}
 
-1. 캠페인 또는 Canvas 구성요소에서 이메일 본문으로 이동합니다.
-2. **Link Management** 탭을 선택합니다.
-3. Braze가 각 링크에 대해 고유한 기본 링크 별칭을 자동으로 생성합니다.
-4. 별칭에 이름을 지정합니다. 별칭은 이메일 캠페인 배리언트 또는 Canvas 구성요소별로 고유하게 이름을 지정해야 합니다.
+링크 별칭을 생성하려면 캠페인 또는 Canvas 구성요소에서 이메일 본문을 열고 **콘텐츠** 영역에서 **Link Management**를 엽니다. 드래그 앤 드롭 및 HTML 작성기는 동일한 사이드바 레이아웃을 사용합니다:
+
+### 드래그 앤 드롭 편집기 {#drag-and-drop-editor}
+
+1. **Edit Email Body**를 선택하여 드래그 앤 드롭 작성기를 엽니다.
+2. 작성기 사이드바에서 **Content**를 선택합니다(**Sending Settings** 및 **Preview & Test** 옆에 있음). 이 레이아웃에 대한 자세한 내용은 [드래그 앤 드롭으로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)를 참조하세요.
+3. **Content** 하위 메뉴에서 **Link Management**를 선택합니다(**Design and Build** 아래에 표시됨). 하위 메뉴가 접혀 있으면 사이드바의 화살표 컨트롤을 사용하여 펼칩니다.
+
+### HTML 편집기 {#html-editor}
+
+1. 작성기에서 이메일 본문으로 이동합니다.
+2. 작성기 사이드바에서 **Content**를 선택합니다.
+3. **Content** 하위 메뉴에서 **Design and Build** 아래의 **Link Management**를 선택합니다.
+
+**Link Management**에서:
+
+1. Braze가 각 링크에 대해 고유한 기본 링크 별칭을 자동으로 생성합니다.
+2. 별칭에 이름을 지정합니다. 별칭은 이메일 캠페인 배리언트 또는 Canvas 구성요소별로 고유하게 이름을 지정해야 합니다.
 
 보고 또는 세분화를 처리할 때 특정 링크를 참조하는 데 사용할 별칭을 설정할 수도 있습니다.
 
@@ -80,7 +96,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Permalink" }
 
 ### 추가 쿼리 매개변수가 있는 링크 {#link-with-more-query-parameters}
 
@@ -89,7 +105,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with more query parameters" }
 
 ### HTML 링크 {#html-link}
 
@@ -98,7 +114,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML link" }
 
 ### 앵커가 있는 링크 {#link-with-anchor}
 
@@ -107,7 +123,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor" }
 
 ### 앵커와 캡처 태그가 있는 링크 {#link-with-anchor-and-capture-tag}
 
@@ -116,17 +132,17 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
 
 ## 링크 별칭 추적 {#tracking-link-aliases}
 
-**Link Management** 탭에서 세분화 목적으로 "추적"할 별칭을 선택하고 세분화 필터에 표시되도록 합니다. 추적된 별칭은 세분화 목적으로만 사용되며 보고 목적의 링크 추적에는 영향을 미치지 않습니다.
+작성기 사이드바에서 **Content** > **Link Management**(**Design and Build** 아래)를 선택한 다음 **추적**할 별칭을 선택합니다. 추적된 별칭은 링크 별칭을 참조하는 세분화 필터에서 사용할 수 있습니다([세분화 필터](#segmentation-filters) 참조). 또한 사용자가 이메일에서 링크 별칭을 클릭할 때 행동 기반 메시지를 발송하거나 Canvas를 통해 사용자를 이동시킬 수 있습니다. [행동 기반 필터](#action-based-filters)를 참조하세요. **추적** 설정은 해당 링크의 클릭이 이메일 성과 보고에 집계되는지 여부에는 영향을 미치지 않습니다.
 
 {% alert tip %}
 링크 참여 측정기준을 추적하려면 링크가 HTTP 또는 HTTPS로 시작하는지 확인하세요. 특정 링크의 클릭 추적을 해제하려면 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
 {% endalert %}
 
-Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 세그먼트를 생성할 수 있습니다.
+Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 Segment를 생성할 수 있습니다.
 
 ![두 개의 링크가 선택된 Link Management 탭.]({% image_buster /assets/img/link_management_dnd.png %})
 
@@ -152,7 +168,7 @@ Braze에서 이메일에 링크 별칭이 있고 사용자가 이를 클릭하�
 
 #### 링크 추적 해제 {#untracking-links}
 
-링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 세그먼트가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
+링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 Segment가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
 
 아카이브된 메시지의 링크는 자동으로 추적이 해제됩니다. 그러나 아카이브된 메시지가 아카이브 해제되면 링크를 다시 추적해야 합니다. 링크 별칭이 추적되면 링크 보고는 최상위 도메인이나 전체 URL 대신 별칭으로 인덱싱됩니다.
 
@@ -213,47 +229,111 @@ Content Blocks의 경우, Braze는 새 메시지에서 사용할 기존 Content 
 
 ## Liquid로 생성된 URL에 대한 링크 별칭 지정 {#link-aliasing-for-urls-generated-by-liquid}
 
-HTML의 `assign` 문이나 Content Blocks에서 생성된 것과 같이 Liquid로 생성된 URL의 경우, Liquid 태그에 물음표(`?`)를 추가해야 합니다. 이를 통해 Braze가 쿼리 매개변수(`lid=somevalue`)를 추가하여 링크 별칭 지정이 올바르게 작동할 수 있습니다.
+Liquid로 생성된 URL(예: HTML의 `assign`, Content Blocks에서 가져온 값, 커스텀 속성의 Liquid)의 경우, Braze가 `lid` 쿼리 매개변수를 추가할 명확한 위치가 필요합니다. 대부분의 경우 URL에 Liquid가 남아 있으면 직접 구분자를 추가하지 않는 한 Braze는 `?`로 새 쿼리 문자열을 시작할지 `&`로 기존 쿼리에 결합할지 추론하지 않습니다.
 
-쿼리 매개변수를 추가할 위치를 식별하지 않으면 링크 별칭 지정이 이러한 URL을 인식하지 못하며 링크 템플릿이 적용되지 않습니다.
+다음을 수행하세요:
+
+- URL에 쿼리 문자열이 아직 **포함되지 않은** 경우, Liquid 뒤에 `?`를 추가합니다(예: `{{my_url}}?`).
+- URL에 이미 `?`와 쿼리 매개변수가 **포함된** 경우, Liquid 뒤에 `&`를 추가합니다(예: `{{my_url}}&`).
+
+{% alert note %}
+Liquid로 생성된 URL에서 [링크 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/)을 사용할 때, Liquid 실행 후 렌더링된 URL에 쿼리 구분자로 사용된 `?` 문자가 정확히 두 개 포함되면 Braze가 보수적으로 URL을 정규화할 수 있습니다. 두 번째 `?`는 Braze가 URL을 최소한으로 변경하도록 `&`로 다시 작성될 수 있습니다.<br><br>Braze는 모든 중복 `?` 패턴을 수정하려고 시도하지 않으며, 더 복잡한 URL의 처리는 의도적으로 제한됩니다. 마크업에서 먼저 올바른 `?` 또는 `&`를 추가하고, 정규화는 제한적인 안전장치로 취급하세요. 이는 올바른 형식의 URL이나 구분자가 없을 때 **Link Management**에서 링크가 인식되는 것을 대체하지 않습니다.
+{% endalert %}
+
+후행 `?` 또는 `&`(또는 기타 지원되는 삽입 지점)가 없으면 링크 별칭 지정이 URL을 인식하지 못하고, **Link Management**에 표시되지 않으며, 링크 템플릿이 적용되지 않습니다.
+
+### URL 프래그먼트(`#`)와 추적 매개변수 {#url-fragments-and-tracking-parameters}
+
+프래그먼트(`#` 및 그 이후의 모든 내용)는 일반 링크 요청 시 서버로 전송되지 않습니다. Braze는 `lid`를 쿼리 문자열에 삽입하며, 이는 `#` 앞에 위치해야 합니다. `href`에 Liquid와 `#` 프래그먼트가 있지만 `#` 앞에 `?` 또는 `&`가 없으면 Braze가 안전하게 `lid`를 추가할 수 없으므로 해당 링크가 **Link Management**에 표시되지 않거나 링크 별칭으로 추적되지 않을 수 있습니다.
+
+이는 드래그 앤 드롭 편집기에서 버튼 URL이 Liquid와 해시 기반 패턴을 혼합할 때(예: 정적 경로 다음에 `#`, 그 다음에 추가 키-값 쌍) 특히 흔합니다. 이 경우 `#` 바로 앞에 `?`를 추가하여 쿼리 문자열(`lid` 포함)이 프래그먼트 앞에서 구문 분석되도록 합니다.
+
+{% raw %}
+```text
+https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
+```
+{% endraw %}
+
+위 예시에서 `#` 앞의 `?`는 Braze에 `lid`를 추가할 쿼리 세그먼트를 제공합니다. 이것이 없으면 해당 링크가 **Link Management**에 표시되지 않을 수 있습니다.
+
+### 드래그 앤 드롭 편집기 고려 사항 {#drag-and-drop-editor-considerations}
+
+드래그 앤 드롭 편집기에서 링크를 보유하는 필드(예: 버튼 **URL**)는 Liquid가 실행되기 전에 기본 `href`를 검증합니다. 공백, 줄 바꿈 및 기타 URL에 안전하지 않은 문자는 Braze가 링크 템플릿이나 링크 별칭 지정 매개변수를 추가할 때 예기치 않은 동작을 유발할 수 있습니다. 대상에 대해 분기 Liquid가 필요한 경우 HTML 블록에서 URL을 설정하고(다음 섹션 참조) 해당 필드에 복잡한 Liquid를 직접 넣는 대신 드래그 앤 드롭 URL 필드에서 단일 변수를 참조하세요.
+
+### Content Blocks 예시 {#content-block-example}
+
+Content Blocks에 후행 `?` 또는 `&`가 없는 `https://www.braze.com/{{custom_attribute.${offer_id}}}` 같은 링크가 포함된 경우, Braze는 `lid`를 추가할 위치를 알 수 없으므로 해당 링크가 **Link Management**에 인식되지 않습니다. Content Blocks의 URL 끝에 `?` 또는 `&`를 추가하고(쿼리 문자열이 이미 존재하는지 여부에 따라) Content Blocks을 저장하면 링크가 인식될 수 있습니다.
+
+### URL이 사용자별로 다른 경우의 보고 {#reporting-when-the-url-varies-per-user}
+
+메시지의 각 고유 `href`는 **Link Management** 및 별칭 기반 보고를 위해 **하나의** 링크 ID와 하나의 링크 별칭에 매핑됩니다. 링크 별칭이 추적되면 대시보드 내 이메일 보고는 가능한 모든 확인된 URL이 아닌 별칭으로 인덱싱됩니다.
+
+Braze에서 먼저 다음 접근 방식을 사용하세요:
+
+- **Campaign 및 Canvas 이메일 분석:** [링크 추적 해제](#untracking-links)에 설명된 대로 **Message Analytics** > **이메일 성과** > **Preview & Heatmap**에서 **Show Heatmap**을 활성화하여 링크별 집계 클릭을 검토합니다.
+- **쿼리 빌더에서 수신자별 클릭:** Campaign 또는 Canvas에 대해 **이메일 URL 클릭** [쿼리 빌더 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/#email-templates)을 실행합니다. 이 템플릿은 요약 집계를 위해 비개인화된 링크를 표시하며, CSV 내보내기에는 클릭한 사용자의 사용자 ID, 클릭한 링크 및 타임스탬프가 포함됩니다. (비개인화된 URL은 요약 보기를 위해 Liquid 태그를 제거합니다. 자세한 내용은 템플릿 설명을 참조하세요.)
+- **작성기에서 별칭 수준 분석:** 각 대상(예: 각 `offer_id`)이 **Link Management** 및 별칭 기반 보고에서 자체 행으로 표시되어야 하는 경우, 사용자별로 경로가 변경되는 하나의 링크 대신 별도의 `href` 값(따라서 별도의 별칭)을 사용하세요. 예를 들어 분기별로 고유한 링크를 사용합니다.
+
+스트리밍 참여 내보내기도 사용하는 경우, 이메일 클릭 이벤트에는 **`url`** 필드가 포함됩니다. 해당 페이로드가 링크 별칭 지정과 어떻게 관련되는지는 이 페이지의 [이메일 클릭 이벤트](#email-clicks-event)를 참조하세요.
 
 ### 예시 {#example}
 
-링크의 권장 형식에 대한 링크 별칭 지정 예시를 확인하세요:
+할당된 URL에 쿼리 매개변수가 없는 경우 이 패턴을 사용하세요:
 
 {% raw %}
 ```liquid
 {% assign link1 = "https://www.braze1.com" %}
 
-<a href="{{link1}}?">Click Here</a>
+<a href="{{link1}}?">Visit Braze</a>
 ```
 {% endraw %}
 
-링크에 물음표(`?`)가 포함된 매개변수가 있는 경우, 다음 예시와 같이 앵커 태그에서 앰퍼샌드(`&`)로 대체할 수 있습니다:
+할당된 URL에 이미 `?`와 쿼리 매개변수가 포함된 경우, `?` 대신 Liquid 뒤에 `&`를 추가하세요:
 
 {% raw %}
 ```liquid
-{% assign link_with_params = "https://www.braze1.com?param_1&param_2" %}
+{% assign link_with_params = "https://www.braze1.com?campaign=test" %}
 
-<a href="{{link_with_params}}&">Click Here</a>
+<a href="{{link_with_params}}&">Visit Braze</a>
 ```
 {% endraw %}
 
 ### 조건부 Liquid가 포함된 URL {#urls-with-conditional-liquid}
 
-조건부 Liquid 태그가 `href` 내에서 사용되는 경우(예: {% raw %}`{% if %}`, `{% unless %}`{% endraw %}를 사용하여 조건부로 URL을 설정하는 경우), 링크 별칭 지정이 해당 링크에 적용되지 않습니다. 즉, 이러한 링크는 **Link Management**에 표시되지 않으며 클릭 추적을 위한 `lid`를 받지 않습니다.
+조건부 Liquid 태그가 `href` 내에서 사용되는 경우(예: {% raw %}`{% if %}`, `{% elsif %}` 또는 `{% unless %}`{% endraw %}를 사용하여 URL을 설정하는 경우), 링크 별칭 지정이 해당 링크에 적용되지 않습니다. 즉, 이러한 링크는 **Link Management**에 표시되지 않으며 클릭 추적을 위한 `lid`를 받지 않습니다.
 
-{% raw %}`{% capture %}`{% endraw %} 블록을 사용하여 `href` 외부에서 URL을 구성한 다음 다음 예시와 같이 변수로 참조할 수 있습니다:
+**권장 사항:** HTML 블록에서 `assign`(또는 {% raw %}`{% capture %}`{% endraw %})을 사용하여 최종 URL을 구성한 다음 링크가 필요한 곳에서 해당 변수를 참조하세요. 드래그 앤 드롭 편집기에서는 후행 `?` 또는 `&`를 적절히 추가하여 버튼 **URL** 필드에 변수를 붙여넣으세요. 예: `{{url}}?`.
 
 {% raw %}
 ```liquid
+{% if {{custom_attribute.${account_tier}}} == "pro" %}
+{% assign url = "https://example.com/pro/verify" %}
+{% else %}
+{% assign url = "https://example.com/retail/account" %}
+{% endif %}
+```
+{% endraw %}
+
+버튼 **URL** 필드(드래그 앤 드롭) 또는 HTML에서 구분자와 함께 변수를 `href`에 지정합니다:
+
+{% raw %}
+```liquid
+<a href="{{ url }}?">Go to account</a>
+```
+{% endraw %}
+
+또는 URL을 하나의 변수로 캡처할 수 있습니다:
+
+{% raw %}
+```liquid
+{% capture url %}
   {%- if condition -%}
     https://example.com/url1
   {%- else -%}
     https://example.com/url2
   {%- endif -%}
-{%- endcapture -%}
+{% endcapture %}
 
-<a href="{{ url }}?">Click here</a>
+<a href="{{ url }}?">Go to account</a>
 ```
 {% endraw %}

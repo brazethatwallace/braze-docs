@@ -4,7 +4,7 @@ article_title: Local e Geofences para iOS
 platform: iOS
 page_order: 6
 description: "Este artigo de referência ensina a implementar locais e geofences em seu app para iOS."
-Tool:
+tool:
   - Location
 
 noindex: true

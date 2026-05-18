@@ -61,7 +61,7 @@ Commencez par choisir les plateformes qui doivent recevoir le message. Utilisez 
 | Applications mobiles                     | SDK iOS, Android et Vega |
 | Navigateurs web                    | SDK Web                      |
 | Applications mobiles et navigateurs web | SDK iOS, Android, Vega et Web |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## Étape 3 : Spécifier vos types de messages {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Ces messages in-app sont acceptés à la fois par les applications mobiles et le
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>Types de messages</caption>
 <thead>
   <tr>
     <th>Type de message</th>
@@ -133,7 +134,8 @@ Ces messages in-app sont acceptés à la fois par les applications mobiles et le
 
 Ces messages in-app sont personnalisables selon vos besoins.
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>Types de messages avancés</caption>
 <thead>
   <tr>
     <th>Type de message</th>
@@ -239,7 +241,7 @@ Lorsque votre client clique sur un bouton dans votre message in-app, les actions
 | Enregistrer un événement personnalisé | Choisissez un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) à déclencher. Peut être utilisé pour afficher un autre message in-app ou déclencher des messages supplémentaires. |
 | Enregistrer un attribut personnalisé | Choisissez un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) à définir pour l'utilisateur actuel. |
 | Demander l'autorisation push | Affiche la demande d'autorisation push native. En savoir plus sur l'[amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), ainsi que les [bonnes pratiques]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) pour préparer les utilisateurs au push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 Remarque : les options __Demander l'autorisation push__, __Enregistrer un événement personnalisé__ et __Enregistrer un attribut personnalisé__ nécessitent les versions minimales de SDK suivantes :
 
@@ -276,7 +278,7 @@ Le contenu de l'onglet **Style** varie en fonction des options de message choisi
 
 | Mise en forme | Saisie | Description |
 |---|---|---|
-| [Profil de couleur]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Appliquer depuis la galerie de modèles de messages in-app. | Sélectionnez **Apply Template** et choisissez dans la galerie. Puis, sélectionnez **Save**. |
+| [Profil de couleur]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Appliquer depuis la galerie de modèles de messages in-app. | Sélectionnez **Apply Template** et choisissez dans la galerie. Puis, sélectionnez **Save**. |
 | Alignement du texte | Gauche, centre ou droite. | Disponible uniquement pour les versions plus récentes du SDK Braze. |
 | En-tête | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
 | Texte | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
@@ -285,7 +287,7 @@ Le contenu de l'onglet **Style** varie en fonction des options de message choisi
 | Couleur d'arrière-plan | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. C'est l'arrière-plan de l'ensemble du message et il s'affichera clairement derrière le corps de votre texte. |
 | Overlay de l'écran | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. Disponible uniquement pour les versions plus récentes du SDK Braze. C'est le cadre autour de l'ensemble du message. |
 | Chevron ou autre option de fermeture du message | Code couleur HEX. | La couleur HEX souhaitée s'affichera. Vous pourrez également choisir l'opacité de la couleur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 [Prévisualisez et testez]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) toujours votre message avant de l'envoyer.
 

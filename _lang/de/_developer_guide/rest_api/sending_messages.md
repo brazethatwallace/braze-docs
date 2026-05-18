@@ -19,6 +19,7 @@ Dieser Ansatz funktioniert mit jedem von der API unterstützten Messaging-Kanal 
 | **Campaign-ID** | Optional. Lassen Sie sie weg, um ohne Dashboard-Campaign-Tracking zu senden, oder geben Sie eine API-Campaign-ID plus `message_variation_id` in jeder Nachricht an, um im Dashboard zu tracken. | Erforderlich. |
 | **Nachrichteninhalt** | Sie müssen ein `messages`-Objekt in die Anfrage einfügen (zum Beispiel `messages.whats_app`, `messages.email`). | Nicht akzeptiert. Der Nachrichteninhalt wird in der Campaign im Braze-Dashboard definiert. |
 | **Anwendungsfall** | Senden Sie eine Nachricht, deren Inhalt vollständig in der API-Anfrage angegeben ist. | Triggern Sie eine vorgefertigte Campaign (Inhalt im Dashboard) an bestimmte Empfänger:innen über die API. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
 Ausführliche Informationen zu Anfragen und Antworten finden Sie in den Endpunkt-Referenzen [Nachrichten sofort senden (nur API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) und [Campaigns über API-gesteuerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 

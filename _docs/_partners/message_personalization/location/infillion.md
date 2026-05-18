@@ -29,7 +29,7 @@ This integration works the same for Infillion beacons and Infillion geofence sol
 | [Infillion manager account](https://manager.gimbal.com/login/users/sign_in) | A Infillion manager account is required to take advantage of this partnership. |
 |[Infillion Location SDK](https://docs.gimbal.com/index.html) | The Infillion Location SDK powers macro and micro location-based mobile experiences using proximity beacons and geofences that allow you to communicate more effectively with your app users. You must have the SDK implemented, and geofences (or beacons) set up. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## SDK integration
 

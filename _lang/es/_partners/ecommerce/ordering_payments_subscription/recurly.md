@@ -18,7 +18,7 @@ _Esta integración está mantenida por Recurly._
 La integración entre Recurly y Braze simplifica el proceso de compartir datos de suscripción con Braze, habilitando la comunicación personalizada con los clientes.
 
 - Aprovecha los eventos del ciclo de vida de la suscripción de Recurly (por ejemplo, renovaciones, pausas o cancelaciones de la suscripción) en Braze para desencadenar campañas y comunicaciones personalizadas.
-- Aprovecha los datos de suscripción de Recurly (por ejemplo, planes de suscripción, complementos o estado) para crear y gestionar usuarios de la empresa, segmentos y Canvas para ejecutar campañas y comunicaciones específicas de cohorte.
+- Aprovecha los datos de suscripción de Recurly (por ejemplo, planes de suscripción, complementos o estado) para crear y gestionar usuarios de la empresa, Segments y Canvas para ejecutar campañas y comunicaciones específicas de cohorte.
 - Envía los datos de Recurly directamente a Braze, habilitando casos de uso adicionales de mensajería y reduciendo los costes generales de desarrollo.
 
 Puedes encontrar más información sobre el uso de Recurly con Braze en [los documentos de Recurly](https://docs.recurly.com/docs/braze-integration).
@@ -30,6 +30,7 @@ Puedes encontrar más información sobre el uso de Recurly con Braze en [los doc
 | Cuenta de Recurly | Se requiere un plan de suscripción Elite de [Recurly](https://recurly.com/) con el conmutador de características de Braze habilitado para aprovechar esta asociación. También es necesaria la activación de las facturas de crédito en tu plataforma Recurly. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. Como Recurly solo utiliza el punto de conexión `users.track`, recomendamos aprovisionar una clave específica de Recurly solo con este permiso. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -77,6 +78,7 @@ Para una interacción eficaz con los clientes, debes [configurar eventos persona
 | Recurly Successful Payment            | Se desencadena cuando se cobra correctamente una factura                 |
 | Recurly Refund Issued                 | Se desencadena cuando se emite un reembolso                                   |
 | Recurly Failed Recurring Payment      | Se desencadena cuando falla una factura de renovación de una suscripción          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos personalizados" }
 
 ### Agrupación y límite de velocidad {#batching-and-rate-limiting}
 

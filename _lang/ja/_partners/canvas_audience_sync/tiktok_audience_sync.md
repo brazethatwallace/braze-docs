@@ -46,11 +46,11 @@ CanvasでTikTokオーディエンスステップを設定する前に、次の�
 TikTokをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)が必要です。
 {% endalert %}
 
-Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**TikTok**を選択します。TikTok Audience Syncで、**TikTokを接続**を選択します。
+Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**TikTok**を選択します。TikTok Audience Syncで、**Connect TikTok**を選択します。
 
 ![BrazeのTikTokテクノロジーページには、概要セクションとTikTok Audience Syncセクションがあり、Connected TikTokボタンがあります。]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
 
-その後、TikTokのOAuthページにリダイレクトされ、Brazeの広告アカウント管理およびオーディエンス管理を承認するよう求められます。**確認**を選択すると、Brazeに戻り、同期するTikTok広告アカウントを選択できます。
+その後、TikTokのOAuthページにリダイレクトされ、Brazeの広告アカウント管理およびオーディエンス管理を承認するよう求められます。**Confirm**を選択すると、Brazeに戻り、同期するTikTok広告アカウントを選択できます。
 
 ![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
@@ -79,7 +79,7 @@ Audience Syncパートナーとして**TikTok**を選択します。
 ![]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab 新規オーディエンスの作成 %}
 
 **新規オーディエンスの作成**<br>
 新しいオーディエンスの名前を入力し、**Add Users to Audience**を選択し、TikTokと同期したいフィールドを選択します。次に、ステップエディターの下部にある**Create Audience**ボタンをクリックしてオーディエンスを保存します。
@@ -93,7 +93,7 @@ Audience Syncパートナーとして**TikTok**を選択します。
 新しいオーディエンスを使用してCanvasを起動すると、ユーザーがオーディエンスステップに入る時点で、Brazeはほぼリアルタイムでユーザーを同期します。
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab 既存のオーディエンスとの同期 %}
 
 **既存のオーディエンスとの同期**<br>
 Brazeは、オーディエンスを最新の状態に保つために、ユーザーを既存のTikTokオーディエンスに追加する機能も提供しています。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、**Add to the Audience**を選択します。Brazeは、ユーザーがTikTokオーディエンスステップに入ると、ほぼリアルタイムでユーザーを追加します。

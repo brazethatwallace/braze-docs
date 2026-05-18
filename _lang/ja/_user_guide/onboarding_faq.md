@@ -83,8 +83,8 @@ Users
 |---|---|
 | 購読中 | Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュサブスクリプション状態です。 |
 | オプトイン | ユーザーがプッシュ通知を受け取ることを明示的に希望した状態です。Brazeは、ユーザーがOSレベルのプッシュプロンプトを承認した場合に、ユーザーのオプトイン状態を自動的に `Opted-In` に移動します。<br><br>これはAndroid 12以下のユーザーには適用されません。|
-| 配信停止 | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除した状態です。デフォルトで、Brazeのプッシュキャンペーンはプッシュが `Subscribed` または `Opted-in` のユーザーのみをターゲットにします。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 配信停止 | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除した状態です。デフォルトで、Brazeのプッシュキャンペーンは `Subscribed` または `Opted-in` のユーザーのみをターゲットにします。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
 
 {% endapi %}
 {% api %}
@@ -218,7 +218,7 @@ Segments
 Campaigns
 {% endapitags %}
 
-マルチチャネルCampaignを作成するには、**Campaigns**ページに移動して、**Create Campaign**を選択し、**Multichannel Campaign**を選択します。マルチチャネルCampaign内では、作成タブから**Add Messaging Channel**を選択し、目的のチャネルを追加します。表示されるチャネルアイコンをクリックすると、さまざまなメッセージングコンポーザーが切り替わり、異なるチャネル用にCampaignコピーを作成できます。
+セットアップ手順、サポートされるチャネル、コンポーザーの切り替え方法については、**Campaignを作成する**の[マルチチャネルCampaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)を参照してください。
 
 {% endapi %}
 {% api %}

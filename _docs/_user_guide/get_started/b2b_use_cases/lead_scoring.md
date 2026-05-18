@@ -105,7 +105,7 @@ In each User Update step’s **Compose** tab, do the following for the respectiv
 | **Attribute Name** | Select the lead score attribute you selected in step 2 (`lead score`).|
 | **Action** | Change the action to **Increment By** if the path increases the score or **Decrement By** if the path decreases the score |
 | **Increment By** or **Decrement By** | Enter the number of points that will be increased or decreased from the lead score.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
 
 ### Step 5: Launch your Canvas
 
@@ -184,7 +184,7 @@ To update the lead record in Salesforce with the lead status from Braze, we reco
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>To retrieve a token, [configure a connected app](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) for the OAuth 2.0 client credentials flow and then use Connected Content to retrieve the bearer from Salesforce: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
 
 ![Webhook being composed with a Salesforce webhook URL, PATCH HTTP method, raw text request body, and request headers.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 

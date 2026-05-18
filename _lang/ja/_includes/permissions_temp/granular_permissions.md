@@ -1,17 +1,19 @@
 {% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
+{% multi_lang_include video.html id="nv699nw706" source="wistia" %}
+
 ## 権限セットの作成 {#creating-a-permission-set}
 
 権限セットを使用して、特定のテーマ領域またはアクションに関連する権限をバンドルします。異なるワークスペース間で同じアクセス権限を必要とするダッシュボードユーザーには、権限セットを適用できます。権限セットを作成するには、**設定** > **権限設定**に移動し、**権限セットを作成**を選択します。各権限については、[権限一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions)を参照してください。
 
 {% tabs local %}
 {% tab 権限セットの例 %}
-|名前|権限|
+| 名前 | 権限 |
 |-----------|----------------|
-|開発者|「APIキーを表示」、「APIキーを編集」、「内部グループを表示」、「内部グループを編集」、「メッセージアクティビティログを表示」、「イベントユーザーログを表示」、「API識別子を表示」、「API使用状況ダッシュボードを表示」、「API制限を表示」、「API使用状況アラートを表示」、「API使用状況アラートを編集」、「SDKデバッガーを表示」、「SDKデバッガーを編集」。|
-|マーケター|「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「フリークエンシーキャップルールを表示」、「フリークエンシーキャップルールを編集」、「メッセージ優先度を表示」、「メッセージ優先度を編集」、「Content Blocksを表示」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「グローバルコントロールグループを編集」、「IAMテンプレートを表示」、「IAMテンプレートを編集」、「IAMテンプレートをアーカイブ」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メールテンプレートをアーカイブ」、「Webhookテンプレートを表示」、「Webhookテンプレートを編集」、「Webhookテンプレートをアーカイブ」、「メールリンクテンプレートを表示」、「メールリンクテンプレートを編集」、「メディアライブラリアセットを表示」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」、「ダッシュボードレポートを編集」、「バナーテンプレートを表示」、「ローカライゼーション設定を表示」、「Operatorを使用」、「Decisioning Studioエージェントを表示」。|
-|ユーザー管理|「ダッシュボードユーザーを編集」、「チームを表示」、「チームを編集」、「チームをアーカイブ」。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 開発者 | 「APIキーを表示」、「APIキーを編集」、「内部グループを表示」、「内部グループを編集」、「メッセージアクティビティログを表示」、「イベントユーザーログを表示」、「API識別子を表示」、「API使用状況ダッシュボードを表示」、「API制限を表示」、「API使用状況アラートを表示」、「API使用状況アラートを編集」、「SDKデバッガーを表示」、「SDKデバッガーを編集」。 |
+| マーケター | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「フリークエンシーキャップルールを表示」、「フリークエンシーキャップルールを編集」、「メッセージ優先度を表示」、「メッセージ優先度を編集」、「Content Blocksを表示」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「グローバルコントロールグループを編集」、「IAMテンプレートを表示」、「IAMテンプレートを編集」、「IAMテンプレートをアーカイブ」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メールテンプレートをアーカイブ」、「Webhookテンプレートを表示」、「Webhookテンプレートを編集」、「Webhookテンプレートをアーカイブ」、「メールリンクテンプレートを表示」、「メールリンクテンプレートを編集」、「メディアライブラリアセットを表示」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」、「ダッシュボードレポートを編集」、「バナーテンプレートを表示」、「ローカライゼーション設定を表示」、「Operatorを使用」、「Decisioning Studioエージェントを表示」。 |
+| ユーザー管理 | 「ダッシュボードユーザーを編集」、「チームを表示」、「チームを編集」、「チームをアーカイブ」。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
 {% endtab %}
 {% endtabs %}
 
@@ -24,9 +26,9 @@
 | ロール名    | ワークスペース | 権限
 ----------- | ----------- | ---------
 | マーケター - ファッションブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを起動」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」。 |
-| マーケター - スキンケアブランド | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを起動」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」。|
-| ユーザー管理 - 全ブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「ダッシュボードユーザーを編集」、「チームを表示」、「チームを編集」、「チームをアーカイブ」|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| マーケター - スキンケアブランド | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「Campaignsを表示」、「Campaignsを編集」、「Campaignsをアーカイブ」、「Canvasesを表示」、「Canvasesを編集」、「Canvasesをアーカイブ」、「Content Blocksを表示」、「Content Blocksを編集」、「Content Blocksをアーカイブ」、「Content Blocksを起動」、「フィーチャーフラグを表示」、「フィーチャーフラグを編集」、「フィーチャーフラグをアーカイブ」、「Segmentsを表示」、「Segmentsを編集」、「バナーテンプレートを表示」、「バナーテンプレートを編集」、「メールテンプレートを表示」、「メールテンプレートを編集」、「メディアライブラリアセットを表示」、「メディアライブラリアセットを編集」、「メディアライブラリアセットを削除」、「ロケーションを表示」、「ロケーションを編集」、「ロケーションをアーカイブ」、「プロモーションコードを表示」、「プロモーションコードを編集」、「プロモーションコードをエクスポート」、「ユーザー設定センターを表示」、「ユーザー設定センターを編集」。 |
+| ユーザー管理 - 全ブランド | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | 「ダッシュボードユーザーを編集」、「チームを表示」、「チームを編集」、「チームをアーカイブ」 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
 {% endtab %}
 {% endtabs %}
 
@@ -49,7 +51,7 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 | 権限 | 限定ユーザーは、「ダッシュボードユーザーを編集」権限を持っている場合、他の限定ユーザーの権限を編集できます。また、新しい限定ユーザーを作成し、その権限セットを変更することもできます。ただし、会社管理者アカウントを作成したり管理したりすることはできません。 |
 | ロールの制限 | 限定ユーザーが「ワークスペース管理者」以外のすべての権限を持っている場合、そのユーザーはワークスペース管理者に通常付与される他のすべての権限にアクセスできます。 |
 | 権限の可視性 | 限定ユーザーが、あるワークスペース（例：Dev）に対して「ダッシュボードユーザーを編集」権限を持っているが、別のワークスペース（例：Prod）に対しては持っていない場合、そのユーザーは自身のダッシュボードユーザー詳細ページでProdワークスペースの権限を確認できません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
 
 ### 限定ユーザーの比較 {#comparing-limited-users}
 
@@ -58,7 +60,7 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 | ワークスペース管理者 | ワークスペース管理者はワークスペース管理に特化した権限を持ちますが、会社管理者と同じ権限は持ちません。限定ユーザーは、必要な権限がチェックされている場合、ワークスペース管理者と同様の権限を継承できます。 |
 | 管理者（会社管理者） | 会社管理者はより広範な権限を持ち、ダッシュボードユーザーの削除も含まれます。ただし、自身のアカウントを削除することはできず、そのアクションを行うには別の会社管理者に連絡する必要があります。 |
 | 閲覧専用アクセス | ダッシュボードの一部（例：Campaignsページ）にアクセスするには、ユーザーに閲覧権限が付与されている必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
 
 ### アクセス制限エラー {#limited-access-error}
 
@@ -104,7 +106,7 @@ Brazeダッシュボードで権限を保存しようとする際、特にワー
 |----------|-----------|
 | 会社の設定を管理 | ユーザーが権限設定と送信者の検証を変更できるようにします。 |
 | ワークスペースの作成と削除 | ユーザーにワークスペースの作成および削除を許可します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
 
 {% endtab %}
 {% tab ワークスペース %}
@@ -180,7 +182,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | メッセージ優先度 | メッセージ優先度を表示 | 変更を加えずにメッセージ優先度の設定を表示します |
 | メッセージ優先度 | メッセージ優先度を編集 | メッセージ優先度の設定を作成し更新します |
 | WhatsApp Flows | WhatsApp Flowsを表示 | すべてのWhatsApp Flowsを表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging" }
 
 ### オーディエンス {#audience}
 
@@ -202,7 +204,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | ユーザー | ユーザープロファイルを表示（PII編集済み） | PII準拠の方法でユーザープロファイルを表示します |
 | 重複ユーザー | 重複ユーザーをマージ | 重複するユーザーを1つのユーザーに統合します。重複データはマージ後に削除されます |
 | ユーザー | ユーザーを削除 | ダッシュボードからユーザーを個別または一括で完全に削除します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience" }
 
 ### テンプレート {#template}
 
@@ -235,7 +237,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | WhatsAppメッセージテンプレート | WhatsAppメッセージテンプレートを表示 | ユーザーが[WhatsAppメッセージテンプレート]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message)を閲覧できるようにします |
 | WhatsAppメッセージテンプレート | WhatsAppメッセージテンプレートを編集 | ユーザーがテンプレートビルダーでWhatsAppメッセージテンプレートを作成できるようにします。この機能は現在早期アクセス段階です。 |
 | Meta提供のWhatsAppメッセージテンプレート | Meta提供のWhatsAppメッセージテンプレートを表示 | すべてのWhatsAppテンプレートを表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template" }
 
 ### パートナー連携 {#partner-integrations}
 
@@ -244,7 +246,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | Currents統合 | Currents統合を表示 | Currents統合を表示します |
 | Currents統合 | Currents統合を編集 | Currents統合を作成、更新、削除します |
 | テクノロジーパートナー | テクノロジーパートナーを編集 | テクノロジーパートナーを作成し更新します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations" }
 
 ### データ設定 {#data-settings}
 
@@ -271,7 +273,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | 製品 | 製品をブロックリストに追加 | ダッシュボードでの使用を制限するブロックリストに製品を追加します |
 | 製品 | 製品を編集 | 製品を作成し更新します |
 | 購入プロパティのセグメンテーション | 購入プロパティのセグメンテーションを編集 | 購入イベントプロパティのセグメンテーションを有効化および無効化します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings" }
 
 ### 設定 {#settings}
 
@@ -312,7 +314,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | チーム | チームをアーカイブ | チームをアーカイブに移動します |
 | チーム | チームを編集 | チームを作成し更新します |
 | WhatsApp設定 | WhatsApp設定を表示 | すべてのWhatsAppチャネル設定を表示します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings" }
 
 ### Decisioning Studio
 
@@ -320,7 +322,7 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | --- | --- | --- |
 | Decisioning Studioエージェント | Decisioning Studioエージェントを表示 | 変更を加えずにDecisioning Studioエージェントの設定を表示します |
 | Decisioning Studioオーディエンス | Decisioning Studioオーディエンスを表示 | Decisioning Studioエージェントの設定サマリーでオーディエンスの詳細を確認します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisioning Studio" }
 
 ### その他 {#other}
 
@@ -354,4 +356,4 @@ Brazeでユーザーが所属するワークスペースごとに、異なる権
 | データ変換 | データ変換を表示 | データ変換を表示します |
 | ユーザー削除記録 | ユーザー削除記録を表示 | ユーザー削除記録を表示します |
 | サポートチケット | サポートチケットを作成 | サポートチケットを作成し更新します |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other" }

@@ -21,7 +21,7 @@ A integração da Braze com a Adobe permite que você controle de forma contínu
 | Currents | Para exportar dados de volta para a Adobe, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado para sua conta. |
 | Conta do Adobe Experience Platform | Uma [conta do Adobe Experience Platform](https://experience.adobe.com/#/platform/home) é necessária para aproveitar esta parceria. |
 | Permissão para criar um conector | Você precisa de permissões para criar uma conexão de fonte de streaming para usar esta integração. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -69,11 +69,11 @@ Colete as seguintes credenciais para inserir na Braze, o que permitirá à Braze
 | Sandbox Name  | O sandbox associado à sua fonte do Adobe Experience Platform.   |
 | Dataflow ID   | O ID do fluxo de dados associado à sua fonte do Adobe Experience Platform.   |
 | Streaming Endpoint  | O endpoint de streaming associado à sua fonte do Adobe Experience Platform. A Braze converte isso automaticamente para o endpoint de streaming em lote. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Coletar credenciais" }
 
 ### Etapa 4: Configure o Currents para enviar dados para sua fonte de dados {#step-4-configure-currents-to-stream-data-to-your-data-source}
 
-1. Na Braze, acesse **Partner Integrations** > **Data Export** e selecione **Create New Current**.
+1. Na Braze, acesse **Integrações de parceiros** > **Exportação de dados** e selecione **Create New Current**.
 2. Forneça o seguinte:
     - Um nome para o conector
     - Informações de contato para notificações sobre o conector

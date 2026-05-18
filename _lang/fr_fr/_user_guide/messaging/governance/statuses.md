@@ -35,7 +35,7 @@ Voici les états disponibles pour les campagnes et les Canvas :
 | Archivé | Les campagnes et Canvas archivés sont des messages qui ne sont plus envoyés. Ces campagnes et Canvas sont également retirés des graphiques statistiques sur les pages [**Accueil**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) et [**Chiffre d'affaires**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/). |
 | Arrêté | Les campagnes et Canvas arrêtés sont en pause, mais vous pouvez toujours les modifier. Pour reprendre un Canvas, accédez à l'étape **Summary** du générateur de Canvas et sélectionnez **Resume Canvas**. Pour les campagnes, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>, puis **Resume**. Pour en savoir plus, consultez [Comportement des Canvas arrêtés](#stopped-canvas-behavior). |
 | Inactif | Lorsqu'une campagne ou un Canvas n'envoie plus de messages, Braze lui attribue un état inactif pour vous aider à trier et gérer votre liste de campagnes et de Canvas. Vous pouvez voir quelles campagnes ou Canvas seront automatiquement arrêtés ainsi que la date d'arrêt associée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available statuses" }
 
 ### Comportement des Canvas arrêtés {#stopped-canvas-behavior}
 

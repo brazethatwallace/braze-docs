@@ -2,7 +2,7 @@
 nav_title: Formulario de registro de correo electrónico
 article_title: Formulario de registro de correo electrónico
 alias: "/email_capture/"
-page_order: 2
+page_order: 3
 description: "Esta página explica cómo crear un formulario de registro de correo electrónico con el editor de arrastrar y soltar de mensajes dentro de la aplicación."
 ---
 

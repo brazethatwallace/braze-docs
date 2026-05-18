@@ -36,7 +36,7 @@ search_rank: 6
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニークな識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されたユーザープロファイルのユニークな識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### プラットフォームの値 {#platform-values}
 
@@ -52,7 +52,7 @@ search_rank: 6
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 

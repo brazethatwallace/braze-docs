@@ -123,7 +123,8 @@ Sie finden diese Daten auf der Seite [Umsatzbericht]({{site.baseurl}}/user_guide
     }
 </style>
 
-<table>
+<table aria-label="Umsatzberechnungen">
+  <caption>Umsatzberechnungen</caption>
     <thead>
         <tr>
             <th>Metrik</th>

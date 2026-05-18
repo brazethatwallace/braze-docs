@@ -28,10 +28,10 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro    | Obligatoria | Tipo de datos | Descripción            |
+| Parámetro    | Obligatorio | Tipo de datos | Descripción            |
 | ------------ | -------- | --------- | ---------------------- |
-| `segment_id` | Obligatoria | Cadena | Ver [Identificador de API del segmento]({{site.baseurl}}/api/identifier_types/).<br><br> El `segment_id` de un segmento determinado se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) dentro de tu cuenta de Braze, o puedes utilizar el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | Obligatorio | Cadena | Ver [Identificador de API del segmento]({{site.baseurl}}/api/identifier_types/).<br><br> El `segment_id` de un segmento determinado se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) dentro de tu cuenta de Braze, o puedes utilizar el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 {% raw %}

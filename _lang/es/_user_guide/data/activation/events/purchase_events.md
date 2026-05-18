@@ -3,13 +3,13 @@ nav_title: Eventos de compra
 article_title: Eventos de compra
 page_order: 3
 page_type: reference
-description: "Este artículo de referencia describe los eventos y propiedades de compra, su uso, segmentación, dónde ver los análisis relevantes, etc."
+description: "Este artículo de referencia describe los eventos y propiedades de compra, su uso, segmentación, dónde ver los análisis relevantes y más."
 search_rank: 3
 ---
 
 # Eventos de compra {#purchase-events}
 
-> Esta página cubre los eventos y propiedades de la compra, su uso, segmentación, dónde ver los análisis relevantes y mucho más.
+> Esta página cubre los eventos y propiedades de compra, su uso, segmentación, dónde ver los análisis relevantes y más.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
@@ -123,7 +123,8 @@ Puedes encontrar estos datos en la página del [Informe de ingresos]({{site.base
     }
 </style>
 
-<table>
+<table aria-label="Revenue calculations">
+  <caption>Cálculos de ingresos</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -132,23 +133,23 @@ Puedes encontrar estos datos en la página del [Informe de ingresos]({{site.base
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">Ingresos de por vida</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-revenue">Lifetime Revenue</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Valor de por vida por usuario</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime Value Per User</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Ingresos diarios promedio</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Average Daily Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-purchases">Compras diarias</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-purchases">Daily Purchases</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Purchases' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">Ingresos diarios por usuario</a></td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#daily-revenue-per-user">Daily Revenue Per User</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Daily Revenue Per User' %}</td>
         </tr>
     </tbody>

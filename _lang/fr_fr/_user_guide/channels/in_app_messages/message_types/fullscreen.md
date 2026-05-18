@@ -30,7 +30,7 @@ Ce type de message est disponible dans l'[éditeur par glisser-déposer]({{site.
 {% endtab %}
 {% endtabs %}
 
-## Images
+## Images {#images}
 
 Les messages in-app plein écran remplissent toute la hauteur de l'appareil et sont recadrés horizontalement (côtés gauche et droit) si nécessaire. Les messages plein écran avec image et texte remplissent 50 % de la hauteur de l'appareil. Tous les messages in-app plein écran remplissent la barre d'état sur les appareils à encoche.
 
@@ -40,13 +40,13 @@ Les messages in-app plein écran remplissent toute la hauteur de l'appareil et s
 
 {% alert tip %} Créez vos ressources en toute confiance ! Nos modèles d'images pour messages in-app et nos superpositions de zones sûres sont conçus pour s'adapter parfaitement aux appareils de toutes tailles. [Télécharger le ZIP des modèles de conception]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
-### Portrait
+### Portrait {#portrait}
 
 | Disposition | Taille de la ressource | Notes |
 |--- | --- | --- |
 | Image et texte | Rapport hauteur/largeur 6:5<br> Haute résolution 1200 x 1000&nbsp;px<br> Minimum 600 x 500&nbsp;px | Un recadrage peut se produire sur tous les côtés, mais l'image remplira toujours les 50 % supérieurs de la zone d'affichage |
 | Image uniquement | Rapport hauteur/largeur 3:5<br> Haute résolution 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Un recadrage peut se produire sur les bords gauche et droit sur les appareils plus grands |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### Paysage {#landscape}
 
@@ -54,7 +54,7 @@ Les messages in-app plein écran remplissent toute la hauteur de l'appareil et s
 |--- | --- | --- |
 | Image et texte | Rapport hauteur/largeur 10:3<br> Haute résolution 2000 x 600px<br> Minimum 1000 x 300&nbsp;px | Un recadrage peut se produire sur tous les côtés, mais l'image remplira toujours les 50 % supérieurs de la zone d'affichage |
 | Image uniquement | Rapport hauteur/largeur 5:3<br> Haute résolution 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Un recadrage peut se produire sur les bords gauche et droit sur les appareils plus grands |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paysage" }
 
 ### Zone sûre de l'image {#image-safe-zone}
 

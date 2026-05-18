@@ -19,9 +19,9 @@ channel:
 
 Si vous souhaitez catégoriser vos messages et les regrouper dans le centre de notifications de vos utilisateurs, vous pouvez utiliser la fonctionnalité Groupes de notifications d'iOS via Braze.
 
-Créez votre Campaign push iOS, puis accédez à l'onglet **Paramètres** et ouvrez le menu déroulant **Groupe de notification**.
+Créez votre Campaign push iOS, puis accédez à l'onglet **Settings** et ouvrez le menu déroulant **Notification group**.
 
-![L'onglet « Paramètres » avec un menu déroulant « Groupe de notification » dont la valeur sélectionnée est « Coupons ».]({% image_buster /assets/img_archive/notification_group_dropdown.png %}){: style="max-width:50%;" }
+![L'onglet « Settings » avec un menu déroulant « Notification group » dont la valeur sélectionnée est « Coupons ».]({% image_buster /assets/img_archive/notification_group_dropdown.png %}){: style="max-width:50%;" }
 
 Sélectionnez vos groupes de notifications dans le menu déroulant. Si les paramètres de votre groupe de notification ne fonctionnent pas correctement ou si vous sélectionnez **None** dans le menu déroulant, le message sera automatiquement envoyé normalement à tous les utilisateurs définis dans l'espace de travail.
 
@@ -148,12 +148,12 @@ Gardez à l'esprit que ce sont les utilisateurs qui contrôlent en fin de compte
 
 Consultez le tableau suivant pour les niveaux d'interruption et leurs descriptions.
 
-|Niveau d'interruption|Description|Quand l'utiliser|Passe outre le mode Concentration|
+| Niveau d'interruption | Description | Quand l'utiliser | Passe outre le mode Concentration |
 |--|--|--|--|
-|[Passif](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive)|Envoie une notification sans son, vibration ni activation de l'écran.|Notifications ne nécessitant pas d'attention immédiate.|Non|
-|[Actif](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (par défaut)|Émettra un son, une vibration et activera l'écran uniquement si l'utilisateur n'est pas en mode Concentration.|Notifications nécessitant une attention immédiate, sauf si l'utilisateur a activé le mode Concentration.|Non|
-|[Urgent](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive)|Émettra un son, une vibration et activera l'écran même en mode Concentration. Cela nécessite que la capacité **Time Sensitive Notifications** soit ajoutée à votre application dans Xcode.|Notifications urgentes qui doivent interrompre les utilisateurs quel que soit leur mode Concentration, comme une notification de covoiturage ou de livraison.|Oui|
-|[Critique](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical)|Émettra un son, une vibration et activera l'écran même si le commutateur **Do Not Disturb** du téléphone est activé. Cela [nécessite une approbation explicite d'Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/).|Urgences telles que les alertes météorologiques graves ou les alertes de sécurité.|Oui|
+| [Passive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive) | Envoie une notification sans son, vibration ni activation de l'écran. | Notifications ne nécessitant pas d'attention immédiate. | Non |
+| [Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (par défaut) | Émettra un son, une vibration et activera l'écran uniquement si l'utilisateur n'est pas en mode Concentration. | Notifications nécessitant une attention immédiate, sauf si l'utilisateur a activé le mode Concentration. | Non |
+| [Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | Émettra un son, une vibration et activera l'écran même en mode Concentration. Cela nécessite que la capacité **Time Sensitive Notifications** soit ajoutée à votre application dans Xcode. | Notifications urgentes qui doivent interrompre les utilisateurs quel que soit leur mode Concentration, comme une notification de covoiturage ou de livraison. | Oui |
+| [Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | Émettra un son, une vibration et activera l'écran même si le commutateur **Do Not Disturb** du téléphone est activé. Cela [nécessite une approbation explicite d'Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/). | Urgences telles que les alertes météorologiques graves ou les alertes de sécurité. | Oui |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Score de pertinence (iOS 15+) {#relevance-score}

@@ -25,7 +25,7 @@ When a user reaches an Agent step in a Canvas, Braze sends the input data you’
 
 You can then use this variable in three main ways:
 
-- **Decisioning:** Route users down different Canvas paths based on the agent’s response. For example, a lead scoring agent might return a number between 1 and 10. You can use this score to decide whether to continue messaging a user or drop them from the journey.
+- **Decisioning:** Route users down different Canvas paths based on the agent’s response. For example, a lead scoring agent might return a lead category of "Sales Ready", "Marketing Qualified", or "Disqualified". You might use this assignment to trigger a Slack alert or automated message for "Sales Ready" leads while dropping "Disqualified" leads from the journey.
 - **Personalization:** Insert the agent’s response directly into a message. For example, an agent could analyze customer feedback and generate an empathetic follow-up email that references the customer’s comment and suggests a resolution.
 - **Processing user data:** Analyze and standardize your user data, then store it on the user profile or send it using a webhook. For example, an agent could return a sentiment score or product affinity assignment. You can store that data in a user profile for future usage.
 
@@ -51,7 +51,7 @@ Note that the output variable's data type is set from the [Agent Console]({{site
 | Number | Scoring, thresholds, routing in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) |
 | Boolean | Yes/No branching in [Decision Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) |
 | Object | Leverage one or more of the above data types with a single LLM call in a predictable data structure |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
 You can use an output variable throughout the Canvas by using the same template syntax as you would with a context variable. Either use the **Context Variable** segment filter, or template agent responses directly using Liquid: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
@@ -94,7 +94,7 @@ Refer to the following metrics to track how your Agent steps perform:
 | _Entered_ | The number of times users entered the Agent step. |
 | _Proceeded to Next Step_ | The number of users that proceeded to the next step in the flow after passing through the Agent step. |
 | _Exited Canvas_ | The number of users that exited the Canvas after passing through the Agent step. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
 
 ## Best practices
 
@@ -112,7 +112,7 @@ The following pattern uses three agents for a travel example: someone searched i
 
 To test your agent's performance and credit consumption against your existing journeys, add an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/) step so only part of your audience enters the branch that contains your Agent step. 
 
-For example, send a few thousand users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths before you increase traffic to the agent-enabled branch.
+For example, you can start by sending a few thousand users per day down a path with the agent and send the rest to a control path or a path without the agent. Gather data for 1-2 weeks and compare key performance indicators (KPIs), counter-metrics, and agent credit consumption between paths. This way, you can build confidence and prove ROI before you increase traffic to the agent-enabled branch, and limit invocation consumption to do it.
 
 ## Frequently asked questions
 
@@ -134,4 +134,4 @@ An Agent step analyzes the context data that the agent is configured to use, as 
 - [Braze Agents overview]({{site.baseurl}}/user_guide/brazeai/agents/)  
 - [Create custom agents]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)  
 - [Deploy agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)  
-- [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)  
+- [Reference for agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)

@@ -7,11 +7,11 @@ channel: email
 
 ---
 
-# 자주 묻는 질문
+# 자주 묻는 질문 {#frequently-asked-questions}
 
 > 이 문서에서는 이메일에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
-### 이메일이 발송될 때 여러 프로필이 동일한 이메일 주소를 가지고 있으면 어떻게 되나요?
+### 이메일이 발송될 때 여러 프로필이 동일한 이메일 주소를 가지고 있으면 어떻게 되나요? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
 일치하는 이메일 주소를 가진 여러 사용자가 Campaign을 수신할 Segment에 포함되어 있는 경우, 발송 시점에 해당 이메일 주소를 가진 임의의 고객 프로필이 선택됩니다. 이렇게 하면 이메일이 한 번만 발송되고 중복이 제거되어 동일한 이메일 주소로 여러 번 도달하지 않습니다.
 
@@ -27,7 +27,7 @@ channel: email
 
 사용자는 Canvas 진입 시 이메일로 중복 제거되지 않으므로, 속도 제한된 진입으로 인해 약간 다른 시간에 진행하는 경우 Canvas의 첫 번째 단계 이후에는 중복 제거되지 않을 수 있습니다. 특정 이메일 주소와 연결된 사용자가 이메일을 열거나 클릭하면, 해당 이메일 주소를 공유하는 모든 고객 프로필이 Campaign을 열었거나 클릭한 것으로 표시됩니다.
 
-#### 예외: API 트리거 Campaign
+#### 예외: API 트리거 Campaign {#exception-api-triggered-campaigns}
 
 API 트리거 Campaign은 오디언스가 정의된 위치에 따라 중복을 제거하거나 중복 발송합니다. 중복 이메일이 여러 세부 정보를 수신하려면 API 호출에서 별도의 `user_ids`를 사용하여 개별적으로 타겟팅해야 합니다. API 트리거 Campaign에 대한 세 가지 가능한 시나리오는 다음과 같습니다:
 
@@ -39,15 +39,15 @@ API 트리거 Campaign은 오디언스가 정의된 위치에 따라 중복을 �
 API 호출을 통해 API Campaign을 발송하는 경우(API 트리거 Campaign 제외), Segment 오디언스에 동일한 이메일 주소를 가진 여러 사용자가 지정되어 있으면 호출에 나열된 횟수만큼 해당 주소로 발송됩니다. 이는 API 호출이 의도적으로 구성된 것으로 간주되기 때문입니다.
 {% endalert %}
 
-### 사용자의 이메일 주소가 다른 사용자가 공유하는 주소로 변경되면 구독 상태는 어떻게 되나요?
+### 사용자의 이메일 주소가 다른 사용자가 공유하는 주소로 변경되면 구독 상태는 어떻게 되나요? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
 사용자 A의 이메일 주소를 기존 사용자 B가 공유하는 다른 이메일 주소로 설정하거나 업데이트하면, **사용자가 이메일을 업데이트할 때 재구독** 설정이 켜져 있지 않는 한 사용자 A는 사용자 B에게 이미 존재하는 구독 상태를 상속받습니다.
 
-### 발신 이메일 설정 업데이트가 소급 적용되나요?
+### 발신 이메일 설정 업데이트가 소급 적용되나요? {#will-updates-to-my-outbound-email-settings-apply-retroactively}
 
 아니요. 발신 이메일 설정에 대한 업데이트는 기존 발송에 소급 적용되지 않습니다. 예를 들어, 이메일 설정에서 기본 표시 이름을 변경해도 활성 Campaign이나 Canvases의 기존 기본 표시 이름이 자동으로 교체되지 않습니다.
 
-### "좋은" 이메일 전달률이란 무엇인가요?
+### "좋은" 이메일 전달률이란 무엇인가요? {#what-is-a-good-email-delivery-rate}
 
 일반적으로 "이상적인 수치"는 반송률이 3%를 넘지 않으면서 메시지의 약 98%가 전달되는 것입니다. 전달률이 이 수치 아래로 떨어지면 보통 우려할 만한 원인이 있습니다.
 
@@ -57,21 +57,21 @@ API 호출을 통해 API Campaign을 발송하는 경우(API 트리거 Campaign 
 
 마지막으로, 비즈니스와 발송하는 이메일 유형도 전달에 영향을 미칠 수 있습니다. 예를 들어, 주로 [트랜잭션 이메일]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign/)을 발송하는 사람은 많은 마케팅 메시지를 발송하는 사람보다 더 나은 비율을 기대할 수 있습니다.
 
-### 이메일 전달 측정기준이 합산하여 100%가 되지 않는 이유는 무엇인가요?
+### 이메일 전달 측정기준이 합산하여 100%가 되지 않는 이유는 무엇인가요? {#why-are-my-email-delivery-metrics-not-adding-up-to-100}
 
 이메일 전달 측정기준(전달, 반송, 스팸률)은 소프트바운스된 후 최대 72시간의 재시도 기간 후에도 전달되지 않은 이메일로 인해 합산하여 100%가 되지 않을 수 있습니다.
 
 소프트바운스는 "사서함 가득 참", "서버 일시적으로 사용 불가" 등과 같은 일시적이거나 과도적인 문제로 인해 반송되는 이메일입니다. 소프트바운스된 이메일이 72시간 후에도 여전히 전달되지 않으면, 이 이메일은 Campaign 전달 측정기준에 포함되지 않습니다.
 
-### 이메일 피드백 루프란 무엇인가요?
+### 이메일 피드백 루프란 무엇인가요? {#what-is-an-email-feedback-loop}
 
 이메일 피드백 루프(FBL)를 사용하면 발신자가 높은 불만 건수를 받는 Campaign을 식별하여 평판을 모니터링할 수 있습니다. Gmail 피드백 루프를 구현하는 단계는 [Google의 피드백 루프](https://support.google.com/a/answer/6254652) 문서를 참조하세요.
 
-### 열람 추적 픽셀이란 무엇인가요?
+### 열람 추적 픽셀이란 무엇인가요? {#what-are-open-tracking-pixels}
 
 [열람 추적 픽셀]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel)은 발신자의 이메일 클릭 추적 도메인을 활용하여 이메일 열람 이벤트를 추적합니다. 이 픽셀은 이메일의 HTML에 추가되는 이미지 태그입니다. 가장 일반적으로 body 태그 내의 마지막 HTML 요소입니다. 사용자가 이메일을 로드하면 브랜드 추적 도메인에서 이미지를 채우기 위한 요청이 이루어지며, 이를 통해 열람 이벤트가 기록됩니다.
 
-### 이메일 Campaign이나 Canvas가 중지되면 어떻게 되나요?
+### 이메일 Campaign이나 Canvas가 중지되면 어떻게 되나요? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
 사용자는 Canvas에 진입할 수 없으며, 더 이상 메시지가 발송되지 않습니다.
 
@@ -79,7 +79,7 @@ API 호출을 통해 API Campaign을 발송하는 경우(API 트리거 Campaign 
 
 Campaign이나 Canvas가 중지된 후에는 Braze가 더 이상 요청을 보내지 않지만, 이메일 서비스 공급자가 이미 진행 중인 요청을 처리하는 동안 분석 수치가 계속 증가할 수 있습니다.
 
-### 이메일 분석에서 *총 클릭 수*가 *총 열람 수*보다 많은 이유는 무엇인가요?
+### 이메일 분석에서 *총 클릭 수*가 *총 열람 수*보다 많은 이유는 무엇인가요? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
 *총 열람 수*는 사용자가 이메일을 열어본 횟수이고, *총 클릭 수*는 사용자가 전달된 이메일 내에서 링크 클릭 등 모든 유형의 클릭을 포함하여 클릭한 횟수입니다. 다음과 같은 이유로 열람보다 클릭이 더 많을 수 있습니다:
 
@@ -87,35 +87,37 @@ Campaign이나 Canvas가 중지된 후에는 Braze가 더 이상 요청을 보�
 - 사용자가 휴대폰의 미리보기 창에서 일부 이메일 링크를 클릭하는 경우. 이 경우 Braze는 이 이메일을 클릭된 것으로 기록하지만 열린 것으로는 기록하지 않습니다.
 - 사용자가 이전에 미리 본 이메일을 다시 여는 경우.
 
-### 이메일 열람 및 클릭이 0으로 표시되는 이유는 무엇인가요?
+### 이메일 열람 및 클릭이 0으로 표시되는 이유는 무엇인가요? {#why-am-i-seeing-zero-email-opens-and-clicks}
 
 추적 도메인의 구성 오류가 있는 경우 이메일 열람이나 클릭이 표시되지 않을 수 있습니다. 이는 다음과 같은 이유 때문일 수 있습니다:
 - 추적 URL이 `https` 대신 `http`인 SSL 문제가 있는 경우.
 - 열람 이벤트, 클릭 이벤트 또는 둘 다에서 사용자 에이전트 문자열이 채워지지 않는 CDN 문제가 있는 경우.
 
-### 서버 클릭을 트리거할 수 있는 잠재적 위험은 무엇인가요?
+### 서버 클릭을 트리거할 수 있는 잠재적 위험은 무엇인가요? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
 지나치게 긴 메시지나 너무 많은 느낌표와 같은 이메일 메시지의 특정 요소는 이메일 보안 응답을 트리거할 수 있습니다. 이러한 응답은 보고 및 IP 평판에 영향을 미치고 사용자가 탈퇴하게 만들 수 있습니다.
 
 이러한 응답을 처리하는 모범 사례에 대해서는 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting/)를 참조하세요.
 
-### Braze가 "탈퇴" 측정기준에 포함되는 탈퇴 링크를 추적할 수 있나요?
+### Braze가 "탈퇴" 측정기준에 포함되는 탈퇴 링크를 추적할 수 있나요? {#can-braze-track-unsubscribe-links-counted-toward-the-unsubscribe-metric}
 
 Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크를 추적합니다: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}
 
-### 탈퇴 수와 탈퇴 링크 클릭 수가 다른 이유는 무엇인가요?
+### 탈퇴 수와 탈퇴 링크 클릭 수가 다른 이유는 무엇인가요? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-*탈퇴* 수가 이메일 본문의 탈퇴 링크를 클릭한 사용자보다 많은 경우, list-unsubscribe 헤더 동작이 그 차이를 설명하는 경우가 많습니다. list-unsubscribe 헤더 클릭은 *탈퇴*로 집계되지만 본문 링크의 *클릭*으로는 집계되지 않습니다.
+*탈퇴* 수가 이메일 본문의 탈퇴 링크를 클릭한 사용자보다 많은 경우, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)가 그 차이를 설명하는 경우가 많습니다. List-unsubscribe는 이메일 헤더에 있는 추가 탈퇴 경로입니다(메시지 본문의 링크가 아님). 사용자가 이 방법으로 탈퇴하면 *탈퇴*로 집계되지만 본문의 추적된 탈퇴 URL 클릭으로는 집계되지 않습니다.
 
-본문 탈퇴 링크의 총 클릭 수가 *탈퇴* 수보다 많은 경우, 사용자가 링크를 두 번 이상 클릭했을 수 있습니다.
+본문 탈퇴 링크의 총 클릭 수가 *탈퇴* 수보다 많은 경우, 사용자가 링크를 두 번 이상 클릭했을 수 있습니다. 예를 들어, 탈퇴한 후 다시 가입하고 다시 탈퇴한 경우 이메일 분석의 클릭 분석에서 여러 번의 클릭이 기록될 수 있습니다.
 
-### 이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요?
+사용자가 탈퇴 링크를 두 번 클릭한 경우(예: 탈퇴한 후 다시 가입하고 다시 탈퇴한 경우), 이메일 분석에서 두 번으로 집계됩니다.
+
+### 이메일에 "브라우저에서 이 이메일 보기" 링크를 추가할 수 있나요? {#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails}
 
 아니요. Braze는 이 기능을 제공하지 않습니다. 이는 점점 더 많은 이메일이 모바일 기기와 최신 이메일 클라이언트에서 열리고 있으며, 이러한 클라이언트는 이미지와 콘텐츠를 문제없이 렌더링하기 때문입니다.
 
-**해결 방법:** 동일한 결과를 얻으려면 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **링크** 도구를 사용하여 구축 중인 이메일 Campaign에서 해당 페이지로 링크할 수 있습니다.
+**해결 방법:** 동일한 결과를 얻으려면 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **Link** 도구를 사용하여 구축 중인 이메일 Campaign에서 해당 페이지로 링크할 수 있습니다.
 
-### Braze가 일반 텍스트 URL이나 "www." 텍스트를 자동으로 링크로 변환하나요?
+### Braze가 일반 텍스트 URL이나 "www." 텍스트를 자동으로 링크로 변환하나요? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
 아니요. Braze는 메시지를 스캔하여 `www.`로 시작하거나 URL처럼 보이는 일반 텍스트를 하이퍼링크로 변환하지 않습니다. HTML 앵커 태그(`<a href="...">`)로 정의한 링크만 Braze의 일반 렌더링 및 링크 기능을 통해 처리됩니다.
 
@@ -123,7 +125,7 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 
 예측 가능한 링크 표시, 추적 및 스타일링을 위해 일반 텍스트 URL 대신 명시적인 `<a href>` 태그를 사용하세요.
 
-### 이메일 보안 소프트웨어에 의해 사용자가 자동으로 탈퇴되는 이유는 무엇인가요?
+### 이메일 보안 소프트웨어에 의해 사용자가 자동으로 탈퇴되는 이유는 무엇인가요? {#why-are-my-users-being-auto-unsubscribed-by-email-security-software}
 
 일부 기업 이메일 보안 도구(예: Barracuda, Proofpoint 및 유사 서비스)는 탈퇴 링크를 포함하여 수신 이메일의 모든 URL을 사전 가져오기하거나 스캔합니다. 이로 인해 보안 도구가 원클릭 list-unsubscribe 링크를 따라갈 때 의도하지 않은 탈퇴가 발생할 수 있습니다.
 
@@ -135,7 +137,7 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 
 서버 측 스캔이 이메일 측정기준에 미치는 영향에 대한 자세한 내용은 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting/#handling-increases-in-click-rates)를 참조하세요.
 
-### 머신 열람률이 예기치 않게 변경된 이유는 무엇인가요?
+### 머신 열람률이 예기치 않게 변경된 이유는 무엇인가요? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
 [머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens)은 Apple Mail 개인정보 보호(MPP)와 같은 이메일 보안 기능에 의해 트리거되며, 사용자가 실제로 이메일을 열지 않아도 이메일 콘텐츠(추적 픽셀 포함)를 사전 로드합니다. 머신 열람률은 다음에 따라 변동할 수 있습니다:
 
@@ -145,7 +147,7 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 
 머신 열람 비율은 실제 참여의 신뢰할 수 있는 척도가 아닙니다. 이메일 성과를 보다 정확하게 파악하려면 *기타 열람*(비머신 열람)과 *고유 클릭*에 집중하세요. [이메일 성과 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/)를 사용하여 시간에 따른 이러한 측정기준을 비교할 수도 있습니다.
 
-### Gmail에서 딥링크가 작동하지 않는 이유는 무엇인가요?
+### Gmail에서 딥링크가 작동하지 않는 이유는 무엇인가요? {#why-are-my-deep-links-not-working-in-gmail}
 
 Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니다. 딥링크가 커스텀 스킴(예: `myapp://path/to/content`)을 사용하는 경우, Gmail이 이를 제거하며 Gmail에서 이메일을 읽는 수신자에게는 링크가 작동하지 않습니다. 이는 Braze의 제한이 아닌 Gmail의 제한입니다.
 
@@ -155,24 +157,24 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 - **딥링킹 공급자를 사용하세요.** [Branch](https://www.branch.io/)와 같은 서비스는 Gmail을 포함한 이메일 클라이언트와 호환되는 HTTP 형식의 딥링크를 생성합니다.
 - **리디렉트 엔드포인트를 설정하세요.** 서버에 앱의 커스텀 스킴 URL로 리디렉트하는 `https://` 엔드포인트를 호스팅하세요. 이메일 클라이언트는 `https://` 링크를 유지하며, 리디렉트가 앱 열기를 처리합니다.
 
-### *고유 열람* 측정기준에 *머신 열람*이 포함되나요?
+### *고유 열람* 측정기준에 *머신 열람*이 포함되나요? {#does-the-unique-opens-metric-include-machine-opens}
 
-아니요. *고유 열람*은 머신 열람으로 식별된 이메일을 제외한 [기타 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens)만 집계합니다. *머신 열람*은 별도로 추적됩니다. **Campaign 분석** 보기와 **보고서 빌더**에서 두 측정기준을 독립적으로 확인할 수 있습니다.
+아니요. *고유 열람*은 머신 열람으로 식별된 이메일을 제외한 [기타 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens)만 집계합니다. *머신 열람*은 별도로 추적됩니다. **Campaign Analytics** 보기와 **보고서 빌더**에서 두 측정기준을 독립적으로 확인할 수 있습니다.
 
-### 이메일 전달량이 발송량과 일치하지 않는 이유는 무엇인가요?
+### 이메일 전달량이 발송량과 일치하지 않는 이유는 무엇인가요? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
 이메일이 발송된 후, 수신자의 받은편지함이 전달 시점을 결정합니다. 사서함 가득 참, 특정 IP에서의 이메일 서비스 공급자 스로틀링 등의 이유로 메시지가 몇 시간 또는 며칠 동안 지연될 수 있습니다.
 
 지연된 메시지가 발송일과 다른 날짜에 전달되면, 동일한 날짜 범위에서 _전달_이 _발송_을 초과할 수 있습니다. 많은 지연이 하루에 집중되면, 해당 범위에서 _발송_이 _전달_을 초과할 수 있습니다.
 
-### 이메일에 이미 탈퇴 링크가 있는데 탈퇴 링크를 포함하라는 경고가 표시되는 이유는 무엇인가요?
+### 이메일에 이미 탈퇴 링크가 있는데 탈퇴 링크를 포함하라는 경고가 표시되는 이유는 무엇인가요? {#why-am-i-seeing-a-warning-to-include-an-unsubscribe-link-when-my-email-already-has-one}
 
 이 경고는 탈퇴 링크가 없었던 Campaign에서 복제된 Campaign에서 지속될 수 있습니다. 이를 해결하려면:
 
-- HTML 이메일의 경우, **일반 텍스트** 탭으로 이동한 다음 **HTML에서 재생성**을 선택하세요.
+- HTML 이메일의 경우, **Plaintext** 탭으로 이동한 다음 **Regenerate from HTML**을 선택하세요.
 - 복제 후, 배리언트를 복제한 다음 원본 배리언트를 제거하세요. 원본 배리언트를 **선택하지 마세요**. 그렇지 않으면 경고가 이어질 수 있습니다.
 
-### 사용자가 이메일 Campaign을 받지 못한 이유는 무엇인가요?
+### 사용자가 이메일 Campaign을 받지 못한 이유는 무엇인가요? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
 
 사용자가 이메일 Campaign을 받지 못한 이유는 다음과 같습니다:
 
@@ -181,7 +183,7 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 - 메시지를 놓쳤거나 삭제했을 수 있습니다.
 - 메시지가 스팸 폴더에 있을 수 있습니다.
 
-### Outlook에서 이미지를 최적화하려면 어떻게 해야 하나요?
+### Outlook에서 이미지를 최적화하려면 어떻게 해야 하나요? {#how-can-i-optimize-images-in-outlook}
 
 Outlook은 종종 Microsoft Word 스타일 렌더링을 사용하여 이미지 주위에 테두리를 추가할 수 있습니다. 표준 조건부 주석을 사용하여 Office 클라이언트에서 숨겨지도록 콘텐츠를 래핑할 수 있습니다. 예를 들어:
 
@@ -191,20 +193,20 @@ Outlook은 종종 Microsoft Word 스타일 렌더링을 사용하여 이미지 �
 <!--<![endif]-->
 ```
 
-### 이메일 메시지에 SVG 또는 WEBP 이미지를 사용할 수 있나요?
+### 이메일 메시지에 SVG 또는 WEBP 이미지를 사용할 수 있나요? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
 SVG 이미지는 Gmail 웹 또는 Gmail iOS에서 렌더링되지 않습니다. WEBP는 클라이언트 간에 일관되게 지원되지 않습니다. 대신 PNG 또는 JPEG와 같이 널리 지원되는 형식을 사용하여 이미지가 안정적으로 렌더링되도록 하세요.
 
-### 메시지 작성기의 한 부분에서 할당된 Liquid 변수를 다른 부분에서 사용할 수 있나요?
+### 메시지 작성기의 한 부분에서 할당된 Liquid 변수를 다른 부분에서 사용할 수 있나요? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
 아니요. 이메일의 각 부분(제목, 본문, 헤더, 버튼 등)은 별도로 생성되므로, 한 필드에서 할당된 Liquid는 다른 필드에서 사용할 수 없습니다. 필요한 각 필드에서 변수를 할당하세요.
 
-### 이메일 템플릿이 없습니다. 어디에 있나요?
+### 이메일 템플릿이 없습니다. 어디에 있나요? {#my-email-template-is-missing-where-is-it}
 
-**템플릿** > **이메일 템플릿**으로 이동하세요. 유형(HTML 또는 드래그 앤 드롭)별로 필터링할 수 있습니다.
+**Templates** > **Email Templates**로 이동하세요. 유형(HTML 또는 드래그 앤 드롭)별로 필터링할 수 있습니다.
 
 템플릿을 볼 수 있는 권한이 있는지 확인하세요. [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
 
-### 릴레이 또는 마스킹된 이메일에 대해 도메인을 등록해야 하나요?
+### 릴레이 또는 마스킹된 이메일에 대해 도메인을 등록해야 하나요? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apple의 Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO/)는 반송을 방지하기 위해 Apple Developer Portal에 발송 도메인을 등록해야 합니다. Google Shielded Email은 수동 도메인 등록이나 허용 목록 프로세스가 필요하지 않습니다.

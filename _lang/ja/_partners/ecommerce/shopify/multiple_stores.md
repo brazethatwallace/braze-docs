@@ -18,9 +18,9 @@ description: "この参考記事では、複数のShopifyストアを1つのワ�
 
 | 要件 | 説明 |
 | ----------- | ----------- |
-| Shopifyストアを設定する | [Brazeで少なくとも1つのShopifyストアを設定]({{site.baseurl}}/shopify_overview/)済みであることを確認します。 |
+| Shopifyストアを設定する | [Brazeで少なくとも1つのShopifyストアを設定]({{site.baseurl}}/shopify_overview/)済みであることを確認してください。 |
 | 各地域の固有のShopifyストアフロントドメイン | 複数ストアサポートは、さまざまな地域のストアフロントの固有のShopifyストアドメインで使用することを目的としています。<br><br>複数のサブブランドをBrazeに接続したい場合は、サブブランドごとに別々のワークスペースを作成することをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 追加のストアを接続する {#connecting-an-additional-store}
 Shopifyストアに Brazeアプリをインストールし、最初のストアをインストールしたら、**+ Connect New Store**を選択します。
@@ -53,11 +53,11 @@ Shopifyストアに Brazeアプリをインストールし、最初のストア�
 
 Braze external IDは以下のオプションから選択できます。
 
-|オプション|説明|
+| オプション | 説明 |
 |------|-----------|
-|Shopify顧客ID|Shopifyの顧客IDをBraze external IDとして使用する場合、各ストアはユーザーごとに固有の顧客IDを生成します。つまり、ユーザーが複数のストアとやり取りする場合、Brazeでは別々のプロファイルを持つことになります。|
-|メール、ハッシュ化メール、またはカスタムexternal ID|メール、ハッシュ化されたメール、またはカスタムexternal IDタイプを使用する場合、複数のストアとエンゲージメントを持つユーザーは、ログインまたは注文時にプロファイルが1つの統合プロファイルにマージされます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Shopify顧客ID | Shopifyの顧客IDをBraze external IDとして使用する場合、各ストアはユーザーごとに固有の顧客IDを生成します。つまり、ユーザーが複数のストアとやり取りする場合、Brazeでは別々のプロファイルを持つことになります。 |
+| メール、ハッシュ化メール、またはカスタムexternal ID | メール、ハッシュ化されたメール、またはカスタムexternal IDタイプを使用する場合、複数のストアとエンゲージメントを持つユーザーは、ログインまたは注文時にプロファイルが1つの統合プロファイルにマージされます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### マージされるフィールド {#merged-fields}
 
@@ -89,11 +89,11 @@ Shopifyコネクター設定の**ユーザーを管理**ステップで、Braze�
 {% tab Braze API or SDKs %}
 また、Braze APIやSDKを使って、Shopifyから直接メールやSMSマーケティングのオプトイン情報を同期することもできます。
 
-|オプション|リソース|
+| オプション | リソース |
 |------|---------|
-|API |- 統合によってサポートされるものを直接置き換える[サブスクリプショングループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/)<br>- サブスクリプショングループデータまたは[グローバルメールのサブスクリプションステータス]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)を設定する[`Users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups)<br>- よりカスタマイズされたマーケティングオプトイン収集オプションのための[Brazeユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions/)|
-|SDK |- [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| API | - 統合によってサポートされるものを直接置き換える[サブスクリプショングループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/)<br>- サブスクリプショングループデータまたは[グローバルメールのサブスクリプションステータス]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)を設定する[`Users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups)<br>- よりカスタマイズされたマーケティングオプトイン収集オプションのための[Brazeユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions/) |
+| SDK | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
 {% endtab %}
 {% endtabs %}
 

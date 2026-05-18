@@ -41,7 +41,7 @@ Te sugerimos seguir estas buenas prácticas:
 | Meta descripción | Un fragmento de texto que se muestra en los resultados de búsqueda. | Usa entre 140 y 160 caracteres. |
 | Favicon | El icono que aparece junto al título del sitio en la pestaña del navegador. | Usa una relación de aspecto de 1:1 y un tipo de archivo compatible: PNG, JPEG o ICO. |
 | URL de la página | Esta es la ruta URL de tu página de inicio. Este valor también se utiliza como referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### Paso 3: Personalizar la página {#step-3-customize-the-page}
 
@@ -49,7 +49,7 @@ Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a pe
 
 ![Un ejemplo de página de inicio creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
-El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila.
+El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia detallada de cada bloque y sus propiedades, consulta [Bloques del editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
 
 ![La sección "Build" que contiene "Rows" y "Form Blocks".]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,7 +68,7 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 | Enlace | Un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Puede incrustarse dentro del texto o ser independiente. |
 | Espaciador | Un bloque invisible que añade espacio vertical entre elementos para mejorar el diseño y la legibilidad. |
 | Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
 ##### Texto con span {#span-text}
 
@@ -89,7 +89,7 @@ Puedes usar estos bloques para crear un formulario que vincule los datos enviado
 | Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributo personalizado a la lista. |
 | Casilla de verificación | Si un usuario marca la casilla, el atributo del bloque se establece en `true`. Si se deja sin marcar, su atributo se establece en `false`. |
 | Grupo de casillas de verificación | Los usuarios pueden seleccionar entre múltiples opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de tipo array definido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 Después de crear una página de inicio con un formulario, asegúrate de incrustar su [etiqueta de Liquid de página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) en tu mensaje. Con esta etiqueta, Braze puede identificar y actualizar automáticamente los perfiles de usuario existentes cuando envían el formulario.
@@ -138,10 +138,6 @@ Si no incluyes una página de confirmación, es posible que los usuarios no sepa
 Si tu página de confirmación se abre en una nueva pestaña, un usuario que regrese a la página de inicio original y vuelva a enviar con información actualizada puede sobrescribir el envío anterior, lo que resulta en datos inconsistentes.
 {% endalert %}
 
-{% alert important %}
-Si configuras un botón con **Submit form when button is clicked** habilitado y usas **On-click Behavior** para abrir una URL web en una nueva pestaña, el bloqueador de ventanas emergentes integrado de Safari en iOS puede impedir que la navegación funcione. Esto ocurre porque el envío de formulario seguido de la apertura de una nueva pestaña se trata como una ventana emergente.<br><br>Para evitar este problema, configura los botones con envío de formulario para que abran la URL resultante en la misma pestaña (no en una nueva). Los botones sin envío de formulario pueden abrir URLs en nuevas pestañas sin problemas.
-{% endalert %}
-
 ### Paso 5: Previsualizar la página {#step-5-preview-the-page}
 
 Puedes previsualizar tu página de inicio en la pestaña **Preview** del editor. Después de guardar tu página de inicio como borrador, puedes visitar la URL yendo a **Landing Pages** y seleccionando **Copy URL** junto a tu página de inicio. También puedes compartir la URL con colaboradores.
@@ -155,6 +151,10 @@ Antes de publicar, asegúrate de que:
 - Todos los campos obligatorios de la página (como la ruta URL y el título) están completos
 
 Cuando estés listo, selecciona **Publish Landing Page**.
+
+{% alert note %}
+Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Submit** del formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva.
+{% endalert %}
 
 ## Usar plantillas {#using-templates}
 

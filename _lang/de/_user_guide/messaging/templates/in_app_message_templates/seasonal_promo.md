@@ -2,13 +2,13 @@
 nav_title: Saisonale Aktion mit Bild
 article_title: Saisonale Aktion mit Hintergrundbild
 alias: "/seasonal_promotion/"
-page_order: 8
-description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um ein saisonales Angebot oder eine Aktion zu bewerben und das Nutzer:innen-Engagement zu steigern."
+page_order: 9
+description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um ein saisonales Angebot oder eine Aktion zu bewerben und das Engagement der Nutzer:innen zu steigern."
 ---
 
 # Saisonale Aktion mit Hintergrundbild {#seasonal-promotion-with-background-image}
 
-> Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um ein saisonales Angebot oder eine Aktion zu bewerben und das Nutzer:innen-Engagement zu steigern.
+> Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um ein saisonales Angebot oder eine Aktion zu bewerben und das Engagement der Nutzer:innen zu steigern.
 
 {% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
 

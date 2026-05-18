@@ -61,7 +61,7 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 | Mobile Apps | iOS, Android 및 Vega SDK |
 | Web Browsers | Web SDK |
 | Mobile Apps 및 Web Browsers 모두 | iOS, Android, Vega 및 Web SDK |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## 3단계: 메시지 유형 지정 {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="메시지 유형" class="tg">
+  <caption>메시지 유형</caption>
 <thead>
   <tr>
     <th>메시지 유형</th>
@@ -133,7 +134,8 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 
 이 인앱 메시지는 필요에 맞게 커스터마이징할 수 있습니다.
 
-<table class="tg">
+<table aria-label="고급 메시지 유형" class="tg">
+  <caption>고급 메시지 유형</caption>
 <thead>
   <tr>
     <th>메시지 유형</th>
@@ -239,7 +241,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 | 커스텀 이벤트 기록 | 트리거할 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 선택합니다. 다른 인앱 메시지를 표시하거나 추가 메시징을 트리거하는 데 사용할 수 있습니다. |
 | 커스텀 속성 기록 | 현재 사용자에 대해 설정할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 선택합니다. |
 | 푸시 권한 요청 | 네이티브 푸시 권한을 표시합니다. [푸시 프라이밍]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)과 사용자에게 푸시를 안내하기 위한 [모범 사례]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices)에 대해 자세히 알아보세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 참고: __푸시 권한 요청__, __커스텀 이벤트 기록__ 및 __커스텀 속성 기록__ 옵션에는 다음 최소 SDK 버전이 필요합니다:
 
@@ -276,7 +278,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 
 | 서식 | 입력 | 설명 |
 |---|---|---|
-| [색상 프로필]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | 인앱 메시지 템플릿 갤러리에서 적용합니다. | **Apply Template**을 선택하고 갤러리에서 선택합니다. 그런 다음 **Save**를 선택합니다. |
+| [색상 프로필]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | 인앱 메시지 템플릿 갤러리에서 적용합니다. | **Apply Template**을 선택하고 갤러리에서 선택합니다. 그런 다음 **Save**를 선택합니다. |
 | 텍스트 정렬 | 왼쪽, 가운데 또는 오른쪽. | 최신 Braze SDK 버전에서만 사용할 수 있습니다. |
 | 헤더 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. |
 | 텍스트 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. |
@@ -285,7 +287,7 @@ Braze가 코드에 닫기 또는 해제 버튼이 포함되어 있지 않음을 
 | 배경색 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. 이것은 전체 메시지의 배경이며 텍스트 본문 뒤에 명확하게 표시됩니다. |
 | 화면 오버레이 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. 최신 Braze SDK 버전에서만 사용할 수 있습니다. 이것은 전체 메시지 주위의 프레임입니다. |
 | 셰브론 또는 기타 메시지 닫기 옵션 | 16진수 색상 코드. | 원하는 16진수 색상이 표시됩니다. 색상의 불투명도도 선택할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 전송하기 전에 항상 메시지를 [미리보기 및 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)하세요.
 

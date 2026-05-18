@@ -2,7 +2,7 @@
 nav_title: Registro de correo electrónico con confirmación
 article_title: Registro de correo electrónico con página de confirmación
 alias: "/email_confirmation_page/"
-page_order: 6
+page_order: 7
 description: "Esta página explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para crear un formulario de registro de correo electrónico que tiene una página de confirmación."
 ---
 

@@ -162,7 +162,7 @@ Consulta la siguiente tabla para los niveles de interrupción y sus descripcione
 
 iOS 15 también introduce una nueva forma para que los usuarios programen opcionalmente una agrupación de resumen de múltiples notificaciones en horarios designados a lo largo del día. Esto se hace para evitar interrupciones constantes durante el día para notificaciones que no necesitan atención inmediata.
 
-Las aplicaciones pueden especificar qué notificaciones push son más relevantes estableciendo una **Relevance Score**. Apple usará esta puntuación para determinar qué notificaciones deben destacarse en el resumen de notificaciones programado, mientras que otras estarán disponibles cuando los usuarios hagan clic en el resumen.
+Las aplicaciones pueden especificar qué notificaciones push son más relevantes estableciendo una **puntuación de relevancia**. Apple usará esta puntuación para determinar qué notificaciones deben destacarse en el resumen de notificaciones programado, mientras que otras estarán disponibles cuando los usuarios hagan clic en el resumen.
 
 Todas las notificaciones seguirán siendo accesibles en el centro de notificaciones del usuario.
 

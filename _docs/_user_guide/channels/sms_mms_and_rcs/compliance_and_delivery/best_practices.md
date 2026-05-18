@@ -38,6 +38,18 @@ Where SMSand MMS have been set up across multiple instances, and due to misconfi
 
 Braze manages SMS/MMS subscriptions at both the user profile (`user_id`) level and the phone number (`channel_id`) level. When a phone number is opted-in or out, the update applies to all profiles which share that number. In the case where an end user opted-in with a certain phone number, but then changes phone number, the new phone number will inherit the subscription group status of the user. Accordingly, if an end user has opted-out, but then re-enters the app or website with a new phone number, they will not receive unwanted messages.
 
+## Phone number list hygiene recommendations
+
+Maintaining phone number list hygiene helps you keep valid consent and reachability data over time. Braze marks some phone numbers as invalid to help reduce compliance risk, support consent-based messaging practices, and avoid sending to numbers that may no longer belong to the original user.
+
+For reasons why phone numbers are typically marked invalid, see [Handling invalid phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+We recommend the following workflow to remove invalid phone numbers:
+
+1. Identify impacted phone numbers through the [`/sms/invalid_phone_numbers` endpoint]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Differentiate between phone numbers that are deactivated and phone numbers that received provider errors.
+3. For deactivated phone numbers, re-verify the phone number with the user. After the user confirms their phone number, remove the phone number from the invalid list through the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+
 ## Traffic pumping recommendations
 
 ### What is traffic pumping?

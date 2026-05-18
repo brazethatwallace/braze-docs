@@ -2,7 +2,7 @@
 nav_title: Formulário de inscrição para SMS, RCS e WhatsApp
 article_title: Formulário de inscrição para SMS, RCS e WhatsApp
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "Esta página explica como criar um formulário de inscrição para SMS, RCS e WhatsApp com o editor de arrastar e soltar de mensagens no app."
 ---
 

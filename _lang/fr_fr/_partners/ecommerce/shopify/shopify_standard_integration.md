@@ -62,7 +62,7 @@ Les événements suivants sont activés par défaut dans l'intégration standard
 | Événements recommandés par Braze | Événements personnalisés Shopify | Attributs personnalisés Shopify |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Produit vu</li><li>Mise à jour du panier</li><li>Paiement commencé</li><li>Commande passée</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Configuration standard des données" }
 
 Pour plus d'informations sur les données suivies par l'intégration, consultez les [fonctionnalités des données Shopify]({{site.baseurl}}/shopify_data_features/).
 
@@ -70,24 +70,9 @@ Pour plus d'informations sur les données suivies par l'intégration, consultez 
 
 ### Configuration du remplissage historique {#historical-backfill-setup}
 
-Grâce à la configuration standard, vous pouvez activer le remplissage historique pour cibler vos anciens clients. Cela importe vos commandes Shopify des 90 derniers jours et les profils clients de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration. Pour ce faire, cochez la case pour inclure le chargement initial des données dans votre intégration.
+À l'étape **Track Shopify data**, cochez la case pour inclure le chargement initial des données historiques dans votre intégration.
 
-{% alert note %}
-Les données issues du remplissage historique ne sont pas incluses dans les rapports de chiffre d'affaires. Les événements de commande passée issus du remplissage sont disponibles uniquement pour la segmentation.
-{% endalert %}
-
-![Bouton de remplissage historique des données.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
-
-Ce tableau contient les données qui seront initialement chargées via le remplissage.
-
-| Événements recommandés par Braze | Événements personnalisés Shopify | Attributs standard de Braze | États des abonnements Braze |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Commande passée</li><li>Commande annulée</li><li>Commande remboursée</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Prénom</li><li>Nom de famille</li><li>Téléphone</li><li>Ville</li><li>Pays</li><li>Chiffre d'affaires total</li><li>Remboursements totaux</li><li>Total des commandes</li></ul>{:/} | {::nomarkdown}<ul><li>Abonnements au marketing par e-mail associés à cette boutique Shopify</li><li>Abonnements au marketing par SMS associés à cette boutique Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-{% alert note %}
-Si vous êtes un client existant de Braze avec des Campaigns ou des Canvas actifs, consultez les [fonctionnalités de données Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill) pour plus de détails.
-{% endalert %}
+Pour savoir ce qui est importé, le comportement des rapports de chiffre d'affaires, les captures d'écran de configuration et les recommandations si vous utilisez déjà Braze avec des Campaigns ou des Canvas actifs, consultez la section [Remplissage historique]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### (Avancé) Configuration personnalisée du suivi des données {#advanced-custom-data-tracking-setup}
 
@@ -100,7 +85,8 @@ Avec les SDK de Braze, vous pouvez suivre des événements personnalisés ou des
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="(Avancé) Configuration personnalisée du suivi des données" style="width: 100%;">
+  <caption>(Avancé) Configuration personnalisée du suivi des données</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Événements personnalisés</th>
@@ -166,7 +152,7 @@ Les étapes suivantes dépendent de votre sélection d'ID externe :<br><br>
 - **Si vous avez sélectionné l'ID client Shopify, l'e-mail ou l'e-mail haché :** Passez les étapes 4.1 à 4.3 et continuez directement à l'étape 4.4.
 {% endalert %}
 
-### Étape 4.1 : Créer le méta-champ `braze.external_id` {#step-41-create-the-brazeexternalid-metafield}
+### Étape 4.1 : Créer le méta-champ `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
 1. Dans le panneau d'administration de Shopify, allez dans **Settings** > **Metafields and metaobjects**.
 2. Sélectionnez **Customers** > **Add definition**.
@@ -194,7 +180,7 @@ Braze envoie les paramètres suivants à votre endpoint :
 | shopify_customer_id  | Oui      | Chaîne de caractères    | L'ID du client Shopify.                                         |
 | shopify_storefront   | Oui      | Chaîne de caractères    | Le nom de la vitrine pour la requête. Ex : `<storefront_name>.myshopify.com` |
 | email_address        | Non       | Chaîne de caractères    | L'adresse e-mail de l'utilisateur connecté. <br><br>Ce champ peut être absent dans certains scénarios de webhook. La logique de votre endpoint doit prendre en compte les valeurs nulles (par exemple, récupérer l'e-mail en utilisant shopify_customer_id si votre logique interne l'exige). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Spécifications de l'endpoint" }
 
 #### Exemple d'endpoint {#example-endpoint}
 

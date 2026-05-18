@@ -1,6 +1,6 @@
 ---
-nav_title: "Telefonnummern der Nutzer:innen"
-article_title: WhatsApp-Telefonnummern der Nutzer:innen
+nav_title: "Telefonnummern von Nutzer:innen"
+article_title: WhatsApp-Telefonnummern von Nutzer:innen
 page_order: 3
 description: "Dieser Referenzartikel behandelt die Formatierung von WhatsApp-Telefonnummern, den Import von Telefonnummern sowie das Hinzufügen von Nutzer:innen zu WhatsApp-Abo-Gruppen."
 page_type: reference
@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# Telefonnummern der Nutzer:innen {#user-phone-numbers}
+# Telefonnummern von Nutzer:innen {#user-phone-numbers}
 
 > In diesem Artikel werden verschiedene Themen rund um die Telefonnummern Ihrer Nutzer:innen bzw. Kund:innen behandelt.
 
@@ -40,7 +40,7 @@ Die Unterschiede zwischen der lokalen Nummernformatierung und der universellen `
 | USA | `4155552671` | 1 | `+14155552671` |
 | Großbritannien | `02071838750` | 44 | `+442071838750` |
 | Brasilien | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formatierung" }
 
 ### Nutzer:innen zu einer WhatsApp-Abo-Gruppe hinzufügen {#adding-users-to-whatsapp-a-subscription-group}
 

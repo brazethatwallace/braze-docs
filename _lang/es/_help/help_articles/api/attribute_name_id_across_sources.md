@@ -34,7 +34,7 @@ Los atributos de campaña y Canvas están vinculados a [eventos de interacción 
 | ID de campaña | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A (se utiliza como entrada para la propia llamada a la API) | campaign_id |
 | Nombre de variante | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | N/A (mapea el nombre de la variante al ID de la variante utilizando el punto de conexión Exportar detalles de campaña) |
 | ID de variante | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign attributes" }
 
 ## Atributos de Canvas {#canvas-attributes}
 
@@ -48,4 +48,4 @@ Los atributos de campaña y Canvas están vinculados a [eventos de interacción 
 | ID de paso | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | `steps.id` | `canvas_step_id` |
 | Canal de mensajería | N/A | `steps.messages.message_variation_id.channel` | N/A (inherente al tipo de evento, como envío push o apertura de correo electrónico) |
 | ID del mensaje | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `steps.message.message_variation_id` | `canvas_step_message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Canvas attributes" }

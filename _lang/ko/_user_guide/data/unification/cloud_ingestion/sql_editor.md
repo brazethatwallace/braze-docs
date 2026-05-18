@@ -165,6 +165,10 @@ SQL 쿼리는 다음을 반환해야 합니다:
 
 검증이 성공하면 **Next: Notifications**로 계속 진행하여 동기화를 생성합니다.
 
+{% alert important %}
+부정확한 SQL 구성은 데이터 포인트의 과다 소비 및 광범위한 운영 리스크를 포함한 의도하지 않은 결과를 초래할 수 있습니다. 쿼리 로직이 올바른지 확인하는 것은 사용자의 책임이며, 동기화를 활성화하기 전에 모든 결과를 신중하게 미리보기해야 합니다.
+{% endalert %}
+
 ## SQL 제약 조건 {#sql-constraints}
 
 쿼리는 다음 요구 사항을 충족해야 합니다.
@@ -276,7 +280,7 @@ Braze가 데이터 웨어하우스에 연결할 수 없는 경우:
 - 동기화를 계속 생성할 수 있습니다
 - 행이 반환될 때까지 사용자가 업데이트되지 않습니다
 
-## PAYLOAD 지원 (레거시) {#payload-support-legacy}
+## `PAYLOAD` 지원 (레거시) {#payload-support-legacy}
 
 SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views)을 지원합니다.
 
@@ -306,7 +310,7 @@ SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseur
 
 이 섹션에는 일반적인 오류와 문제 해결 방법이 포함되어 있습니다.
 
-### "미리보기를 사용할 수 없음" {#no-preview-available}
+### 미리보기를 사용할 수 없음 {#no-preview-available}
 
 "미리보기를 사용할 수 없음"이 표시되면 다음 기본 오류 유형 중 하나가 원인일 수 있습니다.
 
@@ -316,19 +320,20 @@ SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseur
 | "소스에 연결할 수 없음" | 구성된 사용자 이름, 계정 로케이터 및 RSA 키 쌍 인증 설정을 확인하세요.<br>데이터 웨어하우스가 실행 중인지 확인하세요.<br>네트워크 액세스를 확인하세요. |
 | "SQL 구문 오류" | SQL 구문을 확인하세요. |
 | "오브젝트가 존재하지 않거나 권한이 없음" | 역할에 테이블에 대한 `SELECT` 액세스 권한이 있는지 확인하세요.<br>데이터베이스 및 스키마 권한을 확인하세요.<br>테이블 이름 오타를 확인하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="미리보기를 사용할 수 없음" }
 
-### "식별자 열 필수" {#identity-column-required}
+### 식별자 열 필수 {#identity-column-required}
 
 쿼리에 `external_id`와 같은 유효한 식별자가 포함되어 있는지 확인하세요.
 
-### "`UPDATED_AT` 열 누락" {#updatedat-column-is-missing}
+### `UPDATED_AT` 열 누락 {#updatedat-column-is-missing}
 
 증분 동기화를 위한 타임스탬프 열을 추가하세요.
 
-### "동기화할 속성 없음" {#no-attributes-to-sync}
+### 동기화할 속성 없음 {#no-attributes-to-sync}
 
 식별자와 `UPDATED_AT` 외에 최소 하나의 추가 열을 추가하세요.
 
-### "쿼리 실행 시간 초과" {#query-execution-timed-out}
+### 쿼리 실행 시간 초과 {#query-execution-timed-out}
 
 쿼리를 최적화하거나 더 큰 데이터 웨어하우스를 사용하세요.

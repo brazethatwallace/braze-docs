@@ -29,6 +29,14 @@ Segmentデータを CSV にエクスポートするには、Segmentの編集中�
 
 CSV 出力には、エクスポート時にSegmentに含まれる各ユーザープロファイルのデータが含まれます。歯車アイコンを選択して CSV エクスポートを選択することで、任意のSegmentをエクスポートできます。Brazeはバックグラウンドでレポートを生成し、現在ログインしているユーザーにメールで送信します。
 
+## Segment CSV エクスポートの詳細 {#segment-csv-export-details}
+
+{% alert note %}
+ダッシュボードユーザーが CSV エクスポートオプションを使用するには、**ユーザーデータを CSV 形式でエクスポート**権限が必要です。この権限がない場合、CSV エクスポートオプションは表示されません。
+{% endalert %}
+
+**メールアドレスを CSV 形式でエクスポート**には、Segment内でメールアドレスを持つユーザーの行のみが含まれます。例えば、Segmentに100,000人のユーザーがいても、メールアドレスを持つのが50,000人だけの場合、**メールアドレスを CSV 形式でエクスポート**では約50,000行が生成されます。**ユーザーデータを CSV 形式でエクスポート**では、そのSegmentのすべてのユーザーデータがエクスポートされます。
+
 {% alert important %}
 ファイルサイズの制限により、Segmentの推定サイズがユーザー数500,000人を超える場合、エクスポートに失敗する可能性があります。この制限は、Segmentの正確な計算ではなく推定サイズを使用することに注意してください。詳しくは、[大きなSegmentのエクスポート](#exporting-large-segments)を参照してください。
 {% endalert %}
@@ -83,7 +91,7 @@ CSV 出力には、エクスポート時にSegmentに含まれる各ユーザー
 | windows_ad_ids              | Windows 広告 ID                       |
 | カスタムイベント               | エクスポート時の選択に基づく                             |
 | カスタム属性           | エクスポート時の選択に基づく                             |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
 キャンバスステップからユーザーデータをエクスポートすると、CSV にはそのキャンバスステップの全期間にわたってそのステップに含まれたすべてのユーザーが含まれます。エクスポートを日付範囲やその他の時間枠に制限することはできません。これらのエクスポートの実行方法については、[Canvasデータのエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)を参照してください。
@@ -100,7 +108,7 @@ CSV 出力には、エクスポート時にSegmentに含まれる各ユーザー
 | unsubscribed_from_emails_at | メール配信停止日 |
 | opted_in_to_emails_at       | メールオプトイン日      |
 | user_aliases                | ユーザーエイリアスがある場合   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 CSV と API のエクスポートについては、[トラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)の記事を参照してください。

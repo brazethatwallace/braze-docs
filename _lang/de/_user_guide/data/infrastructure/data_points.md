@@ -17,7 +17,7 @@ Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgez
 
 „Datenpunkte“ beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil eines Endnutzers zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
 
-Daten und Ereignisse, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Ereignisse zum Tracking des Campaign-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
+Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Events zum Tracking des Campaign-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
 
 Lesen Sie den Abschnitt [Verbrauchszählung](#consumption-count) in diesem Artikel, um zu verstehen, welche Daten auf Ihre Datenpunkt-Zuweisung angerechnet werden.
 
@@ -108,12 +108,12 @@ Die folgenden Tabellen dienen der Veranschaulichung. Die genauen Namenskonventio
 | Install-Attribution | Anzeige |
 | Verschiedenes | Zufällige Bucket-Nummer |
 | Empfangene Canvas-Nachrichten | Empfangene Canvas-Nachrichten |
-| Messaging-Engagement | Alle Engagement-Ereignisse (wie Öffnungen, Klicks, Impressionen und Abbrüche) |
+| Messaging-Engagement | Alle Engagement-Events (wie Öffnungen, Klicks, Impressionen und Abbrüche) |
 | Twitter | Follower |
 | Twitter | Folgt |
 | Twitter | Anzahl der Tweets |
 | Facebook | Likes |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nicht abrechenbare Datenpunkte (Standard)" }
 
 {% endtab %}
 {% tab Abrechenbar %}
@@ -167,7 +167,7 @@ table td {
 | Appsflyer-Kohorte – Zuweisung | Alle Zuweisungen | |
 | Letzter Standort | Alle letzten Standorte | Beim Betreten oder Verlassen von Geofences werden keine Datenpunkte protokolliert, da Geofence-Daten nicht im Nutzerprofil gespeichert werden. Geofences werden von den Standortdiensten von Apple und Google überwacht; Braze wird nur benachrichtigt, wenn Nutzer:innen einen Geofence triggern. |
 | Twitter | Nutzername | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abrechenbare Datenpunkte" }
 
 {% endtab %}
 {% endtabs %}

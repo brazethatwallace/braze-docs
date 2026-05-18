@@ -1,16 +1,16 @@
 ---
 nav_title: "Use case"
-article_title: "Use case: Intelligent Suite"
+article_title: "Use case: Intelligence Suite"
 page_order: 10
 search_rank: 12
-description: "New to the Braze intelligence suite? Read this use case on how Intelligent Timing and Intelligent Selection can be leveraged to send personalized promotions in a unified Canvas."
+description: "New to the Braze intelligence suite? Read this use case on how Intelligent Timing can be leveraged to send personalized promotions in a unified Canvas."
 tool:
   - Dashboard
 ---
 
 # Use case: Turn past app behavior into personalized offers on the right channel
 
-> This example shows how a fictional brand uses Intelligent Timing and Intelligent Selection to leverage past app and message engagement data to send personalized promotions in a unified Canvas.
+> This example shows how a fictional brand uses Intelligent Timing to leverage past app and message engagement data to send personalized promotions in a unified Canvas.
 
 Let’s say Marvin is a marketing manager at SandwichEmperor, a fast food restaurant that runs frequent limited-time offers. Marvin’s team is in charge of delivering promotional messages in their app to promote a new limited-time menu item: the Super Sub. 
 
@@ -18,26 +18,22 @@ Until now, every message for limited-time items has been managed as a silo: diff
 
 For the new Super Sub promotion, Marvin wants one coordinated Canvas that still learns over time—using behavior Braze already captures (sessions, opens, clicks) rather than guessing send times or a single winning message.
 
-Using Intelligent Timing, Marvin can deliver Message steps when each person is more likely to engage, based on statistical analysis of past interactions (for example, session patterns and channel engagement). Using Intelligent Selection on a multivariate Canvas, he can test multiple Super Sub journeys or message angles and let Braze shift traffic toward variants that perform best against a shared conversion goal.
+Using Intelligent Timing, Marvin can deliver Message steps when each person is more likely to engage, based on statistical analysis of past interactions (for example, session patterns and channel engagement).
 
 This walkthrough describes how Marvin:
 
 - Builds one Canvas with push, email, and SMS in Message steps
 - Uses Intelligent Timing on those steps so delivery aligns with inferred engagement patterns per user and channel
-- Uses Intelligent Selection so that at least two Canvas variants compete under at least one conversion event, improving how he promotes the Super Sub over the life of the offer
 
 ## Step 1: Define the success metric and build the Canvas
 
 Marvin decides what “success” means for Super Sub (for example, orders or a custom event that triggers when someone completes a Super Sub purchase or adds it in the app). 
 
-Next, Marvin creates a Canvas for new users to enter on a steady schedule while the offer runs, since Intelligent Selection works best when users enter frequently. 
+Next, Marvin creates a Canvas for new users to enter on a steady schedule while the offer runs.
 
 1. In the Braze dashboard, Marvin navigates to **Messaging** > **Canvas**.
 2. He creates a Canvas and names it “Limited item - Super Sub”.
-3. He then adds one conversion event and another variant in the Canvas, which Intelligent Selection needs to compare variants.
-
-![A/B Testing section of a Canvas with Intelligent Selection enabled.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
-
+3. He then adds one conversion event and another variant in the Canvas.
 4. He completes the remaining Canvas details and is now ready to map the user journey in the Canvas builder.
 
 ## Step 2: Set up delivery settings
@@ -52,15 +48,8 @@ For Message steps that use Intelligent Timing, Marvin follows Canvas guidance: h
 
 In each push notification, email, and SMS Message step, he opens **Delivery Settings** and chooses **Using Intelligent Timing**. He sets a fallback time for users who don’t have enough engagement history for an optimal time. He notes that Message steps with multiple channels may send or attempt to send at different times per channel, matching how some customers engage more on email in the morning and push in the evening.
 
-He also decides to configure quiet hours, so these promotional messages avoid overnight sends while still respecting personalized timing outside that window. This way, their users can receive the messages when they’re able to make purchases at SandwichEmperor.
-
 ## Step 4: Monitor and optimize
 
 Marvin coordinates Super Sub promotional assets across push, email, and SMS in the Message steps (and any subsequent steps his variants use) and launches the Canvas.
 
-After launch, he watches Canvas analytics and conversion counts and concludes that:
-
-- Intelligent Selection gradually allocates more traffic to stronger variants until the algorithm has enough evidence
-- Intelligent Timing keeps optimizing when each channel fires for each user based on ongoing engagement patterns
-
-As a result of using Intelligent Selection and Intelligent Timing, Marvin successfully helped SandwichEmperor connect limited-time offer performance to when and which journey works, rather than only which one-off promotional message won last time.
+After launch, he watches Canvas analytics and conversion counts and concludes that Intelligent Timing keeps optimizing when each channel fires for each user based on ongoing engagement patterns. As a result, Marvin successfully helped SandwichEmperor connect limited-time offer performance to when and which journey works, rather than only which one-off promotional message won last time.

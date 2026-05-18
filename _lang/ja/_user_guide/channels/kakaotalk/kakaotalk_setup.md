@@ -20,7 +20,7 @@ channel:
 | KakaoTalkビジネスチャネル | BrazeからKakaoTalkメッセージを送信するには、KakaoTalkアカウントがKakaoTalkビジネスチャネルである必要があります。アカウントを作成すると、デフォルトのステータスはベーシックになります。アカウントをビジネスチャネルにするには、ビジネスの認証を行い、関連するドキュメントを提出する必要があります。 |
 | KakaoTalk発信キー | 有効なKakaoTalk発信キーが必要です。 |
 | 連絡先電話番号 | KakaoTalkチャネルの管理者の連絡先電話番号が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### KakaoTalkアカウントの種類 {#types-of-kakaotalk-accounts}
 
@@ -28,7 +28,7 @@ channel:
 | --- | --- |
 | ベーシックチャネル | どの組織でもセットアップできる標準的なKakaoTalkチャネルです。KakaoTalkを通じたブロードキャストメッセージングと1:1チャットが可能です。 |
 | [ビジネスチャネル](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | アップグレードされたビジネス認証済みのKakaoTalkチャネルで、申請と認証プロセスが必要です。以下のような拡張機能を提供します。{::nomarkdown}<ul><li>認証バッジ</li><li>おすすめチャネルとしての表示</li><li>ビジネスメッセージングのサポート</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### ビジネスチャネルの申請 {#apply-for-a-business-channel}
 
@@ -69,8 +69,8 @@ KakaoTalkチャネルの情報（チャネル名、プロフィール画像な�
 | **Sender Key（발신프로필 키）** | **Template Management（템플릿 관리）** > **Sender Profile Management（발신프로필 관리）**に移動します。 |
 | **Channel name（카카오톡 채널 프로필명）** | Comm.Oneダッシュボードで、**Template Management（템플릿 관리）** > **Sender Profile Management（발신프로필 관리）**に移動します。 |
 | **Sender number（연락처）** | {::nomarkdown}<ol><li><b>Account Management（계정 관리）</b>に移動し、メニューアイコンを選択してから<b>View Details（자세히보기）</b>を選択します。</li><li><b>Business Detailed Information（업체 상세 정보）</b> > <b>Company Information（기업정보）</b>に移動します。</li></ul>{:/} |
-| **Credential（ID）& Password（비밀번호）** | **Sender number（사업자 등록번호）**と同じ場所に移動し、**API** > **Brand Message（브랜드 메시지）**に移動します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Credential（ID）と Password（비밀번호）** | **Sender number（사업자 등록번호）**と同じ場所に移動し、**API** > **Brand Message（브랜드 메시지）**に移動します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -114,7 +114,7 @@ Infobipダッシュボードにアクセスし、以下の情報を収集しま�
 | **Sender name / Sender key** | **Channels and Numbers** > **Channels**を選択し、**Senders**タブを選択します。 |
 | **Sender profile UUID** | Infobipから直接提供されます。この情報がない場合は、Infobipにお問い合わせください。 |
 | **Channel name** | Infobipから直接提供されます。この情報がない場合は、Infobipにお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## ユーザープロファイルの設定 {#set-user-profiles}
 

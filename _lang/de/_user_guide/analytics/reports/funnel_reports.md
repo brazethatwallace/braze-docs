@@ -59,7 +59,7 @@ Für jeden Funnel-Bericht ist das erste Event der Empfang Ihrer Nachricht durch 
 
 | Campaign | Sitzung gestartet, Kauf getätigt, angepasstes Event ausgeführt, Nachrichten-Engagement-Event |
 | Canvas | Sitzung gestartet, Kauf getätigt, angepasstes Event ausgeführt, Canvas-Schritt erhalten, mit Schritt interagiert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Funnel-Bericht-Events" }
 
 {% alert note %}
 Das Bericht-Event **Mit Schritt interagiert** kann nur mit Canvas-Schritten verwendet werden, die die Messaging-Kanäle E-Mail oder Push nutzen.

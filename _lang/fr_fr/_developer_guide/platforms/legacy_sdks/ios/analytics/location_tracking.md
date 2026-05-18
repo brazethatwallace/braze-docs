@@ -4,7 +4,7 @@ article_title: Suivi de la localisation pour iOS
 platform: iOS
 page_order: 6
 description: "Cet article montre comment configurer la géolocalisation pour votre application iOS."
-Tool:
+tool:
   - Location
 
 noindex: true

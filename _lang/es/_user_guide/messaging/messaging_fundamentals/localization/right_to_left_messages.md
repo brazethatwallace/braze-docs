@@ -24,7 +24,7 @@ Además, verifica la puntuación y los emojis para determinar si tu mensaje se e
 |------------------|------------------------|
 | Muestra el signo de exclamación y el emoji al **final** de las oraciones. | Muestra el signo de exclamación y el emoji al **inicio** de la oración. |
 | ![Un ejemplo de un mensaje estándar de derecha a izquierda.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Un ejemplo de un mensaje de izquierda a derecha.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Apariencia del mensaje" }
 
 ## Crear un mensaje de derecha a izquierda {#creating-a-right-to-left-message}
 

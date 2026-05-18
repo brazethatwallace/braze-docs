@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Alle Übersetzungen und Lokalisierungen für E-Mail-Template anzeigen"
 article_title: "GET: Alle Übersetzungen und Lokalisierungen für E-Mail-Template anzeigen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 3
 
 layout: api_page

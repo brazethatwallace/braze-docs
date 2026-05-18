@@ -10,8 +10,6 @@ description: "Esta página fornece uma visão geral de como disparar Canvas da B
 
 > Aprenda a sincronizar gatilhos do Canvas usando CDI para personalização sem cópia. Esse recurso acessa informações específicas do usuário a partir da sua solução de armazenamento de dados e as transmite para um Canvas de destino. As etapas do Canvas podem incluir, opcionalmente, campos de personalização que não são mantidos nos perfis de usuário da Braze.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Sincronização de gatilhos do Canvas {#syncing-canvas-triggers}
 
 ### Etapas para início rápido {#quick-start-steps}
@@ -151,7 +149,7 @@ Consulte a referência a seguir ao criar sua tabela de origem:
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1.2: Configure sua tabela de origem no BigQuery" }
 
 {% alert note %}
 As propriedades não são necessárias para todas as linhas ou usuários. No entanto, os valores das propriedades devem ser uma string JSON válida. Insira uma string `{}` vazia se não houver propriedades para a linha.
@@ -180,7 +178,7 @@ Crie um usuário e conceda permissões. Se você já possui credenciais de outra
 | BigQuery User | Permite que a Braze execute consultas, leia metadados e liste tabelas. |
 | BigQuery Data Viewer | Permite que a Braze visualize conjuntos de dados e conteúdos. |
 | BigQuery Job User | Permite que a Braze execute tarefas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1.3: Configurar credenciais" }
 
 Após conceder as permissões, gere uma chave JSON. Consulte [Criar e excluir chaves](https://cloud.google.com/iam/docs/keys-create-delete) para obter instruções. Você fará o upload posteriormente no dashboard da Braze.
 
@@ -207,7 +205,7 @@ Consulte a referência a seguir ao criar sua tabela de origem:
 | `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.2: Configure sua tabela de origem no Databricks" }
 
 Você pode nomear o esquema e a tabela como desejar, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -285,7 +283,7 @@ Para sincronizar os gatilhos do Canvas a partir do armazenamento de arquivos, cr
 | `EXTERNAL_ID` | Sim, um entre `external_id` ou `alias_name` e `alias_label` | Identifica o usuário que você deseja atualizar. Esse valor deve corresponder ao valor `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Sim, um entre `external_id` ou `alias_name` e `alias_label` | Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`. |
 | `PROPERTIES` | Sim | String JSON de campos a serem disponibilizados como propriedades de personalização no seu Canvas. Deve conter informações específicas do usuário. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 1.3: Configurar políticas de rede" }
 
 {% alert tip %}
 Os nomes dos arquivos devem seguir as regras da AWS e ser únicos. Adicione carimbos de data/hora para ajudar a garantir a exclusividade. Para saber mais sobre a sincronização com o Amazon S3, consulte [Integrações de armazenamento de arquivos](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
@@ -326,13 +324,10 @@ Revise toda a sua configuração (desde o comportamento de sincronização até 
 
 Os gatilhos do CDI Canvas utilizam o limite de taxa da sua REST API para `/canvas/trigger/send`. Se você estiver usando esse endpoint simultaneamente com os gatilhos CDI Canvas e sua integração de REST API, espere que o uso combinado seja contabilizado no seu limite de taxa.
 
-Enquanto os gatilhos do CDI Canvas estiverem em acesso antecipado, considere os seguintes detalhes:
+Cada execução de sincronização insere os usuários em seu respectivo Canvas de destino a uma taxa máxima de aproximadamente 3,75 milhões de usuários por hora. Esteja preparado para tempos de entrada mais longos da fonte para o Canvas quando:
 
-* Até 5 sincronizações ativas de gatilhos do Canvas por espaço de trabalho
-* Cada execução de sincronização inserirá os usuários em seu respectivo Canvas de destino a uma taxa máxima de aproximadamente 3,75 milhões de usuários por hora.
-  * Esteja preparado para tempos de entrada mais longos da fonte para o Canvas quando:
-    * Sincronizar mais de 3,75 milhões de usuários por execução de sincronização.
-    * Usar gatilhos do CDI Canvas quando já estiver saturando o [limite de taxa da sua REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Sincronizar mais de 3,75 milhões de usuários por execução de sincronização.
+* Usar gatilhos do CDI Canvas quando já estiver saturando o [limite de taxa da sua REST API para `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
 
 Considere o seguinte sobre o CDI sem cópia quando o Arquivamento de mensagem está ativado:
 

@@ -61,7 +61,7 @@ Certains navigateurs, comme les applications Naver Android et iOS, ne prennent p
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-L'ancien événement d'achat passe en mode maintenance. Les événements d'achat existants continuent de fonctionner normalement, mais aucune nouvelle fonctionnalité ne sera développée sur cette base, au profit des événements recommandés pour le commerce électronique. Vous pouvez continuer à utiliser les événements d'achat dans un avenir prévisible. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée.
+L'ancien événement d'achat passe en mode maintenance. Les clients Braze existants peuvent continuer à utiliser les anciens événements d'achat. Ils continueront de fonctionner normalement, mais les nouvelles fonctionnalités seront désormais développées sur la base des événements recommandés pour le commerce électronique. Braze vous informera bien à l'avance avant qu'une date de fin de vie ne soit fixée. Les nouveaux clients Braze doivent utiliser les [événements recommandés pour le commerce électronique]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), car les anciens événements d'achat ne seront pas disponibles.
 {% endalert %}
 
 {% endif %}

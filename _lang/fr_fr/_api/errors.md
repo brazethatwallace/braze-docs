@@ -96,4 +96,4 @@ Tous les codes d'erreur suivants indiquent qu'aucun message n'a été envoyé.
 | `404 Not Found` | URL non valide. |
 | `415 Unsupported Media Type` | L'en-tête de requête `Content-Type` est manquant ou incorrect. Dans la page **Paramètres**, ajoutez `Content-Type` avec la valeur `application/json`. |
 | `429 Rate Limited` | Limite de débit dépassée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs fatales" }

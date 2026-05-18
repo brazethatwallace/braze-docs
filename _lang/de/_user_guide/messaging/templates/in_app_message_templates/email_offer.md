@@ -2,7 +2,7 @@
 nav_title: E-Mail-Registrierung mit Angebot
 article_title: E-Mail-Registrierung mit Sonderangebot
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "Auf dieser Seite erfahren Sie, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um Ihre E-Mail-Liste aufzubauen, indem Sie bei der Registrierung einen Sonderrabatt anbieten."
 ---
 
@@ -48,6 +48,6 @@ Passen Sie das Erscheinungsbild Ihres Sonderangebots mithilfe der Drag-and-Drop-
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 {% multi_lang_include drag_and_drop/templates.md section='email double opt-in' %}

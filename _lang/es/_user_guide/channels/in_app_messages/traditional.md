@@ -27,7 +27,7 @@ toc_headers: h2
 3. Ponle a tu Campaign un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario.
    * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
 Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
@@ -61,7 +61,7 @@ Comienza eligiendo qué plataformas deben recibir el mensaje. Usa esta selecció
 | Mobile Apps                     | SDK de iOS, Android y Vega |
 | Web Browsers                    | SDK web                      |
 | Both Mobile Apps & Web Browsers | SDK de iOS, Android, Vega y web |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Especifica las plataformas de entrega" }
 
 ## Paso 3: Especifica tus tipos de mensaje {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Tipos de mensaje" class="tg">
+  <caption>Tipos de mensaje</caption>
 <thead>
   <tr>
     <th>Tipo de mensaje</th>
@@ -133,7 +134,8 @@ Estos mensajes dentro de la aplicación son aceptados tanto por aplicaciones mó
 
 Estos mensajes dentro de la aplicación son personalizables según tus necesidades.
 
-<table class="tg">
+<table aria-label="Tipos de mensaje avanzados" class="tg">
+  <caption>Tipos de mensaje avanzados</caption>
 <thead>
   <tr>
     <th>Tipo de mensaje</th>
@@ -239,7 +241,7 @@ Cuando tu cliente hace clic en un botón de tu mensaje dentro de la aplicación,
 | Registrar evento personalizado | Elige un [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) para desencadenar. Se puede usar para mostrar otro mensaje dentro de la aplicación o desencadenar mensajería adicional. |
 | Registrar atributo personalizado | Elige un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) para establecer para el usuario actual. |
 | Solicitar permiso push | Muestra el permiso push nativo. Lee más sobre [preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), así como las [mejores prácticas]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) para preparar a los usuarios para push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento al hacer clic" }
 
 Nota: las opciones __Solicitar permiso push__, __Registrar evento personalizado__ y __Registrar atributo personalizado__ requieren las siguientes versiones mínimas del SDK:
 
@@ -276,16 +278,16 @@ El contenido de la pestaña **Style** varía según las opciones de mensaje eleg
 
 | Formato | Entrada | Descripción |
 |---|---|---|
-| [Perfil de color]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aplicar desde la galería de plantillas de mensajes dentro de la aplicación. | Selecciona **Apply Template** y elige de la galería. Luego, selecciona **Save**. |
-| Alineación de texto | Izquierda, centro o derecha.  | Solo disponible para versiones más recientes del SDK de Braze. |
-| Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color.  |
+| [Perfil de color]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aplicar desde la galería de plantillas de mensajes dentro de la aplicación. | Selecciona **Apply Template** y elige de la galería. Luego, selecciona **Save**. |
+| Alineación de texto | Izquierda, centro o derecha. | Solo disponible para versiones más recientes del SDK de Braze. |
+| Encabezado | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Texto | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
 | Botones | Código de color HEX. | Se mostrarán los colores HEX deseados. También podrás elegir la opacidad de los colores. Puedes elegir colores para: el fondo del botón de cierre del mensaje, así como el fondo, texto y borde de cada botón. |
 | Borde del botón | Código de color HEX. | ¡Nuevo! Esto te permitirá diferenciar tus botones principal y secundario. Sugerimos delinear los botones con colores contrastantes. |
 | Color de fondo | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Este es el fondo de todo el mensaje y se mostrará claramente detrás del cuerpo de texto. |
 | Superposición de pantalla | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. Solo disponible para versiones más recientes del SDK de Braze. Este es el marco alrededor de todo el mensaje. |
 | Chevron u otra opción de cierre de mensaje | Código de color HEX. | Se mostrará el color HEX deseado. También podrás elegir la opacidad del color. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 5: Dale estilo a tu mensaje dentro de la aplicación" }
 
 Siempre [previsualiza y prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) tu mensaje antes de enviarlo.
 
@@ -319,7 +321,7 @@ Ten en cuenta que si pretendes desencadenar tu mensaje dentro de la aplicación 
 La entrega de mensajes dentro de la aplicación se basa completamente en los siguientes desencadenantes de acción:
 
 - Realizar una compra
-- Abrir la aplicación/página web
+- Abrir la aplicación o página web
 - Realizar un evento personalizado (solo funciona con eventos enviados usando el SDK)
 - Abrir un mensaje push específico
 - Planificar automáticamente Campaigns para enviar a una hora determinada respecto a la hora local de cada uno de tus usuarios.
@@ -393,7 +395,7 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 {% endtab %}
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante e Intelligent Selection, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes e Intelligent Selection, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
 
 Para información sobre opciones de mensajes dentro de la aplicación específicas de Canvas, consulta [Mensajes dentro de la aplicación en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#messages-in-canvas).
 

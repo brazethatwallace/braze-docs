@@ -19,7 +19,7 @@ _Esta integración está mantenida por AccuWeather._
 | Requisito | Descripción |
 |---|---|
 | Clave de API de AccuWeather | Ponte en contacto con tu director de cuentas de AccuWeather para obtener las claves de API compatibles que debes utilizar en tus URL de solicitud.<br><br>Encontrarás más instrucciones en la página de [la API empresarial de AccuWeather](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## API de AccuWeather disponibles {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ A continuación se indican las API de AccuWeather a las que puedes hacer referen
 | [Imágenes](https://apidev.accuweather.com/developers/imageryAPIguide) | Obtén imágenes de radar y satélite. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Obtén la posición actual, las posiciones anteriores y las previsiones de ciclones tropicales en todo el mundo. |
 | [Traducciones](https://apidev.accuweather.com/developers/translationsApiGuide) | Obtén una lista de los idiomas disponibles. Obtén traducciones para grupos específicos de frases. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API de AccuWeather disponibles" }
 
 ## Ejemplo de Contenido conectado {#connected-content-example}
 
@@ -63,7 +63,7 @@ Enjoy the weather!
 En los siguientes ejemplos se desglosan las dos llamadas de Contenido conectado.
 
 {% tabs %}
-{% tab Locations %}
+{% tab Ubicaciones %}
 #### Ejemplo de API de ubicaciones {#locations-api-example}
 
 {% raw %}
@@ -155,7 +155,7 @@ Este es un ejemplo de lo que AccuWeather devolverá como objeto JSON:
 El ID "Key" es una variable útil, ya que se utiliza en la segunda solicitud GET.
 Este objeto JSON puede almacenarse en una variable local `location_info` especificando `:save location_info` después de la URL.
 {% endtab %}
-{% tab Current conditions %}
+{% tab Condiciones actuales %}
 
 #### Ejemplo de API de condiciones actuales {#current-conditions-api-example}
 

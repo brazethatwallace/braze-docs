@@ -18,7 +18,7 @@ description: "Erfahren Sie, wie Sie die Zielgruppe für Ihren BrazeAI Decisionin
 | **Random Control** | Kund:innen, die zufällig ausgewählte Optionen erhalten (Baseline-Vergleich) |
 | **Business-as-Usual (optional)** | Kund:innen, die die aktuelle Marketing-Journey erhalten (zum Vergleich mit der bestehenden Performance) |
 | **Holdout (optional)** | Kund:innen, die keine Kommunikation erhalten (um die Gesamtwirkung der Campaign zu messen) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Behandlungsgruppen" }
 
 ## Zielgruppe konfigurieren {#configure-your-audience}
 

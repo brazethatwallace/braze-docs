@@ -20,7 +20,7 @@ Pour commencer, vous devez authentifier votre compte Braze dans votre compte Sim
 | Condition | Description |
 | --------- | ----------- |
 | Simon AI | Vous devez disposer d'un compte Simon AI existant pour exploiter l'intégration Braze depuis Simon AI. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`, `campaigns.trigger.schedule.create` et `campaigns.trigger.send`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`, `campaigns.trigger.schedule.create` et `campaigns.trigger.send`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
 | URL du tableau de bord de Braze | [L'URL de votre endpoint REST][3]. Votre endpoint dépendra de l'URL Braze de votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

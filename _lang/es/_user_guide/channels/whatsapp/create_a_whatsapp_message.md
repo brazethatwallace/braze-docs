@@ -89,7 +89,7 @@ Cada plantilla tiene un idioma asignado, por lo que necesitas crear una campaña
 
 Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los renderizan. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
 
-#### Variables
+#### Variables {#variables}
 
 Si añadiste variables al crear la plantilla de WhatsApp en el Meta Business Manager, esas variables aparecerán como espacios en blanco en el creador de mensajes. Reemplaza estos espacios en blanco con Liquid o texto plano. Para usar texto plano, utiliza el formato "texto aquí" encerrado entre llaves dobles. Si optaste por incluir imágenes al crear tu plantilla, puedes cargar o añadir imágenes desde la biblioteca de medios o haciendo referencia a una URL de imagen. Cuando sea posible, recomendamos cargar las imágenes directamente en tu biblioteca de medios para garantizar consistencia y fiabilidad.
 
@@ -202,7 +202,7 @@ Las siguientes características son compatibles con los mensajes salientes de Wh
 | Documentos | Los documentos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados mediante URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados mediante URL o en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | < 16 MB | `.3gp`, `.mp4` |
 | Audio | El audio solo es compatible a través de mensajes de respuesta. Los archivos deben estar alojados mediante URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +218,7 @@ Las siguientes características son compatibles con los mensajes entrantes de Wh
 | Documentos | Los documentos son compatibles a través de archivos adjuntos de mensaje. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
 | Video | Solo se admiten el códec de video H.264 y el códec de audio AAC. Los videos deben tener una sola pista de audio o ninguna. | `.mp4`, `.3gp` |
 | Enlaces CTA | Se admiten varios tipos de llamada a la acción (CTA). Para más detalles, consulta [Tipos de llamada a la acción](#ctas). | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
 
 ### Tipos de llamada a la acción {#ctas}
 
@@ -233,4 +233,4 @@ Los siguientes tipos de llamada a la acción son compatibles con los mensajes de
 | Plantillas de mensaje con código de cupón | Disponible solo para plantillas de mensaje. <br>Pueden abrirse y editarse como otras plantillas de mensaje, y son compatibles con Liquid y códigos promocionales de Braze. |
 | Mensajes de respuesta con CTA | Crea un mensaje de respuesta que incluya un botón de llamada a la acción. |
 | [Mensajes de respuesta con lista]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Crea un mensaje de respuesta que incluya una lista de hasta 10 opciones para que los usuarios elijan. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types #ctas" }

@@ -3,13 +3,13 @@
 
 ### Navigation abandonnée {#abandoned-browse}
 
-Utilisez le modèle **Abandon de navigation** pour engager les utilisateurs qui ont consulté des produits sans les ajouter à leur panier ni passer de commande.
+Utilisez le modèle **Abandoned browse** pour engager les utilisateurs qui ont consulté des produits sans les ajouter à leur panier ni passer de commande.
 
-![Un modèle Canvas « Abandon de navigation » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/abandoned_browse.png %})
+![Un modèle Canvas « Abandoned Browse » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/abandoned_browse.png %})
 
 #### Configuration {#setup}
 
-Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Abandon de navigation**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Abandoned browse**.
 
 ##### Paramètres par défaut {#default-settings}
 
@@ -20,7 +20,7 @@ Les paramètres suivants sont préconfigurés dans votre Canvas :
         - Date limite de conversion : 3 jours
 - Planification d'entrée
     - Basé sur l'action lorsqu'un utilisateur effectue l'événement `ecommerce.product_viewed`
-    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br>
+    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Action Based Options » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_browse_entry.png %})<br><br>
 - Audience cible
     - Audience d'entrée
         - L'e-mail **n'est pas vide**
@@ -42,7 +42,7 @@ Voici un exemple montrant comment ajouter un bloc HTML de produit à votre e-mai
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -69,15 +69,15 @@ Voici un exemple montrant comment ajouter un bloc HTML de produit à votre e-mai
 
 ### Panier abandonné {#abandoned-cart}
 
-Utilisez le modèle **Panier abandonné** pour récupérer les ventes potentiellement perdues de clients ayant ajouté des produits à leur panier sans poursuivre vers le paiement ni passer de commande.
+Utilisez le modèle **Abandoned cart** pour récupérer les ventes potentiellement perdues de clients ayant ajouté des produits à leur panier sans poursuivre vers le paiement ni passer de commande.
 
-![Un modèle Canvas « Panier abandonné » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/abandoned_cart.png %})
+![Un modèle Canvas « Abandoned Cart » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### Configuration {#setup}
+#### Configuration
 
-Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Panier abandonné**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Abandoned cart**.
 
-##### Paramètres par défaut {#default-settings}
+##### Paramètres par défaut
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 - Bases
@@ -86,7 +86,7 @@ Les paramètres suivants sont préconfigurés dans votre Canvas :
         - Date limite de conversion : 3 jours
 - Planification d'entrée
     - Déclencheur basé sur l'action lorsqu'un utilisateur déclenche l'événement **Perform Cart Updated Event** (situé dans la liste déroulante)
-    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
+    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Action Based Options » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_cart_entry.png %})<br><br>
 - Audience cible
     - Audience d'entrée
         - A utilisé ces applications **plus de 0** fois
@@ -121,7 +121,7 @@ Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liq
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -170,15 +170,15 @@ Si vous utilisez Shopify, créez l'URL de votre panier en utilisant ce modèle L
 
 ### Paiement abandonné {#abandoned-checkout}
 
-Utilisez le modèle **Paiement abandonné** pour cibler les clients qui ont commencé le processus de paiement mais sont partis avant de passer leur commande.
+Utilisez le modèle **Abandoned checkout** pour cibler les clients qui ont commencé le processus de paiement mais sont partis avant de passer leur commande.
 
-![Un modèle Canvas « Paiement abandonné » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
+![Un modèle Canvas « Abandoned Checkout » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### Configuration {#setup}
+#### Configuration
 
-Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Paiement abandonné**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Abandoned checkout**.
 
-##### Paramètres par défaut {#default-settings}
+##### Paramètres par défaut
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 
@@ -188,7 +188,7 @@ Les paramètres suivants sont préconfigurés dans votre Canvas :
         - Date limite de conversion : 3 jours
 - Planification d'entrée
     - Déclencheur basé sur l'action lorsqu'un utilisateur effectue l'événement `ecommerce.checkout_started`
-    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
+    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Action Based Options » pour le Canvas.]({% image_buster /assets/img/ecommerce/abandoned_checkout_entry.png %})
 - Audience cible
     - Audience d'entrée
         - A utilisé ces applications **plus de 0** fois
@@ -212,7 +212,7 @@ Voici un exemple montrant comment ajouter un bloc HTML avec votre étiquette Liq
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -241,7 +241,7 @@ Le paramètre `abort_if_not_abandoned` est spécifique au cas d'usage du paiemen
 | ----- | -------- |
 | `true` (par défaut) | Le message est annulé si le panier n'a pas été abandonné, c'est-à-dire si l'utilisateur a depuis finalisé sa commande. |
 | `false` | Le message est envoyé même si le panier n'est pas dans un état abandonné, ce qui permet à l'e-mail d'inclure les détails du panier quel que soit le statut actuel du paiement. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="abortifnotabandoned #abort-if-not-abandoned" }
 
 Définissez `abort_if_not_abandoned` sur `false` lorsque vous souhaitez envoyer le rappel de paiement indépendamment du fait que le panier soit encore considéré comme abandonné au moment de l'envoi. Si vous omettez le paramètre ou le définissez sur `true`, Braze annule le message pour les utilisateurs ayant déjà finalisé leur achat.
 
@@ -258,15 +258,15 @@ Définissez `abort_if_not_abandoned` sur `false` lorsque vous souhaitez envoyer 
 
 ### Confirmation de commande et enquête de satisfaction {#order-confirmation-and-feedback-survey}
 
-Utilisez le modèle **Confirmation de commande et enquête de satisfaction** pour confirmer les commandes réussies et améliorer la satisfaction des clients.
+Utilisez le modèle **Order confirmation & feedback survey** pour confirmer les commandes réussies et améliorer la satisfaction des clients.
 
-![Un modèle Canvas « Confirmation de commande » appliqué avec les « Règles d'entrée » développées.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
+![Un modèle Canvas « Order confirmation » appliqué avec les « Entry Rules » développées.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### Configuration {#setup}
+#### Configuration
 
-Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Confirmation de commande et enquête de satisfaction**.
+Sur la page Canvas, sélectionnez **Use a Canvas Template** > **Braze templates**, puis appliquez le modèle **Order confirmation & feedback survey**.
 
-##### Paramètres par défaut {#default-settings}
+##### Paramètres par défaut
 
 Les paramètres suivants sont préconfigurés dans votre Canvas :
 
@@ -276,7 +276,7 @@ Les paramètres suivants sont préconfigurés dans votre Canvas :
         - Date limite de conversion : 10 jours
 - Planification d'entrée
     - Déclencheur basé sur l'action lorsqu'un utilisateur effectue l'événement `ecommerce.cart_updated`
-    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Options basées sur l'action » pour le Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
+    - L'heure de début correspond au moment où vous créez le modèle Canvas<br><br>![« Action Based Options » pour le Canvas.]({% image_buster /assets/img/ecommerce/feedback_entry.png %})<br><br>
 - Audience cible
     - Audience d'entrée
         - A utilisé ces applications **plus de 0** fois
@@ -296,7 +296,7 @@ Voici un exemple montrant comment ajouter un bloc HTML de produit à votre confi
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

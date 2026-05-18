@@ -11,35 +11,35 @@ tool:
 
 ---
 
-# 이미지 사양
+# 이미지 사양 {#image-specifications}
 
 > 일반적으로 작고 고품질인 이미지가 더 빠르게 로드되므로, 원하는 결과를 달성할 수 있는 가장 작은 자산을 사용하는 것을 권장합니다. 특정 채널에서 이미지 활용을 극대화하려면 이 문서의 세부 정보를 참조하세요.
 
 항상 다양한 기기에서 [메시지를 미리보기하고 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)하여 이미지와 메시지의 가장 중요한 영역이 예상대로 표시되는지 확인해야 합니다.
 
-## 이미지 동작
+## 이미지 동작 {#image-behavior}
 
 {% multi_lang_include image_specs.md variable_name='image behavior' %}
 
-## 동영상
+## 동영상 {#video}
 
 미디어 라이브러리에 업로드된 동영상은 WhatsApp 메시지에서만 사용할 수 있습니다. 자세한 내용은 [WhatsApp 메시지 만들기]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages)를 참조하세요.
 
-## GIF
+## GIF {#gifs}
 
-GIF는 iOS 푸시, 인앱 메시지, 이메일, 콘텐츠 카드, MMS 또는 RCS 메시지에서 지원됩니다. 매우 길쭉한 형태(예: 3000 x 2 픽셀)이거나 300프레임 이상인 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다.
+GIF는 iOS 푸시, 인앱 메시지, 이메일, Content Cards, MMS 또는 RCS 메시지에서 지원됩니다. 매우 길쭉한 형태(예: 3000 x 2 픽셀)이거나 300프레임 이상인 GIF는 전체 파일 크기가 작더라도 업로드에 실패할 수 있습니다.
 
-## 채널 가이드
+## 채널 가이드 {#channel-guidance}
 
-### 콘텐츠 카드
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
-### 이메일
+### 이메일 {#email}
 
 {% multi_lang_include image_specs.md variable_name='email' %}
 
-### 인앱 메시지
+### 인앱 메시지 {#in-app-messages}
 
 {% multi_lang_include image_specs.md variable_name='in-app messages' %}
 
@@ -51,13 +51,13 @@ GIF는 iOS 푸시, 인앱 메시지, 이메일, 콘텐츠 카드, MMS 또는 RCS
 
 Braze는 모달 인앱 메시지 아이콘에 [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/cheatsheet/) 사용을 지원합니다.
 
-### 푸시 알림
+### 푸시 알림 {#push-notifications}
 
 {% multi_lang_include image_specs.md variable_name='payload size' %}
 
 {% multi_lang_include image_specs.md variable_name='push notifications' %}
 
-#### 권장 메시지 길이
+#### 권장 메시지 길이 {#recommended-message-lengths}
 
 최상의 결과를 위해 푸시 메시지를 작성할 때 다음 메시지 길이 가이드라인을 참조하세요. 이미지 유무, 알림 상태(iOS), 사용자 기기의 표시 설정, 기기 크기에 따라 다소 차이가 있을 수 있습니다.
 
@@ -68,11 +68,11 @@ Braze는 모달 인앱 메시지 아이콘에 [Font Awesome v4.3.0](https://font
 | iOS 배너 알림 | 80자 | 65자 |
 | Android 잠금 화면 | 49자 | N/A |
 | Android 알림 서랍 | 597자 | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="권장 메시지 길이" }
 
 iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)을 참조하세요.
 
-#### 웹 푸시
+#### 웹 푸시 {#web-push}
 
 {% tabs %}
 {% tab 이미지 %}
@@ -83,7 +83,7 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | Firefox | 192 x 192 px 이상 |
 | Safari | 192 x 192 px 이상 (macOS 13+ Safari 16에서 캠페인별 설정 가능) |
 | Opera | 192 x 192 px 이상 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹 푸시" }
 
 | 브라우저 | 플랫폼 | 큰 이미지 크기 |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="웹 푸시" }
 
 {% endtab %}
 {% tab 텍스트 %}
@@ -114,12 +114,12 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="웹 푸시" }
 
 {% endtab %}
 {% endtabs %}
 
-#### 푸시 알림 예시
+#### 푸시 알림 예시 {#push-notification-examples}
 
 {% tabs %}
 {% tab iOS %}

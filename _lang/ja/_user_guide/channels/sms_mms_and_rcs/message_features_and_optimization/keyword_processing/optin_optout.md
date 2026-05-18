@@ -29,7 +29,7 @@ Brazeは以下のキーワードを自動的に処理し、すべての受信リ
 | オプトイン | `START`<br> `YES`<br> `UNSTOP` | これらの`Opt-In`キーワードのいずれかを含む受信リクエストにより、サブスクリプショングループの状態が`subscribed`に変更されます。さらに、そのサブスクリプショングループに関連付けられた送信者プールは、その顧客にSMS、MMS、またはRCSメッセージを送信できるようになります（送信者がサポートするメッセージングの種類に応じます）。<br><br>ユーザーには、定義済みのオプトイン自動応答が送信されます。 |
 | オプトアウト | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | これらの`Opt-Out`キーワードのいずれかを含む受信リクエストにより、サブスクリプショングループの状態が`unsubscribed`に変更されます。さらに、そのサブスクリプショングループに関連付けられた番号プールは、その顧客にメッセージを送信できなくなります。<br><br>ユーザーには、定義済みのオプトアウト自動応答が送信されます。 |
 | ヘルプ | `HELP`<br> `INFO` | ユーザーには、定義済みのヘルプ自動応答が送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default keywords" }
 
 **完全一致の単一単語メッセージ**のみが処理されます（大文字小文字は区別されません）。`STOP PLEASE`のようなキーワードは、[あいまいオプトアウト]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)が有効になっていない限り無視されます。
 

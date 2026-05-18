@@ -7,21 +7,21 @@ description: "Este artigo de referência cobre suas opções disponíveis para m
 
 ---
 
-# Preferências de notificação
+# Preferências de notificação {#notification-preferences}
 
 > Se você gostaria de monitorar o envio de mensagens e a atividade na conta da sua empresa, pode optar por configurar notificações específicas e selecionar para onde elas vão.
 
-A página **Preferências de Notificação** é onde você pode configurar quem (se alguém) recebe notificações sobre sua empresa. Você pode configurar quem deve receber notificações sobre a entrega de campanhas ou erros técnicos. Você também pode especificar destinatários para o relatório semanal de análise de dados. Para a maioria das notificações, a Braze suporta canais de e-mail e webhook.
+A página **Preferências de notificação** é onde você pode configurar quem (se alguém) recebe notificações sobre sua empresa. Você pode configurar quem deve receber notificações sobre a entrega de campanhas ou erros técnicos. Você também pode especificar destinatários para o relatório semanal de análise de dados. Para a maioria das notificações, a Braze suporta canais de e-mail e webhook.
 
-![Página de Preferências de Notificação no dashboard da Braze]({% image_buster /assets/img_archive/notification_preferences.png %})
+![Página de Preferências de notificação no dashboard da Braze]({% image_buster /assets/img_archive/notification_preferences.png %})
 
-Para acessar esta página, acesse **Configurações** > **Configurações de Admin** > **Preferências de Notificação**.
+Para acessar esta página, acesse **Configurações** > **Configurações de administrador** > **Preferências de notificação**.
 
 {% alert tip %}
 Você também pode integrar com o Slack para receber notificações. Para ver as etapas, consulte [Envio de mensagens usando webhooks de entrada](https://api.slack.com/incoming-webhooks).
 {% endalert %}
 
-## Notificações disponíveis
+## Notificações disponíveis {#available-notifications}
 
 A tabela a seguir descreve as notificações disponíveis e quais canais são usados para entregá-las.
 
@@ -48,13 +48,13 @@ Se você excluir o valor padrão de **Destinatários** de **Todos os Usuários d
 | Relatório semanal de análise de dados | Envia um resumo da atividade do espaço de trabalho da semana anterior para os destinatários toda segunda-feira. Os destinatários recebem um resumo para cada espaço de trabalho ao qual pertencem. | E-mail |
 | Limites diários de volume de entrada de Canvas/Campaign | Envia notificações cada vez que um limite de envio é atingido. | E-mail |
 | Erro no Console do agente | Notifica os destinatários quando um agente do [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents/) atingiu seu limite de execução com a funcionalidade atual ou quando um agente usa modelos que se tornaram indisponíveis. | E-mail |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available notifications" }
 
 {% alert note %}
 [Usuários suspensos]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#suspending-company-users) ainda podem receber notificações da Braze.
 {% endalert %}
 
-## Relatório semanal de análise de dados
+## Relatório semanal de análise de dados {#weekly-analytics-reporting}
 
 A Braze pode enviar opcionalmente um relatório semanal por e-mail para as pessoas que você designar na sua empresa, toda segunda-feira às 5h (horário EST). Você pode selecionar os eventos personalizados a serem incluídos no relatório semanal em **Configurações de dados** > **Eventos personalizados**.
 

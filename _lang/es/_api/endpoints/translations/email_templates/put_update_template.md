@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Actualizar traducciones de una plantilla de correo electrónico"
 article_title: "PUT: Actualizar traducciones de una plantilla de correo electrónico"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 
 layout: api_page
@@ -38,7 +38,7 @@ No hay parámetros de ruta para este punto de conexión.
 | `template_id` | Obligatorio | Cadena | El ID de tu plantilla de correo electrónico. |
 | `locale_id` | Obligatorio | Cadena | El ID de la configuración regional. |
 | `translations_map` | Obligatorio | Cadena | El mapa de las traducciones de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

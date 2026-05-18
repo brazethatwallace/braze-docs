@@ -2,7 +2,7 @@
 nav_title: "Fluxo de integração"
 article_title: "Fluxo de integração"
 alias: "/onboarding_flow/"
-page_order: 0
+page_order: 1
 description: "Esta página aborda como dar as boas-vindas a novos usuários, guiá-los pelos benefícios e incentivar ações usando uma chamada para ação atraente."
 ---
 

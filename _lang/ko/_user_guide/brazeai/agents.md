@@ -10,12 +10,12 @@ description: "Braze 에이전트는 콘텐츠를 생성하고, 지능적인 결�
 > Braze 에이전트는 Braze 내에서 생성할 수 있는 AI 기반 도우미입니다. 에이전트는 콘텐츠를 생성하고, 지능적인 결정을 내리며, 데이터를 보강하여 보다 개인화된 고객 경험을 제공할 수 있도록 합니다.
 
 {% alert important %}
-Braze 에이전트에 접근하고 사용하려면 메시지 크레딧이 필요합니다. 현재 메시지 크레딧이 없고 Braze 에이전트를 사용하고 싶다면, 다음 단계를 위해 계정 매니저에게 문의하세요.
+Braze 에이전트에 접근하고 사용하려면 메시지 또는 동작 크레딧이 필요합니다. 현재 동작 크레딧이 없고 Braze 에이전트를 사용하고 싶다면, 다음 단계를 위해 계정 매니저에게 문의하세요.
 {% endalert %}
 
 에이전트 콘솔의 Braze 에이전트에 대한 개요를 보려면 이 동영상을 시청하세요.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## Braze 에이전트를 사용하는 이유 {#why-use-braze-agents}
 
@@ -38,7 +38,7 @@ Braze 에이전트는 추가 작업 없이도 팀이 더 스마트하고 개인�
 Braze 에이전트의 기능은 다음과 같습니다:
 
 - **유연한 설정:** Braze에서 제공하는 LLM을 사용하거나 OpenAI, Anthropic 또는 Google Gemini와 같은 자체 [AI 모델 제공업체]({{site.baseurl}}/partners/ai_model_providers/)를 연결하세요.
-- **원활한 통합:** 에이전트를 Canvas 단계나 카탈로그 필드에 직접 배포하세요.
+- **원활한 통합:** 에이전트를 캔버스 단계나 카탈로그 필드에 직접 배포하세요.
 - **테스트 및 로깅 도구:** 시작 전에 샘플 입력으로 테스트하여 에이전트의 출력을 미리보기하세요. 에이전트가 실행될 때마다 해당 실행의 입력 및 출력을 포함한 로그를 확인하세요.
 - **사용량 제어:** 일일 한도로 성능과 비용을 관리할 수 있습니다.
 
@@ -54,18 +54,17 @@ Braze 에이전트의 기능은 다음과 같습니다:
 | [지침]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions) | 에이전트에게 제공하는 규칙이나 가이드라인(시스템 프롬프트)입니다. 에이전트가 실행될 때마다 어떻게 동작해야 하는지를 정의합니다. 명확한 지침은 에이전트를 더 신뢰할 수 있고 예측 가능하게 만듭니다. |
 | 컨텍스트 | 에이전트가 배포된 곳에서 런타임에 전달되는 데이터로, 고객 프로필 필드나 카탈로그 행 등이 있습니다. 이 입력은 에이전트가 출력을 생성하는 데 사용하는 정보를 제공합니다. |
 | [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#how-context-variables-work) | 특정 Canvas를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. |
-| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | Canvas 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다.  |
+| [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
 | [실행](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
 | [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
-| [온도]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | 에이전트 출력의 편차 수준입니다. 에이전트가 얼마나 정확하거나 창의적일 수 있는지를 정의합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## 제한 사항 {#limitations}
 
 다음 제한 사항이 적용됩니다:
 
 - 각 에이전트는 기본적으로 하루 250,000회의 실행 한도가 있으며, 하루 최대 1,000,000회까지 늘릴 수 있습니다. 이 한도를 늘리고 싶다면 고객 성공 매니저에게 문의하세요.
-- 기본적으로 각 실행은 15초 이내에 완료되어야 합니다. 15초가 지나면 에이전트는 사용된 곳에서 `null` 응답을 반환합니다.
+- 기본적으로 각 실행은 20초 이내에 완료되어야 합니다. 20초가 지나면 에이전트는 사용된 곳에서 `null` 응답을 반환합니다.
     - 에이전트가 지속적으로 시간 초과되는 경우 Braze 계정 매니저에게 문의하여 이 한도를 늘리세요.
 - 입력 데이터는 요청당 25KB로 제한됩니다. 더 긴 입력은 잘립니다.
 

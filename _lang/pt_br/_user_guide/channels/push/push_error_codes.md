@@ -29,23 +29,32 @@ Falhas comuns podem incluir:
 - As pessoas estão se registrando em vários serviços. Atualmente, esperamos que os intents de registro de push cheguem no formato antigo. Portanto, se as pessoas estiverem se registrando em vários lugares e capturarmos intents de outros serviços, podemos obter tokens por push malformados.
 
 ### Push com bounce: NotRegistered {#notregistered}
+
 `NotRegistered` geralmente significa que o app foi excluído do dispositivo (como nosso sinal de desinstalação). Isso também pode ocorrer se houver registro múltiplo e um segundo registro invalidar o token por push que a Braze recebe.
 
-### DEVICE_UNREGISTERED {#device-unregistered}
+### Erro DEVICE_UNREGISTERED {#device-unregistered}
 
-Este erro aparece no Registro de atividades de envio de mensagem como:
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+Este erro aparece no Registro de atividades de envio de mensagem como: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 Isso geralmente ocorre por um dos seguintes motivos:
 
 - O usuário desinstalou o app. Essa é a causa mais comum. Quando o app é removido de um dispositivo, o token por push se torna inválido.
 - As credenciais de push foram atualizadas no app. Se sua equipe alterou as credenciais ou certificados do FCM incluídos no app, os usuários que se registraram com as credenciais anteriores terão tokens inválidos até que o app os registre novamente.
-- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de um dispositivo do push usando o SDK do Firebase/Android.
+- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de um dispositivo do push usando o [SDK do Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 Este erro não significa que o usuário está com push desativado — apenas que um token específico foi removido do perfil dele. Isso é comum para usuários que estão testando funcionalidades e instalando e desinstalando o app com frequência. Para verificar se o usuário ainda possui tokens válidos, acesse **Pesquisa de usuários** e revise a seção **Configurações de contato** na guia **Engajamento**.
 {% endalert %}
+
+### Entidade solicitada não encontrada {#requested-entity-was-not-found}
+
+Este erro pode ocorrer pelos seguintes motivos:
+
+- O usuário final desinstalou o app. Você pode verificar o perfil do usuário para confirmar se esse é o caso.
+- Há um canal de notificação inválido. Dependendo da sua integração, os dispositivos podem ter tokens por push que são válidos apenas para determinados canais de notificação. Ao enviar para um canal inválido, a mensagem sofre bounce.
+- O tamanho da carga útil é muito grande.
+
+Para saber mais, consulte a [documentação do Google](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) sobre tokens de registro obsoletos e expirados.
 
 {% endtab %}
 {% tab iOS %}
@@ -91,7 +100,7 @@ O erro `TopicDisallowed` significa que o APNs rejeitou o push porque o tópico (
 2. **Verifique sua configuração de autenticação APNs.** Confirme que seu app está configurado com a chave `.p8` correta do APNs e que a chave está associada ao mesmo Apple Developer Team do app para o qual você está enviando.
 3. **Confirme o ambiente do app.** Se você tem App IDs separados na Braze para builds de desenvolvimento e produção, verifique se cada um está configurado com as credenciais de push e o ambiente corretos.
 
-### Unregistered {#ios-unregistered}
+### Erro Unregistered {#ios-unregistered}
 
 Este erro aparece no Registro de atividades de envio de mensagem como:
 
@@ -107,7 +116,7 @@ Este é o equivalente iOS do erro [DEVICE_UNREGISTERED](#device-unregistered) do
 Este erro não significa que o usuário está com push desativado — apenas que um token específico foi removido do perfil dele. Para verificar se o usuário ainda possui tokens válidos, acesse **Pesquisa de usuários** e revise a seção **Configurações de contato** na guia **Engajamento**.
 {% endalert %}
 
-### InvalidProviderToken
+### Erro InvalidProviderToken {#invalidprovidertoken}
 
 O erro `InvalidProviderToken` significa que o APNs rejeitou a solicitação porque o token de autenticação (de uma chave `.p8`) ou o certificado de push (`.p12`) não corresponde ao bundle ID ou Team ID do app. Para resolver isso:
 

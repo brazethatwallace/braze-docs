@@ -32,9 +32,10 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 
 | 패키지 | 세부 정보 |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BrazeKit` | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
+| `BrazeKit`      | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
 | `BrazeLocation` | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
-| `BrazeUI` | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+| `BrazeUI`       | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -47,7 +48,8 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 | 패키지 | 세부 정보 |
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. |
-| `BrazePushStory` | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+| `BrazePushStory`           | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -94,7 +96,8 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 | 라이브러리 | 세부 정보 |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
-| `pod 'BrazeUI'` | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+| `pod 'BrazeUI'`       | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -105,7 +108,8 @@ Braze Swift SDK는 기능을 독립형 라이브러리로 분리하여 개발자
 | 라이브러리 | 세부 정보 |
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. |
-| `pod 'BrazePushStory'` | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+| `pod 'BrazePushStory'`           | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -142,16 +146,17 @@ Braze Swift SDK에는 다양한 독립형 XCFrameworks가 포함되어 있어 �
 
 | 패키지 | 필수 여부 | 설명 |
 | -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `BrazeKit` | 예 | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
-| `BrazeLocation` | 아니요 | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
-| `BrazeUI` | 아니요 | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
-| `BrazeNotificationService` | 아니요 | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazeNotificationService` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications)하세요. |
-| `BrazePushStory` | 아니요 | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazePushStory` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories)하세요. |
-| `BrazeKitCompat` | 아니요 | `Appboy-iOS-SDK` 버전 4.X.X에서 사용 가능했던 모든 `Appboy` 및 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
-| `BrazeUICompat` | 아니요 | `Appboy-iOS-SDK` 버전 4.X.X의 `AppboyUI` 라이브러리에서 사용 가능했던 모든 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
-| `SDWebImage` | 아니요 | 최소 마이그레이션 시나리오에서 `BrazeUICompat`에서만 사용하는 종속성입니다. |
+| `BrazeKit`                 | 예       | 분석 및 푸시 알림을 지원하는 기본 SDK 라이브러리입니다. |
+| `BrazeLocation`            | 아니요        | 위치 분석 및 지오펜스 모니터링을 지원하는 위치 라이브러리입니다. |
+| `BrazeUI`                  | 아니요        | 인앱 메시지, Content Cards 및 배너를 위한 Braze 제공 사용자 인터페이스 라이브러리입니다. 기본 UI 구성요소를 사용하려면 이 라이브러리를 가져오세요. |
+| `BrazeNotificationService` | 아니요        | 리치 푸시 알림을 지원하는 알림 서비스 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazeNotificationService` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications)하세요. |
+| `BrazePushStory`           | 아니요        | Push Stories를 지원하는 알림 콘텐츠 확장 라이브러리입니다. 이 라이브러리를 기본 애플리케이션 타겟에 직접 추가하지 말고 [`BrazePushStory` 라이브러리를 별도로 추가](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories)하세요. |
+| `BrazeKitCompat`           | 아니요        | `Appboy-iOS-SDK` 버전 4.X.X에서 사용 가능했던 모든 `Appboy` 및 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
+| `BrazeUICompat`            | 아니요        | `Appboy-iOS-SDK` 버전 4.X.X의 `AppboyUI` 라이브러리에서 사용 가능했던 모든 `ABK*` 클래스와 메서드가 포함된 호환성 라이브러리입니다. 사용법에 대한 자세한 내용은 [마이그레이션 가이드](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)의 최소 마이그레이션 시나리오를 참조하세요. |
+| `SDWebImage`               | 아니요        | 최소 마이그레이션 시나리오에서 `BrazeUICompat`에서만 사용하는 종속성입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### 1.3단계: 파일 준비 {#step-13-prepare-your-files}
 
@@ -476,14 +481,15 @@ AppDelegate.braze = braze;
 
 Braze Swift SDK의 기본 로그 레벨은 `.error`이며&#8212;로그가 활성화될 때 최소 지원 레벨이기도 합니다. 다음은 전체 로그 레벨 목록입니다:
 
-| Swift | Objective-C | 설명 |
+| Swift       | Objective-C              | 설명                                                  |
 | ----------- | ------------------------ | ------------------------------------------------------------ |
-| `.debug` | `BRZLoggerLevelDebug` | 디버깅 정보 + `.info` + `.error`를 기록합니다. |
-| `.info` | `BRZLoggerLevelInfo` | 일반 SDK 정보(사용자 변경 사항 등) + `.error`를 기록합니다. |
-| `.error` | `BRZLoggerLevelError` | 오류를 기록합니다. |
-| `.disabled` | `BRZLoggerLevelDisabled` | 로깅이 발생하지 않습니다. |
+| `.debug`    | `BRZLoggerLevelDebug`    | 디버깅 정보 + `.info` + `.error`를 기록합니다.              |
+| `.info`     | `BRZLoggerLevelInfo`     | 일반 SDK 정보(사용자 변경 사항 등) + `.error`를 기록합니다. |
+| `.error`    | `BRZLoggerLevelError`    | 오류를 기록합니다.                                                  |
+| `.disabled` | `BRZLoggerLevelDisabled` | 로깅이 발생하지 않습니다.                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### 로그 레벨 설정 {#setting-the-log-level}
 

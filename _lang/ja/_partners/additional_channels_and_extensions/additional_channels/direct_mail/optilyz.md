@@ -16,7 +16,7 @@ _この統合はoptilyzによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-optilyzとBrazeのWebhook統合を使用して、手紙、はがき、セルフメーラーなどのダイレクトメールを顧客に送信します。
+optilyzとBrazeのWebhook統合を使用して、手紙、はがき、セルフメーラーなどのダイレクトメールを顧客に送信できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -25,7 +25,7 @@ optilyzとBrazeのWebhook統合を使用して、手紙、はがき、セルフ�
 | optilyzアカウント | このパートナーシップを活用するには、optilyzアカウントが必要です。 |
 | optilyz APIキー<br><br>`<OPTILYZ_API_KEY>` | optilyz APIキーはoptilyzカスタマーサクセスマネージャーから提供されます。<br><br>このAPIキーでBrazeとoptilyzのアカウントを接続できます。 |
 | optilyzオートメーションID<br><br>`<OPTILYZ_AUTOMATION_ID>` | オートメーションIDは、ページヘッダーのボックスに記載されています。<br><br>optilyzにログインしたら、データの送信先のオートメーションに移動できます。<br>最初にオートメーションをアクティブにする必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -42,7 +42,7 @@ optilyzと統合するには、[optilyz API](https://www.optilyz.com/doc/api/) �
 
 将来のCampaignsやCanvasesで使用するoptilyz Webhookテンプレートを作成するには、Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動します。
 
-1回限りのoptilyz Webhookキャンペーンを作成するか、既存のテンプレートを使用する場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
+1回限りのoptilyz Webhook Campaignを作成するか、既存のテンプレートを使用する場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
 
 新しいWebhookテンプレートで、以下のフィールドに記入します。
 - **Webhook URL**: Webhook URLはお客様ごとに異なり、optilyzのカスタマーサクセスマネージャーから提供されます。
@@ -93,5 +93,5 @@ optilyzには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 ![Braze Webhookビルダーのテストタブで利用可能なさまざまなテストフィールド。]({% image_buster /assets/img/optilyz/optilyz_testing.png %})
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください。<br>更新済みWebhookテンプレートは、新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください。<br>更新済みWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}

@@ -36,7 +36,7 @@ Notez les conventions de nommage pour les ID utilisateur.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | L'identifiant unique attribué automatiquement par Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur, défini par le client. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schéma d'ID utilisateur" }
 
 ### Valeurs de plateforme {#platform-values}
 
@@ -52,7 +52,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valeurs de plateforme" }
 
 {% enddetails %}
 

@@ -90,7 +90,7 @@ Depending on which channel you select, you can test different components of your
 | Push | Copy <br> Image and Emoji Usage <br> Deep Links  <br> Presentation of numbers (for example, "triple" versus "increase by 200%")  <br> Presentation of time (for example, "ends at midnight" versus "ends in 6 hours") | Opens  <br> Conversion Rate |
 | Email | Subject <br> Display Name <br> Salutation <br> Body Copy <br> Image and Emoji Usage <br> Presentation of numbers (for example, "triple" versus "increase by 200%") <br> Presentation of time (for example, "ends at midnight" versus "ends in 6 hours") | Opens  <br> Conversion Rate |
 | In-app message | Aspects listed for "push" <br> [In-app message image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Click <br> Conversion Rate |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tips for different channels #tips-different-channels" }
 
 {% alert tip %}
 When running A/B tests, don't forget to generate [funnel reports]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) that let you understand how each variant impacted your conversion funnel, especially if "conversion" for your business involves taking multiple steps or actions.

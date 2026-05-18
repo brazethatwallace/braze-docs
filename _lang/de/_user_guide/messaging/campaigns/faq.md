@@ -3,22 +3,22 @@ nav_title: FAQ
 article_title: FAQ zu Campaigns
 page_order: 10
 page_type: FAQ
-description: "Diese Seite bietet Antworten auf häufig gestellte Fragen zu Campaigns."
+description: "Diese Seite enthält Antworten auf häufig gestellte Fragen zu Campaigns."
 tool: Campaigns
 
 ---
 
 # Häufig gestellte Fragen {#frequently-asked-questions}
 
-> Dieser Artikel bietet Antworten auf einige häufig gestellte Fragen zu Campaigns.
+> Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zu Campaigns.
 
 ### Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
 
-Um eine Multichannel-Kampagne zu erstellen, wählen Sie **Messaging** > **Campaigns**. Wählen Sie dann **Kampagne erstellen** > **Multichannel**. Von hier aus können Sie aus den folgenden Messaging-Kanälen wählen: Content Cards, E-Mail, LINE, Push-Benachrichtigungen, SMS/MMS/RCS, Webhook oder WhatsApp.
+Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Campaign erstellen**.
 
 ### Kann ich meiner Multichannel-Kampagne eine Kontrollgruppe hinzufügen? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Nein, Kontrollgruppen in Campaigns sind für Einkanal-Messaging gedacht, wie z. B. E-Mail A versus E-Mail B. Als Alternative können Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) verwenden, um verschiedene Kanäle, Messaging-Inhalte und Zustellzeitpunkte zu testen.
+Informationen dazu finden Sie unter [Kontrollgruppen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) in **Campaign erstellen**. Für kanalübergreifende Tests verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
 
 ### Welche Möglichkeiten gibt es, Campaigns zu testen und zu optimieren? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -38,7 +38,7 @@ Eine mögliche Erklärung könnte sein, dass bei der Campaign oder dem Canvas di
 
 Wenn Sie beispielsweise ein Canvas haben, das sowohl iOS- als auch Web-Push-Benachrichtigungen enthält, kann eine bestimmte Nutzerin oder ein bestimmter Nutzer mit sowohl Mobil- als auch Desktop-Geräten mehr als eine Nachricht erhalten.
 
-### Warum ist die Anzahl der *eindeutigen Empfänger:innen* höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Warum ist die Anzahl der *eindeutigen Empfänger:innen* höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Die Anzahl der *eindeutigen Empfänger:innen* kann höher sein als die erwartete Zielgruppe, da Braze für die Berichterstattung tägliche eindeutige Empfänger:innen erfasst. Dadurch kann Braze Conversions innerhalb des Conversion-Fensters jedes Mal zuordnen, wenn eine Nutzerin oder ein Nutzer die Nachricht erhält, anstatt mehrere Empfänge zu einem einzigen Lifetime-Zähler zusammenzufassen (was die Conversion-Berechnung verzerren würde).
 
@@ -48,9 +48,7 @@ Dasselbe Muster gilt für wiederkehrende Campaigns und die erneute Berechtigung:
 
 ### Warum kann die Anzahl der Conversions die Anzahl der eindeutigen Nutzer:innen bei Multichannel-Campaigns übersteigen? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Bei Multichannel-Campaigns zählt Braze Conversions pro Kanal, nicht pro Nutzer:in. Wenn eine Nutzerin oder ein Nutzer eine einzelne Conversion-Aktion innerhalb des Conversion-Fensters durchführt, ordnet Braze diese Conversion jedem Kanal zu, über den die Person eine Nachricht erhalten hat. Das bedeutet: Wenn eine Nutzerin oder ein Nutzer Nachrichten über mehrere Kanäle erhält (z. B. sowohl E-Mail als auch Push) und konvertiert, zählt Braze mehrere Conversions – eine für jeden Kanal. Dadurch kann die Gesamtzahl der Conversions die Anzahl der eindeutigen Nutzer:innen übersteigen, die konvertiert haben.
-
-Wenn beispielsweise eine Multichannel-Campaign sowohl eine E-Mail als auch eine Push-Benachrichtigung an eine Nutzerin oder einen Nutzer sendet und diese Person nach dem Erhalt beider Nachrichten und innerhalb des Conversion-Fensters eine Conversion-Aktion durchführt, zählt Braze dies als zwei Conversions – eine der E-Mail und eine dem Push zugeordnet – obwohl es sich um eine einzelne Aktion derselben Person handelt.
+Informationen dazu finden Sie unter [Conversions und Berichterstattung]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) in **Campaign erstellen** und [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) in **Konversions-Events**.
 
 ### Warum hat meine Campaign eine kleinere erreichbare Nutzerbasis als das Segment, das ich für die Campaign verwende? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
@@ -58,7 +56,7 @@ Wenn Sie eine [Globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/glob
 
 ### Was bietet die Zustellung nach Ortszeit? {#what-does-local-time-zone-delivery-offer}
 
-Die Zustellung nach Ortszeit ermöglicht es Ihnen, Messaging-Campaigns basierend auf der individuellen Zeitzone der Nutzer:innen an ein Segment zuzustellen. Ohne Zustellung nach Ortszeit werden Campaigns basierend auf den Zeitzonen-Einstellungen Ihres Unternehmens in Braze geplant.
+Die Zustellung nach Ortszeit ermöglicht es Ihnen, Messaging-Kampagnen basierend auf der individuellen Zeitzone der Nutzer:innen an ein Segment zuzustellen. Ohne Zustellung nach Ortszeit werden Campaigns basierend auf den Zeitzonen-Einstellungen Ihres Unternehmens in Braze geplant.
 
 Beispielsweise würde ein in London ansässiges Unternehmen, das eine Campaign um 12 Uhr mittags sendet, Nutzer:innen an der Westküste Amerikas um 4 Uhr morgens erreichen. Wenn Ihre App nur in bestimmten Ländern verfügbar ist, stellt dies möglicherweise kein Risiko für Sie dar. Andernfalls empfehlen wir dringend, das Senden von Push-Benachrichtigungen in den frühen Morgenstunden an Ihre Nutzerbasis zu vermeiden.
 
@@ -210,7 +208,7 @@ Aktionsbasierte Zustellungs-Campaigns oder Event-getriggerte Campaigns sind sehr
 | Vorteile | Nachteile |
 | ---- | ---- |
 | • Sichtbarkeit eingehender JSON-Payloads in der Plattform (wenn das Event von einer Testnutzerin oder einem Testnutzer getriggert wird) über das **Nachrichten-Aktivitätsprotokoll**<br><br>• Personalisierungselemente sind in den angepassten Event-Eigenschaften enthalten<br><br>• Angepasste Events können verwendet werden, um Segmente von Nutzer:innen zu erstellen, die für die Nachricht berechtigt sind | • Verbraucht Datenpunkte |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aktionsbasiert" }
 
 #### API-getriggert {#api-triggered}
 
@@ -219,7 +217,7 @@ API-getriggerte und servergetriggerte Campaigns sind ideal für die Handhabung k
 | Vorteile | Hinweise |
 | ---- | ---- |
 | • Verbraucht keine Datenpunkte<br><br>• Personalisierungselemente sind in den JSON-Payload-Eigenschaften enthalten | • Ermöglicht es nicht, ein Segment von Nutzer:innen zu erstellen, die für die Nachricht in den JSON-Payload-Eigenschaften berechtigt sind<br><br>• Eingehende JSON-Payloads können nicht über das **Nachrichten-Aktivitätsprotokoll** eingesehen werden |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API-getriggert" }
 
 ### Was sollte ich angeben, wenn ich ein Support-Ticket für einen „Request Timed Out“-Fehler einreiche? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
