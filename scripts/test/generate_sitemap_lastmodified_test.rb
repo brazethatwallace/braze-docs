@@ -74,4 +74,22 @@ class GenerateSitemapLastmodifiedTest < Minitest::Test
     newer = '2025-06-01T12:00:00+00:00'
     assert_equal newer, max_timestamp(older, newer)
   end
+
+  def test_monotonic_lastmod_keeps_existing_when_computed_is_older
+    computed = '2025-08-22T20:07:24+00:00'
+    existing = '2026-04-07T16:30:38+00:00'
+    assert_equal existing, monotonic_lastmod(computed, existing)
+  end
+
+  def test_monotonic_lastmod_uses_computed_when_newer
+    computed = '2026-05-01T10:00:00+00:00'
+    existing = '2026-04-07T16:30:38+00:00'
+    assert_equal computed, monotonic_lastmod(computed, existing)
+  end
+
+  def test_monotonic_lastmod_without_existing_returns_computed
+    computed = '2025-08-22T20:07:24+00:00'
+    assert_equal computed, monotonic_lastmod(computed, nil)
+    assert_equal computed, monotonic_lastmod(computed, '')
+  end
 end

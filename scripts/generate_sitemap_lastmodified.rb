@@ -264,6 +264,12 @@ def max_timestamp(*timestamps)
   timestamps.compact.max_by { |ts| Time.parse(ts) }
 end
 
+def monotonic_lastmod(computed, existing)
+  return computed if existing.nil? || existing.empty?
+
+  max_timestamp(computed, existing)
+end
+
 def effective_lastmod(article_relative, graph, git_dates, directory)
   article_repo_path = File.join(directory, article_relative)
 
@@ -321,7 +327,8 @@ def generate_file_listing(directory, output_file, full: false)
   end
 
   locale = locale_for_directory(directory)
-  existing_data = full ? {} : load_existing_data(output_file)
+  prior_sitemap_data = load_existing_data(output_file)
+  existing_data = full ? {} : prior_sitemap_data
   incremental = !existing_data.empty?
 
   git_dates = if incremental
@@ -362,7 +369,8 @@ def generate_file_listing(directory, output_file, full: false)
 
     next unless should_recompute
 
-    file_data[relative_path] = effective_lastmod(relative_path, graph, git_dates, directory)
+    computed = effective_lastmod(relative_path, graph, git_dates, directory)
+    file_data[relative_path] = monotonic_lastmod(computed, prior_sitemap_data[relative_path])
     recomputed += 1
   end
 
@@ -370,7 +378,8 @@ def generate_file_listing(directory, output_file, full: false)
     puts "Backfilling #{missing_files.length} new files not in existing data..."
     missing_files.each do |path|
       relative_path = path.sub(%r{\A#{Regexp.escape(directory)}/}, '')
-      file_data[relative_path] = effective_lastmod(relative_path, graph, git_dates, directory)
+      computed = effective_lastmod(relative_path, graph, git_dates, directory)
+      file_data[relative_path] = monotonic_lastmod(computed, prior_sitemap_data[relative_path])
     end
   end
 
