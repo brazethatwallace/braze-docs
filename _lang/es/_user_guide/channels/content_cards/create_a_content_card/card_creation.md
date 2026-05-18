@@ -68,6 +68,10 @@ En la configuración de **Expiration (Time in Feed)**, puedes seleccionar **Pers
 
 ![Configuración de expiración mostrando Personalize duration configurada con una variable de contexto para la expiración de la Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Las Content Cards tienen una expiración máxima de 30 días, incluso cuando se usa la duración personalizada con variables de contexto. Cualquier valor establecido más allá de 30 días se limita a 30 días. Para más detalles, consulta [Expiración de la tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 

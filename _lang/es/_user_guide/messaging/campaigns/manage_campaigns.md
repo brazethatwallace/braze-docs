@@ -12,8 +12,8 @@ description: "Esta página de inicio cubre la administración de campañas. Aqu�
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:
-  - name: Cambiar tu campaña después del lanzamiento
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/change_your_campaign_after_launch
+  - name: Editar tu campaña después del lanzamiento
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: Alertas de campaña
     link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts
