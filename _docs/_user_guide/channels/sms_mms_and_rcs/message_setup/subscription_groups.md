@@ -25,8 +25,10 @@ There are two subscription states for SMS and RCS users: `subscribed` and `unsub
 | State | Definition |
 | --------- | ---------- |
 | Subscribed | User is subscribed to receive SMS and RCS from a specific subscription group. A user can be subscribed either by having their subscription state updated through the Braze subscription API or by texting an opt-in keyword response. A user must be subscribed to an SMS or RCS subscription group to receive SMS, RCS, or both. When [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) is enabled, users must confirm their opt-in intent before their subscription status updates to `Subscribed`. |
-| Unsubscribed | User has explicitly opted out of messaging from your SMS and RCS subscription group and the sending phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or you can unsubscribe users through the [Braze subscription API]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Users unsubscribed from an SMS and RCS subscription group will no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
+| Unsubscribed | User has explicitly opted out of messaging from your SMS and RCS subscription group and the sending phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or you can unsubscribe users through the [Braze subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Users unsubscribed from an SMS and RCS subscription group will no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Set a user's state
 
