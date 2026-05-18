@@ -22,6 +22,11 @@ confirm new stale→current mappings.
 Usage (from repo root):
   python3 scripts/generate_kb_phase1_outputs.py
 
+Before generating markdown, the script **removes** CSV rows whose normalized
+`implementation_status` first line is `archived` or `actioned` (see
+`.cursor/rules/salesforce-analyzer.mdc`). Pass `--no-prune` to only refresh
+the markdown files without editing the CSV.
+
 Gates align with `.cursor/rules/salesforce-analyzer.mdc` Phase 1 (automated subset).
 Does not re-read doc bodies for “redundant with docs” or bug-workaround detection;
 those remain manual Phase 1 checks.
@@ -29,6 +34,7 @@ those remain manual Phase 1 checks.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import re
 import sys
@@ -627,12 +633,43 @@ def load_epic_bd6308_tracked_ids(path: Path) -> frozenset[str]:
     return frozenset(out)
 
 
-def load_csv_rows(path: Path) -> list[dict[str, str]]:
+def load_csv_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     if not path.is_file():
         print(f"Missing input: {path}", file=sys.stderr)
         sys.exit(2)
     with path.open(encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f))
+        reader = csv.DictReader(f)
+        fieldnames = list(reader.fieldnames or [])
+        return fieldnames, list(reader)
+
+
+def write_csv_rows(path: Path, fieldnames: list[str], rows: list[dict[str, str]]) -> None:
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_MINIMAL)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def prune_dispositioned_rows(
+    rows: list[dict[str, str]],
+) -> tuple[list[dict[str, str]], int, int]:
+    """
+    Drop rows whose implementation_status first line is archived or actioned.
+    Returns (kept_rows, n_archived_removed, n_actioned_removed).
+    """
+    kept: list[dict[str, str]] = []
+    n_archived = 0
+    n_actioned = 0
+    for row in rows:
+        impl = normalized_implementation_status(row.get("implementation_status"))
+        if impl == "archived":
+            n_archived += 1
+            continue
+        if impl == "actioned":
+            n_actioned += 1
+            continue
+        kept.append(row)
+    return kept, n_archived, n_actioned
 
 
 def score_key(row: dict[str, str]) -> tuple[int, float, str]:
@@ -650,8 +687,31 @@ def score_key(row: dict[str, str]) -> tuple[int, float, str]:
     return (tier, -sc, title)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Prune dispositioned KB CSV rows and generate Phase 1 markdown outputs.",
+    )
+    parser.add_argument(
+        "--no-prune",
+        action="store_true",
+        help="Do not remove archived/actioned rows from kb_articles.csv (only regenerate markdown).",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
-    rows = load_csv_rows(CSV_PATH)
+    args = parse_args()
+    fieldnames, rows = load_csv_rows(CSV_PATH)
+    if not args.no_prune:
+        rows, n_archived, n_actioned = prune_dispositioned_rows(rows)
+        removed = n_archived + n_actioned
+        if removed:
+            write_csv_rows(CSV_PATH, fieldnames, rows)
+            print(
+                f"Pruned {removed} row(s) from {CSV_PATH.relative_to(REPO_ROOT)} "
+                f"(archived={n_archived}, actioned={n_actioned}); "
+                f"{len(rows)} row(s) remain."
+            )
     epic_tracked = load_epic_bd6308_tracked_ids(EPIC_BD6308_TRACKED_IDS_PATH)
     classified: list[RowOut] = [classify_row(r, REPO_ROOT, epic_tracked) for r in rows]
 

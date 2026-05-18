@@ -16,7 +16,7 @@ Large internal exports (`kb_articles.csv`, optional trace files like `kb_article
 
 ## Primary source: `_data/kb_articles.csv` (analyzed articles)
 
-This CSV (~520 rows) lists Salesforce Knowledge articles that have been **pre-analyzed**. It is the **source of truth for whether and how** to update Braze Docs in the current round.
+This CSV lists Salesforce Knowledge articles that have been **pre-analyzed** (row count **shrinks** as dispositioned articles are pruned — see **Maintain the CSV backlog**). It is the **source of truth for whether and how** to update Braze Docs in the current round.
 
 **Encoding:** `utf-8`. Fields may contain commas and newlines inside quoted cells (especially `conflict`, `suggested_change`, `implementation_status`, `notes`); use a proper CSV parser (`csv.DictReader` in Python, etc.), not line-based grepping.
 
@@ -56,14 +56,23 @@ Values are often **`Archived`** or **`Actioned`** with capital letters; some cel
 
 | Normalized first line | Action |
 |-----------------------|--------|
-| `archived` | **Skip** — KA dispositioned; do not draft new docs work from this row. |
-| `actioned` | **Skip** — work already done or superseded. |
+| `archived` | **Remove from `_data/kb_articles.csv`** — KA dispositioned; not part of the active migration backlog. |
+| `actioned` | **Remove from `_data/kb_articles.csv`** — docs work done or superseded (set this status after Phase 2 PR merge, then re-run the Phase 1 generator). |
 | Empty | **In scope** for Phase 1; continue to `conflict_resolution` / `suggested_change` gates. |
 | `to be actioned` | **In scope** — explicit queue for docs work. |
 | `delta ka` | **In scope** — delta between KA and docs; often has a BD reference in `notes`; treat like pending work unless other gates skip it. |
 | Other (e.g. `made it "internal only"`) | **Skip** for public Braze Docs unless the user confirms an exception. |
 
 If after normalization the status is **unlisted** and unclear, **default to skip** until the user confirms.
+
+### Maintain the CSV backlog (prune dispositioned rows)
+
+**Do not** leave `archived` or `actioned` rows in `_data/kb_articles.csv` only to skip them during triage. Those rows are **removed from the CSV** so the file reflects **remaining** migration work.
+
+1. **When to prune** — Run at the start of Phase 1, after marking rows `actioned` when a Phase 2 PR merges, or whenever an export adds rows already dispositioned as `Archived` / `Actioned`.
+2. **How to prune** — From repo root: `python3 scripts/generate_kb_phase1_outputs.py`. The script deletes every row whose normalized `implementation_status` **first line** is `archived` or `actioned`, **rewrites** `_data/kb_articles.csv`, then regenerates `_data/kb_articles_skipped.md` and `_data/kb_articles_actioned.md`. Use `--no-prune` only to refresh the markdown without editing the CSV.
+3. **Traceability** — Keep PR/Jira links in `notes` (or your tracker) **before** pruning if you need history after the row is dropped. Pruned rows no longer appear in the generated skip/actionable markdown.
+4. **Phase 2 completion** — After merge, set `implementation_status` to `actioned` (first line; optional second line for PR URL), then re-run the generator so the row is removed and queues stay accurate.
 
 ### Redundant or inconclusive — do not act
 
@@ -112,17 +121,18 @@ def normalized_implementation_status(raw: str) -> str:
 
 ## Phase 1: Triage and backlog (`kb_articles.csv`)
 
-1. **Load** `_data/kb_articles.csv` with **`utf-8`** and a CSV-aware parser (quoted multiline fields).
-2. **Filter to actionable rows:**
-   - Normalize `implementation_status` (first line, case-insensitive); **exclude** `archived` and `actioned`.
+1. **Prune dispositioned rows** — Run `python3 scripts/generate_kb_phase1_outputs.py` (default: **prunes** `archived` / `actioned` from the CSV, then writes markdown). If you only need to inspect gates without editing the CSV, use `--no-prune`.
+2. **Load** the updated `_data/kb_articles.csv` with **`utf-8`** and a CSV-aware parser (quoted multiline fields).
+3. **Filter to actionable rows** (in-memory / manual triage; generator applies automated gates):
+   - Rows with `archived` or `actioned` should **no longer be in the CSV** after step 1; if any remain, prune again or fix `implementation_status`.
    - **Exclude** `conflict_resolution` == `inconclusive` and `target` == `inconclusive` (case-insensitive trim).
    - Apply redundant / empty-`suggested_change` rules above.
-3. **For each remaining row**, carry `article_id`, `title`, `team`, `score`, `priority_tier`, `conflict_resolution`, `target`, `doc_path`, `conflict`, `suggested_change`, `codebase_evidence`, `notes`.
-4. **Map targets** — Prefer `doc_path` when set (ensure path starts with `_docs/`). Supplement with paths embedded in `codebase_evidence` or explicit `_docs/...` strings in `suggested_change`. **Do not use `_docs/_help/help_articles/`** as the edit target.
-5. **Verify the gap** — Read the target doc(s); if the suggestion is already satisfied, mark **redundant** and skip.
-6. **Sort backlog** — Default: `priority_tier` ascending (1 first), then `score` descending, then `title`.
-7. **Optional: write tracker files** — After Phase 1 triage, run `python3 scripts/generate_kb_phase1_outputs.py` from the repo root. It reads `_data/kb_articles.csv` and writes:
-   - `_data/kb_articles_skipped.md` — skipped `article_id` values with the **skip reason** (automated gates only; manual “redundant in docs” / workaround checks are not included). **Regenerated** with the actionable file; do not hand-edit — intro links to `kb_articles_actioned.md` and summarizes largest skip buckets.
+4. **For each remaining row**, carry `article_id`, `title`, `team`, `score`, `priority_tier`, `conflict_resolution`, `target`, `doc_path`, `conflict`, `suggested_change`, `codebase_evidence`, `notes`.
+5. **Map targets** — Prefer `doc_path` when set (ensure path starts with `_docs/`). Supplement with paths embedded in `codebase_evidence` or explicit `_docs/...` strings in `suggested_change`. **Do not use `_docs/_help/help_articles/`** as the edit target.
+6. **Verify the gap** — Read the target doc(s); if the suggestion is already satisfied, mark **redundant** and skip.
+7. **Sort backlog** — Default: `priority_tier` ascending (1 first), then `score` descending, then `title`.
+8. **Tracker files** — Step 1 already regenerates (unless you used `--no-prune` and skipped a full run). The generator reads `_data/kb_articles.csv` and writes:
+   - `_data/kb_articles_skipped.md` — skipped `article_id` values with the **skip reason** (automated gates only; **`archived` / `actioned` are not listed here** because those rows are removed from the CSV). **Regenerated** with the actionable file; do not hand-edit — intro links to `kb_articles_actioned.md` and summarizes largest skip buckets.
    - `_data/kb_articles_actioned.md` — **actionable** backlog (not the CSV `actioned` status): rows that pass gates and resolve to an on-disk `_docs/...` file, **batched** by (a) **shared primary doc path** (multi-article → one PR) and (b) **vertical** (IA bucket under `_user_guide/`) plus CSV `team`. Section **1** includes a **Product vertical ownership** table (path-based suggestions such as Email, Push, Canvas, API, Partners, SDK, Analytics) with a **Product owner** column for you to fill when the suggestion is wrong or unknown; batch PRs and Jira tasks should name that vertical for reviewers. When the CSV lists **stale `_docs/` paths**, `generate_kb_phase1_outputs.py` may **infer** a current file via curated maps (`PATH_INFERENCE_EXACT` / `PATH_INFERENCE_PREFIXES`) or a unique basename index—those rows appear under **Scripted path inference** in the markdown; verify targets before Phase 2 PRs.
    - **Epic overlap:** If `_data/kb_epic_bd6308_tracked_article_ids.txt` is present, each `article_id` listed there is **omitted** from `kb_articles_actioned.md` when it would otherwise be actionable (so the markdown queue does not duplicate work already filed under Jira Epic **BD-6308**). Those rows appear in `kb_articles_skipped.md` with an epic-specific explanation. Refresh the list when new child issues are added under the epic (JQL: `"Epic Link" = BD-6308`).
 
@@ -151,7 +161,7 @@ def normalized_implementation_status(raw: str) -> str:
 |------|------------|-------|--------|---------------------|--------|----------|-------|-------|
 | 1 | ka0VP… | … | … | … | docs | `_docs/...` | 15 | Yes |
 
-**X actionable rows; Y skipped** (archived/actioned/inconclusive/redundant/empty brief/insufficient CSV detail — see chat notes).
+**X actionable rows; Y skipped** (inconclusive/redundant/empty brief/insufficient CSV detail — see chat notes). Dispositioned **`archived` / `actioned`** rows are **pruned from the CSV**, not counted as skipped.
 
 To proceed: "Run Phase 2 for `article_id` ka0VP…" / "top N from backlog" / filter by `team`.
 ```
@@ -174,6 +184,7 @@ If evidence or `suggested_change` points under `_docs/_help/help_articles/`, cho
 4. **Sufficiency check** — If the row still does not meet **Insufficient row detail** (concrete change + target + verifiable hints), **stop**; do not draft. Post the required **Skipped (insufficient CSV)** note in chat.
 5. **Draft** — Prefer tightening existing prose over new callouts; follow `docs/contributing/style_guide/*` and the braze-docs skill for Liquid and structure.
 6. **Branch / commit / PR / Jira** — Same as Steps 7–10 below.
+7. **After merge** — Set the row’s `implementation_status` to **`actioned`** (first line; optional PR/Jira in a second line or `notes`), then run `python3 scripts/generate_kb_phase1_outputs.py` to **remove** the row from `_data/kb_articles.csv` and refresh the backlog markdown.
 
 ### Batch processing
 
@@ -247,6 +258,7 @@ If Jira creation fails (permissions, field missing, wrong `cloudId`), **retry** 
 | Resource | Path |
 |----------|------|
 | Analyzed KB articles (sole workflow input) | `_data/kb_articles.csv` |
+| Phase 1 prune + markdown generator | `scripts/generate_kb_phase1_outputs.py` |
 
 ---
 

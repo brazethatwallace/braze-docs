@@ -1,16 +1,16 @@
 # KB articles — Phase 1 skipped rows
 
-Generated from `_data/kb_articles.csv` on **2026-05-15 19:14 UTC**.
+Generated from `_data/kb_articles.csv` on **2026-05-18 16:14 UTC**.
 
 **Do not hand-edit this file** — it is overwritten by `python3 scripts/generate_kb_phase1_outputs.py` (repo root). Update the CSV (or epic ID list), then re-run that script; the companion `_data/kb_articles_actioned.md` file is refreshed in the same run.
 
 Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/salesforce-analyzer.mdc`. The **actionable** queue (rows that *did* pass) lives in `_data/kb_articles_actioned.md`. Rows skipped only because they appear in `_data/kb_epic_bd6308_tracked_article_ids.txt` would otherwise be actionable — they are excluded so this list does not duplicate Jira Epic **BD-6308** in-flight work. Redundant-with-live-docs, bug-workaround-only, and other **manual** Phase 1 checks are **not** applied here.
 
-**Totals:** 266 CSV rows — **44 actionable**, **222 skipped**.
+**Totals:** 246 CSV rows — **25 actionable**, **221 skipped**.
 
 **Largest skip buckets** (each bullet matches a `##` section below):
 
-- **105** — No locatable on-disk `_docs/...` target after path extraction, IA remaps, and scripted inference (i…
+- **104** — No locatable on-disk `_docs/...` target after path extraction, IA remaps, and scripted inference (i…
 - **97** — `conflict_resolution` is `inconclusive`.
 - **15** — `target` is `knowledge_article` and the row has no substantive `_docs/` hint (KA-only / no Braze Do…
 - **2** — `target` is `inconclusive`.
@@ -20,7 +20,7 @@ Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/sale
 
 ## No locatable on-disk `_docs/...` target after path extraction, IA remaps, and scripted inference (insufficient CSV path, stale path, or needs manual `doc_path` fix).
 
-**Count:** 105
+**Count:** 104
 
 - **`ka03o000001N9RKAA0`** — Canvas Branching Distribution
   - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
@@ -144,8 +144,6 @@ Rows listed here **did not** pass automated Phase 1 gates in `.cursor/rules/sale
   - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
 - **`ka0VP000000QZBpYAO`** — Whatsapp template has been falsely flagged - content against Whatsapp's Commerce Policy
   - *Explanation:* Extracted `_docs` candidates (none resolve after IA remaps and scripted path inference): `_docs/_user_guide/message_building_by_channel/whatsapp/faqs.md`. Fix `doc_path` / evidence paths or extend `PATH_INFERENCE_EXACT` / `PATH_INFERENCE_PREFIXES` / `PATH_FRAG_REMAPS` in `scripts/generate_kb_phase1_outputs.py`.
-- **`ka0VP000000QgRpYAK`** — Saving Drag & Drop Template
-  - *Explanation:* Extracted `_docs` candidates (none resolve after IA remaps and scripted path inference): `_docs/_user_guide/engagement_tools/templates_and_media/`. Fix `doc_path` / evidence paths or extend `PATH_INFERENCE_EXACT` / `PATH_INFERENCE_PREFIXES` / `PATH_FRAG_REMAPS` in `scripts/generate_kb_phase1_outputs.py`.
 - **`ka0VP000000QlXxYAK`** — How do I use the spacer.gif resource?
   - *Explanation:* No `_docs/...` strings found in `doc_path`, `codebase_evidence`, or `suggested_change` (or only non-doc targets such as `platform/...` without a docs path).
 - **`ka0VP000000R2AbYAK`** — Total reachable users' count goes up after adding a filter
