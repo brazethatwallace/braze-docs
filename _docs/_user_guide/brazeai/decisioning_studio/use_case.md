@@ -34,9 +34,7 @@ Poppy maps the dimensions that matter for win-back strategies:
 - Send time or cadence
 - Creative: Small illustrations or utility-focused copy
 
-For each dimension, she lists concrete options in the action bank—the only actions the agent may take (everything else stays off-limits by design). 
-
-She adds constraints: maximum discount rates, inventory exclusions, frequency limits, and geographic rules so personalization never violates finance or brand policy. The agent then experiments across allowed combinations to discover what works for each customer while optimizing the chosen success metric.
+For each dimension, she lists concrete options in the action bank—the only actions the agent may take (everything else stays off-limits by design). The agent then experiments across allowed combinations to discover what works for each customer while optimizing the chosen success metric.
 
 ## Step 3: Prepare data and connect orchestration to Braze
 
@@ -46,10 +44,6 @@ For orchestration, she uses the native Braze path: Decisioning Studio decides wh
 
 ## Step 4: Launch, monitor, and optimize for revenue
 
-After configuration review with AI Decisioning Services, Poppy launches the agent. 
-
-The agent begins recommending actions per user and orchestrating sends through Braze to improve over time.
-
-She monitors performance against the success metric, learning progress, and which dimensions drive lift for which segments, then refines options or constraints with the team as rules or inventory change.
+After configuration review with AI Decisioning Services, Poppy launches the agent. The agent begins recommending actions per user and orchestrating sends through Braze to improve over time. 
 
 By pairing a revenue-first success metric with a decisioning agent that continuously tests allowed actions, Kitchenerie moves from static win-back blasts to 1:1 decisions that adapt per customer, aiming to win back more customers and grow revenue while staying within the business rules Poppy defined.
