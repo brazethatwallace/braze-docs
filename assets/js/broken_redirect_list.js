@@ -3293,6 +3293,7 @@ validurls['/docs/partners/message_personalization/dynamic_content/visual_and_int
 validurls['/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/customer_data_api/#connecting-to-the-movable-ink-customer-data-api'] = '/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/customer_data_api/#connect-to-the-movable-ink-customer-data-api';
 validurls['/docs/partners/additional_channels_and_extensions/additional_channels/advertising/liveramp/#connecting-liveramp-snowflake-and-braze'] = '/docs/partners/additional_channels_and_extensions/additional_channels/advertising/liveramp/#connect-liveramp-snowflake-and-braze';
 validurls['/docs/partners/ecommerce/loyalty/voucherify/voucherify_fetching_data_through_braze_connected_content/#fetching-data-through-connected-content'] = '/docs/partners/ecommerce/loyalty/voucherify';
+validurls['/docs/partners/ecommerce/shopify/shopify_for_currents/'] = '/docs/partners/ecommerce/shopify/shopify_overview';
 validurls['/docs/partners/ecommerce/shopify/multiple_stores/#connecting-multiple-shopify-stores'] = '/docs/partners/ecommerce/shopify/multiple_stores/#connect-multiple-shopify-stores';
 validurls['/docs/partners/ecommerce/shopify/discount_codes/#sending-unique-discount-codes-through-shopify'] = '/docs/partners/ecommerce/shopify/discount_codes/#send-unique-discount-codes-through-shopify';
 
