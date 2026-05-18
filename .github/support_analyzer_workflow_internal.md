@@ -22,6 +22,8 @@ The Looker saved report behind the export is scoped to a **rolling ~3-day** wind
 
 4. **`close_digest_pr`** — If a digest PR was opened **and** Phase 2 **succeeded**, closes that digest PR with **`gh pr close --delete-branch`** and leaves a short comment pointing readers at the **digest artifact** on the workflow run. The digest markdown remains in Actions artifacts even after the PR is closed.
 
+5. **`notify`** — Posts to **#docs_request** in Slack (Docs PR Bot) when `SLACK_BOT_TOKEN` and `SLACK_DOCS_REQUEST_CHANNEL` are set. Failures include the failed job name(s) and a link to the workflow run. When Phase 2 opens draft PRs, the message lists each PR and pings assignees (GitHub usernames from the assignees map, resolved to Slack `<@U…>` when possible).
+
 **Typical writer flow:** You do **not** need to merge the digest PR for the pipeline to finish—it auto-closes after Phase 2. You **do** review and merge (or close) each **Phase 2** draft doc PR on its merits after validating product behavior and style.
 
 ---
