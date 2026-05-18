@@ -99,7 +99,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     UAInAppAutomation.shared()?.inAppMessageManager.delegate = self
     UAInAppAutomation.shared()?.inAppMessageManager.displayInterval = 30
 }
-`````````
+```
 **Braze**
 `````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
@@ -118,7 +118,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // In-App Messages
     Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInAppMessageUIDelegate?(self)
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
@@ -139,7 +139,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
   return YES;
 }
-`````````
+```
 **Braze**
 `````````objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -161,7 +161,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
   return YES;
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -180,7 +180,7 @@ extension AirshipManager {
     UAirship.namedUser()?.identifier = userId
   }
 }
-`````````
+```
 **Braze**
 `````````swift
 extension AppboyManager {
@@ -192,7 +192,7 @@ extension AppboyManager {
     Appboy.sharedInstance()?.changeUser(userId)
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
@@ -205,7 +205,7 @@ extension AppboyManager {
 - (void)setUser:(NSString *)userId {
   [[UAirship namedUser] setIdentifier:userId];
 }
-`````````
+```
 **Braze**
 `````````objc
 - (NSString *)userId {
@@ -215,7 +215,7 @@ extension AppboyManager {
 - (void)changeUser:(NSString *)userId {
   [[Appboy sharedInstance] changeUser: userId];
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -237,7 +237,7 @@ extension AirshipManager: UAPushNotificationDelegate {
     completionHandler()
   }
 }
-`````````
+```
 **Braze**
 `````````swift
 extension AppboyManager {
@@ -253,7 +253,7 @@ extension AppboyManager {
     Appboy.sharedInstance()?.userNotificationCenter(center, didReceive: response, withCompletionHandler: completionHandler)
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
@@ -269,7 +269,7 @@ extension AppboyManager {
 - (void)receivedNotificationResponse:(UANotificationResponse *)notificationResponse completionHandler:(void (^)(void))completionHandler {
   completionHandler();
 }
-`````````
+```
 **Braze**
 `````````objc
 - (void)application:(UIApplication *)application didRegisterForRemoteNotifications
@@ -292,7 +292,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)(void))completionHandler {
   [[Appboy sharedInstance] userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -318,7 +318,7 @@ extension AirshipManager {
     UAirship.namedUser().apply(mutations)
   }
 }
-`````````
+```
 **Braze**
 `````````swift
 extension AppboyManager {
@@ -334,7 +334,7 @@ extension AppboyManager {
     Appboy.sharedInstance()?.logPurchase(productIdentifier, inCurrency: currency, atPrice: NSDecimalNumber(string: price), withQuantity: UInt(quanity))
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
@@ -353,7 +353,7 @@ extension AppboyManager {
   [mutations setString:value forAttribute:attribute];
   [[UAirship namedUser] applyAttributeMutations:mutations];
 }
-`````````
+```
 **Braze**
 `````````objc
 - (void)logCustomEvent:(NSString *)eventName withProperties:(NSDictionary *)properties {
@@ -367,7 +367,7 @@ extension AppboyManager {
 - (void)logPurchase:(NSString *)productIdentifier inCurrency:(NSString *)currency atPrice:(NSString *)price withQuantity:(NSInteger)quantity {
   [[Appboy sharedInstance] logPurchase:productIdentifier inCurrency:currency atPrice:[[NSDecimalNumber alloc] initWithString:price] withQuantity:quantity];
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -388,7 +388,7 @@ extension AirshipManager: UAInAppMessagingDelegate {
   func messageFinishedDisplaying(_ message: UAInAppMessage, scheduleID: String, resolution: UAInAppMessageResolution) {
   }
 }
-`````````
+```
 **Braze**
 `````````swift
 extension AppboyManager: ABKInAppMessageControllerDelegate {
@@ -423,7 +423,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
     return true
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
@@ -440,7 +440,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 - (void)messageFinishedDisplaying:(UAInAppMessage *)message scheduleID:(NSString *)scheduleID resolution:(UAInAppMessageResolution *)resolution {
 
 }
-`````````
+```
 **Braze**
 `````````objc
 - (ABKInAppMessageDisplayChoice) beforeInAppMessageDisplayed:(ABKInAppMessage *)inAppMessage {
@@ -470,7 +470,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
                                buttonID:(NSString *)buttonID {
   return YES;
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -492,7 +492,7 @@ extension AirshipManager {
     UAMessageCenter.shared()?.display()
   }
 }
-`````````
+```
 **Braze**
 `````````swift
 extension AppboyManager {
@@ -503,7 +503,7 @@ extension AppboyManager {
     navigationController?.pushViewController(contentCardsVc, animated: true)
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **Airship**
@@ -512,7 +512,7 @@ extension AppboyManager {
   [UAMessageCenter shared].defaultUI.title = @"My Message Center";
   [[UAMessageCenter shared] display];
 }
-`````````
+```
 **Braze**
 `````````objc
 - (void)displayContentCards:(UINavigationController *)navigationController {
@@ -520,6 +520,6 @@ extension AppboyManager {
   contentCards.title = @"My Message Center";
   [self.navigationController pushViewController:contentCards animated:YES];
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}

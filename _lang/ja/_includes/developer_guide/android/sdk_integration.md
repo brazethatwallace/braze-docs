@@ -8,7 +8,7 @@
 repositories {
   mavenCentral()
 }
-`````````
+```
 
 次に、依存関係にBrazeを追加します。以下の例では、`SDK_VERSION`を現在のAndroid Braze SDKのバージョンに置き換えてください。全バージョンのリストについては、[変更ログ]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android)を参照してください。
 
@@ -29,7 +29,7 @@ dependencies {
     implementation 'com.braze:android-sdk-base:SDK_VERSION' // (Required) Adds dependencies for the base Braze SDK.
     implementation 'com.braze:android-sdk-location:SDK_VERSION' // (Optional) Adds dependencies for Braze location services.
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Kotlin DSL %}
 `````````kotlin
@@ -37,7 +37,7 @@ dependencies {
     implementation("com.braze:android-sdk-base:SDK_VERSION") // (Required) Adds dependencies for the base Braze SDK.
     implementation("com.braze:android-sdk-location:SDK_VERSION") // (Optional) Adds dependencies for Braze location services.
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Version catalog %}
 `gradle/libs.versions.toml`ファイルに以下を追加します：
@@ -49,7 +49,7 @@ braze = "SDK_VERSION"
 [libraries]
 braze-android-sdk-base = { group = "com.braze", name = "android-sdk-base", version.ref = "braze" }
 braze-android-sdk-location = { group = "com.braze", name = "android-sdk-location", version.ref = "braze" }
-`````````
+```
 
 次に、`build.gradle`または`build.gradle.kts`ファイルに以下の依存関係を追加します。この構文はGroovyとKotlin DSLの両方で同じです。
 
@@ -58,7 +58,7 @@ dependencies {
     implementation(libs.braze.android.sdk.base) // (Required) Adds dependencies for the base Braze SDK.
     implementation(libs.braze.android.sdk.location) // (Optional) Adds dependencies for Braze location services.
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -73,7 +73,7 @@ dependencies {
     implementation 'com.braze:android-sdk-ui:SDK_VERSION' // (Required) Adds dependencies for the Braze SDK and Braze UI components.
     implementation 'com.braze:android-sdk-location:SDK_VERSION' // (Optional) Adds dependencies for Braze location services.
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Kotlin DSL %}
 `````````kotlin
@@ -81,7 +81,7 @@ dependencies {
     implementation("com.braze:android-sdk-ui:SDK_VERSION") // (Required) Adds dependencies for the Braze SDK and Braze UI components.
     implementation("com.braze:android-sdk-location:SDK_VERSION") // (Optional) Adds dependencies for Braze location services.
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Version catalog %}
 `gradle/libs.versions.toml`ファイルに以下を追加します：
@@ -93,7 +93,7 @@ braze = "SDK_VERSION"
 [libraries]
 braze-android-sdk-ui = { group = "com.braze", name = "android-sdk-ui", version.ref = "braze" }
 braze-android-sdk-location = { group = "com.braze", name = "android-sdk-location", version.ref = "braze" }
-`````````
+```
 
 次に、`build.gradle`または`build.gradle.kts`ファイルに以下の依存関係を追加します。この構文はGroovyとKotlin DSLの両方で同じです。
 
@@ -102,7 +102,7 @@ dependencies {
     implementation(libs.braze.android.sdk.ui) // (Required) Adds dependencies for the Braze SDK and Braze UI components.
     implementation(libs.braze.android.sdk.location) // (Optional) Adds dependencies for Braze location services.
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -124,7 +124,7 @@ dependencies {
   <string translatable="false" name="com_braze_api_key">YOUR_APP_IDENTIFIER_API_KEY</string>
   <string translatable="false" name="com_braze_custom_endpoint">YOUR_CUSTOM_ENDPOINT_OR_CLUSTER</string>
 </resources>
-`````````
+```
 
 ### ステップ3: `AndroidManifest.xml`に権限を追加する {#step-3-add-permissions-to-androidmanifestxml}
 
@@ -133,7 +133,7 @@ dependencies {
 `````````xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-`````````
+```
 
 {% alert note %}
 Android Mのリリースにより、Androidはインストール時の権限モデルからランタイム権限モデルに切り替わりました。ただし、これらの権限はどちらも通常の権限であり、アプリのマニフェストにリストされている場合は自動的に付与されます。詳細については、Androidの[権限に関するドキュメント](https://developer.android.com/training/permissions/index.html)を参照してください。
@@ -159,7 +159,7 @@ Android Mのリリースにより、Androidはインストール時の権限モ�
 
 `````````xml
 <bool name="com_braze_enable_delayed_initialization">true</bool>
-`````````
+```
 {% endtab %}
 
 {% tab At runtime %}
@@ -170,14 +170,14 @@ Android Mのリリースにより、Androidはインストール時の権限モ�
 
 `````````java
 Braze.enableDelayedInitialization(context);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 `````````kotlin
 Braze.enableDelayedInitialization(context)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -202,7 +202,7 @@ Braze.enableDelayedInitialization(context)
 
 `````````xml
 <string name="com_braze_delayed_initialization_analytics_behavior">QUEUE</string>
-`````````
+```
 {% endtab %}
 
 {% tab At runtime %}
@@ -213,14 +213,14 @@ Braze.enableDelayedInitialization(context)
 
 `````````java
 Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavior.QUEUE);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 `````````kotlin
 Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavior.QUEUE)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -237,7 +237,7 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 
 `````````xml
 <string name="com_braze_delayed_initialization_analytics_behavior">DROP</string>
-`````````
+```
 {% endtab %}
 
 {% tab At runtime %}
@@ -248,14 +248,14 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 
 `````````java
 Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavior.DROP);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 `````````kotlin
 Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavior.DROP)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -271,14 +271,14 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 
 `````````java
 Braze.disableDelayedInitialization(context);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 Braze.disableDelayedInitialization(context)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -300,7 +300,7 @@ public class MyApplication extends Application {
     registerActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener());
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -312,7 +312,7 @@ class MyApplication : Application() {
     registerActivityLifecycleCallbacks(BrazeActivityLifecycleCallbackListener())
   }
 }
-`````````
+```
 
 利用可能なパラメータの一覧については、[`BrazeActivityLifecycleCallbackListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-activity-lifecycle-callback-listener/index.html)を参照してください。
 
@@ -353,7 +353,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setGreatNetworkDataFlushInterval(10)
         .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -367,7 +367,7 @@ val brazeConfig = BrazeConfig.Builder()
         .setGreatNetworkDataFlushInterval(10)
         .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -397,7 +397,7 @@ new Thread(new Runnable() {
     }
   }
 }).start();
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -419,7 +419,7 @@ suspend fun fetchAndSetAdvertisingId(
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -435,7 +435,7 @@ Brazeの位置情報収集を有効にするには、`braze.xml`ファイルで`
 
 `````````xml
 <bool name="com_braze_enable_location_collection">true</bool>
-`````````
+```
 
 {% alert important %}
 Braze Android SDKバージョン3.6.0以降、Brazeの位置情報収集はデフォルトで無効になっています。
@@ -463,13 +463,13 @@ Braze Android SDKバージョン3.6.0以降、Brazeの位置情報収集はデ�
 {% subtab JAVA %}
 `````````java
 BrazeLogger.setLogLevel(Log.MIN_LOG_LEVEL);
-`````````
+```
 {% endsubtab %}
 
 {% subtab KOTLIN %}
 `````````kotlin
 BrazeLogger.logLevel = Log.MIN_LOG_LEVEL
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -491,13 +491,13 @@ BrazeLogger.logLevel = Log.MIN_LOG_LEVEL
 {% subtab JAVA %}
 `````````java
 BrazeLogger.setLogLevel(Log.VERBOSE);
-`````````
+```
 {% endsubtab %}
 
 {% subtab KOTLIN %}
 `````````kotlin
 BrazeLogger.logLevel = Log.VERBOSE
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -507,7 +507,7 @@ BrazeLogger.logLevel = Log.VERBOSE
 
 `````````xml
 <integer name="com_braze_logger_initial_log_level">MIN_LOG_LEVEL</integer>
-`````````
+```
 
 `MIN_LOG_LEVEL`を、最小ログレベルとして設定するログレベルの**値**に置き換えます。設定した`MIN_LOG_LEVEL`以上（`>=`）のレベルのログはすべて、Androidのデフォルトの[`Log`](https://developer.android.com/reference/android/util/Log)メソッドに転送されます。設定した`MIN_LOG_LEVEL`未満（`<`）のすべてのログは破棄されます。
 
@@ -525,7 +525,7 @@ BrazeLogger.logLevel = Log.VERBOSE
 
 `````````xml
 <integer name="com_braze_logger_initial_log_level">2</integer>
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -533,9 +533,9 @@ BrazeLogger.logLevel = Log.VERBOSE
 
 ログが`VERBOSE`に設定されていることを確認するには、ログのどこかに`V/Braze`が出現するかどうかを確認します。出現していれば、詳細ログは正常に有効になっています。以下に例を示します：
 
-`````````
+```
 2077-11-19 16:22:49.591 ? V/Braze v9.0.01 .bo.app.d3: Request started
-`````````
+```
 
 #### ログを抑制する {#suppressing-logs}
 
@@ -545,13 +545,13 @@ Braze Android SDKのすべてのログを抑制するには、アプリケーシ
 {% tab JAVA %}
 `````````java
 BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS);
-`````````
+```
 {% endtab %}
 
 {% tab KOTLIN %}
 `````````kotlin
 BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -568,7 +568,7 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 <resources>
 <string name="com_braze_api_key">REPLACE_WITH_YOUR_BUILD_VARIANT_API_KEY</string>
 </resources>
-`````````
+```
 
 {% alert tip %}
 コード内でAPIキーを設定する方法については、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)を参照してください。
@@ -584,7 +584,7 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 {% tab Braze XML %}
 `````````xml
 <bool name="com_braze_device_in_app_message_accessibility_exclusive_mode_enabled">true</bool>
-`````````
+```
 {% endtab %}
 
 {% tab Kotlin %}
@@ -592,7 +592,7 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 val brazeConfigBuilder = BrazeConfig.Builder()
 brazeConfigBuilder.setIsInAppMessageAccessibilityExclusiveModeEnabled(true)
 Braze.configure(this, brazeConfigBuilder.build())
-`````````
+```
 {% endtab %}
 
 {% tab Java %}
@@ -600,7 +600,7 @@ Braze.configure(this, brazeConfigBuilder.build())
 BrazeConfig.Builder brazeConfigBuilder = new BrazeConfig.Builder()
 brazeConfigBuilder.setIsInAppMessageAccessibilityExclusiveModeEnabled(true);
 Braze.configure(this, brazeConfigBuilder.build());
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -610,7 +610,7 @@ Braze.configure(this, brazeConfigBuilder.build());
 
 Brazeコードを難読化するクライアントアプリでは、Brazeがスタックトレースを解釈するためのリリースマッピングファイルを保存する必要があります。すべてのBrazeコードを引き続き保持する場合は、ProGuardファイルに以下を追加します：
 
-`````````
+```
 -keep class bo.app.** { *; }
 -keep class com.braze.** { *; }
-`````````
+```

@@ -228,7 +228,7 @@ erDiagram
     SNAPSHOTS_CANVAS_VARIATION_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_EXPERIMENT_STEP_SHARED ||--o{ GROUP_6 : joins
     GROUP_6 ||--o{ EVENT : joins
-`````````
+```
 
 - `PK` = 主キー
 - `FK` = 外部キー
@@ -237,7 +237,7 @@ erDiagram
 
 ### `ABORT_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_ABORT_SHARED
 // An originally scheduled email message was aborted for some reason.
 
@@ -255,11 +255,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -275,11 +275,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `BOUNCE_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_BOUNCE_SHARED
 // An Email Service Provider returned a hard bounce. A hard bounce signifies a permanent deliverability failure.
 
@@ -297,11 +297,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -320,11 +320,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `CLICK_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_CLICK_SHARED
 // When a user clicks a link in an email.
 
@@ -342,11 +342,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -367,11 +367,11 @@ erDiagram
         "LINK_ID": "Unique ID for the link which was clicked, as created by Braze"
     }
 }
-`````````
+```
 
 ### `DEFERRAL_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_DEFERRAL_SHARED
 // When an email deferred.
 
@@ -387,11 +387,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
     "native_keys": {
@@ -409,11 +409,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `DELIVERY_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_DELIVERY_SHARED
 // When an email is delivered.
 
@@ -431,11 +431,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -452,11 +452,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `MARKASSPAM_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED
 // When an email is marked as spam.
 
@@ -474,11 +474,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -495,11 +495,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `OPEN_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_OPEN_SHARED
 // When a user begins opens an email.
 
@@ -517,11 +517,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -540,11 +540,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `SEND_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_SEND_SHARED
 // When we send an email to a user.
 
@@ -562,11 +562,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -583,11 +583,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `SOFTBOUNCE_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED
 // When an email soft bounces.
 
@@ -605,11 +605,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -627,11 +627,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `UNSUBSCRIBE_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED
 // When a user unsubscribes from email.
 
@@ -649,11 +649,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -667,4 +667,4 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```

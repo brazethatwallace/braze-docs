@@ -154,7 +154,7 @@ Brazeでは、最初は少数のユーザーにRCSの送信をテストし、時
     }
   ]
 }
-`````````
+```
 {% endraw %}
 
 ![前述のJSONコードを含む「ユーザーの更新オブジェクト」。]({% image_buster /assets/img/sms/user_update_object.png %})

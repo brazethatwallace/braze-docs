@@ -36,7 +36,7 @@ contentCardsTableViewController.delegate = delegate;
                     didHandleCardClick:(NSURL *)url {
   NSLog(@"Braze SDK handled Content Card click with URL %@", url.absoluteString);
 }
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 `````````swift
@@ -58,7 +58,7 @@ func contentCardTableViewController(_ viewController: ABKContentCardsTableViewCo
                                     didHandleCardClick url: URL!) {
   NSLog("Braze SDK handled Content Card click with URL %@", url.absoluteString)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

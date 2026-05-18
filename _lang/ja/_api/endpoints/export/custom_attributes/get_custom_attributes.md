@@ -41,19 +41,19 @@ description: "この記事では、Brazeのカスタム属性エクスポート�
 curl --location --request GET 'https://rest.iad-01.braze.com/custom_attributes' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ### カーソル付き {#with-cursor}
 
-`````````
+```
 curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?cursor=c2tpcDow' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "attributes" : [
@@ -68,7 +68,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
         ...
     ]
 }
-`````````
+```
 
 ### 致命的なエラーの応答コード {#fatal-export}
 

@@ -4,7 +4,7 @@ article_title: キャンバスのコンテンツカード
 page_order: 1
 page_type: reference
 description: "このリファレンス記事では、キャンバス内のメッセージングチャネルとしてコンテンツカードを使用する際の機能と注意点について説明します。"
-tool: キャンバス
+tool: Canvas
 channel: content cards
 
 ---

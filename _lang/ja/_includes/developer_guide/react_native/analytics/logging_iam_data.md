@@ -44,7 +44,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
   console.log(event.inAppMessage);
   // Use `event.inAppMessage` to construct your own custom message UI.
 });
-`````````
+```
 {% endtab %}
 
 {% tab advanced %}
@@ -75,7 +75,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
     // to prevent the Braze SDK from displaying the message natively.
     return InAppMessageOperation.DISPLAY_NOW;
 }
-`````````
+```
 {% endsubtab %}
 {% subtab iOS %}
 ### デフォルトのUIデリゲートをオーバーライドする {#overriding-the-default-ui-delegate}
@@ -105,7 +105,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
   // to prevent the Braze SDK from displaying the message natively.
   return BRZInAppMessageUIDisplayChoiceNow;
 }
-`````````
+```
 
 このデリゲートを使用するには、`braze` インスタンスを初期化した後に `brazeInAppMessagePresenter.delegate` に割り当てます。
 
@@ -122,7 +122,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
   ((BrazeInAppMessageUI *)braze.inAppMessagePresenter).delegate = [[CustomDelegate alloc] init];
   AppDelegate.braze = braze;
 }
-`````````
+```
 
 ### デフォルトのネイティブUIをオーバーライドする {#overriding-the-default-native-ui}
 
@@ -133,7 +133,7 @@ BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKe
 Braze *braze = [BrazeReactBridge initBraze:configuration];
 braze.inAppMessagePresenter = [[MyCustomPresenter alloc] init];
 AppDelegate.braze = braze;
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

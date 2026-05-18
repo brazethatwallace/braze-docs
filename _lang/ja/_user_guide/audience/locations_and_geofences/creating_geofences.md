@@ -258,7 +258,7 @@ JSONファイルをアップロードするには、**More** > **Upload JSON**�
     }
   ]
 }
-`````````
+```
 
 ## ジオフェンスイベントの使用 {#using-geofence-events}
 

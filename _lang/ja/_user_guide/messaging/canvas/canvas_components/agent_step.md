@@ -5,7 +5,7 @@ alias: /agent_step/
 page_order: 2
 page_type: reference
 description: "このリファレンス記事では、キャンバスのエージェントステップを使用して、コンテンツを生成したり、リアルタイムでインテリジェントな判断を行ったりする方法について説明します。"
-tool: キャンバス
+tool: Canvas
 toc_headers: h2
 ---
 

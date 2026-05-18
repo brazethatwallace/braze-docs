@@ -5,7 +5,7 @@
 {% raw %}
 ```js
 {% connected_content http://numbersapi.com/random/trivia :content_type application/json %}
-`````````
+```
 {% endraw %}
 
 {% endif %}
@@ -24,7 +24,7 @@
 {% raw %}
 `````````js
 {% connected_content https://example.com/api/endpoint :method post :body key1=value1&key2=value2 %}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -33,7 +33,7 @@
 {% raw %}
 `````````js
 {% connected_content https://example.com/api/endpoint :method post :body key1=value1&key2=value2 :content_type application/json %}
-`````````
+```
 {% endraw %}
 
 {% endtab %}

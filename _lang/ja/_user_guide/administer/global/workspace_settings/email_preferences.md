@@ -48,7 +48,7 @@ German Display Name
 {% else %}
 Default to English Display Name
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -70,7 +70,7 @@ Default to English Display Name
 {% assign address = "eu-support@company.com" %}
 {% else %}
 {% assign address = "global-support@company.com" %}{% endif %}{{address}}
-`````````
+```
 {% endraw %}
 
 {% endtab %}

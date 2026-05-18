@@ -32,7 +32,7 @@ search_tag: Partner
 Map<String, Object> brazeData = new HashMap<>();
 partnerData.put("external_user_id", "some-braze-external-id-value");
 AppsFlyerLib.getInstance().setPartnerData("braze_int", brazeData);
-`````````
+```
 
 #### iOS
 `````````objc
@@ -40,7 +40,7 @@ NSDictionary *brazeInfo = @{
      @"external_user_id":@"some-braze-external-id-value"
 };
 [[AppsFlyerLib shared]  setPartnerDataWithPartnerId:@"braze_int" partnerInfo:brazeInfo];
-`````````
+```
 
 ### ステップ2: Brazeデータインポートキーを取得する {#step-2-get-the-braze-data-import-key}
 

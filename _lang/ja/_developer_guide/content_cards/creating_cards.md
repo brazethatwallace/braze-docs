@@ -74,7 +74,7 @@ braze.subscribeToContentCardsUpdates((updates) => {
 });
 
 braze.openSession();
-`````````
+```
 
 {% alert note %}
 Content Cardsは、`openSession()` の前に `subscribeToContentCardsUpdates()` が呼び出された場合にのみ、セッション開始時に更新されます。いつでも[フィードを手動で更新]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)することもできます。
@@ -92,7 +92,7 @@ Content Cardsは、`openSession()` の前に `subscribeToContentCardsUpdates()` 
 `````````java
 // subscriber variable
 private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscriber;
-`````````
+```
 
 #### ステップ 2b:更新を購読する {#step-2b-subscribe-to-updates}
 
@@ -112,7 +112,7 @@ mContentCardsUpdatedSubscriber = new IEventSubscriber<ContentCardsUpdatedEvent>(
 };
 Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSubscriber);
 Braze.getInstance(context).requestContentCardsRefresh();
-`````````
+```
 
 #### ステップ 2c:購読を解除する {#step-2c-unsubscribe}
 
@@ -120,7 +120,7 @@ Braze.getInstance(context).requestContentCardsRefresh();
 
 `````````java
 Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscriber, ContentCardsUpdatedEvent.class);
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -131,7 +131,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 
 `````````kotlin
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
-`````````
+```
 
 #### ステップ 2b:更新を購読する
 
@@ -148,7 +148,7 @@ Braze.getInstance(context).requestContentCardsRefresh()
 }
 Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSubscriber)
 Braze.getInstance(context).requestContentCardsRefresh(true)
-`````````
+```
 
 #### ステップ 2c:購読を解除する
 
@@ -156,7 +156,7 @@ Braze.getInstance(context).requestContentCardsRefresh(true)
 
 `````````kotlin
 Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscriber, ContentCardsUpdatedEvent::class.java)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -170,7 +170,7 @@ Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscribe
 
 `````````swift
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
-`````````
+```
 
 さらに、コンテンツカードの変更を監視するサブスクリプションを維持できます。以下の2つの方法があります。
 1. キャンセル可能オブジェクトを維持する方法
@@ -185,20 +185,20 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 let cancellable = AppDelegate.braze?.contentCards.subscribeToUpdates { [weak self] contentCards in
   // Implement your completion handler to respond to updates in `contentCards`.
 }
-`````````
+```
 
 ##### AsyncStream
 
 `````````swift
 let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.cardsStream
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
 
 `````````objc
 NSArray<BRZContentCardRaw *> *contentCards = AppDelegate.braze.contentCards.cards;
-`````````
+```
 
 さらに、コンテンツカードのサブスクリプションを維持したい場合は、[`subscribeToUpdates`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/subscribetoupdates(_:)) を呼び出すことができます。
 
@@ -207,7 +207,7 @@ NSArray<BRZContentCardRaw *> *contentCards = AppDelegate.braze.contentCards.card
 BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSArray<BRZContentCardRaw *> *contentCards) {
   // Implement your completion handler to respond to updates in `contentCards`.
 }];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -295,7 +295,7 @@ AndroidとFireOS SDKでは、メッセージセンターのロジックはBraze�
             else -> null
         }
     }
-`````````
+```
 
 次に、メッセージリストに対するユーザーの操作を処理するときに、メッセージのタイプを使用して、ユーザーに表示するビューを決定できます。
 
@@ -325,7 +325,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
         }
     }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **クリック時の動作に `class_type` を使用する**<br>
@@ -358,7 +358,7 @@ private ContentCardable createContentCardable(Map<String, ?> metadata,  ContentC
     }
 }
 
-`````````
+```
 
 次に、メッセージリストに対するユーザーの操作を処理するときに、メッセージのタイプを使用して、ユーザーに表示するビューを決定できます。
 
@@ -391,7 +391,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
         });
     }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

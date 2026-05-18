@@ -41,12 +41,12 @@ description: "この記事では、メールテンプレートの表示Brazeエ�
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/info?email_template_id={{email_template_id}}' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "email_template_id": (string) Your email template's API Identifier,
   "template_name": (string) The name of your email template,
@@ -60,7 +60,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
   "created_at": (string) The time the email was created at in ISO 8601,
   "updated_at": (string) The time the email was updated in ISO 8601
 }
-`````````
+```
 
 この応答の画像は、HTMLとして `body` 変数に表示されます。
 

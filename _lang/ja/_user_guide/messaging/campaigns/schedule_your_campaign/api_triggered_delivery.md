@@ -4,7 +4,7 @@ article_title: API トリガー配信
 page_order: 2
 page_type: reference
 description: "このリファレンス記事では、API トリガーキャンペーンのスケジュール設定と構成方法について説明します。"
-tool: キャンペーン
+tool: Campaigns
 platform: API
 
 ---

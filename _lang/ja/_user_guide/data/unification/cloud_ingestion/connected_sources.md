@@ -112,7 +112,7 @@ GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE
 -- grant access to specific tables or views in the schema
 GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO ROLE BRAZE_INGESTION_ROLE;
 
-`````````
+```
 
 #### ステップ2.2：ウェアハウスの設定と、Brazeロールへのアクセス権の付与 {#step-22-set-up-the-warehouse-and-give-access-to-braze-role}
 
@@ -120,7 +120,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO 
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
-`````````
+```
 
 {% alert note %}
 ウェアハウスの**自動再開**フラグをオンにする必要があります。オンになっていない場合は、Brazeがクエリの実行時にオンにできるように、Brazeに追加の`OPERATE`権限を付与する必要があります。
@@ -131,7 +131,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 CREATE USER BRAZE_INGESTION_USER;
 
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
-`````````
+```
 
 Brazeと接続情報を共有し、後のステップでユーザーに付加する公開キーを受け取ります。
 
@@ -154,7 +154,7 @@ CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT CREATE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
-`````````
+```
 
 接続されたソースが使用するユーザーを作成します。このユーザーは、CDI**セグメント**エクステンションで利用可能なテーブルの一覧を生成し、新しい **セグメント** を作成するためにソーステーブルをクエリするために使用されます。接続されたソースが作成されると、Brazeはソーススキーマ内のユーザーが利用可能なすべてのテーブルの名前と説明を検出します。CDI連携を複数作成する場合は、スキーマに権限を付与したり、グループを使用して権限を管理したりできます。
 
@@ -438,7 +438,7 @@ Microsoft Fabricの認証情報およびソースウェアハウス、スキー�
 
 `````````sql
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='{INSERT_YOUR_KEY}';
-`````````
+```
 
 Snowflakeでユーザーにキーを追加したら、Brazeで**Test Connection**を選択し、**Done**を選択します。接続されたソースが作成され、CDI**セグメント**エクステンションで使用できる状態になりました。
 {% endtab %}

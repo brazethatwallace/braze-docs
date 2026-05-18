@@ -86,11 +86,11 @@ BrazeがAPNsにプッシュ通知を送信する際、ペイロードはJSONと�
 {
     "aps" : { "alert" : "Message received from Spencer" },
 }
-`````````
+```
 
 **複雑なペイロード**
 
-`````````
+```
 {
     "aps" : {
         "alert" : {
@@ -103,7 +103,7 @@ BrazeがAPNsにプッシュ通知を送信する際、ペイロードはJSONと�
         "content-available" : 1
     },
 }
-`````````
+```
 
 {% endraw %}
 

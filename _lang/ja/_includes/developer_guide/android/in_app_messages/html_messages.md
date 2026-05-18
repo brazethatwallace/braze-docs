@@ -20,7 +20,7 @@ myWebView.loadUrl("javascript:" + javascriptString);
 
 final InAppMessageJavascriptInterface javascriptInterface = new InAppMessageJavascriptInterface(context, inAppMessage);
 myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge");
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -31,7 +31,7 @@ myWebView.loadUrl("javascript:" + javascriptString!!)
 
 val javascriptInterface = InAppMessageJavascriptInterface(context, inAppMessage)
 myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -52,7 +52,7 @@ YouTubeやその他のHTML5コンテンツは、HTMLアプリ内メッセージ�
         </iframe>
     </div>
 </body>
-`````````
+```
 
 ## ディープリンクの使用 {#using-deep-links}
 
@@ -67,5 +67,5 @@ document.querySelectorAll('[data-button-id]').forEach(function (node)
 Unknown macro: { node.addEventListener('click', function () { brazeBridge.logClick(node.dataset.buttonId); brazeBridge.closeMessage(); }); }
 );
 </script>
-`````````
+```
 {% endraw %}

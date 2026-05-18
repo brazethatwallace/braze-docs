@@ -79,7 +79,7 @@ Don't forget to visit the town store between levels to upgrade your tools.
 {% else %}
 Talk to villagers for essential tips on how to beat levels!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 カスタムイベントプロパティは、メッセージングをパーソナライズしたり、アクションベースの詳細な配信キャンペーンを構築したりするのに役立ちます。イベントプロパティの直近性と頻度に基づいてセグメントを作成したい場合は、カスタマーサクセスマネージャーまたはサポートチームにお問い合わせください。
@@ -140,7 +140,7 @@ abUser.setCustomUserAttribute('favorite_foods', ['pizza', 'wings', 'pasta']); //
 abUser.addToCustomAttributeArray('favorite_foods', 'fries'); // => ['pizza', 'wings', 'pasta', 'fries']
 abUser.addToCustomAttributeArray('favorite_foods', 'pizza'); // => ['wings', 'pasta', 'fries', 'pizza']
 abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta', 'fries', 'pizza', 'ice cream']
-`````````
+```
 
 配列内の要素のデフォルトおよび最大数は500です。最大数は、Brazeダッシュボードの**データ設定** > **カスタム属性**で更新できます。要素数が最大値を超える配列は、最大要素数を含むように切り詰められます。
 

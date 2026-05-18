@@ -21,7 +21,7 @@ void InAppMessageReceivedCallback(string message) {
     }
   }
 }
-`````````
+```
 
 ## メッセージデータを記録する
 

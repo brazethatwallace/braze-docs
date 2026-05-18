@@ -40,12 +40,12 @@ description: "この記事では、「新規ユーザーの日次エクスポー
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/new_users/data_series?length=14&ending_at=2018-06-28T23:59:59-5:00&app_id={{app_identifier}}' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
@@ -56,7 +56,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/new_users/da
         ...
     ]
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

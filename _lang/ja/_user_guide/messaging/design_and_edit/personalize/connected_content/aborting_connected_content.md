@@ -17,7 +17,7 @@ description: "この参照記事では、コネクテッドコンテンツのメ
    {% if connected.recommendations.size < 5 or connected.foo.bar == nil %}
      {% abort_message() %}
    {% endif %}
-`````````
+```
 {% endraw %}
 
 ## 中止理由の指定

@@ -30,7 +30,7 @@ window.addEventListener("ab.BridgeReady", function(){
   };
 }, false);
 </script>
-`````````
+```
 
 ### JavaScriptブリッジメソッド {#bridge}
 
@@ -78,7 +78,7 @@ Liquidを参照して、<code>customAttributes</code>をJavaScriptブリッジ�
 
 `````````html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
-`````````
+```
 
 また、新しいカスタムボタン名をトラッキングすることもできます（キャンペーンあたり最大100個のユニークな名前）。例えば、`brazeBridge.logClick('blue button')`や`brazeBridge.logClick('viewed carousel page 3')`などです。
 

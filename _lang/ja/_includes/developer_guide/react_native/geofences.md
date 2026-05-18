@@ -33,7 +33,7 @@ import Braze from '@braze/react-native-sdk';
 
 // Android only: call this after the user grants location permission
 Braze.requestLocationInitialization();
-`````````
+```
 
 ### ステップ 5:ジオフェンスを手動でリクエストする（オプション） {#step-5-manually-request-geofences-optional}
 
@@ -46,7 +46,7 @@ iOSとAndroidの両方で、`requestGeofences`を使用して特定のGPS座標�
 import Braze from '@braze/react-native-sdk';
 
 Braze.requestGeofences(33.078947, -116.601356);
-`````````
+```
 
 {% alert important %}
 ジオフェンスは、SDKによる自動リクエストまたはこのメソッドによる手動リクエストのいずれかで、セッションごとに一度だけリクエストできます。

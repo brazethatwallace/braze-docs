@@ -36,7 +36,7 @@ Cards are counted only once, even if they appear in multiple Content Cards views
 /* 
 This method returns the total number of currently active Content Cards. Cards are counted only once even if they appear in multiple Content Cards views.
  */
-`````````
+```
 
 ## アプリのバッジカウントに未閲覧コンテンツカードの数を表示する
 
@@ -49,27 +49,27 @@ This method returns the total number of currently active Content Cards. Cards ar
 
 `````````objc
 (void)applicationDidEnterBackground:(UIApplication *)application
-`````````
+```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
 `````````objc
 [UIApplication sharedApplication].applicationIconBadgeNumber = [[Appboy sharedInstance].contentCardsController unviewedContentCardCount];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 func applicationDidEnterBackground(_ application: UIApplication)
-`````````
+```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
 `````````swift
 UIApplication.shared.applicationIconBadgeNumber =
   Appboy.sharedInstance()?.contentCardsController.unviewedContentCardCount() ?? 0
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -104,10 +104,10 @@ CurrentsとDashboard Data Exportには異なるポリシーが必要です。Bra
         }
     ]
 }
-`````````
+```
 {% endtab %}
 {% tab Dashboard Data Export %}
-`````````json
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -123,7 +123,7 @@ CurrentsとDashboard Data Exportには異なるポリシーが必要です。Bra
         }
     ]
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -204,7 +204,7 @@ CurrentsとDashboard Data Exportには異なるポリシーが必要です。Bra
 {% tabs %}
 {% tab Braze Currents %}
 
-`````````json
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -220,12 +220,12 @@ CurrentsとDashboard Data Exportには異なるポリシーが必要です。Bra
         }
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab Dashboard Data Export %}
 
-`````````json
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -241,7 +241,7 @@ CurrentsとDashboard Data Exportには異なるポリシーが必要です。Bra
         }
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -372,9 +372,9 @@ Currentsとデータエクスポートの両方に同じS3バケットを使用�
 
 ダッシュボードデータエクスポート用のAmazon S3認証情報を保存する際に以下のエラーが表示された場合、権限の設定が正しくないか、サーバーサイド暗号化の設定に問題がある可能性があります。
 
-`````````
+```
 S3 Credentials are invalid because this account does not have 'PutObject access'. Please check the permissions and ensure that this key has access to 'PutObject' in the 'CUSTOMER-BUCKET-HERE' bucket.
-`````````
+```
 
 この問題を解決するには、以下の点を確認してください。
 
@@ -384,9 +384,9 @@ S3 Credentials are invalid because this account does not have 'PutObject access'
 
 #### サーバーサイド暗号化 {#server-side-encryption}
 
-`````````
+```
 User: arn:aws:sts::XXX:assumed-role/braze-iam-role/braze is not authorized to perform: kms:GenerateDataKey on resource: arn:aws:XXX because no identity-based policy allows the kms:GenerateDataKey action
-`````````
+```
 
 [Brazeサポート]({{site.baseurl}}/braze_support/)またはAWSログでこのエラーメッセージが表示された場合、S3バケットがAWS Key Management Service（SSE-KMS）暗号化で設定されています。BrazeはCurrentsやダッシュボードデータエクスポートでSSE-KMSをサポートしていません。この問題を解決するには、S3バケットでSSE-KMSを無効にしてください。
 

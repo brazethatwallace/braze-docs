@@ -23,13 +23,13 @@ Braze SDKをCocoaPods、Carthage、または[ダイナミックな手動統合](
 
 ```objc
 #import "Appboy-iOS-SDK/AppboyKit.h"
-`````````
+```
 
 Swift Package Managerまたは[静的な手動統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/)を使用して統合している場合は、代わりに次の行を使用します。
 
 `````````objc
 #import "AppboyKit.h"
-`````````
+```
 
 次に、`AppDelegate.m` ファイル内の `application:didFinishLaunchingWithOptions:` メソッド内に以下のスニペットを追加します。
 
@@ -37,7 +37,7 @@ Swift Package Managerまたは[静的な手動統合]({{site.baseurl}}/developer
 [Appboy startWithApiKey:@"YOUR-APP-IDENTIFIER-API-KEY"
           inApplication:application
       withLaunchOptions:launchOptions];
-`````````
+```
 
 **設定の管理**ページの正しい値で `YOUR-APP-IDENTIFIER-API-KEY` を更新してください。アプリ識別子APIキーの場所について詳しくは、[APIドキュメント]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)をご覧ください。
 
@@ -48,20 +48,20 @@ Braze SDKをCocoaPods、Carthage、または[ダイナミックな手動統合](
 
 `````````swift
 import Appboy_iOS_SDK
-`````````
+```
 
 Swift Package Managerまたは[静的な手動統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/)を使用して統合している場合は、代わりに次の行を使用します。
 
 `````````swift
 import AppboyKit
-`````````
+```
 SwiftプロジェクトでのObjective-Cコードの使用の詳細については、[Apple開発者ドキュメント](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html)を参照してください。
 
 次に、`AppDelegate.swift` で、次のスニペットを `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に追加します。
 
 `````````swift
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaunchOptions:launchOptions)
-`````````
+```
 
 **設定の管理**ページの正しい値で `YOUR-APP-IDENTIFIER-API-KEY` を更新してください。アプリ識別子APIキーの場所について詳しくは、[APIドキュメント]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)をご覧ください。
 
@@ -112,7 +112,7 @@ Braze担当者は、[正しいエンドポイント]({{site.baseurl}}/user_guide
           inApplication:application
       withLaunchOptions:launchOptions
       withAppboyOptions:appboyOptions];
-`````````
+```
 
 このメソッドは `startWithApiKey:inApplication:withLaunchOptions:` 初期化メソッドを置き換えることに注意してください。
 
@@ -126,7 +126,7 @@ Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:appboyOptions)
-`````````
+```
 
 このメソッドは `startWithApiKey:inApplication:withLaunchOptions:` 初期化メソッドを置き換えることに注意してください。
 

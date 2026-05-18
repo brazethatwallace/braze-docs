@@ -8,7 +8,7 @@ Android では、`ContentCardsList()`を使用して Compose アプリケーシ�
 setContent {
     ContentCardsList()
 }
-`````````
+```
 
 ## カードのクリックを処理する
 
@@ -26,7 +26,7 @@ ContentCardsList(
         }
     }
 )
-`````````
+```
 
 ## 却下の通知を有効にする
 
@@ -38,4 +38,4 @@ ContentCardsList(
         // Do what you need with the card
     }
 )
-`````````
+```

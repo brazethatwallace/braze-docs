@@ -12,13 +12,13 @@ Xcode プロジェクトで、通知コンテンツ拡張機能を作成しま�
 
 ```xml
 <preference name="com.braze.ios_push_app_group" value="NOTIFICATION_CONTENT_EXTENTION" />
-`````````
+```
 
 `PUSH_APP_GROUP` をプッシュ通知アプ​​リグループの名前で置き換えます。`config.xml` は次のようになります。
 
 `````````xml
 <preference name="com.braze.ios_push_app_group" value="MyPushAppGroup" />
-`````````
+```
 
 ### ステップ 3:新しいターゲットを追加する
 
@@ -29,7 +29,7 @@ target 'NOTIFICATION_CONTENT_EXTENSION' do
   use_frameworks! :linkage => :static
   pod 'BrazePushStory'
 end
-`````````
+```
 
 `NOTIFICATION_CONTENT_EXTENSION` を通知コンテンツ拡張機能の名前で置き換えます。Podfile は次のようになります。
 
@@ -38,7 +38,7 @@ target 'MyAppNotificationContentExtension' do
   use_frameworks! :linkage => :static
   pod 'BrazePushStory'
 end
-`````````
+```
 
 ### ステップ 4:CocoaPods の依存関係を再インストールする
 
@@ -47,4 +47,4 @@ end
 `````````bash
 cd PATH_TO_PROJECT/platform/ios
 pod install
-`````````
+```

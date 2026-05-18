@@ -139,7 +139,7 @@ Rokt Calendarでは、認証のためにRokt Calendarコネクテッドコンテ
   },
   "subscriptionIds": ["{{custom_attribute.${rokt:subscription_id}| join: '","'  }}"]
 }
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab Update an existing event %}
@@ -166,7 +166,7 @@ Rokt Calendarでは、認証のためにRokt Calendarコネクテッドコンテ
     "notifyBefore": "{{notifyBefore}}"
   }
 }
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab Event details %}

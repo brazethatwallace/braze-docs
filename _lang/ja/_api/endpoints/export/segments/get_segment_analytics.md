@@ -40,12 +40,12 @@ description: "この記事では、セグメント分析のエクスポートBra
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/data_series?segment_id={{segment_identifier}}&length=14&ending_at=2018-06-27T23:59:59-5:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
@@ -56,7 +56,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/data_se
         ...
     ]
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。

@@ -5,7 +5,7 @@ page_order: 1
 page_type: reference
 alias: "/rfm_segments/"
 description: "この記事では、購買行動を測定して優良ユーザーを特定するRFMセグメントエクステンションの作成方法について説明します。"
-tool: セグメント
+tool: Segments
 ---
 
 # RFM SQLセグメント {#rfm-sql-segments}

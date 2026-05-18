@@ -45,12 +45,12 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
   "use_double_opt_in_logic": true
 }
 '
-`````````
+```
 
 {: start="2"}
 2. [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して、ユーザーをSMSに登録します。
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -69,7 +69,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
   ]
 }'
-`````````
+```
 
 {% alert tip %}
 REST APIを通じてユーザーを登録する際に[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)ワークフローに入れるには、リクエストで`use_double_opt_in_logic`パラメーターを`true`に設定します。このパラメーターを省略すると、ユーザーはダブルオプトイン確認を受け取らずに登録されます。

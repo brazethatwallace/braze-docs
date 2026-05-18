@@ -101,7 +101,7 @@ curl --location --request POST 'https://server_name_goes_here.punchh.com/api2/mo
       "external_source_id":"111111111111111111"
       }
 }'
-`````````
+```
 {% endtab %}
 {% tab ユーザー更新APIの例 %}
 この例では、ユーザープロファイルを使用して外部識別子を更新できます。これを行うには、`external_source`を「customer_id」として、`external_source_id`を「111111111111111111」として文字列データ型で送信します。
@@ -120,7 +120,7 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
         "external_source_id":"111111111111111111"
     }
 }'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

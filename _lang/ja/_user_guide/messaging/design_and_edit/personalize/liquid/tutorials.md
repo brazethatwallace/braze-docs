@@ -35,7 +35,7 @@ VIP 顧客や新規サブスクライバーなど、さまざまなユーザー�
 {% raw %}
 ```liquid
 Happy summer, {{${first_name} | default: "traveler"}}!
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -45,7 +45,7 @@ Happy summer, {{${first_name} | default: "traveler"}}!
 `````````liquid
 {% if {{custom_attribute.${vip_status}}} == 'VIP' %}
 Thank you for being a VIP customer! Enjoy your exclusive discount code: VIPSUMMR464.
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -55,7 +55,7 @@ Thank you for being a VIP customer! Enjoy your exclusive discount code: VIPSUMMR
 `````````liquid
 {% elsif {{custom_attribute.${vip_status}}} == 'new' %}
 Thank you for subscribing! Enjoy your welcome discount code: NEWTRAVEL257.
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -66,7 +66,7 @@ Thank you for subscribing! Enjoy your welcome discount code: NEWTRAVEL257.
 {% else %}
 Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -80,7 +80,7 @@ Thank you for subscribing! Enjoy your welcome discount code: NEWTRAVEL257.
 {% else %}
 Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -93,7 +93,7 @@ Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 {% raw %}
 `````````liquid
 {% if {{custom_attribute.${cart_items}}} != blank %}
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -102,7 +102,7 @@ Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 {% raw %}
 `````````liquid
 {% if {{custom_attribute.${cart_items}}} | size > 3 %}
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -111,7 +111,7 @@ Thanks for traveling with us! Enjoy your unique discount code: SUMMRTRVLS240.
 {% raw %}
 `````````liquid
 Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase! Your items {{custom_attribute.${cart_items[0]}}}, {{custom_attribute.${cart_items[1]}}}, {{custom_attribute.${cart_items[2]}}}, and others are waiting for you.
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -122,7 +122,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% else %}
 Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase! Your items: {{{custom_attribute.${cart_items}}} | join: ', '}  are waiting for you.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {: start="5"}
@@ -133,7 +133,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% else %}
 {% abort_message('No items in cart') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -148,7 +148,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% else %}
 {% abort_message('No items in cart') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -161,7 +161,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% raw %}
 `````````liquid
 {% assign sale_date = {{custom_attribute.${anniversary_date}}} | date: "%s" %}
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -170,7 +170,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% raw %}
 `````````liquid
 {% assign today =  'now' | date: "%s"  %}
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -179,7 +179,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% raw %}
 `````````liquid
 {% assign difference =  event_date | minus: today %}
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -188,7 +188,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% raw %}
 `````````liquid
 {% assign difference_days = difference | divided_by: 86400 %}
-`````````
+```
 {% endraw %}
 
 {: start="5"}
@@ -197,7 +197,7 @@ Hi {{${first_name} | default: 'there'}}, don't forget to complete your purchase!
 {% raw %}
 `````````liquid
 Get ready! Our Anniversary Sale is in {{ difference_days }} days!
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -208,7 +208,7 @@ Get ready! Our Anniversary Sale is in {{ difference_days }} days!
 {% assign difference =  event_date | minus: today %}
 {% assign difference_days = difference | divided_by: 86400 %}
 Get ready! Our Anniversary Sale is in {{ difference_days }} days!
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -221,7 +221,7 @@ Get ready! Our Anniversary Sale is in {{ difference_days }} days!
 {% raw %}
 `````````liquid
 {% assign this_month = 'now' | date: "%B" %}
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -230,7 +230,7 @@ Get ready! Our Anniversary Sale is in {{ difference_days }} days!
 {% raw %}
 `````````liquid
 {% assign birth_month = {{${date_of_birth}}} | date: "%B" %}
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -239,7 +239,7 @@ Get ready! Our Anniversary Sale is in {{ difference_days }} days!
 {% raw %}
 `````````liquid
 {% if {{this_month}} == {{birth_month}} %}
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -248,7 +248,7 @@ Get ready! Our Anniversary Sale is in {{ difference_days }} days!
 {% raw %}
 `````````liquid
 We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchase with code BIRTHDAY50 until the end of {{this_month}}.
-`````````
+```
 {% endraw %}
 
 {: start="5"}
@@ -257,7 +257,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% else %}
-`````````
+```
 {% endraw %}
 
 {: start="6"}
@@ -267,7 +267,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 `````````liquid
 {% abort_message("Not their birthday month") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -280,7 +280,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% else %}
 {% abort_message("Not their birthday month") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -293,7 +293,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% if {{custom_attribute.${favorite_product}}} == blank or {{custom_attribute.${last_purchase_date}}} == blank %}
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -302,7 +302,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% abort_message("No favorite product or last purchase date") %}
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -311,7 +311,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% else %}
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -321,7 +321,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% assign today = 'now' | date: "%s" | plus: 0 %}
-`````````
+```
 {% endraw %}
 
 {: start="5"}
@@ -330,7 +330,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% assign last_purchase_date = {{custom_attribute.${last_purchase_date}}} | date: "%s" | plus: 0 %}
-`````````
+```
 {% endraw %}
 
 {: start="6"}
@@ -339,7 +339,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% assign six_months = 6 | times: 30.44 | times: 24 | times: 60 | times: 60 %}
-`````````
+```
 {% endraw %}
 
 {: start="7"}
@@ -348,7 +348,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% assign today_minus_last_purchase_date = {{today | minus: last_purchase_date}} %}
-`````````
+```
 {% endraw %}
 
 {: start="8"}
@@ -357,7 +357,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 {% if today_minus_last_purchase_date >= six_months %}
-`````````
+```
 {% endraw %}
 
 {: start="9"}
@@ -366,7 +366,7 @@ We heard {{this_month}} is a special month! Enjoy a 50% discount on your purchas
 {% raw %}
 `````````liquid
 We noticed it’s been a while since you last purchased {{custom_attribute.${favorite_product}}}. Have you checked out our latest offerings?
-`````````
+```
 {% endraw %}
 
 {: start="10"}
@@ -375,7 +375,7 @@ We noticed it’s been a while since you last purchased {{custom_attribute.${fav
 {% raw %}
 `````````liquid
 {% else %}
-`````````
+```
 {% endraw %}
 
 {: start="11"}
@@ -384,7 +384,7 @@ We noticed it’s been a while since you last purchased {{custom_attribute.${fav
 {% raw %}
 `````````liquid
 {% abort_message("No favorite product or last purchase date") %}
-`````````
+```
 {% endraw %}
 
 {: start="12"}
@@ -394,7 +394,7 @@ We noticed it’s been a while since you last purchased {{custom_attribute.${fav
 `````````liquid
 {% endif %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -413,6 +413,6 @@ We noticed it’s been a while since you last purchased {{custom_attribute.${fav
 {% abort_message("Last purchase was less than six months ago") %}
 {% endif %}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}

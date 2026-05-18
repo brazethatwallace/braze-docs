@@ -41,15 +41,15 @@ BrazeはAPIを通じて渡されたデータを額面通りに処理します。
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
-`````````json
+```json
 {
   "attributes": (optional, array of attributes object),
   "events": (optional, array of event object),
   "purchases": (optional, array of purchase object),
 }
-`````````
+```
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -89,7 +89,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 `/users/track`エンドポイントを使用して、メールアドレスでユーザープロファイルを更新できます。
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -156,7 +156,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
         }
     ]
 }'
-`````````
+```
 
 ### 電話番号でユーザープロファイルを更新する {#update-a-user-profile-by-phone-number}
 
@@ -166,7 +166,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 `email`と`phone`の両方をリクエストに含めると、Brazeはメールを識別子として使用します。
 {% endalert %}
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -184,14 +184,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
         }
     ],
 }'
-`````````
+```
 ### サブスクリプショングループを設定する {#set-subscription-groups}
 
 この例では、ユーザーを作成し、ユーザー属性オブジェクト内でサブスクリプショングループを設定する方法を示します。
 
 このエンドポイントでサブスクリプションステータスを更新すると、`external_id`で指定されたユーザー（User1など）が更新され、そのユーザー（User1）と同じメールを持つすべてのユーザーのサブスクリプションステータスも更新されます。
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -218,7 +218,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
   ]
 }'
-`````````
+```
 
 {% alert note %}
 SMSサブスクリプショングループの場合、グループの`subscription_state`を`subscribed`に設定する際に、そのサブスクリプショングループオブジェクト内でオプションの`use_double_opt_in_logic`パラメーターを`true`に設定すると、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)ワークフローに入れることができます。`subscription_state`が`subscribed`のときにこのパラメーターが省略されるか`false`に設定されると、ユーザーはダブルオプトインワークフローに入らずに購読されます。このパラメーターは、`subscription_state`が`unsubscribed`などの他の値に設定されている場合は適用されません。
@@ -228,7 +228,7 @@ SMSサブスクリプショングループの場合、グループの`subscripti
 
 `/users/track`エンドポイントを使用して、リクエスト本文で`_update_existing_only`キーに`false`の値を設定することで、エイリアスのみのユーザーを作成できます。この値を省略すると、Brazeはエイリアスのみのユーザープロファイルを作成しません。エイリアスのみのユーザーを使用すると、そのエイリアスを持つプロファイルが1つ存在することが保証されます。これは、Brazeが重複するユーザープロファイルを作成するのを防ぐため、統合を構築する際に特に役立ちます。
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -245,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
         }
     ],
 }'
-`````````
+```
 
 
 ## 応答 {#responses}
@@ -256,20 +256,20 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 成功メッセージの場合、次の応答が返されます：
 
-`````````json
+```json
 {
   "message": "success",
   "attributes_processed": (optional, integer), if attributes are included in the request, this returns an integer of the number of external_ids with attributes that Braze queued for processing,
   "events_processed": (optional, integer), if events are included in the request, this returns an integer of the number of events that Braze queued for processing,
   "purchases_processed": (optional, integer), if purchases are included in the request, this returns an integer of the number of purchases that Braze queued for processing,
 }
-`````````
+```
 
 ### 非致命的なエラーを含む成功メッセージ {#successful-message-with-non-fatal-errors}
 
 メッセージは成功したが、長いイベントリストの中に無効なイベントオブジェクトが1つあるなど、非致命的なエラーがある場合、次の応答が返されます：
 
-`````````json
+```json
 {
   "message": "success",
   "errors": [
@@ -278,7 +278,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
   ]
 }
-`````````
+```
 
 成功メッセージの場合、Brazeは`errors`配列のエラーに影響されないデータを引き続き処理します。
 
@@ -286,7 +286,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 メッセージに致命的なエラーがある場合、次の応答が返されます：
 
-`````````json
+```json
 {
   "message": <fatal error message>,
   "errors": [
@@ -295,7 +295,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
   ]
 }
-`````````
+```
 
 ### 致命的なエラー応答コード {#fatal-error-response-codes}
 

@@ -49,15 +49,15 @@ description: "この記事では、「ユーザー設定センターのURLの生
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v1/$preference_center_external_id/url/$user_external_id' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "preference_center_url": "https://www.example.com/preferences"
 }
-`````````
+```
 
 {% endapi %}
 

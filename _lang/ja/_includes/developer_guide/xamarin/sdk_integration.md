@@ -75,7 +75,7 @@ Braze ダッシュボードの**Settings**> **API キーs**にあるAPI キー�
       <item>NUGET</item>
     </string-array>
   </resources>
-`````````
+```
 バインディングソースを手動で含める場合は、コードから `<item>NUGET</item>` を削除します。
 
 {% alert tip %}
@@ -88,7 +88,7 @@ API キーを追加したので、次の権限を `AndroidManifest.xml` ファ�
 
 `````````xml
 <uses-permission android:name="android.permission.INTERNET" />
-`````````
+```
 `AndroidManifest.xml` の例については、[Android MAUI](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/appboy-component/samples/android-net-maui/BrazeAndroidMauiSampleApp/BrazeAndroidMauiSampleApp/AndroidManifest.xml) サンプルアプリケーションを参照してください。
 
 #### ステップ 2.3:ユーザー セッションs の追跡とアプリ内メッセージs の登録
@@ -97,7 +97,7 @@ API キーを追加したので、次の権限を `AndroidManifest.xml` ファ�
 
 `````````kotlin
 RegisterActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener());
-`````````
+```
 {% endtab %}
 
 {% tab ios %}
@@ -113,7 +113,7 @@ Braze ダッシュボードの**Settings**> **API キーs**にあるAPI キー�
 var configuration = new BRZConfiguration("YOUR_API_KEY", "YOUR_ENDPOINT");
 configuration.Api.AddSDKMetadata(new[] { BRZSDKMetadata.Xamarin });
 braze = new Braze(configuration);
-`````````
+```
 
 [iOS MAUI](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/appboy-component/samples/ios-net-maui/BrazeiOSMauiSampleApp/BrazeiOSMauiSampleApp/App.xaml.cs)サンプルアプリライケーションの`App.xaml.cs`ファイルを参照してください。
 {% endtab %}

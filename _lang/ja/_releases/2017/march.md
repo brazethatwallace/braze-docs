@@ -10,7 +10,7 @@ description: "この記事には2017年3月のリリースノートが含まれ�
 
 ## 新しいリターゲティングフィルター {#new-retargeting-filter}
 
-よりシームレスなリターゲティングオプションを提供するために、新しい「Converted from キャンバス」フィルターを追加しました。[リターゲティングフィルター]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns)の使用に関する詳細をご確認ください。
+よりシームレスなリターゲティングオプションを提供するために、新しい「Converted from Canvas」フィルターを追加しました。[リターゲティングフィルター]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns)の使用に関する詳細をご確認ください。
 
 ## Webhookテンプレート {#webhook-templates}
 

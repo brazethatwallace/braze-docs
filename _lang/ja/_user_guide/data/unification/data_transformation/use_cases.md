@@ -60,14 +60,14 @@ return {
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab Advanced transformation %}
 
 基本的なトランスフォーメーションの例をさらに踏まえ、`if` ステートメントを導入して、いずれかの回答でユーザーを分類します。
 
-`````````
+```
 let nps_category;
 let nps_number = payload.form_response.answers[1].number;
 if (nps_number < 7) {
@@ -99,7 +99,7 @@ return {
     }
   ]
 };
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

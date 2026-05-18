@@ -98,7 +98,7 @@ $output_table_name,
 $customer_logging_table_name,
 $customer_metrics_table_name
 );
-`````````
+```
 {% endtab %}
 
 {% tab example output %}
@@ -106,7 +106,7 @@ $customer_metrics_table_name
 call check_for_output(
 $output_table_name
 );
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

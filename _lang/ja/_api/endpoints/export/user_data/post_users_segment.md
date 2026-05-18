@@ -75,16 +75,16 @@ description: "この記事では、「セグメント別ユーザーのエクス
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "segment_id" : (required, string) identifier for the segment to be exported,
   "callback_endpoint" : (optional, string) endpoint to post a download URL when the export is available,
   "fields_to_export" : (required, array of string) name of user data fields to export, you may also export custom attributes. New accounts must specify specific fields to export,
   "output_format" : (optional, string) when using your own S3 bucket,  specifies file format as 'zip' or 'gzip'. Defaults to ZIP file format
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -102,7 +102,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endalert %}
 
 ## すべてのカスタム属性をエクスポートするリクエスト例 {#example-request-to-export-all-custom-attributes}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segment' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -112,10 +112,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
   "fields_to_export" : ["first_name", "email", "purchases", "custom_attributes"],
   "output_format" : "zip"
 }'
-`````````
+```
 
 ## 特定のカスタム属性をエクスポートするリクエスト例 {#example-request-to-export-specific-custom-attributes}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segment' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -126,7 +126,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
   "custom_attributes_to_export" : ["allergies", "favorite_food"],
   "output_format" : "zip"
 }'
-`````````
+```
 
 ## エクスポートするフィールド {#fields-to-export}
 
@@ -177,13 +177,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example, 'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }
-`````````
+```
 
 ### `null` URL
 
@@ -200,7 +200,7 @@ API レスポンスに `object_prefix` が表示され、データをダウン�
 {% tabs %}
 {% tab All fields %}
 
-`````````json
+```json
 {
     "created_at": (string),
     "external_id" : (string),
@@ -337,12 +337,12 @@ API レスポンスに `object_prefix` が表示され、データをダウン�
       ...
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab Sample output %}
 
-`````````json
+```json
 {
     "created_at" : "2020-07-10 15:00:00.000 UTC",
     "external_id" : "A8i3mkd99",
@@ -476,7 +476,7 @@ API レスポンスに `object_prefix` が表示され、データをダウン�
       ...
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

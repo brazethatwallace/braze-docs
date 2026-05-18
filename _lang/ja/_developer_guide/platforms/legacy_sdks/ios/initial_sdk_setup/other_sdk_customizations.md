@@ -54,7 +54,7 @@ Braze iOS SDK v4.0.2より前では、辞書キー `Appboy` を `Braze` の代�
   <key>LogLevel</key>
   <string>0</string>
 </dict>
-`````````
+```
 
 {% endtab %}
 {% tab Runtime %}
@@ -71,7 +71,7 @@ appboyOptions[ABKLogLevelKey] = @(0);
           inApplication:application
       withLaunchOptions:launchOptions
       withAppboyOptions:appboyOptions];
-`````````
+```
 
 {% endsubtab %}
 {% subtab swift %}
@@ -81,7 +81,7 @@ let appboyOptions: [AnyHashable: Any] = [
   ABKLogLevelKey : 0
 ]
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions, withAppboyOptions:appboyOptions)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -116,10 +116,10 @@ IDFAを収集するには、`ABKIDFADelegate` プロトコルを実装するだ�
 
 App Tracking Transparency承認のプロンプトには、識別子の使用法を説明する `Info.plist` エントリが必要です。
 
-`````````
+```
 <key>NSUserTrackingUsageDescription</key>
 <string>To retarget ads and build a global profile to better serve you things you would like.</string>
-`````````
+```
 
 ### IDFA収集の実装 {#implementing-idfa-collection}
 
@@ -151,7 +151,7 @@ IDFA収集を実装するには、次のステップに従います。
 }
 
 @end
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -173,7 +173,7 @@ class IDFADelegate: NSObject, ABKIDFADelegate {
     return ASIdentifierManager.shared().isAdvertisingTrackingEnabled
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

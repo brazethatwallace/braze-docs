@@ -6,10 +6,10 @@
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-`````````
+```
 `````````xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-`````````
+```
 
 `ACCESS_FINE_LOCATION`には、ユーザーの位置情報をレポートする際に GPS データが含まれます。`ACCESS_COARSE_LOCATION`には、利用可能な最もバッテリー効率の高い非 GPS プロバイダー (ネットワークなど) からのデータが含まれます。ほとんどの位置データの使用例では、大まかな位置で十分な可能性があります。ただし、ランタイム権限モデルでは、ユーザーから位置権限を受け取ると、精度の高い位置データの収集が暗黙的に許可されます。これらの位置情報権限の違いとその使用方法について詳しくは、Android Developers の [Location Strategies](https://stuff.mit.edu/afs/sipb/project/android/docs/guide/topics/location/strategies.html) をご覧ください。
 
@@ -25,7 +25,7 @@ Android M のリリースにより、Android はインストール時権限モ�
 
 `````````xml
 <bool name="com_braze_enable_location_collection">false</bool>
-`````````
+```
 
 ### ランタイムオプション
 
@@ -39,7 +39,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setIsLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
  
 {% endtab %}
 {% tab KOTLIN %}
@@ -49,7 +49,7 @@ val brazeConfig = BrazeConfig.Builder()
     .setIsLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -68,7 +68,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE);
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -77,7 +77,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

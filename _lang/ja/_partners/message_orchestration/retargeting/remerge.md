@@ -53,7 +53,7 @@ https://remerge.events/event?partner=braze&app_id=\{% if most_recently_used_devi
 {% if most_recently_used_device.${idfa} == blank and custom_attribute.${aaid} == blank %}
 {% abort_message('No IDFA or AAID available') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 Webhook URLでは、以下の操作を行う必要があります:

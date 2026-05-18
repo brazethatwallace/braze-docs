@@ -49,7 +49,7 @@ BrazeインスタンスのURLをコピーすることを忘れないでくださ
 
 ```
 <https://dashboard-03.braze.com/dashboard/app_usage?locale=en>
-`````````
+```
 
 {:start="3"}
 3. 認証情報を入力したら、**Connect**をクリックします。

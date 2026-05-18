@@ -5,7 +5,7 @@ alias: /decision_split/
 page_order: 7
 page_type: reference
 description: "このリファレンス記事では、キャンバスで条件分岐を作成して使用する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

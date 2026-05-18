@@ -35,9 +35,9 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "campaign_id": (required, string) see campaign identifier,
   "send_id": (optional, string) see send identifier,
@@ -66,7 +66,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       }
     ]
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -120,7 +120,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endalert %}
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/send' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -197,7 +197,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
     }
   ]
 }'
-`````````
+```
 
 ## 応答の詳細 {#response-details}
 

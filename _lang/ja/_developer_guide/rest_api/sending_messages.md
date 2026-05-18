@@ -41,9 +41,9 @@ APIリクエストでメッセージの全内容を指定したい場合に、�
 POST YOUR_REST_ENDPOINT/messages/send
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
-`````````json
+```json
 {
   "external_user_ids": ["user123"],
   "messages": {
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   }
 }
-`````````
+```
 
 WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object/)を参照してください。
 
@@ -68,7 +68,7 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
 
 ### 例：メール {#example-email}
 
-`````````json
+```json
 {
   "external_user_ids": ["user123"],
   "messages": {
@@ -80,7 +80,7 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
     }
   }
 }
-`````````
+```
 
 他のチャネルについては、[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。
 
@@ -105,13 +105,13 @@ APIトリガー型キャンペーンの作成に関する詳細は、[APIトリ�
 
 `campaign_id`と`recipients`（または`broadcast`/`audience`）を指定して、`/campaigns/trigger/send`にPOSTリクエストを送信します。`messages`オブジェクトは含めないでください。コンテンツはキャンペーンから取得されます。
 
-`````````
+```
 POST YOUR_REST_ENDPOINT/campaigns/trigger/send
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
-`````````json
+```json
 {
   "campaign_id": "YOUR_CAMPAIGN_ID",
   "recipients": [
@@ -120,7 +120,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   ]
 }
-`````````
+```
 
 リクエスト本文の全体（`trigger_properties`、`send_to_existing_only`、`attributes`などを含む）については、[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)のエンドポイントリファレンスを参照してください。
 

@@ -3,7 +3,7 @@ nav_title: ベストプラクティス
 article_title: キャンバスのベストプラクティス
 page_order: 1
 description: "この記事では、キャンバスとキャンバスフローを使用してユーザージャーニーを作成・カスタマイズするためのベストプラクティスを紹介します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

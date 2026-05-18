@@ -37,7 +37,7 @@
        }
    ]
 }
-`````````
+```
 {% endraw %}
 
 階層化カスタム属性「trips」は、ユーザープロファイルに次のように表示されます。
@@ -48,7 +48,7 @@
 ユーザーが予約を更新する場合、オブジェクトの配列に次の構造を使用して、`/users/track`エンドポイント経由でデータをBrazeに送信します。
 
 {% raw %}
-`````````json
+```json
 {
  "attributes": [
        {
@@ -66,7 +66,7 @@
        }
  ]
 }
-`````````
+```
 {% endraw %}
 
 ### 予約の削除 {#remove-booking}
@@ -77,7 +77,7 @@
 ユーザーが予約を削除する場合、オブジェクトの配列に次の構造を使用して、`/users/track`エンドポイント経由でデータをBrazeに送信します。
 
 {% raw %}
-`````````json
+```json
 
 {
  "attributes": [
@@ -95,7 +95,7 @@
        }
    ]
 }
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
@@ -104,7 +104,7 @@
 アプリ、Webサイト、またはその両方で予約を収集し、そのデータをユーザープロファイルに直接書き込む場合は、Braze SDKを使用してこのデータを送信できます。以下はWeb SDKを使用した例です。
 
 {% raw %}
-`````````json
+```json
 const json = [{
   "id": 1,
   "name": "London Trip",
@@ -115,7 +115,7 @@ const json = [{
   "start_date": {"$time”: “2025-11-11”}
 }];
 braze.getUser().setCustomUserAttribute("trips", json);
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -150,7 +150,7 @@ You have the following booked in 2 days! Check the information below:
 {{date.name}}
 {% endif %}
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 ### ステップ 2c: キャンペーンを起動する {#step-2c-launch-your-campaign}
@@ -172,7 +172,7 @@ You have the following booked in 2 days! Check the information below:
 このユースケースでは、ユーザーがシドニー旅行の日付を更新したとします。イベントは次のようになります。
 
 {% raw %}
-`````````json
+```json
 {
   "events": [
     {
@@ -188,7 +188,7 @@ You have the following booked in 2 days! Check the information below:
     }
   ]
 }
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab SDK %}
@@ -198,14 +198,14 @@ You have the following booked in 2 days! Check the information below:
 SDK経由でカスタムイベントをユーザープロファイルに送信します。例えば、Web SDKを使用している場合は、次のように送信できます。
 
 {% raw %}
-`````````json
+```json
 braze.logCustomEvent("trip_updated", {
   id: 2,
   name: "Sydney Trip",
   old_time: "2025-11-12",
   new_time: "2026-01-21"
 });
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ braze.logCustomEvent("trip_updated", {
 {% raw %}
 `````````liquid
 Hi {{${first_name}}}, you have successfully updated the date of your trip, {{event_properties.${name}}}, from {{event_properties.${old_time}}} to {{event_properties.${new_time}}}
-`````````
+```
 {% endraw %}
 
 ### ステップ 3c: 更新を反映するようにユーザープロファイルを変更する {#step-3c-modify-the-user-profile-to-reflect-the-update}
@@ -231,7 +231,7 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 このユースケースのユーザーがシドニー旅行を更新した場合、`/users/track`エンドポイントを使用して、次のようなコールで日付を変更します。
 
 {% raw %}
-`````````json
+```json
 {
   "attributes": [
     {
@@ -251,7 +251,7 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
     }
   ]
 }
-`````````
+```
 {% endraw %}
 
 #### 予約のキャンセル {#cancelled-booking}
@@ -259,7 +259,7 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
 このユースケースのユーザーがシドニー旅行をキャンセルした場合、`/users/track`エンドポイントに次のコールを送信します。
 
 {% raw %}
-`````````json
+```json
 {
   "attributes": [
     {
@@ -275,7 +275,7 @@ Hi {{${first_name}}}, you have successfully updated the date of your trip, {{eve
     }
   ]
 }
-`````````
+```
 {% endraw %}
 
 これらのコールが送信されてユーザープロファイルが更新されると、予約リマインダーメッセージにユーザーの予約日に関する最新のデータが反映されます。

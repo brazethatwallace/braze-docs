@@ -15,4 +15,4 @@ braze.logInAppMessageClick(inAppMessage);
 braze.logInAppMessageButtonClick(button, inAppMessage);
 // Registers that a user has clicked on a link in an HTML in-app message with the Braze server.
 braze.logInAppMessageHtmlClick(inAppMessage, buttonId?, url?)
-`````````
+```

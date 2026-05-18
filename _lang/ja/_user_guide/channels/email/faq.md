@@ -191,7 +191,7 @@ OutlookはMicrosoft Wordスタイルのレンダリングを使用すること�
 <!--[if !mso]><!-- -->
 <span>Content hidden in Outlook desktop</span>
 <!--<![endif]-->
-`````````
+```
 
 ### メールメッセージでSVGやWEBP画像を使用できますか？ {#can-i-use-svg-or-webp-images-in-my-email-messages}
 

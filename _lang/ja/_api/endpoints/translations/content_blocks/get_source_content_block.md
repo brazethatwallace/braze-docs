@@ -45,7 +45,7 @@ description: "この記事では、コンテンツブロックの翻訳ソース
 curl --location --request GET 'https://rest.iad-03.braze.com/content_blocks/translations/source?content_block_id={content_block_id}&locale_id={locale_uuid}' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/content_blocks/tran
 
 ステータスコード `200` は、次のレスポンスヘッダーとボディを返す可能性があります。
 
-`````````json
+```json
 {
    "translations": {
        "translation_map": {
@@ -65,13 +65,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/content_blocks/tran
    },
    "message": "success"
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
 	"errors": [
 		{
@@ -79,6 +79,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/content_blocks/tran
 		}
 	]
 }
-`````````
+```
 
 {% endapi %}

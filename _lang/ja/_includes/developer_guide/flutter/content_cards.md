@@ -36,7 +36,7 @@ contentCardsStreamSubscription = braze.subscribeToContentCards((List<BrazeConten
 
 // Cancel stream subscription
 contentCardsStreamSubscription.cancel();
-`````````
+```
 
 例については、Braze Flutter SDKサンプルアプリケーションの[main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart)を参照してください。
 
@@ -62,4 +62,4 @@ Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイ�
 コールバックが利用可能になる前にトリガーされたコンテンツカードを保存し、設定後に再生するには、`BrazePlugin`の初期化時に次のエントリを`customConfigs`マップに追加します。
 `````````dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
-`````````
+```

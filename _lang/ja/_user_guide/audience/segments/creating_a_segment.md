@@ -4,7 +4,7 @@ article_title: セグメントを作成
 page_order: 1
 page_type: tutorial
 description: "このハウツー記事では、Brazeを使用してセグメントを設定・作成する方法を説明します。"
-tool: セグメント
+tool: Segments
 search_rank: 3
 ---
 

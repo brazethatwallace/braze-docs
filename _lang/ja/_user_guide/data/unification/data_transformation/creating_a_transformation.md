@@ -110,7 +110,7 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-`````````
+```
 
 {:start="2"}
 2. 変換呼び出しにカスタム属性、カスタムイベント、購入を含めるには、ステップ3に進みます。それ以外の場合は、不要なセクションを削除します。<br><br>
@@ -184,7 +184,7 @@ let brazecall = {
 
 // After the request body is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-`````````
+```
 
 {:start="2"}
 2. `/catalogs`送信先の変換には、更新する特定のカタログを定義する`catalog_name`が必要です。このフィールドをハードコードするか、ペイロード行を介してWebhookフィールドでテンプレート化することができます。ペイロードオブジェクトのプロパティにアクセスするには、ドット表記を使用します。<br><br>

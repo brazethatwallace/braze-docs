@@ -63,7 +63,7 @@ APIにアクセスできるようになったので、コネクテッドコン�
 {{translations[0].greeting}} {{${first_name}}},
 
 {{translations[0].message_body}}
-`````````
+```
 {% endraw %}
 {% alert tip %}
 Sheetlabsとの統合に関する詳しい例やアドバイスについては、[Sheetlabsのドキュメント](https://app.sheetlabs.com/docs/producers/braze/)を参照してください。

@@ -26,7 +26,7 @@ description: "Braze SDK を使用して購入を記録する方法について�
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
-`````````
+```
 
 代わりにGoogleタグマネージャを使用したい場合は、**Purchase**タグタイプを使用して、[`logPurchase`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)を呼び出すことができます。このタグを使用して、Brazeへの購入を追跡します。オプションで、購入プロパティを含めます。そのために必要なこと:
 
@@ -47,7 +47,7 @@ Braze.getInstance(context).logPurchase(
    BigDecimal price,
    int quantity
 );
-`````````
+```
 
 {% endsubtab %}
 {% subtab kotlin %}
@@ -59,7 +59,7 @@ Braze.getInstance(context).logPurchase(
   price: BigDecimal,
   quantity: Int
 )
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -71,7 +71,7 @@ Braze.getInstance(context).logPurchase(
 
 `````````swift
 AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: price)
-`````````
+```
 
 {% endsubtab %}
 {% subtab objective-c %}
@@ -80,7 +80,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 [AppDelegate.braze logPurchase:"product_id"
                       currency:@"USD"
                          price:price];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -92,7 +92,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 var properties = {};
 properties["KEY"] = "VALUE";
 BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
-`````````
+```
 
 {% endtab %}
 
@@ -100,7 +100,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 `````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: properties);
-`````````
+```
 
 {% endtab %}
 
@@ -108,7 +108,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 
 `````````javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, properties);
-`````````
+```
 
 {% endtab %}
 
@@ -116,7 +116,7 @@ Braze.logPurchase(productId, price, currencyCode, quantity, properties);
 
 `````````brightscript
 m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantity)
-`````````
+```
 
 {% endtab %}
 
@@ -124,7 +124,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 `````````csharp
 AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -143,7 +143,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 
 `````````javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
-`````````
+```
 
 サイトで標準の [[e コマースイベント](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm)] データ層アイテムを使用して購入を Google Tag Manager に記録する場合は、**e コマース購入**タグタイプを使用できます。このアクションタイプでは、`items` のリストで送信されたアイテムごとに個別の「購入」を Braze に記録します。
 
@@ -151,7 +151,7 @@ braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 
 たとえば、次の e コマースペイロードがあるとします。
 
-`````````
+```
 items: [{
   item_name: "5 L WIV ECO SAE 5W/30",
   item_id: "10801463",
@@ -159,7 +159,7 @@ items: [{
   item_brand: "EUROLUB",
   quantity: 1
 }]
-`````````
+```
 
 `item_brand` と `item_name` だけを購入プロパティとして渡す場合は、これら2つのフィールドを購入プロパティテーブルに追加するだけです。プロパティを指定しない場合、[[`logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)] Braze の呼び出しで購入プロパティは送信されません。
 {% endtab %}
@@ -172,7 +172,7 @@ items: [{
 BrazeProperties purchaseProperties = new BrazeProperties();
 purchaseProperties.addProperty("key", "value");
 Braze.getInstance(context).logPurchase(..., purchaseProperties);
-`````````
+```
 
 {% endsubtab %}
 {% subtab kotlin %}
@@ -181,7 +181,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties);
 val purchaseProperties = BrazeProperties()
 purchaseProperties.addProperty("key", "value")
 Braze.getInstance(context).logPurchase(..., purchaseProperties)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -194,7 +194,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties)
 `````````swift
 let purchaseProperties = ["key": "value"]
 AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: price, properties: purchaseProperties)
-`````````
+```
 
 {% endsubtab %}
 {% subtab objective-c %}
@@ -205,7 +205,7 @@ NSDictionary *purchaseProperties = @{@"key": @"value"};
                       currency:@"USD"
                          price:price
                    properties:purchaseProperties];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -217,7 +217,7 @@ NSDictionary *purchaseProperties = @{@"key": @"value"};
 var properties = {};
 properties["key"] = "value";
 BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
-`````````
+```
 
 {% endtab %}
 
@@ -225,7 +225,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 `````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": "value"});
-`````````
+```
 
 {% endtab %}
 
@@ -233,7 +233,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": 
 
 `````````javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
-`````````
+```
 
 {% endtab %}
 
@@ -241,7 +241,7 @@ Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
 
 `````````brightscript
 m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantity, {"stringPropKey" : "stringPropValue", "intPropKey" : Integer intPropValue})
-`````````
+```
 
 {% endtab %}
 
@@ -253,7 +253,7 @@ Dictionary<string, object> purchaseProperties = new Dictionary<string, object>
     { "key", "value" }
 };
 AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchaseProperties);
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

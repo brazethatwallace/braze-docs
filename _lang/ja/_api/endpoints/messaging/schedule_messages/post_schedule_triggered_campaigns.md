@@ -35,9 +35,9 @@ description: "この記事では、「APIトリガーキャンペーンのスケ
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "campaign_id": (required, string) see campaign identifier,
   "send_id": (optional, string) see send identifier,
@@ -56,7 +56,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     "at_optimal_time": (optional, bool),
   }
 }
-`````````
+```
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
@@ -71,7 +71,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -140,18 +140,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
     "at_optimal_time": false
   }
 }'
-`````````
+```
 
 ## 応答 {#response}
 
 ### 成功応答の例 {#example-success-response}
 
-`````````json
+```json
 {
     "dispatch_id": "dispatch_identifier",
     "schedule_id": "schedule_identifier",
     "message": "success"
 }
-`````````
+```
 
 {% endapi %}

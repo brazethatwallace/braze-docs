@@ -49,15 +49,15 @@ description: "この記事では、ジョブ同期ステータスの一覧を取
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ### カーソル付き {#with-cursor}
 
-`````````
+```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cursor=c2tpcDow' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
@@ -69,11 +69,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations/00
 `Link` ヘッダーは、同期の合計が10件以下の場合には存在しません。カーソルなしの呼び出しでは、`prev` は表示されません。アイテムの最後のページを表示している場合、`next` は表示されません。
 {% endalert %}
 
-`````````
+```
 Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cursor=c2tpcDow>; rel="prev",</cdi/integrations00000000-0000-0000-0000-000000000000/job_sync_status?cursor=c2tpcDoxMDA=>; rel="next"
-`````````
+```
 
-`````````json
+```json
 {
   "results": [
     {
@@ -87,7 +87,7 @@ Link: </cdi/integrations/00000000-0000-0000-0000-000000000000/job_sync_status?cu
   ],
   "message": "success"
 }
-`````````
+```
 
 | job_status | 説明 |
 | --- | --- |

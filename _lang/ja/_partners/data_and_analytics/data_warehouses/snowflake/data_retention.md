@@ -128,7 +128,7 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
     -- Return the results
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -145,7 +145,7 @@ $$;
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab フィルター指定 %}
@@ -158,7 +158,7 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA', DATEADD(year, -1, CURRENT_DATE()), 'USERS_BEHAVIORS_%')
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -240,7 +240,7 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
     
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -263,7 +263,7 @@ CALL UNLOAD_BRAZE_SHARE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-0
 
 -- List the files that are unloaded
 LIST @MY_EXPORT_STAGE;
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab フィルター指定 %}
@@ -281,7 +281,7 @@ CALL EXPORT_BRAZE_SHARE_TO_STAGE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '
 
 -- List the files that are unloaded 
 LIST @MY_EXPORT_STAGE;
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

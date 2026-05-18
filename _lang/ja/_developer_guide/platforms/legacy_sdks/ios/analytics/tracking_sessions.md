@@ -37,7 +37,7 @@ Braze iOS SDK v3.14.1から、Info.plist ファイルを使用してセッショ
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKSessionTimeoutKey : @(60) }];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -48,7 +48,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:[ ABKSessionTimeoutKey : 60 ])
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

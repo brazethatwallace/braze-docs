@@ -27,14 +27,14 @@ noindex: true
 
 ```objc
 [[Appboy sharedInstance] changeUser:@"YOUR_USER_ID_STRING"];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.changeUser("YOUR_USER_ID")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

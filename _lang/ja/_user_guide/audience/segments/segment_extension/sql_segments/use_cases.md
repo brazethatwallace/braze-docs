@@ -6,7 +6,7 @@ page_type: glossary
 layout: sql_segment_extensions_glossary
 alias: "/sql_segments_use_cases/"
 description: "この記事では、SQL セグメントエクステンション向けにテスト済みで実証されたクエリを紹介します。"
-tool: セグメント
+tool: Segments
 ---
 
 {% api %}
@@ -24,7 +24,7 @@ SELECT user_id FROM "USERS_MESSAGES_EMAIL_OPEN_SHARED"
 WHERE campaign_api_id='8f7026dc-e9b7-40e6-bdc7-96cf58e80faa'
 GROUP BY user_id
 HAVING count(*) > 1
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -39,7 +39,7 @@ Property
 select user_id from "USERS_BEHAVIORS_CUSTOMEVENT_SHARED"
 where name='Bet On Sports'
 group by 1 having sum(get_path(parse_json(properties), 'amount')) > 150
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -58,7 +58,7 @@ FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -30, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
 GROUP BY user_id;
 HAVING COUNT(DISTINCT id) > 3
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -85,7 +85,7 @@ INTERSECT
 SELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -365, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= DATEADD(day, -271, CURRENT_TIMESTAMP());
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -114,7 +114,7 @@ AND
 to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
 GROUP BY 1
 HAVING COUNT(id) > 0;
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -135,7 +135,7 @@ CANVAS_ID='63067c50740cc3377f8200d5'
 AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_CARRIERSEND_SHARED WHERE CANVAS_ID='63067c50740cc3377f8200d5')
 GROUP BY 1
 HAVING COUNT(id) > 0;
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -156,7 +156,7 @@ CANVAS_ID='id pulled from URL'
 AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_CARRIERSEND_SHARED WHERE CANVAS_ID='id pulled from URL')
 GROUP BY 1
 HAVING COUNT(id) > 0;
-`````````
+```
 `CANVAS_ID` は、キャンバスのURLの `/canvas/` の後にある番号です。
 {% endapi %}
 
@@ -171,7 +171,7 @@ SELECT DISTINCT EXTERNAL_USER_ID
 FROM "USERS_BEHAVIORS_PURCHASE_SHARED",
 LATERAL FLATTEN(input=>parse_json(properties):modifiers) as f
 WHERE f.VALUE::STRING = 'Bacon'
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -195,7 +195,7 @@ WHERE
   time > $start_date
     AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_DELIVERY_SHARED)
 GROUP BY 1, 2;
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -224,7 +224,7 @@ USER_ID
 HAVING
 SUM(get_path(parse_json(properties), 'total_value')) > 500
 AND COUNT(*) > 3
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -240,7 +240,7 @@ where app_group_id = ''
 and date_trunc(day, to_timestamp(time)) <= to_timestamp('2023-08-07')
 and device_model = ''
 group by user_id, external_user_id, device_id, platform, os_version, device_model
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -256,7 +256,7 @@ WHERE to_timestamp_ntz(time) >= '2023-08-03'::timestamp_ntz
 AND to_timestamp_ntz(time) <= '2023-08-09'::timestamp_ntz
 AND BUTTON_ID = '1'
 AND CAMPAIGN_ID = '64c8cd9c4d38d13091957b1c'
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -280,7 +280,7 @@ SELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= '2023-11-01'::timestamp_ntz
 AND to_timestamp_ntz(time) <= '2023-11-30'::timestamp_ntz;
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -306,7 +306,7 @@ WHERE
   AND (PARSE_JSON(PROPERTIES):property_name::INT) IN (1, 2)
 GROUP BY
   1, 2;
-`````````
+```
 {% endapi %}
 
 {% api %}
@@ -342,7 +342,7 @@ user_daily_average AS (
 SELECT
   AVG(daily_average)
 FROM user_daily_average;
-`````````
+```
 
 {% alert tip %}
 SMSメッセージの場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。プッシュ通知の場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。
@@ -381,7 +381,7 @@ user_weekly_average AS (
 SELECT
   AVG(weekly_average) AS average_weekly_emails
 FROM user_weekly_average;
-`````````
+```
 {% alert tip %}
 SMSメッセージの場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。プッシュ通知の場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。
 {% endalert %}

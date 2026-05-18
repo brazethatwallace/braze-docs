@@ -49,7 +49,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
     }
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **ABKInAppMessage サブクラス**<br> 
@@ -68,7 +68,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
     return [[ABKInAppMessageViewController alloc] initWithInAppMessage:inAppMessage];
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +97,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 func setSlideConstraint() {
   offset = 0
 }
-`````````
+```
 
 `````````swift
 override var offset: CGFloat {
@@ -108,7 +108,7 @@ override var offset: CGFloat {
     super.offset = newValue + adjustedOffset
   }
 }
-`````````
+```
 
 {% details Version 3.34.0 or earlier  %}
 **`slideConstraint` 変数を更新**<br>
@@ -118,13 +118,13 @@ override var offset: CGFloat {
 func setSlideConstraint() {
     slideConstraint?.constant = bottomSpacing
 }
-`````````
+```
 
 `````````swift
 private var bottomSpacing: CGFloat {
     return AppboyManager.shared.activeApplicationViewController.topMostViewController().view.safeAreaInsets.bottom
 }
-````````` 
+```
 [`topMostViewController()`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/Utils/UIViewController_Util.swift#L17) 機能については、Braze Demo リポジトリにアクセスしてください。
 {% enddetails %}
 {% endtab %}
@@ -135,7 +135,7 @@ private var bottomSpacing: CGFloat {
 - (void)setOffset {
   self.offset = 0;
 }
-`````````
+```
 
 `````````objc
 - (CGFloat)offset {
@@ -145,7 +145,7 @@ private var bottomSpacing: CGFloat {
 - (void)setOffset:(CGFloat)offset {
   [super setOffset:offset + [self adjustedOffset]];
 }
-`````````
+```
 {% details Version 3.34.0 or earlier  %}
 **`slideConstraint` 変数を更新**<br>
 `slideConstraint` パブリック変数はスーパークラス `ABKInAppMessageSlideupViewController` から取得されます。 
@@ -154,13 +154,13 @@ private var bottomSpacing: CGFloat {
 - (void)self.setSlideConstraint:(NSLayoutConstraint *)slideConstraint {
   slideConstraint.constant = bottomSpacing;
 }
-`````````
+```
 
 `````````objc
 - (CGFloat)bottomSpacing {
   return [AppboyManager shared].activeApplicationViewController.topMostViewController.view.safeAreaInsets.bottom;
 }
-`````````
+```
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -175,14 +175,14 @@ override func beforeMoveInAppMessageViewOnScreen() {
   super.beforeMoveInAppMessageViewOnScreen()
   setOffset()
 }
-`````````
+```
 
 {% details Version 3.34.0 or earlier %}
 `````````swift
 override func beforeMoveInAppMessageViewOnScreen() {
   setSlideConstraint()
 }
-`````````
+```
 {% enddetails %}
 
 {% endtab %}
@@ -195,14 +195,14 @@ override func beforeMoveInAppMessageViewOnScreen() {
   [super beforeMoveInAppMessageViewOnScreen];
   [self setOffset];
 }
-`````````
+```
 
 {% details Version 3.34.0 or earlier  %}
 `````````objc
 - (void)beforeMoveInAppMessageViewOnScreen {
   [self setSlideConstraint:self.slideConstraint];
 }
-`````````
+```
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -246,7 +246,7 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
     return ABKInAppMessageModalViewController(inAppMessage: inAppMessage)
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **UI 表示動作に `view_type` を使用**<br>
@@ -264,7 +264,7 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
     return [[ABKInAppMessageModalViewController alloc] initWithInAppMessage:inAppMessage];
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -280,7 +280,7 @@ override var nibname: String{
 override func loadView() {
   Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **オーバーライドしてカスタムビューを提供する**<br>
@@ -290,7 +290,7 @@ override func loadView() {
   NSString *nibName = @"ModalPickerViewController";
   [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -305,7 +305,7 @@ override func viewDidLoad() {
   items = inAppMessage.message.separatedByCommaSpaceValue
   pickerView.reloadAllComponents()
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **PickerView の形式変数**<br>
@@ -317,7 +317,7 @@ override func viewDidLoad() {
   self.items = [[NSArray alloc] initWithArray:[self.inAppMessage.message componentsSeparatedByString:@", "]];
   [self.pickerView reloadAllComponents];
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -331,7 +331,7 @@ override func viewDidLoad() {
      
   AppboyManager.shared.setCustomAttributeWithKey(attributeKey, andStringValue: item)
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **カスタム属性を割り当てる**<br>
@@ -345,7 +345,7 @@ override func viewDidLoad() {
     [[AppboyManager shared] setCustomAttributeWithKey:self.inAppMessage.extras[key] andStringValue:self.selectedItem];
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

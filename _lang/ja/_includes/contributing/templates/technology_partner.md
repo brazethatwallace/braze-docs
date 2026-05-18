@@ -69,7 +69,7 @@ curl -X POST "PARTNER_POST_URL" \
 "braze_api_key":"BRAZE_API_KEY", \
 "PARTNER_host":"HOSTNAME", \
 "PARTNER_token":"PARTNER_NAME_API_TOKEN"}'
-`````````
+```
 
 以下を置き換えてください。
 
@@ -123,6 +123,6 @@ CONTENT.
 ### TROUBLESHOOTING_ITEM
 
 CONTENT.
-```````````
+```
 {% endraw %}
 {% enddetails %}

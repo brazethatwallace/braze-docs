@@ -127,7 +127,7 @@ braze.logCustomEvent(
   }
 );
 
-`````````
+```
 
 イベントやカスタム属性をログに記録するには、ユーザーのデバイスでSDKが初期化（アクティビティをリッスン）されている必要があります。カスタムデータのロギングの詳細については、[User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html)および[logCustomEvent object](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)を参照してください。
 
@@ -186,15 +186,15 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 
 `````````http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
-`````````
+```
 
 #### 期待される応答 {#expected-response}
 Brazeは、external IDのJSONを返す`200`ステータスコードを期待します。
-`````````json
+```json
 {
   "external_id": "my_external_id"
 }
-`````````
+```
 
 #### 検証 {#validation}
 `shopify_customer_id`と`email_address`（存在する場合）がShopifyの顧客値と一致することを検証することが重要です。[Shopify Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用してこれらのパラメーターを検証し、正しい`braze.external_id`メタフィールドを取得できます。

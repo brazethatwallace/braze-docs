@@ -88,7 +88,7 @@ Content Cardsの未読数をバッジとしてアプリのアイコンに表示�
 
 ```javascript
 braze.getCachedContentCards().getUnviewedCardCount();
-`````````
+```
 
 この情報を使って、未読Content Cardsの数を示すバッジを表示できます。詳細については、<a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">SDKリファレンスドキュメント</a> を参照してください。
 
@@ -102,14 +102,14 @@ braze.getCachedContentCards().getUnviewedCardCount();
 
 `````````java
 Braze.getInstance(context).getContentCardUnviewedCount();
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 `````````kotlin
 Braze.getInstance(context).contentCardUnviewedCount
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -127,21 +127,21 @@ Braze.getInstance(context).contentCardUnviewedCount
 
 `````````swift
 func applicationDidEnterBackground(_ application: UIApplication)
-`````````
+```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
 `````````swift
 let unreadCards = AppDelegate.braze?.contentCards.cards.filter { $0.viewed == false }
 UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
 
 `````````objc
 (void)applicationDidEnterBackground:(UIApplication *)application
-`````````
+```
 
 このメソッド内で、次のコードを実装します。これにより、ユーザーが特定のセッション中にカードを閲覧している間にバッジカウントがアクティブに更新されます。
 
@@ -153,7 +153,7 @@ for (BRZContentCardRaw *card in AppDelegate.braze.contentCards.cards) {
   }
 }
 [UIApplication sharedApplication].applicationIconBadgeNumber = unreadCardCount;
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}

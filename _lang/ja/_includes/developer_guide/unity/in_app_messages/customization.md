@@ -11,7 +11,7 @@ Appboy.AppboyBinding.SetInAppMessageDisplayAction(BrazeUnityInAppMessageDisplayA
 
 // Sets in-app messages to be discarded after being triggered.
 Appboy.AppboyBinding.SetInAppMessageDisplayAction(BrazeUnityInAppMessageDisplayActionType.IAM_DISCARD);
-`````````
+```
 
 ## カスタムリスナーを設定する
 
@@ -46,4 +46,4 @@ public void OnInAppMessageHTMLClicked(IInAppMessage inAppMessage, Uri uri) {
 public void OnInAppMessageDismissed(IInAppMessage inAppMessage) {
   // Executed whenever an in-app message is dismissed without a click.
 }
-`````````
+```

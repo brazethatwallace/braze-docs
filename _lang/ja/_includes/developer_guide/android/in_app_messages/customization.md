@@ -82,7 +82,7 @@ public class CustomHtmlInAppMessageActionListener implements IHtmlInAppMessageAc
     return true;
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -104,7 +104,7 @@ class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtm
         return true
     }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -129,14 +129,14 @@ class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtm
 public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMessage) {
   return InAppMessageOperation.DISPLAY_NOW;
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
 override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMessageOperation {
   return InAppMessageOperation.DISPLAY_NOW
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -172,12 +172,12 @@ Brazeへの他の呼び出しの前に、[`Application.onCreate()`](https://deve
 {% subtab JAVA %}
 `````````java
 BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(new CustomHtmlInAppMessageActionListener(context));
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(CustomHtmlInAppMessageActionListener(context))
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -200,7 +200,7 @@ class BrazeDemoApplication : Application(){
     BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory(CustomInAppMessageViewFactory())
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **アプリ内メッセージの種類**<br>
@@ -215,7 +215,7 @@ public class BrazeDemoApplication extends Application {
     BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory(new CustomInAppMessageViewFactory());
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -260,7 +260,7 @@ public class CustomInAppMessageViewFactory implements IInAppMessageViewFactory {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -280,7 +280,7 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -321,7 +321,7 @@ public class CustomInAppMessageViewWrapper extends DefaultInAppMessageViewWrappe
     Toast.makeText(mInAppMessageView.getContext().getApplicationContext(), "Closed in-app message", Toast.LENGTH_SHORT).show();
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -349,7 +349,7 @@ class CustomInAppMessageViewWrapper(inAppMessageView: View,
     Toast.makeText(mInAppMessageView.context.applicationContext, "Closed in-app message", Toast.LENGTH_SHORT).show()
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -378,7 +378,7 @@ public class CustomInAppMessageAnimationFactory implements IInAppMessageAnimatio
     return animation;
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -397,7 +397,7 @@ class CustomInAppMessageAnimationFactory : IInAppMessageAnimationFactory {
     return animation
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -429,12 +429,12 @@ Brazeへの他の呼び出しの前に、[`Application.onCreate()`](https://deve
 {% subtab JAVA %}
 `````````java
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(new CustomInAppMessageViewWrapper());
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(CustomInAppMessageViewWrapper())
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -468,7 +468,7 @@ BrazeのUI要素は、Android標準のUIガイドラインにマッチしたデ�
     <item name="android:textStyle">bold</item>
     <item name="android:layout_centerHorizontal">true</item>
   </style>
-`````````
+```
 
 必要に応じて、これらのスタイルをオーバーライドし、アプリにより適したルックアンドフィールを作成できます。
 
@@ -494,7 +494,7 @@ XMLを修正することなく、Brazeのキャンペーンでいくつかの色
     <item name="android:fontFamily">@font/my_custom_font_family</item>
     <item name="fontFamily">@font/my_custom_font_family</item>
   </style>
-`````````
+```
 
 ボタンテキストの`Braze.InAppMessage.Button`スタイルとは別に、メッセージテキストのスタイルは`Braze.InAppMessage.Message`、メッセージヘッダーのスタイルは`Braze.InAppMessage.Header`です。アプリ内メッセージの全テキストにカスタムフォントファミリを使用する場合は、`Braze.InAppMessage`スタイルにフォントファミリを設定できます。このスタイルは、すべてのアプリ内メッセージの親スタイルとなります。
 
@@ -543,7 +543,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(new 
     BrazeInAppMessageManager.getInstance().setBackButtonDismissesInAppMessageView(true);
   }
 });
-`````````
+```
 {% endtab %}
 {% tab KOTLIN %}
 `````````kotlin
@@ -561,7 +561,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
     BrazeInAppMessageManager.getInstance().setBackButtonDismissesInAppMessageView(true)
   }
 })
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -575,7 +575,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
 
 `````````java
 BrazeInAppMessageManager.getInstance().setClickOutsideModalViewDismissInAppMessageView(true)
-`````````
+```
 
 ## 向きのカスタマイズ {#customizing-the-orientation}
 
@@ -589,7 +589,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
   inAppMessage.setOrientation(Orientation.PORTRAIT);
   return InAppMessageOperation.DISPLAY_NOW;
 }
-`````````
+```
 {% endtab %}
 {% tab KOTLIN %}
 `````````kotlin
@@ -598,7 +598,7 @@ override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMess
   inAppMessage.orientation = Orientation.PORTRAIT
   return InAppMessageOperation.DISPLAY_NOW
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -618,7 +618,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
   }
   return InAppMessageOperation.DISPLAY_NOW;
 }
-`````````
+```
 {% endtab %}
 {% tab KOTLIN %}
 `````````kotlin
@@ -628,7 +628,7 @@ override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMess
   }
   return InAppMessageOperation.DISPLAY_NOW
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

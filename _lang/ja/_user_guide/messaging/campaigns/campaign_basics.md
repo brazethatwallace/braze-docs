@@ -4,7 +4,7 @@ article_title: キャンペーンの基本情報
 page_order: 0
 page_type: reference
 description: "このリファレンス記事では、キャンペーンの基本情報について説明します。初めてのキャンペーンを設定する際に確認すべきさまざまな質問を取り上げます。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 

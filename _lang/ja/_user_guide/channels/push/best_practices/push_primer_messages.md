@@ -51,24 +51,24 @@ Brazeでプッシュプライマーアプリ内メッセージを作成するに
 {% subtab OBJECTIVE-C %}
 ```objc
 requestAuthorizationWithOptions
-`````````
+```
 {% endsubtab %}
 {% subtab swift %}
 `````````swift
 requestAuthorization
-`````````
+```
 {% endsubtab %}
 {% subtab JavaScript %}
 `````````javascript
 braze.requestPushPermission()
 // or
 appboy.registerAppboyPushMessages()
-`````````
+```
 {% endsubtab %}
 {% subtab Java %}
 `````````java
 android.permission.POST_NOTIFICATIONS
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -88,13 +88,13 @@ android.permission.POST_NOTIFICATIONS
 
 `````````plaintext
 Breaking news on the go! Enable push notifications to get alerts for major stories and topics that matter to you.
-`````````
+```
 
 ストリーミングアプリでは以下のようなものが考えられます。
 
 `````````plaintext
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
-`````````
+```
 
 ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を参照してください。
 
@@ -210,7 +210,7 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 {% abort_message('user turned off push notifications') %}
 {% endif %}
 - message goes here -
-`````````
+```
 {% endraw %}
 
 `targeted_device` Liquidフィルターは、ユーザープロファイルではなく、メッセージが表示されるデバイスのみを参照します。そのデバイスでは、アクティブなフォアグラウンドプッシュトークンがある場合に`foreground_push_enabled`が`true`に設定され、オペレーティングシステムがプッシュ通知が無効であると報告した場合（ユーザーが明示的にオフにした場合など）に`false`に設定されます。プッシュ許可状態にまだ応答していない完全に新しいデバイスの場合、`foreground_push_enabled`は未設定で値がありません。Liquid条件は{% raw %}`false`{% endraw %}を具体的にチェックするため、明示的にオプトアウトしたデバイスに対してのみプライマーを抑制し、この不明な状態のデバイスは引き続き対象となりプッシュプライマーを受け取ることができます。

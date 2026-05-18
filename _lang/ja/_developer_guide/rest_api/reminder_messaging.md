@@ -37,7 +37,7 @@ description: "このリファレンス記事では、Brazeのランディング�
 
 ```html
 <a href="{% landing_page_url your-page-url-handle %}">Sign up for reminders</a>
-`````````
+```
 {% endraw %}
 
 ユーザーがこのリンクをクリックすると、Brazeが自動的にユーザーを識別するため、送信された設定は既存のプロファイルに書き込まれます。手動でのURLパラメーターは不要です。詳細なウォークスルーについては、[フォームを通じてユーザーを追跡する]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/)を参照してください。
@@ -52,9 +52,9 @@ description: "このリファレンス記事では、Brazeのランディング�
 
 例えば、カスタム属性`super_bowl_2026_reminder`にマッピングされた「Super Bowl 2026リマインダー」というラベルのチェックボックスを追加します。ユーザーがチェックボックスをオンにしてフォームを送信すると、Brazeは以下を設定します。
 
-`````````
+```
 super_bowl_2026_reminder = true
-`````````
+```
 
 これらのブール値属性は、[セグメントフィルター]({{site.baseurl}}/user_guide/audience/segments/)で直接使用して、リマインダーメッセージのターゲットオーディエンスを構築できます。
 
@@ -110,7 +110,7 @@ super_bowl_2026_reminder = true
     }
   });
 </script>
-`````````
+```
 
 ランディングページコンポーネントの要素IDを見つけるには、ページをプレビューし、右クリックしてブラウザで**検証**を選択します。HTML内でボタンとメッセージコンポーネントのIDを確認してください。
 

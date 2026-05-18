@@ -136,7 +136,7 @@ Braze プラットフォームで、クリエイティブタグをメール本�
 {% assign timestamp = "now" | date: "%s" %}
 {% assign img = "https://movable-ink-image-url-goes-here" | append:timestamp %}
 {{img}}
-`````````
+```
 {% endraw %}
 このテンプレートは、現在の時刻（秒単位）を取得し、それを Movable Ink 画像タブの末尾に（クエリパラメーターとして）付加し、最終結果を出力します。**Test** タブでプレビューできます&#8212;これにより、コードが評価され、プレビューが表示されます。
 
@@ -152,11 +152,11 @@ Braze プラットフォームで、クリエイティブタグをメール本�
 
 これを行うには、次の構文を使用します。必要に応じて画像 URL を置き換えてください。
 {% raw %}
-`````````
+```
 {% assign timestamp = "now" | date: "%s" %}
 {% assign img = "https://movable-ink-image-url-goes-here" | append:timestamp %}
 {{img}}
-`````````
+```
 {% endraw %}
 このテンプレートは、現在の時刻（秒単位）を取得し、それを Movable Ink 画像タブの末尾に（クエリパラメーターとして）付加し、最終結果を出力します。**Test** タブでプレビューできます。これにより、コードが評価され、プレビューが表示されます。
 

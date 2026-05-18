@@ -320,7 +320,7 @@ Content-Type: application/json
     }
   }
 }
-`````````
+```
 
 ## データ変換のユースケース {#data-transformation-use-cases}
 
@@ -406,12 +406,12 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return “brazecall” to create an output
 return brazecall;
-`````````
+```
 
 {% endtab %}
 {% tab Output %}
 
-`````````json
+```json
 {
   "events": [
     {
@@ -465,7 +465,7 @@ return brazecall;
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -546,12 +546,12 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return “brazecall” to create an output
 return brazecall;
-`````````
+```
 
 {% endtab %}
 {% tab Output %}
 
-`````````json
+```json
 {
   "events": [
     {
@@ -605,7 +605,7 @@ return brazecall;
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

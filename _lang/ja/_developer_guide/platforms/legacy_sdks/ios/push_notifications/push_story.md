@@ -80,7 +80,7 @@ Push Story 機能では、メインアプリターゲットの ［**機能**］ 
 target 'YourContentExtensionTarget' do
   pod 'Appboy-Push-Story'
 end
-`````````
+```
 
 Podfile を更新したら、ターミナル内で Xcode アプリプロジェクトのディレクトリーに移動し、`pod install`　を実行します。
 
@@ -111,12 +111,12 @@ Podfile を更新したら、ターミナル内で Xcode アプリプロジェ�
 
 `````````objc
 #import <AppboyPushStory/AppboyPushStory.h>
-`````````
+```
 
 `````````objc
 @property (nonatomic) IBOutlet ABKStoriesView *storiesView;
 @property (nonatomic) ABKStoriesViewDataSource *dataSource;
-`````````
+```
 
 `NotificationViewController.m` では、デフォルトの実装を削除し、次のコードを追加します。
 
@@ -141,7 +141,7 @@ Podfile を更新したら、ターミナル内で Xcode アプリプロジェ�
 }
 
 @end
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -150,7 +150,7 @@ Podfile を更新したら、ターミナル内で Xcode アプリプロジェ�
 
 `````````swift
 import AppboyPushStory
-`````````
+```
 
 次に、デフォルトの実装を削除し、次のコードを追加します。
 
@@ -176,7 +176,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     super.viewWillDisappear(animated)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ appboyOptions[ABKPushStoryAppGroupKey] = @"YOUR-APP-GROUP-IDENTIFIER";
           inApplication:application
       withLaunchOptions:launchOptions
       withAppboyOptions:appboyOptions];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -229,7 +229,7 @@ let appboyOptions: [AnyHashable: Any] = [
   ABKPushStoryAppGroupKey : "YOUR-APP-GROUP-IDENTIFIER"
 ]
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions, withAppboyOptions:appboyOptions)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -59,7 +59,7 @@ public void onCreate() {
     // Explicitly start tracking
     Airbridge.startTracking();
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -80,7 +80,7 @@ override fun onCreate() {
     // Explicitly start tracking
     Airbridge.startTracking()
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -108,7 +108,7 @@ func application(
     AirBridge.state()?.addUserAlias(withKey:"braze_device_id", value:Appboy.sharedInstance()?.getDeviceId())
     AirBridge.startTracking()
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -124,7 +124,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [AirBridge.state addUserAliasWithKey:@"braze_device_id" value:Appboy.sharedInstance.getDeviceId];
     [AirBridge startTracking];
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -141,7 +141,7 @@ Braze.getInstallTrackingId(function (error, brazeID) {
     Airbridge.state.setDeviceAlias("braze_device_id", brazeID)
     Airbirdge.state.startTracking()
 })
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -156,7 +156,7 @@ AppboyPlugin.getDeviceId(function (brazeID) {
     Airbridge.state.setDeviceAlias("braze_device_id", brazeID)
   Airbridge.state.startTracking()
 })
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -171,7 +171,7 @@ BrazePlugin.getInstallTrackingId().then((brazeID) {
     Airbridge.state.setDeviceAlias("braze_device_id", brazeID)
   Airbridge.state.startTracking()
 })
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -185,7 +185,7 @@ BrazePlugin.getInstallTrackingId().then((brazeID) {
 string BrazeID = AppboyBinding.GetInstallTrackingId();
 AirbridgeUnity.SetDeviceAlias("braze_device_id", BrazeID);
 AirbridgeUnity.StartTracking()
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -248,11 +248,11 @@ Airbridgeのクリックトラッキングリンクの使用を開始するに�
 {% tab Android %}
 Androidの場合、Brazeでは[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Airbridge SDK統合によってネイティブに収集されます。以下のLiquidロジックを利用することで、AirbridgeのクリックトラッキングリンクにGAIDを含めることができます。
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'android' %}
 aifa={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -260,11 +260,11 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとAirbridgeの両方が、SDK統合を通じてネイティブにIDFVを自動的に収集します。これはデバイス識別子として使用できます。以下のLiquidロジックを利用することで、AirbridgeのクリックトラッキングリンクにIDFVを含めることができます。
 
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'ios' %}
 idfv={{most_recently_used_device.${id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

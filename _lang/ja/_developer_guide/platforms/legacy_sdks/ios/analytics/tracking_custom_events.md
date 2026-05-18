@@ -23,14 +23,14 @@ Brazeでカスタムイベントを記録することで、アプリの使用パ
 
 ```objc
 [[Appboy sharedInstance] logCustomEvent:@"YOUR_EVENT_NAME"];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -54,7 +54,7 @@ Appboy.sharedInstance()?.logCustomEvent("YOUR_EVENT_NAME")
     @"deeply": @[@"nested", @"json"]
   }
 }];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -73,7 +73,7 @@ Appboy.sharedInstance()?.logCustomEvent(
     ]
   ]
 )
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

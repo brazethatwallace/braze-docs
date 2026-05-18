@@ -48,7 +48,7 @@ import * as braze from "@braze/web-sdk";
 function refresh() {
   braze.requestContentCardsRefresh();
 }
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -60,14 +60,14 @@ Android SDKから[`requestContentCardsRefresh`](https://braze-inc.github.io/braz
 
 `````````java
 Braze.getInstance(context).requestContentCardsRefresh();
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 `````````kotlin
 Braze.getInstance(context).requestContentCardsRefresh()
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -87,13 +87,13 @@ Swiftでは、オプションの完了ハンドラまたはネイティブのSwi
 AppDelegate.braze?.contentCards.requestRefresh { result in
   // Implement completion handler
 }
-`````````
+```
 
 #### Async/Await
 
 `````````swift
 let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 
@@ -101,7 +101,7 @@ let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
 [AppDelegate.braze.contentCards requestRefreshWithCompletion:^(NSArray<BRZContentCardRaw *> * contentCards, NSError * error) {
   // Implement completion handler
 }];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -142,7 +142,7 @@ Content Cardsの表示順序を変更できます。これにより、時間的�
 braze.showContentCards(null, (cards) => {
   return sortBrazeCards(cards); // Where sortBrazeCards is your sorting function that returns the sorted card array
 });
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -217,7 +217,7 @@ public class DefaultContentCardsUpdateHandler implements IContentCardsUpdateHand
     // No state is kept in this class so the parcel is left unmodified
   }
 }
-`````````
+```
 {% enddetails %}
 
 {% details Kotlinの例を表示 %}
@@ -277,7 +277,7 @@ class DefaultContentCardsUpdateHandler : IContentCardsUpdateHandler {
     }
   }
 }
-`````````
+```
 {% enddetails %}
 
 {% alert tip %}
@@ -312,7 +312,7 @@ ContentCardsList(
         }
     }
 )
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -337,7 +337,7 @@ attributes.transform = { cards in
     }
 }
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -381,7 +381,7 @@ Web SDKでは、「空のフィード」の文言をプログラムで置き換�
   <item name="android:layout_height">match_parent</item>
   <item name="android:layout_width">match_parent</item>
 </style>
-`````````
+```
 
 Content Cardsのスタイル要素のカスタマイズについて詳しくは、[スタイルのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)を参照してください。
 {% endsubtab %}
@@ -395,7 +395,7 @@ ContentCardsList(
         emptyTextStyle = TextStyle(...)
     )
 )
-`````````
+```
 
 代わりに表示したいコンポーザブルがある場合は、`emptyComposable`を[`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)に渡します。`emptyComposable`を指定した場合、`emptyString`は使用されません。
 
@@ -408,7 +408,7 @@ ContentCardsList(
         )
     }
 )
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -423,7 +423,7 @@ var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.emptyStateMessage = "This is a custom empty state message"
 attributes.emptyStateMessageFont = .preferredFont(forTextStyle: .title1)
 attributes.emptyStateMessageColor = .secondaryLabel
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -468,7 +468,7 @@ function showCardsByFeedType(feed_type) {
     return cards.filter((card) => card.extras["feed_type"] === feed_type);
   });
 }
-`````````
+```
 
 次に、カスタムフィードのトグルを設定できます。
 
@@ -477,7 +477,7 @@ function showCardsByFeedType(feed_type) {
 document.getElementById("show-transactional-feed").onclick = function() {
   showCardsByFeedType("Transactional");
 };
-`````````
+```
 
 詳細については、[SDKメソッドのドキュメント](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards)を参照してください。
 
@@ -530,7 +530,7 @@ private IContentCardsUpdateHandler getUpdateHandlerForFeedType(final String desi
     }
   };
 }
-`````````
+```
 {% enddetails %}
 
 {% details Kotlinの例を表示 %}
@@ -568,7 +568,7 @@ private fun getUpdateHandlerForFeedType(desiredFeedType: String): IContentCardsU
     cards
   }
 }
-`````````
+```
 {% enddetails %}
 
 #### ステップ2.2:フラグメントに追加する {#step-22-add-it-to-a-fragment}
@@ -580,7 +580,7 @@ private fun getUpdateHandlerForFeedType(desiredFeedType: String): IContentCardsU
 // We want a Content Cards feed that only shows "Transactional" cards.
 ContentCardsFragment customContentCardsFragment = new ContentCardsFragment();
 customContentCardsFragment.setContentCardUpdateHandler(getUpdateHandlerForFeedType("Transactional"));
-`````````
+```
 {% enddetails %}
 
 {% details Kotlinの例を表示 %}
@@ -588,7 +588,7 @@ customContentCardsFragment.setContentCardUpdateHandler(getUpdateHandlerForFeedTy
 // We want a Content Cards feed that only shows "Transactional" cards.
 val customContentCardsFragment = ContentCardsFragment()
 customContentCardsFragment.contentCardUpdateHandler = getUpdateHandlerForFeedType("Transactional")
-`````````
+```
 {% enddetails %}
 {% endsubtab %}
 
@@ -617,7 +617,7 @@ The following example will show the Content Cards feed for `Transactional` type 
 `````````swift
 // Filter cards by the `Transactional` feed type based on your key-value pair.
 let transactionalCards = cards.filter { $0.extras["feed_type"] as? String == "Transactional" }
-`````````
+```
 
 さらに一歩進めて、ビューコントローラーに表示されるカードは、`Attributes`構造体の`transform`プロパティを設定して、条件でフィルタリングされたカードのみを表示するようにフィルタリングできます。
 
@@ -629,7 +629,7 @@ attributes.transform = { cards in
 
 // Pass your attributes containing the transformed cards to the Content Card UI.
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -642,7 +642,7 @@ for (BRZContentCardRaw *card in AppDelegate.braze.contentCards.cards) {
     [transactionalCards addObject:card];
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}

@@ -16,7 +16,7 @@
 extension AppDelegate: BrazeInAppMessageUIDelegate {
   // Implement your protocol methods here.
 }
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 `````````objc
@@ -27,7 +27,7 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 @implementation AppDelegate
   // Implement your protocol methods here.
 @end
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -41,14 +41,14 @@ extension AppDelegate: BrazeInAppMessageUIDelegate {
 let inAppMessageUI = BrazeInAppMessageUI()
 inAppMessageUI.delegate = self
 AppDelegate.braze?.inAppMessagePresenter = inAppMessageUI
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 `````````objc
 BrazeInAppMessageUI *inAppMessageUI = [[BrazeInAppMessageUI alloc] init];
 inAppMessageUI.delegate = self;
 AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
-`````````
+```
 
 {% alert important %}
 パラメーターが言語ランタイムと互換性がないため、すべてのデリゲートメソッドをObjective-Cで使用できるわけではありません。
@@ -94,7 +94,7 @@ func inAppMessage(
     context.message.clickAction = .url(newUrl, useWebView: true)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -119,7 +119,7 @@ func inAppMessage(
   message: Braze.InAppMessage,
   view: InAppMessageView
 ) -> Bool
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -131,7 +131,7 @@ func inAppMessage(
             buttonId:(NSString *)buttonId
              message:(BRZInAppMessageRaw *)message
                 view:(UIView *)view;
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -174,7 +174,7 @@ func inAppMessage(
 
     return true
   }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -195,7 +195,7 @@ func inAppMessage(
   }
   return YES;
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -225,7 +225,7 @@ func inAppMessage(
 
 `````````swift
 BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = true
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -264,7 +264,7 @@ func inAppMessage(
 ) {
   context.preferredOrientation = .portrait
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -274,7 +274,7 @@ func inAppMessage(
          prepareWith:(BrazeInAppMessageUIPresentationContextRaw *)context {
   context.preferredOrientation = BRZInAppMessageRawOrientationPortrait;
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -295,7 +295,7 @@ inAppMessage.orientation = .portrait
 
 // Set inAppMessage orientation to only display in landscape
 inAppMessage.orientation = .landscape
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -309,7 +309,7 @@ inAppMessage.orientation = BRZInAppMessageRawOrientationPortrait;
 
 // Set inAppMessage orientation to only display in landscape
 inAppMessage.orientation = BRZInAppMessageRawOrientationLandscape;
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -338,14 +338,14 @@ func inAppMessage(
   _ ui: BrazeInAppMessageUI,
   displayChoiceForMessage message: Braze.InAppMessage
 ) -> BrazeInAppMessageUI.DisplayChoice
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
 `````````objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui displayChoiceForMessage:(BRZInAppMessageRaw *)message
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -439,7 +439,7 @@ func inAppMessage(
       break
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -477,7 +477,7 @@ func inAppMessage(
       break;
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -511,7 +511,7 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
     return .now
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -526,7 +526,7 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
     return BRZInAppMessageUIDisplayChoiceNow;
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -547,7 +547,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   }
   // Other deep link handling code…
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -561,7 +561,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   }
   // Other deep link handling code…
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

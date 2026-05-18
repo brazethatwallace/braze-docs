@@ -45,7 +45,7 @@ document.getElementById("button").onclick = function () {
     braze.showInAppMessage(deferredMessage);
   }
 };
-`````````
+```
 
 !!step
 lines-index.js=2
@@ -163,7 +163,7 @@ class MyApplication : Application() {
         BrazeInAppMessageManager.getInstance().requestDisplayInAppMessage()
     }
 }
-`````````
+```
 
 `````````kotlin file=MainActivity.kt
 import android.os.Bundle
@@ -200,7 +200,7 @@ fun ContentView() {
         }
     }
 }
-`````````
+```
 
 !!step
 lines-MainApplication.kt=13-16
@@ -310,7 +310,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BrazeInAppMessageUIDelega
         (braze.inAppMessagePresenter as? BrazeInAppMessageUI)?.presentNext()
     }
 }
-`````````
+```
 
 `````````swift file=SampleApp.swift
 import SwiftUI
@@ -325,7 +325,7 @@ struct IAMDeferApp: App {
         }
     }
 }
-`````````
+```
 
 `````````swift file=ContentView.swift
 import SwiftUI
@@ -342,7 +342,7 @@ struct ContentView: View {
         .padding()
     }
 }
-`````````
+```
 
 !!step
 lines-AppDelegate.swift=5

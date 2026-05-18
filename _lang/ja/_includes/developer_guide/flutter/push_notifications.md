@@ -33,7 +33,7 @@ GoogleのFirebase Cloud Messaging（FCM）APIを使用してプッシュに登�
 ```xml
 <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
 <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">FIREBASE_SENDER_ID</string>
-`````````
+```
 
 {% endtab %}
 
@@ -68,7 +68,7 @@ pushEventsStreamSubscription = braze.subscribeToPushNotificationEvents((BrazePus
 
 // Cancel stream subscription
 pushEventsStreamSubscription.cancel();
-`````````
+```
 
 ##### プッシュ通知イベントフィールド {#push-notification-event-fields}
 

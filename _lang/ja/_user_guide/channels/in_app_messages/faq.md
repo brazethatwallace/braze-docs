@@ -36,7 +36,7 @@ tool: in-app messages
 {% abort_message("Outside allowed time window") %}
 {% endif %}
 MESSAGE HERE
-`````````
+```
 {% endraw %}
 
 ### ユーザーがアプリ内メッセージを閉じた後、再度受信できますか？ {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}

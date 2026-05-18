@@ -188,7 +188,7 @@ SELECT
 FROM YOUR_CDI_SOURCE_TABLE
 WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
   AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
-`````````
+```
 
 `````````sql
 SELECT
@@ -200,7 +200,7 @@ WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
 GROUP BY UPDATED_AT
 ORDER BY rows_at_timestamp DESC
 LIMIT 20;
-`````````
+```
 
 ウェアハウスが `LIMIT` をサポートしていない場合（例：Fabric）、`TOP` などの同等の構文を使用してください。
 

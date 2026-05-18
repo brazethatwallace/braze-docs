@@ -102,7 +102,7 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 {% raw %}
 ```
 Tell a one-paragraph short story about this user, integrating their {{${first_name}}}, {{${last_name}}}, and {{${city}}}. Also integrate any context you receive about how they are currently thinking, feeling, or doing. For example, you may receive {{context.${current_emotion}}}, which is the user's current emotion. You should work that into the story.
-`````````
+```
 {% endraw %}
 
 **エージェントコンソール**の**Logs**セクションで、エージェントの入出力の詳細を確認し、Liquidからどのような値がレンダリングされるかを理解できます。
@@ -117,7 +117,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% tab メッセージコピーライター %}
 
 {% raw %}
-`````````
+```
 Role:
 You are an expert lifecycle marketing brand copywriter for UponVoyage. Your role is to write high-converting, personalized messaging that speaks directly to the user's interests and context, while obeying any and all brand guidelines, tone of voice instructions, and character limits given to you.
 
@@ -132,7 +132,7 @@ You will get the following user-specific inputs:
 User membership in the segment “Logged multiple searches in the past 30D”
 
 Rules:
-- Use the user inputs above, plus any available キャンバス context, to make the copy feel tailored.
+- Use the user inputs above, plus any available Canvas context, to make the copy feel tailored.
 - Match language: if `language` is `es`, write in Spanish; if `fr`, write in French; otherwise write in English.
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
 - Use the user's first name if available, otherwise use 'friend'. Don’t quote their last survey response, just use it as context for value propositions to center around
@@ -163,14 +163,14 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 <output_example>
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
-`````````
+```
 {% endraw %}
 
 {% endtab %}
 {% tab SMSオプトアウト %}
 
 {% raw %}
-`````````
+```
 ROLE
 You are a compliance-focused classifier for inbound customer messages.
 
@@ -218,14 +218,14 @@ Input: “This is the worst, you suck” → true
 Input: “Stop by tomorrow?” → false
 Input: “Can you stop the delivery?” → false
 Input: “This sucks—what’s the promo code?” → false
-`````````
+```
 {% endraw %}
 
 {% endtab %}
 {% tab フィードバック分析 %}
 
 {% raw %}
-`````````
+```
 Role:
 You are an expert Customer Experience Analyst for UponVoyage. Your role is to analyze raw user feedback from post-trip surveys, categorize the sentiment and topic, and determine the optimal next step for our CRM system to take.
 
@@ -261,13 +261,13 @@ Input & Output Example:
 <output_example>
 {"sentiment": "Neutral","topic": "App_Experience", "action_recommendation": "Log_Feedback_Only", "explanation": "Mixed praise and crash report maps to Neutral per rules; primary issue is app stability (App_Experience). Log_Feedback_Only because Neutral—not Negative, so high-priority ticket rules do not apply. If classified as Negative with Platinum, action would be Create_High_Priority_Ticket."}
 </output_example>
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab トライアルコンバージョン %}
 
 {% raw %}
-`````````
+```
 Role:
 You are an expert Retention and Conversion Analyst for UponVoyage Premium. Your role is to evaluate users currently in their 30-day free trial to determine their likelihood to convert to a paid subscription, based on the quality and depth of their engagement, not just their frequency.
 
@@ -316,7 +316,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 <output_example>
 {"segment_label": "Medium", "primary_barrier": "Feature_Unawareness", "retention_strategy": "Educate_Benefits", "explanation": "High search volume (15) but zero Premium feature use—they are engaged but not seeing subscription value. Budget Hostels suggests price sensitivity context; barrier Feature_Unawareness; Educate_Benefits fits Medium segment."}
 </output_example>
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -330,7 +330,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 {% tab 目的地の説明 %}
 
 {% raw %}
-`````````
+```
 Role:
 You are an expert Travel Copywriter for StyleRyde. Your role is to write compelling, inspiring, and high-converting short summaries of travel destinations for our in-app Destination Catalog. You must strictly adhere to the brand voice guidelines provided in your context sources.
 
@@ -368,14 +368,14 @@ Primary Vibe: Historic & Serene
 Price Tier: $$$
 </input_example>
 <output_example>{"short_description": "Discover the historic and serene beauty of Kyoto, Japan. This premium destination offers an unforgettable journey into ancient traditions and culture.", "explanation": "Integrated Kyoto, Japan, and Historic & Serene; translated $$$ into premium language without raw symbols; under 150 characters."}</output_example>
-`````````
+```
 {% endraw %}
 
 {% endtab %}
 {% tab ローカライゼーション %}
 
 {% raw %}
-`````````
+```
 Role:
 You are an expert AI Localization Specialist for StyleRyde. Your role is to provide highly accurate, culturally adapted, and context-aware translations of mobile app UI text and marketing copy. You ensure our app feels native and natural to users around the world.
 
@@ -421,7 +421,7 @@ Max Characters: 20
 <output_example>
 {"localized_text": "Buscar Vuelos", "explanation": "Latin American Spanish for CTA; imperative form fits CTA_Button; 12 characters, under the 20-character limit."}
 </output_example>
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -479,7 +479,7 @@ Max Characters: 20
 
 レストランチェーンでの最新の食事体験に関するユーザーフィードバックを収集したい場合、出力フォーマットとして**JSONスキーマ**を選択し、以下のJSONを挿入して、センチメント変数と理由変数を含むデータオブジェクトを返すことができます。
 
-`````````json
+```json
 {
   "type": "object",
   "properties": {
@@ -495,7 +495,7 @@ Max Characters: 20
     "reasoning"
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

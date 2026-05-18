@@ -4,7 +4,7 @@ article_title: ダブルオプトインによるメール登録
 page_order: 2
 page_type: reference
 description: "この記事では、Braze キャンバステンプレートを使用して、確認済みのメール登録でリーチを拡大する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # ダブルオプトインによるメール登録 {#email-sign-up-with-double-opt-in}

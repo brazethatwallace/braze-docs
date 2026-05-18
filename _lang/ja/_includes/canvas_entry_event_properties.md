@@ -29,7 +29,7 @@ RetailApp は、ユーザーが購入イベントをトリガーした後に、�
   Your order will be on its way shortly. If you missed something, you have until the end of the week to add more items to your cart for the same discounts.
 {% endif %}
 
-`````````
+```
 {% endraw %}
 
 {% details Expand for original キャンバス editor %}

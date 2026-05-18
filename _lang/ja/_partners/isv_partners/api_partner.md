@@ -22,7 +22,7 @@ hidden: true
 
 ```bash
 User-Agent: partner-OrganizationName
-`````````
+```
 
 以下を置き換えてください。
 
@@ -37,10 +37,10 @@ User-Agent: partner-OrganizationName
 
 `````````bash
 User-Agent: partner-Snowflake
-`````````
+```
 
 一方、以下はトラフィックのソースを明確に識別できないため、正しくありません。
 
 `````````bash
 User-Agent: axios/1.4.0
-`````````
+```

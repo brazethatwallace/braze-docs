@@ -43,8 +43,8 @@ description: "この記事では、既存のダッシュボードユーザーア
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-SCIM-TOKEN-KEY
-`````````
-`````````json
+```
+```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "name": {
@@ -84,7 +84,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
         ]
    }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -134,10 +134,10 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
         ]
     }
 }
-`````````
+```
 
 ## 応答 {#response}
-`````````json
+```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
@@ -203,7 +203,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
         ]
     }
 }
-`````````
+```
 
 ### エラー状態 {#error-states}
 このIDを持つユーザーがBrazeに存在しない場合、エンドポイントは次のように応答します。
@@ -217,6 +217,6 @@ Content-Type: text/html; charset=UTF-8
     "detail": "User not found",
     "status": 404
 }
-`````````
+```
 
 {% endapi %}

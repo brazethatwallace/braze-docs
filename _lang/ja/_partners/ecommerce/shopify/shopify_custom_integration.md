@@ -54,7 +54,7 @@ Brazeで、**設定** > **アプリ設定**に移動し、**アプリの追加**
 npm install --save @braze/web-sdk@5.4.0
 # or, using yarn:
 # yarn add @braze/web-sdk
-`````````
+```
 
 {% alert important %}
 Braze Web SDKバージョンは5.4.0である必要があります。
@@ -66,7 +66,7 @@ Braze Web SDKバージョンは5.4.0である必要があります。
 optimizeDeps: {
     exclude: ['@braze/web-sdk']
 }
-`````````
+```
 
 NPMパッケージをインストールした後、`Layout` コンポーネント内部の `useEffect` フック内でSDKを初期化する必要があります。Hydrogenのバージョンに応じて、このコンポーネントは `root.jsx` または `layout.jsx` のいずれかのファイルにあります。
 
@@ -92,7 +92,7 @@ export function Layout({children}) {
 
   return (...);
 }
-`````````
+```
 
 [ステップ2](#step-2)で作成した環境変数を使用して、値 `data.brazeApiKey` と `data.brazeApiUrl` をコンポーネントローダーに含める必要があります。
 
@@ -127,7 +127,7 @@ export async function loader(args) {
     },
   };
 }
-`````````
+```
 
 {% alert note %}
 コンテンツセキュリティポリシー（通常は `entry.server.jsx` Hydrogen ファイルにある）は、ローカル環境でも本番環境でも、Brazeスクリプトの機能に影響を与える可能性があります。OxygenまたはカスタムデプロイメントでShopifyに送信されるプレビュービルドでテストすることをお勧めします。問題が発生した場合は、CSPを設定してJavaScriptが機能するようにする必要があります。
@@ -181,7 +181,7 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
     sessionStorage.setItem(customerSessionKey, customerId);
   }
 }
-`````````
+```
 
 {: start="2"}
 2. Braze SDKを初期化するのと同じ `useEffect` フックで、この関数の呼び出しを追加します。
@@ -211,7 +211,7 @@ export function Layout({children}) {
     })
 
   }, [data])
-`````````
+```
 
 {: start="3"}
 3. ファイル `app/graphql/customer-account/CustomerDetailsQuery.js` にあるCustomer API GraphQLクエリで、顧客のメールアドレスと電話番号を取得します。
@@ -252,7 +252,7 @@ export const CUSTOMER_FRAGMENT = `#graphql
     phoneNumber
   }
 `;
-`````````
+```
 
 {: start="4"}
 4. 最後に、ローダー関数で顧客データを読み込みます。
@@ -304,7 +304,7 @@ export async function loader(args) {
     },
   };
 }
-`````````
+```
 
 ### ステップ5: 製品の閲覧イベントとカートの更新イベントのトラッキングを追加する {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
 
@@ -334,7 +334,7 @@ export function trackProductViewed(product, storefrontUrl) {
     eventData
   )
 }
-`````````
+```
 
 {: start="2"}
 2. ユーザーが製品ページにアクセスするたびにこの関数を呼び出すには、ファイル `app/routes/products.$handle.jsx` 内のProductコンポーネントに `useEffect` フックを追加します。
@@ -355,7 +355,7 @@ export default function Product() {
 
   return (...)
 }
-`````````
+```
 
 {: start="3"}
 3. 「storefrontUrl」の値を追加します（デフォルトではコンポーネントローダーに含まれていないため）。
@@ -386,7 +386,7 @@ async function loadCriticalData({context, params, request}) {
     storefrontUrl: context.env.PUBLIC_STORE_DOMAIN,
   };
 }
-`````````
+```
 
 #### カート更新イベント {#cart-updated-events}
 
@@ -436,7 +436,7 @@ export function setCartToken(cart) {
     }
   }
 }
-`````````
+```
 
 {: start="2"}
 2. フェッチャーアクションから `cart` オブジェクトを返し、Brazeがそのプロパティにアクセスできるようにします。`app/routes/cart.jsx` ファイルに移動して、`action` 関数に以下を追加します。
@@ -479,7 +479,7 @@ export async function action({request, context}) {
     {status, headers},
   );
 }
-`````````
+```
 
 Remixフェッチャーの詳細については、[useFetcher](https://remix.run/docs/ja/main/hooks/use-fetcher) を参照してください。
 
@@ -533,7 +533,7 @@ export function AddToCartButton({
     </CartForm>
   );
 }
-`````````
+```
 
 {: start="4"}
 4. カートから既存の製品を更新するアクションには、同じ `fetcherKey` を使用します。`CartLineRemoveButton` と `CartLineUpdateButton` コンポーネント（デフォルトではファイル `app/components/CartLineItem.jsx` にある）に以下を追加します。
@@ -568,7 +568,7 @@ function CartLineUpdateButton({children, lines}) {
     </CartForm>
   );
 }
-`````````
+```
 
 ## BrazeのShopify統合をインストールする {#install-the-braze-shopify-integration}
 
@@ -696,16 +696,16 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 
 `````````http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
-`````````
+```
 
 
 ##### 期待される応答 {#expected-response}
 Brazeは、external IDのJSONを返す `200` ステータスコードを期待します。
-`````````json
+```json
 {
   "external_id": "my_external_id"
 }
-`````````
+```
 
 ##### 検証 {#validation}
 

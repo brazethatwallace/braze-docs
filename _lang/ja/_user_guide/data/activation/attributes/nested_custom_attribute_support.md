@@ -49,13 +49,13 @@ description: "このリファレンス記事では、階層化カスタム属性
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab 更新 %}
 既存のオブジェクトを更新するには、リクエストに `_merge_objects` パラメーターを含めたPOSTを `users/track` に送信します。これにより、更新内容が既存のオブジェクトデータとディープマージされます。ディープマージにより、最初のレベルだけでなく、オブジェクトのすべてのレベルが別のオブジェクトにマージされます。この例では、Brazeにすでに `most_played_song` オブジェクトがあり、`most_played_song` オブジェクトに新しいフィールド `year_released` を追加します。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -67,11 +67,11 @@ description: "このリファレンス記事では、階層化カスタム属性
     }
   ]
 }
-`````````
+```
 
 このリクエストが受信されると、カスタム属性オブジェクトは次のようになります。
 
-`````````json
+```json
 {"most_played_song": {
   "song_name": "Solea",
   "artist_name" : "Miles Davis",
@@ -83,7 +83,7 @@ description: "このリファレンス記事では、階層化カスタム属性
      "top_10_listeners": true
   }
 }}
-`````````
+```
 
 {% alert warning %}
 `_merge_objects` を `true` に設定する必要があります。設定しない場合、オブジェクトは上書きされます。`_merge_objects` はデフォルトで `false` です。
@@ -93,7 +93,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 {% tab 削除 %}
 カスタム属性オブジェクトを削除するには、カスタム属性オブジェクトを `null` に設定して `users/track` にPOSTを送信します。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -102,7 +102,7 @@ description: "このリファレンス記事では、階層化カスタム属性
     }
   ]
 }
-`````````
+```
 
 {% alert note %}
 このアプローチは、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)内の階層化キーを削除するためには使用できません。
@@ -135,7 +135,7 @@ val json = JSONObject()
 braze.getCurrentUser { user ->
     user.setCustomUserAttribute("most_played_song", json)
 }
-`````````
+```
 
 **更新**
 `````````kotlin
@@ -145,14 +145,14 @@ val json = JSONObject()
 braze.getCurrentUser { user ->
     user.setCustomUserAttribute("most_played_song", json, true)
 }
-`````````
+```
 
 **削除**
 `````````kotlin
 braze.getCurrentUser { user ->
     user.unsetCustomUserAttribute("most_played_song")
 }
-`````````
+```
 
 {% endtab %}
 {% tab Swift SDK %}
@@ -171,7 +171,7 @@ let json: [String: Any?] = [
 ]
 
 braze.user.setCustomAttribute(key: "most_played_song", dictionary: json)
-`````````
+```
 
 **更新**
 `````````swift
@@ -180,12 +180,12 @@ let json: [String: Any?] = [
 ]
 
 braze.user.setCustomAttribute(key: "most_played_song", dictionary: json, merge: true)
-`````````
+```
 
 **削除**
 `````````swift
 braze.user.unsetCustomAttribute(key: "most_played_song")
-`````````
+```
 
 {% endtab %}
 {% tab Web SDK %}
@@ -204,7 +204,7 @@ const json = {
   }
 };
 braze.getUser().setCustomUserAttribute("most_played_song", json);
-`````````
+```
 
 **更新**
 `````````javascript
@@ -214,13 +214,13 @@ const json = {
 };
 braze.getUser().setCustomUserAttribute("most_played_song", json, true);
 
-`````````
+```
 
 **削除**
 `````````javascript
 import * as braze from "@braze/web-sdk";
 braze.getUser().setCustomUserAttribute("most_played_song", null);
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -233,7 +233,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 最初にオブジェクトプロパティとして日付をキャプチャしていなかった場合は、すべてのユーザーに対して `$time` キーを使用してこのデータを再送信することをお勧めします。そうしないと、`$time` 属性を使用する際にセグメントが不完全になる可能性があります。ただし、階層化カスタム属性内の `$time` の値が正しくフォーマットされていない場合、階層化カスタム属性全体が更新されません。
 {% endalert %}
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -245,7 +245,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
     }
   ]
 }
-`````````
+```
 
 {% alert note %}
 階層化カスタム属性の場合、年が 0 未満または 3000 より大きい場合、Brazeはこれらの値をユーザーに保存しません。
@@ -310,14 +310,14 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 例えば、ユーザーが以下の配列を持っているとします。
 
-`````````json
+```json
 {
   "orders": [
     {"product": "Shoes", "price": 80},
     {"product": "Hat", "price": 25}
   ]
 }
-`````````
+```
 
 以下のANDフィルターを持つセグメント：
 
@@ -332,7 +332,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 送信されるキーごとに1データポイントを消費します。例えば、ユーザープロファイルで初期化されたこのオブジェクトは7データポイントとしてカウントされます。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -351,7 +351,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
     }
   ]
 }
-`````````
+```
 
 {% alert note %}
 カスタム属性オブジェクトを `null` に更新する場合も、1データポイントを消費します。

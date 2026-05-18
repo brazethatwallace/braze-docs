@@ -100,7 +100,7 @@ window.onload = () => {
 <!-- Display area for fetched data -->
 <p>Welcome, <span id="user-name">Loading...</span></p>
 <pre id="user-data">Loading your information...</pre>
-`````````
+```
 {% endraw %}
 
 ### 考慮事項 {#considerations}

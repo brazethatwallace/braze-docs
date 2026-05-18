@@ -54,7 +54,7 @@ BrazeのキャンペーンやキャンバスでCloudinaryのDAMから画像や�
 ```bash
 <img src="https://res.cloudinary.com/demo/image/upload/v1678993440/f_auto,q_auto/cld-sample.jpg" alt="Summer キャンペーン">
 </img>
-`````````
+```
 {% endraw %}
 
 ### 動画の設定 {#videos-setup}
@@ -69,7 +69,7 @@ BrazeのキャンペーンやキャンバスでCloudinaryのDAMから画像や�
 <video class="video" autoplay muted playsinline controls>
   <source src="https://res.cloudinary.com/demo/video/upload/v1651840278/f_auto,q_auto/samples/cld-sample-video.mp4">
 </video>
-`````````
+```
 {% endraw %}
 
 AndroidおよびiOS固有の考慮事項については、[動画]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/)を参照してください。
@@ -91,9 +91,9 @@ AndroidおよびiOS固有の考慮事項については、[動画]({{site.baseur
 #### GIF URLの例 {#example-gif-url}
 
 {% raw %}
-`````````
+```
 https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animated,fl_lossy/samples/cld-sample-video.gif
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -142,23 +142,23 @@ Cloudinaryは、[タグ](https://cloudinary.com/documentation/assets_onboarding_
 
 // The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
 <img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
-`````````
+```
 {% endraw %}
 
 ##### 出力URL {#output-urls}
 
 - オーディエンスが`internal`でロケールが`en`のユーザーの出力URL：
-`````````
+```
 https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
-`````````
+```
 - オーディエンスが`external`でロケールが`es`のユーザーの出力URL：
-`````````
+```
 https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
-`````````
+```
 - フォールバック画像URL：
-`````````
+```
 https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
-`````````
+```
 
 {% endtab %}
 {% tab パーソナライズ画像の生成 %}
@@ -179,7 +179,7 @@ Cloudinaryの[テキストオーバーレイトランスフォーメーション
 {% assign second_name = {{${last_name}}}%}
 
 <img src="https://res.cloudinary.com/demo/image/upload/l_text:Arial_300:%20{{first_name}}%20{{second_name}}%20,co_white,b_rgb:00000080/fl_layer_apply,g_north_west,y_200/docs/white-church-europe-sea.jpg">
-`````````
+```
 {% endraw %}
 
 #### 出力URLの例 {#example-output-url}
@@ -187,11 +187,11 @@ Cloudinaryの[テキストオーバーレイトランスフォーメーション
 {% raw %}
 `````````bash
 <img src="https://res.cloudinary.com/demo/image/upload/l_text:Arial_300:%20John%20Smith%20,co_white,b_rgb:00000080/fl_layer_apply,g_north_west,y_200/docs/white-church-europe-sea.jpg">
-`````````
+```
 {% endraw %}
 
 ![海を見下ろす青い屋根の白い教会。画像の左上に半透明の暗い長方形の上に「John Smith」という文字が表示されています。]({% image_buster /assets/img/cloudinary/two.png %})
 
-`````````
+```
 {% endtab %}
 {% endtabs %}

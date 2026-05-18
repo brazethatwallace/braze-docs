@@ -46,7 +46,7 @@ noindex: true
     self.rootView.backgroundColor = [UIColor lightGray];
   }  
 }
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 `````````swift
@@ -60,7 +60,7 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
     rootView.backgroundColor = .lightGray
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -82,7 +82,7 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
   self.unviewedLineView.backgroundColor = [UIColor redColor];
   self.titleLabel.font = [UIFont italicSystemFontOfSize:20];
 }
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 `````````swift
@@ -94,7 +94,7 @@ override func setUpUI() {
   unviewedLineViewColor = .red
   titleLabel.font = .italicSystemFont(ofSize: 20)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -118,7 +118,7 @@ Braze には、3 つのコンテンツカードテンプレート (バナー、�
   [self.tableView registerClass:[CustomCaptionedImageContentCardCell class] forCellReuseIdentifier:@"ABKCaptionedImageContentCardCell"];
   [self.tableView registerClass:[CustomClassicContentCardCell class] forCellReuseIdentifier:@"ABKClassicCardCell"];
 }
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 `````````swift
@@ -131,7 +131,7 @@ override func registerTableViewCellClasses() {
   tableView.register(CustomClassicImageContentCardCell.self, forCellReuseIdentifier: "ABKClassicImageCardCell")
   tableView.register(CustomClassicContentCardCell.self, forCellReuseIdentifier: "ABKClassicCardCell")
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -152,7 +152,7 @@ override func registerTableViewCellClasses() {
   }
   super.cards = cards;
 }
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 `````````swift
@@ -166,6 +166,6 @@ override func populateContentCards() {
   }
   super.cards = (cards as NSArray).mutableCopy() as? NSMutableArray
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}

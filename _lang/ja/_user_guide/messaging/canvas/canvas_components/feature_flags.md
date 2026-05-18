@@ -4,7 +4,7 @@ article_title: フィーチャーフラグ
 page_order: 8
 page_type: reference
 description: "このリファレンス記事では、キャンバスでフィーチャーフラグを使用する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 local_redirect:
   create-a-feature-flag: '/docs/user_guide/messaging/feature_flags/create_feature_flags'
 ---

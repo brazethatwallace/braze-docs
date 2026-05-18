@@ -43,7 +43,7 @@ Content Cardsを使用するには、[Braze Web SDK]({{site.baseurl}}/developer_
       braze.showContentCards(feed);
    }
 </script>
-`````````
+```
 
 `toggleContentCards(parentNode, filterFunction)` および `showContentCards(parentNode, filterFunction)` メソッドを使用する際、引数が指定されない場合、すべてのContent Cardsはページ右側の固定位置サイドバーに表示されます。引数が指定された場合は、フィードは指定された `parentNode` オプションに配置されます。
 
@@ -204,7 +204,7 @@ braze.changeUser("USER_ID");
 
 // Step 4: Start the session
 braze.openSession();
-`````````
+```
 
 ### キャッシュされたカードを使用してページ読み込み間でコンテンツを保持する {#use-cached-cards-to-persist-content-across-page-loads}
 
@@ -264,7 +264,7 @@ if (cached && cached.cards.length > 0) {
 braze.subscribeToContentCardsUpdates((updates) => {
   renderCards(updates.cards);
 });
-`````````
+```
 
 ### カスタムフィードの分析を記録する {#log-analytics-for-custom-feeds}
 
@@ -292,7 +292,7 @@ Content Cardsフィードを標準的に統合するには、Google Tag Manager�
 <script>
    window.braze.showContentCards();
 </script>
-`````````
+```
 
 ![Content Cardsフィードを表示するカスタムHTMLタグのGoogle Tag Managerでのタグ設定]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
 {% endtab %}
@@ -313,7 +313,7 @@ Content Cardsとそのフィードの外観をより自由にカスタマイズ�
 body .ab-feed {
     width: 800px;
 }
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}

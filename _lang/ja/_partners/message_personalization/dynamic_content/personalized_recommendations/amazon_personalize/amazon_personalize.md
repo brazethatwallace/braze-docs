@@ -127,7 +127,7 @@ Braze キャンペーンを実行する前に、APIを通じてこれらのレ�
   },
   ...
 ]
-`````````
+```
 
 Brazeダッシュボードで、新しい[Content Cardsキャンペーン]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)を作成します。メッセージテキストフィールドに、APIにクエリしてレスポンスを`recommendations`変数に保存するコネクテッドコンテンツLiquidブロックを作成します。
 
@@ -135,7 +135,7 @@ Brazeダッシュボードで、新しい[Content Cardsキャンペーン]({{sit
 
 `````````liquid
 {% connected_content https:/<service-endpoint.com>/recommendations?user_id={{${user_id}}} :save recommendations %}
-`````````
+```
 
 その後、結果として得られる配列の最初のアイテムを参照し、そのコンテンツをユーザーに表示できます。
 
@@ -143,7 +143,7 @@ Brazeダッシュボードで、新しい[Content Cardsキャンペーン]({{sit
 This seems like a great fit for you:
 {% recommendations[0].name %}
 {% recommendations[0].price %}
-`````````
+```
 
 {% endraw %}
 

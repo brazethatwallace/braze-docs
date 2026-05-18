@@ -62,7 +62,7 @@ URLは、サポートされているLiquidパーソナライゼーションタ�
 {% raw %}
 ```
 https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom_attribute.${attribute1}}}
-`````````
+```
 {% endraw %}
 
 以下の例に示すように、カスタム定義のLiquid変数を短縮することもできます。
@@ -71,7 +71,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 `````````liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
-`````````
+```
 {% endraw %}
 
 BrazeはLiquidによってレンダリングされたURL（APIトリガープロパティに含まれるURLを含む）を短縮します。たとえば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}が有効なURLを表す場合、BrazeはKakaoTalkメッセージを送信する前にそのURLを短縮してトラッキングします。
@@ -97,12 +97,12 @@ KakaoTalkパフォーマンステーブルには、バリアントごとのク�
 KakaoTalkメッセージ内のURLをクリックしたユーザーを、以下のセグメンテーションフィルターとトリガーを使用してリターゲティングできます。
 
 - アクションベースのトリガー
-    - Interact with キャンペーン
+    - Interact with Campaign
     - Interact with Step
 
 - セグメンテーションフィルター
-    - Clicked/Opened キャンペーン
-    - Clicked/Opened キャンペーン or キャンバス with Tag
+    - Clicked/Opened Campaign
+    - Clicked/Opened Campaign or Canvas with Tag
     - Clicked/Opened Step
 
 ## よくある質問 {#frequently-asked-questions}

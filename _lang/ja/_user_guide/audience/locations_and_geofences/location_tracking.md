@@ -58,7 +58,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       }
    ]
 }
-`````````
+```
 
 ## ビーコンとジオフェンスのパートナーシップサポート {#partnership-support-for-beacon-and-geofence}
 

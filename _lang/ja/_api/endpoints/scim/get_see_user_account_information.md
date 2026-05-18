@@ -39,7 +39,7 @@ description: "この記事では、リソースIDによる既存のダッシュ�
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
 ## リクエスト例 {#example-request}
 `````````bash
@@ -47,10 +47,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
-`````````
+```
 
 ## 応答 {#response}
-`````````json
+```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
@@ -99,6 +99,6 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
         ]
     }
 }
-`````````
+```
 
 {% endapi %}

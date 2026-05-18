@@ -29,7 +29,7 @@ braze.initialize(apiKey, {
   baseUrl: baseUrl,
   contentSecurityNonce: "YOUR-NONCE-HERE", // assumes a "nonce-YOUR-NONCE-HERE" CSP value
 });
-`````````
+```
 
 ## ディレクティブ {#directives}
 
@@ -71,7 +71,7 @@ braze.initialize(apiKey, {
   baseUrl: baseUrl,
   doNotLoadFontAwesome: true,
 });
-`````````
+```
 
 Font Awesomeを使用する場合は、次のCSPディレクティブが必要です。
 

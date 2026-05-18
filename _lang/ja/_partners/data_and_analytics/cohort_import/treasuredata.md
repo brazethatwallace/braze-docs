@@ -88,7 +88,7 @@ SELECT
   external_id as user_ids
 FROM
   example_cohort_table
-`````````
+```
 
 クエリを実行すると、これらのユーザーエイリアスがBrazeのコホートに追加されます:
 
@@ -116,7 +116,7 @@ SELECT
   email
 FROM
   example_cohort_table
-`````````
+```
 
 クエリを実行すると、これらのユーザーエイリアスがBrazeのコホートに追加されます:
 
@@ -148,7 +148,7 @@ SELECT
   device_ids
 FROM
   example_cohort_table
-`````````
+```
 
 クエリを実行すると、これらのデバイスIDがBrazeのコホートに追加されます:
 

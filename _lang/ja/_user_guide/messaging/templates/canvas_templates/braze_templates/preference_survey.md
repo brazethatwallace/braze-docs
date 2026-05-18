@@ -4,7 +4,7 @@ article_title: プリファレンス調査によるオンボーディング
 page_order: 5.5
 page_type: reference
 description: "この記事では、Braze キャンバステンプレートを使用して、新規ユーザーにブランドを紹介し、プリファレンスを収集して長期的なエンゲージメントを維持するガイド付きオンボーディングフローで早期導入を促進する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # プリファレンス調査によるオンボーディング {#onboarding-with-preferences-survey}

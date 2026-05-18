@@ -20,7 +20,7 @@ channel:
 <button onclick="brazeBridge.logClick()">
   Click me
 </button>
-`````````
+```
 
 利用可能なすべてのメソッドやクリックトラッキングオプションを含む完全なJavaScriptブリッジリファレンスについては、以下のセクションを参照してください。
 

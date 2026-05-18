@@ -47,7 +47,7 @@ Liquidは式のグループ化にかっこをサポートしていません。`(
 {% if qualifies %}
 You qualify for a reward!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ## チュートリアル {#tutorials}
@@ -64,7 +64,7 @@ You qualify for a reward!
 `````````liquid
 {% if {{custom_attribute.${total_spend}}} >0 %}
 Surprise! We added a 15% discount code to your account that automatically applies to your next order.
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -74,7 +74,7 @@ Surprise! We added a 15% discount code to your account that automatically applie
 `````````liquid
 {% else %}
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -83,7 +83,7 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 {% raw %}
 `````````liquid
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ![チュートリアルの完全なLiquidコードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/liquid-if-totalspend.png %}){: width="100%"}
@@ -96,20 +96,20 @@ Surprise! We added a 15% discount code to your account that automatically applie
 {% else %}
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
 これで、ユーザーの「Total Spend」カスタム属性が `0` より大きい場合、次のメッセージが届きます。
 
-`````````
+```
 Surprise! We added a 15% discount code to your account that automatically applies to your next order.
-`````````
+```
 ユーザーの「Total Spend」カスタム属性が存在しないか、`0` に等しい場合、次のメッセージが届きます。
 
-`````````
+```
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
-`````````
+```
 
 ### 文字列カスタム属性でメッセージを選択する {#choose-a-message-with-a-string-custom-attribute}
 
@@ -121,7 +121,7 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 `````````liquid
 {% if {{custom_attribute.${recent_game}}} == 'Awkward Dinner Party' %}
 You are formally invited to our next dinner party. Log on next week for another round of delectable dishes and curious conversations.
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -131,7 +131,7 @@ You are formally invited to our next dinner party. Log on next week for another 
 `````````liquid
 {% elsif {{custom_attribute.${recent_game}}} == 'Proxy War 3: War of Thirst' %}
 Your fleet awaits your next orders. Log on when you're ready to rejoin the war for hydration.
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -141,7 +141,7 @@ Your fleet awaits your next orders. Log on when you're ready to rejoin the war f
 `````````liquid
 {% elsif {{custom_attribute.${recent_game}}} != blank and {{custom_attribute.${recent_game}}} != 'Awkward Dinner Party' and {{custom_attribute.${recent_game}}} != 'Proxy War 3: War of Thirst' %}
 Limited Time Deal! Get 15% off our best-selling classics!
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -151,7 +151,7 @@ Limited Time Deal! Get 15% off our best-selling classics!
 `````````liquid
 {% else %}
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
-`````````
+```
 {% endraw %}
 
 {: start="5"}
@@ -160,7 +160,7 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 {% raw %}
 `````````liquid
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全なLiquidコード %}
@@ -175,7 +175,7 @@ Limited Time Deal! Get 15% off our best-selling classics!
 {% else %}
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -183,27 +183,27 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 
 これで、ユーザーが最後に *Awkward Dinner Party* をプレイした場合、次のメッセージが届きます。
 
-`````````
+```
 You are formally invited to our next dinner party. Log on next week for another round of delectable dishes and curious conversations.
-`````````
+```
 
 ユーザーの最近のゲームが *Proxy War 3: War of Thirst* の場合、次のメッセージが届きます。
 
-`````````
+```
 Your fleet awaits your next orders. Log on when you're ready to rejoin the war for hydration.
-`````````
+```
 
 ユーザーが最近プレイしたゲームが *Awkward Dinner Party* でも *Proxy War 3: War of Thirst* でもない場合、次のメッセージが届きます。
 
-`````````
+```
 Limited Time Deal! Get 15% off our best-selling classics!
-`````````
+```
 
 ユーザーがゲームをプレイしたことがないか、そのカスタム属性がプロファイルに存在しない場合、次のメッセージが届きます。
 
-`````````
+```
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
-`````````
+```
 
 ### ロケーションに基づいてメッセージを中止する {#abort-message-based-on-location}
 
@@ -215,7 +215,7 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 `````````liquid
 {% if {{${time_zone}}} == 'America/Los_Angeles' %}
 Stream now!
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -226,7 +226,7 @@ Stream now!
 {% else %}
 {% abort_message () %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全なLiquidコード %}
@@ -237,7 +237,7 @@ Stream now!
 {% else %}
 {% abort_message () %}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -268,5 +268,5 @@ Stream now!
 
 {% comment %} Force a value to be treated as a string {% endcomment %}
 {% assign code = {{api_trigger_properties.${promo_code}}} | append: "" %}
-`````````
+```
 {% endraw %}

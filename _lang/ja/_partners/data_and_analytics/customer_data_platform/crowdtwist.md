@@ -110,7 +110,7 @@ let brazecall = {
 // After the /users/track request is assigned to brazecall, return brazecall to create an output.
 return brazecall;
 
-`````````
+```
 
 {% endtab %}
 {% tab User Activity Event Template %}
@@ -131,7 +131,7 @@ let brazecall = {
  ]
 };
 return brazecall;
-`````````
+```
 {% endtab %}
 {% tab Redemption Event Template %}
 `````````javascript
@@ -149,7 +149,7 @@ let brazecall = {
 }
 return brazecall;
 
-`````````
+```
 {%endtab%}
 {% tab Master Template %}
 `````````javascript
@@ -231,7 +231,7 @@ return brazecall;
  throw new Error("No appropriate Identifiers found");
 }
 
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

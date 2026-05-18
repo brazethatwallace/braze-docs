@@ -4,7 +4,7 @@ article_title: API キャンペーン
 page_order: 5
 description: "このリファレンス記事では、API呼び出しに含めるcampaign_idの生成方法と、そのキャンペーンの設定方法について説明します。"
 page_type: reference
-tool: キャンペーン
+tool: Campaigns
 
 ---
 # APIキャンペーン {#api-campaigns}

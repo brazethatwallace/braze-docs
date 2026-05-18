@@ -49,7 +49,7 @@ if (@available(iOS 10.0, *)) {
       [sharedApplication registerForRemoteNotifications];
     }
   }
-`````````
+```
 {% endtab %}
 {% tab swift %}
 
@@ -75,7 +75,7 @@ if #available(iOS 10, *) {
     UIApplication.shared.registerForRemoteNotifications()
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -103,7 +103,7 @@ if (@available(iOS 10.0, *)) {
         // ...
     }
   }
-`````````
+```
 {% endtab %}
 {% tab swift %}
 `````````swift
@@ -124,7 +124,7 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
     // ...
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -154,7 +154,7 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
       [sharedApplication registerUserNotificationSettings:settings];
       [sharedApplication registerForRemoteNotifications];
   }
-`````````
+```
 {% endtab %}
 {% tab swift %}
 
@@ -174,6 +174,6 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
     UIApplication.shared.registerUserNotificationSettings(setting)
     UIApplication.shared.registerForRemoteNotifications()
   }
-`````````
+```
 {% endtab %}
 {% endtabs %}

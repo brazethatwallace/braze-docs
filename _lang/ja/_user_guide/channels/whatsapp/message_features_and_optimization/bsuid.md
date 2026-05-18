@@ -125,7 +125,7 @@ BSUIDは単一のビジネスポートフォリオにスコープされます。
 
 ```
 US.ENT.11815799212886844830
-`````````
+```
 
 通常のBSUIDには`ENT`は含まれません。
 
@@ -174,14 +174,14 @@ WhatsAppの会話料金はユーザーの国によって決定されます。電
 
 `user_alias`パラメーターを使用し、`alias_label: "whats_app_bsuid"`と`alias_name`にユーザーのBSUID値を設定します。例：
 
-`````````json
+```json
 {
   "user_alias": {
     "alias_label": "whats_app_bsuid",
     "alias_name": "DDC91135R"
   }
 }
-`````````
+```
 
 これは`users/track`、`users/identify`、CSVアップロード、およびユーザーの更新キャンバスステップで機能します。
 

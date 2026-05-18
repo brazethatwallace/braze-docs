@@ -58,11 +58,16 @@ def split_fences(body: str) -> list[tuple[str, bool]]:
     lines = body.splitlines(keepends=True)
     chunk: list[str] = []
     i = 0
-    open_re = re.compile(r"^```[a-zA-Z0-9_-]*\s*$")
-    close_re = re.compile(r"^```\s*$")
+    open_re = re.compile(r"^`{3,}[a-zA-Z0-9_-]*\s*$")
+    close_re = re.compile(r"^`{3,}\s*$")
 
     while i < len(lines):
-        if open_re.match(lines[i].strip()):
+        line_stripped = lines[i].strip()
+        if open_re.match(line_stripped):
+            # Normalize malformed fences (4+ backticks) to standard ```
+            if not line_stripped.startswith("```"):
+                lang_m = re.match(r"^`{4,}([a-zA-Z0-9_-]*)?\s*$", line_stripped)
+                lines[i] = f"```{lang_m.group(1) or ''}\n" if lang_m else lines[i]
             if chunk:
                 parts.append(("".join(chunk), False))
                 chunk = []
@@ -86,9 +91,16 @@ def split_fences(body: str) -> list[tuple[str, bool]]:
 def transform_frontmatter(fm: str) -> str:
     if not fm:
         return fm
-    for src, dst in REPLACEMENTS:
-        fm = fm.replace(src, dst)
-    return fm
+    out_lines = []
+    for line in fm.splitlines(keepends=True):
+        if re.match(r"^tool:\s", line):
+            out_lines.append(line)
+            continue
+        new_line = line
+        for src, dst in REPLACEMENTS:
+            new_line = new_line.replace(src, dst)
+        out_lines.append(new_line)
+    return "".join(out_lines)
 
 
 def apply_replacements(chunk: str) -> str:

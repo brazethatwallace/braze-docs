@@ -29,16 +29,16 @@ description: "この記事では、「キャンバスの複製」エンドポイ
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "canvas_id": (required, string) The Canvas identifier,
   "name": (required, string) The name of the resulting キャンバス,
   "description": (optional, string) The description of the resulting キャンバス,
   "tag_names": (optional, string) The tags of the resulting キャンバス,
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 

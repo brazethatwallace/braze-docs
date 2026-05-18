@@ -20,7 +20,7 @@ Brazeの単一チャネルまたはマルチチャネルメッセージに{% raw
 {% raw %}
 ```html
 <a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
-`````````
+```
 {% endraw %}
 
 {% alert tip %}
@@ -60,7 +60,7 @@ Liquidタグをメッセージに追加するには、**Insert**を選択する�
 {% raw %}
 `````````ruby
 {% landing_page_url custom-url-handle %}
-`````````
+```
 {% endraw %}
 
 ### ステップ 3: メッセージの最終確認と送信 {#step-3-finalize-and-send-your-message}
@@ -70,7 +70,7 @@ Liquidスニペットをメッセージに埋め込み、残りのメッセー�
 {% raw %}
 `````````html
 <a href="{% landing_page_url customer-survey %}" class="button">Take the Survey!</a>
-`````````
+```
 {% endraw %}
 
 準備ができたら、メッセージを送信してランディングページを通じたユーザーの追跡を開始できます。

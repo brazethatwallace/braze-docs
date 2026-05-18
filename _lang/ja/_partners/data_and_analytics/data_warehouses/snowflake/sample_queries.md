@@ -24,7 +24,7 @@ SELECT *
 FROM users_behaviors_customevent_shared
 WHERE time > 1555354920
 LIMIT 10;
-`````````
+```
 また、`sf_created_at` を使用して、Snowflakeデータウェアハウスにイベントが永続化された時刻でフィルタリングすることもできます。`sf_created_at` と `time` は同一ではありませんが通常は近い値になるため、このクエリも同様のパフォーマンス特性を持ちます。
 `````````sql
 -- find custom events that arrived in Snowflake after time 04/15/2019 @ 7:02pm (UTC)
@@ -32,7 +32,7 @@ SELECT *
 FROM users_behaviors_customevent_shared
 WHERE sf_created_at > to_timestamp_ntz('2019-04-15 19:02:00')
 LIMIT 10;
-`````````
+```
 {% alert note %}
 `sf_created_at` の値は、`Nov 15th, 2019 9:31 pm UTC` 以降に永続化されたイベントに対してのみ信頼できます。
 {% endalert %}
@@ -51,7 +51,7 @@ LEFT JOIN CHANGELOGS_CAMPAIGN_SHARED ccs
 ON ccs.id = event.campaign_id
 AND ccs.time < event.time
 qualify row_number() over (partition by event.id ORDER BY ccs.time DESC) = 1;
-`````````
+```
 いくつかの重要な注意点があります。
 - ここではSnowflakeの[window](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)関数を使用しています。
 - 左結合により、キャンペーンに関連しないイベントも含まれます。
@@ -71,7 +71,7 @@ FROM
   qualify row_number() over (partition by e.id ORDER BY campaign.time DESC) = 1) AS campaign_join
 LEFT JOIN CHANGELOGS_CANVAS_SHARED AS Canvas ON canvas.id = campaign_join.canvas_id
 qualify row_number() over (partition by campaign_join.event_id ORDER BY canvas.time DESC) = 1;
-`````````
+```
 {% endtab %}
 {% tab Push Funnel %}
 
@@ -99,7 +99,7 @@ LEFT JOIN users_messages_pushnotification_bounce_shared AS bounce ON (send."USER
     OR
     (send."CANVAS_STEP_API_ID")=(bounce."CANVAS_STEP_API_ID"))
 LIMIT 500;
-`````````
+```
 
 {% endtab %}
 {% tab Email Cadence %}
@@ -143,7 +143,7 @@ SELECT
 FROM email_messaging_cadence GROUP BY 1
 ORDER BY 1
 LIMIT 500;
-`````````
+```
 {% endtab %}
 {% tab Unique Email Clicks %}
 
@@ -164,7 +164,7 @@ FROM USERS_MESSAGES_EMAIL_CLICK_SHARED
 WHERE
   time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
-`````````
+```
 
 ユニークイベントのみを表示したい場合は、`QUALIFY` 句を使用します。
 `````````sql
@@ -178,7 +178,7 @@ WHERE
   time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
   AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
 QUALIFY is_unique = true;
-`````````
+```
 メールアドレスごとにグループ化されたユニークイベント数をさらに確認するには、次のようにします。
 `````````sql
 WITH unique_events AS(
@@ -195,7 +195,7 @@ QUALIFY is_unique = true)
 SELECT email_address, count(*) AS count
 FROM unique_events
 GROUP BY email_address;
-`````````
+```
 {% endtab %}
 {% tab Unique Email Opens %}
 
@@ -211,7 +211,7 @@ GROUP BY email_address;
 `````````sql
 /*
     Set or comment out variables if not required. These are set per session.
-    You can obtain the from and to dates from the キャンペーン/キャンバス/キャンバス step URL. These are the startDate and endDate parameters.
+    You can obtain the from and to dates from the Campaign/キャンバス/キャンバス step URL. These are the startDate and endDate parameters.
 
     For example, endDate=1656799199&startDate=1656194400
 
@@ -270,7 +270,7 @@ WHERE
                 umed.user_id = users_messages_email_open_shared.user_id and
                 umed.dispatch_id = users_messages_email_open_shared.dispatch_id and
                 umed.time between $fromDateTime and $toDateTime);
-`````````
+```
 {% endraw %}
 
 {% endtab %}

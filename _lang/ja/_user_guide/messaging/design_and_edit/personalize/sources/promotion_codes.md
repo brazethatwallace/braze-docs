@@ -37,7 +37,7 @@ Braze がプロモーションコード付きのメッセージを送信する�
 {% else %}
   {% promotion('regular-deal') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

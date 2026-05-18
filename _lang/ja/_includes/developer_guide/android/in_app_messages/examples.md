@@ -23,7 +23,7 @@ class BrazeDemoApplication : Application(){
     BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory(CustomInAppMessageViewFactory())
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **アプリ内メッセージの種類**<br> 
@@ -38,7 +38,7 @@ public class BrazeDemoApplication extends Application {
     BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory(new CustomInAppMessageViewFactory());
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -87,7 +87,7 @@ class CustomSlideUpInAppMessageViewWrapper(inAppMessageView: View?,
         return params
     }
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **カスタムレイアウトパラメーターをオーバーライドして返す**<br>
@@ -120,7 +120,7 @@ class CustomSlideUpInAppMessageViewWrapper extends DefaultInAppMessageViewWrappe
         return params
     }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -164,7 +164,7 @@ class CustomInAppMessageViewWrapperFactory : BrazeInAppMessageViewWrapperFactory
         }
     }
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **カスタムラッパーを返すためのカスタムファクトリーを指定する**<br>
@@ -201,7 +201,7 @@ class CustomInAppMessageViewWrapperFactory extends BrazeInAppMessageViewWrapperF
         }
     }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -212,7 +212,7 @@ class CustomInAppMessageViewWrapperFactory extends BrazeInAppMessageViewWrapperF
 
 `````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(CustomInAppMessageViewWrapperFactory())
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **ファクトリーを Braze に登録する**<br>
@@ -220,7 +220,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(C
 
 `````````java
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(new CustomInAppMessageViewWrapperFactory());
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -248,7 +248,7 @@ override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMess
       }
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **UI 表示動作に `view_type` を使用**<br>
@@ -267,7 +267,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
           .createInAppMessageView(activity, inAppMessage);
     }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -285,7 +285,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
                      android:id="@+id/team_spinner"/>
     <!-- ... -->                                                      
 </com.braze.advancedsamples.inapp.modal.TeamPickerView>
-`````````
+```
 
 {% tabs %}
 {% tab Kotlin %}
@@ -299,7 +299,7 @@ private fun getCustomView(activity: Activity, inAppMessage: IInAppMessage): Team
         view.setTeams(teams)
         return view
     }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **ビューをインフレートしてカスタマイズする**<br>
@@ -312,7 +312,7 @@ private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessa
         view.setTeams(teams);
         return view
     }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -329,7 +329,7 @@ private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessa
             brazeUser?.setCustomUserAttribute("FavoriteTeam", selectedTeam)
         }
     }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **カスタム属性を割り当てる**<br>
@@ -344,7 +344,7 @@ private TeamPickerView getCustomView(Activity activity, IInAppMessage inAppMessa
             brazeUser.setCustomUserAttribute("FavoriteTeam", selectedTeam);
         });
     }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -373,7 +373,7 @@ override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMess
         }
     }
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **UI 表示動作に `view_type` を使用**<br>
@@ -394,7 +394,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
           .createInAppMessageView(activity, inAppMessage);
     }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -416,7 +416,7 @@ public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage
         <!-- ... -->
     </LinearLayout>
 </com.braze.advancedsamples.immersive.CustomImmersiveInAppMessage>
-`````````
+```
 
 {% tabs %}
 {% tab Kotlin %}
@@ -432,7 +432,7 @@ private fun getCustomImmersiveView(activity: Activity, inAppMessage: IInAppMessa
     inAppMessage.extras?.get("subtitle").let {view.setSubtitle(it) }
     return view
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **ビューをインフレートしてカスタマイズする**<br>
@@ -449,7 +449,7 @@ private CustomImmersiveInAppMessage getCustomImmersiveView(Activity activity, II
     view.setSubtitle(subtitle);
     return view;
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -483,7 +483,7 @@ override fun onBindViewHolder(holder: OptionViewHolder, position: Int) {
     holder.itemView.findViewById<TextView>(R.id.label).text = options[position]
     holder.value = options[position]
 }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **カスタム属性を割り当てる**<br>
@@ -524,7 +524,7 @@ public void onBindViewHolder(OptionViewHolder holder, Int position) {
     ((TextView)holder.getItemView().findViewById(R.id.label)).setText(options.get(position));
     holder.value = options.get(position);
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

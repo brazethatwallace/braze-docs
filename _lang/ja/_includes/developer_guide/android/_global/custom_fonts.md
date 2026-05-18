@@ -23,7 +23,7 @@
         app:fontWeight="400"
         app:font="@font/bungeeshade"/>
 </font-family>
-`````````
+```
 
 フォントファミリの定義を`/res/font/bungee_font_family.xml`に保存したら、XML でそれを`@font/bungee_font_family`として参照できます。
 
@@ -43,7 +43,7 @@
   <item name="android:fontFamily">@font/another_custom_font_family</item>
   <item name="fontFamily">@font/another_custom_font_family</item>
 </style>
-`````````
+```
 
 {% alert warning %}
 すべての SDK バージョン間で互換性を維持するには、`android:fontFamily`と`fontFamily`両方のスタイル属性を設定する必要があります。

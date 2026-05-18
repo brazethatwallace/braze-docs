@@ -5,7 +5,7 @@ alias: "/canvas_in-app_messages/"
 page_order: 2
 page_type: reference
 description: "このリファレンス記事では、キャンバスに追加してリッチメッセージングを表示できるアプリ内メッセージの機能と注意点について説明します。"
-tool: キャンバス
+tool: Canvas
 channel: in-app messages
 
 ---

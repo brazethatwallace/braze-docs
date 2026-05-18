@@ -45,7 +45,7 @@ Braze.getInstance(context).getDeviceIdAsync { deviceId ->
    customData["brazeCustomerId"] = deviceId
    setAdditionalData(customData)
 }
-`````````
+```
 {% endtab %}
 
 {% tab ios %}
@@ -67,7 +67,7 @@ let configuration = Braze.Configuration(
 configuration.useUUIDAsDeviceId = false
 let braze = Braze(configuration: configuration)
 AppsFlyerLib.shared().customData = ["brazeDeviceId": braze.deviceId]
-`````````
+```
 {% endsubtab %}
 
 {% subtab Objective-C %}
@@ -78,7 +78,7 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configurations];
 [[AppsFlyerLib shared] setAdditionalData:@{
     @"brazeDeviceId": braze.deviceId
 }];
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -86,12 +86,12 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configurations];
 {% tab unity %}
 UnityでデバイスIDをマッピングするには、以下を使用します。
 
-`````````
+```
 Appboy.AppboyBinding.getDeviceId()
 Dictionary<string, string> customData = new Dictionary<string, string>();
 customData.Add("brazeCustomerId", Appboy.AppboyBinding.getDeviceId());
 AppsFlyer.setAdditionalData(customData);
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -222,10 +222,10 @@ OneLinkを使ってディープリンクを送信することで、品質保証�
 CTDリンクがHTTPと識別された場合、Brazeのメールオペレーションチームに連絡し、SSLクリックトラッキングを有効にしてください。これにより、すべてのHTTPリンクが自動的にHTTPSに変換されます。
 カスタマーサクセスマネージャーに連絡する際、またはステップ1と同様にBrazeダッシュボードで再度チケットを発行する際に、以下のメッセージ文例を使用できます：
 
-`````````
+```
 Hi Team,
 Could you please enable SSL click tracking for CTD XXX? It is currently set to HTTP instead of HTTPS.
-`````````
+```
 
 ### BrazeでのAppsFlyerクリックトラッキングURL（オプション） {#appsflyer-click-tracking-urls-in-braze-optional}
 
@@ -237,11 +237,11 @@ AppsFlyerでOneLinkトラッキングURLを作成し、Braze キャンペーン�
 {% tab Android %}
 Androidの場合、Brazeは顧客が[Google Advertising ID収集（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできるようにしています。AppsFlyer SDK統合もGAIDを収集します。以下のLiquidロジックを使用することで、AppsFlyerのクリック追跡リンクにGAIDを含めることができます：
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'android' %}
 aifa={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -249,11 +249,11 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとAppsFlyerの両方が、SDK統合を通じてIDFVをネイティブに自動収集します。IDFVをデバイス識別子として使用できます。以下のLiquidロジックを使用することで、AppsFlyerのクリック追跡リンクにIDFVを含めることができます：
 
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'ios' %}
 idfv={{most_recently_used_device.${id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

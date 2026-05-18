@@ -26,7 +26,7 @@ noindex: true
 // Use UIInterfaceOrientationMaskLandscape to display in-app messages in landscape
 id<ABKInAppMessageUIControlling> inAppMessageUIController = [Appboy sharedInstance].inAppMessageController.inAppMessageUIController;
 ((ABKInAppMessageUIController *)inAppMessageUIController).supportedOrientationMask = UIInterfaceOrientationMaskPortrait;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -37,7 +37,7 @@ id<ABKInAppMessageUIControlling> inAppMessageUIController = [Appboy sharedInstan
 if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController as? ABKInAppMessageUIController {
   controller.supportedOrientationMask = .portrait
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -57,7 +57,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationPortrait;
 
 // Set inAppMessage orientation to landscape
 inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -68,7 +68,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 
   // Set inAppMessage orientation to landscape
   inAppMessage.orientation = ABKInAppMessageOrientation.landscape
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -33,7 +33,7 @@ LiftIgniterとBrazeの統合はコネクテッドコンテンツを使用し、�
 {% raw %}
 ```
 {% connected_content https://query.petametrics.com/v3/lkdk9usg5av95fvs/userId/model :method post :headers {"x-api-key": "theapikey"} :body "UseActivity"=false :content_type application/json :save json %}
-`````````
+```
 
 次に、メッセージを記述し、JSONで呼び出すコンテンツを定義します。たとえば`{{json.items[0].title}}`です。
 

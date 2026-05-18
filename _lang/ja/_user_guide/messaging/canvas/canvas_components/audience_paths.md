@@ -5,7 +5,7 @@ alias: /audience_paths/
 page_order: 3
 page_type: reference
 description: "このリファレンス記事では、キャンバスでオーディエンスパスを使用して、各ユーザーを最初に一致するブランチに送ることで、大規模にユーザーを直感的にフィルタリングおよびセグメンテーションする方法について説明します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

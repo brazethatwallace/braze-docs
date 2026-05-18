@@ -33,14 +33,14 @@ description: "この記事では、送信 ID を作成する Braze エンドポ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "campaign_id": (required, string) see campaign identifier,
   "send_id": (optional, string) see send identifier
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -51,7 +51,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/sends/id/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -59,17 +59,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/sends/id/create' \
   "campaign_id": "campaign_identifier",
   "send_id": "send_identifier"
 }'
-`````````
+```
 
 ## 応答 {#response}
 
 ### 成功応答の例 {#example-success-response}
 
-`````````json
+```json
 {
   "message": "success",
   "send_id" : (string) the send identifier
 }
-`````````
+```
 
 {% endapi %}

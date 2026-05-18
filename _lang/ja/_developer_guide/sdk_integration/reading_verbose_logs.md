@@ -24,17 +24,17 @@ description: "Braze SDKからの詳細ログ出力の読み方と解釈方法に
 
 ```
 Started user session (id: <SESSION_ID>)
-`````````
+```
 
 **セッション終了：**
 
-`````````
+```
 Ended user session (id: <SESSION_ID>, duration: <DURATION>s)
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: sessionEnd(duration: <DURATION>)
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -43,22 +43,22 @@ Logged event:
 
 以下のエントリを確認してください：
 
-`````````
+```
 New session created with ID: <SESSION_ID>
 Session start event for new session received
 Completed the openSession call
 Opened session with activity: <ACTIVITY_NAME>
-`````````
+```
 
 設定済みのBrazeエンドポイント（例：sdk.iad-01.braze.com）へのネットワークリクエストをフィルターし、セッション開始（`ss`）イベントを確認します。
 
 **セッション終了：**
 
-`````````
+```
 Closed session with activity: <ACTIVITY_NAME>
 Closed session with session ID: <SESSION_ID>
 Requesting data flush on internal session close flush timer.
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -80,41 +80,41 @@ Requesting data flush on internal session close flush timer.
 {% tabs %}
 {% tab Swift %}
 
-`````````
+```
 Updated push notification authorization:
 - authorization: authorized
 
 Received remote notifications device token: <PUSH_TOKEN>
-`````````
+```
 
 設定済みのBrazeエンドポイント（例：sdk.iad-01.braze.com）へのリクエストをフィルターし、リクエスト本体の属性内で`push_token`を探してください：
 
-`````````
+```
 "attributes": [
   {
     "push_token": "<PUSH_TOKEN>",
     "user_id": "<USER_ID>"
   }
 ]
-`````````
+```
 
 また、デバイス情報に以下が含まれていることを確認してください：
 
-`````````
+```
 "device": {
   "ios_push_auth": "authorized",
   "remote_notification_enabled": 1
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
 
 FCM登録ログを探してください：
 
-`````````
+```
 Registering for Firebase Cloud Messaging token using sender id: <SENDER_ID>
-`````````
+```
 
 以下を確認してください：
 
@@ -139,7 +139,7 @@ Registering for Firebase Cloud Messaging token using sender id: <SENDER_ID>
 {% tabs %}
 {% tab Swift %}
 
-`````````
+```
 Processing push notification:
 - date: <TIMESTAMP>
 - silent: false
@@ -153,32 +153,32 @@ Processing push notification:
     }
   }
 }
-`````````
+```
 
 続いてクリックイベント：
 
-`````````
+```
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: pushClick(campaignId: ...)
-`````````
+```
 
 プッシュ通知にディープリンクが含まれている場合、以下も表示されます：
 
-`````````
+```
 Opening '<URL>':
 - channel: notification
 - useWebView: false
 - isUniversalLink: false
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
 
-`````````
+```
 BrazeFirebaseMessagingService: Got Remote Message from FCM
-`````````
+```
 
 続いてプッシュペイロードと表示ログが出力されます。ディープリンクについては、ディープリンクデリゲートまたは`UriAction`エントリを探してください。
 
@@ -206,7 +206,7 @@ BrazeFirebaseMessagingService: Got Remote Message from FCM
 
 レスポンス本体にはメッセージペイロードが含まれており、以下の内容が含まれます：
 
-`````````
+```
 "templated_message": {
   "data": {
     "message": "...",
@@ -216,16 +216,16 @@ BrazeFirebaseMessagingService: Got Remote Message from FCM
   },
   "type": "inapp"
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
 
 トリガーイベントに一致するログを探してください：
 
-`````````
+```
 Triggering action: <CAMPAIGN_BSON_ID>
-`````````
+```
 
 これは、アプリ内メッセージがトリガーイベントに一致したことを確認するものです。
 
@@ -237,27 +237,27 @@ Triggering action: <CAMPAIGN_BSON_ID>
 {% tabs %}
 {% tab Swift %}
 
-`````````
+```
 In-app message ready for display:
 - triggerId: (campaignId: <CAMPAIGN_ID>, ...)
 - extras: { ... }
-`````````
+```
 
 続いてインプレッションログ：
 
-`````````
+```
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: inAppMessageImpression(triggerIds: [...])
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
 
-`````````
+```
 handleExistingInAppMessagesInStackWithDelegate:: Displaying in-app message
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -269,18 +269,18 @@ handleExistingInAppMessagesInStackWithDelegate:: Displaying in-app message
 {% tabs %}
 {% tab Swift %}
 
-`````````
+```
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: inAppMessageButtonClick(triggerIds: [...], buttonId: "<BUTTON_ID>")
-`````````
+```
 
 これ以上一致するトリガーメッセージがない場合、以下も表示されます：
 
-`````````
+```
 No matching trigger for event.
-`````````
+```
 
 このイベントに対して追加のアプリ内メッセージが設定されていない場合、これは想定される動作です。
 
@@ -314,7 +314,7 @@ Content Cardsはセッション開始時と手動更新が要求された時に�
 
 レスポンス本体にはカードデータが含まれており、以下のような内容です：
 
-`````````
+```
 "cards": [
   {
     "id": "<CARD_ID>",
@@ -326,7 +326,7 @@ Content Cardsはセッション開始時と手動更新が要求された時に�
     "p": 1
   }
 ]
-`````````
+```
 
 主要なフィールド：
 - `v`（閲覧済み）：`0` = 未閲覧、`1` = 閲覧済み
@@ -337,9 +337,9 @@ Content Cardsはセッション開始時と手動更新が要求された時に�
 {% endtab %}
 {% tab Android %}
 
-`````````
+```
 Requesting content cards sync.
-`````````
+```
 
 続いて、設定済みのBrazeエンドポイント（例：sdk.iad-01.braze.com）へのPOSTリクエストが送信されます。このリクエストにはユーザー情報とデバイス情報が含まれます。
 
@@ -353,38 +353,38 @@ Requesting content cards sync.
 
 **インプレッション：**
 
-`````````
+```
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: contentCardImpression(cardIds: [...])
-`````````
+```
 
 **クリック：**
 
-`````````
+```
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: contentCardClick(cardIds: [...])
-`````````
+```
 
 カードにURLがある場合、以下も表示されます：
 
-`````````
+```
 Opening '<URL>':
 - channel: contentCard
 - useWebView: true
-`````````
+```
 
 **非表示：**
 
-`````````
+```
 Logged event:
 - userId: <USER_ID>
 - sessionId: <SESSION_ID>
 - data: contentCardDismissed(cardIds: [...])
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -413,13 +413,13 @@ Logged event:
 
 SDKがディープリンクを処理する場合：
 
-`````````
+```
 Opening '<DEEP_LINK_URL>':
 - channel: <SOURCE_CHANNEL>
 - useWebView: false
 - isUniversalLink: false
 - extras: { ... }
-`````````
+```
 
 `<SOURCE_CHANNEL>`は`notification`、`inAppMessage`、または`contentCard`のいずれかです。
 
@@ -430,7 +430,7 @@ Opening '<DEEP_LINK_URL>':
 
 `````````bash
 adb shell am start -W -a android.intent.action.VIEW -d "<YOUR_DEEP_LINK>" "<YOUR_PACKAGE_NAME>"
-`````````
+```
 
 これにより、Braze SDKの外部でディープリンクが正しく解決されるかどうかを確認できます。
 
@@ -451,9 +451,9 @@ adb shell am start -W -a android.intent.action.VIEW -d "<YOUR_DEEP_LINK>" "<YOUR
 {% tabs %}
 {% tab Android %}
 
-`````````
+```
 changeUser called with: <EXTERNAL_ID>
-`````````
+```
 
 知っておくべき重要な点：
 - ユーザーがログインしたら、できるだけ早く`changeUser`を呼び出してください。
@@ -465,9 +465,9 @@ changeUser called with: <EXTERNAL_ID>
 
 設定済みのBrazeエンドポイント（例：sdk.iad-01.braze.com）へのリクエストをフィルターし、リクエスト本体内でユーザー識別情報を探してください：
 
-`````````
+```
 "user_id": "<EXTERNAL_ID>"
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -483,7 +483,7 @@ changeUser called with: <EXTERNAL_ID>
 {% tabs %}
 {% tab Swift %}
 
-`````````
+```
 [http] request POST: <YOUR_BRAZE_ENDPOINT>
 - Headers:
   - Content-Type: application/json
@@ -491,14 +491,14 @@ changeUser called with: <EXTERNAL_ID>
   - X-Braze-Req-Attempt: 1
   - X-Braze-Req-Tokens-Remaining: <COUNT>
 - Body: { ... }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
 
-`````````
+```
 Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

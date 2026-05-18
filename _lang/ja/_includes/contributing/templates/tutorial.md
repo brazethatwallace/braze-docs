@@ -31,6 +31,6 @@ When you’re finished with this tutorial, you’ll be able to:
 - Create pull requests (PRs)
 - Preview your changes in a test site
 - Request a review from the Braze Docs team
-`````````
+```
 {% endraw %}
 {% enddetails %}

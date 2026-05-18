@@ -39,9 +39,9 @@ description: "この記事では、「スケジュールされたAPIトリガー
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "canvas_id": (required, string) see Canvas identifier,
   "schedule_id": (required, string) the `schedule_id` to update (obtained from the response to create schedule),
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     // required, see create schedule documentation
   }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -61,7 +61,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -73,6 +73,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
     "in_local_time": true
   }
 }'
-`````````
+```
 
 {% endapi %}

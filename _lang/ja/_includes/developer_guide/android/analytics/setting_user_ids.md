@@ -17,14 +17,14 @@
 
 ```java
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -53,7 +53,7 @@ Braze.getInstance(context).subscribeToChangeUserEvents(new IEventSubscriber<Braz
     // Add your app logic for user changes, such as refreshing user-scoped state.
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -62,7 +62,7 @@ Braze.getInstance(context).subscribeToChangeUserEvents(new IEventSubscriber<Braz
 Braze.getInstance(context).subscribeToChangeUserEvents { event ->
   // Add your app logic for user changes, such as refreshing user-scoped state.
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

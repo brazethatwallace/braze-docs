@@ -86,7 +86,7 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline);
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -155,7 +155,7 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -204,7 +204,7 @@ private fun renderUrlIntoView(
         Log.e(TAG, "$glideBrazeImageLoaderTag renderUrlIntoView failed: url=$imageUrl", e)
     }
 }
-`````````
+```
 
 ### ステップ 2: 画像ローダーデリゲートの設定 {#step-2-setting-the-image-loader-delegate}
 
@@ -221,7 +221,7 @@ public class GlideIntegrationApplication extends Application {
     Braze.getInstance(context).setImageLoader(new GlideBrazeImageLoader());
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -233,7 +233,7 @@ class GlideIntegrationApplication : Application() {
     Braze.getInstance(context).imageLoader = GlideBrazeImageLoader()
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -302,4 +302,4 @@ ContentCardsList(
         }
     )
 )
-`````````
+```

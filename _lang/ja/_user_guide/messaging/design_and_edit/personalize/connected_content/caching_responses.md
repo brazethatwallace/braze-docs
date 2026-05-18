@@ -60,7 +60,7 @@ Brazeインフラ内でホストされていないエンドポイントの場合
 {% raw %}
 ```
 {{ {% connected_content [https://example.com/webservice.json] :cache_max_age 900 %}}}
-`````````
+```
 {% endraw %}
 
 GETリクエストはキャッシュされます。コネクテッドコンテンツの呼び出しに`:no_cache`パラメーターを追加することで設定を変更できます。
@@ -88,9 +88,9 @@ POSTリクエストはデフォルトではキャッシュされませんが、�
 この例では、900秒（15分）間キャッシュされます。
 
 {% raw %}
-`````````
+```
 {% connected_content https://example.com/webservice.json :cache_max_age 900 %}
-`````````
+```
 {% endraw %}
 
 ### キャッシュバスティング {#cache-busting}
@@ -100,7 +100,7 @@ POSTリクエストはデフォルトではキャッシュされませんが、�
 {% raw %}
 `````````js
 {% connected_content https://example.com/webservice.json :no_cache %}
-`````````
+```
 {% endraw %}
 
 {% alert important %}

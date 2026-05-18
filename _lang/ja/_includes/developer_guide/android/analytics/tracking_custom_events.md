@@ -11,14 +11,14 @@
 
 ```java
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -51,7 +51,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ));
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -73,7 +73,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ))
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

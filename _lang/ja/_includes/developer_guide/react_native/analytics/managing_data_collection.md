@@ -6,7 +6,7 @@
 
 ```javascript
 Braze.disableSDK();
-`````````
+```
 
 ## データトラッキングを再開する
 
@@ -14,7 +14,7 @@ Braze.disableSDK();
 
 `````````javascript
 Braze.enableSDK();
-`````````
+```
 
 ## データを消去する
 
@@ -22,7 +22,7 @@ Braze.enableSDK();
 
 `````````javascript
 Braze.wipeData();
-`````````
+```
 
 ## データをフラッシュする
 
@@ -30,7 +30,7 @@ Braze.wipeData();
 
 `````````javascript
 Braze.requestImmediateDataFlush();
-`````````
+```
 
 ## 広告トラッキングのイネーブルメント
 
@@ -38,7 +38,7 @@ Braze.requestImmediateDataFlush();
 
 `````````javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
-`````````
+```
 
 二つ目のパラメータはGoogle広告IDであり、Androidでのみ使用される。
 
@@ -55,6 +55,6 @@ Braze.updateTrackingPropertyAllowList({
   addingCustomAttributes: ["my_custom_attribute"],
   removingCustomAttributes: []
 });
-`````````
+```
 
 詳細については、[プライバシー・マニフェスト]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/)を参照せよ。

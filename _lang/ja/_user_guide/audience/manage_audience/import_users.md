@@ -61,14 +61,14 @@ Webブラウザでのパーソナライゼーション用途を目的とした�
 {% raw %}
 ```liquid
 {{ "Have <em>you</em> read <strong>Ulysses</strong>?" | strip_html }}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
 `````````liquid
 Have you read Ulysses?
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

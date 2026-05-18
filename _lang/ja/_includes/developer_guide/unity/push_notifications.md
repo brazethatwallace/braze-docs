@@ -141,7 +141,7 @@ Unity エディターで **Braze** > **Braze Configuration** の順に移動し�
     </receiver>
   </application>
 </manifest>
-`````````
+```
 
 #### ステップ 2.2: ADM API キーを保存する {#step-22-store-your-adm-api-key}
 
@@ -161,7 +161,7 @@ task copyAmazon(type: Copy) {
 }
 
 preBuild.dependsOn(copyAmazon)
-`````````
+```
 
 #### ステップ 2.3: ADM Jarを追加する {#step-23-add-adm-jar}
 
@@ -229,7 +229,7 @@ public class MainMenu : MonoBehaviour {
 #endif
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Swift %}
@@ -277,7 +277,7 @@ public class MainMenu : MonoBehaviour {
 #endif
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
@@ -286,7 +286,7 @@ public class MainMenu : MonoBehaviour {
 `````````xml
 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
 <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-`````````
+```
 
 {% alert note %}
 ADMプッシュリスナーについて詳しくは、[Amazon: Amazon Device Messagingを統合する](https://developer.amazon.com/docs/video-skills-fire-tv-apps/integrate-adm.html)を参照してください。

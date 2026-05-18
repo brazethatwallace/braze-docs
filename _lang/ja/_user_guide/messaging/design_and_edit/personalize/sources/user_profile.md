@@ -18,7 +18,7 @@ description: "標準属性項目、カスタム属性、イベントプロパテ
 
 ```liquid
 Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
-`````````
+```
 {% endraw %}
 
 標準属性項目タグの完全なリストについては、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)を参照してください。
@@ -36,7 +36,7 @@ Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
 {% else %}
   Upgrade your membership for early access to new collections.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 カスタム属性の作成と管理の詳細については、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
@@ -50,7 +50,7 @@ Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
 
 `````````liquid
 Thanks for purchasing {{event_properties.${product_name}}}! Your order is on its way.
-`````````
+```
 {% endraw %}
 
 イベントプロパティは、アクションベースのキャンペーンおよびアクションベースのキャンバスの最初のステップで使用できます。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。
@@ -64,7 +64,7 @@ API を通じてトリガーされるキャンペーンやキャンバスでは�
 
 `````````liquid
 Your verification code is {{api_trigger_properties.${verification_code}}}.
-`````````
+```
 {% endraw %}
 
 詳細については、[API トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)を参照してください。
@@ -84,7 +84,7 @@ Your verification code is {{api_trigger_properties.${verification_code}}}.
 {% raw %}
 `````````liquid
 Hi {{${first_name} | default: 'there'}},
-`````````
+```
 {% endraw %}
 
 詳細については、[デフォルト値の設定]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/)を参照してください。

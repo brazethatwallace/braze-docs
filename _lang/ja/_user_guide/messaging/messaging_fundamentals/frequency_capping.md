@@ -2,7 +2,7 @@
 nav_title: レート制限とフリークエンシーキャップ
 article_title: レート制限とフリークエンシーキャップ
 page_order: 6
-tool: キャンペーン
+tool: Campaigns
 page_type: reference
 description: "このリファレンス記事では、キャンペーンにおけるレート制限とフリークエンシーキャップの概念、およびマーケティングプレッシャーを管理してユーザーエクスペリエンスを向上させる方法について説明します。"
 

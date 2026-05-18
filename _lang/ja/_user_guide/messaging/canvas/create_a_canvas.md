@@ -3,7 +3,7 @@ nav_title: キャンバスの作成
 article_title: キャンバスの作成
 page_order: 1
 description: "キャンバスの作成と起動方法について説明します。基本情報の設定、エントリスケジュール、ターゲットオーディエンス、送信設定、ジャーニーの構築などを網羅しています。"
-tool: キャンバス
+tool: Canvas
 search_rank: 1
 ---
 

@@ -63,7 +63,7 @@ Great job, hero! Don't forget to visit the town store between levels to upgrade 
 {% else %}
 Well done, hero! Talk to villagers for tips on how to beat levels faster and unlock more rewards.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert warning %}

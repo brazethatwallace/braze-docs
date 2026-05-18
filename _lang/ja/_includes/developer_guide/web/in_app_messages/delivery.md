@@ -29,7 +29,7 @@ SDKのセッション開始セマンティクスについて詳しくは、[セ�
 ```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
-`````````
+```
 
 ## キーと値のペア {#key-value-pairs}
 
@@ -56,7 +56,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
   }
   braze.showInAppMessage(inAppMessage);
 });
-`````````
+```
 
 ## 自動トリガーを無効にする {#disabling-automatic-triggers}
 
@@ -82,7 +82,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
       // do nothing
   }
 });
-`````````
+```
 
 {% alert important %}
 Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `braze.showInAppMessage` を呼び出すと、メッセージが複数回表示される可能性があります。
@@ -103,7 +103,7 @@ Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `
   var message = new braze.SlideUpMessage("Welcome to Braze! This is an in-app message.");
   message.slideFrom = braze.InAppMessage.SlideFrom.TOP;
   braze.showInAppMessage(message);
-`````````
+```
 
 ## 離脱意図メッセージのトリガー {#triggering-exit-intent-messages}
 
@@ -115,4 +115,4 @@ Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `
   var _ouibounce = ouibounce(false, {
     callback: function() { braze.logCustomEvent('exit intent'); }
   });
-`````````
+```

@@ -266,7 +266,7 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
 
 <!-- Not recommended: A link styled as a button -->
 <a href="#" class="btn">Download report</a>
-`````````
+```
 
 {% endraw %}
 
@@ -545,7 +545,7 @@ Brazeのドラッグ＆ドロップエディターはデフォルトでセマン
 {% raw %}
 `````````html
 <html lang="en-us">
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -579,7 +579,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 <button aria-label="Close message">
   <svg ...></svg>
 </button>
-`````````
+```
 {% endraw %}
 
 #### aria-labelledby {#aria-labelledby}
@@ -590,7 +590,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 `````````html
 <h2 id="banner-title">Important Update</h2>
 <div role="region" aria-labelledby="banner-title">...</div>
-`````````
+```
 {% endraw %}
 
 #### aria-hidden="true" {#aria-hiddentrue}
@@ -602,7 +602,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 {% raw %}
 `````````html
 <span aria-hidden="true">✔️</span>
-`````````
+```
 {% endraw %}
 
 一般的に、[装飾的な画像](#images)やアイコンには`aria-hidden="true"`よりも`alt=""`を使用する方が良いです。セマンティックHTMLはすべてのスクリーンリーダーと支援ソフトウェアで広くサポートされていますが、ARIAのサポートは異なります。`aria-hidden`を使用する場合でも、空のalt属性を含める必要があります。
@@ -614,7 +614,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 {% raw %}
 `````````html
 <table role="presentation">...</table>
-`````````
+```
 {% endraw %}
 
 メールのドラッグ＆ドロップエディターで作成されたメールでは、プレゼンテーション要素にARIA属性`role="presentation"`が自動的に付与されます。
@@ -626,7 +626,7 @@ ARIAはWebコンテンツをよりアクセシブルにするために設計さ�
 {% raw %}
 `````````html
 <div aria-live="polite">Your preferences have been saved.</div>
-`````````
+```
 {% endraw %}
 
 ## 自動アクセシビリティテスト {#automated-accessibility-testing}

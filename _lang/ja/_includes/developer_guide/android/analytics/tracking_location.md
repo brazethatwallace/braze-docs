@@ -12,7 +12,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE);
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -21,7 +21,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -51,7 +51,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
         ...
     </application>
 </manifest>
-`````````
+```
 
 ## 継続的な追跡を無効にする {#disabling-continuous-tracking}
 
@@ -64,7 +64,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 `````````xml
 <bool name="com_braze_enable_location_collection">false</bool>
-`````````
+```
 
 {% endtab %}
 {% tab runtime %}
@@ -79,7 +79,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setIsAutomaticLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -89,7 +89,7 @@ val brazeConfig = BrazeConfig.Builder()
     .setIsAutomaticLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}

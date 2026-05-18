@@ -45,7 +45,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
      ALIAS_NAME VARCHAR(16777216),
      PROPERTIES VARCHAR(16777216)
 );
-`````````
+```
 
 データベース、スキーマ、テーブルの名前は自由に付けられますが、列名は前述の定義と一致させる必要があります。
 
@@ -77,7 +77,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 CREATE USER BRAZE_INGESTION_USER;
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
-`````````
+```
 
 ##### ステップ 1.3: ネットワークポリシーを設定する {#step-13-configure-network-policies}
 
@@ -102,7 +102,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
     alias_name varchar,
     properties varchar(max)
  );
-`````````
+```
 
 データベース、スキーマ、テーブルの名前は自由に付けられますが、列名は前述の定義と一致させる必要があります。
 
@@ -124,7 +124,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
-`````````
+```
 
 ##### ステップ 1.3: ネットワークポリシーを設定する
 
@@ -137,7 +137,7 @@ GRANT SELECT ON TABLE CANVAS_TRIGGERS_SYNC TO braze_user;
 
 `````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-`````````
+```
 
 ##### ステップ 1.2: BigQuery でソーステーブルを設定する {#step-12-set-up-your-source-table-in-bigquery}
 ソーステーブルを作成する際は、以下の内容を参照してください。
@@ -166,7 +166,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
   alias_label STRING,
   properties JSON
 );
-`````````
+```
 
 ##### ステップ 1.3: 認証情報を設定する {#step-13-set-up-credentials}
 
@@ -192,7 +192,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 
 `````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-`````````
+```
 
 #### ステップ 1.2: Databricks でソーステーブルを設定する {#step-12-set-up-your-source-table-in-databricks}
 
@@ -230,7 +230,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
   alias_label STRING,
   properties STRING, STRUCT, or MAP
 );
-`````````
+```
 
 ##### ステップ 1.3: 認証情報を設定する
 
@@ -263,7 +263,7 @@ CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
   ALIAS_LABEL VARCHAR
 )
 GO
-`````````
+```
 
 ##### ステップ 1.2: 認証情報を設定する
 

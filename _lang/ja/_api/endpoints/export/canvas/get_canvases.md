@@ -45,24 +45,24 @@ description: "この記事では、「キャンバスリストのエクスポー
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page=1&include_archived=false&sort_direction=desc&last_edit.time[gt]=2020-06-28T23:59:59-5:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "canvases" : [
   	{
-  		"id" : (string) the キャンバス API identifier,
+  		"id" : (string) the Canvas API identifier,
   		"last_edited": (ISO 8601 string) the last edited time for the message,
-  		"name" : (string) the キャンバス name,
-  		"tags" : (array) the tag names associated with the キャンバス formatted as strings,
+  		"name" : (string) the Canvas name,
+  		"tags" : (array) the tag names associated with the Canvas formatted as strings,
   	},
     ... (more キャンバス)
   ],
   "message": (required, string) the status of the export, returns 'success' when completed without errors
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

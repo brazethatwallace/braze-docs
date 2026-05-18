@@ -61,7 +61,7 @@ data class ContentCardData (var contentCardId: String,
                             var contentCardClassType: ContentCardClass,
                             var createdAt: Long,
                             var dismissable: Boolean)
-`````````
+```
 {% endsubtab %}
 {% subtab Java %}
 **`Card`依存関係なし**<br>
@@ -113,7 +113,7 @@ public class ContentCardData{
   public long createdAt;
   public boolean dismissable;
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -138,7 +138,7 @@ class Tile: ContentCardable {
         id = floor(Math.random()*1000).toInt()
     }
   }
-`````````
+```
 {% endsubtab %}
 {% subtab Java %}
 **カスタムオブジェクトイニシャライザ**<br>
@@ -160,7 +160,7 @@ public class Tile extends ContentCardable {
         }
     }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -196,7 +196,7 @@ enum class ContentCardClass{
         }
     }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Java %}
 **タイプの識別**<br>
@@ -238,7 +238,7 @@ enum ContentCardClass {
         }
     }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -337,7 +337,7 @@ public class DefaultContentCardsViewBindingHandler implements IContentCardsViewB
     // resource leak so the parcel is left unmodified
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -417,7 +417,7 @@ class DefaultContentCardsViewBindingHandler : IContentCardsViewBindingHandler {
     // resource leak so the parcel is left unmodified
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -434,7 +434,7 @@ IContentCardsViewBindingHandler viewBindingHandler = new DefaultContentCardsView
 
 ContentCardsFragment fragment = getMyCustomFragment();
 fragment.setContentCardsViewBindingHandler(viewBindingHandler);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -444,7 +444,7 @@ val viewBindingHandler = DefaultContentCardsViewBindingHandler()
 
 val fragment = getMyCustomFragment()
 fragment.setContentCardsViewBindingHandler(viewBindingHandler)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -488,7 +488,7 @@ val myCustomCardRenderer: @Composable ((Card) -> Boolean) = { card ->
 ContentCardsList(
     customCardComposer = myCustomCardRenderer
 )
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -519,7 +519,7 @@ override fun getView(position: Int, convertView: View?, parent: ViewGroup?): Vie
         tile.logContentCardImpression()
         ...
     }
-`````````
+```
 
 **`ContentCardId`からコンテンツカードを取得する**<br>
 `ContentCardable`ベースクラスは、`BrazeManager`を呼び出し、カスタムオブジェクトに関連付けられたコンテンツカードから一意の識別子を渡すという負荷の大きい処理を行います。
@@ -528,7 +528,7 @@ override fun getView(position: Int, convertView: View?, parent: ViewGroup?): Vie
     fun logContentCardImpression() {
         cardData?.let { BrazeManager.getInstance().logContentCardImpression(it.contentCardId) }
     }
-`````````
+```
 
 **`Card`関数を呼び出す**<br>
 [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt)は、コンテンツカードオブジェクト配列リストなどの Braze SDK 依存関係を参照して、`Card`にロギングメソッドを呼び出させることができます。
@@ -545,7 +545,7 @@ override fun getView(position: Int, convertView: View?, parent: ViewGroup?): Vie
     private fun getContentCard(idString: String?): Card? {
         return cardList.find { it.id == idString }.takeIf { it != null }
     }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 **カスタムオブジェクトによるロギングメソッドの呼び出し**<br>
@@ -557,7 +557,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
         tile.logContentCardImpression();
         ...
     }
-`````````
+```
 
 **`ContentCardId`からコンテンツカードを取得する**<br>
 `ContentCardable`ベースクラスは、`BrazeManager`を呼び出し、カスタムオブジェクトに関連付けられたコンテンツカードから一意の識別子を渡すという負荷の大きい処理を行います。
@@ -568,7 +568,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
             BrazeManager.getInstance().logContentCardImpression(cardData.getContentCardId());
         }
     }
-`````````
+```
 
 **`Card`関数を呼び出す**<br>
 [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt)は、コンテンツカードオブジェクト配列リストなどの Braze SDK 依存関係を参照して、`Card`にロギングメソッドを呼び出させることができます。
@@ -585,7 +585,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
     private Optional<Card> getContentCard(String idString) {
         return cardList.filter(c -> c.id.equals(idString)).findAny();
     }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -606,7 +606,7 @@ companion object Keys{
         const val dismissable = "dismissable"
         //...
     }
-`````````
+```
 {% endtab %}
 {% tab Java %}
 `````````java
@@ -615,7 +615,7 @@ public static final String CREATED = "created";
 public static final String CLASSTYPE = "class_type";
 public static final String DISMISSABLE = "dismissable";
 ...
-`````````
+```
 {% endtab %}
 {% endtabs %}
 {% enddetails %}

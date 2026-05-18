@@ -113,7 +113,7 @@ let brazecall = {
 };
 
 return brazecall;
-`````````
+```
 
 {: start="4"}
 4. **Validate**をクリックして、コードがサンプルペイロードに対して正しく実行されることを確認し、**Activate**をクリックします。
@@ -142,7 +142,7 @@ return brazecall;
       * `User-Agent: Braze`
 5.  **Request Body**：`Raw text`を選択し、ペイロードを貼り付けます。
 
-`````````json
+```json
 {
   "customer": {
     "labels": [
@@ -153,7 +153,7 @@ return brazecall;
     ]
   }
 }
-`````````
+```
 
 ### ステップ 2：トリガーを設定する {#step-2-configure-the-trigger}
 

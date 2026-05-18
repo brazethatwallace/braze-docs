@@ -4,7 +4,7 @@ article_title: 放棄カート
 page_order: 1
 page_type: reference
 description: "この記事では、Braze キャンバステンプレートを使用して、ユーザーにリアルタイムでエンゲージし、購入を完了するよう促す方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 放棄カート {#abandoned-cart}
@@ -26,7 +26,7 @@ tool: キャンバス
 
 キャンバスを作成する前に、[Braze Audience Sync to Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/)インテグレーションを設定し、BrazeのユーザーデータをFacebookオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいた広告を配信できるようにします。
 
-Abandoned Intentテンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a キャンバス template** > **Braze templates**を選択します。次に、**Abandoned Intent**の横にある**Apply Template**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
+Abandoned Intentテンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Abandoned Intent**の横にある**Apply Template**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
 
 ### ステップ 1:詳細を設定する {#step-1-set-up-the-details}
 

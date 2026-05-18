@@ -33,13 +33,13 @@ description: "この記事では、「ユーザーのマージ」Brazeエンド�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
-`````````json
+```json
 {
   "merge_updates" : (required, array of objects)
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -166,7 +166,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     }
   ]
 }'
-`````````
+```
 
 ### 未識別ユーザーをマージする {#merging-unidentified-user}
 
@@ -189,7 +189,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     }
   ]
 }'
-`````````
+```
 
 ### 未識別ユーザーを識別済みユーザーにマージする {#merging-unidentified-user-into-identified-user}
 
@@ -215,7 +215,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     }
   ]
 }'
-`````````
+```
 
 ### most_recently_updatedの優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
@@ -238,7 +238,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
     }
   ]
 }'
-`````````
+```
 
 ## 応答 {#response}
 
@@ -248,21 +248,21 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 
 ステータスコード `202` は、次の応答本文を返す可能性があります。
 
-`````````json
+```json
 {
   "message": "success"
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
 
-`````````json
+```json
 {
   "message": "'merge_updates' must be an array of objects"
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

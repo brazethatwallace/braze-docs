@@ -5,7 +5,7 @@ page_order: 3
 page_type: reference
 toc_headers: h2
 description: "このページは、クエリビルダー、SQLセグメントエクステンション、Snowflakeデータ共有で使用されるSnowflake SQLテーブルとカラムのリファレンスです。"
-tool: セグメント
+tool: Segments
 ---
 
 <style>

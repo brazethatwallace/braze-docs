@@ -4,7 +4,7 @@ article_title: キャンバスの基本
 page_order: 0
 page_type: reference
 description: "このリファレンス記事では、キャンバスの基本について説明します。初めてのキャンバスを設定する際に自問すべきさまざまな質問を取り上げます。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

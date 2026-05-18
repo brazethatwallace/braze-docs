@@ -56,7 +56,7 @@ AIクエリビルダーはOpenAIを搭載した[GPT](https://openai.com/gpt-4)�
 SELECT COUNT(*) as Purchases, SUM(price) as Revenue
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CURRENT_DATE()));
-`````````
+```
 
 次のクエリは、先月のメール送信数を取得します。
 
@@ -64,7 +64,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CU
 SELECT COUNT(*) as Sends
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
-`````````
+```
 
 `CANVAS_ID`、`CANVAS_VARIATION_API_ID`、`CAMPAIGN_ID`に対するクエリを実行すると、それらに関連付けられている名前列が自動的に結果テーブルに含まれます。`SELECT`クエリ自体にこれらを含める必要はありません。
 
@@ -81,7 +81,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
-`````````
+```
 
 #### トラブルシューティング {#troubleshooting}
 
@@ -124,7 +124,7 @@ FROM USERS_MESSAGES_EMAIL_ABORT_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('day', -30, CURRENT_DATE())
 GROUP BY ABORT_TYPE
 ORDER BY abort_count DESC
-`````````
+```
 
 `ABORT_TYPE` の値とその説明の全リストについては、[中止タイプ]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 

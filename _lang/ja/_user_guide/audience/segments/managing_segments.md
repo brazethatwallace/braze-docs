@@ -3,7 +3,7 @@ nav_title: セグメントの管理
 article_title: セグメントの管理
 page_order: 2
 page_type: tutorial
-tool: セグメント
+tool: Segments
 description: "この記事では、セグメントのリストのフィルタリング、セグメントの作成、セグメントの編集など、セグメントを管理するために実行できるアクションについて説明します。"
 
 ---

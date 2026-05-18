@@ -82,7 +82,7 @@ Lobポストカードエンドポイントのリクエスト本文の例を次�
   "use_type": "marketing",
   "size": "6x11"
 }
-`````````
+```
 {% endraw %}
 
 ### ステップ3: リクエストをプレビューする {#step-3-preview-your-request}
@@ -118,7 +118,7 @@ Lobのデータ変換テンプレートは、[`/users/track`エンドポイン�
 Lobのwebhookペイロード構造の詳細については、[Lob: webhookの使用](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks)を参照してください。
 {% endalert %}
 
-`````````json
+```json
 // First, this code defines a variable, "brazecall", to build up a /users/track request
 // Everything from the incoming webhook is accessible via the special variable "payload". As such, you can template in desired values in your /users/track request with JavaScript dot notation, such as payload.x.y.z
 
@@ -155,7 +155,7 @@ let brazecall = {
 };
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-`````````
+```
 
 ### ステップ3: Lobでwebhookを作成する {#step-3-create-a-webhook-in-lob}
 

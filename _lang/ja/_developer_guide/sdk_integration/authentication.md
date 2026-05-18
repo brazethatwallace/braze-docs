@@ -98,7 +98,7 @@ braze.initialize("YOUR-API-KEY-HERE", {
   baseUrl: "YOUR-SDK-ENDPOINT-HERE",
   enableSdkAuthentication: true,
 });
-`````````
+```
 {% endtab %}
 {% tab React Native %}
 ネイティブSDKの初期化時に、SDK認証を有効にする必要があります。ネイティブのiOSおよびAndroidコードに以下の設定を追加してください：
@@ -118,13 +118,13 @@ let braze = BrazeReactBridge.perform(
   #selector(BrazeReactBridge.initBraze(_:)),
   with: configuration
 ).takeUnretainedValue() as! Braze
-`````````
+```
 
 **Android (braze.xml)**
 
 `````````xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
-`````````
+```
 
 ネイティブレイヤーでSDK認証を有効にした後、以下のステップに示すReact Native JavaScriptメソッドを使用できます。
 {% endtab %}
@@ -134,7 +134,7 @@ Brazeインスタンスを設定するときは、`setIsSdkAuthenticationEnabled
 BrazeConfig.Builder brazeConfigBuilder = new BrazeConfig.Builder()
     .setIsSdkAuthenticationEnabled(true);
 Braze.configure(this, brazeConfigBuilder.build());
-`````````
+```
 
 あるいは、braze.xmlに`<bool name="com_braze_sdk_authentication_enabled">true</bool>`を追加することもできます。
 {% endtab %}
@@ -144,7 +144,7 @@ Brazeインスタンスを設定するときは、`setIsSdkAuthenticationEnabled
 BrazeConfig.Builder brazeConfigBuilder = BrazeConfig.Builder()
     .setIsSdkAuthenticationEnabled(true)
 Braze.configure(this, brazeConfigBuilder.build())
-`````````
+```
 
 あるいは、braze.xmlに`<bool name="com_braze_sdk_authentication_enabled">true</bool>`を追加することもできます。
 {% endtab %}
@@ -158,7 +158,7 @@ BRZConfiguration *configuration =
 configuration.api.sdkAuthentication = YES;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 SDK認証を有効にするには、SDKを初期化する際に、`Braze.Configuration`オブジェクトの`configuration.api.sdkAuthentication`プロパティを`true`に設定します：
@@ -169,7 +169,7 @@ let configuration = Braze.Configuration(apiKey: "{YOUR-BRAZE-API-KEY}",
 configuration.api.sdkAuthentication = true
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 {% endtab %}
 {% tab Dart %}
 現在、SDK認証は、iOSとAndroidのネイティブコードでSDKを初期化する際に有効にする必要があります。Flutter SDKでSDK認証を有効にするには、他のタブのiOSとAndroidの統合に従ってください。SDK認証を有効にした後、残りの機能をDartに統合することができます。
@@ -185,13 +185,13 @@ SDK認証を有効にするには、ネイティブiOSコードで`configuration
 let configuration = Braze.Configuration(apiKey: "{YOUR-BRAZE-API-KEY}", endpoint: "{YOUR-BRAZE-ENDPOINT}")
 configuration.api.sdkAuthentication = true
 let braze = Braze(configuration: configuration)
-`````````
+```
 
 **Android (braze.xml)**
 
 `````````xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
-`````````
+```
 
 ネイティブレイヤーでSDK認証を有効にした後、以下のステップで示すFlutter SDKメソッドを使用できます。
 {% endtab %}
@@ -205,13 +205,13 @@ let braze = Braze(configuration: configuration)
 `````````xml
 <key>SDKAuthenticationEnabled</key>
 <true/>
-`````````
+```
 
 **Android (braze.xml)**
 
 `````````xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
-`````````
+```
 
 ネイティブレイヤーでSDK認証を有効にした後、以下のステップで示すUnity C#メソッドを使用できます。
 {% endtab %}
@@ -224,13 +224,13 @@ SDK認証を有効にするには、`config.xml`で`enableSDKAuthentication`プ�
 
 `````````xml
 <preference name="com.braze.ios_enable_sdk_authentication" value="true" />
-`````````
+```
 
 **Android (braze.xml)**
 
 `````````xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
-`````````
+```
 
 ネイティブレイヤーでSDK認証を有効にした後、以下のステップで示すCordova JavaScriptメソッドを使用できます。
 {% endtab %}
@@ -245,13 +245,13 @@ SDK認証を有効にするには、SDKを初期化する際に`configuration.Ap
 var configuration = new BRZConfiguration("YOUR-API-KEY", "YOUR-ENDPOINT");
 configuration.Api.SdkAuthentication = true;
 var braze = new Braze(configuration);
-`````````
+```
 
 **Android (braze.xml)**
 
 `````````xml
 <bool name="com_braze_sdk_authentication_enabled">true</bool>
-`````````
+```
 
 SDK認証を有効にした後、以下のステップで示す.NET MAUIメソッドを使用できます。
 {% endtab %}
@@ -260,7 +260,7 @@ Braze Expoプラグインを使用する際は、アプリ設定で`enableSdkAut
 
 **app.jsonあるいはapp.config.js**
 
-`````````json
+```json
 {
   "expo": {
     "plugins": [
@@ -273,7 +273,7 @@ Braze Expoプラグインを使用する際は、アプリ設定で`enableSdkAut
     ]
   }
 }
-`````````
+```
 
 アプリ設定でSDK認証を有効にした後、React Nativeタブに表示されているReact Native JavaScriptメソッドを使用して、以下のステップを実行できます。
 
@@ -300,14 +300,14 @@ Braze Expoプラグインを使用する際は、アプリ設定で`enableSdkAut
 `````````javascript
 import * as braze from "@braze/web-sdk";
 braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````javascript
 import * as braze from "@braze/web-sdk";
 braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab React Native %}
 
@@ -317,7 +317,7 @@ braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 import Braze from '@braze/react-native-sdk';
 
 Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
@@ -325,7 +325,7 @@ Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 import Braze from '@braze/react-native-sdk';
 
 Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab Java %}
 
@@ -333,13 +333,13 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 
 `````````java
 Braze.getInstance(this).changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````java
 Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab KOTLIN %}
 
@@ -347,13 +347,13 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 
 `````````kotlin
 Braze.getInstance(this).changeUser("NEW-USER-ID", "JWT-FROM-SERVER")
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````kotlin
 Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 
@@ -361,13 +361,13 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 
 `````````objc
 [AppDelegate.braze changeUser:@"userId" sdkAuthSignature:@"JWT-FROM-SERVER"];
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````objc
 [AppDelegate.braze setSDKAuthenticationSignature:@"NEW-JWT-FROM-SERVER"];
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 
@@ -375,12 +375,12 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 
 `````````swift
 AppDelegate.braze?.changeUser(userId: "userId", sdkAuthSignature: "JWT-FROM-SERVER")
-`````````
+```
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````swift
 AppDelegate.braze?.set(sdkAuthenticationSignature: "NEW-JWT-FROM-SERVER")
-`````````
+```
 {% endtab %}
 {% tab Dart %}
 
@@ -388,12 +388,12 @@ AppDelegate.braze?.set(sdkAuthenticationSignature: "NEW-JWT-FROM-SERVER")
 
 `````````dart
 braze.changeUser("userId", sdkAuthSignature: "JWT-FROM-SERVER")
-`````````
+```
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````dart
 braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
-`````````
+```
 
 {% endtab %}
 {% tab Flutter %}
@@ -405,7 +405,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 
 BrazePlugin braze = BrazePlugin();
 braze.changeUser("NEW-USER-ID", sdkAuthSignature: "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
@@ -414,7 +414,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 
 BrazePlugin braze = BrazePlugin();
 braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab Unity %}
 
@@ -422,13 +422,13 @@ braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 
 `````````csharp
 BrazeBinding.ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````csharp
 BrazeBinding.SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab Cordova %}
 
@@ -436,13 +436,13 @@ BrazeBinding.SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 
 `````````javascript
 BrazePlugin.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````javascript
 BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab .NET MAUI (Xamarin) %}
 
@@ -452,25 +452,25 @@ BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 
 `````````csharp
 Braze.SharedInstance?.ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````csharp
 Braze.SharedInstance?.SetSDKAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 
 **Android**
 
 `````````csharp
 Braze.GetInstance(this).ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
 `````````csharp
 Braze.GetInstance(this).SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% tab Expo %}
 
@@ -480,7 +480,7 @@ Braze Expoプラグインを使用する際は、同じReact Native SDKメソッ
 import Braze from '@braze/react-native-sdk';
 
 Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
-`````````
+```
 
 あるいは、セッションの途中でユーザーのトークンをリフレッシュした場合：
 
@@ -488,7 +488,7 @@ Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 import Braze from '@braze/react-native-sdk';
 
 Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -526,7 +526,7 @@ braze.subscribeToSdkAuthenticationFailures((error) => {
     braze.setSdkAuthenticationSignature(newSignature);
   });
 });
-`````````
+```
 {% endtab %}
 {% tab React Native %}
 `````````typescript
@@ -544,7 +544,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
 
 // Don't forget to remove the listener when done
 // sdkAuthErrorSubscription.remove();
-`````````
+```
 {% endtab %}
 {% tab Java %}
 `````````java
@@ -552,7 +552,7 @@ Braze.getInstance(this).subscribeToSdkAuthenticationFailures(error -> {
     String newToken = getNewTokenSomehow(error);
     Braze.getInstance(getContext()).setSdkAuthenticationSignature(newToken);
 });
-`````````
+```
 {% endtab %}
 {% tab KOTLIN %}
 `````````kotlin
@@ -560,7 +560,7 @@ Braze.getInstance(this).subscribeToSdkAuthenticationFailures({ error: BrazeSdkAu
     val newToken: String = getNewTokenSomehow(error)
     Braze.getInstance(getContext()).setSdkAuthenticationSignature(newToken)
 })
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 
@@ -575,7 +575,7 @@ AppDelegate.braze = braze;
   NSString *newSignature = getNewTokenSomehow(error);
   [AppDelegate.braze setSDKAuthenticationSignature:newSignature];
 }
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 
@@ -590,7 +590,7 @@ func braze(_ braze: Braze, sdkAuthenticationFailedWithError error: Braze.SDKAuth
   let newSignature = getNewTokenSomehow(error)
   AppDelegate.braze?.set(sdkAuthenticationSignature: newSignature)
 }
-`````````
+```
 {% endtab %}
 {% tab Dart %}
 `````````dart
@@ -599,7 +599,7 @@ braze.setBrazeSdkAuthenticationErrorCallback((BrazeSdkAuthenticationError error)
   final newSignature = getNewTokenSomehow(error);
   braze.setSdkAuthenticationSignature(newSignature);
 });
-`````````
+```
 {% endtab %}
 {% tab Flutter %}
 `````````dart
@@ -613,7 +613,7 @@ braze.setBrazeSdkAuthenticationErrorCallback((BrazeSdkAuthenticationError error)
   String newSignature = getNewTokenSomehow(error);
   braze.setSdkAuthenticationSignature(newSignature);
 });
-`````````
+```
 {% endtab %}
 {% tab Unity %}
 **iOS**
@@ -630,7 +630,7 @@ public class SdkAuthDelegate : BRZSdkAuthDelegate
     BrazeBinding.SetSdkAuthenticationSignature(newSignature);
   }
 }
-`````````
+```
 
 **Android**
 
@@ -639,7 +639,7 @@ Braze.GetInstance(this).SubscribeToSdkAuthenticationFailures((error) => {
   string newToken = GetNewTokenSomehow(error);
   Braze.GetInstance(this).SetSdkAuthenticationSignature(newToken);
 });
-`````````
+```
 {% endtab %}
 {% tab Cordova %}
 `````````javascript
@@ -649,7 +649,7 @@ BrazePlugin.subscribeToSdkAuthenticationFailures((error) => {
   const newSignature = getNewTokenSomehow(error);
   BrazePlugin.setSdkAuthenticationSignature(newSignature);
 });
-`````````
+```
 {% endtab %}
 {% tab .NET MAUI (Xamarin) %}
 **iOS**
@@ -672,7 +672,7 @@ var configuration = new BRZConfiguration("YOUR-API-KEY", "YOUR-ENDPOINT");
 configuration.Api.SdkAuthentication = true;
 var braze = new Braze(configuration);
 braze.SdkAuthDelegate = new SdkAuthDelegate();
-`````````
+```
 
 **Android**
 
@@ -681,7 +681,7 @@ Braze.GetInstance(this).SubscribeToSdkAuthenticationFailures((error) => {
   string newToken = GetNewTokenSomehow(error);
   Braze.GetInstance(this).SetSdkAuthenticationSignature(newToken);
 });
-`````````
+```
 {% endtab %}
 {% tab Expo %}
 Braze Expoプラグインを使用する際は、同じReact Native SDKメソッドを使います：
@@ -701,7 +701,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
 
 // Don't forget to remove the listener when done
 // sdkAuthErrorSubscription.remove();
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

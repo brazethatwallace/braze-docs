@@ -40,7 +40,7 @@ description: "この記事では、「カタログの削除」Brazeエンドポ�
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
-`````````
+```
 
 ## 応答 {#response}
 
@@ -50,17 +50,17 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 
 ステータスコード `200` は、次の応答本文を返す可能性があります。
 
-`````````json
+```json
 {
   "message": "success"
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `404` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
   "errors": [
     {
@@ -76,7 +76,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
   ],
   "message": "Invalid Request"
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

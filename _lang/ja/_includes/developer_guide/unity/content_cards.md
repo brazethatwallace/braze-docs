@@ -6,7 +6,7 @@
 
 ```csharp
 Appboy.AppboyBinding.DisplayContentCards();
-`````````
+```
 
 ## Unityでコンテンツカードデータを受信する
 
@@ -53,7 +53,7 @@ void ExampleCallback(string message) {
     throw new ArgumentException("Could not parse content card JSON message.");
   }
 }
-`````````
+```
 
 ## コンテンツカードの更新
 
@@ -64,7 +64,7 @@ Braze からコンテンツカードを更新するには、次のいずれか�
 AppboyBinding.RequestContentCardsRefresh()
 
 AppboyBinding.RequestContentCardsRefreshFromCache()
-`````````
+```
 
 ## 分析
 

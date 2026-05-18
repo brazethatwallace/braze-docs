@@ -19,7 +19,7 @@ if (featureFlag?.enabled) {
 } else {
    return <ExistingFeature />
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -34,7 +34,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 } else {
   return new ExistingFeature();
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -47,7 +47,7 @@ if (featureFlag?.enabled == true) {
 } else {
   return ExistingFeature()
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}

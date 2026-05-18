@@ -90,4 +90,4 @@ FROM USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED AS c
     ON s.user_id = c.user_id
       AND (s.message_variation_id = c.message_variation_id OR s.canvas_step_message_variation_id = c.canvas_step_message_variation_id)
 WHERE s.send_id IS NOT NULL;
-`````````
+```

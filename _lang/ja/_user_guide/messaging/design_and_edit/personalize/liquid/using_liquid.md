@@ -21,20 +21,20 @@ Liquidタグは、メッセージ内のプレースホルダーとして機能�
 {% raw %}
 ```liquid
 Hi {{ ${first_name} | default: 'Valued User' }}, thanks for using the App!
-`````````
+```
 {% endraw %}
 
 Janet Doeという名前のユーザーの場合、メッセージは次のいずれかで表示されます。
 
-`````````
+```
 Hi Janet, thanks for using the App!
-`````````
+```
 
 または...
 
-`````````
+```
 Hi Valued User, thanks for using the App!
-`````````
+```
 
 {% alert important %}
 HTMLコメント（`<!-- -->`）は、Liquidが読み取られる前に削除されるため、HTMLコメント内のLiquidタグはメッセージに**レンダリングされません**。適切にレンダリングするには、使用したいすべてのLiquidタグがHTMLコメントの外側にあることを確認してください。
@@ -98,7 +98,7 @@ Liquidには、ダイナミックなパーソナライゼーションを作成�
 {% if my_array | size > 3 %}
 You have more than 3 items!
 {% endif %}
-`````````
+```
 
 代わりに、フィルター結果を変数に割り当ててください：
 
@@ -107,7 +107,7 @@ You have more than 3 items!
 {% if array_size > 3 %}
 You have more than 3 items!
 {% endif %}
-`````````
+```
 
 ##### forループでフィルター結果を使用する {#use-a-filter-result-in-a-for-loop}
 
@@ -117,7 +117,7 @@ You have more than 3 items!
 {% for item in my_array | reverse %}
 {{ item }}
 {% endfor %}
-`````````
+```
 
 代わりに、フィルター処理された値を変数に割り当ててください：
 
@@ -126,7 +126,7 @@ You have more than 3 items!
 {% for item in reversed %}
 {{ item }}
 {% endfor %}
-`````````
+```
 
 ##### 配列アクセスでフィルター結果を使用する {#use-a-filter-result-for-array-access}
 
@@ -134,14 +134,14 @@ You have more than 3 items!
 
 `````````liquid
 {{ my_array[my_var | minus: 1] }}
-`````````
+```
 
 代わりに、まずフィルター処理された値を割り当ててください：
 
 `````````liquid
 {% assign adjusted_index = my_var | minus: 1 %}
 {{ my_array[adjusted_index] }}
-`````````
+```
 
 ##### 比較結果を変数に格納する {#store-a-comparison-result-in-a-variable}
 
@@ -152,7 +152,7 @@ You have more than 3 items!
 {% if is_vip %}
 Welcome to the VIP lounge!
 {% endif %}
-`````````
+```
 
 代わりに、条件文を使用して変数を設定してください：
 
@@ -165,7 +165,7 @@ Welcome to the VIP lounge!
 {% if is_vip %}
 Welcome to the VIP lounge!
 {% endif %}
-`````````
+```
 
 {% endraw %}
 
@@ -195,7 +195,7 @@ Welcome to the VIP lounge!
 
 {% assign value_one = {{custom_attribute.${one}}} %}
 {% assign value_one = custom_attribute.${one} %}
-`````````
+```
 
 {% endraw %}
 

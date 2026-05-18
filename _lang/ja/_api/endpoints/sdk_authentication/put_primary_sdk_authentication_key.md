@@ -28,13 +28,13 @@ description: "この記事では、「プライマリSDK認証キーを設定す
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
-`````````json
+```
+```json
 {
   "app_id": "App API identifier",
   "key_id": "key id"
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -53,10 +53,10 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
   "app_id": "01234567-89ab-cdef-0123-456789abcdef",
   "key_id": "abcdef12-3456-7890-abcd-ef1234567890"
 }'
-`````````
+```
 
 ## 応答 {#response}
-`````````json
+```json
 {
   "keys": [
     {
@@ -73,7 +73,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/app_group/sdk_authe
     }
   ]
 }
-`````````
+```
 
 ## 応答パラメーター {#response-parameters}
 

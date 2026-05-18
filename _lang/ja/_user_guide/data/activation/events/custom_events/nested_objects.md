@@ -79,7 +79,7 @@ description: "この記事では、カスタムイベントや購入のプロパ
   ]
 }
 ...
-`````````
+```
 {% endtab %}
 {% tab Restaurant Example%}
 
@@ -87,7 +87,7 @@ description: "この記事では、カスタムイベントや購入のプロパ
 - `r_details` をプロパティとしてリストするAPIリクエスト
 - その注文の階層化プロパティ
 
-`````````
+```
 ...
 "properties": {
   "r_details": {
@@ -100,7 +100,7 @@ description: "この記事では、カスタムイベントや購入のプロパ
   }
 }
 ...
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

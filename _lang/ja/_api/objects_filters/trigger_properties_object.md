@@ -4,7 +4,7 @@ article_title: APIトリガープロパティオブジェクト
 page_order: 11
 page_type: reference
 description: "このリファレンス記事では、トリガープロパティオブジェクトのさまざまなコンポーネントについて説明します。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 
@@ -37,6 +37,6 @@ tool: キャンペーン
     "related_skus": ["123", "456", "789"]
   }
 }
-`````````
+```
 
 

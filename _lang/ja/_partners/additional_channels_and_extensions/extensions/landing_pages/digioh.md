@@ -52,7 +52,7 @@ Digiohで**Integrations**タブをクリックし、次に**New Integration**ボ
          }
      ]
 }
-`````````
+```
 
 ### ステップ2:Digiohライトボックスを作成する {#step-2-create-a-digioh-lightbox}
 

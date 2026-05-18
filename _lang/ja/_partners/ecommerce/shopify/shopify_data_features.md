@@ -43,10 +43,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
         ]
     }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Cart updated %}
-`````````json
+```json
 {
     "name": "ecommerce.cart_updated",
     "properties": {
@@ -71,10 +71,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
         "metadata": {}
     }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Checkout started %}
-`````````json
+```json
 {
     "name": "ecommerce.checkout_started",
     "time": "2022-05-23T13:52:38-04:00",
@@ -104,11 +104,11 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
         }
     }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Order placed %}
 {% raw %}
-`````````json
+```json
 {
     "name": "ecommerce.order_placed",
     "time": "2022-05-23T13:52:38-04:00",
@@ -150,11 +150,11 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
         }
     }
 }
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% subtab Fulfilled order %}
-`````````json
+```json
 {
  "name": "shopify_fulfilled_order",
  "time": "2022-05-23T14:44:34-04:00",
@@ -226,10 +226,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
  },
  "braze_id": "123abc123abc"
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
-`````````json
+```json
 {
  "name": "shopify_partially_fulfilled_order",
  "time": "2022-05-23T14:43:34-04:00",
@@ -300,10 +300,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
  },
  "braze_id": "abc123abc123"
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Paid order %}
-`````````json
+```json
 {
  "name": "shopify_paid_order",
  "time": "2022-05-23T13:52:38-04:00",
@@ -326,10 +326,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
    ]
  }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Order cancelled %}
-`````````json
+```json
 {
     "name": "ecommerce.order_cancelled",
     "time": "2022-05-23T13:52:38-04:00",
@@ -366,10 +366,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
         }
     }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Order refunded %}
-`````````json
+```json
 {
     "name": "ecommerce.order_refunded",
     "time": "2022-05-23T13:52:38-04:00",
@@ -395,17 +395,17 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
         }
     }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Account login %}
-`````````json
+```json
 {
 	"name": "shopify_account_login",
 	"properties": {
 	"source": "braze-mock-storefront.myshopify.com"
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -448,7 +448,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 {% raw %}
 `````````liquid
 {% shopping_cart {{context.${cart_id}}} %}
-`````````
+```
 {% endraw %}
 
 次に、以下のショッピングカートのLiquidタグをメッセージに追加できます。
@@ -494,7 +494,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 `````````liquid
 {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
 {{context.${cart_id}}}
-`````````
+```
 {% endraw %}
 
 次に、以下のLiquidタグをメッセージに追加し、チェックアウト時にカート内の商品を参照できます。
@@ -782,7 +782,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% tab ペイロード例 %}
 {% subtabs %}
 {% subtab Shopify Tags %}
-`````````json
+```json
 {
   "attributes": [
     {
@@ -796,7 +796,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
     }
   ]
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

@@ -94,17 +94,17 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
   "dispatch_id": DispatchIdFromBraze,
   "campaign_id": CampaignApiId, // may not be available
   "canvas_id": CanvasApiId, // may not be available
-  "canvas_step_id": キャンバスStepApiId, // may not be available
-  "canvas_variation_id" : キャンバスVariationApiId, // may not be available
+  "canvas_step_id": CanvasStepApiId, // may not be available
+  "canvas_variation_id" : CanvasVariationApiId, // may not be available
   "message_variation_id": MessageVariationApiId, // may not be available,
   "attachments": Array of JSON Objects containing 'bytes' and 'file_name', // may not be available
   "user_id": String,
   "campaign_name": String, // will only be available if the message is from a campaign
-  "canvas_name": String, // will only be available if the message is from キャンバス
-  "canvas_step_name": String, // will only be available if the message is from a キャンバス
+  "canvas_name": String, // will only be available if the message is from Canvas
+  "canvas_step_name": String, // will only be available if the message is from a Canvas
   "external_id": String
 }
-`````````
+```
 
 `extras` フィールドには、HTML エディターでメールを作成する際に**メールの追加情報**フィールドで設定したキーと値のペアが含まれます。メールの追加情報機能はすべてのメールサービスプロバイダー（SendGrid や SparkPost を含む）で動作し、どのプロバイダーを使用しているかに関わらず、アーカイブされたメッセージにも含まれます。メールの追加情報の設定に関する詳細は、[メール キャンペーン の作成]({{site.baseurl}}/user_guide/channels/email/html_editor/#adding-email-extras)を参照してください。Currents にデータを送り返す方法については、[メッセージエクストラ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/)を参照してください。
 
@@ -113,7 +113,7 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
 {% endtab %}
 {% tab SMS/MMS %}
 
-`````````json
+```json
 {
   "version": 1 //numerical version of the JSON structure
   "to": PhoneNumber, ("+15555555555"),
@@ -125,21 +125,21 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
   "dispatch_id": DispatchIdFromBraze,
   "campaign_id": CampaignApiId, // may not be available
   "canvas_id": CanvasApiId, // may not be available
-  "canvas_step_id": キャンバスStepApiId, // may not be available
-  "canvas_variation_id" : キャンバスVariationApiId, // may not be available
+  "canvas_step_id": CanvasStepApiId, // may not be available
+  "canvas_variation_id" : CanvasVariationApiId, // may not be available
   "message_variation_id": MessagVariationApiId, // may not be available
   "user_id": String,
   "campaign_name": String, // will only be available if the message is from a campaign
-  "canvas_name": String, // will only be available if the message is from キャンバス
-  "canvas_step_name": String, // will only be available if the message is from a キャンバス
+  "canvas_name": String, // will only be available if the message is from Canvas
+  "canvas_step_name": String, // will only be available if the message is from a Canvas
   "external_id": String
 }
-`````````
+```
 
 {% endtab %}
 {% tab Push %}
 
-`````````json
+```json
 {
   "version": 1, //numerical version of the JSON structure
   "to": PushToken,
@@ -150,16 +150,16 @@ Braze は、プッシュトークンをハッシュする前に小文字に変�
   "dispatch_id": DispatchIdFromBraze,
   "campaign_id": CampaignApiId, // may not be available
   "canvas_id": CanvasApiApiId, // may not be available
-  "canvas_step_id": キャンバスStepApiId, // may not be available
-  "canvas_variation_id" : キャンバスVariationApiId, // may not be available
+  "canvas_step_id": CanvasStepApiId, // may not be available
+  "canvas_variation_id" : CanvasVariationApiId, // may not be available
   "message_variation_id": MessagVariationApiId, // may not be available
   "user_id": String,
   "campaign_name": String, // will only be available if the message is from a campaign
-  "canvas_name": String, // will only be available if the message is from a キャンバス
-  "canvas_step_name": String, // will only be available if the message is from a キャンバス
+  "canvas_name": String, // will only be available if the message is from a Canvas
+  "canvas_step_name": String, // will only be available if the message is from a Canvas
   "external_id": String
 }
-`````````
+```
 
 ### プッシュペイロード構造のバリエーション
 

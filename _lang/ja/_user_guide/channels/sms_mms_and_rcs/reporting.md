@@ -48,7 +48,7 @@ WHERE app_group_id = 'app-group-id'
 AND subscription_group_api_id = 'subscription_group_api_id'
 AND action = 'Unsubscribed'
 AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
-`````````
+```
 
 これにより、指定されたワークスペースとサブスクリプショングループのSMS通信をオプトアウトしたユーザーが返されます。キャンペーンまたはキャンバスに関連付けられたユーザーにフィルタリングされています。
 

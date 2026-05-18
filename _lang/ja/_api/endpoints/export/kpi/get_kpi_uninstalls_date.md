@@ -40,12 +40,12 @@ description: "この記事では、「日付別にアプリの日次アンイン
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/data_series?length=14&ending_at=2018-06-28T23:59:59-5:00&app_id={{app_identifier}}' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
@@ -56,7 +56,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/uninstalls/d
         ...
     ]
 }
-`````````
+```
 
 {% multi_lang_include alerts/tip_alerts.md alert='Export troubleshooting' %}
 

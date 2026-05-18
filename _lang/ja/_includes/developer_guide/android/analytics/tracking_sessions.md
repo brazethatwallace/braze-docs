@@ -18,7 +18,7 @@ Android セッションは、ホストアプリケーションからの通信が
 ```xml
 <!-- The length of time before a session times out in seconds. The session manager will "re-open" otherwise closed sessions if the call to StartSession comes within this interval. (default is 10) -->
 <integer name="com_braze_session_timeout">NUMBER_OF_SECONDS_UNTIL_SESSION_TIMEOUT</integer>
-`````````
+```
 
 ## セッショントラッキングをテストする
 
@@ -42,7 +42,7 @@ Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionSt
     }
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -53,7 +53,7 @@ Braze.getInstance(this).subscribeToSessionUpdates { message ->
     // A session has just been started
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -60,7 +60,7 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
         "id_3": "Ein Absatz ohne Formatierung"
     }
 }
-`````````
+```
 
 ## 応答 {#response}
 
@@ -68,17 +68,17 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
 
 ### 成功応答の例 {#example-success-response}
 
-`````````json
+```json
 {
 	"message": "success"
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
 	"errors": [
 		{
@@ -86,6 +86,6 @@ description: "この記事では、「キャンバス内の翻訳を更新」エ
 		}
 	]
 }
-`````````
+```
 
 {% endapi %}

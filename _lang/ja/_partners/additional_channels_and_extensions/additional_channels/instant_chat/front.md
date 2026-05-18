@@ -92,7 +92,7 @@ Brazeで新しい変換を設定する前に、[データ変換]({{site.baseurl}
 {% raw %}
 ```liquid
 {{event_properties.${message_body}}}
-`````````
+```
 {% endraw %}
 
 メッセージは次のようになります。
@@ -174,7 +174,7 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
  },
  "body": "{{sms.${inbound_message_body} | default : "no body available" }}"
 }
-`````````
+```
 {% endraw %}
 
 設定タブで、`Authorization`、`content-type`、および`accept`のリクエストヘッダーを構成します。

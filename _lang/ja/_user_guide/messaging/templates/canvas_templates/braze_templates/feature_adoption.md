@@ -4,7 +4,7 @@ article_title: 機能導入
 page_order: 3
 page_type: reference
 description: "この記事では、Braze キャンバステンプレートを使用して、メリットや使い方のヒントを強調するタイムリーでパーソナライズ済みのメッセージを配信する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 機能導入 {#feature-adoption}

@@ -39,7 +39,7 @@ Androidアプリをお持ちの場合は、SingularにBrazeのユニークなユ
 String appboyDeviceId = Braze.getInstance(context).getDeviceId();
 SingularConfig config = new SingularConfig("SDK KEY", "SDK SECRET")
   .withGlobalProperty(“brazeDeviceID”, appboyDeviceId, true);
-`````````
+```
 #### iOS
 
 {% alert important %}
@@ -60,14 +60,14 @@ SingularConfig* config = [[SingularConfig
   [config setGlobalProperty:@"brazeDeviceId" withValue:brazeDeviceId
   overrideExisting:YES];
   [Singular start:config];
-`````````
+```
 
 {% endtab %}
 {% tab Swift%}
 
 `````````swift
 config.setGlobalProperty("brazeDeviceId", withValue: brazeDeviceId, overrideExisting: true)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -100,11 +100,11 @@ Singularクリックトラッキングリンクを使い始めるには、[ド�
 {% tab Android %}
 Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Singular SDKの統合によってネイティブに収集されます。以下のLiquidロジックを利用することで、SingularクリックトラッキングリンクにGAIDを含めることができます。
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'android' %}
 aifa={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -112,11 +112,11 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとSingularの両方が、SDKの統合を通じてネイティブにIDFVを自動的に収集します。これはデバイス識別子として使用できます。以下のLiquidロジックを利用することで、SingularクリックトラッキングリンクにIDFVを含めることができます。
 
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'ios' %}
 idfv={{most_recently_used_device.${id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

@@ -76,7 +76,7 @@ search_tag: Partner
     "cohort_ids": null
   }
 }
-`````````
+```
 
 ### 複数のおすすめを取得する {#get-multiple-recommendations}
 
@@ -85,7 +85,7 @@ search_tag: Partner
 `https://profile-api.amplitude.com/v1/userprofile?user_id=testUser&get_recs=true&rec_id=testRecId,testRecId2`
 {% endraw %}
 #### レスポンス例
-`````````json
+```json
 {
   "userData": {
     "recommendations": [
@@ -124,7 +124,7 @@ search_tag: Partner
     "cohort_ids": null
   }
 }
-`````````
+```
 
 ### ユーザープロパティを取得する {#get-user-properties}
 
@@ -133,7 +133,7 @@ search_tag: Partner
 `https://profile-api.amplitude.com/v1/userprofile?user_id=testUser&get_amp_props=true`
 {% endraw %}
 #### レスポンス例
-`````````json
+```json
 {
   "userData": {
     "recommendations": null,
@@ -149,7 +149,7 @@ search_tag: Partner
     "cohort_ids": null
   }
 }
-`````````
+```
 
 ### コホート IDを取得する {#get-cohort-ids}
 
@@ -158,7 +158,7 @@ search_tag: Partner
 `https://profile-api.amplitude.com/v1/userprofile?user_id=testUser&get_cohort_ids=true`
 {% endraw %}
 #### レスポンス例
-`````````json
+```json
 {
   "userData": {
     "recommendations": null,
@@ -168,7 +168,7 @@ search_tag: Partner
     "cohort_ids": ["cohort1", "cohort3", "cohort7"]
   }
 }
-`````````
+```
 
 ### 単一の計算を取得する {#get-a-single-computation}
 
@@ -177,7 +177,7 @@ search_tag: Partner
 `https://profile-api.amplitude.com/v1/userprofile?user_id=testUser&comp_id=testCompId`
 {% endraw %}
 #### レスポンス例
-`````````json
+```json
 {
   "userData": {
     "recommendations": null,
@@ -189,7 +189,7 @@ search_tag: Partner
     "cohort_ids": null
   }
 }
-`````````
+```
 
 ### すべての計算を取得する {#get-all-computations}
 
@@ -198,7 +198,7 @@ search_tag: Partner
 `https://profile-api.amplitude.com/v1/userprofile?user_id=testUser&get_computations=true`
 {% endraw %}
 #### レスポンス例
-`````````json
+```json
 {
   "userData": {
     "recommendations": null,
@@ -211,5 +211,5 @@ search_tag: Partner
     "cohort_ids": null
   }
 }
-`````````
+```
 

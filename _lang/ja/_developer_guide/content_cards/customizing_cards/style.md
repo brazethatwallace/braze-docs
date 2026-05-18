@@ -36,7 +36,7 @@ Brazeのデフォルトスタイルは、Braze SDK内のCSSで定義されてい
 body .ab-feed {
   width: 800px;
 }
-`````````
+```
 
 変更可能なプロパティの完全な一覧については、[BrazeのSDK設定オプション](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)を参照してください。
 
@@ -57,7 +57,7 @@ body .ab-feed {
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_below">@id/com_braze_content_cards_captioned_image_card_title_container</item>
   </style>
-`````````
+```
 
 Content Cardsのスタイルをカスタマイズするには、このデフォルトのスタイルをオーバーライドします。スタイルをオーバーライドするには、スタイル全体をプロジェクトの`styles.xml`ファイルにコピーし、変更を加えます。すべての属性が正しく設定されるようにするには、スタイル全体をローカルの`styles.xml`にコピーする必要があります。
 
@@ -74,7 +74,7 @@ Content Cardsのスタイルをカスタマイズするには、このデフォ�
   <item name="android:paddingRight">5.0dp</item>
   <item name="android:scrollbarStyle">outsideInset</item>
 </style>
-`````````
+```
 
 {% endsubtab %}
 {% subtab Incorrect style override %}
@@ -84,7 +84,7 @@ Content Cardsのスタイルをカスタマイズするには、このデフォ�
   <item name="android:background">@color/mint</item>
   <item name="android:cacheColorHint">@color/mint</item>
 </style>
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -109,7 +109,7 @@ ContentCardsList(
         )
     )
 )
-`````````
+```
 
 2つ目は、以下の例のように、[`BrazeStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose/-braze-style.html)を使用してBrazeコンポーネントのグローバルスタイルを作成する方法です。
 
@@ -128,7 +128,7 @@ BrazeStyle(
 ) {
     // Your app here, including any ContentCardsList() in it
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -151,7 +151,7 @@ Content Cardsビューコントローラーを使用すると、[`BrazeContentCa
 `````````swift
 BrazeContentCardUI.ViewController.Attributes.defaults.cellAttributes.cornerRadius = 20
 BrazeContentCardUI.ViewController.Attributes.defaults.cellAttributes.classicImageSize = CGSize(width: 65, height: 65)
-`````````
+```
 
 **Attributesを使用してビューコントローラーを初期化する**
 
@@ -165,7 +165,7 @@ attributes.cellAttributes.cornerRadius = 20
 attributes.cellAttributes.classicImageSize = CGSize(width: 65, height: 65)
 
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 **サブクラス化によるセルのカスタマイズ**
 
@@ -177,7 +177,7 @@ var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.cells[BrazeContentCardUI.ClassicImageCell.identifier] = CustomClassicImageCell.self
 
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 **プログラムによるContent Cardsの変更**
 
@@ -199,7 +199,7 @@ attributes.transform = { cards in
 }
 
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 完全な例については、[Examplesサンプルアプリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift)を確認してください。
 
@@ -229,7 +229,7 @@ Content Cardsで使用されるフォントをカスタマイズすると、ブ�
 .card-element {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -247,7 +247,7 @@ Content Cardsで使用されるフォントをカスタマイズすると、ブ�
     <item name="android:fontFamily">@font/my_custom_font_family</item>
     <item name="fontFamily">@font/my_custom_font_family</item>
   </style>
-`````````
+```
 
 Android SDKでのフォントのカスタマイズの詳細については、[フォントファミリーガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization)を参照してください。
 {% endtab %}
@@ -266,7 +266,7 @@ ContentCardStyling(
         fontFamily = fontFamily
     )
 )
-`````````
+```
 {% endtab %}
 {% tab swift %}
 {% subtabs %}
@@ -281,7 +281,7 @@ attributes.cellAttributes.descriptionFont = .preferredFont(textStyle: .footnote,
 attributes.cellAttributes.domainFont = .preferredFont(textStyle: .footnote, weight: .medium)
 
 let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attributes: attributes)
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -310,7 +310,7 @@ Content Cardsの固定アイコンの構造は次のとおりです。
 <div class="ab-pinned-indicator">
   <i class="fa fa-star"></i>
 </div>
-`````````
+```
 
 別のFontAwesomeアイコンを使用したい場合は、`i`要素のクラス名を目的のアイコンのクラス名に置き換えます。
 
@@ -328,7 +328,7 @@ customIcon.classList.add('customIcon');
 
 // Replace the existing icon with the custom icon
 pinnedIndicator.replaceChildren(customIcon);
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -346,7 +346,7 @@ pinnedIndicator.replaceChildren(customIcon);
     <item name="android:contentDescription">@null</item>
     <item name="android:importantForAccessibility">no</item>
   </style>
-`````````
+```
 
 {% endtab %}
 {% tab Jetpack Compose %}
@@ -358,7 +358,7 @@ ContentCardStyling(
     pinnedResourceId = R.drawable.pushpin,
     pinnedImageAlignment = Alignment.TopCenter
 )
-`````````
+```
 
 `ContentCardStyling`の[`pinnedComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#1460938052%2FProperties%2F-1725759721)にComposableを指定することもできます。`pinnedComposable`が指定された場合、`pinnedResourceId`の値がオーバーライドされます。
 
@@ -375,7 +375,7 @@ ContentCardStyling(
         }
     }
 )
-`````````
+```
 {% endtab %}
 {% tab swift %}
 {% subtabs %}
@@ -389,7 +389,7 @@ attributes.cellAttributes.pinIndicatorColor = .red
 attributes.cellAttributes.pinIndicatorImage = UIImage(named: "my-image")
 
 let viewController = BrazeContentCardUI.ViewController.init(braze: braze, attributes: attributes)
-`````````
+```
 
 サブクラス化を使用して、ピンインジケーターを含む`BrazeContentCardUI.Cell`のカスタムバージョンを独自に作成することもできます。以下に例を示します。
 
@@ -398,7 +398,7 @@ var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.cells[BrazeContentCardUI.ClassicImageCell.identifier] = CustomClassicImageCell.self
 
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -423,7 +423,7 @@ Content Cardsの下部には、カードが閲覧されたかどうかを示す�
 
 `````````css
 .ab-unread-indicator { background-color: green; }
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -436,7 +436,7 @@ Content Cardsの下部には、カードが閲覧されたかどうかを示す�
   <!-- The color used to highlight unread Content Cards at their bottom edge -->
   <color name="com_braze_content_cards_unread_bar_color">#1676d0</color>
 </resources>
-`````````
+```
 
 {% endtab %}
 {% tab Jetpack Compose %}
@@ -447,7 +447,7 @@ Content Cardsの下部には、カードが閲覧されたかどうかを示す�
 ContentCardStyling(
     unreadIndicatorColor = Color.Red
 )
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -460,7 +460,7 @@ ContentCardStyling(
 `````````swift
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze)
 viewController.view.tintColor = .systemGreen
-`````````
+```
 
 ただし、未閲覧インジケーターのみを変更したい場合は、`BrazeContentCardUI.ViewController.Attributes`構造体の`unviewedIndicatorColor`プロパティにアクセスします。Brazeの`UITableViewCell`実装を使用する場合、セルが描画される前にプロパティにアクセスしてください。
 
@@ -471,7 +471,7 @@ var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
 attributes.cellAttributes.unviewedIndicatorColor = .red
 
 let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze, attributes: attributes)
-`````````
+```
 
 完全な例については、[Examplesサンプルアプリ](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift)を確認してください。
 
@@ -483,7 +483,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 `````````objc
 BRZContentCardUIViewController *viewController = [[BRZContentCardUIViewController alloc] initWithBraze:AppDelegate.braze];
 [viewController.view setTintColor:[UIColor systemGreenColor]];
-`````````
+```
 
 `Attributes`による未閲覧インジケーターのみのカスタマイズは、Objective-Cではサポートされていません。
 
@@ -504,7 +504,7 @@ if let darkImageUrl = card.extras["dark_mode_image"],
    view.traitCollection.userInterfaceStyle == .dark {
   // Use darkImageUrl for the image
 }
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -515,7 +515,7 @@ val isDarkMode = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT
 if (isDarkMode && darkModeImage != null) {
     // Use darkModeImage for the image
 }
-`````````
+```
 
 {% endtab %}
 {% tab web %}
@@ -526,7 +526,7 @@ const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 if (isDarkMode && darkModeImage) {
   // Use darkModeImage for the image
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -542,7 +542,7 @@ if (isDarkMode && darkModeImage) {
 
 `````````css
 .ab-unread-indicator { display: none; }
-`````````
+```
 
 {% endtab %}
 

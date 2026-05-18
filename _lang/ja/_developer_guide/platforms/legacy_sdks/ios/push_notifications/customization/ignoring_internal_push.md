@@ -42,7 +42,7 @@ Braze は、特定の高度な機能の内部実装にサイレントプッシ�
     // ... Gated logic here (such as pinging your server to download content) ...
   }
 }
-`````````
+```
 
 `````````objc
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
@@ -50,7 +50,7 @@ Braze は、特定の高度な機能の内部実装にサイレントプッシ�
     // ... Gated logic here (such as pinging server for content) ...
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -63,7 +63,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // ... Gated logic here (such as pinging your server to download content) ...
   }
 }
-`````````
+```
 
 `````````swift
 func application(_ application: UIApplication,
@@ -73,7 +73,7 @@ func application(_ application: UIApplication,
     // ... Gated logic here (such as pinging server for content) ...
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

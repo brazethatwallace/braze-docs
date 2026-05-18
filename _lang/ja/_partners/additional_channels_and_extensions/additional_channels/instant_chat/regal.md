@@ -80,7 +80,7 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
     },
     "eventSource": "braze"
 }
-`````````
+```
 
 上記のペイロードの例は、すべての連絡先が音声とSMSのオプトインに同意していることを前提としています。これに該当しない場合は、上記の `optIn` プロパティを削除し、`optIn` が収集されたときにRegalで連絡先を更新する別のキャンバスまたはキャンペーンを設定できます。
 
@@ -113,7 +113,7 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 
 必要に応じて、追加のユーザープロファイル属性をこのペイロードに追加して、複数の属性が同時に最新の状態であることを確認することもできます。
 
-`````````json
+```json
 {
     "userId": "<uniqueIdentifier>", //this is optional
     "traits": {
@@ -133,7 +133,7 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
     },
     "eventSource": "braze"
 }
-`````````
+```
 
 ### ステップ3：カスタムイベントを送信する {#step-3-send-custom-events}
 
@@ -163,7 +163,7 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
 
 必要に応じて、このペイロードに追加のユーザープロファイル属性を追加して、複数の属性が同時に最新であることを確認できます。
 
-`````````json
+```json
 {
     "userId": "<uniqueIdentifier>", //this is optional
     "traits": {
@@ -183,7 +183,7 @@ Regal.ioには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
     },
     "eventSource": "braze"
 }
-`````````
+```
 
 #### 最新の連絡先属性 {#up-to-date-contact-attributes}
 
@@ -256,7 +256,7 @@ Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用�
 
 以下は、Regalの `call.completed` イベントのサンプルペイロードです。
 
-`````````json
+```json
 {
   "userId": "123",
   "traits": {
@@ -292,11 +292,11 @@ Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用�
   "originalTimestamp": "1657855059",
   "eventSource": "Regal Voice"
 }
-`````````
+```
 
 以下は、これをBrazeのカスタムイベントにマッピングするためのサンプルデータ変換です。
 
-`````````
+```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze must first be converted to ISO 8601. This can be done with the following code:
 let unixTimestamp = payload.originalTimestamp;
 let dateObj = new Date(unixTimestamp * 1000);
@@ -345,7 +345,7 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-`````````
+```
 
 {% endtab %}
 {% tab プロファイル属性を更新する %}
@@ -354,7 +354,7 @@ return brazecall;
 
 以下は、Regalの `contact.attribute.edited` イベントのサンプルペイロードです。このイベントは、いずれかのエージェントが会話で新しい情報を得て、連絡先のプロファイルの属性を更新するたびにトリガーされます。
 
-`````````json
+```json
 {
   "userId": "123",
   "traits": {
@@ -378,11 +378,11 @@ return brazecall;
   "originalTimestamp": "1657855462",
   "eventSource": "Regal Voice"
 }
-`````````
+```
 
 以下は、Brazeプロファイルの関連属性に新しいカスタムプロパティ値をマッピングするためのサンプルデータ変換です：
 
-`````````
+```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
 
 // Capture the key's updated property value within the 'changes' object and store this in an attributes variable that can be used in the /users/track request
@@ -409,7 +409,7 @@ const brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-`````````
+```
 
 {% endtab %}
 {% tab 実験の同期を維持する %}
@@ -418,7 +418,7 @@ return brazecall;
 
 以下は、Regalの `contact.experiment.assigned` イベントのサンプルペイロードです。
 
-`````````json
+```json
 {
   "userId": "123",
   "traits": {
@@ -437,11 +437,11 @@ return brazecall;
   "originalTimestamp": "1657855118",
   "eventSource": "Regal Voice"
 }
-`````````
+```
 
 以下は、これをBrazeのカスタムイベントにマッピングするためのサンプルデータ変換です。
 
-`````````
+```
 // The Braze /users/track endpoint expects timestamps in an ISO 8601 format. To use the Unix timestamp within Regal's call.completed event payload as the event timestamp in Braze, it must first be converted to ISO 8601. This can be done with the following code:
 let unixTimestamp = payload.originalTimestamp;
 let dateObj = new Date(unixTimestamp * 1000);
@@ -473,7 +473,7 @@ let brazecall = {
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
 
-`````````
+```
 {% endtab %}
 {% tab 連絡先の配信停止 %}
 
@@ -481,7 +481,7 @@ return brazecall;
 
 以下は、Regalの `contact.unsubscribed` イベントのサンプルペイロードです。
 
-`````````json
+```json
 {
   "userId": "123",
   "traits": {
@@ -501,11 +501,11 @@ return brazecall;
   "originalTimestamp": "1657855230",
   "eventSource": "Regal Voice"
 }
-`````````
+```
 
 以下は、Brazeで連絡先の配信停止を行うサンプルデータ変換です。
 
-`````````
+```
 // This is an example template you can use as a starting point. Feel free to delete this entirely to start from scratch or to delete specific components as you see fit.
 
 // First, this code defines a variable, "brazecall", to build up a /users/track request
@@ -526,7 +526,7 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

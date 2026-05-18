@@ -47,15 +47,15 @@ description: "この記事では、キャンバスデータシリーズ分析の
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_series?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-5:00&starting_at=2018-05-28T23:59:59-5:00&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "data": {
-    "name": (string) the キャンバス name,
+    "name": (string) the Canvas name,
     "stats": [
       {
         "time": (string) the date as ISO 8601 date,
@@ -114,7 +114,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
   },
   "message": (required, string) the status of the export, returns 'success' when completed without errors
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

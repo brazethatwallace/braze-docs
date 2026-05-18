@@ -63,7 +63,7 @@ func application(_ application: UIApplication,
     // Gated logic here (for example pinging server for content)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -75,7 +75,7 @@ func application(_ application: UIApplication,
     // Gated logic here (for example pinging server for content)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

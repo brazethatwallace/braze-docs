@@ -295,7 +295,7 @@ analytics.identify(
     ]
   ]
 )
-`````````
+```
 {% endsubtab %}
 {% subtab Kotlin %}
 `````````kotlin
@@ -319,7 +319,7 @@ analytics.identify(
     )
   }
 )
-`````````
+```
 {% endsubtab %}
 {% subtab TypeScript %}
 `````````typescript
@@ -338,7 +338,7 @@ analytics.identify(
     ]
   }
 )
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 

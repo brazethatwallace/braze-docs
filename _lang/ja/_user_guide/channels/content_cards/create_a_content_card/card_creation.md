@@ -4,7 +4,7 @@ article_title: カード作成
 alias: /card_creation/
 description: "この記事では、キャンペーン起動時またはキャンバスステップエントリ時と、初回インプレッション時のContent Cards作成の違いについて説明します。"
 page_order: 0
-tool: キャンペーン
+tool: Campaigns
 channel:
   - content cards
 toc_headers: h2

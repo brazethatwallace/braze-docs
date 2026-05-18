@@ -74,7 +74,7 @@ Brazeで**Currents** > **+ Create Current** > **Treasure Data Export**に移動�
         }
     ]
 }
-`````````
+```
 
 #### インジェストされたビューの例 {#example-of-the-ingested-view}
 

@@ -28,7 +28,7 @@ SQL変数を使用するメリットには以下があります。
 {% raw %}
 ```sql
 {{variable_type.${custom_label}}}
-`````````
+```
 {% endraw %}
 
 以下を置き換えてください。
@@ -48,7 +48,7 @@ FROM USERS_CAMPAIGNS_REVENUE_SHARED
 WHERE campaign_id = '{{campaign.${Campaign}}}'
   AND TIME > '{{start_date.${Month First Day}}}'
   AND TIME < '{{end_date.${Month Last Day}}}';
-`````````
+```
 {% endraw %}
 
 ### ステップ 2: 値を割り当てる {#step-2-assign-a-value}
@@ -70,7 +70,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 {% raw %}
 `````````sql
 some_number_column < {{number.${custom_label}}}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -84,7 +84,7 @@ some_number_column < {{number.${custom_label}}}
 {% raw %}
 `````````sql
 '{{string.${add a string here.}}}'
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -100,7 +100,7 @@ some_number_column < {{number.${custom_label}}}
 {% raw %}
 `````````sql
 {{options.${metrics} | is_radio_button: 'true' | options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value": "test_value2"}]'}}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -112,7 +112,7 @@ some_number_column < {{number.${custom_label}}}
 {% raw %}
 `````````sql
 {{options.${metrics} | is_multi_select: 'true' | options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value": "test_value2"}]'}}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -127,7 +127,7 @@ some_number_column < {{number.${custom_label}}}
 {% tab 使用方法 %}
 `````````sql
 is_radio_button: 'true'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -141,7 +141,7 @@ is_radio_button: 'true'
 {% tab 使用方法 %}
 `````````sql
 is_multi_select: 'true'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -155,7 +155,7 @@ is_multi_select: 'true'
 {% tab 使用方法 %}
 `````````sql
 options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value": "test_value2"}]'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -168,9 +168,9 @@ options: '[{"label": "test", "value": "test_value"}, {"label": "test2", "value":
 {% tabs %}
 {% tab 使用方法 %}
 {% raw %}
-`````````
+```
 time > {{start_date.${custom_label}}} AND time < {{end_date.${custom_label}}}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -200,7 +200,7 @@ Liquidは指定された日付範囲内にカレンダーを表示するため�
 {% raw %}
 `````````sql
 campaign_id = '{{campaign.${custom_label}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -216,7 +216,7 @@ campaign_id = '{{campaign.${custom_label}}}'
 {% raw %}
 `````````sql
 campaign_id IN ({{campaigns.${custom_label}}})
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -232,7 +232,7 @@ campaign_id IN ({{campaigns.${custom_label}}})
 {% raw %}
 `````````sql
 message_variation_api_id IN ({{campaign_variants.${custom_label}}})
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -256,7 +256,7 @@ message_variation_api_id IN ({{campaign_variants.${custom_label}}})
 {% raw %}
 `````````sql
 canvas_id = '{{canvas.${custom_label}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -272,7 +272,7 @@ canvas_id = '{{canvas.${custom_label}}}'
 {% raw %}
 `````````sql
 canvas_id IN ({{canvases.${custom_label}}})
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -286,7 +286,7 @@ canvas_id IN ({{canvases.${custom_label}}})
 {% raw %}
 `````````sql
 canvas_variation_api_id IN ({{canvas_variants.${custom_label}}})
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -300,7 +300,7 @@ canvas_variation_api_id IN ({{canvas_variants.${custom_label}}})
 {% raw %}
 `````````sql
 canvas_step_api_id = '{{canvas_step.${custom_label}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -314,7 +314,7 @@ canvas_step_api_id = '{{canvas_step.${custom_label}}}'
 {% raw %}
 `````````sql
 canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -334,7 +334,7 @@ canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
 {% raw %}
 `````````sql
 ({{products.${custom_label}}})
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -344,7 +344,7 @@ canvas_step_api_id IN ({{canvas_steps.${custom_label}}})
 SELECT product_name
 FROM FULL_GAME_AND_DLC
 WHERE product_id IN ({{products.${Games with DLC}}});
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -362,7 +362,7 @@ WHERE product_id IN ({{products.${Games with DLC}}});
 {% raw %}
 `````````sql
 '{{custom_events.${custom_label}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 
@@ -372,7 +372,7 @@ WHERE product_id IN ({{products.${Games with DLC}}});
 SELECT event_name
 FROM CUSTOM_EVENTS_TABLE
 WHERE event_name IN ({{custom_events.${Purchased Game}}});
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -386,7 +386,7 @@ WHERE event_name IN ({{custom_events.${Purchased Game}}});
 {% raw %}
 `````````sql
 name = '{{custom_event_properties.${property names)}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -402,7 +402,7 @@ name = '{{custom_event_properties.${property names)}}}'
 {% raw %}
 `````````sql
 workspace_id = '{{workspace.${app_group_id}}}'
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -420,7 +420,7 @@ workspace_id = '{{workspace.${app_group_id}}}'
 {% raw %}
 `````````sql
 catalog_id = '{{catalogs.${catalog}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -434,7 +434,7 @@ catalog_id = '{{catalogs.${catalog}}}'
 {% raw %}
 `````````sql
 field_name = '{{catalog_fields.${custom_label}}}'
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -450,7 +450,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% raw %}
 `````````sql
 {{segments.${analytics_segments}}}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -464,7 +464,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% raw %}
 `````````sql
 {{tags.${some tags}}}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -478,7 +478,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% raw %}
 `````````sql
 {{string.${my var}| is_required: 'false' | description: 'My optional string var'}}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -492,7 +492,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% raw %}
 `````````sql
 {{string.${type_name_has_no_value} | visible: 'false'}} or {{string.${type_name_has_value} | visible: 'false'}}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -502,7 +502,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% raw %}
 `````````sql
 {{string.${campaigns_messaging_has_no_value}  | visible: 'false'}} OR campaign_id IN ({{campaigns.${messaging} | is_required: 'false'}})
-`````````
+```
 {% endraw %}
 
 ### 表示 {#visible}
@@ -515,7 +515,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% tab 使用方法 %}
 `````````sql
 visible: 'false'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -527,7 +527,7 @@ visible: 'false'
 {% tab 使用方法 %}
 `````````sql
 required: 'false'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -539,7 +539,7 @@ required: 'false'
 {% tab 使用方法 %}
 `````````sql
 order: '1'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -553,7 +553,7 @@ order: '1'
 {% subtab 使用方法 %}
 `````````sql
 include_quotes: 'true'
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -565,7 +565,7 @@ include_quotes: 'true'
 {% subtab 使用方法 %}
 `````````sql
 include_double_quotes: 'true'
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -579,7 +579,7 @@ include_double_quotes: 'true'
 {% tab 使用方法 %}
 `````````sql
 placeholder: 'enter some value'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -591,7 +591,7 @@ placeholder: 'enter some value'
 {% tab 使用方法 %}
 `````````sql
 description: 'some description'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -603,7 +603,7 @@ description: 'some description'
 {% tab 使用方法 %}
 `````````sql
 default_value: '5'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -615,6 +615,6 @@ default_value: '5'
 {% tab 使用方法 %}
 `````````sql
 hide_label: 'true'
-`````````
+```
 {% endtab %}
 {% endtabs %}

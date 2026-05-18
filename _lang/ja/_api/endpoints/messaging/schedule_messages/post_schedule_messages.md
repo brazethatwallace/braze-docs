@@ -37,9 +37,9 @@ description: "この記事では、「スケジュールされたメッセージ
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   // You will need to include at least one of 'segment_id', 'external_user_ids', and 'audience'
   // Including 'segment_id' will send to members of that segment
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     "sms": (optional, SMS object)
   }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -89,7 +89,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/create' \
 --data-raw '{
   "broadcast": "false",
@@ -165,18 +165,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/
     "content_card": (optional, Content Card Object)
   }
 }'
-`````````
+```
 
 ## 応答 {#response}
 
 ### 成功応答の例 {#example-success-response}
 
-`````````json
+```json
 {
     "dispatch_id": (string) the dispatch identifier,
     "schedule_id": (string) the schedule identifier,
     "message": "success"
 }
-`````````
+```
 
 {% endapi %}

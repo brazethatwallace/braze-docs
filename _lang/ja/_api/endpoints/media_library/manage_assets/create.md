@@ -40,16 +40,16 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
   "asset_url": "https://cdn.example.com/assets/cat.jpg",
   "name": "Cat Graphic"
 }
-`````````
+```
 
 `asset_file`のリクエスト本文の例：
 
-`````````json
+```json
 {
   "asset_file": <BINARY FILE DATA>,
   "name": "Cat Graphic"
 }
-`````````
+```
 
 リクエスト本文には以下のパラメーターが含まれます。
 
@@ -90,21 +90,21 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 
 このリクエストは、`asset_url`を使用してメディアライブラリにアセットを追加する例を示しています。
 
-`````````
+```
 curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --header 'Content-Type: application/json' \
 --data '{"asset_url": "https://cdn.example.com/assets/cat.jpg", "name": "Cat Graphic"}'
-`````````
+```
 
 このリクエストは、`asset_file`を使用してメディアライブラリにアセットを追加する例を示しています。
 
-`````````
+```
 curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --header 'Content-Type: application/json' \
 --data '{"asset_file":<BINARY FILE DATA>, "name":"Cat Graphic"}'
-`````````
+```
 
 ### エラー応答 {#error-responses}
 
@@ -114,11 +114,11 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 バリデーションエラーは次のような構造を返します。
 
-`````````json
+```json
 {
   "message": (String) Human-readable error description
 }
-`````````
+```
 
 以下の表は、発生する可能性のあるバリデーションエラーの一覧です。
 
@@ -133,13 +133,13 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 処理エラーはエラーコード付きの異なる応答を返します。
 
-`````````json
+```json
 {
   "message": (String) Human-readable error description,
   "error_code": (String) error code,
   "meta": { }
 }
-`````````
+```
 
 以下の表は、発生する可能性のある処理エラーの一覧です。
 
@@ -163,7 +163,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 以下のJSONは、応答の想定される形式を示しています。
 
-`````````json
+```json
 {
     "new_assets": [
         {
@@ -183,6 +183,6 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
     ],
     "dashboard_url": (String) the URL to view this asset in the Braze dashboard
 }
-`````````
+```
 
 {% endapi %}

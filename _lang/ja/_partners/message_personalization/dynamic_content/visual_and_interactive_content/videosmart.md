@@ -100,7 +100,7 @@ Content Blockがデフォルト値をサポートしている場合、変数を�
 }
 {% endcapture %}
 {% assign vs_record_data = vs_record_data | strip_newlines %}
-`````````
+```
 {% endraw %}
 
 {% alert note %}

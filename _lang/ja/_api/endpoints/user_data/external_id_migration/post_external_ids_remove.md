@@ -37,13 +37,13 @@ description: "この記事では、外部IDの削除エンドポイントにつ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "external_ids" : (required, array of external identifiers to remove)
 }
-`````````
+```
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -54,7 +54,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## リクエスト例 {#request-example}
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids/remove' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -64,7 +64,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
     ...
   ]
 }'
-`````````
+```
 
 {% alert important %}
 削除できるのは非推奨IDのみです。プライマリ外部IDを削除しようとするとエラーになります。
@@ -74,13 +74,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 
 応答では、成功したすべての削除と、関連するエラーを伴う失敗した削除が確認されます。`removal_errors` フィールドのエラーメッセージは、元のリクエストの配列内のインデックスを参照します。
 
-`````````
+```
 {
   "message" : (string) status message,
   "removed_ids" : (array of strings) successful remove operations,
   "removal_errors": (array of arrays) <minor error message>
 }
-`````````
+```
 
 `message` フィールドは、有効なリクエストに対して `success` を返します。より具体的なエラーは `removal_errors` 配列に格納されます。`message` フィールドは、以下の場合にエラーを返します：
 - 無効なAPIキー

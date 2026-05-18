@@ -65,10 +65,10 @@ Quiklyのアクティベーションが顧客のメールアドレスやプロ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
 #### リクエストボディ {#request-body}
-`````````
+```
 {
   "attributes": [{
     "_update_existing_only": false,
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     "email": "email@example.com"
   }]
 }
-`````````
+```
 
 {% enddetails %}
 
@@ -105,20 +105,20 @@ Brazeでは、`/users/track`エンドポイントを使用して新しいユー�
 
 {% details Detailed /subscription/status/set request %}
 #### リクエストヘッダー
-`````````
+```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
 #### リクエストボディ
-`````````
+```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
     "subscription_status": "subscribed",
     "phone": "+13135551212"
   }]
 }
-`````````
+```
 
 {% enddetails %}
 
@@ -156,11 +156,11 @@ Quiklyでは認証に`HTTP Header`が必要です。
 
 ***JSONキー/値のペア***を選択し、次のペアを追加します。
 {% raw %}
-`````````
+```
 "q_scope": "your-activations-scope-id"
 "event": "your-event-identifier"
 "email": {{${email_address}}
-`````````
+```
 {% endraw %}
 
 ### リクエストをプレビューする {#preview-your-request}

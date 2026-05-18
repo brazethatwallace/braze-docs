@@ -18,7 +18,7 @@ description: "キャンバスエントリプロパティをメッセージのパ
 
 ```liquid
 Thanks for ordering {{context.${product_name}}}! We'll send you a tracking number soon.
-`````````
+```
 {% endraw %}
 
 エントリプロパティは、アクションベースおよび API トリガーのキャンバスで利用できます。

@@ -3,7 +3,7 @@ nav_title: ベストプラクティス
 article_title: キャンペーンのベストプラクティス
 page_order: 0
 description: "この記事では、キャンペーンの作成とカスタマイズに関するベストプラクティスを紹介します。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 

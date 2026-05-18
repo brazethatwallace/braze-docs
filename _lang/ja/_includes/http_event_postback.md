@@ -38,7 +38,7 @@ Brazeダッシュボードで以下を行います。
      "reason" : (string, The reason Braze or the Inbox provider was unable to process this message to the user, only included for events with "aborted" or "bounced" status),
    }
 }
-`````````
+```
 
 #### メッセージステータス {#message-status}
 
@@ -52,7 +52,7 @@ Brazeダッシュボードで以下を行います。
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Message status" }
 
 ### ポストバックの例 {#example-postback}
-`````````json
+```json
 
 // Sent Event
 {
@@ -114,5 +114,5 @@ Brazeダッシュボードで以下を行います。
     }
 }
 
-`````````
+```
 

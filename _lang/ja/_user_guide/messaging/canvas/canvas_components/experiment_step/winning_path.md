@@ -3,7 +3,7 @@ nav_title: 勝者パス
 article_title: 実験パスの勝者パス
 page_type: reference
 description: "このリファレンス記事では、実験パスステップで有効にするとA/Bテストを自動化できる機能である勝者パスについて説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 実験パスの勝者パス

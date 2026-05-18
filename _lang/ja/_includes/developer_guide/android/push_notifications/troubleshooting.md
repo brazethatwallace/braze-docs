@@ -35,7 +35,7 @@ sequenceDiagram
   App ->> BrazeSDK: Message is sent to BrazeFirebaseMessagingService
   BrazeSDK ->> Device: SDK will check if the push is from Braze.<br>If so, push data is transformed into a Push Notification and displayed.
 
-`````````
+```
 
 
 ### ステップ 1:Google Cloud APIキーを構成する
@@ -150,7 +150,7 @@ FCM プッシュが正しく機能するためには、Google Play 開発者サ�
     <action android:name="com.google.firebase.MESSAGING_EVENT" />
   </intent-filter>
 </service>
-`````````
+```
 
 #### ファイアウォールがプッシュをブロックしている
 
@@ -200,4 +200,4 @@ Braze はプッシュクリックを自動的に記録するため、このシ�
 
 `````````xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">false</bool>
-`````````
+```

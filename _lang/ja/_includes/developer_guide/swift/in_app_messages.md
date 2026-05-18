@@ -19,14 +19,14 @@ Brazeにアプリ内メッセージを表示させるには、`BrazeInAppMessage
 
 ```swift
 AppDelegate.braze?.inAppMessagePresenter = BrazeInAppMessageUI()
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
 `````````objc
 AppDelegate.braze.inAppMessagePresenter = [[BrazeInAppMessageUI alloc] init];
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

@@ -44,9 +44,9 @@ description: "この記事では、「ユーザーのサブスクリプション
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
    "subscription_group_id": (required, string) the id of your subscription group,
    "subscription_state": (required, string) available values are "unsubscribed" (not in subscription group) or "subscribed" (in subscription group),
@@ -55,17 +55,17 @@ Authorization: Bearer YOUR-REST-API-KEY
    "use_double_opt_in_logic": (optional, boolean) defaults to `false`; when `subscription_state` is "subscribed", set to `true` to enter the user into the SMS double opt-in workflow,
    // SMS and RCS subscription group - you must include one of external_id or phone
  }
-`````````
+```
 \* SMSとRCSのサブスクリプショングループ: Brazeは`external_id`または`phone`のみを受け付けます。
 
 {% endtab %}
 {% tab Email %}
-`````````
+```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
    "subscription_group_id": (required, string) the id of your subscription group,
    "subscription_state": (required, string) available values are "unsubscribed" (not in subscription group) or "subscribed" (in subscription group),
@@ -74,7 +74,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    // Email subscription group - you must include one of external_id or email
    // Note that sending an email address that is linked to multiple profiles updates all relevant profiles
  }
-`````````
+```
 \* メールサブスクリプショングループ: `email`または`external_id`のどちらかを含める必要があります。
 {% endtab %}
 {% endtabs %}
@@ -103,7 +103,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### メール {#email}
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -114,11 +114,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
   "email": ["example1@email.com", "example2@email.com"]
 }
 '
-`````````
+```
 
 ### SMSとRCS {#sms-and-rcs}
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -129,17 +129,17 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
   "phone": ["+12223334444", "+11112223333"]
 }
 '
-`````````
+```
 
 ## 成功応答の例 {#example-success-response}
 
 ステータスコード`201`は、次の応答本文を返す可能性があります。
 
-`````````json
+```json
 {
     "message": "success"
 }
-`````````
+```
 
 {% alert important %}
 このエンドポイントは`email`または`phone`の値のみを受け付け、両方を同時に受け付けることはできません。両方を指定した場合、次の応答が返されます: `{"message":"Either an email address or a phone number should be provided, but not both."}`

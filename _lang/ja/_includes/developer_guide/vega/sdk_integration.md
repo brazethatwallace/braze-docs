@@ -14,13 +14,13 @@ Braze Vega SDKを使えば、ユーザー向けの分析データを収集し、
 
 ```bash
 npm install @braze/vega-sdk --save
-`````````
+```
 
 インストール後、必要なメソッドをインポートできる：
 
 `````````javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
-`````````
+```
 {% endtab %}
 
 {% tab yarn %}
@@ -28,13 +28,13 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 
 `````````bash
 yarn add @braze/vega-sdk
-`````````
+```
 
 インストール後、必要なメソッドをインポートできる：
 
 `````````javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +86,7 @@ const App = () => {
     // Your app components
   );
 };
-`````````
+```
 
 {% alert important %}
 匿名ユーザーは[MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users)にカウントされる可能性がある。その結果、これらのユーザーをMAUカウントから除外するために、条件付きでSDKをロードするか、初期化したい場合があります。
@@ -106,7 +106,7 @@ SDKのログ記録のイネーブルメントを有効にすれば、デバッ�
 initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
   enableLogging: true
 });
-`````````
+```
 
 {% alert important %}
 基本ログは全てのユーザーに公開されるため、本番環境にコードをリリースする前にログ記録を無効にすることを検討せよ。
@@ -121,7 +121,7 @@ import { toggleLogging } from "@braze/vega-sdk";
 
 // Enable logging
 toggleLogging();
-`````````
+```
 
 #### カスタムロギング
 
@@ -134,7 +134,7 @@ setLogger((message) => {
   console.log("Braze Custom Logger: " + message);
   // Add your custom logging logic here
 });
-`````````
+```
 
 ### 設定オプション
 
@@ -146,7 +146,7 @@ await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
   appVersionNumber: "1.2.3.4",        // Set your app version
   enableLogging: true,                 // Enable SDK logging
 });
-`````````
+```
 
 ## SDKをアップグレードする
 
@@ -156,7 +156,7 @@ NPMやYarnからBraze Vega SDKを参照している場合、パッケージ依�
 npm update @braze/vega-sdk
 # or, using yarn:
 yarn upgrade @braze/vega-sdk
-`````````
+```
 
 ## 統合のテスト
 

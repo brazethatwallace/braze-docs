@@ -127,7 +127,7 @@ channel:
 
 ```liquid
 Sorry, we didn't recognize {{sms.${inbound_message_body}}}. Text HELP for help or STOP to stop.
-`````````
+```
 
 `````````liquid
 {% if {{sms.${inbound_message_body}}} == "SNEAKERS" %}
@@ -137,7 +137,7 @@ Shirt deals coming up for you!
 {% else %}
 Want to receive a specific deal? Just text us the category you're interested in. For example SHIRTS or SNEAKERS.
 {% endif %}
-`````````
+```
 
 {% endraw %}
 

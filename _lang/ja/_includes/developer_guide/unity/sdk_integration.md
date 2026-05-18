@@ -114,7 +114,7 @@ Braze SDKが機能するように[`AndroidManifest.xml`](https://docs.unity3d.co
     </service>
   </application>
 </manifest>
-`````````
+```
 
 {% alert important %}
 `AndroidManifest.xml`ファイルに登録されているすべてのActivityクラスは、Braze Android SDKと完全に統合されている必要があります。そうでなければ分析が収集されません。独自のActivityクラスを追加する場合は、必ず[Braze Unityプレーヤーを拡張](#unity_extend-unity-player)して、これを防いでください。
@@ -141,7 +141,7 @@ implementation "androidx.recyclerview:recyclerview:1.2.1"
 implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.0"
 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 implementation 'androidx.core:core:1.6.0'
-`````````
+```
 
 これらの依存関係は、[External Dependency Manager](https://github.com/googlesamples/unity-jar-resolver)を使用して設定することもできます。
 
@@ -184,14 +184,14 @@ Brazeは、Unity iOS統合を自動化するためのネイティブUnityソリ�
 `````````bash
 git clone git@github.com:braze-inc/braze-unity-sdk.git
 cd ~/PATH/TO/DIRECTORY/braze-unity-sdk
-`````````
+```
 {% endtab %}
 
 {% tab Windows Powershell %}
 `````````powershell
 git clone git@github.com:braze-inc/braze-unity-sdk.git
 cd C:\PATH\TO\DIRECTORY\braze-unity-sdk
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -203,13 +203,13 @@ cd C:\PATH\TO\DIRECTORY\braze-unity-sdk
 {% tab MacOS %}
 `````````bash
 /Applications/Unity/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath "$(pwd)" -executeMethod Appboy.Editor.Build.ExportAllPackages -quit
-`````````
+```
 {% endtab %}
 
 {% tab Windows Powershell %}
 `````````powershell
 "%UNITY_PATH%" -batchmode -nographics -projectPath "%PROJECT_ROOT%" -executeMethod Appboy.Editor.Build.ExportAllPackages -quit
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -270,6 +270,6 @@ Brazeは、Unityアプリへの[ADMプッシュ](https://developer.amazon.com/pu
 
 以下のようなエラーは無視して問題ありません。AppleのソフトウェアはCgBIと呼ばれる独自のPNG拡張を使用していますが、Unityはこれを認識しません。これらのエラーは、iOSのビルドやBrazeバンドル内の関連画像の適切な表示には影響しません。
 
-`````````
+```
 Could not create texture from Assets/Plugins/iOS/AppboyKit/Appboy.bundle/...png: File could not be read
-`````````
+```

@@ -68,7 +68,7 @@ Analytics SDKが統合・設定された後、Braze キャンペーンのディ�
 
 ```
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
-`````````
+```
 
 ![]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
@@ -77,9 +77,9 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spr
 
 アプリ内メッセージのディープリンクに UTM タグを含めるには、以下を使用します。
 
-`````````
+```
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
-`````````
+```
 
 ![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
@@ -97,7 +97,7 @@ Brazeコンポーザー内で URL を動的に構築できるため、URL にダ
 {% raw %}
 `````````liquid
 https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom_attribute.${attribute1}}}
-`````````
+```
 {% endraw %}
 
 カスタム定義の Liquid 変数の短縮もサポートしています。以下にいくつかの例を示します。
@@ -108,7 +108,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 `````````liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
-`````````
+```
 {% endraw %}
 
 ### Liquid 変数でレンダリングされた URL を短縮する {#shorten-urls-rendered-by-liquid-variables}

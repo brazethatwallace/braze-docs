@@ -228,7 +228,7 @@ erDiagram
     SNAPSHOTS_CANVAS_VARIATION_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_EXPERIMENT_STEP_SHARED ||--o{ GROUP_6 : joins
     GROUP_6 ||--o{ EVENT : joins
-`````````
+```
 
 - `PK` ＝主キー
 - `FK` = 外部キー

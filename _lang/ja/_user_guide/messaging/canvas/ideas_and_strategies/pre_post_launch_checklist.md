@@ -3,7 +3,7 @@ nav_title: 起動前・起動後チェックリスト
 article_title: 起動前・起動後チェックリスト
 page_order: 2
 description: "この記事では、キャンバスを起動する前後に確認すべき事項のガイドラインを提供します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

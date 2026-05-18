@@ -33,7 +33,7 @@ Certona の REST APIを使用して、パーソナライズされたコンテン
 {% raw %}
 ```liquid
 {% connected_content {CERTONA_REST_API_KEY} :save recommendations %}
-`````````
+```
 
 次に、関連するテキストや画像など、呼び出したいコンテンツを定義します。たとえば `{{recommendations.CertonaObject.RecommendedItems[0].Items[0].name}}` です。
 

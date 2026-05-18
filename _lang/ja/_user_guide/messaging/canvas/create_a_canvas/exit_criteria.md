@@ -5,7 +5,7 @@ page_order: 4.1
 alias: /exit_criteria/
 page_type: reference
 description: "このリファレンス記事では、終了条件と、選択した条件に基づいてユーザーがキャンバスから退出する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 終了条件 {#exit-criteria}

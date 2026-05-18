@@ -59,7 +59,7 @@ Google Tag Manager を使用する前に、まず [SDK の初期設定]({{site.b
 NSDictionary *parameters = @{@"genre" : @"pop",
                              @"number of times listened" : @42};
 [FIRAnalytics logEventWithName:@"played song" parameters:parameters];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -75,7 +75,7 @@ NSDictionary *parameters = @{@"genre" : @"pop",
 NSDictionary *parameters = @{@"customAttributeKey" : @"favorite song",
                              @"customAttributeValue" : @"Private Eyes"};
 [FIRAnalytics logEventWithName:@"customAttribute" parameters:parameters];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -90,7 +90,7 @@ NSDictionary *parameters = @{@"customAttributeKey" : @"favorite song",
 `````````obj-c
 NSDictionary *parameters = @{@"externalUserId" : userId};
 [FIRAnalytics logEventWithName:@"changeUser" parameters:parameters];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -119,7 +119,7 @@ Google Tag Manager がアプリにインストールされたら、カスタム�
 @interface BrazeGTMTagManager : NSObject <TAGCustomFunction>
 
 @end
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -218,7 +218,7 @@ static NSString *const ChangeUserExternalUserId = @"externalUserId";
 }
 
 @end
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

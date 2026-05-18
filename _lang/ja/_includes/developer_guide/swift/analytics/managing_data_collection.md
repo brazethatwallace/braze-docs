@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab 動的な例 %}
@@ -110,7 +110,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     )
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -127,7 +127,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
       AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
     }
 }
-`````````
+```
 
 ## データトラッキングを無効にする {#disabling-data-tracking}
 

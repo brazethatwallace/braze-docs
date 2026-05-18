@@ -48,15 +48,15 @@ description: "この記事では、キャンバスデータサマリー分析の
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "data": {
-    "name": (string) the キャンバス name,
+    "name": (string) the Canvas name,
     "total_stats": {
       "revenue": (float) the number of dollars of revenue (USD),
       "conversions": (int) the number of conversions,
@@ -96,7 +96,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
   },
   "message": (required, string) the status of the export, returns 'success' on successful completion
 }
-`````````
+```
 
 {% alert important %}
 **`influenced_opens` フィールド:** APIレスポンスでは、`influenced_opens` フィールドは開封の総数（直接開封と間接開封の両方を合わせたもの）を表します。Brazeダッシュボードでは、「間接開封」は直接開封を除いた間接開封のみを指します。これはAPIのレガシー命名規則によるものです。

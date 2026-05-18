@@ -18,7 +18,7 @@ GTMの**Custom HTML**タグを使用してカスタムイベントを記録で�
 
 ```html
 <button onclick="dataLayer.push({'event': 'my_custom_event'});">Track Event</button>
-`````````
+```
 
 ### ステップ 2: GTMでトリガーを作成する {#step-2-create-a-trigger-in-gtm}
 
@@ -48,7 +48,7 @@ GTMの**Custom HTML**タグを使用してカスタムイベントを記録で�
 <script>
 window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"});
 </script>
-`````````
+```
 
 ## GoogleのEUユーザー同意ポリシー {#googles-eu-user-consent-policy}
 
@@ -67,6 +67,6 @@ GTM統合を使用してこれらを設定する場合、カスタム属性で�
 <script>
 window.braze.getUser().setCustomUserAttribute("$google_ad_personalization", true);
 </script>
-`````````
+```
 
 詳細については、[Googleへのオーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)を参照してください。

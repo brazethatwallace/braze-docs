@@ -35,13 +35,13 @@ LimbikをBrazeで使用するには、以下が必要です。
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/organizations' \
   -H 'accept: application/json'
-`````````
+```
 
 {% enddetails %}
 
 {% details レスポンス例 %}
 
-`````````json
+```json
 {
   "data": [
     {
@@ -50,7 +50,7 @@ curl -X 'GET' \
     }
   ]
 }
-`````````
+```
 
 目的の組織の`uid`を選択し、以降のすべてのAPIリクエストで`account_id`ヘッダーとして使用します。
 
@@ -71,7 +71,7 @@ curl -X 'POST' \
   "username": "your_username",
   "password": "your_password"
 }'
-`````````
+```
 
 {% enddetails %}
 
@@ -79,18 +79,18 @@ curl -X 'POST' \
 
 レスポンスには、以降のすべてのAPIリクエストでBearerトークンとして使用できる`access_token`が含まれています。
 
-`````````json
+```json
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "Bearer"
 }
-`````````
+```
 
 すべてのAPIリクエストの`Authorization`ヘッダーにこのトークンを含めてください。
 
-`````````
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-`````````
+```
 
 {% alert note %}
 PostmanなどのAPIプラットフォームを使用して、以下のワークフローのように、異なる組織から複数のREST APIエンドポイントを呼び出す自動化ワークフローを設定できます。
@@ -114,7 +114,7 @@ curl -X 'GET' \
   -H 'account_id: YOUR_ACCOUNT_ID' \
   -H 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
   -H 'accept: application/json'
-`````````
+```
 
 `YOUR_PROMPT`、`YOUR_ACCOUNT_ID`、`YOUR_ACCESS_TOKEN`を、プロンプトテキスト、組織ID（組織エンドポイントから取得）、ログインエンドポイントからのBearerトークンに置き換えてください。
 
@@ -124,7 +124,7 @@ curl -X 'GET' \
 
 Limbik予測テンプレートのレスポンス例：
 
-`````````json
+```json
 [
   {
     "type": "Message",
@@ -147,7 +147,7 @@ Limbik予測テンプレートのレスポンス例：
     }
   }
 ]
-`````````
+```
 
 このユースケースの重要な要素は`additionalDetail`フィールドで、Limbikが生成したメッセージコピーが含まれています。
 
@@ -170,7 +170,7 @@ Limbikのレスポンスの`additionalDetail`フィールドには、Brazeに送
 
 ### Brazeトリガーメッセージリクエスト例 {#braze-trigger-message-request-example}
 
-`````````json
+```json
 {
   "campaign_id": "{{YOUR_CAMPAIGN_ID}}",
   "trigger_properties": {
@@ -178,7 +178,7 @@ Limbikのレスポンスの`additionalDetail`フィールドには、Brazeに送
   },
   "broadcast": true
 }
-`````````
+```
 
 ## ユースケース - 合成オーディエンスの詳細 {#use-case-synthetic-audience-details}
 
@@ -200,7 +200,7 @@ Connected Audienceオブジェクトは、Brazeの「デフォルト」属性に
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/populations/list/aca61bd5-7132-499c-946e-42d092cc1156' \
   -H 'accept: application/json'
-`````````
+```
 
 レスポンスから、使用したい国を特定します。たとえば、米国の`id`は`56`です。
 
@@ -214,7 +214,7 @@ curl -X 'GET' \
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/populations/aca61bd5-7132-499c-946e-42d092cc1156/56' \
   -H 'accept: application/json'
-`````````
+```
 
 {% alert note %}
 レスポンスは大きくなる場合があります。パフォーマンス向上のため、このデータを名前またはキーでキャッシュ（例：Redis）してください。
@@ -226,7 +226,7 @@ curl -X 'GET' \
 
 たとえば、米国の成人集団の女性をターゲットにする場合：
 
-`````````json
+```json
 [
   {
     "id": 56,
@@ -248,7 +248,7 @@ curl -X 'GET' \
     ]
   }
 ]
-`````````
+```
 
 {% alert note %}
 - セグメントは簡略化されたコンポジットキー形式で指定されます（例：`gender::female`）。
@@ -260,7 +260,7 @@ curl -X 'GET' \
 
 たとえば、コンポジットキー（`fr1::education_level::master_s_degree`）をBrazeのConnected Audienceオブジェクトで以下のように使用できます。
 
-`````````json
+```json
 {
   "AND": [
     {
@@ -272,7 +272,7 @@ curl -X 'GET' \
     }
   ]
 }
-`````````
+```
 
 {% enddetails %}
 
@@ -301,13 +301,13 @@ curl -X 'POST' \
     "segments": []
   }
 }'
-`````````
+```
 
 {% enddetails %}
 
 {% details レスポンス例（省略版） %}
 
-`````````json
+```json
 {
   "uid": "6c5e28ef-8796-4659-a743-d842a06c9bf7",
   "datetime": "2026-02-11T20:04:06.545+00:00",
@@ -343,7 +343,7 @@ curl -X 'POST' \
     "model_variant": "v4_0_0"
   }
 }
-`````````
+```
 
 {% enddetails %}
 
@@ -353,7 +353,7 @@ curl -X 'POST' \
 
 {% details セグメント固有のリクエスト例 %}
 
-`````````json
+```json
 {
   "type": "Generate",
   "displayText": "Formula one season testing 2026",
@@ -365,6 +365,6 @@ curl -X 'POST' \
     ]
   }
 }
-`````````
+```
 
 {% enddetails %}

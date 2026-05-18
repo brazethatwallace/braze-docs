@@ -37,7 +37,7 @@ braze.subscribeToContentCardsUpdates((updates) => {
 });
 
 braze.openSession();
-`````````
+```
 
 {% alert note %}
 Content Cardsは、`openSession()`の前にサブスクライブリクエストが呼び出された場合にのみ、セッション開始時に更新されます。[フィードを手動で更新]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)することもいつでも可能です。
@@ -55,7 +55,7 @@ Content Cardsは、`openSession()`の前にサブスクライブリクエスト�
 `````````java
 // subscriber variable
 private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscriber;
-`````````
+```
 
 ### ステップ 2: 更新をサブスクライブする {#step-2-subscribe-to-updates}
 
@@ -75,7 +75,7 @@ mContentCardsUpdatedSubscriber = new IEventSubscriber<ContentCardsUpdatedEvent>(
 };
 Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSubscriber);
 Braze.getInstance(context).requestContentCardsRefresh();
-`````````
+```
 
 ### ステップ 3: 購読解除する {#step-3-unsubscribe}
 
@@ -83,7 +83,7 @@ Braze.getInstance(context).requestContentCardsRefresh();
 
 `````````java
 Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscriber, ContentCardsUpdatedEvent.class);
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -94,7 +94,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 
 `````````kotlin
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
-`````````
+```
 
 ### ステップ 2: 更新をサブスクライブする
 
@@ -111,7 +111,7 @@ contentCardsUpdatedSubscriber = IEventSubscriber { event ->
 }
 Braze.getInstance(context).subscribeToContentCardsUpdates(contentCardsUpdatedSubscriber)
 Braze.getInstance(context).requestContentCardsRefresh(true)
-`````````
+```
 
 ### ステップ 3: 購読解除する
 
@@ -119,7 +119,7 @@ Braze.getInstance(context).requestContentCardsRefresh(true)
 
 `````````kotlin
 Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscriber, ContentCardsUpdatedEvent::class.java)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -133,7 +133,7 @@ Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscribe
 
 `````````swift
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
-`````````
+```
 
 さらに、サブスクリプションを維持して、Content Cardsの変更を監視することもできます。これには次の2つの方法があります。
 1. キャンセル可能なオブジェクトを維持する。または、
@@ -148,20 +148,20 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 let cancellable = AppDelegate.braze?.contentCards.subscribeToUpdates { [weak self] contentCards in
   // Implement your completion handler to respond to updates in `contentCards`.
 }
-`````````
+```
 
 ### AsyncStream
 
 `````````swift
 let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.cardsStream
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
 
 `````````objc
 NSArray<BRZContentCardRaw *> *contentCards = AppDelegate.braze.contentCards.cards;
-`````````
+```
 
 さらに、Content Cardsのサブスクリプションを維持する場合は、[`subscribeToUpdates`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/subscribetoupdates(_:))を呼び出すことができます。
 
@@ -170,7 +170,7 @@ NSArray<BRZContentCardRaw *> *contentCards = AppDelegate.braze.contentCards.card
 BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSArray<BRZContentCardRaw *> *contentCards) {
   // Implement your completion handler to respond to updates in `contentCards`.
 }];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -184,7 +184,7 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 import Braze from "@braze/react-native-sdk";
 
 const cards = await Braze.getContentCards();
-`````````
+```
 
 更新を監視するには、コンテンツカードの更新イベントをサブスクライブします。
 
@@ -199,19 +199,19 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
     }
   });
 });
-`````````
+```
 
 Brazeサーバーからコンテンツカードを手動で更新するには：
 
 `````````javascript
 Braze.requestContentCardsRefresh();
-`````````
+```
 
 ネットワークリクエストなしでキャッシュされたコンテンツカードを取得するには：
 
 `````````javascript
 const cachedCards = await Braze.getCachedContentCards();
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -229,7 +229,7 @@ const cachedCards = await Braze.getCachedContentCards();
 import * as braze from "@braze/web-sdk";
 
 braze.logContentCardImpressions([card1, card2, card3]);
-`````````
+```
 
 [`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick)を使用して、ユーザーがカードを操作したときのカードクリックイベントを記録します。
 
@@ -237,7 +237,7 @@ braze.logContentCardImpressions([card1, card2, card3]);
 import * as braze from "@braze/web-sdk";
 
 braze.logContentCardClick(card);
-`````````
+```
 
 {% endtab %}
 {% tab android %}
@@ -267,7 +267,7 @@ BrazeContentCardsManager.getInstance().setContentCardsActionListener(new IConten
 
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -284,7 +284,7 @@ BrazeContentCardsManager.getInstance().contentCardsActionListener = object : ICo
 
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -314,7 +314,7 @@ func contentCard(
   // Intercept the content card click action here.
   return true
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab Objective-C %}
@@ -330,7 +330,7 @@ contentCardsController.delegate = delegate;
   // Intercept the content card click action here.
   return YES;
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -345,19 +345,19 @@ contentCardsController.delegate = delegate;
 
 `````````javascript
 Braze.logContentCardImpression(card.id);
-`````````
+```
 
 ユーザーがカードを操作したときにカードクリックイベントを記録します。
 
 `````````javascript
 Braze.logContentCardClicked(card.id);
-`````````
+```
 
 ユーザーがカードを閉じたときに非表示イベントを記録します。
 
 `````````javascript
 Braze.logContentCardDismissed(card.id);
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -382,7 +382,7 @@ function onCardClick(card) {
     braze.handleBrazeAction(card.url);
   }
 }
-`````````
+```
 
 | パラメーター | 説明 |
 |---|---|

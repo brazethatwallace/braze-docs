@@ -47,7 +47,7 @@ public class CustomPushService extends HmsMessageService {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -66,7 +66,7 @@ class CustomPushService: HmsMessageService() {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -81,7 +81,7 @@ class CustomPushService: HmsMessageService() {
     <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
   </intent-filter>
 </service>
-`````````
+```
 
 ### ステップ 4: フォアグラウンド通知を処理する
 

@@ -13,7 +13,7 @@ Brazeの最新機能を利用するには、当社のWeb SDKを導入せよ。
 **クライアントサイド統合については：**
 ```bash
 npm install @braze/web-sdk
-`````````
+```
 
 <!-- **For server-side integration:**
 `````````bash
@@ -48,7 +48,7 @@ MCPサーバーファイルに以下のメタデータを追加し、Brazeドメ
     "https://use.fontawesome.com"
   ],
 }
-`````````
+```
 
 実際のBraze SDKエンドポイントで`YOUR-SDK-ENDPOINT`置き換える。
 
@@ -79,7 +79,7 @@ function YourWidget() {
     // Your widget JSX
   );
 }
-`````````
+```
 
 #### Brazeコンテンツカードを表示する
 
@@ -102,7 +102,7 @@ useEffect(() => {
     braze.removeAllSubscriptions();
   }
 }, []);
-`````````
+```
 
 #### ウィジェットのイベントのトラッキング
 
@@ -121,7 +121,7 @@ const handleItemInteraction = (itemId) => {
     interaction_type: "view_details"
   });
 };
-`````````
+```
 
 ### サーバーサイド統合（MCPサーバー）
 
@@ -133,7 +133,7 @@ MCPサーバー上でメッセージング機能のサーバーサイド統合�
 `````````javascript
 // Import the desired methods from wherever you saved the file
 import { BrazeSessionInfo, logCustomEvent, logPurchase } from "./braze/braze.js";
-`````````
+```
 
 #### Set up session information
 
@@ -143,7 +143,7 @@ const brazeSessionInfo: BrazeSessionInfo = {
   userId: userId,
   sessionId: sessionId || "default-session"
 };
-`````````
+```
 
 #### Track user interactions
 
@@ -155,7 +155,7 @@ await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
   user_authenticated: userId !== "anonymous",
   timestamp: new Date().toISOString()
 });
-`````````
+```
 
 #### Track purchases and transactions
 
@@ -185,7 +185,7 @@ await logPurchase(
   args.quantity, 
   purchaseProperties
 );
-`````````
+```
 
 {% alert tip %}
 Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to verify your integration and troubleshoot any issues.

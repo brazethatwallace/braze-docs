@@ -37,7 +37,7 @@ description: "この記事では、「カタログのリスト」Braze エンド
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答
 
@@ -45,7 +45,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 
 ステータスコード `200` は、次の応答本文を返す可能性があります。
 
-`````````json
+```json
 {
   "catalogs": [
     {
@@ -115,6 +115,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
   ],
   "message": "success"
 }
-`````````
+```
 
 {% endapi %}

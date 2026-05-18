@@ -20,14 +20,14 @@ noindex: true
 
 ```objc
 [inAppMessage setInAppMessageClickAction:clickActionType withURI:uri];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withURI: uri)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -53,14 +53,14 @@ inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withUR
 
 `````````objc
 - (BOOL) onInAppMessageClicked:(ABKInAppMessage *)inAppMessage;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 - (BOOL)onInAppMessageHTMLButtonClicked:(ABKInAppMessageHTML *)inAppMessage
                              clickedURL:(nullable NSURL *)clickedURL
                                buttonID:(NSString *)buttonID;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -90,7 +90,7 @@ func onInAppMessageButtonClicked(inAppMessage: ABKInAppMessageImmersive!,
 
 func onInAppMessageHTMLButtonClicked(inAppMessage: ABKInAppMessageHTML!,
                                      clickedURL: URL, buttonID: String) -> Bool
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -110,7 +110,7 @@ if ([inAppMessage isKindOfClass:[ABKInAppMessageImmersive class]]) {
          // Button action type is accessible via button.buttonClickActionType
       }
    }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -122,7 +122,7 @@ if inAppMessage is ABKInAppMessageImmersive {
         // Button action type is accessible via button.buttonClickActionType
       }
     }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

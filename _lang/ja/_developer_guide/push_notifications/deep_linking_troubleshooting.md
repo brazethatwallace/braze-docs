@@ -54,7 +54,7 @@ AASAの検証は、[Appleの検索検証ツール](https://search.developer.appl
 
 ```bash
 swcutil dl -d yourdomain.com
-`````````
+```
 
 ### `AppDelegate`を確認する {#check-the-appdelegate}
 
@@ -71,7 +71,7 @@ func application(_ application: UIApplication,
   // Handle the URL
   return true
 }
-`````````
+```
 
 ### Braze SDKの設定を確認する {#verify-braze-sdk-configuration}
 
@@ -80,7 +80,7 @@ Brazeから配信されるプッシュ通知、アプリ内メッセージ、ま
 `````````swift
 let configuration = Braze.Configuration(apiKey: "<BRAZE_API_KEY>", endpoint: "<BRAZE_ENDPOINT>")
 configuration.forwardUniversalLinks = true
-`````````
+```
 
 {% alert note %}
 ユニバーサルリンクの転送には、アプリケーションのエンタイトルメントへのアクセスが必要です。シミュレーターで実行している場合、これらのエンタイトルメントは直接利用できません。シミュレーターでテストするには、**Copy Bundle Resources** ビルドフェーズに`.entitlements`ファイルを追加してください。
@@ -122,12 +122,12 @@ ESP固有の設定手順については、[ユニバーサルリンクとアプ�
 
 [詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)、問題を再現します。`Opening`ログエントリを探してください：
 
-`````````
+```
 Opening '<URL>':
 - channel: <SOURCE_CHANNEL>
 - useWebView: <true/false>
 - isUniversalLink: <true/false>
-`````````
+```
 
 機能しているチャネルと機能していないチャネルのログ出力を比較してください。`useWebView`や`isUniversalLink`の違いは、SDKがリンクを異なる方法で解釈していることを示しています。
 
@@ -162,7 +162,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   // Let Braze handle other links
   return true
 }
-`````````
+```
 
 `shouldOpenURL`がBranchリンクに対して`true`を返す場合、BrazeはBranchにルーティングせず直接処理します。
 

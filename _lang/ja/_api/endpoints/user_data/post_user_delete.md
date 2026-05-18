@@ -39,9 +39,9 @@ APIを経由したユーザーの一括削除では解決できないユース�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
-`````````json
+```json
 {
   "external_ids" : (optional, array of string) External IDs to be deleted,
   "user_aliases" : (optional, array of user alias objects) User aliases to be deleted,
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR_REST_API_KEY
   "email_addresses": (optional, array of string) User emails to be deleted,
   "phone_numbers": (optional, array of string) User phone numbers to be deleted
 }
-`````````
+```
 ### リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
@@ -78,7 +78,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## リクエスト例 {#example-request}
 
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -100,15 +100,15 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
     }
   ]
 }'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "deleted" : (required, integer) number of user IDs queued for deletion
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

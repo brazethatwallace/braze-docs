@@ -74,7 +74,7 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline);
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -136,7 +136,7 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -156,7 +156,7 @@ public class GlideIntegrationApplication extends Application {
     Braze.getInstance(context).setBrazeImageLoader(new GlideBrazeImageLoader());
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -168,7 +168,7 @@ class GlideIntegrationApplication : Application() {
     Braze.getInstance(context).appboyImageLoader = GlideBrazeImageLoader()
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -237,4 +237,4 @@ ContentCardsList(
         }
     )
 )
-`````````
+```

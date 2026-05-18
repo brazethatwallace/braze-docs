@@ -37,7 +37,7 @@ Androidアプリをお持ちの場合は、一意のBrazeデバイスIDをAdjust
 
 ```
 Adjust.addGlobalPartnerParameter("braze_device_id", Braze.getInstance(getApplicationContext()).getDeviceId()););
-`````````
+```
 
 #### iOS
 
@@ -114,11 +114,11 @@ Adjustクリックトラッキングリンクの使用を開始するには、[�
 {% tab Android %}
 Androidの場合、Brazeを使用すると、顧客は[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration/#google-advertising-id)にオプトインできます。GAIDはまた、Adjust SDK統合によってネイティブに収集されます。以下のLiquidロジックを利用することで、GAIDをAdjustクリックトラッキングリンクに含めることができます。
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'android' %}
 aifa={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -126,11 +126,11 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとAdjustはSDK統合を通じてIDFVをネイティブに自動収集します。これはデバイスの識別子として使用できます。以下のLiquidロジックを利用することで、AdjustクリックトラッキングリンクにIDFVを含めることができます。
 
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'ios' %}
 idfv={{most_recently_used_device.${id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

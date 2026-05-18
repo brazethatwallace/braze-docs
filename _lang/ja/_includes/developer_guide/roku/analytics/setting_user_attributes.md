@@ -24,47 +24,47 @@ Brazeは、`m.Braze`オブジェクトを使用して以下のユーザー属性
 {% tab First name %}
 ```brightscript
 m.Braze.setFirstName("Alex")
-`````````
+```
 {% endtab %}
 {% tab Last name %}
 `````````brightscript
 m.Braze.setLastName("Smith")
-`````````
+```
 {% endtab %}
 {% tab Email %}
 `````````brightscript
 m.Braze.setEmail("alex@example.com")
-`````````
+```
 {% endtab %}
 {% tab Gender %}
 `````````brightscript
 m.Braze.setGender("m") ' Accepts: "m", "f", "o", "n", "u", "p"
-`````````
+```
 {% endtab %}
 {% tab Birth date %}
 `````````brightscript
 m.Braze.setDateOfBirth(1990, 5, 15) ' Year, month, day
-`````````
+```
 {% endtab %}
 {% tab Country %}
 `````````brightscript
 m.Braze.setCountry("United States")
-`````````
+```
 {% endtab %}
 {% tab Language %}
 `````````brightscript
 m.Braze.setLanguage("en")
-`````````
+```
 {% endtab %}
 {% tab Home city %}
 `````````brightscript
 m.Braze.setHomeCity("New York")
-`````````
+```
 {% endtab %}
 {% tab Phone number %}
 `````````brightscript
 m.Braze.setPhoneNumber("+1234567890")
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -80,7 +80,7 @@ m.Braze.setPhoneNumber("+1234567890")
 
 `````````brightscript
 m.Braze.setCustomAttribute("stringAttribute", "stringValue")
-`````````
+```
 {% endtab %}
 
 {% tab Integer %}
@@ -88,7 +88,7 @@ m.Braze.setCustomAttribute("stringAttribute", "stringValue")
 
 `````````brightscript
 m.Braze.setCustomAttribute("intAttribute", 5)
-`````````
+```
 {% endtab %}
 
 {% tab Floating-points %}
@@ -96,7 +96,7 @@ Brazeは、`float`と`double`の値をまったく同じように扱います。
 
 `````````brightscript
 m.Braze.setCustomAttribute("floatAttribute", 3.5)
-`````````
+```
 {% endtab %}
 
 {% tab Boolean %}
@@ -104,7 +104,7 @@ m.Braze.setCustomAttribute("floatAttribute", 3.5)
 
 `````````brightscript
 m.Braze.setCustomAttribute("boolAttribute", true)
-`````````
+```
 {% endtab %}
 
 {% tab Date %}
@@ -114,7 +114,7 @@ m.Braze.setCustomAttribute("boolAttribute", true)
 dateAttribute = CreateObject("roDateTime")
 dateAttribute.fromISO8601String("1992-11-29 00:00:00.000")
 m.Braze.setCustomAttribute("dateAttribute", dateAttribute)
-`````````
+```
 {% endtab %}
 
 {% tab Array %}
@@ -126,7 +126,7 @@ stringArray.Push("string1")
 stringArray.Push("string2")
 stringArray.Push("string3")
 m.Braze.setCustomAttribute("arrayAttribute", stringArray)
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -140,7 +140,7 @@ m.Braze.setCustomAttribute("arrayAttribute", stringArray)
 
 `````````brightscript
 m.Braze.incrementCustomUserAttribute("intAttribute", 3)
-`````````
+```
 
 ### カスタム属性の設定解除 {#unsetting-custom-attributes}
 
@@ -148,7 +148,7 @@ m.Braze.incrementCustomUserAttribute("intAttribute", 3)
 
 `````````brightscript
 m.Braze.unsetCustomAttribute("attributeName")
-`````````
+```
 
 ### REST APIの使用 {#using-the-rest-api}
 
@@ -173,4 +173,4 @@ SDKから、ユーザーに対して以下のメールのサブスクリプシ�
 
 `````````brightscript
 m.Braze.setEmailSubscriptionState(BrazeConstants().SUBSCRIPTION_STATES.OPTED_IN)
-`````````
+```

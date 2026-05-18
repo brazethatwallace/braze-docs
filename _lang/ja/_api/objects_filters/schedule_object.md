@@ -25,17 +25,17 @@ description: "この参考記事では、Brazeで使用されているさまざ�
   "in_local_time": (optional, bool),
   "at_optimal_time": (optional, bool),
 }
-`````````
+```
 
 ## スケジュール ID の応答
 
 作成したスケジュールされたメッセージの`schedule_id` 。
 
-`````````json
+```json
 {
   "schedule_id" : (required, string) identifier for the scheduled message you created
 }
-`````````
+```
 
 サーバー間の呼び出しに API を使用する場合、ファイアウォールの内側にある場合は、適切な API URL を許可リストに追加する必要が生じることがあります。
 

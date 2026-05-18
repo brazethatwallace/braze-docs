@@ -38,7 +38,7 @@ if (!string.IsNullOrEmpty(campaignId))
 {
 Appboy.SharedInstance.PushManager.LogPushNotificationOpened(campaignId);
 }
-`````````
+```
 
 ## ステップ 4: イベントハンドラを作成する {#step-4-creating-event-handlers}
 

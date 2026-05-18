@@ -71,7 +71,7 @@ document.addEventListener('visibilitychange', function() {
     braze.logCustomEvent('tab_visible');
   }
 });
-`````````
+```
 
 カスタムイベントの記録に関する詳細は、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。セッションのライフサイクルとタイムアウト設定の詳細については、[デフォルトのセッションタイムアウトの変更](#change-session-timeout)を参照してください。
 
@@ -99,7 +99,7 @@ Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionSt
     }
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab kotlin %}
@@ -110,7 +110,7 @@ Braze.getInstance(this).subscribeToSessionUpdates { message ->
     // A session has just been started
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -133,7 +133,7 @@ let cancellable = AppDelegate.braze?.subscribeToSessionUpdates { event in
     print("Session \(id) has ended")
   }
 }
-`````````
+```
 
 非同期ストリームをサブスクライブするには、代わりに[`sessionUpdatesStream`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/sessionupdatesstream)を使用できます。
 
@@ -146,7 +146,7 @@ for await event in braze.sessionUpdatesStream {
     print("Session \(id) has ended")
   }
 }
-`````````
+```
 {% endsubtab %}
 
 {% subtab objective-c %}
@@ -166,7 +166,7 @@ BRZCancellable *cancellable = [AppDelegate.braze subscribeToSessionUpdates:^(BRZ
       break;
   }
 }];
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -197,7 +197,7 @@ React Native SDKは、セッション更新を直接サブスクライブする�
 `````````js
 // Sets the session timeout to 15 minutes instead of the default 30
 braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
-`````````
+```
 {% endtab %}
 
 {% tab android %}
@@ -206,7 +206,7 @@ braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
 `````````xml
 <!-- Sets the session timeout to 60 seconds. -->
 <integer name="com_braze_session_timeout">60</integer>
-`````````
+```
 {% endtab %}
 
 {% tab swift %}
@@ -223,7 +223,7 @@ let configuration = Braze.Configuration(
 configuration.sessionTimeout = 60;
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 {% endsubtab %}
 {% subtab objective-c %}
 
@@ -235,7 +235,7 @@ BRZConfiguration *configuration =
 configuration.sessionTimeout = 60;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}

@@ -212,7 +212,7 @@ IDを同期したら、Brazeユーザープロファイルをビジネスオブ�
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab Connected sources %}

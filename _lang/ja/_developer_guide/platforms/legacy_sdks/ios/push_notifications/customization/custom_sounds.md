@@ -29,7 +29,7 @@ afconvert ツールを使用して、サウンドを変換できます。たと�
 
 ```bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
-`````````
+```
 
 QuickTime Player でサウンドを開き、[**ムービー**] メニューから [**ムービーインスペクターを表示**] を選択するとサウンドのデータ形式を確認できます。
 

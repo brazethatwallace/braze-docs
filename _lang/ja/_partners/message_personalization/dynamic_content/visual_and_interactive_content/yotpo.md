@@ -66,7 +66,7 @@ The average rating for this product is:
 
 {% else %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 `<YOTPO-API-KEY>` をお使いのYotpoレビューAPIキーに置き換えてください。`product_id` はBrazeから動的に取得されます。統合を機能させるには、Brazeの `product_id` がYotpoの製品ID（通常はeコマース親製品ID）と一致している必要があります。
@@ -89,7 +89,7 @@ Recent 5 Star Review for this product:
 
 {% else %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 `<YOTPO-API-KEY>` をお使いのYotpoレビューAPIキーに置き換えてください。`product_id` はBrazeから動的に取得されます。統合が機能するためには、Brazeの `product_id` がYotpoの製品ID（通常はeコマース親製品ID）と一致している必要があります。
@@ -118,7 +118,7 @@ The Visual content of the product:
 Image return NULL
 
 {% endif %}
-`````````
+```
 {% endraw %}
 
 `<YOTPO-API-KEY>` をお使いのYotpoレビューAPIキーに置き換えてください。`product_id` はBrazeから動的に取得されます。統合が機能するためには、Brazeの `product_id` がYotpoの製品ID（通常はeコマース親製品ID）と一致している必要があります。
@@ -148,7 +148,7 @@ https://loyalty.yotpo.com/api/v2/customers?customer_email=**{{${email_address}}}
 You have {{publication.points_balance}} points
 
 Only {{publication.vip_tier_upgrade_requirements.points_needed}} more points to become part of our VIP Tier!
-`````````
+```
 {% endraw %}
 
 `<YOTPO-LOYALTY-GUID>` と `<YOTPO-LOYALTY-API-KEY>` をお使いのYotpoロイヤルティ認証情報に置き換えてください。`email_address` はBrazeから動的に取得されます。この統合が機能するためには、メールアドレスがこのメールを受信する顧客のメールアドレスと一致している必要があります。

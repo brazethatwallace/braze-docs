@@ -18,7 +18,7 @@ noindex: true
 ```
 binary "https://raw.githubusercontent.com/Appboy/appboy-ios-sdk/master/appboy_ios_sdk.json"
 github "SDWebImage/SDWebImage"
-`````````
+```
 
 SDK のインポートの詳細については、[Carthage クイックスタートガイド](https://github.com/Carthage/Carthage#quick-start)を参照してください。
 
@@ -32,14 +32,14 @@ Carthage のプラットフォーム固有の使用方法については、そ�
 ### 以前のバージョン
 
 `3.24.0` から `4.3.4` のバージョンの場合は、次の内容を `Cartfile` に含めてください。
-`````````
+```
 binary "https://raw.githubusercontent.com/Appboy/appboy-ios-sdk/master/appboy_ios_sdk_full.json"
-`````````
+```
 
 `3.24.0` 以前のバージョンをインポートするには、`Cartfile` に以下を含めます。
-`````````
+```
 github "Appboy/Appboy-iOS-SDK" "<BRAZE_IOS_SDK_VERSION>"
-`````````
+```
 
 `<BRAZE_IOS_SDK_VERSION>` は「x.y.z」形式の[適切なバージョン](https://github.com/Appboy/appboy-ios-sdk/releases)の Braze iOS SDK に置き換えてください。
 
@@ -51,7 +51,7 @@ github "Appboy/Appboy-iOS-SDK" "<BRAZE_IOS_SDK_VERSION>"
 
 UIコンポーネントや依存関係なしで Core SDK を使用する場合は、以下の行を `Cartfile` に含めて Braze Carthage フレームワークのコアバージョンをインストールします。
 
-`````````
+```
 binary "https://raw.githubusercontent.com/Appboy/appboy-ios-sdk/master/appboy_ios_sdk_core.json"
-`````````
+```
 

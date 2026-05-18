@@ -56,9 +56,9 @@ APIを使用して送信の一部としてユーザーを作成する必要が�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
    // You will need to include at least one of 'segment_id', 'external_user_ids', and 'audience'
    // Including 'segment_id' will send to members of that segment
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
      "sms": (optional, SMS object)
    }
  }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -104,7 +104,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 --data-raw '{
   "broadcast": "false",
@@ -174,7 +174,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
     "web_push": "(optional, Web Push Object)"
   }
 }'
-`````````
+```
 
 ## 応答の詳細 {#response-details}
 

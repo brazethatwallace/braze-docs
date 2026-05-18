@@ -504,7 +504,7 @@ Brazeは列内の各値が同じデータタイプであることを期待して
 external_id,email,email_subscribe,push_subscribe
 brazetest1,test1@braze.com,unsubscribed,unsubscribed
 brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
-`````````
+```
 
 ### 「Select CSV File」が機能しない {#select-csv-file-is-not-working}
 

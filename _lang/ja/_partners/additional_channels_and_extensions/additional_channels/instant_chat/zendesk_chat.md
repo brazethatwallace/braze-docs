@@ -47,7 +47,7 @@ ZendeskがAPIを介してメッセージのコンテンツを送信する場合�
 
 ```
 **----------------------------------------------\n\n{Replier Name}, {Replier Date}\n\n{Message}**
-`````````
+```
 
 そのため、メッセージ内に表示させたい詳細をこの文字列から抽出する必要があります。そうしないと、ユーザーにすべての詳細が表示されてしまいます。
 
@@ -64,7 +64,7 @@ New message from Zendesk:
 {{msg[2]}}
 
 Feel free to respond directly to this number!
-`````````
+```
 {% endraw %}
 
 ![フォーマット付きSMSの例。]({% image_buster /assets/img/zendesk/instant_chat/chat3.png %}){: style="max-width:70%;"}
@@ -112,7 +112,7 @@ Feel free to respond directly to this number!
         }
     ]
 }
-`````````
+```
 {% endraw %}
 
 
@@ -151,7 +151,7 @@ Feel free to respond directly to this number!
         }
     ]
 }
-`````````
+```
 {% endraw %}
 
 ### ステップ5：Zendeskでカスタムユーザーフィールドを追加する {#step-5-add-a-custom-user-field-in-zendesk}
@@ -211,7 +211,7 @@ Webhookコンポーザーで、以下のフィールドに入力します：
     "type": "problem"
   }
 }
-`````````
+```
 {% endraw %}
 
 ![2つの必須ヘッダーを含むリクエストの例。]({% image_buster /assets/img/zendesk/instant_chat/chat12.png %}){: style="max-width:70%;"}
@@ -236,7 +236,7 @@ ZendeskはチケットIDを文字列として送信するため、コンテン�
 {% raw %}
 `````````liquid
 {% assign var = {{custom_attribute.${zendesk_ticket}}} | to_i %}{{var}}
-`````````
+```
 {% endraw %}
 
 Webhookコンポーザー内で：
@@ -257,7 +257,7 @@ Webhookコンポーザー内で：
     }
 }
 }
-`````````
+```
 {% endraw %}
 
 #### ステップ6.5：2番目のWebhook キャンペーンのセットアップを完了する {#step-65-complete-second-webhook-campaign-setup}

@@ -19,7 +19,7 @@ alias: "/message_extras_tag/"
 {% raw %}
 ```liquid
 {% message_extras :key test :value 123 %}
-`````````
+```
 {% endraw %}
 
 これらのタグは、メッセージ本文のキーと値のペアに必要に応じて追加できます。ただし、すべてのキーと値の長さの合計は1,000バイト（1&nbsp;KB）を超えないようにしてください。Currents および Snowflake データ共有では、送信イベントに `message_extras` という新しいイベントフィールドが表示されます。これにより、1つのフィールドに JSON シリアライズされた文字列が生成されます。

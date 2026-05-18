@@ -124,7 +124,7 @@ Rawテキストでは、Liquidを使用した[パーソナライゼーション]
 {% raw %}
 ```
 to={{custom_attribute.${example}}}&text=Your+order+just+arrived
-`````````
+```
 {% endraw %}
 
 ![URLエンコードされた文字列のリクエストボディ。]({% image_buster /assets/img_archive/webhook_rawtext_URL-encoded.png %})
@@ -161,7 +161,7 @@ Content-Type仕様にはキー`Content-Type`を使用する必要があります
   }
 }
 
-`````````
+```
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=webhook)を参照してください。
 

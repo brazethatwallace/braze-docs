@@ -25,52 +25,52 @@ Brazeは、`BrazeBinding`オブジェクトを使用して以下のユーザー�
 {% tab First name %}
 ```csharp
 BrazeBinding.SetUserFirstName("first name");
-`````````
+```
 {% endtab %}
 {% tab Last name %}
 `````````csharp
 BrazeBinding.SetUserLastName("last name");
-`````````
+```
 {% endtab %}
 {% tab Email %}
 `````````csharp
 BrazeBinding.SetUserEmail("email@email.com");
-`````````
+```
 {% endtab %}
 {% tab Gender %}
 `````````csharp
 BrazeBinding.SetUserGender(Appboy.Models.Gender);
-`````````
+```
 {% endtab %}
 {% tab Birth date %}
 `````````csharp
 BrazeBinding.SetUserDateOfBirth("year(int)", "month(int)", "day(int)");
-`````````
+```
 {% endtab %}
 {% tab Country %}
 `````````csharp
 BrazeBinding.SetUserCountry("country name");
-`````````
+```
 {% endtab %}
 {% tab Home city %}
 `````````csharp
 BrazeBinding.SetUserHomeCity("city name");
-`````````
+```
 {% endtab %}
 {% tab Email subscription %}
 `````````csharp
 BrazeBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType);
-`````````
+```
 {% endtab %}
 {% tab Push subscription %}
 `````````csharp
 BrazeBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType);
-`````````
+```
 {% endtab %}
 {% tab Phone number %}
 `````````csharp
 BrazeBinding.SetUserPhoneNumber("phone number");
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -80,7 +80,7 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 
 `````````csharp
 BrazeBinding.SetUserFirstName(null);
-`````````
+```
 
 ## カスタムユーザー属性 {#custom-user-attributes}
 
@@ -95,7 +95,7 @@ BrazeBinding.SetUserFirstName(null);
 
 `````````csharp
 AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string custom attribute");
-`````````
+```
 
 {% endtab %}
 
@@ -106,14 +106,14 @@ AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string cust
 AppboyBinding.SetCustomUserAttribute("custom int attribute key", 'integer value');
 // Increment Integer Attribute
 AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
-`````````
+```
 {% endtab %}
 
 {% tab Float %}
 
 `````````csharp
 AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
-`````````
+```
 
 {% endtab %}
 
@@ -121,18 +121,18 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 `````````csharp
 AppboyBinding.SetCustomUserAttribute("custom boolean attribute key", 'boolean value');
-`````````
+```
 {% endtab %}
 
 {% tab Date %}
 
 `````````csharp
 AppboyBinding.SetCustomUserAttributeToNow("custom date attribute key");
-`````````
+```
 
 `````````csharp
 AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute key", 'integer value');
-`````````
+```
 
 {% alert note %}
 Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（`2013-07-16T19:20:30+01:00`など）か、`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（`2016-12-14T13:32:31.601-0800`など）でなければなりません。
@@ -149,7 +149,7 @@ AppboyBinding.SetCustomUserAttributeArray("key", array(List), sizeOfTheArray(int
 AppboyBinding.AddToCustomUserAttributeArray("key", "Attribute")
 // Removing an item from an Array
 AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -163,7 +163,7 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 `````````csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
-`````````
+```
 
 ### REST APIの使用 {#using-the-rest-api}
 
@@ -179,7 +179,7 @@ AppboyBinding.SetUserEmailNotificationSubscriptionType()
 
 // Push notifications
 AppboyBinding.SetPushNotificationSubscriptionType()`
-`````````
+```
 
 どちらの関数も引数として`Appboy.Models.AppboyNotificationSubscriptionType`を取り、3つの異なるステータスがあります。
 
@@ -208,10 +208,10 @@ Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオ�
 
 `````````csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
-`````````
+```
 
 ### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscriptions}
 
 `````````csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
-`````````
+```

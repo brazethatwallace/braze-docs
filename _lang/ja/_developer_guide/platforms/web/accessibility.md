@@ -64,7 +64,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
   max-height: 400px; /* Optional: limit individual card height */
   overflow: hidden;
 }
-`````````
+```
 {% endraw %}
 
 #### ビューポートに関する考慮事項 {#viewport-considerations}
@@ -79,7 +79,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
     max-height: 80vh; /* Leave space for other content */
   }
 }
-`````````
+```
 {% endraw %}
 
 ### アプリ内メッセージ {#in-app-messages}
@@ -108,7 +108,7 @@ SDKにはレスポンシブブレークポイントが含まれています。�
     padding: 16px; /* Adequate padding for touch */
   }
 }
-`````````
+```
 {% endraw %}
 
 ### アクセシビリティのテスト {#testing-accessibility}

@@ -54,7 +54,7 @@ SDKのセットアップ中、複数のアプリ識別子の最も一般的な�
 <resources>
 <string name="com_braze_api_key">{YOUR_BUILD_VARIANT_API_KEY}</string>
 </resources>
-`````````
+```
 ビルドバリアントがコンパイルされると、新しい識別子が使用されます。
 
 ## テンプレート識別子 {#template-identifier}

@@ -57,7 +57,7 @@ Exactly three years ago today we met for the first time!
 {% else %}
 {% abort_message("Not same month") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 **説明:** ここでは、予約変数`now`を使用して、現在の日時を[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式でテンプレートに挿入しています。フィルター`%B`（「May」のような月名）と`%d`（「18」のような日）で現在の月と日をフォーマットします。次に、`signup_date`の値にも同じ日時フィルターを使用して、条件タグとロジックで2つの値を比較できるようにします。
@@ -86,7 +86,7 @@ Happy birthday for next week!
 {% else %}
 No birthday for you!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 **説明:** [記念年](#anniversary-year)のユースケースと同様に、ここでは予約変数`now`を取得し、`%W`フィルター（年間52週のうちの第12週のような週番号）を使用して、ユーザーの誕生日が該当する年間の週番号を取得します。ユーザーの誕生日週が現在の週と一致する場合、お祝いメッセージを送信します。
@@ -106,7 +106,7 @@ Message body
 {% else %}
 {% abort_message("Not their birthday month") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 **説明:** [誕生日週](#birthday-week)のユースケースと同様ですが、ここでは`%B`フィルター（「May」のような月名）を使用して、今月が誕生日のユーザーを計算します。月次メールで誕生日のユーザーに呼びかけるなどの活用が考えられます。
@@ -123,7 +123,7 @@ Message body
 {% else %}
 Message if today isn't one of the provided holidays.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 **説明:** ここでは、`today`という用語を予約変数`now`（現在の日時）に割り当て、フィルター`%Y`（「2023」のような年）、`%m`（「12」のような月）、`%d`（「25」のような日）を使用して日付をフォーマットします。次に条件文を実行し、変数`today`が指定した祝日と一致する場合、メッセージを中止します。
@@ -167,7 +167,7 @@ Message in French based on Language
 Has language - Default language
 {% endif %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% raw %}
@@ -194,7 +194,7 @@ Happy to see you again!
 {% else %}
 It's been a while; here are some of our latest updates.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### ユーザーが3日以内にアプリを使用した場合に異なるメッセージを表示する {#app-last-opened-less-than}
@@ -211,7 +211,7 @@ Message for a recently active user
 {% else %}
 Message for a less active user
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -243,7 +243,7 @@ Countdowns
 {% raw %}
 `````````liquid
 Here are the movies we're showing on {{ "now" | date:'%s' | plus:259200 | date:"%F" }}!
-`````````
+```
 {% endraw %}
 
 `plus`の値は常に秒単位なので、最後にフィルター`%F`を使用して秒を日付に変換します。
@@ -263,7 +263,7 @@ Here are the movies we're showing on {{ "now" | date:'%s' | plus:259200 | date:"
 {% assign difference = event_date | minus: today %}
 {% assign difference_days = difference | divided_by: 86400 %}
 you have {{ difference_days }} days left!
-`````````
+```
 {% endraw %}
 
 ### 特定の配送日と優先度のカウントダウンを作成する {#countdown-shipping-options}
@@ -305,7 +305,7 @@ This is the last day for overnight shipping so your order gets here on time for 
 {% else %}
 {% abort_message("Unable to order and ship in time") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 日数でカウントダウンを作成する {#countdown-days}
@@ -319,7 +319,7 @@ This is the last day for overnight shipping so your order gets here on time for 
 {% assign difference =  event_date | minus: today %}
 {% assign difference_days = difference | divided_by: 86400 %}
 Your order will arrive in {{ difference_days }} days!
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -347,7 +347,7 @@ You have {{difference_minutes}} minutes left till your order arrives!
 {% else %}
 You have {{difference_days}} days left till your order arrives!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -365,7 +365,7 @@ You have {{difference_days}} days left till your order arrives!
 {% assign difference = event_date | minus: today %}
 {% assign difference_days = difference | divided_by: 86400 %}
 There are {{difference_days}} days until your birthday!
-`````````
+```
 {% endraw %}
 
 ### カスタム日付属性の到来までの残り日数を表示する {#countdown-custom-date-attribute}
@@ -385,7 +385,7 @@ Your surgery is in 2 days on {{custom_attribute.${surgery_date}}}
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 残り時間を表示し、残りX時間の場合はメッセージを中止する {#countdown-abort-window}
@@ -406,7 +406,7 @@ Don't forget to buy your ticket to {{event_properties.${toStation}}} within next
 {% else %}
 Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book now!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert important %} カスタムイベントプロパティが必要です。{% endalert %}
@@ -434,7 +434,7 @@ LAST CHANCE! You have {{difference_days}} days left in your trial. Make sure you
 {% else %}
 You have few days left in your trial. Make sure to upgrade!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### ユーザーの日付と言語に基づいてアプリ内メッセージをパーソナライズする {#countdown-personalize-language}
@@ -514,7 +514,7 @@ Hi, the offer is only valid today.
 {% else %}
 {% abort_message("Calculation failed") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -529,7 +529,7 @@ Hi, the offer is only valid today.
 `````````liquid
 {% assign today = 'now' | date: "%s" %}
 {% assign thirty_days = today | plus: 2592000 | date: "%B %d" %}
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -563,7 +563,7 @@ The shovel here.
 You are at a dead-end of a dirt road. The road goes to the east. In the distance, you can see that it will eventually fork off. The trees here are very tall royal palms, and they are spaced equidistant from each other.
 There is a shovel here.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 2つのカスタム属性を減算して差額を金額として表示する {#attribute-monetary-difference}
@@ -576,7 +576,7 @@ There is a shovel here.
 {% assign current_raised =  {{custom_attribute.${last_selected_event_personal_amount_raised}}} %}
 {% assign difference =  event_goal | minus: current_raised %}
 You only have ${{ difference | round: 0 | number_with_delimiter }} left to raise!
-`````````
+```
 {% endraw %}
 
 ### フルネームがfirst_nameフィールドに保存されている場合にユーザーの名を参照する {#attribute-first-name}
@@ -588,7 +588,7 @@ You only have ${{ difference | round: 0 | number_with_delimiter }} left to raise
 {{${first_name} | truncatewords: 1, "" | default: 'hi'}}
 {% assign name = {{${first_name}}} | split: ' ' %}
 Hi {{name[0]}}, here's your message!
-`````````
+```
 
 **説明:** `split`フィルターは、`{{${first_name}}}`に保持されている文字列を配列に変換します。`{{name[0]}}`を使用することで、配列の最初の項目（ユーザーの名）のみを参照します。
 
@@ -627,7 +627,7 @@ Don't forget to buy your ticket to {{event_properties.${toStation}}} within next
 {% else %}
 Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book now
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### ユーザーがカスタムイベントを3回実行するたびにキャンペーンを送信する {#event-three-times}
@@ -643,7 +643,7 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 {% abort_message("Skip message") %}
 {% endif %}
 Did you forget something in your shopping cart?
-`````````
+```
 {% endraw %}
 
 {% alert important %} カスタムイベントカウントのイベントプロパティを持つか、BrazeエンドポイントへのWebhookを使用する必要があります。これは、ユーザーがイベントを実行するたびにカスタム属性（`example_event_count`）をインクリメントするためです。この例では3回ごとのケイデンス（1、4、7、10など）を使用しています。ケイデンスをゼロから開始する場合（0、3、6、9など）は、`minus: 1`を削除してください。
@@ -662,7 +662,7 @@ Did you forget something in your shopping cart?
 {% else %}
 {% abort_message("Purchase category doesn't exist") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 過去1か月間にカスタムイベントが発生した回数を追跡する {#track}
@@ -706,16 +706,16 @@ Did you forget something in your shopping cart?
 {% assign previous_year = {{yesterday}} | date: "%y" %}
 {% assign formatted_month = previous_month | downcase %}
 {% comment %}The Custom Event name that is being tracked will be needed to be amended for the target Custom Event in the Attribute Name below. {% endcomment %}
-`````````
+```
 
-`````````json
+```json
 "attributes": [
   {
     "external_id":"{{${user_id}}}",
        "projects_exported_{{formatted_month}}_{{previous_year}}": "{{latest_count}}"
   }
 ]
-`````````
+```
 
 {% endraw %}
 
@@ -768,7 +768,7 @@ Language
 {% elsif {{month}} == 'December' %}
 {{day}} December {{year}}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### ユーザーの言語に基づいて画像を表示する {#language-image-display}
@@ -786,7 +786,7 @@ Spanish image URL
 {% else %}
 Fallback image URL
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 曜日とユーザーの言語に基づいてメッセージをパーソナライズする {#language-personalize-message}
@@ -831,7 +831,7 @@ No te olivides de desbloquear la versión completa del programa de idiomas. 🔓
 tuesday default
 {% endif %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -874,7 +874,7 @@ Miscellaneous
     {% endif %}
 {% endfor %}
 Your message here!
-`````````
+```
 {% endraw %}
 
 **説明:** ここでは、ブロック済みメールのContent Blocksを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
@@ -893,7 +893,7 @@ Content Blocksのサイズ制限は5 MBです。
 This is an exclusive message for subscribed users!
 {% else %} This is the default message for other users.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 文字列内のすべての単語の最初の文字を大文字にする {#misc-capitalize-words-string}
@@ -906,7 +906,7 @@ This is an exclusive message for subscribed users!
 {% for words in {{words_array}} %}
 {{ words | capitalize | append: ' ' }}
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 **説明:** ここでは、選択した文字列属性に変数を割り当て、`split`フィルターを使用して文字列を配列に分割しています。次に`for`タグを使用して、新しく作成した配列の各項目に変数`words`を割り当て、`capitalize`フィルターと`append`フィルターで各用語の間にスペースを追加して表示しています。
@@ -928,7 +928,7 @@ Today's offer from {{store}}
 {% abort_message("No attribute found") %}
 {% endif %}
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 {% alert important %} このシーケンスには、主要な条件文に`break`タグがあります。これにより、一致が見つかるとループが停止します。多くの一致またはすべての一致を表示したい場合は、`break`タグを削除してください。{% endalert %}
@@ -948,7 +948,7 @@ This 'Event Listener' can be used to split out users into different journeys bas
 {% endcomment %}
 
 {% comment %}
-When testing, make sure the campaign ID, campaign API endpoint, キャンバス ID, キャンバス API endpoint are entered correctly. In this example, the キャンバス ID and キャンバス API endpoint have been set up for sharing with the client. In practice, this can be testing using a campaign ID and キャンペーン API endpoint.
+When testing, make sure the campaign ID, campaign API endpoint, キャンバス ID, キャンバス API endpoint are entered correctly. In this example, the Canvas ID and キャンバス API endpoint have been set up for sharing with the client. In practice, this can be testing using a campaign ID and キャンペーン API endpoint.
 {% endcomment %}
 
 {% comment %}
@@ -1072,7 +1072,7 @@ Users are scheduled to enter the journey on day 2.
 }
 }
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -1094,7 +1094,7 @@ Users are scheduled to enter the journey on day 2.
 {% if custom_attribute.${PartnershipProgramsNotLinked} contains 'Hertz' %}
 Link your Hertz account to use Hertz Fast Lane.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 配列内の最大値を見つける {#misc-largest-value}
@@ -1113,7 +1113,7 @@ Link your Hertz account to use Hertz Fast Lane.
 {% endif %}
 {% endfor %}
 {{maxValue}}
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -1135,7 +1135,7 @@ Link your Hertz account to use Hertz Fast Lane.
 {% endif %}
 {% endfor %}
 {{minValue}}
-`````````
+```
 {% endraw %}
 
 {% alert important %} 整数値を持ち、配列（リスト）の一部であるカスタム属性を使用する必要があります。{% endalert %}
@@ -1155,7 +1155,7 @@ Your last marketplace search was on {{custom_attribute.${Last marketplace buyer 
 {% else %}
 {% abort_message() %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 複数の組み合わせを持つカスタム属性から配列内の値をクエリする {#misc-query-array-values}
@@ -1178,7 +1178,7 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 {% else %}
 {% abort_message("Not found") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert important %} まず配列間の一致を見つけ、最後に一致を分割するロジックを構築する必要があります。{% endalert %}
@@ -1192,7 +1192,7 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 {% assign phone = {{${phone_number}}} | remove: "-" | split: '' %}
 
 ({{ phone[0] }}{{ phone[1] }}{{ phone[2] }})-{{ phone[3] }}{{ phone[4] }}{{ phone[5] }}-{{ phone[6] }}{{ phone[7] }}{{ phone[8] }}{{ phone[9] }}
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -1225,7 +1225,7 @@ This is a shorter copy.
 {% else %}
 This is the regular copy and much longer than the short version.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -1247,7 +1247,7 @@ This is a message for an Android user!
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 特定のOSバージョンのデバイスのみをターゲットにする {#platform-target-ios-version}
@@ -1265,7 +1265,7 @@ We are phasing out support for your device's operating system. Be sure to update
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### Webブラウザのみをターゲットにする {#platform-target-web}
@@ -1281,7 +1281,7 @@ This message will display on your desktop web browser.
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 以下のユースケースでは、WebユーザーがiOSまたはAndroidを使用しているかどうかを確認し、該当する場合は特定のメッセージを表示します。
@@ -1299,7 +1299,7 @@ Content for Android.
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 特定のモバイルキャリアをターゲットにする {#platform-target-carrier}
@@ -1317,7 +1317,7 @@ This is a message for Verizon users!
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -1349,7 +1349,7 @@ Thanks for joining our SMS program! Create an account to get the best deals!
 Thanks for joining our SMS program!
 
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -1385,7 +1385,7 @@ Time zones
 `````````liquid
 {% assign local_date_time = 'now' | time_zone:{{${time_zone}}} | date: '%B %e, %Y' %}
 {{local_date_time}}
-`````````
+```
 {% endraw %}
 
 - `now`: 現在の日付と時刻をUTCで取得します。
@@ -1399,7 +1399,7 @@ Time zones
 {% raw %}
 `````````liquid
 {{custom_attribute.${date_time_attribute} | time_zone: {{${time_zone}}} | date: '%a, %b %e, %Y'}}
-`````````
+```
 {% endraw %}
 
 これにより、`date_time_attribute`が曜日の省略形、月の省略形、日、4桁の年の順にフォーマットされて出力されます。
@@ -1417,7 +1417,7 @@ Message for time zone yy.
 {% else %}
 {% abort_message("Invalid time zone") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### カスタム属性にCSTタイムゾーンを付加する {#time-append-cst}
@@ -1428,14 +1428,14 @@ Message for time zone yy.
 {% raw %}
 `````````liquid
 {{custom_attribute.${application_expires_date} | time_zone: -0005 | date: '%B, %d %Y' }}
-`````````
+```
 {% endraw %}
 
 オプション2:
 {% raw %}
 `````````liquid
 {{custom_attribute.${application_expires_date} | time_zone: 'America/Chicago' | date: '%B %d %Y %z' }}
-`````````
+```
 {% endraw %}
 
 ### タイムスタンプを挿入する {#time-insert-timestamp}
@@ -1447,7 +1447,7 @@ Message for time zone yy.
 {% raw %}
 `````````liquid
 {{${user_id} | default: 'You'}} received a campaign, rendered at ({{ "now" | time_zone: ${time_zone} | date: "%Y-%m-%d %H:%M:%S" }})
-`````````
+```
 {% endraw %}
 
 ### ユーザーのローカルタイムゾーンの時間枠内でのみキャンバスプッシュを送信する {#time-canvas-window}
@@ -1463,7 +1463,7 @@ Message for time zone yy.
 {% endif %}
 
 Here's a message that will send between 8 am and 8 pm!
-`````````
+```
 {% endraw %}
 
 ### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージキャンペーンを送信する {#time-reocurring-iam-window}
@@ -1483,7 +1483,7 @@ Store's closed. Come back between 11 am and 9 pm!
 {% else %}
 {% abort_message("Not sent because the store is open") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### ユーザーのローカルタイムゾーンで平日と週末に異なるメッセージを送信する {#time-weekdays-vs-weekends}
@@ -1499,7 +1499,7 @@ It's {{today}}, why don't you open the app for your transactions?
 {% else %}
 It's {{today}}, why don't you visit the store?
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### ユーザーのローカルタイムゾーンの時間帯に基づいて異なるメッセージを送信する {#time-of-day}
@@ -1517,7 +1517,7 @@ It's {{today}}, why don't you visit the store?
 {% endif %}
 
 Check out this new bar after work today. HH specials!
-`````````
+```
 {% endraw %}
 
 {% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)の逆です。{% endalert %}
@@ -1535,7 +1535,7 @@ Check out this new bar after work today. HH specials!
 {% endif %}
 
 Check out this new bar after work today. HH specials!
-`````````
+```
 {% endraw %}
 
 ### 固定タイムゾーンの時間枠外でメッセージを中止する {#abort-fixed-timezone-window}
@@ -1553,7 +1553,7 @@ Check out this new bar after work today. HH specials!
 {% endif %}
 
 Sign up for our exclusive time-limited offer now!
-`````````
+```
 {% endraw %}
 
 {% endapi %}
@@ -1609,7 +1609,7 @@ Week/Day/Month
 {% endif %}
 
 Here's an overview of what your spending looked like in {{month}}.
-`````````
+```
 {% endraw %}
 
 同じ結果を得るために、以下の方法も使用できます。
@@ -1619,7 +1619,7 @@ Here's an overview of what your spending looked like in {{month}}.
 {% assign last_month_name = 'now' | date: "%Y-%m-01" | date: '%s' | minus: 1 | date: "%B" %}
 
 Here's an overview of what your spending looked like in {{last_month_name}}.
-`````````
+```
 {% endraw %}
 
 ### 毎月末にキャンペーンを送信する {#month-end}
@@ -1639,7 +1639,7 @@ The date is correct
 {% else %}
 {% abort_message("Date is not listed") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 月の最後の（平日）にキャンペーンを送信する {#day-of-month-last}
@@ -1701,7 +1701,7 @@ The date is correct
 {% else %}
 {% abort_message("Not the last week of the month") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 月の各日に異なるメッセージを送信する {#day-of-month}
@@ -1727,7 +1727,7 @@ Message for 2019-12-03
 {% else %}
 {% abort_message("Date not listed") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 曜日ごとに異なるメッセージを送信する {#day-of-week}
@@ -1762,7 +1762,7 @@ Sunday copy
 {% else %}
 Default copy
 {% endcase %}
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -1779,7 +1779,7 @@ Default copy
 {% if date == '05/05' %}
 {% abort_message('No message on the 5th of May') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ### 特定の曜日にメッセージを中止する {#abort-specific-weekday}
@@ -1792,7 +1792,7 @@ Default copy
 {% if weekday == 'Wednesday' %}
 {% abort_message("No message on Wednesdays") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% endapi %}

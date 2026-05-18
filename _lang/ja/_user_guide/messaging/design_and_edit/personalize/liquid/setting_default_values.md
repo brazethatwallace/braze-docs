@@ -18,7 +18,7 @@ description: "この参照記事では、メッセージで使用するパーソ
 
 ```
 | default: 'Insert Your Desired Default Here'
-`````````
+```
 
 デフォルト値が指定されておらず、フィールドがユーザーに存在しないか設定されていない場合、メッセージ内のそのフィールドは空白になります。
 
@@ -26,19 +26,19 @@ description: "この参照記事では、メッセージで使用するパーソ
 
 `````````liquid
 Hi {{ ${first_name} | default: 'Valued User' }}, thanks for using the App!
-`````````
+```
 
 Janet Doe というユーザーの場合、メッセージは次のいずれかとして表示されます。
 
-`````````
+```
 Hi Janet, thanks for using the App!
-`````````
+```
 
 または...
 
-`````````
+```
 Hi Valued User, thanks for using the App!
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -58,7 +58,7 @@ Hi Valued User, thanks for using the App!
 {% raw %}
 `````````liquid
 {% assign is_premium_user = {{custom_attribute.${premium_user}}} | default: false %}
-`````````
+```
 
 {: start="2"}
 2. 次に、条件ロジックを使用して、`is_premium_user` が `true` の場合に送信するメッセージを指定します。つまり、`premium_user` が `true` の場合に何を送信するかを指定します。ユーザーの名前がない場合に備えて、名にもデフォルト値を割り当てます。
@@ -66,7 +66,7 @@ Hi Valued User, thanks for using the App!
 `````````liquid
 {% if is_premium_user %}
 Hi {{${first_name} | default: 'premium user'}}, thank you for being a premium user!
-`````````
+```
 
 {: start="3"}
 3. 最後に、`is_premium_user` が `false` の場合（つまり `premium_user` が `false` または `nil` の場合）に送信するメッセージを指定します。その後、条件ロジックを閉じます。
@@ -75,7 +75,7 @@ Hi {{${first_name} | default: 'premium user'}}, thank you for being a premium us
 {% else %}
 Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for more benefits!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -87,7 +87,7 @@ Hi {{${first_name} | default: 'premium user'}}, thank you for being a premium us
 {% else %}
 Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for more benefits!
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -100,7 +100,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 {% raw %}
 `````````liquid
 Hi {{${first_name} | default: 'valued user'}},
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -109,7 +109,7 @@ Hi {{${first_name} | default: 'valued user'}},
 {% raw %}
 `````````liquid
 Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${reward_points} | default: 0}} reward points.
-`````````
+```
 {% endraw %}
 
 ### ユースケース: オブジェクト
@@ -121,7 +121,7 @@ Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${rew
 {% raw %}
 `````````liquid
 Hi {{${first_name} | default: 'valued user'}},
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -130,7 +130,7 @@ Hi {{${first_name} | default: 'valued user'}},
 {% raw %}
 `````````liquid
 We'd like to confirm the location associated with your account. We use this location to send you promotions and offers for stores nearest you. You can update your location in your profile settings.
-`````````
+```
 {% endraw %}
 
 {: start="3"}
@@ -141,7 +141,7 @@ We'd like to confirm the location associated with your account. We use this loca
 Your location:
 City: {{custom_attribute.${address.city} | default: 'Unknown'}}
 State: {{custom_attribute.${address.state} | default: 'Unknown'}}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -154,7 +154,7 @@ We'd like to confirm the location associated with your account. We use this loca
 Your location:
 City: {{custom_attribute.${address.city} | default: 'Unknown'}}
 State: {{custom_attribute.${address.state} | default: 'Unknown'}}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 
@@ -168,7 +168,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 `````````liquid
 {% if {{custom_attribute.${upcoming_trips}}} == empty %}
 {% abort_message('No upcoming trips scheduled') %}
-`````````
+```
 {% endraw %}
 
 {: start="2"}
@@ -188,7 +188,7 @@ Hello {{${first_name} | default: 'fellow traveler'}},
   {% endfor %}
   </ul>
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% details 完全な Liquid コード %}
@@ -208,7 +208,7 @@ Hello {{${first_name} | default: 'fellow traveler'}},
   {% endfor %}
   </ul>
 {% endif %}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 

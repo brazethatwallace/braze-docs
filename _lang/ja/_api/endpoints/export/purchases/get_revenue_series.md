@@ -42,11 +42,11 @@ description: "この記事では、収益データのエクスポートBrazeエ�
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_series?length=100' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "message": (required, string) the status of the export, returns 'success' when completed without errors,
   "data" : [
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
     ...
   ]
 }
-`````````
+```
 
 {% endapi %}
 

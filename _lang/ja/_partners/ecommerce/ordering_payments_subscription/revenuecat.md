@@ -57,7 +57,7 @@ Appboy.sharedInstance()?.changeUser("my_app_user_id")
 // Optional User Alias Object attributes
 Purchases.shared.setAttributes(["$brazeAliasName" : "name",
                              "$brazeAliasLabel" : "label"])
-`````````
+```
 {% endtab %}
 {% tab objective-c %}
 `````````objc
@@ -72,7 +72,7 @@ Purchases.shared.setAttributes(["$brazeAliasName" : "name",
     @"$brazeAliasName": @"name",
     @"$brazeAliasLabel": @"label"
 }];
-`````````
+```
 {% endtab %}
 {% tab java %}
 `````````java
@@ -88,7 +88,7 @@ attributes.put("$brazeAliasName", "name");
 attributes.put("$brazeAliasLabel", "label");
 
 Purchases.getSharedInstance().setAttributes(attributes);
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

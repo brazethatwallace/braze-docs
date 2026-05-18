@@ -29,13 +29,13 @@ description: "この記事では、セグメントによるエクスポートの
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "segment_id": (required, string) the `segment_id` to locate and cancel its ongoing exports
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -45,13 +45,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/cancel' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
   "segment_id": "segment_identifier"
 }'
-`````````
+```
 
 {% endapi %}

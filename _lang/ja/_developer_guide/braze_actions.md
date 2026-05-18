@@ -27,16 +27,16 @@ HTMLアプリ内メッセージの場合、HTMLメッセージタイプではデ
     "type": "container",
     "steps": []
 }
-`````````
+```
 
 個々の `step` には、アクションの `type` とオプションの `args` 配列が含まれます。
 
-`````````json
+```json
 {
     "type": "logCustomEvent",
     "args": ["event name", {"event": ["properties"]}]
 }
-`````````
+```
 
 ## URI
 
@@ -75,7 +75,7 @@ function encode(input) {
     }
     return btoa(utf8String).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }
-`````````
+```
 
 ## 対応アクション {#supported-actions}
 

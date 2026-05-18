@@ -127,16 +127,16 @@ Braze SDKとRadar SDK間でデータをマッピングするには、両方の�
     }
   ]
 }
-`````````
+```
 
 コネクテッドコンテンツを活用したターゲティング済みのパーソナライズされたBrazeメッセージを構築するには、APIリクエストURLの`near`パラメータの入力としてBrazeの`most_recent_location`属性を使用できます。`most_recent_location`属性は、Radarイベント統合から収集されるか、またはBraze SDKを介して直接収集されます。
 
 次の例では、RadarチェーンフィルタリングがTargetとWalmartのロケーションに適用され、近くのロケーションの検索範囲は2 kmに設定されています。
 
 {% raw %}
-`````````
+```
 {% connected_content https://api.radar.io/v1/search/places?radius=2000&near={{${most_recent_location}.latitude}},{{${most_recent_location}.longitude}}&chains=target,walmart&limit=5 :method get :headers {"Authorization": "<yourRadarPublishableKey>"} :content_type application/json :save nearbyplaces %}
-`````````
+```
 {% endraw %}
 
 `connect_content`タグからわかるように、JSONオブジェクトはURLの後に`:save nearbyplaces`を追加することで、ローカル変数`nearbyplaces`に保存されます。
@@ -145,7 +145,7 @@ Braze SDKとRadar SDK間でデータをマッピングするには、両方の�
 ユースケースをまとめると、キャンペーンの構文は以下のようになります。以下のコードは、`nearbyplaces.places`オブジェクトを反復処理し、一意の値を抽出し、それらを人間が読みやすい区切り文字で連結してメッセージにします。
 
 {% raw %}
-`````````
+```
 {% connected_content https://api.radar.io/v1/search/places?radius=2000&near={{${most_recent_location}.latitude}},{{${most_recent_location}.longitude}}&chains=target,walmart&limit=5 :method get :headers {"Authorization": "<yourRadarPublishableKey>"} :content_type application/json :save nearbyplaces %}
 {% if nearbyplaces.**http_status_code** != 200 %}
 {% abort_message('Connected Content returned a non-200 http status code') %}
@@ -176,7 +176,7 @@ Braze SDKとRadar SDK間でデータをマッピングするには、両方の�
 {{ names }}
 {% endif %}
 near you!
-`````````
+```
 {% endraw %}
 
 {% alert tip %}

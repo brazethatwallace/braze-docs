@@ -31,7 +31,7 @@ noindex: true
                                          selector:@selector(contentCardsUpdated:)
                                              name:ABKContentCardsProcessedNotification
                                            object:nil];
-`````````
+```
 
 `````````objc
 // Called when Content Cards are refreshed (via `requestContentCardsRefresh`)
@@ -41,7 +41,7 @@ noindex: true
     // get the cards using [[Appboy sharedInstance].contentCardsController getContentCards];
   }
 }
-`````````
+```
 {% endtab %}
 {% tab swift %}
 `````````swift
@@ -50,7 +50,7 @@ noindex: true
 NotificationCenter.default.addObserver(self, selector:
   #selector(contentCardsUpdated),
   name:NSNotification.Name.ABKContentCardsProcessed, object: nil)
-`````````
+```
 
 `````````swift
 // Called when the Content Cards are refreshed (via `requestContentCardsRefresh`)
@@ -61,7 +61,7 @@ NotificationCenter.default.addObserver(self, selector:
     }
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -144,7 +144,7 @@ ABKContentCardsTableViewController *contentCards = [[ABKContentCardsTableViewCon
 contentCards.title = @"Content Cards Title";
 contentCards.disableUnreadIndicator = YES;
 [self.navigationController pushViewController:contentCards animated:YES];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -154,7 +154,7 @@ let contentCards = ABKContentCardsTableViewController()
 contentCards.title = "Content Cards Title"
 contentCards.disableUnreadIndicator = true
 navigationController?.pushViewController(contentCards, animated: true)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -175,7 +175,7 @@ ABKContentCardsViewController *contentCards = [[ABKContentCardsViewController al
 contentCards.contentCardsViewController.title = @"Content Cards Title";
 contentCards.contentCardsViewController.disableUnreadIndicator = YES;
 [self.navigationController presentViewController:contentCards animated:YES completion:nil];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -185,7 +185,7 @@ let contentCards = ABKContentCardsViewController()
 contentCards.contentCardsViewController.title = "Content Cards Title"
 contentCards.contentCardsViewController.disableUnreadIndicator = true
 self.present(contentCards, animated: true, completion: nil)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

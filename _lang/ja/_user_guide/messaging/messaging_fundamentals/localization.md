@@ -171,7 +171,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs' \
    }
  ]
 }'
-`````````
+```
 
 以下のAPI呼び出しでアイテムを追加します：
 
@@ -207,7 +207,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
    }
  ]
 }'
-`````````
+```
 {% endsubtab%}
 {% subtab CSV %}
 以下の形式でCSVを作成します：
@@ -237,7 +237,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% catalog_items translations 1 %}
 {{items[0].body}}
 //returns “Hey”
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -252,7 +252,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 `````````liquid
 {% connected_content https://www.transifex.com/api/2/project/example/resource/example/translation/{{${language}}}/strings :basic_auth semc :save strings %}
 {{strings[0].translation}}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% subtab Crowdinの例 %}
@@ -260,7 +260,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 `````````liquid
 {% connected_content https://api.crowdin.com/api/project/braze-test/export-file?key=you_api_key&language={{${language}}}&file=test.json&export_translated_only=1 :save response %}
 {{response.value_1}}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -303,7 +303,7 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 {% raw %}
 `````````liquid
 {% connected_content https://sheetdb.io/api/v1/[sheet_id]/search?language={{${language}}} :save result%}
-`````````
+```
 {% endraw %}
 
 #### ステップ3：メッセージのテンプレート化 {#step-3-template-your-messages}
@@ -314,7 +314,7 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 `````````liquid
 {{result[0].title1}} //returns “Hey”
 {{result[0].title2}} //returns “Hey2”
-`````````
+```
 {% endraw %}
 
 ##### 考慮事項 {#considerations}

@@ -159,7 +159,7 @@ LINE ユーザーが[ユーザー照合](#user-id-reconciliation)やその他の
        }
    ]
 }
-`````````
+```
 {% endraw %}
 
 指定した `external_id` に対して既存のユーザープロファイルが存在しない場合、未識別のユーザープロファイルに追加され、識別済みになります。`external_id` に対してユーザープロファイルが存在する場合、未識別のユーザープロファイルにのみ存在するすべての属性（`native_line_id` やユーザーのサブスクリプションステータスを含む）が既知のユーザープロファイルにコピーされます。
@@ -173,7 +173,7 @@ LINE のサブスクリプション状態は `external_id` ではなく `native_
 以下は、外部ユーザー ID でユーザープロファイルを更新して `native_line_id` を追加する `/users/track` へのペイロードの例です：
 
 {% raw %}
-`````````json
+```json
 {
    "attributes": [
        {
@@ -183,7 +183,7 @@ LINE のサブスクリプション状態は `external_id` ではなく `native_
        }
    ]
 }
-`````````
+```
 {% endraw %}
 
 ## ステップ 5: プロファイルをマージする（オプション） {#step-5-merge-profiles-optional}
@@ -193,7 +193,7 @@ LINE のサブスクリプション状態は `external_id` ではなく `native_
 以下は、ユーザーエイリアス `line_id` で未識別ユーザープロファイルをターゲットにする `/users/merge` へのペイロードの例です：
 
 {% raw %}
-`````````json
+```json
 {
  "merge_updates": [
    {
@@ -209,7 +209,7 @@ LINE のサブスクリプション状態は `external_id` ではなく `native_
    }
  ]
 }
-`````````
+```
 {% endraw %}
 
 {% alert tip %}
@@ -253,7 +253,7 @@ LINE はユーザーのサブスクリプション状態の信頼できるソー
   - 匿名ユーザープロファイルは、[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/) エンドポイントを使用して識別済みにできます。このユーザープロファイルへの後続の更新（[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) エンドポイント、[CSV インポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import)、または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を通じて）は、この既知の `external_id` でユーザーをターゲットにできます。
 
 {% raw %}
-`````````json
+```json
 {
    "aliases_to_identify": [
        {
@@ -265,7 +265,7 @@ LINE はユーザーのサブスクリプション状態の信頼できるソー
        }
    ]
 }
-`````````
+```
 {% endraw %}
 
   - 新しいユーザープロファイルは、`native_line_id` を設定することで（[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) エンドポイント、[CSV インポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv-import)、または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を通じて）作成できます。この新しいプロファイルは、既存の匿名ユーザープロファイルのサブスクリプション状態を継承します。これにより、同じ `native_line_id` を共有する複数のプロファイルが存在することになります。これらは、[ステップ 5](#step-5-merge-profiles-optional) で説明されているプロセスで `/users/merge` エンドポイントを使用していつでもマージできます。
@@ -337,9 +337,9 @@ LINE ID を既存のBrazeユーザープロファイルと結合するには、2
 1. サブスクリプション状態の変更に基づくアクションベースのキャンバスを作成し、ユーザーが LINE チャネルを購読した際にトリガーされるようにします。<br>![ユーザーが LINE チャネルを購読した際にトリガーされるキャンバス。]({% image_buster /assets/img/line/account_link_1.png %})
 2. ユーザーにWebサイトやアプリへのログインを促すメッセージを作成し、ユーザーの LINE ID をクエリパラメーターとして（Liquidを通じて）渡します。例：
 
-`````````
+```
 Thanks for following Flash n' Thread on LINE! For personalized offers and 20% off your next purchase, sign-in to your account: https://flashandthread.com/sign_in?line_user_id={{line_id}}
-`````````
+```
 
 {: start="3"}
 3. クーポンコードを配信するフォローアップメッセージを作成します。
@@ -371,7 +371,7 @@ if (user && isLoggedIn && lineUserId) {
   )
   braze.logCustomEvent("identified_line_user_for_promotion");
 }
-`````````
+```
 
 #### ワークフロー
 

@@ -53,7 +53,7 @@ Java と C# で名前空間がどのように変わるかは、[GitHub のXample
 ```csharp
 configuration.Push.Automation = new BRZConfigurationPushAutomation(true);
 configuration.Push.Automation.RequestAuthorizationAtLaunch = false;
-`````````
+```
 
 詳細は[iOS MAUI](https://github.com/braze-inc/braze-xamarin-sdk/tree/master/appboy-component/samples/ios-net-maui/BrazeiOSMauiSampleApp)サンプル・アプリケーションを参照のこと。詳細については、[Xamarin.iOS の拡張ユーザー通知](https://learn.microsoft.com/en-us/previous-versions/xamarin/ios/platform/user-notifications/enhanced-user-notifications?tabs=macos)に関する Xamarin ドキュメントを参照してください。
 {% endtab %}

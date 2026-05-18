@@ -69,14 +69,14 @@ Braze Web SDKを統合するには、まず最新のJavaScriptライブラリー
     // Initialize Braze here
     </script>
 </html>
-`````````
+```
 
 ### バックグラウンドスクリプト（Manifest v2のみ） {#background-script}
 
 拡張機能のバックグラウンドスクリプト内でBrazeを使用するには、Brazeライブラリーを`manifest.json`の`background.scripts`配列に追加します。これにより、グローバル`braze`変数がバックグラウンドスクリプトコンテキストで使用できるようになります。
 
 
-`````````json
+```json
 {
     "manifest_version": 2,
     "background": {
@@ -86,7 +86,7 @@ Braze Web SDKを統合するには、まず最新のJavaScriptライブラリー
         ]
     }
 }
-`````````
+```
 
 ### オプションページ {#options-page}
 
@@ -104,7 +104,7 @@ braze.initialize("YOUR-API-KEY-HERE", {
     enableLogging: true,
     noCookies: true
 });
-`````````
+```
 
 サポートされている初期化オプションの詳細については、[Web SDKリファレンス](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)を参照してください。
 

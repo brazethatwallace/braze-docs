@@ -4,7 +4,7 @@ article_title: 購入後フィードバック
 page_order: 6
 page_type: reference
 description: "この記事では、Braze キャンバステンプレートを使用して、フィードバックに対応しユーザーとの関係を構築するパーソナライズされた体験をオーケストレーションする方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 購入後フィードバック {#post-purchase-feedback}

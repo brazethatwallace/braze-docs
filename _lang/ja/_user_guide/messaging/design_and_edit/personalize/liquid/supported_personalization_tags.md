@@ -91,7 +91,7 @@ User is in list of apps
 {% else %}
 {% abort_message("User not in list of apps") %}
 {% endif %}
-`````````
+```
 
 ## ターゲットデバイスの情報 {#targeted-device-information}
 
@@ -187,7 +187,7 @@ Make a purchase to bring your rewards points to {{new_points_balance}} and cash 
 {% else %}
 {% abort_message('not enough points') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ## 反復タグ {#iteration-tags}
@@ -210,7 +210,7 @@ Sale on Converse!
 {% else %}
 {% abort_message() %}
 {% endif %}
-`````````
+```
 
 このユースケースでは、閲覧したスニーカーブランドの配列の最初の 5 つのアイテムを確認します。そのうちの 1 つが Converse であれば、`converse_viewer` 変数を作成して true に設定します。
 
@@ -233,7 +233,7 @@ Sale on Converse!
 {% if connected.__http_status_code__ != 200 %}
 {% abort_message('Connected Content returned a non-200 status code') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -270,7 +270,7 @@ Message in default Portuguese
 {% else %}
 Message in default language
 {% endif %}
-`````````
+```
 
 このユースケースでは、最新ロケールが `pt_BR` の顧客にはブラジルポルトガル語のメッセージが届き、最新ロケールが `pt_PT` の顧客にはヨーロッパポルトガル語のメッセージが届きます。最初の 2 つの条件に該当しないが、言語がポルトガル語に設定されている顧客には、デフォルトのポルトガル語タイプとして設定したメッセージが届きます。
 
@@ -289,7 +289,7 @@ It is between 2:00:00 pm and 2:59:59 pm PT!
 {% else %}
 {% abort_message %}
 {% endif %}
-`````````
+```
 
 {% endraw %}
 
@@ -317,7 +317,7 @@ Show variant A
 {% else %}
 Show variant B
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ## eコマースショッピングカートタグ {#shopping-cart-tag}
@@ -327,7 +327,7 @@ Show variant B
 {% raw %}
 `````````liquid
 {% shopping_cart CART_ID :abort_if_not_abandoned false %}
-`````````
+```
 {% endraw %}
 
 この例の `abort_if_not_abandoned` パラメーターは、`ecommerce.checkout_started` イベントと併用する[チェックアウト放棄]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout)のユースケースにのみ適用されます。カート放棄のユースケースには適用されません。詳細については、[`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abort-if-not-abandoned) を参照してください。

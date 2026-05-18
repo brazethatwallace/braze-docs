@@ -19,7 +19,7 @@ URL の後に `:save your_variable_name` を指定して、データを別の名
 {% raw %}
 ```js
 {% connected_content https://www.metaweather.com/api/location/2459115/ :save localweather %}
-`````````
+```
 {% endraw %}
 
 Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す無料の天気 API です。このコードはテストと学習目的でのみ使用してください。
@@ -60,7 +60,7 @@ Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す
     "latt_long": "40.71455,-74.007118",
     "timezone": "US\/Eastern"
   }
-`````````
+```
 
 `{{localweather.consolidated_weather[0].weather_state_name}}` を参照することで、雨が降っているかどうかをテストできます。このオブジェクトで使用した場合、`Clear` が返されます。結果のロケーション名でパーソナライズしたい場合は、`{{localweather.title}}` で `New York` が返されます。
 {% endraw %}
@@ -79,7 +79,7 @@ No sunscreen needed :)
 {% else %}
 Enjoy the weather!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} で `Rain` を返した場合、ユーザーは次のプッシュ通知を受け取ります。
@@ -101,7 +101,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 
 `````````js
 {% connected_content https://example.com/api/endpoint :method post :body {"foo":"bar","baz":"{{1|plus:1}}"} :content_type application/json %}
-`````````
+```
 
 ##### capture ステートメント内のボディ: スペース使用可
 
@@ -110,7 +110,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 {"foo": "bar", "baz": "{{ 1 | plus: 1 }}"}
 {% endcapture %}
 {% connected_content https://example.com/api/endpoint :method post :body {{postbody}} :content_type application/json %}
-`````````
+```
 {% endraw %}
 
 {% raw %}
@@ -130,7 +130,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
   :body {{postbody}}
   :save result
 %}
-`````````
+```
 {% endraw %}
 
 {% raw %}
@@ -139,7 +139,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 `````````js
 {% assign postbody = '{"foo":"bar", "baz": "2"}' %}
 {% connected_content https://example.com/api/endpoint :method post :body {{postbody}} :content_type application/json %}
-`````````
+```
 {% endraw %}
 
 ## HTTP ステータスコード
@@ -152,7 +152,7 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 {% if result.__http_status_code__ != 200 %}
   {% abort_message('Connected Content returned a non-200 status code') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% alert important %}

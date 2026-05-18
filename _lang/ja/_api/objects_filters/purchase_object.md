@@ -41,7 +41,7 @@ description: "このリファレンス記事では、購入オブジェクトの
   // When using a "user_alias", "Update Only" mode is always true.
   "_update_existing_only" : (optional, boolean)
 }
-`````````
+```
 
 - [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
@@ -92,7 +92,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     }
   ]
 }
-`````````
+```
 
 ## 購入プロパティオブジェクト {#purchase-properties-object}
 
@@ -162,7 +162,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     }
   ]
 }
-`````````
+```
 
 ### 購入オブジェクト、イベントオブジェクト、およびWebhook {#purchase-objects-event-objects-and-webhooks}
 

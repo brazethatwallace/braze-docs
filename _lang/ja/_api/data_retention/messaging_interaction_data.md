@@ -28,25 +28,25 @@ page_type: reference
 以下の機能はメッセージングインタラクションデータを使用します：
 
 - 特定のキャンペーンまたはキャンバスでリターゲティングするリターゲティングフィルター
-    - Clicked Alias in キャンペーン
-    - Clicked Alias in キャンバス Step
-    - Clicked/Opened キャンペーン
+    - Clicked Alias in Campaign
+    - Clicked Alias in Canvas Step
+    - Clicked/Opened Campaign
     - Clicked/Opened Step
-    - Converted From キャンペーン
-    - Converted From キャンバス
-    - Entered キャンバス Variation
-    - In キャンペーン Control Group
-    - In キャンバス Control Group
-    - Last Received Message from Specific キャンペーン
-    - Last Received Message from Specific キャンバス Step
-    - Received キャンペーン Variant
-    - Received Message from キャンペーン
-    - Received Message from キャンバス Step
+    - Converted From Campaign
+    - Converted From Canvas
+    - Entered Canvas Variation
+    - In Campaign Control Group
+    - In Canvas Control Group
+    - Last Received Message from Specific Campaign
+    - Last Received Message from Specific Canvas Step
+    - Received Campaign Variant
+    - Received Message from Campaign
+    - Received Message from Canvas Step
 - 特定のタグを持つキャンペーンまたはキャンバスでリターゲティングするリターゲティングフィルター
-    - Received Message from キャンペーン or キャンバス with Tag
-    - Clicked/Opened キャンペーン or キャンバス With Tag
-    - Last Received Message from キャンペーン or キャンバス With Tag
-- ユーザープロファイルの**キャンペーン Received**および**キャンバス Messages Received**リスト
+    - Received Message from Campaign or Canvas with Tag
+    - Clicked/Opened Campaign or Canvas With Tag
+    - Last Received Message from Campaign or Canvas With Tag
+- ユーザープロファイルの**Campaign Received**および**Canvas Messages Received**リスト
 - `/users/export`エンドポイント
 - キャンペーンおよびキャンバスサマリーページの**ユーザーデータ**CSVエクスポート
 
@@ -66,11 +66,11 @@ page_type: reference
 - セグメントエクステンション
 - データポイント
 - 以下のリターゲティングフィルター：
-    - Clicked Alias in Any キャンペーン or キャンバス Step
+    - Clicked Alias in Any Campaign or Canvas Step
     - Feature Flags
     - Hard Bounced
     - Has Marked You As Spam
-    - Has Never Received a Message from キャンペーン or キャンバス Step
+    - Has Never Received a Message from Campaign or Canvas Step
     - Invalid Phone Number
     - Last Engaged With Message
     - Last Enrolled in Any Control Group
@@ -110,9 +110,9 @@ page_type: reference
 
 タグによるリターゲティングを行うリターゲティングフィルターを使用するキャンペーンは、期限切れの対象から除外されません。タグによるリターゲティングを行うリターゲティングフィルターには以下が含まれます：
 
-- Received Message from キャンペーン or キャンバス with Tag
-- Clicked/Opened キャンペーン or キャンバス With Tag
-- Last Received Message from キャンペーン or キャンバス With Tag
+- Received Message from Campaign or Canvas with Tag
+- Clicked/Opened Campaign or Canvas With Tag
+- Last Received Message from Campaign or Canvas With Tag
 
 ### 過去のメッセージングインタラクションデータの利用可能性 {#when-was-messaging-interaction-data-available-in-the-past}
 

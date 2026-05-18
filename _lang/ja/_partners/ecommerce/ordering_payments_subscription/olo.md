@@ -114,7 +114,7 @@ let brazecall = {
 };
 
 return brazecall;
-`````````
+```
 
 ### カスタムイベントを記録する {#logging-a-custom-event}
 
@@ -139,7 +139,7 @@ let brazecall = {
 };
 
 return brazecall;
-`````````
+```
 
 ## マルチイベント変換 {#multi-event-transformation}
 
@@ -238,7 +238,7 @@ if (event_type == "UserSignedUp") {
 // return `brazecall` to create an output.
 
 return brazecall;
-`````````
+```
 
 ### ステップ4:Olo Webhookを公開する {#step-4-publish-your-olo-webhook}
 

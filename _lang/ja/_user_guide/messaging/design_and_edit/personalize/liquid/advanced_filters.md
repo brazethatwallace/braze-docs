@@ -41,7 +41,7 @@ description: "このリファレンス記事では、高度なフィルター、
 ```
 {% assign url = "https://www.examplelink.com" %}
 <a href='{{url}}'>Shop the collection</a>
-`````````
+```
 {% endraw %}
 {% endalert %}
 {% raw %}
@@ -101,7 +101,7 @@ Braze内のLiquidでは、ハッシュを変数（式など）としてインス
 `````````liquid
 {% assign my_data_string = '[{"id":"1","store_name":"demo-store"}]'  %}
 {% assign my_data = my_data_string | json_parse %}
-`````````
+```
 
 ### 出力 {#output}
 
@@ -110,7 +110,7 @@ Braze内のLiquidでは、ハッシュを変数（式など）としてインス
 Item ID: {{ item.id }}
 Item Name: {{ item.store_name }}
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 {% enddetails %}
@@ -124,13 +124,13 @@ Item Name: {{ item.store_name }}
 {% assign my_data_string = '[{"id":"1","store_name":"demo-store"}]'  %}
 {% assign my_data = my_data_string | json_parse %}
 {% assign json_string = my_data | as_json_string %}
-`````````
+```
 
 ### 出力
 
 `````````liquid
 {{json_string}}
-`````````
+```
 {% endraw %}
 {% enddetails %}
 

@@ -88,7 +88,7 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 {% for item in items %}
  Get this game: {{ item.title }}
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 設定した条件が満たされると、メッセージを続行できます。このロジックを使用すると、異なる条件に対してLiquidブロックを繰り返す代わりに時間を節約できます。
@@ -102,7 +102,7 @@ Liquidを使用するContent Blocksで送信されたメッセージに余分な
 {% raw %}
 `````````liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
-`````````
+```
 {% endraw %}
 
 ### `assign` と `capture` はいつ使い分けるべきですか？ {#when-should-i-use-assign-versus-capture}
@@ -138,5 +138,5 @@ As a VIP member, you get free shipping.
 Join our VIP program to unlock free shipping.
 {% endif %}
 {% endcapture %}
-`````````
+```
 {% endraw %}

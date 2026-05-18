@@ -53,7 +53,7 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
   ...
   [self.navigationController pushViewController:contentCardsTableVC animated:YES];
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -74,7 +74,7 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
   ...
   self.navigationController?.present(contentCardsTableVC, animated: true, completion: nil)
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

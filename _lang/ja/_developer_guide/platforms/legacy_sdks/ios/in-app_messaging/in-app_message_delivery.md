@@ -45,14 +45,14 @@ noindex: true
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKMinimumTriggerTimeIntervalKey : @(5) }];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions, withAppboyOptions:[ABKMinimumTriggerTimeIntervalKey : 5])
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -112,14 +112,14 @@ Braze が特定のイベントに一致するトリガーを検出できない�
 
 `````````objc
 [[Appboy sharedInstance].inAppMessageController displayNextInAppMessage];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -137,7 +137,7 @@ Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
   customInAppMessage.duration = 2.5;
   customInAppMessage.extras = @{@"key" : @"value"};
   [[Appboy sharedInstance].inAppMessageController addInAppMessage:customInAppMessage];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -148,7 +148,7 @@ Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
   customInAppMessage.duration = 2.5
   customInAppMessage.extras = ["key": "value"]
   Appboy.sharedInstance()!.inAppMessageController.add(customInAppMessage)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

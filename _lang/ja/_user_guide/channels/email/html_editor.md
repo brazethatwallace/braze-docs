@@ -107,7 +107,7 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 
 ```html
 <td style="background-image: linear-gradient(#ffffff, #ffffff);">
-`````````
+```
 
 `#ffffff`を目的の色に置き換えてください。
 
@@ -228,7 +228,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 
 `````````html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
-`````````
+```
 
 ドラッグ＆ドロップエディターの場合は、**送信設定**セクションのプリヘッダーに`<div>`フォーマットなしでゼロ幅非結合子（`&zwnj;`）のみを直接追加してください。
 {% endalert %}

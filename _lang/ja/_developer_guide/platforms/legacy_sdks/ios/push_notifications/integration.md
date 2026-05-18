@@ -83,7 +83,7 @@ if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max) {
   [[UIApplication sharedApplication] registerForRemoteNotifications];
   [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -106,7 +106,7 @@ if #available(iOS 10, *) {
   UIApplication.shared.registerUserNotificationSettings(setting)
   UIApplication.shared.registerForRemoteNotifications()
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -127,7 +127,7 @@ if #available(iOS 10, *) {
 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) categories:nil];
 [[UIApplication sharedApplication] registerForRemoteNotifications];
 [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -137,7 +137,7 @@ let types : UIUserNotificationType = UIUserNotificationType.Badge | UIUserNotifi
 var setting : UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
 UIApplication.shared.registerUserNotificationSettings(setting)
 UIApplication.shared.registerForRemoteNotifications()
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -154,7 +154,7 @@ APNsの登録が完了したら、次のメソッドを変更して結果の `de
 
 `````````objc
 [[Appboy sharedInstance] registerDeviceToken:deviceToken];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -163,7 +163,7 @@ APNsの登録が完了したら、次のメソッドを変更して結果の `de
 
 `````````swift
 Appboy.sharedInstance()?.registerDeviceToken(deviceToken)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -189,7 +189,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 [[Appboy sharedInstance] registerApplication:application
                 didReceiveRemoteNotification:userInfo
                       fetchCompletionHandler:completionHandler];
-`````````
+```
 
 次に、アプリの `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` メソッドに次のコードを追加します。
 
@@ -197,7 +197,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 [[Appboy sharedInstance] userNotificationCenter:center
                  didReceiveNotificationResponse:response
                           withCompletionHandler:completionHandler];
-`````````
+```
 
 **フォアグラウンドでのプッシュ通知処理**
 
@@ -213,7 +213,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
     completionHandler(UNNotificationPresentationOptionAlert);
   }
 }
-`````````
+```
 
 フォアグラウンド通知がクリックされると、iOS 10のプッシュデリゲート `userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` が呼び出され、Brazeはプッシュクリックイベントをログに記録します。
 
@@ -226,7 +226,7 @@ iOS 10以降に対してビルドする場合は、`UserNotifications` フレー
 Appboy.sharedInstance()?.register(application,
                                             didReceiveRemoteNotification: userInfo,
                                             fetchCompletionHandler: completionHandler)
-`````````
+```
 
 次に、アプリの `userNotificationCenter(_:didReceive:withCompletionHandler:)` メソッドに次のコードを追加します。
 
@@ -234,7 +234,7 @@ Appboy.sharedInstance()?.register(application,
 Appboy.sharedInstance()?.userNotificationCenter(center,
                                                didReceive: response,
                                                withCompletionHandler: completionHandler)
-`````````
+```
 
 **フォアグラウンドでのプッシュ通知処理**
 
@@ -250,7 +250,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
     completionHandler([.alert]);
   }
 }
-`````````
+```
 
 フォアグラウンド通知がクリックされると、iOS 10のプッシュデリゲート `userNotificationCenter(_:didReceive:withCompletionHandler:)` が呼び出され、Brazeはプッシュクリックイベントをログに記録します。
 
@@ -272,14 +272,14 @@ SDK < iOS 10に対してビルドするアプリについては、以下の手�
 [[Appboy sharedInstance] registerApplication:application
                 didReceiveRemoteNotification:userInfo
                       fetchCompletionHandler:completionHandler];
-`````````
+```
 
 iOS 10でプッシュ分析をサポートするには、アプリの `application:didReceiveRemoteNotification:` デリゲートメソッドに次のコードも追加する必要があります。
 
 `````````objc
 [[Appboy sharedInstance] registerApplication:application
                 didReceiveRemoteNotification:userInfo];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -290,14 +290,14 @@ iOS 10でプッシュ分析をサポートするには、アプリの `applicati
 Appboy.sharedInstance()?.register(application,
   didReceiveRemoteNotification: userInfo,
   fetchCompletionHandler: completionHandler)
-`````````
+```
 
 iOS 10でプッシュ分析をサポートするには、アプリの `application(_:didReceiveRemoteNotification:)` デリゲートメソッドに次のコードも追加する必要があります。
 
 `````````swift
 Appboy.sharedInstance()?.register(application,
   didReceiveRemoteNotification: userInfo)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

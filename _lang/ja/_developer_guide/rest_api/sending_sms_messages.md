@@ -57,12 +57,12 @@ REST API経由でSMSメッセージを送信するには、Brazeダッシュボ�
 POST YOUR_REST_ENDPOINT/messages/send
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
 `YOUR_REST_ENDPOINT`を、ワークスペースの[RESTエンドポイントURL]({{site.baseurl}}/api/basics/#endpoints)に置き換えます。
 
 {% raw %}
-`````````json
+```json
 {
   "campaign_id": "YOUR_CAMPAIGN_ID",
   "external_user_ids": ["user123"],
@@ -75,7 +75,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   }
 }
-`````````
+```
 {% endraw %}
 
 プレースホルダーの値を実際のIDに置き換えます。`body`フィールドは[Liquidパーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)をサポートしているため、メッセージの内容を各受信者に合わせて調整できます。SMSメッセージングオブジェクトがサポートするパラメータの完全な一覧については、[SMSオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/sms_object/)を参照してください。

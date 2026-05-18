@@ -91,7 +91,7 @@ Webhookテンプレートに、以下のフィールドを入力します。
         "state" : "{{custom_attribute.${state}}}"
     }
 }
-`````````
+```
 {% endraw %}
 
 ### ステップ 3: Oppiziでダイレクトメールワークフローを作成する {#step-3-create-a-direct-mail-workflow-in-oppizi}

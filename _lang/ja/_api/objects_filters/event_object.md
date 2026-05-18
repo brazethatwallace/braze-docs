@@ -40,7 +40,7 @@ description: "このリファレンス記事では、イベントオブジェク
   "_update_existing_only" : (optional, boolean)
   // See following notes regarding anonymous push token imports
 }
-`````````
+```
 
 - [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
@@ -123,7 +123,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     }
   ]
 }
-`````````
+```
 - [ISO 8601タイムコード Wiki](http://en.wikipedia.org/wiki/ISO_8601)
 
 ## イベントオブジェクト {#event-objects}

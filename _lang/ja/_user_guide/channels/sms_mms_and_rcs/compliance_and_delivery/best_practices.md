@@ -116,7 +116,7 @@ SMSメッセージ本文の先頭に以下のスニペットを含めてくだ�
 {% if hour >= 21 or hour < 9 %}
   {% abort_message("Outside allowed time window") %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 #### 考慮事項

@@ -77,7 +77,7 @@ Webhookペイロードで、タイプ、サブジェクト、ステータスな�
 "status": "{{ ticket_status }}"
   }
 }
-`````````
+```
 {% endraw %}
 
 ### ステップ2:リクエストをプレビューする {#step-2-preview-your-request}

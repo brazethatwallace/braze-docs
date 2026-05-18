@@ -60,7 +60,7 @@ extension ContentCardable {
     BrazeManager.shared.logContentCardImpression(idString: contentCardData?.contentCardId)
   }
 }
-`````````
+```
 **コンテンツカードデータ構造体**<br>
 `ContentCardData` は、`ABKContentCard` の解析された値を表します。
 
@@ -79,7 +79,7 @@ extension ContentCardData: Equatable {
     return lhs.contentCardId == rhs.contentCardId
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 **ContentCardable プロトコル**<br>
@@ -97,7 +97,7 @@ extension ContentCardData: Equatable {
 - (void)logContentCardDismissed;
 
 @end
-`````````
+```
 **コンテンツカードデータ構造体**<br>
 `ContentCardData` は、`ABKContentCard` の解析された値を表します。
 
@@ -118,7 +118,7 @@ extension ContentCardData: Equatable {
 // other Content Card properties such as expiresAt, pinned, etc.
 
 @end
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -143,7 +143,7 @@ extension CustomObject: ContentCardable {
     self.init(contentCardData: contentCardData, property: customObjectProperty)
   }
 }
-`````````
+```
 
 **タイプの識別**<br>
 `ContentCardClassType` enumは、Braze ダッシュボードの `class_type` 値を表します。この値は、Content Cardsを別の場所に表示するためのフィルター識別子としても使用されます。
@@ -167,7 +167,7 @@ enum ContentCardClassType: Hashable {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 **カスタムオブジェクトイニシャライザ**<br>
@@ -194,7 +194,7 @@ enum ContentCardClassType: Hashable {
   }
   return nil;
 }
-`````````
+```
 
 **タイプの識別**<br>
 `ContentCardClassType` enumは、Braze ダッシュボードの `class_type` 値を表します。この値は、Content Cardsを別の場所に表示するためのフィルター識別子としても使用されます。
@@ -219,7 +219,7 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
     return (ContentCardClassType) value;
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -235,7 +235,7 @@ func loadContentCards() {
   BrazeManager.shared.addObserverForContentCards(observer: self, selector: #selector(contentCardsUpdated))
   BrazeManager.shared.requestContentCardsRefresh()
 }
-`````````
+```
 
 **Content Cards SDKコールバックの処理**<br>
 通知コールバックをヘルパーファイルに転送して、カスタムオブジェクトのペイロードデータを解析します。
@@ -245,7 +245,7 @@ func loadContentCards() {
 
  // do something with your array of custom objects
 }
-`````````
+```
 
 **Content Cardsの操作**<br>
 `class_type` はフィルターとして渡され、一致する `class_type` を持つContent Cardsのみを返します。
@@ -256,7 +256,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 
   return convertContentCards(cards, for: classTypes)
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 **Content Cardsのリクエスト**<br>
@@ -267,7 +267,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
   [[BrazeManager shared] addObserverForContentCards:self selector:@selector(contentCardsUpdated:)];
   [[BrazeManager shared] requestContentCardsRefresh];
 }
-`````````
+```
 
 **Content Cards SDKコールバックの処理**<br>
 通知コールバックをヘルパーファイルに転送して、カスタムオブジェクトのペイロードデータを解析します。
@@ -278,7 +278,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 
   // do something with your array of custom objects
 }
-`````````
+```
 
 **Content Cardsの操作**<br>
 `class_type` はフィルターとして渡され、一致する `class_type` を持つContent Cardsのみを返します。
@@ -292,7 +292,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
     return @[];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -341,7 +341,7 @@ func convertContentCards(_ cards: [ABKContentCard], for classTypes: [ContentCard
   }
   return contentCardables
 }
-`````````
+```
 
 **Content Cardsペイロードデータからのカスタムオブジェクトの初期化**<br>
 `class_type` は、ペイロードデータから初期化されるカスタムオブジェクトを決定するために使用されます。
@@ -358,7 +358,7 @@ func contentCardable(with metaData: [ContentCardKey: Any], for classType: Conten
     return nil
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 **ペイロードデータの操作**<br>
@@ -402,7 +402,7 @@ Content Cardsの配列をループし、一致する `class_type` を持つカ�
 
   return contentCardables;
 }
-`````````
+```
 
 **Content Cardsペイロードデータからのカスタムオブジェクトの初期化**<br>
 `class_type` は、ペイロードデータから初期化されるカスタムオブジェクトを決定するために使用されます。
@@ -419,7 +419,7 @@ Content Cardsの配列をループし、一致する `class_type` を持つカ�
       return nil;
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -504,7 +504,7 @@ func addContentCardToView(with message: Message) {
         break
     }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **クリック時の動作に `class_type` を使用する**<br>
@@ -522,7 +522,7 @@ func addContentCardToView(with message: Message) {
       break;
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -566,7 +566,7 @@ Content Cardsを活用して、ユーザーのためのダイナミックでイ�
 customObject.logContentCardImpression()
 customObject.logContentCardClicked()
 customObject.logContentCardDismissed()
-`````````
+```
 
 **`ABKContentCard` の取得**<br>
 カスタムオブジェクトから渡された `idString` は、関連付けられたContent Cardsを識別して分析をログに記録するために使用されます。
@@ -583,7 +583,7 @@ extension BrazeManager {
     return contentCards?.first(where: { $0.idString == idString })
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 **分析のロギング**<br>
@@ -592,7 +592,7 @@ extension BrazeManager {
 [customObject logContentCardImpression];
 [customObject logContentCardClicked];
 [customObject logContentCardDismissed];
-`````````
+```
 
 **`ABKContentCard` の取得**<br>
 カスタムオブジェクトから渡された `idString` は、関連付けられたContent Cardsを識別して分析をログに記録するために使用されます。
@@ -609,7 +609,7 @@ extension BrazeManager {
 
   return filteredArray.firstObject;
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -631,7 +631,7 @@ enum ContentCardKey: String {
   case extras
   ...
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
@@ -641,7 +641,7 @@ static NSString *const ContentCardKeyClassType = @"class_type";
 static NSString *const ContentCardKeyDismissible = @"dismissible";
 static NSString *const ContentCardKeyExtras = @"extras";
 ...
-`````````
+```
 {% endtab %}
 {% endtabs %}
 {% enddetails %}

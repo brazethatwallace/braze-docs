@@ -39,7 +39,7 @@ URLは、[サポートされているLiquidパーソナライゼーションタ�
 {% raw %}
 ```liquid
 https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom_attribute.${attribute1}}}
-`````````
+```
 {% endraw %}
 
 カスタム定義のLiquid変数の短縮もサポートしています。以下にいくつかの例を示します。
@@ -50,7 +50,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 `````````liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
-`````````
+```
 {% endraw %}
 
 ### Liquid変数によってレンダリングされたURLの短縮 {#shorten-urls-rendered-by-liquid-variables}
@@ -130,4 +130,4 @@ FROM USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED AS c
     ON s.user_id = c.user_id
       AND (s.message_variation_id = c.message_variation_id OR s.canvas_step_message_variation_id = c.canvas_step_message_variation_id)
 WHERE s.send_id IS NOT NULL;
-`````````
+```

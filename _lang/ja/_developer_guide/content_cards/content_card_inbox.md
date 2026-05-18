@@ -42,7 +42,7 @@ class ContentCardsApplication : Application() {
         Braze.configure(this, config)
     }
 }
-`````````
+```
 
 `````````kotlin file=ContentCardsInboxScreen.kt
 import android.content.Intent
@@ -165,7 +165,7 @@ fun ContentCardItem(
         }
     }
 }
-`````````
+```
 
 !!step
 lines-MainApplication.kt=12
@@ -232,7 +232,7 @@ class ContentCardsApplication : Application() {
         Braze.configure(this, config)
     }
 }
-`````````
+```
 
 `````````kotlin file=ContentCardInboxActivity.kt
 import android.content.Intent
@@ -333,7 +333,7 @@ class ContentCardsActivity : ComponentActivity() {
         }
     }
 }
-`````````
+```
 
 `````````xml file=content_card_inbox.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -361,7 +361,7 @@ class ContentCardsActivity : ComponentActivity() {
             android:layout_weight="1" />
     </LinearLayout>
 
-`````````
+```
 
 !!step
 lines-MainApplication.kt=12
@@ -452,7 +452,7 @@ struct ContentView: View {
     }
 }
 
-`````````
+```
 
 `````````swift file=SampleApp.swift
 import SwiftUI
@@ -467,7 +467,7 @@ struct SampleApp: App {
         }
     }
 }
-`````````
+```
 
 `````````swift file=BrazeInboxView.swift
 import SwiftUI
@@ -527,7 +527,7 @@ class BrazeInboxViewController: UITableViewController {
         }
     }
 }
-`````````
+```
 
 !!step
 lines-AppDelegate.swift=15
@@ -681,7 +681,7 @@ braze.subscribeToContentCardsUpdates((updates) => {
 });
 
 braze.requestContentCardsRefresh();
-`````````
+```
 
 `````````html file=index.html
 <!DOCTYPE html>
@@ -732,7 +732,7 @@ braze.requestContentCardsRefresh();
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-`````````
+```
 
 !!step
 lines-main.js=3-4,9

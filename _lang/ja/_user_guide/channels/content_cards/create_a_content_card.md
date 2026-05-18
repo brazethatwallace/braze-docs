@@ -259,8 +259,8 @@ Content Cardsが送信された後、ユーザーに配信される準備がで�
 2. キャンペーンを複製し、編集を行い、新しいバージョンを起動します。
 
 キャンペーンを複製する場合、新しいバージョンのオーディエンスを定義する必要があります。セグメンテーションフィルターを使用して、更新されたカードを受信するユーザーを制御します。
-* ユーザーがContent Cardsに再適格になるべきでない場合、`Received Message from キャンペーン` フィルターの条件を `Has Not` に設定して、以前のバージョンのContent Cardsを受信していないユーザーをフィルタリングできます。
-* 以前のカードを受信したユーザーがX日後に再適格になるべき場合、`Last Received Message from specific campaign` フィルターをX日以上前に設定するか、**または** `Received Message from キャンペーン` フィルターの条件を `Has Not` に設定できます。
+* ユーザーがContent Cardsに再適格になるべきでない場合、`Received Message from Campaign` フィルターの条件を `Has Not` に設定して、以前のバージョンのContent Cardsを受信していないユーザーをフィルタリングできます。
+* 以前のカードを受信したユーザーがX日後に再適格になるべき場合、`Last Received Message from specific campaign` フィルターをX日以上前に設定するか、**または** `Received Message from Campaign` フィルターの条件を `Has Not` に設定できます。
 
 ###### 影響 {#impact}
 

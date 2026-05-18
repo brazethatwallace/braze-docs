@@ -26,7 +26,7 @@ description: "この参照記事では、Liquidを通してBrazeのキャンペ�
 {% raw %}
 ```liquid
 {% catalog_items Games %}
-`````````
+```
 {% endraw %}
 
 ### ステップ 2: カタログアイテムを選択する {#step-2-select-catalog-items}
@@ -40,7 +40,7 @@ description: "この参照記事では、Liquidを通してBrazeのキャンペ�
 {% catalog_items Games 1234 %}
 
 Get {{ items[0].title }} for just {{ items[0].price }}!
-`````````
+```
 {% endraw %}
 
 これは次のように表示されます。
@@ -72,7 +72,7 @@ Liquidの周りにテキストを追加することで、メッセージをさ�
 `````````liquid
 Get the ultimate trio {% catalog_items Games 1234 1235 1236 %}
 {{ items[0].title }}, {{ items[1].title }}, and {{ items[2].title }} today!
-`````````
+```
 {% endraw %}
 
 これは以下のように返されます。
@@ -97,7 +97,7 @@ You can use catalog items to create conditional statements. For example, you can
 {% else %}
   Check out {{ items[0].title }} at full price.
 {% endif %}
-`````````
+```
 {% endraw %}
 
 この例では、`catalog_items`タグが`Games`カタログからアイテム`1234`を取得し、`if`ステートメントが`on_sale`フィールドをチェックして異なるメッセージを表示します。
@@ -114,7 +114,7 @@ Message if the venue name's size is 10 characters or fewer.
 {% else %}
 {% abort_message('no venue_name') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 この例では、`venue_name`フィールドの文字数が10文字より多いか少ないかによって、異なるメッセージが表示されます。`venue_name`が空白の場合、メッセージは中止されます。
@@ -134,7 +134,7 @@ Liquidの構文エラーを避けるには、メッセージ作成画面の**+**
 {% catalog_items Games 1234 %}
 
 {{ items[0].image_link }}
-`````````
+```
 {% endraw %}
 
 ![画像フィールドで使用されるカタログのLiquidタグを含むコンテンツカード作成画面。]({% image_buster /assets/img_archive/catalog_image_link1.png %})
@@ -147,7 +147,7 @@ Liquidがレンダリングされると、次のように表示されます。
 
 テンプレート化を使って、カスタム属性に基づいてカタログアイテムをダイナミックに取得することもできます。例えば、あるユーザーがカスタム属性`wishlist`（カタログのゲームIDの配列）を持っているとします。
 
-`````````json
+```json
 {
     "attributes": [
         {
@@ -156,7 +156,7 @@ Liquidがレンダリングされると、次のように表示されます。
         }
     ]
 }
-`````````
+```
 
 {% alert note %}
 カタログ内のJSONオブジェクトは、APIを介してのみ取り込まれます。CSVファイルを使用してJSONオブジェクトをアップロードすることはできません。
@@ -176,7 +176,7 @@ Liquidテンプレートを使用することで、ウィッシュリストのID
 {% catalog_items Games {{ wishlist[0] }} %}
 
 Get {{ items[0].title }} now for {{ items[0].price }}!
-`````````
+```
 {% endraw %}
 
 以下のように表示されます。
@@ -210,17 +210,17 @@ Hi ${first_name},
 
 {% catalog_items Messages greet_msg :rerender %}
 {{ items[0].Welcome_Message }}
-`````````
+```
 {% endraw %}
 
 次のように表示されます。
 
 {% raw %}
-`````````
+```
 Hi Peter,
 
 Welcome to our store, Peter!
-`````````
+```
 {% endraw %}
 
 {% alert note %}

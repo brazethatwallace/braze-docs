@@ -21,7 +21,7 @@ Braze.getInstance(context).logPurchase(
    BigDecimal price,
    int quantity
 );
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -33,7 +33,7 @@ Braze.getInstance(context).logPurchase(
   price: BigDecimal,
   quantity: Int
 )
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -57,7 +57,7 @@ Braze.getInstance(context).logPurchase(
 BrazeProperties purchaseProperties = new BrazeProperties();
 purchaseProperties.addProperty("key", "value");
 Braze.getInstance(context).logPurchase(..., purchaseProperties);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -66,7 +66,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties);
 val purchaseProperties = BrazeProperties()
 purchaseProperties.addProperty("key", "value")
 Braze.getInstance(context).logPurchase(..., purchaseProperties)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

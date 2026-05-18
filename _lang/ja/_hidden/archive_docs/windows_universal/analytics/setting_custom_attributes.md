@@ -33,7 +33,7 @@ Brazeには、ユーザーに属性を割り当てるメソッドが用意され
 
 ```csharp
 Appboy.SharedInstance.AppboyUser.FirstName = "User's First Name"
-`````````
+```
 
 ## カスタムユーザー属性の割り当て {#assigning-custom-user-attributes}
 
@@ -45,33 +45,33 @@ Appboy.SharedInstance.AppboyUser.FirstName = "User's First Name"
 {% tab Boolean %}
 `````````csharp
 bool SetCustomAttribute(STRING_KEY, BOOL_VALUE);
-`````````
+```
 {% endtab %}
 {% tab Integer %}
 `````````csharp
 bool SetCustomAttribute(STRING_KEY, INT_VALUE);
-`````````
+```
 {% endtab %}
 {% tab Double or Float %}
 `````````csharp
 bool SetCustomAttribute(STRING_KEY, DOUBLE_VALUE);
-`````````
+```
 Brazeでは、FLOAT値とDOUBLE値がデータベースでまったく同じように処理されます。
 {% endtab %}
 {% tab String %}
 `````````csharp
 bool SetCustomAttribute(STRING_KEY, "STRING_VALUE");
-`````````
+```
 {% endtab %}
 {% tab Long %}
 `````````csharp
 bool SetCustomAttribute(STRING_KEY, LONG_VALUE);
-`````````
+```
 {% endtab %}
 {% tab Date %}
 `````````csharp
 bool SetCustomAttribute(STRING_KEY, "DATE_VALUE");
-`````````
+```
 >  Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（例: `2013-07-16T19:20:30+01:00`）または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（例: `2016-12-14T13:32:31.601-0800`）のいずれかである必要があります。
 {% endtab %}
 {% tab Array %}
@@ -82,7 +82,7 @@ Appboy.SharedInstance.EventLogger.SetCustomAttributeArray("custom_attribute_arra
 Appboy.SharedInstance.EventLogger.AddToCustomAttributeArray("custom_attribute_array_test", testAddString);
 // Removing a value from an array type custom attribute
 Appboy.SharedInstance.EventLogger.RemoveFromCustomAttributeArray("custom_attribute_array_test", testRemString);
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -92,7 +92,7 @@ Appboy.SharedInstance.EventLogger.RemoveFromCustomAttributeArray("custom_attribu
 
 `````````csharp
 bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
-`````````
+```
 
 ### カスタム属性の設定解除 {#unsetting-a-custom-attribute}
 
@@ -100,7 +100,7 @@ bool IncrementCustomAttribute(STRING_KEY, INCREMENT_INTEGER_VALUE);
 
 `````````csharp
 bool UnsetCustomAttribute(STRING_KEY);
-`````````
+```
 
 ### REST APIによるカスタム属性の設定 {#setting-a-custom-attribute-via-the-rest-api}
 

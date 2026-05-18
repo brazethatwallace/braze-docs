@@ -8,7 +8,7 @@ Braze SDK では、ユーザーエンゲージメントやユーザーの理解�
 
 ```dart
 braze.changeUser('user_id');
-`````````
+```
 
 ## カスタムイベントのログ記録
 
@@ -16,7 +16,7 @@ Braze でカスタムイベントを記録することで、アプリの使用�
 
 `````````dart
 braze.logCustomEvent('my_custom_event');
-`````````
+```
 
 カスタムイベントで properties オブジェクトを渡すことによって、イベントに関するメタデータを追加できます。
 
@@ -26,7 +26,7 @@ braze.logCustomEvent('custom_event_with_properties', properties: {
     'key2': ['value2', 'value3'],
     'key3': false,
 });
-`````````
+```
 
 ## カスタム属性を記録する
 
@@ -38,7 +38,7 @@ Braze によって自動的に収集されるユーザー 属性を設定する�
 
 `````````dart
 braze.setFirstName('Name');
-`````````
+```
 
 以下の属性がサポートされています。
 
@@ -63,7 +63,7 @@ braze.setFirstName('Name');
 
 `````````dart
 braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
-`````````
+```
 
 {% endtab %}
 {% tab Integer %}
@@ -73,27 +73,27 @@ braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
 braze.setIntCustomUserAttribute("custom int attribute key", integer);
 // Increment Integer Attribute
 braze.incrementCustomUserAttribute("key", integer);
-`````````
+```
 
 {% endtab %}
 {% tab Double %}
 `````````dart
 braze.setDoubleCustomUserAttribute("custom double attribute key", double);
-`````````
+```
 
 {% endtab %}
 {% tab String %}
 
 `````````dart
 braze.setStringCustomUserAttribute("custom string attribute", "string custom attribute");
-`````````
+```
 
 {% endtab %}
 {% tab Date %}
 
 `````````dart
 braze.setDateCustomUserAttribute("custom date attribute key", date);
-`````````
+```
 {% endtab %}
 {% tab Array %}
 
@@ -102,7 +102,7 @@ braze.setDateCustomUserAttribute("custom date attribute key", date);
 braze.addToCustomAttributeArray("key", "attribute");
 // Removing an item from an Array
 braze.removeFromCustomAttributeArray("key", "attribute");
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -110,7 +110,7 @@ braze.removeFromCustomAttributeArray("key", "attribute");
 
 `````````dart
 braze.unsetCustomUserAttribute('attribute_key');
-`````````
+```
 
 ## 購入のロギング
 
@@ -120,7 +120,7 @@ Braze は複数の通貨での購入に対応しています。米ドル以外�
 
 `````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: properties);
-`````````
+```
 
 以下に例を示します。
 
@@ -128,7 +128,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 braze.logPurchase('product_id', 'USD', 9.99, 1, properties: {
     'key1': 'value'
 });
-`````````
+```
 
 {% alert tip %}
 値 `10 USD` と数量 `3` を渡すと、10 ドルの購入 3 件、合計 30 ドルがユーザープロファイルに記録されます。数量は 100 以下でなければなりません。購入額がマイナスになることもあります。

@@ -42,7 +42,7 @@ if (getFeatureFlag("new_shopping_cart").enabled) {
 else {
     // Show the old homepage
 }
-`````````
+```
 
 {% endtab %}
 {% tab Java %}
@@ -53,7 +53,7 @@ if (braze.getFeatureFlag("new_shopping_cart").getEnabled()) {
 } else {
   // Show the old homepage
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -64,7 +64,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 } else {
   // Show the old homepage
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

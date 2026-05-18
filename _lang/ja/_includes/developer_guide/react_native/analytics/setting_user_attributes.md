@@ -10,7 +10,7 @@ Brazeが自動的に収集するユーザー属性を設定するには、SDKに
 
 ```javascript
 Braze.setFirstName("Name");
-`````````
+```
 
 以下の属性がサポートされています。
 
@@ -34,7 +34,7 @@ Braze は、定義済みのユーザー属性メソッドに加えて、アプ�
 Braze.setCustomUserAttribute("attribute_key", "attribute_value", function(){
     // optional onResult callback
 });
-`````````
+```
 
 #### カスタム属性の設定解除
 
@@ -42,7 +42,7 @@ Braze.setCustomUserAttribute("attribute_key", "attribute_value", function(){
 Braze.unsetCustomUserAttribute("attribute_key", function(){
     // optional onResult callback
 });
-`````````
+```
 
 #### カスタム属性配列
 
@@ -55,4 +55,4 @@ Braze.addToCustomUserAttributeArray("my-attribute-array", "new or existing value
 
 
 Braze.removeFromCustomUserAttributeArray("my-attribute-array", "existing value", optionalCallback);
-`````````
+```

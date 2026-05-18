@@ -51,7 +51,7 @@ Brazeと外部AIまたはコミュニケーションシステム間の統合は�
   "phone_number": "{{${phone_number}}}",
   "message": "{{whats_app.${inbound_message_body}}}"
 }
-`````````
+```
 {% endraw %}
 
 {: start="5"}
@@ -105,7 +105,7 @@ curl -X POST \
     ]
   }' \
   {{Braze endpoint}}/campaigns/trigger/send
-`````````
+```
 {% endraw %}
 
 これで、AIチャットボットワークフローを構築するための確かな基盤が整いました！

@@ -25,14 +25,14 @@ Braze Swift SDK では、プッシュアクションボタン用の URL 処理�
 a
 ```swift
 UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications.categories)
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
 `````````objc
 [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:BRZNotifications.categories];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -50,7 +50,7 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 
 `````````swift
 AppDelegate.braze?.notifications.handleUserNotification(response: response, withCompletionHandler: completionHandler)
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -58,7 +58,7 @@ AppDelegate.braze?.notifications.handleUserNotification(response: response, with
 `````````objc
 [AppDelegate.braze.notifications handleUserNotificationWithResponse:response
                                               withCompletionHandler:completionHandler];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -91,7 +91,7 @@ Braze.Notifications.categories.insert(
        )
 )
 UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications.categories)
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -114,7 +114,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 
 [categories addObject:likeCategory];
 [UNUserNotificationCenter.currentNotificationCenter setNotificationCategories:categories];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -158,7 +158,7 @@ Braze.Notifications.categories.insert(
        )
 )
 UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications.categories)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -187,7 +187,7 @@ do {
 
 // Prior to iOS 16. Deprecated in iOS 17+.
 UIApplication.shared.applicationIconBadgeNumber = 0
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -203,7 +203,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 // Prior to iOS 16. Deprecated in iOS 17+.
 [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -231,7 +231,7 @@ afconvert ツールを使用して、サウンドを変換できます。たと�
 
 `````````bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
-`````````
+```
 
 {% alert tip %}
 QuickTime Player でサウンドを開き、[**ムービー**] メニューから [**ムービーインスペクターを表示**] を選択するとサウンドのデータ形式を確認できます。

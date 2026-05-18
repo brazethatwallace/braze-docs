@@ -33,14 +33,14 @@ description: "この記事では、「スケジュールされたAPIトリガー
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "canvas_id": (required, string) the Canvas identifier,
   "schedule_id": (required, string) the `schedule_id` to delete (obtained from the response to create schedule)
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -52,7 +52,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -60,6 +60,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
   "canvas_id": "canvas_identifier",
   "schedule_id": "schedule_identifier"
 }'
-`````````
+```
 
 {% endapi %}

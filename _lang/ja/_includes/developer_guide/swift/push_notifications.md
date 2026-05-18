@@ -29,7 +29,7 @@ Swift SDKを使って、Brazeから受信したリモート通知の処理を自
 ```swift
 let configuration = Braze.Configuration(apiKey: "{YOUR-BRAZE-API-KEY}", endpoint: "{YOUR-BRAZE-API-ENDPOINT}")
 configuration.push.automation = true
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -37,7 +37,7 @@ configuration.push.automation = true
 `````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"{YOUR-BRAZE-API-KEY}" endpoint:@"{YOUR-BRAZE-API-ENDPOINT}"];
 configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnablingAllAutomations:YES];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -67,7 +67,7 @@ SDKによって実行されるオートメーションステップは、コー�
 // Enable all automations and disable the automatic notification authorization request at launch.
 configuration.push.automation = true
 configuration.push.automation.requestAuthorizationAtLaunch = false
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -76,7 +76,7 @@ configuration.push.automation.requestAuthorizationAtLaunch = false
 // Enable all automations and disable the automatic notification authorization request at launch.
 configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnablingAllAutomations:YES];
 configuration.push.automation.requestAuthorizationAtLaunch = NO;
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -116,7 +116,7 @@ if #available(iOS 12.0, *) {
 center.requestAuthorization(options: options) { granted, error in
   print("Notification authorization, granted: \(granted), error: \(String(describing: error))")
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -136,7 +136,7 @@ if (@available(iOS 12.0, *)) {
                               @"error: %@)",
                               granted, error);
 }];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -157,7 +157,7 @@ APNsの登録が完了したら、結果の `deviceToken` をBrazeに渡して�
 
 `````````swift
 AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -166,7 +166,7 @@ AppDelegate.braze?.notifications.register(deviceToken: deviceToken)
 
 `````````objc
 [AppDelegate.braze.notifications registerDeviceToken:deviceToken];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -193,7 +193,7 @@ if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotificati
   return
 }
 completionHandler(.noData)
-`````````
+```
 
 次に、アプリの `userNotificationCenter(_:didReceive:withCompletionHandler:)` メソッドに以下を追加します。
 
@@ -205,7 +205,7 @@ if let braze = AppDelegate.braze, braze.notifications.handleUserNotification(
   return
 }
 completionHandler()
-`````````
+```
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
@@ -219,7 +219,7 @@ if (processedByBraze) {
 }
 
 completionHandler(UIBackgroundFetchResultNoData);
-`````````
+```
 
 次に、アプリの `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` メソッドに次のコードを追加します。
 
@@ -231,7 +231,7 @@ if (processedByBraze) {
 }
 
 completionHandler();
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -259,7 +259,7 @@ func userNotificationCenter(
     completionHandler([.alert])
   }
 }
-`````````
+```
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
@@ -281,7 +281,7 @@ func userNotificationCenter(
     completionHandler(UNNotificationPresentationOptionAlert);
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -310,7 +310,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
     }
   }
 }' https://rest.iad-01.braze.com/messages/send
-`````````
+```
 
 ## プッシュ通知の更新をサブスクライブする {#subscribing-to-push-notifications-updates}
 
@@ -328,7 +328,7 @@ Brazeが処理したプッシュ通知ペイロードにアクセスするには
 let cancellable = AppDelegate.braze?.notifications.subscribeToUpdates(payloadTypes: [.open, .received]) { payload in
   print("Braze processed notification with title '\(payload.title)' and body '\(payload.body)'")
 }
-`````````
+```
 
 {% alert important %}
 プッシュ受信イベントは、フォアグラウンド通知と `content-available` バックグラウンド通知に対してのみトリガーされます。終了中に受信した通知や、`content-available` フィールドのないバックグラウンド通知ではトリガーされません。
@@ -344,7 +344,7 @@ BRZNotificationsPayloadTypeFilter *filters = [[BRZNotificationsPayloadTypeFilter
 BRZCancellable *cancellable = [notifications subscribeToUpdatesWithPayloadTypes:filters update:^(BRZNotificationsPayload * _Nonnull payload) {
   NSLog(@"Braze processed notification with title '%@' and body '%@'", payload.title, payload.body);
 }];
-`````````
+```
 
 {% alert important %}
 プッシュ受信イベントは、フォアグラウンド通知と `content-available` バックグラウンド通知に対してのみトリガーされます。終了中に受信した通知や、`content-available` フィールドのないバックグラウンド通知ではトリガーされません。
@@ -392,7 +392,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
   }
 }
-`````````
+```
 
 完全な例については、Braze Swift SDKリポジトリ内の[プッシュ通知手動統合サンプル](https://github.com/braze-inc/braze-swift-sdk/blob/e31907eaa0dbd151dc2e6826de66cc494242ba60/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift#L1-L120)を参照してください。
 

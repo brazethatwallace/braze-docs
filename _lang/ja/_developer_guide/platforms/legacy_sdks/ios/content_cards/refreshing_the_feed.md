@@ -22,14 +22,14 @@ noindex: true
 
 ```objc
 [[Appboy sharedInstance] requestContentCardsRefresh];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.requestContentCardsRefresh()
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

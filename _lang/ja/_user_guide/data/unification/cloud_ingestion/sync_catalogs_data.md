@@ -96,7 +96,7 @@ description: "このページでは、カタログデータの同期方法の概
 
 ```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-`````````
+```
 
 次のフィールドを持つ、CDI 連携に使用するテーブルを 1 つ以上作成します。
 
@@ -108,7 +108,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
   payload JSON,
   deleted BOOLEAN
 );
-`````````
+```
 
 | フィールド名 | タイプ | モード |
 | --- | --- | --- |
@@ -137,7 +137,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 `````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-`````````
+```
 
 `````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
@@ -147,7 +147,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
   deleted BOOLEAN,
   payload STRING, STRUCT, or MAP
 );
-`````````
+```
 
 | フィールド名 | タイプ | モード |
 | --- | --- | --- |
@@ -185,7 +185,7 @@ CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
   DELETED BIT
 )
 GO
-`````````
+```
 
 {:start="2"}
 
@@ -228,7 +228,7 @@ AWS 側の通知や権限に関する一般的な問題については、[Granti
 {"id":"85","payload":"{\"product_name\":\"Product 85\",\"price\":85.85}"}
 {"id":"86","payload":"{\"product_name\":\"Product 86\",\"price\":86.86}"}
 {"id":"1","payload":"{\"product_name\":\"Product 1\",\"price\":1.01}","deleted":true}
-`````````
+```
 
 {% alert important %}
 ソースファイルの各行には有効な JSON が含まれている必要があります。そうでない場合、ファイルはスキップされます。
@@ -240,14 +240,14 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 86,"{""product_name"": ""Product 86"", ""price"": 86.86}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
-`````````
+```
 {% endsubtab %}
 {% subtab 削除なしの CSV カタログ %}
 `````````plaintext
 ID,PAYLOAD
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}"
 86,"{""product_name"": ""Product 86"", ""price"": 86.86}"
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -282,7 +282,7 @@ SELECT
             'attribute_3',
             attribute_3)
     )as PAYLOAD FROM "product_catalog_1";
-`````````
+```
 {% endtab %}
 {% tab Redshift %}
 `````````sql
@@ -299,7 +299,7 @@ SELECT
             'attribute_3',
             attribute_3)
     ) as PAYLOAD FROM "product_catalog_1";
-`````````
+```
 {% endtab %}
 {% tab BigQuery %}
 `````````sql
@@ -314,7 +314,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SEL
       )
     ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.product_catalog_1`);
-`````````
+```
 {% endtab %}
 {% tab Databricks %}
 `````````sql
@@ -329,7 +329,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SEL
       )
     ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.product_catalog_1`);
-`````````
+```
 {% endtab %}
 {% tab Microsoft Fabric %}
 `````````sql
@@ -340,7 +340,7 @@ AS SELECT
     JSON_OBJECT('attribute_1':attribute_1, 'attribute_2':attribute_2, 'attribute_3':attribute_3, 'attribute_4':attribute_4) as PAYLOAD
 
 FROM [braze].[product_catalog] ;
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

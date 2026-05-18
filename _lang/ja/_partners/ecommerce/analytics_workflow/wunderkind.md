@@ -178,11 +178,11 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 {% details 商品放棄のペイロード例 %}
-`````````json
+```json
 {
   "canvas_id": "<your_canvas_id>",
   "recipients": [
@@ -211,11 +211,11 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 {% details カテゴリーまとめのペイロード例 %}
-`````````json
+```json
 {
   "canvas_id": "<your_canvas_id>",
   "recipients": [
@@ -245,11 +245,11 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 {% details 再入荷のペイロード例 %}
-`````````json
+```json
 {
   "canvas_id": "<your_canvas_id>",
   "recipients": [
@@ -278,11 +278,11 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 {% details 価格低下のペイロード例 %}
-`````````json
+```json
 {
   "canvas_id": "<your_canvas_id>",
   "recipients": [
@@ -313,11 +313,11 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 {% details 在庫僅少のペイロード例 %}
-`````````json
+```json
 {
   "canvas_id": "<your_canvas_id>",
   "recipients": [
@@ -347,13 +347,13 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 {% details メール識別子の例（代替） %}
 `user_alias`の代わりにBrazeの`email`フィールドでキャンバスをトリガーする場合、受信者には`email`と`prioritization`のみを含める必要があります（[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)を参照）。`context`オブジェクトは他の例と同じです。
 
-`````````json
+```json
 {
   "canvas_id": "<your_canvas_id>",
   "recipients": [
@@ -380,12 +380,12 @@ Wunderkindは6種類のシグナルタイプをサポートしています。各
     }
   ]
 }
-`````````
+```
 {% enddetails %}
 
 ### Liquidの使用例 {#example-liquid-usage}
 
-Wunderkindが`/canvas/trigger/send`を呼び出すと、各受信者の`context`オブジェクトに渡されたキーと値がキャンバスエントリデータになります。メッセージステップでは、`context` Liquid名前空間を使用してそれらを参照します。例えば、[キャンバス contextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object/)および[メッセージ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step/)に記載されているように {% raw %}`{{context.${WkPurpose}}}`{% endraw %} を使用します。正しいLiquid構文を使用する以外に、追加の設定は不要です。
+Wunderkindが`/canvas/trigger/send`を呼び出すと、各受信者の`context`オブジェクトに渡されたキーと値がキャンバスエントリデータになります。メッセージステップでは、`context` Liquid名前空間を使用してそれらを参照します。例えば、[Canvas contextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object/)および[メッセージ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step/)に記載されているように {% raw %}`{{context.${WkPurpose}}}`{% endraw %} を使用します。正しいLiquid構文を使用する以外に、追加の設定は不要です。
 
 Brazeの出力タグを`for`タグの条件内にネストしないでください。[Liquidの使用]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#use-a-filter-result-in-a-for-loop)に記載されているように、まず`context`から`Items`配列を変数に割り当ててからループしてください。`assign`行ではBrazeのキャンバスエントリ形式 {% raw %}`{{context.${Items}}}`{% endraw %} を使用します（[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags/#summary-of-supported-tags)を参照）。
 
@@ -402,7 +402,7 @@ Brazeの出力タグを`for`タグの条件内にネストしないでくださ�
     </td>
   </tr>
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 ---
@@ -435,5 +435,5 @@ Wunderkindは**Braze Currents**を使用してBrazeからパフォーマンス�
 - [Wunderkindヘルプセンター — Signals for Braze Overview](https://support.wunderkind.co/hc/en-us/articles/47156898436891-Signals-for-Braze-Overview)
 - [Wunderkind Developer Portal — Integration Overview](https://developer.wunderkind.co/docs/integration-overview)
 - [APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-- [キャンバス contextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object/)
+- [Canvas contextオブジェクト]({{site.baseurl}}/api/objects_filters/context_object/)
 - [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)

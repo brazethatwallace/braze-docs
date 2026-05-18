@@ -14,7 +14,7 @@ BrazeのUI要素はデフォルトの外観と操作感を備えており、ニ�
   body .ab-in-app-message .ab-message-header {
     font-style: italic;
   }
-`````````
+```
 
 詳細については[JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html)を参照してください。
 
@@ -27,7 +27,7 @@ braze.initialize("YOUR-API-KEY", {
     baseUrl: "YOUR-API-ENDPOINT",
     inAppMessageZIndex: 12000
 });
-`````````
+```
 
 {% alert important %}
 この機能は、Web Braze SDK v3.3.0以降でのみ使用できます。
@@ -43,7 +43,7 @@ braze.initialize("YOUR-API-KEY", {
     baseUrl: "YOUR-API-ENDPOINT",
     requireExplicitInAppMessageDismissal: true
 });
-`````````
+```
 
 ## 表示タイミングをカスタマイズする {#customizing-display-timing}
 
@@ -84,7 +84,7 @@ const deferredMessage = braze.getDeferredInAppMessage();
 if (deferredMessage) {
     braze.showInAppMessage(deferredMessage);
 }
-`````````
+```
 
 関連する配信カスタマイズのガイダンスについては、以下を参照してください。
 
@@ -97,4 +97,4 @@ if (deferredMessage) {
 
 `````````javascript
 braze.initialize('api-key', { openInAppMessagesInNewTab: true} );
-`````````
+```

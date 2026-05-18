@@ -35,29 +35,29 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "canvas_id": (required, string) see Canvas identifier,
-  "context": (optional, object) キャンバス context properties that apply to all users in this request,
+  "context": (optional, object) Canvas context properties that apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if `recipients` is omitted,
   "audience": (optional, connected audience object) see connected audience,
   // Including 'audience' will only send to users in the audience
-  "recipients": (optional, array; if not provided and broadcast is not set to 'false', message sends to the entire segment targeted by the キャンバス)
+  "recipients": (optional, array; if not provided and broadcast is not set to 'false', message sends to the entire segment targeted by the Canvas)
     [{
       // Either "external_user_id" or "user_alias" or "email" is required. Requests must specify only one.
       "user_alias": (optional, user alias object) user alias of user to receive message,
       "external_user_id": (optional, string) external identifier of user to receive message,
       "email": (optional, string) email address of user to receive message,
       "prioritization": (optional, array) prioritization array; required when using email,
-      "context": (optional, object) キャンバス context properties for this user; key-value pairs override any keys that conflict with the parent `context`,
+      "context": (optional, object) Canvas context properties for this user; key-value pairs override any keys that conflict with the parent `context`,
       "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases; if set to `false`, an `attributes` object must also be included,
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }],
     ...
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -71,7 +71,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/send' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -140,7 +140,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
     }
   ]
 }'
-`````````
+```
 
 ## レスポンスの詳細 {#response-details}
 
@@ -150,15 +150,15 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 
 ステータスコード`201`は、次のレスポンス本文を返す可能性があります。キャンバスがアーカイブ、停止、または一時停止されている場合、このエンドポイントを通じてキャンバスは送信されません。
 
-`````````
+```
 {
-  "notice": "The キャンバス is paused. Resume the キャンバス to ensure trigger requests will take effect.",
+  "notice": "The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect.",
   "dispatch_id": "example_dispatch_id",
   "message": "success"
 }
-`````````
+```
 
-キャンバスがアーカイブされている場合、次の`notice`メッセージが表示されます：「The キャンバス is archived. Unarchive the キャンバス to ensure trigger requests will take effect.」キャンバスがアクティブでない場合、次の`notice`メッセージが表示されます：「The キャンバス is paused. Resume the キャンバス to ensure trigger requests will take effect.」
+キャンバスがアーカイブされている場合、次の`notice`メッセージが表示されます：「The Canvas is archived. Unarchive the Canvas to ensure trigger requests will take effect.」キャンバスがアクティブでない場合、次の`notice`メッセージが表示されます：「The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect.」
 
 リクエストで致命的なエラーが発生した場合は、エラーコードと説明について[エラーとレスポンス]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 

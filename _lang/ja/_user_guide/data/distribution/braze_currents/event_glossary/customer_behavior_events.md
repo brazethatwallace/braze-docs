@@ -81,7 +81,7 @@ Random Bucket Number
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -98,7 +98,7 @@ Custom Events
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.CustomEvent
 
 {
@@ -119,11 +119,11 @@ Custom Events
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // [Braze Custom Event] (users.behaviors.CustomEvent)
 
 {
@@ -146,11 +146,11 @@ Custom Events
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.CustomEvent
 
 {
@@ -175,11 +175,11 @@ Custom Events
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // [Braze Custom Event] (users.behaviors.CustomEvent)
 
 {
@@ -201,11 +201,11 @@ Custom Events
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // users.behaviors.CustomEvent
 
 {
@@ -232,7 +232,7 @@ Custom Events
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -255,7 +255,7 @@ Attribution
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.InstallAttribution
 
 {
@@ -266,11 +266,11 @@ Attribution
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Install Attribution (users.behaviors.InstallAttribution)
 
 {
@@ -285,11 +285,11 @@ Attribution
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.InstallAttribution
 
 {
@@ -306,11 +306,11 @@ Attribution
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Install Attribution (users.behaviors.InstallAttribution)
 
 {
@@ -326,11 +326,11 @@ Attribution
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Install Attribution (users.behaviors.InstallAttribution)
 
 {
@@ -350,7 +350,7 @@ Attribution
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -367,7 +367,7 @@ Locations
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.Location
 
 {
@@ -390,11 +390,11 @@ Locations
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Location (users.behaviors.Location)
 
 {
@@ -422,11 +422,11 @@ Locations
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.Location
 
 {
@@ -454,11 +454,11 @@ Locations
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Location (users.behaviors.Location)
 
 {
@@ -485,11 +485,11 @@ Locations
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Location (users.behaviors.Location)
 
 {
@@ -520,7 +520,7 @@ Locations
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -546,7 +546,7 @@ Purchases
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.Purchase
 
 {
@@ -568,11 +568,11 @@ Purchases
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Purchase (users.behaviors.Purchase)
 
 {
@@ -598,11 +598,11 @@ Purchases
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.Purchase
 
 {
@@ -628,11 +628,11 @@ Purchases
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Purchase (users.behaviors.Purchase)
 
 {
@@ -657,11 +657,11 @@ Purchases
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Purchased (users.behaviors.Purchase)
 
 {
@@ -690,7 +690,7 @@ Purchases
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -717,7 +717,7 @@ Sessions
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.app.FirstSession
 
 {
@@ -738,11 +738,11 @@ Sessions
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // First Session (users.behaviors.app.FirstSession)
 
 {
@@ -761,11 +761,11 @@ Sessions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.app.FirstSession
 
 {
@@ -787,11 +787,11 @@ Sessions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // First Session (users.behaviors.app.FirstSession)
 
 {
@@ -811,11 +811,11 @@ Sessions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // First Session (users.behaviors.app.FirstSession)
 
 {
@@ -839,7 +839,7 @@ Sessions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -856,7 +856,7 @@ Sessions
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.app.SessionEnd
 
 {
@@ -873,11 +873,11 @@ Sessions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Session End (users.behaviors.app.SessionEnd)
 
 {
@@ -897,11 +897,11 @@ Sessions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.app.SessionEnd
 
 {
@@ -923,11 +923,11 @@ Sessions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Session End (users.behaviors.app.SessionEnd)
 
 {
@@ -948,11 +948,11 @@ Sessions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Session Ended (users.behaviors.app.SessionEnd)
 
 {
@@ -977,7 +977,7 @@ Sessions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -998,7 +998,7 @@ Sessions
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.app.SessionStart
 
 {
@@ -1014,11 +1014,11 @@ Sessions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Session Start (users.behaviors.app.SessionStart)
 
 {
@@ -1037,11 +1037,11 @@ Sessions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.app.SessionStart
 
 {
@@ -1062,11 +1062,11 @@ Sessions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Session Start (users.behaviors.app.SessionStart)
 
 {
@@ -1086,11 +1086,11 @@ Sessions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Session Started (users.behaviors.app.SessionStart)
 
 {
@@ -1114,7 +1114,7 @@ Sessions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -1131,7 +1131,7 @@ Live Activity, Push To Start Token
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
 {
@@ -1148,11 +1148,11 @@ Live Activity, Push To Start Token
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Live Activity Push To Start Token Change (users.behaviors.liveactivity.PushToStartTokenChange)
 
 {
@@ -1171,11 +1171,11 @@ Live Activity, Push To Start Token
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
 {
@@ -1196,11 +1196,11 @@ Live Activity, Push To Start Token
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Live Activity Push To Start Token Change (users.behaviors.liveactivity.PushToStartTokenChange)
 
 {
@@ -1220,11 +1220,11 @@ Live Activity, Push To Start Token
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Live Activity Push To Start Token Changed (users.behaviors.liveactivity.PushToStartTokenChange)
 
 {
@@ -1248,7 +1248,7 @@ Live Activity, Push To Start Token
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -1265,7 +1265,7 @@ Live Activity, Update Token
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
 {
@@ -1282,11 +1282,11 @@ Live Activity, Update Token
   "update_token" : "(optional, string) Live Activity update token",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Live Activity Update Token Change (users.behaviors.liveactivity.UpdateTokenChange)
 
 {
@@ -1305,11 +1305,11 @@ Live Activity, Update Token
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
 {
@@ -1330,11 +1330,11 @@ Live Activity, Update Token
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Live Activity Update Token Change (users.behaviors.liveactivity.UpdateTokenChange)
 
 {
@@ -1354,11 +1354,11 @@ Live Activity, Update Token
     "update_token" : "(optional, string) Live Activity update token"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Live Activity Update Token Changed (users.behaviors.liveactivity.UpdateTokenChange)
 
 {
@@ -1382,7 +1382,7 @@ Live Activity, Update Token
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -1399,7 +1399,7 @@ Push, Token State Change
 
 {% tabs %}
 {% tab Cloud Storage %}
-`````````json
+```json
 // users.behaviors.pushnotification.TokenStateChange
 
 {
@@ -1424,11 +1424,11 @@ Push, Token State Change
   "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
   "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Amplitude %}
-`````````json
+```json
 // Push Notification Token State Change (users.behaviors.pushnotification.TokenStateChange)
 
 {
@@ -1455,11 +1455,11 @@ Push, Token State Change
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-`````````json
+```json
 // users.behaviors.pushnotification.TokenStateChange
 
 {
@@ -1488,11 +1488,11 @@ Push, Token State Change
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Mixpanel %}
-`````````json
+```json
 // Push Notification Token State Change (users.behaviors.pushnotification.TokenStateChange)
 
 {
@@ -1520,11 +1520,11 @@ Push, Token State Change
     "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
   }
 }
-`````````
+```
 {% endtab %}
 
 {% tab Segment %}
-`````````json
+```json
 // Push Notification Token State Changed (users.behaviors.pushnotification.TokenStateChange)
 
 {
@@ -1555,7 +1555,7 @@ Push, Token State Change
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -1634,7 +1634,7 @@ SELECT
 FROM latest_token_state
 WHERE rn = 1
   AND PUSH_TOKEN_STATE_CHANGE_TYPE != 'remove';
-`````````
+```
 
 
 {% endapi %}

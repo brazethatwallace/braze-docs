@@ -149,7 +149,7 @@ if (featureFlag?.enabled) {
 } else {
   console.log(`expanded_user_profile is not enabled`);
 }
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -161,7 +161,7 @@ if featureFlag?.enabled == true {
 } else {
   print("expanded_user_profile is not enabled")
 }
-`````````
+```
 {% endtab %}
 {% tab Android %}
 {% subtabs local %}
@@ -173,7 +173,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 } else {
   Log.i(TAG, "expanded_user_profile is not enabled");
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -185,7 +185,7 @@ if (featureFlag?.enabled == true) {
 } else {
   Log.i(TAG, "expanded_user_profile is not enabled.")
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -199,7 +199,7 @@ if (featureFlag?.enabled) {
 } else {
   console.log(`expanded_user_profile is not enabled`);
 }
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
@@ -210,7 +210,7 @@ if (featureFlag != null && featureFlag.Enabled) {
 } else {
   Console.WriteLine("expanded_user_profile is not enabled");
 }
-`````````
+```
 {% endtab %}
 
 {% tab Cordova %}
@@ -221,7 +221,7 @@ if (featureFlag?.enabled) {
 } else {
   console.log(`expanded_user_profile is not enabled`);
 }
-`````````
+```
 {% endtab %}
 {% tab Flutter %}
 `````````dart
@@ -231,7 +231,7 @@ if (featureFlag?.enabled == true) {
 } else {
   print("expanded_user_profile is not enabled");
 }
-`````````
+```
 {% endtab %}
 
 {% tab Roku %}
@@ -242,7 +242,7 @@ if featureFlag <> invalid and featureFlag.enabled
 else
   print "expanded_user_profile is not enabled"
 end if
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -257,14 +257,14 @@ end if
 
 `````````javascript
 braze.logFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
 
 `````````swift
 braze.featureFlags.logFeatureFlagImpression(id: "expanded_user_profile")
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -273,14 +273,14 @@ braze.featureFlags.logFeatureFlagImpression(id: "expanded_user_profile")
 
 `````````java
 braze.logFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 `````````kotlin
 braze.logFeatureFlagImpression("expanded_user_profile")
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -289,30 +289,30 @@ braze.logFeatureFlagImpression("expanded_user_profile")
 
 `````````javascript
 Braze.logFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
 
 `````````csharp
 Appboy.AppboyBinding.LogFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
 `````````javascript
 BrazePlugin.logFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 {% endtab %}
 {% tab Flutter %}
 `````````dart
 braze.logFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 {% endtab %}
 {% tab Roku %}
 `````````brightscript
 m.Braze.logFeatureFlagImpression("expanded_user_profile");
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -346,7 +346,7 @@ const imageProperty = featureFlag.getImageProperty("homepage_icon");
 
 // Returns the JSON object property as a FeatureFlagJsonPropertyValue
 const jsonProperty = featureFlag.getJsonProperty("footer_settings");
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -372,7 +372,7 @@ let imageProperty: String? = featureFlag.imageProperty(key: "homepage_icon")
 
 // Returns the JSON object property as a [String: Any] dictionary
 let jsonObjectProperty: [String: Any]? = featureFlag.jsonObjectProperty(key: "footer_settings")
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -400,7 +400,7 @@ String imageProperty = featureFlag.getImageProperty("homepage_icon");
 
 // Returns the JSON object property as a JSONObject
 JSONObject jsonObjectProperty = featureFlag.getJSONProperty("footer_settings");
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -426,7 +426,7 @@ val imageProperty: String?  = featureFlag.getImageProperty("homepage_icon")
 
 // Returns the JSON object property as a JSONObject
 val jsonObjectProperty: JSONObject? = featureFlag.getJSONProperty("footer_settings")
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -451,7 +451,7 @@ const imageProperty = await Braze.getFeatureFlagImageProperty("expanded_user_pro
 
 // Returns the JSON object property as an object
 const jsonObjectProperty = await Braze.getFeatureFlagJSONProperty("expanded_user_profile", "footer_settings");
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
@@ -480,7 +480,7 @@ var imageProperty = featureFlag.GetImageProperty("homepage_icon");
 
 // Returns the JSON object property as a JSONObject
 var jsonObjectProperty = featureFlag.GetJSONProperty("footer_settings");
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
@@ -503,7 +503,7 @@ const imageProperty = await BrazePlugin.getFeatureFlagImageProperty("expanded_us
 
 // Returns the JSON object property as an object
 const jsonObjectProperty = await BrazePlugin.getFeatureFlagJSONProperty("expanded_user_profile", "footer_settings");
-`````````
+```
 
 {% endtab %}
 {% tab Flutter %}
@@ -529,7 +529,7 @@ var imageProperty = featureFlag.getImageProperty("homepage_icon");
 
 // Returns the JSON object property as a Map<String, dynamic> collection
 var jsonObjectProperty = featureFlag.getJSONProperty("footer_settings");
-`````````
+```
 
 {% endtab %}
 {% tab Roku %}
@@ -552,7 +552,7 @@ homepage_icon = featureFlag.getImageProperty("homepage_icon")
 
 ' Returns the JSON object property
 footer_settings = featureFlag.getJSONProperty("footer_settings")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -567,7 +567,7 @@ const features = getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
 }
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -577,7 +577,7 @@ let features = braze.featureFlags.featureFlags
 for let feature in features {
   print("Feature: \(feature.id)", feature.enabled)
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -589,7 +589,7 @@ List<FeatureFlag> features = braze.getAllFeatureFlags();
 for (FeatureFlag feature: features) {
   Log.i(TAG, "Feature: ", feature.getId(), feature.getEnabled());
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -599,7 +599,7 @@ val featureFlags = braze.getAllFeatureFlags()
 featureFlags.forEach { feature ->
   Log.i(TAG, "Feature: ${feature.id} ${feature.enabled}")
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -611,7 +611,7 @@ const features = await Braze.getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
 }
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
@@ -621,7 +621,7 @@ List<FeatureFlag> features = Appboy.AppboyBinding.GetAllFeatureFlags();
 foreach (FeatureFlag feature in features) {
   Console.WriteLine("Feature: {0} - enabled: {1}", feature.ID, feature.Enabled);
 }
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
@@ -630,7 +630,7 @@ const features = await BrazePlugin.getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
 }
-`````````
+```
 {% endtab %}
 {% tab Flutter %}
 `````````dart
@@ -638,7 +638,7 @@ List<BrazeFeatureFlag> featureFlags = await braze.getAllFeatureFlags();
 featureFlags.forEach((feature) {
   print("Feature: ${feature.id} ${feature.enabled}");
 });
-`````````
+```
 {% endtab %}
 {% tab Roku %}
 `````````brightscript
@@ -646,7 +646,7 @@ features = m.braze.getAllFeatureFlags()
 for each feature in features
       print "Feature: " + feature.id + " enabled: " + feature.enabled.toStr()
 end for
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -667,7 +667,7 @@ braze.refreshFeatureFlags(() => {
 }, () => {
   console.log(`Failed to refresh feature flags.`);
 });
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -681,7 +681,7 @@ braze.featureFlags.requestRefresh { result in
     print("Failed to refresh feature flags:", error)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -690,14 +690,14 @@ braze.featureFlags.requestRefresh { result in
 
 `````````java
 braze.refreshFeatureFlags();
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 `````````kotlin
 braze.refreshFeatureFlags()
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -706,30 +706,30 @@ braze.refreshFeatureFlags()
 
 `````````javascript
 Braze.refreshFeatureFlags();
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
 
 `````````csharp
 Appboy.AppboyBinding.RefreshFeatureFlags();
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
 `````````javascript
 BrazePlugin.refreshFeatureFlags();
-`````````
+```
 {% endtab %}
 {% tab Flutter %}
 `````````dart
 braze.refreshFeatureFlags();
-`````````
+```
 {% endtab %}
 {% tab Roku %}
 `````````brightscript
 m.Braze.refreshFeatureFlags()
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -749,7 +749,7 @@ const subscriptionId = braze.subscribeToFeatureFlagsUpdates((features) => {
 });
 // Unregister this event listener
 braze.removeSubscription(subscriptionId);
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -762,7 +762,7 @@ let subscription = braze.featureFlags.subscribeToUpdates { features in
 }
 // Cancel the subscription
 subscription.cancel()
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -776,7 +776,7 @@ braze.subscribeToFeatureFlagsUpdates(event -> {
     Log.i(TAG, "Feature: ", feature.getId(), feature.getEnabled());
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -788,7 +788,7 @@ braze.subscribeToFeatureFlagsUpdates() { event ->
     Log.i(TAG, "Feature: ${feature.id}")
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -800,7 +800,7 @@ braze.subscribeToFeatureFlagsUpdates() { event ->
 Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
   console.log(`featureFlagUpdates`, JSON.stringify(featureFlags));
 });
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
@@ -814,7 +814,7 @@ Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
 BrazePlugin.subscribeToFeatureFlagUpdates((featureFlags) => {
     console.log(`featureFlagUpdates`, JSON.stringify(featureFlags));
 });
-`````````
+```
 {% endtab %}
 {% tab Flutter %}
 
@@ -830,7 +830,7 @@ featureFlagsStreamSubscription = braze.subscribeToFeatureFlags((featureFlags) {
 
 // Cancel stream subscription
 featureFlagsStreamSubscription.cancel();
-`````````
+```
 
 {% subtabs %}
 {% subtab Flutter SDK 18.0.0以降 %}
@@ -852,7 +852,7 @@ Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイ�
 `````````brightscript
 ' Define a function called `onFeatureFlagChanges` to be called when feature flags are refreshed
 m.BrazeTask.ObserveField("BrazeFeatureFlags", "onFeatureFlagChanges")
-`````````
+```
 {% endtab %}
 
 {% tab React Hook %}
@@ -881,7 +881,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
   return featureFlag;
 };
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -925,7 +925,7 @@ Brazeは、現在フィーチャーフラグが有効になっているユーザ
 
 `````````plaintext
 BEHAVIOR_PRODUCT_FEATURE
-`````````
+```
 
 次のように置き換えます。
 
@@ -940,7 +940,7 @@ BEHAVIOR_PRODUCT_FEATURE
 
 `````````plaintext
 show_animation_profile_driver
-`````````
+```
 
 ### 事前に計画する {#planning-ahead}
 

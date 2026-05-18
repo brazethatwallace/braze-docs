@@ -5,7 +5,7 @@ alias: /action_paths/
 page_order: 1
 page_type: reference
 description: "このリファレンス記事では、ユーザーをアクションに基づいて分類できるコンポーネントであるアクションパスの使用方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # アクションパス {#action-paths}

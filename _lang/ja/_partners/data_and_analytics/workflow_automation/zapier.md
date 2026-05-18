@@ -69,7 +69,7 @@ Webhookを設定するときに、次の設定を使用してWebhook URLにBraze
     }
   ]
 }
-`````````
+```
 
 ![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 

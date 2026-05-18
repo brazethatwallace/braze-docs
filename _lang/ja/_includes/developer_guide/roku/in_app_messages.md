@@ -17,7 +17,7 @@
 
 ```brightscript
 m.BrazeTask.observeField("BrazeInAppMessage", "onInAppMessageReceived")
-`````````
+```
 
 ### ステップ 2: トリガーメッセージにアクセスする {#step-2-access-triggered-messages}
 
@@ -28,7 +28,7 @@ sub onInAppMessageReceived()
   in_app_message = m.BrazeTask.BrazeInAppMessage
   ...
 end sub
-`````````
+```
 
 ## メッセージフィールド {#message-fields}
 

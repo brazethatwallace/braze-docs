@@ -70,7 +70,7 @@ Profile
   "update_source" : "(required, string) The source of this update",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

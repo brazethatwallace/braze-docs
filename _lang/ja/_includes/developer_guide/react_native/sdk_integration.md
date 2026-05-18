@@ -26,12 +26,12 @@ SDKを統合するには、React Nativeバージョン0.71以降が必要です�
 {% tab npm %}
 ```bash
 npm install @braze/react-native-sdk
-`````````
+```
 {% endtab %}
 {% tab yarn %}
 `````````bash
 yarn add @braze/react-native-sdk
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -55,7 +55,7 @@ Braze Expoプラグインのバージョンが4.1.0以上であることを確�
 
 `````````bash
 npx expo install @braze/expo-plugin
-`````````
+```
 
 ##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
 
@@ -89,7 +89,7 @@ npx expo install @braze/expo-plugin
 
 以下のコードスニペットは、`app.json`の設定例です。
 
-`````````json
+```json
 {
   "expo": {
     "plugins": [
@@ -121,7 +121,7 @@ npx expo install @braze/expo-plugin
     ]
   }
 }
-`````````
+```
 
 ###### Androidプッシュ通知アイコンの設定 {#android-push-icons}
 
@@ -149,7 +149,7 @@ Braze Expoプラグインは、Androidのdrawableリソースシステムを使�
 
 以下のコードスニペットは、`app.json`で`@drawable/`プレフィックスを使用してAndroid通知アイコンを参照する方法です。
 
-`````````json
+```json
 {
   "expo": {
     "plugins": [
@@ -163,7 +163,7 @@ Braze Expoプラグインは、Androidのdrawableリソースシステムを使�
     ]
   }
 }
-`````````
+```
 
 {% alert important %}
 アイコンを参照する際には、相対パス（例：`src/assets/images/icon.png`）を使用したり、ファイル拡張子を含めたりしないでください。Expoプラグインは、プリビルド処理後にAndroidネイティブフォルダ内でアイコンを正しく見つけられるように、`@drawable/`プレフィックスが必要です。
@@ -183,7 +183,7 @@ Android通知アイコンの詳細については、[Androidの通知アイコ�
 
 `````````bash
 npx expo prebuild
-`````````
+```
 
 [Expoドキュメント](https://docs.expo.dev/workflow/customizing/)の指定に従い、アプリケーションを実行します。設定オプションを変更した場合は、アプリケーションを再度プリビルドして実行してください。
 
@@ -203,7 +203,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
     }
 }
-`````````
+```
 
 これでプロジェクトにKotlinが追加されます。
 
@@ -216,7 +216,7 @@ buildscript {
 <resources>
   <bool name="com_braze_enable_delayed_initialization">true</bool>
 </resources>
-`````````
+```
 
 {% alert note %}
 `braze.xml`には他のネイティブ設定値（プッシュ、セッションタイムアウト、ログ設定など）を追加することもできます。これらはJavaScriptから`Braze.initialize()`が呼び出された際に自動的に適用されます。
@@ -227,7 +227,7 @@ buildscript {
 `````````xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-`````````
+```
 
 {% alert tip %}
 Braze Android SDKバージョン12.2.0以降では、`gradle.properties`ファイルに`importBrazeLocationLibrary=true`を設定することで、android-sdk-locationライブラリーを自動的にプルインできます。
@@ -249,7 +249,7 @@ public void onCreate() {
     ...
     registerActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener());
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -260,7 +260,7 @@ override fun onCreate() {
     ...
     registerActivityLifecycleCallbacks(BrazeActivityLifecycleCallbackListener())
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -276,7 +276,7 @@ public void onNewIntent(Intent intent) {
     super.onNewIntent(intent);
     setIntent(intent);
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -284,7 +284,7 @@ override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
     setIntent(intent)
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -300,7 +300,7 @@ override fun onNewIntent(intent: Intent) {
 pod 'BrazeKit', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeKit.podspec'
 pod 'BrazeUI', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeUI.podspec'
 pod 'BrazeLocation', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeLocation.podspec'
-`````````
+```
 
 **2.6 Podのインストール**
 
@@ -314,7 +314,7 @@ cd ios && pod install
 
 # To install using the React Native legacy architecture
 cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
-`````````
+```
 
 **2.7 Braze SDKの設定**
 
@@ -328,7 +328,7 @@ cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 `````````swift
 import BrazeKit
 import braze_react_native_sdk
-`````````
+```
 
 `application(_:didFinishLaunchingWithOptions:)`メソッドで、`BrazeReactInitializer.configure`を使用してネイティブ設定を登録します。ここではAPIキーやエンドポイントを設定しないでください。これらはJavaScriptの`Braze.initialize()`から提供されます。
 
@@ -358,7 +358,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -368,7 +368,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 `````````objc
 @import BrazeKit;
 @import braze_react_native_sdk;
-`````````
+```
 
 `application:didFinishLaunchingWithOptions:`メソッドで、`BrazeReactInitializer`を使用してネイティブ設定を登録します。ここではAPIキーやエンドポイントを設定しないでください。これらはJavaScriptの`Braze.initialize()`から提供されます。
 
@@ -388,7 +388,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   return YES;
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -411,7 +411,7 @@ Braze React Native SDKのバージョンが1.37.0以上であることを確認�
 
 `````````bash
 npx expo install @braze/expo-plugin
-`````````
+```
 
 ##### ステップ 2.2: app.jsonにプラグインを追加する {#step-22-add-the-plugin-to-your-appjson}
 
@@ -448,7 +448,7 @@ npx expo install @braze/expo-plugin
 
 以下のコードスニペットは、`app.json`の設定例です。
 
-`````````json
+```json
 {
   "expo": {
     "plugins": [
@@ -483,7 +483,7 @@ npx expo install @braze/expo-plugin
     ]
   }
 }
-`````````
+```
 
 ###### Androidプッシュ通知アイコンの設定 {#configuring-android-push-notification-icons}
 
@@ -510,7 +510,7 @@ Braze Expoプラグインは、Androidのdrawableリソースシステムを使�
 
 以下のコードスニペットは、`app.json`で`@drawable/`プレフィックスを使用してAndroid通知アイコンを参照する方法です。
 
-`````````json
+```json
 {
   "expo": {
     "plugins": [
@@ -524,7 +524,7 @@ Braze Expoプラグインは、Androidのdrawableリソースシステムを使�
     ]
   }
 }
-`````````
+```
 
 {% alert important %}
 アイコンを参照する際には、相対パス（例：`src/assets/images/icon.png`）を使用したり、ファイル拡張子を含めたりしないでください。Expoプラグインは、プリビルド処理後にAndroidネイティブフォルダ内でアイコンを正しく見つけられるように、`@drawable/`プレフィックスが必要です。
@@ -544,7 +544,7 @@ Android通知アイコンの詳細については、[Androidの通知アイコ�
 
 `````````bash
 npx expo prebuild
-`````````
+```
 
 [Expoドキュメント](https://docs.expo.dev/workflow/customizing/)の指定に従い、アプリケーションを実行します。設定オプションを変更した場合は、アプリケーションを再度プリビルドして実行する必要があります。
 
@@ -564,7 +564,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
     }
 }
-`````````
+```
 
 これでプロジェクトにKotlinが追加されます。
 
@@ -578,14 +578,14 @@ Brazeサーバーに接続するには、プロジェクトの`res/values`フォ
   <string translatable="false" name="com_braze_api_key">YOU_APP_IDENTIFIER_API_KEY</string>
   <string translatable="false" name="com_braze_custom_endpoint">YOUR_CUSTOM_ENDPOINT_OR_CLUSTER</string>
 </resources>
-`````````
+```
 
 以下のコードスニペットは、`AndroidManifest.xml`ファイルに必要な権限です。
 
 `````````xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-`````````
+```
 
 {% alert tip %}
 Braze Android SDKバージョン12.2.0以降では、`gradle.properties`ファイルに`importBrazeLocationLibrary=true`を設定することで、android-sdk-locationライブラリーを自動的にプルインできます。
@@ -607,7 +607,7 @@ public void onCreate() {
     ...
     registerActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener());
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -618,7 +618,7 @@ override fun onCreate() {
     ...
     registerActivityLifecycleCallbacks(BrazeActivityLifecycleCallbackListener())
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -634,7 +634,7 @@ public void onNewIntent(Intent intent) {
     super.onNewIntent(intent);
     setIntent(intent);
 }
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -642,7 +642,7 @@ override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
     setIntent(intent)
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -658,7 +658,7 @@ override fun onNewIntent(intent: Intent) {
 pod 'BrazeKit', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeKit.podspec'
 pod 'BrazeUI', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeUI.podspec'
 pod 'BrazeLocation', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeLocation.podspec'
-`````````
+```
 
 **ステップ 2.6: Podのインストール**
 
@@ -672,7 +672,7 @@ cd ios && pod install
 
 # To install using the React Native legacy architecture
 cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
-`````````
+```
 
 **ステップ 2.7: Braze SDKの設定**
 
@@ -683,7 +683,7 @@ cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 `````````swift
 import BrazeKit
 import braze_react_native_sdk
-`````````
+```
 
 `application(_:didFinishLaunchingWithOptions:)`メソッドで、API[キー]({{site.baseurl}}/api/identifier_types/)と[エンドポイント]({{site.baseurl}}/api/basics/#endpoints)をアプリの値に置き換えます。次に、設定を使用してBrazeインスタンスを作成し、簡単にアクセスできるよう`AppDelegate`で静的プロパティを作成します。
 
@@ -719,7 +719,7 @@ func application(
 // MARK: - AppDelegate.braze
 
 static var braze: Braze? = nil
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -728,7 +728,7 @@ static var braze: Braze? = nil
 `````````objc
 #import <BrazeKit/BrazeKit-Swift.h>
 #import "BrazeReactBridge.h"
-`````````
+```
 
 `application:didFinishLaunchingWithOptions:`メソッドで、API[キー]({{site.baseurl}}/api/identifier_types/)と[エンドポイント]({{site.baseurl}}/api/basics/#endpoints)をアプリの値に置き換えます。次に、設定を使用してBrazeインスタンスを作成し、簡単にアクセスできるよう`AppDelegate`で静的プロパティを作成します。
 
@@ -765,7 +765,7 @@ static Braze *_braze = nil;
 + (void)setBraze:(Braze *)braze {
   _braze = braze;
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -782,7 +782,7 @@ static Braze *_braze = nil;
 
 `````````javascript
 import Braze from "@braze/react-native-sdk";
-`````````
+```
 
 次に、アプリ識別子APIキーとSDKエンドポイントを指定して`Braze.initialize()`を呼び出し、Brazeインスタンスを作成します。アプリ内でこのメソッドを呼び出す場所については、以下のオプションを参照してください。
 
@@ -803,7 +803,7 @@ const App = () => {
     // Your app components
   );
 };
-`````````
+```
 
 #### 遅延初期化 {#delayed-initialization}
 
@@ -813,7 +813,7 @@ const App = () => {
 function onUserConsent() {
   Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 }
-`````````
+```
 
 {% alert warning %}
 iOSでは、`Braze.initialize()`の前に受信したプッシュ通知はキューに入れられ、初期化後に処理されます。Androidでは、SDKの初期化待ち中にプッシュ通知からのディープリンクは解決されません。アプリが起動時の即時ディープリンク処理に依存している場合は、代わりに[標準初期化](#standard-initialization)を使用してください。
@@ -833,7 +833,7 @@ const apiKey = Platform.select({
 }) ?? "";
 
 Braze.initialize(apiKey, "YOUR-SDK-ENDPOINT");
-`````````
+```
 
 #### 再初期化 {#re-initialization}
 
@@ -850,7 +850,7 @@ React Native SDK 19.1.0以前では、ネイティブの初期化はステップ
 
 `````````javascript
 import Braze from "@braze/react-native-sdk";
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -869,7 +869,7 @@ import Braze from "@braze/react-native-sdk";
 
 Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 Braze.changeUser("{some-user-id}");
-`````````
+```
 
 ダッシュボードの**Audience** > **Search Users**で`{some-user-id}`のユーザーを検索してください。そこで、セッションとデバイスデータが記録されたことを確認できます。
 
@@ -880,7 +880,7 @@ SDKの統合をテストするには、以下のコードスニペットでい�
 
 `````````javascript
 Braze.changeUser("userId");
-`````````
+```
 
 以下のコードスニペットは、アプリ起動時にユーザーIDを割り当てる例です。
 
@@ -898,7 +898,7 @@ const App = () => {
       ...
     </div>
   )
-`````````
+```
 
 Brazeダッシュボードで[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/#using-user-search)に移動し、`some-user-id`と一致するIDのユーザーを検索してください。そこで、セッションとデバイスデータが記録されたことを確認できます。
 

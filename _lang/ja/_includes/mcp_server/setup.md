@@ -27,7 +27,7 @@
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-`````````
+```
 
 出力は以下のようになります。
 
@@ -40,7 +40,7 @@ installing to /Users/Isaiah.Robinson/.local/bin
   uv
   uvx
 everything's installed!
-`````````
+```
 {% endtab %}
 
 {% tab Windows %}
@@ -48,7 +48,7 @@ everything's installed!
 
 `````````powershell
 irm https://astral.sh/uv/install.ps1 | iex
-`````````
+```
 
 出力は以下のようになります。
 
@@ -61,7 +61,7 @@ installing to C:\Users\YourUser\.local\bin
   uv.exe
   uvx.exe
 everything's installed!
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -266,7 +266,7 @@ MCPクライアントを設定する際には、APIキーの識別子とワー�
 {% tab Cursor %}
 [Cursor](https://cursor.com/)で、**Settings** > **Tools and Integrations** > **MCP Tools** > **Add Custom MCP**に移動し、以下のスニペットを追加します。
 
-`````````json
+```json
 {
   "mcpServers": {
     "braze": {
@@ -279,11 +279,11 @@ MCPクライアントを設定する際には、APIキーの識別子とワー�
     }
   }
 }
-`````````
+```
 
 `key-identifier`と`rest-endpoint`を、Brazeの**API Keys**ページにある対応する値で置き換えます。設定は以下のようになります。
 
-`````````json
+```json
 {
   "mcpServers": {
     "braze": {
@@ -296,7 +296,7 @@ MCPクライアントを設定する際には、APIキーの識別子とワー�
     }
   }
 }
-`````````
+```
 
 完了したら、設定を保存してCursorを再起動します。
 {% endtab %}
@@ -306,13 +306,13 @@ Gemini CLIはユーザー設定を`~/.gemini/settings.json`から読み込みま
 `````````powershell
 mkdir -p ~/.gemini
 nano ~/.gemini/settings.json
-`````````
+```
 
 次に、`yourname`をターミナルプロンプトの`@BZXXXXXXXX`の前にある文字列に正確に置き換えます。続いて、`key-identifier`と`rest-endpoint`を、Brazeの**API Keys**ページにある対応する値で置き換えます。
 
 設定は以下のようになります。
 
-`````````json
+```json
 {
   "mcpServers": {
     "braze": {
@@ -325,7 +325,7 @@ nano ~/.gemini/settings.json
     }
   }
 }
-`````````
+```
 
 完了したら、設定を保存してGemini CLIを再起動します。次に、Geminiで以下のコマンドを実行して、Braze MCPサーバーがリストに表示されていること、およびツールとスキーマが使用可能であることを確認します。
 
@@ -334,7 +334,7 @@ gemini
 /mcp
 /mcp desc
 /mcp schema
-`````````
+```
 
 利用可能なツールとスキーマとともに`braze`サーバーが一覧表示されるはずです。
 
@@ -369,7 +369,7 @@ Braze MCPサーバーを設定したら、MCPクライアントにテストプ�
 
 `````````bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-`````````
+```
 
 #### `spawn uvx ENOENT`エラー {#spawn-uvx-enoent-error}
 
@@ -377,19 +377,19 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 `````````bash
 which uvx
-`````````
+```
 
 コマンドは以下のようなメッセージを返すはずです。
 
 `````````bash
 /Users/alex-lee/.local/bin/uvx
-`````````
+```
 
 メッセージをクリップボードにコピーし、[クライアントの設定ファイル](#configure-client)を開きます。`"command": "uvx"`をコピーしたパスで置き換え、クライアントを再起動します。例：
 
-`````````json
+```json
 "command": "/Users/alex-lee/.local/bin/uvx"
-`````````
+```
 
 #### パッケージのインストールに失敗する {#package-installation-fails}
 
@@ -397,7 +397,7 @@ which uvx
 
 `````````bash
 uvx --python 3.12 braze-mcp-server@latest
-`````````
+```
 
 ### クライアント設定 {#client-configuration}
 

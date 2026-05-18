@@ -38,7 +38,7 @@ Bundle params = new Bundle();
 params.putString("genre", "pop");
 params.putInt("number of times listened", 42);
 mFirebaseAnalytics.logEvent("played song", params);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -48,7 +48,7 @@ val params = Bundle()
 params.putString("genre", "pop")
 params.putInt("number of times listened", 42);
 mFirebaseAnalytics.logEvent("played song", params)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -65,7 +65,7 @@ Bundle params = new Bundle();
 params.putString("customAttributeKey", "favorite song");
 params.putString("customAttributeValue", "Private Eyes");
 mFirebaseAnalytics.logEvent("customAttribute", params);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -75,7 +75,7 @@ val params = Bundle()
 params.putString("customAttributeKey", "favorite song")
 params.putString("customAttributeValue", "Private Eyes")
 mFirebaseAnalytics.logEvent("customAttribute", params)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -91,7 +91,7 @@ mFirebaseAnalytics.logEvent("customAttribute", params)
 Bundle params = new Bundle();
 params.putString("externalUserId", userId);
 mFirebaseAnalytics.logEvent("changeUser", params);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -100,7 +100,7 @@ mFirebaseAnalytics.logEvent("changeUser", params);
 val params = Bundle()
 params.putString("externalUserId", userId)
 mFirebaseAnalytics.logEvent("changeUser", params)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -246,7 +246,7 @@ public class BrazeGtmTagProvider implements CustomTagProvider {
     Braze.getInstance(sApplicationContext).changeUser(userId);
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -358,7 +358,7 @@ class BrazeGtmTagProvider : CustomTagProvider {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -370,14 +370,14 @@ class BrazeGtmTagProvider : CustomTagProvider {
 
 `````````java
 BrazeGtmTagProvider.setApplicationContext(this.getApplicationContext());
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 BrazeGtmTagProvider.setApplicationContext(this.applicationContext)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

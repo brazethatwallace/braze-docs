@@ -111,7 +111,7 @@ func didReceive(_ notification: UNNotification) {
 
   ...
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
@@ -126,7 +126,7 @@ func didReceive(_ notification: UNNotification) {
     [NSException raise:NSGenericException format:@"Key-Value Pairs are incorrect"];
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -172,7 +172,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
     // do something else
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
@@ -183,7 +183,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
     completion(UNNotificationContentExtensionResponseOptionDoNotDismiss);
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -257,7 +257,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
     remoteStorage.store([customEventDictionary], forKey: .pendingCustomEvents)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -278,7 +278,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
     [remoteStorage store:@[ customEventDictionary ] forKey:RemoteStorageKeyPendingCustomAttributes];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -328,7 +328,7 @@ func logPendingCustomEventsIfNecessary() {
   // 6
   remoteStorage.removeObject(forKey: .pendingCustomEvents)
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -364,7 +364,7 @@ func logPendingCustomEventsIfNecessary() {
   // 6
   [remoteStorage removeObjectForKey:RemoteStorageKeyPendingCustomEvents];
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -398,7 +398,7 @@ func saveCustomAttribute() {
     remoteStorage.store([customAttributeDictionary], forKey: .pendingCustomAttributes)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 ````````` objc
@@ -419,7 +419,7 @@ func saveCustomAttribute() {
     [remoteStorage store:@[ customAttributeDictionary ] forKey:RemoteStorageKeyPendingCustomAttributes];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -457,7 +457,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -481,7 +481,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
     [self setCustomAttributeWith:key andValue:[keysAndValues objectForKey:key]];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -515,7 +515,7 @@ func saveUserAttribute() {
     remoteStorage.store([data], forKey: .pendingUserAttributes)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -542,7 +542,7 @@ func saveUserAttribute() {
     [remoteStorage store:@[data] forKey:RemoteStorageKeyPendingUserAttributes];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -576,7 +576,7 @@ func logPendingUserAttributesIfNecessary() {
   // 4
   remoteStorage.removeObject(forKey: .pendingUserAttributes)
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -607,7 +607,7 @@ func logPendingUserAttributesIfNecessary() {
   // 4
   [remoteStorage removeObjectForKey:RemoteStorageKeyPendingUserAttributes];
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -665,7 +665,7 @@ class RemoteStorage: NSObject {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -729,7 +729,7 @@ class RemoteStorage: NSObject {
       [NSException raise:NSGenericException format:@"Unexpected FormatType."];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}
@@ -763,7 +763,7 @@ extension UserAttribute: Codable {
     self = .email(email)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -793,7 +793,7 @@ extension UserAttribute: Codable {
 }
 
 @end
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}
@@ -813,7 +813,7 @@ extension Dictionary where Key == String, Value == Any {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -832,7 +832,7 @@ extension Dictionary where Key == String, Value == Any {
 }
 
 @end
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}

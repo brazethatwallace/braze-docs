@@ -101,7 +101,7 @@ Lyticsで、ナビゲーションバーの**Data**コンソール内の**Jobs**�
         }
     ]
 }
-`````````
+```
 
 オーディエンスのエクスポートに含まれ、Brazeにまだ存在していない`external_id`に対し、Brazeで新しいユーザーが作成されます。
 
@@ -133,9 +133,9 @@ Lytics Webhook URLは、BrazeからLytics APIにメッセージを送信する�
 
 Webhook URLを以下のように設定します。
 
-`````````
+```
 https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
-`````````
+```
 
 `<ACCOUNT-NUMBER>`をアカウント番号に置き換え、`<LYTICS-API-TOKEN>`をLytics APIトークンに置き換えます。
 
@@ -145,7 +145,7 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
 
 リクエストタイプ（HTTP `POST`メソッド）を定義し、残りのWebhookの詳細を設定したら、Webhookをテストおよびデプロイできます。以下は、BrazeでWebhookを設定した後のPOSTリクエスト本文のサンプルです。
 
-`````````json
+```json
 {
   "city": "AnyTown",
   "country": "United States",
@@ -160,7 +160,7 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
   "email": "john.smith@email.com",
   "braze_id": "xxxxxx"
 }
-`````````
+```
 
 ### CSVファイルから {#from-a-csv-file}
 

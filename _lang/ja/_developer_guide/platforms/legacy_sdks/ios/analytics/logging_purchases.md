@@ -29,14 +29,14 @@ Brazeは複数の通貨での購入に対応しています。米ドル以外の
 [[Appboy sharedInstance] logPurchase:@"your product ID"
 inCurrency:@"USD"
 atPrice:[[[NSDecimalNumber alloc] initWithString:@"0.99"] autorelease]];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPrice: NSDecimalNumber(string: "0.99"))
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -69,14 +69,14 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 inCurrency:@"USD"
 atPrice:[[[NSDecimalNumber alloc] initWithString:@"0.99"] autorelease]
 withProperties:@{@"key1":"value1"}];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPrice: NSDecimalNumber(string: "0.99"), withProperties: ["key1":"value1"])
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

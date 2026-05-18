@@ -35,11 +35,11 @@ description: "この記事では、「ユーザー設定センターのリスト
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/list \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答
 
-`````````json
+```json
 {
   "preference_centers": [
     {
@@ -68,6 +68,6 @@ curl --location -g --request GET https://rest.iad-01.braze.com/preference_center
     }
   ]
 }
-`````````
+```
 
 {% endapi %}

@@ -46,7 +46,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 --Request Body
 --- template_id: "6ad1507f-ca10-44c4-95bf-6e4gay901kc5"
-`````````
+```
 
 ## 応答 {#response}
 
@@ -56,7 +56,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 
 ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
 
-`````````json
+```json
 {
     "translations": [
         {
@@ -89,13 +89,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
         }
     ]
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
     "errors": [
         {
@@ -103,6 +103,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
         }
     ]
 }
-`````````
+```
 
 {% endapi %}

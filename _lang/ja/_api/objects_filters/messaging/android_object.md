@@ -40,7 +40,7 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
    "buttons" : (optional, array of Android push action button objects) push action buttons to display
    "conversation_data" : (optional, Android Conversation Push Object) the data to be displayed through Conversation Push
 }
-`````````
+```
 
 `extra` オブジェクトにキー `appboy_image_url` を指定すると、「Big Picture」通知を送信できます。`appboy_image_url` の値は、画像がホストされている場所にリンクするURLである必要があります。画像は縦横比2:1にトリミングし、600×300px以上にしてください。
 
@@ -58,14 +58,14 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
 
 ## Androidプッシュアクションボタンオブジェクト {#android-push-action-button-object}
 
-`````````json
+```json
 {
   "text": (required, string) the button's text,
   "action": (optional, string) one of "OPEN_APP", "URI", "DEEP_LINK", or "CLOSE", defaults to "OPEN_APP",
   "uri": (optional, string) a web URL or Deep Link URI,
   "use_webview": (optional, boolean) whether to open the web URL inside the app if the action is "URI", defaults to true
 }
-`````````
+```
 
 ## Android会話プッシュオブジェクト {#android-conversation-push-object}
 
@@ -73,31 +73,31 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
 
 このメッセージのコンセプトは、[Android People and Conversations](https://developer.android.com/guide/topics/ui/conversations)のプッシュドキュメントに記載されているコンセプトに対応しています。
 
-`````````json
+```json
 {
   "shortcut_id" : (required, string) the sharing shortcut identifier,
   "reply_person_id" : (required, string) the identifier of the Person this push is replying to,
   "messages" : (required, array of Android Conversation Push Message Object),
   "persons" : (required, array of Android Conversation Push Person Object)
 }
-`````````
+```
 
 ### Android会話プッシュメッセージオブジェクト {#android-conversation-push-message-object}
 
-`````````json
+```json
 {
   "text" : (required, string) the text of this message,
   "timestamp" : (required, integer) the unix timestamp of when this message was sent,
   "person_id" : (required, string) the Person identifier of this message's sender,
 }
-`````````
+```
 
 ### Android会話プッシュPersonオブジェクト {#android-conversation-push-person-object}
 
-`````````json
+```json
 {
   "id" : (required, string) the identifier of this Person,
   "name" : (required, string) the display name of this Person
 }
-`````````
+```
 

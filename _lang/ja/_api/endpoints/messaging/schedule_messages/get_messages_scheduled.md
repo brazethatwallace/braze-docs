@@ -39,16 +39,16 @@ description: "この記事では、「スケジュールされた今後のキャ
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_broadcasts?end_time=2018-09-01T00:00:00-04:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "scheduled_broadcasts": [
     {
       "name": (string) the name of the scheduled broadcast,
-      "id": (stings) the キャンバス or campaign identifier,
+      "id": (stings) the Canvas or campaign identifier,
       "type": (string) the broadcast type either キャンバス or キャンペーン,
       "tags": (array) an array of tag names formatted as strings,
       "next_send_time": (string) The next send time formatted in ISO 8601, may also include time zone if not local/intelligent delivery,
@@ -56,6 +56,6 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
     }
   ]
 }
-`````````
+```
 
 {% endapi %}

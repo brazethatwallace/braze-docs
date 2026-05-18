@@ -75,7 +75,7 @@ description: "このリファレンス記事では、Braze キャンバスのコ
     "carrier": "overnight"
   }
 }
-`````````
+```
 
 [オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)または[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)フィルターでは、ドット記法を使用してコンテキスト変数名としてパスを入力します（例: `order_summary.shipping.carrier`）。フィルターが評価されると、Brazeはそのパスを値 `overnight` に解決します。
 

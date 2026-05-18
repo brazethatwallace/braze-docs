@@ -76,7 +76,7 @@ description: "この記事では、メッセージでロケールを使用する
 {% raw %}
 ```
 <a href="https://{% translation id_1 %}example.shop.com{% endtranslation %}">Visit our store</a>
-`````````
+```
 {% endraw %}
 
 ##### Liquidで生成されるURL {#liquid-generated-urls}
@@ -92,9 +92,9 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 両方の推奨事項に従ったLiquid生成URLの例:
 
 {% raw %}
-`````````
+```
 <a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}">View details</a>
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -108,11 +108,11 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 正しく囲まれたテキスト:
 
 {% raw %}
-`````````
+```
 <p class="headline" style="color: red;">
   {% translation id_1 %}Welcome to our sale{% endtranslation %}
 </p>
-`````````
+```
 {% endraw %}
 
 {% details 正しくない囲み方 %}
@@ -120,13 +120,13 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 このテキストは**正しくない**囲み方です:
 
 {% raw %}
-`````````
+```
 {% translation id_1 %}
 <p class="headline" style="color: red;">
   Welcome to our sale
 </p>
 {% endtranslation %}
-`````````
+```
 {% endraw %}
 
 {% enddetails %}
@@ -206,9 +206,9 @@ Content Blocksは、メッセージと同じ方法で多言語をサポートし
 右から左に書く言語（アラビア語など）の翻訳ファイルを入力する際は、翻訳を`span`で囲んで適切にフォーマットされるようにしてください。
 
 {% raw %}
-`````````
+```
 {% translation your_id_here %}<span dir='rtl'>default text</span>{% endtranslation %}
-`````````
+```
 {% endraw %}
 
 ### メールリンクトラッキング {#email-link-tracking}

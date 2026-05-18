@@ -4,7 +4,7 @@ article_title: キャンバスのトラブルシューティング
 page_order: 7
 page_type: reference
 description: "このページでは、キャンバスのトラブルシューティング手順を説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # キャンバスのトラブルシューティング {#troubleshoot-canvases}

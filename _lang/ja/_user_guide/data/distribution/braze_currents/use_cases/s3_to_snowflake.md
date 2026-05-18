@@ -48,7 +48,7 @@ CREATE OR REPLACE STAGE
     url='s3://snowpipe-demo/'
     credentials = (AWS_KEY_ID = '...' AWS_SECRET_KEY = '...' );
 show stages;
-`````````
+```
 
 {: start="3"}
 3. ステージの AVRO ファイル形式を定義します。
@@ -58,14 +58,14 @@ CREATE FILE FORMAT
     currents.public.currents_avro
     type = 'avro'
     compression = 'auto';
-`````````
+```
 
 `````````sql
 ALTER STAGE
     currents.public.braze_data
 SET
     file_format = currents.public.currents_avro;
-`````````
+```
 
 `````````sql
 CREATE OR REPLACE PIPE
@@ -100,7 +100,7 @@ COPY INTO
 
               FROM
 @currents.public.braze_data/currents/dataexport.prod-01.S3.integration.INTEGRATION_ID_GOES_HERE/event_type=users.messages.pushnotification.Open/);
-`````````
+```
 
 {: start="4"}
 4. 最後に、`show pipes;` コマンドを使用して SQS 情報を表示します。このパイプは自動取り込みパイプとして作成されたため、`NOTIFICATION_CHANNEL` という新しい列に SQS キューの名前が表示されます。
@@ -153,7 +153,7 @@ CREATE TABLE
         os_version       STRING,
         device_model     STRING
     );
-`````````
+```
 
 {: start="2"}
 2. `auto_ingest` パイプを作成し、以下を指定します。
@@ -187,7 +187,7 @@ COPY INTO
 
               FROM
 @currents.public.braze_data/currents/dataexport.prod-01.S3.integration.INTEGRATION_ID_GOES_HERE/event_type=users.behaviors.app.FirstSession/);
-`````````
+```
 
 {% alert warning %}
 イベントタイプごとに `CREATE TABLE` コマンドと `CREATE PIPE` コマンドを繰り返す必要があります。
@@ -223,7 +223,7 @@ CREATE TABLE
         button_action_type STRING,
         button_string STRING
         );
-`````````
+```
 
 {: start="2"}
 2. AUTO 継続読み込みパイプを作成し、以下を指定します。
@@ -263,7 +263,7 @@ COPY INTO
 
               FROM
 @currents.public.braze_data/currents/dataexport.prod-01.S3.integration.INTEGRATION_ID_GOES_HERE/event_type=users.messages.pushnotification.Open/);
-`````````
+```
 
 {% alert warning %}
 イベントタイプごとに `CREATE TABLE` コマンドと `CREATE PIPE` コマンドを繰り返す必要があります。

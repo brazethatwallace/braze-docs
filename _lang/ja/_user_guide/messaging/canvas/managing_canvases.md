@@ -8,7 +8,7 @@ guide_top_text: "キャンバスを起動したら、あとはデータが集ま
 
 page_type: landing
 description: "このランディングページには、アーカイブ、複製、起動後の変更など、キャンバスの管理に関する記事がまとめられています。"
-tool: キャンバス
+tool: Canvas
 
 guide_featured_title: "セクション記事"
 guide_featured_list:

@@ -230,7 +230,7 @@ Liquidを使用して、応答メッセージ内で直接カートURLを構築�
  {% endif %}
 {% endfor %}
 {{ cart_link }}
-`````````
+```
 {% endraw %}
 
 #### 設定 {#setup}

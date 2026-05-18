@@ -63,7 +63,7 @@ end
 target 'YourNotificationContentExtensionTarget' do
   pod 'BrazePushStory'
 end
-`````````
+```
 
 {% alert note %}
 プッシュストーリーを実装する手順については、[ドキュメント]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/push_story/?tab=swift%20package%20manager)を参照してください。
@@ -105,7 +105,7 @@ class NotificationService: UNNotificationServiceExtension {
     contentHandler(request.content)
   }
 }
-`````````
+```
 
 ### ステップ 5: Brazeでのアプリグループの設定
 
@@ -116,7 +116,7 @@ let configuration = Braze.Configuration(apiKey: "<YOUR-BRAZE-API-KEY>",
                                         endpoint: "<YOUR-BRAZE-ENDPOINT>")
 configuration.push.appGroup = "REPLACE_WITH_APPGROUP"
 let braze = Braze(configuration: configuration)
-`````````
+```
 
 ### ステップ 6: ダッシュボードでリッチプッシュ通知を作成する
 

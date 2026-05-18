@@ -33,12 +33,12 @@ Braze SDK では、以下を含むすべてのサーバー通信が自動的に�
 {% tab swift %}
 ```swift
 AppDelegate.braze?.requestImmediateDataFlush()
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 `````````objc
 [AppDelegate.braze requestImmediateDataFlush];
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -50,11 +50,11 @@ AppDelegate.braze?.requestImmediateDataFlush()
 {% tab swift %}
 `````````swift
 configuration.api.requestPolicy = .automatic
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 `````````objc
 configuration.api.requestPolicy = BRZRequestPolicyAutomatic;
-`````````
+```
 {% endtab %}
 {% endtabs %}

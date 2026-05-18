@@ -83,7 +83,7 @@ description: "この記事では、接続オーディエンスオブジェクト
   },
   "broadcast": false
 }
-`````````
+```
 
 ## オブジェクト本文 {#object-body}
 
@@ -91,7 +91,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 **複数フィルターの例：**
 
-`````````json
+```json
 {
   "AND":
     [
@@ -106,7 +106,7 @@ description: "この記事では、接続オーディエンスオブジェクト
       Connected Audience Filter
     ]
 }
-`````````
+```
 
 ## 接続オーディエンスフィルター {#connected-audience-filters}
 
@@ -116,7 +116,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 このフィルターでは、ユーザーのカスタム属性に基づいてセグメント化できます。これらのフィルターには最大3つのフィールドが含まれます。
 
-`````````json
+```json
 {
   "custom_attribute":
     {
@@ -125,7 +125,7 @@ description: "この記事では、接続オーディエンスオブジェクト
       "value": (String, Numeric, Boolean) the value to be compared using the provided comparison
     }
 }
-`````````
+```
 
 #### データタイプ別の許容される比較 {#allowed-comparisons-by-data-type}
 
@@ -150,7 +150,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 #### カスタム属性の例 {#custom-attribute-example}
 
-`````````json
+```json
 {
   "custom_attribute":
     {
@@ -159,9 +159,9 @@ description: "この記事では、接続オーディエンスオブジェクト
       "value": "blue"
     }
 }
-`````````
+```
 
-`````````json
+```json
 {
   "custom_attribute":
   {
@@ -170,9 +170,9 @@ description: "この記事では、接続オーディエンスオブジェクト
     "value": "pizza"
   }
 }
-`````````
+```
 
-`````````json
+```json
 {
   "custom_attribute":
   {
@@ -181,14 +181,14 @@ description: "この記事では、接続オーディエンスオブジェクト
     "value": 2
   }
 }
-`````````
+```
 ### プッシュ通知のサブスクリプションフィルター {#push-subscription-filter}
 
 このフィルターでは、ユーザーのプッシュ通知のサブスクリプションステータスに基づいてセグメント化できます。
 
 #### フィルター本文 {#filter-body}
 
-`````````json
+```json
 {
   "push_subscription_status":
   {
@@ -196,7 +196,7 @@ description: "この記事では、接続オーディエンスオブジェクト
     "value": (String) one of the following allowed values
   }
 }
-`````````
+```
 
 - **許容される比較：** `is`、`is_not`
 - **許容される値：** `opted_in`、`subscribed`、`unsubscribed`
@@ -207,7 +207,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 #### フィルター本文
 
-`````````json
+```json
 {
   "email_subscription_status":
   {
@@ -215,7 +215,7 @@ description: "この記事では、接続オーディエンスオブジェクト
     "value": (String) one of the following allowed values
   }
 }
-`````````
+```
 
 - **許容される比較：** `is`、`is_not`
 - **許容される値：** `opted_in`、`subscribed`、`unsubscribed`
@@ -226,7 +226,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 #### フィルター本文
 
-`````````json
+```json
 {
   "last_used_app":
   {
@@ -234,7 +234,7 @@ description: "この記事では、接続オーディエンスオブジェクト
     "value": (String) the value to be compared using the provided comparison
   }
 }
-`````````
+```
 
 - **許容される比較：** `after`、`before`
 - **許容される値：** datetime（ISO 8601文字列）

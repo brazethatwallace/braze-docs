@@ -88,7 +88,7 @@ document.getElementById("opt-in").onclick = function(){
     }
 }
 </script>
-`````````
+```
 
 #### ステップ2:プッシュを登録する
 
@@ -125,7 +125,7 @@ function getPushStatus(event){
     }   
 }
 </script>
-`````````
+```
 
 **secure.com/push-status.html**
 

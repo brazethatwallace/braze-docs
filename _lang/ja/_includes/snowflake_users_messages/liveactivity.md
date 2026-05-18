@@ -26,11 +26,11 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `UPDATETOKENCHANGE_SHARED`
 
-`````````json
+```json
 // USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED
 // Live Activity Update Token Change Events.
 
@@ -54,11 +54,11 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `OUTCOME_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED
 // Live Activity Outcome Events.
 
@@ -82,11 +82,11 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `SEND_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED
 // Live Activity Send Events.
 
@@ -109,4 +109,4 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```

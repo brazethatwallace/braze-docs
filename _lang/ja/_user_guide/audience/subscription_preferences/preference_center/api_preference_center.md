@@ -54,7 +54,7 @@ Brazeは`data:` URLを使用するiframe内で`confirmation_page_html`をレン�
 {% raw %}
 ```liquid
 {{preference_center.${kitchenerie_preference_center_example}}}
-`````````
+```
 {%endraw%}
 
 Liquidを含むHTMLの組み合わせも使用できます。たとえば、HTMLエディターまたはドラッグ＆ドロップエディターでURLとして以下を貼り付けることができます。これにより、すべてのメールサブスクリプショングループを自動的にリストする基本的なユーザー設定センターレイアウトが表示されます。[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/)を使用する場合は、Brazeがトラッキングパラメーターを追加できるように、Liquidタグの後に末尾のクエスチョンマーク（`?`）を追加してください。
@@ -62,7 +62,7 @@ Liquidを含むHTMLの組み合わせも使用できます。たとえば、HTML
 {% raw %}
 `````````html
 <a href="{{preference_center.${kitchenerie_preference_center_example}}}?">Edit your preferences</a>
-`````````
+```
 {%endraw%}
 
 ユーザー設定センターには、ユーザーがすべてのメールの配信を停止できるチェックボックスがあります。テストメッセージとして送信された場合、これらの設定は保存できないことに注意してください。
@@ -96,7 +96,7 @@ Liquidフィルターを使用して、送信時にユーザーのexternal IDを
 `````````liquid
 {% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
-`````````
+```
 {% endraw %}
 {% endalert %}
 
@@ -106,13 +106,13 @@ My encoded string is: {{my_string}}
 
 このアプローチでは、URLにクエリ文字列の値ペアを埋め込む必要はありません。これらはJSON Webトークンのペイロードで渡すことができます。例:
 
-`````````json
+```json
 {
     "user_id": "1234567890",
     "name": "John Doe",
     "category": "offers"
 }
-`````````
+```
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -136,7 +136,7 @@ My encoded string is: {{my_string}}
 {% else %}
 ${unsubscribe_url}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 その後、Currentsを通じて、どのユーザーがスペイン語を話し、その配信停止リンクに対するクリックイベントがいくつあったかを特定できます。
@@ -150,7 +150,7 @@ ${unsubscribe_url}
 デフォルトでは、ブラウザタブ名の横のアイコン（ファビコン）にはBrazeのロゴが使用されます。カスタムファビコンを追加するには、作成または更新の[ユーザー設定センターAPI呼び出し]({{site.baseurl}}/api/endpoints/preference_center/)で`links-tags`属性を介して設定します。Brazeはホストされたページに{% raw %}`<link rel="icon" ...>`{% endraw %}タグを挿入します。
 
 {% raw %}
-`````````
+```
 {
   "name": "MyPreferenceCenter",
   "preference_center_title": "Email Preferences",
@@ -178,5 +178,5 @@ ${unsubscribe_url}
     ]
   }
 }
-`````````
+```
 {% endraw %}

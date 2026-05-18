@@ -114,14 +114,14 @@ APIは`https://personalization.{region}.hightouch.com`でアクセスできま�
      :content_type application/json
      :save customer
 %}
-`````````
+```
 {% endraw %}
 
 Liquidテンプレートを使って、JSONペイロードで返されたプロパティを参照し、メッセージングで使用できます。
 
 以下のペイロードの例の場合:
 
-`````````json
+```json
 {
     "user_id": 12345,
     "full_name": "Jane Doe",
@@ -161,7 +161,7 @@ Liquidテンプレートを使って、JSONペイロードで返されたプロ�
         }
     }
 }
-`````````
+```
 
 以下のLiquidリファレンスは、この例のデータを返します。
 

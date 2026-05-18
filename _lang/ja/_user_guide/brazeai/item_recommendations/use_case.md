@@ -56,15 +56,15 @@ page_type: tutorial
 
 ```liquid
 {% assign items = {{product_recommendation.${Post-viewing suggestions}}} %}{{ items[0].name }}
-`````````
+```
 
 `````````liquid
 {% assign items = {{product_recommendation.${Post-viewing suggestions}}} %}{{ items[0].description }}
-`````````
+```
 
 `````````liquid
 {% assign items = {{product_recommendation.${Post-viewing suggestions}}} %}{{ items[0].thumbnail }}
-`````````
+```
 
 {% endraw %}
 

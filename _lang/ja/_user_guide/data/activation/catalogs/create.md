@@ -191,7 +191,7 @@ Brazeは、ダッシュボードのタイムスタンプに基づいて時間値
 
 {% catalog_items {{language}} fall_campaign %}
 {{ items[0].body }}
-`````````
+```
 {% endraw %}
 
 ## カタログの管理 {#managing-catalogs}

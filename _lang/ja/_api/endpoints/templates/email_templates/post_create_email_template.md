@@ -35,9 +35,9 @@ description: "この記事では、Brazeのメールテンプレート作成エ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
-`````````json
+```json
 {
    "template_name": (required, string) The name of your email template,
    "subject": (required, string) The email template subject line,
@@ -47,7 +47,7 @@ Authorization: Bearer YOUR_REST_API_KEY
    "tags": (optional, Array of Strings) Tags must already exist,
    "should_inline_css": (optional, Boolean) If `true`, the `inline_css` feature is used on this template.
  }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -63,7 +63,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -75,16 +75,16 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/cr
   "preheader": "My preheader is pretty cool.",
   "tags": ["Tag1", "Tag2"]
 }'
-`````````
+```
 
 ## 応答例 {#example-response}
 
-`````````json
+```json
 {
   "email_template_id": "232b6d29-7e41-4106-a0ab-1c4fe915d701",
   "message": "success"
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

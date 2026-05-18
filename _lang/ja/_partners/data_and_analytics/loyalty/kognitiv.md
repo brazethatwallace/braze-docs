@@ -66,7 +66,7 @@ Kognitivのwebhookを使用して、ロイヤルティイベント発生時にBr
     }
   ]
 }
-`````````
+```
 
 ### ユーザーを作成し、ウェルカムメールを送信する {#create-a-user-and-send-a-welcome-email}
 
@@ -82,7 +82,7 @@ Kognitivのwebhookを使用して、ロイヤルティイベント発生時にBr
 
 #### リクエスト本文
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -103,7 +103,7 @@ Kognitivのwebhookを使用して、ロイヤルティイベント発生時にBr
     }
   ]
 }
-`````````
+```
 {% endraw %}
 
 ## Kognitiv Inspireのドキュメントと統合機能 {#kognitiv-inspire-documentation-and-integration-features}

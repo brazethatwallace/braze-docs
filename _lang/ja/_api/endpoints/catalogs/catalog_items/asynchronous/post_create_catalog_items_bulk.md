@@ -104,7 +104,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     }
   ]
 }'
-`````````
+```
 
 ## 応答 {#response}
 
@@ -114,17 +114,17 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 
 ステータスコード `202` は、次の応答本文を返す可能性があります。
 
-`````````json
+```json
 {
   "message": "success"
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
   "errors": [
     {
@@ -140,7 +140,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
   ],
   "message": "Invalid Request"
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

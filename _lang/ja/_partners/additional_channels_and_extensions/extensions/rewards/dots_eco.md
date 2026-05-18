@@ -85,7 +85,7 @@ Brazeダッシュボードで、ユーザーがキーイベント（購入、サ
     }
   ]
 }
-`````````
+```
 {% endraw %}
 
 `https://impact.dots.eco/api/v1/certificate/add?format=sdk`にリクエストを送信します。

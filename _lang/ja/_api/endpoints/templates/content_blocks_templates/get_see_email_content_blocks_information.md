@@ -38,12 +38,12 @@ description: "この記事では、Content Blocksの情報を見るBrazeエン�
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/info?content_block_id={{content_block_id}}&include_inclusion_data=false' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "content_block_id": (string) the Content Block identifier,
   "name": (string) the name of the Content Block,
@@ -57,7 +57,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
   "inclusion_data": (array) the inclusion data,
   "message": "success"
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

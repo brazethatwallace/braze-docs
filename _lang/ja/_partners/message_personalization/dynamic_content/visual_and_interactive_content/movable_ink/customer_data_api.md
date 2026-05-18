@@ -185,7 +185,7 @@ Webhook キャンペーンで `External User ID` フィルターを使用して�
     }
   ]
 }
-`````````
+```
 
 {% endraw %}
 
@@ -194,7 +194,7 @@ Webhook キャンペーンで `External User ID` フィルターを使用して�
 
 {% raw %}
 
-`````````
+```
 curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/{{key}}' \
 --header 'Authorization: Basic {{authorization}}' \
 --header 'Content-Type: application/json' \
@@ -222,7 +222,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
   "user_id": "5c3aa83113dd490100d3d8d7"
 }'
 
-`````````
+```
 
 {% endraw %}
 {% endtab %}
@@ -269,7 +269,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
   "type": "track",
 }
 
-`````````
+```
 
 {% endraw %}
 {% endtab %}
@@ -282,7 +282,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 
 {% raw %}
 
-`````````json
+```json
 {
   "events": [
     {
@@ -297,7 +297,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
     }
   ]
 }
-`````````
+```
 
 {% endraw %}
 
@@ -306,7 +306,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 
 {% raw %}
 
-`````````
+```
 curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/{{key}}' \
 --header 'Authorization: Basic {{authorization}}' \
 --header 'Content-Type: application/json' \
@@ -323,7 +323,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
   "type": "track",
   "user_id": "5c3aa83113dd490100d3d8d7"
 }'
-`````````
+```
 
 {% endraw %}
 
@@ -351,7 +351,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
   "user_id": "{{${user_id}}}"
 }
 
-`````````
+```
 
 {% endraw %}
 
@@ -365,7 +365,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 
 {% raw %}
 
-`````````json
+```json
 {
   "events": [
     {
@@ -375,7 +375,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
     }
   ]
 }
-`````````
+```
 
 {% endraw %}
 {% endtab %}
@@ -383,7 +383,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
 
 {% raw %}
 
-`````````
+```
 curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/{{key}}' \
 --header 'Authorization: Basic {{authorization}}' \
 --header 'Content-Type: application/json' \
@@ -394,7 +394,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
   "type": "identify",
   "user_id": "mycustomerid123"
 }'
-`````````
+```
 
 {% endraw %}
 {% endtab %}
@@ -419,7 +419,7 @@ curl --location --request POST 'https://collector.movableink-dmz.com/behavioral/
   "user_id": "{{${user_id}}}"
 }
 
-`````````
+```
 
 {% endraw %}
 

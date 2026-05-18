@@ -81,7 +81,7 @@ class N,O,P configClass
 class R,S,S1,T,U,V displayClass
 class W,X,X1,X2,Y,Z deliveryClass
 class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
-`````````
+```
 {% endtab %}
 
 {% tab Generating push tokens %}
@@ -130,7 +130,7 @@ class N,O,P configClass
 class R,S,S1,T,U,V displayClass
 class W,X,X1,X2,Y,Z deliveryClass
 class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
-`````````
+```
 {% endtab %}
 
 {% tab Displaying notifications %}
@@ -175,7 +175,7 @@ class N,O,P configClass
 class R,S,S1,T,U,V displayClass
 class W,X,X1,X2,Y,Z deliveryClass
 class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -199,7 +199,7 @@ Firebase Cloud Messaging（FCM）APIには、1分あたり600,000リクエスト
 
 `````````gradle
 implementation "google.firebase:firebase-messaging:+"
-`````````
+```
 
 依存関係は次のようになります。
 
@@ -208,7 +208,7 @@ dependencies {
   implementation project(':android-sdk-ui')
   implementation "com.google.firebase:firebase-messaging:+"
 }
-`````````
+```
 
 ### ステップ3: Firebase Cloud Messaging APIを有効にする {#step-3-enable-the-firebase-cloud-messaging-api}
 
@@ -289,7 +289,7 @@ FCMトークンの自動登録を設定するには、`braze.xml`ファイルに
 `````````xml
 <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
 <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">FIREBASE_SENDER_ID</string>
-`````````
+```
 
 `FIREBASE_SENDER_ID`をFirebaseプロジェクトの設定からコピーした値に置き換えます。`braze.xml`は次のようになります。
 
@@ -300,7 +300,7 @@ FCMトークンの自動登録を設定するには、`braze.xml`ファイルに
   <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
 <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">603679405392</string>
 </resources>
-`````````
+```
 {% endtab %}
 
 {% tab BrazeConfig %}
@@ -311,13 +311,13 @@ FCMトークンの自動登録を設定するには、`BrazeConfig`に以下の�
 `````````java
 .setIsFirebaseCloudMessagingRegistrationEnabled(true)
 .setFirebaseCloudMessagingSenderIdKey("FIREBASE_SENDER_ID")
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
 .setIsFirebaseCloudMessagingRegistrationEnabled(true)
 .setFirebaseCloudMessagingSenderIdKey("FIREBASE_SENDER_ID")
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -336,7 +336,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setFirebaseCloudMessagingSenderIdKey("603679405392")
   .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
@@ -350,7 +350,7 @@ val brazeConfig = BrazeConfig.Builder()
   .setFirebaseCloudMessagingSenderIdKey("603679405392")
   .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -381,7 +381,7 @@ Brazeには、プッシュ受信インテントと開封インテントを処理
     <action android:name="com.google.firebase.MESSAGING_EVENT" />
   </intent-filter>
 </service>
-`````````
+```
 
 通知コードでは、`BrazeFirebaseMessagingService`を使用して、オープンアクションとクリックアクションのトラッキングも処理します。このサービスが正しく機能するには、`AndroidManifest.xml`に登録する必要があります。また、Brazeはシステムからの通知に固有のキーをプレフィックスとして付加するため、Brazeのシステムから送信された通知のみをレンダリングします。他のFCMサービスから送信される通知を表示するために、追加のサービスを個別に登録することもできます。Firebaseプッシュサンプルアプリの[`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml)を参照してください。
 
@@ -410,7 +410,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -428,7 +428,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -442,7 +442,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 `````````xml
 <bool name="com_braze_fallback_firebase_cloud_messaging_service_enabled">true</bool>
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
-`````````
+```
 
 または、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)で設定します。
 
@@ -455,7 +455,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setFallbackFirebaseMessagingServiceClasspath("com.company.OurFirebaseMessagingService")
         .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -466,7 +466,7 @@ val brazeConfig = BrazeConfig.Builder()
         .setFallbackFirebaseMessagingServiceClasspath("com.company.OurFirebaseMessagingService")
         .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -500,7 +500,7 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 `````````xml
 <drawable name="com_braze_push_small_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
 <drawable name="com_braze_push_large_notification_icon">REPLACE_WITH_YOUR_ICON</drawable>
-`````````
+```
 
 小さな通知アイコンの設定は必須です。**設定しない場合、Brazeはデフォルトでアプリケーションアイコンを小さな通知アイコンとして使用しますが、最適に表示されない可能性があります。**
 
@@ -512,13 +512,13 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 
 `````````xml
 <integer name="com_braze_default_notification_accent_color">0xFFf33e3e</integer>
-`````````
+```
 
 オプションでカラーリファレンスを使用することもできます。
 
 `````````xml
 <color name="com_braze_default_notification_accent_color">@color/my_color_here</color>
-`````````
+```
 
 ### ステップ4: ディープリンクを追加する {#step-4-add-deep-links}
 
@@ -528,7 +528,7 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 
 `````````xml
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
-`````````
+```
 
 このフラグは、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)で設定することもできます。
 
@@ -540,7 +540,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setHandlePushDeepLinksAutomatically(true)
         .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -550,7 +550,7 @@ val brazeConfig = BrazeConfig.Builder()
         .setHandlePushDeepLinksAutomatically(true)
         .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -587,7 +587,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
     }
 }
-`````````
+```
 {% endtab %}
 
 {% tab KOTLIN %}
@@ -610,7 +610,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -650,7 +650,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
         .setPushDeepLinkBackStackActivityClass(YourMainActivity.class)
         .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -661,7 +661,7 @@ val brazeConfig = BrazeConfig.Builder()
         .setPushDeepLinkBackStackActivityClass(YourMainActivity.class)
         .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -671,7 +671,7 @@ Braze.configure(this, brazeConfig)
 `````````xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">true</bool>
 <string name="com_braze_push_deep_link_back_stack_activity_class_name">your.package.name.YourMainActivity</string>
-`````````
+```
 
 ### ステップ5: 通知チャネルを定義する {#step-5-define-notification-channels}
 
@@ -690,7 +690,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 `````````xml
 <string name="com_braze_default_notification_channel_name">Your channel name</string>
 <string name="com_braze_default_notification_channel_description">Your channel description</string>
-`````````
+```
 
 ### ステップ6: 通知の表示と分析をテストする {#step-6-test-notification-display-and-analytics}
 
@@ -730,7 +730,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
     }
   }
 }' https://rest.iad-01.braze.com/messages/send
-`````````
+```
 
 この例では、`US-01`インスタンスを使用しています。このインスタンスを使用していない場合は、`US-01`エンドポイントを[自分のエンドポイント]({{site.baseurl}}/api/basics/#endpoints)に置き換えてください。
 

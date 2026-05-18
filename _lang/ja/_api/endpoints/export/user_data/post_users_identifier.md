@@ -33,9 +33,9 @@ description: "この記事では、「識別子によるユーザーのエクス
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "external_ids": (optional, array of strings) External identifiers for users you wish to export,
   "user_aliases": (optional, array of user alias objects) user aliases for users to export,
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "phone": (optional, string) Phone number of user,
   "fields_to_export": (optional, array of strings) Name of user data fields to export
 }
-`````````
+```
 
 {% alert note %}
 2024年8月22日以降にBrazeにオンボーディングした顧客については、リクエストパラメーター`fields_to_export`が必須です。
@@ -67,7 +67,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 *2024年8月22日以降にBrazeにオンボーディングした顧客には必須です。
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -85,7 +85,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
-`````````
+```
 
 ## エクスポートするフィールド {#fields-to-export}
 
@@ -131,13 +131,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ## レスポンス {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }
-`````````
+```
 
 このエンドポイントからアクセスできるデータの例については、以下の例を参照してください。
 
@@ -148,7 +148,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 {% tabs %}
 {% tab All fields %}
 
-`````````json
+```json
 {
     "created_at": (string),
     "external_id" : (string),
@@ -285,12 +285,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
       ...
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab Sample output %}
 
-`````````json
+```json
 {
     "created_at" : "2020-07-10 15:00:00.000 UTC",
     "external_id" : "A8i3mkd99",
@@ -424,7 +424,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
       ...
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

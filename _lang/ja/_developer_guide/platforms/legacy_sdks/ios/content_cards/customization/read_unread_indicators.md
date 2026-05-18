@@ -31,14 +31,14 @@ noindex: true
 
 ```objc
 ((ABKBaseContentCardCell *)cell).unviewedLineView.backgroundColor = [UIColor redColor];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 (card as? ABKBaseContentCardCell).unviewedLineView.backgroundColor = UIColor.red
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -17,7 +17,7 @@ braze.logInAppMessageClicked(inAppMessage);
 braze.logInAppMessageImpression(inAppMessage);
 // Log button index `0` being clicked
 braze.logInAppMessageButtonClicked(inAppMessage, 0);
-`````````
+```
 
 ## メッセージデータへのアクセス
 
@@ -39,7 +39,7 @@ inAppMessageStreamSubscription = braze.subscribeToInAppMessages((BrazeInAppMessa
 
 // Cancel stream subscription
 inAppMessageStreamSubscription.cancel();
-`````````
+```
 
 例については、Braze Flutter SDK サンプルアプリケーションの [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) を参照してください。
 
@@ -76,7 +76,7 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
     super.present(message: message)
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -89,4 +89,4 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 コールバックが利用可能になる前にトリガーされたアプリ内メッセージを保存し、設定後に再生するには、`BrazePlugin` の初期化時に次のエントリを `customConfigs` マップに追加します。
 `````````dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
-`````````
+```

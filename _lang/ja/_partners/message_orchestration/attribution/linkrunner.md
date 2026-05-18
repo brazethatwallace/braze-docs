@@ -48,7 +48,7 @@ val userData = UserDataRequest(
 )
 
 LinkRunner.getInstance().signup(userData = userData)
-`````````
+```
 {% endtab %}
 
 {% tab iOS (Swift) %}
@@ -60,7 +60,7 @@ let userData = UserData(
 )
 
 try await LinkrunnerSDK.shared.signup(userData: userData)
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

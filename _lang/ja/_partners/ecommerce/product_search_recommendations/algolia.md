@@ -43,18 +43,18 @@ POST https://{ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/{INDEX_NAME}/query
 Content-Type: application/json
 X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
-`````````
+```
 
 #### クエリペイロードの例 {#example-query-payload}
 
-`````````json
+```json
 {
   "query": "",
   "hitsPerPage": 4,
   "filters": "category_page_id:'this week's offers'",
   "attributesToRetrieve": ["name", "price", "image", "url"]
 }
-`````````
+```
 
 この例では、`category_page_id`という属性に基づくカテゴリフィルターを使用するページから上位4件の結果を取得するクエリを実行します。`attributesToRetrieve`パラメーターはレスポンスを制限し、ペイロードを管理しやすいサイズに保ちます。
 
@@ -69,16 +69,16 @@ X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 
 #### Recommend APIリクエストの例 {#example-recommend-api-request}
 
-`````````
+```
 POST https://{ALGOLIA_APP_ID}.algolia.net/1/indexes/*/recommendations
 Content-Type: application/json
 X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
-`````````
+```
 
 #### クエリペイロードの例
 
-`````````json
+```json
 {
   "requests": [
     {
@@ -89,7 +89,7 @@ X-Algolia-Application-Id: {ALGOLIA_APP_ID}
     }
   ]
 }
-`````````
+```
 
 Recommend APIは、**Frequently Bought Together**、**Related Products**、**Trending Items**、**Trending Facet Values**、**Looking Similar**など、複数のモデルをサポートしています。この例では**Trending Items**モデルを使用しています。
 
@@ -126,7 +126,7 @@ Brazeのコネクテッドコンテンツ機能を使用して、Algoliaエン�
   :body {{request_body}}
   :save algolia_search
 %}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -155,7 +155,7 @@ Brazeのコネクテッドコンテンツ機能を使用して、Algoliaエン�
   :body {{request_body}}
   :save algolia_recommendations
 %}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -180,7 +180,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
     <a href="{{ item.url }}">View Product</a>
   </div>
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 これにより、メッセージ本文内にSearch APIの結果から商品リストが生成されます。各商品リンクは、ユーザーを商品詳細ページ（PDP）またはキャンペーン固有のランディングページに誘導します。
@@ -200,7 +200,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
     <a href="{{ item.url }}">View Product</a>
   </div>
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 これにより、メッセージ本文内にRecommend APIの結果からおすすめ商品リストが生成されます。各商品リンクは、ユーザーを商品詳細ページ（PDP）またはキャンペーン固有のランディングページに誘導します。

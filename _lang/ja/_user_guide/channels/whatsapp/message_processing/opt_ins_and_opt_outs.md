@@ -155,7 +155,7 @@ WhatsAppメッセージテンプレートクリエーター内で、「マーケ
         }
     ]
 }
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -191,7 +191,7 @@ STOPメッセージにはこの方法を使用する必要はありません。�
 4. Raw Textに以下のJSONペイロードを入力し、`XXXXXXXXXXX`をサブスクリプショングループIDに置き換えます。2番目のCampaignを作成した後に`campaign_id`を置き換える必要があります。
 
 {% raw %}
-`````````json
+```json
 {
     "campaign_id": "XXXXXXXXXXX",
     "recipients": [
@@ -208,7 +208,7 @@ STOPメッセージにはこの方法を使用する必要はありません。�
         }
     ]
 }
-`````````
+```
 {% endraw %}
 
 {: start="5"}

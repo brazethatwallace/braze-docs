@@ -39,7 +39,7 @@ description: "この記事では、利用可能なメールテンプレートの
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=1&offset=0' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
-`````````
+```
 
 ## 応答 {#response}
 
@@ -47,7 +47,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/lis
 メール用のドラッグ＆ドロップエディターを使用して作成されたテンプレートは、この応答には含まれません。
 {% endalert %}
 
-`````````json
+```json
 {
   "count": the number of templates returned
   "templates": [template with the following properties]:
@@ -57,5 +57,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/lis
     "updated_at": (string) the time the email was updated in ISO 8601,
     "tags": (array of strings) tags appended to the template
 }
-`````````
+```
 {% endapi %}

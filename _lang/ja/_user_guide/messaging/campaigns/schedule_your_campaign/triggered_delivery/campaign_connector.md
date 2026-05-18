@@ -2,7 +2,7 @@
 nav_title: キャンペーン Connector
 article_title: キャンペーン Connector
 page_order: 2
-tool: キャンペーン
+tool: Campaigns
 page_type: tutorial
 description: "このハウツー記事では、キャンペーン Connectorの概要と、適切なタイミングでターゲットを絞った関連性の高いコンテンツを配信するための使い方について説明します。"
 

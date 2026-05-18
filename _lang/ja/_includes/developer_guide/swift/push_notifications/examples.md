@@ -89,7 +89,7 @@ func didReceive(_ notification: UNNotification) {
 
   ...
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
@@ -104,7 +104,7 @@ func didReceive(_ notification: UNNotification) {
     [NSException raise:NSGenericException format:@"Key-Value Pairs are incorrect"];
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -155,7 +155,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
     // do something else
   }
 }
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
@@ -166,7 +166,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
     completion(UNNotificationContentExtensionResponseOptionDoNotDismiss);
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

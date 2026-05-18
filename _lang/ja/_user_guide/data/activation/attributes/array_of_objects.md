@@ -58,13 +58,13 @@ description: "このリファレンス記事では、オブジェクト配列を
     }
   ]
 }
-`````````
+```
 {% endtab %}
 {% tab 追加 %}
 
 `$add`演算子を使用して、配列に別のアイテムを追加します。以下の例は、ユーザーの`pets`配列にさらに3つのペットオブジェクトを追加する方法を示しています。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -94,7 +94,7 @@ description: "このリファレンス記事では、オブジェクト配列を
     }
   ]
 }
-`````````
+```
 {% endtab %}
 {% tab 更新 %}
 
@@ -104,7 +104,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 以下の例は、`id`が`4`のオブジェクトの`breed`プロパティを`goldfish`に更新する方法を示しています。このリクエスト例では、`id`が`5`のオブジェクトの`name`も`Annette`に更新しています。`_merge_objects`パラメーターが`true`に設定されているため、これら2つのオブジェクトの他のすべてのフィールドはそのまま維持されます。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -131,7 +131,7 @@ description: "このリファレンス記事では、オブジェクト配列を
     }
   ]
 }
-`````````
+```
 
 {% alert warning %}
 `_merge_objects`をtrueに設定する必要があります。設定しない場合、オブジェクトが上書きされます。`_merge_objects`はデフォルトでfalseです。
@@ -144,7 +144,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 以下の例は、`pets`配列内で`id`の値が`1`のオブジェクト、`id`の値が`2`のオブジェクト、および`type`の値が`dog`のオブジェクトを削除する方法を示しています。`type`の値が`dog`のオブジェクトが複数ある場合、一致するすべてのオブジェクトが削除されます。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -170,7 +170,7 @@ description: "このリファレンス記事では、オブジェクト配列を
     }
   ]
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -188,7 +188,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 オブジェクトの配列にタイムスタンプなどのフィールドを含める場合は、プレーンな文字列やUnixエポック整数ではなく、`$time`形式を使用してください。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -205,7 +205,7 @@ description: "このリファレンス記事では、オブジェクト配列を
     }
   ]
 }
-`````````
+```
 
 {% alert tip %}
 詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。
@@ -234,7 +234,7 @@ val json = JSONArray()
 braze.getCurrentUser { user ->
     user.setCustomUserAttribute("pets", json)
 }
-`````````
+```
 {% endsubtab %}
 
 {% subtab 追加 %}
@@ -262,7 +262,7 @@ val json = JSONObject()
 braze.getCurrentUser { user ->
     user.setCustomUserAttribute("pets", json, true)
 }
-`````````
+```
 {% endsubtab %}
 
 {% subtab 更新 %}
@@ -288,7 +288,7 @@ val json = JSONObject()
 braze.getCurrentUser { user ->
     user.setCustomUserAttribute("pets", json, true)
 }
-`````````
+```
 {% endsubtab %}
 
 {% subtab 削除 %}
@@ -312,7 +312,7 @@ val json = JSONObject()
 braze.getCurrentUser { user ->
     user.setCustomUserAttribute("pets", json, true)
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -337,7 +337,7 @@ let json: [[String: Any?]] = [
 ]
 
 braze.user.setCustomAttribute(key: "pets", array: json)
-`````````
+```
 {% endsubtab %}
 
 {% subtab 追加 %}
@@ -366,7 +366,7 @@ let json: [String: Any?] = [
 ]
 
 braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
-`````````
+```
 {% endsubtab %}
 
 {% subtab 更新 %}
@@ -391,7 +391,7 @@ let json: [String: Any?] = [
 ]
 
 braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
-`````````
+```
 {% endsubtab %}
 
 {% subtab 削除 %}
@@ -414,7 +414,7 @@ let json: [String: Any?] = [
 ]
 
 braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -440,7 +440,7 @@ const json = [{
   "name": "Gerald"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
-`````````
+```
 {% endsubtab %}
 
 {% subtab 追加 %}
@@ -465,7 +465,7 @@ const json = {
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
-`````````
+```
 {% endsubtab %}
 
 {% subtab 更新 %}
@@ -490,7 +490,7 @@ const json = {
   ]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
-`````````
+```
 {% endsubtab %}
 
 {% subtab 削除 %}
@@ -513,7 +513,7 @@ const json = {
   ]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -530,7 +530,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% for pet in pets %}
 I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 このシナリオでは、Liquidを使用して`pets`配列をループし、各ペットについてのステートメントを出力できます。`pets`カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables)、ドット記法を使用してオブジェクトのプロパティにアクセスします。オブジェクト名の後にピリオド`.`を付け、その後にプロパティ名を指定します。
@@ -553,7 +553,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 配列のネストは1レベルまで（配列内の配列）でセグメントを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Gus`が含まれるセグメントは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるセグメントは作成できません。
 
 {% raw %}
-`````````json
+```json
 {
   "attributes": [
     {
@@ -583,7 +583,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
     }
   ]
 }
-`````````
+```
 {% endraw %}
 
 ## データポイント {#data-points}
@@ -595,7 +595,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 
 新しい配列を作成すると、オブジェクト内の各属性に対して1データポイントが記録されます。この例では8データポイントを消費します。各ペットオブジェクトには4つの属性があり、オブジェクトが2つあるためです。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -617,13 +617,13 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
     }
   ]
 }
-`````````
+```
 {% endtab %}
 {% tab 更新 %}
 
 既存の配列を更新すると、追加された各プロパティに対して1データポイントが記録されます。この例では、2つのオブジェクトそれぞれで1つのプロパティのみを更新しているため、2データポイントを消費します。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -650,13 +650,13 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
     }
   ]
 }
-`````````
+```
 {% endtab %}
 {% tab 削除 %}
 
 配列からオブジェクトを削除すると、送信した各削除条件に対して1データポイントが記録されます。この例では、このステートメントで複数の犬を削除する可能性がありますが、3データポイントを消費します。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -682,6 +682,6 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
     }
   ]
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}

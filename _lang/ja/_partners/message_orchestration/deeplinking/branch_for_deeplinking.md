@@ -43,7 +43,7 @@ Xcodeで、アプリターゲット > **Signing & Capabilities** に移動し、
 ```
 applinks:yourapp.app.link
 applinks:yourapp-alternate.app.link
-`````````
+```
 
 カスタムBranchドメインを使用している場合は、それも追加してください。
 
@@ -57,7 +57,7 @@ Braze SDKの設定で`forwardUniversalLinks`を`true`に設定し、SDKがユニ
 let configuration = Braze.Configuration(apiKey: "<BRAZE_API_KEY>", endpoint: "<BRAZE_ENDPOINT>")
 configuration.forwardUniversalLinks = true
 let braze = Braze(configuration: configuration)
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 `````````objc
@@ -65,7 +65,7 @@ BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"<BR
                                                                   endpoint:@"<BRAZE_ENDPOINT>"];
 configuration.forwardUniversalLinks = YES;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +86,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   // Let Braze handle all other links
   return true
 }
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 `````````objc
@@ -98,7 +98,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   }
   return YES;
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

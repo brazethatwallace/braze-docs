@@ -87,7 +87,7 @@ Brazeでは、購入データをいくつかの方法で使用できます。
 {% else %}
   Thank you for your recent purchase! We hope you're enjoying your new item.
 {% endif %}
-`````````
+```
 
 {% endraw %}
 
@@ -105,7 +105,7 @@ Brazeでは、購入データをいくつかの方法で使用できます。
 
 `````````liquid
 Thank you for your purchase of ${purchase_product_name}! As a token of our appreciation, here's a discount code for your next purchase: SAVE10
-`````````
+```
 
 {% endraw %}
 

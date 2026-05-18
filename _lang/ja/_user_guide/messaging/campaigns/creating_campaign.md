@@ -4,7 +4,7 @@ article_title: キャンペーンを作成
 page_order: 1
 page_type: tutorial
 description: "作成から起動まで、マルチチャネル送信を含むBrazeメッセージングキャンペーンの作成方法、配信のスケジュール、ターゲットオーディエンスの設定、コンバージョンイベントの割り当て、テスト送信、起動について説明します。"
-tool: キャンペーン
+tool: Campaigns
 ---
 
 # キャンペーンを作成 {#create-a-campaign}

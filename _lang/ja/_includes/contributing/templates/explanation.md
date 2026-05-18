@@ -26,6 +26,6 @@ CONTENT.
 ## SECTION_NAME
 
 CONTENT.
-`````````
+```
 {% endraw %}
 {% enddetails %}

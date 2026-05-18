@@ -73,15 +73,15 @@ description: "この記事では、「グローバルコントロールグルー
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "callback_endpoint" : (optional, string) endpoint to post a download URL to when the export is available,
   "fields_to_export" : (required, array of string) name of user data fields to export, for example, ['first_name', 'email', 'purchases'],
   "output_format" : (optional, string) When using your own S3 bucket, allows to specify file format as 'zip' or 'gzip'. Defaults to zip file format
 }
-`````````
+```
 
 {% alert warning %}
 個々のカスタム属性をエクスポートすることはできません。ただし、fields_to_export配列にcustom_attributesを含めることで、すべてのカスタム属性をエクスポートできます（例：`['first_name', 'email', 'custom_attributes']`）。
@@ -97,7 +97,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/global_control_group' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -106,7 +106,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
   "fields_to_export" : ["email", "braze_id"],
   "output_format" : "zip"
 }'
-`````````
+```
 
 ## エクスポートするフィールド {#fields-to-export}
 
@@ -145,13 +145,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 
 ## レスポンス {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }
-`````````
+```
 
 URLが公開された後、有効なのは数時間のみです。そのため、独自のS3認証情報をBrazeに追加することを強くお勧めします。
 
@@ -162,7 +162,7 @@ URLが公開された後、有効なのは数時間のみです。そのため�
 {% tabs %}
 {% tab All fields %}
 
-`````````json
+```json
 {
     "created_at" : (string),
     "external_id" : (string),
@@ -233,12 +233,12 @@ URLが公開された後、有効なのは数時間のみです。そのため�
       ...
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab Sample output %}
 
-`````````json
+```json
 {
     "created_at" : "2020-07-10 15:00:00.000 UTC",
     "external_id" : "A8i3mkd99",
@@ -312,7 +312,7 @@ URLが公開された後、有効なのは数時間のみです。そのため�
       ...
     ]
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

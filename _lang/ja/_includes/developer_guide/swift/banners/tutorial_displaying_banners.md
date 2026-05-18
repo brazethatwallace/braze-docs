@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-`````````
+```
 
 `````````swift file=SampleApp.swift
 import SwiftUI
@@ -53,7 +53,7 @@ struct SampleApp: App {
         }
     }
 }
-`````````
+```
 
 `````````swift file=BannerViewController.swift
 import UIKit
@@ -115,7 +115,7 @@ final class BannerViewController: UIViewController {
     ])
   }
 }
-`````````
+```
 
 !!step
 lines-AppDelegate.swift=14
@@ -181,7 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-`````````
+```
 
 `````````swift file=SampleApp.swift
 import SwiftUI
@@ -197,7 +197,7 @@ struct SampleApp: App {
         }
     }
 }
-`````````
+```
 
 `````````swift file=BannerSwiftUIView.swift
 import BrazeKit
@@ -246,7 +246,7 @@ struct BannerSwiftUIView: View {
   }
 }
 
-`````````
+```
 
 !!step
 lines-AppDelegate.swift=13

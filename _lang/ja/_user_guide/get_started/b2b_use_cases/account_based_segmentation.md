@@ -69,7 +69,7 @@ WHERE events.name = 'account_linked'
 AND salesforce_accounts.Industry = 'Restaurants'
 AND salesforce_accounts.Classification = 'Enterprise'
 ;
-`````````
+```
 
 {: start="2"}
 2. 2つの別個のカタログにまたがる2つのフィルターを比較するセグメントを作成します（例えば、オープン中の「Stage 3」の商談があるエンタープライズターゲットアカウントに関連するユーザーなど）。
@@ -104,7 +104,7 @@ WHERE events.name = 'account_linked'
 AND salesforce_accounts.Industry = 'Restaurants'
 AND salesforce_opportunities.Stage = 'Closed Won'
 ;
-`````````
+```
 
 ### オプション2: ビジネスオブジェクトに接続ソースを使用する場合 {#option-2-when-using-connected-sources-for-your-business-objects}
 

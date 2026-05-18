@@ -24,7 +24,7 @@ description: "この参考記事では、Android プッシュ通知用のカス�
     <action android:name="com.braze.push.intent.NOTIFICATION_DELETED" />
   </intent-filter>
 </receiver>
-`````````
+```
 
 ## ステップ2:BroadcastReceiverを作成する
 
@@ -66,7 +66,7 @@ public class CustomBroadcastReceiver extends BroadcastReceiver {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -101,7 +101,7 @@ class CustomBroadcastReceiver : BroadcastReceiver() {
     private val TAG = CustomBroadcastReceiver::class.java.name
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -126,7 +126,7 @@ Bundle extras = intent.getBundleExtra(Constants.BRAZE_PUSH_EXTRAS_KEY);
 
 // example of getting specific key-value pair from the extras bundle.
 String myExtra = extras.getString("my_key");
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -140,7 +140,7 @@ val extras = intent.getBundleExtra(Constants.BRAZE_PUSH_EXTRAS_KEY)
 
 // example of getting specific key-value pair from the extras bundle.
 val myExtra = extras.getString("my_key")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

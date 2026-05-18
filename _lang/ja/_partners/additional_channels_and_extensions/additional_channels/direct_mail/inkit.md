@@ -82,7 +82,7 @@ Liquidが、以下の必須フィールドとオプションフィールドに�
   "address_country": "{{${country}}}",
   "source" : "Braze"
 }{% endraw %}
-`````````
+```
 
 ### ステップ 3: リクエストをプレビューする {#step-3-preview-your-request}
 

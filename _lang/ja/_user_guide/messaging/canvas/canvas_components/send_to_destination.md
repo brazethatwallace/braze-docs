@@ -5,7 +5,7 @@ alias: "/send_to_destination/"
 page_order: 11.5
 page_type: reference
 description: "この参照記事では、送信先へ送信コンポーネントと、キャンバスでの使用方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 送信先へ送信ステップ

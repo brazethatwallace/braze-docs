@@ -60,23 +60,23 @@ description: "この記事では、ユーザーのサブスクリプショング
 {% raw %}
 ```
 https://rest.iad-03.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&external_id[]=1&external_id[]=2
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab SMS and WhatsApp %}
 {% raw %}
-`````````
+```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&phone=+11112223333' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% tab Email %}
 {% raw %}
-`````````
+```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&email=example@braze.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -85,7 +85,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 
 すべての成功した応答は、サブスクリプショングループのステータスとユーザー履歴に応じて、`Subscribed`、`Unsubscribed`、または`Unknown`を返します。
 
-`````````json
+```json
 {
   "status": {
     "1": "Unsubscribed",
@@ -93,7 +93,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
   },
   "message": "success"
 }
-`````````
+```
 
 {% alert important %}
 このエンドポイントは、ユーザーのグローバルなサブスクリプション状態とは独立して、サブスクリプショングループのステータスを返します。ユーザーがグローバルに配信停止された場合、Brazeダッシュボードでは各サブスクリプショングループから配信停止された状態として表示されます。ただし、このエンドポイントは依然として最後に保存されたサブスクリプショングループのステータス（例: `Subscribed`）を返します。これは、グローバルなサブスクリプション状態が個々のサブスクリプショングループを上書きすることなく優先されるためです。<br><br>Brazeは個々のサブスクリプショングループのステータスを保持します。そのため、ユーザーがグローバルに再登録した場合、各サブスクリプショングループは以前に保存されたステータスに戻ります。ユーザーの有効なサブスクリプション状態を判断するには、グローバルなサブスクリプションステータスと、このエンドポイントが返すサブスクリプショングループのステータスの両方を確認してください。

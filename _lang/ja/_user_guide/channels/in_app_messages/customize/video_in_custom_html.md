@@ -22,7 +22,7 @@ HTMLアプリ内メッセージで動画を再生するには、以下の `<vide
   <source src="https://video-provider.com/YOUR_VIDEO_FILE.ogg" type="video/ogg">
   Your device does not support playing this video.
 </video>
-`````````
+```
 
 ローカルの動画アセットを使用する場合は、キャンペーンにアセットをアップロードする際にこのファイルを含めてください。
 
@@ -53,7 +53,7 @@ Webアプリ内メッセージでYouTube動画を自動再生するには、URL�
 
 `````````html
 <iframe class="video" src="https://www.youtube.com/embed/VPIPAc4oQqw?autoplay=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-`````````
+```
 
 ## YouTube動画の表示方法 {#how-youtube-videos-display}
 

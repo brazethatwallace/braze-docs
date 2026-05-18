@@ -36,7 +36,7 @@ noindex: true
                                            selector:@selector(contentCardsUpdatedNotificationReceived:)
                                                name:ABKContentCardsProcessedNotification
                                              object:nil];
-`````````
+```
 
 {% endtab %}
 {% tab SWIFT %}
@@ -45,7 +45,7 @@ noindex: true
 NotificationCenter.default.addObserver(self, selector:
   #selector(contentCardsUpdated),
   name:NSNotification.Name.ABKContentCardsProcessed, object: nil)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -83,7 +83,7 @@ NotificationCenter.default.addObserver(self, selector:
 
   return filteredArray;
 }
-`````````
+```
 
 {% endtab %}
 {% tab SWIFT %}
@@ -112,7 +112,7 @@ func getCards(forFeedType type: String) -> [ABKContentCard]? {
         }
     }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

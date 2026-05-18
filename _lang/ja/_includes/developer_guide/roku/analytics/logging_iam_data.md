@@ -10,7 +10,7 @@
 
 ```brightscript
 LogInAppMessageImpression(in_app_message.id, brazetask)
-`````````
+```
 
 ### クリックされたメッセージ
 
@@ -18,7 +18,7 @@ LogInAppMessageImpression(in_app_message.id, brazetask)
 
 `````````brightscript
 LogInAppMessageClick(in_app_message.id, brazetask)
-`````````
+```
 
 ### クリックされたボタン
 
@@ -26,7 +26,7 @@ LogInAppMessageClick(in_app_message.id, brazetask)
 
 `````````brightscript
 LogInAppMessageButtonClick(inappmessage.id, inappmessage.buttons[selected].id, brazetask)
-`````````
+```
 
 ### メッセージを処理した後
 
@@ -34,4 +34,4 @@ LogInAppMessageButtonClick(inappmessage.id, inappmessage.buttons[selected].id, b
 
 `````````brightscript
 m.BrazeTask.BrazeInAppMessage = invalid
-`````````
+```

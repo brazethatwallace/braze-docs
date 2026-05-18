@@ -40,11 +40,11 @@ description: "この参照記事では、Braze REST API、カタログ、コネ�
 POST YOUR_REST_ENDPOINT/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
 `YOUR_REST_ENDPOINT` をワークスペースの[RESTエンドポイントURL]({{site.baseurl}}/api/basics/#endpoints)に置き換えてください。
 
-`````````json
+```json
 {
   "attributes": [
     {
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   ]
 }
-`````````
+```
 
 後でLiquidテンプレートで参照しやすいように、わかりやすい属性名（`recommended_product_id` など）を使用してください。レコメンデーションエンジンが新しい結果を生成するたびに定期的に更新し、おすすめの精度を維持してください。
 
@@ -80,7 +80,7 @@ We have a new item we think you'll like:
 Category: {{ items[0].category }}
 Name: {{ items[0].name }}
 Price: ${{ items[0].price }}
-`````````
+```
 {% endraw %}
 
 #### 複数のカタログアイテムをおすすめする {#recommend-multiple-catalog-items}
@@ -97,7 +97,7 @@ New items added in:
 - {{ items[2].category }}
 
 Visit our store to learn more!
-`````````
+```
 {% endraw %}
 
 #### ユーザーのおすすめを使用してアイテムをテンプレート化する {#template-items-using-a-users-recommendation}
@@ -110,7 +110,7 @@ Visit our store to learn more!
 
 Hi {{${first_name}}}, check out our pick for you:
 {{ items[0].name }} — ${{ items[0].price }}
-`````````
+```
 {% endraw %}
 
 ### オプションB: コネクテッドコンテンツ {#option-b-connected-content}
@@ -125,7 +125,7 @@ Hi {{${first_name}}}, check out our pick for you:
 
 Hi {{${first_name}}}, we think you'll love:
 {{ product.name }} — ${{ product.price }}
-`````````
+```
 {% endraw %}
 
 メッセージからのAPI呼び出しの詳細については、[API呼び出しを行う]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)を参照してください。

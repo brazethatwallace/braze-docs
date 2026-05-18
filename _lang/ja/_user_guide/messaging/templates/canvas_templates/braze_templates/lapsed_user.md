@@ -4,7 +4,7 @@ article_title: 離脱ユーザー
 page_order: 4
 page_type: reference
 description: "この記事では、Braze キャンバステンプレートを使用して、過去のエンゲージメントに基づいたインセンティブでユーザーをアプリに呼び戻す方法について説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 離脱ユーザー {#lapsed-user}

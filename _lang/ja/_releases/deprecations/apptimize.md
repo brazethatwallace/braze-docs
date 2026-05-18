@@ -76,7 +76,7 @@ Apptimize の実験データに基づいて Braze でカスタムターゲティ
 
 ```objc
 [ApptimizeAppboy setupExperimentTracking];
-`````````
+```
 
 #### Appboy-Apptimize.h:
 
@@ -91,7 +91,7 @@ Apptimize の実験データに基づいて Braze でカスタムターゲティ
 @end
 
 #endif /* Apptimize_Appboy_h */
-`````````
+```
 
 #### Appboy-Apptimize.m:
 
@@ -210,7 +210,7 @@ NSString *const ApptimizeAppboyTestEnrollmentStorageKey = @"ApptimizeAppboyTestE
 }
 
 @end
-`````````
+```
 
 ### Android
 
@@ -219,14 +219,14 @@ NSString *const ApptimizeAppboyTestEnrollmentStorageKey = @"ApptimizeAppboyTestE
 
 `````````java
 private ApptimizeAppboy appboyApptimizeIntegration;
-`````````
+```
 
 次に、onCreate メソッドで、Braze とApptimize を初期化した後、次のようにします。
 
 `````````java
 appboyApptimizeIntegration = new ApptimizeAppboy();
 appboyApptimizeIntegration.configureExperimentTracking(this);
-`````````    
+```
 
 #### ApptimizeAppboy.java:
 
@@ -400,4 +400,4 @@ public class ApptimizeAppboy
     private static String ApptimizeAppboyStorageDirectory;
     private static String ApptimizeAppboyTestEnrollmentStorage = "ApptimizeAppboyTestEnrollmentStorage";
 }
-`````````
+```

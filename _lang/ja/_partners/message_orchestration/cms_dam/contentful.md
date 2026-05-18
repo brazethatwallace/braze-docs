@@ -54,7 +54,7 @@ search_tag: Partner
                  }
                :content_type application/json
                :save response %}
-`````````
+```
 {% endraw %}
 
 {: start="4"}
@@ -69,7 +69,7 @@ search_tag: Partner
 - **応答パス:** Content Blocksを Braze キャンペーンまたはキャンバスに含めた後、変数 `{response}` をメッセージに挿入すると、レスポンスが利用可能になります。<br><br>JSONドット表記法では、Contentful からの応答本文のどの部分をメッセージに含めるかを指定できます。これはユースケースによって異なります。例えば、Contentful のエントリエンドポイントからタイトル値 ({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %}) を使用し、次のような応答を受け取ることができます。
 
 {% raw %}
-`````````json
+```json
    {
   "fields": {
     "title": {
@@ -113,7 +113,7 @@ search_tag: Partner
     "revision": 1
   }
 }
-`````````
+```
 {% endraw %}
 
 {: start="3" }

@@ -54,7 +54,7 @@ configuration.location.automaticGeofenceRequests = true
 
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -73,7 +73,7 @@ configuration.location.automaticGeofenceRequests = YES;
 
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -109,7 +109,7 @@ configuration.location.distanceFilter = 8000
 
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -129,7 +129,7 @@ configuration.location.distanceFilter = 8000;
 
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -151,14 +151,14 @@ AppDelegate.braze = braze;
 `````````swift
 var locationManager = CLLocationManager()
 locationManager.requestWhenInUseAuthorization()
-`````````
+```
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
 `````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestWhenInUseAuthorization];
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -177,14 +177,14 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 `````````swift
 var locationManager = CLLocationManager()
 locationManager.requestAlwaysAuthorization()
-`````````
+```
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
 `````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestAlwaysAuthorization];
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -211,7 +211,7 @@ let configuration = Braze.Configuration(
 configuration.automaticGeofencesRequest = false
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -223,7 +223,7 @@ BRZConfiguration *configuration =
 configuration.automaticGeofencesRequest = NO;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -237,7 +237,7 @@ AppDelegate.braze = braze;
 
 `````````swift
 AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -245,7 +245,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 `````````objc
 [AppDelegate.braze requestGeofencesWithLatitude:latitude
                                       longitude:longitude];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

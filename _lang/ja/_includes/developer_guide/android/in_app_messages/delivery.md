@@ -28,7 +28,7 @@ SDKのセッション開始セマンティクスについて詳しくは、[セ�
 
 ```xml
   <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
-`````````
+```
 
 ## キーと値のペア {#key-value-pairs}
 
@@ -38,12 +38,12 @@ Brazeでキャンペーンを作成する際、キーと値のペアを `extras`
 {% tab JAVA %}
 `````````java
 Map<String, String> getExtras()
-`````````
+```
 {% endtab %}
 {% tab KOTLIN %}
 `````````kotlin
 extras: Map<String, String>
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -60,7 +60,7 @@ extras: Map<String, String>
 
 `````````xml
 <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
-`````````
+```
 
 ## 手動でメッセージをトリガーする {#manually-triggering-messages}
 
@@ -91,7 +91,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
     Braze.getInstance(context).logCustomEvent("IAM Trigger", eventProperties);
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -108,7 +108,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
         Braze.getInstance(applicationContext).logCustomEvent("IAM Trigger", eventProperties)
     }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -146,14 +146,14 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 
 `````````java
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -169,7 +169,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 // Initializes a new slideup type in-app message and specifies its message.
 InAppMessageSlideup inAppMessage = new InAppMessageSlideup();
 inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -178,7 +178,7 @@ inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
 // Initializes a new slideup type in-app message and specifies its message.
 val inAppMessage = InAppMessageSlideup()
 inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -33,8 +33,8 @@ description: "この記事では、新しいダッシュボードユーザーア
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-SCIM-TOKEN-KEY
-`````````
-`````````
+```
+```
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "userName": "user@test.com",
@@ -75,7 +75,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
         ]
     }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -126,10 +126,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         ]
     }
 }'
-`````````
+```
 
 ## 応答 {#response}
-`````````json
+```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
@@ -203,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         ]
     }
 }
-`````````
+```
 
 ## 応答パラメーター {#response-parameters}
 
@@ -232,6 +232,6 @@ Content-Type: text/json;charset=UTF-8
   "detail": "User already exists in the database.",
   "status": 409
 }
-`````````
+```
 
 {% endapi %}

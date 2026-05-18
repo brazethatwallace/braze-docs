@@ -4,7 +4,7 @@ article_title: セグメントエクステンション
 page_order: 5
 page_type: reference
 description: "このハウツー記事では、セグメントエクステンションの設定方法と使用方法を説明し、セグメンテーション機能を強化する方法をご紹介します。"
-tool: セグメント
+tool: Segments
 ---
 
 # セグメントエクステンション {#segment-extensions}

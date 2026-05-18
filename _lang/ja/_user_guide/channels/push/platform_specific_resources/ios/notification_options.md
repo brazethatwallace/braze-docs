@@ -56,7 +56,7 @@ UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdent
                                                       hiddenPreviewsBodyPlaceholder:@""
                                                       categorySummaryFormat:@"%u more news articles from %@"
                                                        Options:0];
-`````````
+```
 
 {% alert important %}
 SDKの更新は必要ありません。
@@ -108,25 +108,25 @@ Brazeでは、Braze iOS SDKの実装内のトークン登録スニペットで�
   {% tab Swift %}
 **Swift**
 
-`````````
+```
 var options: UNAuthorizationOptions = [.alert, .sound, .badge]
 if #available(iOS 12.0, *) {
   options = UNAuthorizationOptions(rawValue: options.rawValue | UNAuthorizationOptions.provisional.rawValue)
 }
-`````````
+```
   {% endtab %}
   {% tab Objective-C %}
 
 **Objective-C**
 
-`````````
+```
 UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
 center.delegate = self;
 UNAuthorizationOptions options = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
 if (@available(iOS 12.0, *)) {
     options = options | UNAuthorizationOptionProvisional;
 }
-`````````
+```
   {% endtab %}
 {% endtabs %}
 

@@ -54,7 +54,7 @@ tool:
 {% capture your_variable %}
 {{content_blocks.${your_content_block}}}
 {% endcapture %}{{your_variable | strip}}
-`````````
+```
 {% endraw %}
 {% endalert %}
 

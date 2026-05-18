@@ -5,7 +5,7 @@ page_order: 0
 page_type: reference
 alias: "/catalog_segments/"
 description: "この記事では、カタログセグメントの作成方法について説明します。カタログセグメントは、SQLセグメントエクステンションでカタログデータを使用してユーザーのオーディエンスを構築します。"
-tool: セグメント
+tool: Segments
 ---
 
 # カタログセグメント {#catalog-segments}
@@ -47,7 +47,7 @@ tool: セグメント
 SELECT * FROM CATALOGS_ITEMS_SHARED
 WHERE CATALOG_ID = 'XYZ'
 LIMIT 10
-`````````
+```
 {% endalert %}
 
 ### SQLの反転が必要かどうかの判断 {#determining-if-you-need-to-invert-sql}

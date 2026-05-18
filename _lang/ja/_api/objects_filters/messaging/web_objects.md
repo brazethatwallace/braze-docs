@@ -28,16 +28,16 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
    "send_to_most_recent_device_only" : (optional, boolean) defaults to false, if set to true, Braze will only send this push to a user's most recently used browser, rather than all eligibles browsers,
    "buttons" : (optional, array of Web push action button objects) push action buttons to display
 }
-`````````
+```
 
 `image_url` の値は、画像がホストされている場所にリンクする URL である必要があります。画像は1:1のアスペクト比にトリミングする必要があります。
 
 ## Webプッシュアクションボタンオブジェクト {#web-push-action-button-object}
 
-`````````json
+```json
 {
   "text": (required, string) the button's text,
   "action": (optional, string) one of "OPEN_APP", "URI", or "CLOSE", defaults to "OPEN_APP",
   "uri": (optional, string) a web URL
 }
-`````````
+```

@@ -6,7 +6,7 @@ page_order: 6
 page_type: reference
 toc_headers: "h2"
 description: "このリファレンス記事では、キャンバスでコンテキストステップを作成して使用する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 
@@ -121,7 +121,7 @@ Agentがオブジェクトを返し、ネストされたプロパティでフィ
 ```liquid
 {% connected_content http://example.com :save product %}
 {{ product | as_json_string }}
-`````````
+```
 {%endraw%}
 
 ## トラブルシューティング {#troubleshooting}
@@ -209,43 +209,43 @@ Agentがオブジェクトを返し、ネストされたプロパティでフィ
 メッセージステップに以下のコンテンツを含むアクションベースのキャンバスがあるとします：
 
 {% raw %}
-`````````
+```
 Your appointment is scheduled for {{canvas_entry_properties.${appointment_time} | date: "%Y-%m-%d %l:%M %p"}}, we'll see you then!
-`````````
+```
 {% endraw %}
 
 これにより、以下のメッセージが生成されます：
 
-`````````
+```
 Your appointment is scheduled for 2025-08-05 4:15 PM, we’ll see you then!
-`````````
+```
 
 Liquidでタイムゾーンが指定されていないため、ここのタイムスタンプはUTCです。
 
 タイムゾーンを明確に指定するには、Liquidの`time_zone`フィルターを次のように使用できます：
 
 {% raw %}
-`````````
+```
 Your appointment is scheduled for {{canvas_entry_properties.${appointment_time} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}, we'll see you then!
-`````````
+```
 {% endraw %}
 
 これにより、以下のメッセージが生成されます：
 
-`````````
+```
 Your appointment is scheduled for 2025-08-05 8:15 AM, we'll see you then!
-`````````
+```
 
 LiquidでAmerica/Los Angelesタイムゾーンが指定されているため、ここのタイムスタンプはPSTです。
 
 希望するタイムゾーンは、イベントプロパティのペイロードで送信し、Liquidロジックで使用することもできます：
 
-`````````
+```
 {
   "appointment_time": "2025-08-05T08:15:30:250-0800"
   "user_timezone": "America/Los_Angeles"
 }
-`````````
+```
 
 ### コンテキスト変数はキャンバスエントリプロパティとどう異なりますか？ {#how-do-context-variables-differ-from-canvas-entry-properties}
 

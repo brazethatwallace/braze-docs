@@ -26,7 +26,7 @@ description: "このリファレンス記事では、キャンペーンでタグ
 {% if X >0 %}
 {% else %}
 {% endif %}
-`````````
+```
 
 緑色でハイライトされることを確認してから、`X` をメッセージフィールドの角にある青い `+` を使って選択した Liquid またはコネクテッドコンテンツに置き換え、`0` を希望の値に置き換えます。
 <br><br>
@@ -37,7 +37,7 @@ Thanks for purchasing! Here's another 10% off!
 {% else %}
 Buy now! Would 5% off convince you?
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ## 条件ロジック {#conditional-logic}
@@ -55,7 +55,7 @@ Este es un mensaje en español de Braze !
 {% else %}
 This is a message from Braze! This is going to go to anyone who did not match the other specified languages!
 {% endif %}
-`````````
+```
 
 ### 条件タグ {#conditional-tags}
 
@@ -81,7 +81,7 @@ This is a cookie
 {% else %}
 This is not a cake nor a cookie
 {% endcase %}
-`````````
+```
 
 `handle` の代わりにBrazeのパーソナライゼーションタグやその他の Liquid 式を使用して同じパターンを適用できます。構文オプションの詳細については、Shopifyの [`case` タグドキュメント](https://shopify.dev/docs/api/liquid/tags/case)を参照してください。
 
@@ -104,7 +104,7 @@ This is not a cake nor a cookie
   🎉 Hey there, New Yorker! We're excited to offer you a special deal!
   Get 20% off your next sandwich at your local Sandwich Emperor.
   Just show this message at the counter to redeem your offer!
-`````````
+```
 
 {: start="2"}
 2. 次に、`elseif` タグを使用して、ユーザーの市区町村がロサンゼルスの場合に送信するメッセージを設定します。
@@ -113,7 +113,7 @@ This is not a cake nor a cookie
 {% elsif ${city} == "Los Angeles" %}
   🌞 Hello, Los Angeles! Enjoy a sunny day with a delicious sandwich!
   Present this message at our LA restaurant for a 20% discount on your next order!
-`````````
+```
 
 {: start="3"}
 3. もう1つ `elseif` タグを使用して、ユーザーの市区町村がシカゴの場合に送信するメッセージを設定しましょう。
@@ -123,7 +123,7 @@ This is not a cake nor a cookie
   🍕 Chicago, we have a treat for you!
   Swing by our restaurant and get 20% off your favorite sandwich.
   Just show this message to our staff!
-`````````
+```
 
 {: start="4"}
 4. 次に、`{% else %}` タグを使用して、ユーザーの市区町村がサンフランシスコ、ニューヨーク、シカゴのいずれでもない場合に送信するメッセージを指定しましょう。
@@ -132,14 +132,14 @@ This is not a cake nor a cookie
 {% else %}
  🥪 Craving a sandwich? Visit us at any of our locations for a delicious meal!
   Check our website for the nearest restaurant to you!
-`````````
+```
 
 {: start="5"}
 5. 最後に、`{% endif %}` タグを使用して条件ロジックが完了したことを指定します。
 
 `````````liquid
 {% endif %}
-`````````
+```
 
 {% endraw %}
 
@@ -162,7 +162,7 @@ This is not a cake nor a cookie
   🥪 Craving a sandwich? Visit us at any of our locations for a delicious meal!
   Check our website for the nearest restaurant to you!
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {% enddetails %}
@@ -184,7 +184,7 @@ nullまたはnilの値は、カスタム属性の値が設定されていない�
 {% if ${first_name} == null %}
   ....
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ![Brazeダッシュボードでの、nullの「名」属性を使用したメッセージの例。]({% image_buster /assets/img/value_null.png %}){: style="max-width:60%;"}
@@ -196,7 +196,7 @@ We're having a sale! Hurry up and get 10% off all items today only!
 {% else %}
 Hey {{${first_name} | default: 'there'}}, we're having a sale! Hurry up and get 10% off all items today only!
 {% endif %}
-`````````
+```
 
 nullの属性値は、値の型に厳密に関連付けられていないことに注意してください（たとえば、「null」の文字列は「null」の配列と同じです）。そのため、上記の例では、nullの属性値は未設定の名を参照しており、これは文字列になります。
 
@@ -213,7 +213,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 {% if ${first_name} == blank %}
   ....
 {% endif %}
-`````````
+```
 {% endraw %}
 
 ## カスタム属性の参照 {#referencing-custom-attributes}
@@ -236,7 +236,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 `````````liquid
 {% if {{custom_attribute.${registration_complete}}} == true %}
-`````````
+```
 
 {% endraw %}
 
@@ -248,7 +248,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 `````````liquid
 {% if {{custom_attribute.${shoe_size}}} == 10 %}
-`````````
+```
 
 {% endraw %}
 
@@ -258,7 +258,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 `````````liquid
 {% if {{custom_attribute.${flyer_miles}}} >= 500 %}
-`````````
+```
 
 {% endraw %}
 
@@ -270,7 +270,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 `````````liquid
 {% if {{custom_attribute.${favorite_color}}} == 'blue' %}
-`````````
+```
 
 {% endraw %}
 
@@ -284,7 +284,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 `````````liquid
 {% if {{custom_attribute.${last_viewed_shows}}} contains 'homeland' %}
-`````````
+```
 
 {% endraw %}
 
@@ -298,6 +298,6 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 `````````liquid
 {% assign expire = {{custom_attribute.${subscription_end_date}}} | plus: 0 %}
-`````````
+```
 
 {% endraw %}

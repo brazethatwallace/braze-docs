@@ -48,7 +48,7 @@ description: "この記事では、「キャンバスの翻訳を表示する」
 curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations/?workflow_id={workflow_id}&step_id={step_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
@@ -58,7 +58,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 
 ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
 
-`````````json
+```json
 {
     "translations": [
         {
@@ -77,13 +77,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
         }
     ]
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
 	"errors": [
 		{
@@ -91,6 +91,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 		}
 	]
 }
-`````````
+```
 
 {% endapi %}

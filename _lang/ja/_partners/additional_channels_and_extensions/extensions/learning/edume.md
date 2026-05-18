@@ -46,7 +46,7 @@ Access your onboarding course at:
        "x-api-key": "YOUR-EDUME-API-KEY"
   }
 %}
-`````````
+```
 {% endraw %}
 
 1. `YOUR-EDUME-API-KEY` を eduMe APIキーに置き換えます。<br><br>

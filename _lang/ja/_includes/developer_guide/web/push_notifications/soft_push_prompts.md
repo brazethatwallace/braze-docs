@@ -75,6 +75,6 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
   // show the in-app message now
   braze.showInAppMessage(inAppMessage);
 });
-`````````
+```
 
 ユーザーにソフトプッシュプロンプトを表示したい場合は、このアプリ内メッセージをトリガーする任意のイベント名で`braze.logCustomEvent`を呼び出してください。

@@ -382,7 +382,7 @@ Brazeは、`Authorization`リクエストヘッダーにベアラートークン
 
 ```bash
 Authorization: Bearer YOUR_REST_API_KEY
-`````````
+```
 
 各リクエストに対して、Brazeは以下のサーバーサイド検証チェックを実行します：
 

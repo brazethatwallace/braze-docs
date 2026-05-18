@@ -65,7 +65,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
   }
   braze.showInAppMessage(inAppMessage);
 });
-`````````
+```
 {% endtab %}
 
 {% tab android %}
@@ -73,12 +73,12 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% subtab JAVA %}
 `````````java
 Map<String, String> getExtras()
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 `````````kotlin
 extras: Map<String, String>
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -98,7 +98,7 @@ let customization = message.extras["custom-display"] as? String
 if customization == "colorful-slideup" {
   // Perform your custom logic.
 }
-`````````
+```
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
@@ -109,7 +109,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
     // Perform your custom logic.
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -142,7 +142,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
       // do nothing
   }
 });
-`````````
+```
 
 {% alert important %}
 `braze.automaticallyShowInAppMessages()`を削除せずに`braze.showInAppMessage`を呼び出すと、メッセージが2回表示される場合があります。
@@ -207,13 +207,13 @@ iOSの場合、Braze設定エディターでゲームオブジェクトリスナ
 `````````javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
-`````````
+```
 {% endtab %}
 
 {% tab android %}
 `````````xml
 <integer name="com_braze_trigger_action_minimum_time_interval_seconds">5</integer>
-`````````
+```
 {% endtab %}
 
 {% tab swift %}
@@ -228,7 +228,7 @@ let configuration = Braze.Configuration(
 configuration.triggerMinimumTimeInterval = 5
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 `````````objc
@@ -239,7 +239,7 @@ BRZConfiguration *configuration =
 configuration.triggerMinimumTimeInterval = 5;
 Braze *braze = [BrazePlugin initBraze:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -280,7 +280,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
     Braze.getInstance(context).logCustomEvent("IAM Trigger", eventProperties);
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -297,7 +297,7 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
         Braze.getInstance(applicationContext).logCustomEvent("IAM Trigger", eventProperties)
     }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -342,7 +342,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
     AppDelegate.braze?.logCustomEvent("IAM Trigger", properties: ["campaign_name": userInfo["CAMPAIGN_NAME"]])
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -354,7 +354,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
     [AppDelegate.braze logCustomEvent:@"IAM Trigger" properties:@{@"campaign_name": userInfo[@"CAMPAIGN_NAME"]}];
   }
 };
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -408,14 +408,14 @@ Web SDKでは、`braze.showInAppMessage(inAppMessage)`を使用してアプリ�
 
 `````````java
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 `````````kotlin
 BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -426,7 +426,7 @@ BrazeInAppMessageManager.getInstance().addInAppMessage(inAppMessage)
 if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMessage() {
   AppDelegate.braze?.inAppMessagePresenter?.present(message: inAppMessage)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -441,7 +441,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
   var message = new braze.SlideUpMessage("Welcome to Braze! This is an in-app message.");
   message.slideFrom = braze.InAppMessage.SlideFrom.TOP;
   braze.showInAppMessage(message);
-`````````
+```
 {% endtab %}
 
 {% tab android %}
@@ -452,7 +452,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 // Initializes a new slideup type in-app message and specifies its message.
 InAppMessageSlideup inAppMessage = new InAppMessageSlideup();
 inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -461,7 +461,7 @@ inAppMessage.setMessage("Welcome to Braze! This is a slideup in-app message.");
 // Initializes a new slideup type in-app message and specifies its message.
 val inAppMessage = InAppMessageSlideup()
 inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -482,7 +482,7 @@ let customInAppMessage = Braze.InAppMessage.slideup(
   .init(message: "YOUR_CUSTOM_SLIDEUP_MESSAGE", slideFrom: .bottom, themes: .defaults)
 )
 AppDelegate.braze?.inAppMessagePresenter?.present(message: customInAppMessage)
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -497,7 +497,7 @@ customInAppMessage.themes = @{
   @"dark": BRZInAppMessageRawTheme.defaultDark
 };
 [AppDelegate.braze.inAppMessagePresenter presentMessage:customInAppMessage];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -512,7 +512,7 @@ customInAppMessage.themes = @{
 
 `````````csharp
 Appboy.AppboyBinding.DisplayNextInAppMessage();
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -534,4 +534,4 @@ Web SDKでこれらのメッセージタイプのトリガーを設定するに�
   var _ouibounce = ouibounce(false, {
     callback: function() { braze.logCustomEvent('exit intent'); }
   });
-`````````
+```

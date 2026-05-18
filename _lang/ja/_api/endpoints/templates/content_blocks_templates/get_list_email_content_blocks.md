@@ -40,11 +40,11 @@ description: "この記事では、利用可能なContent Blocksの一覧を取�
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=100&offset=1' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "count": "integer",
   "content_blocks": [
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
     }
   ]
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

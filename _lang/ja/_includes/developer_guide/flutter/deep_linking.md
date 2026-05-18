@@ -66,7 +66,7 @@ extension AppDelegate {
   }
 
 }
-`````````
+```
 {% endtab %}
 
 {% tab Android %}
@@ -92,7 +92,7 @@ class MainActivity : FlutterActivity() {
   }
 
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -122,4 +122,4 @@ void deepLinkAlert(String link, BuildContext context) {
     },
   );
 }
-`````````
+```

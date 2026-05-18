@@ -84,7 +84,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZ
     }
   }
 }' https://rest.iad-01.braze.com/messages/send
-`````````
+```
 {% endsubtab %}
 
 {% subtab swift %}
@@ -100,7 +100,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZ
     }
   }
 }' https://rest.iad-01.braze.com/messages/send
-`````````
+```
 {% endsubtab %}
 
 {% subtab kindle %}
@@ -117,7 +117,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {BRAZ
     }
   }
 }' https://rest.iad-01.braze.com/messages/send
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 

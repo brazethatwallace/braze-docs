@@ -42,7 +42,7 @@ braze.subscribeToInAppMessage(function (message) {
     braze.showInAppMessage(message);
   }
 });
-`````````
+```
 
 !!step
 lines-index.js=2
@@ -127,7 +127,7 @@ class MyApplication : Application() {
         .setCustomInAppMessageViewFactory(CustomInAppMessageViewFactory())
     }
 }
-`````````
+```
 
 `````````kotlin file=CustomInAppMessageViewFactory.kt
 import android.app.Activity
@@ -175,7 +175,7 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
         return iamView
     }
 }
-`````````
+```
 
 !!step
 lines-MainApplication.kt=19
@@ -282,7 +282,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BrazeInAppMessageUIDelega
       }
     }
 }
-`````````
+```
 
 `````````swift file=SampleApp.swift
 import SwiftUI
@@ -297,7 +297,7 @@ struct SampleApp: App {
     }
   }
 }
-`````````
+```
 
 !!step
 lines-AppDelegate.swift=5

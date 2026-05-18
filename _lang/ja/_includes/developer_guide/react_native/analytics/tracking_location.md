@@ -6,7 +6,7 @@
 
 ```javascript
 Braze.setLastKnownLocation(LATITUDE, LONGITUDE, ALTITUDE, HORIZONTAL_ACCURACY, VERTICAL_ACCURACY);
-`````````
+```
 
 - Androidでは、`latitude`と`longitude`が必須だ。`altitude`、`horizontalAccuracy`、およびは任意`verticalAccuracy`だ。
 - iOSでは、`latitude`、および`horizontalAccuracy``longitude`が必須である。`altitude`とは任意`verticalAccuracy`である。
@@ -19,7 +19,7 @@ Braze.setLastKnownLocation(LATITUDE, LONGITUDE, ALTITUDE, HORIZONTAL_ACCURACY, V
 
 `````````javascript
 Braze.setLocationCustomAttribute("favorite_restaurant", 40.7128, -74.0060, optionalCallback);
-`````````
+```
 
 ## 位置情報の初期化を要求する（Androidのみ）
 
@@ -27,7 +27,7 @@ Braze.setLocationCustomAttribute("favorite_restaurant", 40.7128, -74.0060, optio
 
 `````````javascript
 Braze.requestLocationInitialization();
-`````````
+```
 
 ## ジオフェンス
 
@@ -39,4 +39,4 @@ Braze.requestLocationInitialization();
 
 `````````javascript
 Braze.requestGeofences(LATITUDE, LONGITUDE);
-`````````
+```

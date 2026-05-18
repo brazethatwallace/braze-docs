@@ -4,7 +4,7 @@ article_title: 機能の認知と新しいアプリバージョン
 page_order: 9
 page_type: reference
 description: "このリファレンス記事では、新機能やバージョンをリリースする際に、ユーザーに情報を提供し、期待感を高める方法について説明します。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 

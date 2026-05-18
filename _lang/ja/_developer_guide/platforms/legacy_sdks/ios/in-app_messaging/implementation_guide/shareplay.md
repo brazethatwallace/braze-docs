@@ -50,7 +50,7 @@ override var nibName: String {
 override func loadView() {
   Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -77,7 +77,7 @@ func configureVideoPlayer() {
   videoPlayerContainer.addSubview(playerViewController.view)
   playerViewController.didMove(toParent: self)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -117,7 +117,7 @@ struct MediaItemActivity: GroupActivity {
     return metadata
   }
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -158,7 +158,7 @@ private func launchVideoPlayerIfNecessary() {
       .assign(to: \.selectedMediaItem, on: self)
       .store(in: &subscriptions)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -188,7 +188,7 @@ class CoordinationManager() {
   }
 ...
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -214,6 +214,6 @@ override func viewDidLoad() {
     .assign(to: \.isEligibleForSharePlay, on: self)
     .store(in: &subscriptions)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}

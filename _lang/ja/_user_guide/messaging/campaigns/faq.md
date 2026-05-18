@@ -4,7 +4,7 @@ article_title: キャンペーン FAQ
 page_order: 10
 page_type: FAQ
 description: "このページでは、キャンペーンに関するよくある質問への回答を提供します。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 

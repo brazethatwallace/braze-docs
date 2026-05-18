@@ -67,7 +67,7 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
         notificationBuilder.setStyle(style)
     }
 }
-`````````
+```
 
 ### ステップ 2: カスタムデータをマッピングする {#step-2-map-custom-data}
 
@@ -91,7 +91,7 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
         }
     }
 }
-`````````
+```
 
 ### ステップ 3: カスタム通知ファクトリーを設定する {#step-3-set-the-custom-notification-factory}
 
@@ -106,7 +106,7 @@ class MyApplication : Application() {
         Braze.customBrazeNotificationFactory = MyCustomNotificationFactory()
     }
 }
-`````````
+```
 
 ### ステップ 4: アクティビティを送信する {#step-4-send-the-activity}
 
@@ -116,7 +116,7 @@ class MyApplication : Application() {
 
 Superb Owlは以下のcurlコマンドを使ってリクエストを送信しました。
 
-`````````
+```
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
   -H "Authorization: Bearer {REST_API_KEY}" \
   -H "Content-Type: application/json" \
@@ -139,7 +139,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
       }
     }
   }'
-`````````
+```
 
 {% alert tip %}
 curlコマンドはテストに役立ちますが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。

@@ -60,7 +60,7 @@ http://tracking.jampp.com/event?kind={{event_name}}&rnd={{rnd}}&app={% if {{most
 {% if {{most_recently_used_device.${idfa}}} == blank and {{custom_attribute.${aaid}}} == blank %}
 {% abort_message('No IDFA or AAID available') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 Webhook URLで次の操作を行う必要があります。

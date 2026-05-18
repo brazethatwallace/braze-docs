@@ -95,7 +95,7 @@ API使用量アラートを作成するには：
   },
   "text": "Your My First API Usage Alert alert has triggered. You can view your alert and usage here: <link>. Note that this alert will reset in 1 day, as each alert will only send one notification per 8 hours."
 }
-`````````
+```
 
 ### アラートの例 {#example-alerts}
 

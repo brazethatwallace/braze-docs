@@ -13,7 +13,7 @@ Braze JavaScript インターフェイスを使用すると、Brazeをアプリ�
 
 ```swift
 let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(braze: braze)
-`````````
+```
 
 初期化された`scriptMessageHandler` をWkWebView の`userContentController` に追加します。
 
@@ -22,13 +22,13 @@ configuration.userContentController.add(
   scriptMessageHandler,
   name: Braze.WebViewBridge.ScriptMessageHandler.name
 )
-`````````
+```
 
 次に、設定を使用してWebView を作成します。
 
 `````````swift
 let webView = WKWebView(frame: .zero, configuration: configuration)
-`````````
+```
 
 完了したら、コードは次のようになります。
 
@@ -48,7 +48,7 @@ configuration.userContentController.add(
 
 // Create the webview using the configuration
 let webView = WKWebView(frame: .zero, configuration: configuration)
-`````````
+```
 
 ## 例: カスタムイベントをログに記録する
 
@@ -76,4 +76,4 @@ let webView = WKWebView(frame: .zero, configuration: configuration)
     />
   </body>
 </html>
-`````````
+```

@@ -31,13 +31,13 @@ Expoでプッシュ通知を使う前に、[Braze Expoプラグインを設定](
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
-`````````
+```
 
 #### ステップ1.3：Google Services JSONへのパスを追加する {#step-13-add-the-path-to-your-google-services-json}
 
 プロジェクトの `app.json` ファイルに、`google-services.json` ファイルへのパスを追加します。このファイルは、設定で `enableFirebaseCloudMessaging: true` を指定する場合に必要です。
 
-`````````json
+```json
 {
   "expo": {
     "android": {
@@ -58,7 +58,7 @@ Expoでプッシュ通知を使う前に、[Braze Expoプラグインを設定](
     ]
   }
 }
-`````````
+```
 
 [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/)などの追加のプッシュ通知ライブラリーに依存している場合は、ネイティブのセットアップ手順ではなく、これらの設定を使用する必要があることに注意してください。
 {% endtab %}
@@ -95,7 +95,7 @@ const permissionOptions = {
 };
 
 Braze.requestPushPermission(permissionOptions);
-`````````
+```
 
 #### ステップ2.1：プッシュ通知をリッスンする（オプション） {#step-21-listen-for-push-notifications-optional}
 
@@ -110,7 +110,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
   console.log(`Push Notification event of type ${data.payload_type} seen. Title ${data.title}\n and deeplink ${data.url}`);
   console.log(JSON.stringify(data, undefined, 2));
 });
-`````````
+```
 
 ##### プッシュ通知イベントフィールド {#push-notification-event-fields}
 
@@ -166,7 +166,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
   BrazeReactUtils.populateInitialPushPayloadFromIntent(intent)
   super.onCreate(savedInstanceState)
 }
-`````````
+```
 
 #### ステップ3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
 
@@ -181,7 +181,7 @@ Braze.getInitialPushPayload(pushPayload => {
     handleOpenUrl({ pushPayload.url });
   }
 });
-`````````
+```
 {% alert note %}
 このメソッドでは、ステップ3.1でプラットフォーム向けのネイティブ設定が必要です。Braze Expoプラグインを使用している場合、これは自動的に処理される可能性があります。
 {% endalert %}
@@ -219,7 +219,7 @@ iOSの場合は、AppDelegateの `didFinishLaunchingWithOptions` メソッドに
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Swift %}
 `````````swift
@@ -239,7 +239,7 @@ func application(
 
   return super.application(application, didFinishLaunchingWithOptions: launchOptions)
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -256,7 +256,7 @@ Braze.getInitialPushPayload(pushPayload => {
     handleOpenUrl({ pushPayload.url });
   }
 });
-`````````
+```
 {% alert note %}
 このメソッドでは、ステップ3.1でプラットフォーム向けのネイティブ設定が必要です。Braze Expoプラグインを使用している場合、これは自動的に処理される可能性があります。
 {% endalert %}
@@ -297,7 +297,7 @@ class BrazeReactDelegate: NSObject, BrazeDelegate {
     return true
   }
 }
-`````````
+```
 
 次に、プロジェクトの `AppDelegate.swift` ファイルの `didFinishLaunchingWithOptions` 内で `BrazeReactDelegate` を作成し登録します。
 
@@ -322,7 +322,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `iOS` ディレクトリ内に `BrazeReactDelegate.h` ファイルを作成し、以下のコードスニペットを追加します。
@@ -334,7 +334,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 @interface BrazeReactDelegate: NSObject<BrazeDelegate>
 
 @end
-`````````
+```
 
 次に、`BrazeReactDelegate.m` ファイルを作成し、以下のコードスニペットを追加します。`YOUR_DOMAIN_HOST` を実際のドメインに置き換えてください。
 
@@ -363,7 +363,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 @end
-`````````
+```
 
 次に、プロジェクトの `AppDelegate.m` ファイルの `didFinishLaunchingWithOptions` 内で `BrazeReactDelegate` を作成し登録します。
 
@@ -385,7 +385,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   self.brazeDelegate = [[BrazeReactDelegate alloc] init];
   braze.delegate = self.brazeDelegate;
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -443,7 +443,7 @@ Braze.getInitialPushPayload((payload) => {
     console.log('Initial push payload', payload);
   }
 });
-`````````
+```
 
 {% alert note %}
 Expo管理ワークフローでは、Braze Expoプラグインがネイティブプッシュ処理を自動的に行います。上記のExpo Notificationsプレゼンテーションオプションで、フォアグラウンドUIをコントロールします。
@@ -475,7 +475,7 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 
 追加のFirebase Messaging Service（FMS）を使用する場合は、アプリケーションがBraze以外からプッシュを受信した場合に呼び出すフォールバックFMSを指定できます。以下に例を示します。
 
-`````````json
+```json
 {
   "expo": {
     "plugins": [
@@ -490,7 +490,7 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
     ]
   }
 }
-`````````
+```
 
 ### Expo Application Servicesでアプリ拡張機能を使用する {#app-extensions}
 

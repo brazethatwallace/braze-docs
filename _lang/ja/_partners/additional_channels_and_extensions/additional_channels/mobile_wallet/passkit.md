@@ -83,7 +83,7 @@ Brazeでは、SmartPassリンクを設定して、顧客がAndroidまたはiOS�
   "person.externalId": "{{${user_id}}}",
   "universal.expiryDate": "{{ "now" | date: "%s" | plus: 31622400 | date: "%FT%TZ" }}"
 }
-`````````
+```
 {% endraw %}
 
 ### ステップ2: 未定義のペイロード変数を作成し、エンコードする {#step-2-create-and-encode-an-undefined-payload-variable}
@@ -98,7 +98,7 @@ Brazeダッシュボード内の**テンプレート** > **Content Blocks**に�
 {% raw %}
 `````````liquid
 {% capture base64JsonPayload %}{{passDatapassData|base64_encode}}{% endcapture %}
-`````````
+```
 {% endraw %}
 
 ### ステップ3: SHA1 HMACハッシュを使用して暗号化署名を作成する {#step-3-create-your-encryption-signature-using-a-sha1-hmac-hash}
@@ -109,21 +109,21 @@ Content Blockに追加する2つ目のコードスニペットは、ハッシュ
 {% raw %}
 `````````liquid
 {% capture url %}{{projectUrl}}?data={{base64JsonPayload}}{% endcapture %}
-`````````
+```
 {% endraw %}
 
 次に、このハッシュと`Project Secret`を使用して署名を生成する必要があります。これは、3つ目のコードスニペットを含めることで可能になります。
 {% raw %}
 `````````liquid
 {% capture sig %}{{url | hmac_sha1: "Project_Secret"}}{% endcapture %}
-`````````
+```
 {% endraw %}
 
 最後に、5番目のコードスニペットを使って、完全なURLに署名を追加します。
 {% raw %}
 `````````liquid
 {% capture longURL %}{{projectUrl}}?data={{base64JsonPayload}}&sig={{sig}}{% endcapture %}
-`````````
+```
 {% endraw %}
 
 ### ステップ4: URLを出力する {#step-4-print-your-url}
@@ -132,7 +132,7 @@ Content Blockに追加する2つ目のコードスニペットは、ハッシュ
 {% raw %}
 `````````liquid
 {{longURL}}
-`````````
+```
 {% endraw %}
 
 この時点で、次のようなContent Blockが作成されています。
@@ -148,7 +148,7 @@ Content Blockに追加する2つ目のコードスニペットは、ハッシュ
 {% capture longURL %}{{projectUrl}}?data={{base64JsonPayload}}&sig={{sig}}&utm_source=braze&utm_campaign={{campaign.${name}}}{% endcapture %}{% capture longURL %}{{longURL | url_encode}}{% endcapture %}
 
 {{longURL}}
-`````````
+```
 {% endraw %}
 
 この例では、これらのインストールのソースをBrazeとこのキャンペーンまで追跡するために、UTMパラメーターが追加されています。
@@ -178,21 +178,21 @@ Content Blockの例では、2つの変数が未定義のままになっている
 {% raw %}
 `````````liquid
 {% assign projectUrl = "https://pub1.pskt.io/c/ww0jir" %}
-`````````
+```
 {% endraw %}
 
 **JSONをキャプチャする**
 {% raw %}
 `````````liquid
 {% capture passData %}{"members.member.externalId": "{{${user_id}}}","members.member.points": "100","members.tier.name": "current_customer","person.displayName": "{{${first_name}}} {{${last_name}}}","person.externalId": "{{${user_id}}}","universal.expiryDate": "{{ "now" | date: "%s" | plus: 31622400 | date: "%FT%TZ" }}"}{% endcapture %}
-`````````
+```
 {% endraw %}
 
 **先ほど作成したContent Blockを参照する**
 {% raw %}
 `````````liquid
 {{content_block.${passkit_SmartPass_url}}}
-`````````
+```
 {% endraw %}
 
 メッセージ本文は次のようになります。
@@ -245,13 +245,13 @@ PassKitの認証には、Base64でエンコードされたPassKit APIキーを�
 
 Webhookをセットアップするには、リクエスト本文に新しいイベントの詳細を記入し、ユースケースに必要なペイロードパラメーターを含めます。
 
-`````````json
+```json
 {% raw %}{
   "externalId": "{{${user_id}}}",
   "campaignId": " 2xa1lRy8dBz4eEElBfmIz8",
   "expiryDate": "2020-05-10T00:00:00Z"
 }{% endraw %}
-`````````
+```
 
 ### ステップ2: リクエストをプレビューする {#step-2-preview-your-request}
 
@@ -274,7 +274,7 @@ Webhookをセットアップするには、リクエスト本文に新しいイ�
 {% connected_content  https://api-pub1.passkit.io/coupon/singleUse/coupon/externalId/{{${user_id}}} :headers {"Authorization": "Bearer <PASSKIT_LONG_LIVED_TOKEN>","Content-Type": "application/json"} :save passes %}
 
 {{passes.status}}
-`````````
+```
 {% endraw %}
 
 **Liquidの応答の例**
@@ -282,7 +282,7 @@ Webhookをセットアップするには、リクエスト本文に新しいイ�
 {% tabs local %}
 {% tab passes redemptionDetails %}
 
-`````````json
+```json
 {
     "redemptionDate": null,
     "redemptionCode": "",
@@ -294,12 +294,12 @@ Webhookをセットアップするには、リクエスト本文に新しいイ�
     "transactionReference": "",
     "transactionAmount": 0
 }
-`````````
+```
 
 {% endtab %}
 {% tab passes status %}
-`````````
+```
 UNREDEEMED
-`````````
+```
 {% endtab %}
 {% endtabs %}

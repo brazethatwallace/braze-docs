@@ -27,14 +27,14 @@ Brazeには、ユーザーに属性を割り当てるメソッドが用意され
 
 ```objc
 [Appboy sharedInstance].user.firstName = @"first_name";
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.firstName = "first_name"
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -63,14 +63,14 @@ Brazeでは、デフォルトユーザー属性以外にも、複数の異なる
 
 `````````objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andStringValue:"your_attribute_value"];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andStringValue: "your_attribute_value")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -82,14 +82,14 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 
 `````````objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andIntegerValue:yourIntegerValue];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andIntegerValue: yourIntegerValue)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -103,14 +103,14 @@ Brazeでは、データベース内での`float`値と`double`値の扱いが同
 
 `````````objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andDoubleValue:yourDoubleValue];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andDoubleValue: yourDoubleValue)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -122,14 +122,14 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 
 `````````objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andBOOLValue:yourBOOLValue];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andBOOLValue: yourBoolValue)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -143,14 +143,14 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 
 `````````objc
 [[Appboy sharedInstance].user setCustomAttributeWithKey:@"your_attribute_key" andDateValue:yourDateValue];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", andDateValue:yourDateValue)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -172,7 +172,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 [[Appboy sharedInstance].user removeFromCustomAttributeArrayWithKey:@"array_name" value:@"value2"];
 // Removing an entire array and key
 [[Appboy sharedInstance].user setCustomAttributeArrayWithKey:@"array_name" array:nil];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -184,7 +184,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeArrayWithKey("array_name", array
 Appboy.sharedInstance()?.user.addToCustomAttributeArrayWithKey("array_name", value: "value3")
 // Removing a value from an array type custom attribute
 Appboy.sharedInstance()?.user.removeFromCustomAttributeArrayWithKey("array_name", value: "value2")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -198,14 +198,14 @@ Appboy.sharedInstance()?.user.removeFromCustomAttributeArrayWithKey("array_name"
 
 `````````objc
 [[Appboy sharedInstance].user unsetCustomAttributeWithKey:@"your_attribute_key"];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -219,14 +219,14 @@ Appboy.sharedInstance()?.user.unsetCustomAttributeWithKey("your_attribute_key")
 
 `````````objc
 [[Appboy sharedInstance].user incrementCustomUserAttribute:@"your_attribute_key" by:incrementIntegerValue];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key", by: incrementIntegerValue)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -266,14 +266,14 @@ REST APIを使用してユーザー属性を設定することもできます。
 
 `````````objc
 [[Appboy sharedInstance].user setEmailNotificationSubscriptionType: ABKNotificationSubscriptionType]
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificationSubscriptionType)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -285,14 +285,14 @@ Appboy.sharedInstance()?.user.setEmailNotificationSubscriptionType(ABKNotificati
 
 `````````objc
 [[Appboy sharedInstance].user setPushNotificationSubscriptionType: ABKNotificationSubscriptionType]
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificationSubscriptionType)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

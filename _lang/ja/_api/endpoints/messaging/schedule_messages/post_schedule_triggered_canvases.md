@@ -37,9 +37,9 @@ description: "この記事では、「APIトリガーキャンバスのスケジ
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "canvas_id": (required, string) see Canvas identifier,
   // Including 'recipients' will send only to the provided user ids if they are in the campaign's segment
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "audience": (optional, connected audience object) see connected audience,
   // Including 'audience' will only send to users in the audience
   // If 'recipients' and 'audience' are not provided and broadcast is not set to 'false',
-  // the message will send to entire segment targeted by the キャンバス
+  // the message will send to entire segment targeted by the Canvas
   "broadcast": (optional, boolean) see broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" object is omitted,
   "context": (optional, object) personalization key-value pairs for the first step for all users in this send; see trigger properties,
   "schedule": {
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     "at_optimal_time": (optional, bool),
   }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -73,7 +73,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -141,13 +141,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
     "at_optimal_time": false
   }
 }'
-`````````
+```
 
 ## 応答 {#response}
 
 ### 成功応答の例 {#example-success-response}
 
-`````````
+```
 Content-Type: application/json
 Authorization: Bearer YOUR-API-KEY-HERE
 {
@@ -156,6 +156,6 @@ Authorization: Bearer YOUR-API-KEY-HERE
     "schedule_id": "schedule_identifier",
     "message": "success"
 }
-`````````
+```
 
 {% endapi %}

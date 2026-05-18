@@ -31,7 +31,7 @@ func pushViewController() {
   contentCardsController.delegate = self
   self.navigationController?.pushViewController(contentCardsController, animated: true)
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -43,7 +43,7 @@ func pushViewController() {
   [contentCardsController setDelegate:self];
   [self.navigationController pushViewController:contentCardsController animated:YES];
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -63,7 +63,7 @@ func presentModalViewController() {
   contentCardsModal.viewController.delegate = self
   self.navigationController?.present(contentCardsModal, animated: true, completion: nil)
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -75,7 +75,7 @@ func presentModalViewController() {
   [contentCardsModal.viewController setDelegate:self];
   [self.navigationController presentViewController:contentCardsModal animated:YES completion:nil];
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

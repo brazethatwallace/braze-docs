@@ -34,7 +34,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setFirstName("first_name");
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -43,7 +43,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setFirstName("first_name")
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -62,7 +62,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setFirstName(null);
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -71,7 +71,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setFirstName(null)
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -96,7 +96,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setCustomUserAttribute("your_attribute_key", "your_attribute_value");
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -105,7 +105,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", "your_attribute_value")
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -126,7 +126,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE);
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -138,7 +138,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
   // Integer attributes may also be incremented using code like the following:
   brazeUser.incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -155,7 +155,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_LONG_VALUE);
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -164,7 +164,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_LONG_VALUE)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -182,7 +182,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_FLOAT_VALUE);
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -191,7 +191,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_FLOAT_VALUE)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -208,7 +208,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_DOUBLE_VALUE);
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -217,7 +217,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_DOUBLE_VALUE)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -236,7 +236,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_BOOLEAN_VALUE);
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -245,7 +245,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_BOOLEAN_VALUE)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -266,7 +266,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setCustomUserAttributeToSecondsFromEpoch("your_attribute_key", SECONDS_FROM_EPOCH);
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -279,7 +279,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
   // This method will assign the date specified by SECONDS_FROM_EPOCH to a custom attribute:
   brazeUser.setCustomUserAttributeToSecondsFromEpoch("your_attribute_key", SECONDS_FROM_EPOCH)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -308,7 +308,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.removeFromCustomAttributeArray("your_attribute_key", "value_to_remove");
   }
 });
-`````````
+```
 {% endsubtab %}
 {% subtab KOTLIN %}
 
@@ -321,7 +321,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
   // Removing a value from an array type custom attribute
   brazeUser.removeFromCustomAttributeArray("your_attribute_key", "value_to_remove")
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -342,7 +342,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.unsetCustomUserAttribute("your_attribute_key");
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -351,7 +351,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.unsetCustomUserAttribute("your_attribute_key")
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -376,7 +376,7 @@ braze.getCurrentUser(user -> {
   user.setCustomUserAttribute("favorite_book", favoriteBook);
   return null;
 });
-`````````
+```
 {% endtab %}
 
 {% tab KOTLIN %}
@@ -389,7 +389,7 @@ val favoriteBook = JSONObject()
 braze.getCurrentUser { user ->
   user.setCustomUserAttribute("favorite_book", favoriteBook)
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -424,7 +424,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setEmailNotificationSubscriptionType(emailNotificationSubscriptionType);
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -433,7 +433,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setEmailNotificationSubscriptionType(emailNotificationSubscriptionType)
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -450,7 +450,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setPushNotificationSubscriptionType(pushNotificationSubscriptionType);
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -459,7 +459,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setPushNotificationSubscriptionType(pushNotificationSubscriptionType)
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

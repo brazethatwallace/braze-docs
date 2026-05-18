@@ -67,7 +67,7 @@ GROUP BY
 send_date_sydney
 ORDER BY
 send_date_sydney;
-`````````
+```
 {% endraw %}
 
 ### クエリ履歴 {#query-history}
@@ -114,7 +114,7 @@ Brazeが提供するビルド済みクエリを使用するには、クエリビ
 SELECT COUNT(*) as Purchases, SUM(price) as Revenue
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CURRENT_DATE()));
-`````````
+```
 
 このクエリは、過去1か月間のメール送信数を取得します:
 
@@ -122,7 +122,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CU
 SELECT COUNT(*) as Sends
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
-`````````
+```
 
 `CANVAS_ID`、`CANVAS_VARIATION_API_ID`、または`CAMPAIGN_ID`をクエリすると、関連する名前カラムが結果テーブルに自動的に含まれます。`SELECT`クエリ自体にそれらを含める必要はありません。
 
@@ -139,7 +139,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
-`````````
+```
 
 ### キャンペーンバリアント名を自動入力する {#automatically-populate-the-campaign-variant-name}
 
@@ -149,7 +149,7 @@ LIMIT 100
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID, MESSAGE_VARIATION_API_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
-`````````
+```
 
 ### トラブルシューティング {#troubleshooting}
 

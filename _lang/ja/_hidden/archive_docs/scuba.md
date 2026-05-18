@@ -47,7 +47,7 @@ curl -X POST "https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation" 
 "scuba_period_start":"PERIOD_START", \
 "scuba_period_end":"PERIOD_END", \
 "scuba_record_limit":"RECORD_LIMIT"}'
-`````````
+```
 
 次のように置き換えます。
 

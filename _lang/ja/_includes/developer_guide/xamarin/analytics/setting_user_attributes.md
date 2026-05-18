@@ -12,14 +12,14 @@ Braze によって自動的に収集されるユーザー 属性を設定する�
 {% tab Android %}
 ```csharp
 Braze.GetInstance(this).CurrentUser.SetFirstName("first_name");
-`````````
+```
 
 {% endtab %}
 {% tab iOS %}
 
 `````````csharp
 App.braze?.User.SetFirstName("first_name");
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -43,7 +43,7 @@ Braze は、定義済みのユーザー属性メソッドに加えて、`SetCust
 {% tab Android %}
 `````````csharp
 Braze.GetInstance(this).CurrentUser.SetCustomUserAttribute("custom_attribute_key", true);
-`````````
+```
 
 属性のトラッキングのベストプラクティスとインターフェイスの詳細については、[Android の統合手順]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)を参照してください。
 
@@ -52,7 +52,7 @@ Braze.GetInstance(this).CurrentUser.SetCustomUserAttribute("custom_attribute_key
 
 `````````csharp
 App.braze?.User.SetCustomAttributeWithKey("custom_attribute_key", true);
-`````````
+```
 
 属性のトラッキングのベストプラクティスとインターフェイスの詳細については、[iOS の統合手順]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)を参照してください。
 

@@ -4,7 +4,7 @@ article_title: キャンバスの概要
 page_order: 0.5
 page_type: reference
 description: "このリファレンス記事では、4つの便利なキャンバスのユースケースについて説明します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

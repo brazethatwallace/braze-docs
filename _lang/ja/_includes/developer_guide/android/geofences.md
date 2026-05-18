@@ -15,7 +15,7 @@ dependencies {
   implementation "com.braze:android-sdk-location:+"
   implementation "com.google.android.gms:play-services-location:${PLAY_SERVICES_VERSION}"
 }
-`````````
+```
 
 ### ステップ 3: マニフェストを更新する {#step-3-update-the-manifest}
 
@@ -25,7 +25,7 @@ dependencies {
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-`````````
+```
 
 {% alert important %}
 バックグラウンド位置情報アクセス権限はAndroid 10で追加されたもので、Android 10以降のすべてのデバイスでは、アプリがバックグラウンドで動作している間ジオフェンスが機能するために必要です。
@@ -39,7 +39,7 @@ dependencies {
     <action android:name="android.intent.action.BOOT_COMPLETED" />
   </intent-filter>
 </receiver>
-`````````
+```
 
 ### ステップ 4: Brazeの位置情報収集機能を有効にする {#step-4-enable-braze-location-collection}
 
@@ -47,7 +47,7 @@ dependencies {
 
 `````````xml
 <bool name="com_braze_enable_location_collection">true</bool>
-`````````
+```
 
 {% alert important %}
 Braze Android SDKバージョン3.6.0以降、Brazeの位置情報収集機能はデフォルトで無効になっています。
@@ -57,7 +57,7 @@ Brazeのジオフェンスは、Brazeの位置情報収集機能が有効にな�
 
 `````````xml
 <bool name="com_braze_geofences_enabled">true</bool>
-`````````
+```
 
 ### ステップ 5: エンドユーザーから位置情報の権限を取得する {#step-5-obtain-location-permissions-from-the-end-user}
 
@@ -70,14 +70,14 @@ Android M以降のバージョンでは、位置情報を収集したりジオ�
 
 `````````java
 Braze.getInstance(context).requestLocationInitialization();
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 Braze.getInstance(context).requestLocationInitialization()
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -122,7 +122,7 @@ public class RuntimePermissionUtils {
     return true;
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -159,7 +159,7 @@ object RuntimePermissionUtils {
     return true
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -187,7 +187,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -210,7 +210,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -225,7 +225,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 `````````xml
 <bool name="com_braze_automatic_geofence_requests_enabled">false</bool>
-`````````
+```
 
 これはさらに、ランタイム時に以下の方法で行うこともできます。
 
@@ -236,7 +236,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 BrazeConfig.Builder brazeConfigBuilder = new BrazeConfig.Builder()
     .setAutomaticGeofenceRequestsEnabled(false);
 Braze.configure(getApplicationContext(), brazeConfigBuilder.build());
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -245,7 +245,7 @@ Braze.configure(getApplicationContext(), brazeConfigBuilder.build());
 val brazeConfigBuilder = BrazeConfig.Builder()
     .setAutomaticGeofenceRequestsEnabled(false)
 Braze.configure(applicationContext, brazeConfigBuilder.build())
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -259,14 +259,14 @@ Brazeジオフェンスは、[`requestGeofences()`](https://braze-inc.github.io/
 
 `````````java
 Braze.getInstance(getApplicationContext()).requestGeofences(latitude, longitude);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -28,18 +28,18 @@ Braze は、リクエストボディとURL パラメータに渡される`api_ke
 **前:リクエスト本文のAPI キー**
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?api_key={YOUR_REST_API_KEY}&start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@braze.com' \
-`````````
+```
 **現在: ヘッダーのAPIキー**
-`````````
+```
 curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@braze.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endtab %}
 {% tab POST Request %}
 この例では、`/user/track` エンドポイントを使用している。
 
 **前:リクエスト本文のAPI キー**
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -54,9 +54,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
     ]
 }'
-`````````
+```
 **現在: ヘッダーのAPIキー**
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -71,7 +71,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
     ]
 }'
-`````````
+```
 {% endtab %}
 {% endtabs %}
 {% enddetails %}

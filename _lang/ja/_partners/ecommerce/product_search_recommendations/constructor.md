@@ -47,7 +47,7 @@ Constructor の Offsite Discovery API URL を使用して、商品の画像を�
     alt="Shop Now"
   />
 </a>
-`````````
+```
 
 ### パラメーター {#parameters}
 

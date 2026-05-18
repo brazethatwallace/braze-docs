@@ -24,7 +24,7 @@ description: "このリファレンス記事では、ユーザーエイリアス
     "alias_label" : (required, string)
   }
 }
-`````````
+```
 
 | フィールド | データタイプ | 例 | 説明 |
 |---|---|---|---|
@@ -35,7 +35,7 @@ description: "このリファレンス記事では、ユーザーエイリアス
 
 ### 例 {#example}
 
-`````````json
+```json
 {
   "user_alias": {
     "alias_name": "john_doe_123",
@@ -43,19 +43,19 @@ description: "このリファレンス記事では、ユーザーエイリアス
   },
   "external_id": "user_456"
 }
-`````````
+```
 
 この例では、`crm_id` はエイリアスがCRMシステムの識別子を表すことを示すカスタムラベルです。
 
 ### その他の例 {#additional-example}
 
-`````````json
+```json
 {
   "user_alias": {
     "alias_name": "a9f3c102",
     "alias_label": "amplitude_id"
   }
 }
-`````````
+```
 
 この例では、`amplitude_id` は使用可能なラベル値の1つです。`email_id` や `salesforce_lead_id` など、識別子スキームに合った他のカスタムラベルも使用できます。

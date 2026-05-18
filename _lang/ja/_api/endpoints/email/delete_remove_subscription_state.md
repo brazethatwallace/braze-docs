@@ -36,15 +36,15 @@ Authorization: Bearer YOUR_REST_API_KEY
   {email: "dont.spam@me.com"},
   {phone: "+17185551212"}
 }
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
   "status": "The emails and/or phone numbers have been queued for deletion",
   "message": "success"
 }
-`````````
+```
 
 {% endapi %}

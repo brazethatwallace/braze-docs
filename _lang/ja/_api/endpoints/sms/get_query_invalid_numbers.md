@@ -47,12 +47,12 @@ description: "この記事では、「無効な電話番号を照会する」Bra
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&phone_numbers[]=12345678901' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
-`````````
+```
 
 ## 応答 {#response}
 エントリは降順で表示されます。
 
-`````````json
+```json
 {
   "sms": [
     {
@@ -73,5 +73,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/sms/invalid_phone_n
   ],
   "message": "success"
 }
-`````````
+```
 {% endapi %}

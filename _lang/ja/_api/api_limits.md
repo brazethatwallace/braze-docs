@@ -175,7 +175,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     }
   ]
 }
-`````````
+```
 
 ## レート制限の監視 {#monitoring-your-rate-limits}
 

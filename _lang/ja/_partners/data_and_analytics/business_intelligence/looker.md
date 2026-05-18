@@ -84,7 +84,7 @@ dimension: external_id {
     sql: ${TABLE}.external_id ;;
     tags: ["braze_id"]
 }
-`````````
+```
 
 **必ず変更をコミットしてください。Lookerアクションは本番環境の設定でのみ機能します。**
 
@@ -113,12 +113,12 @@ dimension: external_id {
 以下に、[`/users/track/` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に送信される送信API呼び出しの例を示します。
 
 ###### ヘッダー {#header}
-`````````
+```
 Authorization: Bearer [API_KEY]
-`````````
+```
 
 ###### 本文 {#body}
-`````````json
+```json
 {
    "attributes" : [
       {
@@ -139,7 +139,7 @@ Authorization: Bearer [API_KEY]
       .....
    ]
 }
-`````````
+```
 
 ### Brazeでユーザーをセグメント化する {#segment-users}
 

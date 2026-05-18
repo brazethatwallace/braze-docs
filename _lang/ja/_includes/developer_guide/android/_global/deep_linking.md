@@ -45,7 +45,7 @@ public class CustomDeeplinkHandler implements IBrazeDeeplinkHandler {
     }
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -81,7 +81,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
     private val TAG = BrazeLogger.getBrazeLogTag(CustomDeeplinkHandler::class.java)
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -113,7 +113,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
     }
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -137,7 +137,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
     }
   }
 })
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -169,7 +169,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
     ...
     .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -180,7 +180,7 @@ val brazeConfig = BrazeConfig.Builder()
     ...
     .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

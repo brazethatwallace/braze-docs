@@ -201,7 +201,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
     }
   ]
 })
-`````````
+```
 
 `track`、`page`、または`screen`呼び出しでユーザー特性をカスタムユーザー属性として送信するには、イベントのコンテキストフィールドとして`traits`を渡します。
 `````````javascript
@@ -250,7 +250,7 @@ rudderanalytics.track("Product Viewed", {
     ]
   }
 });
-`````````
+```
 
 {% alert note %}
 更新と削除の操作では、`identifier`が必須キーとなります。add、update、remove操作がネスト配列に存在しない場合、RudderStackはデフォルトでcreate操作を使用してプロパティを作成します。階層化カスタム属性の送信の詳細については、[オブジェクト配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)を参照してください。

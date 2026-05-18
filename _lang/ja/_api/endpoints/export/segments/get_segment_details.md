@@ -38,12 +38,12 @@ description: "この記事では、「セグメントの詳細をエクスポー
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details?segment_id={{segment_identifier}}' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
       "message": (required, string) the status of the export, returns 'success' when completed without errors,
       "created_at" : (string) the date created as ISO 8601 date,
@@ -54,7 +54,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
       "tags" : (array) the tag names associated with the segment formatted as strings,
       "teams" : (array) the names of the Teams associated with the campaign
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

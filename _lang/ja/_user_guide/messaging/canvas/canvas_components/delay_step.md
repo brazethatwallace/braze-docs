@@ -5,7 +5,7 @@ alias: "/delay_step/"
 page_order: 8
 page_type: reference
 description: "このリファレンス記事では、関連するメッセージを追加せずにキャンバスにディレイを追加する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 
 ---
 

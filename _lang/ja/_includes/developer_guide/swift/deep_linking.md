@@ -31,15 +31,15 @@ Xcode を使用して `Info.plist` ファイルを編集します。
         </array>
     </dict>
 </array>
-`````````
+```
 
 ### ステップ 2:スキームの許可リストを追加する
 
 `LSApplicationQueriesSchemes` キーをアプリの Info.plist ファイルに追加して、`canOpenURL(_:)` に渡す URL スキームを宣言する必要があります。この許可リストに含まれないスキームを呼び出そうとすると、デバイスのログにエラーが記録され、ディープリンクは開かれません。以下はこのエラーの例です。
 
-`````````
+```
 <Warning>: -canOpenURL: failed for URL: "yourapp://deeplink" – error: "This app is not allowed to query for scheme yourapp"
-`````````
+```
 
 たとえば、アプリ内メッセージをタップしたときに Facebook アプリが開かれるようにするには、アプリの許可リストに Facebook カスタムスキーム (`fb`) が含まれている必要があります。含まれていないと、ディープリンクが拒否されます。自分のアプリ内のページやビューに誘導するディープリンクでも、アプリのカスタムスキームがアプリの `Info.plist` に含まれている必要があります。
 
@@ -52,7 +52,7 @@ Xcode を使用して `Info.plist` ファイルを編集します。
     <string>fb</string>
     <string>twitter</string>
 </array>
-`````````
+```
 
 詳細については、`LSApplicationQueriesSchemes` キーに関する [Apple のドキュメント](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14)を参照してください。
 
@@ -70,7 +70,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   // Insert your code here to take some action based upon the path and query.
   return true
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -82,7 +82,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   // Insert your code here to take some action based upon the path and query.
   return YES;
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -100,13 +100,13 @@ ATS はデフォルトで適用されます。すべての接続が HTTPS を使
 `````````bash
 CFNetwork SSLHandshake failed (-9801)
 Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secure connection to the server cannot be made."
-`````````
+```
 
 **例エラー2：**
 
 `````````bash
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
-`````````
+```
 
 ATS コンプライアンスは、モバイルアプリ内で開かれたリンク (クリックされたリンクのデフォルト処理) に適用され、Web ブラウザーから外部で開かれたサイトには適用されません。
 
@@ -140,7 +140,7 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
         </dict>
     </dict>
 </dict>
-`````````
+```
 
 詳細については、[アプリトランスポートセキュリティのキー](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33)に関する Apple の記事を参照してください。
 {% endtab %}
@@ -154,7 +154,7 @@ ATS を完全に無効にできます。ただし、セキュリティ保護が�
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -173,7 +173,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
     // Handle urlString
     return true
   }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -184,7 +184,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
   // Handle urlString
   return YES;
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -209,7 +209,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   }
   return true
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -225,7 +225,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   }
   return YES;
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -277,7 +277,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   // Let Braze handle links otherwise
   return true
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -291,7 +291,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   // Let Braze handle links otherwise
   return YES;
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

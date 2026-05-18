@@ -35,14 +35,14 @@ Braze内のどのユーザーにもまだ関連付けられていないメール
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "email": "example@braze.com",
   "subscription_state": "subscribed"
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -61,7 +61,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/status' \
   "email": "example@braze.com",
   "subscription_state": "subscribed"
 }'
-`````````
+```
 
 
 {% endapi %}

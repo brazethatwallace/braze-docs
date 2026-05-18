@@ -45,7 +45,7 @@ Liquidの一部の操作では、操作したい値を変数として保存す�
 
 ```liquid
 {{custom_attribute.${one}}} | plus: {{custom_attribute.${two}}}
-`````````
+```
 
 このLiquidは、1行で複数の属性を参照できないため機能しません。数学関数が実行される前に、これらの値の少なくとも1つに変数を割り当てる必要があります。2つのカスタム属性を加算するには、2行のLiquidが必要です。1行目でカスタム属性を変数に割り当て、2行目で加算を実行します。
 
@@ -56,7 +56,7 @@ Liquidの一部の操作では、操作したい値を変数として保存す�
 `````````liquid
 {% assign value_one = {{custom_attribute.${one}}} %}
 {% assign result = value_one | plus: {{custom_attribute.${two}}} %}
-`````````
+```
 
 #### チュートリアル: 変数を使用して残高を計算する
 
@@ -66,14 +66,14 @@ Liquidの一部の操作では、操作したい値を変数として保存す�
 
 `````````liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
-`````````
+```
 
 次に、`plus` フィルターを使用して、各ユーザーのギフトカード残高と報酬残高（`{{balance}}` で表される）を合算します。
 
 `````````liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
-`````````
+```
 {% endraw %}
 
 {% alert tip %}

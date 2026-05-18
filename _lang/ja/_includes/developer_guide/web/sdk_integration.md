@@ -35,7 +35,7 @@ v3.0.0からTypeScriptの定義が含まれるようになりました。2.xか�
 npm install --save @braze/web-sdk
 # or, using yarn:
 # yarn add @braze/web-sdk
-`````````
+```
 
 インストール後は、通常の方法でライブラリーを`import`または`require`できます。
 
@@ -43,7 +43,7 @@ npm install --save @braze/web-sdk
 import * as braze from "@braze/web-sdk";
 // or, using `require`
 const braze = require("@braze/web-sdk");
-`````````
+```
 {% endsubtab %}
 
 {% subtab braze cdn %}
@@ -91,7 +91,7 @@ if (isLoggedIn){
 
 // `openSession` should be called last - after `changeUser` and `automaticallyShowInAppMessages`
 braze.openSession();
-`````````
+```
 
 {% alert important %}
 **アプリ内メッセージの表示：** アプリ内メッセージがトリガーされた際に自動的に表示するには、`braze.automaticallyShowInAppMessages()`を呼び出す必要があります。この呼び出しがないと、アプリ内メッセージは自動的に表示されません。メッセージ表示を手動で管理したい場合は、この呼び出しを削除し、代わりに`braze.subscribeToInAppMessage()`を使用してください。詳細については、[アプリ内メッセージ配信]({{site.baseurl}}/developer_guide/in_app_messages/delivery/)を参照してください。
@@ -165,7 +165,7 @@ if (!isLikelyBot()) {
   braze.automaticallyShowInAppMessages();
   braze.openSession();
 }
-`````````
+```
 
 ### ベストプラクティス {#best-practices}
 
@@ -187,7 +187,7 @@ SDKが初期化される前に、基本的なデバッグメッセージをJavaS
 
 `````````javascript
 enableLogging: true
-`````````
+```
 
 メソッドは次のようになります。
 
@@ -197,7 +197,7 @@ braze.initialize('API-KEY', {
     enableLogging: true
 });
 braze.openSession();
-`````````
+```
 {% endtab %}
 
 {% tab after initialization %}
@@ -210,7 +210,7 @@ braze.initialize('API-KEY', {
 braze.openSession();
 ...
 braze.toggleLogging();
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -224,7 +224,7 @@ braze.toggleLogging();
 
 `````````javascript
 setLogger(loggerFunction: (message: STRING) => void): void
-`````````
+```
 
 `STRING`を1つの文字列パラメーターとしてメッセージに置き換えます。メソッドは次のようになります。
 
@@ -234,7 +234,7 @@ braze.setLogger(function(message) {
     console.log("Braze Custom Logger: " + message);
 });
 braze.openSession();
-`````````
+```
 
 ## SDKをアップグレードする {#upgrading-the-sdk}
 
@@ -261,7 +261,7 @@ RSSリーダーまたは任意のサービスを使用して、[リリースフ�
 
 `````````js
 <script async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"></script>
-`````````
+```
 
 #### ステップ2：サブスクリプションウィジェットを追加する {#step-2-add-subscription-widgets}
 
@@ -277,7 +277,7 @@ HTMLのbodyにウィジェットを追加し、ユーザーがプッシュ通知
 <amp-web-push-widget visibility="subscribed" layout="fixed" width="250" height="80">
   <button on="tap:amp-web-push.unsubscribe">Unsubscribe from Notifications</button>
 </amp-web-push-widget>
-`````````
+```
 
 #### ステップ3：`helper-iframe`と`permission-dialog`を追加する {#step-3-add-helper-iframe-and-permission-dialog}
 
@@ -304,7 +304,7 @@ helper-iframe-url="FILE_PATH_TO_YOUR_HELPER_IFRAME"
 permission-dialog-url="FILE_PATH_TO_YOUR_PERMISSION_DIALOG"
 service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseUrl={YOUR_BASE_URL}"
 >
-`````````
+```
 {% enddetails %}
 
 ### 非同期モジュール定義（AMD） {#asynchronous-module-definition-amd}
@@ -326,7 +326,7 @@ require(['path/to/braze.min.js'], function(braze) {
   braze.automaticallyShowInAppMessages();
   braze.openSession();
 });
-`````````
+```
 
 ### Electron {#electron}
 
@@ -336,13 +336,13 @@ Electronは公式にはWebプッシュ通知をサポートしていません（
 
 Jestを使用している場合、`SyntaxError: Unexpected token 'export'`のようなエラーが表示されることがあります。これを修正するには、Braze SDKを無視するように`package.json`の設定を調整します。
 
-`````````
+```
 "jest": {
   "transformIgnorePatterns": [
     "/node_modules/(?!@braze)"
   ]
 }
-`````````
+```
 
 ### SSRフレームワーク {#ssr}
 
@@ -367,7 +367,7 @@ useEffect(() => {
         openSession();
     });
 }, []);
-`````````
+```
 
 webpackを使用している場合は、特定のSDKエクスポートのみを動的にインポートできます。
 
@@ -385,7 +385,7 @@ useEffect(() => {
         openSession();
     });
 }, []);
-`````````
+```
 
 #### Next.jsとRemix用の共有フック {#shared-hook-for-nextjs-and-remix}
 
@@ -427,7 +427,7 @@ export function useBraze() {
       });
   }, []);
 }
-`````````
+```
 
 #### Next.js（App Router） {#nextjs-app-router}
 
@@ -444,7 +444,7 @@ export function AppRoot({ children }: { children: ReactNode }) {
   useBraze();
   return <>{children}</>;
 }
-`````````
+```
 
 `````````tsx
 // app/layout.tsx
@@ -464,7 +464,7 @@ export default function RootLayout({
     </html>
   );
 }
-`````````
+```
 
 #### Next.js（Pages Router） {#nextjs-pages-router}
 
@@ -482,7 +482,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Component {...pageProps} />
   );
 }
-`````````
+```
 
 #### Remix
 
@@ -500,7 +500,7 @@ export default function App() {
 
   return <Outlet />;
 }
-`````````
+```
 
 #### イベントのログ記録とユーザーの更新 {#logging-events-and-updating-users}
 
@@ -524,7 +524,7 @@ export function BuyButton() {
 
   return <button onClick={handleClick}>Buy</button>;
 }
-`````````
+```
 
 この例は、ユーザーが**Buy**をクリックした際にアクティビティを記録する`BuyButton`コンポーネントを示しています。まず、クリック時に`logCustomEvent`、`logPurchase`、`getUser`のみをインポートします。次に、ユーザー属性を更新し、カスタムイベントを記録し、購入を記録します。このパターンにより、初期化を`useBraze`に集中させながら、任意のクライアントコンポーネントから意味のあるアクションをトラッキングできます。
 
@@ -542,11 +542,11 @@ Tealium iQは、基本的なターンキーBraze統合を提供します。統�
 
 Viteを使用していて、循環依存関係や`Uncaught TypeError: Class extends value undefined is not a constructor or null`に関する警告が表示される場合は、Braze SDKを[依存関係の検出](https://vitejs.dev/guide/dep-pre-bundling.html#customizing-the-behavior)から除外する必要があるかもしれません。
 
-`````````
+```
 optimizeDeps: {
     exclude: ['@braze/web-sdk']
 },
-`````````
+```
 
 ### その他のタグマネージャー {#other-tag-managers}
 

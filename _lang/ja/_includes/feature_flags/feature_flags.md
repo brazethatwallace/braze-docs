@@ -61,7 +61,7 @@ return (<>
   Need help? <button>Email Our Team</button>
   {liveChatEnabled && <button>Start Live Chat</button>}
 </>)
-`````````
+```
 
 {% endtab %}
 {% tab Java %}
@@ -84,7 +84,7 @@ if (liveChatEnabled) {
 } else {
   liveChatView.setVisibility(View.GONE);
 }
-`````````
+```
 
 {% endtab %}
 {% tab Kotlin %}
@@ -107,7 +107,7 @@ if (liveChatEnabled) {
   liveChatView.visibility = View.GONE
 }
 
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -125,7 +125,7 @@ braze.featureFlags.subscribeToUpdates() { _ in
 
 // Only show the Live Chat view if the Braze SDK determines it is enabled
 liveChatView.isHidden = !liveChatEnabled
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -167,7 +167,7 @@ return (<>
     <a href="/categories">Categories
   </div>
 </>)
-`````````
+```
 
 {% endtab %}
 {% tab Java %}
@@ -183,7 +183,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 liveChatView.setPromoLink(featureFlag.getStringProperty("link"));
 liveChatView.setPromoText(featureFlag.getStringProperty("text"));
 
-`````````
+```
 
 {% endtab %}
 {% tab Kotlin %}
@@ -198,7 +198,7 @@ if (featureFlag?.enabled == true) {
 }
 liveChatView.promoLink = featureFlag?.getStringProperty("link")
 liveChatView.promoText = featureFlag?.getStringProperty("text")
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -212,7 +212,7 @@ if let featureFlag {
 }
 liveChatView.promoLink = featureFlag?.stringProperty("link")
 liveChatView.promoText = featureFlag?.stringProperty("text")
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -264,7 +264,7 @@ if (featureFlag?.enabled) {
 } else {
   return <OldCheckoutFlow />
 }
-`````````
+```
 
 {% endtab %}
 {% tab Java %}
@@ -277,7 +277,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 } else {
   return new OldCheckoutFlow();
 }
-`````````
+```
 
 {% endtab %}
 {% tab Kotlin %}
@@ -290,7 +290,7 @@ if (featureFlag?.enabled == true) {
 } else {
   return OldCheckoutFlow()
 }
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
@@ -303,7 +303,7 @@ if let featureFlag, featureFlag.enabled {
 } else {
   return OldCheckoutFlow()
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

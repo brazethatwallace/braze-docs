@@ -99,20 +99,20 @@ curl --location 'https://api.jasper.ai/v1/templates/skl_BC53D8AC5B4B47E8BE557EBB
     "languageFormality": "less"
   }
 }'
-`````````
+```
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Sample output %}
 
 ### 出力例 {#sample-output}
-`````````
+```
 {
   "subject": "GlowUp Serum is Here! Limited-Time 20% Off!",
   "preheader": "GlowUp Serum is here with a 20% launch discount for 7 days only!",
   "body": "<html> ... </html>"
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -132,7 +132,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/cr
   "preheader": "GlowUp Serum is here with a 20% launch discount for 7 days only!",
   "body": "<html> ... </html>"
 }'
-`````````
+```
 {% endtab %}
 {% tab Jasper Studio %}
 
@@ -158,7 +158,7 @@ Jasper Studioは、ITサポートを必要とせずにカスタマイズされ�
 ## JSON出力の例（カスタムアプリ） {#sample-json-output-custom-app}
 
 {% raw %}
-`````````json
+```json
 {
   "template_name": "email_webinar_2025",
   "subject": "Join Our Webinar, {{${firstname}}}!",
@@ -167,7 +167,7 @@ Jasper Studioは、ITサポートを必要とせずにカスタマイズされ�
   "tags": ["jasperapi"],
   "should_inline_css": true
 }
-`````````
+```
 {% endraw %}
 
 {% endsubtab %}
@@ -186,7 +186,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/templates/email/cr
   "preheader": "GlowUp Serum is here with a 20% launch discount for 7 days only!",
   "body": "<html> ... </html>"
 }'
-`````````
+```
 {% endraw %}
 
 {% endsubtab %}

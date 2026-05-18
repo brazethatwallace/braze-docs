@@ -81,7 +81,7 @@ optilyzには、認証用のHTTPヘッダーとHTTPメソッドが必要です�
     },
     "variation": {{custom_attribute.${designVariation}}}
 }
-`````````
+```
 {% endraw %}
 
 ![Braze Webhookビルダーの作成タブに表示されるリクエスト本文のコードとWebhook URLの画像。]({% image_buster /assets/img/optilyz/optilyz_compose.png %})

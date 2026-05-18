@@ -35,7 +35,7 @@ Context7を通じてAIアシスタントをBraze Docs MCPに接続するには�
     }
   }
 }
-`````````
+```
 
 設定を保存し、Cursorを再起動します。プロンプトに`use context7`を含めることで、AIアシスタントがContext7経由でBrazeドキュメントにアクセスできるようになります。
 {% endtab %}
@@ -43,7 +43,7 @@ Context7を通じてAIアシスタントをBraze Docs MCPに接続するには�
 {% tab Claude %}
 Claude Desktopで、**Settings** > **Developer** > **Edit Config**へ移動し、`claude_desktop_config.json`ファイルに以下を追加します。
 
-`````````json
+```json
 {
   "mcpServers": {
     "context7": {
@@ -52,7 +52,7 @@ Claude Desktopで、**Settings** > **Developer** > **Edit Config**へ移動し�
     }
   }
 }
-`````````
+```
 
 設定を保存し、Claude Desktopを再起動します。
 {% endtab %}
@@ -60,7 +60,7 @@ Claude Desktopで、**Settings** > **Developer** > **Edit Config**へ移動し�
 {% tab VS Code %}
 VS Codeの`settings.json`または`.vscode/mcp.json`ファイルに以下を追加します。
 
-`````````json
+```json
 {
   "mcpServers": {
     "context7": {
@@ -69,7 +69,7 @@ VS Codeの`settings.json`または`.vscode/mcp.json`ファイルに以下を追�
     }
   }
 }
-`````````
+```
 
 設定を保存し、VS Codeを再起動します。
 {% endtab %}
@@ -93,7 +93,7 @@ Context7を設定した後、プロンプトに`use context7`を含めること�
 Using the Braze React Native SDK, show me how to initialize the SDK
 in my App.tsx with an API key and custom endpoint. Include the
 configuration for automatic session tracking. Use context7.
-`````````
+```
 
 #### プロパティ付きカスタムイベントの記録 {#logging-custom-events-with-properties}
 
@@ -102,7 +102,7 @@ I need to track user activity in my React Native app using the Braze
 React Native SDK. Show me how to log a custom event called
 "ProductViewed" with properties for product_id, category, and price.
 Use context7.
-`````````
+```
 
 #### プッシュ通知の設定 {#setting-up-push-notifications}
 
@@ -110,7 +110,7 @@ Use context7.
 Using the Braze React Native SDK, walk me through requesting push
 notification permissions on both iOS and Android 13+. Include the
 code for registering the push token with Braze. Use context7.
-`````````
+```
 
 #### アプリ内メッセージの処理 {#handling-in-app-messages}
 
@@ -118,7 +118,7 @@ code for registering the push token with Braze. Use context7.
 Show me how to subscribe to in-app messages using the Braze React
 Native SDK, including how to log impressions and button clicks
 programmatically. Use context7.
-`````````
+```
 
 ### Web SDK {#web-sdk}
 
@@ -131,7 +131,7 @@ Using the Braze Web SDK, show me how to initialize the SDK with
 braze.initialize(), including the API key, base URL, and options
 for enabling logging and automatic in-app message display.
 Use context7.
-`````````
+```
 
 #### カスタムイベントと購入のトラッキング {#tracking-custom-events-and-purchases}
 
@@ -141,7 +141,7 @@ custom event called "VideoPlayed" with properties for video_id,
 duration_seconds, and completion_percentage. Also show how to log
 a purchase with product ID, price, currency code, and quantity.
 Use context7.
-`````````
+```
 
 #### Webプッシュの登録 {#registering-for-web-push}
 
@@ -150,7 +150,7 @@ Using the Braze Web SDK, provide the HTML and JavaScript needed to
 register a user for web push notifications after they click a
 "Subscribe to updates" button. Include the service worker setup.
 Use context7.
-`````````
+```
 
 #### ユーザー属性の管理 {#managing-user-attributes}
 
@@ -158,7 +158,7 @@ Use context7.
 Using the Braze Web SDK, show me how to set standard user attributes
 (first name, email, country) and custom user attributes (favorite_genre,
 subscription_tier) for the current user. Use context7.
-`````````
+```
 
 ## プレーンテキストドキュメント {#plain-text-documentation}
 

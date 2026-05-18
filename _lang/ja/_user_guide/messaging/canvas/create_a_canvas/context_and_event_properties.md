@@ -4,7 +4,7 @@ article_title: コンテキストとイベントプロパティ
 page_order: 4.2
 page_type: reference
 description: "このリファレンス記事では、コンテキストとイベントプロパティの違い、およびそれぞれのプロパティを使用するタイミングについて説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # コンテキストとイベントプロパティ {#context-and-event-properties}
@@ -63,7 +63,7 @@ tool: キャンバス
 {% raw %}
 ```liquid
 {{context.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%H:%M" }}
-`````````
+```
 {% endraw %}
 
 ## ユースケース {#use-case}

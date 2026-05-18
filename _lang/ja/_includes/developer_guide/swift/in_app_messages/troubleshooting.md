@@ -23,12 +23,12 @@ CDNドメインの全リストは以下の通り：
 {% tab Swift %}
 ```swift
 NFX.sharedInstance().ignoreURLs(["https://cdn.braze.com"])
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
 [NFX.sharedInstance ignoreURLs:@[@"https://cdn.braze.com"]];
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -38,14 +38,14 @@ NFX.sharedInstance().ignoreURLs(["https://cdn.braze.com"])
 {% tab Swift %}
 `````````swift
 NetGuard.blackListHosts.append(contentsOf: ["cdn.braze.com"])
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
 NSMutableArray<NSString *> *blackListHosts = [NetGuard.blackListHosts mutableCopy];
 [blackListHosts addObject:@"cdn.braze.com"];
 NetGuard.blackListHosts = blackListHosts;
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -56,13 +56,13 @@ NetGuard.blackListHosts = blackListHosts;
 `````````swift
 let brazeAssetsHostFilter = XNHostFilter(host: "https://cdn.braze.com")
 XNLogger.shared.addFilters([brazeAssetsHostFilter])
-`````````
+```
 {% endtab %}
 {% tab Objective-C %}
 `````````objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

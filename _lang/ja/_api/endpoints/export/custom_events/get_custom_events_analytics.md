@@ -44,12 +44,12 @@ description: "この記事では、「カスタムイベント分析のエクス
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_series?event=event_name&length=24&unit=hour&ending_at=2014-12-10T23:59:59-05:00&app_id={{app_identifier}}&segment_id={{segment_identifier}}' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
@@ -60,7 +60,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_seri
         ...
     ]
 }
-`````````
+```
 
 ### 致命的なエラーの応答コード {#fatal-export}
 

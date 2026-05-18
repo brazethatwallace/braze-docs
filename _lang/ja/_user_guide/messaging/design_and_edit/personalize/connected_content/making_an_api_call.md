@@ -35,7 +35,7 @@ Braze は、受信者1人あたり同じコネクテッドコンテンツ API �
 ```
 {% connected_content http://numbersapi.com/random/trivia :save result %}
 Hi there, here is some fun trivia for you!: {{result.text}}
-`````````
+```
 
 ### 変数の追加
 
@@ -43,11 +43,11 @@ Hi there, here is some fun trivia for you!: {{result.text}}
 
 たとえば、ユーザーのメールアドレスと ID に基づいてコンテンツを返す Web サービスがあるとします。アットマーク (@) などの特殊文字を含む属性を渡す場合は、以下のメールアドレス属性に示すように、Liquid フィルター `url_param_escape` を使用して、URL で許可されていない文字を URL フレンドリーなエスケープバージョンに置き換えてください。
 
-`````````
+```
 Hi, here are some articles that you might find interesting:
 
 {% connected_content http://www.yourwebsite.com/articles?email={{${email_address} | url_param_escape}}&user_id={{${user_id}}} %}
-`````````
+```
 {% endraw %}
 {% alert note %}
 属性値は、Braze の Liquid 構文で正しく動作するために `${}` で囲む必要があります。
@@ -127,9 +127,9 @@ URL がベーシック認証を必要とする場合、Braze は API 呼び出�
 その後、トークンの名前を参照して、API 呼び出しでこのベーシック認証の認証情報を使用できます。
 
 {% raw %}
-`````````
+```
 Hi there, here is some fun trivia for you!: {% connected_content https://yourwebsite.com/random/trivia :basic_auth credential_name %}
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -149,7 +149,7 @@ Braze のコネクテッドコンテンツを使用する際、一部の API で
 その後、認証情報名を参照して、API 呼び出しでこの認証情報を使用できます。
 
 {% raw %}
-`````````
+```
 {% assign campaign_name="New Year Sale" %}
 {% connected_content
      https://api.endpoint.com/your_path
@@ -159,7 +159,7 @@ Braze のコネクテッドコンテンツを使用する際、一部の API で
      :content_type application/json
      :save publication
 %}
-`````````
+```
 {% endraw %}
 
 ### Open Authentication (OAuth) の使用
@@ -171,7 +171,7 @@ Braze のコネクテッドコンテンツを使用する際、一部の API で
 以下の例は、アクセストークンを取得してローカル変数に保存し、その後の API 呼び出しの認証に使用する方法を示しています。`:cache_max_age` パラメーターを追加して、アクセストークンの有効期間に合わせ、送信コネクテッドコンテンツの呼び出し数を削減できます。詳細については、[設定可能なキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables/#configurable-caching)を参照してください。
 
 {% raw %}
-`````````
+```
 {% connected_content
      https://your_API_access_token_endpoint_here/
      :method post
@@ -182,7 +182,7 @@ Braze のコネクテッドコンテンツを使用する際、一部の API で
      :cache_max_age 900
      :save token_response
 %}
-`````````
+```
 {% endraw %}
 
 #### ステップ 2: 取得したアクセストークンを使用して API を認可する
@@ -190,7 +190,7 @@ Braze のコネクテッドコンテンツを使用する際、一部の API で
 トークンが保存された後、後続のコネクテッドコンテンツの呼び出しに動的にテンプレート化して、リクエストを認可できます。
 
 {% raw %}
-`````````
+```
 {% connected_content
      https://your_API_endpoint_here/
      :headers {
@@ -200,7 +200,7 @@ Braze のコネクテッドコンテンツを使用する際、一部の API で
      :body key1=value1&key2=value2
      :save response
 %}
-`````````
+```
 {% endraw %}
 
 ### 認証情報の編集
@@ -228,7 +228,7 @@ Braze はすべてのコネクテッドコンテンツおよび Webhook リク�
 
 `````````text
 Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
-`````````
+```
 
 {% alert tip %}
 ハッシュ値は定期的に変更されることに注意してください。`User-Agent` でトラフィックをフィルタリングする場合は、`Braze Sender` で始まるすべての値を許可してください。
@@ -264,7 +264,7 @@ GET リクエストはデフォルトでキャッシュされます（[レスポ
 {% raw %}
 `````````liquid
 {% connected_content https://api.example.com/token :method post :body grant_type=client_credentials :cache_max_age 900 :save token %}
-`````````
+```
 {% endraw %}
 
 キャッシュは重複するコネクテッドコンテンツの呼び出しを削減するのに役立ちますが、ユーザーあたり1回の呼び出しになることは保証されません。キャッシュの持続時間は5分から4時間です。詳細については、[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)を参照してください。

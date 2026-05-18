@@ -98,7 +98,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab ecommerce.cart_updated %}
@@ -177,7 +177,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
     },
   ],
 });
-`````````
+```
 ##### `remove`
 
 `remove`は`quantity`の量だけ数量を減少させます。数量が`0`に達するとラインが削除されます。
@@ -198,7 +198,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
     },
   ],
 });
-`````````
+```
 
 ##### `replace`
 
@@ -232,7 +232,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
     },
   ],
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab Android %}
@@ -284,7 +284,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("variant_id", "UB-BLK-11")
                 .put("quantity", 1)
                 .put("price", 189.99)))));
-`````````
+```
 
 ##### 削除
 
@@ -333,7 +333,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("variant_id", "SOC-WHT-L")
                 .put("quantity", 1)
                 .put("price", 14.99)))));
-`````````
+```
 
 ##### 置き換え
 
@@ -399,7 +399,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("variant_id", "SOC-WHT-L")
                 .put("quantity", 2)
                 .put("price", 14.99)))));
-`````````
+```
 
 {% endsubtab %}
 {% subtab Swift %}
@@ -448,7 +448,7 @@ Objective-C
     @"price": @189.99,
   }],
 }];
-`````````
+```
 
 ##### 削除
 
@@ -494,7 +494,7 @@ Objective-C
     @"price": @14.99,
   }],
 }];
-`````````
+```
 
 ##### 置き換え
 
@@ -558,7 +558,7 @@ Objective-C
     },
   ],
 }];
-`````````
+```
 
 {% endsubtab %}
 {% subtab REST API %}
@@ -567,7 +567,7 @@ Objective-C
 
 `add`は数量を増加させるか、新しいラインを追加します。`quantity`プロパティは追加するユニット数です。
 
-`````````json
+```json
 {
   "events": [
     {
@@ -592,13 +592,13 @@ Objective-C
     }
   ]
 }
-`````````
+```
 
 ##### `remove`
 
 `remove`は`quantity`の量だけ数量を減少させます。数量が`0`に達するとラインが削除されます。
 
-`````````json
+```json
 {
   "events": [
     {
@@ -623,13 +623,13 @@ Objective-C
     }
   ]
 }
-`````````
+```
 
 ##### `replace`
 
 `replace` (または`action`を省略) はカート全体を送信します。`total_value`は必須です。
 
-`````````json
+```json
 {
   "events": [
     {
@@ -680,7 +680,7 @@ Objective-C
     }
   ]
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -722,7 +722,7 @@ Objective-C
 
 #### REST APIの例
 
-`````````json
+```json
 {
   "events": [
     {
@@ -774,7 +774,7 @@ Objective-C
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab ecommerce.order_placed %}
@@ -819,7 +819,7 @@ Objective-C
 
 #### REST APIの例
 
-`````````json
+```json
 {
   "events": [
     {
@@ -878,7 +878,7 @@ Objective-C
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab ecommerce.order_cancelled %}
@@ -923,7 +923,7 @@ Objective-C
 
 #### REST APIの例
 
-`````````json
+```json
 {
   "events": [
     {
@@ -971,7 +971,7 @@ Objective-C
     }
   ]
 }
-`````````
+```
 
 {% endtab %}
 {% tab ecommerce.order_refunded %}
@@ -1015,7 +1015,7 @@ Objective-C
 {% subtabs %}
 {% subtab 全額返金 %}
 
-`````````json
+```json
 {
   "events": [
     {
@@ -1049,11 +1049,11 @@ Objective-C
     }
   ]
 }
-`````````
+```
 {% endsubtab %}
 {% subtab 一部返金 %}
 
-`````````json
+```json
 {
   "events": [
     {
@@ -1088,7 +1088,7 @@ Objective-C
     }
   ]
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -1122,7 +1122,7 @@ eコマースイベントは、[`/users/track`エンドポイント]({{site.base
 
 `/users/track`エンドポイントを使用して、バックエンドからeコマースイベントを送信します。各イベントには、正確なイベント名、ユーザーの`external_id`、およびイベントスキーマに一致するプロパティオブジェクトが必要です。
 
-`````````json
+```json
 POST /users/track
 
 {
@@ -1158,7 +1158,7 @@ POST /users/track
     }
   ]
 }
-`````````
+```
 
 ### データポイントと課金 {#data-points-and-billing}
 
@@ -1243,12 +1243,12 @@ eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_
 
 `/users/track`エンドポイントは、どのプロパティが失敗したか、およびその理由を示すフィールドレベルのエラーを返します。トップレベルの`message`はイベントがパイプラインに受け入れられたため`"success"`を返す場合があることに注意してください。`errors`配列がスキーマバリデーションに失敗したフィールドを示します。以下のエラーレスポンスの例を参照してください。
 
-`````````json
+```json
 {
  "message": "success",
  "errors": [{ "index": 0, "input_array": "purchases", "type": "'currency' must be an ISO 4217 currency" }]
 }
-`````````
+```
 
 失敗は内部的にも分類され、失敗サマリーメール用に集計されます:
 

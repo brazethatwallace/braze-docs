@@ -93,7 +93,7 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 ],
 "ttl":20000
 }'
-`````````
+```
 {% endraw %}
 {% endalert %}
 
@@ -124,7 +124,7 @@ SessionMオファーのあるキャンペーンまたはキャンバスステッ
 リクエスト本文では、`culture`のデフォルトは`en-US`ですが、Liquidを使用して、多言語SessionMオファー用にユーザーの言語をテンプレート化することができます（たとえば、{% raw %}`"culture":"{{${language}}}"`{% endraw %}を使用します）。
 
 {% raw %}
-`````````
+```
 {% capture postbody %}
 {"retailer_id":"YOUR-RETAIL-ID","user_id":"{{${user_id}}}","skip":0,"take":1000,"include_pending_extended_data":false,"culture":"en-US"}
 {% endcapture %}
@@ -139,7 +139,7 @@ SessionMオファーのあるキャンペーンまたはキャンバスステッ
      :body {{postbody}}
      :save wallet
 %}
-`````````
+```
 {% endraw %}
 
 ### ステップ3:Brazeメッセージングにオファーウォレットを入力する {#step-3-populate-offer-wallet-to-braze-messaging}
@@ -147,7 +147,7 @@ SessionMオファーのあるキャンペーンまたはキャンバスステッ
 エンドポイントにリクエストが行われた後、SessionMは各オファーの完全な詳細とともに、発行済み状態のオファーの完全なリストを返します。これは返されたレスポンスの例です：
 
 {% raw %}
-`````````
+```
 {
     "status": "ok",
     "payload": {
@@ -184,7 +184,7 @@ SessionMオファーのあるキャンペーンまたはキャンバスステッ
       "available_points": 100
     }
 }
-`````````
+```
 {% endraw %}
 
 Liquidドット記法を使えば、これをメッセージに入力できます。たとえば、結果として得られる`offer_id`でメッセージをパーソナライズするには、{% raw %}`{{wallet.payload.available_points}}`{% endraw %}を使用してリターンペイロードを活用できます。これは`100`を返します。
@@ -242,12 +242,12 @@ SessionMによってトリガーされるAPIトリガーのキャンペーンま
 SessionM Campaignの詳細設定を更新して、`braze_campaign_id`または`braze_canvas_id`を含む以下のJSONペイロードを含めます。
 
 {% raw %}
-`````````
+```
 {
 "braze_campaign_id": "{{CAMPAIGN ID}}",
 "braze_canvas_id": "{{CANVAS ID}}",
 }
-`````````
+```
 {% endraw %}
 
 ![SessionMの詳細設定。]({% image_buster /assets/img/sessionm/SessionMAdvancedSettings.png %}){: style="max-width:85%;"}

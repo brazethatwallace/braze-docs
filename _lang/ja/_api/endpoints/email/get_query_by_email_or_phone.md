@@ -29,13 +29,13 @@ description: "この記事では、メールアドレスまたは電話番号で
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions?phone=+12123355555&email=example%40braze.com' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
-`````````
+```
 
 ## 応答 {#response}
 
 エントリは降順で表示されます。
 
-`````````json
+```json
 {
   "emails": [
     {
@@ -65,6 +65,6 @@ curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions
 	}],
 	"message": "success"
 }
-`````````
+```
 
 {% endapi %}

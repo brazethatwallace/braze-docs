@@ -23,7 +23,7 @@ noindex: true
   <key>DismissModalOnOutsideTap</key>
   <boolean>YES</boolean>
 </dict>
-`````````
+```
 
 また、`appboyOptions` で `ABKEnableDismissModalOnOutsideTapKey` を `YES` に設定して、実行時に機能を有効にすることもできます。
 

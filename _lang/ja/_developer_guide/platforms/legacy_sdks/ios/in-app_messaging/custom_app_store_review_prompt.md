@@ -34,7 +34,7 @@ noindex: true
     return ABKDisplayInAppMessageNow;
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -48,7 +48,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMess
     return ABKInAppMessageDisplayChoice.displayInAppMessageNow
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -67,7 +67,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMess
   }
   // Other deep link handling code…
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -81,7 +81,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   }
   // Other deep link handling code…
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

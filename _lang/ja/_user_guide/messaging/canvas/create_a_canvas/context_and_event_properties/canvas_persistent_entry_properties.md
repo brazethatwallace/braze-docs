@@ -4,7 +4,7 @@ article_title: 永続的なエントリプロパティ
 alias: "/persistent_entry/"
 page_type: reference
 description: "このリファレンス記事では、キャンバスで永続的なエントリプロパティを使用して、よりキュレートされたメッセージを送信し、高度に洗練されたエンドユーザー体験を作成する方法について説明します。"
-tool: キャンバス
+tool: Canvas
 page_order: 5
 ---
 
@@ -44,7 +44,7 @@ page_order: 5
 {% if canvas_entry_properties.${product_name} == blank %}
 {% abort_message() %}
 {% endif %}
-`````````
+```
 {%endraw%}
 
 Liquidを使用したメッセージの中止について詳しくは、[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages)をご覧ください。
@@ -77,7 +77,7 @@ curl -X POST \
         }
       ]
     }'
-`````````
+```
 
 このリクエストでは、「food allergies」のグローバル値は「none」です。Customer_123の場合、値は「dairy」です。このキャンバス内のLiquidスニペット{%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%}を含むメッセージは、Customer_123には「dairy」、その他のユーザーには「none」としてテンプレート化されます。
 

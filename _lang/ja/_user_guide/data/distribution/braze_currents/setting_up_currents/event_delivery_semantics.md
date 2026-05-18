@@ -54,7 +54,7 @@ Currentsは、以下の形式を使用してイベントタイプごとにファ
 
 ```
 <your-bucket-prefix>/dataexport.<cluster-identifier>.<connection-type-identifier>.integration.<integration-id>/event_type=<event-type>/date=<date>/version=<currents_version>/<environment>/dataexport.<cluster-identifier>.<connection-type-identifier>.integration.<integration-id>+<partition>+<offset>.avro
-`````````
+```
 
 {% alert tip %}
 スクロールバーのためにコードが見えませんか？修正方法は[こちら]({{site.baseurl}}/user_guide/)をご覧ください。
@@ -62,9 +62,9 @@ Currentsは、以下の形式を使用してイベントタイプごとにファ
 
 例えば、プッシュ送信イベントのパスは以下のようになります。
 
-`````````
+```
 currents-export/dataexport.prod-01.S3.integration.69cadaaed2d51b7c75b1a3e5/event_type=users.messages.pushnotification.Send/date=2025-04-01-17/version=6/us-01/dataexport.prod-01.S3.integration.69cadaaed2d51b7c75b1a3e5+0+123456.avro
-`````````
+```
 
 `version` パスセグメントは、`version=6` のような単純な整数のCurrentsバージョン値です。
 
@@ -98,9 +98,9 @@ Currentsは空のファイルを書き込むことはありません。
 
 Brazeは、フィールドの追加、変更、または削除に伴い、Avroスキーマを変更する場合があります。ここでは、破壊的変更と非破壊的変更の2種類の変更があります。すべてのスキーマ変更はCurrentsのリリースにまとめられ、各リリースではストレージパスの `version=<currents_version>` セグメントが更新されます（例：`version=6` から `version=7`）。Azure Blob Storage、Google Cloud Storage、Amazon S3に書き込まれるCurrentsイベントは、以下のパス形式を使用します。
 
-`````````
+```
 <your-bucket-prefix>/<currents-integration-id>/event_type=<event-type>/date=<date>/version=<currents_version>/<environment>/<avro-file>
-`````````
+```
 
 #### 非破壊的変更 {#non-breaking-changes}
 

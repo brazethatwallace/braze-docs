@@ -38,7 +38,7 @@ let configuration = Braze.Configuration(
 configuration.triggerMinimumTimeInterval = 5
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
@@ -50,7 +50,7 @@ BRZConfiguration *configuration =
 configuration.triggerMinimumTimeInterval = 5;
 Braze *braze = [BrazePlugin initBraze:configuration];
 AppDelegate.braze = braze;
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -66,7 +66,7 @@ let customization = message.extras["custom-display"] as? String
 if customization == "colorful-slideup" {
   // Perform your custom logic.
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -78,7 +78,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
     // Perform your custom logic.
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -112,7 +112,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
     AppDelegate.braze?.logCustomEvent("IAM Trigger", properties: ["campaign_name": userInfo["CAMPAIGN_NAME"]])
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -124,7 +124,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
     [AppDelegate.braze logCustomEvent:@"IAM Trigger" properties:@{@"campaign_name": userInfo[@"CAMPAIGN_NAME"]}];
   }
 };
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -169,7 +169,7 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMessage() {
   AppDelegate.braze?.inAppMessagePresenter?.present(message: inAppMessage)
 }
-`````````
+```
 
 ### リアルタイムでメッセージを表示する {#displaying-a-message-in-real-time}
 
@@ -183,7 +183,7 @@ let customInAppMessage = Braze.InAppMessage.slideup(
   .init(message: "YOUR_CUSTOM_SLIDEUP_MESSAGE", slideFrom: .bottom, themes: .defaults)
 )
 AppDelegate.braze?.inAppMessagePresenter?.present(message: customInAppMessage)
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -198,7 +198,7 @@ customInAppMessage.themes = @{
   @"dark": BRZInAppMessageRawTheme.defaultDark
 };
 [AppDelegate.braze.inAppMessagePresenter presentMessage:customInAppMessage];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

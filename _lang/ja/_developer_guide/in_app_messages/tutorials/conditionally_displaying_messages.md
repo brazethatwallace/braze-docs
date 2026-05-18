@@ -39,7 +39,7 @@ braze.subscribeToInAppMessage(function (message) {
     braze.showInAppMessage(message);
   }
 });
-`````````
+```
 
 !!step
 lines-index.js=2
@@ -134,7 +134,7 @@ class MyApplication : Application() {
         })
     }
 }
-`````````
+```
 
 !!step
 lines-MainApplication.kt=17
@@ -217,7 +217,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, BrazeInAppMessageUIDelegate 
         }
     }
 }
-`````````
+```
 
 `````````swift file=SampleApp.swift
 import SwiftUI
@@ -232,7 +232,7 @@ struct SampleApp: App {
     }
   }
 }
-`````````
+```
 
 !!step
 lines-AppDelegate.swift=5

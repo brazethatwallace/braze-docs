@@ -4,7 +4,7 @@ article_title: アクションベースの配信
 page_order: 1
 page_type: reference
 description: "このリファレンス記事では、ユーザーが特定のイベントを完了した後にキャンペーンの送信をトリガーする方法について説明します。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 

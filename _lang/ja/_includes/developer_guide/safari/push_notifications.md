@@ -20,7 +20,7 @@
     "sizes": "128x128",
   }]
 }
-`````````
+```
 
 サポートされるフィールドの全リストは[こちらで](https://developer.mozilla.org/en-US/docs/Web/Manifest)見ることができる。
 
@@ -30,7 +30,7 @@
 
 `````````html
 <link rel="manifest" href="/manifest.json" />
-`````````
+```
 
 ### ステップ3:サービスワーカーを追加する {#service-worker}
 
@@ -63,7 +63,7 @@ button.onclick = function(){
         console.log(`User ${temporary ? "temporarily dismissed" : "permanently denied"} push prompt`);
     });
 };
-`````````
+```
 
 ## 次のステップ:
 

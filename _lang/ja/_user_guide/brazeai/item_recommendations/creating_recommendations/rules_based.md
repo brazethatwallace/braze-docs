@@ -118,7 +118,7 @@ page_order: 2
 {% assign days = {{diff}} | round %}
 {% catalog_items Healthy_Recipe_Catalog_SMB {{days}} %}
 {{ items[0].title }}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 
@@ -135,7 +135,7 @@ page_order: 2
 {% else %}
 {% abort_message('no card for today') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 
@@ -148,7 +148,7 @@ page_order: 2
 {% assign days = {{diff}} | round %}
 {% catalog_items Healthy_Recipe_Catalog_SMB {{days}} %}
 {{ items[0].image_url }}
-`````````
+```
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
@@ -167,7 +167,7 @@ page_order: 2
 {% assign days = {{diff}} | round %}
 {% catalog_items Healthy_Recipe_Catalog_SMB {{days}} %}
 {{ items[0].link }}
-`````````
+```
 {% endraw %}
 
 以下に例を示します。
@@ -201,7 +201,7 @@ page_order: 2
   {% assign recommended_item = items | where: "ITEM_ID", ITEM_ID | first %}
   recommended_item.item_name
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 以下を置き換えてください。
@@ -227,7 +227,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 {% connected_content https://developers.zomato.com/api/v2.1/search?entity_id={{city_id}}&entity_type=city&count=20&cuisines={{food_type}}&sort=rating:headers{“user-key”:“USER_KEY”} :save restaurants %}
 
 {{city_food.restaurants[0]}}
-`````````
+```
 {% endraw %}
 
 次に、ユーザーの市区町村と食べ物の種類に基づいておすすめのレストランを取得したいとします。ユーザーの市区町村と料理の種類のカスタム属性を呼び出しの冒頭にダイナミックに挿入し、`restaurants`の値を変数`city_food.restaurants`に代入することで実現できます。
@@ -244,7 +244,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 {% assign restaurants = city_food.restaurants %}
 
 {{city_food.restaurants[0]}}
-`````````
+```
 {% endraw %}
 
 レストラン名と評価だけを取得するようにレスポンスを調整したい場合は、次のように呼び出しの最後にフィルターを追加できます。
@@ -259,7 +259,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 
 {{city_food.restaurants[0].restaurant.name}}
 {{city_food.restaurants[0].restaurant.user_rating.rating_text}}
-`````````
+```
 {% endraw %}
 
 最後に、おすすめのレストランを評価別にグループ化したいとします。以下の手順を実行します。
@@ -324,7 +324,7 @@ Good places
 {% break %}
 {% endif %}
 {% endfor %}
-`````````
+```
 {% endraw %}
 
 ユーザーのデバイスでのレスポンスの表示例については、以下のスクリーンショットを参照してください。

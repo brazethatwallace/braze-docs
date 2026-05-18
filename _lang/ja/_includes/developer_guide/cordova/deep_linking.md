@@ -10,7 +10,7 @@
 <platform name="ios">
     <preference name="com.braze.ios_forward_universal_links" value="YES" />
 </platform>
-`````````
+```
 {% endtab %}
 
 {% tab android %}
@@ -18,7 +18,7 @@
 <platform name="android">
     <preference name="com.braze.android_handle_push_deep_links_automatically" value="true" />
 </platform>
-`````````
+```
 
 ディープリンクが追跡された際のバックスタック動作をカスタマイズするには、以下のオプション設定を追加することもできる：
 
@@ -28,7 +28,7 @@
     <preference name="com.braze.is_push_deep_link_back_stack_activity_enabled" value="true" />
     <preference name="com.braze.push_deep_link_back_stack_activity_class_name" value="YOUR_ACTIVITY_CLASS_NAME" />
 </platform>
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

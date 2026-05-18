@@ -35,7 +35,7 @@
 let parameters: [String: Any] = ["genre": "pop",
                                  "number of times listened": 42]
 Analytics.logEvent("played song", parameters: parameters)
-`````````
+```
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
@@ -44,7 +44,7 @@ Analytics.logEvent("played song", parameters: parameters)
 NSDictionary *parameters = @{@"genre" : @"pop",
                              @"number of times listened" : @42};
 [FIRAnalytics logEventWithName:@"played song" parameters:parameters];
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -59,7 +59,7 @@ NSDictionary *parameters = @{@"genre" : @"pop",
 let parameters: [String: Any] = ["customAttributeKey": "favoriteSong",
                                  "customAttributeValue": "Private Eyes"]
 FIRAnalytics.logEvent(withName:"customAttribute", parameters: parameters)
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
@@ -67,7 +67,7 @@ FIRAnalytics.logEvent(withName:"customAttribute", parameters: parameters)
 NSDictionary *parameters = @{@"customAttributeKey" : @"favoriteSong",
                              @"customAttributeValue" : @"Private Eyes"};
 [FIRAnalytics logEventWithName:@"customAttribute" parameters:parameters];
-`````````
+```
 
 {% endtab %}
 
@@ -82,14 +82,14 @@ NSDictionary *parameters = @{@"customAttributeKey" : @"favoriteSong",
 `````````swift
 let parameters: [String: Any] = ["externalUserId": "favorite userId"]
 Analytics.logEvent(withName:"changeUser", parameters: parameters)
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
 `````````obj-c
 NSDictionary *parameters = @{@"externalUserId" : userId};
 [FIRAnalytics logEventWithName:@"changeUser" parameters:parameters];
-`````````
+```
 
 {% endtab %}
 
@@ -180,7 +180,7 @@ final class BrazeGTMTagManager : NSObject, TAGCustomFunction {
     AppDelegate.braze?.changeUser(userId: userId)
   }
 }
-`````````
+```
 {% endtab %}
 {% tab OBJECTIVE-C %}
 以下のコードを `BrazeGTMTagManager.h` ファイルに追加します。
@@ -192,7 +192,7 @@ final class BrazeGTMTagManager : NSObject, TAGCustomFunction {
 @interface BrazeGTMTagManager : NSObject <TAGCustomFunction>
 
 @end
-`````````
+```
 
 以下のコードを `BrazeGTMTagManager.m` ファイルに追加します。
 
@@ -287,6 +287,6 @@ static NSString *const ChangeUserExternalUserId = @"externalUserId";
 }
 
 @end
-`````````
+```
 {% endtab %}
 {% endtabs %}

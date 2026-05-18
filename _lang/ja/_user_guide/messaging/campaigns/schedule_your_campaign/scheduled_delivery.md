@@ -4,7 +4,7 @@ article_title: スケジュール配信
 page_order: 0
 page_type: reference
 description: "このリファレンス記事では、キャンペーン配信における時間ベースのスケジューリングオプションの違いについて説明します。"
-tool: キャンペーン
+tool: Campaigns
 
 ---
 

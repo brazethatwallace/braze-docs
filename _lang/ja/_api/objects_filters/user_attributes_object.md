@@ -46,7 +46,7 @@ Brazeユーザープロファイルフィールド名（以下にリストされ
   // Removing from an array of objects (REST API syntax)
   "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
-`````````
+```
 
 - [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [ユーザーのエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
@@ -128,12 +128,12 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてセグメントを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
 
-`````````json
+```json
 {"hotel_stays": [
   { "hotel_name": "Ocean View Resort", "check_in_date": "2023-06-15", "nights_stayed": 5 },
   { "hotel_name": "Mountain Lodge", "check_in_date": "2023-09-10", "nights_stayed": 3 }
 ]}
-`````````
+```
 
 `add`、`remove`、`update`を使用したAPIの例については、[オブジェクトの配列APIの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example)を参照してください。`$add`、`$remove`、`$update`を使用したSDKの例については、[オブジェクトの配列SDKの例]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example)を参照してください。
 
@@ -210,7 +210,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     }
   ]
 }
-`````````
+```
 
 ## プッシュトークンの移行 {#migrating-push-tokens}
 
@@ -273,7 +273,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
   ]
 }'
-`````````
+```
 {% endtab %}
 
 {% tab External IDがない場合 %}
@@ -311,7 +311,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
     }
   ]
 }'
-`````````
+```
 
 インポート後、匿名ユーザーがBraze対応のアプリを起動すると、Brazeはインポートされたプッシュトークンを自動的にBrazeユーザープロファイルに移動し、一時プロファイルをクリーンアップします。
 

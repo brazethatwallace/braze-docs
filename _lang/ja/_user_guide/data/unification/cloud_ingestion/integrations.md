@@ -89,7 +89,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
      PHONE VARCHAR(16777216),
      PAYLOAD VARCHAR(16777216) NOT NULL
 );
-`````````
+```
 
 データベース、スキーマ、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -110,7 +110,7 @@ CREATE ROLE BRAZE_INGESTION_ROLE;
 GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
 GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO ROLE BRAZE_INGESTION_ROLE;
-`````````
+```
 
 必要に応じて名前を更新してください。ただし、権限は上記の例と一致する必要があります。
 
@@ -120,7 +120,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO 
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
-`````````
+```
 
 {% alert note %}
 ウェアハウスは**自動再開**フラグをオンにしておく必要があります。オンにしない場合は、Brazeがクエリの実行時にウェアハウスをオンにできるように、追加の`OPERATE`権限を付与する必要があります。
@@ -132,7 +132,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 CREATE USER BRAZE_INGESTION_USER;
 
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
-`````````
+```
 
 このステップの後、Brazeと接続情報を共有し、ユーザーに追加する公開キーを受け取ります。
 
@@ -155,7 +155,7 @@ Snowflakeアカウントの設定によっては、Snowflakeのネットワー�
 `````````sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
-`````````
+```
 CDI連携に使用するテーブル（またはビュー）を作成します。
 `````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
@@ -172,7 +172,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
    phone varchar,
    payload varchar(max)
 )
-`````````
+```
 
 データベース、スキーマ、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -191,7 +191,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
-`````````
+```
 
 これらは、このユーザーに最低限必要な権限です。CDI連携を複数作成する場合は、スキーマに権限を付与したり、グループを使用して権限を管理したりすることもできます。
 
@@ -218,7 +218,7 @@ Brazeダッシュボードのリージョンに対応する以下のIPからの�
 
 `````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-`````````
+```
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
@@ -238,7 +238,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
   phone STRING,
   payload JSON
 );
-`````````
+```
 
 | フィールド名 | タイプ | モード |
 |---|---|---|
@@ -301,7 +301,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 `````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-`````````
+```
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
@@ -322,7 +322,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
   phone STRING,
   payload STRING, STRUCT, or MAP
 );
-`````````
+```
 
 
 | フィールド名 | タイプ | モード |
@@ -429,7 +429,7 @@ CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
   PHONE VARCHAR
 )
 GO
-`````````
+```
 
 ウェアハウス、スキーマ、テーブルまたはビューには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -483,7 +483,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 `````````sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
-`````````
+```
 {% endtab %}
 {% tab Redshift %}
 

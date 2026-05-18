@@ -3,7 +3,7 @@ nav_title: "ユースケース: 階層化カスタム属性"
 article_title: "ユースケース: 階層化カスタム属性によるセグメンテーション"
 page_order: 10
 page_type: tutorial
-tool: セグメント
+tool: Segments
 description: "階層化カスタム属性を使用してセグメントを構築する方法について説明します。階層化カスタム属性フィルター、パスとコンパレーター、時間フィルター、マルチクライテリアセグメンテーション、スキーマ生成、ネストオブジェクトエクスプローラーを取り上げます。"
 ---
 
@@ -65,13 +65,13 @@ description: "階層化カスタム属性を使用してセグメントを構築
     {% assign segmented_nested_objects = obj_array | slice: forloop.index0 | concat: segmented_nested_objects | reverse %}
   {% endif %}
 {% endfor %}
-`````````
+```
 
 ここから、`segmented_nested_objects`を使用してメッセージをパーソナライズできます。この例では、最初のアクティブな課税対象アカウントから目標を取得してパーソナライズします。
 
-`````````
+```
 Get to your {{segmented_nested_objects[0].goal}} goal faster, make a deposit using our new fast deposit feature!
-`````````
+```
 
 {% endraw %}
 
@@ -85,7 +85,7 @@ Get to your {{segmented_nested_objects[0].goal}} goal faster, make a deposit usi
 
 例えば、Brazeに送信したばかりの`accounts`オブジェクト配列があるとします。
 
-`````````json
+```json
 {"accounts": [
   {"type": "taxable",
   "balance": 22500,
@@ -94,7 +94,7 @@ Get to your {{segmented_nested_objects[0].goal}} goal faster, make a deposit usi
   "balance": 0,
   "active": true}
 ]}
-`````````
+```
 
 Brazeダッシュボードで、**データ設定** > **カスタム属性**に移動します。
 

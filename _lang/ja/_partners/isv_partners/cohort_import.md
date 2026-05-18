@@ -78,7 +78,7 @@ Brazeにコホートデータをインポートするには、2つの認証キ�
 	"name" : "Name of the cohort that will appear in the Braze dashboard",
 	"created_at" : "2021-01-21T19:20:30+05:00"
 }
-`````````
+```
 
 ### ユーザーコホートエンドポイント {#user-cohort-endpoint}
 
@@ -95,7 +95,7 @@ Brazeにコホートデータをインポートするには、2つの認証キ�
 #### リクエスト例:
 
 `POST: https://rest.iad-01.braze.com/partners/[partner_name]/cohorts/users`
-`````````
+```
 {
 	"partner_api_key" : "123456-1234-1234-12345678",
 	"client_secret" : "234567-2345-2345-23456789",
@@ -104,7 +104,7 @@ Brazeにコホートデータをインポートするには、2つの認証キ�
 	   {"user_ids": ["test_user_1", "test_user_2"]}
 	]
 }
-`````````
+```
 
 ## レート制限 {#rate-limiting}
 

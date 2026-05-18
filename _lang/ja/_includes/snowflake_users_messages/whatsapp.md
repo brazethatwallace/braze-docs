@@ -228,7 +228,7 @@ erDiagram
     SNAPSHOTS_CANVAS_VARIATION_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_EXPERIMENT_STEP_SHARED ||--o{ GROUP_6 : joins
     GROUP_6 ||--o{ EVENT : joins
-`````````
+```
 
 - `PK` = 主キー
 - `FK` = 外部キー
@@ -237,7 +237,7 @@ erDiagram
 
 ### `ABORT_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_ABORT_SHARED
 // When a scheduled WhatsApp message cannot be delivered, before sending to Meta.
 
@@ -255,11 +255,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
     "native_keys": {
@@ -271,11 +271,11 @@ erDiagram
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `CLICK_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_CLICK_SHARED
 // When a user clicks a link or button in a WhatsApp message where the link's domain matches the click tracking domain.
 
@@ -292,11 +292,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -308,11 +308,11 @@ erDiagram
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `DELIVERY_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED
 // When a WhatsApp message is delivered to the end user.
 
@@ -330,11 +330,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
     "native_keys": {
@@ -346,11 +346,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `FAILURE_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_FAILURE_SHARED
 // When a WhatsApp message cannot be delivered, after sending to Meta.
 
@@ -368,11 +368,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
     "native_keys": {
@@ -386,11 +386,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `INBOUNDRECEIVE_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED
 // When a WhatsApp message is received from a user.
 
@@ -408,11 +408,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -426,11 +426,11 @@ erDiagram
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `READ_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_READ_SHARED
 // When a WhatsApp message is read by the user.
 
@@ -448,11 +448,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
     "native_keys": {
@@ -464,11 +464,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```
 
 ### `SEND_SHARED`
 
-`````````json
+```json
 // USERS_MESSAGES_WHATSAPP_SEND_SHARED
 // When a WhatsApp message is sent to Meta.
 
@@ -486,11 +486,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
-        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
+        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
     "native_keys": {
@@ -503,4 +503,4 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-`````````
+```

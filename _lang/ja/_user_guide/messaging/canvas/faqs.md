@@ -4,7 +4,7 @@ article_title: キャンバス FAQ
 page_order: 8
 alias: "/canvas_v2_101/"
 description: "この記事では、キャンバスに関するよくある質問への回答を提供します。"
-tool: キャンバス
+tool: Canvas
 toc_headers: h2
 
 ---

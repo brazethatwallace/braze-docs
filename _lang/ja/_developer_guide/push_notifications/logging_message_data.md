@@ -63,7 +63,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
   }
 }
-`````````
+```
 
 完全な実装例については、[Braze Android SDK Firebaseプッシュサンプルアプリ](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/firebase-push)を参照してください。
 
@@ -82,7 +82,7 @@ if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotificati
   return
 }
 completionHandler(.noData)
-`````````
+```
 
 **ユーザー通知レスポンス：**
 
@@ -94,7 +94,7 @@ if let braze = AppDelegate.braze, braze.notifications.handleUserNotification(
   return
 }
 completionHandler()
-`````````
+```
 
 **フォアグラウンド通知：**
 
@@ -113,7 +113,7 @@ func userNotificationCenter(
     completionHandler([.alert, .sound])
   }
 }
-`````````
+```
 
 完全な実装例については、[Braze Swift SDK手動プッシュサンプル（`AppDelegate.swift`）](https://github.com/braze-inc/braze-swift-sdk/blob/main/Examples/Swift/Sources/PushNotifications-Manual/AppDelegate.swift)を参照してください。
 
@@ -206,7 +206,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
     remoteStorage.store([customEventDictionary], forKey: .pendingCustomEvents)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -227,7 +227,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
     [remoteStorage store:@[ customEventDictionary ] forKey:RemoteStorageKeyPendingCustomEvents];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -277,7 +277,7 @@ func logPendingCustomEventsIfNecessary() {
   // 6
   remoteStorage.removeObject(forKey: .pendingCustomEvents)
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -313,7 +313,7 @@ func logPendingCustomEventsIfNecessary() {
   // 6
   [remoteStorage removeObjectForKey:RemoteStorageKeyPendingCustomEvents];
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -348,7 +348,7 @@ func saveCustomAttribute() {
     remoteStorage.store([customAttributeDictionary], forKey: .pendingCustomAttributes)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -369,7 +369,7 @@ func saveCustomAttribute() {
     [remoteStorage store:@[ customAttributeDictionary ] forKey:RemoteStorageKeyPendingCustomAttributes];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -407,7 +407,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -431,7 +431,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
     [self setCustomAttributeWith:key andValue:[keysAndValues objectForKey:key]];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -466,7 +466,7 @@ func saveUserAttribute() {
     remoteStorage.store([data], forKey: .pendingUserAttributes)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -493,7 +493,7 @@ func saveUserAttribute() {
     [remoteStorage store:@[data] forKey:RemoteStorageKeyPendingUserAttributes];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -527,7 +527,7 @@ func logPendingUserAttributesIfNecessary() {
   // 4
   remoteStorage.removeObject(forKey: .pendingUserAttributes)
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -558,7 +558,7 @@ func logPendingUserAttributesIfNecessary() {
   // 4
   [remoteStorage removeObjectForKey:RemoteStorageKeyPendingUserAttributes];
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -617,7 +617,7 @@ class RemoteStorage: NSObject {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -681,7 +681,7 @@ class RemoteStorage: NSObject {
       [NSException raise:NSGenericException format:@"Unexpected FormatType."];
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -716,7 +716,7 @@ extension UserAttribute: Codable {
     self = .email(email)
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -746,7 +746,7 @@ extension UserAttribute: Codable {
 }
 
 @end
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -767,7 +767,7 @@ extension Dictionary where Key == String, Value == Any {
     }
   }
 }
-`````````
+```
 {% endsubtab %}
 {% subtab Objective-C %}
 `````````objc
@@ -788,7 +788,7 @@ extension Dictionary where Key == String, Value == Any {
 }
 
 @end
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 

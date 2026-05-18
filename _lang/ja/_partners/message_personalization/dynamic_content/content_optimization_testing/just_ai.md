@@ -74,7 +74,7 @@ JustAIはコネクテッドコンテンツを使用してキャンバスやキ�
 
 {{jw.copy.vars.cta}}
 {% message_extras :key copy_id :value {{jw.copy.id }} %}
-`````````
+```
 {% endraw %}
 
 ![Braze ABテストキャンバスの設定。]({% image_buster /assets/img/just_words/braze_canvas.png %}){: style="max-width:70%;"}
@@ -98,7 +98,7 @@ JustAIはコネクテッドコンテンツを使用してキャンバスやキ�
 
 {{jw.copy.vars.cta}}
 {% message_extras :key copy_id :value {{jw.copy.id }} %}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -120,7 +120,7 @@ JustAIはコネクテッドコンテンツを使用してキャンバスやキ�
 
 {{jw.copy.vars.cta}}
 {% message_extras :key copy_id :value {{jw.copy.id }} %}
-`````````
+```
 {% endraw %}
 
 `industry` のカスタム属性は {% raw %}`&attrs.industry={{ custom_attribute.industry }}`{% endraw %} で指定されていることに注意してください。

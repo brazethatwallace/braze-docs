@@ -41,7 +41,7 @@ public class MainApplication : Application() {
             }
     }
 }
-`````````
+```
 
 `````````kotlin file=MainActivity.kt
 import android.os.Bundle
@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
             )
     }
 }
-`````````
+```
 
 `````````xml file=banners.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -87,7 +87,7 @@ class MainActivity : ComponentActivity() {
 
     </LinearLayout>
 </ScrollView>
-`````````
+```
 
 !!step
 lines-MainApplication.kt=12

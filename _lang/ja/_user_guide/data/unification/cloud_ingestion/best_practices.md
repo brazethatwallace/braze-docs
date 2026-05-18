@@ -378,7 +378,7 @@ SELECT
         )
     ) AS PAYLOAD
 FROM EXAMPLE_DATA;
-`````````
+```
 
 このデータはどれもBrazeに同期されていないため、CDIのソーステーブルにすべて追加します。
 
@@ -592,7 +592,7 @@ SELECT
             'yet_another_attribute',
             attribute_3)
     )as PAYLOAD FROM "EXAMPLE_USER_DATA";
-`````````
+```
 {% endtab %}
 {% tab Redshift %}
 このクエリをRedshiftで使用して、ソース列をCDIフィールドにフォーマットします。
@@ -615,7 +615,7 @@ SELECT
             'yet_another_attribute',
             attribute_3)
     ) as PAYLOAD FROM "EXAMPLE_USER_DATA";
-`````````
+```
 {% endtab %}
 {% tab BigQuery %}
 このクエリをBigQueryで使用して、ソース列をCDIフィールドにフォーマットします。
@@ -636,7 +636,7 @@ SELECT
       )
     ) as PAYLOAD
   FROM BRAZE.EXAMPLE_USER_DATA;
-`````````
+```
 {% endtab %}
 {% tab Databricks %}
 このクエリをDatabricksで使用して、ソース列をCDIフィールドにフォーマットします。
@@ -659,7 +659,7 @@ SELECT
       )
     ) as PAYLOAD
   FROM BRAZE.EXAMPLE_USER_DATA;
-`````````
+```
 {% endtab %}
 {% tab Microsoft Fabric %}
 このクエリをMicrosoft Fabricで使用して、ソース列をCDIフィールドにフォーマットします。
@@ -680,7 +680,7 @@ AS SELECT
     JSON_OBJECT('attribute_1':attribute_1, 'attribute_2':attribute_2, 'attribute_3':attribute_3, 'attribute_4':attribute_4) as PAYLOAD
 
 FROM [braze].[users] ;
-`````````
+```
 {% endtab %}
 
 {% endtabs %}

@@ -42,7 +42,7 @@ description: "この記事では、匿名ユーザーとユーザーエイリア
 
 ```javascript
 console.log(braze.getDeviceId());
-`````````
+```
 
 {:start="3"}
 3. Brazeダッシュボードで、[ユーザー検索]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/)を使用して、返されたデバイスIDを検索します。
@@ -67,7 +67,7 @@ console.log(braze.getDeviceId());
 Webキャプチャフォームが送信されたときに生成されるペイロードの例を以下に示します。
 
 {% raw %}
-`````````json
+```json
 {
     "purchase":[
         {
@@ -87,5 +87,5 @@ Webキャプチャフォームが送信されたときに生成されるペイ�
         }
     ]
 }
-`````````
+```
 {% endraw %}

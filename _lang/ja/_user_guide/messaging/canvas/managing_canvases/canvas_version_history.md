@@ -5,7 +5,7 @@ alias: "/canvas_version_history/"
 page_order: 2
 description: "このリファレンス記事では、キャンバスのバージョン履歴を管理する方法について説明します。"
 page_type: reference
-tool: キャンバス
+tool: Canvas
 ---
 
 # キャンバスのバージョン履歴 {#canvas-version-history}

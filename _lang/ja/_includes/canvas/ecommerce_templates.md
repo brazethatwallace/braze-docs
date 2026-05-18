@@ -9,7 +9,7 @@
 
 #### 設定 {#setup}
 
-キャンバスページで**Use a キャンバス Template** > **Braze templates**を選択し、**閲覧の放棄**テンプレートを適用します。
+キャンバスページで**Use a Canvas Template** > **Braze templates**を選択し、**閲覧の放棄**テンプレートを適用します。
 
 ##### デフォルト設定 {#default-settings}
 
@@ -53,7 +53,7 @@
     </th>
   </tr>
 </table>
-`````````
+```
 {% endraw %}
 
 ##### 製品URL {#product-url}
@@ -61,7 +61,7 @@
 {% raw %}
 `````````liquid
 {{context.${product_url}}}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -140,7 +140,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
   </tr>
   {% endfor %}
 </table>
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -154,7 +154,7 @@ Shopifyを使用する場合は、カタログ名を追加してバリアント�
 {% raw %}
 `````````liquid
 {{context.${metadata}.cart_url}}
-`````````
+```
 {% endraw %}
 
 Shopifyを使用する場合は、次のLiquidテンプレートを使用してカートURLを作成します。
@@ -162,7 +162,7 @@ Shopifyを使用する場合は、次のLiquidテンプレートを使用して�
 {% raw %}
 `````````liquid
 {{context.${source}}}/checkouts/cn/{{context.${cart_id}}}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -230,7 +230,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
     </th>
     {% endfor %}
 </table>
-`````````
+```
 {% endraw %}
 
 ##### `abort_if_not_abandoned` {#abort-if-not-abandoned}
@@ -250,7 +250,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
 {% raw %}
 `````````liquid
 {{context.${metadata}.checkout_url}}
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -295,7 +295,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
 注文完了後に注文確認メールへHTML製品ブロックを追加する方法の例を以下に示します。
 
 {% raw %}
-`````````json
+```json
 <table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -311,7 +311,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
   </tr>
   {% endfor %}
 </table>
-`````````
+```
 {% endraw %}
 
 ##### 注文ステータスURL {#order-status-url}
@@ -319,7 +319,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
 {% raw %}
 `````````liquid
 {{context.${metadata}.order_status_url}}
-`````````
+```
 {% endraw %}
 
 {% endtab %}

@@ -40,12 +40,12 @@ Androidアプリを使用している場合は、Brazeのユニークなデバ�
 {% tab Java %}
 ```java
 Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId);
-`````````
+```
 {% endtab %}
 {% tab Kotlin %}
 `````````kotlin
 Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId)
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -66,7 +66,7 @@ Swift SDK v5.7.0以降を使用しているお客様で、相互識別子とし�
   [[Branch getInstance] setRequestMetadataKey:@"$braze_install_id" value:deviceId];
   // Branch init
 }];
-`````````
+```
 {% endtab %}
 {% tab Swift %}
 
@@ -75,7 +75,7 @@ braze.deviceId { deviceId in
   Branch.getInstance.setRequestMetadata("$braze_install_id", deviceId)
   // Branch init
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -113,11 +113,11 @@ Branchのクリックトラッキングリンクを使い始めるには、Branc
 {% tab Android %}
 Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Branch SDKの統合によってネイティブに収集されます。以下のLiquidロジックを利用して、BranchのクリックトラッキングリンクにGAIDを組み込むことができます。
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'android' %}
 user_data_aaid={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -125,11 +125,11 @@ user_data_aaid={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとBranchの両方がSDKの統合を通じてネイティブにIDFVを自動的に収集します。これはデバイス識別子として使用できます。以下のLiquidロジックを利用して、BranchのクリックトラッキングリンクにIDFVを組み込むことができます。
 
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'ios' %}
 user_data_idfv={{most_recently_used_device.${id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

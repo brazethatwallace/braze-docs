@@ -47,7 +47,7 @@ Brazeはデフォルトで、ユーザーが初めてアプリのプッシュ通
 
 ```xml
 <bool name="com_braze_optin_when_push_authorized">false</bool>
-`````````
+```
 {% endtab %}
 
 {% tab swift %}
@@ -58,7 +58,7 @@ configuration.optInWhenPushAuthorized = false // disables the default behavior
 
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

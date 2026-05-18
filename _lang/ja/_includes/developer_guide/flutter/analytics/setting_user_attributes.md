@@ -26,7 +26,7 @@ Brazeが自動的に収集したユーザー属性を設定するには、SDKに
 
 ```dart
 braze.setFirstName('Name');
-`````````
+```
 
 ## カスタムユーザー属性
 
@@ -40,7 +40,7 @@ braze.setFirstName('Name');
 
 `````````dart
 braze.setStringCustomUserAttribute("custom string attribute", "string custom attribute");
-`````````
+```
 
 {% endtab %}
 {% tab Integer %}
@@ -51,7 +51,7 @@ braze.setStringCustomUserAttribute("custom string attribute", "string custom att
 braze.setIntCustomUserAttribute("custom int attribute key", integer);
 // Increment Integer Attribute
 braze.incrementCustomUserAttribute("key", integer);
-`````````
+```
 
 {% endtab %}
 {% tab Double %}
@@ -59,7 +59,7 @@ braze.incrementCustomUserAttribute("key", integer);
 
 `````````dart
 braze.setDoubleCustomUserAttribute("custom double attribute key", double);
-`````````
+```
 
 {% endtab %}
 {% tab Boolean %}
@@ -67,7 +67,7 @@ braze.setDoubleCustomUserAttribute("custom double attribute key", double);
 
 `````````dart
 braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
-`````````
+```
 {% endtab %}
 
 {% tab Date %}
@@ -75,7 +75,7 @@ braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
 
 `````````dart
 braze.setDateCustomUserAttribute("custom date attribute key", date);
-`````````
+```
 {% endtab %}
 {% tab Array %}
 `array` 、カスタム属性を設定する：
@@ -85,7 +85,7 @@ braze.setDateCustomUserAttribute("custom date attribute key", date);
 braze.addToCustomAttributeArray("key", "attribute");
 // Removing an item from an Array
 braze.removeFromCustomAttributeArray("key", "attribute");
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -99,4 +99,4 @@ braze.removeFromCustomAttributeArray("key", "attribute");
 
 `````````dart
 braze.unsetCustomUserAttribute('attribute_key');
-`````````
+```

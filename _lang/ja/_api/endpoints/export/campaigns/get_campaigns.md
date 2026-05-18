@@ -43,16 +43,16 @@ description: "この記事では、「キャンペーンリストのエクスポ
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?page=0&include_archived=false&sort_direction=desc&last_edit.time[gt]=2020-06-28T23:59:59-5:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 
 ## 応答 {#response}
 
-`````````json
+```json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "campaigns" : [
         {
-            "id" : (string) the キャンペーン API identifier,
+            "id" : (string) the Campaign API identifier,
             "last_edited": (ISO 8601 string) the last edited time for the message
             "name" : (string) the campaign name,
             "is_api_campaign" : (boolean) whether the campaign is an API campaign,
@@ -61,7 +61,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
         ...
     ]
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

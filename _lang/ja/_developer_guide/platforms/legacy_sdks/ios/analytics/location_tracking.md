@@ -34,7 +34,7 @@ Braze iOS SDK `v3.17.0` 以降、位置情報の追跡はデフォルトで無�
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKEnableAutomaticLocationCollectionKey : @(YES) }];
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -44,7 +44,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:[ ABKEnableAutomaticLocationCollectionKey : true ])
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -61,7 +61,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
                                                      longitude:longitude
                                             horizontalAccuracy:horizontalAccuracy];
 
-`````````
+```
 
 `````````objc
 [[Appboy sharedInstance].user setLastKnownLocationWithLatitude:latitude
@@ -70,18 +70,18 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
                                                       altitude:altitude
                                               verticalAccuracy:verticalAccuracy];
 
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 Appboy.sharedInstance()?.user.setLastKnownLocationWithLatitude(latitude: latitude, longitude: longitude, horizontalAccuracy: horizontalAccuracy)
-`````````
+```
 
 `````````swift
 Appboy.sharedInstance()?.user.setLastKnownLocationWithLatitude(latitude: latitude, longitude: longitude, horizontalAccuracy: horizontalAccuracy, altitude: altitude, verticalAccuracy: verticalAccuracy)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

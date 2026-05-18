@@ -91,7 +91,7 @@ Brazeで新しい[Webhookキャンペーン]({{site.baseurl}}/user_guide/channel
   "email": "{{${email_address}}}",
   "id": "{{${braze_id}}}"
 }
-`````````
+```
 {% endraw %}
 - **リクエストヘッダー**:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
@@ -159,7 +159,7 @@ let brazecall = {
   ]
 };
 return brazecall;
-`````````
+```
 
 {: start="6"}
 6. 指定されたエンドポイントにテストペイロードを送信します。Seenプラットフォームにデータを送信してJourneyを実行するか、[Postman](https://www.postman.com/)または同様のサービスを使用してペイロードをBrazeに直接送信します。

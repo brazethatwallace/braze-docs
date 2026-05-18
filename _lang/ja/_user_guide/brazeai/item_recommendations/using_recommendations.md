@@ -51,7 +51,7 @@ page_order: 1.2
 {% raw %}
 ```liquid
 {% assign items = {{product_recommendation.${recommendation_name}}} %}
-`````````
+```
 {% endraw %}
 
 次のように置き換えます：
@@ -68,7 +68,7 @@ page_order: 1.2
 `````````liquid
 {% assign items = {{product_recommendation.${recommendation_name}}} %}
 {{ items[0].name }} for {{ items[0].price }}
-`````````
+```
 {% endraw %}
 
 複数のアイテムを含めるには、各アイテムをインデックスで個別に参照します。`.name`と`.price`は、対応するフィールドをカタログからプルします。
@@ -79,7 +79,7 @@ page_order: 1.2
 {{ items[0].name }} for {{ items[0].price }}
 {{ items[1].name }} for {{ items[1].price }}
 {{ items[2].name }} for {{ items[2].price }}
-`````````
+```
 {% endraw %}
 
 AIレコメンデーションは複数の製品を配列として返します。`items[0]`は最初のアイテム、`items[1]`は2番目のアイテム、というようになります。レコメンデーションが1つのアイテムのみを返す場合、`items[1]`を参照しようとすると空のフィールドが返されます。
@@ -101,7 +101,7 @@ AIレコメンデーションは複数の製品を配列として返します。
 {% raw %}
 `````````liquid
 {% assign items = {{product_recommendation.${recommendation_name}}} %}{{ items[0].image_url_field }}
-`````````
+```
 {% endraw %}
 
 次のように置き換えます：
@@ -122,7 +122,7 @@ HTML画像参照の場合、画像の`src`属性をカタログの画像URLフ�
 `````````html
 {% assign items = {{product_recommendation.${recommendation_name}}} %}
 <img src="{{ items[0].image_url_field }}" alt="{{ items[0].name }}">
-`````````
+```
 {% endraw %}
 
 次のように置き換えます：

@@ -32,11 +32,11 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `NEWSFEEDIMPRESSION_SHARED`
 
-`````````json
+```json
 // USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED
 // When a user views the news feed.
 
@@ -61,11 +61,11 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `SESSIONEND_SHARED`
 
-`````````json
+```json
 // USERS_BEHAVIORS_APP_SESSIONEND_SHARED
 // When a user ends a session on an app.
 
@@ -92,11 +92,11 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```
 
 ### `SESSIONSTART_SHARED`
 
-`````````json
+```json
 // USERS_BEHAVIORS_APP_SESSIONSTART_SHARED
 // When a user begins a session on an app.
 
@@ -122,4 +122,4 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-`````````
+```

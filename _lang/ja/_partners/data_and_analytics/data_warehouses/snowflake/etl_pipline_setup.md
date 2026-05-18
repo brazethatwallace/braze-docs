@@ -30,7 +30,7 @@ create file format braze_currents.public.currents_avro type = 'avro' compression
 alter stage braze_currents.public.braze_data set file_format = braze_currents.public.currents_avro;
 
 show stages;
-`````````
+```
 
 テーブルを作成するには、次のコマンドを使用します。
 
@@ -56,7 +56,7 @@ CREATE TABLE
     sending_ip STRING,
     user_agent STRING
   );
-`````````
+```
 
 パイプを作成または置換するには、次のコマンドを使用します。
 
@@ -92,7 +92,7 @@ COPY INTO
     @braze_currents.public.braze_data/currents/dataexport.prod-03.S3.integration.YOUR_INTEGRATION_ID_HERE/event_type=users.messages.email.click/);
 
 show pipes;
-`````````
+```
 
 ## このクエリの例を活用する {#do-more-with-this-query-example}
 
@@ -103,7 +103,7 @@ show pipes;
 ALTER PIPE
   pipe_users_messages_email_click
   refresh ;
-`````````
+```
 
 パイプのステータスを確認します。これにより、S3からSnowflakeにメッセージが転送されたタイミングが表示されます。
 `````````sql
@@ -111,9 +111,9 @@ SELECT
   SYSTEM$PIPE_STATUS(
     'pipe_users_messages_email_click'
   )
-`````````
+```
 
 最後に、以下から `*` を選択して、テーブルのコピー履歴を表示します。
 `````````sql
 table(braze_currents.information_schema.copy_history(table_name=>'users_messages_email_click', start_time=> dateadd(hours, -1, current_timestamp())));
-`````````
+```

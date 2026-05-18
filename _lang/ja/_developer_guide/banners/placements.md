@@ -44,14 +44,14 @@ platform:
 import * as braze from "@braze/web-sdk";
 
 braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
-`````````
+```
 
 {% endtab %}
 {% tab Swift %}
 
 `````````swift
 AppDelegate.braze?.banners.requestRefresh(placementIds: ["global_banner", "navigation_square_banner"])
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -63,14 +63,14 @@ ArrayList<String> listOfBanners = new ArrayList<>();
 listOfBanners.add("global_banner");
 listOfBanners.add("navigation_square_banner");
 Braze.getInstance(context).requestBannersRefresh(listOfBanners);
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 `````````kotlin
 Braze.getInstance(context).requestBannersRefresh(listOf("global_banner", "navigation_square_banner"))
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -79,35 +79,35 @@ Braze.getInstance(context).requestBannersRefresh(listOf("global_banner", "naviga
 
 `````````javascript
 Braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
 
 `````````csharp
 This feature is not currently supported on Unity.
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
 
 `````````javascript
 This feature is not currently supported on Cordova.
-`````````
+```
 
 {% endtab %}
 {% tab Flutter %}
 
 `````````dart
 braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
-`````````
+```
 
 {% endtab %}
 {% tab Roku %}
 
 `````````brightscript
 This feature is not currently supported on Roku.
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -133,7 +133,7 @@ braze.subscribeToBannersUpdates((banners) => {
 
 // always refresh after your subscriber function has been registered
 braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
-`````````
+```
 {% endsubtab %}
 {% subtab React %}
 Web Braze SDKでReactを使用している場合、`useEffect`フック内で[`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)を設定し、リスナーを登録した後に[`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)を呼び出します。
@@ -154,7 +154,7 @@ useEffect(() => {
     braze.removeSubscription(subscriptionId);
   }
 }, []);
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -166,7 +166,7 @@ let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -179,7 +179,7 @@ Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -190,7 +190,7 @@ Braze.getInstance(context).subscribeToBannersUpdates { update ->
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -208,21 +208,21 @@ const bannerCardsSubscription = Braze.addListener(
     );
   }
 );
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
 
 `````````csharp
 This feature is not currently supported on Unity.
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
 
 `````````javascript
 This feature is not currently supported on Cordova.
-`````````
+```
 
 {% endtab %}
 {% tab Flutter %}
@@ -233,14 +233,14 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
     print("Received banner: " + banner.toString());
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab Roku %}
 
 `````````brightscript
 This feature is not currently supported on Roku.
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -258,7 +258,7 @@ This feature is not currently supported on Roku.
 
 `````````html
 <div id="global-banner-container" style="width: 100%; height: 450px;"></div>
-`````````
+```
 
 {% subtabs local %}
 {% subtab JavaScript %}
@@ -293,7 +293,7 @@ braze.subscribeToBannersUpdates((banners) => {
 });
 
 braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
-`````````
+```
 {% endsubtab %}
 
 {% subtab React %}
@@ -317,7 +317,7 @@ export default function App() {
     }, []);
     return <div ref={bannerRef}></div>
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -376,7 +376,7 @@ if let braze = AppDelegate.braze {
     }
   )
 }
-`````````
+```
 
 {% endtab %}
 {% tab Android %}
@@ -386,7 +386,7 @@ Javaコードでバナーを取得するには、以下を使用します。
 
 `````````java
 Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
-`````````
+```
 
 次のXMLを含めることで、Androidビューレイアウトでバナーを作成できます。
 
@@ -396,7 +396,7 @@ Banner globalBanner = Braze.getInstance(context).getBanner("global_banner");
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:placementId="global_banner" />
-`````````
+```
 {% endsubtab %}
 
 {% subtab Kotlin %}
@@ -408,18 +408,18 @@ Androidビューを使用している場合は、次のXMLを使用します。
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:placementId="global_banner" />
-`````````
+```
 
 Jetpack Composeを使用している場合は、次を使用できます。
 
 `````````kotlin
 Banner(placementId = "global_banner")
-`````````
+```
 
 Kotlinでバナーを取得するには、以下を使用します。
 `````````kotlin
 val banner = Braze.getInstance(context).getBanner("global_banner")
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -436,34 +436,34 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
   return dictionary;
 }
 #endif
-`````````
+```
 最もシンプルな統合方法として、以下のJavaScript XML（JSX）スニペットをビュー階層に追加し、配置IDだけを指定します。
 
 `````````javascript
 <Braze.BrazeBannerView
   placementID='global_banner'
 />
-`````````
+```
 
 React Nativeでバナーのデータモデルを取得したり、ユーザーのキャッシュにその配置が存在するかどうかを確認するには、以下を使用します。
 
 `````````javascript
 const banner = await Braze.getBanner("global_banner");
-`````````
+```
 
 {% endtab %}
 {% tab Unity %}
 
 `````````csharp
 This feature is not currently supported on Unity.
-`````````
+```
 
 {% endtab %}
 {% tab Cordova %}
 
 `````````javascript
 This feature is not currently supported on Cordova.
-`````````
+```
 
 {% endtab %}
 {% tab Flutter %}
@@ -474,7 +474,7 @@ BrazeBannerView(
   placementId: "global_banner",
 ),
 To get the Banner's data model in Flutter, use:
-`````````
+```
 
 `getBanner`メソッドを使って、ユーザーのキャッシュにその配置が存在するかどうかを確認できます。
 
@@ -486,14 +486,14 @@ braze.getBanner("global_banner").then((banner) {
     print(banner.toString());
   }
 });
-`````````
+```
 
 {% endtab %}
 {% tab Roku %}
 
 `````````brightscript
 This feature is not currently supported on Roku.
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -526,7 +526,7 @@ Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示さ
 <button onclick="brazeBridge.logClick()">
   Click me
 </button>
-`````````
+```
 
 完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
 
@@ -550,7 +550,7 @@ const banner = braze.getBanner("placement_id_homepage_top");
 if (banner) {
   braze.logBannerImpressions([banner]);
 }
-`````````
+```
 [Web SDKリファレンス](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerimpressions)
 {% endtab %}
 {% tab Android %}
@@ -559,13 +559,13 @@ if (banner) {
 `````````kotlin
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 Braze.getInstance(context).logBannerImpression("placement_id_homepage_top")
-`````````
+```
 {% endsubtab %}
 {% subtab Java %}
 `````````java
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 Braze.getInstance(context).logBannerImpression("placement_id_homepage_top");
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 [Android SDKリファレンス](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/log-banner-impression.html)
@@ -576,21 +576,21 @@ Braze.getInstance(context).logBannerImpression("placement_id_homepage_top");
 braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
   banner?.context.logImpression()
 }
-`````````
+```
 [Swift SDKリファレンス](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logimpression())
 {% endtab %}
 {% tab React Native %}
 `````````javascript
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 Braze.logBannerImpression("placement_id_homepage_top");
-`````````
+```
 最新のメソッドシグネチャについては、[React Native SDKリポジトリ](https://github.com/braze-inc/braze-react-native-sdk)を参照してください。
 {% endtab %}
 {% tab Flutter %}
 `````````dart
 // Log impression when your custom UI considers the banner viewed (for example, once when it enters viewport)
 braze.logBannerImpression("placement_id_homepage_top");
-`````````
+```
 [Flutter SDKリファレンス](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerImpression.html)
 {% endtab %}
 {% endtabs %}
@@ -606,7 +606,7 @@ import * as braze from "@braze/web-sdk";
 
 // Log click
 braze.logBannerClick("placement_id_homepage_top", buttonId);  // buttonID is optional
-`````````
+```
 [Web SDKリファレンス](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logbannerclick)
 {% endtab %}
 {% tab Android %}
@@ -615,13 +615,13 @@ braze.logBannerClick("placement_id_homepage_top", buttonId);  // buttonID is opt
 `````````kotlin
 // Log click
 Braze.getInstance(context).logBannerClick("placement_id_homepage_top", buttonId)  // buttonID parameter can be null
-`````````
+```
 {% endsubtab %}
 {% subtab Java %}
 `````````java
 // Log click
 Braze.getInstance(context).logBannerClick("placement_id_homepage_top", buttonId);  // buttonID parameter can be null
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 [Android SDKリファレンス](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/log-banner-click.html)
@@ -632,21 +632,21 @@ Braze.getInstance(context).logBannerClick("placement_id_homepage_top", buttonId)
 braze.banners.getBanner(for: "placement_id_homepage_top") { banner in
   banner?.context.logClick(buttonId: buttonId)  // buttonID is optional
 }
-`````````
+```
 [Swift SDKリファレンス](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/banner/context-swift.class/logclick(buttonid:))
 {% endtab %}
 {% tab React Native %}
 `````````javascript
 // Log click
 Braze.logBannerClick("placement_id_homepage_top", buttonId);  // buttonID is optional
-`````````
+```
 最新のメソッドシグネチャについては、[React Native SDKリポジトリ](https://github.com/braze-inc/braze-react-native-sdk)を参照してください。
 {% endtab %}
 {% tab Flutter %}
 `````````dart
 // Log click
 braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID parameter can be null
-`````````
+```
 [Flutter SDKリファレンス](https://pub.dev/documentation/braze_plugin/latest/braze_plugin/BrazePlugin/logBannerClicked.html)
 {% endtab %}
 {% endtabs %}
@@ -678,7 +678,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 <button onclick="brazeBridge.closeMessage()">
   Dismiss
 </button>
-`````````
+```
 
 ### バナー非表示時にカスタム分析を記録する {#log-custom-analytics-on-banner-dismissal}
 
@@ -705,7 +705,7 @@ braze.subscribeToBannersUpdates((banners) => {
 });
 
 braze.requestBannersRefresh(["global_banner"]);
-`````````
+```
 {% endsubtab %}
 {% subtab React %}
 `````````typescript
@@ -730,7 +730,7 @@ useEffect(() => {
     braze.removeSubscription(subscriptionId);
   };
 }, []);
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -754,7 +754,7 @@ bannerView.setOnDismissCallback(() -> {
   // Run any custom logic here, such as logging custom analytics
   return Unit.INSTANCE;
 });
-`````````
+```
 
 {% endsubtab %}
 {% subtab Kotlin %}
@@ -770,7 +770,7 @@ bannerView.onDismissCallback = {
 
   // Run any custom logic here, such as logging custom analytics
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -785,7 +785,7 @@ bannerView.onDismiss = { dismissedBanner in
 
   // Run any custom logic here, such as logging custom analytics
 }
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -850,7 +850,7 @@ if (banner) {
   // Returns the JSON object property
   const jsonObjectProperty = banner.getJsonProperty("footer_settings");
 }
-`````````
+```
 {% endtab %}
 
 {% tab Swift %}
@@ -875,7 +875,7 @@ AppDelegate.braze?.banners.getBanner(for: "placement_id_homepage_top") { banner 
   // Returns the JSON object property as a [String: Any] dictionary
   let jsonObjectProperty: [String: Any]? = banner.jsonObjectProperty(key: "footer_settings")
 }
-`````````
+```
 {% endtab %}
 
 {% tab Android %}
@@ -905,7 +905,7 @@ if (banner != null) {
   // Returns the JSON object property as a JSONObject
   JSONObject jsonObjectProperty = banner.getJSONProperty("footer_settings");
 }
-`````````
+```
 {% endsubtab %}
 
 {% subtab Kotlin %}
@@ -930,7 +930,7 @@ val imageProperty: String? = banner.getImageProperty("homepage_icon")
 
 // Returns the JSON object property as a JSONObject
 val jsonObjectProperty: JSONObject? = banner.getJSONProperty("footer_settings")
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -959,7 +959,7 @@ const imageProperty = banner.getImageProperty('homepage_icon');
 
 // Get the JSON object property
 const jsonObjectProperty = banner.getJSONProperty('footer_settings');
-`````````
+```
 
 {% endtab %}
 {% tab Flutter %}
@@ -987,7 +987,7 @@ _braze.getBanner(placementId).then(('placement_id_homepage_top') {
 
   // Use these properties as needed in your UI or logic
 });
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

@@ -75,7 +75,7 @@ tool:
 {% raw %}
 ```liquid
 Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_tier}}}
-`````````
+```
 {% endraw %}
 
 #### 特定の値

@@ -83,7 +83,7 @@ Brazeの作成画面内で直接URLを動的に構築できるため、URLにダ
 {% raw %}
 ```
 https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom_attribute.${attribute1}}}
-`````````
+```
 {% endraw %}
 
 以下の例のように、カスタム定義のLiquid変数を短縮することもできます。
@@ -92,7 +92,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 `````````liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
-`````````
+```
 {% endraw %}
 
 ## Liquid変数でレンダリングされたURLの短縮 {#shorten-urls-rendered-by-liquid-variables}

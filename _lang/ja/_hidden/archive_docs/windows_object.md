@@ -24,13 +24,13 @@ hidden: true
    "toast_hash": (optional, object) additional keys and values to send,
    "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under (must be a Windows Phone 8 Push Message)
 }
-`````````
+```
 
 ## Windowsユニバーサルプッシュオブジェクト {#windows-universal-push-object}
 
 `push_type`のオプションの詳細については、Windows Universalの[トーストテンプレートカタログ](https://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx)を参照してください。
 
-`````````json
+```json
 {
    "push_type": (required, string) one of: "toast_text_01", "toast_text_02", "toast_text_03", "toast_text_04", "toast_image_and_text_01", "toast_image_and_text_02", "toast_image_and_text_03", or "toast_image_and_text_04",
    "toast_text1": (required, string) the first line of text in the template,
@@ -40,6 +40,6 @@ hidden: true
    "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under (must be a Windows Universal Push Message),
    "extra_launch_string": (optional, string) used to add deep linking functionality by passing extra values to the launch string
 }
-`````````
+```
 
 [ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)に`extra_launch_string`パラメーターを使用する方法の詳細については、[Windows Universalでのディープリンク]({{site.baseurl}}/developer_guide/platform_integration_guides/windows_universal/push_notifications/integration/#step-4-deep-linking-from-push-into-your-app)を参照してください。

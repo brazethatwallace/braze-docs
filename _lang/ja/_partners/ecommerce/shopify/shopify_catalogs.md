@@ -272,7 +272,7 @@ Brazeは各Shopify商品につき最大250のバリアントをカタログに�
   {% endif %}
   {% endfor %}
 </table>
-`````````
+```
 {% endraw %}
 
 または、「Women's」タグが付いた特定の商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
@@ -284,7 +284,7 @@ Checkout the latest women's clothing:
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
-`````````
+```
 {% endraw %}
 
 ![商品タグを使用してカタログセレクションから3つのアイテムを取得しているプッシュ通知作成画面。]({% image_buster /assets/img/Shopify/add_personalization_product_tags.png %})
@@ -318,7 +318,7 @@ WHERE
     and events.app_group_id = '<app_group_id>'
     AND items.catalog_id = '<catalog_id>'
     AND (items.field_name = 'product_tags' AND ARRAY_CONTAINS('<product_tag_value>'::VARIANT, TRY_PARSE_JSON(items.field_value)));
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -390,7 +390,7 @@ WHERE
   {% endif %}
   {% endfor %}
 </table>
-`````````
+```
 {% endraw %}
 
 または、特定のメタフィールド値を持つ商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
@@ -402,7 +402,7 @@ Check out the latest summer products:
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
-`````````
+```
 {% endraw %}
 
 ![メタフィールドベースのセレクションを使用してカタログセレクションから3つのアイテムを取得しているプッシュ通知作成画面。]({% image_buster /assets/img/Shopify/add_personalization_metafields.png %})
@@ -445,7 +445,7 @@ WHERE
     AND items.catalog_id = '<catalog_id>'
     AND items.field_name = '<metafield_name>'
     AND ARRAY_CONTAINS('<array_element_value>'::VARIANT, TRY_PARSE_JSON(items.field_value));
-`````````
+```
 {% endraw %}
 
 特定の商品メタフィールドを持つ注文を行った顧客をセグメント化したい場合は、以下のSQLセグメントエクステンションテンプレート（全期間、特定の期間、最初または最後にイベントをトリガー）のいずれかを使用してください。
@@ -573,7 +573,7 @@ FROM
     events_with_catalog_metafield
 WHERE
     rn = 1;
-`````````
+```
 {% endraw %}
 
 {% endtab %}
@@ -648,7 +648,7 @@ Shopifyコレクションの場合、コレクションを表示したときのU
   {% endif %}
   {% endfor %}
 </table>
-`````````
+```
 {% endraw %}
 
 または、特定の新商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
@@ -660,7 +660,7 @@ Checkout the latest women's clothing:
     {{ items[0].product_title}}{{items[0].price}}
     {{ items[1].product_title}}{{items[1].price}}
     {{ items[2].product_title}}{{items[2].price}}
-`````````
+```
 {% endraw %}
 
 ![商品タグを使用してカタログセレクションから3つのアイテムを取得しているプッシュ通知作成画面。]({% image_buster /assets/img/Shopify/add_personalization_collections.png %})
@@ -670,7 +670,7 @@ Checkout the latest women's clothing:
 コレクションとインタラクションしたユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてセグメントを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
-`````````json
+```json
 -- Description:
 -- This query fetches users who have engaged with catalog items that contain a specific collection ID. It joins the catalog
 -- to custom events by matching any element in an array within events.properties.products (e.g. any product
@@ -694,7 +694,7 @@ WHERE
     and events.app_group_id = '<app_group_id>'
     AND items.catalog_id = '<catalog_id>'
     AND (items.field_name = 'collection_ids' AND ARRAY_CONTAINS('<collection_ids_value>'::VARIANT, TRY_PARSE_JSON(items.field_value)));
-`````````
+```
 {% endraw %}
 
 {% endtab %}

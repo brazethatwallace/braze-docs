@@ -63,7 +63,7 @@ https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications/access
 
 {{token.access_token}}
 
-`````````
+```
 
 {% endraw %}
 
@@ -84,7 +84,7 @@ Brazeのキャンペーンで、Trustpilotの[製品レビューサマリー取�
    :method get
    :headers {"apikey": "xxxxx"}
    :content_type application/json :save result %}
-`````````
+```
 {% endraw %}
 
 ![Liquidを使用してメールに情報を取り込むコネクテッドコンテンツ。]({% image_buster /assets/img/trustpilot_connected_content_example.png %}){:style="max-width:38%;"}

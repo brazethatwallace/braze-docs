@@ -51,7 +51,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
      --braze_id can only be used to update existing users created through the Braze SDK
      BRAZE_ID VARCHAR(16777216)
 );
-`````````
+```
 {% endtab %}
 {% tab Redshift %}
 `````````sql
@@ -65,7 +65,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
    --braze_id can only be used to update existing users created through the Braze SDK
    braze_id varchar
 );
-`````````
+```
 {% endtab %}
 
 {% tab BigQuery %}
@@ -108,7 +108,7 @@ CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes]
   BRAZE_ID VARCHAR,
 )
 GO
-`````````
+```
 {% endtab %}
 
 {% endtabs %}

@@ -40,7 +40,7 @@ curl --request GET \
      --url 'https://rest.api.transifex.com/resource_translations?filter\[resource\]=o:<ORGANIZATION_NAME>:p:<PROJECT_NAME>:r:<RESOURCE_NAME>&filter\[language\]=l:<LANGUAGE>' \
      --header 'Accept: application/vnd.api+json' \
      --header 'Authorization: Bearer 1/<TRANSIFEX_BEARER_TOKEN>'
-`````````
+```
 
 たとえば、Transifexプロジェクトが`https://www.transifex.com/appboy-3/french2/french_translationspo/`にある場合、`project_name`は「french2」になり、`resource_name`は「french_translationspo」になります。
 
@@ -49,7 +49,7 @@ curl --request GET \
 このコード例は、Transifexリソース翻訳APIとユーザーの`language`属性を利用しています。必要に応じて文字列オブジェクトをループし、次のLiquidを使用して関連するコンテンツを取得できます: `{{strings.data[X].attributes.strings.other}}`。
 
 {% raw %}
-`````````
+```
 {% assign organization = "<ORGANIZATION_NAME>" %}
 {% assign project = "<PROJECT_NAME>" %}
 {% assign resource = "<RESOURCE_NAME>" %}
@@ -71,7 +71,7 @@ curl --request GET \
 {% else %}
   {% abort_message('null or blank') %}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 

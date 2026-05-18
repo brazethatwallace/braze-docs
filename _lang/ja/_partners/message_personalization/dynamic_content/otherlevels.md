@@ -119,7 +119,7 @@ curl --request POST \
         "output": "image_video_overlay"
     }
 }'
-`````````
+```
 {% endraw %}
 
 以下を置き換えてください。
@@ -141,7 +141,7 @@ APIレスポンスの一部として、OtherLevelsはAPIコールが成功した
 {% raw %}
 `````````bash
 {"$schema":"https://exp-platform-api.prod.awsotherlevels.com/schemas/GenerateMediaResBody.json","message":"success","recipe_id":"LMINHWXV2BBD6JGV5VF3ZNZV7BDDRR7FH5FJH6MMX4BVLTPRKTWQ","media_short_id":"LMINHWX","status":"triggered"}
-`````````
+```
 {% endraw %}
 
 ### ステップ2：`recipe_id`をカスタム属性として設定する {#step-2-setting-the-recipe_id-as-a-custom-attribute}
@@ -167,7 +167,7 @@ curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
     }
   ]
 }'
-`````````
+```
 {% endraw %}
 
 以下を置き換えてください。
@@ -188,9 +188,9 @@ GenAI動画をiOSプッシュメッセージとしてユーザーに送信する
 2. キャンペーンの作成中に、**アセット**セクションに移動し、以下のコネクテッドコンテンツ構文を**URLから追加**フィールドに貼り付けます。
 
 {% raw %}
-`````````
+```
 {% connected_content https://exp-platform-api-external.prod.awsotherlevels.com/v1/app/OTHERLEVELS_PROJECT_KEY/media/{{custom_attribute.${olxpmedia}}} %}
-`````````
+```
 {% endraw %}
 
 次に、`OTHERLEVELS_PROJECT_KEY`をOtherLevelsが提供するプロジェクトキーに置き換えます。

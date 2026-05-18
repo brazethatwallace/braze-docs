@@ -69,13 +69,13 @@ PARAMS = {
         'braze_user_track': 'users/track'
     },
 }
-`````````
+```
 
 ### ステップ2:アクションノードテンプレートを開発する {#step-2-develop-action-node-template}
 
 アクションノードは、前のステップで設定されたそれぞれのBrazeエンドポイントを使用して、ソリューションがデプロイされた環境を活用します。このステップでは、特定のBrazeエンドポイントを統合するためのアクションノードを開発します。統合を開発する際のガイドとして、以下のテンプレートを使用してください。
 
-`````````
+```
 # -*- coding: utf-8 -*-
 r'''
     ______  ______  _____________________  _________    __  ___
@@ -154,7 +154,7 @@ class BrazeExample:
             log('BrazeExample Exception error: {}'.format(err))
 
         return {'success': 'error'}
-`````````
+```
 ### ステップ3:ソリューションデザインを更新する {#step-3-update-the-solution-designs}
 
 Braze REST APIと統合する最後のステップでは、前のステップで開発したアクションノードを使用するように、Pypestreamの[Design Studio](https://platform.pypestream.com/design-studio/)内でフローを設定します。
@@ -186,7 +186,7 @@ Design Studioでモードを設定する方法の概要については、この[
 
 アクションノードを開発するための同じ構造を活用して、ユーザーから収集したデータをアクションノードに入力し、`/user/track`エンドポイントを経由してBrazeに送信できます。
 
-`````````
+```
 # -*- coding: utf-8 -*-
 r'''
     ______  ______  _____________________  _________    __  ___
@@ -275,7 +275,7 @@ class BrazeExample:
             log('BrazeExample Exception error: {}'.format(err))
 
         return {'success': 'error'}
-`````````
+```
 
 ### ステップ3:アクションノードの成功/失敗時にリダイレクトするようにソリューションフローを更新する {#step-3-update-solution-flows-to-redirect-upon-successfailure-of-action-node}
 

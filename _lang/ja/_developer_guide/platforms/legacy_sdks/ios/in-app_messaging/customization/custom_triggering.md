@@ -31,7 +31,7 @@ noindex: true
     [[Appboy sharedInstance] logCustomEvent:@"IAM Trigger" withProperties:@{@"campaign_name": userInfo[@"CAMPAIGN_NAME"]}];
   }
  };
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -43,7 +43,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
     Appboy.sharedInstance()?.logCustomEvent("IAM Trigger", withProperties: ["campaign_name": userInfo["CAMPAIGN_NAME"]])
   }
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

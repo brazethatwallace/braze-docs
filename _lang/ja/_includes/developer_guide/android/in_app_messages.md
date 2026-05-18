@@ -29,14 +29,14 @@
 
 ```java
 BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(context);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 `````````kotlin
 BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(context)
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -54,7 +54,7 @@ public void onResume() {
   // in-app messages from Braze.
   BrazeInAppMessageManager.getInstance().registerInAppMessageManager(activity);
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -66,7 +66,7 @@ public override fun onResume() {
   // in-app messages from Braze.
   BrazeInAppMessageManager.getInstance().registerInAppMessageManager(this)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -83,7 +83,7 @@ public void onPause() {
   // Unregisters the BrazeInAppMessageManager for the current Activity.
   BrazeInAppMessageManager.getInstance().unregisterInAppMessageManager(activity);
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -94,7 +94,7 @@ public override fun onPause() {
   // Unregisters the BrazeInAppMessageManager.
   BrazeInAppMessageManager.getInstance().unregisterInAppMessageManager(this)
 }
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -121,7 +121,7 @@ public class MyApplication extends Application {
     registerActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener(inAppMessageBlocklist));
   }
 }
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -136,6 +136,6 @@ class MyApplication : Application() {
     registerActivityLifecycleCallbacks(BrazeActivityLifecycleCallbackListener(inAppMessageBlocklist))
   }
 }
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}

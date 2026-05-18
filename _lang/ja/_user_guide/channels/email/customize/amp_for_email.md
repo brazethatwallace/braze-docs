@@ -68,7 +68,7 @@ APIを使用してAMP for emailを利用することもできます。Brazeの[�
   "should_inline_css": (optional, boolean), whether to inline CSS on the body. If not provided, falls back to the default CSS inlining value for the workspace,
   "attachments": (optional, array), array of JSON objects like [{"file_name","url"}] that define the files you need attached. Your file name's extension will be detected automatically from the URL, which should return the appropriate `Content-Type` as a response header,
 }
-`````````
+```
 
 ## AMPメールの作成 {#create-your-amp-email}
 

@@ -4,7 +4,7 @@ article_title: キャンバスフローでの起動
 page_order: 3
 description: "このリファレンス記事では、キャンバスフローで構築したキャンバスを起動前に準備しテストする方法について説明します。"
 page_type: reference
-tool: キャンバス
+tool: Canvas
 ---
 
 # キャンバスフローでの起動

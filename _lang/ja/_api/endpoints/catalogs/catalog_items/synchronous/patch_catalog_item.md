@@ -70,7 +70,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
     }
   ]
 }'
-`````````
+```
 
 {% alert note %}
 `$add` および `$remove` 演算子は配列型フィールドにのみ適用可能であり、PATCHエンドポイントでのみサポートされています。
@@ -84,17 +84,17 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 ステータスコード `200` は、次の応答本文を返す可能性があります。
 
-`````````json
+```json
 {
   "message": "success"
 }
-`````````
+```
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-`````````json
+```json
 {
   "errors": [
     {
@@ -110,7 +110,7 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
   ],
   "message": "Invalid Request"
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

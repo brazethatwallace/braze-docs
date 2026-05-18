@@ -78,7 +78,7 @@ braze.initialize("API-KEY", {
     baseUrl: "BASE-URL",
     devicePropertyAllowlist: [ braze.DeviceProperties.LANGUAGE ] // list of `DeviceProperties` you want to collect
 });
-`````````
+```
 {% endtab %}
 
 {% tab android %}
@@ -88,7 +88,7 @@ braze.initialize("API-KEY", {
 new BrazeConfig.Builder()
     .setDeviceObjectAllowlistEnabled(true)
     .setDeviceObjectAllowlist(EnumSet.of(DeviceKey.ANDROID_VERSION, DeviceKey.LOCALE));
-`````````
+```
 {% endtab %}
 
 {% tab swift %}
@@ -99,7 +99,7 @@ new BrazeConfig.Builder()
 
 `````````swift
 configuration.devicePropertyAllowList = [.timeZone, .locale]
-`````````
+```
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
@@ -109,7 +109,7 @@ configuration.devicePropertyAllowList = @[
     BRZDeviceProperty.timeZone,
     BRZDeviceProperty.locale
 ];
-`````````
+```
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -145,7 +145,7 @@ braze.initialize("API-KEY", {
   baseUrl: "BASE-URL",
   cookieExpiryInDays: 30 // expires after 30 days
 });
-`````````
+```
 
 ### Cookieを無効にする {#disable-cookies}
 
@@ -157,6 +157,6 @@ braze.initialize("API-KEY", {
   baseUrl: "BASE-URL",
   noCookies: true
 });
-`````````
+```
 
 Brazeのトラッキング全般を停止したり、保存されたブラウザデータをすべて消去したりするには、それぞれ [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disableSDK) および [`wipeData`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#wipedata) SDKメソッドを参照してください。これらの2つのメソッドは、ユーザーが同意を取り消した場合や、SDKの初期化後にBrazeのすべての機能を停止したい場合に役立ちます。

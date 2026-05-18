@@ -97,7 +97,7 @@ Catapultは時間制限付き賞品、確率ベースの賞品、またはその
 {% raw %}
 ```liquid
 {% connected_content https://secure.cataboom.com/dplayurl/YOUR_CAMPAIGN_SLUG?username=YOUR_API_USERNAME&password=YOUR_API_PASSWORD&AccountID={{${user_id}}} :save result %}
-`````````
+```
 {% endraw %}
 
 保存された`result`をカードで使用します（例えば、リンクURLやメッセージ本文として）。キャンペーンに対するCataBoomのAPIのレスポンス形式に従ってください。クエリパラメーターとURL内のLiquidの詳細については、[APIコールの実行]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)を参照してください。

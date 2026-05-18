@@ -36,7 +36,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
   final String myCustomKvp1 = parsedData.getBrazeExtras().getString("my first kvp");
   final String myCustomKvp2 = parsedData.getBrazeExtras().getString("my second kvp");
 });
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -66,7 +66,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
     val myCustomKvp1 = parsedData.brazeExtras.getString("my first kvp")
     val myCustomKvp2 = parsedData.brazeExtras.getString("my second kvp")
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -102,7 +102,7 @@ public Notification createNotification(BrazeNotificationPayload brazeNotificatio
   // Example of retrieving a custom KVP ("my_key" -> "my_value")
   String customKvp = brazeNotificationPayload.getBrazeExtras().getString("my_key");
 }
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
@@ -116,7 +116,7 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
   // Example of retrieving a custom KVP ("my_key" -> "my_value")
   val customKvp = brazeNotificationPayload.getBrazeExtras().getString("my_key")
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -137,14 +137,14 @@ Brazeにカスタム通知ファクトリーを使用するように指示する
 
 `````````java
 setCustomBrazeNotificationFactory(IBrazeNotificationFactory brazeNotificationFactory);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFactory)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -163,14 +163,14 @@ setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFa
 
 `````````java
 setCustomBrazeNotificationFactory(null);
-`````````
+```
 
 {% endtab %}
 {% tab KOTLIN %}
 
 `````````kotlin
 setCustomBrazeNotificationFactory(null)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -187,7 +187,7 @@ Braze SDKバージョン3.1.1では、HTMLをデバイスに送信すること�
 <p><span style="color: #99cc00;">M</span>u<span style="color: #008080;">lti</span>Colo<span style="color: #ff6600;">r</span> <span style="color: #000080;">P</span><span style="color: #00ccff;">u</span><span style="color: #ff0000;">s</span><span style="color: #808080;">h</span></p>
 
 <p><em>test</em> <span style="text-decoration: underline; background-color: #ff6600;"><strong>message</strong></span></p>
-`````````
+```
 
 Androidでは、プッシュ通知内で有効なHTML要素やタグが制限されていることに注意してください。たとえば、`marquee` は使用できません。
 
@@ -203,7 +203,7 @@ Androidでは、プッシュ通知内で有効なHTML要素やタグが制限さ
 
 `````````xml
 <bool translatable="false" name="com_braze_push_notification_html_rendering_enabled">true</bool>
-`````````
+```
 {% endtab %}
 
 {% tab BrazeConfig %}
@@ -217,7 +217,7 @@ BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setPushHtmlRenderingEnabled(true)
   .build();
 Braze.configure(this, brazeConfig);
-`````````
+```
 
 {% endsubtab %}
 {% subtab KOTLIN %}
@@ -227,7 +227,7 @@ val brazeConfig = BrazeConfig.Builder()
     .setPushHtmlRenderingEnabled(true)
     .build()
 Braze.configure(this, brazeConfig)
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

@@ -41,7 +41,7 @@ description: "この記事では、「キャンバスの詳細のエクスポー
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?canvas_id={{canvas_identifier}}' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-`````````
+```
 {% endraw %}
 
 ## 応答 {#responses}
@@ -50,20 +50,20 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 すべてのキャンバスステップには、`{name, next_step_id}`データの配列である`next_paths`フィールドがあります。メッセージステップでは`next_step_ids`フィールドが存在しますが、他のキャンバスステップのデータは含まれません。
 {% endalert %}
 
-`````````json
+```json
 {
   "created_at": (string) the date created as ISO 8601 date,
   "updated_at": (string) the date updated as ISO 8601 date,
-  "name": (string) the キャンバス name,
-  "description": (string) the キャンバス description,
-  "archived": (boolean) whether this キャンバス is archived,
-  "draft": (boolean) whether this キャンバス is a draft,
-  "enabled": (boolean) whether this キャンバス is active or not,
-  "has_post_launch_draft": (boolean) whether this キャンバス has a post-launch draft,
+  "name": (string) the Canvas name,
+  "description": (string) the Canvas description,
+  "archived": (boolean) whether this Canvas is archived,
+  "draft": (boolean) whether this Canvas is a draft,
+  "enabled": (boolean) whether this Canvas is active or not,
+  "has_post_launch_draft": (boolean) whether this Canvas has a post-launch draft,
   "schedule_type": (string) the type of scheduling action,
   "first_entry": (string) the date of first entry as ISO 8601 date,
   "last_entry": (string) the date of last entry as ISO 8601 date,
-  "channels": (array of strings) step channels used with キャンバス,
+  "channels": (array of strings) step channels used with Canvas,
   "variants": [
     {
       "name": (string) the name of variant,
@@ -73,12 +73,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
     },
     ... (more variations)
   ],
-  "tags": (array of strings) the tag names associated with the キャンバス,
-  "teams" : (array) the names of the Teams associated with the キャンバス,
+  "tags": (array of strings) the tag names associated with the Canvas,
+  "teams" : (array) the names of the Teams associated with the Canvas,
   "steps": [
     {
       "name": (string) the name of step,
-      "type" (string) the type of キャンバス component,
+      "type" (string) the type of Canvas component,
       "id": (string) the API identifier of the step,
       "next_step_ids": (array of strings) IDs for next steps that are full steps or Message steps,
       "next_paths": { (array of objects)
@@ -94,7 +94,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
           "message_variation_id": (string) {  // <=This is the actual id
               "channel": (string) the channel type of the message (for example, "email"),
               "has_translatable_content": (boolean) whether the message has translatable content (only present if `include_has_translatable_content` is true); `true` if locales are configured and the message contains at least one translation tag; `false` if no locales are configured or no translation tags detected; `null` if detection could not be completed,
-              // channel-specific fields for this message, see キャンペーン Details endpoint API Response for example message responses
+              // channel-specific fields for this message, see Campaign Details endpoint API Response for example message responses
           }
       }
     },
@@ -102,13 +102,13 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
   ],
   "message": (required, string) the status of the export, returns 'success' when completed without errors
 }
-`````````
+```
 
 ### チャネル別のメッセージ {#messages-by-channel}
 
 以下は、異なるチャネル（メール、プッシュ、SMS、アプリ内メッセージ）を通じて送信されたキャンバスメッセージを含む応答の例です。
 
-`````````json
+```json
 {
   "message": "success",
   "created_at": "2023-01-01T12:00:00Z",
@@ -217,7 +217,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
     }
   ]
 }
-`````````
+```
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

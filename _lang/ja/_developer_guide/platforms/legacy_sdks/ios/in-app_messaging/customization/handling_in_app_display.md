@@ -21,14 +21,14 @@ noindex: true
 
 ```objc
 - (ABKInAppMessageDisplayChoice) beforeInAppMessageDisplayed:(ABKInAppMessage *)inAppMessage;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMessageDisplayChoice
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -40,14 +40,14 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMess
 
 `````````objc
 - (ABKInAppMessageDisplayChoice) beforeInAppMessageDisplayed:(ABKInAppMessage *)inAppMessage withKeyboardIsUp:(BOOL)keyboardIsUp;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
 
 `````````swift
 func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsUp keyboardIsUp: Bool) -> ABKInAppMessageDisplayChoice
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -95,7 +95,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsU
   ...
   return ABKDisplayInAppMessageNow;
 }
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -116,7 +116,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
   ...
   return ABKInAppMessageDisplayChoice.displayInAppMessageNow
 }
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -137,7 +137,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 - (void) logInAppMessageImpression;
 // Registers that a user has clicked on an in-app message with the Braze server.
 - (void) logInAppMessageClicked;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -147,7 +147,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 func logInAppMessageImpression()
 // Registers that a user has clicked on an in-app message with the Braze server.
 func logInAppMessageClicked()
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -160,7 +160,7 @@ func logInAppMessageClicked()
 `````````objc
 // Logs button click analytics
 - (void)logInAppMessageClickedWithButtonID:(NSInteger)buttonID;
-`````````
+```
 
 {% endtab %}
 {% tab swift %}
@@ -168,7 +168,7 @@ func logInAppMessageClicked()
 `````````swift
 // Logs button click analytics
 func logInAppMessageClickedWithButtonID(buttonId: NSInteger)
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

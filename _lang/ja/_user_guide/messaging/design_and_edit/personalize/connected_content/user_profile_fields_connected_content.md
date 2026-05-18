@@ -23,7 +23,7 @@ toc_headers: h2
 ```liquid
 Hi ${first_name},
 {% connected_content https://examplewebsite.com :rerender %}
-`````````
+```
 {% endraw %}
 
 コネクテッドコンテンツの応答が {% raw %}`Your language is ${language}`{% endraw %} の場合、この例で表示されるコンテンツは`Hi Jon, your language is`となります。
@@ -35,7 +35,7 @@ Liquidのパスバックを正しくレンダリングするには、以下の�
 {%raw%}
 `````````liquid
 Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
-`````````
+```
 {% endraw %}
 
 {% alert important %}
@@ -55,5 +55,5 @@ Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${lan
 [{
 "message":"{{event_properties.${message} | json_escape}}"
 }]
-`````````
+```
 {% endraw %}

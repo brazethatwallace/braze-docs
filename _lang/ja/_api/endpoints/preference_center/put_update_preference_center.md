@@ -39,9 +39,9 @@ description: "この記事では、「ユーザー設定センターの更新」
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````
+```
 {
   "name": "preference_center_name",
   "preference_center_title": "string",
@@ -62,7 +62,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     ]
   }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -78,7 +78,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ## リクエスト例 {#example-request}
 
 {% raw %}
-`````````
+```
 curl --location --request POST 'https://rest.iad-01.braze.com/preference_center/v1/{preferenceCenterExternalId}' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -90,19 +90,19 @@ curl --location --request POST 'https://rest.iad-01.braze.com/preference_center/
   "state": "active"
 }
 '
-`````````
+```
 {% endraw %}
 
 ## 応答例 {#example-response}
 {% raw %}
-`````````
+```
 {
   "preference_center_api_id": "8efc52aa-935e-42b7-bd6b-98f43bb9b0f1",
   "created_at": "2022-09-22T18:28:07Z",
   "updated_at": "2022-09-22T18:32:07Z",
   "message": "success"
 }
-`````````
+```
 {% endraw %}
 
 {% endapi %}

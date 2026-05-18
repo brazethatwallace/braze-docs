@@ -3,7 +3,7 @@ nav_title: 抑制リスト
 article_title: 抑制リスト
 page_order: 7
 page_type: reference
-tool: セグメント
+tool: Segments
 description: "このページでは、抑制リストを使用して、メッセージを受信しないユーザーを指定する方法について説明します。"
 
 ---

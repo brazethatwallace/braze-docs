@@ -174,7 +174,7 @@ BrazeのリードステータスでSalesforceのリードレコードを更新�
 }
 {% else %}{% abort_message('not at threshold')%}
 {% endif %}
-`````````
+```
 {% endraw %}
 
 {: start="5"}

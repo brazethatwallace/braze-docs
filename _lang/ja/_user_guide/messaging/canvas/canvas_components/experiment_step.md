@@ -5,7 +5,7 @@ alias: /experiment_step/
 page_order: 4
 page_type: reference
 description: "この記事では、ユーザージャーニーの任意のポイントで複数のキャンバスパスを相互に、またコントロールグループと比較テストできるコンポーネントである実験パスについて説明します。"
-tool: キャンバス
+tool: Canvas
 ---
 
 # 実験パス

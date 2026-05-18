@@ -14,7 +14,7 @@ Xコードプロジェクトで、`SDWebImageGIFViewProvider.swift`という名�
 import UIKit
 import BrazeUI
 import SDWebImage
-`````````
+```
 
 ### ステップ 3:`GIFViewProvider` を追加する
 
@@ -46,7 +46,7 @@ extension GIFViewProvider {
 
 
 }
-`````````
+```
 
 ### ステップ 4: 変更する `AppDelegate.swift`
 
@@ -78,4 +78,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-`````````
+```

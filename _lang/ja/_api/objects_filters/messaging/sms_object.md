@@ -21,7 +21,7 @@ description: "この参考記事では、Braze SMS オブジェクトのさま�
     "link_shortening_enabled": (optional, boolean) use this field to turn on link shortening and campaign-level click tracking,
     "user_click_tracking_enabled": (optional, boolean) if link_shortening_enabled is true, use this field to turn on link shortening, and campaign-level and user-level click tracking.
 }
-`````````
+```
 
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
   - ワークスペースに設定されたアプリからの有効な`app_id` は、ユーザーが特定のアプリをプロファイルに登録しているかどうかに関係なく、ワークスペース内のすべてのユーザーに対して機能する。

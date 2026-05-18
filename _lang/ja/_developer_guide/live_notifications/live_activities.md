@@ -61,7 +61,7 @@ sequenceDiagram
   Server ->> BrazeAPI: POST /messages/live_activity/update
   Note right of BrazeAPI: Activity can be ended via:<br> - User manually dismisses<br>- Times out after 12 hours<br>- Setting `end_activity: true` on `/messages/live_activity/update`
   APNS ->> Device: Live activity is dismissed
-`````````
+```
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -116,7 +116,7 @@ struct SportsActivityAttributes: ActivityAttributes {
   var gameName: String
   var gameNumber: String
 }
-`````````
+```
 
 ### ステップ 2: アクティビティを開始する {#start-the-activity}
 
@@ -166,7 +166,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
   // 2. Add the `String?` property to represent the activity ID.
   var brazeActivityId: String?
 }
-`````````
+```
 
 #### ステップ 2.3: push-to-startの登録 {#step-23-register-for-push-to-start}
 
@@ -200,7 +200,7 @@ class LiveActivityManager {
   }
 
 }
-`````````
+```
 
 #### ステップ 2.4: push-to-start通知を送信する {#step-24-send-a-push-to-start-notification}
 
@@ -248,7 +248,7 @@ class LiveActivityManager {
   }
 
 }
-`````````
+```
 
 ライブアクティビティウィジェットによって、この初期コンテンツがユーザーに表示されます。
 
@@ -295,7 +295,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-`````````
+```
 
 ### ステップ 4: アクティビティを更新する {#update-the-activity}
 

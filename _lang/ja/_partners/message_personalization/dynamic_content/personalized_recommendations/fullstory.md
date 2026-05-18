@@ -80,7 +80,7 @@ Fullstoryの[Activation Streams](https://help.fullstory.com/hc/en-us/articles/36
 ```bash
 {% connected_content https://api.fullstory.com/v2/sessions/{{canvas_entry_properties.${client_session_id} | url_encode}}/summary?config_profile=[YOUR-FULLSTORY-PROFILE-ID] :auth_credentials fullstory :save summary_result %}
 {{summary_result | as_json_string }}
-`````````
+```
 {% endraw %}
 
 {% alert note %}
@@ -147,7 +147,7 @@ Fullstoryの[Activation Streams](https://help.fullstory.com/hc/en-us/articles/36
         ]
     }
 }
-`````````
+```
 {% endraw %}
 {% enddetails %}
 

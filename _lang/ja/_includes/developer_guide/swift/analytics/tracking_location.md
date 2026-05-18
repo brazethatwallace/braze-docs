@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-`````````
+```
 
 {% endtab %}
 {% tab objective-c %}
@@ -90,7 +90,7 @@ static Braze *_braze = nil;
 }
 
 @end
-`````````
+```
 
 {% endtab %}
 {% endtabs %}
@@ -105,7 +105,7 @@ static Braze *_braze = nil;
 `````````swift
 AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
                                              longitude:longitude)
-`````````
+```
 
 `````````swift
 AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
@@ -113,7 +113,7 @@ AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
                                              altitude:altitude,
                                              horizontalAccuracy:horizontalAccuracy,
                                              verticalAccuracy:verticalAccuracy)
-`````````
+```
 
 {% endtab %}
 {% tab objective-c %}
@@ -123,7 +123,7 @@ AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
                                                longitude:longitude
                                       horizontalAccuracy:horizontalAccuracy];
 
-`````````
+```
 
 `````````objc
 [AppDelegate.braze.user setLastKnownLocationWithLatitude:latitude
@@ -132,7 +132,7 @@ AppDelegate.braze?.user.setLastKnownLocation(latitude:latitude,
                                                 altitude:altitude
                                         verticalAccuracy:verticalAccuracy];
 
-`````````
+```
 
 {% endtab %}
 {% endtabs %}

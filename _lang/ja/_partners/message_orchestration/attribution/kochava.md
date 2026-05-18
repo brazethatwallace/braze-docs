@@ -37,7 +37,7 @@ BrazeとKochavaの統合により、アトリビューションデータをBraze
 
 ```java
 Apppboy.getInstance(context).getDeviceId();
-`````````
+```
 
 #### iOS
 
@@ -50,15 +50,15 @@ Swift SDK v5.7.0+を使用しているお客様は、相互識別子としてIDF
 Brazeには、同じ値を生成する2つのAPIがあります。1つは完了ハンドラを使用し、もう1つは新しいSwiftコンカレンシーサポートを使用します。次のコードスニペットをKochavaの[iOS SDK](https://support.kochava.com/sdk-integration/ios-sdk-integration/)の指示に従って修正する必要があることに注意してください。その他のヘルプについては、Kochavaサポートにお問い合わせください。
 
 ##### 完了ハンドラ {#completion-handler}
-`````````
+```
 AppDelegate.braze?.deviceId(completion: { deviceId in
   // Use `deviceId`
 })
-`````````
+```
 ##### Swiftコンカレンシー {#swift-concurrency}
-`````````
+```
 let deviceId = await AppDelegate.braze?.deviceId()
-`````````
+```
 
 ### ステップ2:Brazeデータインポートキーを取得する {#step-2-get-the-braze-data-import-key}
 
@@ -90,11 +90,11 @@ Kochavaのクリックトラッキングリンクを使い始めるには、[ド
 {% tab Android %}
 Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Kochava SDK統合によってネイティブに収集されます。次のLiquidロジックを利用して、KochavaクリックトラッキングリンクにGAIDを含めることができます。
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'android' %}
 aifa={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 
@@ -102,11 +102,11 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとKochavaの両方が、SDK統合を通じてネイティブにIDFVを自動的に収集します。これはデバイス識別子として使用できます。次のLiquidロジックを利用して、KochavaクリックトラッキングリンクにIDFVを含めることができます。
 
 {% raw %}
-`````````
+```
 {% if most_recently_used_device.${platform} == 'ios' %}
 idfv={{most_recently_used_device.${id}}}
 {% endif %}
-`````````
+```
 {% endraw %}
 {% endtab %}
 {% endtabs %}

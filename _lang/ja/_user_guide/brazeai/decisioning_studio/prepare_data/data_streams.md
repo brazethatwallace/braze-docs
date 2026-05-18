@@ -38,7 +38,7 @@ Decisioning Studioはおすすめパイプラインを1日1回実行します。
 SELECT *
 FROM snapshot_data
 WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from t-1
-`````````
+```
 
 ## イベントストリームデータ（フロー） {#event-stream-data-flow}
 
@@ -74,14 +74,14 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 SELECT *
 FROM events_data
 WHERE DATE(create_timestamp) = {t-1} -- on run date t, export all records created yesterday
-`````````
+```
 
 `````````sql
 -- Incorrect: slicing on event_timestamp will permanently lose late-arriving events
 SELECT *
 FROM events_data
 WHERE DATE(event_timestamp) = {t-1}
-`````````
+```
 
 例えば、イベントが1月1日に発生したが、システムに書き込まれたのが1月2日だった場合、1月2日に`event_timestamp`でスライスすると完全に見逃されます。`create_timestamp`でスライスすれば正しくキャプチャされます。
 

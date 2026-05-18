@@ -47,9 +47,9 @@ description: "この記事では、APIトリガー配信を使用したトラン
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-`````````
+```
 
-`````````json
+```json
 {
   "external_send_id": (optional, string) see the following request parameters,
   "trigger_properties": (optional, object) personalization key-value pairs that apply to the user in this request,
@@ -61,7 +61,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
 }
-`````````
+```
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -74,7 +74,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## リクエスト例 {#example-request}
 
-`````````
+```
 curl -X POST \
   -H 'Content-Type:application/json' \
   -H 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -89,7 +89,7 @@ curl -X POST \
         }
       }' \
   https://rest.iad-01.braze.com/transactional/v1/campaigns/{campaign_id}/send
-`````````
+```
 
 ## 応答 {#response}
 
@@ -97,13 +97,13 @@ curl -X POST \
 
 ### 応答例 {#example-responses}
 
-`````````json
+```json
 {
     "dispatch_id": A randomly-generated unique ID of the instance of this send
     "status": Current status of the message
     "metadata" : Object containing additional information about the send instance
 }
-`````````
+```
 
 ## トラブルシューティング {#troubleshooting}
 

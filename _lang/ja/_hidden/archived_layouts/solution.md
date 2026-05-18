@@ -52,7 +52,7 @@ noindex: true
 
 ```
 this is the code snippet you need to do it.
-`````````
+```
 > コードの抜粋はどこに置くかを必ず書き留めておいてください。
 
 
@@ -60,9 +60,9 @@ this is the code snippet you need to do it.
 
 ここでは、何かを行う方法を説明します。
 
-`````````
+```
 this is the code snippet you need to do it.
-`````````
+```
 > コードの抜粋はどこに置くかを必ず書き留めておいてください。
 
 

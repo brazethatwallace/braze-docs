@@ -24,7 +24,7 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 
 ```javascript
 braze.logCustomEvent("YOUR_EVENT_NAME");
-`````````
+```
 
 代わりにGoogle Tag Managerを使用したい場合は、**カスタムイベント**タグタイプを使用して、[`logCustomEvent`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)を呼び出し、カスタムイベントプロパティをオプションで含めて、カスタムイベントをBrazeに送信できます。これを行うには：
 
@@ -41,12 +41,12 @@ braze.logCustomEvent("YOUR_EVENT_NAME");
 {% subtab java %}
 `````````java
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME);
-`````````
+```
 {% endsubtab %}
 {% subtab kotlin %}
 `````````kotlin
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -57,12 +57,12 @@ Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
 {% subtab swift %}
 `````````swift
 AppDelegate.braze?.logCustomEvent(name: "YOUR_EVENT_NAME")
-`````````
+```
 {% endsubtab %}
 {% subtab objective-c %}
 `````````objc
 [AppDelegate.braze logCustomEvent:@"YOUR_EVENT_NAME"];
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -70,7 +70,7 @@ AppDelegate.braze?.logCustomEvent(name: "YOUR_EVENT_NAME")
 {% tab flutter %}
 `````````dart
 braze.logCustomEvent('YOUR_EVENT_NAME');
-`````````
+```
 {% endtab %}
 
 {% tab cordova %}
@@ -78,7 +78,7 @@ Braze Cordovaプラグインメソッドを使用します：
 
 `````````javascript
 BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
-`````````
+```
 
 `logCustomEvent` APIは以下を受け付けます：
 - `eventName`（必須の文字列）：最大255文字まで使用できます。名前を`$`で始めないでください。英数字と句読点を使用してください。
@@ -102,14 +102,14 @@ BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
 `````````java
 Braze.getInstance(context).logCustomEvent("Entered " + visit.getPlace());
 Braze.getInstance(context).requestImmediateDataFlush();
-`````````
+```
 {% endsubtab %}
 
 {% subtab kotlin %}
 `````````kotlin
 Braze.getInstance(context).logCustomEvent("Entered " + visit.getPlace())
 Braze.getInstance(context).requestImmediateDataFlush()
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -117,19 +117,19 @@ Braze.getInstance(context).requestImmediateDataFlush()
 {% tab react native %}
 `````````javascript
 Braze.logCustomEvent("YOUR_EVENT_NAME");
-`````````
+```
 {% endtab %}
 
 {% tab roku %}
 `````````brightscript
 m.Braze.logEvent("YOUR_EVENT_NAME")
-`````````
+```
 {% endtab %}
 
 {% tab unity %}
 `````````csharp
 AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
-`````````
+```
 {% endtab %}
 {% endtabs %}
 
@@ -152,7 +152,7 @@ braze.logCustomEvent("YOUR-EVENT-NAME", {
      deeply: ["nested", "json"]
   }
 });
-`````````
+```
 {% endtab %}
 
 {% tab android %}
@@ -175,7 +175,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ));
-`````````
+```
 {% endsubtab %}
 {% subtab kotlin %}
 `````````kotlin
@@ -195,7 +195,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ))
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -217,7 +217,7 @@ AppDelegate.braze?.logCustomEvent(
     ]
   ]
 )
-`````````
+```
 {% endsubtab %}
 {% subtab objective-c %}
 `````````objc
@@ -232,7 +232,7 @@ AppDelegate.braze?.logCustomEvent(
     @"deeply": @[@"nested", @"json"]
   }
 }];
-`````````
+```
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -244,7 +244,7 @@ braze.logCustomEvent('custom_event_with_properties', properties: {
     'key2': ['value2', 'value3'],
     'key3': false,
 });
-`````````
+```
 {% endtab %}
 
 {% tab cordova %}
@@ -256,7 +256,7 @@ properties["key1"] = "value1";
 properties["key2"] = ["value2", "value3"];
 properties["key3"] = false;
 BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", properties);
-`````````
+```
 
 プロパティをインラインで渡すこともできます：
 
@@ -265,7 +265,7 @@ BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", {
   "key": "value",
   "amount": 42,
 });
-`````````
+```
 
 公式のCordovaサンプルアプリには、文字列、数値、ブール値、配列、およびネストされたオブジェクトのプロパティが含まれています：
 - [`sample-project/www/js/index.js`（230行目から251行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/sample-project/www/js/index.js#L230-L251)
@@ -294,7 +294,7 @@ BrazePlugin.logCustomEvent("cordovaCustomEventWithNestedProperties", {
     "key": [1, "2", true]
   }
 });
-`````````
+```
 
 APIとネイティブブリッジの詳細については、以下を参照してください：
 - [`www/BrazePlugin.js` JSDoc（128行目から140行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
@@ -309,19 +309,19 @@ Braze.logCustomEvent("custom_event_with_properties", {
     key2: ["value2", "value3"],
     key3: false,
 });
-`````````
+```
 {% endtab %}
 
 {% tab roku %}
 `````````brightscript
 m.Braze.logEvent("YOUR_EVENT_NAME", {"stringPropKey" : "stringPropValue", "intPropKey" : Integer intPropValue})
-`````````
+```
 {% endtab %}
 
 {% tab unity %}
 `````````csharp
 AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>));
-`````````
+```
 {% endtab %}
 {% endtabs %}
 

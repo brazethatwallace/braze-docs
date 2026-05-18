@@ -17,7 +17,7 @@ CSVまたはAPIを通じてカタログにデータをインポートした後�
 ```liquid
 {% catalog_items products {{${product_id}}} %}
 {{items[0].name}} is back in stock!
-`````````
+```
 {% endraw %}
 
 カタログはアイテムごとに最大1,000フィールドをサポートし、数百万行を格納できるため、大規模な製品インベントリやコンテンツライブラリに適しています。

@@ -122,7 +122,7 @@ Brazeで最も一般的な競合状態の1つは、新しく作成されたユ�
 {%unless colors contains ‘Blue’%}
 {%abort_message(Blue not present)%}
 {%endunless%}
-`````````
+```
 {% endraw %}
 
 #### ユーザーデータの管理方法を確認する {#confirm-how-user-data-is-being-managed}
