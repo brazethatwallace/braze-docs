@@ -16,12 +16,12 @@ tool: Canvas
 
 ![A Send to Destination step to send users to a new Canvas.]({% image_buster /assets/img/send_to_destination1.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Your current Canvas with the Send to Destination step is the source. Within the step, you can choose the destination Canvas. Let's say you have two Canvases:
+Your current Canvas with the Send to Destination step is the source. Within the step, you can choose the destination Canvas. The incoming users from the source Canvas must follow the entry rules of the destination Canvas. Let's say you have two Canvases:
 
 - **Source:** Canvas 1, includes a Send to Destination step that sends users to Canvas 2
-- **Destination:** Canvas 2, with the entry schedule to enter users who start a session in any app
+- **Destination:** Canvas 2, with the entry criteria to enter users who ordered an item
 
-This step allows users from Canvas 1 to be sent to Canvas 2. Users from Canvas 1 can only enter Canvas 2 if they meet the [entry criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=entry%20schedule#step-12-determine-your-canvas-entry-schedule) for the destination Canvas. In this case, users who start a session in any app can enter Canvas 2 and also continue their journey in Canvas 1.
+This step allows users from Canvas 1 to be sent to Canvas 2. When users from Canvas 1 enter the Send to Destination step, they are evaluated by the entry rules of Canvas 2 to determine if they're eligible to enter the Canvas. In this case, users who ordered an item can enter Canvas 2 and also continue their journey in Canvas 1. For users who haven't ordered an item, they continue their journey in Canvas 1 only.
 
 ## Create a Send to Destination step
 
