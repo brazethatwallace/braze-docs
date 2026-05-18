@@ -25,7 +25,7 @@ The Braze integration with Shopify provides a powerful solution for eCommerce bu
 
 | Requirement | Description |
 | ----------- | ----------- |
-| Currents | To export data into Shopify, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
+| Currents | To export data into Shopify, you must have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
 | Shopify store | Be sure that you've already [set up at least one Shopify store with Braze]({{site.baseurl}}/shopify_standard_integration/). |
 | Shopify store owner or staff member permissions | {::nomarkdown}<ul><li>Access to all <b>General</b> and <b>Online Store</b> settings.</li><li> Additional administrator permissions:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
