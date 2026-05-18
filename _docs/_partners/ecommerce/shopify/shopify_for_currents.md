@@ -42,6 +42,6 @@ If you have not already, follow [Shopify standard integration setup]({{site.base
 2. Provide an integration name and contact email.
 3. In the **Credentials** section, select the Shopify store that you set up in [Step 1](#step-1-set-up-your-shopify-store).
 4. Select the events you want to track. A list of available events is provided.
-5. Seelct **Launch Current**
+5. Select **Launch Current**
 
 ![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shopify Store.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
