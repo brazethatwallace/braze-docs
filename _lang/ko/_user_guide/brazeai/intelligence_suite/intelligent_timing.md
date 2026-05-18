@@ -6,7 +6,7 @@ description: "이 문서에서는 Intelligent Timing(이전의 지능형 전달)
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
 
 > Intelligent Timing을 사용하면 Braze가 각 사용자의 최적 발송 시간, 즉 사용자가 가장 높은 참여 가능성(열람 또는 클릭)을 보이는 시간을 판단하여 메시지를 전달합니다. 이를 통해 사용자가 선호하는 시간에 메시지를 보내고 있는지 쉽게 확인할 수 있으며, 더 높은 참여도로 이어질 수 있습니다.
 
@@ -147,7 +147,7 @@ Intelligent Timing 또는 Campaign 오디언스에 대한 설정을 변경할 �
 
 Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가한 다음 **Delivery Settings**로 이동하여 **Using Intelligent Timing**을 선택합니다.
 
-해당 날짜에 단계에 진입한 사용자에게 최적의 현지 시간에 메시지가 전송됩니다. 그러나 해당 날짜에 최적 시간이 이미 지난 경우, 다음 날 해당 시간에 전달됩니다. 여러 채널을 대상으로 하는 메시지 단계는 채널별로 서로 다른 시간에 메시지를 보내거나 보내려고 시도할 수 있습니다. 메시지 단계의 첫 번째 메시지가 전송을 시도하면 모든 사용자가 자동으로 다음 단계로 이동합니다.
+해당 날짜에 단계에 진입한 사용자에게 최적의 현지 시간에 메시지가 전송됩니다. 그러나 해당 날짜에 최적 시간이 이미 지난 경우, 다음 날 최적 시간에 전달됩니다. 여러 채널을 대상으로 하는 메시지 단계는 채널별로 서로 다른 시간에 메시지를 보내거나 보내려고 시도할 수 있습니다. 메시지 단계의 첫 번째 메시지가 전송을 시도하면 모든 사용자가 자동으로 다음 단계로 이동합니다.
 
 ### 2단계: 대체 시간 선택 {#step-2-choose-a-fallback-time}
 

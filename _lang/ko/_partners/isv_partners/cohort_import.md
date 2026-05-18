@@ -28,7 +28,7 @@ Braze는 전 세계 여러 클러스터에서 애플리케이션을 호스팅합
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
 | KR-01 | `https://rest.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cluster URLs" }
 
 ## 엔드포인트 URL {#endpoint-urls}
 
@@ -60,12 +60,12 @@ Braze는 파트너가 통합 개발을 시작하기 전에 파트너에게 파�
 
 | 필드 | 유형 | 필수 | 참고 |
 | ----- | ---- | -------- | ----- |
-| `partner_api_key` | 문자열 | 예 | 파트너가 Braze에 보내는 모든 요청에 사용되는 파트너별 API 키입니다. 이 키는 클러스터별로 다르므로([파트너 API 키](#partner-api-key) 참조) 파트너는 코호트를 작성할 클러스터를 알고 있어야 합니다. |
-| `client_secret` | 문자열 | 예 | 해당 코호트가 속한 클라이언트의 데이터 가져오기 키입니다. |
-| `cohort_id` | 문자열 | 예 | 코호트의 식별자입니다. 이 식별자는 지정된 클라이언트에 대해 고유해야 합니다. |
-| `name` | 문자열 | 예 | 클라이언트가 지정한 코호트 이름 |
-| `created_at` | 문자열 | 예 | ISO-8601 형식의 타임스탬프 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `partner_api_key` | 문자열 | 필수 | 파트너가 Braze에 보내는 모든 요청에 사용되는 파트너별 API 키입니다. 이 키는 클러스터별로 다르므로([파트너 API 키](#partner-api-key) 참조) 파트너는 코호트를 작성할 클러스터를 알고 있어야 합니다. |
+| `client_secret` | 문자열 | 필수 | 해당 코호트가 속한 클라이언트의 데이터 가져오기 키입니다. |
+| `cohort_id` | 문자열 | 필수 | 코호트의 식별자입니다. 이 식별자는 지정된 클라이언트에 대해 고유해야 합니다. |
+| `name` | 문자열 | 필수 | 클라이언트가 지정한 코호트 이름 |
+| `created_at` | 문자열 | 필수 | ISO-8601 형식의 타임스탬프 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cohort name endpoint" }
 
 #### 요청 예시: {#example-request}
 
@@ -86,11 +86,11 @@ Braze는 파트너가 통합 개발을 시작하기 전에 파트너에게 파�
 
 | 필드 | 유형 | 필수 | 참고 |
 | ----- | ---- | -------- | ----- |
-| `partner_api_key` | 문자열 | 예 | 파트너가 Braze에 보내는 모든 요청에 사용되는 파트너별 API 키입니다. 이 키는 클러스터별로 다르므로([파트너 API 키](#partner-api-key) 참조) 통합에서는 코호트를 작성할 클러스터를 알고 있어야 합니다. |
-| `client_secret` | 문자열 | 예 | 해당 코호트가 속한 클라이언트의 데이터 가져오기 키입니다. |
-| `cohort_id` | 문자열 | 예 | 코호트의 식별자입니다. 식별자는 지정된 클라이언트에 대해 고유해야 합니다. |
-| `cohort_changes` | 오브젝트 배열 | 예 | 오브젝트에는 두 개의 필드가 있을 수 있습니다. 첫 번째 필드 `user_ids`는 필수이며 `external_ids`, `device_ids`, `aliases`의 배열일 수 있습니다. 각 요소는 코호트에서 상태가 변경된 사용자의 ID입니다. 두 번째 필드인 `should_remove`는 이 오브젝트의 사용자를 코호트에 추가하는 대신 제거할지를 나타내는 선택적 부울입니다. 기본값은 false입니다. 단일 요청에서 사용자 ID의 최대 합산 수는 1,000개입니다.<br/><br/>식별된 사용자는 `external_id` 또는 `alias`로 매칭할 수 있습니다. 익명 사용자는 `device_id`로 매칭할 수 있습니다. 식별된 사용자의 기기 ID를 전달하면 Braze는 해당 사용자를 추가하거나 제거하지 않습니다. 식별된 사용자에게는 외부 ID 또는 별칭을 사용해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `partner_api_key` | 문자열 | 필수 | 파트너가 Braze에 보내는 모든 요청에 사용되는 파트너별 API 키입니다. 이 키는 클러스터별로 다르므로([파트너 API 키](#partner-api-key) 참조) 통합에서는 코호트를 작성할 클러스터를 알고 있어야 합니다. |
+| `client_secret` | 문자열 | 필수 | 해당 코호트가 속한 클라이언트의 데이터 가져오기 키입니다. |
+| `cohort_id` | 문자열 | 필수 | 코호트의 식별자입니다. 식별자는 지정된 클라이언트에 대해 고유해야 합니다. |
+| `cohort_changes` | 오브젝트 배열 | 필수 | 오브젝트에는 두 개의 필드가 있을 수 있습니다. 첫 번째 필드 `user_ids`는 필수이며 `external_ids`, `device_ids`, `aliases`의 배열일 수 있습니다. 각 요소는 코호트에서 상태가 변경된 사용자의 ID입니다. 두 번째 필드인 `should_remove`는 이 오브젝트의 사용자를 코호트에 추가하는 대신 제거할지를 나타내는 선택적 부울입니다. 기본값은 false입니다. 단일 요청에서 사용자 ID의 최대 합산 수는 1,000개입니다.<br/><br/>식별된 사용자는 `external_id` 또는 `alias`로 매칭할 수 있습니다. 익명 사용자는 `device_id`로 매칭할 수 있습니다. 식별된 사용자의 기기 ID를 전달하면 Braze는 해당 사용자를 추가하거나 제거하지 않습니다. 식별된 사용자에게는 외부 ID 또는 별칭을 사용해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="User cohort endpoint" }
 
 #### 요청 예시:
 
@@ -130,6 +130,6 @@ Braze는 대시보드 사용자가 파트너 코호트에 속한 경우 타겟 �
 |  | 클라이언트 시크릿이 **&#60;client secret&#62;**인 클라이언트에 대해 파트너가 활성화되지 않았습니다 |
 |  | 무단 액세스 |
 | `423` | 리소스 잠김 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 추가적인 문제 해결 방법은 [오류 및 응답]({{site.baseurl}}/api/errors/)을 참조하세요. 여기에는 Braze API를 사용하는 동안 발생할 수 있는 다양한 오류와 서버 응답에 대한 설명이 나와 있습니다.

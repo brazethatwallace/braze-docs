@@ -17,7 +17,7 @@ Puedes utilizar las alertas de uso de la API para supervisar los volúmenes de s
 |--------------|---------|
 | Puntos finales de la REST API | Realiza un seguimiento del uso de todas las llamadas a la REST API realizadas al backend de Braze, como el envío de mensajes, la creación de Campaigns o la exportación de usuarios. |
 | Solicitudes de API del SDK | Realiza un seguimiento de las solicitudes de API realizadas desde los SDK de Braze en las aplicaciones de los clientes, como la activación de mensajes dentro de la aplicación o la sincronización de datos de usuario.<br><br>_*Solo disponible para los clientes que hayan adquirido usuarios activos al mes – CY 24-25._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
 
 ## Creación de una alerta de uso de API {#creating-an-api-usage-alert}
 
@@ -33,7 +33,7 @@ Para crear una alerta de uso de la API:
 
 Cuando definas los criterios de tu alerta, puedes ajustar los siguientes umbrales:
 
-<table>
+<table aria-label="Alert thresholds #api-usage-alert-thresholds">
   <caption>Umbrales de alerta</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ Cuando definas los criterios de tu alerta, puedes ajustar los siguientes umbrale
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
 
 ## Configuración de notificaciones de alerta {#setting-up-alert-notifications}
 
@@ -108,7 +108,7 @@ Puedes configurar alertas para supervisar el estado general de tu API. Por ejemp
 | Punto de conexión | Clave de API | Código de respuesta | Condición del umbral | Volumen del umbral | En |
 | --- | --- | --- | --- | --- | --- |
 | Todos los puntos finales | Todas las claves de API | `4XX` y `5XX` | Aumentó en 10 % | 10 | 1 hora |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab Límite de velocidad del punto de conexión %}
@@ -117,7 +117,7 @@ Recibe una alerta cuando tu espacio de trabajo alcance su límite de velocidad p
 | Punto de conexión | Clave de API | Código de respuesta | Condición del umbral | Volumen del umbral | En |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | Todas las claves de API | `429` | Mayor o igual que | 100 | 1 hora |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab Campaigns desencadenadas por API %}
@@ -126,7 +126,7 @@ Esta configuración de alerta te notifica cuando se producen errores en Campaign
 | Punto de conexión | Clave de API | Código de respuesta | Condición del umbral | Volumen del umbral | En |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Todas las claves de API | `4XX` y `5XX` | Mayor o igual que | 1 | 1 hora |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab Integraciones de socios %}
@@ -135,7 +135,7 @@ Utiliza la siguiente configuración de alerta para recibir una notificación cua
 | Punto de conexión | Clave de API | Código de respuesta | Condición del umbral | Volumen del umbral | En |
 | --- | --- | --- | --- | --- | --- |
 | Todos los puntos finales | La clave de API utilizada para tu integración del socio | Todos los códigos de respuesta | Menor o igual que | 0 | 1 día |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 {% endtabs %}
 

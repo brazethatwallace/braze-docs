@@ -16,10 +16,10 @@ search_tag: Partner
 | --- | --- |
 | Compte Movable Ink | Un compte Movable Ink est nécessaire pour bénéficier de ce partenariat. |
 | Source de données | Vous devez connecter une source de données à Movable Ink. Cela peut être fait via un fichier CSV, l'importation de site web ou une API. |
-| Capacités d'envoi de MMS | Confirmez que vous êtes configuré pour le MMS via Braze.
+| Capacités d'envoi de MMS | Confirmez que vous êtes configuré pour le MMS via Braze. |
 | [Raccourcissement de lien]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | Confirmez que le raccourcissement des liens est activé. |
 | Carte de contact | Votre marque (l'expéditeur) doit être enregistrée en tant que contact sur le téléphone de l'utilisateur pour que l'aperçu du lien fonctionne avec iOS. Cela peut être fait avec une carte de contact ou une autre méthode. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -55,7 +55,7 @@ Consultez [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/persona
 
 ![3]{: style="max-width:70%;"}
 
-Une fois que les utilisateurs ont chargé l'aperçu du lien, une image personnalisée s'affiche avec la possibilité de rediriger vers votre site web, votre application ou votre page d'atterrissage.
+Une fois que les utilisateurs ont chargé l'aperçu du lien, une image personnalisée s'affiche avec la possibilité de rediriger vers votre site web, votre application ou votre page d'accueil.
 
 ![4]{: style="max-width:30%;"}
 

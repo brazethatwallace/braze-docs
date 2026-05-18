@@ -13,4 +13,4 @@
 | Farbe | Farbe des in das Feld eingegebenen Textes. |
 | Textausrichtung | Horizontale Ausrichtung des Eingabetexts innerhalb des Feldes. |
 | Padding | Abstand um den Block herum. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -59,7 +59,7 @@ O limite máximo de usuários limita o número de usuários despachados, não o 
 
 ##### Limite máximo de usuários com otimizações {#maximum-user-cap-with-optimizations}
 
-Se você está usando uma otimização como Variante vencedora ou Variante personalizada, a Campaign consistirá em dois envios: o experimento inicial e o envio final.
+Se você está usando uma otimização como variante vencedora ou variante personalizada, a Campaign consistirá em dois envios: o experimento inicial e o envio final.
 
 Para configurar um limite máximo de usuários nesse cenário, selecione **Limitar o número de pessoas que receberão esta Campaign**, depois selecione **No total, esta Campaign deve** e insira um limite de público. Seu limite de público será dividido pelas porcentagens mostradas no painel de **Testes A/B**.
 
@@ -164,7 +164,7 @@ Em vez de tentar compensar o atraso e enviar as 6.000 mensagens restantes no seg
 | 7      | 10.000    | 10.000                   |
 | 8      | 5.000     | 10.000                   |
 | 9      | 0         | 6.000                    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rate limiting and Connected Content retries" }
 
 As solicitações de Conteúdo conectado não são limitadas independentemente e seguirão o limite de taxa de webhook. Isso significa que, se houver uma chamada de Conteúdo conectado para um endpoint único por webhook, você esperaria 5.000 webhooks e também 5.000 chamadas de Conteúdo conectado por minuto. Observe que o cache pode afetar isso e reduzir o número de chamadas de Conteúdo conectado. Além disso, as novas tentativas podem aumentar as chamadas de Conteúdo conectado, então recomendamos verificar se o endpoint de Conteúdo conectado pode lidar com alguma flutuação aqui.
 

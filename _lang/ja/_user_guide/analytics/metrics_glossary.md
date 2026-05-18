@@ -68,7 +68,7 @@ Email, Web Push, iOS Push
 |-------|-----------------------|
 | メール | SendGridを使用している顧客のメールバウンスは、ハードバウンス、スパム（`spam_report_drops`）、および無効なアドレスへの送信（`invalid_emails`）で構成されます。<br><br>メールの場合、*バウンス率*は、送信に失敗した、または送信サービスから「返送」もしくは「未受信」と指定された、あるいは対象のメール受信可能ユーザーに受信されなかったメッセージの割合です。|
 | プッシュ | これらのユーザーは、今後のすべてのプッシュ通知から自動的に配信停止されています。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bounces" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -249,7 +249,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | メール、プッシュ、Webhook | コンバージョンは初回送信後に追跡されます。|
 | Content Cards | コンバージョンは、ユーザーがContent Cardsを初めて閲覧した時点でカウントされます。|
 | アプリ内メッセージ | コンバージョンは、ユーザーがアプリ内メッセージCampaignを受信して閲覧し、その後、定義されたコンバージョンウィンドウ内で特定のコンバージョンイベントを実行した場合にカウントされます。メッセージをクリックしたかどうかは問いません。<br><br>コンバージョンは、最後に受信したメッセージに帰属します。再適格性が有効な場合、コンバージョンは定義されたコンバージョンウィンドウ内で発生した場合に限り、最後に受信したアプリ内メッセージに割り当てられます。ただし、アプリ内メッセージにすでにコンバージョンが割り当てられている場合、その特定のメッセージに対して新しいコンバージョンを記録することはできません。つまり、各アプリ内メッセージの配信は1つのコンバージョンにのみ関連付けられます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversions (B, C, D)" }
 
 {% endapi %}
 
@@ -294,7 +294,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 | チャネル | 追加情報 |
 |-------|-----------------------|
 | アプリ内メッセージ | アプリ内メッセージの<i>コンバージョン率</i>の計算には、1日あたりの<i>ユニークインプレッション数</i>の指標が使用されます。<br><br>アプリ内メッセージの<i>ユニークインプレッション数</i>は、ワークスペースのタイムゾーンにおける暦日ごとに1回のみカウントされます。ユーザーが目的のアクション（「コンバージョン」）を完了する回数は、同じ暦日内で増加する可能性があります。コンバージョンは1日に複数回発生する可能性がありますが、<i>ユニークインプレッション数</i>は増加しません。そのため、ユーザーが1日に複数回コンバージョンを完了した場合、<i>コンバージョン率</i>はそれに応じて増加する可能性がありますが、<i>ユニークインプレッション数</i>はその暦日に1回のみカウントされます。詳細については、<a href="/docs/user_guide/channels/in_app_messages/reporting/">アプリ内メッセージレポート</a> を参照してください。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion Rate" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -333,7 +333,7 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 | チャネル | 追加情報 |
 |-------|-----------------------|
 | メール | メール受信可能な相手に正常に送信され、受信されたメッセージの合計数（送信数）を指します。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deliveries" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -647,7 +647,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 |-------|-----------------------|
 | メール、プッシュ、Webhook | 初回送信後。|
 | Content Cards、アプリ内メッセージ | ユーザーがContent Cardsまたはメッセージを初めて閲覧した時点。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Primary Conversions (A) or Primary Conversion Event" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -705,7 +705,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | SMS/MMS | SMSプロバイダーが上流キャリアおよび送信先デバイスから確認を受信した後に「配信済み」となります。|
 | アプリ内メッセージ | 定義されたトリガーアクションに基づいて表示された時点で受信済みとなります。|
 | WhatsApp | 定義されたトリガーアクションに基づいて表示された時点で受信済みとなります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Received" }
 
 {% endapi %}
 
@@ -901,7 +901,7 @@ Email, Content Cards, SMS/MMS, LINE
 |-------|-------|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。AMPメールにはHTMLおよびプレーンテキストバージョンの両方で記録されたクリックが含まれます。この数値はスパム対策ツールによって人為的に膨らむ場合があります。|
 | バナー | 配信されたメッセージ内でクリックしたユーザーの合計数（および割合）です。同じユーザーが複数回クリックした場合も含まれます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Clicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -952,7 +952,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | Content Cards | 特定のContent Cardsに対して記録されたインプレッションの合計数です。同じユーザーに対して複数回増加する可能性があります。|
 | アプリ内メッセージ | 複数のデバイスがあり、再適格性がオフの場合、ユーザーはアプリ内メッセージを1回のみ表示されます。ユーザーが複数のデバイスを使用していても、最初にターゲットされたデバイスでのみ表示されます。これは、プロファイルがデバイスを統合しており、ユーザーがデバイス間で1つのユーザーIDでログインしていることを前提としています。再適格性がオンの場合、ユーザーがアプリ内メッセージを表示するたびにインプレッションが記録されます。詳細については、<a href="/docs/user_guide/channels/in_app_messages/reporting/">アプリ内メッセージレポート</a> を参照してください。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Impressions" }
 
 <span class="calculation-line">計算式: カウント</span>
 
@@ -972,7 +972,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 |-------|-----------------------|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。|
 | AMPメール | HTMLおよびプレーンテキストバージョンの合計開封数です。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Total Opens" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1018,7 +1018,7 @@ Email, Content Cards, LINE
 |-------|-----------------------|
 | メール | 7日間にわたって追跡されます。|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Clicks" }
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -1061,7 +1061,7 @@ In-App Message, Content Cards
 |-------|-----------------------|
 | アプリ内メッセージ | 再適格性がオンでユーザーがトリガーアクションを実行した場合、ワークスペースのタイムゾーンにおける新しい暦日にユニークインプレッション数が再度増加する可能性があります。再適格性がオンの場合、<i>ユニークインプレッション数</i> = <i>ユニーク受信者数</i>となります。詳細については、<a href="/docs/user_guide/channels/in_app_messages/reporting/">アプリ内メッセージレポート</a> を参照してください。|
 | Content Cards | ユーザーがカードを2回目に閲覧しても、カウントは増加しません。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Impressions" }
 
 <span class="calculation-line">計算式: カウント</span>
 
@@ -1081,7 +1081,7 @@ Email, LINE
 |-------|-----------------------|
 | メール | 7日間にわたって追跡されます。|
 | LINE | 1日あたり最低20メッセージのしきい値に達した後に追跡されます。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Opens" }
 
 {::nomarkdown}
 <span class="calculation-line">

@@ -46,7 +46,7 @@ Para saber más sobre el flujo de trabajo heredado, consulta [Gestionar las trad
 | Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Se puede crear en el dashboard de Braze desde **Configuración > Claves de API**. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
 | Configuración multilingüe de Braze | [Completa la configuración multilingüe en Braze]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 
@@ -145,7 +145,7 @@ Las etiquetas de traducción pertenecen al bloque de contenido. Sin embargo, Sma
 
 - Las etiquetas de traducción deben añadirse manualmente al bloque de contenido tanto en el editor HTML como en el editor de arrastrar y soltar de Content Blocks.
 - Las localizaciones se seleccionan a nivel del mensaje, no en los propios Content Blocks.
-- Para Canvas, recomendamos utilizar filas para insertar Content Blocks en tu mensaje en lugar de añadirlos manualmente con una etiqueta de Liquid. Al arrastrar un bloque de contenido desde la vista previa a un correo electrónico se hace una copia local; cualquier cambio en el bloque de contenido "padre" no se propaga a otras Campaigns que utilicen ese bloque.
+- Para Canvas, recomendamos utilizar filas para insertar Content Blocks en tu mensaje en lugar de añadirlos manualmente con una etiqueta de Liquid. Al arrastrar un bloque de contenido desde la vista previa a un correo electrónico se hace una copia local; cualquier cambio en el bloque de contenido "padre" no se propaga a otras campañas que utilicen ese bloque.
 - Si utilizas una etiqueta de Liquid de bloque de contenido, asegúrate de incluir al menos una etiqueta de traducción directamente en el cuerpo del correo electrónico. Si añades manualmente la etiqueta de traducción, podrás seleccionar las localizaciones en el desplegable multilingüe. Smartling recoge las etiquetas de traducción del bloque de contenido. Puedes añadir una etiqueta `comment` para que el texto no sea visible para el usuario.
 
 ## Gestionar las traducciones mediante el flujo de trabajo heredado {#managing-translations-using-the-legacy-workflow}

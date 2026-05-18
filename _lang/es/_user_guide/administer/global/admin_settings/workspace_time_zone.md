@@ -25,7 +25,7 @@ Si eres administrador, puedes acceder y administrar las zonas horarias del espac
 
 Aquí puedes ver una lista de todos tus espacios de trabajo, su zona horaria configurada y la última vez que se editó la zona horaria. Usa la barra de búsqueda para encontrar espacios de trabajo específicos por nombre.
 
-![Página "Zonas horarias del espacio de trabajo" con una lista de espacios de trabajo, sus respectivas zonas horarias y cuándo se editaron por última vez.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
+![Página "Workspace Time Zones" con una lista de espacios de trabajo, sus respectivas zonas horarias y cuándo se editaron por última vez.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
 
 ### Configurar una zona horaria {#setting-a-time-zone}
 
@@ -54,7 +54,7 @@ Puedes aplicar una zona horaria específica a varios espacios de trabajo a la ve
 2. Selecciona **Edit time zone**.
 3. En el menú desplegable, selecciona una zona horaria para aplicar a todos los espacios de trabajo seleccionados.
 
-![Página "Workspace time zones" con varios espacios de trabajo seleccionados y un botón "Edit time zone".]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+![Página "Workspace Time Zones" con varios espacios de trabajo seleccionados y un botón "Edit time zone".]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
 4. Selecciona **Save**.
@@ -86,10 +86,6 @@ Un espacio de trabajo actualiza su zona horaria de hora del este (EST) a hora de
 - **Nueva hora de corte:** 11:59 p. m. PST (que es las 2:59 a. m. EST del día siguiente)
 
 Tras este cambio, un usuario que realiza el evento personalizado a las 10 p. m. PST del 6 de marzo de 2026 (que es la 1 a. m. EST del 7 de marzo de 2026) ahora se incluye en la audiencia, ya que se encontraba dentro del límite del día calendario en PST para esa fecha.
-
-## Discrepancias en los informes {#reporting-discrepancies}
-
-Las zonas horarias del espacio de trabajo proporcionan un control preciso sobre el envío de campañas, pero debes tener en cuenta las posibles discrepancias en los informes mientras esta característica se encuentra en acceso anticipado. Cruza los puntos de datos y ten en cuenta la zona horaria al analizar los informes de espacios de trabajo con anulaciones de zona horaria específicas.
 
 ## Impacto en los datos de rendimiento {#impact-on-performance-data}
 

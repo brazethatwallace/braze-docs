@@ -18,9 +18,9 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
-既存のカスタム HTML テンプレートやサードパーティが作成したテンプレートを使用する場合は、ドラッグ＆ドロップエディターで再作成する必要があります。
+既存のカスタムHTMLテンプレートやサードパーティが作成したテンプレートを使用する場合は、ドラッグ＆ドロップエディターで再作成する必要があります。
 
-アプリ内メッセージをCampaignで送信するか [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) で送信するか迷っていますか？Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。メッセージの作成場所を選択したら、ドラッグ＆ドロップのアプリ内メッセージを作成する手順を見ていきましょう。
+アプリ内メッセージをCampaignで送信するか[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)で送信するか迷っていますか？Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。メッセージの作成場所を選択したら、ドラッグ＆ドロップのアプリ内メッセージを作成する手順を見ていきましょう。
 
 ## 前提条件 {#prerequisites}
 
@@ -29,7 +29,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 | 最小SDKバージョン                                                          | 推奨SDKバージョン                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDKの要件" }
 
 {% details 最小SDKの詳細情報 %}
 
@@ -45,7 +45,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 | テキストリンク*                                                         | プッシュプライマーのリクエスト                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDKの要件" }
 
 *アプリ内メッセージにURLにリダイレクトするリンクを含め、エンドユーザーが指定された最小SDKバージョンを使用していない場合、リンクを選択するとメッセージが閉じられ、ユーザーはフォームを送信するためにメッセージに戻ることができません。
 
@@ -68,7 +68,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 - Brazeのドラッグ＆ドロップアプリ内メッセージテンプレートを使用する
 - 保存済みのドラッグ＆ドロップアプリ内メッセージテンプレートを選択する
 
-**メッセージを作成**を選択して、ドラッグ＆ドロップエディターでアプリ内メッセージのデザインを開始します。
+**Build message**を選択して、ドラッグ＆ドロップエディターでアプリ内メッセージのデザインを開始します。
 
 ![基本、バックグラウンド画像、電話番号キャプチャ、または空白テンプレートを選択できるBrazeテンプレートセクション。]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
@@ -76,7 +76,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ## ステップ 3: 追加ページを追加する（オプション） {#multi-page}
 
-アプリ内メッセージにページを追加すると、オンボーディングフローやウェルカムジャーニーのようなシーケンシャルフローでユーザーをガイドできます。ページは**作成**タブの**ページ**セクションから管理できます。
+アプリ内メッセージにページを追加すると、オンボーディングフローやウェルカムジャーニーのようなシーケンシャルフローでユーザーをガイドできます。ページは**Build**タブの**Pages**セクションから管理できます。
 
 ![3つのページで構成されたヘルスケア企業のアプリ内メッセージ。]({% image_buster /assets/img_archive/dnd_iam_mockup.png %})
 
@@ -85,7 +85,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 アプリ内メッセージはデフォルトで1ページから始まります。新しいページを追加するには：
 
-1. **+ ページを追加**を選択します。
+1. **+ Add page**を選択します。
 2. カスタムテンプレートまたはBraze提供のテンプレートのリストから選択します。
 3. ページにわかりやすい名前を付けます。これはページ同士を接続する際に役立ちます。
 
@@ -96,7 +96,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 既存のページを複製するには：
 
 1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>を選択してその他のオプションを開きます。
-2. **複製**を選択します。
+2. **Duplicate**を選択します。
 3. ページにわかりやすい名前を付けます。これはページ同士を接続する際に役立ちます。
 
 {% endtab %}
@@ -105,7 +105,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 ページを削除または名前変更するには：
 
 1. リスト内のページにカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>を選択してその他のオプションを開きます。
-2. **名前変更**または**削除**を選択します。
+2. **Rename**または**Delete**を選択します。
 
 {% endtab %}
 {% endtabs %}
@@ -118,7 +118,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 1. 開始ページを選択します。
 2. キャンバス内のボタンまたは画像要素を選択します。
-3. **クリック時の動作**を**ページに移動**に設定します。
+3. **On-click behavior**を**Go to page**に設定します。
 4. 開始ページからリンクしたいページを選択します。
 5. すべてのページがリンクされるまで続けます。
 
@@ -174,9 +174,9 @@ Campaignsを送信する前に、アプリ内メッセージを必ずテスト�
 
 #### ボタンクリックに基づいてセグメンテーションできますか？ {#can-i-segment-based-on-button-clicks}
 
-はい、メッセージ内の最大2つのボタンのボタンクリックに基づいてセグメンテーションできます。これを行うには、ボタンの**レポート用識別子**を「0」と「1」に設定します。これはそれぞれ、セグメンテーションフィルター「アプリ内メッセージボタン1をクリック」と「アプリ内メッセージボタン2をクリック」に対応します。
+はい、メッセージ内の最大2つのボタンのボタンクリックに基づいてセグメンテーションできます。これを行うには、ボタンの**Identifier for Reporting**を「0」と「1」に設定します。これはそれぞれ、セグメンテーションフィルター「Clicked in-app message button 1」と「Clicked in-app message button 2」に対応します。
 
-![値が「0」の「レポート用識別子」フィールド。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
+![値が「0」の「Identifier for Reporting」フィールド。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
 #### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
@@ -184,11 +184,11 @@ Campaignsを送信する前に、アプリ内メッセージを必ずテスト�
 
 #### スライドアップのアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
 
-現在、エディターはモーダルとフルスクリーンメッセージのみに対応しています。**メッセージスタイル**パネルの**メッセージコンテナ**セクションで表示タイプを切り替えることができます。
+現在、エディターはモーダルとフルスクリーンメッセージのみに対応しています。**Message styles**パネルの**Message container**セクションで表示タイプを切り替えることができます。
 
 #### CampaignまたはCanvas内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-はい。今後のCampaignまたはキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存する前に、まずCampaignを起動するか、下書きとして保存する必要があります。
+はい。今後のCampaignまたはキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**Save as template**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存する前に、まずCampaignを起動するか、下書きとして保存する必要があります。
 
 ![製品ツアーのアプリ内メッセージのプレビュー。]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 

@@ -21,7 +21,7 @@ alias: /dnd_product_blocks/
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| eCommerce 추천 이벤트 | [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 주문이 이루어지기 전후에 발생하는 주요 행동 이벤트에 대한 표준화된 데이터 스키마를 제공합니다. 이 이벤트는 궁극적으로 레거시 Braze 구매 이벤트를 대체하고 상거래 관련 행동 추적의 표준이 될 것입니다. <br><br> eCommerce 추천 이벤트는 동적 제품 블록에 필요합니다.<br><br> eCommerce 추천 이벤트는 현재 초기 액세스 중입니다. 이 초기 액세스에 참여하고 싶다면 Braze 고객 성공 매니저에게 문의하세요. |
+| eCommerce 추천 이벤트 | [eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 주문이 이루어지기 전후에 발생하는 주요 행동 이벤트에 대한 표준화된 데이터 스키마를 제공합니다. 이 이벤트는 궁극적으로 레거시 Braze 구매 이벤트를 대체하고 상거래 관련 행동 추적의 표준이 될 것입니다. <br><br> eCommerce 추천 이벤트는 동적 제품 블록에 필요합니다. |
 | eCommerce 캔버스 템플릿 | eCommerce 추천 이벤트는 방치된 탐색, 유기한 장바구니 및 주문 확인과 같은 필수 사용 사례를 위해 설계된 eCommerce 캔버스 템플릿을 포함한 미리 구축된 템플릿을 지원합니다. <br><br>[eCommerce 캔버스 템플릿]({{site.baseurl}}/ecommerce_use_cases/)을 사용하여 이러한 필수 eCommerce 사용 사례 중 하나를 구현할 계획이라면 제공된 캔버스 템플릿을 사용하거나 따라야 합니다. |
 | Braze 카탈로그 | Braze 카탈로그를 생성해야 하며, 여기에는 제품 블록 구성에서 사용하는 다음 필드가 포함되어야 합니다:{::nomarkdown}<code><ul><li>product_title</li><li>product_url</li><li>variant_image_url</li></ul></code>{:/} |
 | 카탈로그 선택 | 정적 제품 블록의 경우, 제품 블록에 포함할 제품을 지정하기 위해 [카탈로그 선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/)을 생성해야 합니다. |

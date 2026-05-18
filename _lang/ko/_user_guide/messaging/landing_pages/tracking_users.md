@@ -47,9 +47,9 @@ Braze는 랜딩 페이지의 URL을 사용하여 고유한 Liquid 태그를 생�
 
 Braze는 [랜딩 페이지 URL](#page-url)을 사용하여 자동으로 Liquid 태그를 생성합니다. 태그를 생성하려면 다음 표를 참조하세요:
 
-|**개인화 유형**| **Landing Page**를 선택합니다.|
-|**랜딩 페이지**| [이전에 생성한](#prerequisites) 랜딩 페이지를 선택합니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **개인화 유형** | **Landing Page**를 선택합니다. |
+| **랜딩 페이지** | [이전에 생성한](#prerequisites) 랜딩 페이지를 선택합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: Liquid 태그 생성" }
 
 메시지에 Liquid 태그를 추가하려면 **삽입**을 선택하거나, 스니펫을 클립보드에 복사하여 수동으로 추가할 수 있습니다.
 

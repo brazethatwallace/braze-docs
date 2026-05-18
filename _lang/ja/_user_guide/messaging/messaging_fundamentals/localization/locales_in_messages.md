@@ -28,7 +28,7 @@ description: "この記事では、メッセージでロケールを使用する
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
 | メッセージ&nbsp;タイプ | CampaignsおよびCanvasesにロケールと翻訳を追加するには、以下の権限が必要です。<br><br> {::nomarkdown}詳細な権限: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> レガシー権限: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% endtab %}
 {% tab テンプレート %}
@@ -36,7 +36,7 @@ description: "この記事では、メッセージでロケールを使用する
 | 機能 | 必要なユーザー権限 |
 | --- | --- |
 | テンプレート | ロケールと翻訳を追加するテンプレートタイプに応じて、以下の権限が必要です。<br><br> {::nomarkdown}詳細な権限: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> レガシー権限: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ description: "この記事では、メッセージでロケールを使用する
 | --- | --- |
 | プロトコル（`https://`）は翻訳タグの外に置いてください。ドメインとパスのみを囲みます（例: `example.com/en`）。 | 翻訳者が特殊文字を誤って変更または削除し、リンク切れの原因となる可能性があります。 |
 | クエリパラメーター（例: `?utm_source=promo`）は翻訳タグ内に含めないでください。 | 翻訳者が特殊文字を誤って変更または削除し、リンク切れの原因となる可能性があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="標準（静的）URL" }
 
 両方の推奨事項に従った標準URLの例:
 
@@ -87,7 +87,7 @@ URLがLiquidで生成される場合（例: {% raw %}`{% landing_page_url %}`{% 
 | --- | --- |
 | Liquidで生成されるURLは、ローカライズが必要な場合のみ翻訳タグで囲んでください。 | Liquid構文は正しくレンダリングするために慎重に保持する必要があります。 |
 | クエリパラメーター（例: `?utm_source=promo`）は翻訳タグ内に含めないでください。 | 翻訳者が特殊文字を誤って変更または削除し、リンク切れの原因となる可能性があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquidで生成されるURL" }
 
 両方の推奨事項に従ったLiquid生成URLの例:
 
@@ -177,7 +177,7 @@ Canvasesで翻訳エンドポイントを使用するには、以下のパラメ
   - `message_variation_id`
 
 {% alert note %}
-Canvasの起動後に作成されたCanvasステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
+Canvasの起動後に作成されたキャンバスステップで翻訳APIを使用する場合、APIに渡す`message_variation_id`は空またはブランクになります。
 {% endalert %}
 
 {% endtab %}
@@ -227,7 +227,7 @@ URLは2つの特殊文字を使用してこの動作を制御します。
 | 標準URL | はい | URLにすでに`?`が含まれている場合、URLの末尾（閉じ翻訳タグの後）に`&`を使用します。 | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid生成 | いいえ | 生成されたURLにまだ`?`が含まれていない場合、閉じ翻訳タグの後に`?`を使用します。 | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid生成 | はい | 生成されたURLにすでに`?`が含まれている場合、閉じ翻訳タグの後に`&`を使用します。 | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="メールリンクトラッキング" }
 
 ### 言語設定とアクセシビリティ {#language-settings-and-accessibility}
 
@@ -296,4 +296,4 @@ URLは2つの特殊文字を使用してこの動作を制御します。
 | 翻訳タグに完全なURLまたはLiquid生成URLが含まれている。 | リンク切れやリンクトラッキングの問題が発生する可能性があるため、URLを含む翻訳タグが識別されます。 |
 | 翻訳タグにクエリパラメーターが含まれている。 | リンク切れやリンクトラッキングの問題が発生する可能性があるため、クエリパラメーターを含む翻訳タグが識別されます。 |
 | 翻訳タグにHTML属性または構造が含まれている。 | スタイルやフォーマットの問題が発生する可能性があるため、HTML属性または構造を含む翻訳タグが識別されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeはどのような検証や追加チェックを行いますか？" }

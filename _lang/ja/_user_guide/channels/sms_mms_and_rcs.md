@@ -36,7 +36,7 @@ SMS、MMS、RCSの利用可否は、Brazeのパッケージによって異なり
 | 2要素認証 | アカウントログインやトランザクション確認のためのワンタイム認証コードを配信します。 |
 | プロモーションオファー | 期間限定のプロモーション、フラッシュセール、パーソナライズ済みの割引を顧客の電話に直接届けます。 |
 | カスタマーサポート | 双方向の会話を通じて、顧客の問い合わせの解決、フィードバックの収集、サービスリクエストの確認を行います。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## SMS、MMS、RCSの比較 {#sms-mms-and-rcs-compared}
 

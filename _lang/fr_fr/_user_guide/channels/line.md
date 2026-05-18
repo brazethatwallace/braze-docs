@@ -35,7 +35,7 @@ Pour un guide complet, consultez la [configuration de LINE]({{site.baseurl}}/use
 | Assistance client | Activez des conversations bidirectionnelles pour traiter les demandes, fournir des informations sur les produits et résoudre les problèmes. |
 | Notifications de commande | Tenez les clients informés avec des confirmations de commande, des mises à jour d'expédition et des notifications de livraison. |
 | Engagement événementiel | Stimulez la participation et l'engagement pour les événements avec des invitations, des rappels et des messages de suivi. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 

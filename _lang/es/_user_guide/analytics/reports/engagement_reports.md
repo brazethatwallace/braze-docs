@@ -77,7 +77,7 @@ Los informes de interacción agregan datos por campaña o Canvas, no a nivel de 
 | Mensaje dentro de la aplicación | Impresiones, Clics, Clics en el primer botón, Clics en el segundo botón |
 | Webhook  |  Envíos, Errores |
 | SMS | Envíos, Envíos al operador, Entregas confirmadas, Fallos de entrega, Rechazos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### Paso 4: Completar la configuración del informe {#step-4-complete-report-setup}
 

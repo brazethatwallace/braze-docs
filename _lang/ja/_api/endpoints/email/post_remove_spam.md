@@ -20,7 +20,7 @@ description: "この記事では、スパムリストからメールアドレス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.spam.remove` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`email.spam.remove` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -43,7 +43,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------|-----------| --------|------- |
 | `email` | 必須 | 文字列または配列 | 変更するメールアドレスの文字列、または最大50件のメールアドレスの配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```

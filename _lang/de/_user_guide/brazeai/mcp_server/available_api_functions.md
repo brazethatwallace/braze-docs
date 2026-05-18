@@ -1,7 +1,7 @@
 ---
 nav_title: Verfügbare API-Funktionen
 article_title: Verfügbare API-Funktionen im Braze MCP-Server
-description: "Liste der Lese- und Schreib-API-Funktionen von Braze, auf die über den MCP-Server zugegriffen werden kann."
+description: "Liste der schreibgeschützten und schreibenden Braze-API-Funktionen, auf die über den MCP-Server zugegriffen werden kann."
 page_order: 1.5
 ---
 

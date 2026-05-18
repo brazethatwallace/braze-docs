@@ -23,11 +23,11 @@ Con esta integración, puedes:
 
 ## Requisitos previos {#prerequisites}
 
-|Requisito| Descripción|
-| ---| ---|
-|Cuenta de Lob | Se necesita una cuenta de Lob para beneficiarse de esta asociación. |
+| Requisito | Descripción |
+| --- | --- |
+| Cuenta de Lob | Se necesita una cuenta de Lob para beneficiarse de esta asociación. |
 | Clave de API de Lob | Tu clave de API de Lob se encuentra en la sección de configuración, debajo de tu nombre, en el dashboard de Lob. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Enviar correo utilizando webhooks de Braze {#sending-mail-using-braze-webhooks}
 
@@ -38,7 +38,7 @@ Dependiendo de lo que quieras hacer en Lob, tendrás que utilizar el punto de co
 | URL base | Puntos finales disponibles |
 | ------------ | ------------------- |
 | `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1: Elige un punto de conexión de Lob" }
 
 ### Paso 2: Crea tu plantilla de webhook de Braze {#step-2-create-your-braze-webhook-template}
 

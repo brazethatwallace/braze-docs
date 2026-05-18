@@ -47,7 +47,7 @@ yarn add @braze/react-native-sdk
 
 #### 方法 1: Expoプラグインの使用 {#reactnative-using-the-expo-plugin}
 
-##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin}
+##### 2.1 Braze Expoプラグインのインストール {#21-install-the-braze-expo-plugin} {#21-install-the-braze-expo-plugin}
 
 Braze Expoプラグインのバージョンが4.1.0以上であることを確認してください。サポートされているバージョンの完全なリストについては、[Braze Expoプラグインリポジトリ](https://github.com/braze-inc/braze-expo-plugin?tab=readme-ov-file#version-support)を参照してください。
 
@@ -57,7 +57,7 @@ Braze Expoプラグインのバージョンが4.1.0以上であることを確�
 npx expo install @braze/expo-plugin
 ```
 
-##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson}
+##### 2.2 app.jsonにプラグインを追加する {#22-add-the-plugin-to-your-appjson} {#22-add-the-plugin-to-your-appjson}
 
 `app.json`で、Braze Expoプラグインを追加します。APIキーとエンドポイントはここでは設定しません。JavaScriptから`Braze.initialize()`を使用してランタイムで提供します。実装のニーズに応じて、以下のオプション設定パラメーターを追加してください。
 
@@ -85,7 +85,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup`                        | string  | iOSのみ。iOS Push Storiesに使用されるアプリグループ。                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOSのみ。デバイスIDがランダムに生成されたUUIDを使用するかどうか。                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOSのみ。SDKがユニバーサルリンクを自動的に認識し、システムメソッドに転送するかどうかを指定します（デフォルト：`false`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 以下のコードスニペットは、`app.json`の設定例です。
 
@@ -175,7 +175,7 @@ Braze Expoプラグインは、Androidの`drawable`ディレクトリからア�
 
 Android通知アイコンの詳細については、[Androidの通知アイコンガイドライン](https://developer.android.com/develop/ui/views/notifications#icon)を参照してください。
 
-##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application}
+##### 2.3 アプリケーションのビルドおよび実行 {#23-build-and-run-your-application} {#23-build-and-run-your-application}
 
 アプリケーションをプリビルドすると、Braze Expoプラグインが動作するために必要なネイティブファイルが生成されます。
 
@@ -444,7 +444,7 @@ npx expo install @braze/expo-plugin
 | `iosPushStoryAppGroup`                        | string  | iOSのみ。iOS Push Storiesに使用されるアプリグループ。                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOSのみ。デバイスIDがランダムに生成されたUUIDを使用するかどうか。                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOSのみ。SDKがユニバーサルリンクを自動的に認識し、システムメソッドに転送するかどうかを指定します（デフォルト：`false`）。有効にすると、SDKは[アプリでのユニバーサルリンクのサポート](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/)で定義されたシステムメソッドにユニバーサルリンクを自動的に転送します。React Native SDK v11.1.0およびExpo Plugin v3.2.0で導入されました。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 以下のコードスニペットは、`app.json`の設定例です。
 
@@ -550,7 +550,7 @@ npx expo prebuild
 
 #### 方法 2: React Native CLIの使用 {#method-2-using-react-native-cli}
 
-##### Androidの設定 {#set-up-android-1}
+##### Androidの設定
 
 **ステップ 2.1: Kotlin Gradleプラグインの追加**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOSの設定 {#set-up-ios-1}
+##### iOSの設定
 
 **ステップ 2.5:（オプション）ダイナミックXCFrameworkに関するPodfileの設定**
 
@@ -860,7 +860,7 @@ import Braze from "@braze/react-native-sdk";
 {% tabs %}
 {% tab React Native SDK 19.2.0+ %}
 
-ダッシュボードでセッション統計を確認することで、SDKが統合されていることを検証できます。いずれかのプラットフォームでアプリケーションを実行すると、ダッシュボード（**概要**セクション）に新しいセッションが表示されます。
+ダッシュボードでセッション統計を確認することで、SDKが統合されていることを検証できます。いずれかのプラットフォームでアプリケーションを実行すると、ダッシュボード（**Overview**セクション）に新しいセッションが表示されます。
 
 以下のコードスニペットは、アプリ内で特定のユーザーのセッションを開始する方法です。
 
@@ -871,7 +871,7 @@ Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 Braze.changeUser("{some-user-id}");
 ```
 
-ダッシュボードの**オーディエンス** > **ユーザーを検索**で`{some-user-id}`のユーザーを検索してください。そこで、セッションとデバイスデータが記録されたことを確認できます。
+ダッシュボードの**Audience** > **Search Users**で`{some-user-id}`のユーザーを検索してください。そこで、セッションとデバイスデータが記録されたことを確認できます。
 
 {% endtab %}
 {% tab React Native SDK 19.1.0以前 %}

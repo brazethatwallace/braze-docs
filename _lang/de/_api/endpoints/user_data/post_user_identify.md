@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Nutzer:innen identifizieren"
 article_title: "POST: Nutzer:innen identifizieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Nutze
 
 ---
 {% api %}
-# Nutzer:innen identifizieren
+# Nutzer:innen identifizieren {#identify-users}
 {% apimethod post %}
 /users/identify
 {% endapimethod %}
@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Nutze
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f74e0f7-0620-4c7b-b0a2-f5f38fdbff58 {% endapiref %}
 
-## Funktionsweise
+## Funktionsweise {#how-it-works}
 
 Der Aufruf von `/users/identify` kombiniert ein Nutzerprofil, das durch einen Alias (Nur-Alias-Profil), eine E-Mail-Adresse (Nur-E-Mail-Profil) oder eine Telefonnummer (Nur-Telefonnummer-Profil) identifiziert wird, mit einem Nutzerprofil, das über eine `external_id` (identifiziertes Profil) verfügt, und entfernt dann das Nur-Alias-Profil.
 
@@ -35,7 +35,7 @@ Wenn keine Nutzer:in mit dieser `external_id` vorhanden ist, wird die `external_
 Um unerwartete Datenverluste bei der Identifizierung von Nutzer:innen zu vermeiden, empfehlen wir Ihnen dringend, zunächst die [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) zu lesen, um zu erfahren, wie Sie Nutzerdaten erfassen können, wenn bereits Nur-Alias-Nutzerinformationen vorhanden sind.
 {% endalert %}
 
-### Verhalten bei der Zusammenführung
+### Verhalten bei der Zusammenführung {#merging-behavior}
 
 Standardmäßig führt dieser Endpunkt die folgenden Felder, die **ausschließlich** bei anonymen Nutzer:innen vorhanden sind, mit denen der identifizierten Nutzer:in zusammen.
 
@@ -55,7 +55,7 @@ Standardmäßig führt dieser Endpunkt die folgenden Felder, die **ausschließli
 - Datum der letzten Sitzung (Braze wählt das spätere der beiden Daten)
 - Angepasste Attribute
 - Angepasste Event- und Kauf-Event-Daten
-- Angepasste Event- und Kauf-Event-Eigenschaften für die Segmentierung „X-mal in Y Tagen" (wobei X<=50 und Y<=30)
+- Angepasste Event- und Kauf-Event-Eigenschaften für die Segmentierung „X-mal in Y Tagen“ (wobei X<=50 und Y<=30)
 - Segmentierbare Zusammenfassung angepasster Events
   - Anzahl der Events (die Summe aus beiden Profilen)
   - Event erstmals aufgetreten (Braze wählt das frühere der beiden Daten)
@@ -66,16 +66,16 @@ Standardmäßig führt dieser Endpunkt die folgenden Felder, die **ausschließli
 - Datum des letzten Kaufs (Braze wählt das spätere der beiden Daten)
 - App-Zusammenfassungen
 - Last_X_at-Felder (Braze aktualisiert die Felder, wenn die verwaisten Profilfelder aktueller sind)
-- Kampagnenzusammenfassungen (Braze wählt die aktuellsten Datumsfelder)
+- Campaign-Zusammenfassungen (Braze wählt die aktuellsten Datumsfelder)
 - Workflow-Zusammenfassungen (Braze wählt die aktuellsten Datumsfelder)
 - Nachrichten- und Nachrichten-Engagement-Verlauf
 - Angepasste Events und Kauf-Events mit Zählung sowie Zeitstempel für erstes und letztes Datum
-  - Diese zusammengeführten Felder aktualisieren die Filter „für X Events in Y Tagen". Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen" und „Ausgaben in den letzten Y Tagen".
+  - Diese zusammengeführten Felder aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Ausgaben in den letzten Y Tagen“.
 - Sitzungsdaten, wenn die App in beiden Nutzerprofilen vorhanden ist
-  - Wenn beispielsweise die Zielnutzer:in keine App-Zusammenfassung für „ABCApp" hat, die ursprüngliche Nutzer:in jedoch schon, erhält die Zielnutzer:in nach der Zusammenführung die App-Zusammenfassung „ABCApp" in ihrem Profil.
+  - Wenn beispielsweise die Zielnutzer:in keine App-Zusammenfassung für „ABCApp“ hat, die ursprüngliche Nutzer:in jedoch schon, erhält die Zielnutzer:in nach der Zusammenführung die App-Zusammenfassung „ABCApp“ in ihrem Profil.
 {% enddetails %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.identify`.
 
@@ -83,7 +83,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='users identify' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -98,7 +98,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 },
 ```
 
-### Anfrageparameter
+### Anfrageparameter {#request-parameters}
 
 Sie können pro Anfrage bis zu 50 Nutzer-Aliase hinzufügen. Sie können mehrere zusätzliche Nutzer-Aliase mit einer einzigen `external_id` verknüpfen.
 
@@ -106,14 +106,14 @@ Sie können pro Anfrage bis zu 50 Nutzer-Aliase hinzufügen. Sie können mehrere
 Eine der folgenden Angaben ist pro Anfrage erforderlich: `aliases_to_identify`, `emails_to_identify` oder `phone_numbers_to_identify`. Sie können diesen Endpunkt zum Beispiel verwenden, um Nutzer:innen per E-Mail zu identifizieren, indem Sie `emails_to_identify` in Ihrer Anfrage verwenden.
 {% endalert %}
 
-| Parameter                   | Erforderlich | Datentyp                           | Beschreibung                                                                                                                                                                 |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify`       | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Siehe [Alias-zu-identifizieren-Objekt]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) und [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `emails_to_identify`        | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Erforderlich, wenn `email` als Bezeichner angegeben ist. E-Mail-Adressen zur Identifizierung von Nutzer:innen. Siehe [Identifizierung von Nutzer:innen per E-Mail](#identifying-users-by-email).                                                                                                              |
-| `phone_numbers_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Telefonnummern zur Identifizierung von Nutzer:innen.                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `aliases_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Siehe [Alias-zu-identifizieren-Objekt]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) und [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
+| `emails_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Erforderlich, wenn `email` als Bezeichner angegeben ist. E-Mail-Adressen zur Identifizierung von Nutzer:innen. Siehe [Identifizierung von Nutzer:innen per E-Mail](#identifying-users-by-email). |
+| `phone_numbers_to_identify` | Erforderlich | Array von Alias-zu-identifizieren-Objekten | Telefonnummern zur Identifizierung von Nutzer:innen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-### Identifizierung von Nutzer:innen anhand von E-Mail-Adressen und Telefonnummern
+### Identifizierung von Nutzer:innen anhand von E-Mail-Adressen und Telefonnummern {#identifying-users-by-email-addresses-and-phone-numbers}
 
 Wenn eine E-Mail-Adresse oder Telefonnummer als Bezeichner angegeben wird, müssen Sie auch `prioritization` im Bezeichner angeben.
 
@@ -135,7 +135,7 @@ Es kann jeweils nur eine der folgenden Optionen im Priorisierungs-Array vorhande
 Eine Zusammenführung findet nicht statt, wenn die E-Mail-Adresse oder Telefonnummer mit mehreren Nutzer:innen übereinstimmt. Dies schließt Fälle ein, in denen eine dieser Nutzer:innen die gleiche `external_id` hat wie die in der Anfrage angegebene. In diesen Fällen gibt der Endpunkt `"message": "success"` zurück, aber die Nutzerprofile werden nicht zusammengeführt. Um dies zu vermeiden, stellen Sie sicher, dass die E-Mail-Adresse oder Telefonnummer nur mit nicht identifizierten Nutzer:innen verknüpft ist, bevor Sie diesen Endpunkt aufrufen.
 {% endalert %}
 
-## Beispiel für eine Anfrage
+## Beispiel für eine Anfrage {#request-example}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
@@ -161,7 +161,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 }'
 ```
 
-### Groß-/Kleinschreibung
+### Groß-/Kleinschreibung {#case-sensitivity}
 
 Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine Anfrage, die einen `201`-Statuscode zurückgibt, bestätigt nur, dass die Anfrage-Syntax gültig war – sie bestätigt nicht, dass der Alias zugeordnet wurde. Wenn die Groß-/Kleinschreibung von `alias_name` in Ihrer Anfrage nicht exakt mit dem im Nutzerprofil gespeicherten Alias übereinstimmt, schlägt der Vorgang stillschweigend fehl und die `external_id` wird nicht zugewiesen. Wenn der gespeicherte Alias beispielsweise `JimJones@example.com` lautet, gibt eine Anfrage mit `jimjones@example.com` zwar Erfolg zurück, erzeugt aber kein Ergebnis.
 
@@ -169,7 +169,7 @@ Das Feld `alias_name` unterscheidet zwischen Groß- und Kleinschreibung. Eine An
 Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
 {% endalert %}
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {

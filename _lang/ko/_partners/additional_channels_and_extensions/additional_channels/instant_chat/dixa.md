@@ -21,7 +21,7 @@ Braze와 Dixa 통합은 고객 서비스 상담원에게 실시간 Braze 데이�
 | 필수 조건          | 설명                                                                                                                                                       |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dixa 계정        | 이 파트너십을 활용하려면 Dixa 관리자 계정이 필요합니다.                                                                                           |
-| Braze REST API 키  | `users.export.ids` 및 `email.status` 권한이 있는 Braze REST API 키.<br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST API 키  | `users.export.ids` 및 `email.status` 권한이 있는 Braze REST API 키.<br><br> Braze 대시보드의 **Settings** > **API Keys**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.              |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -85,9 +85,9 @@ Dixa는 웹훅을 사용하여 Braze로 데이터를 전송합니다. 웹훅을 
 
 첫 번째 단계는 Braze에서 데이터 변환을 생성하는 것입니다.
 
-1. **데이터 설정** > **데이터 변환** > **변환 생성**으로 이동합니다.
-2. **처음부터 시작**을 선택하고 대상으로 **POST: Track Users**를 선택한 다음 **변환 생성**을 선택합니다.
-3. 변환 편집기에서 아래 **데이터 변환 도구 예시**의 코드 예제를 복사하여 **변환 코드** 필드에 삽입합니다. **저장**을 선택하고 **웹훅 URL**을 복사한 다음 Dixa를 엽니다.
+1. **Data Settings** > **Data Transformations** > **Create transformation**으로 이동합니다.
+2. **Start from scratch**를 선택하고 대상으로 **POST: Track Users**를 선택한 다음 **Create transformation**을 선택합니다.
+3. 변환 편집기에서 아래 **데이터 변환 도구 예시**의 코드 예제를 복사하여 **Transformation code** 필드에 삽입합니다. **Save**를 선택하고 **Webhook URL**을 복사한 다음 Dixa를 엽니다.
 4. Dixa에서 **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**으로 이동합니다.
 5. 웹훅 설정 페이지에서 Braze의 URL을 붙여넣고 추적하려는 이벤트를 토글합니다. **Conversation created**는 고객의 대화를 추적하기 위한 좋은 시작점입니다.
 6. **Save**를 선택하여 Dixa 설정을 완료합니다.

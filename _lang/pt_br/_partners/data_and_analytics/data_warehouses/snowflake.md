@@ -48,7 +48,7 @@ Antes de usar este recurso, você precisará concluir o seguinte:
 | ----------- | ----------- |
 | Acesso à Braze | Para acessar este recurso na Braze, você precisará entrar em contato com seu gerente de conta ou gerente de sucesso do cliente da Braze. |
 | Conta Snowflake | Uma conta Snowflake com permissões de `admin`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Configurando o Compartilhamento Seguro de Dados {#setting-up-secure-data-sharing}
 
@@ -99,7 +99,7 @@ Note as seguintes diferenças entre as convenções de nomenclatura da Braze e d
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador exclusivo atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário, definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID do usuário" }
 
 ## Informações importantes e limitações {#important-information-and-limitations}
 
@@ -150,7 +150,7 @@ Os dados de eventos nas visualizações de compartilhamento de dados (por exempl
 | ----- | ------- |
 | `TIME` | Timestamp Unix do momento em que o evento ocorreu. Prefira este campo ao filtrar por horário de ocorrência. |
 | `SF_CREATED_AT` | Timestamp de quando a linha foi carregada no Snowflake (horário de ingestão). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consultando dados compartilhados: TIME e desempenho de consultas" }
 
 ### Velocidade, desempenho e custo das consultas {#speed-performance-cost-of-queries}
 

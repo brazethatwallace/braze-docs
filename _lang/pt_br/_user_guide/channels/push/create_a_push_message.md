@@ -81,7 +81,7 @@ Existem algumas maneiras diferentes de fazer isso, dependendo das suas seleçõe
 | Campaign de notificação por push | Selecione uma ou mais plataformas e dispositivos. Se você escolher direcionar múltiplos dispositivos e plataformas, estará criando automaticamente uma Campaign de quick push. Isso oferece uma experiência de edição otimizada para criar uma mensagem para todas as plataformas selecionadas em um único editor. Consulte [Campaigns de quick push]({{site.baseurl}}/quick_push/) para entender o que é diferente nessa experiência de edição. |
 | Campaign multicanal | Selecione **Add Messaging Channel** para adicionar plataformas de push adicionais. Como as seleções de plataforma são específicas para cada variante, você pode testar o engajamento com mensagem por plataforma.
 | Canvas | Na sua etapa de mensagem, selecione **+ Add more** para adicionar plataformas de push adicionais. Semelhante às Campaigns multicanal, as seleções de plataforma são específicas para cada variante. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## Etapa 3: Selecione o tipo de notificação (iOS e Android) {#step-3-select-notification-type-ios-and-android}
 
@@ -260,3 +260,16 @@ Se ainda não o fez, conclua as seções restantes do seu componente de Canvas. 
 Depois de terminar de construir a última parte da sua Campaign ou Canvas, revise seus detalhes. Para Campaigns, a página final apresenta um resumo da Campaign que você criou. Confirme todos os detalhes relevantes, certifique-se de que testou sua mensagem e então envie-a e observe os dados chegarem!
 
 Em seguida, confira [Relatórios de push]({{site.baseurl}}/user_guide/channels/push/reporting/) para saber como você pode acessar os resultados da sua Campaign de push. Para notificações por push, você poderá visualizar estatísticas sobre o número de mensagens enviadas, entregues, com bounce, abertas e abertas diretamente.
+
+### Solução de problemas {#troubleshooting}
+
+#### Comportamento ao clicar
+
+Se você estiver usando o comportamento ao clicar padrão para a versão do seu SDK e selecionar uma notificação por push com uma URL da web que abre no app em vez de no navegador, consulte os seguintes guias de integração para determinar o tratamento de notificações por push:
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+Você deve atribuir seu objeto delegate usando `center.delegate = self` de forma síncrona antes que seu app termine de inicializar, preferencialmente em `application:didFinishLaunchingWithOptions:`. Caso contrário, seu app pode perder notificações por push recebidas. Consulte a [documentação `UNUserNotificationCenterDelegate` da Apple](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate) para saber mais.
+{% endalert %}

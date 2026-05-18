@@ -53,9 +53,9 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | ----- | -------- | ----------------------------------- |
 | `alg` | 예  | 지원되는 알고리즘은 `RS256`입니다. |
 | `typ` | 예  | 유형은 `JWT`와 같아야 합니다.        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 **JWT 페이로드**
 
@@ -63,9 +63,9 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | 예  | "subject"는 `changeUser`를 호출할 때 Braze SDK에 제공하는 사용자 ID와 같아야 합니다  |
 | `exp` | 예 | "expiration"은 이 토큰이 만료되는 시점입니다.                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1.2단계: 현재 사용자를 위한 JSON 웹 토큰 생성" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 JSON 웹 토큰에 대해 더 알아보거나 이 서명 프로세스를 단순화하는 많은 오픈 소스 라이브러리를 둘러보려면 [https://jwt.io](https://jwt.io)를 확인하세요.
@@ -722,7 +722,7 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 | **비활성화됨** | Braze는 사용자에게 제공된 JWT를 확인하지 않습니다. (기본 설정)|
 | **선택 사항** | Braze는 로그인한 사용자의 요청을 확인하지만, 유효하지 않은 요청을 거부하지 않습니다. |
 | **필수** | Braze는 로그인한 사용자의 요청을 확인하고 유효하지 않은 JWT를 거부합니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -779,7 +779,7 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 | 26 | `MISSING_TOKEN` | 요청에 토큰이 제공되지 않았습니다. | `changeUser(id, token)` 호출 시 토큰을 반드시 전달하고, 토큰이 비어 있지 않은지 확인하십시오.|
 | 27 | `NO_MATCHING_PUBLIC_KEYS` | 제공된 토큰과 일치하는 공개 키가 없습니다. | JWT에 사용된 비공개 키가 앱에 구성된 공개 키와 일치하지 않습니다. 이 API 키와 일치하는 워크스페이스의 올바른 앱에 공개 키를 추가했는지 확인하십시오.|
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | 요청 페이로드 내 모든 사용자 ID가 요구되는 대로 일치하지 않습니다. | 이는 예상치 못한 상황이며, 잘못된 형식의 페이로드가 발생할 수 있습니다. 고객지원 티켓을 열어 도움을 받으세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
 
 ## 자주 묻는 질문(FAQ) {#faq}
 

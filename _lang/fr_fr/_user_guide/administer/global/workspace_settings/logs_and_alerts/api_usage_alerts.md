@@ -15,9 +15,9 @@ Vous pouvez utiliser les alertes d'utilisation de l'API pour surveiller les volu
 
 | Catégorie d'API | Détails |
 |--------------|---------|
-| Endpoints de l'API REST | Suivi de l'utilisation de tous les appels API REST effectués vers le backend de Braze, tels que l'envoi de messages, la création de campagnes ou l'exportation d'utilisateurs. |
+| Endpoints de l'API REST | Suivi de l'utilisation de tous les appels API REST effectués vers le backend de Braze, tels que l'envoi de messages, la création de Campaigns ou l'exportation d'utilisateurs. |
 | Requêtes d'API SDK | Suivi des requêtes API effectuées à partir des SDK Braze dans les applications clientes, telles que le déclenchement de messages in-app ou la synchronisation des données utilisateur.<br><br>_*Uniquement disponible pour les clients ayant acheté des utilisateurs actifs par mois – CY 24-25._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About API usage alerts" }
 
 ## Création d'une alerte d'utilisation de l'API {#creating-an-api-usage-alert}
 
@@ -33,7 +33,7 @@ Pour créer une alerte d'utilisation de l'API :
 
 Lorsque vous définissez vos critères d'alerte, vous pouvez ajuster les seuils suivants :
 
-<table>
+<table aria-label="Alert thresholds #api-usage-alert-thresholds">
   <caption>Seuils d'alerte</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ Lorsque vous définissez vos critères d'alerte, vous pouvez ajuster les seuils 
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alert thresholds #api-usage-alert-thresholds" }
 
 ## Configuration des notifications d'alerte {#setting-up-alert-notifications}
 
@@ -108,7 +108,7 @@ Vous pouvez configurer des alertes pour surveiller l'état général de votre AP
 | Endpoint | Clé API | Code de réponse | Condition de seuil | Volume seuil | Période |
 | --- | --- | --- | --- | --- | --- |
 | Tous les endpoints | Toutes les clés API | `4XX` et `5XX` | Increased by 10% | 10 | 1 heure |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab Limite de débit d'un endpoint %}
@@ -117,7 +117,7 @@ Soyez alerté lorsque votre espace de travail atteint sa limite de débit pour l
 | Endpoint | Clé API | Code de réponse | Condition de seuil | Volume seuil | Période |
 | --- | --- | --- | --- | --- | --- |
 | `/users/track` | Toutes les clés API | `429` | Greater than or equal to | 100 | 1 heure |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab Campaigns déclenchées par API %}
@@ -126,7 +126,7 @@ Cette configuration d'alerte vous notifie lorsque des erreurs surviennent pour l
 | Endpoint | Clé API | Code de réponse | Condition de seuil | Volume seuil | Période |
 | --- | --- | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Toutes les clés API | `4XX` et `5XX` | Greater than or equal to | 1 | 1 heure |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 
 {% tab Intégrations partenaires %}
@@ -135,7 +135,7 @@ Utilisez la configuration d'alerte suivante pour être alerté lorsqu'une intég
 | Endpoint | Clé API | Code de réponse | Condition de seuil | Volume seuil | Période |
 | --- | --- | --- | --- | --- | --- |
 | Tous les endpoints | La clé API utilisée pour votre intégration partenaire | Tous les codes de réponse | Less than or equal to | 0 | 1 jour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Example alerts" }
 {% endtab %}
 {% endtabs %}
 

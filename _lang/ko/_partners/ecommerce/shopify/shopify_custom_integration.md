@@ -613,8 +613,8 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 }
 </style>
 
-<table style="width: 100%;">
-  <caption>5단계: 커스텀 데이터 추적 설정(고급)</caption>
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">커스텀 이벤트</th>
@@ -663,7 +663,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 - **Shopify 고객 ID, 이메일 또는 해시된 이메일을 선택한 경우:** 6.1~6.3단계를 건너뛰고 바로 6.4단계로 넘어갑니다.
 {% endalert %}
 
-#### 6.1단계: `braze.external_id` 메타필드 생성 {#step-61-create-the-brazeexternalid-metafield}
+#### 6.1단계: `braze.external_id` 메타필드 생성 {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Shopify 관리자 패널에서 **설정** > **메타필드**로 이동합니다.
 2. **고객** > **정의 추가**를 선택합니다.
@@ -690,7 +690,7 @@ Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 | shopify_customer_id | 필수 | 문자열 | Shopify 고객 ID입니다. |
 | shopify_storefront | 필수 | 문자열 | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
 | email_address | 선택 사항 | 문자열 | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직은 여기서 null 값을 고려해야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="엔드포인트 사양" }
 
 ##### 엔드포인트 예시 {#example-endpoint}
 

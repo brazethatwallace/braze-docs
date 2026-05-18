@@ -19,7 +19,7 @@ Pour les synchronisations de données utilisateur CDI, configurez les deux élé
 | --- | --- |
 | Configuration de la table source | Colonnes requises, identifiants utilisateur et comportement de synchronisation `UPDATED_AT` |
 | Formatage du payload | Champs JSON dans `payload`, y compris la structure des objets pour les attributs, les événements et les achats |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understand table setup compared to payload formatting" }
 
 Braze lit d'abord les lignes de votre table source, puis valide le champ `payload` en fonction du type de données sélectionné.
 
@@ -38,7 +38,7 @@ Pour les synchronisations de données utilisateur depuis un entrepôt de donnée
 
 Chaque ligne doit inclure un seul type d'identifiant à la fois, même si votre table contient plusieurs colonnes d'identifiants.
 
-### Exigences pour `UPDATED_AT` {#updatedat-requirements}
+### Exigences pour `UPDATED_AT` {#updated_at-requirements}
 
 - Stockez les valeurs `UPDATED_AT` en UTC pour éviter les problèmes liés aux changements d'heure.
 - Braze synchronise les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur synchronisée.
@@ -59,7 +59,7 @@ La valeur `payload` suit les mêmes formats d'objets utilisés par l'endpoint Br
 | `attributes` | [Objet d'attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | [Objet d'événements]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | [Objet d'achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Set up the payload column" }
 
 Pour les attributs imbriqués, incluez les dates en utilisant le format décrit dans [Capturer des dates en tant que propriétés d'objet]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties).
 

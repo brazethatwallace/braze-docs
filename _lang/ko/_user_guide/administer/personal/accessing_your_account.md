@@ -59,7 +59,7 @@ Braze는 동일한 클러스터 내에서 같은 이메일 주소를 여러 대�
 
 ### 다중 회사 개발자 사용 {#use-multi-company-developers}
 
-다중 회사 개발자 기능을 사용하면 단일 사용자 계정을 여러 회사에서 공유할 수 있습니다. 사용자는 사용자 프로필 메뉴에서 다른 회사 대시보드 간에 전환할 수 있습니다.
+다중 회사 개발자 기능을 사용하면 단일 사용자 계정을 여러 회사에서 공유할 수 있습니다. 사용자는 고객 프로필 메뉴에서 다른 회사 대시보드 간에 전환할 수 있습니다.
 
 SSO를 사용하고 있으며 다중 회사 개발자를 설정하려면, 커스텀 SAML SSO 통합을 설정하여 SAML 커스텀 엔티티 ID를 활성화해야 합니다. [서비스 공급자(SP) 시작 로그인]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)의 단계를 따르되, 다음 변경 사항을 적용하세요:
 - 각 대시보드 통합에 대해 **Entity ID**를 `braze_dashboard_<companyID>`로 변경합니다.
@@ -75,7 +75,7 @@ SSO(싱글 사인온)를 사용하는 경우, 여러 다른 이메일 주소를 
 
 비밀번호를 재설정하려면 대시보드 로그인 페이지에서 **Forgot your password?** 링크를 선택하세요. 이메일을 입력하라는 메시지가 표시되며, 비밀번호를 재설정할 수 있는 링크를 받게 됩니다.
 
-!["Forgot your password?" 프롬프트가 있는 대시보드 로그인.]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
+!["Forgot your password?" 프롬프트가 있는 대시보드 로그인 화면.]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
 
 ### 브라우저 캐시 및 쿠키 삭제 {#clearing-your-browser-cache-and-cookies}
 
@@ -91,6 +91,10 @@ SSO(싱글 사인온)를 사용하는 경우, 여러 다른 이메일 주소를 
 - [Microsoft Edge에서 모든 쿠키 삭제](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
 브라우저 캐시와 쿠키를 삭제해도 문제가 해결되지 않으면 [고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+
+### Google Chrome에서 "Aw, Snap!" 오류 {#aw-snap-error-in-google-chrome}
+
+Google Chrome에서 "Aw, Snap!" 오류가 표시되면, Chrome이 Braze 대시보드 페이지를 로드하는 데 문제가 있는 것입니다. 문제 해결 단계는 [Chrome에서 일반적인 오류 메시지에 대한 도움말 보기](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en)를 참조하세요.
 
 ### 대시보드 탐색 중 "Please Refresh Page" 또는 "Unexpected Error" {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 
@@ -121,9 +125,9 @@ Braze 러닝에 로그인하는 데 문제가 있고 대시보드로 리디렉�
 
 1. 여러 Braze 계정이 있는 경우, 잘못된 계정으로 두 번 로그인하면 Braze 대시보드로 이동됩니다. 올바른 계정으로 로그인하고 있는지 확인하세요.
 2. 광고 차단기가 있는 경우, 꺼져 있는지 확인하세요. 싱글 사인온 기능에 필요한 쿠키를 차단할 수 있습니다.
-3. **Company Settings** > **Security Settings**로 이동하여 SSO(싱글 사인온)가 켜져 있는지 확인합니다.
+3. **회사 설정** > **보안 설정**으로 이동하여 SSO(싱글 사인온)가 켜져 있는지 확인합니다.
 4. 대시보드 사용자 프로필에 이름과 성이 모두 포함되어 있는지 확인합니다. 성이 없으면 로그인 프로세스가 중단될 수 있습니다.
-5. 대시보드에서 **Support** > **Braze Learning**으로 이동하여 Braze 러닝에 접근합니다.
+5. 대시보드에서 **고객지원** > **Braze Learning**으로 이동하여 Braze 러닝에 접근합니다.
 6. 문제가 계속되면 계정을 다시 생성하는 것을 고려하세요. 무료 체험 기간 동안 Braze 러닝에 접근했던 사용자는 현재 접근에 어려움을 겪을 수 있습니다.
 
 ### 2단계 인증(2FA) 문제 {#two-factor-authentication-2fa-issues}
@@ -132,7 +136,7 @@ Braze 러닝에 로그인하는 데 문제가 있고 대시보드로 리디렉�
 
 관리자는 다음을 수행하여 영향을 받는 사용자의 2FA를 재설정해야 합니다:
 
-1. **Manage Users**로 이동합니다.
+1. **사용자 관리**로 이동합니다.
 2. 2FA 문제가 있는 사용자에 대해 **Edit User**를 선택합니다.
 3. 2FA 재설정 옵션을 선택합니다.
 4. 메시지가 표시되면 2FA 재설정을 확인합니다.
@@ -143,7 +147,7 @@ Braze 러닝에 로그인하는 데 문제가 있고 대시보드로 리디렉�
 #### 고려 사항 {#considerations}
 
 - 회사 수준에서 2FA가 적용된 경우: 재설정 후 Braze는 사용자가 다음 로그인 시 2FA를 다시 설정하도록 안내합니다.
-- 회사 수준에서 2FA가 적용되지 않은 경우: 사용자는 2FA를 다시 설정할 필요 없이 대시보드에 로그인합니다. 2FA를 활성화하려면 Account Settings에서 할 수 있습니다.
+- 회사 수준에서 2FA가 적용되지 않은 경우: 사용자는 2FA를 다시 설정할 필요 없이 대시보드에 로그인합니다. 2FA를 활성화하려면 계정 설정에서 할 수 있습니다.
 
 {% alert note %}
 이 재설정 프로세스는 지난 한 시간 내에 너무 많은 토큰을 요청하여 계정이 잠긴 사용자에게도 적용됩니다.
@@ -201,7 +205,7 @@ Braze 계정이 잠긴 경우, 아래 단계를 따라 다시 접근할 수 있�
 
 ### 사용자가 어떤 워크스페이스에도 속하지 않음 {#the-user-belongs-to-no-workspace}
 
-**Settings** > **Company Users**로 이동하여 사용자의 워크스페이스 수준 권한을 확인하세요. **Workspaces**에 필요한 워크스페이스를 추가하세요.
+**설정** > **회사 사용자**로 이동하여 사용자의 워크스페이스 수준 권한을 확인하세요. **Workspaces**에 필요한 워크스페이스를 추가하세요.
 
 ### 신규 사용자 문제 해결 {#troubleshooting-as-a-new-user}
 

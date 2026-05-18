@@ -17,7 +17,7 @@ guide_featured_list:
 - name: Usando catálogos
   link: /docs/user_guide/data/activation/catalogs/use
   image: /assets/img/braze_icons/users-01.svg
-- name: Notificações de volta ao estoque
+- name: Notificações de reposição de estoque
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Notificações de queda de preço
@@ -46,7 +46,7 @@ Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os da
 
 - **Promoções sazonais:** importe coleções de produtos sazonais e personalize mensagens para refletir as tendências atuais.
 - **Mensagens localizadas:** importe os endereços, horários e serviços dos seus locais físicos e personalize as notificações com base na localização dos usuários.
-- **Notificações de volta ao estoque:** importe informações de produtos que incluam a quantidade em estoque e use as [notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) e eventos personalizados da Braze para disparar uma Campaign ou um Canvas que envie aos usuários uma notificação de que um produto voltou ao estoque.
+- **Notificações de reposição de estoque:** importe informações de produtos que incluam a quantidade em estoque e use as [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) e eventos personalizados da Braze para disparar uma Campaign ou um Canvas que envie aos usuários uma notificação de que um produto voltou ao estoque.
 - **Notificações de queda de preço:** importe informações de produtos que incluam os preços e use as [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) e eventos personalizados da Braze para disparar um Canvas que envie aos usuários uma notificação de que o preço de um produto caiu.
 
 ### Entretenimento {#entertainment}
@@ -68,10 +68,12 @@ Os catálogos são um recurso de armazenamento de dados. Eles contêm grandes co
 
 Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
 
-#### Limitações de armazenamento de dados {#data-storage-limitations}
+## Limitações de armazenamento de dados {#data-storage-limitations}
 
 O armazenamento de dados para catálogos é limitado com base no tamanho dos itens do catálogo, que pode ser diferente do tamanho dos arquivos CSV enviados por upload.
 
 Para a versão gratuita dos catálogos, a quantidade de armazenamento permitida é de até 100&nbsp;MB. Você pode ter itens ilimitados, desde que o espaço de armazenamento não exceda 100&nbsp;MB.
 
 Para o Catalogs Pro, as opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB ou 50&nbsp;GB. Note que o armazenamento da versão gratuita (100&nbsp;MB) está incluído em cada um desses planos.
+
+Se você precisar fazer upgrade do armazenamento do seu catálogo, entre em contato com o gerente de conta da Braze. Para detalhes do plano e notas sobre direitos, consulte [Armazenamento de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers).

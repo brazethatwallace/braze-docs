@@ -47,9 +47,9 @@ CanvasでSnapchatオーディエンスステップを設定する前に、以下
 BrazeアカウントにSnapchatを接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
 {% endalert %}
 
-Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー** に移動し、**Snapchat** を選択します。Snapchat Audience Syncで、**Snapchatを接続** を選択します。
+Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Snapchat**を選択します。Snapchat Audience Syncで、**Connect Snapchat**を選択します。
 
-![BrazeのSnapchatテクノロジーページ。「概要」セクションと「Snapchat Audience Sync」セクション、および「Snapchatを接続」ボタンが表示されている。]({% image_buster /assets/img/snapchat/snapchat1.png %}){: style="max-width:80%;"}
+![BrazeのSnapchatテクノロジーページ。「概要」セクションと「Snapchat Audience Sync」セクション、および「Connect Snapchat」ボタンが表示されている。]({% image_buster /assets/img/snapchat/snapchat1.png %}){: style="max-width:80%;"}
 
 次に、Snapchat OAuthページにリダイレクトされ、Audience Sync統合に関連する権限をBrazeに承認します。
 
@@ -65,25 +65,25 @@ Snapchat接続はBrazeワークスペースレベルで適用されます。Snap
 
 ### ステップ2:Snapchatでオーディエンス同期ステップを追加する {#step-2-add-an-audience-sync-step-with-snapchat}
 
-Canvasにコンポーネントを追加し、**オーディエンスの同期** を選択します。
+Canvasにコンポーネントを追加し、**Audience Sync**を選択します。
 
 ![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### ステップ3:同期のセットアップ {#step-3-sync-setup}
 
-**Custom Audience** ボタンをクリックしてコンポーネントエディターを開きます。
+**Custom Audience**ボタンをクリックしてコンポーネントエディターを開きます。
 
 希望するAudience Syncパートナーとして**Snapchat**を選択します。
 
 ![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
-次に、希望するSnapchat広告アカウントを選択します。**Choose a New or Existing Audience** ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
+次に、希望するSnapchat広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab 新規オーディエンスの作成 %}
 
 **新規オーディエンスの作成**<br>
-新しいオーディエンスの名前を入力し、**Add Users to Audience** を選択し、Snapchatと同期したいフィールドを選択します。次に、ステップエディターの下部にある **Create Audience** ボタンをクリックして、オーディエンスを保存します。
+新しいオーディエンスの名前を入力し、**Add Users to Audience**を選択し、Snapchatと同期したいフィールドを選択します。次に、ステップエディターの下部にある**Create Audience**ボタンをクリックして、オーディエンスを保存します。
 
 ![カスタムオーディエンスCanvasステップの展開ビュー。ここで、目的の広告アカウントを選択し、新しいオーディエンスが作成される。]({% image_buster /assets/img/audience_sync/snapchat3.png %})
 
@@ -94,20 +94,20 @@ Canvasにコンポーネントを追加し、**オーディエンスの同期** 
 新しいオーディエンスを使用してCanvasを起動すると、オーディエンス同期コンポーネントに入る時点で、Brazeはユーザーをほぼリアルタイムで同期します。
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab 既存のオーディエンスとの同期 %}
 **既存のオーディエンスとの同期**<br>
-Brazeは、これらのオーディエンスが最新であることを確認するために、既存のSnapchatオーディエンスにユーザーを追加する機能も提供しています。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、**Add to the Audience** を選択します。Brazeは、オーディエンス同期コンポーネントに入ると、ほぼリアルタイムでユーザーを追加します。
+Brazeは、これらのオーディエンスが最新であることを確認するために、既存のSnapchatオーディエンスにユーザーを追加する機能も提供しています。既存のオーディエンスと同期するには、ドロップダウンに既存のオーディエンスの名前を入力し、**Add to the Audience**を選択します。Brazeは、オーディエンス同期コンポーネントに入ると、ほぼリアルタイムでユーザーを追加します。
 
 ![カスタムオーディエンスCanvasステップの展開ビュー。ここで、希望する広告アカウントと既存のオーディエンスが選択される。]({% image_buster /assets/img/audience_sync/snapchat.png %})
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ4:Canvasの起動 {#step-4-launch-canvas}
+### ステップ4:Canvasを起動する {#step-4-launch-canvas}
 
 オーディエンス同期をSnapchatに設定したら、Canvasを起動しましょう！新しいオーディエンスが作成され、オーディエンス同期ステップを通過するユーザーはSnapchatのこのオーディエンスに送られます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
-Snapchatでオーディエンスを表示するには、広告マネージャーアカウントにログインし、ナビゲーションのアセットセクションから **Audiences** を選択します。**Audiences** ページで、各オーディエンスが約1,000に達した後のサイズを確認できます。
+Snapchatでオーディエンスを表示するには、広告マネージャーアカウントにログインし、ナビゲーションのアセットセクションから**Audiences**を選択します。**Audiences**ページで、各オーディエンスが約1,000に達した後のサイズを確認できます。
 
 ![オーディエンスの名前、オーディエンスの種類、オーディエンスのサイズ、オーディエンスのリテンション（日単位）を含む、指定されたSnapchatオーディエンスのオーディエンス詳細。]({% image_buster /assets/img/snapchat/snapchat7.png %})
 
@@ -129,7 +129,7 @@ SnapchatのAPIレート制限では、1秒あたり10クエリ、1リクエス�
 | 未同期ユーザー | 一致するフィールドが不足しているため、同期されなかったユーザーの数。 |
 | 保留中のユーザー | BrazeがSnapchatへの同期のために現在処理しているユーザーの数。 |
 | エラーが発生したユーザー | APIエラーのため、約13時間のリトライ後にSnapchatに同期されなかったユーザーの数。エラーの潜在的な原因には、無効なSnapchatトークンや、Snapchatでオーディエンスが削除された場合が含まれます。 |
-| Canvasを終了済み | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがオーディエンス同期コンポーネントである場合に発生します。 |
+Canvasを終了済み | Canvasを終了したユーザーの数。これは、Canvasの最後のステップがオーディエンス同期コンポーネントである場合に発生します。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}

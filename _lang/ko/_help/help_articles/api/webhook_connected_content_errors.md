@@ -23,7 +23,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="4XX 오류">
   <caption>4XX 오류</caption>
   <thead>
     <tr>
@@ -130,7 +130,7 @@ table td {
 | **529 Host Overloaded** | 엔드포인트 호스트에 과부하가 걸려 응답하지 못했습니다. |
 | **598 Host Unhealthy** | Braze는 엔드포인트 호스트가 일시적으로 비정상으로 표시되어 응답을 시뮬레이션했습니다. 자세한 내용은 [비정상 호스트 감지](#unhealthy-host-detection)를 참조하세요. |
 | **599 Connection Error** | Braze가 엔드포인트에 연결을 시도하는 동안 네트워크 연결 시간 초과 오류가 발생했습니다. 이는 엔드포인트가 불안정하거나 다운되었을 수 있음을 의미합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5XX 오류" }
 
 ### 5XX 오류 해결 {#resolving-5xx-errors}
 

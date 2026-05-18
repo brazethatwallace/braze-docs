@@ -90,10 +90,10 @@ POSTペイロードがサーバーで受理された場合、成功メッセー�
 | `400 Android Push Length Exceeded` | JSONペイロードが4,000バイトを超えています。|
 | `400 Bad Request` | `send_at`の日時を解析できません。|
 | `400 Bad Request` | リクエストで`in_local_time`がtrueですが、会社のタイムゾーンで`time`が既に経過しています。|
-| `401 Unauthorized` | 無効なAPIキーです。一般的な原因は以下の通りです：<br><br>- **Authorizationヘッダーが欠落しているか、形式が正しくありません。**ヘッダーの値は`Bearer`の後にスペースとAPIキーを続ける必要があります：`Authorization: Bearer YOUR-API-KEY`。よくある間違いとして、`Bearer`の省略、`Bearer`の後のキーの省略、値を引用符で囲むことなどがあります。<br>- **RESTエンドポイントが間違っています。**リクエストを間違った[インスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)に送信しています。たとえば、アカウントがEUインスタンス（`https://dashboard-01.braze.eu`）にある場合、リクエストは`https://rest.fra-01.braze.eu`に送信する必要があります。<br>- **権限が不十分です。**各APIキーは特定のワークスペースと権限のセットにスコープされています。ダッシュボードの**設定** > **APIキー**でキーの権限を確認してください。<br>- **APIキーが間違っています。**APIキーはワークスペース固有です。あるワークスペースのキーを別のワークスペースのリクエスト認証に使用することはできません。 |
+| `401 Unauthorized` | 無効なAPIキーです。一般的な原因は以下の通りです：<br><br>- **Authorizationヘッダーが欠落しているか、形式が正しくありません。** ヘッダーの値は`Bearer`の後にスペースとAPIキーを続ける必要があります：`Authorization: Bearer YOUR-API-KEY`。よくある間違いとして、`Bearer`の省略、`Bearer`の後のキーの省略、値を引用符で囲むことなどがあります。<br>- **RESTエンドポイントが間違っています。** リクエストを間違った[インスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)に送信しています。たとえば、アカウントがEUインスタンス（`https://dashboard-01.braze.eu`）にある場合、リクエストは`https://rest.fra-01.braze.eu`に送信する必要があります。<br>- **権限が不十分です。** 各APIキーは特定のワークスペースと権限のセットにスコープされています。ダッシュボードの**設定** > **APIキー**でキーの権限を確認してください。<br>- **APIキーが間違っています。** APIキーはワークスペース固有です。あるワークスペースのキーを別のワークスペースのリクエスト認証に使用することはできません。 |
 | `403 Forbidden` | 料金プランが対応していない、またはアカウントが無効になっています。|
 | `403 Access Denied` | 使用しているREST APIキーに十分な権限がありません。一般的な原因は以下の通りです：{::nomarkdown}<ul><li><strong>APIキーが機能より前に作成されています。</strong>APIキーが機能のリリース前に作成された場合（サブスクリプショングループやカタログなど）、そのキーはそれらの権限を自動的に継承しません。<strong>設定</strong> &gt; <strong>APIキー</strong>で必要な権限を持つ新しいAPIキーを作成してください。</li><li><strong>エンドポイント固有の権限がありません。</strong>各APIエンドポイントには特定の権限スコープが必要です（例：<code>users.track</code>や<code>email.status</code>）。キーの権限が呼び出しているエンドポイントと一致していることを確認してください。</li><li><strong>URLに末尾のスラッシュまたはタイプミスがあります。</strong>たとえば、<code>/users/track</code>の代わりに<code>/users/track/</code>（末尾にスラッシュあり）を使用すると、予期しないエラーが発生する可能性があります。</li></ul>{:/}|
 | `404 Not Found` | 無効なURLです。 |
 | `415 Unsupported Media Type` | `Content-Type`リクエストヘッダーが欠落しているか、正しくありません。**設定**ページで、`Content-Type`に`application/json`の値を追加してください。 |
 | `429 Rate Limited` | レート制限を超えています。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }

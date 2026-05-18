@@ -99,7 +99,7 @@ Diese Tabelle zeigt, wie jede Legacy-Berechtigung auf die granularen Berechtigun
 | Team | Manage Media Library | View Media Library Assets<br>Edit Media Library Assets<br>Delete Media Library Assets |
 | Team | Manage Dashboard Users | Edit Dashboard Users |
 | Team | Send Campaigns, Canvases | View Campaigns<br>Edit Canvases<br>Launch Campaigns<br>View Canvases<br>Edit Campaigns<br>Launch Canvases<br>View Canvas Templates<br>View Segments |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Legacy to granular permissions mapping" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

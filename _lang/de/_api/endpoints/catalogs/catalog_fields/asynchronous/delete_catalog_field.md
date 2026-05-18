@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | -------------- | -------- | --------- | -------------------------- |
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
 | `field_name` | Erforderlich | String | Name des Katalogfeldes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -87,6 +87,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `field-referenced-by-selection` | Prüfen Sie, ob das Katalogfeld derzeit von einer Auswahl verwendet wird. |
 | `field-is-inventory` | Prüfen Sie, ob das Katalogfeld als Inventarfeld verwendet wird. |
 | `invalid-field-name` | Prüfen Sie, ob der Name des Katalogfeldes gültig ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

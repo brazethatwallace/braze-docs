@@ -25,7 +25,7 @@ BrazeとPlayableの統合により、最高のコンテンツ（高品質動画�
 | Playableアカウント | このパートナーシップを活用するには、Playableアカウントが必要です。Playableアカウントをまだお持ちでない場合は、[こちら](https://signup.playable.video)からご登録ください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 | 動画コンテンツ | 動画ファイルをPlayableにアップロードするか、Facebook、Instagram、YouTube、X（旧Twitter）、TikTokなどのWebサイトの動画URLを指定します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 実装 {#implementation}
 

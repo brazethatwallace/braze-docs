@@ -18,7 +18,7 @@ GoogleのFirebase Cloud Messaging（FCM）APIを使用してプッシュに登�
 
 #### ステップ 1.2: Google Sender IDを取得する {#step-12-get-your-google-sender-id}
 
-まずFirebase Consoleに移動し、プロジェクトを開いて、<i class="fa-solid fa-gear" aria-label="設定"></i>&nbsp;**Settings** > **Project settings**を選択します。
+まずFirebase Consoleに移動し、プロジェクトを開いて、<i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**を選択します。
 
 ![「Settings」メニューが開かれたFirebaseプロジェクト。]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
@@ -94,14 +94,14 @@ iOSのプラットフォーム制限のため、Braze SDKはアプリがフォ�
 | `brazeProperties` | オブジェクト | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios` | オブジェクト | iOS固有のフィールドを表します。 |
 | `android` | オブジェクト | Android固有のフィールドを表します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### ステップ 3: プッシュ通知の表示をテストする {#step-3-test-displaying-push-notifications}
 
 ネイティブレイヤーでプッシュ通知を設定した後、統合をテストするには：
 
 1. Flutterアプリケーションでアクティブユーザーを設定します。これを行うには、`braze.changeUser('your-user-id')`を呼び出してプラグインを初期化します。
-2. **Campaigns**に移動し、新しいプッシュ通知キャンペーンを作成します。テストしたいプラットフォームを選択します。
+2. **Campaigns**に移動し、新しいプッシュ通知Campaignを作成します。テストしたいプラットフォームを選択します。
 3. テスト通知を作成し、**Test**タブに移動します。テストユーザーと同じ`user-id`を追加し、**Send Test**をクリックします。
 4. まもなくデバイスに通知が届くはずです。通知が表示されない場合は、通知センターで確認するか、設定を更新する必要がある場合があります。
 

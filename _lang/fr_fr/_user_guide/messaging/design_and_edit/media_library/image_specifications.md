@@ -31,7 +31,7 @@ Les GIF sont pris en charge dans les notifications push iOS, les messages in-app
 
 ## Recommandations par canal {#channel-guidance}
 
-### Content Cards {#content-cards}
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
@@ -83,7 +83,7 @@ Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandat
 | Firefox | 192 x 192 px ou plus |
 | Safari | 192 x 192 px ou plus (configurable par campagne avec Safari 16 sur macOS 13+) |
 | Opera | 192 x 192 px ou plus |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Notification push Web" }
 
 | Navigateur | Plateforme | Taille de la grande image |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandat
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification push Web" }
 
 {% endtab %}
 {% tab Texte %}
@@ -114,7 +114,7 @@ Pour en savoir plus sur le nombre de caractères iOS, consultez les [recommandat
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Notification push Web" }
 
 {% endtab %}
 {% endtabs %}

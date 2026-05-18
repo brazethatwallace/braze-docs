@@ -28,7 +28,7 @@ Mira el siguiente video para obtener un resumen opcional sobre cómo configurar 
 | Característica | Permisos de usuario requeridos |
 | --- | --- |
 | Tipos&nbsp;de&nbsp;mensaje | Necesitas estos permisos para añadir configuraciones regionales y traducciones a Campaigns y Canvas:<br><br> {::nomarkdown}Permisos granulares: <ul><li>Editar Campaigns</li><li>Editar Canvas</li></ul> Permisos heredados: <ul><li>Acceder a Campaigns, Canvas, Cards, Content Blocks, conmutadores de características, Segments, biblioteca de medios, ubicaciones, códigos promocionales y centros de preferencias</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% endtab %}
 {% tab Plantillas %}
@@ -36,7 +36,7 @@ Mira el siguiente video para obtener un resumen opcional sobre cómo configurar 
 | Característica | Permisos de usuario requeridos |
 | --- | --- |
 | Plantillas | Necesitas estos permisos para el tipo de plantilla a la que deseas añadir configuraciones regionales y traducciones:<br><br> {::nomarkdown}Permisos granulares: <ul><li>Editar plantillas de correo electrónico</li><li>Editar plantillas IAM</li><li>Editar plantillas de Content Blocks</li></ul> Permisos heredados: <ul><li>Acceder a Campaigns, Canvas, Cards, Content Blocks, conmutadores de características, Segments, biblioteca de medios, ubicaciones, códigos promocionales y centros de preferencias</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ Las URLs estáticas se introducen manualmente en el editor (por ejemplo, `https:
 | --- | --- |
 | Mantén el protocolo (`https://`) fuera de las etiquetas de traducción. Envuelve solo el dominio y la ruta (por ejemplo, `example.com/en`). | Los traductores pueden alterar o eliminar accidentalmente caracteres especiales, causando enlaces rotos. |
 | No incluyas parámetros de consulta dentro de las etiquetas de traducción (por ejemplo, `?utm_source=promo`). | Los traductores pueden alterar o eliminar accidentalmente caracteres especiales, resultando en enlaces rotos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URLs estándar (estáticas)" }
 
 Una URL estándar que sigue ambas recomendaciones es:
 
@@ -87,7 +87,7 @@ Si tu URL se genera con Liquid (por ejemplo, {% raw %}`{% landing_page_url %}`{%
 | --- | --- |
 | Envuelve la URL generada con Liquid en etiquetas de traducción solo si debe ser localizada. | La sintaxis de Liquid debe preservarse cuidadosamente para que se renderice correctamente. |
 | No incluyas parámetros de consulta (por ejemplo, `?utm_source=promo`) dentro de las etiquetas de traducción. | Los traductores pueden alterar o eliminar accidentalmente caracteres especiales, resultando en enlaces rotos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URLs generadas con Liquid" }
 
 Una URL generada con Liquid que sigue ambas recomendaciones es:
 
@@ -191,9 +191,9 @@ Para previsualizar tu mensaje, selecciona la opción **Multi-Language User** en 
 
 ## Administrar traducciones {#manage-translations}
 
-### Duplicar pasos en Canvas o Campaigns, y traducciones {#duplicate-canvas-steps-or-campaigns-and-translations}
+### Duplicar pasos en Canvas o campañas, y traducciones {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Cuando duplicas un paso en Canvas, una Campaign o una variante, las traducciones se incluyen. Esto también aplica al copiar entre espacios de trabajo, siempre que las configuraciones regionales estén definidas en ese espacio de trabajo de destino. Asegúrate de revisar y actualizar las traducciones en consecuencia al hacer modificaciones a tu Canvas o Campaign.
+Cuando duplicas un paso en Canvas, una campaña o una variante, las traducciones se incluyen. Esto también aplica al copiar entre espacios de trabajo, siempre que las configuraciones regionales estén definidas en ese espacio de trabajo de destino. Asegúrate de revisar y actualizar las traducciones en consecuencia al hacer modificaciones a tu Canvas o campaña.
 
 ### Guardar traducciones en Content Blocks {#save-translations-in-content-blocks}
 
@@ -213,7 +213,7 @@ Al completar el archivo de traducción para idiomas que se escriben de derecha a
 
 ### Seguimiento de enlaces de correo electrónico {#email-link-tracking}
 
-En las Campaigns de correo electrónico, Braze rastrea los enlaces añadiendo información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+En las campañas de correo electrónico, Braze rastrea los enlaces añadiendo información de seguimiento (parámetros de consulta) a cada URL. Este comportamiento es compatible tanto con el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) como con las [plantillas de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
 
 Cuando una URL está envuelta en etiquetas de traducción, es posible que Braze no pueda determinar dónde añadir esta información de seguimiento. Para asegurar que esto funcione correctamente, debes incluir un carácter especial al final de la URL para indicar dónde debe añadirse el seguimiento.
 
@@ -227,7 +227,7 @@ Las URLs usan dos caracteres especiales para controlar cómo funciona esto:
 | URL estándar | Sí | Usa `&` al final de la URL (después de la etiqueta de traducción de cierre) si ya contiene `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Generada con Liquid | No | Usa `?` después de las etiquetas de traducción de cierre si la URL generada aún no contiene uno. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Generada con Liquid | Sí | Usa `&` después de la etiqueta de traducción de cierre si la URL generada ya contiene un `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Seguimiento de enlaces de correo electrónico" }
 
 ### Configuración de idioma y accesibilidad {#language-settings-and-accessibility}
 
@@ -296,4 +296,4 @@ Sí. Si usas un CSV, primero haz la edición en el archivo y luego cárgalo de n
 | Las etiquetas de traducción contienen URLs completas o URLs generadas con Liquid. | Las etiquetas de traducción que contienen URLs se identifican en caso de que ocurran problemas con enlaces rotos o seguimiento de enlaces. |
 | Las etiquetas de traducción incluyen parámetros de consulta. | Las etiquetas de traducción que contienen parámetros de consulta se identifican en caso de que ocurran problemas con enlaces rotos o seguimiento de enlaces. |
 | Las etiquetas de traducción contienen atributos o estructuras HTML. | Las etiquetas de traducción que contienen atributos o estructuras HTML se identifican en caso de que ocurran problemas con estilos y formato. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="¿Qué validaciones o comprobaciones adicionales realiza Braze?" }

@@ -17,6 +17,10 @@ description: "This article outlines details about the Create email templates Bra
 
 These templates will be available on the **Templates & Media** page. The response from this endpoint includes a field for `email_template_id`, which can be used to update the template in subsequent API calls.
 
+{% alert tip %}
+You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) using the [`create_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates) function. This lets AI tools like Claude and Cursor create email templates through natural language prompts.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5eb1fe0d-2795-474d-aaf2-c4e2977dc94b {% endapiref %}
 
 ## Prerequisites

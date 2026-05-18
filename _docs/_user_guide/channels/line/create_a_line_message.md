@@ -23,7 +23,7 @@ Before creating a LINE message, do the following:
 2. Acknowledge policies, limits, and content rules.
 3. [Set up your LINE connection]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-Sending LINE messages from Braze will draw from your account's Message Credits.
+Sending LINE messages from Braze will draw from your account's Message or Action Credits.
 
 ## Step 1: Choose where to build your message
 

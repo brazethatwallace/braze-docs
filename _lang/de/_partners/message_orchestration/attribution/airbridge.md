@@ -25,7 +25,7 @@ Mit der Integration von Braze und Airbridge können Sie alle nicht-organischen D
 | Airbridge-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Airbridge-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. |
 | Airbridge SDK | Zusätzlich zum erforderlichen Braze SDK müssen Sie das Airbridge [Android](https://help.airbridge.io/en/developers/android-sdk)- oder [iOS](https://help.airbridge.io/en/developers/ios-sdk)-SDK installieren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -228,7 +228,7 @@ Vorausgesetzt, Sie konfigurieren Ihre Integration wie vorgeschlagen, wird Braze 
 | `Campaign` | Install-Attribution-Campaign | Die Campaign, der die Installationen oder Deeplink-Öffnungen zugerechnet werden |
 | `Ad Group` | Install-Attribution-Anzeigengruppe | Die Anzeigengruppe, der die Installationen oder Deeplink-Öffnungen zugeschrieben werden |
 | `Ad Creative` | Install-Attribution-Anzeige | Das Werbemittel, dem die Installationen oder Deeplink-Öffnungen zugeschrieben werden |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Datenfelder" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available data fields" }
 
 Ihre Nutzerbasis kann im Braze-Dashboard mithilfe der Install-Attribution-Filter nach Attributionsdaten segmentiert werden.
 

@@ -24,7 +24,7 @@ La integración de Braze y Judo proporciona experiencias a medida en tus Campaig
 |---|---|
 | Cuenta de Judo | Se necesita una cuenta de [Judo](https://www.judo.app/) para beneficiarse de esta asociación. |
 | Judo SDK | El SDK de Judo debe integrarse en tus aplicaciones [iOS](https://github.com/judoapp/judo-ios/) y/o [Android](https://github.com/judoapp/judo-android). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 

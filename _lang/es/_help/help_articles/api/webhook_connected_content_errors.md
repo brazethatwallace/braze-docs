@@ -23,7 +23,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Errores 4XX">
   <caption>Errores 4XX</caption>
   <thead>
     <tr>
@@ -130,7 +130,7 @@ Los errores `5XX` indican que hay un problema con el punto de conexión. Estos e
 | **529 Host Overloaded** | El host del punto de conexión está sobrecargado y no pudo responder. |
 | **598 Host Unhealthy** | Braze simuló la respuesta porque el host del punto de conexión está marcado temporalmente como en mal estado. Consulta [Detección de host en mal estado](#unhealthy-host-detection) para más información. |
 | **599 Connection Error** | Braze experimentó un error de tiempo de espera de conexión de red al intentar establecer una conexión con el punto de conexión, lo que significa que el punto de conexión puede ser inestable o estar caído. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Errores 5XX" }
 
 ### Resolver errores 5XX {#resolving-5xx-errors}
 

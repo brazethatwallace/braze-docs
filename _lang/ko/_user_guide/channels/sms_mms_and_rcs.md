@@ -36,7 +36,7 @@ SMS, MMS, RCS의 사용 가능 여부는 Braze 패키지에 따라 다릅니다.
 | 2단계 인증 | 계정 로그인 및 트랜잭션 확인을 위한 일회용 인증 코드를 전달합니다. |
 | 프로모션 제안 | 시간 제한 프로모션, 반짝 세일, 개인화된 할인 정보를 고객의 휴대폰으로 직접 전달합니다. |
 | 고객지원 | 양방향 대화를 통해 고객 문의를 해결하고, 피드백을 수집하거나, 서비스 요청을 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## SMS, MMS, RCS 비교 {#sms-mms-and-rcs-compared}
 

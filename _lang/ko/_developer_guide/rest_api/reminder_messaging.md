@@ -26,7 +26,7 @@ description: "이 참조 문서에서는 Braze 랜딩 페이지, 커스텀 속�
 | 랜딩 페이지 액세스 | Braze에서 [랜딩 페이지]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)를 생성할 수 있는 액세스 및 권한. |
 | HTML 및 JavaScript 지식 | 랜딩 페이지를 커스터마이즈하기 위한 HTML 및 JavaScript에 대한 기본적인 이해. [옵션 B](#option-b-personal-dates-custom-code-block)에만 필요합니다. |
 | Liquid 지식 | 개인화된 변수를 템플릿화하기 위한 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)에 대한 기본적인 이해. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 1단계: 랜딩 페이지를 생성하고 메시지에서 링크하기 {#step-1-create-a-landing-page-and-link-to-it-from-a-message}
 
@@ -46,7 +46,7 @@ description: "이 참조 문서에서는 Braze 랜딩 페이지, 커스텀 속�
 
 사용자 환경설정을 수집하는 방법은 공유 날짜를 수집하는지 개인 날짜를 수집하는지에 따라 달라집니다. 사용 사례에 맞는 옵션을 선택하세요.
 
-### 옵션 A: 공유 날짜 (드래그 앤 드롭 양식 블록) {#option-a-shared-dates-dnd-form-blocks}
+### 옵션 A: 공유 날짜 (드래그 앤 드롭 양식 블록) {#option-a-shared-dates-drag-and-drop-form-blocks}
 
 많은 사용자가 동일한 날짜를 공유하는 이벤트(예: 공휴일 또는 스포츠 이벤트)의 경우, 드래그 앤 드롭 에디터의 내장 [**체크박스** 양식 블록]({{site.baseurl}}/user_guide/engagement_tools/landing_pages/creating_pages/#form-blocks)을 사용하여 환경설정을 수집합니다. 각 체크박스는 양식이 제출될 때 사용자 프로필에 부울 커스텀 속성(`true` 또는 `false`)을 기본적으로 설정합니다—커스텀 코드가 필요하지 않습니다.
 

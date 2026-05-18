@@ -56,7 +56,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 | 1072–1224 Zeichen | 8 Segmente |
 | 1225–1377 Zeichen | 9 Segmente |
 | 1378–1530 Zeichen | 10 Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Aufschlüsselung" }
 {% endtab %}
 {% tab UCS-2-Kodierung %}
 | Zeichenanzahl | Wie viele Segmente? |
@@ -71,7 +71,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 | 470–536 Zeichen | 8 Segmente |
 | 537–603 Zeichen | 9 Segmente |
 | 604–670 Zeichen | 10 Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Aufschlüsselung" }
 {% endtab %}
 {% endtabs %}
 
@@ -147,6 +147,6 @@ Rich-Media-Nachrichten enthalten eine Mediendatei (Bild, Video) oder eine Rich C
 
 ### Nachrichten-Editor und Nachrichtennutzungs-Dashboard {#message-composer-and-message-usage-dashboard}
 
-Während Sie Ihre Nachricht erstellen, zeigt der Nachrichten-Editor den Abrechnungstyp in Echtzeit über ein Label an (Basic RCS, Single RCS, Rich oder Rich Media), damit Sie die Kosten vor dem Senden im Blick behalten können.
+Während Sie Ihre Nachricht erstellen, zeigt der Nachrichten-Editor den Abrechnungstyp in Realtime über ein Label an (Basic RCS, Single RCS, Rich oder Rich Media), damit Sie die Kosten vor dem Senden im Blick behalten können.
 
-Ihr [Nachrichtennutzungs-Dashboard]({{site.baseurl}}/message_usage_dashboard/) spiegelt diese Abrechnungstypen wider und zeigt die Anzahl der verwendeten Segmente für US-Nachrichten an, sodass Sie einen transparenten Überblick über Ihren Nachrichtenguthaben-Verbrauch erhalten.
+Ihr [Nachrichtennutzungs-Dashboard]({{site.baseurl}}/message_usage_dashboard/) spiegelt diese Abrechnungstypen wider und zeigt die Anzahl der verwendeten Segmente für US-Nachrichten an, sodass Sie einen transparenten Überblick über Ihren Verbrauch an Nachrichten- oder Aktionsguthaben erhalten.

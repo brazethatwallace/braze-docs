@@ -1,5 +1,4 @@
 Page Path,Writer,Team,GitHub Username
-_docs/_api/api_campaigns.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/api_campaigns/transactional_api_campaign.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/api_limits.md,Docs Team,,docs-team
 _docs/_api/basics.md,Docs Team,,docs-team
@@ -934,21 +933,6 @@ _docs/_releases/2025/5_27_25.md,Docs Team,n/a,docs-team
 _docs/_releases/2025/6_24_25.md,Docs Team,n/a,docs-team
 _docs/_releases/2025/7_22_25.md,Docs Team,n/a,docs-team
 _docs/_releases/2025/8_19_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/9_16_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2026.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/1_8_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/2_5_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/3_5_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/4_2_26.md,Docs Team,n/a,docs-team
-_docs/_releases/2026/4_30_26.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/apptimize.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/custom_broadcast_receiver.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/eclipse_setup_deprecated.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/grouparoo.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/shopify_checkout.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/tls_deprecation.md,Docs Team,n/a,docs-team
-_docs/_releases/deprecations/twilio.md,Docs Team,n/a,docs-team
 _docs/_releases/home.md,Docs Team,n/a,docs-team
 _docs/_releases/sdk_changelogs.md,Docs Team,n/a,docs-team
 _docs/_user_guide/administer.md,Docs Team,,docs-team
@@ -999,15 +983,15 @@ _docs/_user_guide/administer/personal/language_settings.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/product_portal.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/sdk_endpoints.md,Zair,SDKs,zairro
 _docs/_user_guide/administer/personal/the_braze_dashboard.md,Bre,FIX,bre-fitzgerald
-_docs/_user_guide/analytics.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics.md,Docs Team,Reporting,docs-team
 _docs/_user_guide/analytics/dashboards.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/dashboards/api_usage.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/api_usage.md,Zair,Ingestion Foundations,zairro
 _docs/_user_guide/analytics/dashboards/channel_performance.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/dashboards/conversions.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/dashboards/dashboard_builder.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/dashboards/deliverability_center.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/deliverability_center.md,Lydia,Email,lydia-xie
 _docs/_user_guide/analytics/dashboards/home.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/metrics_glossary.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports.md,Rachel,Reporting,rachel-feinberg

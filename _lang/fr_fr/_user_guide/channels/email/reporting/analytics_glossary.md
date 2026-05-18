@@ -19,7 +19,7 @@ channel:
 
 {% api %}
 
-### Variante
+### Variante {#variation}
 
 {% apitags %}
 Count
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### Joignable par e-mail
+### Joignable par e-mail {#emailable}
 
 {% apitags %}
 Count
@@ -47,7 +47,7 @@ Count
 
 {% api %}
 
-### % d'audience
+### % d'audience {#audience}
 
 {% apitags %}
 Percentage
@@ -61,7 +61,7 @@ Percentage
 
 {% api %}
 
-### Destinataires uniques
+### Destinataires uniques {#unique-recipients}
 
 {% apitags %}
 Count
@@ -75,7 +75,7 @@ Count
 
 {% api %}
 
-### Envois
+### Envois {#sends}
 
 {% apitags %}
 Count
@@ -89,7 +89,7 @@ Count
 
 {% api %}
 
-### Messages envoyés
+### Messages envoyés {#messages-sent}
 
 {% apitags %}
 Count
@@ -103,7 +103,7 @@ Count
 
 {% api %}
 
-### Livraisons
+### Livraisons {#deliveries}
 
 {% apitags %}
 Count
@@ -131,7 +131,7 @@ Percentage
 
 {% api %}
 
-### Rebonds
+### Rebonds {#bounces}
 
 {% apitags %}
 Count, Percentage
@@ -157,7 +157,7 @@ Un rebond d'e-mail pour les clients utilisant SendGrid comprend les échecs d'en
 
 {% api %}
 
-### Échec d'envoi définitif
+### Échec d'envoi définitif {#hard-bounce}
 
 {% apitags %}
 Count
@@ -173,7 +173,7 @@ Lorsqu'un e-mail subit un échec d'envoi définitif ou est marqué comme spam, B
 
 {% api %}
 
-### Échec provisoire d'envoi
+### Échec provisoire d'envoi {#soft-bounce}
 
 {% apitags %}
 Count
@@ -189,7 +189,7 @@ Bien que les échecs provisoires d'envoi ne soient pas suivis dans l'analyse de 
 
 {% api %}
 
-### Spam
+### Spam {#spam}
 
 {% apitags %}
 Count, Percentage
@@ -211,7 +211,7 @@ Count, Percentage
 
 {% api %}
 
-### Ouvertures uniques
+### Ouvertures uniques {#unique-opens}
 
 {% apitags %}
 Count, Percentage
@@ -233,7 +233,7 @@ Count, Percentage
 
 {% api %}
 
-### Clics uniques
+### Clics uniques {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
@@ -255,7 +255,7 @@ Count, Percentage
 
 {% api %}
 
-### Désabonnements
+### Désabonnements {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -275,11 +275,20 @@ Les *désabonnements* reflètent le lien de désabonnement standard de Braze. Le
 </span>
 {:/}
 
+#### Pourquoi les *désabonnements* et les clics sur le lien de désabonnement peuvent différer {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
+
+Sur la page **Analytics** d'une campagne par e-mail ou d'un Canvas, comparez le nombre de *désabonnements* aux clics sur l'URL de désabonnement Braze dans le détail par lien lorsque vous développez **Total Clicks** ou **Unique Clicks**. Les deux correspondent souvent, mais peuvent différer :
+
+- **Plus de *désabonnements* que de clics sur l'URL de désabonnement dans le corps du message :** Le [list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) est un chemin de désabonnement supplémentaire dans l'en-tête de l'e-mail (et non le lien dans le corps de votre message). Lorsqu'un utilisateur se désabonne de cette manière, cela est comptabilisé dans les *désabonnements* mais ne compte pas comme un clic sur l'URL de désabonnement suivie dans le corps du message.
+- **Plus de clics sur l'URL de désabonnement dans le corps du message que de *désabonnements* :** Un utilisateur peut cliquer sur ce lien plusieurs fois. S'il se désabonne, se réabonne, puis se désabonne à nouveau, l'analyse des e-mails peut enregistrer plusieurs clics (par exemple, deux) dans le détail des clics.
+
+Pour en savoir plus, consultez [Pourquoi le nombre de désabonnements diffère-t-il du nombre de clics sur mon lien de désabonnement ?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+
 {% endapi %}
 
 {% api %}
 
-### Chiffre d'affaires
+### Chiffre d'affaires {#revenue}
 
 {% apitags %}
 Count
@@ -293,7 +302,7 @@ Count
 
 {% api %}
 
-### Conversions principales (A) ou événement de conversion principal
+### Conversions principales (A) ou événement de conversion principal {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
@@ -315,7 +324,7 @@ Count, Percentage
 
 {% api %}
 
-### Confiance
+### Confiance {#confidence}
 
 {% apitags %}
 Count
@@ -327,7 +336,7 @@ Count
 
 {% api %}
 
-### Ouvertures automatiques
+### Ouvertures automatiques {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Cet indicateur est suivi depuis le 11 novembre 2021 pour SendGrid et le 2 décembre 2021 pour SparkPost.
 
@@ -337,7 +346,7 @@ Count
 
 {% api %}
 
-### Autres ouvertures
+### Autres ouvertures {#other-opens}
 
 {% apitags %}
 Count
@@ -351,7 +360,7 @@ Count
 
 {% api %}
 
-### Taux de clics par ouverture
+### Taux de clics par ouverture {#click-to-open-rate}
 
 {% apitags %}
 Percentage

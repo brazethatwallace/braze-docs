@@ -97,7 +97,7 @@ O método HTTP que você deve usar varia dependendo do endpoint para o qual est�
 | GET | Recupera informações existentes, em vez de gravar novas informações. Por definição, uma solicitação GET não suporta um corpo de solicitação. |
 | PUT | Atualiza informações no endpoint, substituindo quaisquer informações existentes pelo que está no corpo da solicitação. |
 | DELETE | Exclui o recurso na URL HTTP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### Corpo da solicitação {#request-body}
 
@@ -230,7 +230,7 @@ Quando a solicitação do webhook é enviada, o servidor receptor retornará um 
 | `429` (limite de taxa)  | Não | Sim |
 | `Outros 4XX` (erro do cliente)  | Não | Não |
 | `5XX` (erro do servidor)   | Não | Sim |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 A Braze tenta novamente os códigos de status acima até cinco vezes em 30 minutos usando backoff exponencial. Se não conseguirmos alcançar seu endpoint, as novas tentativas podem se estender por um período de 24 horas.<br><br>Cada webhook tem um limite de 90 segundos antes de expirar.

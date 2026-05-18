@@ -12,10 +12,6 @@ channel:
 
 > El creador de plantillas de WhatsApp te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y Meta Business Manager. Una vez que Meta apruebe tu plantilla, úsala en tantas campañas y Canvas como quieras.
 
-{% alert note %}
-El creador de plantillas de WhatsApp se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze para obtener acceso.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -37,7 +33,7 @@ Completa los siguientes campos:
 | **Cuenta** | La cuenta de WhatsApp Business (WABA) a la que deseas enviar la plantilla. Todos los grupos de suscripción y números de teléfono dentro de una WABA compartirán el acceso a la plantilla. |
 | **Idioma** | El idioma de esta plantilla. WhatsApp requiere una plantilla separada para cada idioma. |
 | **Nombre de la plantilla** | Un nombre único para tu plantilla. Los nombres de plantilla solo pueden contener letras minúsculas, números y guiones bajos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ### Paso 3: Elige un diseño {#step-3-choose-a-layout}
 
@@ -81,7 +77,7 @@ Añade hasta 10 botones a tu plantilla. Los tipos de botones tienen diferentes c
 | Número de teléfono | Botones de llamada a la acción | {::nomarkdown}<ul><li><b>Cantidad máxima:</b> 1</li><li><b>Texto del botón:</b> Hasta 25 caracteres</li><li><b>Número de teléfono:</b> Número de teléfono válido con código de país, sin + (como "14155552671")</li></ul> {:/}|
 | Visitar sitio web | Botones de llamada a la acción | {::nomarkdown}<ul><li><b>Cantidad máxima:</b> 2</li><li><b>Texto del botón:</b> Hasta 25 caracteres</li><li><b>URL del sitio web:</b> Hasta 2000 caracteres</li></ul> {:/}|
 | Copiar código de oferta | Botones de llamada a la acción | {::nomarkdown}<ul><li><b>Cantidad máxima:</b> 1</li><li><b>Texto del botón:</b> "Copy offer code" (no se puede editar)</li><li><b>Código de oferta:</b> Hasta 15 caracteres</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
 
 ![Creador de plantillas de WhatsApp con botones de respuesta rápida y llamada a la acción.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -94,7 +90,7 @@ Antes de enviar, previsualiza cómo aparecerá tu mensaje para los destinatarios
 
 ### Paso 6: Envía para revisión {#step-6-submit-for-review}
 
-Selecciona **Enviar** para enviar tu plantilla a Meta para su revisión, lo que normalmente tarda unos minutos pero puede tardar hasta 24 horas. La plantilla aparece en tu página de **Plantillas de WhatsApp** cuando se envía, y el estado se actualiza cuando actualizas la página de **Plantillas de WhatsApp**.
+Selecciona **Submit** para enviar tu plantilla a Meta para su revisión, lo que normalmente tarda unos minutos pero puede tardar hasta 24 horas. La plantilla aparece en tu página de **Plantillas de WhatsApp** cuando se envía, y el estado se actualiza cuando actualizas la página de **Plantillas de WhatsApp**.
 
 ## Categorías de plantillas compatibles {#supported-template-categories}
 

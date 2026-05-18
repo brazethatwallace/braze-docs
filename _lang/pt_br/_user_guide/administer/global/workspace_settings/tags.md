@@ -16,7 +16,7 @@ Para saber como adicionar tags a campanhas, Canvas, segmentos e dados personaliz
 
 Para organizar ainda mais suas tags, você pode aninhá-las sob uma tag principal. Por exemplo, você pode manter todas as tags de feriados aninhadas sob uma tag principal `Holidays`, ou todas as tags relacionadas a uma etapa do seu funil de marketing sob uma tag principal `Funnel`.
 
-![A página de Gerenciamento de tags mostrando uma lista de tags organizadas por grupos aninhados.]({% image_buster /assets/img_archive/tags_view.png %})
+![A página de gerenciamento de tags mostrando uma lista de tags organizadas por grupos aninhados.]({% image_buster /assets/img_archive/tags_view.png %})
 
 Para aninhar uma nova tag, crie uma tag, selecione **Nest Tag Under** e escolha sob qual tag existente deseja aninhar a nova tag.
 
@@ -37,7 +37,7 @@ table td {
 </style>
 
 
-<table>
+<table aria-label="Best practices #tags-best-practices">
   <caption>Práticas recomendadas</caption>
 <thead>
   <tr>

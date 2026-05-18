@@ -3,7 +3,7 @@ nav_title: Angepasste Anzeige
 article_title: Anpassen der Anzeige von In-App-Nachrichten für iOS
 platform: iOS
 page_order: 4
-description: "Dieser referenzierte Artikel behandelt die angepasste Handhabung von In-App-Nachrichten für Ihre iOS-Anwendung."
+description: "Dieser Referenzartikel behandelt die angepasste Handhabung der Anzeige von In-App-Nachrichten für Ihre iOS-Anwendung."
 channel:
   - in-app messages
 
@@ -12,7 +12,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Angepasste Handhabung der Anzeige von In-App-Nachrichten
+# Angepasste Handhabung der Anzeige von In-App-Nachrichten {#custom-handling-in-app-message-display}
 
 Wenn die [`ABKInAppMessageControllerDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h) gesetzt ist, wird die folgende Delegatenmethode aufgerufen, bevor In-App-Nachrichten angezeigt werden:
 
@@ -33,7 +33,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie nur die Methode [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) implementiert haben, wird stattdessen die folgende UI-Delegate-Methode aufgerufen:
+Wenn Sie nur [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) implementiert haben, wird stattdessen die folgende UI-Delegate-Methode aufgerufen:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -57,23 +57,23 @@ Sie können die Behandlung von In-App-Nachrichten anpassen, indem Sie diese Dele
 | `ABKInAppMessageDisplayChoice` | Verhalten |
 | -------------------------- | -------- |
 | Objective-C: `ABKDisplayInAppMessageNow`<br>Swift: `displayInAppMessageNow` | Die Nachricht wird sofort angezeigt. |
-| Objective-C: `ABKDisplayInAppMessageLater`<br>Swift: `displayInAppMessageLater` | Die Nachricht wird nicht angezeigt und liegt wieder oben auf dem Stack. |
+| Objective-C: `ABKDisplayInAppMessageLater`<br>Swift: `displayInAppMessageLater` | Die Nachricht wird nicht angezeigt und wieder oben auf dem Stack abgelegt. |
 | Objective-C: `ABKDiscardInAppMessage`<br>Swift: `discardInAppMessage`| Die Nachricht wird verworfen und nicht angezeigt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Handhabung der Anzeige von In-App-Nachrichten" }
 
-Mit der Delegatenmethode `beforeInAppMessageDisplayed:` können Sie eine Logik für die Anzeige von In-App-Nachrichten hinzufügen, In-App-Nachrichten anpassen, bevor Braze sie anzeigt, oder die Logik für die Anzeige von In-App-Nachrichten und das UI von Braze ganz abschalten.
+Mit der Delegatenmethode `beforeInAppMessageDisplayed:` können Sie eine Logik für die Anzeige von In-App-Nachrichten hinzufügen, In-App-Nachrichten anpassen, bevor Braze sie anzeigt, oder die Anzeigelogik und das UI von Braze für In-App-Nachrichten vollständig umgehen.
 
-In unserer [Beispielanwendung](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m) finden Sie ein Beispiel für die Implementierung.
+In unserer [Beispielanwendung](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m) finden Sie ein Implementierungsbeispiel.
 
-## In-App-Nachrichten vor der Anzeige außer Kraft setzen
+## In-App-Nachrichten vor der Anzeige außer Kraft setzen {#overriding-in-app-messages-before-display}
 
-Wenn Sie das Anzeigeverhalten von In-App-Nachrichten ändern möchten, sollten Sie die erforderliche Anzeigelogik zu Ihrer `beforeInAppMessageDisplayed:` Delegate-Methode hinzufügen. So können Sie z.B. die In-App-Nachricht vom oberen Bildschirmrand aus anzeigen lassen, wenn gerade die Tastatur angezeigt wird, oder das Datenmodell der In-App-Nachricht übernehmen und die In-App-Nachricht selbst anzeigen.
+Wenn Sie das Anzeigeverhalten von In-App-Nachrichten ändern möchten, sollten Sie die erforderliche Anzeigelogik zu Ihrer `beforeInAppMessageDisplayed:`-Delegatenmethode hinzufügen. So können Sie z. B. die In-App-Nachricht vom oberen Bildschirmrand aus anzeigen lassen, wenn gerade die Tastatur eingeblendet ist, oder das Datenmodell der In-App-Nachricht übernehmen und die In-App-Nachricht selbst anzeigen.
 
-Wenn die In-App-Nachricht-Kampagne nicht angezeigt wird, wenn die Sitzung gestartet wurde, vergewissern Sie sich, dass Sie die notwendige Anzeigelogik zu Ihrer `beforeInAppMessageDisplayed:`-Delegatenmethode hinzugefügt haben. Damit ist es zulässig, dass die In-App-Nachricht-Kampagne vom oberen Bildschirmrand aus angezeigt wird, auch wenn die Tastatur eingeblendet ist.
+Wenn die In-App-Nachricht-Campaign nicht angezeigt wird, wenn die Sitzung gestartet wurde, vergewissern Sie sich, dass Sie die notwendige Anzeigelogik zu Ihrer `beforeInAppMessageDisplayed:`-Delegatenmethode hinzugefügt haben. Damit kann die In-App-Nachricht-Campaign auch dann vom oberen Bildschirmrand aus angezeigt werden, wenn die Tastatur eingeblendet ist.
 
-## Deaktivieren des dunklen Modus
+## Dark Mode deaktivieren {#disabling-dark-mode}
 
-Um zu verhindern, dass In-App-Nachrichten das Design des Dark Mode übernehmen, wenn auf dem Nutzergerät der Dark Mode aktiviert ist, verwenden Sie die Eigenschaft [`ABKInAppMessage.enableDarkTheme`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message.html#ae89df6090bed623099ab0ecc0a74ad5d). Setzen Sie entweder in der Methode `ABKInAppMessageControllerDelegate.beforeInAppMessageDisplayed:` oder `ABKInAppMessageUIDelegate.beforeInAppMessageDisplayed:` die Eigenschaft `enableDarkTheme` des Parameters `inAppMessage` auf `NO`.
+Um zu verhindern, dass In-App-Nachrichten das Design des Dark Mode übernehmen, wenn auf dem Gerät der Nutzer:innen der Dark Mode aktiviert ist, verwenden Sie die Eigenschaft [`ABKInAppMessage.enableDarkTheme`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message.html#ae89df6090bed623099ab0ecc0a74ad5d). Setzen Sie entweder in der Methode `ABKInAppMessageControllerDelegate.beforeInAppMessageDisplayed:` oder `ABKInAppMessageUIDelegate.beforeInAppMessageDisplayed:` die Eigenschaft `enableDarkTheme` des Parameters `inAppMessage` auf `NO`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -121,13 +121,13 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 {% endtab %}
 {% endtabs %}
 
-## Ausblenden der Statusleiste während der Anzeige
+## Ausblenden der Statusleiste während der Anzeige {#hiding-the-status-bar-during-display}
 
-Bei `Full`- und `HTML`-In-App-Nachrichten versucht das SDK standardmäßig, die Nachricht über der Statusleiste zu platzieren. In einigen Fällen kann die Statusleiste jedoch weiterhin über der In-App-Nachricht erscheinen. Ab Version [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) des iOS SDK können Sie erzwingen, dass die Statusleiste ausgeblendet wird, wenn Sie `Full` und `HTML` In-App-Nachrichten anzeigen, indem Sie `ABKInAppMessageHideStatusBarKey` auf `YES` innerhalb von `appboyOptions` setzen, das an `startWithApiKey:` übergebenen wird.
+Bei `Full`- und `HTML`-In-App-Nachrichten versucht das SDK standardmäßig, die Nachricht über der Statusleiste zu platzieren. In einigen Fällen kann die Statusleiste jedoch weiterhin über der In-App-Nachricht erscheinen. Ab Version [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) des iOS SDK können Sie erzwingen, dass die Statusleiste beim Anzeigen von `Full`- und `HTML`-In-App-Nachrichten ausgeblendet wird, indem Sie `ABKInAppMessageHideStatusBarKey` auf `YES` innerhalb der `appboyOptions` setzen, die an `startWithApiKey:` übergeben werden.
 
-## Impressionen und Klicks protokollieren
+## Impressionen und Klicks protokollieren {#logging-impressions-and-clicks}
 
-Die Protokollierung der Impressionen und Klicks von In-App-Nachrichten erfolgt nicht automatisch, wenn Sie eine vollständig angepasste Handhabung implementieren (z. B. umgehen Sie die Anzeige von In-App-Nachrichten von Braze, indem Sie `ABKDiscardInAppMessage` in `beforeInAppMessageDisplayed:` zurückgeben). Wenn Sie sich dafür entscheiden, Ihre eigene UI unter Verwendung unserer In-App-Nachricht-Modelle zu implementieren, müssen Sie die Analytics mit den folgenden Methoden der Klasse `ABKInAppMessage` protokollieren:
+Die Protokollierung von Impressionen und Klicks bei In-App-Nachrichten erfolgt nicht automatisch, wenn Sie eine vollständig angepasste Handhabung implementieren (z. B. wenn Sie die Anzeige von In-App-Nachrichten durch Braze umgehen, indem Sie `ABKDiscardInAppMessage` in Ihrer `beforeInAppMessageDisplayed:`-Methode zurückgeben). Wenn Sie sich dafür entscheiden, Ihr eigenes UI unter Verwendung unserer In-App-Nachricht-Modelle zu implementieren, müssen Sie die Analytics mit den folgenden Methoden der Klasse `ABKInAppMessage` protokollieren:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -152,7 +152,7 @@ func logInAppMessageClicked()
 {% endtab %}
 {% endtabs %}
 
-Außerdem sollten Sie die Klicks auf Buttons in den Unterklassen von `ABKInAppMessageImmersive` protokollieren (*i.e*., `Modal`\- und `Full`-In-App-Nachrichten):
+Außerdem sollten Sie die Button-Klicks in den Unterklassen von `ABKInAppMessageImmersive` protokollieren (*d. h.* `Modal`- und `Full`-In-App-Nachrichten):
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -173,16 +173,13 @@ func logInAppMessageClickedWithButtonID(buttonId: NSInteger)
 {% endtab %}
 {% endtabs %}
 
-## Methoden-Deklarationen
+## Methoden-Deklarationen {#method-declarations}
 
 Weitere Informationen finden Sie in den folgenden Header-Dateien:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
 - [`ABKInAppMessageControllerDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h)
 
-## Beispiele für die Umsetzung
+## Beispiele für die Implementierung {#implementation-samples}
 
-Siehe Beispiel App [`AppDelegate.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m)-In-App-Nachricht.
-
-
-
+Siehe die Beispiel-App für In-App-Nachrichten [`AppDelegate.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m).

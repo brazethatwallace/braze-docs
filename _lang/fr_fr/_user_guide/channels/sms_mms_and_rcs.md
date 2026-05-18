@@ -36,7 +36,7 @@ Avant de commencer, assurez-vous de disposer des éléments suivants :
 | Authentification à deux facteurs | Envoyez des codes de vérification à usage unique pour la connexion au compte et la confirmation de transaction. |
 | Offres promotionnelles | Atteignez les clients avec des promotions à durée limitée, des ventes flash et des remises personnalisées directement sur leur téléphone. |
 | Assistance client | Activez des conversations bidirectionnelles pour résoudre les demandes des clients, recueillir des retours ou confirmer des demandes de service. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## Comparaison des SMS, MMS et RCS {#sms-mms-and-rcs-compared}
 

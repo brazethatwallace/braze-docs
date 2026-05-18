@@ -44,7 +44,7 @@ Braze에서 구매 데이터를 사용하는 방법은 여러 가지가 있습�
 - **[세분화](#purchase-event-segmentation):** 구매 데이터를 사용하여 구매 행동을 기반으로 사용자 세그먼트를 생성합니다.
 - **[개인화](#personalization):** 구매 데이터를 사용하여 사용자에게 메시지를 개인화합니다.
 - **[메시지 트리거](#trigger-messages):** 구매 이벤트를 기반으로 메시지가 트리거되도록 설정합니다.
-- **[분석](#analytics):** 구매 데이터를 분석하여 사용자 행동과 마케팅 Campaign(캠페인)의 효과에 대한 인사이트를 얻습니다.
+- **[분석](#analytics):** 구매 데이터를 분석하여 사용자 행동과 마케팅 Campaign의 효과에 대한 인사이트를 얻습니다.
 
 ### 세분화 {#purchase-event-segmentation}
 
@@ -123,7 +123,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
     }
 </style>
 
-<table>
+<table aria-label="매출 계산">
   <caption>매출 계산</caption>
     <thead>
         <tr>

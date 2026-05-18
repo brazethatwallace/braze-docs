@@ -34,7 +34,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | -------- | -------- | --------- | ----------- |
 | `page` | Facultatif | Entier | La page de segments à renvoyer, par défaut 0 (renvoie le premier ensemble pouvant contenir jusqu'à 100 éléments). |
 | `sort_direction` | Facultatif | Chaîne de caractères | - Trier par date de création du plus récent au plus ancien : indiquez la valeur `desc`.<br> - Trier par date de création du plus ancien au plus récent : indiquez la valeur `asc`. <br><br>Si `sort_direction` n'est pas inclus, l'ordre par défaut est du plus ancien au plus récent. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 ```

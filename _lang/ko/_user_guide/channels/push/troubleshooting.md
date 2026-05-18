@@ -26,9 +26,9 @@ channel: push
 
 #### 푸시 구독 상태 {#push-subscription-status}
 
-푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필** 섹션의 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) 탭에서 고객 프로필을 확인하여 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **푸시 등록 대상** 필드에 목록이 표시됩니다:
+푸시는 가입됨 또는 옵트인한 사용자에게만 발송할 수 있습니다. **고객 프로필** 섹션의 [참여]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) 탭에서 고객 프로필을 확인하여 테스트 중인 워크스페이스에 대해 푸시에 활성 등록되어 있는지 확인하세요. 여러 앱에 등록되어 있는 경우 **Push Registered For** 필드에 목록이 표시됩니다:
 
-![푸시 등록 대상]({% image_buster /assets/img_archive/trouble1.png %})
+![Push Registered For]({% image_buster /assets/img_archive/trouble1.png %})
 
 Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼 수도 있습니다:
 - [식별자별 사용자]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
@@ -40,11 +40,11 @@ Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼
 
 타겟팅하는 Segment에 포함되어 있는지 확인하세요(라이브 Campaign이고 테스트가 아닌 경우). **고객 프로필**에서 사용자가 현재 포함된 Segment 목록을 확인할 수 있습니다. 세분화는 실시간으로 업데이트되므로 이 값은 항상 변할 수 있다는 점을 기억하세요.
 
-![Segment 목록]({% image_buster /assets/img_archive/trouble2.png %})
+![List of Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segment를 생성할 때 **사용자 조회**를 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다.
+Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다.
 
-![검색 필드가 있는 사용자 조회 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
+![검색 필드가 있는 User Lookup 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 #### 푸시 알림 한도 {#push-notification-caps}
 
@@ -52,7 +52,7 @@ Segment를 생성할 때 **사용자 조회**를 사용하여 사용자가 해�
 
 대시보드에서 [글로벌 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over)을 확인하여 이를 수행할 수 있습니다. Campaign이 최대 게재빈도 설정 규칙을 따르도록 설정된 경우, 이 설정의 영향을 받는 사용자 수가 표시됩니다.
 
-![Campaign 세부 정보]({% image_buster /assets/img_archive/trouble3.png %})
+![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
 
 #### 사용량 제한 {#rate-limits}
 
@@ -78,6 +78,50 @@ Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 이 �
 
 내부 사용자를 대상으로 푸시 발송을 테스트할 때, 푸시 알림을 받을 사용자가 현재 해당 앱에 로그인되어 있는지 확인하세요. 그렇지 않으면 사용자가 푸시를 받지 못하거나 Segment에 포함되지 않았다고 생각되는 푸시를 받을 수 있습니다.
 
+{% alert note %}
+Android에서 이미지가 포함된 푸시 메시지를 보내는 경우, FCM이 이미지를 삭제하고 푸시 메시지에 텍스트만 표시하는 경우가 있습니다. 이 문제는 일반적으로 서버 연결 문제로 인해 발생합니다.
+{% endalert %}
+
+## 오류: MismatchSenderID {#error-mismatchsenderid}
+
+MismatchSenderID는 Firebase Cloud Messaging(FCM)의 인증 실패를 나타냅니다. Firebase 발신자 ID와 FCM API 키가 올바른지 확인하세요.
+
+올바른 Firebase 서버 키를 찾아 교체하려면:
+
+1. 앱의 Firebase 콘솔로 이동하세요.
+2. **Project Overview**에서 **Project Settings**를 선택하세요.
+3. **Cloud Messaging** 탭에서 API 키 아래의 발신자 ID가 Braze의 것과 일치하는지 확인하세요(**Settings** > **App Settings** > **Cloud Messaging API Key**).
+
+{% alert warning %}
+Braze 대시보드에서 발신자 ID를 변경하지 마세요. 변경하면 기존 푸시 등록이 무효화됩니다. 발신자 ID가 일치하지 않는 경우, 일치하는 발신자 ID가 있는 Firebase 프로젝트를 찾아야 합니다.
+{% endalert %}
+
+{:start="4"}
+4. **Project credentials** 아래의 **Server Key**를 복사하세요.
+5. Braze에서 **Settings** > **App Settings**로 이동하여 앱을 선택한 다음, **Cloud Messaging API Key** 필드에 서버 키를 붙여넣으세요(기존 키를 교체).
+6. **Save**를 선택하세요.
+7. 확인을 위해, API 키를 변경하기 전과 후에 앱을 열지 않은 상태에서 기기로 테스트 푸시를 보내세요. 이렇게 하면 새로운 푸시 등록 ID(푸시 토큰)를 생성하지 않아도 사용자가 계속 푸시 알림을 받을 수 있는지 확인할 수 있습니다.
+
+## 문제 해결 시나리오 {#troubleshooting-scenarios}
+
+### 푸시 알림 지연 {#delayed-push-notifications}
+
+다음과 같은 이유로 푸시 알림이 지연될 수 있습니다:
+
+- 기기의 데이터 연결이 약한 경우
+- 앱의 커스텀 코드가 Braze 푸시 알림을 억제할 수 있는 경우
+- 기기 설정에서 푸시 알림에 대한 사용자 환경설정
+- Campaign 또는 Canvas에서 생성 시 푸시의 메시지 우선순위
+- 푸시 서비스 제공업체(FCM 및 APNs)의 트래픽 지연 또는 문제
+
+### 푸시 알림이 예상보다 느리게 발송됨 {#push-notifications-are-sending-slower-than-expected}
+
+푸시 알림 설정이 다음 모범 사례를 따르고 있는지 확인하세요:
+
+- 푸시 활성화 상태를 고려하지 않고 대규모 오디언스에 발송하는 경우, 발송 속도가 느려질 수 있습니다. 대신 푸시 활성화된 사용자에게만 발송하여 오디언스 규모를 줄이는 것을 고려하세요.
+- 가능하면 Campaign을 즉시 발송하는 대신 미리 스케줄하세요.
+- Canvas에서 더 많은 수의 사용자에게 푸시 알림을 타겟팅하는 경우, Canvas의 후속 메시지 단계가 사용자에게 즉시 발송하는 Campaign과 다른 처리 시간이 필요할 수 있습니다. 이 경우 Campaign이 일반적으로 Canvas보다 먼저 발송을 완료합니다. Canvas의 첫 번째 "단계"는 사용자가 특정 사용자 여정에 적합한지 확인하는 것이기 때문입니다.
+
 ## 푸시 알림을 클릭해도 앱이 열리지 않음 {#clicking-a-push-notification-doesnt-open-the-app}
 
 푸시 알림을 클릭해도 앱이 열리지 않는 경우, 플랫폼에 따라 다음 사항을 확인하세요.
@@ -102,11 +146,11 @@ Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 이 �
 
 ### 클릭 시 동작 확인 {#verify-on-click-behavior}
 
-Campaign 또는 캔버스 단계에서 **모바일 앱 내에서 웹 URL 열기**가 선택되어 있지 않은지 다시 확인하세요. 선택되어 있다면 선택을 해제하고 다시 시작하세요.
+Campaign 또는 캔버스 단계에서 **Open web URL inside mobile app**이 선택되어 있지 않은지 다시 확인하세요. 선택되어 있다면 선택을 해제하고 다시 시작하세요.
 
-![푸시 구성의 '클릭 시 동작' 필드가 '웹 URL 열기'로 설정되어 있고 '모바일 앱 내에서 웹 URL 열기'가 선택 해제된 상태.]({% image_buster /assets/img/push_on_click.png %})
+![푸시 구성의 "On-click behavior" 필드가 "Open web URL"로 설정되어 있고 "Open web URL inside mobile app"이 선택 해제된 상태.]({% image_buster /assets/img/push_on_click.png %})
 
-클릭 시 동작 "웹 URL 열기"의 기본 상호작용은 SDK 버전에 따라 다릅니다. SDK 버전 iOS 2.29.0 및 Android 2.0.0 이상에서는 이 옵션이 기본적으로 선택되어 있으며 웹 URL이 앱 내 웹뷰에서 열립니다. 이전 버전에서는 이 옵션이 기본적으로 해제되어 있으며 웹 URL이 기기의 기본 웹 브라우저에서 열립니다.
+클릭 시 동작 "Open web URL"의 기본 상호작용은 SDK 버전에 따라 다릅니다. SDK 버전 iOS 2.29.0 및 Android 2.0.0 이상에서는 이 옵션이 기본적으로 선택되어 있으며 웹 URL이 앱 내 웹뷰에서 열립니다. 이전 버전에서는 이 옵션이 기본적으로 해제되어 있으며 웹 URL이 기기의 기본 웹 브라우저에서 열립니다.
 
 이것이 문제가 아닌 경우, 푸시 구현에 문제가 있을 수 있습니다.
 
@@ -118,6 +162,10 @@ Campaign 또는 캔버스 단계에서 **모바일 앱 내에서 웹 URL 열기*
 2. **커스텀 링크 처리 검사:** 앱에 모든 `https://` 링크에 대한 커스텀 처리가 포함되어 있는지 확인하세요. 커스텀 구성이 기본 동작을 재정의할 수 있습니다. 개발팀과 협력하여 필요한 경우 이러한 설정을 검토하고 조정하세요.
 3. **iOS 푸시 등록 확인:** iOS의 경우, [APNs에 푸시 알림 등록]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns)에 대한 푸시 통합 가이드의 1단계를 다시 확인하세요. 앱이 실행을 완료하기 전에 델리게이트 오브젝트가 동기적으로 할당되어야 합니다. 이 단계는 `application:didFinishLaunchingWithOptions:` 메서드에서 완료해야 합니다.
 4. **통합 테스트:** 조정을 완료한 후, iOS 및 Android 기기 모두에서 푸시 알림 동작을 테스트하여 문제가 해결되었는지 확인하세요.
+
+### 앱이 백그라운드에서 실행 중일 때 딥링크가 작동하지 않는 경우 (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
+
+앱이 실행 중이 아니거나 링크를 직접 사용할 때는 딥링크가 작동하지만, 앱이 이미 백그라운드에서 실행 중일 때는 작동하지 않는 경우, 앱이 링크를 처리하는 방식에 문제가 있을 수 있습니다. 메서드 스위즐링을 사용하는 서드파티 라이브러리를 사용하고 있는지 확인하세요. 스위즐링은 딥링크 구현에 문제를 일으킬 수 있으므로 끄는 것을 권장합니다.
 
 ## .p8 인증 키로 마이그레이션 {#migrate-to-a-p8-authentication-key}
 
@@ -134,8 +182,8 @@ Apple `.p8` 인증 키는 Braze에서 APNs 푸시에 필요한 방식입니다. 
 
 ### 데스크탑에서 Chrome 재설정 {#reset-chrome-on-desktop}
 
-1. Chrome 브라우저에서 URL 옆의 **사이트 정보 보기** 슬라이더 아이콘을 선택하세요.
-2. **알림**에서 **권한 재설정**을 선택하세요.
+1. Chrome 브라우저에서 URL 옆의 **View Site Information** 슬라이더 아이콘을 선택하세요.
+2. **Notifications**에서 **Reset permission**을 선택하세요.
 3. Chrome DevTools를 여세요. 운영체제별 관련 단축키는 다음과 같습니다.
 
 <style>
@@ -148,7 +196,7 @@ table {
 | ------- | ------------------------------------------------------------------- |
 | Mac      | `Fn` + `F12`<br>`Ctrl` + `Shift` + `I` |
 | Windows | `F12`<br>`Ctrl` + `Shift` + `I` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="데스크탑에서 Chrome 재설정" }
 
 {:start="4"}
 4. DevTools에서 **Application** 탭으로 이동하세요.
@@ -162,17 +210,17 @@ table {
 
 Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 
-1. 푸시 알림에서 <i class="fas fa-cog" title="설정"></i>을 탭하고 **사이트 설정**을 선택하세요.
-2. **사이트 설정**에서 **지우기 및 재설정**을 탭하세요.
+1. 푸시 알림에서 <i class="fas fa-cog" title="Settings"></i>을 탭하고 **Site settings**를 선택하세요.
+2. **Site settings**에서 **Clear & Reset**을 탭하세요.
 
 사이트의 알림이 열려 있지 않은 경우:
 
 1. Android에서 Chrome을 여세요.
 2. <i class="fas fa-ellipsis-vertical"></i> 메뉴를 탭하세요.
-3. **설정** > **사이트 설정** > **알림**으로 이동하세요.
-4. 알림이 **보내기 전에 확인(권장)**으로 설정되어 있는지 확인하세요.
+3. **Settings** > **Site Settings** > **Notifications**로 이동하세요.
+4. 알림이 **Ask before sending (recommended)**으로 설정되어 있는지 확인하세요.
 5. 목록에서 사이트를 찾으세요.
-6. 항목을 선택하고 **지우기 및 재설정**을 탭하세요.
+6. 항목을 선택하고 **Clear and Reset**을 탭하세요.
 
 푸시 권한이 재설정되었습니다. 사이트에 새 탭을 열고 테스트해 보세요.
 
@@ -181,10 +229,10 @@ Android 알림 서랍에 사이트의 알림이 표시되는 경우:
 
 ### 데스크탑에서 Firefox 재설정 {#reset-firefox-on-desktop}
 
-1. 사이트 URL 옆의 <i class="fa-solid fa-circle-info" alt="정보 아이콘"></i> 또는 <i class="fas fa-lock" alt="잠금 아이콘"></i>을 선택하세요.
-2. **권한**에서 **알림 수신** 옆의 <i class="fa-solid fa-circle-xmark" title="이 권한을 지우고 다시 묻기"></i>를 선택하여 알림 권한을 지우세요.
-3. 같은 메뉴에서 **쿠키 및 사이트 데이터 지우기**를 선택하세요.
-4. 선택을 확인하는 대화 상자에서 **확인**을 선택하세요.
+1. 사이트 URL 옆의 <i class="fa-solid fa-circle-info" alt="info icon"></i> 또는 <i class="fas fa-lock" alt="lock icon"></i>을 선택하세요.
+2. **Permissions**에서 **Receive Notifications** 옆의 <i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i>을 선택하여 알림 권한을 지우세요.
+3. 같은 메뉴에서 **Clear Cookies and Site Data**를 선택하세요.
+4. 선택을 확인하는 대화 상자에서 **OK**를 선택하세요.
 
 푸시 권한이 재설정되었습니다. 사이트에 새 탭을 열고 테스트해 보세요.
 
@@ -202,13 +250,13 @@ Android에서 푸시 권한을 재설정하려면 이 [Mozilla 지원 문서](ht
 {% endalert %}
 
 1. Safari를 여세요.
-2. [Mac 메뉴 막대](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac)에서 **Safari** > **설정** > **웹사이트** > **알림**으로 이동하세요.
+2. [Mac 메뉴 막대](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac)에서 **Safari** > **Settings** > **Websites** > **Notifications**로 이동하세요.
 3. 목록에서 사이트를 선택하세요.
-4. **제거**를 선택하여 해당 사이트의 알림 권한을 삭제하세요.
-5. 그런 다음 **개인 정보 보호** > **웹사이트 데이터 관리**로 이동하세요.
+4. **Remove**를 선택하여 해당 사이트의 알림 권한을 삭제하세요.
+5. 그런 다음 **Privacy** > **Manage Website Data**로 이동하세요.
 6. 목록에서 사이트를 선택하세요.
-7. **제거**를 선택하거나, 모든 사이트 데이터를 제거하려면 **모두 제거**를 선택하세요.
-8. **완료**를 선택하세요.
+7. **Remove**를 선택하거나, 모든 사이트 데이터를 제거하려면 **Remove All**을 선택하세요.
+8. **Done**을 선택하세요.
 
 푸시 권한이 재설정되었습니다. 사이트에 새 탭을 열고 테스트해 보세요.
 

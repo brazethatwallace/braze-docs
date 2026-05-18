@@ -16,9 +16,9 @@ channel:
 
 ユーザーがデバイスまたはWebサイトからログアウトしても、別のユーザーがログインするまでプッシュで到達可能な状態が続きます。別のユーザーがログインした時点で、プッシュトークンは新しいユーザーに再割り当てされます。これは、各デバイスがアプリまたはWebサイトごとに1つのアクティブなプッシュサブスクリプションしか持てないためです。
 
-プッシュトークンが再割り当てされると、その変更はユーザープロファイルの**Push Changelog**に反映されます。ユーザープロファイルの**Engagement**タブに移動すると確認できます。
+プッシュトークンが再割り当てされると、その変更はユーザープロファイルの**プッシュ変更ログ**に反映されます。ユーザープロファイルの**エンゲージメント**タブに移動すると確認できます。
 
-![「Contact Settings」セクションの「Push Changelog」。]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
+![「連絡先設定」セクションの「プッシュ変更ログ」。]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
 
 ### テストプッシュを送信すると、すべてのデバイスに届きますか？ {#when-i-send-a-test-push-does-it-go-to-all-of-my-devices}
 
@@ -36,7 +36,7 @@ channel:
 
 これは、同じデバイスを使用した別のユーザーにプッシュトークンが再割り当てされた場合に発生することがあります。
 
-1. 該当するユーザーのプロファイルの**Engagement**タブにある**Push Changelog**に移動します。
+1. 該当するユーザーのプロファイルの**エンゲージメント**タブにある**プッシュ変更ログ**に移動します。
 2. プッシュトークンが別のユーザーに移動されたというメッセージを探します。
 3. プッシュトークンをコピーしてユーザー検索バーに貼り付けます。
 4. プッシュトークンがまだ存在する場合、そのデバイスで最も最近ログインしたユーザーに移動します。
@@ -52,7 +52,7 @@ Campaignがまだ**下書き**ステータスの場合、テストプッシュ�
 
 **アプリ内**オプションなしで**Web URLを開く**を選択した場合、リンクはデバイスのデフォルトブラウザで直接開きます。**モバイルアプリ内でWeb URLを開く**を選択した場合、リンクはアプリ内Webビューで開きます。
 
-### iOSプッシュ証明書の「本番環境に送信」と「開発環境に送信」の違いは何ですか？ {#what-is-the-difference-between-send-to-production-and-send-to-development-for-ios-push-certificates}
+### iOSプッシュ証明書の「Send to Production」と「Send to Development」の違いは何ですか？ {#what-is-the-difference-between-send-to-production-and-send-to-development-for-ios-push-certificates}
 
 BrazeでAppleプッシュ証明書を追加する際、**Send to Production**と**Send to Development**のオプションは、Brazeがプッシュ通知を配信するために使用するAPNs（Apple Push Notification service）ゲートウェイを決定します。
 
@@ -72,3 +72,17 @@ BrazeでAppleプッシュ証明書を追加する際、**Send to Production**と
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ユーザーは`Foreground Push Enabled`でなくても`Background or Foreground Push Enabled`になることがあります。これは、ユーザーがデバイス設定で可視プッシュ通知を無効にしているが、アプリがバックグラウンドプッシュトークンを保持している場合に発生します。詳細については、[プッシュユーザーとサブスクリプション]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled)を参照してください。
+
+### Brazeはプッシュメッセージがいつ正常に送信されたかをどのように判断しますか？ {#how-does-braze-determine-when-a-push-message-is-sent-successfully}
+
+メッセージは、プッシュサービスプロバイダーによって受信された時点で送信済みとして記録されます。これは、ユーザーがメッセージを受信または閲覧したことを必ずしも意味するものではありません。
+
+iOSの場合、プッシュサービスプロバイダーはApple Push Notification Service（APNs）であり、Androidの場合は通常Firebase Cloud Messaging（FCM）です。プッシュサービスプロバイダーは即座に成功または失敗を返します。失敗にはバウンスやネットワーク障害による再試行が含まれる場合があります。
+
+成功メッセージが返された場合、送信はBrazeによって記録され、その後プッシュサービスがデバイスへの配信を試みます。デバイスにすぐに到達できない場合、サービスはBrazeで設定された有効期限オプション（Androidの場合は**TTL**、iOSの場合は**有効期限**）まで再試行します。メッセージがタイムアウトした場合、プッシュサービスはプッシュを破棄しますが、バウンスとはみなされません。
+
+- アクションベースの配信プッシュCampaignの場合、メッセージ送信はユーザーがCampaignをトリガーするアクションを実行した時点で記録されます。
+- スケジュールされたCampaignの場合、送信時間はメッセージがキューに入れられ、プッシュサービスプロバイダーに渡された時間です。
+- どちらの配信タイプでも、ユーザーがまだプッシュを閲覧または受信していなくても、メッセージはBrazeおよびユーザープロファイルの**受信したCampaign**で「送信済み」としてマークされます。
+
+ダッシュボードのプッシュの「配信」指標は、ページ読み込み時に送信数からバウンス数を差し引いた値として計算されます。

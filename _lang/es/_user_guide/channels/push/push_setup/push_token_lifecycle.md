@@ -31,7 +31,7 @@ Los tokens de notificaciones push se utilizan para enviar tanto notificaciones p
 |------------------|------------------|--------------------------------------------------------------------------------------------------------------|
 | Push en primer plano | Sí       | Se muestra visiblemente una notificación al usuario mientras la aplicación está en primer plano.           |
 | Push en segundo plano | No        | Una notificación se entrega silenciosamente en segundo plano sin mostrarse. Se utiliza a menudo para funcionalidades como Uninstall Tracking. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Foreground vs. background push #foreground-vs-background" }
 
 Cuando un usuario acepta recibir notificaciones push de tu aplicación, se le considerará "registrado para push", lo que significa que ahora puede ser segmentado utilizando el filtro de segmentación `Foreground Push Enabled for App` en Braze.
 
@@ -71,7 +71,7 @@ Cuando se instala tu aplicación, se genera automáticamente un token de notific
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Android 13**         | El permiso push debe ser solicitado y concedido por el usuario. Tu aplicación puede solicitar el permiso manualmente, o los usuarios serán avisados automáticamente después de crear un [canal de notificaciones](https://developer.android.com/reference/android/app/NotificationChannel). |
 | **Android 12 y anteriores** | Todos los usuarios se consideran `Subscribed` después de su primera sesión. Braze solicita automáticamente un token de notificaciones push en este punto, habilitando al usuario para push con un token válido y un estado de suscripción predeterminado de `Subscribed`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Registro de tokens de notificaciones push" }
 {% endtab %}
 
 {% tab ios %}
@@ -81,7 +81,7 @@ iOS no genera automáticamente tokens de notificaciones push para una aplicació
 |------------------------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **iOS 12**      | Sí                         | Cuando un usuario acepta las notificaciones push, se te otorga autorización estándar, lo que te permite enviar [notificaciones push en primer plano](#foreground-vs-background). Sin embargo, también puedes solicitar [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push), que te permite enviar [notificaciones push en segundo plano](#foreground-vs-background) silenciosas directamente al centro de notificaciones. |
 | **iOS 11 o anteriores** | No                          | Todos los usuarios deben aceptar explícitamente para recibir notificaciones push. Un token de notificaciones push se genera solo después de que se conceda el permiso.                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Registro de tokens de notificaciones push" }
 {% endtab %}
 {% endtabs %}
 
@@ -115,7 +115,7 @@ Consulta la siguiente tabla para conocer las acciones que provocan cambios o eli
 | Se llama al método `changeUser()` | El método `changeUser()` de Braze cambia el ID de usuario al que los SDK asignan los datos de comportamiento del usuario. Este método se llama normalmente cuando un usuario inicia sesión en una aplicación. Cuando se llama a `changeUser()` con un ID de usuario diferente o nuevo en un dispositivo específico, el token de notificaciones push de ese dispositivo se moverá al perfil de Braze correspondiente con el ID de usuario adecuado. |
 | Se produce un error push | Algunos errores push comunes que provocan la eliminación del token incluyen `MismatchSenderId`, `InvalidRegistration` y otros tipos de rebotes push. <br><br>Consulta nuestra lista completa de [errores push]({{site.baseurl}}/user_guide/channels/push/push_error_codes/) comunes. |
 | El usuario desinstala | Cuando un usuario desinstala la aplicación de un dispositivo, Braze eliminará el token de notificaciones push del usuario de su perfil. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestión de tokens de notificaciones push" }
 
 ### ¿Cómo se ve esto a mayor escala? {#what-does-this-look-like-on-a-broader-scale}
 
@@ -128,7 +128,7 @@ Si queremos lanzar una Campaign, creamos una Campaign en Braze que genera una ca
 | Pasos de registro | Pasos de mensajería |
 | ------------------ | --------------- |
 | 1. El cliente (dispositivo) se registra en el proveedor push<br>2. El proveedor genera y entrega el token de notificaciones push<br>3. Se envían los tokens a Braze |1. Braze envía la carga útil push al proveedor<br>2. El proveedor entrega la carga útil push al dispositivo<br>3. El SDK pasa las estadísticas de mensajería a Braze |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="¿Cómo se ve esto a mayor escala?" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

@@ -12,7 +12,7 @@ description: "Esta página ofrece un resumen de la Ingesta de datos de Cloud, bu
 
 > La Ingesta de datos de Cloud de Braze te permite configurar una conexión directa desde tu almacén de datos o sistema de almacenamiento de archivos a Braze para sincronizar datos relevantes de usuarios o catálogos. Al sincronizar estos datos con Braze, puedes aprovecharlos para casos de uso como la personalización, el desencadenamiento o la segmentación.
 
-## Comprender la columna `UPDATED_AT` {#understanding-the-updatedat-column}
+## Comprender la columna `UPDATED_AT` {#understanding-the-updated_at-column}
 
 {% alert note %}
 `UPDATED_AT` es relevante solo para integraciones de almacenes de datos, no para sincronizaciones S3.
@@ -286,7 +286,7 @@ En esta tercera ejecución, se añadió otra fila nueva para `customer_1234` con
 Los valores de `UPDATED_AT` pueden ser incluso posteriores a la hora de inicio de la ejecución para una sincronización determinada. Sin embargo, esto no es recomendable, ya que empuja la última marca de tiempo de `UPDATED_AT` «hacia el futuro» y las sincronizaciones posteriores no sincronizarán los valores anteriores.
 {% endalert %}
 
-## Utiliza una marca de tiempo UTC para la columna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updatedat-column}
+## Utiliza una marca de tiempo UTC para la columna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
 La columna `UPDATED_AT` debe estar en UTC para evitar problemas con el horario de verano. Prefiere funciones solo UTC, como `SYSDATE()` en lugar de `CURRENT_DATE()` siempre que sea posible.
 
@@ -313,7 +313,7 @@ Este ejemplo muestra el proceso general para sincronizar datos por primera vez y
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Ejemplo: administración de actualizaciones posteriores">
   <caption>Ejemplo: administración de actualizaciones posteriores</caption>
     <thead>
         <tr>
@@ -421,7 +421,7 @@ Nada de esto se ha sincronizado antes con Braze, así que añádelo todo a la ta
 
 Se ejecuta una sincronización y Braze registra que has sincronizado todos los datos disponibles hasta "2023-03-16 15:00:00". A continuación, en la mañana del día 2, se ejecuta un ETL y se actualizan algunos campos de la tabla de usuarios (resaltados):
 
-<table>
+<table aria-label="Ejemplo: administración de actualizaciones posteriores">
   <caption>Ejemplo: administración de actualizaciones posteriores</caption>
     <thead>
         <tr>
@@ -545,7 +545,7 @@ Cada vez que se ejecuta una sincronización, Braze busca filas que no se hayan s
 
 El uso de puntos de datos es idéntico con CDI y con otros métodos de ingesta, como las REST API o los SDK, por lo que depende de ti asegurarte de que solo añades atributos nuevos o actualizados a tus tablas de origen.
 
-### Separa `EXTERNAL_ID` de la columna `PAYLOAD` {#separate-externalid-from-payload-column}
+### Separa `EXTERNAL_ID` de la columna `PAYLOAD` {#separate-external_id-from-payload-column}
 
 El objeto `PAYLOAD` no debe incluir un ID externo u otro tipo de ID.
 
@@ -685,7 +685,7 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Utiliza la marca de tiempo `UPDATED_AT` {#use-the-updatedat-timestamp}
+### Utiliza la marca de tiempo `UPDATED_AT` {#use-the-updated_at-timestamp}
 
 Braze utiliza la marca de tiempo `UPDATED_AT` para rastrear qué datos se han sincronizado correctamente. CDI también registra el número de filas en la última marca de tiempo sincronizada. Si se añaden nuevas filas con esa misma marca de tiempo entre ejecuciones, CDI vuelve a sincronizar todas las filas con esa marca de tiempo, lo que puede generar datos duplicados. Para más detalles y consejos, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas](#avoid-resyncing-rows-with-duplicate-timestamps).
 

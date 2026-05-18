@@ -8,13 +8,9 @@ channel:
   - WhatsApp
 ---
 
-# WhatsApp-Template-Builder
+# WhatsApp-Template-Builder {#whatsapp-template-builder}
 
-> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Kampagnen und Canvases verwenden.
-
-{% alert note %}
-Der WhatsApp-Template-Builder befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, um Zugang zu erhalten.
-{% endalert %}
+> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -37,7 +33,7 @@ Füllen Sie die folgenden Felder aus:
 | **Account** | Das WhatsApp Business Account (WABA), bei dem Sie das Template einreichen möchten. Alle Abo-Gruppen und Telefonnummern innerhalb eines WABA teilen sich den Template-Zugriff. |
 | **Language** | Die Sprache für dieses Template. WhatsApp erfordert ein separates Template für jede Sprache. |
 | **Template name** | Ein eindeutiger Name für Ihr Template. Template-Namen dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Template-Einstellungen konfigurieren" }
 
 ### 3. Schritt: Layout auswählen {#step-3-choose-a-layout}
 
@@ -48,7 +44,7 @@ Wählen Sie unter **Layout** den Template-Typ:
 
 ### 4. Schritt: Template erstellen {#step-4-build-your-template}
 
-#### Header (optional)
+#### Header (optional) {#header-optional}
 
 Fügen Sie einen Header hinzu, der über dem Nachrichtentext erscheint. Sie können wählen:
 
@@ -56,7 +52,7 @@ Fügen Sie einen Header hinzu, der über dem Nachrichtentext erscheint. Sie kön
 - **Media:** Ein Bild, Video oder Dokument (nur URL). Braze speichert die Medienreferenz und reicht ein Beispiel bei Meta zur Genehmigung ein.
 - **None:** Kein Header
 
-#### Body
+#### Body {#body}
 
 Geben Sie den Hauptinhalt Ihrer Nachricht ein und personalisieren Sie den Text nach Bedarf mit Liquid oder generischen Variablen:
 
@@ -67,11 +63,11 @@ Geben Sie den Hauptinhalt Ihrer Nachricht ein und personalisieren Sie den Text n
 
 Sie können überall dort Personalisierung hinzufügen, wo der **+**-Plus-Button erscheint. Nicht alle Felder unterstützen Personalisierung.
 
-#### Footer (optional)
+#### Footer (optional) {#footer-optional}
 
 Fügen Sie einen kurzen Footer hinzu, der unter dem Nachrichtentext erscheint.
 
-#### Buttons (optional)
+#### Buttons (optional) {#buttons-optional}
 
 Fügen Sie Ihrem Template bis zu 10 Buttons hinzu. Button-Typen haben unterschiedliche Kategorien und Spezifikationen.
 
@@ -81,7 +77,7 @@ Fügen Sie Ihrem Template bis zu 10 Buttons hinzu. Button-Typen haben unterschie
 | Telefonnummer | Call-to-Action-Buttons | {::nomarkdown}<ul><li><b>Maximale Anzahl:</b> 1</li><li><b>Button-Text:</b> Bis zu 25 Zeichen</li><li><b>Telefonnummer:</b> Gültige Telefonnummer mit Ländervorwahl, ohne + (z. B. „14155552671“)</li></ul> {:/}|
 | Website besuchen | Call-to-Action-Buttons | {::nomarkdown}<ul><li><b>Maximale Anzahl:</b> 2</li><li><b>Button-Text:</b> Bis zu 25 Zeichen</li><li><b>Website-URL:</b> Bis zu 2.000 Zeichen</li></ul> {:/}|
 | Angebotscode kopieren | Call-to-Action-Buttons | {::nomarkdown}<ul><li><b>Maximale Anzahl:</b> 1</li><li><b>Button-Text:</b> „Copy offer code“ (kann nicht bearbeitet werden)</li><li><b>Angebotscode:</b> Bis zu 15 Zeichen</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
 
 ![WhatsApp-Template-Editor mit Schnellantwort- und Call-to-Action-Buttons.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -104,7 +100,7 @@ Im WhatsApp-Template-Builder werden derzeit nur Marketing-Templates unterstützt
 
 Nachdem Meta Ihr Template genehmigt hat, können Sie es in einer WhatsApp-Kampagne oder einem Canvas verwenden.
 
-1. Gehen Sie zu **Campaigns** und wählen Sie **Create Campaign** > **WhatsApp**.
+1. Gehen Sie zu **Campaigns** und wählen Sie **Kampagne erstellen** > **WhatsApp**.
 2. Wählen Sie im Nachrichten-Editor Ihr genehmigtes Template aus.
 3. Braze füllt den Inhalt des Templates automatisch aus – einschließlich aller Medien und Liquid-Elemente, die Sie bei der Template-Erstellung eingegeben haben – sodass Sie diese nicht erneut eingeben müssen.
 4. Aktualisieren Sie bei Bedarf variable Inhalte oder Personalisierungen. Von Meta gesperrte Felder (grau dargestellt) können nicht bearbeitet werden. Um gesperrte Inhalte zu ändern, müssen Sie das Template bearbeiten und erneut zur Genehmigung einreichen.

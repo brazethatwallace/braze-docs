@@ -22,7 +22,7 @@ Use a integração do MyPostcard com a Braze para enviar facilmente correspondê
 | Conta MyPostcard B2B             | O registro no MyPostcard é necessário para aproveitar esta integração.                                                  |
 | Chave de API B2B e credenciais   | Você pode encontrar sua chave de API e as credenciais na ferramenta de administração B2B do MyPostcard.                 |
 | Campanha B2B MyPostcard aprovada | Para aproveitar esta integração, você precisa configurar uma campanha de mala direta impressa na ferramenta B2B do MyPostcard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -38,26 +38,26 @@ Para integrar com o MyPostcard, [faça login ou inscreva-se](https://www.mypostc
 
 ### Etapa 1: Crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 
-Crie um modelo de webhook do MyPostcard para usar em futuras Campaigns ou Canvas navegando até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Crie um modelo de webhook do MyPostcard para usar em futuras Campaigns ou Canvas navegando até **Templates** > **Webhook Templates** na plataforma Braze.
 
 {% alert note %}
-Se você estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), acesse **Engajamento** > **Modelos e mídia** > **Modelos de webhook**.
+Se você estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), acesse **Engagement** > **Templates & Media** > **Webhook Templates**.
 {% endalert %}
 
 Se você quiser criar uma campanha de webhook do MyPostcard única ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha. Preencha os seguintes campos:
 
 | Campo           | Descrição                                                 |
 |-----------------|-----------------------------------------------------------|
-| **URL do webhook** | A URL do webhook conforme mostrada na ferramenta de administração B2B. |
-| **Corpo da solicitação** | Texto bruto (formato JSON encontrado na ferramenta de administração B2B). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Webhook URL** | A URL do webhook conforme mostrada na ferramenta de administração B2B. |
+| **Request Body** | Texto bruto (formato JSON encontrado na ferramenta de administração B2B). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Crie seu modelo de webhook da Braze" }
 
 #### Método de solicitação e cabeçalhos {#request-method-and-headers}
 
 O MyPostcard requer um método HTTP juntamente com os seguintes cabeçalhos HTTP a serem incluídos no modelo.
 
 {% raw %}
-<table>
+<table aria-label="Método de solicitação e cabeçalhos">
   <caption>Método de solicitação e cabeçalhos</caption>
   <thead>
     <tr>
@@ -67,15 +67,15 @@ O MyPostcard requer um método HTTP juntamente com os seguintes cabeçalhos HTTP
   </thead>
   <tbody>
     <tr>
-      <td><strong>Método HTTP</strong></td>
+      <td><strong>HTTP Method</strong></td>
       <td><code>POST</code></td>
     </tr>
     <tr>
-      <td><strong>Nome de usuário</strong></td>
+      <td><strong>Username</strong></td>
       <td><code>{{ '&lt;username&gt;' }}</code></td>
     </tr>
     <tr>
-      <td><strong>Senha</strong></td>
+      <td><strong>Password</strong></td>
       <td><code>{{ '&lt;password&gt;' }}</code></td>
     </tr>
     <tr>
@@ -85,7 +85,7 @@ O MyPostcard requer um método HTTP juntamente com os seguintes cabeçalhos HTTP
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método de solicitação e cabeçalhos" }
 
 #### Corpo da solicitação {#request-body}
 
@@ -95,7 +95,7 @@ Copie o corpo da solicitação exibido na ferramenta de administração B2B e pr
 
 ### Etapa 2: Visualize sua solicitação {#step-2-preview-your-request}
 
-Em seguida, visualize sua solicitação no painel **Pré-visualização** ou acesse a guia **Teste**, onde é possível selecionar um usuário aleatório, um usuário existente ou criar um usuário personalizado para testar seu webhook. Não se esqueça de salvar seu modelo antes de sair da página!
+Em seguida, visualize sua solicitação no painel **Preview** ou acesse a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou criar um usuário personalizado para testar seu webhook. Não se esqueça de salvar seu modelo antes de sair da página!
 
 ![Guia de teste de webhook com diferentes campos para validar a implementação.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 

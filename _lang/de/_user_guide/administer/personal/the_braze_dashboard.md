@@ -126,7 +126,7 @@ table td {
 | Zwischen Suchergebnissen bewegen | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Ein Suchergebnis auswählen       | <kbd>Enter</kbd>    |
 | Suchmenü schließen               | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
 
 ## Produktivitäts-Features {#productivity-features}
 

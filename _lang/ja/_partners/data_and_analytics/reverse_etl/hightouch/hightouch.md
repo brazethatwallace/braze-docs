@@ -21,8 +21,8 @@ BrazeとHightouchの統合により、データウェアハウスの最新の顧
 |---|---|
 | Hightouchアカウント | このパートナーシップを活用するには、Hightouchアカウントが必要です。
 | Braze REST APIキー | `users.track` および `users.export.ids` の権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント  | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。<br><br>Hightouchには、Brazeインスタンスが配置されているクラスターの名前が必要です。例えば、Brazeのエンドポイントが`https://rest.iad-01.braze.com`の場合、必要なのは`iad-01`だけです。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze RESTエンドポイント  | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。<br><br>Hightouchには、Brazeインスタンスが配置されているクラスターの名前が必要です。例えば、Brazeのエンドポイントが `https://rest.iad-01.braze.com` の場合、必要なのは `iad-01` だけです。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -70,5 +70,5 @@ Hightouchでは、イベントデータと購入データを追跡し、これ�
 ## 統合デモ {#integration-demo}
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

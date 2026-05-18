@@ -9,7 +9,7 @@ description: "Cet article présente l'endpoint Braze Générer l'URL du centre d
 
 ---
 {% api %}
-# Générer l'URL du centre de préférences
+# Générer l'URL du centre de préférences {#generate-preference-center-url}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}/url/{userID}
 {% endapimethod %}
@@ -20,38 +20,38 @@ Chaque URL de centre de préférences est unique pour chaque utilisateur.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0bc750ff-068e-4391-897e-6eddca2561cd {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `preference_center.user.get`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %} Cette limite de débit est fixe et ne peut pas être modifiée.
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
-|`userID`| Requis | Chaîne de caractères | L'ID utilisateur. |
-{:  role="presentation" }
+| `preferenceCenterExternalID` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
+| `userID` | Requis | Chaîne de caractères | L'ID utilisateur. |
+{: aria-label="Path parameters" }
 
-## Paramètres de requête
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`preference_center_api_id`| Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
-|`external_id`| Requis | Chaîne de caractères | L'ID externe d'un utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preference_center_api_id` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
+| `external_id` | Requis | Chaîne de caractères | L'ID externe d'un utilisateur. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemple de requête
+## Exemple de requête {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v1/$preference_center_external_id/url/$user_external_id' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {

@@ -46,7 +46,7 @@ Vous pouvez choisir la date d'expiration du message in-app. Pendant cette pério
 |---|---|---|
 | **Une durée après que l'étape est disponible** | Définit l'expiration du message in-app par rapport au moment où l'étape devient disponible pour l'utilisateur. | Un message in-app avec une expiration de deux jours deviendrait disponible lorsque l'utilisateur entre dans l'étape Message et que les options d'audience sont vérifiées. Tout délai avant d'atteindre cette étape proviendrait des étapes de délai précédentes dans votre Canvas. Le message in-app serait alors disponible pendant 2 jours (48 heures) à partir du moment où l'utilisateur entre dans l'étape, et pendant ces deux jours, les utilisateurs pourraient voir le message in-app s'ils ouvrent l'application. |
 | **À une date et une heure spécifiques** | Sélectionnez une date et une heure spécifiques auxquelles le message in-app ne sera plus disponible. | Si vous avez une promotion qui se termine le 30 novembre 2024, sélectionnez cette option pour que les utilisateurs ne voient plus le message in-app associé lorsque la promotion prend fin. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="In-app message expiration" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -62,8 +62,8 @@ Les promotions, coupons et soldes ont souvent des dates d'expiration fixes. Le C
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
-  <caption>Cas d'utilisation</caption>
+<table aria-label="Use cases" class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>Étape Canvas</th>
@@ -113,8 +113,8 @@ Les messages in-app expirent en même temps que la promotion pour éviter toute 
 
 La première impression que vous faites à un utilisateur est peut-être la plus importante. Elle peut déterminer ses futures visites dans votre application. Vos premières communications avec vos utilisateurs doivent être judicieusement planifiées et encourager des visites fréquentes pour favoriser l'utilisation.
 
-<table class="tg">
-  <caption>Cas d'utilisation</caption>
+<table aria-label="Use cases" class="tg">
+  <caption>Use cases</caption>
 <thead>
   <tr>
     <th>Étape Canvas</th>
@@ -202,10 +202,10 @@ Lorsque l'option **Advance When In-App Message Live** est sélectionnée, le mes
 Les étapes contenant un message in-app et un autre canal disposent des options d'avancement suivantes :
 
 | Option | Description |
-| --- | --- |
+|---|---|
 | Advance When Message Sent | Les utilisateurs doivent recevoir un e-mail, un webhook ou une notification push, ou consulter le message in-app pour avancer aux étapes suivantes du Canvas. <br> <br> Si le message in-app expire et que l'utilisateur n'a pas reçu l'e-mail, le webhook ou la notification push, ou n'a pas consulté le message in-app, il quittera le Canvas et n'avancera pas aux étapes suivantes. |
 | Immediately Advance Audience | Tous les membres de l'audience de l'étape avancent aux étapes suivantes une fois le délai écoulé, qu'ils aient vu le message mentionné ou non. <br> <br> Les utilisateurs doivent correspondre aux critères de segment et de filtre de l'étape pour avancer aux étapes suivantes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Steps with multiple channels #steps-multiple-channels" }
 
 {% alert important %}
 Lorsque l'option **Entire Audience** est sélectionnée, le message in-app restera disponible jusqu'à son expiration, même si l'utilisateur est passé aux étapes suivantes. Si vous ne souhaitez pas que le message in-app soit actif lorsque les étapes suivantes du Canvas sont distribuées, vérifiez que l'expiration est plus courte que le délai des étapes suivantes.

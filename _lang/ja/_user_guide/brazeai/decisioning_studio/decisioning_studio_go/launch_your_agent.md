@@ -55,7 +55,7 @@ BAUレポートを設定する前に、BAU処理グループ、Decisioning Studi
 |-----|---------------|
 | **Braze** | CampaignsおよびCanvases |
 | **Salesforce Marketing Cloud** | ジャーニーのみ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 **CEPからのオーディエンスID：**
 
@@ -63,14 +63,14 @@ BAUレポートを設定する前に、BAU処理グループ、Decisioning Studi
 |-----|---------------|
 | **Braze** | Segmentsのみ |
 | **Salesforce Marketing Cloud** | Data Extensionsのみ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 BAUオーディエンスをトラッキングする既存のオーディエンスがない場合は、作成する必要があります。
 
 ### 考慮事項 {#considerations}
 
 - **クリックKPIのみ：** Decisioning Studio Go全般と同様に、BAUレポートはクリックKPIのみをカバーし、コンバージョンKPIは対象外です。
-- **Canvasの制限事項：** 現在、特定の **Canvas** ステップIDへのフィルタリングはサポートしていません。すべての **Canvas** ステップからのイベントがBAUデータに含まれます。特定の **Canvas** ステップのみを含めるべき場合、BAUとの比較が無効になる可能性があります。
+- **Canvasの制限事項：** 現在、特定のCanvasステップIDへのフィルタリングはサポートしていません。すべてのCanvasステップからのイベントがBAUデータに含まれます。特定のCanvasステップのみを含めるべき場合、BAUとの比較が無効になる可能性があります。
 
 ### BAUレポートを設定する
 

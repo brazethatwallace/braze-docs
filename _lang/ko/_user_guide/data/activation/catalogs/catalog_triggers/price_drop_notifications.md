@@ -77,7 +77,7 @@ description: "이 참조 문서에서는 Braze 카탈로그에서 가격 하락 
 3. **Price drop rule**을 설정합니다. 이것은 알림을 보내야 하는지 여부를 결정하는 로직입니다. 가격 하락은 가격 변동 비율 또는 가격 필드의 값 변동으로 설정할 수 있습니다.
 4. **Save settings**를 선택합니다.
 
-![카탈로그 설정에 가격 하락 기능이 켜져 있습니다. 가격 하락 규칙은 원래 가격 대비 3%의 변동입니다.]({% image_buster /assets/img/price_drop_notifications.png %})
+![가격 하락 기능이 켜져 있는 카탈로그 설정. 가격 하락 규칙은 원래 가격 대비 3%의 변동입니다.]({% image_buster /assets/img/price_drop_notifications.png %})
 
 {% alert important %}
 이 설정의 알림 규칙은 방해금지 시간 등 Canvas 알림 설정을 대체하지 않습니다.

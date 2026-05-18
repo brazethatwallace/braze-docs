@@ -49,10 +49,10 @@ Asegúrate de indicar a tus desarrolladores qué canales deseas utilizar para ga
 | Content Cards | Para empezar a utilizar [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/), ponte en contacto con tu administrador del éxito del cliente de Braze. |
 | SMS y MMS | Consulta la sección [Configuración de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/) para obtener más detalles sobre la integración. |
 | Webhooks | Requiere la implementación del SDK, así como pasos específicos del canal. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Implementan los canales de mensajería que desees" }
 
 {% alert tip %}
-Puedes utilizar Braze para crear Campaigns de mensajería accesibles en cada canal. Trabaja con tus desarrolladores para asegurarte de que cumples las normas de accesibilidad en tu implementación.
+Puedes utilizar Braze para crear campañas de mensajería accesibles en cada canal. Trabaja con tus desarrolladores para asegurarte de que cumples las normas de accesibilidad en tu implementación.
 {% endalert %}
 
 ### Paso 3: Configuran tus datos {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ Braze no se limita a una sola habilidad. No se trata solo de enviar correos elec
 
 Entonces, ¿qué necesitas hacer para darles esta información?
 
-1. Colabora con tu equipo de marketing para definir las Campaigns, los objetivos, los atributos y los eventos que necesitas controlar. Define esos casos de uso y compártelos con tus equipos.
+1. Colabora con tu equipo de marketing para definir las campañas, los objetivos, los atributos y los eventos que necesitas controlar. Define esos casos de uso y compártelos con tus equipos.
 2. Define tus requisitos de datos personalizados ([atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), etc.).
 3. A partir de ahí, discute cómo deberían rastrearse esos datos (desencadenados a través del SDK, etc.).
 4. Define cuántos [espacios de trabajo]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/) necesitas. Tus ingenieros necesitarán saber cómo [probar y configurar]({{site.baseurl}}/user_guide/get_started/workspaces/) estos espacios de trabajo.

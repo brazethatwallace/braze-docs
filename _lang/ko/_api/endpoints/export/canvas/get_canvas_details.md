@@ -33,7 +33,7 @@ description: "이 문서에서는 Canvas 세부 정보 내보내기 Braze 엔드
 | `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types/) 참조 |
 | `post_launch_draft_version` | 선택 사항 | 부울 | 출시 후 초안이 있는 Canvases의 경우, 이를 `true`로 설정하면 사용 가능한 초안 변경 사항이 표시됩니다. 기본값은 `false`입니다. |
 | `include_has_translatable_content` | 선택 사항 | 부울 | `true`로 설정하면 API 응답에 각 메시지에 대한 `has_translatable_content` 필드가 포함됩니다. 기본값은 `false`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 

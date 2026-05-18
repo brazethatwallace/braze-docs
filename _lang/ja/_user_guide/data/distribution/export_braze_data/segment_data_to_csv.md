@@ -108,7 +108,7 @@ CSV 出力には、エクスポート時にSegmentに含まれる各ユーザー
 | unsubscribed_from_emails_at | メール配信停止日 |
 | opted_in_to_emails_at       | メールオプトイン日      |
 | user_aliases                | ユーザーエイリアスがある場合   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 CSV と API のエクスポートについては、[トラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)の記事を参照してください。

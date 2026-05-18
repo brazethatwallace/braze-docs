@@ -62,7 +62,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 | Brazeおすすめイベント | Shopifyカスタムイベント | Shopifyカスタム属性 |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>製品の閲覧</li><li>カート更新</li><li>チェックアウト開始</li><li>注文完了</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
 
 統合によって追跡されるデータの詳細については、[Shopifyデータ機能]({{site.baseurl}}/shopify_data_features/)を参照してください。
 
@@ -85,7 +85,7 @@ Braze SDKを使用すると、この統合の標準イベントを超えるカ�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="（詳細）カスタムデータトラッキング設定" style="width: 100%;">
   <caption>（詳細）カスタムデータトラッキング設定</caption>
   <thead>
     <tr>
@@ -152,7 +152,7 @@ braze.logCustomEvent(
 - **Shopify顧客ID、メール、またはハッシュメールを選択した場合:** ステップ4.1〜4.3をスキップし、ステップ4.4に直接進みます。
 {% endalert %}
 
-### ステップ 4.1:`braze.external_id`メタフィールドを作成する {#step-41-create-the-brazeexternalid-metafield}
+### ステップ 4.1:`braze.external_id`メタフィールドを作成する {#step-41-create-the-brazeexternal_id-metafield}
 
 1. Shopifyの管理パネルで、**Settings** > **Metafields and metaobjects**に移動します。
 2. **Customers** > **Add definition**を選択します。
@@ -180,7 +180,7 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 | shopify_customer_id | はい | 文字列 | Shopify顧客ID。 |
 | shopify_storefront | はい | 文字列 | リクエストのストアフロント名。例: `<storefront_name>.myshopify.com` |
 | email_address | いいえ | 文字列 | ログインユーザーのメールアドレス。<br><br>このフィールドは、特定のwebhookシナリオでは欠落している場合があります。エンドポイントロジックでは、ここでのnull値を考慮する必要があります（たとえば、内部ロジックで必要な場合は、shopify_customer_idを使用してメールを取得します）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
 
 #### サンプルエンドポイント {#example-endpoint}
 
@@ -200,6 +200,7 @@ Brazeは、external IDのJSONを返す`200`ステータスコードを期待し�
 `shopify_customer_id`と`email_address`（存在する場合）がShopifyの顧客値と一致することを検証することが重要です。[Shopify Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用してこれらのパラメーターを検証し、正しい`braze.external_id`メタフィールドを取得できます。
 
 #### 障害時の動作とマージ {#failure-behavior-and-merging}
+
 `200`以外のステータスコードは失敗と見なされます。
 
 - **マージへの影響:** エンドポイントが失敗した場合（`200`以外を返す、またはタイムアウトした場合）、Brazeはexternal IDを取得できません。そのため、ShopifyユーザーとBrazeユーザープロファイルの間のマージは、その時点では行われません。

@@ -613,7 +613,7 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="5. Schritt: Angepasstes Daten-Tracking einrichten (erweitert)" style="width: 100%;">
   <caption>5. Schritt: Angepasstes Daten-Tracking einrichten (erweitert)</caption>
   <thead>
     <tr>
@@ -663,7 +663,7 @@ Die nächsten Schritte hängen von Ihrer Auswahl der externen ID ab:<br><br>
 - **Wenn Sie Shopify-Kunden-ID, E-Mail oder gehashte E-Mail ausgewählt haben:** Überspringen Sie die Schritte 6.1–6.3 und fahren Sie direkt mit Schritt 6.4 fort.
 {% endalert %}
 
-#### Schritt 6.1: Das Metafeld `braze.external_id` erstellen {#step-61-create-the-brazeexternalid-metafield}
+#### Schritt 6.1: Das Metafeld `braze.external_id` erstellen {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Settings** > **Metafields**.
 2. Wählen Sie **Customers** > **Add definition**.
@@ -685,12 +685,12 @@ Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der ex
 
 Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
-| Parameter            | Erforderlich | Datentyp | Beschreibung                                                      |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Ja      | String    | Die Shopify-Kunden-ID.                                         |
-| shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Beispiel: `<storefront_name>.myshopify.com` |
-| email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:innen. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Null-Werte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| shopify_customer_id | Ja | String | Die Shopify-Kunden-ID. |
+| shopify_storefront | Ja | String | Der Storefront-Name für die Anfrage. Beispiel: `<storefront_name>.myshopify.com` |
+| email_address | Nein | String | Die E-Mail-Adresse der angemeldeten Nutzer:innen. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Null-Werte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpunkt-Spezifikationen" }
 
 ##### Beispiel-Endpunkt {#example-endpoint}
 

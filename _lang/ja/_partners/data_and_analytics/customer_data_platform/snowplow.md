@@ -18,7 +18,7 @@ _この統合はSnowplowによって管理されています。_
 
 BrazeとSnowplowの統合により、SnowplowのEvent Forwardingソリューションを使って、SnowplowのイベントをリアルタイムでBrazeに転送できます。この統合により、柔軟性とコントロールを提供しながら、Brazeにイベントを送信できます。具体的には、以下のことが可能です：
 - Brazeに送信する前に、イベントのフィルタリングと変換を行います。
-- Snowplowのイベントデータをbrazeのユーザー属性、カスタムイベント、購入にマッピングします。
+- Snowplowのイベントデータを、Brazeのユーザー属性、カスタムイベント、購入にマッピングします。
 - 転送を選択するまで、すべてのデータをプライベートクラウドに保持します。
 - 既存のSnowplowクラウドアカウント内にソリューションを自分でデプロイします。
 
@@ -34,7 +34,7 @@ Snowplowの豊富な行動データを活用して、Brazeで強力な顧客中�
 | Snowplow Consoleへのアクセス | イベントフォワーダーを設定するには、Snowplow Consoleにアクセスする必要があります。                                                                                                                                                                                                                                |
 | Braze REST APIキー      | 以下の権限を持つBraze REST APIキー：`users.track`、`users.alias.new`、`users.identify`、`users.export.ids`、`users.merge`、`users.external_ids.rename`、および`users.alias.update`。<br><br> Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント     | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに応じて異なります。                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 
@@ -69,8 +69,8 @@ Snowplowの高品質な行動データに基づいてBrazeでダイナミック�
 
 Brazeアカウントで以下のページを確認し、イベントがBrazeに届いていることを検証します：
 
-1. **クエリビルダー**：Brazeで、**分析** > **クエリビルダー**に移動します。Snowplowから転送されたデータをプレビューするために、以下のテーブルに対してクエリを記述できます：`USER_BEHAVIORS_CUSTOMEVENT_SHARED`と`USERS_BEHAVIORS_PURCHASE_SHARED`。
-2. **API利用ダッシュボード**：Brazeで、**設定** > **APIキー**に移動すると、API使用量の時系列チャートを確認できます。Snowplowが使用しているAPIキーでフィルタリングし、成功と失敗の両方を確認できます。
+1. **クエリビルダー**：Brazeで、**Analytics** > **クエリビルダー**に移動します。Snowplowから転送されたデータをプレビューするために、以下のテーブルに対してクエリを記述できます：`USER_BEHAVIORS_CUSTOMEVENT_SHARED`と`USERS_BEHAVIORS_PURCHASE_SHARED`。
+2. **API利用ダッシュボード**：Brazeで、**Settings** > **APIs and Identifiers**に移動すると、API使用量の時系列チャートを確認できます。Snowplowが使用しているAPIキーでフィルタリングし、成功と失敗の両方を確認できます。
 
 ## カスタムプロパティの送信 {#sending-custom-properties}
 

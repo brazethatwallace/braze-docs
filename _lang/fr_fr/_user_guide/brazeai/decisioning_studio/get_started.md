@@ -50,7 +50,7 @@ Travaillez avec l'équipe AI Decisioning Services pour prendre les décisions su
 | **Dimensions** | Quelles décisions l'agent doit-il personnaliser ? | Heure de la journée, ligne d'objet, fréquence, offres, canal |
 | **Options** | Quelles options l'agent a-t-il à sa disposition ? | Modèles spécifiques, offres, créneaux horaires |
 | **Contraintes** | Quelles décisions l'agent ne doit-il jamais prendre ? | Restrictions géographiques, limites budgétaires, règles d'éligibilité |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Key design decisions" }
 
 Chacune de ces décisions a des implications sur le gain incrémental que l'agent peut générer, et sur la rapidité avec laquelle il y parvient. Notre équipe AI Decisioning Services travaillera avec vous pour concevoir un agent qui génère une valeur maximale tout en respectant l'ensemble de vos règles métier.
 
@@ -65,7 +65,7 @@ Chacune de ces décisions a des implications sur le gain incrémental que l'agen
 | **N'importe quelle CEP** | Intégrations natives avec Braze, Salesforce Marketing Cloud, ou intégrations personnalisées pour toute plateforme |
 | **AI Decisioning Services** | Accompagnement dédié par l'équipe de data science de Braze |
 | **Conception avancée d'expériences** | Groupes de traitement et groupes de contrôle entièrement personnalisables |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Decisioning Studio capabilities" }
 
 ## Bonnes pratiques {#best-practices}
 

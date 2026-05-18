@@ -93,7 +93,7 @@ Campaignのコントロールグループは、1つのチャネル内でバリ�
 | チーム | オプション。適切なグループがこの送信を編集またはレポートできるように[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)を割り当てます。 |
 | タグ | オプション。リストや[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)などのツールでフィルタリングするために[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。 |
 | Campaign ID | コンポーザーまたはサマリーに表示される場合、特定のCampaignを参照するAPI呼び出し、レポート、統合のためにこの識別子をコピーします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
 
 ### チャネルとエディター {#channels-and-editors}
 
@@ -116,7 +116,7 @@ Campaignのコントロールグループは、1つのチャネル内でバリ�
 | [スケジュール配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | 指定した時間またはケイデンスで送信します。 |
 | [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | ユーザーが行動を実行するか、定義した条件を満たしたときに送信します。 |
 | [APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | システムがBrazeを呼び出して、対象ユーザーに対してCampaignをトリガーしたときに送信します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery" }
 
 Braze全体のスケジューリングの概念については、[Campaignをスケジュールする]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 

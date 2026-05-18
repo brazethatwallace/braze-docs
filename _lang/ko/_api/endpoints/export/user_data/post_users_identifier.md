@@ -62,7 +62,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email_address` | 선택 사항 | 문자열 | 사용자의 이메일 주소입니다. |
 | `phone` | 선택 사항 | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호입니다. |
 | `fields_to_export` | 선택 사항* | 문자열 배열 | 내보낼 사용자 데이터 필드의 이름입니다.<br><br>*초당 40건의 빠른 사용량 제한을 사용하려면 이 필드가 필수입니다. 생략하면 기본값인 분당 250건의 요청 제한이 대신 사용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 *2024년 8월 22일 이후에 Braze에 온보딩한 고객에게 필수입니다.
 
@@ -123,7 +123,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaign 및 Canvases의 전환 기간 동안 수행한 구매를 기반으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
 | `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)(있는 경우)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
 `/users/export/ids` 엔드포인트는 수신한 모든 Campaign 및 Canvases, 수행한 모든 커스텀 이벤트, 모든 구매, 모든 커스텀 속성 등의 데이터를 포함하여 이 사용자의 전체 사용자 프로필을 가져온다는 점에 유의하세요. 결과적으로 이 엔드포인트는 다른 REST API 엔드포인트보다 속도가 느립니다.
 

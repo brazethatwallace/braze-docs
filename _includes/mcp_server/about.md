@@ -19,10 +19,10 @@ After [setting up the Braze MCP server]{% if include.section == "user" %}({{site
 - CRM engineers creating multi-step agent workflows.
 - Technical marketers experimenting with natural language queries.
 
-The Braze MCP server supports 39 endpoints that do not return data from Braze user profiles. You can choose which endpoints to assign to your Braze API key to control what an agent can access or change.
+The Braze MCP server includes both read-only and write endpoints. They do not return data from Braze user profiles. You choose which endpoints to assign to your Braze API key, and that choice controls what an agent can read, create, or update. For the full list of available endpoints and their required permissions, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Only assign the API key permissions you want your agent to have. If you don't want your agent to make changes in Braze, ensure you leave write permissions off. Agents may try to write data through any permission you grant.
+Only assign the API key permissions you want your agent to have. If you don't want your agent to make changes in Braze, leave any write permissions off when you create your API key. Agents may try to write data through any write permission you grant.
 {% endalert %}
 
 ## Usage example
@@ -51,7 +51,7 @@ MCP clients can access endpoints that don't return PII. You control which endpoi
 
 ### Can my MCP client change Braze data?
 
-The server only exposes the `/media_library/create` write endpoint, which enables you to upload media assets into your media library. If you don't want your agent to make those changes in Braze, leave the `media_library.create` permission unchecked when you create your API key.
+Yes. The server exposes a focused set of write endpoints that let agents create or update content in your workspace, such as media library assets, email templates, and content blocks. Each write endpoint requires its own API key permission. If you don't want your agent to make a given change in Braze, leave that permission off when you create your API key. For the full list of write functions and their required permissions, see [Available API functions]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 ### Can I use a third-party MCP server for Braze?
 

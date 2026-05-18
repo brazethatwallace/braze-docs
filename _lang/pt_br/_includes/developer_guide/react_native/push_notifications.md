@@ -129,10 +129,10 @@ Para obter uma lista completa dos campos de notificação por push, consulte a t
 | `is_silent` | booleano | Se `true`, a carga útil é recebida silenciosamente. Para detalhes sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para detalhes sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
 | `is_braze_internal` | booleano | Será `true` se uma carga útil de notificação tiver sido enviada para um recurso interno do SDK, como sincronização de Feature Flags ou rastreamento de desinstalação. A carga útil é recebida silenciosamente para o usuário. |
 | `image_url` | String | Especifica a URL associada à imagem da notificação. |
-| `braze_properties` | Objeto | Representa as propriedades da Braze associadas à campanha (pares chave-valor). |
+| `braze_properties` | Objeto | Representa as propriedades da Braze associadas à Campaign (pares chave-valor). |
 | `ios` | Objeto | Representa campos específicos do iOS. |
 | `android` | Objeto | Representa campos específicos do Android. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Etapa 3: Ativar deep linking (opcional) {#step-3-enable-deep-linking-optional}
 

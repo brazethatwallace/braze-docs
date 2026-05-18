@@ -90,7 +90,7 @@ Das Recht auf Löschung ist auch als „Recht auf Vergessenwerden“ bekannt.
 
 Sobald Sie die Datenerfassung gestoppt haben, können Sie den [REST-API-Endpunkt User Deletion von Braze](https://www.braze.com/docs/api/endpoints/user_data/post_user_delete/) verwenden, um eine:n Endnutzer:in zu löschen. Dadurch werden alle Datensätze dieser:dieses Endnutzer:in aus den Braze-Diensten entfernt:
 
-- Für Endnutzer:innen, die eine external_id innerhalb der Braze-Dienste haben, können Sie diese ID verwenden, um die Daten dieser:dieses Nutzer:in zu löschen.
+- Für Endnutzer:innen, die eine external_id innerhalb der Braze-Dienste haben, können Sie diese ID verwenden, um die Daten dieser:dieses Endnutzer:in zu löschen.
 - Bei anonymen Endnutzer:innen, die keine external_id innerhalb der Braze-Dienste haben, können Sie die Gerätekennung dieser:dieses Endnutzer:in mit dem Braze SDK abrufen und die Gerätekennung verwenden, um das mit diesem Gerät verbundene Endnutzerprofil zu finden. Anschließend können Sie die User Deletion API verwenden, um das mit dieser:diesem Endnutzer:in verknüpfte Profil zu löschen.
 
 Das Löschen einer:eines Endnutzer:in aus den Braze-Diensten entfernt dauerhaft das zentrale Braze-Nutzerprofil für diese:diesen Endnutzer:in, wie es durch die bereitgestellte `external_id` definiert ist. Dies umfasst strukturierte Profildaten, die Braze standardmäßig erfasst hat oder die Sie für die Erfassung durch die Braze-Dienste konfiguriert haben, wie z. B. Geräteinformationen, Land, Sprache und E-Mail-Adresse.
@@ -117,7 +117,7 @@ Beachten Sie, dass die E-Mail-Adresse oder Telefonnummer, die mit dem Profil der
     <ul>
         <li>PROPERTIES für USERS_BEHAVIORS_CUSTOMEVENT</li>
         <li>PROPERTIES für USERS_BEHAVIORS_PURCHASE</li>
-        <li>MESSAGE_EXTRAS für:</li>
+        <li>MESSAGE_EXTRAS für:
             <ul>
             <li>USERS_MESSAGES_CONTENTCARD</li>
             <li>USERS_MESSAGES_EMAIL_SEND</li>
@@ -127,6 +127,7 @@ Beachten Sie, dass die E-Mail-Adresse oder Telefonnummer, die mit dem Profil der
             <li>USERS_MESSAGES_SMS_SEND</li>
             <li>Zukünftige Nachrichtenversand-Ereignisse</li>
             </ul>
+        </li>
     </ul>
     <p>Auf diese Einstellungen können Sie über <b>Unternehmenseinstellungen</b> > <b>Admin-Einstellungen</b> > <b>Sicherheitseinstellungen</b> zugreifen. Die Einstellungen zur Datenlöschung werden je Event-Typ oder Kategorie festgelegt. Nur Nutzer:innen mit Administratorberechtigungen können Änderungen an diesen Einstellungen vornehmen. Alternativ kann ein:e Administrator:in diese Berechtigungen an eine:n andere:n Nutzer:in delegieren.</p>
     <p>Wenn ein Event-Typ oder ein Nachrichtenextra so eingestellt ist, dass es in den Löschvorgang einbezogen wird, werden die Daten in diesem Feld künftig für Nutzer:innen gelöscht, für die Sie den REST-API-Endpunkt User Deletion ausführen. Wenn Sie diese Löschpräferenz auswählen, werden darüber hinaus beim nächsten geplanten Löschauftrag die Daten aus diesen Feldern aus allen bestehenden anonymisierten Datensätzen gelöscht, die diese Felder enthalten. Eine Wiederherstellung der gelöschten Datenfelder ist nicht möglich.</p>

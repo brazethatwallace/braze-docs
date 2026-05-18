@@ -55,7 +55,7 @@ Le service Apple Push Notification (APNs) prend en charge la définition de pré
 | badge             | nombre                      | Détermine le nombre affiché comme badge sur l'icône de l'application                                                                                                                              |
 | sound             | chaîne de caractères                      | Le nom du fichier son à jouer comme alerte ; doit se trouver dans le bundle de l'application ou dans le dossier ```Library/Sounds```                                                                                    |
 | content-available | nombre                      | Les valeurs d'entrée de 1 signalent à l'application la disponibilité de nouvelles informations au lancement ou à la reprise de session |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS library" }
 
 
 ##### Bibliothèque des propriétés d'alerte {#alert-properties-library}
@@ -70,7 +70,7 @@ Le service Apple Push Notification (APNs) prend en charge la définition de pré
 | loc-key        | chaîne de caractères ou null           | Une clé qui définit le message de notification pour la localisation actuelle à partir du fichier ```Localizable.strings```                                  |
 | loc-args       | tableau de chaînes de caractères         | Valeurs de chaîne pouvant apparaître à la place des spécificateurs de format de localisation dans loc-key                                                       |
 | launch-image   | chaînes de caractères                  | Le nom d'un fichier image dans le bundle de l'application que vous souhaitez utiliser comme image de lancement lorsque les utilisateurs appuient sur le bouton d'action ou font glisser le curseur d'action |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alert properties library" }
 
 Le composeur de messages Braze gère automatiquement la création des clés suivantes : **alert** et **ses propriétés**, **content-available**, **sound** et **category**.
 

@@ -333,6 +333,14 @@ Eine Benachrichtigung informiert Sie darüber, ob Ihre Zugangsdaten erfolgreich 
 {% endtab %}
 {% endtabs %}
 
+## Aktualisierung der Amazon S3-Zugangsdaten für Currents {#updating-currents-credentials}
+
+Sie können die Amazon S3-Zugangsdaten eines bestehenden Braze-Currents-Konnektors aktualisieren, ohne die Integration zu stoppen oder bereits in Ihren Bucket exportierte Daten zu verlieren.
+
+Um Zugangsdaten zu aktualisieren – oder zwischen **AWS Secret Access Key** und **AWS Role ARN** zu wechseln – führen Sie zunächst die IAM- und AWS-seitigen Schritte für Ihre gewählte Methode weiter oben in diesem Artikel durch (Richtlinien, Nutzer:in oder Rolle und Bezeichner nach Bedarf).
+
+Wenn Sie die Zugangsdaten in AWS vorbereitet haben, gehen Sie in Braze zu **Partnerintegrationen** > **Currents**, suchen Sie Ihren Amazon S3-Konnektor in der Liste, wählen Sie **Edit**, aktualisieren Sie die **Credentials** und wählen Sie **Update Current**. Braze validiert die eingegebenen Zugangsdaten; Ihr Konnektor läuft weiter und die bereits in Ihrem Bucket vorhandenen Daten bleiben verfügbar. Weitere Informationen finden Sie unter [Currents aktualisieren in Currents einrichten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
+
 ## Exportverhalten {#export-behavior}
 
 Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und APIs, Dashboard-Berichte oder CSV-Berichte exportieren, erleben Folgendes:

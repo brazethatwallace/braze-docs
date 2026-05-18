@@ -38,7 +38,7 @@ description: "この記事では、コンテンツブロック内の翻訳を更
 | `content_block_id` | 必須 | 文字列 | コンテンツブロックのID。 |
 | `locale_id`| 必須 | 文字列 | ロケールのID（UUID）。 |
 | `translation_map` | 必須 | オブジェクト | 新しい翻訳を含むオブジェクト。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 すべての翻訳IDはユニバーサル一意識別子（UUID）とみなされ、GETエンドポイントの応答で確認できます。

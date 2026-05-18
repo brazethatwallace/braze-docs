@@ -79,7 +79,7 @@ API 호출을 통해 API Campaign을 발송하는 경우(API 트리거 Campaign 
 
 Campaign이나 Canvas가 중지된 후에는 Braze가 더 이상 요청을 보내지 않지만, 이메일 서비스 공급자가 이미 진행 중인 요청을 처리하는 동안 분석 수치가 계속 증가할 수 있습니다.
 
-### 이메일 분석에서 *총 클릭 수*가 *총 열람 수*보다 많은 이유는 무엇인가요? {#why-am-i-seeing-more-total-clicks-than-total-opens-in-my-email-analytics}
+### 이메일 분석에서 *총 클릭 수*가 *총 열람 수*보다 많은 이유는 무엇인가요? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
 *총 열람 수*는 사용자가 이메일을 열어본 횟수이고, *총 클릭 수*는 사용자가 전달된 이메일 내에서 링크 클릭 등 모든 유형의 클릭을 포함하여 클릭한 횟수입니다. 다음과 같은 이유로 열람보다 클릭이 더 많을 수 있습니다:
 
@@ -105,9 +105,9 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 
 ### 탈퇴 수와 탈퇴 링크 클릭 수가 다른 이유는 무엇인가요? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-*탈퇴* 수가 이메일 본문의 탈퇴 링크를 클릭한 사용자보다 많은 경우, list-unsubscribe 헤더 동작이 그 차이를 설명하는 경우가 많습니다. list-unsubscribe 헤더 클릭은 *탈퇴*로 집계되지만 본문 링크의 *클릭*으로는 집계되지 않습니다.
+*탈퇴* 수가 이메일 본문의 탈퇴 링크를 클릭한 사용자보다 많은 경우, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)가 그 차이를 설명하는 경우가 많습니다. List-unsubscribe는 이메일 헤더에 있는 추가 탈퇴 경로입니다(메시지 본문의 링크가 아님). 사용자가 이 방법으로 탈퇴하면 *탈퇴*로 집계되지만 본문의 추적된 탈퇴 URL 클릭으로는 집계되지 않습니다.
 
-본문 탈퇴 링크의 총 클릭 수가 *탈퇴* 수보다 많은 경우, 사용자가 링크를 두 번 이상 클릭했을 수 있습니다.
+본문 탈퇴 링크의 총 클릭 수가 *탈퇴* 수보다 많은 경우, 사용자가 링크를 두 번 이상 클릭했을 수 있습니다. 예를 들어, 탈퇴한 후 다시 가입하고 다시 탈퇴한 경우 이메일 분석의 클릭 분석에서 여러 번의 클릭이 기록될 수 있습니다.
 
 사용자가 탈퇴 링크를 두 번 클릭한 경우(예: 탈퇴한 후 다시 가입하고 다시 탈퇴한 경우), 이메일 분석에서 두 번으로 집계됩니다.
 
@@ -115,7 +115,7 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 
 아니요. Braze는 이 기능을 제공하지 않습니다. 이는 점점 더 많은 이메일이 모바일 기기와 최신 이메일 클라이언트에서 열리고 있으며, 이러한 클라이언트는 이미지와 콘텐츠를 문제없이 렌더링하기 때문입니다.
 
-**해결 방법:** 동일한 결과를 얻으려면 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **링크** 도구를 사용하여 구축 중인 이메일 Campaign에서 해당 페이지로 링크할 수 있습니다.
+**해결 방법:** 동일한 결과를 얻으려면 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **Link** 도구를 사용하여 구축 중인 이메일 Campaign에서 해당 페이지로 링크할 수 있습니다.
 
 ### Braze가 일반 텍스트 URL이나 "www." 텍스트를 자동으로 링크로 변환하나요? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
@@ -159,7 +159,7 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 
 ### *고유 열람* 측정기준에 *머신 열람*이 포함되나요? {#does-the-unique-opens-metric-include-machine-opens}
 
-아니요. *고유 열람*은 머신 열람으로 식별된 이메일을 제외한 [기타 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens)만 집계합니다. *머신 열람*은 별도로 추적됩니다. **Campaign 분석** 보기와 **보고서 빌더**에서 두 측정기준을 독립적으로 확인할 수 있습니다.
+아니요. *고유 열람*은 머신 열람으로 식별된 이메일을 제외한 [기타 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens)만 집계합니다. *머신 열람*은 별도로 추적됩니다. **Campaign Analytics** 보기와 **보고서 빌더**에서 두 측정기준을 독립적으로 확인할 수 있습니다.
 
 ### 이메일 전달량이 발송량과 일치하지 않는 이유는 무엇인가요? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
@@ -171,7 +171,7 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 
 이 경고는 탈퇴 링크가 없었던 Campaign에서 복제된 Campaign에서 지속될 수 있습니다. 이를 해결하려면:
 
-- HTML 이메일의 경우, **일반 텍스트** 탭으로 이동한 다음 **HTML에서 재생성**을 선택하세요.
+- HTML 이메일의 경우, **Plaintext** 탭으로 이동한 다음 **Regenerate from HTML**을 선택하세요.
 - 복제 후, 배리언트를 복제한 다음 원본 배리언트를 제거하세요. 원본 배리언트를 **선택하지 마세요**. 그렇지 않으면 경고가 이어질 수 있습니다.
 
 ### 사용자가 이메일 Campaign을 받지 못한 이유는 무엇인가요? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
@@ -203,7 +203,7 @@ SVG 이미지는 Gmail 웹 또는 Gmail iOS에서 렌더링되지 않습니다. 
 
 ### 이메일 템플릿이 없습니다. 어디에 있나요? {#my-email-template-is-missing-where-is-it}
 
-**템플릿** > **이메일 템플릿**으로 이동하세요. 유형(HTML 또는 드래그 앤 드롭)별로 필터링할 수 있습니다.
+**Templates** > **Email Templates**로 이동하세요. 유형(HTML 또는 드래그 앤 드롭)별로 필터링할 수 있습니다.
 
 템플릿을 볼 수 있는 권한이 있는지 확인하세요. [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
 

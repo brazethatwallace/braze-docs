@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Ver traducciones de origen de una plantilla de correo electrónico"
 article_title: "GET: Ver traducciones de origen de una plantilla de correo electrónico"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -29,10 +29,10 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 ## Parámetros de consulta {#query-parameters}
 
-| Parámetro     | Obligatoria | Tipo de datos | Descripción                     |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Obligatoria | Cadena    | El ID de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Obligatorio | Cadena | El ID de tu plantilla de correo electrónico. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Ejemplo de solicitud {#example-request}
 

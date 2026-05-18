@@ -153,7 +153,7 @@ Le tableau suivant décrit les avantages et les inconvénients de ces deux appro
   }
 </style>
 
-<table>
+<table aria-label="Aperçu de chaque approche">
   <caption>Aperçu de chaque approche</caption>
     <tr>
         <th></th>

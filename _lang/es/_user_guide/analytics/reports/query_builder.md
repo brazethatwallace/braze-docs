@@ -85,14 +85,14 @@ El AI Query Builder aprovecha [GPT](https://openai.com/gpt-4), impulsado por Ope
 Para generar SQL con el AI Query Builder:
 
 1. Después de crear un informe en el Generador de consultas, selecciona la pestaña **AI Query Builder**.
-2. Escribe tu indicación o selecciona una indicación de ejemplo y selecciona **Generate** para traducir tu indicación a SQL.
+2. Escribe tu prompt o selecciona un prompt de ejemplo y selecciona **Generate** para traducir tu prompt a SQL.
 3. Revisa el SQL generado para asegurarte de que sea correcto y luego selecciona **Insert into Editor**.
 
 ### Consejos {#tips}
 
 - Familiarízate con las tablas y columnas disponibles en la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Solicitar datos que no existen en estas tablas puede hacer que ChatGPT invente una tabla ficticia.
 - Familiarízate con las [reglas de escritura SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql) para esta característica. No seguir estas reglas provocará un error.
-- Puedes enviar hasta 20 indicaciones por minuto con el AI Query Builder.
+- Puedes enviar hasta 20 prompts por minuto con el AI Query Builder.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -215,7 +215,7 @@ Los cuatro tipos se muestran si se usan tanto `start_date` como `end_date` con e
 | Fecha de inicio | Especifica una fecha de inicio | Requiere `start_date` |
 | Fecha de fin | Especifica una fecha de fin | Requiere `end_date` |
 | Rango de fechas | Especifica tanto una fecha de inicio como una de fin | Requiere tanto `start_date` como `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Valores de ejemplo" }
 
 - **Valor de reemplazo:** Reemplaza `start_date` y `end_date` con una marca de tiempo Unix en segundos para una fecha especificada en UTC, como `1696517353`.
 - **Ejemplo de uso:** Para todas las variables de relativo, fecha de inicio, fecha de fin y rango de fechas:

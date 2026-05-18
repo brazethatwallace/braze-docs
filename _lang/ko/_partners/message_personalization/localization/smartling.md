@@ -46,7 +46,7 @@ Braze 커넥터는 Campaigns와 Canvases(이메일, 푸시, 인앱 메시지 및
 | Braze REST API 키            | 다음 권한이 있는 Braze REST API 키: <br>- campaigns.translations.get<br>- campaigns.translations.update<br>- campaigns.list<br>- campaigns.details<br>- canvas.translations.get<br>- canvas.translations.update<br>- campaigns.details<br>- templates.email.create<br>- templates.email.update<br>- templates.email.list<br>- templates.email.info<br>- templates.translations.get<br>- templates.translations.update<br>- content_blocks.info<br>- content_blocks.list<br>- content_blocks.create<br>- content_blocks.update<br><br> Braze 대시보드의 **설정 > API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트           | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.             |
 | Braze 다중 언어 설정 | [Braze에서 다중 언어 설정 완료]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/#prerequisites) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -145,7 +145,7 @@ Content Blocks는 Braze의 **템플릿 및 미디어** 섹션에서 관리됩니
 
 - 번역 태그는 HTML 및 드래그 앤 드롭 Content Block 편집기 모두에서 수동으로 추가해야 합니다.
 - 로캘은 Content Blocks 자체가 아니라 메시지 수준에서 선택됩니다.
-- Canvas의 경우 Liquid 태그를 사용하여 Content Blocks를 수동으로 추가하는 대신 행을 사용하여 메시지에 Content Blocks를 삽입하는 것이 좋습니다. 미리보기에서 Content Block을 이메일로 드래그하면 로컬 사본이 만들어지며, '상위' Content Block의 변경 사항은 해당 블록을 사용하는 다른 Campaign에 전파되지 않습니다.
+- Canvas의 경우 Liquid 태그를 사용하여 Content Blocks를 수동으로 추가하는 대신 행을 사용하여 메시지에 Content Blocks를 삽입하는 것이 좋습니다. 미리보기에서 Content Block을 이메일로 드래그하면 로컬 사본이 만들어지며, "상위" Content Block의 변경 사항은 해당 블록을 사용하는 다른 Campaign에 전파되지 않습니다.
 - Content Block Liquid 태그를 사용하는 경우 이메일 본문에 번역 태그를 하나 이상 직접 포함해야 합니다. 번역 태그를 수동으로 추가하면 다중 언어 드롭다운에서 로캘을 선택할 수 있습니다. Smartling은 Content Block의 번역 태그를 인식합니다. `comment` 태그를 추가하여 사용자에게 텍스트가 표시되지 않도록 할 수 있습니다.
 
 ## 레거시 워크플로를 사용하여 번역 관리하기 {#managing-translations-using-the-legacy-workflow}

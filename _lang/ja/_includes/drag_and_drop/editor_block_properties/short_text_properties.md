@@ -13,4 +13,4 @@
 | カラー | フィールドに入力されたテキストの色です。 |
 | テキスト配置 | フィールド内の入力テキストの水平方向の配置です。 |
 | パディング | ブロック周囲の間隔です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

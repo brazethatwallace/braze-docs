@@ -7,7 +7,7 @@ description: "Dieser Referenzartikel beschreibt interne Gruppen – eine hervorr
 
 ---
 
-# Interne Gruppen
+# Interne Gruppen {#internal-groups}
 
 > Interne Gruppen sind eine hervorragende Möglichkeit, interne oder externe Testgruppen zu erstellen und zu organisieren. Sie bieten Einblicke in Ihre SDK- oder API-Protokolle und sind nützlich beim Testen Ihrer SDK-Integration. Sie können eine unbegrenzte Anzahl angepasster interner Gruppen mit bis zu 1.000 Nutzer:innen erstellen.
 
@@ -15,27 +15,27 @@ description: "Dieser Referenzartikel beschreibt interne Gruppen – eine hervorr
 Wir empfehlen außerdem, unseren Braze-Lernkurs [Testing and Troubleshooting](https://learning.braze.com/path/developer/testing-and-troubleshooting) zu besuchen, der erklärt, wie Sie interne Gruppen für Ihre eigene Fehlerbehebung und Fehlersuche nutzen können.
 {% endalert %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die [Legacy-Berechtigung „Access Dev Console“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) oder diese [granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions):
 
-- View API Keys
-- Edit API Keys
-- View Internal Groups
-- Edit Internal Groups
-- View Message Activity Log
-- View Event User Log
-- View API identifiers
-- View API Usage Dashboard
-- View API Limits
-- View API Usage Alerts
-- Edit API Usage Alerts
-- Edit SDK Debugger
-- View SDK Debugger
+- API-Schlüssel anzeigen
+- API-Schlüssel bearbeiten
+- Interne Gruppen anzeigen
+- Interne Gruppen bearbeiten
+- Nachrichten-Aktivitätsprotokoll anzeigen
+- Event-Nutzerprotokoll anzeigen
+- API-Bezeichner anzeigen
+- API-Nutzungs-Dashboard anzeigen
+- API-Limits anzeigen
+- API-Nutzungswarnungen anzeigen
+- API-Nutzungswarnungen bearbeiten
+- SDK-Debugger bearbeiten
+- SDK-Debugger anzeigen
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-## Eine interne Gruppe erstellen
+## Eine interne Gruppe erstellen {#creating-an-internal-group}
 
 So erstellen Sie eine interne Gruppe:
 
@@ -55,7 +55,7 @@ So erstellen Sie eine interne Gruppe:
 
 5. Wählen Sie erneut **Interne Gruppe erstellen**.
 
-### Testnutzer:innen hinzufügen
+### Testnutzer:innen hinzufügen {#adding-test-users}
 
 Nachdem Sie Ihre interne Gruppe erstellt haben, fügen Sie Testnutzer:innen als Mitglieder dieser Gruppe hinzu.
 
@@ -71,7 +71,7 @@ Nachdem Sie Ihre interne Gruppe erstellt haben, fügen Sie Testnutzer:innen als 
 
 ![Einstellungen für interne Gruppen beim Erstellen einer neuen internen Gruppe]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
-### Content-Testgruppen
+### Content-Testgruppen {#content-test-groups}
 
 Ähnlich wie beim Senden einer Vorschau-Testnachricht spart die Content-Testgruppe Zeit und ermöglicht es Ihnen, Tests gleichzeitig an eine vordefinierte Liste von Braze-Nutzer:innen zu senden. Dies ist für Push, In-App-Nachrichten, SMS, E-Mail und Content Cards in Braze verfügbar. Nur Gruppen, die als Content-Testgruppen gekennzeichnet sind, stehen im Vorschaubereich einer Nachricht zur Verfügung.
 
@@ -87,7 +87,7 @@ Wenn Sie einen IP-Pool zum Versenden einer E-Mail verwenden, wählen Sie über d
 
 ![Der Testbereich des In-App-Nachrichten-Editors zur Auswahl der Content-Testgruppe.]({% image_buster /assets/img_archive/content_test_preview.png %}){: style="max-width:60%" }
 
-### Seed-Gruppen
+### Seed-Gruppen {#seed-groups}
 
 Seed-Gruppen werden nur für den E-Mail-Kanal unterstützt. Fügen Sie Nutzer:innen zu einer Seed-Gruppe hinzu, um Kopien jeder E-Mail-Variante an alle Mitglieder der Gruppe zu senden.
 
@@ -103,7 +103,7 @@ Seed-E-Mails haben `[SEED]` vor der Betreffzeile. Beachten Sie, dass Seed-E-Mail
 - Das Frequency-Capping beeinflussen.
 - Die Rate-Limits für die Zustellgeschwindigkeit berücksichtigen oder beeinflussen.
 
-#### Abo-Verhalten
+#### Abo-Verhalten {#subscription-behavior}
 
 Seed-Sendungen sind für interne QA und Überprüfung konzipiert und umgehen daher absichtlich die Abo-Prüfungen für die geseedeten Unternehmensnutzer:innen. Das bedeutet, dass Nutzer:innen mit gültigen E-Mail-Adressen, die Teil einer Seed-Gruppe sind, die Nachricht erhalten, auch wenn sie nicht abonniert sind. Die Nachricht muss jedoch so konfiguriert sein, dass Seed-Kopien an diese Gruppe gesendet werden.
 
@@ -113,7 +113,7 @@ Wenn Seed-Gruppen-Mitglieder die Nachricht nicht sehen, bestätigen Sie, dass si
 Wenn die E-Mail [`abort_message()` Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) verwendet, müssen Seed-Gruppen-Mitglieder weiterhin die Abbruchbedingung erfüllen, um die Sendung zu erhalten.
 {% endalert %}
 
-#### Für Campaigns
+#### Für Campaigns {#for-campaigns}
 
 Beim Erstellen einer E-Mail-Campaign bearbeiten Sie Ihre Seed-Gruppen im Abschnitt **Zielgruppe** des Editors.
 
@@ -131,7 +131,7 @@ Wenn Sie eine wiederkehrende Campaign haben und eine der Varianten aktualisiert 
 
 ![Die Seed-Gruppe „Email seed test“ ist ausgewählt, um die E-Mail-Campaign der Variante 1 zu erhalten.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
 
-#### Für Canvas
+#### Für Canvas {#for-canvas}
 
 Seed-Gruppen in Canvas funktionieren ähnlich wie bei jeder getriggerten Campaign. Braze erkennt automatisch alle Schritte, die eine E-Mail-Nachricht enthalten, und sendet an diese, wenn Ihre Nutzer:innen diesen bestimmten E-Mail-Schritt zum ersten Mal erreichen.
 

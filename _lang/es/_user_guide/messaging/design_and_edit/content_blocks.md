@@ -45,7 +45,7 @@ Cada bloque de contenido de arrastrar y soltar está limitado a una fila. Sin em
 | Tamaño del contenido | Máximo de 50 KB. |
 | Ubicación | Los Content Blocks no se pueden usar dentro de un pie de página de correo electrónico, pero puedes [crear un bloque de contenido que incluya un pie de página](#email-footers) para usarlo en tus correos electrónicos. |
 | Creación | Editor HTML o editor de arrastrar y soltar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block specifications" }
 
 {% alert tip %}
 Al crear Content Blocks, puede ser útil visualizar HTML y Liquid añadiendo saltos de línea. Si estos saltos de línea se dejan durante el envío, corres el riesgo de tener espacios innecesarios que pueden afectar cómo se renderizará el bloque. Para evitar esto, usa la etiqueta **Capture** en tu bloque junto con el filtro **&#124; strip**.

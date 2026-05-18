@@ -45,7 +45,7 @@ Cada bloco de conteúdo de arrastar e soltar é limitado a uma linha. No entanto
 | Tamanho do conteúdo | No máximo 50 KB. |
 | Posicionamento | Os blocos de conteúdo não podem ser usados em um rodapé de e-mail, mas você pode [criar um bloco de conteúdo que inclua um rodapé](#email-footers) para uso em seus e-mails. |
 | Criação | Editor de HTML ou editor de arrastar e soltar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações dos blocos de conteúdo" }
 
 {% alert tip %}
 Ao criar blocos de conteúdo, pode ser útil visualizar HTML e Liquid adicionando quebras de linha. Se essas quebras de linha forem mantidas durante o envio, você corre o risco de ter espaços extras que podem afetar a renderização do bloco. Para evitar isso, use a tag **Capture** no seu bloco junto com o filtro **&#124; strip**.

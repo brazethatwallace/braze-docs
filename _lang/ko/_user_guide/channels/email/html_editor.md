@@ -152,7 +152,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>이메일 헤더</caption>
 <thead>
   <tr>

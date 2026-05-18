@@ -33,7 +33,6 @@ When building an email using the drag-and-drop editor, if you create a horizonta
 
 To retain the same format across device sizes, we recommend creating a separate row with CTA buttons that have padding optimized for mobile and are set to hide the row on a desktop device. Having two separate rows means that you can set the desired padding for the best text rendering on desktop and mobile devices.
 
-
 ### Can I adjust the row height in the drag-and-drop editor?
 
 The row height auto-adjusts to the content. As an alternative, we recommend that you:
@@ -51,4 +50,4 @@ No, you must recreate the email in **Email Templates** to save it.
 
 ### Can I add email attachments to the drag-and-drop editor?
 
-No, the drag-and-drop editor does not support adding attachments to your emails.
+Yes. You can add attachments to your email message by going to **Sending Settings** > **Advanced**.

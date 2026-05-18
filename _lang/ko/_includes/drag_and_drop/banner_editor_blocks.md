@@ -59,7 +59,7 @@
 | 등록정보 | 설명 |
 | --- | --- |
 | 커스텀 코드 | 배너용 HTML(및 관련 자산)을 추가하거나 편집합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 전화번호 수집 {#phone-capture}
 

@@ -37,7 +37,7 @@ description: "이 문서에서는 Canvas 데이터 요약 분석 내보내기 Br
 | `include_variant_breakdown` | 선택 사항 | 부울 | 배리언트 통계를 포함할지 여부입니다(기본값은 `false`). |
 | `include_step_breakdown` | 선택 사항 | 부울 | 단계 통계를 포함할지 여부입니다(기본값은 `false`). |
 | `include_deleted_step_data` | 선택 사항 | 부울 | 삭제된 단계에 대한 단계 통계를 포함할지 여부입니다(기본값은 `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **시간대 정렬:** Braze 대시보드 분석은 대시보드에서 회사에 설정된 시간대에 따라 매일 집계됩니다. 타임스탬프가 회사의 시간대와 일치하는지 확인하여 통계가 대시보드와 일치하도록 하세요. 예를 들어, 회사 시간이 UTC+2인 경우 타임스탬프는 UTC+2 기준 오전 12시여야 합니다.

@@ -1,6 +1,6 @@
 ---
 nav_title: "GET: Exportar sessões do app por tempo"
-article_title: "Get: Exportar sessões do app por tempo"
+article_title: "GET: Exportar sessões do app por tempo"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é a hora da solicitação. |
 | `app_id` | Opcional | String | Identificador de API do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) para limitar a análise de dados a um app específico. |
 | `segment_id` | Opcional | String | Consulte [Identificador de API do segmento]({{site.baseurl}}/api/identifier_types/). ID do segmento que indica o segmento com análise de dados ativada para o qual as sessões devem ser retornadas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 {% raw %}

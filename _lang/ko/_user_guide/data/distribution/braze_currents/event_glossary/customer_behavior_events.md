@@ -21,9 +21,9 @@ search_rank: 7
 
 이 고객 행동 및 사용자 이벤트 분석은 일반적으로 고객 행동 또는 사용자 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성요소에 대한 확실한 이해를 바탕으로 개발자와 비즈니스 인텔리전스 전략 팀은 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 다른 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![구매 이벤트를 보여주는 사용자 이벤트의 분류로, 사용자별 속성, 행동별 속성 및 기기별 속성으로 그룹화된 나열된 등록정보]({% image_buster /assets/img/customer_engagement_event.png %})
+![구매 이벤트를 보여주는 사용자 이벤트의 분류로, 사용자별 등록정보, 행동별 등록정보 및 기기별 등록정보로 그룹화되어 있습니다]({% image_buster /assets/img/customer_engagement_event.png %})
 
-고객 행동 및 사용자 이벤트는 **사용자별** 속성, **행동별** 속성, **기기별** 속성으로 구성됩니다.
+고객 행동 및 사용자 이벤트는 **사용자별** 등록정보, **행동별** 등록정보, **기기별** 등록정보로 구성됩니다.
 
 ### 플랫폼 값 {#platform-values}
 
@@ -39,7 +39,7 @@ search_rank: 7
 | 웹 | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="플랫폼 값" }
 
 {% enddetails %}
 
@@ -59,7 +59,7 @@ search_rank: 7
 Random Bucket Number
 {% endapitags %}
 
-이 사용자 이벤트는 워크스페이스 내에서 새 사용자가 생성될 때마다 발생합니다. 이 이벤트 동안 각 신규 사용자에게 무작위 버킷 번호가 할당되며, 이를 사용하여 무작위 사용자들의 균일하게 분포된 세그먼트를 생성할 수 있습니다. 이를 사용하여 무작위 버킷 번호 값의 범위를 그룹화하고 Campaigns 및 캠페인 배리언트 간의 성과를 비교할 수 있습니다.
+이 사용자 이벤트는 워크스페이스 내에서 새 사용자가 생성될 때마다 발생합니다. 이 이벤트 동안 각 신규 사용자에게 무작위 버킷 번호가 할당되며, 이를 사용하여 무작위 사용자의 균일하게 분포된 세그먼트를 생성할 수 있습니다. 이를 사용하여 무작위 버킷 번호 값의 범위를 그룹화하고 Campaigns 및 캠페인 배리언트 간의 성과를 비교할 수 있습니다.
 
 {% alert important %}
 이 Currents 이벤트는 "모든 이벤트 커넥터"를 구매한 고객만 사용할 수 있으며, Amazon S3, Microsoft Azure 및 Google Cloud Storage와 같은 저장 이벤트 커넥터에만 사용할 수 있습니다.
@@ -144,6 +144,35 @@ Custom Events
   "library" : "Braze",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.CustomEvent
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "device_model" : "(optional, string) Model of the device",
+    "name" : "(required, string) Name of the custom event",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "timezone" : "(optional, string) Time zone of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -254,6 +283,27 @@ Attribution
   "library" : "Braze",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.InstallAttribution
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "source" : "(optional, string) The source of the attribution"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -370,6 +420,38 @@ Locations
   "library" : "Braze",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.Location
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "alt_accuracy" : "(optional, float) Altitude accuracy of recorded location",
+    "altitude" : "(optional, float) [PII] Altitude of recorded location",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "device_model" : "(optional, string) Model of the device",
+    "latitude" : "(required, float) [PII] Latitude of recorded location",
+    "ll_accuracy" : "(optional, float) Accuracy of the latitude and longitude of recorded location",
+    "longitude" : "(required, float) [PII] Longitude of recorded location",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -518,6 +600,36 @@ Purchases
 ```
 {% endtab %}
 
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.Purchase
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "currency" : "(required, string) Currency of the purchase",
+    "device_model" : "(optional, string) Model of the device",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "price" : "(required, float) Price of the purchase",
+    "product_id" : "(required, string) ID of the product purchased"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
 {% tab Mixpanel %}
 ```json
 // Purchase (users.behaviors.Purchase)
@@ -651,6 +763,32 @@ Sessions
 ```
 {% endtab %}
 
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.app.FirstSession
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "device_model" : "(optional, string) Model of the device",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "session_id" : "(optional, string) UUID of the session"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "timezone" : "(optional, string) Time zone of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
 {% tab Mixpanel %}
 ```json
 // First Session (users.behaviors.app.FirstSession)
@@ -757,6 +895,32 @@ Sessions
   "library" : "Braze",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.app.SessionEnd
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "device_model" : "(optional, string) Model of the device",
+    "duration" : "(optional, float) Duration of the session in seconds",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "session_id" : "(optional, string) UUID of the session"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -875,6 +1039,31 @@ Sessions
 ```
 {% endtab %}
 
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.app.SessionStart
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "device_model" : "(optional, string) Model of the device",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "session_id" : "(optional, string) UUID of the session"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
 {% tab Mixpanel %}
 ```json
 // Session Start (users.behaviors.app.SessionStart)
@@ -984,6 +1173,31 @@ Live Activity, Push To Start Token
 ```
 {% endtab %}
 
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.liveactivity.PushToStartTokenChange
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "activity_attributes_type" : "(optional, string) Live Activity attribute type",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "ios_push_token_apns_gateway" : "(optional, int) APNS gateway of the push token, only applies to iOS push tokens, 1 for development, 2 for production",
+    "push_to_start_token" : "(optional, string) Live Activity push to start token",
+    "push_token_state_change_type" : "(optional, string) A description of the push token state change type"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
 {% tab Mixpanel %}
 ```json
 // Live Activity Push To Start Token Change (users.behaviors.liveactivity.PushToStartTokenChange)
@@ -1089,6 +1303,31 @@ Live Activity, Update Token
   "library" : "Braze",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.liveactivity.UpdateTokenChange
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "activity_id" : "(optional, string) Live Activity identifier",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "ios_push_token_apns_gateway" : "(optional, int) APNS gateway of the push token, only applies to iOS push tokens, 1 for development, 2 for production",
+    "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
+    "update_token" : "(optional, string) Live Activity update token"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -1218,6 +1457,39 @@ Push, Token State Change
 ```
 {% endtab %}
 
+{% tab 커스텀 HTTP 커넥터 %}
+```json
+// users.behaviors.pushnotification.TokenStateChange
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "ios_push_token_apns_gateway" : "(optional, int) APNS gateway of the push token, only applies to iOS push tokens, 1 for development, 2 for production",
+    "platform" : "(optional, string) Platform of the device",
+    "push_token" : "(optional, string) Push token of the event",
+    "push_token_created_at" : "(optional, int) UNIX timestamp at which the push token was created",
+    "push_token_device_id" : "(optional, string) Device id of the push token",
+    "push_token_foreground_push_disabled" : "(optional, boolean) Foreground push disabled flag of the push token",
+    "push_token_provisionally_opted_in" : "(optional, boolean) Provisionally opted in flag of the push token",
+    "push_token_state_change_type" : "(optional, string) A description of the push token state change type",
+    "push_token_updated_at" : "(optional, int) UNIX timestamp at which the push token was last updated",
+    "time_ms" : "(optional, long) Time in millisecond when the event happened",
+    "web_push_token_public_key" : "(optional, string) Public key of the push token, only applies to web push tokens",
+    "web_push_token_user_auth" : "(optional, string) User auth of the push token, only applies to web push tokens",
+    "web_push_token_vapid_public_key" : "(optional, string) VAPID public key of the push token, only applies to web push tokens"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
 {% tab Mixpanel %}
 ```json
 // Push Notification Token State Change (users.behaviors.pushnotification.TokenStateChange)
@@ -1307,7 +1579,7 @@ Push, Token State Change
 
 ##### 업데이트 {#update}
 
-기존 토큰의 속성이 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`.
+기존 토큰의 등록정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`.
 
 {% alert note %}
 대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 캠페인 전송을 통해 나중에 정리됩니다.<br><br>

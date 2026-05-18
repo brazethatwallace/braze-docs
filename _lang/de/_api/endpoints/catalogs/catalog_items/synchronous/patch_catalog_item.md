@@ -33,14 +33,14 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
 | `item_id` | Erforderlich | String | Die ID des Katalogartikels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Anfrage-Parameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `items` | Erforderlich | Array | Ein Array, das Artikel-Objekte enthält. Die Artikel-Objekte sollten Felder enthalten, die im Katalog vorhanden sind, mit Ausnahme des Feldes `id`. Pro Anfrage ist nur ein Artikel-Objekt zulässig. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 
@@ -132,6 +132,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `request-includes-too-many-items` | Sie können pro Anfrage nur einen Katalogartikel bearbeiten. |
 | `too-deep-nesting-in-value-object` | Artikel-Objekte dürfen nicht mehr als 50 Verschachtelungsebenen haben. |
 | `unable-to-coerce-value` | Artikeltypen können nicht konvertiert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

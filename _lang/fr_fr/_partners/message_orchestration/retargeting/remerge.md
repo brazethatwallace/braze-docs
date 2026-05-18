@@ -27,7 +27,7 @@ L'intégration de Braze et Remerge vous permet de développer des campagnes mark
 | ID de l'application Android | Votre identifiant unique d'application Braze pour Android (tel que « com.example »). |
 | ID de l'application iOS | Votre identifiant unique d'application Braze pour iOS (tel que « 012345678 »). |
 | Activer la collecte IDFA dans le SDK Braze | La collecte IDFA est facultative dans le SDK Braze et désactivée par défaut. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -87,5 +87,5 @@ Vous n'avez pas besoin de définir un corps de requête pour ce webhook.
 Prévisualisez le message pour vous assurer que la requête s'affiche correctement pour les différents utilisateurs. Nous vous recommandons de prévisualiser et d'envoyer des requêtes de test pour les utilisateurs Android et iOS. Si la requête aboutit, l'API répondra avec `HTTP 204`.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Saved Webhook Templates** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

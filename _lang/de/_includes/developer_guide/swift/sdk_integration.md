@@ -30,11 +30,12 @@ Geben Sie die URL unseres iOS Swift SDK-Repositorys `https://github.com/braze-in
 
 Das Braze Swift SDK teilt Features in eigenständige Bibliotheken auf, um Entwickler:innen mehr Kontrolle darüber zu geben, welche Features sie in ihre Projekte importieren möchten.
 
-| Paket | Details |
+| Paket           | Details                                                                                                                                                         |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BrazeKit`      | Haupt-SDK-Bibliothek mit Unterstützung für Analytics und Push-Benachrichtigungen. |
-| `BrazeLocation` | Standortbibliothek mit Unterstützung für Standortanalysen und Geofence-Überwachung. |
+| `BrazeKit`      | Haupt-SDK-Bibliothek mit Unterstützung für Analytics und Push-Benachrichtigungen.                                                                               |
+| `BrazeLocation` | Standortbibliothek mit Unterstützung für Standortanalysen und Geofence-Überwachung.                                                                            |
 | `BrazeUI`       | Von Braze bereitgestellte Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Content Cards und Banner. Importieren Sie diese Bibliothek, wenn Sie die Standard-UI-Komponenten verwenden möchten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -44,10 +45,11 @@ Das Braze Swift SDK teilt Features in eigenständige Bibliotheken auf, um Entwic
 [BrazeNotificationService](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications) und [BrazePushStory](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories) sind Erweiterungsmodule, die zusätzliche Funktionen bieten und nicht direkt zu Ihrem Hauptanwendungsziel hinzugefügt werden sollten. Folgen Sie stattdessen den verlinkten Anleitungen, um sie separat in ihre jeweiligen Zielerweiterungen zu integrieren.
 {% endalert %}
 
-| Paket | Details |
+| Paket                      | Details                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | Erweiterungsbibliothek für Benachrichtigungsdienste mit Unterstützung für Rich-Push-Benachrichtigungen. |
 | `BrazePushStory`           | Erweiterungsbibliothek für Benachrichtigungsinhalte mit Unterstützung für Push Stories. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -91,10 +93,11 @@ Wir empfehlen Ihnen, Braze so zu versionieren, dass Pod-Updates automatisch alle
 
 Das Braze Swift SDK teilt Features in eigenständige Bibliotheken auf, um Entwickler:innen mehr Kontrolle darüber zu geben, welche Features sie in ihre Projekte importieren möchten. Zusätzlich zu `BrazeKit` können Sie die folgenden Bibliotheken zu Ihrem Podfile hinzufügen:
 
-| Bibliothek | Details |
+| Bibliothek            | Details                                                                                                                                                         |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pod 'BrazeLocation'` | Standortbibliothek mit Unterstützung für Standortanalysen und Geofence-Überwachung. |
+| `pod 'BrazeLocation'` | Standortbibliothek mit Unterstützung für Standortanalysen und Geofence-Überwachung.                                                                            |
 | `pod 'BrazeUI'`       | Von Braze bereitgestellte Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Content Cards und Banner. Importieren Sie diese Bibliothek, wenn Sie die Standard-UI-Komponenten verwenden möchten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -102,10 +105,11 @@ Das Braze Swift SDK teilt Features in eigenständige Bibliotheken auf, um Entwic
 
 [BrazeNotificationService](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications) und [BrazePushStory](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories) sind Erweiterungsmodule, die zusätzliche Funktionen bieten und nicht direkt zu Ihrem Hauptanwendungsziel hinzugefügt werden sollten. Stattdessen müssen Sie für jedes dieser Module eigene Erweiterungs-Targets erstellen und die Braze-Module in ihre entsprechenden Targets importieren.
 
-| Bibliothek | Details |
+| Bibliothek                       | Details                                                                               |
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | Erweiterungsbibliothek für Benachrichtigungsdienste mit Unterstützung für Rich-Push-Benachrichtigungen. |
 | `pod 'BrazePushStory'`           | Erweiterungsbibliothek für Benachrichtigungsinhalte mit Unterstützung für Push Stories. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -129,7 +133,7 @@ pod update
 ```
 {% endtab %}
 
-{% tab Manual %}
+{% tab Manuell %}
 #### Schritt 1.1: Laden Sie das Braze SDK herunter {#step-11-download-the-braze-sdk}
 
 Rufen Sie die [Braze SDK Release-Seite auf GitHub](https://github.com/braze-inc/braze-swift-sdk/releases) auf und laden Sie `braze-swift-sdk-prebuilt.zip` herunter.
@@ -140,18 +144,19 @@ Rufen Sie die [Braze SDK Release-Seite auf GitHub](https://github.com/braze-inc/
 
 Das Braze Swift SDK enthält eine Vielzahl von eigenständigen XCFrameworks, die Ihnen die Freiheit geben, nur die gewünschten Features zu integrieren&#8212;ohne alle integrieren zu müssen. Verwenden Sie die folgende Tabelle, um Ihre XCFrameworks auszuwählen:
 
-| Paket | Erforderlich? | Beschreibung |
-| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `BrazeKit`                 | Ja        | Haupt-SDK-Bibliothek mit Unterstützung für Analytics und Push-Benachrichtigungen. |
-| `BrazeLocation`            | Nein      | Standortbibliothek mit Unterstützung für Standortanalysen und Geofence-Überwachung. |
-| `BrazeUI`                  | Nein      | Von Braze bereitgestellte Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Content Cards und Banner. Importieren Sie diese Bibliothek, wenn Sie die Standard-UI-Komponenten verwenden möchten. |
-| `BrazeNotificationService` | Nein      | Erweiterungsbibliothek für Benachrichtigungsdienste mit Unterstützung für Rich-Push-Benachrichtigungen. Fügen Sie diese Bibliothek nicht direkt zu Ihrem Hauptanwendungsziel hinzu, sondern [fügen Sie die `BrazeNotificationService`-Bibliothek separat hinzu](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications). |
-| `BrazePushStory`           | Nein      | Erweiterungsbibliothek für Benachrichtigungsinhalte mit Unterstützung für Push Stories. Fügen Sie diese Bibliothek nicht direkt zu Ihrem Hauptanwendungsziel hinzu, sondern [fügen Sie die `BrazePushStory`-Bibliothek separat hinzu](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories). |
-| `BrazeKitCompat`           | Nein      | Kompatibilitätsbibliothek mit allen `Appboy`- und `ABK*`-Klassen und -Methoden, die in der `Appboy-iOS-SDK` Version 4.X.X verfügbar waren. Einzelheiten zur Verwendung finden Sie im minimalen Migrationsszenario im [Migrationshandbuch](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
-| `BrazeUICompat`            | Nein      | Kompatibilitätsbibliothek mit allen `ABK*`-Klassen und -Methoden, die in der `AppboyUI`-Bibliothek der `Appboy-iOS-SDK` Version 4.X.X verfügbar waren. Einzelheiten zur Verwendung finden Sie im minimalen Migrationsszenario im [Migrationshandbuch](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
-| `SDWebImage`               | Nein      | Abhängigkeit, die nur von `BrazeUICompat` im minimalen Migrationsszenario verwendet wird. |
+| Paket                      | Erforderlich? | Beschreibung                                                                                                                                                                                                                                                                                                                         |
+| -------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `BrazeKit`                 | Ja            | Haupt-SDK-Bibliothek mit Unterstützung für Analytics und Push-Benachrichtigungen.                                                                                                                                                                                                                                                    |
+| `BrazeLocation`            | Nein          | Standortbibliothek mit Unterstützung für Standortanalysen und Geofence-Überwachung.                                                                                                                                                                                                                                                 |
+| `BrazeUI`                  | Nein          | Von Braze bereitgestellte Benutzeroberflächen-Bibliothek für In-App-Nachrichten, Content Cards und Banner. Importieren Sie diese Bibliothek, wenn Sie die Standard-UI-Komponenten verwenden möchten.                                                                                                                                 |
+| `BrazeNotificationService` | Nein          | Erweiterungsbibliothek für Benachrichtigungsdienste mit Unterstützung für Rich-Push-Benachrichtigungen. Fügen Sie diese Bibliothek nicht direkt zu Ihrem Hauptanwendungsziel hinzu, sondern [fügen Sie die `BrazeNotificationService`-Bibliothek separat hinzu](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications). |
+| `BrazePushStory`           | Nein          | Erweiterungsbibliothek für Benachrichtigungsinhalte mit Unterstützung für Push Stories. Fügen Sie diese Bibliothek nicht direkt zu Ihrem Hauptanwendungsziel hinzu, sondern [fügen Sie die `BrazePushStory`-Bibliothek separat hinzu](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories).                   |
+| `BrazeKitCompat`           | Nein          | Kompatibilitätsbibliothek mit allen `Appboy`- und `ABK*`-Klassen und -Methoden, die in der `Appboy-iOS-SDK` Version 4.X.X verfügbar waren. Einzelheiten zur Verwendung finden Sie im minimalen Migrationsszenario im [Migrationshandbuch](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
+| `BrazeUICompat`            | Nein          | Kompatibilitätsbibliothek mit allen `ABK*`-Klassen und -Methoden, die in der `AppboyUI`-Bibliothek der `Appboy-iOS-SDK` Version 4.X.X verfügbar waren. Einzelheiten zur Verwendung finden Sie im minimalen Migrationsszenario im [Migrationshandbuch](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
+| `SDWebImage`               | Nein          | Abhängigkeit, die nur von `BrazeUICompat` im minimalen Migrationsszenario verwendet wird.                                                                                                                                                                                                                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### Schritt 1.3: Bereiten Sie Ihre Dateien vor {#step-13-prepare-your-files}
 
@@ -482,8 +487,9 @@ Die Standard-Protokollstufe für das Braze Swift SDK ist `.error`&#8212;dies ist
 | `.info`     | `BRZLoggerLevelInfo`     | Allgemeine SDK-Informationen protokollieren (Nutzer:innen-Änderungen usw.) + `.error`. |
 | `.error`    | `BRZLoggerLevelError`    | Fehler protokollieren.                                             |
 | `.disabled` | `BRZLoggerLevelDisabled` | Es erfolgt keine Protokollierung.                                  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### Einstellen der Protokollstufe {#setting-the-log-level}
 

@@ -19,7 +19,7 @@ RCS 설정은 SMS 설정만큼 간단합니다. 풍부하고 인터랙티브한 
 
 Braze에서 RCS를 발송하려면 비즈니스가 세 가지 기준을 사전에 충족해야 합니다.
 
-1. 현재 Braze 계약에 메시지 크레딧이 포함되어 있어야 합니다.
+1. 현재 Braze 계약에 메시지 또는 액션 크레딧이 포함되어 있어야 합니다.
 2. RCS 메시지를 다음 Braze 지원 국가 중 하나로 발송해야 합니다.
 - 미국
 - 영국
@@ -32,7 +32,7 @@ Braze에서 RCS를 발송하려면 비즈니스가 세 가지 기준을 사전�
 - 프랑스
 - 이탈리아
 - 콜롬비아
-3. 계약에 $0 RCS SKU를 확보해야 합니다.
+3. 계약에 RCS SKU를 확보해야 합니다.
 
 ## 2단계: RCS 인증 발신자 등록 {#step-2-register-an-rcs-verified-sender}
 
@@ -68,7 +68,7 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 
 ### 1단계: Canvas를 생성하고 진입 스케줄 작성 {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvas를 생성하고 쉽게 식별할 수 있는 이름을 지정합니다(예: "SMS-RCS 구독 그룹 사용자 이전"). 그런 다음 편리한 시간에 캠페인을 스케줄합니다.
+Canvas를 생성하고 쉽게 식별할 수 있는 이름을 지정합니다(예: "SMS-RCS 구독 그룹 사용자 이전"). 그런 다음 편리한 시간에 Campaign을 스케줄합니다.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
 
@@ -78,7 +78,7 @@ Canvas를 생성하고 쉽게 식별할 수 있는 이름을 지정합니다(예
 |------|------|
 | **Segment 생성** | 구독 그룹의 모든 사용자 또는 세분화 필터를 사용한 하위 집합(예: 무작위 5~10%)을 포함하는 Segment를 구축합니다. Segment는 각 발송 전에 업데이트되어 현재 사용자 기반을 반영합니다. |
 | **Campaign 또는 Canvas 필터 적용** | Campaign 또는 Canvas의 **타겟 오디언스** 단계에서 오디언스를 세분화합니다. 페이지를 벗어나지 않고 타겟팅 옵션을 조정하여 유연성을 높일 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### 3단계: 사용자 업데이트 단계 구성 {#step-3-configure-a-user-update-step}
 
@@ -103,7 +103,7 @@ Canvas에 사용자 업데이트 단계를 추가합니다. 해당 단계에서 
 ```
 {% endraw %}
 
-![앞서 언급한 JSON 코드가 포함된 "사용자 업데이트 오브젝트".]({% image_buster /assets/img/sms/user_update_object.png %})
+![앞서 언급한 JSON 코드가 포함된 사용자 업데이트 오브젝트.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### 4단계: Canvas 테스트 {#step-4-test-the-canvas}
 

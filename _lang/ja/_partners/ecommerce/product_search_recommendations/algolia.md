@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### クエリペイロードの例 {#example-query-payload}
+#### クエリペイロードの例
 
 ```json
 {

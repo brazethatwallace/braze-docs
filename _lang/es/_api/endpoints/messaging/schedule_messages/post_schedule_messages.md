@@ -1,38 +1,38 @@
 ---
-nav_title: "PUBLICAR: Crear mensajes programados"
-article_title: "PUBLICAR: Crear mensajes programados"
+nav_title: "POST: Crear mensajes programados"
+article_title: "POST: Crear mensajes programados"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Crear mensajes programados de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Crear mensajes programados de Braze."
 
 ---
 {% api %}
-# Crear mensajes programados
+# Crear mensajes programados {#create-scheduled-messages}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /messages/schedule/create
 {% endapimethod %}
 
-> Utiliza este punto final para programar el envío de una campaña, Canvas u otro mensaje a una hora determinada, y te proporciona un identificador para hacer referencia a ese mensaje en las actualizaciones.
+> Utiliza este punto de conexión para programar el envío de una campaña, Canvas u otro mensaje a una hora determinada, y te proporciona un identificador para hacer referencia a ese mensaje en las actualizaciones.
 
-Si te diriges a un segmento, se almacenará un registro de tu solicitud en la [Consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/) después de que se hayan enviado todos los mensajes programados.
+Si te diriges a un segmento, se almacenará un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/) después de que se hayan enviado todos los mensajes programados.
 
 {% alert tip %}
-Si te interesa enviar mensajes inmediatamente a usuarios designados, utiliza en su lugar el [punto final`/messages/send` ]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
+Si te interesa enviar mensajes inmediatamente a usuarios designados, utiliza en su lugar el [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#25272fb8-bc39-41df-9a41-07ecfd76cb1d {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `messages.schedule.create`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `messages.schedule.create`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
 
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -71,24 +71,24 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`broadcast`| Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado en `false`. <br><br> Si `broadcast` está configurado como `true`, no se puede incluir una lista de destinatarios. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
+| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado en `false`. <br><br> Si `broadcast` está configurado como `true`, no se puede incluir una lista de destinatarios. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `external_user_ids` | Opcional | Matriz de cadenas | Ver [identificador de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). |
 | `user_aliases` | Opcional | Matriz de objetos alias de usuario | Ver [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `audience` | Opcional | Objeto de audiencia conectado | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 | `segment_id` | Opcional | Cadena | Ver [identificador de segmento]({{site.baseurl}}/api/identifier_types/). |
-| `campaign_id`|Opcional|Cadena| Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Opcional | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
 | `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types/). |
 | `override_messaging_limits` | Opcional | Booleano | Ignora la limitación de frecuencia para las campañas, predeterminado a falso |
-|`recipient_subscription_state`| Opcional | Cadena | Utiliza esta opción para enviar mensajes solo a los usuarios que se hayan adherido voluntariamente (`opted_in`), solo a los usuarios que se hayan suscrito o estén adheridos voluntariamente (`subscribed`) o a todos los usuarios, incluidos los que hayan cancelado la suscripción (`all`). <br><br>El uso de `all` usuarios es útil para la mensajería transaccional por correo electrónico. De forma predeterminada, `subscribed`. |
-| `schedule` | Obligatoria | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/) |
+| `recipient_subscription_state` | Opcional | Cadena | Utiliza esta opción para enviar mensajes solo a los usuarios que se hayan adherido voluntariamente (`opted_in`), solo a los usuarios que se hayan suscrito o estén adheridos voluntariamente (`subscribed`) o a todos los usuarios, incluidos los que hayan cancelado la suscripción (`all`). <br><br>El uso de `all` usuarios es útil para la mensajería de correo electrónico transaccional. De forma predeterminada, `subscribed`. |
+| `schedule` | Obligatorio | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object/) |
 | `messages` | Opcional | Objeto de mensajería | Consulta [los objetos de mensajería disponibles]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/create' \
 --data-raw '{
@@ -167,9 +167,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/
 }'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
-### Ejemplo de respuesta satisfactoria
+### Ejemplo de respuesta satisfactoria {#example-success-response}
 
 ```json
 {

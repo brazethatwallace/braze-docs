@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience` を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
 | `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only` が `false` の場合、`attributes` オブジェクトを含める必要があります。<br><br>ネストされた `attributes` オブジェクト内に `subscription_groups` を含めることで、ユーザーのサブスクリプショングループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照してください。<br><br>`recipients` が指定されず、`broadcast` がtrueに設定されている場合、メッセージはBrazeダッシュボードでCampaignのターゲットオーディエンスとして設定されたSegment全体に送信されます。<br><br>`email` が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
 | `attachments` | オプション | 配列 | `broadcast` がtrueに設定されている場合、`attachments` リストを含めることはできません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 受信者の解決動作 {#recipient-resolution-behavior}
 
@@ -108,7 +108,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 - 同点が解消され、`prioritization` が1つのプロファイルを返した後にBrazeは送信します。たとえば、プロファイルの更新によってあるユーザーの順序フィールドが変更された場合、`prioritization` がプロファイルを一意に識別できるようになった時点でBrazeは送信します（[リトライ動作と `send_to_existing_only`](#retry-behavior-and-send_to_existing_only)を参照）。
 - `prioritization` がプロファイルを返さない場合も、Brazeは送信しません。
 
-#### リトライ動作と send_to_existing_only {#retry-behavior-and-send_to_existing_only}
+#### リトライ動作とsend_to_existing_only {#retry-behavior-and-send_to_existing_only}
 
 `prioritization` が正確に1つのプロファイルを返さない場合に何が起こるかについて説明します。
 

@@ -32,10 +32,10 @@ guide_featured_list:
 - name: Logique conditionnelle dans les messages
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic
   image: /assets/img/braze_icons/columns-01.svg
-- name: Interrompre des messages
+- name: Annuler des messages
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Cas d'utilisation Liquid
+- name: Bibliothèque de cas d'utilisation Liquid
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases
   image: /assets/img/braze_icons/list.svg
 - name: Tutoriels
@@ -90,7 +90,7 @@ Ces termes sont réinterprétés à partir de la [**documentation de Shopify**](
 | Étiquette de logique conditionnelle | Utilisée pour créer de la logique et contrôler le flux du contenu des messages. Dans Braze, les étiquettes de logique conditionnelle servent à créer des exceptions et des variations dans les messages en fonction de certains critères prédéfinis. | ```{% if ${language} == 'en' %}``` déclenchera votre message d'une manière spécifique si un utilisateur a défini « anglais » comme langue. |
 | Filtres | Utilisés pour modifier, affiner ou reformater la sortie de l'objet Liquid. Souvent utilisés pour créer des opérations mathématiques. | ```{{"Big Sale" | upcase}}``` fera apparaître les mots « Big Sale » sous la forme « BIG SALE » dans le message. |
 | Opérateurs | Utilisés dans les messages pour créer des dépendances ou des critères pouvant affecter le message que votre utilisateur reçoit. | Si un utilisateur remplit les critères définis dans un message balisé avec `{% custom_attribute.${Total_Revenue} > 0%}`, il recevra le message. Sinon, il recevra un autre message désigné (ou non), selon ce que vous avez configuré. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Termes à connaître" }
 
 {% endraw %}
 

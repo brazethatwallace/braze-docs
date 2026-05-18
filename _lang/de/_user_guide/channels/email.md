@@ -36,7 +36,7 @@ Sie können Ihr E-Mail-Messaging auf vielfältige Weise anpassen, zum Beispiel:
 | Multimediale Inhalte | Einfache Platzierung von Multimedia-Inhalten, die Nutzer:innen ansprechen, wie z. B. Videos und Bilder. |
 | Newsletter | Versenden Sie bequem monatliche oder wöchentliche Newsletter, um das Engagement der Nutzer:innen aufrechtzuerhalten. |
 | Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzliche Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## E-Mail-Dienste {#email-services}
 

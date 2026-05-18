@@ -15,7 +15,7 @@ description: "Diese Seite behandelt Best Practices für das Erstellen von Nachri
 
 Beachten Sie beim Erstellen einer Rechts-nach-links-Nachricht Folgendes:
 
-- **Darstellung im Braze-Dashboard:** Wenn eine Nachricht auf dem Gerät einer Nutzerin oder eines Nutzers erscheint, wird ihr Erscheinungsbild weitgehend durch das Betriebssystem und die Spracheinstellungen des Geräts bestimmt&#8212;das bedeutet, dass das, was Sie im Dashboard sehen, nicht immer zu 100 % genau ist.
+- **Darstellung im Braze-Dashboard:** Wenn eine Nachricht auf dem Gerät von Nutzer:innen erscheint, wird ihr Erscheinungsbild weitgehend durch das Betriebssystem und die Spracheinstellungen des Geräts bestimmt&#8212;das bedeutet, dass das, was Sie im Dashboard sehen, nicht immer zu 100 % genau ist.
 - **Darstellung auf dem Gerät:** Apple und Android haben erheblichen Einfluss darauf, wie Nachrichten dargestellt werden, während E-Mail-Anbieter (ESPs) einen gewissen Einfluss haben. Die HTML-E-Mail-Anpassung in Braze kann flexibler sein; dennoch kann dieselbe Nachricht auf verschiedenen Geräten je nach den Einstellungen der Nutzer:innen unterschiedlich dargestellt werden.
 
 Überprüfen Sie außerdem Satzzeichen und Emojis, um festzustellen, ob Ihre Nachricht standardmäßig oder von rechts nach links dargestellt wird.
@@ -24,7 +24,7 @@ Beachten Sie beim Erstellen einer Rechts-nach-links-Nachricht Folgendes:
 |------------------|------------------------|
 | Zeigt das Ausrufezeichen und Emoji am **Ende** der Sätze an. | Zeigt das Ausrufezeichen und Emoji am **Anfang** des Satzes an. |
 | ![Ein Beispiel für eine standardmäßige Rechts-nach-links-Nachricht.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Ein Beispiel für eine Links-nach-rechts-Nachricht.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Darstellung von Nachrichten" }
 
 ## Eine Rechts-nach-links-Nachricht erstellen {#creating-a-right-to-left-message}
 

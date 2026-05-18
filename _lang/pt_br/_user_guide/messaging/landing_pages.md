@@ -37,7 +37,7 @@ O número de landing pages publicadas e domínios personalizados que você pode 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Landing pages publicadas                                                                 | Cinco por empresa | 20 adicionais |
 | Domínios personalizados          | Um por empresa | Cinco adicionais |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de plano" }
 
 ## Adicionando o Google Tag Manager a uma landing page {#adding-google-tag-manager-to-a-landing-page}
 

@@ -31,9 +31,9 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |--------------|-------------|
 | Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform oder eine aktive Seen-Kampagne. Sie benötigen Zugriff auf Ihre Workspace-Einstellungen, um Ihre Workspace-ID abzurufen und ein API-Token zu generieren. |
-| Braze-Datentransformation-Webhook-URL | Die Braze-Datentransformation formatiert die von Seen eingehenden Daten so um, dass sie vom /users/track-Endpunkt von Braze akzeptiert werden können. |
+| Braze-Datentransformation-Webhook-URL | Die Braze-Datentransformation formatiert die von Seen eingehenden Daten so um, dass sie vom `/users/track`-Endpunkt von Braze akzeptiert werden können. |
 | Braze-Nutzerdaten | Für die Video-Personalisierung sind Daten auf Nutzer:innen-Ebene erforderlich. Stellen Sie sicher, dass die relevanten Attribute in Braze verfügbar sind und dass Sie **braze_id** als eindeutigen Bezeichner übergeben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 
@@ -128,7 +128,7 @@ Da die Antwort-Payload konfigurierbar ist, stellen Sie sicher, dass die folgende
 | `id` | Muss mit der von Braze gesendeten `braze_id` übereinstimmen |
 | `player_url` | Eindeutige URL für den personalisierten Video-Player |
 | `email_thumbnail_url` | URL des generierten Video-Vorschaubilds |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
 
 Wenn Ihr Anwendungsfall zusätzliche Attribute erfordert, fügen Sie diese in die Antwort ein und ordnen Sie sie in Braze zu.
 

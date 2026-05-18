@@ -82,7 +82,7 @@ La siguiente tabla resume lo que significa cada etiqueta.
 | --- | --- |
 | **Estimated Audience** | Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Reachable users** en el generador de segmentos. Se esperan márgenes de error, especialmente para espacios de trabajo grandes o segmentos pequeños como proporción del espacio de trabajo. |
 | **Current Audience** | Braze puede calcular la estadística predeterminada con un escaneo completo de los perfiles del espacio de trabajo, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 Para más detalles sobre el comportamiento de muestreo, **Calculate exact statistics** y la segmentación de **Reachable users**, consulta [Medir el tamaño del segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
@@ -220,7 +220,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
     <caption class="sr-only">Métricas de rendimiento de las tarjetas de contenido</caption>
     <thead>
         <tr>
@@ -254,7 +254,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto incluye los clics en los enlaces para cancelar la suscripción proporcionados por Braze.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} Esto incluye los clics en los enlaces de cancelación de suscripción proporcionados por Braze.</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-dismissals">Unique Dismissals</a></td>
@@ -295,7 +295,7 @@ Para obtener las definiciones completas de todas las métricas de banners, consu
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
     <caption class="sr-only">Métricas de rendimiento de los banners</caption>
     <thead>
         <tr>
@@ -365,7 +365,7 @@ Aquí tienes algunas métricas clave específicas del correo electrónico que no
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
     <caption class="sr-only">Métricas de rendimiento del correo electrónico</caption>
     <thead>
         <tr>
@@ -445,17 +445,25 @@ Se puede registrar un clic sin una apertura cuando el píxel de apertura nunca s
 
 Un clic y una apertura también pueden caer en días diferentes: un usuario podría hacer clic el 16 de mayo con las imágenes desactivadas (sin apertura), y luego abrir en el correo web el 17 de mayo (la apertura se registra entonces).
 
-##### _Clics únicos_ superiores a _Aperturas únicas_ {#higher-unique-clicks-than-unique-opens}
+##### _Clics únicos_ superiores a _aperturas únicas_ {#higher-unique-clicks-than-unique-opens}
 
-Los _clics únicos_ pueden ser superiores a las _aperturas únicas_ cuando las aperturas están infrarregistradas o los clics están inflados:
+Es posible que los _clics únicos_ superen con creces a las _aperturas únicas_ (por ejemplo, varios clics únicos por cada apertura única) incluso cuando esperas una proporción más baja de tu audiencia. Ese patrón suele significar que las aperturas están infrarregistradas, los clics están inflados, o ambas cosas. Sin embargo, esto no significa que Braze esté contando mal los clics de forma aislada.
+
+Braze registra una apertura de correo electrónico cuando se carga el píxel de seguimiento de apertura. Ese píxel es una pequeña imagen transparente (a menudo descrita como de 1 x 1&nbsp;px) que Braze añade al HTML del mensaje. Si el píxel nunca se carga, no se registra ninguna apertura para esa visualización, pero los clics en los enlaces sí pueden registrarse, por lo que tu tasa de clic-a-apertura y el equilibrio entre estas dos métricas pueden parecer sesgados.
 
 **El buzón nunca cargó el píxel de seguimiento de apertura**
 
-Esto puede ocurrir cuando:
+El píxel podría no cargarse cuando:
 
-- El mensaje es largo y el píxel de apertura está al final. Cuando el cliente recorta el mensaje, el píxel se corta.
-- El mensaje llegó a la carpeta de correo no deseado, donde las imágenes remotas (incluido el píxel de apertura) a menudo no se cargan.
-- El buzón utiliza una seguridad más estricta (habitual en cuentas corporativas) y el usuario aún no ha elegido cargar las imágenes.
+- **El mensaje está recortado.** Un HTML largo empuja el contenido, incluido el píxel en la parte inferior, detrás de un corte del tipo "Ver mensaje completo". En Gmail, los mensajes de más de aproximadamente [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) suelen recortarse, lo que puede impedir que el píxel se cargue hasta que se abra el mensaje completo (y a veces ni siquiera entonces, dependiendo del cliente).
+- **Las imágenes están bloqueadas o restringidas.** Una seguridad de buzón más estricta (habitual en cuentas corporativas) puede bloquear las imágenes remotas hasta que el destinatario elija cargarlas, por lo que el píxel de apertura no se activa aunque hagan clic en los enlaces rastreados.
+- **El mensaje está en la carpeta de correo no deseado o masivo.** Muchos proveedores no cargan las imágenes remotas (incluido el píxel de apertura) en esas carpetas de forma predeterminada.
+
+**Qué puedes hacer**
+
+- **Recorte:** Acorta y simplifica el HTML, elimina estilos o activos no utilizados y mantén el tamaño total del mensaje dentro de los límites del cliente. Para Gmail, intenta que sea inferior a unos 102&nbsp;KB como se describe en [Tamaño del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size).
+- **Seguridad del buzón y carga de imágenes:** Solo el destinatario (o su política de TI) puede cambiar si las imágenes se cargan de forma predeterminada.
+- **Ubicación en correo no deseado:** Céntrate en [mejorar la capacidad de entrega del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) y la higiene de la lista. Si el correo llega constantemente a la carpeta de correo no deseado y las métricas parecen incorrectas, ponte en contacto con el [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
 
 **Actividad de seguridad o bots en los enlaces**
 
@@ -481,7 +489,7 @@ Normalmente se necesitan unos 10 000 correos electrónicos entregados para que l
 
 ###### Consideraciones {#considerations}
 
-La Estimated Real Open Rate solo está disponible en Campaigns y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
+La Estimated Real Open Rate solo está disponible en campañas y no se informa en eventos de Currents. Esta métrica solo se calcula retroactivamente para las campañas activas lanzadas antes del 14 de noviembre de 2023.
 
 ##### Gestión del aumento de las tasas de clics {#handling-increases-in-click-rates}
 
@@ -516,7 +524,7 @@ Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando e
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
     <caption class="sr-only">Métricas de rendimiento de los mensajes dentro de la aplicación</caption>
     <thead>
         <tr>
@@ -585,7 +593,7 @@ Aquí tienes algunas métricas clave de KakaoTalk que puedes ver en tus análisi
 | Errores | _Errores_ es el número de errores devueltos por el proveedor de KakaoTalk (se incrementa durante el proceso de envío). |
 | Ingresos | _Ingresos_ son los ingresos en dólares de los destinatarios de la campaña dentro de la ventana de conversión primaria establecida. |
 | Conversiones primarias | _Conversiones primarias_ es el número de veces que ocurrió un evento definido después de interactuar con o ver un mensaje recibido de una Campaign de Braze. Este evento definido lo determinas tú al crear la campaña. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -599,7 +607,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
     <caption class="sr-only">Métricas de rendimiento push</caption>
     <thead>
         <tr>
@@ -700,7 +708,7 @@ Firebase Cloud Messaging (FCM) puede rebotar en tres casos:
 | Aplicaciones desinstaladas | Cuando se intenta entregar un mensaje a un dispositivo y la aplicación prevista está desinstalada en ese dispositivo, el mensaje se descartará y se invalidará el ID de registro del dispositivo. Cualquier intento futuro de mensajería con el dispositivo devolverá un error NotRegistered. |
 | Copia de seguridad de la aplicación | Cuando se hace una copia de seguridad de una aplicación, su ID de registro podría dejar de ser válido antes de que se restaure la aplicación. En este caso, FCM dejará de almacenar el ID de registro de la aplicación y esta dejará de recibir mensajes. Por ello, los ID de registro **no** deben guardarse cuando se hace una copia de seguridad de una aplicación. |
 | Aplicación actualizada | Cuando se actualiza una aplicación, el ID de registro de la versión anterior puede dejar de funcionar. Como tal, una aplicación actualizada debe sustituir su ID de registro existente. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -718,7 +726,7 @@ Aquí tienes un desglose de algunas métricas clave que puedes ver al revisar el
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
     <caption class="sr-only">Métricas de rendimiento de SMS, MMS y RCS</caption>
     <thead>
         <tr>
@@ -770,7 +778,7 @@ Aquí tienes algunas métricas clave de webhook que puedes ver en tus análisis.
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
     <caption class="sr-only">Métricas de rendimiento del webhook</caption>
     <thead>
         <tr>
@@ -806,7 +814,7 @@ Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
     <caption class="sr-only">Métricas de rendimiento de WhatsApp</caption>
     <thead>
         <tr>

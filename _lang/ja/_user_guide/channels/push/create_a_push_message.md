@@ -12,7 +12,7 @@ tool:
 
 # プッシュメッセージを作成する {#create-a-push-message}
 
-> プッシュ通知は、時間的制約のあるアクションの呼びかけや、しばらくアプリを利用していないユーザーの再エンゲージメントに最適です。成功するプッシュキャンペーンは、ユーザーをコンテンツに直接誘導し、アプリの価値を示します。プッシュ通知の例については、[ケーススタディ](https://www.braze.com/customers)をご覧ください。
+> プッシュ通知は、時間的制約のあるアクションの呼びかけや、しばらくアプリを利用していないユーザーの再エンゲージメントに最適です。成功するプッシュCampaignは、ユーザーをコンテンツに直接誘導し、アプリの価値を示します。プッシュ通知の例については、[ケーススタディ](https://www.braze.com/customers)をご覧ください。
 
 ## ステップ 1: メッセージの作成場所を選択する {#create-new-campaign-push}
 
@@ -22,8 +22,8 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 
 {% tabs %}
 {% tab Campaign %}
-1. **メッセージング** > **Campaigns** に移動し、**キャンペーンを作成**を選択します。
-2. 複数チャネルをターゲットとするCampaignの場合は、**マルチチャネル**を選択します。それ以外の場合は、**プッシュ通知**を選択します。まだ迷っている場合は、以下の**通常のプッシュキャンペーンとマルチチャネルプッシュキャンペーンの選択**を参照してください。
+1. **Messaging** > **Campaigns** に移動し、**Create campaign**を選択します。
+2. 複数チャネルをターゲットとするCampaignの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。まだ迷っている場合は、以下の**通常のプッシュCampaignとマルチチャネルプッシュCampaignの選択**を参照してください。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
 
@@ -34,15 +34,15 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 {: start="5"}
 5. Campaignに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
-{% details 通常のプッシュキャンペーンとマルチチャネルプッシュキャンペーンの選択 %}
+{% details 通常のプッシュCampaignとマルチチャネルプッシュCampaignの選択 %}
 
 モバイル、Web、Kindle、iOS、Androidなど、複数のデバイスやプラットフォームをターゲットにする場合、このステップでの選択が、後の一部の機能や設定の利用可能性に影響する場合があります。
 
-マルチチャネルまたはプッシュ通知キャンペーンを作成する前に、以下の判断フローチャートを参照してください。
+マルチチャネルまたはプッシュ通知Campaignを作成する前に、以下の判断フローチャートを参照してください。
 
-![「キャンペーンタイプを選択するためのフローチャート。まず、複数のデバイスとプラットフォームをターゲットにするかどうかを判断します。いいえの場合は「プッシュ通知を選択」に進みます。はいの場合は「プッシュメッセージのタイプは？」と尋ね、「標準プッシュ」を選ぶと「デバイス固有の設定を使用する必要がありますか？」という判断ポイントに進みます。いいえの場合は「プッシュ通知を選択してクイックプッシュを使用」に進みます。はいの場合は「マルチチャネルを選択」に進みます。「プッシュメッセージのタイプは？」に戻り、「Push Storiesまたはインライン画像」の場合は「マルチチャネルを選択」に進みます。」]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
+![「Campaignタイプを選択するためのフローチャート。まず、複数のデバイスとプラットフォームをターゲットにするかどうかを判断します。いいえの場合は「プッシュ通知を選択」に進みます。はいの場合は「プッシュメッセージのタイプは？」と尋ね、「標準プッシュ」を選ぶと「デバイス固有の設定を使用する必要がありますか？」という判断ポイントに進みます。いいえの場合は「プッシュ通知を選択してクイックプッシュを使用」に進みます。はいの場合は「マルチチャネルを選択」に進みます。「プッシュメッセージのタイプは？」に戻り、「Push Storiesまたはインライン画像」の場合は「マルチチャネルを選択」に進みます。」]({% image_buster /assets/img_archive/flowchart_quickpush.png %})
 
-**プッシュ通知**を選択し、複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュキャンペーンが作成されます。クイックプッシュでは、一部のデバイス固有の設定が利用できません。
+**Push notification**を選択し、複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュCampaignが作成されます。クイックプッシュでは、一部のデバイス固有の設定が利用できません。
 
 - プッシュアクションボタン
 - 通知チャネルとグループ
@@ -50,12 +50,12 @@ Campaignを使うべきか、Canvasを使うべきか迷っていますか？Cam
 - 表示優先度
 - サウンド
 
-続行する前に、[クイックプッシュキャンペーン]({{site.baseurl}}/quick_push/)を参照して、この編集体験の違いを理解してください。
+続行する前に、[クイックプッシュCampaign]({{site.baseurl}}/quick_push/)を参照して、この編集体験の違いを理解してください。
 
 {% enddetails %}
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している場合や同じコンテンツの場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
+Campaign内のすべてのメッセージが類似している場合や同じコンテンツの場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -78,16 +78,16 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 | 以前の選択 | オプション |
 | --- | --- |
-| プッシュ通知キャンペーン | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュキャンペーンが作成されます。これにより、選択したすべてのプラットフォーム向けに1つのメッセージを単一のエディターで作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[クイックプッシュキャンペーン]({{site.baseurl}}/quick_push/)を参照してください。 |
-| マルチチャネルキャンペーン | **メッセージングチャネルを追加**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。
-| Canvas | メッセージステップで、**+ さらに追加**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルキャンペーンと同様に、プラットフォームの選択は各バリアントに固有です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| プッシュ通知Campaign | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュCampaignが作成されます。これにより、選択したすべてのプラットフォーム向けに1つのメッセージを単一のエディターで作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[クイックプッシュCampaign]({{site.baseurl}}/quick_push/)を参照してください。 |
+| マルチチャネルCampaign | **Add Messaging Channel**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。 |
+| Canvas | メッセージステップで、**+ Add more**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルCampaignと同様に、プラットフォームの選択は各バリアントに固有です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## ステップ 3: 通知タイプを選択する（iOSおよびAndroid） {#step-3-select-notification-type-ios-and-android}
 
-クイックプッシュキャンペーンを作成している場合、通知タイプは自動的に**標準プッシュ**に設定され、変更できません。
+クイックプッシュCampaignを作成している場合、通知タイプは自動的に**Standard Push**に設定され、変更できません。
 
-![通知タイプの例として標準プッシュが選択されている画面。]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![通知タイプの例としてStandard Pushが選択されている画面。]({% image_buster /assets/img_archive/push_2.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 それ以外の場合、iOSおよびAndroidでは、通知タイプを選択します。
 
@@ -95,15 +95,15 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 - [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)
 - インライン画像（Androidのみ）
 
-プッシュキャンペーンに画像を含めたい場合は、[iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/)または[Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/)のリッチプッシュ通知の作成に関するガイドを参照してください。
+プッシュCampaignに画像を含めたい場合は、[iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/)または[Android]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/)のリッチプッシュ通知の作成に関するガイドを参照してください。
 
 ## ステップ 4: プッシュメッセージを作成する {#step-4-compose-your-push-message}
 
-いよいよプッシュメッセージを作成します！**作成**タブでは、メッセージのコンテンツと動作のすべての側面を編集できます。
+いよいよプッシュメッセージを作成します！**Compose**タブでは、メッセージのコンテンツと動作のすべての側面を編集できます。
 
-![プッシュ通知作成の「作成」タブ。]({% image_buster /assets/img_archive/push_compose.png %})
+![プッシュ通知作成のComposeタブ。]({% image_buster /assets/img_archive/push_compose.png %})
 
-**作成**タブの内容は、前のステップで選択した通知タイプによって異なりますが、以下のオプションが含まれる場合があります。
+**Compose**タブの内容は、前のステップで選択した通知タイプによって異なりますが、以下のオプションが含まれる場合があります。
 
 #### 通知チャネルまたはグループ（iOSおよびAndroid） {#notification-channel-or-group-ios-and-android}
 
@@ -111,7 +111,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 #### 言語 {#language}
 
-**言語を追加**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquid内の適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
+**Add Languages**ボタンを使用して、複数の言語でコピーを追加します。コンテンツを作成する前に言語を選択し、Liquidの適切な場所にテキストを入力することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported)を参照してください。
 
 右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示は、サービスプロバイダーのレンダリング方法に大きく依存します。できるだけ正確に表示される右から左のメッセージを作成するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/)を参照してください。
 
@@ -121,7 +121,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 {% tab ios %}
 メッセージボックスに入力を開始すると、左側のプレビューボックスにプレビューが表示されます。プッシュメッセージはプレーンテキストでフォーマットする必要があります。
 
-**タイトル**フィールドを使用して見出しを追加します。プッシュをパーソナライズしてターゲットを絞るために、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることができます。
+**Title**フィールドを使用して見出しを追加します。プッシュをパーソナライズしてターゲットを絞るために、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を含めることができます。
 {% endtab %}
 
 {% tab android %}
@@ -154,18 +154,18 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 #### クリック時の動作 {#on-click-behavior}
 
-**クリック時の動作**で、ユーザーがプッシュ通知の本文を選択したときに何が起こるかを指定します。例えば、顧客にアプリケーションを開くよう促したり、指定したWeb URLにリダイレクトしたり、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)を使用してアプリケーションの特定のページを開いたりすることができます。
+**On-Click Behavior**で、ユーザーがプッシュ通知の本文を選択したときに何が起こるかを指定します。例えば、顧客にアプリケーションを開くよう促したり、指定したWeb URLにリダイレクトしたり、[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)を使用してアプリケーションの特定のページを開いたりすることができます。
 
 ここでは、プッシュ通知内にボタンプロンプトを設定することもできます。例えば：
 
-- 承認/拒否
-- はい/いいえ
-- 確認/キャンセル
-- もっと見る
+- Accept/Decline
+- Yes/No
+- Confirm/Cancel
+- More
 
 #### 送信オプション {#sending-options}
 
-ユーザーが複数のデバイスにアプリをインストールしている場合、デフォルトでは、有効なプッシュトークンが割り当てられたすべてのデバイスにプッシュメッセージが送信されます。必要に応じて、**最後に使用したデバイス**を選択できます。
+ユーザーが複数のデバイスにアプリをインストールしている場合、デフォルトでは、有効なプッシュトークンが割り当てられたすべてのデバイスにプッシュメッセージが送信されます。必要に応じて、**Most recently used device**を選択できます。
 
 ![ユーザーの最後に使用したデバイスにのみこのプッシュを送信するデバイスオプションのチェックボックス。]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
 
@@ -173,7 +173,7 @@ Campaign内のすべてのメッセージが類似している場合や同じコ
 
 デフォルトでは、Brazeは有効なプッシュトークンを持つユーザーのすべてのデバイスにメッセージを送信します。iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイスのみに通知を送信するように、リーチをさらに絞り込むことができます。
 
-必要に応じて、プッシュの送信先を**最後に使用したデバイス**に設定できます。
+必要に応じて、プッシュの送信先を**Most recently used device**に設定できます。
 
 ##### 最後に使用したデバイス {#most-recently-used-device}
 
@@ -189,7 +189,7 @@ iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイス
 
 ## ステップ 5: メッセージをプレビューしてテストする（オプション） {#step-5-preview-and-test-your-message-optional}
 
-テストは間違いなく最も重要なステップの1つです。完璧なプッシュメッセージの作成が完了したら、送信前にテストしてください。**テスト**タブを選択して、プッシュメッセージのテスト方法のオプションから選択します。**テスト受信者**で、コンテンツテストグループまたは個々のユーザーを選択できます。また、**ユーザーとしてメッセージをプレビュー**を使用して、ランダムなユーザー、既存のユーザー、カスタムユーザー、または多言語ユーザーとしてモバイルでメッセージがどのように表示されるかを確認できます。
+テストは間違いなく最も重要なステップの1つです。完璧なプッシュメッセージの作成が完了したら、送信前にテストしてください。**Test**タブを選択して、プッシュメッセージのテスト方法のオプションから選択します。**Test Recipients**で、コンテンツテストグループまたは個々のユーザーを選択できます。また、**Preview message as user**を使用して、ランダムなユーザー、既存のユーザー、カスタムユーザー、または多言語ユーザーとしてモバイルでメッセージがどのように表示されるかを確認できます。
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=push)を参照してください。
 
@@ -210,7 +210,7 @@ Campaignの残りを構築します。プッシュ通知を構築するための
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、Segmentまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのSegment人口のプレビューが自動的に表示されます。Campaignがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのSegmentのライフタイムバリューを確認するには、**追加の統計を表示**を選択します。
+次に、Segmentまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのSegment人口のプレビューが自動的に表示されます。Campaignがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのSegmentのライフタイムバリューを確認するには、**Show Additional Stats**を選択します。
 
 {% multi_lang_include target_audiences.md %}
 
@@ -228,18 +228,18 @@ Campaignの残りを構築します。プッシュ通知を構築するための
 
 オプションとして、Segment内の指定された数のユーザーに配信を制限したり、Campaignの繰り返し時にユーザーが同じメッセージを2回受信できるようにすることもできます。
 
-##### メールとプッシュのマルチチャネルキャンペーン {#multichannel-campaigns-with-email-and-push}
+##### メールとプッシュのマルチチャネルCampaign {#multichannel-campaigns-with-email-and-push}
 
-メールとプッシュの両方のチャネルをターゲットとするマルチチャネルキャンペーンの場合、明示的にオプトインしたユーザーのみがメッセージを受信するようにCampaignを制限したい場合があります（購読中または配信停止のユーザーを除外）。例えば、異なるオプトインステータスを持つ3人のユーザーがいるとします。
+メールとプッシュの両方のチャネルをターゲットとするマルチチャネルCampaignの場合、明示的にオプトインしたユーザーのみがメッセージを受信するようにCampaignを制限したい場合があります（購読中または配信停止のユーザーを除外）。例えば、異なるオプトインステータスを持つ3人のユーザーがいるとします。
 
 - **ユーザーA**はメールを購読中で、プッシュが有効です。このユーザーはメールを受信しませんが、プッシュを受信します。
 - **ユーザーB**はメールにオプトインしていますが、プッシュは有効ではありません。このユーザーはメールを受信しますが、プッシュは受信しません。
 - **ユーザーC**はメールにオプトインしており、プッシュも有効です。このユーザーはメールとプッシュの両方を受信します。
 
-これを行うには、**オーディエンスの概要**で、このCampaignを「オプトインしたユーザーのみ」に送信するように選択します。このオプションにより、オプトインしたユーザーのみがメールを受信し、Brazeはデフォルトでプッシュが有効なユーザーにのみプッシュを送信します。
+これを行うには、**Audience Summary**で、このCampaignを「オプトインしたユーザーのみ」に送信するように選択します。このオプションにより、オプトインしたユーザーのみがメールを受信し、Brazeはデフォルトでプッシュが有効なユーザーにのみプッシュを送信します。
 
 {% alert important %}
-この設定では、**ターゲットオーディエンス**ステップに、オーディエンスを単一のチャネルに制限するフィルター（例えば、`Foreground Push Enabled = True`や`Email Subscription = Opted-In`）を含めないでください。
+この設定では、**Target Audiences**ステップに、オーディエンスを単一のチャネルに制限するフィルター（例えば、`Foreground Push Enabled = True`や`Email Subscription = Opted-In`）を含めないでください。
 {% endalert %}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
@@ -259,4 +259,17 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 CampaignまたはCanvasの最後の構築が完了したら、その詳細を確認します。Campaignの場合、最終ページにはデザインしたCampaignの概要が表示されます。関連するすべての詳細を確認し、メッセージをテストしたことを確認してから送信し、データが届くのを見守りましょう！
 
-次に、[プッシュレポート]({{site.baseurl}}/user_guide/channels/push/reporting/)を確認して、プッシュキャンペーンの結果にアクセスする方法を学びましょう。プッシュ通知では、送信数、配信数、バウンス数、開封数、直接開封数の統計を確認できます。
+次に、[プッシュレポート]({{site.baseurl}}/user_guide/channels/push/reporting/)を確認して、プッシュCampaignの結果にアクセスする方法を学びましょう。プッシュ通知では、送信数、配信数、バウンス数、開封数、直接開封数の統計を確認できます。
+
+### トラブルシューティング {#troubleshooting}
+
+#### クリック時の動作
+
+SDKバージョンのデフォルトのクリック時の動作を使用しており、Web URLを含むプッシュ通知を選択するとWebブラウザではなくアプリ内で開く場合は、以下の統合ガイドを確認してプッシュ通知の処理を確認してください。
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+アプリの起動が完了する前に、`application:didFinishLaunchingWithOptions:`内で`center.delegate = self`を使用してデリゲートオブジェクトを同期的に割り当てる必要があります。そうしないと、アプリが受信プッシュ通知を見逃す可能性があります。詳細については、Appleの[`UNUserNotificationCenterDelegate`ドキュメント](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate)を参照してください。
+{% endalert %}

@@ -7,7 +7,7 @@ description: "En este artículo se describen los eventos y propiedades personali
 search_rank: 2
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Eventos personalizados {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Eventos personalizados {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > Este artículo describe los eventos personalizados y sus propiedades, los filtros de segmentación relacionados, las propiedades de entrada en Canvas, los análisis relevantes y mucho más. Para conocer los eventos de Braze en general, consulta [Eventos]({{site.baseurl}}/user_guide/data/activation/events/).
 
@@ -103,11 +103,11 @@ La siguiente tabla muestra los filtros disponibles para segmentar usuarios por e
 | Comprobar si el evento personalizado ocurrió **más de X (máx. = 50) veces** | **MÁS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **menos de X (máx. = 50) veces** | **MENOS DE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
 | Comprobar si el evento personalizado ocurrió **exactamente X (máx. = 50) veces** | **EXACTAMENTE** | en los últimos **Y días (Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentation filters" }
 
 ## Análisis {#analytics}
 
-Braze registra el número de veces que han ocurrido los eventos personalizados y la última vez que cada usuario los realizó para la segmentación. Consulta estos análisis yendo a **Análisis** > **Informe de eventos personalizados**.
+Braze registra el número de veces que han ocurrido los eventos personalizados y la última vez que cada usuario los realizó para la segmentación. Consulta estos análisis yendo a **Analytics** > **Informe de eventos personalizados**.
 
 En la página **Informe de eventos personalizados** del dashboard, puedes ver de forma agregada con qué frecuencia ocurre cada evento personalizado. Las líneas grises superpuestas en la serie temporal indican la última vez que se envió una campaña, lo cual es útil para ver cómo tus campañas afectaron la actividad de eventos personalizados.
 

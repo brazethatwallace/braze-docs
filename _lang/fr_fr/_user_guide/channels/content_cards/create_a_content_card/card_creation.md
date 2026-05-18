@@ -68,6 +68,10 @@ Dans les paramètres **Expiration (Time in Feed)**, vous pouvez sélectionner **
 
 ![Paramètres d'expiration affichant l'option Personalize duration configurée avec une variable de contexte pour l'expiration de la Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Les Content Cards ont une durée d'expiration maximale de 30 jours, même lorsque vous utilisez une durée personnalisée avec des variables de contexte. Toute valeur définie au-delà de 30 jours est plafonnée à 30 jours. Pour plus de détails, consultez [Expiration de la carte]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -85,7 +89,7 @@ Cette section décrit les principales différences entre la création de cartes 
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Différences entre la création de cartes au lancement ou à l'entrée et la création à la première impression" class="tg">
   <caption>Différences entre la création de cartes au lancement ou à l'entrée et la création à la première impression</caption>
 <thead>
   <tr>

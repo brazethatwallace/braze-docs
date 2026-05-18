@@ -18,7 +18,7 @@ tool:
 
 ドラッグ＆ドロップエディターは、[コンテンツ](#content)と[行](#rows)の2つの主要コンポーネントを使用してワークフローを簡素化します。HTMLを追加で使用する必要はありません。
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="エディターについて" style="width: 100%; table-layout: fixed;">
     <caption>コンテンツと行のエディターコンポーネント</caption>
     <tr>
         <th style="width: 50%;">コンテンツ</th>
@@ -33,7 +33,7 @@ tool:
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="エディターについて" }
 
 ### コンテンツ {#content}
 
@@ -74,7 +74,7 @@ tool:
 
 ## ドラッグ＆ドロップエディターの使用 {#using-the-drag-and-drop-editor}
 
-メールメッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングCampaignに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
+メールメッセージをCampaignで送信するかCanvasで送信するか迷っていますか？Campaignsは単一のターゲットメッセージングに適しており、Canvasesはマルチステップのユーザージャーニーに適しています。
 
 メッセージの作成場所を選択したら、ドラッグ＆ドロップメールを作成する手順を見ていきましょう。
 
@@ -142,6 +142,16 @@ tool:
 詳細設定機能は、CampaignまたはCanvasコンポーザーに表示されます。詳細設定機能では、インラインCSS設定を変更したり、ヘッダーまたは追加のキーと値のペアを入力したりできます（設定されている場合）。
 {% endalert %}
 
+#### メール添付ファイルの追加 {#adding-email-attachments}
+
+**送信設定** > **詳細設定**で、以下の方法でメール添付ファイルを追加できます。
+
+- **ファイルをアップロード:** コンピューターからファイルを直接ドラッグ＆ドロップまたは参照してアップロードします。Brazeはアップロード前にファイルタイプとサイズ（デフォルトで最大2&nbsp;MB）を検証し、ファイルはメディアライブラリにアップロードされます。2&nbsp;MBの制限を超えるファイルはアップロードできません。
+- **メディアライブラリを使用:** [メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)に既に保存されているアセットを参照して選択します。PDF、Wordドキュメント、Excelファイル、PowerPointプレゼンテーションがすべてサポートされています。
+- **URLから追加:** ファイルを指すURLを入力し、表示ファイル名を指定します。Brazeはメール作成中に任意のURLのサイズを調べることができないため、ファイルサイズは送信時に適用されます。このフィールドではLiquidはサポートされていないことに注意してください。
+
+考慮すべき具体的なベストプラクティスについては、[メールガイドライン]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)を参照してください。
+
 ### ステップ 4: メールをテストする {#step-4-test-your-email}
 
 送信情報を追加したら、いよいよメールをテストします。
@@ -192,8 +202,8 @@ Inbox Visionを使用すると、メールクライアントやモバイルデ�
 エクスポートされるHTMLデータの平均フットプリントサイズが削減され、読み込みとレンダリングの高速化、モバイルでのクリッピングの削減、帯域幅消費の削減につながりました。
 
 HTMLレンダリングは、条件付きコメントとCSSメディアクエリの数を最小限に抑える以下の更新に基づいて改善されました。その結果、HTMLファイルはより小さく、より効率的にコーディングされています。
-- `<div>` 要素ベースのデザインから標準的な `<table>` フォーマットのコードベースへの移行
-  <caption>Inbox Visionを使用する</caption>
+- `<div>` 要素ベースのデザインから標準的な `<table aria-label="Use Inbox Vision">` フォーマットのコードベースへの移行
+  <caption>Use Inbox Vision</caption>
 - [エディターブロック（メール）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)が簡潔さのために再コーディングされました
 - 最終的なHTMLコードはタグ間の空白を削除するために圧縮されます
 - 透明な区切り線はコンテンツパディングに自動的に変換されます
@@ -303,7 +313,7 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 | `meta` | ページの説明やキーワードなどのメタデータを提供します。 | `<meta name="description" content="Free Web tutorials">` |
 | `style` | 内部CSSスタイルを埋め込みます。 | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | ブラウザタブに表示されるドキュメントのタイトルを設定します。 | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="許可されるタグとタグごとの属性" }
 
 | タグ | 属性 | 説明 | 例 |
 | --- | --- | --- | --- |
@@ -321,7 +331,7 @@ Liquidパーソナライゼーションは、画像ブロックとボタンリ�
 | `style` | `type` | スタイルコンテンツのMIMEタイプ。 | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | スタイルが適用されるメディアまたはデバイスを指定します。 | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | 属性なし | `title` タグは属性を受け付けません。 | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="許可されるタグとタグごとの属性" }
 
 {% alert note %}
 リンク名は最大63バイトで、制限を超えると自動的に切り捨てられます。

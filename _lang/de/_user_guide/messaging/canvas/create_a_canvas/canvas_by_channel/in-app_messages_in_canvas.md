@@ -62,7 +62,7 @@ Aktionen, Gutscheine und Sales haben oft feste Ablaufdaten. Der folgende Canvas 
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Anwendungsfälle" class="tg">
   <caption>Anwendungsfälle</caption>
 <thead>
   <tr>
@@ -113,7 +113,7 @@ Die In-App-Nachrichten laufen ab, wenn die Aktion endet, um Diskrepanzen zwische
 
 Ihr erster Eindruck bei Nutzer:innen ist möglicherweise der wichtigste. Er kann über zukünftige Besuche in Ihrer App entscheiden. Ihre erste Kommunikation mit Ihren Nutzer:innen sollte sinnvoll getimed sein und häufige Besuche in Ihrer App fördern, um die Nutzung zu steigern.
 
-<table class="tg">
+<table aria-label="Anwendungsfälle" class="tg">
   <caption>Anwendungsfälle</caption>
 <thead>
   <tr>
@@ -202,7 +202,7 @@ Wenn **Fortschritt bei aktiver In-App-Nachricht** ausgewählt ist, bleibt die In
 Schritte mit einer In-App-Nachricht und einem weiteren Kanal haben die folgenden Fortschrittsoptionen:
 
 | Option | Beschreibung |
-| --- | --- |
+|---|---|
 | Fortschritt bei gesendeter Nachricht | Nutzer:innen müssen eine E-Mail, einen Webhook oder eine Push-Benachrichtigung erhalten oder die In-App-Nachricht angesehen haben, um zu nachfolgenden Schritten im Canvas fortzuschreiten. <br> <br> Wenn die In-App-Nachricht abläuft und die Nutzer:innen keine E-Mail, keinen Webhook oder keine Push-Benachrichtigung erhalten haben oder die In-App-Nachricht nicht angesehen haben, verlassen sie den Canvas und schreiten nicht zu nachfolgenden Schritten fort. |
 | Zielgruppe sofort voranbringen | Alle in der Zielgruppe des Schritts schreiten zu den nächsten Schritten fort, nachdem die Verzögerung abgelaufen ist, unabhängig davon, ob sie die genannte Nachricht gesehen haben oder nicht. <br> <br> Nutzer:innen müssen die Segment- und Filterkriterien des Schritts erfüllen, um zu den nächsten Schritten fortzuschreiten. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

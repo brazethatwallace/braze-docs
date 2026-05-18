@@ -7,7 +7,7 @@ description: "Este artigo de referência descreve as diferenças entre proprieda
 tool: Canvas
 ---
 
-# Propriedades de contexto e evento
+# Propriedades de contexto e evento {#context-and-event-properties}
 
 > Este artigo de referência aborda informações sobre `context` e `event_properties`, incluindo quando usar cada propriedade e as diferenças de comportamento. <br><br> Para informações gerais sobre propriedades de eventos personalizados, confira [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
 
@@ -21,8 +21,8 @@ Consulte a tabela a seguir para um resumo das diferenças entre propriedades de 
 |----|----|----|
 | **Liquid** | `context` | `event_properties` |
 | **Persistência** | Podem ser referenciadas por todas as etapas de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) durante toda a duração de um Canvas criado usando o Canvas. | - Só podem ser referenciadas uma vez. <br> - Não podem ser referenciadas por etapas de Mensagem subsequentes. |
-| **Comportamento no Canvas** | Podem referenciar `context` em qualquer etapa de um Canvas. Para o comportamento pós-lançamento, consulte [Editando Canvas após o lançamento]({{site.baseurl}}/post-launch_edits#canvas-entry-properties). | - Podem referenciar `event_properties` na primeira etapa de Mensagem **após** uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) em que a ação realizada é um evento personalizado ou evento de compra. <br> - Não podem estar após a jornada Restante do público da etapa de Jornadas de ação. <br> - Podem ter outros componentes que não sejam de Mensagem entre as etapas de Jornadas de ação e Mensagem. Se um desses componentes que não são de Mensagem for uma etapa de Jornadas de ação, o usuário pode passar pela jornada Restante do público dessa etapa. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **Comportamento no Canvas** | Podem referenciar `context` em qualquer etapa de um Canvas. Para o comportamento pós-lançamento, consulte [Editando Canvas após o lançamento]({{site.baseurl}}/post-launch_edits/#canvas-entry-properties). | - Podem referenciar `event_properties` na primeira etapa de Mensagem **após** uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) em que a ação realizada é um evento personalizado ou evento de compra. <br> - Não podem estar após a jornada Restante do público da etapa de Jornadas de ação. <br> - Podem ter outros componentes que não sejam de Mensagem entre as etapas de Jornadas de ação e Mensagem. Se um desses componentes que não são de Mensagem for uma etapa de Jornadas de ação, o usuário pode passar pela jornada Restante do público dessa etapa. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Context and event properties" }
 
 {% details Detalhes do editor original do Canvas %}
 
@@ -41,7 +41,7 @@ Não é mais possível criar ou duplicar Canvas usando o editor original. Observ
 
 {% enddetails %}
 
-### Informações importantes
+### Informações importantes {#things-to-know}
 
 - O contexto está disponível apenas para referência em Liquid. Para filtrar pelas propriedades dentro do Canvas, use a [segmentação por propriedade de evento]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 - Para canais de mensagem no app, você pode referenciar `context` e `event_properties` em um Canvas. `event_properties` podem ser acessadas quando incluídas na primeira etapa do Canvas, pois são baseadas em gatilho.
@@ -54,11 +54,11 @@ A elegibilidade do público é avaliada uma vez na entrada do Canvas. Se um usu�
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}
 
-### Timestamps para gatilhos
+### Timestamps para gatilhos {#timestamps-for-triggers}
 
 Se você estiver usando timestamps com um [tipo datetime]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) de eventos que disparam Canvas baseados em ação, que são referenciados usando [contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), os timestamps são normalizados para UTC.
 
-Considerando esse comportamento, a Braze recomenda fortemente que você use um filtro de fuso horário do Liquid como no exemplo a seguir para garantir que suas mensagens sejam enviadas com o [fuso horário de sua preferência]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#time-zone-filter).
+Considerando esse comportamento, a Braze recomenda fortemente que você use um filtro de fuso horário do Liquid como no exemplo a seguir para garantir que suas mensagens sejam enviadas com o [fuso horário de sua preferência]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#time-zone-filter).
 
 {% raw %}
 ```liquid
@@ -66,14 +66,9 @@ Considerando esse comportamento, a Braze recomenda fortemente que você use um f
 ```
 {% endraw %}
 
-#### Exceções
+## Caso de uso {#use-case}
 
-- Os timestamps não são normalizados para UTC na primeira etapa de um Canvas se essa etapa for uma etapa de Mensagem.
-- Os timestamps não são normalizados para UTC em nenhuma etapa de Mensagem que use o canal de mensagem no app, independentemente da sua ordem no Canvas.
-
-## Caso de uso
-
-![Uma etapa de Jornadas de ação seguida por uma etapa de Postergação e uma etapa de Mensagem para usuários que adicionaram um item à lista de desejos, e uma jornada para o restante do público.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Uma etapa de Jornadas de ação seguida por uma etapa de postergação e uma etapa de Mensagem para usuários que adicionaram um item à lista de desejos, e uma jornada para o restante do público.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 Para entender melhor as diferenças entre `context` e `event_properties`, vamos considerar este cenário em que os usuários entram em um Canvas baseado em ação ao realizarem o evento personalizado "adicionar item à lista de desejos".
 

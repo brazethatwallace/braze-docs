@@ -25,7 +25,7 @@ Decisioning Studio Go admite los siguientes CEP para el acceso a datos:
 |-----|-----------------|-----------------|
 | **Braze** | Segments | Exportación de Braze Currents |
 | **Salesforce Marketing Cloud** | Extensiones de datos | Automatización de consultas SQL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Requisitos de datos según el CEP {#data-requirements-by-cep}
 

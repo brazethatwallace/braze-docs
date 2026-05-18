@@ -28,7 +28,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 | 기능 | 필수 사용자 권한 |
 | --- | --- |
 | 메시지&nbsp;유형 | Campaigns 및 Canvases에 로캘과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> {::nomarkdown}세분화된 권한: <ul><li>Campaigns 편집</li><li>Canvases 편집</li></ul> 레거시 권한: <ul><li>Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터에 접근</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab 템플릿 %}
@@ -36,7 +36,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 | 기능 | 필수 사용자 권한 |
 | --- | --- |
 | 템플릿 | 로캘과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> {::nomarkdown}세분화된 권한: <ul><li>이메일 템플릿 편집</li><li>IAM 템플릿 편집</li><li>콘텐츠 블록 템플릿 편집</li></ul> 레거시 권한: <ul><li>Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터에 접근</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 | --- | --- |
 | 프로토콜(`https://`)은 번역 태그 밖에 유지하세요. 도메인과 경로만 감싸세요(예: `example.com/en`). | 번역자가 실수로 특수 문자를 변경하거나 제거하여 링크가 깨질 수 있습니다. |
 | 쿼리 매개변수(예: `?utm_source=promo`)를 번역 태그 안에 포함하지 마세요. | 번역자가 실수로 특수 문자를 변경하거나 제거하여 링크가 깨질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard (static) URLs" }
 
 두 가지 권장 사항을 모두 따르는 표준 URL은 다음과 같습니다:
 
@@ -87,7 +87,7 @@ URL이 Liquid로 생성되는 경우(예: {% raw %}`{% landing_page_url %}`{% en
 | --- | --- |
 | Liquid 생성 URL은 현지화가 필요한 경우에만 번역 태그로 감싸세요. | Liquid 구문이 올바르게 렌더링되려면 신중하게 보존해야 합니다. |
 | 쿼리 매개변수(예: `?utm_source=promo`)를 번역 태그 안에 포함하지 마세요. | 번역자가 실수로 특수 문자를 변경하거나 제거하여 링크가 깨질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-generated URLs" }
 
 두 가지 권장 사항을 모두 따르는 Liquid 생성 URL은 다음과 같습니다:
 
@@ -227,7 +227,7 @@ URL은 두 가지 특수 문자를 사용하여 이를 제어합니다:
 | 표준 URL | 예 | URL에 이미 `?`가 포함되어 있는 경우 URL 끝(닫는 번역 태그 뒤)에 `&`를 사용합니다. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid 생성 | 아니요 | 생성된 URL에 아직 `?`가 포함되어 있지 않은 경우 닫는 번역 태그 뒤에 `?`를 사용합니다. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid 생성 | 예 | 생성된 URL에 이미 `?`가 포함되어 있는 경우 닫는 번역 태그 뒤에 `&`를 사용합니다. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Email link tracking" }
 
 ### 언어 설정 및 접근성 {#language-settings-and-accessibility}
 
@@ -296,4 +296,4 @@ WCAG 컨텍스트, 채널 및 에디터 동작(랜딩 페이지 포함), 메시�
 | 번역 태그에 전체 URL 또는 Liquid 생성 URL이 포함되어 있습니다. | 깨진 링크 또는 링크 추적 문제가 발생할 경우를 대비하여 URL이 포함된 번역 태그가 식별됩니다. |
 | 번역 태그에 쿼리 매개변수가 포함되어 있습니다. | 깨진 링크 또는 링크 추적 문제가 발생할 경우를 대비하여 쿼리 매개변수가 포함된 번역 태그가 식별됩니다. |
 | 번역 태그에 HTML 속성 또는 구조가 포함되어 있습니다. | 스타일 및 서식 문제가 발생할 경우를 대비하여 HTML 속성 또는 구조가 포함된 번역 태그가 식별됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What validations or extra checks does Braze do?" }

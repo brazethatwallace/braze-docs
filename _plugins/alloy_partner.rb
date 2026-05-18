@@ -17,18 +17,21 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       # partnerembed = context.config['partner_api']
+      # Honor _config.yml `partner_api`. Opt out of the network call with PARTNER_API=false
+      # (offline / fast builds). Previously required PARTNER_API=true, which meant plain
+      # `rake ja` / `rake ja_build` never fetched tiles and the partner hub always showed the
+      # static fallback list.
       partnerembed = site.config['partner_api']
-      if ENV["PARTNER_API"].to_s.downcase != 'true'
+      if partnerembed && ENV['PARTNER_API'].to_s.downcase == 'false'
         partnerembed = false
       end
 
       if partnerembed
-        lang = site.config['language'] || 'en'
+        # Always query Sanity with $locale=en-us. Localized Sanity titles (e.g. Japanese)
+        # rarely match `valid_partner_list` name keys in `_partners/home.md`, so the partner
+        # hub JS would match zero partners and show the static fallback list (no tiles/filters).
+        # Other locales (ko, de, …) already rely on en-us metadata for the same reason.
         url = PARTNER_URL
-        case lang
-        when 'ja'
-          url.gsub!('locale=%22en-us%22', 'locale=%22ja%22')
-        end
 
         if context['site']['data'].include?(url)
           Jekyll.logger.debug "AlloyPartner:", "Using cache for: #{url.split('?')[0]}"

@@ -121,7 +121,7 @@ Les variables courantes incluent :
 | `{{ output_data.VARIABLE_NAME }}` | Champs de sortie supplémentaires exposés par le Content Block |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 5 : Utiliser les variables générées par le modèle de Content Block VideoSmart" }
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 5 : Utiliser les variables générées par le modèle de Content Block VideoSmart" }
 
 ## Limites de débit {#rate-limits}
 

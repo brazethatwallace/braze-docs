@@ -31,6 +31,10 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
 2020年1月時点で、iOSリッチプッシュ通知は1038x1038で10&nbsp;MB未満の画像を処理できますが、できるだけ小さいファイルサイズを使用することをお勧めします。実際には、大きなファイルを送信すると不要なネットワーク負荷が発生し、ダウンロードタイムアウトがより頻繁に発生する可能性があります。
 {% endalert %}
 
+{% alert important %}
+画像のファイルサイズが大きすぎる場合、アスペクト比が正しくない場合、テキストが最大メッセージ長を超えている場合、またはタイトルテキストが最大タイトル長を超えている場合、プッシュ通知の画像が期待どおりに表示されないことがあります。
+{% endalert %}
+
 ### 文字数 {#character-count}
 
 プッシュに含める正確な文字数について厳密なルールを提供することはできませんが、iOSメッセージを設計する際に考慮すべき[ガイドライン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)を提供しています。画像の有無、ユーザーのデバイスの通知状態と表示設定、デバイスのサイズによって多少の差異が生じる場合があります。迷った場合は、短く簡潔にまとめましょう。
@@ -41,7 +45,7 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
 
 ユーザーはさまざまな状況でプッシュ通知を表示する可能性があり、以下のように異なる長さのテキストが表示されることがあります。
 
-<table>
+<table aria-label="Notification states">
   <caption>通知の状態</caption>
 <thead>
   <tr>
@@ -58,7 +62,7 @@ iOS向けリッチプッシュ通知を作成する前に、以下の詳細を�
   </tr>
 </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification states" }
 
 ![ロック画面、展開時、デバイスアクティブ時に表示されるプッシュ通知の例。]({% image_buster /assets/img_archive/push_ios_notification_states.png %})
 

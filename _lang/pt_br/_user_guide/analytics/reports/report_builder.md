@@ -20,7 +20,7 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 ## Usando um modelo de relatório {#using-a-report-template}
 
 1. Acesse **Analytics** > **Report Builder (New)**.
-2. Selecione a seta **Mais opções** ao lado do botão **Criar novo relatório** e, em seguida, selecione **Usar um modelo de relatório**.<br><br>![Menu suspenso do botão "Criar novo relatório" com opções para criar um relatório personalizado ou usar um modelo.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+2. Selecione a seta **Mais opções** ao lado do botão **Create New Report** e, em seguida, selecione **Use a report template**.<br><br>![Menu suspenso do botão "Create New Report" com opções para criar um relatório personalizado ou usar um modelo.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Selecione um dos modelos de relatório da biblioteca de modelos da Braze.
     - Use os menus suspensos **Row items** e **Tags** para encontrar relatórios relevantes para seus casos de uso.<br><br>![Janela "Modelos de relatório da Braze" com uma lista de modelos da Braze para selecionar.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
 4. Siga a partir da etapa 3 em [Criando um relatório](#creating-a-report) para personalizar ainda mais o relatório de acordo com seu caso de uso.
@@ -95,7 +95,7 @@ Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione
 | Receita total | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. Indisponível com detalhamento por **Channels**. |
 | Impressões únicas | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. |
 | Destinatários únicos | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. Indisponível com detalhamento por **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilidade de métricas" }
 
 ### Variantes de mensagem excluídas {#deleted-message-variants}
 

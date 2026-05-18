@@ -24,10 +24,10 @@ Snowflake의 [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항       | 설명                                                                                                                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Snowflake 계정 | 관리자 수준의 권한이 있는 Snowflake 계정이 필요합니다.                                                                                                                                      |
-| LiveRamp 계정  | Snowflake 내에서 필요한 LiveRamp 애플리케이션에 대해 논의하려면 LiveRamp 계정 팀 또는 [snowflake@liveramp.com](mailto:snowflake@liveramp.com)으로 문의하세요.                              |
+| 요구 사항 | 설명 |
+|---|---|
+| Snowflake 계정 | 관리자 수준의 권한이 있는 Snowflake 계정이 필요합니다. |
+| LiveRamp 계정 | Snowflake 내에서 필요한 LiveRamp 애플리케이션에 대해 논의하려면 LiveRamp 계정 팀 또는 [snowflake@liveramp.com](mailto:snowflake@liveramp.com)으로 문의하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 설정 {#setting-up-the-integration}
@@ -52,25 +52,25 @@ PII 기반 테이블을 준비하기 전에 작업 중 실행되는 [LiveRamp의
 
 다음으로, LiveRamp 네이티브 앱에 대해 호출될 [필수 형식](https://docs.liveramp.com/identity/en/perform-identity-resolution-in-snowflake.html)의 데이터 테이블을 생성합니다. 다음 카테고리를 참조하여 어떤 식별자가 확인에 적합한지 결정하세요:
 
-| 식별자 유형 | 설명  |
-|-----------------|--------------|
-| 전체 PII        | 개인 식별 정보(PII)에는 사용자의 이름, 우편 주소, 이메일, 전화번호가 포함됩니다. **참고:** 모든 레코드에 모든 식별자가 필요한 것은 아닙니다. |
-| 이메일만      | `alex-lee@email.com`과 같은 사용자의 이메일 주소입니다. |
-| 기기          | 여기에는 서드파티 쿠키, 모바일 광고 ID(MAID), 커넥티드 TV ID(CTV ID), RampID(가구 RampID로 확인됨)가 포함됩니다. |
-| CID            | 플랫폼 파트너 또는 LiveRamp와의 ID 동기화에서 가져온 식별자로, 내부 고객 ID 등이 해당됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 식별자 유형 | 설명 |
+|---|---|
+| 전체 PII | 개인 식별 정보(PII)에는 사용자의 이름, 우편 주소, 이메일, 전화번호가 포함됩니다. **참고:** 모든 레코드에 모든 식별자가 필요한 것은 아닙니다. |
+| 이메일만 | `alex-lee@email.com`과 같은 사용자의 이메일 주소입니다. |
+| 기기 | 여기에는 서드파티 쿠키, 모바일 광고 ID(MAID), 커넥티드 TV ID(CTV ID), RampID(가구 RampID로 확인됨)가 포함됩니다. |
+| CID | 플랫폼 파트너 또는 LiveRamp와의 ID 동기화에서 가져온 식별자로, 내부 고객 ID 등이 해당됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Create a data table" }
 
 #### Braze 식별자 {#braze-identifiers}
 
 Braze의 이벤트 로그에는 LiveRamp 네이티브 앱 내에서 사용할 수 있는 식별자가 포함되어 있습니다. 각 이벤트 유형에 사용 가능한 식별자의 전체 목록은 [Braze 이벤트 스키마 및 식별자]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt)를 다운로드하세요.
 
-| 식별자 유형 | 설명  |
-|-----------------|--------------|
+| 식별자 유형 | 설명 |
+|---|---|
 | `AD_ID` | `ios_idfa`, `google_ad_id`, `roku_ad_id`와 같은 광고 ID로, 특정 이벤트 유형 내에서 캡처되며 LiveRamp의 Device Resolution 서비스와 함께 사용할 수 있습니다. 기본적으로 광고 ID는 수집되지 않지만 [Braze 설명서]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#data-not-collected-by-default)를 따라 추적을 활성화할 수 있습니다. |
-| `EMAIL_ADDRESS`   | LiveRamp의 Email Only Resolution 서비스와 함께 사용할 수 있는 이메일 주소입니다. |
+| `EMAIL_ADDRESS` | LiveRamp의 Email Only Resolution 서비스와 함께 사용할 수 있는 이메일 주소입니다. |
 | `TO_PHONE_NUMBER` | LiveRamp의 PII Resolution 서비스와 함께 사용할 수 있는 전화번호입니다. |
 | `EXTERNAL_USER_ID` | 사용자와 연결된 외부 ID로, LiveRamp의 Device Resolution 서비스(CID)와 함께 사용할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze identifiers" }
 
 {% alert important %}
 LiveRamp의 애플리케이션 내에서 클라이언트 또는 브랜드별 커스텀 식별자를 사용하려면 [LiveRamp와의 ID 동기화](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html)가 필요합니다.

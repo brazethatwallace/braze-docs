@@ -82,7 +82,7 @@ Canvasでは、作成したCanvasにアプリ内メッセージのパフォー�
 | --- | --- |
 | **推定オーディエンス** | Brazeはデフォルトでデータベース全体のカウントを実行しません。オーディエンスサイズはサンプルから推定・外挿されます。これはSegmentビルダーの**到達可能なユーザー**の範囲と同様です。特に大規模なワークスペースや、ワークスペースに対する割合が小さいSegmentsでは、誤差が生じることがあります。 |
 | **現在のオーディエンス** | Brazeがワークスペースプロファイルの完全スキャンでデフォルトの統計を計算できるため、表示されるオーディエンスサイズはサンプリングされていない現在のカウントです（ただし、チャネルの到達可能性、サブスクリプションルール、その他のターゲティングオプションの影響は受けます）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 サンプリングの動作、**正確な統計を計算**、**到達可能なユーザー**のセグメンテーションの詳細については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
@@ -220,7 +220,7 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
     <caption class="sr-only">コンテンツカードのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -230,7 +230,7 @@ The **Message Performance** panel outlines how well your message has performed a
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">送信済みメッセージ</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#messages-sent">Messages Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Messages Sent' %} <br><br>
                 この計算方法は、
                 <a href="/docs/user_guide/message_building_by_channel/content_cards/create/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression">カード作成</a> で選択した内容によって異なります：<br><br>
@@ -241,23 +241,23 @@ The **Message Performance** panel outlines how well your message has performed a
             </td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#total-impressions">インプレッション数の合計</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#total-impressions">Total Impressions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Impressions' %} 同じユーザーに対して複数回増加する可能性があります。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-impressions">ユニークインプレッション数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-impressions">Unique Impressions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">このカウントは、</span>ユーザーがコンテンツカードを2回目に閲覧しても増加しません。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">ユニーク受信者数</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> ユーザーは毎日ユニーク受信者になり得るため、<i>ユニークインプレッション数</i>よりもこの数値が高くなることが想定されます。</td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-recipients">Unique Recipients</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> ユーザーは毎日ユニーク受信者になり得るため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">ユニーククリック数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これにはBrazeが提供する配信停止リンクのクリックも含まれます。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-dismissals">ユニーク却下数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data/report_metrics/#unique-dismissals">Unique Dismissals</a></td>
             <td>{% multi_lang_include analytics/metrics.md metric='Unique Dismissals' %}</td>
         </tr>
     </tbody>
@@ -269,17 +269,17 @@ The **Message Performance** panel outlines how well your message has performed a
 
 #### ユニーク受信者数とユニークインプレッション数 {#unique-recipients-versus-unique-impressions}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには*ユニーク受信者数*と*ユニークインプレッション数*が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Recipients_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日コンテンツカードを閲覧し、翌日に同じCampaignから新しいカードを受け取り、さらにその翌日にも受け取った場合、*ユニーク受信者*として3回カウントされます。ただし、*ユニークインプレッション*は1回のみカウントされます。また、カードがデバイスで利用可能であったため、*送信済みメッセージ*の数にもカウントされます。
+例えば、今日コンテンツカードを閲覧し、翌日に同じCampaignから新しいカードを受け取り、さらにその翌日にも受け取った場合、_Unique Recipient_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。また、カードがデバイスで利用可能であったため、_Messages Sent_の数にもカウントされます。
 
-別の例として、15万件の*送信済みメッセージ*を示すContent Cards Campaignで5件の*ユニークインプレッション*があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
+別の例として、15万件の_Messages Sent_を示すContent Cards Campaignで5件の_Unique Impressions_があるとします。これは、カードが（バックエンドで）15万人のオーディエンスに利用可能になったものの、その送信後に以下のステップをすべて実行したのはわずか5人のユーザーのデバイスだけだったことを意味します：
 
 1. セッションを開始した、またはアプリが明示的にContent Cardsの同期を要求した（またはその両方）
 2. Content Cardsビューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-*送信済みメッセージ*は閲覧可能なContent Cardsを指し、*ユニーク受信者*は実際に閲覧されたContent Cardsを指します。
+_Messages Sent_は閲覧可能なContent Cardsを指し、_Unique Recipients_は実際に閲覧されたContent Cardsを指します。
 
 {% elsif include.channel == "banner" %}
 
@@ -295,7 +295,7 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
     <caption class="sr-only">バナーのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -305,35 +305,35 @@ The **Message Performance** panel outlines how well your message has performed a
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-impressions">インプレッション数の合計</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-impressions">Total Impressions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Impressions' %} バナーの場合、インプレッションはユーザーセッションごとに1回記録されます。同じセッション内で同じバナーが複数回表示された場合、インプレッションは1回のみ記録されます。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-impressions">ユニークインプレッション数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-impressions">Unique Impressions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %} <span style="white-space: nowrap">各ユーザーは1回のみカウントされます。</span></td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-clicks">クリック数の合計</a></td>
-            <td class="no-split"><i>クリック数の合計</i>は、同じユーザーが複数回クリックしたかどうかにかかわらず、配信されたメッセージ内でクリックしたユーザーの総数（および割合）です。</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-clicks">Total Clicks</a></td>
+            <td class="no-split"><i>Total Clicks</i>は、同じユーザーが複数回クリックしたかどうかにかかわらず、配信されたメッセージ内でクリックしたユーザーの総数（および割合）です。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">ユニーククリック数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks No Dispatch ID' %} 各ユーザーは1回のみカウントされます。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">1次コンバージョン数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#primary-conversions">Primary Conversions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">ユニーク受信者数</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> 閲覧者は毎日ユニーク受信者になり得るため、<i>ユニークインプレッション数</i>よりもこの数値が高くなることが想定されます。</td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %} <br><br> 閲覧者は毎日ユニーク受信者になり得るため、<i>Unique Impressions</i>よりもこの数値が高くなることが想定されます。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">収益</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#revenue">Revenue</a></td>
             <td>{% multi_lang_include analytics/metrics.md metric='Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#confidence">信頼度</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#confidence">Confidence</a></td>
             <td>{% multi_lang_include analytics/metrics.md metric='Confidence' %}</td>
         </tr>
     </tbody>
@@ -341,17 +341,17 @@ The **Message Performance** panel outlines how well your message has performed a
 
 #### バナー指標の計算例 {#banner-metrics-calculation-examples}
 
-メッセージの可視性をカバーする指標がいくつかあります。これには*ユニーク受信者数*と*ユニークインプレッション数*が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
+メッセージの可視性をカバーする指標がいくつかあります。これには_Unique Recipients_と_Unique Impressions_が含まれます。これらの指標をよりよく理解するために、いくつかのシナリオ例を見てみましょう。
 
-例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、*ユニーク受信者*として3回カウントされます。ただし、*ユニークインプレッション*は1回のみカウントされます。
+例えば、今日バナーを閲覧し、翌日に同じバナーを閲覧し、さらにその翌日にも閲覧した場合、_Unique Recipient_として3回カウントされます。ただし、_Unique Impression_は1回のみカウントされます。
 
-別の例として、バナーCampaignで5件の*ユニークインプレッション*があるとします。これは、以下のすべてのステップを実行したユーザーのデバイスがわずか5台だったことを意味します：
+別の例として、バナーCampaignで5件の_Unique Impressions_があるとします。これは、以下のすべてのステップを実行したユーザーのデバイスがわずか5台だったことを意味します：
 
 1. セッションを開始した、またはアプリが明示的にバナーの同期を要求した（またはその両方）
 2. バナービューに移動した
 3. SDKがインプレッションを記録し、サーバーにログを送信した
 
-*ユニーク受信者*は、実際に閲覧されたバナーを指します。
+_Unique Recipients_は、実際に閲覧されたバナーを指します。
 
 {% elsif include.channel == "email" %}
 
@@ -365,7 +365,7 @@ The **Message Performance** panel outlines how well your message has performed a
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
     <caption class="sr-only">メールのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -375,57 +375,57 @@ The **Message Performance** panel outlines how well your message has performed a
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">ユニーククリック数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-clicks">Unique Clicks</a></td>
             <td class="no-split">
                 {% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} これはメールについて7日間の期間で追跡され、<a href='https://braze.com/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a> によって測定されます。これにはBrazeが提供する配信停止リンクのクリックも含まれます。この数値は5〜10%の範囲が目安です。10%を超える場合は非常に優秀です！
             </td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-opens">ユニーク開封数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-opens">Unique Opens</a></td>
             <td class="no-split">
                 {% multi_lang_include analytics/metrics.md metric='Unique Opens' %} メールについては、7日間の期間で追跡されます。この数値は30〜40%の範囲が目安です。40%を超える場合は非常に優秀です！
             </td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#click-to-open-rate">クリック開封率</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#click-to-open-rate">Click-to-Open Rate</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#spam">スパム率</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#spam">Spam Rate</a></td>
             <td class="no-split">
                 {% multi_lang_include analytics/metrics.md metric='Spam' %} この指標が0.08を超える場合、メッセージの文面が売り込み色が強すぎるか、メールアドレスの収集方法を見直す必要がある（メッセージの受信を希望しているユーザーに送信しているか確認する）兆候かもしれません。
             </td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unsubscribers-or-unsub">配信停止数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unsubscribers-or-unsub">Unsubscribers or Unsub</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#other-opens">その他の開封数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#other-opens">Other Opens</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Other Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#estimated-real-opens">推定実質開封数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#estimated-real-opens">Estimated Real Opens</a></td>
             <td class="no-split"> {% multi_lang_include analytics/metrics.md metric='Estimated Real Opens' %} 詳細は次のセクションを参照してください。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#machine-opens">マシン開封数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#machine-opens">Machine Opens</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Machine Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#bounces">バウンス数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#bounces">Bounces</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Bounces' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#hard-bounce">ハードバウンス</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#hard-bounce">Hard Bounce</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#soft-bounce">ソフトバウンス</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#soft-bounce">Soft Bounce</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Soft Bounce' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#deferral">延期</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#deferral">Deferral</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deferral' %}</td>
         </tr>
     </tbody>
@@ -445,17 +445,25 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 クリックと開封が異なる日に記録されることもあります。ユーザーが5月16日に画像オフの状態でクリックし（開封なし）、5月17日にウェブメールで開封する（その時点で開封が記録される）場合があります。
 
-##### *ユニーククリック数*が*ユニーク開封数*を上回る場合 {#higher-unique-clicks-than-unique-opens}
+##### *Unique Clicks*が*Unique Opens*を上回る場合 {#higher-unique-clicks-than-unique-opens}
 
-*ユニーククリック数*は、開封が過少カウントされたりクリックが膨張したりすると、*ユニーク開封数*を上回ることがあります。
+オーディエンスから低い比率を期待していても、*Unique Clicks*が*Unique Opens*を大幅に上回る（例えば、ユニーク開封1件あたり複数のユニーククリック）場合があります。このパターンは通常、開封が過少カウントされているか、クリックが膨張しているか、またはその両方を意味します。ただし、これはBrazeがクリックを単独で誤ってカウントしていることを意味するものではありません。
+
+Brazeは、開封トラッキングピクセルが読み込まれたときにメールの開封を記録します。このピクセルは、BrazeがメッセージHTMLに追加する小さな透明画像（通常1 x 1&nbsp;pxと説明されます）です。ピクセルが読み込まれない場合、その閲覧に対して開封は記録されませんが、リンクのクリックは引き続き記録されるため、クリック開封率やこれら2つの指標のバランスが偏って見えることがあります。
 
 **メールボックスが開封トラッキングピクセルを読み込まなかった場合**
 
-これは以下の場合に発生する可能性があります：
+ピクセルが読み込まれない可能性がある場合：
 
-- メッセージが長く、開封ピクセルが末尾にある場合。クライアントがメッセージをクリップすると、ピクセルが切り取られます。
-- メッセージがスパムフォルダに入った場合。スパムフォルダではリモート画像（開封ピクセルを含む）が読み込まれないことが多いです。
-- メールボックスがより厳格なセキュリティを使用している場合（企業アカウントに多い）。ユーザーがまだ画像の読み込みを選択していない場合です。
+- **メッセージがクリップされた場合。** 長いHTMLは、末尾のピクセルを含むコンテンツを「メッセージ全体を表示」のような切り捨ての背後に押しやります。Gmailでは、約[102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size)を超えるメッセージがクリップされることが多く、メッセージ全体が開かれるまで（場合によってはクライアントによってはそれでも）ピクセルの読み込みが妨げられることがあります。
+- **画像がブロックまたは制限されている場合。** より厳格な受信トレイセキュリティ（企業アカウントに多い）は、受信者が画像の読み込みを選択するまでリモート画像をブロックする可能性があるため、トラッキングリンクをクリックしても開封ピクセルが発火しません。
+- **メッセージがスパムまたはバルクフォルダにある場合。** 多くのプロバイダーは、これらのフォルダではデフォルトでリモート画像（開封ピクセルを含む）を読み込みません。
+
+**対処方法**
+
+- **クリッピング：** HTMLを短縮・簡素化し、未使用のスタイルやアセットを削除し、メッセージ全体のサイズをクライアントの制限内に収めてください。Gmailの場合、[メールサイズ]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size)に記載されているように約102&nbsp;KB未満を目指してください。
+- **受信トレイセキュリティと画像の読み込み：** デフォルトで画像を読み込むかどうかを変更できるのは、受信者（またはそのITポリシー）のみです。
+- **スパム配置：** [メールの到達性の改善]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/)とリストの衛生管理に注力してください。メールが一貫してスパムに振り分けられ、指標がおかしく見える場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)にお問い合わせください。
 
 **セキュリティまたはボットによるリンクへのアクティビティ**
 
@@ -471,7 +479,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 
-この統計は、Brazeが独自に作成した分析モデルを使用して、マシン開封が存在しないかのようにCampaignのユニーク開封率の推定値を再構築するものです。一部の開封イベントについてメール送信者から*マシン開封*というラベルを受け取る場合がありますが（上記参照）、これらのラベルは実際の開封をマシン開封と誤って分類することが多いです。つまり、*その他の開封数*は（実際のユーザーによる）実際の開封を過小評価している可能性が高いです。代わりに、Brazeは各Campaignのクリックデータを使用して、実際の人間がメッセージを開封した率を推測します。これにより、AppleのMPPを含むさまざまなマシン開封メカニズムが補われます。
+この統計は、Brazeが独自に作成した分析モデルを使用して、マシン開封が存在しないかのようにCampaignのユニーク開封率の推定値を再構築するものです。一部の開封イベントについてメール送信者から*Machine Opens*というラベルを受け取る場合がありますが（上記参照）、これらのラベルは実際の開封をマシン開封と誤って分類することが多いです。つまり、*Other Opens*は（実際のユーザーによる）実際の開封を過小評価している可能性が高いです。代わりに、Brazeは各Campaignのクリックデータを使用して、実際の人間がメッセージを開封した率を推測します。これにより、AppleのMPPを含むさまざまなマシン開封メカニズムが補われます。
 
 *推定実質開封率*はメール送信開始から36時間後に算出され、その後24時間ごとに再計算されます。Campaignが繰り返される場合、推定は別の送信が発生してから36時間後に再計算されます。
 
@@ -505,9 +513,9 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 分析に表示される主なアプリ内メッセージの指標をいくつか紹介します。Brazeで使用されるすべてのアプリ内メッセージ指標の完全な定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/)を参照してください。
 
 {% alert note %}
-*ボタン1のクリック数*と*ボタン2のクリック数*のレポートは、アプリ内メッセージで**レポート用の識別子**をそれぞれ「0」と「1」に指定した場合にのみ機能します。
+*Button 1 Clicks*と*Button 2 Clicks*のレポートは、アプリ内メッセージで**Identifier for Reporting**をそれぞれ「0」と「1」に指定した場合にのみ機能します。
 
-![「レポート用識別子」フィールドの値が「0」。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
+![「Identifier for Reporting」フィールドの値が「0」。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 {% endalert %}
 
 <style>
@@ -516,7 +524,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
     <caption class="sr-only">アプリ内メッセージのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -526,39 +534,39 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#body-clicks">本文クリック数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#body-clicks">Body Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Body Clicks' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#button-1-clicks">ボタン1のクリック数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#button-1-clicks">Button 1 Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Button 1 Clicks' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#button-2-clicks">ボタン2のクリック数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#button-2-clicks">Button 2 Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Button 2 Clicks' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-impressions">ユニークインプレッション数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-impressions">Unique Impressions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Impressions' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-impressions">インプレッション数の合計</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-impressions">Total Impressions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Impressions' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#conversions-b-c-d">コンバージョン (B、C、D)</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#conversions-b-c-d">Conversions (B, C, D)</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Conversions (B, C, D)' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-conversions">コンバージョン数合計</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-conversions">Total Conversions</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Conversions' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#conversion-rate">コンバージョン率</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#conversion-rate">Conversion Rate</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#close-message">メッセージを閉じる</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#close-message">Close Message</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Close Message' %}</td>
         </tr>
     </tbody>
@@ -585,7 +593,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 | エラー数 | *エラー数*は、KakaoTalkプロバイダーから返されたエラーの数です（送信プロセス中に増加します）。 |
 | 収益 | *収益*は、設定された1次コンバージョン期間内のCampaign受信者からのドル建て収益です。 |
 | 1次コンバージョン数 | *1次コンバージョン数*は、Braze Campaignから受信したメッセージを操作または閲覧した後に、定義されたイベントが発生した回数です。この定義されたイベントは、Campaign構築時に設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -599,7 +607,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
     <caption class="sr-only">プッシュのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -609,15 +617,15 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#bounces">バウンス数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#bounces">Bounces</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Bounces' %} <a href="#bounced-push">バウンスしたプッシュ通知</a> を参照してください。</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#direct-opens">直接開封数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#direct-opens">Direct Opens</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Direct Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#opens">開封数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#opens">Opens</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opens' %}</td>
         </tr>
     </tbody>
@@ -639,7 +647,7 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
 
-![アプリに対する「バックグラウンドまたはフォアグラウンドプッシュ有効」フィルターがfalseであり、「アンインストール済み」フィルターが選択されているSegmentビルダーセクション。]({% image_buster /assets/img/push_unsub_segment_example.png %})
+![アプリに対する「Background or Foreground Push Enabled」フィルターがfalseであり、「Has Uninstalled」フィルターが選択されているSegmentビルダーセクション。]({% image_buster /assets/img/push_unsub_segment_example.png %})
 
 セグメンテーションフィルターはおおよその目安であり、特定の日付やCampaignに結びつけることはできません。
 
@@ -657,17 +665,17 @@ _送信数 −（配信数 + ハードバウンス数）≈ ソフトバウン�
 
 ##### 開封を把握する {#understanding-opens}
 
-*直接開封数*と*誘発された開封数*には「開封」という言葉が含まれていますが、実際には異なる指標です。*直接開封数*は、上の表に記載されているように、プッシュ通知を直接開封することを指します。*誘発された開封数*は、プッシュ通知を受け取った後、特定の時間内にプッシュ通知を開かずにアプリを開封することを指します。つまり、*誘発された開封数*はアプリの開封を指し、プッシュ通知の開封ではありません。
+*Direct Opens*と*Influenced Opens*には「開封」という言葉が含まれていますが、実際には異なる指標です。*Direct Opens*は、上の表に記載されているように、プッシュ通知を直接開封することを指します。*Influenced Opens*は、プッシュ通知を受け取った後、特定の時間内にプッシュ通知を開かずにアプリを開封することを指します。つまり、*Influenced Opens*はアプリの開封を指し、プッシュ通知の開封ではありません。
 
 ##### プッシュアクションボタンとレポート {#push-action-buttons-and-reporting}
 
-[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)を追加すると、**プッシュパフォーマンス**パネルに**直接開封数**などの指標とともに、**本文クリック数**、**ボタン1のクリック数**、**ボタン2のクリック数**が表示されます。これらの列は異なるインタラクションを測定するため、エンゲージメントを解釈する際に比較してください。
+[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)を追加すると、**プッシュパフォーマンス**パネルに**Direct Opens**などの指標とともに、**Body Clicks**、**Button 1 Clicks**、**Button 2 Clicks**が表示されます。これらの列は異なるインタラクションを測定するため、エンゲージメントを解釈する際に比較してください。
 
-*直接開封数*は、メッセージの直接開封としてカウントされるインタラクションのダッシュボード指標を反映します。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)またはSnowflakeの**Push Notification Open**イベントは、プッシュインタラクションをより広範に記述し、`button_action_type`（例：`close`）や`button_string`などのオプションフィールドを含むことがあります。フィールドの定義については、[Push Notification Openイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events)を参照してください。
+*Direct Opens*は、メッセージの直接開封としてカウントされるインタラクションのダッシュボード指標を反映します。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)またはSnowflakeの**Push Notification Open**イベントは、プッシュインタラクションをより広範に記述し、`button_action_type`（例：`close`）や`button_string`などのオプションフィールドを含むことがあります。フィールドの定義については、[Push Notification Openイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events)を参照してください。
 
 **iOS**の場合、Brazeのデフォルト通知カテゴリ（**Yes** / **No**、**Accept** / **Decline**、**Confirm** / **Cancel**など）は固定のペアリングを使用します。最初のアクションは`OPEN_APP`、URI、またはディープリンクをサポートし（コンポーザーの**On-Click Behavior**に対応）、もう一方のアクションはデフォルトで`CLOSE`を使用します。これは通知を閉じ、アプリを開きません。デフォルトのマッピングについては、[Apple push action button object]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons)を参照してください。
 
-そのため、閉じるプリセットボタン（例：**No**や**Decline**）のタップは通常、*直接開封数*にはカウントされません。これらのタップは、ログに記録された場合、`button_action_type`が`close`に設定され、`button_string`がタップされたアクションを識別する形で**Push Notification Open**エクスポートに表示されることがあります。Campaign分析とウェアハウスデータを比較する際は、これらのペイロードフィールドを使用して、閉じるタップを通知本文やプライマリアクションのタップと同じように扱わないようにしてください。
+そのため、閉じるプリセットボタン（例：**No**や**Decline**）のタップは通常、*Direct Opens*にはカウントされません。これらのタップは、ログに記録された場合、`button_action_type`が`close`に設定され、`button_string`がタップされたアクションを識別する形で**Push Notification Open**エクスポートに表示されることがあります。Campaign分析とウェアハウスデータを比較する際は、これらのペイロードフィールドを使用して、閉じるタップを通知本文やプライマリアクションのタップと同じように扱わないようにしてください。
 
 **Android**の場合、ボタンごとに**On-Click Behavior**（**Open App**、**Redirect to Web URL**、**Deep Link**）を設定するため、レポートはiOSのデフォルトの`OPEN_APP` / `CLOSE`分割ではなく、設定したアクションに従います。
 
@@ -700,7 +708,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
 | アンインストールされたアプリケーション | メッセージがデバイスに配信されようとして、そのデバイスで対象のアプリがアンインストールされている場合、メッセージは破棄され、デバイスの登録IDは無効になります。今後そのデバイスにメッセージを送信しようとすると、NotRegisteredエラーが返されます。 |
 | バックアップされたアプリケーション | アプリケーションがバックアップされると、アプリケーションが復元される前に登録IDが無効になる可能性があります。この場合、FCMはアプリケーションの登録IDを保存しなくなり、アプリケーションはメッセージを受信しなくなります。そのため、アプリケーションのバックアップ時に登録IDを保存すべきでは**ありません**。 |
 | 更新されたアプリケーション | アプリケーションが更新されると、以前のバージョンの登録IDが使えなくなることがあります。そのため、更新されたアプリケーションは既存の登録IDを置き換える必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -718,7 +726,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
     <caption class="sr-only">SMS、MMS、RCSのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -728,31 +736,31 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#sent">送信済み</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#sent">Sent</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Sent' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#delivery-failures">配信失敗数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#delivery-failures">Delivery Failures</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#confirmed-delivery">確認済み配信</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#confirmed-delivery">Confirmed Delivery</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#rejections">拒否数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#rejections">Rejections</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Rejections' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#opt-out">オプトアウト</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#opt-out">Opt-Out</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opt-Out' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#help">ヘルプ</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#help">Help</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Bounces' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-clicks">クリック数の合計</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#total-clicks">Total Clicks</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %}</td>
         </tr>
     </tbody>
@@ -770,7 +778,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
     <caption class="sr-only">Webhookのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -780,15 +788,15 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">ユニーク受信者数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#unique-recipients">Unique Recipients</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#sends">送信数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#sends">Sends</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Sends' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#errors">エラー数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#errors">Errors</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Errors' %}</td>
         </tr>
     </tbody>
@@ -806,7 +814,7 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
     <caption class="sr-only">WhatsAppのパフォーマンス指標</caption>
     <thead>
         <tr>
@@ -816,19 +824,19 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
     </thead>
     <tbody>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#sends">送信数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#sends">Sends</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Sends' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#deliveries">配信数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#deliveries">Deliveries</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#reads">既読数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#reads">Reads</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Reads' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#failures">失敗数</a></td>
+            <td class="no-split"><a href="/docs/user_guide/data_and_analytics/report_metrics/#failures">Failures</a></td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Failures' %}</td>
         </tr>
     </tbody>

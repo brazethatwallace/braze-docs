@@ -40,7 +40,7 @@ Você precisará confirmar que os itens a seguir foram criados e concluídos ant
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Uma ferramenta centralizada para gerenciar os ativos do Facebook da sua marca (por exemplo, contas de anúncios, páginas e apps). |
 | Conta de anúncio do Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Uma conta de anúncio ativa do Facebook vinculada ao gerente de negócios da sua marca.<br><br>Certifique-se de que o administrador do Facebook Business Manager tenha concedido permissões de "Manage Campaigns" ou "Manage ad accounts" para as contas de anúncios do Facebook que você planeja usar com a Braze. Além disso, verifique se você aceitou os termos e condições da sua conta de anúncios. |
 | Termos de públicos personalizados do Facebook | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Aceite os Termos de Públicos Personalizados do Facebook para as contas de anúncios do Facebook que você planeja usar com a Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -148,7 +148,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários atualmente sendo processados pela Braze para sincronizar com o Facebook. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o Facebook devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do Facebook ou a exclusão do público personalizado no Facebook. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é uma etapa do Facebook. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Há um atraso nos relatórios de métricas de usuários sincronizados e usuários com erro devido ao processamento interno.
@@ -233,7 +233,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Troubleshooting">
   <caption>Solução de problemas</caption>
   <thead>
     <tr>
