@@ -2,7 +2,7 @@
 nav_title: カード作成
 article_title: カード作成
 alias: /card_creation/
-description: "この記事では、キャンペーン起動時またはキャンバスステップエントリ時と、初回インプレッション時のContent Cards作成の違いについて説明します。"
+description: "この記事では、Campaign起動時またはCanvasステップエントリ時と、初回インプレッション時のContent Cards作成の違いについて説明します。"
 page_order: 0
 tool: Campaigns
 channel:
@@ -68,6 +68,10 @@ Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messag
 
 ![Content Cardsの有効期限にコンテキスト変数を使用して「Personalize duration」が設定された有効期限設定。]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cardsの最大有効期限は30日間です。コンテキスト変数を使用したパーソナライズされた期間を使用する場合でも同様です。30日を超える値を設定しても、30日に制限されます。詳細については、[カードの有効期限]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration)を参照してください。
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -90,7 +94,7 @@ Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messag
 <thead>
   <tr>
     <th class="tg-0pky"></th>
-    <th class="tg-0pky">キャンペーン起動時 / キャンバスステップエントリ時</th>
+    <th class="tg-0pky">キャンペーン起動時 / Canvasステップエントリ時</th>
     <th class="tg-0pky">初回インプレッション時</th>
   </tr>
 </thead>
@@ -107,13 +111,13 @@ Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messag
   </tr>
   <tr>
     <td class="leftHeader">パーソナライゼーション</td>
-    <td class="tg-0pky">Brazeは、キャンペーン起動時またはユーザーがキャンバスステップに入った時点でLiquid、コネクテッドコンテンツ、Content Blocksを評価します。定期Campaignの場合、次の繰り返し間隔で評価されます。</td>
+    <td class="tg-0pky">Brazeは、キャンペーン起動時またはユーザーがCanvasステップに入った時点でLiquid、コネクテッドコンテンツ、Content Blocksを評価します。定期Campaignの場合、次の繰り返し間隔で評価されます。</td>
     <td class="tg-0pky">Brazeは初回インプレッション時または次の繰り返し間隔後にLiquid、コネクテッドコンテンツ、Content Blocksを評価します。</td>
   </tr>
   <tr>
     <td class="leftHeader">分析</td>
   <td class="tg-0pky"><em>送信済みメッセージ</em>は、Brazeが作成して利用可能にしたカードの数を指します。ユーザーがカードを閲覧したかどうかはカウントされません。</td>
-  <td class="tg-0pky"><em>送信済みメッセージ</em>は、セッション開始後にBrazeがユーザーに送信したカードの数を指します。Canvasでは、ユーザーがセッションを開始せずにステップに入った場合、Brazeはカードを送信しないため、この指標はステップに入ったユーザー数と一致しない場合があります。<br><br>到達可能なユーザー数とインプレッション数は変わりませんが、初回インプレッション時にカードを作成する場合、キャンペーン起動時やキャンバスステップエントリ時と比較して送信量（<em>送信済みメッセージ</em>）は少なくなることが予想されます。</td>
+  <td class="tg-0pky"><em>送信済みメッセージ</em>は、セッション開始後にBrazeがユーザーに送信したカードの数を指します。Canvasでは、ユーザーがセッションを開始せずにステップに入った場合、Brazeはカードを送信しないため、この指標はステップに入ったユーザー数と一致しない場合があります。<br><br>到達可能なユーザー数とインプレッション数は変わりませんが、初回インプレッション時にカードを作成する場合、キャンペーン起動時やCanvasステップエントリ時と比較して送信量（<em>送信済みメッセージ</em>）は少なくなることが予想されます。</td>
   </tr>
   <tr>
     <td class="leftHeader">処理時間</td>
