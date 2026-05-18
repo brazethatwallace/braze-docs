@@ -251,25 +251,25 @@ CDIを使って、データウェアハウスやファイルストレージを�
 {"id":"s3-qa-1","name":"account1","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}","deleted":true}
 {"id":"s3-qa-2","name":"account2","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}","deleted":false}
 {"id":"s3-qa-3","name":"account3","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
-```
+`````````
 
 {% alert important %}
 ソースファイルの各行には有効なJSONが含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
-```plaintext
+`````````plaintext
 ID,NAME,PAYLOAD,DELETED
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}",TRUE
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}",FALSE
-```
+`````````
 {% endsubtab %}
 {% subtab CSV Accounts without Delete %}
-```plaintext
+`````````plaintext
 ID,NAME,PAYLOAD
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}"
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}"
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -283,7 +283,7 @@ ID,NAME,PAYLOAD
 
 {% tabs %}
 {% tab Snowflake %}
-```sql
+`````````sql
 CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -298,10 +298,10 @@ SELECT
             'attribute_3',
             attribute_3)
     )as PAYLOAD FROM "account_details_1";
-```
+`````````
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -316,10 +316,10 @@ SELECT
             'attribute_3',
             attribute_3)
     ) as PAYLOAD FROM "account_details_1";
-```
+`````````
 {% endtab %}
 {% tab BigQuery %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -332,10 +332,10 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
       )
     ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.account_details_1`);
-```
+`````````
 {% endtab %}
 {% tab Databricks %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -348,10 +348,10 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
       )
     ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.account_details_1`);
-```
+`````````
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE VIEW [BRAZE_CLOUD_PRODUCTION].[INGESTION].[ACCOUNTS_SYNC]
 AS SELECT
     account_id as ID,
@@ -360,6 +360,6 @@ AS SELECT
     JSON_OBJECT('attribute_1':attribute_1, 'attribute_2':attribute_2, 'attribute_3':attribute_3, 'attribute_4':attribute_4) as PAYLOAD
 
 FROM [braze].[account_details_1] ;
-```
+`````````
 {% endtab %}
 {% endtabs %}

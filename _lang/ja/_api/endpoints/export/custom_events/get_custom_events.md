@@ -37,11 +37,11 @@ description: "この記事では、カスタムイベントリストのエクス
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "events" : [
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
         ...
     ]
 }
-```
+`````````
 
 ### 致命的なエラーの応答コード {#fatal-export}
 

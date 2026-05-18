@@ -45,14 +45,14 @@ noindex: true
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKMinimumTriggerTimeIntervalKey : @(5) }];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions, withAppboyOptions:[ABKMinimumTriggerTimeIntervalKey : 5])
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -110,16 +110,16 @@ Braze が特定のイベントに一致するトリガーを検出できない�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance].inAppMessageController displayNextInAppMessage];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -131,24 +131,24 @@ Appboy.sharedInstance()!.inAppMessageController.displayNextInAppMessage()
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
   ABKInAppMessageSlideup *customInAppMessage = [[ABKInAppMessageSlideup alloc] init];
   customInAppMessage.message = @"YOUR_CUSTOM_SLIDEUP_MESSAGE";
   customInAppMessage.duration = 2.5;
   customInAppMessage.extras = @{@"key" : @"value"};
   [[Appboy sharedInstance].inAppMessageController addInAppMessage:customInAppMessage];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
   let customInAppMessage = ABKInAppMessageSlideup.init()
   customInAppMessage.message = "YOUR_CUSTOM_SLIDEUP_MESSAGE"
   customInAppMessage.duration = 2.5
   customInAppMessage.extras = ["key": "value"]
   Appboy.sharedInstance()!.inAppMessageController.add(customInAppMessage)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

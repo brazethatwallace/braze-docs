@@ -38,13 +38,13 @@ This is the description of the endpoint. API descriptions usually start with "Us
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "phone_numbers": (required, array of string in e.164 format)
 }
-```
+`````````
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -59,12 +59,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 <!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
   "phone_numbers" : ["12183095514","14255551212"]
 }'
-```
+`````````
 {% endapi %}

@@ -38,4 +38,4 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer YOUR-
     }
   }
 }' https://{REST_API_ENDPOINT_URL}/messages/send 
-```
+`````````

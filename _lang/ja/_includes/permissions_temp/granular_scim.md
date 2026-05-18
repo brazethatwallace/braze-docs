@@ -23,7 +23,7 @@ Brazeではアプリグループはワークスペースに改名されました
     "appGroup": (required, array)
   }
 }
-```
+`````````
 
 有効な権限オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
@@ -93,12 +93,12 @@ Brazeではアプリグループはワークスペースに改名されました
 
 | 権限名 | SCIM API文字列 |
 | --- | --- |
-| Campaignsを表示 | `view_campaigns` |
-| Campaignsを編集 | `edit_campaigns` |
-| Campaignsをアーカイブ | `archive_campaigns` |
-| Canvasesを表示 | `view_canvases` |
-| Canvasesを編集 | `edit_canvases` |
-| Canvasesをアーカイブ | `archive_canvases` |
+| キャンペーンを表示 | `view_campaigns` |
+| キャンペーンを編集 | `edit_campaigns` |
+| キャンペーンをアーカイブ | `archive_campaigns` |
+| キャンバスを表示 | `view_canvases` |
+| キャンバスを編集 | `edit_canvases` |
+| キャンバスをアーカイブ | `archive_canvases` |
 | フリークエンシーキャップルールを表示 | `view_frequency_caps` |
 | フリークエンシーキャップルールを編集 | `edit_frequency_caps` |
 | メッセージの優先順位付けを表示 | `view_message_prioritization` |
@@ -109,9 +109,9 @@ Brazeではアプリグループはワークスペースに改名されました
 | フィーチャーフラグを表示 | `view_feature_flags` |
 | フィーチャーフラグを編集 | `edit_feature_flags` |
 | フィーチャーフラグをアーカイブ | `archive_feature_flags` |
-| Segmentsを表示 | `view_segments` |
-| Segmentsを編集 | `edit_segments` |
-| Segmentsをアーカイブ | `archive_segments` |
+| セグメントを表示 | `view_segments` |
+| セグメントを編集 | `edit_segments` |
+| セグメントをアーカイブ | `archive_segments` |
 | グローバルコントロールグループを表示 | `view_global_control_group` |
 | グローバルコントロールグループを編集 | `edit_global_control_group` |
 | IAMテンプレートを表示 | `view_iam_templates` |
@@ -145,8 +145,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | Decisioning Studioオーディエンスを表示 | `view_decisioning_studio_audience` |
 | Decisioning Studioコンバージョンイベントを表示 | `view_decisioning_studio_conversion_event` |
 | Decisioning Studioガードレールを表示 | `view_decisioning_studio_guardrails` |
-| Campaignsを起動 | `launch_campaigns` |
-| Canvasesを起動 | `launch_canvases` |
+| キャンペーンを起動 | `launch_campaigns` |
+| キャンバスを起動 | `launch_canvases` |
 | ダッシュボードユーザーを編集 | `edit_dashboard_users` |
 | メディアライブラリアセットを編集 | `edit_media_library_assets` |
 | メディアライブラリアセットを削除 | `delete_media_library_assets` |
@@ -210,12 +210,12 @@ Brazeではアプリグループはワークスペースに改名されました
 
 | 権限名 | SCIM API文字列 |
 | --- | --- |
-| Campaignsを表示 | `view_campaigns` |
-| Campaignsを編集 | `edit_campaigns` |
-| Campaignsをアーカイブ | `archive_campaigns` |
-| Canvasesを表示 | `view_canvases` |
-| Canvasesを編集 | `edit_canvases` |
-| Canvasesをアーカイブ | `archive_canvases` |
+| キャンペーンを表示 | `view_campaigns` |
+| キャンペーンを編集 | `edit_campaigns` |
+| キャンペーンをアーカイブ | `archive_campaigns` |
+| キャンバスを表示 | `view_canvases` |
+| キャンバスを編集 | `edit_canvases` |
+| キャンバスをアーカイブ | `archive_canvases` |
 | フリークエンシーキャップルールを表示 | `view_frequency_caps` |
 | フリークエンシーキャップルールを編集 | `edit_frequency_caps` |
 | メッセージの優先順位付けを表示 | `view_message_prioritization` |
@@ -224,8 +224,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | フィーチャーフラグを表示 | `view_feature_flags` |
 | フィーチャーフラグを編集 | `edit_feature_flags` |
 | フィーチャーフラグをアーカイブ | `archive_feature_flags` |
-| Segmentsを表示 | `view_segments` |
-| Segmentsを編集 | `edit_segments` |
+| セグメントを表示 | `view_segments` |
+| セグメントを編集 | `edit_segments` |
 | グローバルコントロールグループを編集 | `edit_global_control_group` |
 | IAMテンプレートを表示 | `view_iam_templates` |
 | IAMテンプレートを編集 | `edit_iam_templates` |
@@ -254,8 +254,8 @@ Brazeではアプリグループはワークスペースに改名されました
 | 多言語設定を表示 | `view_multi_language_settings` |
 | BrazeAI Operator<sup>TM</sup>を使用 | `use_operator` |
 | Decisioning Studioエージェントを表示 | `view_decisioning_studio_agents` |
-| Campaignsを起動 | `launch_campaigns` |
-| Canvasesを起動 | `launch_canvases` |
+| キャンペーンを起動 | `launch_campaigns` |
+| キャンバスを起動 | `launch_canvases` |
 | ダッシュボードユーザーを編集 | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 

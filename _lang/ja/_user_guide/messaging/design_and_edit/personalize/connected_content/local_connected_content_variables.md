@@ -19,7 +19,7 @@ URL の後に `:save your_variable_name` を指定して、データを別の名
 {% raw %}
 ```js
 {% connected_content https://www.metaweather.com/api/location/2459115/ :save localweather %}
-```
+`````````
 {% endraw %}
 
 Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す無料の天気 API です。このコードはテストと学習目的でのみ使用してください。
@@ -31,7 +31,7 @@ Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す
 コネクテッドコンテンツは、`:save` を指定すると、JSON 形式の結果をローカル変数として解釈します。たとえば、天気関連のコネクテッドコンテンツエンドポイントが次の JSON オブジェクトを返し、`:save localweather` を指定してローカル変数 `localweather` に格納します。
 {% raw %}
 
-```js
+`````````js
 {
   "consolidated_weather": [
     {
@@ -60,7 +60,7 @@ Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す
     "latt_long": "40.71455,-74.007118",
     "timezone": "US\/Eastern"
   }
-```
+`````````
 
 `{{localweather.consolidated_weather[0].weather_state_name}}` を参照することで、雨が降っているかどうかをテストできます。このオブジェクトで使用した場合、`Clear` が返されます。結果のロケーション名でパーソナライズしたい場合は、`{{localweather.title}}` で `New York` が返されます。
 {% endraw %}
@@ -68,7 +68,7 @@ Metaweather は「Where-on-Earth ID」を使用してエリアの天気を返す
 次の画像は、正しく設定されている場合にダッシュボードで表示されるシンタックスハイライトの種類を示しています。また、`connected_content` リクエストの例をどのように活用できるかも示しています。
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://www.metaweather.com/api/location/search/?query={{custom_attribute.${customCity}}} :save locationjson %}
 {% connected_content https://www.metaweather.com/api/location/{{locationjson[0].woeid}}/ :save localweather %}
 
@@ -79,7 +79,7 @@ No sunscreen needed :)
 {% else %}
 Enjoy the weather!
 {% endif %}
-```
+`````````
 {% endraw %}
 
 API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} で `Rain` を返した場合、ユーザーは次のプッシュ通知を受け取ります。
@@ -99,22 +99,22 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 {% raw %}
 ##### インライン: スペースは使用不可
 
-```js
+`````````js
 {% connected_content https://example.com/api/endpoint :method post :body {"foo":"bar","baz":"{{1|plus:1}}"} :content_type application/json %}
-```
+`````````
 
 ##### capture ステートメント内のボディ: スペース使用可
 
-```js
+`````````js
 {% capture postbody %}
 {"foo": "bar", "baz": "{{ 1 | plus: 1 }}"}
 {% endcapture %}
 {% connected_content https://example.com/api/endpoint :method post :body {{postbody}} :content_type application/json %}
-```
+`````````
 {% endraw %}
 
 {% raw %}
-```js
+`````````js
 {% capture postbody %}
 {
 "ids":[ca_57832,ca_75869],"include":{"attributes":{"withKey":["daily_deals"]}}
@@ -130,16 +130,16 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
   :body {{postbody}}
   :save result
 %}
-```
+`````````
 {% endraw %}
 
 {% raw %}
 ##### assign ステートメント内のボディ: スペース使用可
 
-```js
+`````````js
 {% assign postbody = '{"foo":"bar", "baz": "2"}' %}
 {% connected_content https://example.com/api/endpoint :method post :body {{postbody}} :content_type application/json %}
-```
+`````````
 {% endraw %}
 
 ## HTTP ステータスコード
@@ -147,12 +147,12 @@ API が {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%en
 コネクテッドコンテンツの呼び出しから HTTP ステータスを利用するには、まずローカル変数として保存し、次に `__http_status_code__` キーを使用します。例:
 
 {% raw %}
-```js
+`````````js
 {% connected_content https://example.com/api/endpoint :save result %}
 {% if result.__http_status_code__ != 200 %}
   {% abort_message('Connected Content returned a non-200 status code') %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 {% alert important %}

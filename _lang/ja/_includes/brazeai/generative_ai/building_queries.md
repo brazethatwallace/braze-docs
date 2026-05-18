@@ -56,32 +56,32 @@ AIクエリビルダーはOpenAIを搭載した[GPT](https://openai.com/gpt-4)�
 SELECT COUNT(*) as Purchases, SUM(price) as Revenue
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CURRENT_DATE()));
-```
+`````````
 
 次のクエリは、先月のメール送信数を取得します。
 
-```sql
+`````````sql
 SELECT COUNT(*) as Sends
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
-```
+`````````
 
 `CANVAS_ID`、`CANVAS_VARIATION_API_ID`、`CAMPAIGN_ID`に対するクエリを実行すると、それらに関連付けられている名前列が自動的に結果テーブルに含まれます。`SELECT`クエリ自体にこれらを含める必要はありません。
 
 | ID名 | 関連する名前列 |
 | --- | --- |
-| `CANVAS_ID` | Canvas名 |
-| `CANVAS_VARIATION_API_ID` | Canvasバリアント名 |
-| `CAMPAIGN_ID` | Campaign名 |
+| `CANVAS_ID` | キャンバス名 |
+| `CANVAS_VARIATION_API_ID` | キャンバスバリアント名 |
+| `CAMPAIGN_ID` | キャンペーン名 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tips" }
 
 このクエリは、3つのすべてのIDと、それらに関連付けられている名前の列を取得します。行数の上限は100行です。
 
-```sql
+`````````sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
-```
+`````````
 
 #### トラブルシューティング {#troubleshooting}
 
@@ -118,13 +118,13 @@ CSVレポートをダウンロードするには、**Export** を選択します
 
 たとえば、過去30日間のメール中止をタイプ別にカウントするには、次のようにします。
 
-```sql
+`````````sql
 SELECT ABORT_TYPE, COUNT(*) as abort_count
 FROM USERS_MESSAGES_EMAIL_ABORT_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('day', -30, CURRENT_DATE())
 GROUP BY ABORT_TYPE
 ORDER BY abort_count DESC
-```
+`````````
 
 `ABORT_TYPE` の値とその説明の全リストについては、[中止タイプ]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 

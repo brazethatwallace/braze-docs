@@ -51,10 +51,10 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
      --braze_id can only be used to update existing users created through the Braze SDK
      BRAZE_ID VARCHAR(16777216)
 );
-```
+`````````
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
    updated_at timestamptz default sysdate,
    --at least one of external_id, alias_name and alias_label, or braze_id is required
@@ -65,7 +65,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
    --braze_id can only be used to update existing users created through the Braze SDK
    braze_id varchar
 );
-```
+`````````
 {% endtab %}
 
 {% tab BigQuery %}
@@ -94,7 +94,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -108,7 +108,7 @@ CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes]
   BRAZE_ID VARCHAR,
 )
 GO
-```
+`````````
 {% endtab %}
 
 {% endtabs %}

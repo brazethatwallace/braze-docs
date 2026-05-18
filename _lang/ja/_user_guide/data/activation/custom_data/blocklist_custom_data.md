@@ -22,12 +22,12 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
+- View キャンペーン
+- Edit キャンペーン
+- Archive キャンペーン
+- View キャンバス
+- Edit キャンバス
+- Archive キャンバス
 - View Frequency Capping Rules
 - Edit Frequency Capping Rules
 - View Message Prioritization
@@ -36,8 +36,8 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 - View Feature Flags
 - Edit Feature Flags
 - Archive Feature Flags
-- View Segments
-- Edit Segments
+- View セグメント
+- Edit セグメント
 - View IAM Templates
 - Edit IAM Templates
 - Archive IAM Templates
@@ -69,7 +69,7 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 ### カスタム属性、カスタムイベント、製品のブロックリスト登録 {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-イベントまたは属性がブロックリストに登録されると、そのイベントまたは属性を使用しているSegment、Campaign、またはCanvasはアーカイブされます。
+イベントまたは属性がブロックリストに登録されると、そのイベントまたは属性を使用しているセグメント、キャンペーン、またはキャンバスはアーカイブされます。
 {% endalert %}
 
 特定のカスタム属性、イベント、または製品のトラッキングを停止するには、以下の手順に従います。
@@ -91,7 +91,7 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 - Brazeに送信されたデータは処理されず、ブロックリスト登録済みのイベントと属性はデータポイントとしてカウントされません
 - 既存のデータは再有効化しない限り利用できません
 - ブロックリスト登録済みのイベントと属性はフィルターやグラフに表示されません
-- アクティブなCanvasの下書き内でブロックリスト登録済みデータを参照している場合、無効な値として読み込まれ、エラーが発生する可能性があります
+- アクティブなキャンバスの下書き内でブロックリスト登録済みデータを参照している場合、無効な値として読み込まれ、エラーが発生する可能性があります
 - ブロックリスト登録済みのイベントまたは属性を使用しているものはすべてアーカイブされます
 
 これを実現するために、Brazeはブロックリスト情報を各デバイスに送信します。これは、膨大な数のイベントや属性（数十万件や数百万件）をブロックリストに登録する場合、データ集約的な操作になるため重要です。
@@ -104,7 +104,7 @@ SDKにはブロックリスト用として最大300件のアイテムが送信�
 
 ## カスタムデータの削除 {#deleting-custom-data}
 
-ターゲットCampaignやSegmentsを構築する中で、カスタムイベントやカスタム属性が不要になる場合があります。たとえば、特定のカスタム属性を一度限りのCampaignの一部として使用した場合、[ブロックリストに登録](#blocklisting-custom-attributes-custom-events-and-products)してアプリからの参照を削除した後に、このデータを削除できます。文字列、数値、階層化カスタム属性など、あらゆるデータタイプを削除できます。
+ターゲットキャンペーンやセグメントを構築する中で、カスタムイベントやカスタム属性が不要になる場合があります。たとえば、特定のカスタム属性を一度限りのキャンペーンの一部として使用した場合、[ブロックリストに登録](#blocklisting-custom-attributes-custom-events-and-products)してアプリからの参照を削除した後に、このデータを削除できます。文字列、数値、階層化カスタム属性など、あらゆるデータタイプを削除できます。
 
 {% alert important %}
 カスタムデータを削除するには、[Braze管理者]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)である必要があります。

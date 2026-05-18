@@ -37,7 +37,7 @@ Apple ユニバーサルリンクと Android App Linksは、Webコンテンツ�
 
 ## ユースケース {#use-cases}
 
-ユニバーサルリンクとApp Linksは、メールCampaignで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
+ユニバーサルリンクとApp Linksは、メールキャンペーンで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
 
 一部のチャネルはこれらのリンクとうまく連携しません。たとえば、プッシュ通知、アプリ内メッセージ、Content Cardsでは、スキームベースのディープリンク（`mydomain://`）を使用する必要があります。
 
@@ -141,7 +141,7 @@ AASAファイルには、アプリのリストと、ユニバーサルリンク�
     ]
   }
 }
-```
+`````````
 
 - `appID`: アプリの**Team ID**（`https://developer.apple.com/account/#/membership/`にアクセスしてTeam IDを取得）と**Bundle Identifier**を組み合わせて構築されます。上記の例では、「JHGFJHHYX」がTeam IDで、「com.facebook.ios」がBundle IDです。
 - `paths`: 関連付けに含めるまたは除外するパスを指定する文字列の配列です。パスの前に`NOT`を使用してパスを無効にできます。この例では、このパス上のすべてのリンクはアプリを開く代わりにWebに移動します。`*`をワイルドカードとして使用してディレクトリ内のすべてのパスを有効にしたり、`?`を使用して単一の文字に一致させたりできます（例：/archives/201?/ で2010〜2019のすべての数字に一致）。
@@ -246,9 +246,9 @@ AMPメールの場合、この属性はdata-universal="true"にする必要が�
 
 例：
 
-```html
+`````````html
 <a href=”https://www.example.com” universal="true">
-```
+`````````
 
 {:start="3"}
 3. アプリがラップされたリンクを適切に処理するように設定されていることを確認します。SendGridの記事[Resolving SendGrid Click Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links)を参照し、お使いのオペレーティングシステムの手順に従ってください。この記事には[iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios)と[Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android)のサンプルコードが含まれています。
@@ -263,9 +263,9 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 例：
 
-```html
+`````````html
 <a href=”https://www.example.com” data-msys-sublink="open-in-app">
-```
+`````````
 
 次に、アプリがカスタムパスを適切に処理するように設定されていることを確認します。SparkPostの記事[Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links)を参照してください。この記事には[iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost)と[Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost)のサンプルコードが含まれています。
 
@@ -277,25 +277,25 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がSendGridの場合、次のようにHTMLコード`clicktracking=off`を使用します。
 
-```HTML
+`````````HTML
 <a clicktracking=off href="[INSERT https LINK HERE]">click here</a>
-```
+`````````
 
 #### SparkPost
 
 メールサービスプロバイダー（ESP）がSparkPostの場合、次のようにHTMLコード`data-msys-clicktrack="0"`を使用します。
 
-```HTML
+`````````HTML
 <a data-msys-clicktrack="0" href="[INSERT https LINK HERE]">click here</a>
-```
+`````````
 
 #### Amazon SES
 
 メールサービスプロバイダー（ESP）がAmazon SESの場合、次のようにHTMLコード`ses:no-track`を使用します。
 
-```HTML
+`````````HTML
 <a ses:no-track href="[INSERT https LINK HERE]">click here</a>
-```
+`````````
 
 #### ドラッグ＆ドロップエディター {#drag-and-drop-editor}
 

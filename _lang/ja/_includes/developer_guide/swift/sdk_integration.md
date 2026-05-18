@@ -65,7 +65,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 
 ```bash
 $ sudo gem install cocoapods
-```
+`````````
 
 行き詰まった場合は、CocoaPodsの[トラブルシューティングガイド](http://guides.cocoapods.org/using/troubleshooting.html)を確認してください。
 
@@ -79,11 +79,11 @@ $ sudo gem install cocoapods
 
 次の行をPodfileに追加します：
 
-```
+`````````
 target 'YourAppTarget' do
   pod 'BrazeKit'
 end
-```
+`````````
 
 `BrazeKit`にはメインSDKライブラリーが含まれており、分析とプッシュ通知のサポートが提供されています。
 
@@ -116,9 +116,9 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 #### ステップ1.3：SDKをインストールする {#step-13-install-the-sdk}
 
 Braze SDK CocoaPodをインストールするには、ターミナル内でXcodeアプリプロジェクトのディレクトリに移動し、次のコマンドを実行します：
-```
+`````````
 pod install
-```
+`````````
 
 この時点で、CocoaPodsによって作成された新しいXcodeプロジェクトワークスペースを開くことができるはずです。Xcodeプロジェクトの代わりに、必ずこのXcodeワークスペースを使用してください。
 
@@ -128,9 +128,9 @@ pod install
 
 CocoaPodを更新するには、プロジェクトディレクトリ内で以下のコマンドを実行するだけです：
 
-```
+`````````
 pod update
-```
+`````````
 {% endtab %}
 
 {% tab Manual %}
@@ -197,15 +197,15 @@ GIFサポートを有効にするには、`braze-swift-sdk-prebuilt/static`ま�
 
 XcodeプロジェクトにObjective-Cファイルのみが含まれている場合、プロジェクトのビルドを試みると「missing symbol」エラーが発生することがあります。これらのエラーを修正するには、プロジェクトを開き、ファイルツリーに空のSwiftファイルを追加します。これにより、ビルドツールチェーンが[Swiftランタイム](https://support.apple.com/kb/dl1998)を埋め込み、ビルド時に適切なフレームワークにリンクするようになります。
 
-```bash
+`````````bash
 FILE_NAME.swift
-```
+`````````
 
 `FILE_NAME`を任意のスペースのない文字列に置き換えます。ファイルは次のようになります：
 
-```bash
+`````````bash
 empty_swift_file.swift
-```
+`````````
 {% endtab %}
 {% endtabs local %}
 
@@ -228,7 +228,7 @@ Braze Swift SDKの初期化を遅らせることができます。これは、�
 {% tab Swift %}
 {% subtabs local %}
 {% subtab UIKit %}
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
   // Prepare the SDK for delayed initialization
   Braze.prepareForDelayedInitialization()
@@ -237,11 +237,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
   return true
 }
-```
+`````````
 {% endsubtab %}
 
 {% subtab SwiftUI %}
-```swift
+`````````swift
 @main
 struct MyApp: App {
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
@@ -263,13 +263,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     return true
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab Objective-C %}
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Prepare the SDK for delayed initialization
   [Braze prepareForDelayedInitialization];
@@ -278,7 +278,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
   return YES;
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -294,14 +294,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 {% tabs local %}
 {% tab Swift %}
-```swift
+`````````swift
 Braze.prepareForDelayedInitialization(analyticsBehavior: .queue)
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [Braze prepareForDelayedInitializationWithAnalyticsBehavior:BRZPushEnqueueBehaviorQueue];
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -311,14 +311,14 @@ SDK初期化前に受信したプッシュ分析を破棄するには、`analyti
 
 {% tabs local %}
 {% tab Swift %}
-```swift
+`````````swift
 Braze.prepareForDelayedInitialization(analyticsBehavior: .drop)
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [Braze prepareForDelayedInitializationWithAnalyticsBehavior:BRZPushEnqueueBehaviorDrop];
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -328,7 +328,7 @@ Braze.prepareForDelayedInitialization(analyticsBehavior: .drop)
 
 {% tabs local %}
 {% tab SWIFT %}
-```swift
+`````````swift
 // Enable all push automation
 featuresBraze.prepareForDelayedInitialization(pushAutomation: true)
 
@@ -337,11 +337,11 @@ let automation = Braze.Configuration.Push.Automation()
 automation.automaticSetup = true
 automation.requestAuthorizationAtLaunch = false
 Braze.prepareForDelayedInitialization(pushAutomation: automation)
-```
+`````````
 {% endtab %}
 
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 // Enable all push automation features
 [Braze prepareForDelayedInitializationWithPushAutomation:[[BRZConfigurationPushAutomation alloc] initWithAutomationEnabled:YES]];
 
@@ -350,7 +350,7 @@ BRZConfigurationPushAutomation *automation = [[BRZConfigurationPushAutomation al
 automation.automaticSetup = YES;
 automation.requestAuthorizationAtLaunch = NO;
 [Braze prepareForDelayedInitializationWithPushAutomation:automation analyticsBehavior:BRZPushEnqueueBehaviorQueue];
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -360,7 +360,7 @@ automation.requestAuthorizationAtLaunch = NO;
 
 {% tabs local %}
 {% tab SWIFT %}
-```swift
+`````````swift
 func initializeBraze() {
   let configuration = Braze.Configuration(apiKey: "YOUR-API-KEY", endpoint: "YOUR-ENDPOINT")
 
@@ -371,10 +371,10 @@ func initializeBraze() {
   // Store the Braze instance for later use
   AppDelegate.braze = braze
 }
-```
+`````````
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 - (void)initializeBraze {
   BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"YOUR-API-KEY" endpoint:@"YOUR-ENDPOINT"];
 
@@ -385,7 +385,7 @@ func initializeBraze() {
   // Store the Braze instance for later use
   AppDelegate.braze = braze;
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -403,30 +403,30 @@ SDKが初期化されると、キューに蓄積されたプッシュ通知、�
 {% subtab swift %}
 `AppDelegate.swift`ファイルに以下のコード行を追加して、Braze Swift SDKに含まれる機能をインポートします：
 
-```swift
+`````````swift
 import BrazeKit
-```
+`````````
 
 次に、`AppDelegate`クラスにstaticプロパティを追加し、アプリケーションのライフタイムを通してBrazeインスタンスへの強い参照を保持します：
 
-```swift
+`````````swift
 class AppDelegate: UIResponder, UIApplicationDelegate {
   static var braze: Braze? = nil
 }
-```
+`````````
 
 SDKでは、アプリケーションが使用期間を通してBrazeインスタンスへの強い参照を保持する必要があります。予期しない副作用を防ぐため、Brazeインスタンスのプロパティやメソッドにアクセスまたは変更する前に、その参照を完全にキャプチャしていることを確認してください。
 
 最後に、`AppDelegate.swift`で、`application:didFinishLaunchingWithOptions:`メソッドに次のスニペットを追加します：
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
     apiKey: "YOUR-APP-IDENTIFIER-API-KEY",
     endpoint: "YOUR-BRAZE-ENDPOINT"
 )
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-```
+`````````
 
 **アプリ設定**ページから、`YOUR-APP-IDENTIFIER-API-KEY`と`YOUR-BRAZE-ENDPOINT`を正しい値に更新してください。アプリ識別子APIキーの場所については、[API識別子の種類]({{site.baseurl}}/api/identifier_types/?tab=app%20ids)を参照してください。
 
@@ -435,13 +435,13 @@ AppDelegate.braze = braze
 
 次のコード行を`AppDelegate.m`ファイルに追加します：
 
-```objc
+`````````objc
 @import BrazeKit;
-```
+`````````
 
 次に、`AppDelegate.m`ファイルに静的変数を追加して、アプリケーションのライフタイムを通してBrazeインスタンスへの参照を保持します：
 
-```objc
+`````````objc
 static Braze *_braze;
 
 @implementation AppDelegate
@@ -453,18 +453,18 @@ static Braze *_braze;
   _braze = braze;
 }
 @end
-```
+`````````
 
 SDKでは、アプリケーションが使用期間を通してBrazeインスタンスへの強い参照を保持する必要があります。予期しない副作用を防ぐため、Brazeインスタンスのプロパティやメソッドにアクセスまたは変更する前に、その参照を完全にキャプチャしていることを確認してください。
 
 最後に、`AppDelegate.m`ファイル内で、`application:didFinishLaunchingWithOptions:`メソッド内に以下のスニペットを追加します：
 
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:"YOUR-APP-IDENTIFIER-API-KEY"
                                                                   endpoint:"YOUR-BRAZE-ENDPOINT"];
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-```
+`````````
 
 **設定の管理**ページから、`YOUR-APP-IDENTIFIER-API-KEY`と`YOUR-BRAZE-ENDPOINT`を正しい値で更新してください。アプリ識別子APIキーの場所について詳しくは、[APIドキュメント]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key)をご覧ください。
 
@@ -498,7 +498,7 @@ Braze Swift SDKのデフォルトのログレベルは`.error`です。これは
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
   endpoint: "<BRAZE_ENDPOINT>"
@@ -506,18 +506,18 @@ let configuration = Braze.Configuration(
 // Enable logging of general SDK information (such as user changes, etc.)
 configuration.logger.level = .info
 let braze = Braze(configuration: configuration)
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:self.APIKey
                                                                   endpoint:self.apiEndpoint];
 // Enable logging of general SDK information (such as user changes, etc.)
 [configuration.logger setLevel:BRZLoggerLevelInfo];
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

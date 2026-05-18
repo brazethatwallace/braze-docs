@@ -11,14 +11,14 @@
 
 ```java
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME);
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -34,7 +34,7 @@ Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.logCustomEvent("YOUR-EVENT-NAME",
     new BrazeProperties(new JSONObject()
         .put("you", "can")
@@ -51,12 +51,12 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ));
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.logCustomEvent("YOUR-EVENT-NAME",
     BrazeProperties(JSONObject()
         .put("you", "can")
@@ -73,7 +73,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ))
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

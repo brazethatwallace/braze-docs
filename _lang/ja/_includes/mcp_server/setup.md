@@ -27,11 +27,11 @@
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+`````````
 
 出力は以下のようになります。
 
-```bash
+`````````bash
 $ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 downloading uv 0.8.9 aarch64-apple-darwin
@@ -40,19 +40,19 @@ installing to /Users/Isaiah.Robinson/.local/bin
   uv
   uvx
 everything's installed!
-```
+`````````
 {% endtab %}
 
 {% tab Windows %}
  Windows PowerShellを開き、以下のコマンドを貼り付けて<kbd>Enter</kbd>を押します。
 
-```powershell
+`````````powershell
 irm https://astral.sh/uv/install.ps1 | iex
-```
+`````````
 
 出力は以下のようになります。
 
-```powershell
+`````````powershell
 PS C:\Users\YourUser> irm https://astral.sh/uv/install.ps1 | iex
 
 Downloading uv 0.8.9 (x86_64-pc-windows-msvc)
@@ -61,7 +61,7 @@ installing to C:\Users\YourUser\.local\bin
   uv.exe
   uvx.exe
 everything's installed!
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -80,7 +80,7 @@ APIキーを作成するには：
 {% endalert %}
 
 {% details サポートされている権限の一覧 %}
-#### Campaigns
+#### キャンペーン
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -88,9 +88,9 @@ APIキーを作成するには：
 | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
 | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
 | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンペーン" }
 
-#### Canvas
+#### キャンバス
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
@@ -98,7 +98,7 @@ APIキーを作成するには：
 | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
 | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
 | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンバス" }
 
 #### Catalogs
 
@@ -188,14 +188,14 @@ APIキーを作成するには：
 | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
 
-#### Segments
+#### セグメント
 
 | エンドポイント | 必要な権限 |
 |----------|---------------------|
 | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
 | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
 | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="セグメント" }
 
 #### Sends
 
@@ -266,7 +266,7 @@ MCPクライアントを設定する際には、APIキーの識別子とワー�
 {% tab Cursor %}
 [Cursor](https://cursor.com/)で、**Settings** > **Tools and Integrations** > **MCP Tools** > **Add Custom MCP**に移動し、以下のスニペットを追加します。
 
-```json
+`````````json
 {
   "mcpServers": {
     "braze": {
@@ -279,11 +279,11 @@ MCPクライアントを設定する際には、APIキーの識別子とワー�
     }
   }
 }
-```
+`````````
 
 `key-identifier`と`rest-endpoint`を、Brazeの**API Keys**ページにある対応する値で置き換えます。設定は以下のようになります。
 
-```json
+`````````json
 {
   "mcpServers": {
     "braze": {
@@ -296,23 +296,23 @@ MCPクライアントを設定する際には、APIキーの識別子とワー�
     }
   }
 }
-```
+`````````
 
 完了したら、設定を保存してCursorを再起動します。
 {% endtab %}
 {% tab Gemini CLI %}
 Gemini CLIはユーザー設定を`~/.gemini/settings.json`から読み込みます。このファイルが存在しない場合は、ターミナルで以下のコマンドを実行して作成できます。
 
-```powershell
+`````````powershell
 mkdir -p ~/.gemini
 nano ~/.gemini/settings.json
-```
+`````````
 
 次に、`yourname`をターミナルプロンプトの`@BZXXXXXXXX`の前にある文字列に正確に置き換えます。続いて、`key-identifier`と`rest-endpoint`を、Brazeの**API Keys**ページにある対応する値で置き換えます。
 
 設定は以下のようになります。
 
-```json
+`````````json
 {
   "mcpServers": {
     "braze": {
@@ -325,16 +325,16 @@ nano ~/.gemini/settings.json
     }
   }
 }
-```
+`````````
 
 完了したら、設定を保存してGemini CLIを再起動します。次に、Geminiで以下のコマンドを実行して、Braze MCPサーバーがリストに表示されていること、およびツールとスキーマが使用可能であることを確認します。
 
-```powershell
+`````````powershell
 gemini
 /mcp
 /mcp desc
 /mcp schema
-```
+`````````
 
 利用可能なツールとスキーマとともに`braze`サーバーが一覧表示されるはずです。
 
@@ -367,37 +367,37 @@ Braze MCPサーバーを設定したら、MCPクライアントにテストプ�
 
 `uvx`コマンドが見つからないというエラーが表示された場合は、`uv`を再インストールしてターミナルを再起動してください。
 
-```bash
+`````````bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+`````````
 
 #### `spawn uvx ENOENT`エラー {#spawn-uvx-enoent-error}
 
 `spawn uvx ENOENT`エラーが発生した場合は、クライアントの設定ファイル内のファイルパスを更新する必要があるかもしれません。まず、ターミナルを開いて以下のコマンドを実行します。
 
-```bash
+`````````bash
 which uvx
-```
+`````````
 
 コマンドは以下のようなメッセージを返すはずです。
 
-```bash
+`````````bash
 /Users/alex-lee/.local/bin/uvx
-```
+`````````
 
 メッセージをクリップボードにコピーし、[クライアントの設定ファイル](#configure-client)を開きます。`"command": "uvx"`をコピーしたパスで置き換え、クライアントを再起動します。例：
 
-```json
+`````````json
 "command": "/Users/alex-lee/.local/bin/uvx"
-```
+`````````
 
 #### パッケージのインストールに失敗する {#package-installation-fails}
 
 パッケージのインストールに失敗した場合は、特定のPythonバージョンを指定してインストールしてみてください。
 
-```bash
+`````````bash
 uvx --python 3.12 braze-mcp-server@latest
-```
+`````````
 
 ### クライアント設定 {#client-configuration}
 

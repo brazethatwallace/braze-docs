@@ -14,7 +14,7 @@ BrazeのUI要素はデフォルトの外観と操作感を備えており、ニ�
   body .ab-in-app-message .ab-message-header {
     font-style: italic;
   }
-```
+`````````
 
 詳細については[JSDocs](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.inappmessage.html)を参照してください。
 
@@ -22,12 +22,12 @@ BrazeのUI要素はデフォルトの外観と操作感を備えており、ニ�
 
 デフォルトでは、アプリ内メッセージは `z-index: 9001` を使用して表示されます。Webサイトがそれよりも高い値で要素をスタイルしているシナリオでは、`inAppMessageZIndex ` [初期化オプション](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)を使用して設定できます。
 
-```javascript
+`````````javascript
 braze.initialize("YOUR-API-KEY", {
     baseUrl: "YOUR-API-ENDPOINT",
     inAppMessageZIndex: 12000
 });
-```
+`````````
 
 {% alert important %}
 この機能は、Web Braze SDK v3.3.0以降でのみ使用できます。
@@ -37,13 +37,13 @@ braze.initialize("YOUR-API-KEY", {
 
 デフォルトでは、アプリ内メッセージが表示されているときにエスケープキーを押すか、ページのグレーアウトした背景をクリックすると、メッセージが閉じられます。`requireExplicitInAppMessageDismissal` [初期化オプション](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)を`true`に設定すると、この動作を無効にし、メッセージを閉じるために明示的なボタンクリックを必要とするようにできます。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 braze.initialize("YOUR-API-KEY", {
     baseUrl: "YOUR-API-ENDPOINT",
     requireExplicitInAppMessageDismissal: true
 });
-```
+`````````
 
 ## 表示タイミングをカスタマイズする {#customizing-display-timing}
 
@@ -53,7 +53,7 @@ braze.initialize("YOUR-API-KEY", {
 
 次の例は、トリガーされたアプリ内メッセージをサブスクライブし、選択したメッセージを延期し、延期したメッセージを後で表示する方法を示しています。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 braze.initialize("YOUR-API-KEY", {
@@ -84,7 +84,7 @@ const deferredMessage = braze.getDeferredInAppMessage();
 if (deferredMessage) {
     braze.showInAppMessage(deferredMessage);
 }
-```
+`````````
 
 関連する配信カスタマイズのガイダンスについては、以下を参照してください。
 
@@ -95,6 +95,6 @@ if (deferredMessage) {
 
 アプリ内メッセージのリンクを新しいタブで開くように設定するには、`openInAppMessagesInNewTab` オプションを `true` に設定して、アプリ内メッセージのクリックによるすべてのリンクが新しいタブまたはウィンドウで開くようにします。
 
-```javascript
+`````````javascript
 braze.initialize('api-key', { openInAppMessagesInNewTab: true} );
-```
+`````````

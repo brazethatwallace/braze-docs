@@ -14,7 +14,7 @@ Brazeの「プッシュサブスクリプションの状態」は、プッシュ
 |---|---|
 | `Subscribed` | Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュサブスクリプション状態。 |
 | `Opted-In` | ユーザーがプッシュ通知を受け取ることを明示的に希望しました。ユーザーがOSレベルのプッシュプロンプトを承認した場合、Brazeは自動的にそのユーザーのオプトイン状態を `Opted-In` に変更します。<br><br>Android 12またはそれ以前のユーザーには適用されません。|
-| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除しました。デフォルトでは、BrazeのプッシュCampaignsは、プッシュ通知に対して `Subscribed` または `Opted-in` のユーザーのみを対象とします。|
+| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除しました。デフォルトでは、Brazeのプッシュキャンペーンは、プッシュ通知に対して `Subscribed` または `Opted-in` のユーザーのみを対象とします。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
 
 {% alert important %}
@@ -23,11 +23,11 @@ Brazeがユーザーのプッシュサブスクリプションの状態を自動
 
 ### プッシュ登録と到達可能なユーザー {#push-registration-and-reachable-users}
 
-プッシュサブスクリプションの状態はユーザーの設定を反映しますが、ダッシュボードでプッシュの**到達可能**としてカウントされるかどうかは、[プッシュ登録]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)にも依存します。つまり、プロファイルに有効なフォアグラウンドプッシュトークンが存在する必要があります。Brazeがチャネルレベルのカウントを計算する方法については、[Segmentサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
+プッシュサブスクリプションの状態はユーザーの設定を反映しますが、ダッシュボードでプッシュの**到達可能**としてカウントされるかどうかは、[プッシュ登録]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/)にも依存します。つまり、プロファイルに有効なフォアグラウンドプッシュトークンが存在する必要があります。Brazeがチャネルレベルのカウントを計算する方法については、[セグメントサイズの測定]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/)を参照してください。
 
-- **プッシュCampaignsとCanvases：** プッシュ登録されていないユーザーは、プッシュサブスクリプション状態が `Subscribed` または `Opted-In` であっても、オーディエンス統計のAndroidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**には含まれません。
+- **プッシュキャンペーンとキャンバス：** プッシュ登録されていないユーザーは、プッシュサブスクリプション状態が `Subscribed` または `Opted-In` であっても、オーディエンス統計のAndroidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**には含まれません。
 - **その他のチャネル：** 同じユーザーでも、対象となる他のチャネル（メールやアプリ内メッセージなど）では到達可能としてカウントされる場合があります。
-- **Segments：** Segmentのメンバーシップはフィルターに従います。プッシュ登録のないユーザーも、フィルターで除外されない限り（例：**Foreground Push Enabled**）、Segmentに残ります。Segmentの合計メンバーシップは、プッシュ固有の**到達可能なユーザー**行に表示されるユーザー数の合計よりも多くなる場合があります。
+- **セグメント：** セグメントのメンバーシップはフィルターに従います。プッシュ登録のないユーザーも、フィルターで除外されない限り（例：**Foreground Push Enabled**）、セグメントに残ります。セグメントの合計メンバーシップは、プッシュ固有の**到達可能なユーザー**行に表示されるユーザー数の合計よりも多くなる場合があります。
 
 ユーザープロファイルのプッシュサブスクリプション状態が `Subscribed` であっても、プッシュトークンが割り当てられていない場合があります。そのようなユーザーは、Brazeが有効なトークンを記録するまで、Androidプッシュ通知またはiOSプッシュ通知の**到達可能なユーザー**にはカウントされません。
 
@@ -47,18 +47,18 @@ Brazeはデフォルトで、ユーザーが初めてアプリのプッシュ通
 
 ```xml
 <bool name="com_braze_optin_when_push_authorized">false</bool>
-```
+`````````
 {% endtab %}
 
 {% tab swift %}
 [Braze Swift SDKバージョン7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)以降では、Xcodeプロジェクトの `AppDelegate.swift` ファイルに `optInWhenPushAuthorized` の設定を追加することで、この動作を無効にしたり、さらにカスタマイズしたりすることができます。
 
-```swift
+`````````swift
 configuration.optInWhenPushAuthorized = false // disables the default behavior
 
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -93,4 +93,4 @@ Brazeは、ユーザーがOS、ブラウザ、またはアプリレベルで通�
 Brazeでは、以下のいずれかの方法でユーザーのプッシュサブスクリプション状態を確認できます。
 
 * **ユーザープロファイル：** Brazeダッシュボードの[**ユーザー検索**]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)ページから、個々のユーザープロファイルにアクセスできます。（メールアドレス、電話番号、または外部ユーザーIDを使用して）ユーザーのプロファイルを見つけた後、**Engagement**タブを選択してユーザーのサブスクリプション状態を表示し、手動で調整することができます。
-* **REST APIでのエクスポート：** [Segmentごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。
+* **REST APIでのエクスポート：** [セグメントごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)または[識別子ごとのユーザー]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートできます。Brazeは、デバイスごとのプッシュ有効化情報を含むプッシュトークンオブジェクトを返します。

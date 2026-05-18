@@ -44,7 +44,7 @@
 
 インタラクティブなプッシュ通知を作成するには、ダッシュボードにカスタムビューを設定する必要があります。
 
-1. **Campaigns**ページから、**Create Campaign**をクリックして新しいプッシュ通知キャンペーンを開始します。
+1. **キャンペーン**ページから、**Create キャンペーン**をクリックして新しいプッシュ通知キャンペーンを開始します。
 2. **Compose**タブで、**Notification Buttons**をオンに切り替えます。
 3. **iOS Notification Category**フィールドにカスタムiOSカテゴリを入力します。
 4. 通知コンテンツ拡張ターゲットの`.plist`で、`UNNotificationExtensionCategory`属性をカスタムiOSカテゴリに設定します。ここに指定する値は、Brazeダッシュボードの**iOS Notification Category**で設定されているものと一致する必要があります。
@@ -63,7 +63,7 @@
 
 パーソナライズ済みプッシュ通知を作成するには、ダッシュボードにカスタムビューを設定する必要があります。
 
-1. **Campaigns**ページから、**Create Campaign**をクリックして新しいプッシュ通知キャンペーンを開始します。
+1. **キャンペーン**ページから、**Create キャンペーン**をクリックして新しいプッシュ通知キャンペーンを開始します。
 2. **Compose**タブで、**Notification Buttons**をオンに切り替えます。
 3. **iOS Notification Category**フィールドにカスタムiOSカテゴリを入力します。
 4. **Settings**タブで、標準のLiquidを使用してキーと値のペアを作成します。メッセージに表示したい適切なユーザー属性を設定します。これらのビューは、特定のユーザープロファイルの特定のユーザー属性に基づいてパーソナライズできます。
@@ -89,10 +89,10 @@ func didReceive(_ notification: UNNotification) {
 
   ...
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 - (void)didReceiveNotification:(nonnull UNNotification *)notification {
   NSDictionary *userInfo = notification.request.content.userInfo;
 
@@ -104,7 +104,7 @@ func didReceive(_ notification: UNNotification) {
     [NSException raise:NSGenericException format:@"Key-Value Pairs are incorrect"];
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -129,7 +129,7 @@ func didReceive(_ notification: UNNotification) {
 
 情報取得プッシュ通知を作成するには、ダッシュボードにカスタムビューを設定する必要があります。
 
-1. **Campaigns**ページから、**Create Campaign**をクリックして新しいプッシュ通知キャンペーンを開始します。
+1. **キャンペーン**ページから、**Create キャンペーン**をクリックして新しいプッシュ通知キャンペーンを開始します。
 2. **Compose**タブで、**Notification Buttons**をオンに切り替えます。
 3. **iOS Notification Category**フィールドにカスタムiOSカテゴリを入力します。
 4. **Settings**タブで、標準のLiquidを使用してキーと値のペアを作成します。メッセージに表示したい適切なユーザー属性を設定します。
@@ -147,7 +147,7 @@ func didReceive(_ notification: UNNotification) {
 
 {% tabs %}
 {% tab Swift %}
-``` swift
+````````` swift
 func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
   if response.actionIdentifier == "YOUR-REGISTER-IDENTIFIER" {
     // do something
@@ -155,10 +155,10 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
     // do something else
   }
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 - (void)didReceiveNotificationResponse:(UNNotificationResponse *)response completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion {
   if ([response.actionIdentifier isEqualToString:@"YOUR-REGISTER-IDENTIFIER"]) {
     completion(UNNotificationContentExtensionResponseOptionDismiss);
@@ -166,7 +166,7 @@ func didReceive(_ response: UNNotificationResponse, completionHandler completion
     completion(UNNotificationContentExtensionResponseOptionDoNotDismiss);
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

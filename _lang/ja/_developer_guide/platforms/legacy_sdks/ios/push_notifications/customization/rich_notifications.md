@@ -51,11 +51,11 @@ Braze は、リッチコンテンツの設定、ダウンロード、および�
     ...
     }
 }
-```
+`````````
 
 関連するペイロード値は次のとおりです。
 
-```objc
+`````````objc
 // The Braze dictionary key
 static NSString *const AppboyAPNSDictionaryKey = @"ab";
 
@@ -67,7 +67,7 @@ static NSString *const AppboyAPNSDictionaryAttachmentURLKey = @"url";
 
 // The type of the attachment - a suffix for the file you save
 static NSString *const AppboyAPNSDictionaryAttachmentTypeKey = @"type";
-```
+`````````
 
 Braze ペイロードで手動でプッシュ通知を表示するには、`AppboyAPNSDictionaryAttachmentURLKey` の下の値からコンテンツをダウンロードし、`AppboyAPNSDictionaryAttachmentTypeKey` キーの下に格納されているファイルタイプのファイルとして保存し、通知添付ファイルに追加します。
 

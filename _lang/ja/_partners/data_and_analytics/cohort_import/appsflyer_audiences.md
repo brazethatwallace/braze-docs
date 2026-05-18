@@ -32,15 +32,15 @@ search_tag: Partner
 Map<String, Object> brazeData = new HashMap<>();
 partnerData.put("external_user_id", "some-braze-external-id-value");
 AppsFlyerLib.getInstance().setPartnerData("braze_int", brazeData);
-```
+`````````
 
 #### iOS
-```objc
+`````````objc
 NSDictionary *brazeInfo = @{
      @"external_user_id":@"some-braze-external-id-value"
 };
 [[AppsFlyerLib shared]  setPartnerDataWithPartnerId:@"braze_int" partnerInfo:brazeInfo];
-```
+`````````
 
 ### ステップ2: Brazeデータインポートキーを取得する {#step-2-get-the-braze-data-import-key}
 
@@ -59,7 +59,7 @@ Brazeで、**パートナー連携** > **テクノロジーパートナー**に�
 
 ### ステップ4: BrazeでのAppsFlyer Audiencesコホートの使用 {#step-4-using-appsflyer-audiences-cohorts-in-braze}
 
-AppsFlyerオーディエンスがBrazeにアップロードされると、**AppsFlyer Cohorts**フィルターを選択して、BrazeでSegmentsを定義する際のフィルターとして使用できます。
+AppsFlyerオーディエンスがBrazeにアップロードされると、**AppsFlyer Cohorts**フィルターを選択して、Brazeでセグメントを定義する際のフィルターとして使用できます。
 
 ![ユーザー属性フィルター「AppsFlyer Cohorts」が選択されています。]({% image_buster /assets/img/appsflyer_audiences/appsflyer_cohorts_as_filter.png %})
 

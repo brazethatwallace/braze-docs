@@ -2,7 +2,7 @@
 nav_title: コンテンツカレンダー
 article_title: コンテンツカレンダー
 page_order: 4
-tool: Campaigns
+tool: キャンペーン
 page_type: reference
 description: "このリファレンスページでは、コンテンツカレンダーのコンポーネントについて説明します。"
 ---

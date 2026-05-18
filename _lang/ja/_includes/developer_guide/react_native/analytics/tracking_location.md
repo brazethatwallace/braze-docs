@@ -6,7 +6,7 @@
 
 ```javascript
 Braze.setLastKnownLocation(LATITUDE, LONGITUDE, ALTITUDE, HORIZONTAL_ACCURACY, VERTICAL_ACCURACY);
-```
+`````````
 
 - Androidでは、`latitude`と`longitude`が必須だ。`altitude`、`horizontalAccuracy`、およびは任意`verticalAccuracy`だ。
 - iOSでは、`latitude`、および`horizontalAccuracy``longitude`が必須である。`altitude`とは任意`verticalAccuracy`である。
@@ -17,17 +17,17 @@ Braze.setLastKnownLocation(LATITUDE, LONGITUDE, ALTITUDE, HORIZONTAL_ACCURACY, V
 
 ユーザープロファイルにカスタム属性を設定するには、メソッド`setLocationCustomAttribute`を使用する。
 
-```javascript
+`````````javascript
 Braze.setLocationCustomAttribute("favorite_restaurant", 40.7128, -74.0060, optionalCallback);
-```
+`````````
 
 ## 位置情報の初期化を要求する（Androidのみ）
 
 ユーザーが位置情報の権限を与えた後、AndroidでBrazeの位置`requestLocationInitialization`情報機能を初期化するために呼び出す。この方法はiOSではサポートされておらず、iOSのジオフェンスや位置情報機能には必要ない。
 
-```javascript
+`````````javascript
 Braze.requestLocationInitialization();
-```
+`````````
 
 ## ジオフェンス
 
@@ -37,6 +37,6 @@ Braze.requestLocationInitialization();
 
 特定のGPS座標に対してジオフェンスの更新を手動で要求するには、を使用する`requestGeofences`。これはiOSとAndroidの両方で利用可能だ。この方法を使う場合、ネイティブ設定で自動ジオフェンスリクエストを無効にせよ。そうすればSDKが手動リクエストを上書きしない。
 
-```javascript
+`````````javascript
 Braze.requestGeofences(LATITUDE, LONGITUDE);
-```
+`````````

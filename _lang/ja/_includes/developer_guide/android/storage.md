@@ -27,7 +27,7 @@
   new BrazeConfig.Builder()
       .setDeviceObjectAllowlistEnabled(true)
       .setDeviceObjectAllowlist(EnumSet.of(DeviceKey.ANDROID_VERSION, DeviceKey.LOCALE));
-```
+`````````
 デフォルトでは、すべてのフィールドが有効になっています。いくつかのプロパティがないと一部の機能が正しく機能しないことがあるので注意してください。たとえば、ローカルタイムゾーンの配信はタイムゾーンなしでは機能しません。
 
 自動的に収集されるデバイスプロパティの詳細については、[SDK データ収集]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/)に関する記事をご確認ください。

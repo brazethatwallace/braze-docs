@@ -47,7 +47,7 @@ Liquidは式のグループ化にかっこをサポートしていません。`(
 {% if qualifies %}
 You qualify for a reward!
 {% endif %}
-```
+`````````
 {% endraw %}
 
 ## チュートリアル {#tutorials}
@@ -61,55 +61,55 @@ You qualify for a reward!
 1. 大なり（`>`）演算子を使用して条件文を記述し、ユーザーの合計支出額が `0` より大きいかどうか（つまり購入したことがあるかどうか）を確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% if {{custom_attribute.${total_spend}}} >0 %}
 Surprise! We added a 15% discount code to your account that automatically applies to your next order.
-```
+`````````
 {% endraw %}
 
 {: start="2"}
 2. {% raw %}`{% else %}`{% endraw %} タグを追加して、合計支出額が `0` であるか、存在しないユーザーを捕捉します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% else %}
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
-```
+`````````
 {% endraw %}
 
 {: start="3"}
 3. {% raw %}`{% endif %}`{% endraw %} タグで条件ロジックを閉じます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% endif %}
-```
+`````````
 {% endraw %}
 
 ![チュートリアルの完全なLiquidコードが表示されたプッシュ通知コンポーザー。]({% image_buster /assets/img/liquid-if-totalspend.png %}){: width="100%"}
 
 {% details 完全なLiquidコード %}
 {% raw %}
-```liquid
+`````````liquid
 {% if {{custom_attribute.${total_spend}}} >0 %}
 Surprise! We added a 15% discount code to your account that automatically applies to your next order.
 {% else %}
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
 {% endif %}
-```
+`````````
 {% endraw %}
 {% enddetails %}
 
 これで、ユーザーの「Total Spend」カスタム属性が `0` より大きい場合、次のメッセージが届きます。
 
-```
+`````````
 Surprise! We added a 15% discount code to your account that automatically applies to your next order.
-```
+`````````
 ユーザーの「Total Spend」カスタム属性が存在しないか、`0` に等しい場合、次のメッセージが届きます。
 
-```
+`````````
 Need a sign to update your wardrobe? We added a 15% discount code to your account that will automatically apply to your first order.
-```
+`````````
 
 ### 文字列カスタム属性でメッセージを選択する {#choose-a-message-with-a-string-custom-attribute}
 
@@ -118,54 +118,54 @@ Need a sign to update your wardrobe? We added a 15% discount code to your accoun
 1. 等号（`==`）演算子を使用して条件文を記述し、ユーザーの最近のゲームが *Awkward Dinner Party* かどうかを確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% if {{custom_attribute.${recent_game}}} == 'Awkward Dinner Party' %}
 You are formally invited to our next dinner party. Log on next week for another round of delectable dishes and curious conversations.
-```
+`````````
 {% endraw %}
 
 {: start="2"}
 2. `elsif` タグと等号（`==`）演算子を使用して、ユーザーの最近のゲームが *Proxy War 3: War of Thirst* かどうかを確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% elsif {{custom_attribute.${recent_game}}} == 'Proxy War 3: War of Thirst' %}
 Your fleet awaits your next orders. Log on when you're ready to rejoin the war for hydration.
-```
+`````````
 {% endraw %}
 
 {: start="3"}
 3. `elsif` タグと「等しくない」（`!=`）および「かつ」（`and`）演算子を使用して、ユーザーに最近のゲームがあるか（つまり値が空白でないか）、かつそのゲームが *Awkward Dinner Party* でも *Proxy War 3: War of Thirst* でもないかを確認します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% elsif {{custom_attribute.${recent_game}}} != blank and {{custom_attribute.${recent_game}}} != 'Awkward Dinner Party' and {{custom_attribute.${recent_game}}} != 'Proxy War 3: War of Thirst' %}
 Limited Time Deal! Get 15% off our best-selling classics!
-```
+`````````
 {% endraw %}
 
 {: start="4"}
 4. {% raw %}`{% else %}`{% endraw %} タグを追加して、最近のゲームがないユーザーを捕捉します。次に、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% else %}
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
-```
+`````````
 {% endraw %}
 
 {: start="5"}
 5. {% raw %}`{% endif %}`{% endraw %} タグで条件ロジックを閉じます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% endif %}
-```
+`````````
 {% endraw %}
 
 {% details 完全なLiquidコード %}
 {% raw %}
-```liquid
+`````````liquid
 {% if {{custom_attribute.${recent_game}}} == 'Awkward Dinner Party' %}
 You are formally invited to our next dinner party. Log on next week for another round of delectable dishes and curious conversations.
 {% elsif {{custom_attribute.${recent_game}}} == 'Proxy War 3: War of Thirst' %}
@@ -175,7 +175,7 @@ Limited Time Deal! Get 15% off our best-selling classics!
 {% else %}
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 {% endif %}
-```
+`````````
 {% endraw %}
 {% enddetails %}
 
@@ -183,27 +183,27 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 
 これで、ユーザーが最後に *Awkward Dinner Party* をプレイした場合、次のメッセージが届きます。
 
-```
+`````````
 You are formally invited to our next dinner party. Log on next week for another round of delectable dishes and curious conversations.
-```
+`````````
 
 ユーザーの最近のゲームが *Proxy War 3: War of Thirst* の場合、次のメッセージが届きます。
 
-```
+`````````
 Your fleet awaits your next orders. Log on when you're ready to rejoin the war for hydration.
-```
+`````````
 
 ユーザーが最近プレイしたゲームが *Awkward Dinner Party* でも *Proxy War 3: War of Thirst* でもない場合、次のメッセージが届きます。
 
-```
+`````````
 Limited Time Deal! Get 15% off our best-selling classics!
-```
+`````````
 
 ユーザーがゲームをプレイしたことがないか、そのカスタム属性がプロファイルに存在しない場合、次のメッセージが届きます。
 
-```
+`````````
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
-```
+`````````
 
 ### ロケーションに基づいてメッセージを中止する {#abort-message-based-on-location}
 
@@ -212,32 +212,32 @@ Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 1. 等号（`==`）演算子を使用して条件文を記述し、ユーザーのタイムゾーンが `America/Los_Angeles` かどうかを確認し、そのユーザーに送信するメッセージを作成します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% if {{${time_zone}}} == 'America/Los_Angeles' %}
 Stream now!
-```
+`````````
 {% endraw %}
 
 {: start="2"}
 2. `America/Los_Angeles` タイムゾーン外のユーザーにメッセージを送信しないようにするため、{% raw %}`{% else %}`{% endraw %} タグと {% raw %}`{% endif %}`{% endraw %} タグで {% raw %}`{% abort_message () %}`{% endraw %} タグを囲みます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% else %}
 {% abort_message () %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 {% details 完全なLiquidコード %}
 {% raw %}
-```liquid
+`````````liquid
 {% if {{${time_zone}}} =='America/Los_Angeles' %}
 Stream now!
 {% else %}
 {% abort_message () %}
 {% endif %}
-```
+`````````
 {% endraw %}
 {% enddetails %}
 
@@ -262,11 +262,11 @@ Stream now!
 プレビューで特定の型を強制するには、値を明示的にキャストできます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% comment %} Force a value to be treated as a number {% endcomment %}
 {% assign orders = {{canvas_entry_properties.${number_of_orders}}} | plus: 0 %}
 
 {% comment %} Force a value to be treated as a string {% endcomment %}
 {% assign code = {{api_trigger_properties.${promo_code}}} | append: "" %}
-```
+`````````
 {% endraw %}

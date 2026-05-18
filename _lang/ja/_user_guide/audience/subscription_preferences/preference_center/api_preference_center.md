@@ -45,7 +45,7 @@ Liquidを使用すると、サブスクリプショングループの名前と�
 Brazeは`data:` URLを使用するiframe内で`confirmation_page_html`をレンダリングします。ブラウザは`data:` URLを不透明なオリジンとして扱います。そのため、そのiframe内のスクリプトは追加の外部リソースを読み込むことができず、そのページから親ウィンドウのナビゲーションやフレーム間通信は失敗します。<br><br>代わりに、スクリプトを埋め込む代わりに、ホストされた調査URLなどの外部コンテンツにリンクできます。サードパーティツールを埋め込む必要があり、ベンダーが許可している場合は、ツールのホストされたHTTPS URLを`src`に指定した`<iframe>`を使用してください。
 {% endalert %}
 
-### ステップ 2: メールCampaignに含める {#step-2-include-in-your-email-campaign}
+### ステップ 2: メールキャンペーンに含める {#step-2-include-in-your-email-campaign}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
@@ -54,21 +54,21 @@ Brazeは`data:` URLを使用するiframe内で`confirmation_page_html`をレン�
 {% raw %}
 ```liquid
 {{preference_center.${kitchenerie_preference_center_example}}}
-```
+`````````
 {%endraw%}
 
 Liquidを含むHTMLの組み合わせも使用できます。たとえば、HTMLエディターまたはドラッグ＆ドロップエディターでURLとして以下を貼り付けることができます。これにより、すべてのメールサブスクリプショングループを自動的にリストする基本的なユーザー設定センターレイアウトが表示されます。[リンクエイリアス]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/)を使用する場合は、Brazeがトラッキングパラメーターを追加できるように、Liquidタグの後に末尾のクエスチョンマーク（`?`）を追加してください。
 
 {% raw %}
-```html
+`````````html
 <a href="{{preference_center.${kitchenerie_preference_center_example}}}?">Edit your preferences</a>
-```
+`````````
 {%endraw%}
 
 ユーザー設定センターには、ユーザーがすべてのメールの配信を停止できるチェックボックスがあります。テストメッセージとして送信された場合、これらの設定は保存できないことに注意してください。
 
 {% alert important %}
-上記のLiquidタグは、CampaignまたはCanvasを起動する場合にのみ機能します。テストメールの送信では有効なリンクは生成されません。ユーザー設定センターのリンクを確認するには、テストプロファイルのみをターゲットとするCampaignでメッセージを起動してください。
+上記のLiquidタグは、キャンペーンまたはキャンバスを起動する場合にのみ機能します。テストメールの送信では有効なリンクは生成されません。ユーザー設定センターのリンクを確認するには、テストプロファイルのみをターゲットとするキャンペーンでメッセージを起動してください。
 {% endalert %}
 
 #### ユーザー設定センターを編集する {#edit-a-preference-center}
@@ -93,10 +93,10 @@ URLの本文にクエリ文字列のフィールド値ペアを使用して、�
 {% alert tip %}
 Liquidフィルターを使用して、送信時にユーザーのexternal IDをハッシュ化することも可能です。これにより、`user_id`がMD5ハッシュ値に変換されます。例:
 {% raw %}
-```liquid
+`````````liquid
 {% assign my_string = ${user_id} | md5 %}
 My encoded string is: {{my_string}}
-```
+`````````
 {% endraw %}
 {% endalert %}
 
@@ -106,13 +106,13 @@ My encoded string is: {{my_string}}
 
 このアプローチでは、URLにクエリ文字列の値ペアを埋め込む必要はありません。これらはJSON Webトークンのペイロードで渡すことができます。例:
 
-```json
+`````````json
 {
     "user_id": "1234567890",
     "name": "John Doe",
     "category": "offers"
 }
-```
+`````````
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -126,31 +126,31 @@ My encoded string is: {{my_string}}
 
 いいえ。ただし、カスタムのオプトインおよびオプトアウトページのHTMLを記述する際にLiquidを活用できます。動的リンクを使用して配信停止を管理している場合、これは単一のリンクです。
 
-たとえば、スペイン語を話すユーザーの配信停止率を追跡する場合、別々のCampaignを使用するか、Currentsに関する分析を活用する必要があります（ユーザーが配信停止した時期を確認し、そのユーザーの優先言語を確認するなど）。
+たとえば、スペイン語を話すユーザーの配信停止率を追跡する場合、別々のキャンペーンを使用するか、Currentsに関する分析を活用する必要があります（ユーザーが配信停止した時期を確認し、そのユーザーの優先言語を確認するなど）。
 
 別の例として、スペイン語を話すユーザーの配信停止率を追跡する場合、ユーザーの言語がスペイン語であれば配信停止URLに`?Spanish=true`のようなクエリパラメーター文字列を追加し、そうでなければ通常の配信停止リンクを使用できます:
 
 {% raw %}
-```liquid
+`````````liquid
 {% if ${language} == 'spanish' %} "${unsubscribe_url}?spanish=true"
 {% else %}
 ${unsubscribe_url}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 その後、Currentsを通じて、どのユーザーがスペイン語を話し、その配信停止リンクに対するクリックイベントがいくつあったかを特定できます。
 
 ### 送信には配信停止リンクとメールユーザー設定センターの両方が必要ですか？ {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
 
-いいえ。メールCampaignの作成時に「メール本文に配信停止リンクが含まれていません」というメッセージが表示される場合、配信停止リンクがコンテンツブロックに含まれている場合にこの警告が表示されることが想定されています。
+いいえ。メールキャンペーンの作成時に「メール本文に配信停止リンクが含まれていません」というメッセージが表示される場合、配信停止リンクがコンテンツブロックに含まれている場合にこの警告が表示されることが想定されています。
 
 ### デフォルトのブラウザアイコンを更新するにはどうすればよいですか？ {#how-do-i-update-the-default-browser-icon}
 
 デフォルトでは、ブラウザタブ名の横のアイコン（ファビコン）にはBrazeのロゴが使用されます。カスタムファビコンを追加するには、作成または更新の[ユーザー設定センターAPI呼び出し]({{site.baseurl}}/api/endpoints/preference_center/)で`links-tags`属性を介して設定します。Brazeはホストされたページに{% raw %}`<link rel="icon" ...>`{% endraw %}タグを挿入します。
 
 {% raw %}
-```
+`````````
 {
   "name": "MyPreferenceCenter",
   "preference_center_title": "Email Preferences",
@@ -178,5 +178,5 @@ ${unsubscribe_url}
     ]
   }
 }
-```
+`````````
 {% endraw %}

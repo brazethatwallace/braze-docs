@@ -33,15 +33,15 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/dishwar
     {"id": "pinkshimmer"}
   ]
 }'
-```
+`````````
 
 このペイロードを送信した後、応答により、BrazeがKitchenerieの食器カタログから3つのコレクションを正常に削除したことが確認された。
 
-```json
+`````````json
 {
   "message": "success"
 }
-```
+`````````
 
 ## Brazeのスパムリストからメールを削除する
 
@@ -57,24 +57,24 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/dishwar
 
 このリクエストを送るには、文字列のEメールアドレスか、修正するEメールアドレスを50個まで並べた配列のどちらかを含めます。削除する電子メールのリストが50以下なので、MovieCanonは以下のリクエスト・ボディでこのタスクを達成できます：
 
-```
+`````````
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "email": ["august.author.example.com","betty.benson@example.com","charlie.chase@example.com","delilah.york@example.com","evergreen.rebecca@example.com"]
 }
-```
+`````````
 
 このペイロードを正常に送信した後、この応答はBrazeがMovieCanonのスパムリストからメールを削除したことを確認している。
 
-```json
+`````````json
 {
   "message": "success"
 }
-```
+`````````
 
 ## すべてのキャンバスを監査します
 
@@ -85,7 +85,7 @@ Siege Valley Healthが、Brazeのダッシュボードでフィルタリング�
 キャンバスを監査する最初のタスクとして、[`/canvas/list` エンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/)を使い、名前とタグを含むキャンバスのリストをエクスポートします。リクエストの例を挙げます：
 
 {% details Here’s the response that the Siege Valley Health marketing team would receive. %}
-```json
+`````````json
 {
   "canvases" : [
   	{
@@ -104,11 +104,11 @@ Siege Valley Healthが、Brazeのダッシュボードでフィルタリング�
         "flu_shots", "patienthealth", "reminder", "2020"
       }
   	},
-    ... (more Canvases)
+    ... (more キャンバス)
   ],
   "message": 'success'
 }
-```
+`````````
 {% enddetails %}
 
 Siege Valley Health のキャンバスリストから最初のキャンバスの分析サマリーを確認するという次のタスクに移りましょう。そのためには、以下のリクエストパラメーターで [`/canvas/data_summary` エンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/)を使用します。
@@ -119,10 +119,10 @@ Siege Valley Health のキャンバスリストから最初のキャンバスの
 
 リクエストの例を挙げます：
 
-```
+`````````
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_identifier_2}}&ending_at=2023-07-10T23:59:59&starting_at=2020-07-10T23:59:59&length=5&include_variant_breakdown=false&include_step_breakdown=false&include_deleted_step_data=false' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 今後スケジュールされているキャンペーンとキャンバスをチェックする
 
@@ -130,10 +130,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 これがリクエストの例です：
 
-```
+`````````
 curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_broadcasts?end_time=2024-03-31T12:00:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 このエンドポイントは、今後のキャンペーンとキャンバスのリストを返す。ここから、マーケティングチームは、レスポンス内のキャンペーンとキャンバスの`name` フィールドを参照することで、メッセージのリストを確認することができます。
 
@@ -143,14 +143,14 @@ PoliterWeekly はデジタル雑誌で、購読者にはメールで連絡を取
 
 マーケティングチームは、[`/preference_center/v1/{preferenceCenterExternalID}` エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/)を使用して、次のようにパスパラメーターとしてユーザー設定センターの外部 ID を挿入するだけで済みます。
 
-```
+`````````
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/politer_weekly_preference_center_api_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 {% details Here’s the response the PoliterWeekly marketing team would receive. %}
 
-```json
+`````````json
 {
   "name": "PoliterWeekly Notification Preferences",
   "preference_center_api_id": "user_engage_pref_123",
@@ -165,7 +165,7 @@ curl --location -g --request GET https://rest.iad-01.braze.com/preference_center
   },
   "state": "active"
 }
-```
+`````````
 
 この応答から、マーケティングチームは、ユーザー設定センターが最新のアップデートの3年前に作成されたことがわかります。この情報を念頭に置いて、マーケティングチームは新しいユーザー設定センターを作成し、立ち上げることができました。
 
@@ -182,31 +182,31 @@ CashBlastr の主な目標は、迅速な送金と受取りの方法を簡素化
 
 [`/sms/invalid_phone_numbers/remove` エンドポイント]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/)でリクエストを送信するには、電話番号は [e.164 形式](https://en.wikipedia.org/wiki/E.164)の文字列の配列にする必要があり、リクエストごとに最大50個の電話番号を指定できます。リストは50電話番号を超えないので、ここにCashBlastrの開発チームが送るリクエストボディの例を示します：
 
-```http
+`````````http
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {
   "phone_numbers": ["12183095514","14255551212"]
 }
-```
+`````````
 
 このペイロードを送信した後、応答により、Brazeが無効な電話番号をCashBlastrからBrazeの無効リストから削除したことが確認される。
 
-```json
+`````````json
 {
   "message": "success"
 }
-```
+`````````
 
 ## ユーザーのサブスクリプショングループのステータスを表示する
 
 SandwichEmperorは米国のクイックサービス・レストラン・チェーンであり、そのマーケティング・チームは、SMSのために無作為化されたユーザー・リストの購読グループ・ステータスをチェックしたいと考えています。SandwichEmperor は、[`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) エンドポイントを使用して、以下のリクエストの例で個々のユーザーに対してこのタスクを実行できます。
 
 {% raw %}
-```
+`````````
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&phone=+11232223333' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 
 このエンドポイントは、ユーザーのメールに関するサブスクリプショングループのステータスも一覧表示する。複数のユーザーのサブスクリプショングループのステータスを確認するために使う。
@@ -219,7 +219,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 
 {% details Here’s the response that the WorkFriends team would receive. %}
 
-```json
+`````````json
 {
   "email_template_id": "WorkFriends_Email_Template_ID",
   "template_name": "Promo template",
@@ -231,7 +231,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
   "created_at": "2020-07-10 13:00:00.000",
   "updated_at": "2024-02-04 17:00:00.000"
 }
-```
+`````````
 
 {% enddetails %}
 

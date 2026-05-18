@@ -3,7 +3,7 @@ nav_title: "イベントオブジェクト"
 article_title: APIイベントオブジェクト
 page_order: 6
 page_type: reference
-description: "このリファレンス記事では、イベントオブジェクトとは何か、イベントベースのCampaign戦略においていかに重要な役割を果たすかについて解説します。"
+description: "このリファレンス記事では、イベントオブジェクトとは何か、イベントベースのキャンペーン戦略においていかに重要な役割を果たすかについて解説します。"
 
 ---
 
@@ -40,7 +40,7 @@ description: "このリファレンス記事では、イベントオブジェク
   "_update_existing_only" : (optional, boolean)
   // See following notes regarding anonymous push token imports
 }
-```
+`````````
 
 - [外部ユーザー ID]({{site.baseurl}}/api/basics/#user-ids)
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
@@ -93,7 +93,7 @@ Brazeで既存のユーザープロファイルのみを更新するには、リ
 
 #### イベントリクエストの例 {#event-example-request}
 
-```http
+`````````http
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -123,9 +123,9 @@ Authorization: Bearer YOUR-REST-API-KEY
     }
   ]
 }
-```
+`````````
 - [ISO 8601タイムコード Wiki](http://en.wikipedia.org/wiki/ISO_8601)
 
 ## イベントオブジェクト {#event-objects}
 
-上記の例を使うと、誰かが最近予告編を見て、映画をレンタルしたことがわかります。Campaignに入ってこれらのプロパティに基づいてユーザーをセグメントすることはできませんが、Liquidを使用してチャネル経由でカスタムメッセージを送信するための受領書の形でこれらのプロパティを戦略的に活用できます。例えば、「こんにちは、**Beth**さん。**Dan Alexander**監督の**The Sad Egg**をレンタルしていただきありがとうございます。お客様のレンタル履歴に基づいて、おすすめの映画をご紹介します...」のように使用できます。
+上記の例を使うと、誰かが最近予告編を見て、映画をレンタルしたことがわかります。キャンペーンに入ってこれらのプロパティに基づいてユーザーをセグメントすることはできませんが、Liquidを使用してチャネル経由でカスタムメッセージを送信するための受領書の形でこれらのプロパティを戦略的に活用できます。例えば、「こんにちは、**Beth**さん。**Dan Alexander**監督の**The Sad Egg**をレンタルしていただきありがとうございます。お客様のレンタル履歴に基づいて、おすすめの映画をご紹介します...」のように使用できます。

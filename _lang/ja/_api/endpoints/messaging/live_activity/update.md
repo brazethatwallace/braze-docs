@@ -65,7 +65,7 @@ description: "この記事では、ライブアクティビティを更新する
 
 ## Example request
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {YOUR-REST-API-KEY}' \
@@ -86,7 +86,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
         }
     }
 }'
-```
+`````````
 
 ## 応答 {#response}
 
@@ -96,11 +96,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 
 リクエストが正しくフォーマットされ、受信された場合、`201`ステータスコードが返されます。ステータスコード`201`は、次の応答本文を返す可能性があります。
 
-```json
+`````````json
 {
   "message": "success"
 }
-```
+`````````
 
 ### エラー応答の例 {#example-error-response}
 
@@ -108,10 +108,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_acti
 
 ステータスコード`400`は、次の応答本文を返す可能性があります。
 
-```json
+`````````json
 {
     "error": "\nProblem:\n  message body does not match declared format\nResolution:\n  when specifying application/json as content-type, you must pass valid application/json in the request's 'body' "
 }
-```
+`````````
 
 {% endapi %}

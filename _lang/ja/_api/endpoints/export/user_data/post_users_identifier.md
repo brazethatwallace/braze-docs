@@ -33,9 +33,9 @@ description: "この記事では、「識別子によるユーザーのエクス
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "external_ids": (optional, array of strings) External identifiers for users you wish to export,
   "user_aliases": (optional, array of user alias objects) user aliases for users to export,
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "phone": (optional, string) Phone number of user,
   "fields_to_export": (optional, array of strings) Name of user data fields to export
 }
-```
+`````````
 
 {% alert note %}
 2024年8月22日以降にBrazeにオンボーディングした顧客については、リクエストパラメーター`fields_to_export`が必須です。
@@ -67,7 +67,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 *2024年8月22日以降にBrazeにオンボーディングした顧客には必須です。
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -85,7 +85,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
-```
+`````````
 
 ## エクスポートするフィールド {#fields-to-export}
 
@@ -118,26 +118,26 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `phone` | 文字列 | E.164形式のユーザーの電話番号。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | アプリの通知の送信先を指定する一意の匿名識別子。 |
-| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布Segmentsを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[乱数バケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
-| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したCampaignsおよびCanvasesのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
+| `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |
 | `user_aliases` | オブジェクト | `alias_name`および`alias_label`を含む[ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification)（存在する場合）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
 
-`/users/export/ids`エンドポイントは、受信したすべてのCampaignsやCanvases、実行されたすべてのカスタムイベント、行われたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他のREST APIエンドポイントよりも低速になります。
+`/users/export/ids`エンドポイントは、受信したすべてのキャンペーンやキャンバス、実行されたすべてのカスタムイベント、行われたすべての購入、すべてのカスタム属性などのデータを含む、このユーザーのユーザープロファイル全体をまとめることに注意してください。このため、このエンドポイントは他のREST APIエンドポイントよりも低速になります。
 
-リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているSegment別のユーザーエクスポートを検討してください。
+リクエストされたデータによっては、このAPIエンドポイントでは1分あたり250件のリクエストのレート制限があるため、ニーズを満たすには不十分な場合があります。このエンドポイントを定期的に使用してユーザーをエクスポートすることを想定している場合は、代わりに、非同期で大規模なデータプルに最適化されているセグメント別のユーザーエクスポートを検討してください。
 
 ## レスポンス {#response}
 
-```json
+`````````json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }
-```
+`````````
 
 このエンドポイントからアクセスできるデータの例については、以下の例を参照してください。
 
@@ -148,7 +148,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 {% tabs %}
 {% tab All fields %}
 
-```json
+`````````json
 {
     "created_at": (string),
     "external_id" : (string),
@@ -285,12 +285,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
       ...
     ]
 }
-```
+`````````
 
 {% endtab %}
 {% tab Sample output %}
 
-```json
+`````````json
 {
     "created_at" : "2020-07-10 15:00:00.000 UTC",
     "external_id" : "A8i3mkd99",
@@ -424,7 +424,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
       ...
     ]
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

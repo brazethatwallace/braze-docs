@@ -38,13 +38,13 @@ description: "この記事では、「ユーザーエイリアスの更新」Bra
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "alias_updates" : (required, array of update user alias object)
 }
-```
+`````````
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -55,16 +55,16 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### ユーザーエイリアス更新オブジェクト指定のエンドポイントリクエスト本文 {#endpoint-request-body-with-update-user-alias-object-specification}
 
-```json
+`````````json
 {
   "alias_label" : (required, string),
   "old_alias_name" : (required, string),
   "new_alias_name" : (required, string)
 }
-```
+`````````
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -77,6 +77,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/update
     }
   ]
 }'
-```
+`````````
 
 {% endapi %}

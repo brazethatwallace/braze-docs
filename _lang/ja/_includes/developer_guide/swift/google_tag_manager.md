@@ -35,16 +35,16 @@
 let parameters: [String: Any] = ["genre": "pop",
                                  "number of times listened": 42]
 Analytics.logEvent("played song", parameters: parameters)
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 NSDictionary *parameters = @{@"genre" : @"pop",
                              @"number of times listened" : @42};
 [FIRAnalytics logEventWithName:@"played song" parameters:parameters];
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -55,19 +55,19 @@ NSDictionary *parameters = @{@"genre" : @"pop",
 
 {% tabs %}
 {% tab SWIFT %}
-```swift
+`````````swift
 let parameters: [String: Any] = ["customAttributeKey": "favoriteSong",
                                  "customAttributeValue": "Private Eyes"]
 FIRAnalytics.logEvent(withName:"customAttribute", parameters: parameters)
-```
+`````````
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 NSDictionary *parameters = @{@"customAttributeKey" : @"favoriteSong",
                              @"customAttributeValue" : @"Private Eyes"};
 [FIRAnalytics logEventWithName:@"customAttribute" parameters:parameters];
-```
+`````````
 
 {% endtab %}
 
@@ -79,17 +79,17 @@ NSDictionary *parameters = @{@"customAttributeKey" : @"favoriteSong",
 
 {% tabs %}
 {% tab SWIFT %}
-```swift
+`````````swift
 let parameters: [String: Any] = ["externalUserId": "favorite userId"]
 Analytics.logEvent(withName:"changeUser", parameters: parameters)
-```
+`````````
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```obj-c
+`````````obj-c
 NSDictionary *parameters = @{@"externalUserId" : userId};
 [FIRAnalytics logEventWithName:@"changeUser" parameters:parameters];
-```
+`````````
 
 {% endtab %}
 
@@ -110,7 +110,7 @@ Google タグマネージャがアプリにインストールされたら、カ�
 {% tab SWIFT %}
 
 以下のコードを `BrazeGTMTagManager.swift` ファイルに追加します。
-```swift
+`````````swift
 import FirebaseAnalytics
 import GoogleTagManager
 import BrazeKit
@@ -180,23 +180,23 @@ final class BrazeGTMTagManager : NSObject, TAGCustomFunction {
     AppDelegate.braze?.changeUser(userId: userId)
   }
 }
-```
+`````````
 {% endtab %}
 {% tab OBJECTIVE-C %}
 以下のコードを `BrazeGTMTagManager.h` ファイルに追加します。
 
-```obj-c
+`````````obj-c
 @import Firebase;
 @import GoogleTagManager;
 
 @interface BrazeGTMTagManager : NSObject <TAGCustomFunction>
 
 @end
-```
+`````````
 
 以下のコードを `BrazeGTMTagManager.m` ファイルに追加します。
 
-```obj-c
+`````````obj-c
 #import <Foundation/Foundation.h>
 #import "BrazeGTMTagManager.h"
 #import "BrazeKit"
@@ -287,6 +287,6 @@ static NSString *const ChangeUserExternalUserId = @"externalUserId";
 }
 
 @end
-```
+`````````
 {% endtab %}
 {% endtabs %}

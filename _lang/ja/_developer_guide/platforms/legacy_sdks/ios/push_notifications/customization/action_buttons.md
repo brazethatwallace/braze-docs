@@ -37,12 +37,12 @@ NSSet *appboyCategories = [ABKPushUtils getAppboyUIUserNotificationCategorySet];
 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge
                                                                          categories:appboyCategories];
 [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // For UserNotification.framework (iOS 10+ only)
 let appboyCategories = ABKPushUtils.getAppboyUNNotificationCategorySet()
 UNUserNotificationCenter.current().setNotificationCategories(appboyCategories)
@@ -51,7 +51,7 @@ UNUserNotificationCenter.current().setNotificationCategories(appboyCategories)
 let appboyCategories = ABKPushUtils.getAppboyUIUserNotificationCategorySet()
 let settings = UIUserNotificationSettings.init(types: .badge, categories: appboyCategories)
 UIApplication.shared.registerUserNotificationSettings(settings)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -69,20 +69,20 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] userNotificationCenter:center
                            didReceiveNotificationResponse:response
                                withCompletionHandler:completionHandler];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.userNotificationCenter(center,
                                                 didReceive: response,
                                                 withCompletionHandler: completionHandler)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -92,20 +92,20 @@ UnNotification フレームワークを使用していない場合は、プッ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] getActionWithIdentifier:identifier
                            forRemoteNotification:userInfo
                                completionHandler:completionHandler];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.getActionWithIdentifier(identifier,
                                                  forRemoteNotification: userInfo,,
                                                  completionHandler: completionHandler)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

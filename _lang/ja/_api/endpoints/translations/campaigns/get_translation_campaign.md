@@ -1,21 +1,21 @@
 ---
-nav_title: "GET: Campaignのすべての翻訳を表示"
-article_title: "GET: Campaignのすべての翻訳を表示"
+nav_title: "GET: キャンペーンのすべての翻訳を表示"
+article_title: "GET: キャンペーンのすべての翻訳を表示"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「Campaignのすべての翻訳を表示」エンドポイントについて詳しく説明します。"
+description: "この記事では、「キャンペーンのすべての翻訳を表示」エンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# Campaignのすべての翻訳を表示 {#view-all-translations-for-a-campaign}
+# キャンペーンのすべての翻訳を表示 {#view-all-translations-for-a-campaign}
 {% apimethod get %}
 /campaigns/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Campaign内の各メッセージバリアントのすべての翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
+> このエンドポイントを使用して、キャンペーン内の各メッセージバリアントのすべての翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
@@ -47,7 +47,7 @@ description: "この記事では、「Campaignのすべての翻訳を表示」�
 curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translations?campaign_id={campaign_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 
 ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
 
-```json
+`````````json
 {
     "translations": [
         {
@@ -90,13 +90,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
         }
     ]
 }
-```
+`````````
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。
 
-```json
+`````````json
 {
 	"errors": [
 		{
@@ -104,7 +104,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translati
 		}
 	]
 }
-```
+`````````
 
 
 {% endapi %}

@@ -33,13 +33,13 @@ LiftIgniterとBrazeの統合はコネクテッドコンテンツを使用し、�
 {% raw %}
 ```
 {% connected_content https://query.petametrics.com/v3/lkdk9usg5av95fvs/userId/model :method post :headers {"x-api-key": "theapikey"} :body "UseActivity"=false :content_type application/json :save json %}
-```
+`````````
 
 次に、メッセージを記述し、JSONで呼び出すコンテンツを定義します。たとえば`{{json.items[0].title}}`です。
 
 {% endraw %}
 
-![LiftIgniter固有のコネクテッドコンテンツ呼び出しを含むプッシュCampaignの画像。画像フィールドにはコネクテッドコンテンツロジックも追加されています。]({% image_buster /assets/img/liftigniter.png %})
+![LiftIgniter固有のコネクテッドコンテンツ呼び出しを含むプッシュキャンペーンの画像。画像フィールドにはコネクテッドコンテンツロジックも追加されています。]({% image_buster /assets/img/liftigniter.png %})
 
 このメッセージを作成画面の本文に入力すると、メッセージをプレビューできます。以下の例に示すように、画像を取り込むこともできます。
 

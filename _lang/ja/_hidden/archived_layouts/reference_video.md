@@ -9,9 +9,9 @@ page_type: reference
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -77,7 +77,7 @@ noindex: true
 
 </body>
 </html>
-```
+`````````
 
 ユーザーがコードサンプルから調整する必要があるパラメーターや要素を必ず定義してください。多くのユーザーはコピーして貼り付けるだけです。
 

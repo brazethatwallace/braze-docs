@@ -61,13 +61,13 @@ data class ContentCardData (var contentCardId: String,
                             var contentCardClassType: ContentCardClass,
                             var createdAt: Long,
                             var dismissable: Boolean)
-```
+`````````
 {% endsubtab %}
 {% subtab Java %}
 **`Card`依存関係なし**<br>
 `ContentCardData` は、`Card` の解析された共通の値を表します。
 
-```java
+`````````java
 public abstract class ContentCardable{
 
   private ContentCardData cardData = null;
@@ -113,7 +113,7 @@ public class ContentCardData{
   public long createdAt;
   public boolean dismissable;
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -123,7 +123,7 @@ public class ContentCardData{
 **カスタムオブジェクトイニシャライザ**<br>
 `Card` からの MetaData は、具象サブクラスの変数を入力するために使用されます。サブクラスによっては、初期化時に異なる値を抽出する必要があります。Braze ダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに表示されます。
 
-```kotlin
+`````````kotlin
 class Tile: ContentCardable {
     constructor(metadata:Map<String, Any>):super(metadata){
         val extras = metadata[extras] as? Map<String, Any>
@@ -138,13 +138,13 @@ class Tile: ContentCardable {
         id = floor(Math.random()*1000).toInt()
     }
   }
-```
+`````````
 {% endsubtab %}
 {% subtab Java %}
 **カスタムオブジェクトイニシャライザ**<br>
 `Card` からの MetaData は、具象サブクラスの変数を入力するために使用されます。サブクラスによっては、初期化時に異なる値を抽出する必要があります。Braze ダッシュボードで設定されたキーと値のペアは、「extras」ディクショナリに表示されます。
 
-```java
+`````````java
 public class Tile extends ContentCardable {
 
     public Tile(Map<String, Object> metadata){
@@ -160,7 +160,7 @@ public class Tile extends ContentCardable {
         }
     }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -170,7 +170,7 @@ public class Tile extends ContentCardable {
 **タイプの識別**<br>
 `ContentCardClass` enum は、Braze ダッシュボードの`class_type`値を表し、SDK によって提供される文字列から enum を初期化するメソッドを提供します。
 
-```kotlin
+`````````kotlin
 enum class ContentCardClass{
     AD,
     COUPON,
@@ -196,13 +196,13 @@ enum class ContentCardClass{
         }
     }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Java %}
 **タイプの識別**<br>
 `ContentCardClass` enum は、Braze ダッシュボードの`class_type`値を表し、SDK によって提供される文字列から enum を初期化するメソッドを提供します。
 
-```java
+`````````java
 enum ContentCardClass {
     AD,
     COUPON,
@@ -238,7 +238,7 @@ enum ContentCardClass {
         }
     }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -254,7 +254,7 @@ enum ContentCardClass {
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 public class DefaultContentCardsViewBindingHandler implements IContentCardsViewBindingHandler {
   // Interface that must be implemented and provided as a public CREATOR
   // field that generates instances of your Parcelable class from a Parcel.
@@ -337,12 +337,12 @@ public class DefaultContentCardsViewBindingHandler implements IContentCardsViewB
     // resource leak so the parcel is left unmodified
   }
 }
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class DefaultContentCardsViewBindingHandler : IContentCardsViewBindingHandler {
   // Interface that must be implemented and provided as a public CREATOR
   // field that generates instances of your Parcelable class from a Parcel.
@@ -417,7 +417,7 @@ class DefaultContentCardsViewBindingHandler : IContentCardsViewBindingHandler {
     // resource leak so the parcel is left unmodified
   }
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -429,22 +429,22 @@ class DefaultContentCardsViewBindingHandler : IContentCardsViewBindingHandler {
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 IContentCardsViewBindingHandler viewBindingHandler = new DefaultContentCardsViewBindingHandler();
 
 ContentCardsFragment fragment = getMyCustomFragment();
 fragment.setContentCardsViewBindingHandler(viewBindingHandler);
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val viewBindingHandler = DefaultContentCardsViewBindingHandler()
 
 val fragment = getMyCustomFragment()
 fragment.setContentCardsViewBindingHandler(viewBindingHandler)
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -460,7 +460,7 @@ Jetpack Compose でカードを完全にカスタマイズする場合、カス�
 
 次の例では、Composable 関数は`TEXT_ANNOUNCEMENT`カードをレンダリングし、Braze は残りを自動的にレンダリングします。
 
-```kotlin
+`````````kotlin
 val myCustomCardRenderer: @Composable ((Card) -> Boolean) = { card ->
     if (card.cardType == CardType.TEXT_ANNOUNCEMENT) {
         val textCard = card as TextAnnouncementCard
@@ -488,7 +488,7 @@ val myCustomCardRenderer: @Composable ((Card) -> Boolean) = { card ->
 ContentCardsList(
     customCardComposer = myCustomCardRenderer
 )
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -513,27 +513,27 @@ ContentCardsList(
 **カスタムオブジェクトによるロギングメソッドの呼び出し**<br>
 `ContentCardable` ベースクラス内で、必要に応じて`BrazeManager`を直接呼び出すことができます。この例では、オブジェクトがコンテンツカードから取得された場合、`cardData`プロパティは NULL 以外になります。 
 
-```kotlin
+`````````kotlin
 override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val tile = currentTiles[position]
         tile.logContentCardImpression()
         ...
     }
-```
+`````````
 
 **`ContentCardId`からコンテンツカードを取得する**<br>
 `ContentCardable`ベースクラスは、`BrazeManager`を呼び出し、カスタムオブジェクトに関連付けられたコンテンツカードから一意の識別子を渡すという負荷の大きい処理を行います。
 
-```kotlin
+`````````kotlin
     fun logContentCardImpression() {
         cardData?.let { BrazeManager.getInstance().logContentCardImpression(it.contentCardId) }
     }
-```
+`````````
 
 **`Card`関数を呼び出す**<br>
 [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt)は、コンテンツカードオブジェクト配列リストなどの Braze SDK 依存関係を参照して、`Card`にロギングメソッドを呼び出させることができます。
 
-```kotlin
+`````````kotlin
     fun logContentCardClicked(idString: String?) {
         getContentCard(idString)?.logClick()
     }
@@ -545,35 +545,35 @@ override fun getView(position: Int, convertView: View?, parent: ViewGroup?): Vie
     private fun getContentCard(idString: String?): Card? {
         return cardList.find { it.id == idString }.takeIf { it != null }
     }
-```
+`````````
 {% endtab %}
 {% tab Java %}
 **カスタムオブジェクトによるロギングメソッドの呼び出し**<br>
 `ContentCardable` ベースクラス内で、必要に応じて`BrazeManager`を直接呼び出すことができます。この例では、オブジェクトがコンテンツ・カードから来たものであれば、`cardData` プロパティが非NULLになることを覚えておいてほしい。 
-```java
+`````````java
 @Override
 public View getView(int position, View convertView, ViewGroup parent) {
         Tile tile = currentTiles.get(position);
         tile.logContentCardImpression();
         ...
     }
-```
+`````````
 
 **`ContentCardId`からコンテンツカードを取得する**<br>
 `ContentCardable`ベースクラスは、`BrazeManager`を呼び出し、カスタムオブジェクトに関連付けられたコンテンツカードから一意の識別子を渡すという負荷の大きい処理を行います。
 
-```java
+`````````java
     public void logContentCardImpression() {
         if (cardData != null){
             BrazeManager.getInstance().logContentCardImpression(cardData.getContentCardId());
         }
     }
-```
+`````````
 
 **`Card`関数を呼び出す**<br>
 [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt)は、コンテンツカードオブジェクト配列リストなどの Braze SDK 依存関係を参照して、`Card`にロギングメソッドを呼び出させることができます。
 
-```java
+`````````java
     public void logContentCardClicked(String idString) {
         getContentCard(idString).ifPresent(Card::logClick);
     }
@@ -585,7 +585,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
     private Optional<Card> getContentCard(String idString) {
         return cardList.filter(c -> c.id.equals(idString)).findAny();
     }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -598,7 +598,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
 {% details ContentCardKey Helper File %}
 {% tabs %}
 {% tab Kotlin %}
-```kotlin
+`````````kotlin
 companion object Keys{
         const val idString = "idString"
         const val created = "created"
@@ -606,16 +606,16 @@ companion object Keys{
         const val dismissable = "dismissable"
         //...
     }
-```
+`````````
 {% endtab %}
 {% tab Java %}
-```java
+`````````java
 public static final String IDSTRING = "idString";
 public static final String CREATED = "created";
 public static final String CLASSTYPE = "class_type";
 public static final String DISMISSABLE = "dismissable";
 ...
-```
+`````````
 {% endtab %}
 {% endtabs %}
 {% enddetails %}

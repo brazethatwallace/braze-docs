@@ -91,7 +91,7 @@ page_order: 2
 
 ### 例 {#example}
 
-健康食品アプリを運営していて、ユーザーがアプリに登録してからの期間に応じて異なるレシピを送信するコンテンツカードCampaignを作成したいとします。まず、以下の情報を含むCSVファイルを使用してカタログを作成し、アップロードします。
+健康食品アプリを運営していて、ユーザーがアプリに登録してからの期間に応じて異なるレシピを送信するコンテンツカードキャンペーンを作成したいとします。まず、以下の情報を含むCSVファイルを使用してカタログを作成し、アップロードします。
 
 | フィールド | 説明 |
 |-----|-----------|
@@ -106,7 +106,7 @@ page_order: 2
 
 ![Brazeのカタログの例。]({% image_buster /assets/img/recs/catalog_items.png %})
 
-コンテンツカードCampaignを作成します。作成画面で、Campaignを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
+コンテンツカードキャンペーンを作成します。作成画面で、キャンペーンを受信するユーザーと、表示するレシピおよび画像を決定するLiquidロジックを入力します。このユースケースでは、Brazeがユーザーの`start_date`（登録日）を取得し、現在の日付と比較します。日数の差によって、送信されるコンテンツカードが決まります。
 
 {% subtabs local %}
 {% subtab title %}
@@ -118,13 +118,13 @@ page_order: 2
 {% assign days = {{diff}} | round %}
 {% catalog_items Healthy_Recipe_Catalog_SMB {{days}} %}
 {{ items[0].title }}
-```
+`````````
 {% endraw %}
 {% endsubtab %}
 
 {% subtab message %}
 {% raw %}
-```liquid
+`````````liquid
 {% assign start_date = {{custom_attribute.${start_date}}} | date: "%s" %}
 {% assign current_date = "now" | date: "%s" %}
 {% assign diff = {{current_date}} | minus: {{start_date}} | divided_by: 86400 %}
@@ -135,39 +135,39 @@ page_order: 2
 {% else %}
 {% abort_message('no card for today') %}
 {% endif %}
-```
+`````````
 {% endraw %}
 {% endsubtab %}
 
 {% subtab image %}
 {% raw %}
-```liquid
+`````````liquid
 {% assign start_date = {{custom_attribute.${start_date}}} | date: "%s" %}
 {% assign current_date = "now" | date: "%s" %}
 {% assign diff = {{current_date}} | minus: {{start_date}} | divided_by: 86400 %}
 {% assign days = {{diff}} | round %}
 {% catalog_items Healthy_Recipe_Catalog_SMB {{days}} %}
 {{ items[0].image_url }}
-```
+`````````
 {% endraw %}
 {% endsubtab %}
 {% endsubtabs %}
 
 以下に例を示します。
 
-![コンテンツカードCampaignのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
+![コンテンツカードキャンペーンのメッセージ作成画面の例。]({% image_buster /assets/img/recs/content_card_preview.png %})
 
 **On click behavior**セクションで、iOS、Android、Webデバイスでユーザーがコンテンツカードをクリックしたときにリダイレクトされる先のLiquidロジックを入力します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign start_date = {{custom_attribute.${start_date}}} | date: "%s" %}
 {% assign current_date = "now" | date: "%s" %}
 {% assign diff = {{current_date}} | minus: {{start_date}} | divided_by: 86400 %}
 {% assign days = {{diff}} | round %}
 {% catalog_items Healthy_Recipe_Catalog_SMB {{days}} %}
 {{ items[0].link }}
-```
+`````````
 {% endraw %}
 
 以下に例を示します。
@@ -192,7 +192,7 @@ page_order: 2
 次に、メッセージ内でLiquidを使用してエンドポイントを呼び出し、カスタム属性値をユーザーのプロファイルと照合して、対応するレコメンデーションを取得します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content YOUR_API_URL :save items %}
 
 {% assign recommended_item_ids_from_user_profile = custom_attribute.${RECOMMENDED_ITEM_IDS} | split: ';' %}
@@ -201,7 +201,7 @@ page_order: 2
   {% assign recommended_item = items | where: "ITEM_ID", ITEM_ID | first %}
   recommended_item.item_name
 {% endfor %}
-```
+`````````
 {% endraw %}
 
 以下を置き換えてください。
@@ -222,12 +222,12 @@ page_order: 2
 Zomato Restaurantsデータベースからおすすめのレストランを取得し、その結果を`restaurants`というローカル変数として保存したいとします。次のコネクテッドコンテンツの呼び出しを行うことができます。
 
 {% raw %}
-```liquid
+`````````liquid
 
 {% connected_content https://developers.zomato.com/api/v2.1/search?entity_id={{city_id}}&entity_type=city&count=20&cuisines={{food_type}}&sort=rating:headers{“user-key”:“USER_KEY”} :save restaurants %}
 
 {{city_food.restaurants[0]}}
-```
+`````````
 {% endraw %}
 
 次に、ユーザーの市区町村と食べ物の種類に基づいておすすめのレストランを取得したいとします。ユーザーの市区町村と料理の種類のカスタム属性を呼び出しの冒頭にダイナミックに挿入し、`restaurants`の値を変数`city_food.restaurants`に代入することで実現できます。
@@ -235,7 +235,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 コネクテッドコンテンツの呼び出しは次のようになります。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign city_id = {{custom_attribute.${city_id} | default: ‘306’}} %}
 {% assign food_type = {{custom_attribute.${food_type} | default: ‘471’}} %}
 
@@ -244,13 +244,13 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 {% assign restaurants = city_food.restaurants %}
 
 {{city_food.restaurants[0]}}
-```
+`````````
 {% endraw %}
 
 レストラン名と評価だけを取得するようにレスポンスを調整したい場合は、次のように呼び出しの最後にフィルターを追加できます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign city_id = {{custom_attribute.${city_id} | default: ‘306’}} %}
 {% assign food_type = {{custom_attribute.${food_type} | default: ‘471’}} %}
 
@@ -259,7 +259,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 
 {{city_food.restaurants[0].restaurant.name}}
 {{city_food.restaurants[0].restaurant.user_rating.rating_text}}
-```
+`````````
 {% endraw %}
 
 最後に、おすすめのレストランを評価別にグループ化したいとします。以下の手順を実行します。
@@ -274,7 +274,7 @@ Zomato Restaurantsデータベースからおすすめのレストランを取�
 最終的な呼び出しは次のようになります。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign city_id = {{custom_attribute.${city_id} | default: ‘306’}} %}
 {% assign food_type = {{custom_attribute.${food_type} | default: ‘471’}} %}
 {%- connected_content https://developers.zomato.com/api/v2.1/search?entity_id={{city_id}}&entity_type=city&count=20&cuisines={{food_type}}&sort=rating:headers{“user-key”:”USER_KEY”} :save restaurants %}
@@ -324,7 +324,7 @@ Good places
 {% break %}
 {% endif %}
 {% endfor %}
-```
+`````````
 {% endraw %}
 
 ユーザーのデバイスでのレスポンスの表示例については、以下のスクリーンショットを参照してください。

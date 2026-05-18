@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Segmentによるエクスポートのキャンセル"
-article_title: "POST: Segmentによるエクスポートのキャンセル"
+nav_title: "POST: セグメントによるエクスポートのキャンセル"
+article_title: "POST: セグメントによるエクスポートのキャンセル"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Segmentによるエクスポートのキャンセル Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、セグメントによるエクスポートのキャンセル Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# Segmentによるエクスポートのキャンセル {#cancel-exports-by-segment}
+# セグメントによるエクスポートのキャンセル {#cancel-exports-by-segment}
 {% apimethod post %}
 /export/segment/cancel
 {% endapimethod %}
 
-> このエンドポイントを使用して、指定されたSegment IDで進行中のすべてのエクスポートをキャンセルします。
+> このエンドポイントを使用して、指定されたセグメント IDで進行中のすべてのエクスポートをキャンセルします。
 
 ## 前提条件 {#prerequisites}
 
@@ -29,13 +29,13 @@ description: "この記事では、Segmentによるエクスポートのキャ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "segment_id": (required, string) the `segment_id` to locate and cancel its ongoing exports
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -45,13 +45,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/cancel' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
   "segment_id": "segment_identifier"
 }'
-```
+`````````
 
 {% endapi %}

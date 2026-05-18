@@ -77,7 +77,7 @@ Braze UI 機能なしでコアバージョンの SDK を使用しようとして
 ブリッジヘッダーファイルがない場合は、**[ファイル] > [新規] > [ファイル] > (iOS または OS X) > [ソース] > [ヘッダーファイル]** を選択して作成し、`your-product-module-name-Bridging-Header.h` という名前を付けます。次に、ブリッジヘッダーファイルの先頭に次のコード行を追加します。
 ```
 #import "AppboyKit.h"
-```
+`````````
 
 プロジェクトの**ビルド設定**で、ヘッダーファイルの相対パスを `Swift Compiler - Code Generation` の下の `Objective-C Bridging Header` ビルド設定に追加します。
 

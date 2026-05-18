@@ -31,13 +31,13 @@ Expoでプッシュ通知を使う前に、[Braze Expoプラグインを設定](
 
 ```
 "firebaseCloudMessagingSenderId": "693679403398"
-```
+`````````
 
 #### ステップ1.3：Google Services JSONへのパスを追加する {#step-13-add-the-path-to-your-google-services-json}
 
 プロジェクトの `app.json` ファイルに、`google-services.json` ファイルへのパスを追加します。このファイルは、設定で `enableFirebaseCloudMessaging: true` を指定する場合に必要です。
 
-```json
+`````````json
 {
   "expo": {
     "android": {
@@ -58,7 +58,7 @@ Expoでプッシュ通知を使う前に、[Braze Expoプラグインを設定](
     ]
   }
 }
-```
+`````````
 
 [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/)などの追加のプッシュ通知ライブラリーに依存している場合は、ネイティブのセットアップ手順ではなく、これらの設定を使用する必要があることに注意してください。
 {% endtab %}
@@ -86,7 +86,7 @@ iOSおよびAndroid 13以降のユーザーにプッシュ通知の許可をリ�
 
 このメソッドは、SDKがiOS上のユーザーにどの権限をリクエストするかを指定する必須パラメーターを受け取ります。これらのオプションはAndroidには影響しません。
 
-```javascript
+`````````javascript
 const permissionOptions = {
   alert: true,
   sound: true,
@@ -95,7 +95,7 @@ const permissionOptions = {
 };
 
 Braze.requestPushPermission(permissionOptions);
-```
+`````````
 
 #### ステップ2.1：プッシュ通知をリッスンする（オプション） {#step-21-listen-for-push-notifications-optional}
 
@@ -105,12 +105,12 @@ Braze.requestPushPermission(permissionOptions);
 iOSプッシュ受信イベントは、フォアグラウンド通知と `content-available` バックグラウンド通知に対してのみトリガーされます。終了中に受信した通知や、`content-available` フィールドのないバックグラウンド通知ではトリガーされません。
 {% endalert %}
 
-```javascript
+`````````javascript
 Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
   console.log(`Push Notification event of type ${data.payload_type} seen. Title ${data.title}\n and deeplink ${data.url}`);
   console.log(JSON.stringify(data, undefined, 2));
 });
-```
+`````````
 
 ##### プッシュ通知イベントフィールド {#push-notification-event-fields}
 
@@ -129,7 +129,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `is_silent`        | ブール値   | `true` の場合、ペイロードはサイレントに受信されます。Androidのサイレントプッシュ通知の送信の詳細については、[Androidでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)を参照してください。iOSのサイレントプッシュ通知の送信の詳細については、[iOSでのサイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)を参照してください。 |
 | `is_braze_internal`| ブール値   | フィーチャーフラグ同期やアンインストール追跡などの内部SDK機能に対して通知ペイロードが送信された場合、これは `true` になります。ペイロードはユーザーに対してサイレントに受信されます。 |
 | `image_url`        | 文字列    | 通知画像に関連するURLを指定します。 |
-| `braze_properties` | オブジェクト    | Campaignに関連するBrazeプロパティ（キーと値のペア）を表します。 |
+| `braze_properties` | オブジェクト    | キャンペーンに関連するBrazeプロパティ（キーと値のペア）を表します。 |
 | `ios`              | オブジェクト    | iOS固有のフィールドを表します。 |
 | `android`          | オブジェクト    | Android固有のフィールドを表します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
@@ -161,18 +161,18 @@ Reactコンポーネント内でプッシュ通知がクリックされた際に
 
 メインアクティビティの `onCreate()` メソッドに `populateInitialPushPayloadFromIntent` を追加します。React Nativeが初期化される前にこれを呼び出して、初期のIntentデータをキャプチャする必要があります。以下に例を示します。
 
-```kotlin
+`````````kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
   BrazeReactUtils.populateInitialPushPayloadFromIntent(intent)
   super.onCreate(savedInstanceState)
 }
-```
+`````````
 
 #### ステップ3.2：閉じた状態からのディープリンクを処理する {#step-32-handle-deep-links-from-a-closed-state}
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
-```javascript
+`````````javascript
 // Handles deep links when an app is launched from a hard close via push click.
 Braze.getInitialPushPayload(pushPayload => {
   if (pushPayload) {
@@ -181,7 +181,7 @@ Braze.getInitialPushPayload(pushPayload => {
     handleOpenUrl({ pushPayload.url });
   }
 });
-```
+`````````
 {% alert note %}
 このメソッドでは、ステップ3.1でプラットフォーム向けのネイティブ設定が必要です。Braze Expoプラグインを使用している場合、これは自動的に処理される可能性があります。
 {% endalert %}
@@ -203,7 +203,7 @@ iOSの場合は、AppDelegateの `didFinishLaunchingWithOptions` メソッドに
 
 {% subtabs local %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // ... Perform regular React Native setup
@@ -219,10 +219,10 @@ iOSの場合は、AppDelegateの `didFinishLaunchingWithOptions` メソッドに
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Swift %}
-```swift
+`````````swift
 func application(
   _ application: UIApplication,
   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -239,7 +239,7 @@ func application(
 
   return super.application(application, didFinishLaunchingWithOptions: launchOptions)
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -247,7 +247,7 @@ func application(
 
 [React Native Linking](https://reactnative.dev/docs/linking)が扱う基本シナリオに加えて、`Braze.getInitialPushPayload` メソッドを実装し、`url` の値を取得します。これにより、アプリが起動していない状態でプッシュ通知からアプリを開くディープリンクに対応できます。以下に例を示します。
 
-```javascript
+`````````javascript
 // Handles deep links when an app is launched from a hard close via push click.
 Braze.getInitialPushPayload(pushPayload => {
   if (pushPayload) {
@@ -256,7 +256,7 @@ Braze.getInitialPushPayload(pushPayload => {
     handleOpenUrl({ pushPayload.url });
   }
 });
-```
+`````````
 {% alert note %}
 このメソッドでは、ステップ3.1でプラットフォーム向けのネイティブ設定が必要です。Braze Expoプラグインを使用している場合、これは自動的に処理される可能性があります。
 {% endalert %}
@@ -269,7 +269,7 @@ Braze.getInitialPushPayload(pushPayload => {
 {% subtab Swift %}
 `iOS` ディレクトリ内に `BrazeReactDelegate.swift` ファイルを作成し、以下を追加します。`YOUR_DOMAIN_HOST` を実際のドメインに置き換えてください。
 
-```swift
+`````````swift
 import Foundation
 import BrazeKit
 import UIKit
@@ -297,11 +297,11 @@ class BrazeReactDelegate: NSObject, BrazeDelegate {
     return true
   }
 }
-```
+`````````
 
 次に、プロジェクトの `AppDelegate.swift` ファイルの `didFinishLaunchingWithOptions` 内で `BrazeReactDelegate` を作成し登録します。
 
-```swift
+`````````swift
 import BrazeKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -322,23 +322,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
 `iOS` ディレクトリ内に `BrazeReactDelegate.h` ファイルを作成し、以下のコードスニペットを追加します。
 
-```objc
+`````````objc
 #import <Foundation/Foundation.h>
 #import <BrazeKit/BrazeKit-Swift.h>
 
 @interface BrazeReactDelegate: NSObject<BrazeDelegate>
 
 @end
-```
+`````````
 
 次に、`BrazeReactDelegate.m` ファイルを作成し、以下のコードスニペットを追加します。`YOUR_DOMAIN_HOST` を実際のドメインに置き換えてください。
 
-```objc
+`````````objc
 #import "BrazeReactDelegate.h"
 #import <UIKit/UIKit.h>
 
@@ -363,11 +363,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 @end
-```
+`````````
 
 次に、プロジェクトの `AppDelegate.m` ファイルの `didFinishLaunchingWithOptions` 内で `BrazeReactDelegate` を作成し登録します。
 
-```objc
+`````````objc
 #import "BrazeReactUtils.h"
 #import "BrazeReactDelegate.h"
 
@@ -385,7 +385,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   self.brazeDelegate = [[BrazeReactDelegate alloc] init];
   braze.delegate = self.brazeDelegate;
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -413,7 +413,7 @@ Androidの場合、フォアグラウンド通知の処理はネイティブのA
 {% tab Expo %}
 Expo管理ワークフローでは、ネイティブ通知ハンドラーを直接呼び出しません。代わりに、Expo Notifications APIを使ってフォアグラウンド表示をコントロールし、Braze Expoプラグインがネイティブ処理を自動的に行います。
 
-```javascript
+`````````javascript
 import * as Notifications from 'expo-notifications';
 import Braze from '@braze/react-native-sdk';
 
@@ -443,7 +443,7 @@ Braze.getInitialPushPayload((payload) => {
     console.log('Initial push payload', payload);
   }
 });
-```
+`````````
 
 {% alert note %}
 Expo管理ワークフローでは、Braze Expoプラグインがネイティブプッシュ処理を自動的に行います。上記のExpo Notificationsプレゼンテーションオプションで、フォアグラウンドUIをコントロールします。
@@ -462,10 +462,10 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 {% endalert %}
 
 1. React Nativeアプリケーションで `Braze.changeUserId('your-user-id')` メソッドを呼び出して、アクティブユーザーを設定します。
-2. **Campaigns**に移動し、新しいプッシュ通知Campaignを作成します。テストしたいプラットフォームを選択します。
+2. **キャンペーン**に移動し、新しいプッシュ通知キャンペーンを作成します。テストしたいプラットフォームを選択します。
 3. テスト通知を作成し、**Test**タブに移動します。テストユーザーと同じ `user-id` を追加し、**Send Test**をクリックします。まもなくデバイスに通知が届くはずです。
 
-![Brazeのプッシュ通知Campaignでは、自分のユーザーIDをテスト受信者として追加し、プッシュ通知をテストすることができます。]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push Campaign Test")
+![Brazeのプッシュ通知キャンペーンでは、自分のユーザーIDをテスト受信者として追加し、プッシュ通知をテストすることができます。]({% image_buster /assets/img/react-native/push-notification-test.png %} "Push キャンペーン Test")
 
 ## Expoプラグインを使う {#using-the-expo-plugin}
 
@@ -475,7 +475,7 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
 
 追加のFirebase Messaging Service（FMS）を使用する場合は、アプリケーションがBraze以外からプッシュを受信した場合に呼び出すフォールバックFMSを指定できます。以下に例を示します。
 
-```json
+`````````json
 {
   "expo": {
     "plugins": [
@@ -490,7 +490,7 @@ macOS 13以降の特定のデバイスでは、Xcode 14以降で実行されて�
     ]
   }
 }
-```
+`````````
 
 ### Expo Application Servicesでアプリ拡張機能を使用する {#app-extensions}
 

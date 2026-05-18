@@ -16,7 +16,7 @@ _この統合はKochavaによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとKochavaの統合により、アトリビューションデータをBrazeに送信することで、どのCampaignsがインストールやアプリ内アクティビティなどを促進しているかをより深く理解し、キャンペーン全体の把握を強化できます。
+BrazeとKochavaの統合により、アトリビューションデータをBrazeに送信することで、どのキャンペーンがインストールやアプリ内アクティビティなどを促進しているかをより深く理解し、キャンペーン全体の把握を強化できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -37,7 +37,7 @@ BrazeとKochavaの統合により、アトリビューションデータをBraze
 
 ```java
 Apppboy.getInstance(context).getDeviceId();
-```
+`````````
 
 #### iOS
 
@@ -50,15 +50,15 @@ Swift SDK v5.7.0+を使用しているお客様は、相互識別子としてIDF
 Brazeには、同じ値を生成する2つのAPIがあります。1つは完了ハンドラを使用し、もう1つは新しいSwiftコンカレンシーサポートを使用します。次のコードスニペットをKochavaの[iOS SDK](https://support.kochava.com/sdk-integration/ios-sdk-integration/)の指示に従って修正する必要があることに注意してください。その他のヘルプについては、Kochavaサポートにお問い合わせください。
 
 ##### 完了ハンドラ {#completion-handler}
-```
+`````````
 AppDelegate.braze?.deviceId(completion: { deviceId in
   // Use `deviceId`
 })
-```
+`````````
 ##### Swiftコンカレンシー {#swift-concurrency}
-```
+`````````
 let deviceId = await AppDelegate.braze?.deviceId()
-```
+`````````
 
 ### ステップ2:Brazeデータインポートキーを取得する {#step-2-get-the-braze-data-import-key}
 
@@ -82,19 +82,19 @@ FacebookおよびX（旧Twitter）キャンペーンのアトリビューショ�
 
 ## BrazeでのKochavaクリックトラッキングURL（オプション） {#kochava-click-tracking-urls-in-braze-optional}
 
-BrazeのCampaignsでクリックトラッキングリンクを使用すると、どのCampaignsがアプリのインストールと再エンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
+Brazeのキャンペーンでクリックトラッキングリンクを使用すると、どのキャンペーンがアプリのインストールと再エンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
 
-Kochavaのクリックトラッキングリンクを使い始めるには、[ドキュメント](https://support.kochava.com/reference-information/attribution-overview/)をご覧ください。BrazeのCampaignsにKochavaクリックトラッキングリンクを直接挿入できます。Kochavaはその後、[確率的アトリビューション方法論](https://www.kochava.com/getting-prepared-for-ios-14/)を使用して、リンクをクリックしたユーザーをアトリビューションします。BrazeのCampaignsからのアトリビューションの精度を向上させるために、Kochavaトラッキングリンクにデバイス識別子を追加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビューションできます。
+Kochavaのクリックトラッキングリンクを使い始めるには、[ドキュメント](https://support.kochava.com/reference-information/attribution-overview/)をご覧ください。BrazeのキャンペーンにKochavaクリックトラッキングリンクを直接挿入できます。Kochavaはその後、[確率的アトリビューション方法論](https://www.kochava.com/getting-prepared-for-ios-14/)を使用して、リンクをクリックしたユーザーをアトリビューションします。Brazeのキャンペーンからのアトリビューションの精度を向上させるために、Kochavaトラッキングリンクにデバイス識別子を追加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビューションできます。
 
 {% tabs local %}
 {% tab Android %}
 Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Kochava SDK統合によってネイティブに収集されます。次のLiquidロジックを利用して、KochavaクリックトラッキングリンクにGAIDを含めることができます。
 {% raw %}
-```
+`````````
 {% if most_recently_used_device.${platform} == 'android' %}
 aifa={{most_recently_used_device.${google_ad_id}}}
 {% endif %}
-```
+`````````
 {% endraw %}
 {% endtab %}
 
@@ -102,11 +102,11 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 iOSの場合、BrazeとKochavaの両方が、SDK統合を通じてネイティブにIDFVを自動的に収集します。これはデバイス識別子として使用できます。次のLiquidロジックを利用して、KochavaクリックトラッキングリンクにIDFVを含めることができます。
 
 {% raw %}
-```
+`````````
 {% if most_recently_used_device.${platform} == 'ios' %}
 idfv={{most_recently_used_device.${id}}}
 {% endif %}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}

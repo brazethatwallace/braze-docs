@@ -67,7 +67,7 @@ Currentsイベントスキーマの完全なリストについては、[メッ�
 
 ```json
 {"events": [event1, event2, event3, etc...]}
-```
+`````````
 
 キー`"events"`を持つトップレベルのJSONオブジェクトがあり、それぞれが単一のイベントを表すJSONオブジェクトの配列にマッピングされます。各イベントには2つのサブオブジェクトが含まれます。
 
@@ -87,15 +87,15 @@ RFC 6750に従い、トークンは少なくとも1文字のBase64エンコー�
 
 また、`Authorization`ヘッダーが存在する場合、以下の形式で構成されます。
 
-```plaintext
+`````````plaintext
 "Authorization: Bearer " + <token>
-```
+`````````
 
 例えば、認証トークンが`0p3n5354m3==`の場合、`Authorization`ヘッダーは以下のようになります。
 
-```plaintext
+`````````plaintext
 Authorization: Bearer 0p3n5354m3==
-```
+`````````
 
 {% alert note %}
 将来的に、Brazeに固有のカスタムキーバリューペア認可スキームを実装するために`Authorization`ヘッダーを使用する可能性があります。これは[RFC 7235](https://tools.ietf.org/html/rfc7235)仕様に準拠するもので、Amazon Web Services（AWS）などの企業が認証スキームを実装する方法と同様です。
@@ -105,9 +105,9 @@ Authorization: Bearer 0p3n5354m3==
 
 HTTPコネクター統合からのすべてのリクエストは、Currentsリクエストのバージョンを示すカスタムヘッダーとともに送信されます。
 
-```plaintext
+`````````plaintext
 Braze-Currents-Version: 1
-```
+`````````
 
 バージョンは常に`1`であり、この番号を頻繁にインクリメントすることは想定していません。
 

@@ -61,9 +61,9 @@ V2エンドポイントは[V1エンドポイント]({{site.baseurl}}/api/endpoin
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "subscription_groups":[
     {
@@ -76,7 +76,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     }
   ]
 }
-```
+`````````
 
 {% alert tip %}
 [`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用して新しいユーザーを作成する場合、ユーザー属性オブジェクト内にサブスクリプショングループを設定できます。これにより、1回のAPI呼び出しでユーザーの作成とサブスクリプショングループの状態の設定を同時に行えます。
@@ -105,7 +105,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 次の例では、`external_ids` を使用して単一のAPI呼び出しでメールとSMSのサブスクリプショングループの両方を更新します。これは `external_ids` を使用する場合にのみ可能です。`emails` または `phones` を使用している場合、1回の呼び出しでメールとSMSのサブスクリプショングループの両方を更新することはできません。
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -123,11 +123,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
     }
   ]
 }
-```
+`````````
 
 ## メール {#email}
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -141,11 +141,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
   ]
 }
 '
-```
+`````````
 
 ## SMSとWhatsApp {#sms-and-whatsapp}
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -159,6 +159,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
   ]
 }
 '
-```
+`````````
 
 {% endapi %}

@@ -65,10 +65,10 @@ Quiklyのアクティベーションが顧客のメールアドレスやプロ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
 #### リクエストボディ {#request-body}
-```
+`````````
 {
   "attributes": [{
     "_update_existing_only": false,
@@ -79,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     "email": "email@example.com"
   }]
 }
-```
+`````````
 
 {% enddetails %}
 
@@ -105,20 +105,20 @@ Brazeでは、`/users/track`エンドポイントを使用して新しいユー�
 
 {% details Detailed /subscription/status/set request %}
 #### リクエストヘッダー
-```
+`````````
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
 #### リクエストボディ
-```
+`````````
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
     "subscription_status": "subscribed",
     "phone": "+13135551212"
   }]
 }
-```
+`````````
 
 {% enddetails %}
 
@@ -135,9 +135,9 @@ Webhookを使用して、カスタマージャーニーの特定のイベント�
 
 ### BrazeでQuiklyのWebhookを作成する {#create-a-quikly-webhook-in-braze}
 
-将来のCampaignsやCanvasesのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
+将来のキャンペーンやキャンバスのためにQuiklyのWebhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
 
-新しいCampaignを作成する際に、QuiklyのWebhook Campaignを一度だけ作成するか、既存のテンプレートを使用する場合は、Brazeで**Webhook**を選択してください。
+新しいキャンペーンを作成する際に、QuiklyのWebhook キャンペーンを一度だけ作成するか、既存のテンプレートを使用する場合は、Brazeで**Webhook**を選択してください。
 
 **Blank Template**を選択し、Webhook URLとリクエストボディに次の内容を入力します。
 - **Webhook URL**: https://api.quikly.com/webhook/braze
@@ -156,11 +156,11 @@ Quiklyでは認証に`HTTP Header`が必要です。
 
 ***JSONキー/値のペア***を選択し、次のペアを追加します。
 {% raw %}
-```
+`````````
 "q_scope": "your-activations-scope-id"
 "event": "your-event-identifier"
 "email": {{${email_address}}
-```
+`````````
 {% endraw %}
 
 ### リクエストをプレビューする {#preview-your-request}
@@ -168,7 +168,7 @@ Quiklyでは認証に`HTTP Header`が必要です。
 **プレビュー**パネルでリクエストをプレビューするか、`Test`タブに移動して、ランダムなユーザー、既存のユーザーを選択するか、Webhookをテストするために独自のユーザーをカスタマイズできます。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
 
 {% endtab %}

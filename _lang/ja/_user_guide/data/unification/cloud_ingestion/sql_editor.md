@@ -49,34 +49,34 @@ CDIでSnowflakeソースを作成する前に、Brazeが使用するSnowflakeユ
 ```sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
-```
+`````````
 
 #### ステップ1.2: ロールとデータベース権限の設定 {#step-12-set-up-role-and-database-permissions}
 
 同期するテーブルへのアクセスを付与します。
 
-```sql
+`````````sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
 
 GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
 GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.MY_USER_TABLE TO ROLE BRAZE_INGESTION_ROLE;
-```
+`````````
 
 ユースケースに応じて、複数のテーブルや将来のテーブルへのアクセスを付与することもできます。たとえば、スキーマ内のすべての将来のテーブルへのアクセスを付与するには、以下のようにします。
 
-```sql
+`````````sql
 GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
-```
+`````````
 
 #### ステップ1.3: ウェアハウスの設定とBrazeロールへのアクセス付与 {#step-13-set-up-the-warehouse-and-grant-access-to-the-braze-role}
 
 Brazeがクエリを実行するためのウェアハウスを作成します。
 
-```sql
+`````````sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
-```
+`````````
 
 {% alert note %}
 ウェアハウスでは自動再開が有効になっている必要があります。有効になっていない場合は、クエリ実行時にBrazeがウェアハウスをオンにできるよう、ウェアハウスに対する追加の`OPERATE`権限をBrazeに付与してください。
@@ -86,10 +86,10 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 
 Braze用のユーザーを作成し、ロールを割り当てます。
 
-```sql
+`````````sql
 CREATE USER BRAZE_INGESTION_USER;
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
-```
+`````````
 
 このユーザーは、BrazeでSnowflakeソースを設定する際に使用します。
 
@@ -117,9 +117,9 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 詳細については、[Snowflakeキーペア認証](https://docs.snowflake.com/en/user-guide/key-pair-auth)を参照してください。キーをローテーションしたい場合、Brazeは新しいキーペアを生成し、新しい公開キーを提供できます。
 
-```sql
+`````````sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
-```
+`````````
 
 Brazeに戻り、**接続をテスト**を選択してソースへのアクセスを確認し、ソースを作成します。
 

@@ -71,7 +71,7 @@ document.addEventListener('visibilitychange', function() {
     braze.logCustomEvent('tab_visible');
   }
 });
-```
+`````````
 
 カスタムイベントの記録に関する詳細は、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。セッションのライフサイクルとタイムアウト設定の詳細については、[デフォルトのセッションタイムアウトの変更](#change-session-timeout)を参照してください。
 
@@ -90,7 +90,7 @@ document.addEventListener('visibilitychange', function() {
 {% subtabs %}
 {% subtab java %}
 
-```java
+`````````java
 Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionStateChangedEvent>() {
   @Override
   public void trigger(SessionStateChangedEvent message) {
@@ -99,18 +99,18 @@ Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionSt
     }
   }
 });
-```
+`````````
 
 {% endsubtab %}
 {% subtab kotlin %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(this).subscribeToSessionUpdates { message ->
   if (message.eventType == SessionStateChangedEvent.ChangeType.SESSION_STARTED) {
     // A session has just been started
   }
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -121,7 +121,7 @@ Braze.getInstance(this).subscribeToSessionUpdates { message ->
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 // This subscription is maintained through a Braze cancellable, which will observe changes until the subscription is cancelled.
 // You must keep a strong reference to the cancellable to keep the subscription active.
 // The subscription is canceled either when the cancellable is deinitialized or when you call its `.cancel()` method.
@@ -133,11 +133,11 @@ let cancellable = AppDelegate.braze?.subscribeToSessionUpdates { event in
     print("Session \(id) has ended")
   }
 }
-```
+`````````
 
 非同期ストリームをサブスクライブするには、代わりに[`sessionUpdatesStream`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/sessionupdatesstream)を使用できます。
 
-```swift
+`````````swift
 for await event in braze.sessionUpdatesStream {
   switch event {
   case .started(let id):
@@ -146,11 +146,11 @@ for await event in braze.sessionUpdatesStream {
     print("Session \(id) has ended")
   }
 }
-```
+`````````
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 // This subscription is maintained through a Braze cancellable, which will observe changes until the subscription is cancelled.
 // You must keep a strong reference to the cancellable to keep the subscription active.
 // The subscription is canceled either when the cancellable is deinitialized or when you call its `.cancel()` method.
@@ -166,7 +166,7 @@ BRZCancellable *cancellable = [AppDelegate.braze subscribeToSessionUpdates:^(BRZ
       break;
   }
 }];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -194,19 +194,19 @@ React Native SDKは、セッション更新を直接サブスクライブする�
 {% tab web %}
 デフォルトでは、セッションタイムアウトは`30`分に設定されています。これを変更するには、`sessionTimeoutInSeconds`オプションを[`initialize`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)関数に渡します。`1`以上の任意の整数に設定できます。
 
-```js
+`````````js
 // Sets the session timeout to 15 minutes instead of the default 30
 braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
-```
+`````````
 {% endtab %}
 
 {% tab android %}
 デフォルトでは、セッションタイムアウトは`10`秒に設定されています。これを変更するには、`braze.xml`ファイルを開き、`com_braze_session_timeout`パラメータを追加します。`1`以上の任意の整数に設定できます。
 
-```xml
+`````````xml
 <!-- Sets the session timeout to 60 seconds. -->
 <integer name="com_braze_session_timeout">60</integer>
-```
+`````````
 {% endtab %}
 
 {% tab swift %}
@@ -214,7 +214,7 @@ braze.initialize('YOUR-API-KEY-HERE', { sessionTimeoutInSeconds: 900 });
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 // Sets the session timeout to 60 seconds
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
@@ -223,11 +223,11 @@ let configuration = Braze.Configuration(
 configuration.sessionTimeout = 60;
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-```
+`````````
 {% endsubtab %}
 {% subtab objective-c %}
 
-```objc
+`````````objc
 // Sets the session timeout to 60 seconds
 BRZConfiguration *configuration =
   [[BRZConfiguration alloc] initWithApiKey:brazeApiKey
@@ -235,7 +235,7 @@ BRZConfiguration *configuration =
 configuration.sessionTimeout = 60;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}

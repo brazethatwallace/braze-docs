@@ -36,7 +36,7 @@ Windows ユニバーサルSDKは、[NuGet Package Manager](http://www.nuget.org/
     <AppboyConfig>
         <ApiKey>YOUR_API_KEY_HERE</ApiKey>
     </AppboyConfig>
-```
+`````````
 
 >  [API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページにあるAPIキーで `YOUR_API_KEY_HERE` を更新してください。
 
@@ -54,23 +54,23 @@ Windows ユニバーサルSDKは、[NuGet Package Manager](http://www.nuget.org/
 
 - `App.xaml.cs` ファイルの `usings` に以下を追加します。
 
-```csharp
+`````````csharp
 using AppboyPlatform.PCL.Managers;
 using AppboyPlatform.Universal;
 using AppboyPlatform.Universal.Managers.PushArgs;
-```
+`````````
 
 - `OnLaunched` ライフサイクルメソッド内で以下を呼び出します。
 
-```csharp
+`````````csharp
 Appboy.SharedInstance.OpenSession();
-```
+`````````
 
 - `OnSuspending` ライフサイクルメソッド内で以下を呼び出します。
 
-```csharp
+`````````csharp
 Appboy.SharedInstance.CloseSession();
-```
+`````````
 
 ## 基本的なSDK統合の完了 {#basic-sdk-integration-complete}
 

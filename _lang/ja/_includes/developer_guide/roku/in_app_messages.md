@@ -17,18 +17,18 @@
 
 ```brightscript
 m.BrazeTask.observeField("BrazeInAppMessage", "onInAppMessageReceived")
-```
+`````````
 
 ### ステップ 2: トリガーメッセージにアクセスする {#step-2-access-triggered-messages}
 
-次に、ハンドラ内で、Campaignsによってトリガーされた最も優先度の高いアプリ内メッセージにアクセスできます。
+次に、ハンドラ内で、キャンペーンによってトリガーされた最も優先度の高いアプリ内メッセージにアクセスできます。
 
-```brightscript
+`````````brightscript
 sub onInAppMessageReceived()
   in_app_message = m.BrazeTask.BrazeInAppMessage
   ...
 end sub
-```
+`````````
 
 ## メッセージフィールド {#message-fields}
 

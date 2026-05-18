@@ -20,7 +20,7 @@ noindex: true
 
 ```bash
 $ sudo gem install cocoapods
-```
+`````````
 
 CocoaPods に関して問題がある場合は、CocoaPods の[トラブルシューティングガイド](http://guides.cocoapods.org/using/troubleshooting.html)を参照してください。
 
@@ -34,11 +34,11 @@ CocoaPods Ruby Gem をインストールしたら、Xcode プロジェクトの�
 
 次の行を Podfile に追加します。
 
-```
+`````````
 target 'YourAppTarget' do
   pod 'Appboy-iOS-SDK'
 end
-```
+`````````
 
 Pod の更新がマイナーバージョンの更新よりも小さいものを自動的に取得するように、Braze をバージョン管理することをお勧めします。これは `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build` のようになります。大きな変更があっても、Braze SDKの最新バージョンを自動的に統合したい場合は、Podfile で `pod 'Appboy-iOS-SDK'` を使用できます。
 
@@ -57,9 +57,9 @@ Pod の更新がマイナーバージョンの更新よりも小さいものを�
 ## ステップ 3:Braze SDKのインストール {#step-3-installing-the-braze-sdk}
 
 Braze SDK CocoaPods をインストールするには、ターミナル内で Xcode アプリプロジェクトのディレクトリに移動し、次のコマンドを実行します。
-```
+`````````
 pod install
-```
+`````````
 
 この時点で、CocoaPods によって作成された新しい Xcode プロジェクトワークスペースを開くことができるはずです。Xcode プロジェクトの代わりに、必ずこの Xcode ワークスペースを使用してください。
 
@@ -73,7 +73,7 @@ pod install
 
 CocoaPod を更新するには、プロジェクトディレクトリ内で以下のコマンドを実行するだけです。
 
-```
+`````````
 pod update
-```
+`````````
 

@@ -12,9 +12,9 @@ page_type: glossary
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -66,10 +66,10 @@ Post,Email,Create,Template,REST,API
   "preheader": "My preheader is pretty cool."
 }
 
-```
+`````````
 
 #### 応答の例 {#example-response}
-```
+`````````
 {
   "template_name": "email_template_name",
   "subject": "Welcome to my email template!",
@@ -77,7 +77,7 @@ Post,Email,Create,Template,REST,API
   "plaintext_body": "This is the text within my email body and here is a link to https://www.braze.com/.",
   "preheader": "My preheader is pretty cool."
 }
-```
+`````````
 
 
 #### パラメーターの詳細 {#parameter-details}
@@ -106,7 +106,7 @@ Get,Email,Template,List,REST
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
 #### リクエスト本文
-```
+`````````
 GET https://YOUR_REST_API_URL/templates/email/list
 
 {
@@ -118,10 +118,10 @@ GET https://YOUR_REST_API_URL/templates/email/list
     "updated_at": (string, in ISO 8601)
 }
 
-```
+`````````
 
 #### 応答の例
-```
+`````````
 GET https://YOUR_REST_API_URL/templates/email/list
 
 {
@@ -132,7 +132,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
     "created_at": (string, in ISO 8601),
     "updated_at": (string, in ISO 8601)
 }
-```
+`````````
 
 
 #### パラメーターの詳細
@@ -146,7 +146,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 
 {% api %}
-## 3 Campaignsトリガー送信 {#3-campaigns-trigger-send}
+## 3 キャンペーントリガー送信 {#3-campaigns-trigger-send}
 {% apimethod post %}campaigns/trigger/send{% endapimethod %}
 {% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
@@ -155,7 +155,7 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
 #### リクエスト本文
-```
+`````````
 POST https://YOUR_REST_API_URL/campaigns/trigger/send
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -177,10 +177,10 @@ Authorization: Bearer YOUR-REST-API-KEY
   ]
 }
 
-```
+`````````
 
 #### 応答の例
-```
+`````````
 POST https://YOUR_REST_API_URL/canvas/trigger/send
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -190,7 +190,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" is omitted,
   "audience": (optional, Connected Audience Object) see Connected Audience,
   // Including 'audience' will only send to users in the audience
-  "recipients": (optional, array; if not provided and broadcast is not set to 'false', message will send to the entire segment targeted by the Canvas) [
+  "recipients": (optional, array; if not provided and broadcast is not set to 'false', message will send to the entire segment targeted by the キャンバス) [
     {
       // Either "external_user_id" or "user_alias" is required. Requests must specify only one.
       "user_alias": (optional, User Alias Object) User Alias of user to receive message,
@@ -200,7 +200,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     ...
   ]
 }
-```
+`````````
 
 
 #### パラメーターの詳細
@@ -214,7 +214,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 
 {% api %}
-## 4 Campaignsトリガー送信 {#4-campaigns-trigger-send}
+## 4 キャンペーントリガー送信 {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
 {% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 
@@ -223,7 +223,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
 #### リクエスト本文
-```
+`````````
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -233,10 +233,10 @@ Authorization: Bearer YOUR-REST-API-KEY
    "purchases" : (optional, array of Purchase Object)
 }
 
-```
+`````````
 
 #### 応答の例
-```
+`````````
 {
   // One of "external_id" or "user_alias" or "braze_id" is required
   "external_id" : (optional, string) see External User ID,
@@ -259,7 +259,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // Removing a value from an array custom attribute
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
 }
-```
+`````````
 
 #### パラメーターの詳細
 

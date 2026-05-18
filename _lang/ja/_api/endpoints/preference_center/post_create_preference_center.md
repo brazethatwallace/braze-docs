@@ -31,9 +31,9 @@ description: "この記事では、「ユーザー設定センターの作成」
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "name": "string",
   "preference_center_title": "string",
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     ]
   }
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -101,20 +101,20 @@ Authorization: Bearer YOUR-REST-API-KEY
 ### ユーザー設定センターの作成
 
 {% raw %}
-```
+`````````
 {
   "preference_center_api_id": "preference_center_api_id_example",
   "liquid_tag": "{{preference_center.${MyPreferenceCenter2022-09-22}}}",
   "created_at": "2022-09-22T18:28:07+00:00",
   "message": "success"
 }
-```
+`````````
 {% endraw %}
 
 ### フォーム入力を含むHTML {#html-with-form-inputs}
 
 {% raw %}
-```
+`````````
 <!doctype html>
 <html lang="en">
   <head>
@@ -276,7 +276,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     </div>
   </body>
 </html>
-```
+`````````
 {% endraw %}
 
 {% endapi %}

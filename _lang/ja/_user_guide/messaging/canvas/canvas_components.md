@@ -9,7 +9,7 @@ guide_top_text: "キャンバスコンポーネントを使用して、キャン
 
 page_type: landing
 description: "このランディングページには、より高度なキャンバスの作成に役立つキャンバスコンポーネントの記事がまとめられています。これらのコンポーネントには、メッセージステップ、遅延ステップ、条件分岐ステップなどがあります。"
-tool: Canvas
+tool: キャンバス
 
 guide_featured_title: "セクション記事"
 guide_featured_list:

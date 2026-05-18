@@ -32,12 +32,12 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 // Prior to iOS 16. Deprecated in iOS 17+.
 [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // For iOS 16.0+
 let center = UNUserNotificationCenter.current()
 do {
@@ -48,7 +48,7 @@ do {
 
 // Prior to iOS 16. Deprecated in iOS 17+.
 UIApplication.shared.applicationIconBadgeNumber = 0
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

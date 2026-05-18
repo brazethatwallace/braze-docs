@@ -5,7 +5,7 @@ page_order: 2
 page_type: reference
 alias: /api/objects_filters/canvas_entry_properties_object/
 tool:
-  - Canvas
+  - キャンバス
 description: "この記事は、Braze キャンバスのコンテキストオブジェクトについて説明する。"
 
 ---
@@ -24,7 +24,7 @@ description: "この記事は、Braze キャンバスのコンテキストオブ
 
 ```json
 "context": {"product_name" : "shoes", "product_price" : 79.99}
-```
+`````````
 
 {% raw %}
 例えば、APIリクエストに`"context": {"product_name" : "shoes", "product_price" : 79.99}`を含めることができる。その後、メッセージテンプレートに```{{context.${product_name}}}```を追加することで、メッセージ内で「靴」という単語を参照できる。

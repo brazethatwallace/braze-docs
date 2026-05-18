@@ -231,7 +231,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
    "type": "charge.succeeded"
  }
 }
-```
+`````````
 
 ## データ変換のユースケース {#data-transformation-use-cases}
 
@@ -246,7 +246,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 
 /* This template is based on the source platform's documentation here: https://stripe.com/docs/webhooks
 
@@ -280,12 +280,12 @@ if (payload.type == "charge.succeeded" && payload.data.object.customer) {
 }
 /* After the /users/track request is assigned to brazecall, you will want to explicitly return brazecall to create an output
 return brazecall;
-```
+`````````
 
 {% endtab %}
 {% tab Output %}
 
-```json
+`````````json
 {
   "events": [
     {
@@ -300,7 +300,7 @@ return brazecall;
    }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

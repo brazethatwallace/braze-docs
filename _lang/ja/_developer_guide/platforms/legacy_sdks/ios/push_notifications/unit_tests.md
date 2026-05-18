@@ -38,13 +38,13 @@ target 'YourAppTarget' do
     inherit! :search_paths
   end
 end
-```
+`````````
 
 ## ステップ 3:OCMock を単体テストに追加する
 
 CocoaPods、Carthage、またはその静的ライブラリを介して [OCMock](https://ocmock.org/) をテストターゲットに追加します。たとえば、CocoaPods を使用すると、次のようになります。
 
-```
+`````````
 target 'YourAppTarget' do
   pod 'Appboy-iOS-SDK'
 
@@ -53,15 +53,15 @@ target 'YourAppTarget' do
     pod 'OCMock'
   end
 end
-```
+`````````
 
 ## ステップ 4:追加したライブラリのインストールを完了する
 
 Braze SDK と OCMock のインストールを完了します。たとえば、CocoaPods を使用して、ターミナル内の Xcode アプリプロジェクトのディレクトリに移動し、次のコマンドを実行します。
 
-```
+`````````
 pod install
-```
+`````````
 
 この時点で、CocoaPods によって作成された Xcode プロジェクトワークスペースを開くことができるはずです。
 

@@ -5,7 +5,7 @@ page_order: 3
 page_type: reference
 toc_headers: h2
 description: "このページは、クエリビルダー、SQLセグメントエクステンション、Snowflakeデータ共有で使用されるSnowflake SQLテーブルとカラムのリファレンスです。"
-tool: Segments
+tool: セグメント
 ---
 
 <style>
@@ -25,7 +25,7 @@ table td {
 ほとんどのテーブルは3つのツールすべてで利用できます。**Snowflakeデータ共有のみ**と記載されたテーブルはSnowflakeデータ共有専用であり、クエリビルダーやSQLセグメントエクステンションではアクセスできません。
 
 {% alert tip %}
-これらのSQLテーブルは、[Currentsイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に記載されているイベントに対応しています。たとえば、SQLテーブル`USERS_MESSAGES_EMAIL_SEND_SHARED`はCurrentsイベント`users.messages.email.Send`に対応しています。JSONイベントスキーマやパートナー固有のフォーマット（Amplitude、Mixpanel、Segment）が必要な場合は、Currents用語集を参照してください。
+これらのSQLテーブルは、[Currentsイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)に記載されているイベントに対応しています。たとえば、SQLテーブル`USERS_MESSAGES_EMAIL_SEND_SHARED`はCurrentsイベント`users.messages.email.Send`に対応しています。JSONイベントスキーマやパートナー固有のフォーマット（Amplitude、Mixpanel、セグメント）が必要な場合は、Currents用語集を参照してください。
 {% endalert %}
 
 ## 目次 {#table-of-contents}
@@ -40,8 +40,8 @@ table td {
 [USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | ユーザーごとのデフォルトプロファイル属性の定期スナップショット
 [USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | ユーザーごとのほぼリアルタイムのデフォルトプロファイル属性
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | 削除されていないカタログアイテム
-[CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | Campaignが変更されたとき（**Snowflake データ共有のみ**）
-[CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | Canvasが変更されたとき（**Snowflake データ共有のみ**）
+[CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | キャンペーンが変更されたとき（**Snowflake データ共有のみ**）
+[CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | キャンバスが変更されたとき（**Snowflake データ共有のみ**）
 [CHANGELOGS_GLOBALCONTROLGROUP_SHARED](#CHANGELOGS_GLOBALCONTROLGROUP_SHARED) | グローバルコントロールグループが変更されたとき
 [USERS_BEHAVIORS_CUSTOMEVENT_SHARED](#USERS_BEHAVIORS_CUSTOMEVENT_SHARED) | ユーザーがカスタムイベントを実行したとき
 [USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED](#USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED) | ユーザーがアプリをインストールし、パートナーにアトリビューションされたとき
@@ -60,16 +60,16 @@ table td {
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | プッシュ通知トークンの状態が変更されたとき
 [USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED) | ユーザーがメールなどのチャネルでグローバルに購読または購読解除されたとき
 [USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | ユーザーがサブスクリプショングループに購読または購読解除されたとき
-[USERS_CAMPAIGNS_CONVERSION_SHARED](#USERS_CAMPAIGNS_CONVERSION_SHARED) | ユーザーがCampaignでコンバージョンしたとき
-[USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED](#USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED) | ユーザーがCampaignのコントロールグループに登録されたとき
-[USERS_CAMPAIGNS_FREQUENCYCAP_SHARED](#USERS_CAMPAIGNS_FREQUENCYCAP_SHARED) | ユーザーがCampaignでフリークエンシーキャップに達したとき
+[USERS_CAMPAIGNS_CONVERSION_SHARED](#USERS_CAMPAIGNS_CONVERSION_SHARED) | ユーザーがキャンペーンでコンバージョンしたとき
+[USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED](#USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED) | ユーザーがキャンペーンのコントロールグループに登録されたとき
+[USERS_CAMPAIGNS_FREQUENCYCAP_SHARED](#USERS_CAMPAIGNS_FREQUENCYCAP_SHARED) | ユーザーがキャンペーンでフリークエンシーキャップに達したとき
 [USERS_CAMPAIGNS_REVENUE_SHARED](#USERS_CAMPAIGNS_REVENUE_SHARED) | ユーザーが1次コンバージョン期間内に収益を生成したとき
 [USERS_CANVASSTEP_PROGRESSION_SHARED](#USERS_CANVASSTEP_PROGRESSION_SHARED) | ユーザーがキャンバスステップに進んだとき
-[USERS_CANVAS_CONVERSION_SHARED](#USERS_CANVAS_CONVERSION_SHARED) | ユーザーがCanvasのコンバージョンイベントでコンバージョンしたとき
-[USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | ユーザーがCanvasに入ったとき
-[USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED](#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED) | ユーザーがオーディエンス退出条件に一致したためCanvasを退出したとき
-[USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED](#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED) | ユーザーが例外イベントを実行したためCanvasを退出したとき
-[USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | ユーザーがCanvasの実験ステップでコンバージョンしたとき
+[USERS_CANVAS_CONVERSION_SHARED](#USERS_CANVAS_CONVERSION_SHARED) | ユーザーがキャンバスのコンバージョンイベントでコンバージョンしたとき
+[USERS_CANVAS_ENTRY_SHARED](#USERS_CANVAS_ENTRY_SHARED) | ユーザーがキャンバスに入ったとき
+[USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED](#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED) | ユーザーがオーディエンス退出条件に一致したためキャンバスを退出したとき
+[USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED](#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED) | ユーザーが例外イベントを実行したためキャンバスを退出したとき
+[USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED) | ユーザーがキャンバスの実験ステップでコンバージョンしたとき
 [USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED](#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED) | ユーザーが実験ステップのパスに入ったとき
 [USERS_CANVAS_FREQUENCYCAP_SHARED](#USERS_CANVAS_FREQUENCYCAP_SHARED) | ユーザーがキャンバスステップでフリークエンシーキャップに達したとき
 [USERS_CANVAS_REVENUE_SHARED](#USERS_CANVAS_REVENUE_SHARED) | ユーザーが1次コンバージョンイベント期間内に収益を生成したとき
@@ -144,10 +144,10 @@ table td {
 [USERS_USERDELETEREQUEST_SHARED](#USERS_USERDELETEREQUEST_SHARED) | 顧客のリクエストによりユーザーが削除されたとき
 [USERS_USERORPHAN_SHARED](#USERS_USERORPHAN_SHARED) | ユーザーが別のユーザーのプロファイルとマージされ、元のプロファイルが孤立したとき
 [SNAPSHOTS_APP_SHARED](#SNAPSHOTS_APP_SHARED) | アプリスナップショット（**Snowflake データ共有のみ**）
-[SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | Campaignメッセージバリエーションスナップショット（**Snowflake データ共有のみ**）
+[SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED](#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED) | キャンペーンメッセージバリエーションスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_FLOW_STEP_SHARED](#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED) | キャンバスフローステップスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_CANVAS_STEP_SHARED](#SNAPSHOTS_CANVAS_STEP_SHARED) | キャンバスステップスナップショット（**Snowflake データ共有のみ**）
-[SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | Canvasバリエーションスナップショット（**Snowflake データ共有のみ**）
+[SNAPSHOTS_CANVAS_VARIATION_SHARED](#SNAPSHOTS_CANVAS_VARIATION_SHARED) | キャンバスバリエーションスナップショット（**Snowflake データ共有のみ**）
 [SNAPSHOTS_EXPERIMENT_STEP_SHARED](#SNAPSHOTS_EXPERIMENT_STEP_SHARED) | 実験ステップスナップショット（**Snowflake データ共有のみ**）
 
 
@@ -180,8 +180,8 @@ table td {
 `cache_hit` | `boolean` | このリクエストがキャッシュにヒットしてレスポンスを返したかどうか
 `llm_owned_by_customer` | `boolean` | true の場合、顧客の API キーが使用されました。false の場合、Braze のキーが使用されました
 `is_error` | `boolean` | このリクエストがエラーになったかどうか
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `user_id` | `string` | [PII] このイベントを実行したユーザーの Braze ユーザー ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの external ID
@@ -356,10 +356,10 @@ table td {
 `id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_group_id` | `string` | このユーザーが属するアプリグループの BSON ID
-`api_id` | `string` | Campaignの API ID
-`name` | `null,`&nbsp;`string` | Campaignの名前
-`conversion_behaviors` | `null,`&nbsp;`string` | Campaignのコンバージョン動作
-`actions` | `null,`&nbsp;`string` | Campaignのアクション
+`api_id` | `string` | キャンペーンの API ID
+`name` | `null,`&nbsp;`string` | キャンペーンの名前
+`conversion_behaviors` | `null,`&nbsp;`string` | キャンペーンのコンバージョン動作
+`actions` | `null,`&nbsp;`string` | キャンペーンのアクション
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSCAMPAIGNSHARED #CHANGELOGSCAMPAIGNSHARED" }
 
 ### CHANGELOGS_CANVAS_SHARED {#CHANGELOGS_CANVAS_SHARED}
@@ -373,10 +373,10 @@ table td {
 `id` | `string` | このイベントのグローバル一意 ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_group_id` | `string` | このユーザーが属するアプリグループの BSON ID
-`api_id` | `string` | Canvasの API ID
-`name` | `null,`&nbsp;`string` | Canvasの名前
-`conversion_behaviors` | `null,`&nbsp;`string` | Canvasのコンバージョン動作
-`variations` | `null,`&nbsp;`string` | Canvasのバリエーション
+`api_id` | `string` | キャンバスの API ID
+`name` | `null,`&nbsp;`string` | キャンバスの名前
+`conversion_behaviors` | `null,`&nbsp;`string` | キャンバスのコンバージョン動作
+`variations` | `null,`&nbsp;`string` | キャンバスのバリエーション
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSCANVASSHARED #CHANGELOGSCANVASSHARED" }
 
 ## 動作 {#behaviors}
@@ -729,11 +729,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが所属するワークスペースの API ID
 `app_api_id` | `null,`&nbsp;`string` | このイベントが属するアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `send_id` | `null,`&nbsp;`string` | このサブスクリプション状態変更アクションの発生元であるメッセージ送信 ID
 `app_group_id` | `null,`&nbsp;`string` | このユーザーが所属するアプリグループの BSON ID
@@ -754,11 +754,11 @@ table td {
 `phone_number` | `null,`&nbsp;`string` | [PII] e164 形式のユーザーの電話番号
 `app_api_id` | `null,`&nbsp;`string` | このイベントが属するアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するCanvasバリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `channel` | `null,`&nbsp;`string` | チャネル: サブスクリプショングループのチャネルタイプに応じて 'email' または 'sms'
@@ -773,7 +773,7 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED" }
 
-## Campaigns
+## キャンペーン
 
 ### USERS_CAMPAIGNS_CONVERSION_SHARED {#USERS_CAMPAIGNS_CONVERSION_SHARED}
 
@@ -789,7 +789,7 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `conversion_behavior_index` | `null, int` | コンバージョン行動のインデックス
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -814,7 +814,7 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -837,7 +837,7 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `channel` | `null,`&nbsp;`string` | このイベントが属するチャネル
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -862,7 +862,7 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `string` | このイベントが属するCampaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するCampaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -873,7 +873,7 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSREVENUESHARED #USERSCAMPAIGNSREVENUESHARED" }
 
-## Canvas
+## キャンバス
 
 ### USERS_CANVASSTEP_PROGRESSION_SHARED {#USERS_CANVASSTEP_PROGRESSION_SHARED}
 
@@ -887,15 +887,15 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `progression_type` | `string`,&nbsp;`null` | ステップ進行イベントのタイプ |
-| `is_canvas_entry` | `boolean`,&nbsp;`null` | Canvasの最初のステップへのエントリかどうか |
-| `exit_reason` | `string`,&nbsp;`null` | 離脱の場合、ユーザーがそのステップ中にCanvasを離脱した理由 |
-| `canvas_entry_id` | `string`,&nbsp;`null` | Canvas内のこのユーザーインスタンスの一意の識別子 |
-| `next_step_id` | `string`,&nbsp;`null` | Canvas内の次のステップの BSON ID |
-| `next_step_api_id` | `string`,&nbsp;`null` | Canvas内の次のステップの API ID |
+| `is_canvas_entry` | `boolean`,&nbsp;`null` | キャンバスの最初のステップへのエントリかどうか |
+| `exit_reason` | `string`,&nbsp;`null` | 離脱の場合、ユーザーがそのステップ中にキャンバスを離脱した理由 |
+| `canvas_entry_id` | `string`,&nbsp;`null` | キャンバス内のこのユーザーインスタンスの一意の識別子 |
+| `next_step_id` | `string`,&nbsp;`null` | キャンバス内の次のステップの BSON ID |
+| `next_step_api_id` | `string`,&nbsp;`null` | キャンバス内の次のステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASSTEPPROGRESSIONSHARED #USERSCANVASSTEPPROGRESSIONSHARED" }
 
@@ -912,8 +912,8 @@ table td {
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `app_api_id` | `string`,&nbsp;`null` | このイベントが発生したアプリの API ID |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `canvas_step_message_variation_api_id` | `string`,&nbsp;`null` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID |
 | `conversion_behavior_index` | `int`,&nbsp;`null` | ユーザーが実行したコンバージョンイベントのタイプ。「0」は1次コンバージョン、「1」は2次コンバージョンです |
@@ -936,8 +936,8 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | [非推奨] このイベントが属するキャンバスステップの API ID |
 | `gender` | `string`,&nbsp;`null` | [PII] ユーザーの性別 |
 | `country` | `string`,&nbsp;`null` | [PII] ユーザーの国 |
@@ -958,8 +958,8 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED" }
@@ -977,8 +977,8 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITPERFORMEDEVENTSHARED #USERSCANVASEXITPERFORMEDEVENTSHARED" }
@@ -994,8 +994,8 @@ table td {
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `app_api_id` | `string`,&nbsp;`null` | このイベントが発生したアプリの API ID |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `experiment_step_api_id` | `string`,&nbsp;`null` | このイベントが属する実験ステップの API ID |
 | `conversion_behavior_index` | `int`,&nbsp;`null` | ユーザーが実行したコンバージョンイベントのタイプ。「0」は1次コンバージョン、「1」は2次コンバージョンです |
@@ -1013,8 +1013,8 @@ table td {
 | `app_group_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの Braze ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `experiment_step_api_id` | `string`,&nbsp;`null` | このイベントが属する実験ステップの API ID |
 | `in_control_group` | `boolean`,&nbsp;`null` | ユーザーがコントロールグループに登録された場合は true |
@@ -1036,8 +1036,8 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `canvas_step_message_variation_api_id` | `string`,&nbsp;`null` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID |
 | `channel` | `string`,&nbsp;`null` | このイベントが属するメッセージングチャネル（メール、プッシュなど） |
@@ -1060,8 +1060,8 @@ table td {
 | `app_group_api_id` | `string`,&nbsp;`null` | このユーザーが所属するワークスペースの API ID |
 | `time` | `int`,&nbsp;`null` | イベントが発生した Unix タイムスタンプ |
 | `canvas_id` | `string`,&nbsp;`null` | (Braze 内部使用のみ) このイベントが属するCanvasの ID |
-| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasの API ID |
-| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するCanvasバリエーションの API ID |
+| `canvas_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスの API ID |
+| `canvas_variation_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスバリエーションの API ID |
 | `canvas_step_api_id` | `string`,&nbsp;`null` | このイベントが属するキャンバスステップの API ID |
 | `canvas_step_message_variation_api_id` | `string`,&nbsp;`null` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID |
 | `gender` | `string`,&nbsp;`null` | [PII] ユーザーの性別 |
@@ -1088,7 +1088,7 @@ table td {
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -1124,7 +1124,7 @@ table td {
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -1159,7 +1159,7 @@ table td {
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -1193,11 +1193,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1224,11 +1224,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1264,11 +1264,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1304,11 +1304,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1343,11 +1343,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1373,11 +1373,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1405,11 +1405,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1440,11 +1440,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1479,11 +1479,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -1512,11 +1512,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1545,11 +1545,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1578,11 +1578,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1613,11 +1613,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1646,11 +1646,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1680,11 +1680,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1718,11 +1718,11 @@ table td {
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1743,13 +1743,13 @@ table td {
 `app_api_id` | `null,`&nbsp;`string` | このイベントが発生したアプリの API ID
 `app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `feature_flag_id_name` | `null,`&nbsp;`string` | フィーチャーフラグのロールアウト識別子
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
@@ -1784,11 +1784,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1826,11 +1826,11 @@ table td {
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1867,11 +1867,11 @@ table td {
 `card_api_id` | `null,`&nbsp;`string` | カードの API ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -1909,7 +1909,7 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大128文字）
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
@@ -1921,10 +1921,10 @@ table td {
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINEABORTSHARED #USERSMESSAGESLINEABORTSHARED" }
 
@@ -1944,11 +1944,11 @@ table td {
 `line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
 `line_channel_name` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル名
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
@@ -1973,13 +1973,13 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
@@ -2005,13 +2005,13 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `line_channel_id` | `null,`&nbsp;`string` | メッセージの送信先または受信元の LINE チャネル ID
@@ -2046,11 +2046,11 @@ table td {
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
@@ -2203,11 +2203,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2236,11 +2236,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2268,11 +2268,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2308,11 +2308,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2347,11 +2347,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2392,11 +2392,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2427,18 +2427,18 @@ table td {
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `abort_log` | `null,`&nbsp;`string` | [PII] 中止の詳細を記述するログメッセージ（最大128文字）
 `abort_type` | `null,`&nbsp;`string` | 中止のタイプ。値の一覧については、[中止タイプ](#abort-types)を参照してください。
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSABORTSHARED #USERSMESSAGESRCSABORTSHARED" }
 
@@ -2453,9 +2453,9 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `is_suspected_bot_click` | `null, boolean` | このイベントがボットイベントとして処理されたかどうか
@@ -2466,16 +2466,16 @@ table td {
 `user_agent` | `null,`&nbsp;`string` | スパム報告が発生したユーザーエージェント
 `user_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信したユーザーの電話番号
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `interaction_type` | `null,`&nbsp;`string` | クリックを生成したインタラクションのタイプ。文字列値の例: Text URL, Reply, OpenURL
 `element_label` | `null,`&nbsp;`string` | クリックされた要素に関するオプションの詳細（候補の返信やボタンのテキストなど）
 `element_type` | `null,`&nbsp;`string` | 候補とボタンに共通する interaction_type が候補由来かボタン由来かを指定します。例: Suggestion, Button
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `url` | `null,`&nbsp;`string` | ユーザーがクリックした URL
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSCLICKSHARED #USERSMESSAGESRCSCLICKSHARED" }
 
@@ -2490,11 +2490,11 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
@@ -2502,10 +2502,10 @@ table td {
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `from_rcs_sender` | `null,`&nbsp;`string` | メッセージの送信に使用された RCS 送信者 ID またはエージェント名
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSDELIVERYSHARED #USERSMESSAGESRCSDELIVERYSHARED" }
@@ -2522,9 +2522,9 @@ table td {
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
 `action` | `null,`&nbsp;`string` | このメッセージに対して実行されたアクション（例: Subscribed、Unsubscribed、または None）
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
 `media_urls` | `null,`&nbsp;`string` | ユーザーからのメディア URL
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
@@ -2535,9 +2535,9 @@ table td {
 `to_rcs_sender` | `null,`&nbsp;`string` | メッセージの送信先の受信 RCS 送信者
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSINBOUNDRECEIVESHARED #USERSMESSAGESRCSINBOUNDRECEIVESHARED" }
@@ -2553,18 +2553,18 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSREADSHARED #USERSMESSAGESRCSREADSHARED" }
 
@@ -2579,11 +2579,11 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `error` | `null,`&nbsp;`string` | エラー名
@@ -2594,10 +2594,10 @@ table td {
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSREJECTIONSHARED #USERSMESSAGESRCSREJECTIONSHARED" }
@@ -2613,11 +2613,11 @@ table td {
 `id` | `string` | このイベントのグローバルな一意の ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `user_id` | `string` | このイベントを実行したユーザーの Braze ユーザー ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `category` | `null,`&nbsp;`string` | キーワードカテゴリ名。自動返信メッセージの場合のみ設定されます: 'opt-in'、'opt-out'、'help'、またはカスタム値
 `device_id` | `null,`&nbsp;`string` | イベントが発生したデバイスの ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -2628,10 +2628,10 @@ table td {
 `subscription_group_api_id` | `string` | サブスクリプショングループの API ID
 `to_phone_number` | `null,`&nbsp;`string` | [PII] メッセージを受信するユーザーの電話番号（e.164 形式、例: +14155552671）
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSSENDSHARED #USERSMESSAGESRCSSENDSHARED" }
 
@@ -2651,11 +2651,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `time` | `int` | イベントが発生した Unix タイムスタンプ
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループの外部 ID
@@ -2678,11 +2678,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2709,11 +2709,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2741,11 +2741,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2778,11 +2778,11 @@ table td {
 `message_body` | `string` | ユーザーからの応答
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | ユーザーからのメディア URL
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップメッセージバリエーションの API ID
 `app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
@@ -2802,11 +2802,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2836,11 +2836,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2866,13 +2866,13 @@ table td {
 `time` | `int` | short_url がクリックされた Unix タイムスタンプ
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `campaign_id` | `null,`&nbsp;`string` | short_url が生成された Campaignの Braze ID。Campaign からでない場合は null
-`campaign_api_id` | `null,`&nbsp;`string` | short_url が生成された Campaignの API ID。Campaign からでない場合は null
-`message_variation_api_id` | `null,`&nbsp;`string` | short_url が生成されたメッセージバリエーションの API ID。Campaign からでない場合は null
+`campaign_api_id` | `null,`&nbsp;`string` | short_url が生成された キャンペーンの API ID。キャンペーン からでない場合は null
+`message_variation_api_id` | `null,`&nbsp;`string` | short_url が生成されたメッセージバリエーションの API ID。キャンペーン からでない場合は null
 `canvas_id` | `null,`&nbsp;`string` | short_url が生成された Canvasの Braze ID。Canvas からでない場合は null
-`canvas_api_id` | `null,`&nbsp;`string` | short_url が生成された Canvasの API ID。Canvas からでない場合は null
-`canvas_variation_api_id` | `null,`&nbsp;`string` | short_url が生成された Canvas バリエーションの API ID。Canvas からでない場合は null
-`canvas_step_api_id` | `null,`&nbsp;`string` | short_url が生成されたキャンバスステップの API ID。Canvas からでない場合は null
-`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | short_url が生成されたキャンバスステップメッセージバリエーションの API ID。Canvas からでない場合は null
+`canvas_api_id` | `null,`&nbsp;`string` | short_url が生成された キャンバスの API ID。キャンバス からでない場合は null
+`canvas_variation_api_id` | `null,`&nbsp;`string` | short_url が生成された キャンバス バリエーションの API ID。キャンバス からでない場合は null
+`canvas_step_api_id` | `null,`&nbsp;`string` | short_url が生成されたキャンバスステップの API ID。キャンバス からでない場合は null
+`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | short_url が生成されたキャンバスステップメッセージバリエーションの API ID。キャンバス からでない場合は null
 `url` | `string` | short_url によってリダイレクトされるメッセージ内の元の URL
 `short_url` | `string` | クリックされた短縮 URL
 `user_agent` | `null,`&nbsp;`string` | short_url をリクエストしたユーザーエージェント
@@ -2901,11 +2901,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループ API ID
@@ -2927,11 +2927,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -2953,13 +2953,13 @@ table td {
 `endpoint_url` | `null,`&nbsp;`string` | リクエスト先のエンドポイント URL
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの API ID
 `app_group_id` | `null,`&nbsp;`string` | このユーザーが属するアプリグループの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `content_length` | `null, int` | レスポンスのコンテンツ長
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `external_user_id` | `null,`&nbsp;`string` | [PII] ユーザーの外部 ID
@@ -2991,17 +2991,17 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
-`campaign_name` | `null,`&nbsp;`string` | Campaignの名前
+`campaign_name` | `null,`&nbsp;`string` | キャンペーンの名前
 `message_variation_name` | `null,`&nbsp;`string` | メッセージバリエーションの名前
-`canvas_name` | `null,`&nbsp;`string` | Canvasの名前
-`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した Canvas バリエーションの名前
+`canvas_name` | `null,`&nbsp;`string` | キャンバスの名前
+`canvas_variation_name` | `null,`&nbsp;`string` | このユーザーが受信した キャンバス バリエーションの名前
 `canvas_step_name` | `null,`&nbsp;`string` | キャンバスステップの名前
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
 `country` | `null,`&nbsp;`string` | [PII] ユーザーの国
@@ -3032,11 +3032,11 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `gender` | `null,`&nbsp;`string` | [PII] ユーザーの性別
@@ -3063,11 +3063,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3090,11 +3090,11 @@ table td {
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `url` | `null,`&nbsp;`string` | ユーザーがクリックした URL
@@ -3120,11 +3120,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3151,11 +3151,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3184,11 +3184,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `message_body` | `string` | ユーザーからの応答
@@ -3220,11 +3220,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3251,11 +3251,11 @@ table td {
 `app_group_api_id` | `null,`&nbsp;`string` | このユーザーが属するワークスペースの API ID
 `subscription_group_api_id` | `string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの内部使用 Braze ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの内部使用 Braze ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3288,11 +3288,11 @@ table td {
 `timezone` | `null,`&nbsp;`string` | ユーザーのタイムゾーン
 `subscription_group_api_id` | `null,`&nbsp;`string` | サブスクリプショングループ API ID
 `campaign_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの BSON ID
-`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する Campaignの API ID
+`campaign_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンペーンの API ID
 `message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したメッセージバリエーションの API ID
 `canvas_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの BSON ID
-`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvasの API ID
-`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する Canvas バリエーションの API ID
+`canvas_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバスの API ID
+`canvas_variation_api_id` | `null,`&nbsp;`string` | このイベントが属する キャンバス バリエーションの API ID
 `canvas_step_api_id` | `null,`&nbsp;`string` | このイベントが属するキャンバスステップの API ID
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | このユーザーが受信したキャンバスステップメッセージバリエーションの API ID
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
@@ -3370,8 +3370,8 @@ table td {
 `id` | `string` | このイベントのグローバルに一意な ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_group_id` | `string` | このユーザーが属するアプリグループの BSON ID
-`api_id` | `string` | Campaignメッセージバリエーションの API ID
-`name` | `null,`&nbsp;`string` | Campaignメッセージバリエーションの名前
+`api_id` | `string` | キャンペーンメッセージバリエーションの API ID
+`name` | `null,`&nbsp;`string` | キャンペーンメッセージバリエーションの名前
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCAMPAIGNMESSAGEVARIATIONSHARED #SNAPSHOTSCAMPAIGNMESSAGEVARIATIONSHARED" }
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED {#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED}
@@ -3407,8 +3407,8 @@ table td {
 `id` | `string` | このイベントのグローバルに一意な ID
 `time` | `int` | イベントが発生した UNIX タイムスタンプ
 `app_group_id` | `string` | このユーザーが属するアプリグループの BSON ID
-`api_id` | `string` | Canvasバリエーションの API ID
-`name` | `null,`&nbsp;`string` | Canvasバリエーションの名前
+`api_id` | `string` | キャンバスバリエーションの API ID
+`name` | `null,`&nbsp;`string` | キャンバスバリエーションの名前
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASVARIATIONSHARED #SNAPSHOTSCANVASVARIATIONSHARED" }
 
 ### SNAPSHOTS_EXPERIMENT_STEP_SHARED {#SNAPSHOTS_EXPERIMENT_STEP_SHARED}

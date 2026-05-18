@@ -9,9 +9,9 @@ page_type: partner
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -91,7 +91,7 @@ noindex: true
 
 </body>
 </html>
-```
+`````````
 
 ユーザーがコードサンプルから調整する必要があるパラメータや要素を定義してください。多くのユーザーはコピーして貼り付けるだけです。
 
@@ -122,7 +122,7 @@ noindex: true
 
 技術的な概念を説明する場合は、ここに記載し、コードサンプルを示してください。
 
-```html
+`````````html
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,7 +135,7 @@ noindex: true
 
 </body>
 </html>
-```
+`````````
 
 ユーザーがコードサンプルから調整する必要があるパラメータや要素を定義してください。多くのユーザーはコピーして貼り付けるだけです。
 

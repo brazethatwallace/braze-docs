@@ -74,12 +74,12 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline);
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 import com.braze.support.BrazeLogger
 
 class GlideBrazeImageLoader : IBrazeImageLoader {
@@ -136,7 +136,7 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline)
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -148,7 +148,7 @@ Braze SDK は、[`setBrazeImageLoader`](https://braze-inc.github.io/braze-androi
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 public class GlideIntegrationApplication extends Application {
   @Override
   public void onCreate() {
@@ -156,19 +156,19 @@ public class GlideIntegrationApplication extends Application {
     Braze.getInstance(context).setBrazeImageLoader(new GlideBrazeImageLoader());
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class GlideIntegrationApplication : Application() {
   override fun onCreate() {
     super.onCreate()
     Braze.getInstance(context).appboyImageLoader = GlideBrazeImageLoader()
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -179,7 +179,7 @@ Jetpack Compose で画像の読み込みをオーバーライドするには、`
 
 次の例では、`imageComposable` 関数にリストされているカードに Glide の Compose ライブラリーが使用されています。
 
-```kotlin
+`````````kotlin
 ContentCardsList(
     cardStyle = ContentCardStyling(
         imageComposable = { card ->
@@ -237,4 +237,4 @@ ContentCardsList(
         }
     )
 )
-```
+`````````

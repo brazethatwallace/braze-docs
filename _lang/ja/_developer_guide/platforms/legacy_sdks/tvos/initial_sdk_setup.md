@@ -31,7 +31,7 @@ tvOS [CocoaPods](http://cocoapods.org/) を介して SDKをインストールす
 
 ```bash
 $ sudo gem install cocoapods
-```
+`````````
 
 - `rake` 実行可能ファイルを上書きするプロンプトが表示された場合、詳細については CocoaPods.org の [Getting started](http://guides.cocoapods.org/using/getting-started.html) を参照してください。
 - CocoaPods に関する問題がある場合は、[CocoaPods トラブルシューティングガイド](http://guides.cocoapods.org/using/troubleshooting.html)を参照してください。
@@ -42,20 +42,20 @@ CocoaPods Ruby Gem をインストールしたら、Xcode プロジェクトデ�
 
 次の行を Podfile に追加します。
 
-```
+`````````
 target 'YourAppTarget' do
   pod 'Appboy-tvOS-SDK'
 end
-```
+`````````
 
 ポッドの更新がマイナーバージョンの更新よりも小さいものを自動的に取得するように、Braze をバージョン管理することをお勧めします。これは `pod 'Appboy-tvOS-SDK' ~> Major.Minor.Build` のようになります。メジャーな変更があっても最新の Braze SDK バージョンを自動的に統合する場合は、Podfile で `pod 'Appboy-tvOS-SDK'` を使用できます。
 
 ### ステップ3:Braze SDKのインストール {#step-3-installing-the-braze-sdk}
 
 Braze SDK CocoaPods をインストールするには、ターミナル内で Xcode アプリプロジェクトのディレクトリに移動し、次のコマンドを実行します。
-```
+`````````
 pod install
-```
+`````````
 
 この時点で、CocoaPods によって作成された新しい Xcode プロジェクトワークスペースを開くことができるはずです。Xcode プロジェクトの代わりに、必ずこの Xcode ワークスペースを使用してください。
 
@@ -68,17 +68,17 @@ pod install
 
 次のコード行を `AppDelegate.m` ファイルに追加します。
 
-```objc
+`````````objc
 #import <AppboyTVOSKit/AppboyKit.h>
-```
+`````````
 
 `AppDelegate.m` ファイル内で、`application:didFinishLaunchingWithOptions` メソッド内に次のスニペットを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
          inApplication:application
      withLaunchOptions:launchOptions];
-```
+`````````
 
 最後に、**設定の管理**ページの正しい値で `YOUR-API-KEY` を更新します。
 
@@ -87,17 +87,17 @@ pod install
 
 Braze SDKを CocoaPods または Carthage と統合する場合は、次のコード行を `AppDelegate.swift` ファイルに追加します。
 
-```swift
+`````````swift
 import AppboyTVOSKit
-```
+`````````
 
 Swift プロジェクトでの Objective-C コードの使用方法について詳しくは、[Apple 開発者ガイド](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html)を参照してください。
 
 `AppDelegate.swift` で、次のスニペットを `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
-```
+`````````
 
 次に、**設定の管理**ページの正しい値で `YOUR-API-KEY` を更新します。
 
@@ -138,9 +138,9 @@ Braze 担当者から、[正しいエンドポイント]({{ site.baseurl }}/user
 
 CocoaPod を更新するには、プロジェクトディレクトリ内で次のコマンドを実行するだけです。
 
-```
+`````````
 pod update
-```
+`````````
 
 ## 起動時の Braze のカスタマイズ {#customizing-braze-on-startup}
 
@@ -150,24 +150,24 @@ pod update
 
 `AppDelegate.m` ファイルの `application:didFinishLaunchingWithOptions` メソッド内に、次の Braze メソッドを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
           inApplication:application
       withLaunchOptions:launchOptions
       withAppboyOptions:appboyOptions];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
 `AppDelegate.swift` の `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` メソッド内に、次の Braze メソッドを追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:appboyOptions)
-```
+`````````
 
 ここで、`appboyOptions` はスタートアップ構成値の `Dictionary` です。
 

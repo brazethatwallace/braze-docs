@@ -66,7 +66,7 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 - 最終購入日（Brazeは2つの日付のうち遅い方を選択します）
 - アプリの概要
 - Last_X_at フィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
-- Campaignの概要（Brazeは最も新しい日付フィールドを選択します）
+- キャンペーンの概要（Brazeは最も新しい日付フィールドを選択します）
 - ワークフローの概要（Brazeは最も新しい日付フィールドを選択します）
 - メッセージとメッセージのエンゲージメント履歴
 - カスタムイベントと購入イベントのカウント、および最初の日付と最後の日付のタイムスタンプ
@@ -88,15 +88,15 @@ description: "この記事では、「ユーザーの識別」Brazeエンドポ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
    "aliases_to_identify" : (required, array of alias to identify objects),
    "emails_to_identify": (optional, array of alias to identify objects) User emails to identify,
    "phone_numbers_to_identify": (optional, array of alias to identify objects) User phone numbers to identify,
 },
-```
+`````````
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -137,7 +137,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## リクエスト例 {#request-example}
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -159,7 +159,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
     }
   ]
 }'
-```
+`````````
 
 ### 大文字と小文字の区別 {#case-sensitivity}
 
@@ -171,11 +171,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
     "aliases_processed": 1,
     "message": "success"
 }
-```
+`````````
 
 {% endapi %}

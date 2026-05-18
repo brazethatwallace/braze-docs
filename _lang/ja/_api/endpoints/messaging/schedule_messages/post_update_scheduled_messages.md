@@ -33,9 +33,9 @@ description: "この記事では、「スケジュールされたメッセージ
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "schedule_id": (required, string) the `schedule_id` to update (obtained from the response to create schedule),
   "schedule": {
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     // optional, see available messaging objects documentation
   }
 }
-```
+`````````
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
@@ -56,7 +56,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -82,6 +82,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/
     }
   }
 }'
-```
+`````````
 
 {% endapi %}

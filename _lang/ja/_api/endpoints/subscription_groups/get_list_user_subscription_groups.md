@@ -64,15 +64,15 @@ description: "この記事では、ユーザーのサブスクリプショング
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&limit=100&offset=1&phone=+11112223333' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab Email %}
 {% raw %}
-```
+`````````
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@braze.com&limit=100&offset=0' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -81,7 +81,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 
 ユーザーの履歴でサブスクリプションステータスが更新されたサブスクリプショングループのみが、成功レスポンスに含まれます。つまり、新しく作成されたサブスクリプショングループは一覧に表示されません。
 
-```json
+`````````json
 {
     "users": [
         {
@@ -125,6 +125,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
     "total_count": 1,
     "message": "success"
 }
-```
+`````````
 
 {% endapi %}

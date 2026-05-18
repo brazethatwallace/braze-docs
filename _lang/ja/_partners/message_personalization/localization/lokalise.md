@@ -16,7 +16,7 @@ _この統合はLokaliseによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとLokaliseの統合では、コネクテッドコンテンツを使用して、ユーザーの言語設定に基づいて翻訳されたコンテンツをBraze Campaignsに簡単に挿入できます。
+BrazeとLokaliseの統合では、コネクテッドコンテンツを使用して、ユーザーの言語設定に基づいて翻訳されたコンテンツをBraze キャンペーンに簡単に挿入できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -73,7 +73,7 @@ Lokaliseプロジェクトを開いて**Apps**をクリックします。ここ�
 1. URLパスの最初の部分はすべての言語に共通です。
 2. URL末尾のJSONファイル名は、言語コードに基づいています。
 
-翻訳ファイルのURLは、Braze Campaignを設定する際に必要となるURLです。JSONファイルのコンテンツを更新するには**Refresh**をクリックします。URLは変更されないため、Brazeでコネクテッドコンテンツ呼び出しを変更する必要はありません。
+翻訳ファイルのURLは、Braze キャンペーンを設定する際に必要となるURLです。JSONファイルのコンテンツを更新するには**Refresh**をクリックします。URLは変更されないため、Brazeでコネクテッドコンテンツ呼び出しを変更する必要はありません。
 
 ### テストURL {#test-url}
 
@@ -81,11 +81,11 @@ Lokaliseプロジェクトを開いて**Apps**をクリックします。ここ�
 
 ![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
-### ステップ4:Braze Campaignで翻訳を使用する {#step-4-using-translations-in-braze-campaign}
+### ステップ4:Braze キャンペーンで翻訳を使用する {#step-4-using-translations-in-braze-campaign}
 
 #### コネクテッドコンテンツ呼び出しを挿入する {#insert-connected-content-call}
 
-準備ができたら、Brazeに戻り、既存のCampaignを開くか、新しいCampaignを作成します。この例では、サンプルコンテンツで新しいメールCampaignを作成します。**Edit Email Body**をクリックします。
+準備ができたら、Brazeに戻り、既存のキャンペーンを開くか、新しいキャンペーンを作成します。この例では、サンプルコンテンツで新しいメールキャンペーンを作成します。**Edit Email Body**をクリックします。
 
 翻訳を挿入するには、ドキュメントの最上部または翻訳が必要な最初の位置の直前に、HTML内にコネクテッドコンテンツリクエストを追加する必要があります。これは、以下のマークアップを挿入することで実現できます：
 
@@ -128,4 +128,4 @@ Brazeの対応する文字列には翻訳が表示されなくなります。
 
 ### Lokaliseで翻訳ファイルを更新した後、Brazeで翻訳内容に変更が反映されないのはなぜですか？ {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
 
-Brazeでは翻訳コンテンツがキャッシュされ、その更新には数分かかることがあります。Campaignをテストしていて、翻訳の結果をすぐに確認する必要がある場合は、このリファレンス記事で説明されているように`:cache_max_age`パラメーターを使用できます。
+Brazeでは翻訳コンテンツがキャッシュされ、その更新には数分かかることがあります。キャンペーンをテストしていて、翻訳の結果をすぐに確認する必要がある場合は、このリファレンス記事で説明されているように`:cache_max_age`パラメーターを使用できます。

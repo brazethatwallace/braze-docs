@@ -25,14 +25,14 @@ Braze Swift SDK では、プッシュアクションボタン用の URL 処理�
 a
 ```swift
 UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications.categories)
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:BRZNotifications.categories];
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -48,17 +48,17 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.notifications.handleUserNotification(response: response, withCompletionHandler: completionHandler)
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [AppDelegate.braze.notifications handleUserNotificationWithResponse:response
                                               withCompletionHandler:completionHandler];
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -80,7 +80,7 @@ Brazeはデフォルトのプッシュカテゴリのセットを提供するだ
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 Braze.Notifications.categories.insert(
   .init(identifier: "LIKE_CATEGORY",
         actions: [
@@ -91,12 +91,12 @@ Braze.Notifications.categories.insert(
        )
 )
 UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications.categories)
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 NSMutableSet<UNNotificationCategory *> *categories = [BRZNotifications.categories mutableCopy];
 
 UNNotificationAction *likeAction = [UNNotificationAction actionWithIdentifier:@"LIKE_IDENTIFIER"
@@ -114,7 +114,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 
 [categories addObject:likeCategory];
 [UNUserNotificationCenter.currentNotificationCenter setNotificationCategories:categories];
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -147,7 +147,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 Braze.Notifications.categories.insert(
   .init(identifier: "YOUR_CATEGORY",
         actions: [
@@ -158,7 +158,7 @@ Braze.Notifications.categories.insert(
        )
 )
 UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications.categories)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -176,7 +176,7 @@ Brazeは、アプリがフォアグラウンドにあるときにBraze通知を�
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 // For iOS 16.0+
 let center = UNUserNotificationCenter.current()
 do {
@@ -187,12 +187,12 @@ do {
 
 // Prior to iOS 16. Deprecated in iOS 17+.
 UIApplication.shared.applicationIconBadgeNumber = 0
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // For iOS 16.0+
 UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
 [center setBadgeCount:0 withCompletionHandler:^(NSError * _Nullable error) {
@@ -203,7 +203,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 // Prior to iOS 16. Deprecated in iOS 17+.
 [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -229,9 +229,9 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 afconvert ツールを使用して、サウンドを変換できます。たとえば、16ビットリニア PCM システムサウンド Submarine.aiff を CAF ファイルの IMA4オーディオに変換するには、ターミナルで次のコマンドを使用します。
 
-```bash
+`````````bash
 afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
-```
+`````````
 
 {% alert tip %}
 QuickTime Player でサウンドを開き、[**ムービー**] メニューから [**ムービーインスペクターを表示**] を選択するとサウンドのデータ形式を確認できます。

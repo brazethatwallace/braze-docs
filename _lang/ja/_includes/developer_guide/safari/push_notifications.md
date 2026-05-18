@@ -20,7 +20,7 @@
     "sizes": "128x128",
   }]
 }
-```
+`````````
 
 サポートされるフィールドの全リストは[こちらで](https://developer.mozilla.org/en-US/docs/Web/Manifest)見ることができる。
 
@@ -28,9 +28,9 @@
 
 ウェブサイトの`<head>` 要素に、マニフェストファイルがホストされている場所を指す次の`<link>` タグを追加する。
 
-```html
+`````````html
 <link rel="manifest" href="/manifest.json" />
-```
+`````````
 
 ### ステップ3:サービスワーカーを追加する {#service-worker}
 
@@ -53,7 +53,7 @@
 
 以下はその例です。
 
-```typescript
+`````````typescript
 import { requestPushPermission } from "@braze/web-sdk";
 
 button.onclick = function(){
@@ -63,7 +63,7 @@ button.onclick = function(){
         console.log(`User ${temporary ? "temporarily dismissed" : "permanently denied"} push prompt`);
     });
 };
-```
+`````````
 
 ## 次のステップ:
 

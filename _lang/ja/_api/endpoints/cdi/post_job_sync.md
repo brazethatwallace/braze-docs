@@ -38,7 +38,7 @@ description: "この記事では、「同期をトリガー」Brazeエンドポ�
 curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/00000000-0000-0000-0000-000000000000/sync' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
@@ -46,11 +46,11 @@ curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/0
 
 ステータスコード `202` は、次の応答本文を返す可能性があります。
 
-```json
+`````````json
 {
   "message": "success"
 }
-```
+`````````
 
 ## トラブルシューティング {#troubleshooting}
 

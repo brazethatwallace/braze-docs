@@ -35,7 +35,7 @@ Brazeがイベントデータを送信するのは、`external_user_id`を設定
 
 ```java
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
-```
+`````````
 
 Amplitudeには2種類のイベントをエクスポートできます。[メッセージエンゲージメントイベント](#supported-currents-events)（メッセージ送信に直接関連するBrazeイベントで構成される）と、[顧客行動イベント](#supported-currents-events)（セッション、カスタムイベント、プラットフォーム経由で追跡された購入などのその他のアプリまたはWebサイトアクティビティを含む）です。すべての標準的なイベントには`[Appboy]`が接頭辞として付加され、すべてのカスタムイベントには`[Appboy] [Custom Event]`が付加されます。カスタムイベントプロパティの接頭辞は`[Custom event property]`、購入イベントプロパティの接頭辞は`[Purchase property]`です。
 

@@ -86,12 +86,12 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline);
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 import com.braze.support.BrazeLogger
 import com.bumptech.glide.load.resource.gif.GifDrawable
 
@@ -155,7 +155,7 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
     mRequestOptions = mRequestOptions.onlyRetrieveFromCache(isOffline)
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -178,7 +178,7 @@ Android SDK 36.0.0 以降では、`displayInAppMessage()` は `suspend` 関数�
 
 以下のKotlinサンプルでは、プレースホルダー値を使用してこのパターンを示しています。
 
-```kotlin
+`````````kotlin
 private const val TAG = "SampleGlideLoader"
 private const val glideBrazeImageLoaderTag = "sample-loader"
 
@@ -204,7 +204,7 @@ private fun renderUrlIntoView(
         Log.e(TAG, "$glideBrazeImageLoaderTag renderUrlIntoView failed: url=$imageUrl", e)
     }
 }
-```
+`````````
 
 ### ステップ 2: 画像ローダーデリゲートの設定 {#step-2-setting-the-image-loader-delegate}
 
@@ -213,7 +213,7 @@ Braze SDKは、[`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-s
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 public class GlideIntegrationApplication extends Application {
   @Override
   public void onCreate() {
@@ -221,19 +221,19 @@ public class GlideIntegrationApplication extends Application {
     Braze.getInstance(context).setImageLoader(new GlideBrazeImageLoader());
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class GlideIntegrationApplication : Application() {
   override fun onCreate() {
     super.onCreate()
     Braze.getInstance(context).imageLoader = GlideBrazeImageLoader()
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -244,7 +244,7 @@ Jetpack Composeで画像の読み込みをオーバーライドするには、[`
 
 次の例では、`imageComposable` 関数にリストされているカードにGlideのComposeライブラリーが使用されています。
 
-```kotlin
+`````````kotlin
 ContentCardsList(
     cardStyle = ContentCardStyling(
         imageComposable = { card ->
@@ -302,4 +302,4 @@ ContentCardsList(
         }
     )
 )
-```
+`````````

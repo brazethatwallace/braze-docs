@@ -20,7 +20,7 @@ Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, async (update) => {
 
 // Manually trigger a refresh of cards
 Braze.requestContentCardsRefresh();
-```
+`````````
 
 {% alert important %}
 カードを表示する独自のUIを構築する場合、それらのカードの分析を受け取るために `logContentCardImpression` を呼び出す必要があります。これには `control` カードも含まれます。コントロールカードはユーザーに表示されませんが、トラッキングする必要があります。

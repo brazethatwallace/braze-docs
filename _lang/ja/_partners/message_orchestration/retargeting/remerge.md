@@ -16,7 +16,7 @@ _この統合はRemergeによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとRemergeの統合により、ユーザーデータをWebhookイベント経由でRemergeに送信し、モバイルデマンドサイドプラットフォームでユーザーのリターゲティングを支援することで、堅牢なクロスチャネルのライフサイクルマーケティングCampaignsを開発できます。
+BrazeとRemergeの統合により、ユーザーデータをWebhookイベント経由でRemergeに送信し、モバイルデマンドサイドプラットフォームでユーザーのリターゲティングを支援することで、堅牢なクロスチャネルのライフサイクルマーケティングキャンペーンを開発できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -33,9 +33,9 @@ BrazeとRemergeの統合により、ユーザーデータをWebhookイベント�
 
 ### ステップ 1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-今後のCampaignsまたはCanvases用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
+今後のキャンペーンまたはキャンバス用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
 
-単発のRemerge Webhook Campaignを作成したい場合、または既存のテンプレートを使用したい場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
+単発のRemerge Webhook キャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 新しいWebhookテンプレートで、以下のフィールドに記入してください:
 - **リクエスト本文**: Raw Text
@@ -53,7 +53,7 @@ https://remerge.events/event?partner=braze&app_id=\{% if most_recently_used_devi
 {% if most_recently_used_device.${idfa} == blank and custom_attribute.${aaid} == blank %}
 {% abort_message('No IDFA or AAID available') %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 Webhook URLでは、以下の操作を行う必要があります:
@@ -87,5 +87,5 @@ Remerge WebhookにはHTTPメソッドとリクエストヘッダーが必要で�
 メッセージをプレビューして、リクエストがさまざまなユーザーに対して正しくレンダリングされていることを確認します。AndroidとiOSの両方のユーザーに対して、プレビューとテストリクエストの送信を推奨します。リクエストが成功すると、APIは `HTTP 204` で応答します。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい [Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) を作成するときに、**保存済み Webhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい [Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) を作成するときに、**保存済み Webhookテンプレート**リストで見つけることができます。
 {% endalert %}

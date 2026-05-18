@@ -34,7 +34,7 @@ Braze SDK用Celebrusコネクターは、BrazeのハイレベルなWebおよび�
     response.addParameter("sdk_endpoint", "sdk.xxxxxx.braze.com");
     response.addParameter("api_key", "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx");
     response.addParameter("app_id", "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx");
-```
+`````````
 
 {% alert important %}
 Braze SDK用のCelebrusコネクターは、ユーザーを識別し、識別子をCelebrusのIDグラフに追加するためにBraze SDKを挿入および初期化します。このコネクターは、ユーザープロファイルにデータを記録したり、他のBraze SDKメソッドをトリガーしたりしません。<br><br>コードベース内で必要なメソッドを直接呼び出すことで、[Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)経由でデータを記録したり、Braze SDKがサポートする他の機能を利用したりできます。

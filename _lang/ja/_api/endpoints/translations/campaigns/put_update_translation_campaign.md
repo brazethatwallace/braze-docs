@@ -1,23 +1,23 @@
 ---
-nav_title: "PUT: Campaignの翻訳を更新"
-article_title: "PUT: Campaignの翻訳を更新"
+nav_title: "PUT: キャンペーンの翻訳を更新"
+article_title: "PUT: キャンペーンの翻訳を更新"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「Campaignの翻訳を更新」エンドポイントの詳細について説明します。"
+description: "この記事では、「キャンペーンの翻訳を更新」エンドポイントの詳細について説明します。"
 ---
 
 {% api %}
-# Campaignの翻訳を更新 {#update-translation-in-a-campaign}
+# キャンペーンの翻訳を更新 {#update-translation-in-a-campaign}
 {% apimethod put %}
 /campaigns/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Campaignの複数の翻訳を更新できます。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
+> このエンドポイントを使用して、キャンペーンの複数の翻訳を更新できます。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-Campaignを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/)する必要があります。
+キャンペーンを起動した後に翻訳を更新したい場合は、まず[メッセージを下書きとして保存]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch/)する必要があります。
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
@@ -58,7 +58,7 @@ Campaignを起動した後に翻訳を更新したい場合は、まず[メッ�
         "id_3": "Ein Absatz ohne Formatierung"
     }
 }
-```
+`````````
 
 ## 応答 {#response}
 
@@ -66,17 +66,17 @@ Campaignを起動した後に翻訳を更新したい場合は、まず[メッ�
 
 ### 成功応答の例 {#example-success-response}
 
-```json
+`````````json
 {
 	"message": "success"
 }
-```
+`````````
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-```json
+`````````json
 {
 	"errors": [
 		{
@@ -84,6 +84,6 @@ Campaignを起動した後に翻訳を更新したい場合は、まず[メッ�
 		}
 	]
 }
-```
+`````````
 
 {% endapi %}

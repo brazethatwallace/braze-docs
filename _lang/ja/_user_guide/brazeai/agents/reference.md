@@ -14,7 +14,7 @@ page_order: 3
 エージェントを設定するときに、レスポンスの生成に使用するモデルを選択できます。Brazeパワードモデルの使用と、独自のAPIキーの持ち込みの2つのオプションがあります。
 
 {% alert important %}
-Brazeパワードの**Auto**モデルは、カタログ検索やSegmentメンバーシップなどのタスクを実行するのに十分な思考能力を持つモデルに最適化されています。他のモデルを使用する場合は、ご利用のユースケースに適しているかどうかをテストで確認することをお勧めします。速度や能力が異なるモデルに対して、さまざまなレベルの詳細やステップバイステップの思考を与えるために、[インストラクション](#writing-instructions)を調整する必要がある場合があります。
+Brazeパワードの**Auto**モデルは、カタログ検索やセグメントメンバーシップなどのタスクを実行するのに十分な思考能力を持つモデルに最適化されています。他のモデルを使用する場合は、ご利用のユースケースに適しているかどうかをテストで確認することをお勧めします。速度や能力が異なるモデルに対して、さまざまなレベルの詳細やステップバイステップの思考を与えるために、[インストラクション](#writing-instructions)を調整する必要がある場合があります。
 {% endalert %}
 
 ### オプション 1: Brazeパワードモデルを使用する {#option-1-use-a-braze-powered-model}
@@ -53,7 +53,7 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 | **High** | 複雑な推論、エッジケース、またはモデルにステップを踏んで回答させたい場合。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
-まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、Canvasやカタログで連携させることを検討してください。
+まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、キャンバスやカタログで連携させることを検討してください。
 
 Brazeは、コネクテッドコンテンツと同じIP範囲をアウトバウンドLLMコールに使用します。範囲は[コネクテッドコンテンツIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting)に記載されています。プロバイダーがIP許可リストをサポートしている場合、Brazeのみがキーを使用できるようにこれらの範囲に制限できます。
 
@@ -102,14 +102,14 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 {% raw %}
 ```
 Tell a one-paragraph short story about this user, integrating their {{${first_name}}}, {{${last_name}}}, and {{${city}}}. Also integrate any context you receive about how they are currently thinking, feeling, or doing. For example, you may receive {{context.${current_emotion}}}, which is the user's current emotion. You should work that into the story.
-```
+`````````
 {% endraw %}
 
 **エージェントコンソール**の**Logs**セクションで、エージェントの入出力の詳細を確認し、Liquidからどのような値がレンダリングされるかを理解できます。
 
 ![インストラクションにLiquidを含むエージェントの詳細。]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-### Canvasエージェントの例 {#canvas-agent-examples}
+### キャンバスエージェントの例 {#canvas-agent-examples}
 
 旅行ブランドUponVoyageの一員であるとしましょう。目標は、顧客フィードバックの分析、パーソナライズされたメッセージの作成、無料サブスクライバーのコンバージョン率の判定です。以下は、定義された目標に基づくさまざまなインストラクションの例です。
 
@@ -117,7 +117,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% tab メッセージコピーライター %}
 
 {% raw %}
-```
+`````````
 Role:
 You are an expert lifecycle marketing brand copywriter for UponVoyage. Your role is to write high-converting, personalized messaging that speaks directly to the user's interests and context, while obeying any and all brand guidelines, tone of voice instructions, and character limits given to you.
 
@@ -132,7 +132,7 @@ You will get the following user-specific inputs:
 User membership in the segment “Logged multiple searches in the past 30D”
 
 Rules:
-- Use the user inputs above, plus any available Canvas context, to make the copy feel tailored.
+- Use the user inputs above, plus any available キャンバス context, to make the copy feel tailored.
 - Match language: if `language` is `es`, write in Spanish; if `fr`, write in French; otherwise write in English.
 - Ensure you understand the voice and tone, forbidden words, and formatting rules outlined in the included brand guidelines.
 - Use the user's first name if available, otherwise use 'friend'. Don’t quote their last survey response, just use it as context for value propositions to center around
@@ -163,14 +163,14 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 <output_example>
 { "email_subject_line": "John, your Tokyo Gold Tier deals are waiting", "email_preheader": "Find the best hotel brands for your Tokyo getaway.", "push_title": "John, Tokyo is calling!", "push_body": "Your Gold Tier deals are ready. Tap to view exclusive hotel offers.", "explanation": "Personalized on Tokyo and Gold Tier; matched survey value props; English per language code; kept within character limits for email and push." }
 </output_example>
-```
+`````````
 {% endraw %}
 
 {% endtab %}
 {% tab SMSオプトアウト %}
 
 {% raw %}
-```
+`````````
 ROLE
 You are a compliance-focused classifier for inbound customer messages.
 
@@ -218,19 +218,19 @@ Input: “This is the worst, you suck” → true
 Input: “Stop by tomorrow?” → false
 Input: “Can you stop the delivery?” → false
 Input: “This sucks—what’s the promo code?” → false
-```
+`````````
 {% endraw %}
 
 {% endtab %}
 {% tab フィードバック分析 %}
 
 {% raw %}
-```
+`````````
 Role:
 You are an expert Customer Experience Analyst for UponVoyage. Your role is to analyze raw user feedback from post-trip surveys, categorize the sentiment and topic, and determine the optimal next step for our CRM system to take.
 
 Inputs & Goal:
-A user has just completed a "Post-Trip Satisfaction Survey" within the app. Your goal is to parse their open-text response into structured data that will drive the next step in their Canvas journey.
+A user has just completed a "Post-Trip Satisfaction Survey" within the app. Your goal is to parse their open-text response into structured data that will drive the next step in their キャンバス journey.
 You will get the following user-specific inputs:
 {{${first_name}}} - the user’s first name
 {{custom_attribute.${loyalty_status}}} - the user’s loyalty tier (e.g., Bronze, Silver, Gold, Platinum)
@@ -261,18 +261,18 @@ Input & Output Example:
 <output_example>
 {"sentiment": "Neutral","topic": "App_Experience", "action_recommendation": "Log_Feedback_Only", "explanation": "Mixed praise and crash report maps to Neutral per rules; primary issue is app stability (App_Experience). Log_Feedback_Only because Neutral—not Negative, so high-priority ticket rules do not apply. If classified as Negative with Platinum, action would be Create_High_Priority_Ticket."}
 </output_example>
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab トライアルコンバージョン %}
 
 {% raw %}
-```
+`````````
 Role:
 You are an expert Retention and Conversion Analyst for UponVoyage Premium. Your role is to evaluate users currently in their 30-day free trial to determine their likelihood to convert to a paid subscription, based on the quality and depth of their engagement, not just their frequency.
 
 Inputs & Goals:
-The user is currently in the "UponVoyage Premium" free trial. Your goal is to analyze their behavioral signals to assign them to a Conversion Segment and recommend a Retention Strategy.
+The user is currently in the "UponVoyage Premium" free trial. Your goal is to analyze their behavioral signals to assign them to a Conversion セグメント and recommend a Retention Strategy.
 
 You will get the following user-specific inputs:
 {{custom_attribute.${days_since_trial_start}}} - number of days since they started the trial
@@ -285,7 +285,7 @@ User membership in segment: "Has Valid Payment Method on File" (True/False)
 
 Rules:
 - Analyze Engagement Depth: High search volume alone does not equal high conversion. Look for use of Premium Features (the core value driver).
-- Determine Segment Label:
+- Determine セグメント Label:
 High: Frequent activity AND usage of at least one Premium feature. User clearly sees value.
 Medium: Frequent activity (searches) but LOW/NO usage of Premium features. User is engaged with the app but not yet hooked on the subscription.
 Low: Minimal activity (< 3 searches) regardless of features.
@@ -316,7 +316,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 <output_example>
 {"segment_label": "Medium", "primary_barrier": "Feature_Unawareness", "retention_strategy": "Educate_Benefits", "explanation": "High search volume (15) but zero Premium feature use—they are engaged but not seeing subscription value. Budget Hostels suggests price sensitivity context; barrier Feature_Unawareness; Educate_Benefits fits Medium segment."}
 </output_example>
-```
+`````````
 {% endraw %}
 
 {% endtab %}
@@ -330,7 +330,7 @@ The user IS in the segment: "Has Valid Payment Method on File".
 {% tab 目的地の説明 %}
 
 {% raw %}
-```
+`````````
 Role:
 You are an expert Travel Copywriter for StyleRyde. Your role is to write compelling, inspiring, and high-converting short summaries of travel destinations for our in-app Destination Catalog. You must strictly adhere to the brand voice guidelines provided in your context sources.
 
@@ -368,14 +368,14 @@ Primary Vibe: Historic & Serene
 Price Tier: $$$
 </input_example>
 <output_example>{"short_description": "Discover the historic and serene beauty of Kyoto, Japan. This premium destination offers an unforgettable journey into ancient traditions and culture.", "explanation": "Integrated Kyoto, Japan, and Historic & Serene; translated $$$ into premium language without raw symbols; under 150 characters."}</output_example>
-```
+`````````
 {% endraw %}
 
 {% endtab %}
 {% tab ローカライゼーション %}
 
 {% raw %}
-```
+`````````
 Role:
 You are an expert AI Localization Specialist for StyleRyde. Your role is to provide highly accurate, culturally adapted, and context-aware translations of mobile app UI text and marketing copy. You ensure our app feels native and natural to users around the world.
 
@@ -421,7 +421,7 @@ Max Characters: 20
 <output_example>
 {"localized_text": "Buscar Vuelos", "explanation": "Latin American Spanish for CTA; imperative form fits CTA_Button; 12 characters, under the 20-character limit."}
 </output_example>
-```
+`````````
 {% endraw %}
 
 {% endtab %}
@@ -444,7 +444,7 @@ Max Characters: 20
 たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバックアンケートからユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**数値**を選択できます。
 
 {% alert important %}
-配列はCanvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+配列はキャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 {% endalert %}
 
 ![基本スキーマとして数値が選択されたエージェントコンソール。]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -454,7 +454,7 @@ Max Characters: 20
 高度なスキーマオプションには、フィールドの手動構造化またはJSONの使用が含まれます。
 
 - **フィールド:** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
-- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。Canvasエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+- **JSON:** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。キャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 
 エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
 
@@ -479,7 +479,7 @@ Max Characters: 20
 
 レストランチェーンでの最新の食事体験に関するユーザーフィードバックを収集したい場合、出力フォーマットとして**JSONスキーマ**を選択し、以下のJSONを挿入して、センチメント変数と理由変数を含むデータオブジェクトを返すことができます。
 
-```json
+`````````json
 {
   "type": "object",
   "properties": {
@@ -495,7 +495,7 @@ Max Characters: 20
     "reasoning"
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -506,11 +506,11 @@ Max Characters: 20
 
 ![エージェントが検索するために選択された「restaurants」カタログと「Loyalty_Program」列。]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-## Segmentメンバーシップのコンテキスト {#segment-membership-context}
+## セグメントメンバーシップのコンテキスト {#segment-membership-context}
 
-エージェントがCanvasで使用されている場合に、各ユーザーのSegmentメンバーシップを相互参照するためのSegmentsを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」Segmentのメンバーシップを選択しており、そのエージェントがCanvasで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各Segmentのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）をLLMのコンテキストとして使用できます。
+エージェントがキャンバスで使用されている場合に、各ユーザーのセグメントメンバーシップを相互参照するためのセグメントを最大5つまで選択できます。たとえば、エージェントが「Loyalty Users」セグメントのメンバーシップを選択しており、そのエージェントがキャンバスで使用されているとします。ユーザーがエージェントステップに入ると、エージェントは各ユーザーがエージェントコンソールで指定した各セグメントのメンバーであるかどうかを相互参照し、各ユーザーのメンバーシップ（または非メンバーシップ）をLLMのコンテキストとして使用できます。
 
-![エージェントメンバーシップアクセス用に選択された「Loyalty Users」Segment。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+![エージェントメンバーシップアクセス用に選択された「Loyalty Users」セグメント。]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## ブランドガイドライン {#brand-guidelines}
 
@@ -518,7 +518,7 @@ Max Characters: 20
 
 ## ユーザー固有のインタラクション履歴 {#user-history}
 
-ユーザーのインタラクションデータには、最近のCampaignおよびCanvasの開封、クリック、コンバージョンデータが含まれます。たとえば、Canvasで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
+ユーザーのインタラクションデータには、最近のキャンペーンおよびキャンバスの開封、クリック、コンバージョンデータが含まれます。たとえば、キャンバスで評価される際にエージェントが参照するコンテキストとしてこのデータを含めることができます。ユーザー固有のインタラクション履歴は、パーソナライズされたメッセージコピーを作成するエージェントに影響を与えるのにも役立ちます。
 
 ## エージェントの複製 {#duplicate-agents}
 

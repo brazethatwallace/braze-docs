@@ -38,9 +38,9 @@ description: "この記事では、「メールテンプレートの更新」Bra
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "email_template_id": (required, string) Your email template's API Identifier,
   "template_name": (optional, string) The name of your email template,
@@ -51,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
   "tags": (optional, array of Strings) Tags must already exist,
   "should_inline_css": (optional, Boolean) If `true`, the `inline_css` feature will be applied to the template.
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -81,7 +81,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/templates/email/up
   "preheader": "We want you to have the best looks this summer",
   "tags": ["Tag1", "Tag2"]
 }'
-```
+`````````
 
 ## トラブルシューティング {#troubleshooting}
 

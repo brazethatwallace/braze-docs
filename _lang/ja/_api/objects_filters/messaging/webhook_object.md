@@ -21,6 +21,6 @@ description: "このリファレンス記事では、BrazeのWebhookオブジェ
   "body": (optional, string) if you want to include a JSON object, make sure to escape quotes and backslashes,
   "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under
 }
-```
+`````````
 
 ベストプラクティスとして、Braze は、送信者やサーバーが時間とともに変更される可能性があるため、一貫性のある予測可能な動作を確保するために、`request_headers` フィールドに `Content-Type` の明示的な値を提供することを推奨します。リクエストヘッダー(`Content-Type` )に値を指定しない場合、シ ステムはリクエストボディから値を推測する。

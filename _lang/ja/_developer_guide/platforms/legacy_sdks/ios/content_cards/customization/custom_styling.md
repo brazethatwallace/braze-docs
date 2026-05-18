@@ -53,12 +53,12 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
   ...
   [self.navigationController pushViewController:contentCardsTableVC animated:YES];
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Accessing enableDarkTheme via ABKContentCardsViewController.contentCardsViewController.
 @IBAction func presentModalContentCards(_ sender: Any) {
   let contentCardsVC = ABKContentCardsViewController()
@@ -74,7 +74,7 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
   ...
   self.navigationController?.present(contentCardsTableVC, animated: true, completion: nil)
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

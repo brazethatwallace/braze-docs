@@ -47,12 +47,12 @@ public class CustomPushService extends HmsMessageService {
     }
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class CustomPushService: HmsMessageService() {
   override fun onNewToken(token: String?) {
     super.onNewToken(token)
@@ -66,14 +66,14 @@ class CustomPushService: HmsMessageService() {
     }
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
 
 カスタムプッシュサービスを追加した後、`AndroidManifest.xml` に以下を追加します。
 
-```xml
+`````````xml
 <service
   android:name="package.of.your.CustomPushService"
   android:exported="false">
@@ -81,7 +81,7 @@ class CustomPushService: HmsMessageService() {
     <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
   </intent-filter>
 </service>
-```
+`````````
 
 ### ステップ 4: フォアグラウンド通知を処理する
 

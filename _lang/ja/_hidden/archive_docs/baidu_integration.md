@@ -74,11 +74,11 @@ SDK の中には、プッシュサービスの jar とプラットフォーム�
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-```
+`````````
 
 Baiduのライブラリには、受信したプッシュ・メッセージを処理するブロードキャスト・レシーバーが含まれている。アプリケーションの `AndroidManifest.xml` 内の `<application>` 要素内で内部 Baidu レシーバーを宣言します。
 
-```xml
+`````````xml
   <!-- 用于接收系统消息以保证 PushService 正常运行 -->
       <receiver
         android:name="com.baidu.android.pushservice.PushServiceReceiver"
@@ -114,11 +114,11 @@ Baiduのライブラリには、受信したプッシュ・メッセージを処
           <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE"/>
         </intent-filter>
       </service>
-```
+`````````
 
 また、プッシュメッセージや通知の着信をリッスンするブロードキャストレシーバーも作成する必要があります。アプリケーションの `AndroidManifest.xml`、`<application>` 要素の中でレシーバーを宣言します。このレシーバーは、`com.baidu.android.pushservice.PushMessageReceiver` を拡張し、Baidu プッシュサービスからイベント更新を受け取るメソッドを実装する必要があります。
 
-```xml
+`````````xml
       <receiver android:name=".MyPushMessageReceiver">
         <intent-filter>
           <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
@@ -126,29 +126,29 @@ Baiduのライブラリには、受信したプッシュ・メッセージを処
           <action android:name="com.baidu.android.pushservice.action.notification.CLICK"/>
         </intent-filter>
       </receiver>
-```
+`````````
 
 メインアクティビティの `onCreate()` メソッドに次の行を追加します。これにより、アプリケーションが Baidu に登録され、着信プッシュメッセージのリッスンが開始されます。「Your-API-Key」をプロジェクトの Baidu API キーに置き換えてください。
 
-```
+`````````
 PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Your-API-Key");
-```
+`````````
 
 最後に、ユーザーをBrazeに登録する必要がある。このステップで作成した Baidu ブロードキャストレシーバーの `onBind()` メソッドで、`Braze.registerAppboyPushMessages(channelId)` を使用して `channelId` を Braze に送信します。
 
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).setRegisteredPushToken(channelId);
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).setRegisteredPushToken(channelId)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -179,10 +179,10 @@ Baiduは、JSON形式のプッシュ・メッセージで余分なキー・バ�
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val customContentString = intent.getStringExtra(ChinaPushMessageReceiver.NOTIFICATION_CLICKED_KEY)
 BrazeNotificationUtils.logBaiduNotificationClick(context, customContentString)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -194,26 +194,26 @@ Braze が使用する予約キー以外に、`customContentString` パラメー�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 try {
   JSONObject myExtras = new JSONObject(customContentString);
   String myValue = myExtras.optString("my_key", null);
 } catch (Exception e) {
   Log.e(TAG, "Caught an exception processing customContentString");
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 try {
   val myExtras = JSONObject(customContentString)
   val myValue = myExtras.optString("my_key", null)
 } catch (e: Exception) {
   Log.e(TAG, "Caught an exception processing customContentString", e)
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

@@ -53,7 +53,7 @@ Hello Brazeテストアプリケーションは、Braze SDKの最小限のユー
 2. サンプルアプリをデバイスまたはエミュレーターにインストールするには、SDKディレクトリ内で次のコマンドを実行します。
 ```
 ./gradlew installDebug
-```
+`````````
 `ANDROID_HOME` 変数が適切に設定されていない場合、または有効な `sdk.dir` フォルダーを含む `local.properties` フォルダーがない場合、このプラグインはベースSDKもインストールします。詳細については、[プラグインリポジトリ](https://github.com/JakeWharton/sdk-manager-plugin)を参照してください。
 
 Android SDKビルドシステムの詳細については、[GitHubリポジトリの README](https://github.com/braze-inc/braze-android-sdk/blob/master/README.md)を参照してください。

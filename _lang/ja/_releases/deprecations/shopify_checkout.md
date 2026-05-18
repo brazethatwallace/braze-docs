@@ -51,7 +51,7 @@ Shopifyは、連携で使用されている`checkout.liquid`ページでの[Scri
 {% raw %}
 ```java
 braze.getUser().setEmail(<email address>);
-```
+`````````
 {% endraw %}
 
 {: start="4"}

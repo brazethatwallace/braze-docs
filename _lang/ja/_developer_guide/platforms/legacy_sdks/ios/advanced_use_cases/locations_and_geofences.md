@@ -41,17 +41,17 @@ iOS 14 の時点では、おおよその位置情報の提供許可を選択し�
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKEnableGeofencesKey : @(YES) }];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:[ ABKEnableGeofencesKey : true ])
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -74,18 +74,18 @@ Braze では、バックグラウンドプッシュ通知を使用してジオ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestAlwaysAuthorization];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 var locationManager = CLLocationManager()
 locationManager.requestAlwaysAuthorization()
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -113,22 +113,22 @@ iOS SDK バージョン 3.21.3 以降では、ジオフェンスが自動的に�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API_KEY"
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKDisableAutomaticGeofenceRequestsKey : @(YES) }];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:[ ABKDisableAutomaticGeofenceRequestsKey : true ])
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -144,17 +144,17 @@ SDK でレポートされる位置情報をコントロールして、最も関�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] requestGeofencesWithLongitude:longitude
                                               latitude:latitude];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.requestGeofences(withLongitude: longitude, latitude: latitude)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

@@ -114,11 +114,11 @@ let brazecall = {
 };
 
 return brazecall;
-```
+`````````
 
 ### カスタムイベントを記録する {#logging-a-custom-event}
 
-```javascript
+`````````javascript
 // log an event “Order Placed” to the profile that includes all items in the order as event properties.
 
 let brazecall = {
@@ -139,7 +139,7 @@ let brazecall = {
 };
 
 return brazecall;
-```
+`````````
 
 ## マルチイベント変換 {#multi-event-transformation}
 
@@ -147,7 +147,7 @@ Oloは、各Webhookの`X-Olo-Event-Type`ヘッダーにイベントタイプを�
 
 以下の変換例では、JavaScriptが`UserSignedUp`と`OrderPlaced`のイベントに対して特定のペイロードを作成しています。さらに`else`条件により、X-Olo-Event-Typeヘッダーが`UserSignedUp`および`OrderPlaced`以外の値でBrazeに送信されたすべてのOloイベントのペイロードが処理されます。
 
-```javascript
+`````````javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic
 
 let event_type = headers["X-Olo-Event-Type"];
@@ -238,7 +238,7 @@ if (event_type == "UserSignedUp") {
 // return `brazecall` to create an output.
 
 return brazecall;
-```
+`````````
 
 ### ステップ4:Olo Webhookを公開する {#step-4-publish-your-olo-webhook}
 

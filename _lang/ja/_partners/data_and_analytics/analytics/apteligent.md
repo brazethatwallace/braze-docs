@@ -40,7 +40,7 @@ BrazeとApteligentの統合は、詳細なiOSクラッシュレポートを提�
                                          selector:@selector(crashDidOccur:)
                                              name:@"CRCrashNotification"
                                            object:nil];
-```
+`````````
 
 ### ステップ 2:カスタムクラッシュ分析を記録する {#step-2-log-custom-crash-analytics}
 
@@ -48,7 +48,7 @@ Apteligent SDKは、クラッシュが発生した後にユーザーがアプリ
 
 通知を受け取ったら、カスタムクラッシュイベントをログに記録し、Apteligentのクラッシュレポート分析を使用してユーザー属性を更新します。
 
-```objc
+`````````objc
 - (void)crashDidOccur:(NSNotification*)notification {
   NSDictionary *crashInfo = notification.userInfo;
   [[Appboy sharedInstance] logCustomEvent:@"ApteligentCrashEvent" withProperties:crashInfo];
@@ -56,6 +56,6 @@ Apteligent SDKは、クラッシュが発生した後にユーザーがアプリ
   [[Appboy sharedInstance].user setCustomAttributeWithKey:@"lastCrashReason" andStringValue:crashInfo[@"crashReason"]];
   [[Appboy sharedInstance].user setCustomAttributeWithKey:@"lastCrashDate" andDateValue:crashInfo[@"crashDate"]];
 }
-```
+`````````
 
 完了すれば、Apteligentプラットフォームにあるクラッシュ情報を使って、Brazeのセグメンテーションとエンゲージメント分析の力を活用できるようになります。

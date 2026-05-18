@@ -54,7 +54,7 @@ Brazeで、**設定** > **アプリ設定**に移動し、**アプリの追加**
 npm install --save @braze/web-sdk@5.4.0
 # or, using yarn:
 # yarn add @braze/web-sdk
-```
+`````````
 
 {% alert important %}
 Braze Web SDKバージョンは5.4.0である必要があります。
@@ -62,15 +62,15 @@ Braze Web SDKバージョンは5.4.0である必要があります。
 
 次に、最上位キーとして[この設定]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を `vite.config.js` ファイルに含めます。
 
-```java
+`````````java
 optimizeDeps: {
     exclude: ['@braze/web-sdk']
 }
-```
+`````````
 
 NPMパッケージをインストールした後、`Layout` コンポーネント内部の `useEffect` フック内でSDKを初期化する必要があります。Hydrogenのバージョンに応じて、このコンポーネントは `root.jsx` または `layout.jsx` のいずれかのファイルにあります。
 
-```java
+`````````java
 // Add these imports
 import * as braze from "@braze/web-sdk";
 import { useEffect } from 'react';
@@ -92,11 +92,11 @@ export function Layout({children}) {
 
   return (...);
 }
-```
+`````````
 
 [ステップ2](#step-2)で作成した環境変数を使用して、値 `data.brazeApiKey` と `data.brazeApiUrl` をコンポーネントローダーに含める必要があります。
 
-```java
+`````````java
 export async function loader(args) {
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
@@ -127,7 +127,7 @@ export async function loader(args) {
     },
   };
 }
-```
+`````````
 
 {% alert note %}
 コンテンツセキュリティポリシー（通常は `entry.server.jsx` Hydrogen ファイルにある）は、ローカル環境でも本番環境でも、Brazeスクリプトの機能に影響を与える可能性があります。OxygenまたはカスタムデプロイメントでShopifyに送信されるプレビュービルドでテストすることをお勧めします。問題が発生した場合は、CSPを設定してJavaScriptが機能するようにする必要があります。
@@ -145,7 +145,7 @@ export async function loader(args) {
 
 1. コールバックURIを設定した後、Braze SDKを呼び出す関数を定義します。新しいファイル（`Tracking.jsx` など）を作成し、コンポーネントからインポートします。
 
-```java
+`````````java
 import * as braze from "@braze/web-sdk";
 
 export function trackCustomerLogin(customerData, storefrontUrl) {
@@ -181,12 +181,12 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
     sessionStorage.setItem(customerSessionKey, customerId);
   }
 }
-```
+`````````
 
 {: start="2"}
 2. Braze SDKを初期化するのと同じ `useEffect` フックで、この関数の呼び出しを追加します。
 
-```java
+`````````java
 import { trackCustomerLogin } from './Tracking';
 
 export function Layout({children}) {
@@ -211,12 +211,12 @@ export function Layout({children}) {
     })
 
   }, [data])
-```
+`````````
 
 {: start="3"}
 3. ファイル `app/graphql/customer-account/CustomerDetailsQuery.js` にあるCustomer API GraphQLクエリで、顧客のメールアドレスと電話番号を取得します。
 
-```java
+`````````java
 export const CUSTOMER_FRAGMENT = `#graphql
   fragment Customer on Customer {
     id
@@ -252,12 +252,12 @@ export const CUSTOMER_FRAGMENT = `#graphql
     phoneNumber
   }
 `;
-```
+`````````
 
 {: start="4"}
 4. 最後に、ローダー関数で顧客データを読み込みます。
 
-```java
+`````````java
 // Add import for GraphQL Query
 import { CUSTOMER_DETAILS_QUERY } from './graphql/customer-account/CustomerDetailsQuery';
 
@@ -304,7 +304,7 @@ export async function loader(args) {
     },
   };
 }
-```
+`````````
 
 ### ステップ5: 製品の閲覧イベントとカートの更新イベントのトラッキングを追加する {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
 
@@ -312,7 +312,7 @@ export async function loader(args) {
 
 1. この関数を `Tracking.jsx` ファイルに追加します。
 
-```java
+`````````java
 export function trackProductViewed(product, storefrontUrl) {
   const eventData = {
     product_id: product.id.substring(product.id.lastIndexOf('/') + 1),
@@ -334,12 +334,12 @@ export function trackProductViewed(product, storefrontUrl) {
     eventData
   )
 }
-```
+`````````
 
 {: start="2"}
 2. ユーザーが製品ページにアクセスするたびにこの関数を呼び出すには、ファイル `app/routes/products.$handle.jsx` 内のProductコンポーネントに `useEffect` フックを追加します。
 
-```java
+`````````java
 import { trackProductViewed } from '~/tracking';
 import { useEffect } from 'react';
 
@@ -355,12 +355,12 @@ export default function Product() {
 
   return (...)
 }
-```
+`````````
 
 {: start="3"}
 3. 「storefrontUrl」の値を追加します（デフォルトではコンポーネントローダーに含まれていないため）。
 
-```java
+`````````java
 async function loadCriticalData({context, params, request}) {
   const {handle} = params;
   const {storefront} = context;
@@ -386,7 +386,7 @@ async function loadCriticalData({context, params, request}) {
     storefrontUrl: context.env.PUBLIC_STORE_DOMAIN,
   };
 }
-```
+`````````
 
 #### カート更新イベント {#cart-updated-events}
 
@@ -394,7 +394,7 @@ async function loadCriticalData({context, params, request}) {
 
 1. `cart_updated` イベントを追跡し、カートトークンを設定する関数を定義します。
 
-```java
+`````````java
 export function trackCartUpdated(cart, storefrontUrl) {
   const eventData = {
     cart_id: cart.id,
@@ -436,12 +436,12 @@ export function setCartToken(cart) {
     }
   }
 }
-```
+`````````
 
 {: start="2"}
 2. フェッチャーアクションから `cart` オブジェクトを返し、Brazeがそのプロパティにアクセスできるようにします。`app/routes/cart.jsx` ファイルに移動して、`action` 関数に以下を追加します。
 
-```java
+`````````java
 export async function action({request, context}) {
   const {cart} = context;
 
@@ -479,14 +479,14 @@ export async function action({request, context}) {
     {status, headers},
   );
 }
-```
+`````````
 
 Remixフェッチャーの詳細については、[useFetcher](https://remix.run/docs/ja/main/hooks/use-fetcher) を参照してください。
 
 {: start="3"}
 3. Hydrogenストアは通常、カートオブジェクトの状態を管理する `CartForm` コンポーネントを定義します。このコンポーネントは、カート内のアイテムの追加、削除、数量の変更時に使用されます。フォームフェッチャーの状態が変わるたびに（ユーザーカートが更新されるたびに）`trackCartUpdated` 関数を呼び出す `useEffect` フックを `AddToCartButton` コンポーネントに追加します。
 
-```java
+`````````java
 // Add imports
 import { trackCartUpdated, setCartToken } from '~/tracking';
 import { useEffect } from 'react';
@@ -533,12 +533,12 @@ export function AddToCartButton({
     </CartForm>
   );
 }
-```
+`````````
 
 {: start="4"}
 4. カートから既存の製品を更新するアクションには、同じ `fetcherKey` を使用します。`CartLineRemoveButton` と `CartLineUpdateButton` コンポーネント（デフォルトではファイル `app/components/CartLineItem.jsx` にある）に以下を追加します。
 
-```java
+`````````java
 function CartLineRemoveButton({lineIds, disabled}) {
   // Add the fetcherKey prop to the CartForm component
   return (
@@ -568,7 +568,7 @@ function CartLineUpdateButton({children, lines}) {
     </CartForm>
   );
 }
-```
+`````````
 
 ## BrazeのShopify統合をインストールする {#install-the-braze-shopify-integration}
 
@@ -694,18 +694,18 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 
 ##### サンプルエンドポイント {#example-endpoint}
 
-```http
+`````````http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
-```
+`````````
 
 
 ##### 期待される応答 {#expected-response}
 Brazeは、external IDのJSONを返す `200` ステータスコードを期待します。
-```json
+`````````json
 {
   "external_id": "my_external_id"
 }
-```
+`````````
 
 ##### 検証 {#validation}
 

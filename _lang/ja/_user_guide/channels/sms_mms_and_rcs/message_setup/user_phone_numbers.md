@@ -61,7 +61,7 @@ channel:
 複数のユーザープロファイルが同じ電話番号を持ち、その電話番号が無効としてマークされた場合、その番号を持つ既存のすべてのユーザープロファイルが無効として表示されます。新しく作成されたユーザープロファイルは、最初から無効としてマークされることはありません。
 {% endalert %}
 
-[Segmentを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
+[セグメントを作成する]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#step-4-add-filters-to-your-segment)際に、無効な電話番号を持つユーザーを含めたり除外したりすることもできます。
 
 ## SMSおよびRCSサブスクリプショングループへのユーザー追加 {#adding-users-to-sms-and-rcs-subscription-groups}
 

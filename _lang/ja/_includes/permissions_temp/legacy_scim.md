@@ -17,7 +17,7 @@ Brazeではアプリグループはワークスペースに改名されました
     "appGroup": (required, array)
   }
 }
-```
+`````````
 
 有効な権限オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
@@ -92,7 +92,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | Approve and Deny Canvases | `approve_deny_campaigns` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
+| Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View PII | `view_pii` |
 | View User Profiles PII Compliant | `view_user_profile` |
@@ -123,7 +123,7 @@ Brazeではアプリグループはワークスペースに改名されました
 | Approve and Deny Canvases | `approve_deny_campaigns` |
 | Send Campaigns, Canvases | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
+| Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
 | View User Profile | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |

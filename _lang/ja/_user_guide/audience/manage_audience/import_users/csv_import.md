@@ -330,12 +330,12 @@ CSVの各行は、1人のユーザーの1つのカスタムイベントを表し
 
 ### ステップ6:ターゲティング設定を選択する {#targeting-preferences}
 
-マッピング後、インポート設定ページで以下のターゲティング設定から選択できます。インポートから新しいターゲティングフィルターやSegmentを作成する必要がない場合は、**Do not make this list available as a targeting filter**を選択してください。
+マッピング後、インポート設定ページで以下のターゲティング設定から選択できます。インポートから新しいターゲティングフィルターやセグメントを作成する必要がない場合は、**Do not make this list available as a targeting filter**を選択してください。
 
 | オプション | 説明 |
 |---|---|
-| ターゲティングフィルター | CSVファイルをユーザーSegment作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
-| 新しいSegment | 新しいターゲティングフィルターから新しいSegmentも作成するには、**Create targeting filter and add to new segment**を選択します。 |
+| ターゲティングフィルター | CSVファイルをユーザーセグメント作成時のリターゲティングオプションに変換するには、**Updated/Imported from CSV**ドロップダウンからファイルを選択し、**Create targeting filter**を選択します。 |
+| 新しいセグメント | 新しいターゲティングフィルターから新しいセグメントも作成するには、**Create targeting filter and add to new segment**を選択します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Choose targeting preferences #targeting-preferences" }
 
 ![「Halloween season fun」というCSVファイルを含む「Updated/Imported from CSV」フィルターを使用したフィルターグループ。]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
@@ -423,20 +423,20 @@ CSVインポートまたはAPIを通じてユーザーに`language`または`cou
 
 CSVインポートのトラブルシューティングについては、以下の一般的な問題を確認してください。
 
-### CSVインポートがSegmentフィルターとして利用できない {#csv-import-isnt-available-as-a-segment-filter}
+### CSVインポートがセグメントフィルターとして利用できない {#csv-import-isnt-available-as-a-segment-filter}
 
-CSVインポートをSegmentフィルターとして使用できるのは、アップロード時にターゲティング設定を有効にした場合のみです。
+CSVインポートをセグメントフィルターとして使用できるのは、アップロード時にターゲティング設定を有効にした場合のみです。
 
 既存のインポートでターゲティングの利用可否が有効になっているかどうかを確認するには：
 
 1. **Import Users**ページで、CSVインポートを見つけます。
-2. そのインポートに**Go to Segment**が表示されているかどうかを確認します。
-3. **Go to Segment**が表示されている場合、CSVは`Updated/Imported from CSV`のSegmentフィルターで利用可能です。
-4. **Go to Segment**が表示されていない場合、そのインポートではターゲティングの利用可否が有効になっていません。
+2. そのインポートに**Go to セグメント**が表示されているかどうかを確認します。
+3. **Go to セグメント**が表示されている場合、CSVは`Updated/Imported from CSV`のセグメントフィルターで利用可能です。
+4. **Go to セグメント**が表示されていない場合、そのインポートではターゲティングの利用可否が有効になっていません。
 
-CSVアップロードの完了後にターゲティングの利用可否を有効にすることはできません。そのCSVをSegmentフィルターとして使用するには、ファイルを再アップロードし、[ステップ6:ターゲティング設定を選択する](#step-6-choose-targeting-preferences)で**Create targeting filter**または**Create targeting filter and add to new segment**を選択してください。
+CSVアップロードの完了後にターゲティングの利用可否を有効にすることはできません。そのCSVをセグメントフィルターとして使用するには、ファイルを再アップロードし、[ステップ6:ターゲティング設定を選択する](#step-6-choose-targeting-preferences)で**Create targeting filter**または**Create targeting filter and add to new segment**を選択してください。
 
-プロファイルデータを更新せずにSegmentを作成することが目的の場合は、識別子列のみ（例：`external_id`またはエイリアス識別子列）を含むCSVをアップロードし、**Create targeting filter and add to new segment**を選択してください。
+プロファイルデータを更新せずにセグメントを作成することが目的の場合は、識別子列のみ（例：`external_id`またはエイリアス識別子列）を含むCSVをアップロードし、**Create targeting filter and add to new segment**を選択してください。
 
 ### ファイルフォーマットの問題 {#file-formatting-issues}
 
@@ -504,7 +504,7 @@ Brazeは列内の各値が同じデータタイプであることを期待して
 external_id,email,email_subscribe,push_subscribe
 brazetest1,test1@braze.com,unsubscribed,unsubscribed
 brazetest2,test2@braze.com,Unsubscribed,Unsubscribed
-```
+`````````
 
 ### 「Select CSV File」が機能しない {#select-csv-file-is-not-working}
 

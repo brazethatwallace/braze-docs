@@ -1,21 +1,21 @@
 ---
-nav_title: "GET: Canvasの翻訳を表示する"
-article_title: "GET: Canvasの翻訳を表示する"
+nav_title: "GET: キャンバスの翻訳を表示する"
+article_title: "GET: キャンバスの翻訳を表示する"
 search_tag: Endpoint
 page_order: 1
 
 layout: api_page
 page_type: reference
-description: "この記事では、「Canvasの翻訳を表示する」エンドポイントについて詳しく説明します。"
+description: "この記事では、「キャンバスの翻訳を表示する」エンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
-# Canvasの翻訳を表示する {#view-translation-for-a-canvas}
+# キャンバスの翻訳を表示する {#view-translation-for-a-canvas}
 {% apimethod get %}
 /canvas/translations
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの翻訳されたメッセージをプレビューします。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
+> このエンドポイントを使用して、キャンバスの翻訳されたメッセージをプレビューします。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
@@ -31,7 +31,7 @@ description: "この記事では、「Canvasの翻訳を表示する」エンド
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id` | 必須 | 文字列 | CanvasのID。 |
+| `workflow_id` | 必須 | 文字列 | キャンバスのID。 |
 | `step_id` | 必須 | 文字列 | キャンバスステップのID。 |
 | `message_variation_id` | 必須 | 文字列 | メッセージバリエーションのID。 |
 | `locale_id` | オプション | 文字列 | ロケールのID（UUID）。 |
@@ -48,7 +48,7 @@ description: "この記事では、「Canvasの翻訳を表示する」エンド
 curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations/?workflow_id={workflow_id}&step_id={step_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
@@ -58,7 +58,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 
 ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
 
-```json
+`````````json
 {
     "translations": [
         {
@@ -77,13 +77,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
         }
     ]
 }
-```
+`````````
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
-```json
+`````````json
 {
 	"errors": [
 		{
@@ -91,6 +91,6 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 		}
 	]
 }
-```
+`````````
 
 {% endapi %}

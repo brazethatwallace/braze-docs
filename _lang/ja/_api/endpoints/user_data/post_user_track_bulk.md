@@ -58,15 +58,15 @@ description: "この記事では、一括ユーザートラッキングエンド
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "attributes": (optional, array of attributes object),
   "events": (optional, array of event object),
   "purchases": (optional, array of purchase object)
 }
-```
+`````````
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -87,7 +87,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 1回のリクエストで、アカウントのリクエストオブジェクト制限までのユーザープロファイルを更新します。
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -115,13 +115,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
     }
   ]
 }'
-```
+`````````
 
 ### 1回のリクエストで属性とイベントを送信する {#send-attributes-and-events-in-one-request}
 
 アカウントの合計オブジェクト制限まで、同じリクエストに属性とイベントを含めます。
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -161,7 +161,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
     }
   ]
 }'
-```
+`````````
 
 ## 応答 {#responses}
 
@@ -169,20 +169,20 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 成功メッセージは次の応答を返します。
 
-```json
+`````````json
 {
   "message": "success",
   "attributes_processed": (optional, integer), if attributes are included in the request, this returns an integer of the number of external IDs with attributes that Braze queued for processing,
   "events_processed": (optional, integer), if events are included in the request, this returns an integer of the number of events that Braze queued for processing,
   "purchases_processed": (optional, integer), if purchases are included in the request, this returns an integer of the number of purchases that Braze queued for processing
 }
-```
+`````````
 
 ### 非致命的エラーを含む成功メッセージ {#successful-message-with-non-fatal-errors}
 
 リクエストが成功したが非致命的エラーがある場合（例: 大きなバッチ内の1つの無効なイベントオブジェクト）、次の応答を受け取ります。
 
-```json
+`````````json
 {
   "message": "success",
   "errors": [
@@ -191,13 +191,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
     }
   ]
 }
-```
+`````````
 
 ### 致命的エラーを含むメッセージ {#message-with-fatal-errors}
 
 リクエストに致命的エラーがある場合、次の応答を受け取ります。
 
-```json
+`````````json
 {
   "message": <fatal error message>,
   "errors": [
@@ -206,7 +206,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
     }
   ]
 }
-```
+`````````
 
 ### 致命的エラーの応答コード {#fatal-error-response-codes}
 

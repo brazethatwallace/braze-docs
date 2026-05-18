@@ -75,7 +75,7 @@ Xcode 12.4 以前を使用している場合は、Appboy パッケージを含�
 bash "$BUILT_PRODUCTS_DIR/Appboy_iOS_SDK_AppboyKit.bundle/Appboy.bundle/appboy-spm-cleanup.sh"
 # macOS (if applicable)
 bash "$BUILT_PRODUCTS_DIR/Appboy_iOS_SDK_AppboyKit.bundle/Contents/Resources/Appboy.bundle/appboy-spm-cleanup.sh"
-```
+`````````
 
 ![]({% image_buster /assets/img/ios/spm/swiftmanager_buildmenu.png %})
 

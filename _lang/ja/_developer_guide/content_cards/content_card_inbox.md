@@ -42,9 +42,9 @@ class ContentCardsApplication : Application() {
         Braze.configure(this, config)
     }
 }
-```
+`````````
 
-```kotlin file=ContentCardsInboxScreen.kt
+`````````kotlin file=ContentCardsInboxScreen.kt
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.clickable
@@ -165,7 +165,7 @@ fun ContentCardItem(
         }
     }
 }
-```
+`````````
 
 !!step
 lines-MainApplication.kt=12
@@ -210,7 +210,7 @@ lines-ContentCardsInboxScreen.kt=57,62
 
 {% scrolly %}
 
-```kotlin file=MainApplication.kt
+`````````kotlin file=MainApplication.kt
 import android.app.Application
 import com.braze.Braze
 import com.braze.support.BrazeLogger
@@ -232,9 +232,9 @@ class ContentCardsApplication : Application() {
         Braze.configure(this, config)
     }
 }
-```
+`````````
 
-```kotlin file=ContentCardInboxActivity.kt
+`````````kotlin file=ContentCardInboxActivity.kt
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -333,9 +333,9 @@ class ContentCardsActivity : ComponentActivity() {
         }
     }
 }
-```
+`````````
 
-```xml file=content_card_inbox.xml
+`````````xml file=content_card_inbox.xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -361,7 +361,7 @@ class ContentCardsActivity : ComponentActivity() {
             android:layout_weight="1" />
     </LinearLayout>
 
-```
+`````````
 
 !!step
 lines-MainApplication.kt=12
@@ -411,7 +411,7 @@ lines-ContentCardInboxActivity.kt=90,93
 
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import SwiftUI
 import BrazeKit
 import BrazeUI
@@ -452,9 +452,9 @@ struct ContentView: View {
     }
 }
 
-```
+`````````
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main
@@ -467,9 +467,9 @@ struct SampleApp: App {
         }
     }
 }
-```
+`````````
 
-```swift file=BrazeInboxView.swift
+`````````swift file=BrazeInboxView.swift
 import SwiftUI
 import UIKit
 import BrazeKit
@@ -527,7 +527,7 @@ class BrazeInboxViewController: UITableViewController {
         }
     }
 }
-```
+`````````
 
 !!step
 lines-AppDelegate.swift=15
@@ -579,7 +579,7 @@ lines-BrazeInboxView.swift=8,43,49-56
 
 {% scrolly %}
 
-```js file=main.js
+`````````js file=main.js
 import * as braze from "@braze/web-sdk";
 
 // Uncomment this if you'd like to run braze web SDK methods in the console
@@ -681,9 +681,9 @@ braze.subscribeToContentCardsUpdates((updates) => {
 });
 
 braze.requestContentCardsRefresh();
-```
+`````````
 
-```html file=index.html
+`````````html file=index.html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -732,7 +732,7 @@ braze.requestContentCardsRefresh();
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-```
+`````````
 
 !!step
 lines-main.js=3-4,9

@@ -22,7 +22,7 @@ Brazeは複数の通貨での購入に対応しています。米ドル以外の
 
 ```csharp
 bool LogPurchase(string productId, string currencyCode, decimal price)
-```
+`````````
 
 ## 注文レベルでの購入記録 {#log-purchases-at-the-order-level}
 商品レベルではなく、注文レベルで購入を記録したい場合、注文名または注文カテゴリを`product_id`として使用できます。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions)を参照してください。

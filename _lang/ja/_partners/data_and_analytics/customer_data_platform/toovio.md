@@ -16,7 +16,7 @@ _この統合はToovioによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとToovioのパートナーシップにより、ほぼリアルタイムでのメッセージトリガー、増分パフォーマンスを促進するツール、およびToovioの高度なCampaign測定ツールへのアクセスが提供されます。
+BrazeとToovioのパートナーシップにより、ほぼリアルタイムでのメッセージトリガー、増分パフォーマンスを促進するツール、およびToovioの高度なキャンペーン測定ツールへのアクセスが提供されます。
 
 ## 前提条件 {#prerequisites}
 
@@ -35,9 +35,9 @@ BrazeとToovioのパートナーシップにより、ほぼリアルタイムで
 
 Currentsフィードのドロップ先をToovioと共有する必要があります。これにより、Toovioはユーザーのイベントおよび動作データにアクセスし、処理することができます。
 
-### ステップ 2:トリガーCampaignを設定する {#step-2-set-up-a-triggered-campaign}
+### ステップ 2:トリガーキャンペーンを設定する {#step-2-set-up-a-triggered-campaign}
 
-Toovioがターゲットとする顧客イベントに基づいて、Brazeの[APIトリガーCampaign]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)を作成します。さらに、Campaignのトリガーとなるターゲットユーザーの属性と値を定義する必要があります。
+Toovioがターゲットとする顧客イベントに基づいて、Brazeの[APIトリガーキャンペーン]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)を作成します。さらに、キャンペーンのトリガーとなるターゲットユーザーの属性と値を定義する必要があります。
 
 ### ステップ 3:Toovioアカウントを設定する {#step-3-set-up-your-toovio-account}
 

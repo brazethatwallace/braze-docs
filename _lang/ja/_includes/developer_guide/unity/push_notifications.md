@@ -141,7 +141,7 @@ Unity エディターで **Braze** > **Braze Configuration** の順に移動し�
     </receiver>
   </application>
 </manifest>
-```
+`````````
 
 #### ステップ 2.2: ADM API キーを保存する {#step-22-store-your-adm-api-key}
 
@@ -153,7 +153,7 @@ Unity エディターで **Braze** > **Braze Configuration** の順に移動し�
 
 次に、`mainTemplate.gradle` ファイルに以下を追加します。
 
-```gradle
+`````````gradle
 task copyAmazon(type: Copy) {
     def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
     from unityProjectPath + '/Assets/api_key.txt'
@@ -161,7 +161,7 @@ task copyAmazon(type: Copy) {
 }
 
 preBuild.dependsOn(copyAmazon)
-```
+`````````
 
 #### ステップ 2.3: ADM Jarを追加する {#step-23-add-adm-jar}
 
@@ -197,7 +197,7 @@ preBuild.dependsOn(copyAmazon)
 
 ![この実装例の図は、前のセクションで述べたBrazeの構成オプションと、C#のコードスニペットを示しています。]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
 
-```csharp
+`````````csharp
 public class MainMenu : MonoBehaviour {
   void PushNotificationReceivedCallback(string message) {
 #if UNITY_ANDROID
@@ -229,7 +229,7 @@ public class MainMenu : MonoBehaviour {
 #endif
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Swift %}
@@ -253,7 +253,7 @@ public class MainMenu : MonoBehaviour {
 
 ![この実装例の図は、前のセクションで述べたBrazeの構成オプションと、C#のコードスニペットを示しています。]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
 
-```csharp
+`````````csharp
 public class MainMenu : MonoBehaviour {
   void PushNotificationReceivedCallback(string message) {
 #if UNITY_ANDROID
@@ -277,16 +277,16 @@ public class MainMenu : MonoBehaviour {
 #endif
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
 [前のステップ](#unity_step-21-update-androidmanifestxml)で `AndroidManifest.xml` を更新した際に、以下の行を追加したことでプッシュリスナーが自動的に設定されています。そのため、追加の設定は必要ありません。
 
-```xml
+`````````xml
 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
 <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-```
+`````````
 
 {% alert note %}
 ADMプッシュリスナーについて詳しくは、[Amazon: Amazon Device Messagingを統合する](https://developer.amazon.com/docs/video-skills-fire-tv-apps/integrate-adm.html)を参照してください。

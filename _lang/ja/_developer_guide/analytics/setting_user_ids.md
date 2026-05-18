@@ -23,7 +23,7 @@ description: "Braze SDKでユーザー IDを設定する方法を学習します
 ユーザーが識別される前にデータを収集しないユースケースの場合、ユーザーがログインして `external_id` が利用可能になるまでBraze SDKの初期化を遅延させることができます。コード内にフラグを設定し、ユーザーがサインインしたときに `true` に切り替え、そのフラグが設定されている場合にのみSDKを初期化します。
 
 {% alert warning %}
-初期化の遅延は、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id` が設定される前）にのみ行ってください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやコンテンツカードアセットのプリフェッチに干渉し、それらのCampaignの配信エラーにつながる可能性があります。
+初期化の遅延は、ユーザーがアプリを**初めて**ダウンロードしたとき（`external_id` が設定される前）にのみ行ってください。ユーザーがサインアウトしたり新しいセッションを開始したりするたびにSDKの初期化を妨げると、アプリ内メッセージやコンテンツカードアセットのプリフェッチに干渉し、それらのキャンペーンの配信エラーにつながる可能性があります。
 {% endalert %}
 
 ## ユーザー IDの設定 {#setting-a-user-id}
@@ -38,7 +38,7 @@ description: "Braze SDKでユーザー IDを設定する方法を学習します
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
-```
+`````````
 
 代わりにGoogle Tag Managerを使いたい場合は、**Change User** タグタイプを使って[`changeUser` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)を呼び出すことができます。ユーザーがログインするとき、あるいは一意の `external_id` 識別子で識別されるときは、必ずこれを使用してください。
 
@@ -50,14 +50,14 @@ braze.changeUser(YOUR_USER_ID_STRING);
 {% tab ANDROID %}
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING);
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -65,40 +65,40 @@ Braze.getInstance(context).changeUser(YOUR_USER_ID_STRING)
 {% tab SWIFT %}
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
-```
+`````````
 {% endsubtab %}
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze changeUser:@"YOUR_USER_ID_STRING"];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab CORDOVA %}
-```javascript
+`````````javascript
 BrazePlugin.changeUser("YOUR_USER_ID");
-```
+`````````
 {% endtab %}
 
 {% tab ROKU %}
-```brightscript
+`````````brightscript
 m.Braze.setUserId(YOUR_USER_ID_STRING)
-```
+`````````
 {% endtab %}
 
 {% tab UNITY %}
-```csharp
+`````````csharp
 AppboyBinding.ChangeUser("YOUR_USER_ID_STRING");
-```
+`````````
 {% endtab %}
 
 {% tab REACT NATIVE %}
-```javascript
+`````````javascript
 Braze.changeUser("YOUR_USER_ID_STRING");
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -131,23 +131,23 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 
 {% tabs local %}
 {% tab web %}
-```javascript
+`````````javascript
 braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
-```
+`````````
 {% endtab %}
 
 {% tab android %}
 {% subtabs %}
 {% subtab java %}
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
-```
+`````````
 {% endsubtab %}
 
 {% subtab kotlin %}
-```kotlin
+`````````kotlin
 Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -155,32 +155,32 @@ Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% tab swift %}
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
-```
+`````````
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
  [[Appboy sharedInstance].user addAlias:ALIAS_NAME withLabel:ALIAS_LABEL];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab rest api %}
-```json
+`````````json
 {
   "alias_name" : (required, string),
   "alias_label" : (required, string)
 }
-```
+`````````
 {% endtab %}
 
 {% tab react native %}
-```javascript
+`````````javascript
 Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

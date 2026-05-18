@@ -20,6 +20,6 @@ Expo を使用して iOS でリッチプッシュ通知を有効にするには�
     ]
   }
 }
-```
+`````````
 
 最後に、このアプリ拡張機能のバンドル識別子を、プロジェクトの認証情報設定に追加します：`<your-app-bundle-id>.BrazeExpoRichPush`.このプロセスの詳細については、[Expo Application Services でアプリ拡張機能を使用する]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=react%20native#reactnative_app-extensions)を参照してください。

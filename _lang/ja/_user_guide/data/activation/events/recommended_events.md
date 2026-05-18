@@ -1,21 +1,21 @@
 ---
-nav_title: おすすめイベント
-article_title: おすすめイベント
+nav_title: 推奨イベント
+article_title: 推奨イベント
 alias: /recommended_events/
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Brazeがeコマースイベント向けに提供するおすすめイベントについて説明します。"
+description: "このリファレンス記事では、Brazeがeコマースイベント向けに提供する推奨イベントについて説明します。"
 ---
 
-# おすすめイベント {#recommended-events}
+# 推奨イベント {#recommended-events}
 
-> おすすめイベントは、定義済みのJSONスキーマを持つ標準化されたカスタムイベントを送信するフレームワーク上に構築されています。おすすめイベントを送信すると、Brazeは取り込み時にスキーマに対してバリデーションを行い、自動フィールド計算やカート管理など、汎用カスタムイベントでは適用されない特別な後処理を実行します。特定の業界向けイベントセットについては、CampaignsやCanvasesの専用アクションベーストリガーなど、Brazeが特別な処理をサポートする場合があります。
+> 推奨イベントは、定義済みのJSONスキーマを持つ標準化されたカスタムイベントを送信するフレームワーク上に構築されています。推奨イベントを送信すると、Brazeは取り込み時にスキーマに対してバリデーションを行い、自動フィールド計算やカート管理など、汎用カスタムイベントでは適用されない特別な後処理を実行します。特定の業界向けイベントセットについては、キャンペーンやキャンバスの専用アクションベーストリガーなど、Brazeが特別な処理をサポートする場合があります。
 
 ## eコマース推奨イベント {#ecommerce-recommended-events}
 
 [eコマース推奨イベント]({{site.baseurl}}/ecommerce_events/)は、購入ジャーニーの6つのステップをカバーします: `product_viewed`、`cart_updated`、`checkout_started`、`order_placed`、`order_cancelled`、`order_refunded`。これらのイベントを正常に送信すると、Brazeはデータをバリデーションし、拡大し続けるプラットフォーム機能で利用可能にします。
 
-これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのCanvasテンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるSegmentの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
+これらの機能には、閲覧放棄、カート放棄、チェックアウト放棄、注文確認フロー向けのキャンバステンプレート、eコマースレポート、_合計収益_、_合計注文数_、_合計返金額_の計算済みユーザープロファイルフィールドが含まれます。また、[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用したネストされた製品プロパティフィルタリングによるセグメントの構築、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用したカート放棄メッセージのパーソナライゼーション、[Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)、[Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/)、[アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)などのBrazeAI<sup>TM</sup>機能への活用、およびその他の機能も利用可能です。
 
 これらのイベントは定義済みスキーマに従うため、サポートされる各機能は、カスタムプロパティマッピングや機能ごとの設定なしに構造化データを読み取ることができます。
 
@@ -27,12 +27,12 @@ eコマースイベントは、事前定義された名前とプロパティス�
 
 eコマースイベントは、他のカスタムイベントが機能するすべての場所で機能します: 実行済みカスタムイベントのトリガーとフィルター、カスタムイベントレポートなど。ただし、スキーマバリデーションにより、以下の追加機能が利用可能になります:
 
-- Campaigns、Canvases、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
+- キャンペーン、キャンバス、アクションパス、アプリ内メッセージトリガー、コンテンツカードの削除における「注文する」トリガーアクション
 - 計算済みeコマースユーザープロファイルフィールド (**合計収益**、**合計注文数**、**合計返金額**)
 - カート放棄フロー向けのカート状態管理
 - Predictive Events、Predictive Churn、アイテムのおすすめなどのBrazeAI<sup>TM</sup>機能向けのリッチデータ
 
-また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのCampaignをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするSegmentを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
+また、プラットフォームがカスタムイベントをサポートする場所であれば、eコマースイベントを名前で参照することもできます。例えば、`ecommerce.product_viewed`イベントでアクションベースのキャンペーンをトリガーしたり、`ecommerce.checkout_started`イベントでフィルタリングするセグメントを構築したり、Currentsを通じて`ecommerce.order_placed`イベントをエクスポートしたりできます。
 
 #### イベント命名 {#event-naming}
 
@@ -98,7 +98,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
     }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% tab ecommerce.cart_updated %}
@@ -114,7 +114,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 特定のカートに対して、増分カート更新 (`add`または`remove`) と全体置換 (`action`なしまたは`replace`) のいずれか一方を使用してください。同じ`cart_id`に対して両方のアプローチを混在させることは推奨されず、Brazeでカート状態の不整合が発生する可能性があります。
 {% endalert %}
 
-このイベントからメッセージングをトリガーするには、CanvasおよびCampaignsの**カート更新イベントの実行**トリガーを使用します。このトリガーには、カートがショッピングファネルを進行するのを停止する特別な処理が含まれています。
+このイベントからメッセージングをトリガーするには、キャンバスおよびキャンペーンの**カート更新イベントの実行**トリガーを使用します。このトリガーには、カートがショッピングファネルを進行するのを停止する特別な処理が含まれています。
 
 {% alert tip %}
 カートはユーザープロファイル上にカートマッピングオブジェクトを作成し、{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを動作させます。カートは更新なしで30日後に期限切れになります。2つのユーザープロファイルがマージされた場合、Brazeは両方のカートを保持します。
@@ -161,7 +161,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 
 `add`は数量を増加させるか、新しいラインを追加します。`quantity`プロパティは追加するユニット数です。
 
-```javascript
+`````````javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
   cart_id: "cart_abc123",
   action: "add",
@@ -177,12 +177,12 @@ braze.logCustomEvent("ecommerce.cart_updated", {
     },
   ],
 });
-```
+`````````
 ##### `remove`
 
 `remove`は`quantity`の量だけ数量を減少させます。数量が`0`に達するとラインが削除されます。
 
-```javascript
+`````````javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
   cart_id: "cart_abc123",
   action: "remove",
@@ -198,13 +198,13 @@ braze.logCustomEvent("ecommerce.cart_updated", {
     },
   ],
 });
-```
+`````````
 
 ##### `replace`
 
 `replace` (または`action`を省略) はカート全体を送信します。`total_value`は必須です。
 
-```javascript
+`````````javascript
 braze.logCustomEvent("ecommerce.cart_updated", {
   cart_id: "cart_abc123",
   action: "replace",
@@ -232,7 +232,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
     },
   ],
 });
-```
+`````````
 
 {% endsubtab %}
 {% subtab Android %}
@@ -241,7 +241,7 @@ braze.logCustomEvent("ecommerce.cart_updated", {
 
 `add`は数量を増加させるか、新しいラインを追加します。`quantity`プロパティは追加するユニット数です。
 
-```text
+`````````text
 Kotlin
 
 // add — units to add
@@ -284,13 +284,13 @@ Braze.getInstance(context).logCustomEvent(
                 .put("variant_id", "UB-BLK-11")
                 .put("quantity", 1)
                 .put("price", 189.99)))));
-```
+`````````
 
 ##### 削除
 
 `remove`は`quantity`の量だけ数量を減少させます。数量が`0`に達するとラインが削除されます。
 
-```text
+`````````text
 Kotlin
 
 // remove — units to remove
@@ -333,13 +333,13 @@ Braze.getInstance(context).logCustomEvent(
                 .put("variant_id", "SOC-WHT-L")
                 .put("quantity", 1)
                 .put("price", 14.99)))));
-```
+`````````
 
 ##### 置き換え
 
 `replace` (または`action`を省略) はカート全体を送信します。`total_value`は必須です。
 
-```text
+`````````text
 Kotlin
 
 // replace — full cart; total_value required
@@ -399,7 +399,7 @@ Braze.getInstance(context).logCustomEvent(
                 .put("variant_id", "SOC-WHT-L")
                 .put("quantity", 2)
                 .put("price", 14.99)))));
-```
+`````````
 
 {% endsubtab %}
 {% subtab Swift %}
@@ -408,7 +408,7 @@ Braze.getInstance(context).logCustomEvent(
 
 `add`は数量を増加させるか、新しいラインを追加します。`quantity`プロパティは追加するユニット数です。
 
-```text
+`````````text
 Swift
 
 // add — units to add
@@ -448,13 +448,13 @@ Objective-C
     @"price": @189.99,
   }],
 }];
-```
+`````````
 
 ##### 削除
 
 `remove`は`quantity`の量だけ数量を減少させます。数量が`0`に達するとラインが削除されます。
 
-```text
+`````````text
 Swift
 
 // remove — units to remove
@@ -494,13 +494,13 @@ Objective-C
     @"price": @14.99,
   }],
 }];
-```
+`````````
 
 ##### 置き換え
 
 `replace` (または`action`を省略) はカート全体を送信します。`total_value`は必須です。
 
-```text
+`````````text
 Swift
 
 // replace — full cart; total_value required
@@ -558,7 +558,7 @@ Objective-C
     },
   ],
 }];
-```
+`````````
 
 {% endsubtab %}
 {% subtab REST API %}
@@ -567,7 +567,7 @@ Objective-C
 
 `add`は数量を増加させるか、新しいラインを追加します。`quantity`プロパティは追加するユニット数です。
 
-```json
+`````````json
 {
   "events": [
     {
@@ -592,13 +592,13 @@ Objective-C
     }
   ]
 }
-```
+`````````
 
 ##### `remove`
 
 `remove`は`quantity`の量だけ数量を減少させます。数量が`0`に達するとラインが削除されます。
 
-```json
+`````````json
 {
   "events": [
     {
@@ -623,13 +623,13 @@ Objective-C
     }
   ]
 }
-```
+`````````
 
 ##### `replace`
 
 `replace` (または`action`を省略) はカート全体を送信します。`total_value`は必須です。
 
-```json
+`````````json
 {
   "events": [
     {
@@ -680,7 +680,7 @@ Objective-C
     }
   ]
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -722,7 +722,7 @@ Objective-C
 
 #### REST APIの例
 
-```json
+`````````json
 {
   "events": [
     {
@@ -774,7 +774,7 @@ Objective-C
     }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% tab ecommerce.order_placed %}
@@ -819,7 +819,7 @@ Objective-C
 
 #### REST APIの例
 
-```json
+`````````json
 {
   "events": [
     {
@@ -878,7 +878,7 @@ Objective-C
     }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% tab ecommerce.order_cancelled %}
@@ -923,7 +923,7 @@ Objective-C
 
 #### REST APIの例
 
-```json
+`````````json
 {
   "events": [
     {
@@ -971,7 +971,7 @@ Objective-C
     }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% tab ecommerce.order_refunded %}
@@ -1015,7 +1015,7 @@ Objective-C
 {% subtabs %}
 {% subtab 全額返金 %}
 
-```json
+`````````json
 {
   "events": [
     {
@@ -1049,11 +1049,11 @@ Objective-C
     }
   ]
 }
-```
+`````````
 {% endsubtab %}
 {% subtab 一部返金 %}
 
-```json
+`````````json
 {
   "events": [
     {
@@ -1088,7 +1088,7 @@ Objective-C
     }
   ]
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -1122,7 +1122,7 @@ eコマースイベントは、[`/users/track`エンドポイント]({{site.base
 
 `/users/track`エンドポイントを使用して、バックエンドからeコマースイベントを送信します。各イベントには、正確なイベント名、ユーザーの`external_id`、およびイベントスキーマに一致するプロパティオブジェクトが必要です。
 
-```json
+`````````json
 POST /users/track
 
 {
@@ -1158,7 +1158,7 @@ POST /users/track
     }
   ]
 }
-```
+`````````
 
 ### データポイントと課金 {#data-points-and-billing}
 
@@ -1166,7 +1166,7 @@ eコマースイベントは[データポイント]({{site.baseurl}}/user_guide/
 
 ### イベントサイズの制限 {#event-size-limit}
 
-`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト (100 KB) が上限です。トリガーされたCampaignおよびCanvasメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)に送信される`trigger_properties`のデフォルト上限は51,200バイト (50 KB) とより厳しくなっています。
+`/users/track`に送信されるイベントプロパティは、イベントあたり102,400バイト (100 KB) が上限です。トリガーされたキャンペーンおよびキャンバスメッセージの場合、[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)および[`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)に送信される`trigger_properties`のデフォルト上限は51,200バイト (50 KB) とより厳しくなっています。
 
 ベストプラクティスとして、トリガー、パーソナライゼーション、またはイベントのアトリビューションに必要な製品情報のみを送信してください。説明、完全なバリアントリスト、在庫、代替画像などのリッチな製品詳細はBrazeカタログに保存してください。メッセージ送信時に`product_id`または`variant_id`でこれらの詳細を参照します。`metadata`オブジェクトは、メッセージングで使用する注文または製品固有のコンテキストに対して選択的に使用してください。
 
@@ -1187,12 +1187,12 @@ Brazeは米ドル以外の通貨値を、イベントが報告された日の為
 イベントレベルおよび製品レベルのmetadataオブジェクトは任意のキーと値のペアを受け入れるため、コアスキーマを変更せずにカスタムディメンションを付加できます。一般的な例としては、`order_status_url`、`gift_wrapped`、`loyalty_points_earned`、`warehouse_id`などがあります。これらのプロパティは、Liquidパーソナライゼーション、Currentsエクスポート、および[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を通じたセグメンテーションで利用可能です。
 
 {% alert important %}
-おすすめイベントは厳密なスキーマを使用します。そのため、プロパティのトップレベルにカスタムプロパティを追加するとバリデーションに失敗します。すべてのカスタムプロパティは、イベントレベルの`metadata`オブジェクトまたは`products[]`内の製品レベルの`metadata`オブジェクトに配置してください。これらはトップレベルフィールドと同様に、Liquid、Currents、セグメンテーションで利用可能です。
+推奨イベントは厳密なスキーマを使用します。そのため、プロパティのトップレベルにカスタムプロパティを追加するとバリデーションに失敗します。すべてのカスタムプロパティは、イベントレベルの`metadata`オブジェクトまたは`products[]`内の製品レベルの`metadata`オブジェクトに配置してください。これらはトップレベルフィールドと同様に、Liquid、Currents、セグメンテーションで利用可能です。
 {% endalert %}
 
 ## イベントのバリデーションとトラブルシューティング {#event-validation-and-troubleshooting}
 
-おすすめeコマースイベントを`/users/track`または任意のBraze SDKを通じて送信すると、Brazeはおすすめイベントの処理中にペイロードをイベントのJSONスキーマに対してバリデーションします。バリデーションは、名前がおすすめイベントと正確に一致するすべてのイベント (例: `ecommerce.order_placed`や`ecommerce.cart_updated`) に対して自動的に実行されます。
+eコマース推奨イベントを`/users/track`または任意のBraze SDKを通じて送信すると、Brazeは推奨イベントの処理中にペイロードをイベントのJSONスキーマに対してバリデーションします。バリデーションは、名前が推奨イベントと正確に一致するすべてのイベント (例: `ecommerce.order_placed`や`ecommerce.cart_updated`) に対して自動的に実行されます。
 
 ### バリデーション内容 {#what-we-validate}
 
@@ -1220,19 +1220,19 @@ eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_
 
 イベントを送信した後、以下のいずれかを使用して、イベントが受け入れられ正しく処理されたことを確認できます:
 
-- [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): ダッシュボードでユーザーのプロファイルを開き、アクティビティを確認します。おすすめイベントは完全なプロパティペイロードとともに表示されるため、イベントが到達し、送信した値と一致していることを確認できます。
-- [カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): **Analytics** > **Custom Events**に移動して、各おすすめイベントの経時的な集計カウントを確認します。これは、インテグレーションが本番稼働している際に、本番トラフィックが期待どおりに流れていることを確認するのに役立ちます。
+- [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): ダッシュボードでユーザーのプロファイルを開き、アクティビティを確認します。推奨イベントは完全なプロパティペイロードとともに表示されるため、イベントが到達し、送信した値と一致していることを確認できます。
+- [カスタムイベントレポート]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): **Analytics** > **Custom Events**に移動して、各推奨イベントの経時的な集計カウントを確認します。これは、インテグレーションが本番稼働している際に、本番トラフィックが期待どおりに流れていることを確認するのに役立ちます。
 - [テストユーザー]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): 開発ワークスペースでユーザーをテストユーザーとしてマークし、そのユーザーに対してインテグレーションからイベントをトリガーします。テストユーザーはダッシュボードでフラグが付けられるため、エンドツーエンドの動作を簡単に分離して検査できます。
 
 ### バリデーションに失敗した場合 {#when-validation-fails}
 
-イベントはおすすめイベントとして処理されません。具体的には:
+イベントは推奨イベントとして処理されません。具体的には:
 
-- **イベントは完全にドロップされます。** 無効なおすすめeコマースイベントはユーザープロファイルに記録されず、Currentsに表示されず、セグメンテーションでも利用できません。
-- 以下を含む下流のおすすめイベント機能は実行されません:
+- **イベントは完全にドロップされます。** 無効なeコマース推奨イベントはユーザープロファイルに記録されず、Currentsに表示されず、セグメンテーションでも利用できません。
+- 以下を含む下流の推奨イベント機能は実行されません:
   - 収益トラッキング (収益レポート、`total_revenue`などのユーザー計算フィールド)
   - ユーザープロファイル上のカートオブジェクトの更新
-  - CanvasおよびCampaignsの「カート更新イベントの実行」または「注文する」トリガー
+  - キャンバスおよびキャンペーンの「カート更新イベントの実行」または「注文する」トリガー
 
 エラーの報告方法は取り込みパスによって異なります:
 
@@ -1243,12 +1243,12 @@ eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_
 
 `/users/track`エンドポイントは、どのプロパティが失敗したか、およびその理由を示すフィールドレベルのエラーを返します。トップレベルの`message`はイベントがパイプラインに受け入れられたため`"success"`を返す場合があることに注意してください。`errors`配列がスキーマバリデーションに失敗したフィールドを示します。以下のエラーレスポンスの例を参照してください。
 
-```json
+`````````json
 {
  "message": "success",
  "errors": [{ "index": 0, "input_array": "purchases", "type": "'currency' must be an ISO 4217 currency" }]
 }
-```
+`````````
 
 失敗は内部的にも分類され、失敗サマリーメール用に集計されます:
 
@@ -1260,17 +1260,17 @@ eコマースイベントは、収益トラッキング、{% raw %}`{% shopping_
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example API error response" }
 
 {% alert note %}
-おすすめイベントと正確に一致しないイベント名 (例: `ecommerce.OrderPlaced`) は、バリデーションを完全にスキップし、通常のカスタムイベントとして記録されます。送信した名前でCurrentsおよびセグメンテーションに表示されますが、おすすめイベントの処理は行われず、レスポンスに`errors`エントリも含まれません。
+推奨イベントと正確に一致しないイベント名 (例: `ecommerce.OrderPlaced`) は、バリデーションを完全にスキップし、通常のカスタムイベントとして記録されます。送信した名前でCurrentsおよびセグメンテーションに表示されますが、推奨イベントの処理は行われず、レスポンスに`errors`エントリも含まれません。
 {% endalert %}
 
 #### 失敗の確認 {#find-failures}
 
-Brazeはワークスペース管理者に、おすすめイベントのバリデーション失敗のサマリーをメールで送信するため、すべてのイベントを手動で監視することなくインテグレーションの問題を特定して修正できます。
+Brazeはワークスペース管理者に、推奨イベントのバリデーション失敗のサマリーをメールで送信するため、すべてのイベントを手動で監視することなくインテグレーションの問題を特定して修正できます。
 
 サマリーメールには以下が含まれます:
 
 - **合計エラー数:** レポート期間のエラー数。
-- **イベント別エラー:** 各おすすめイベントタイプ (例: `ecommerce.cart_updated`や`ecommerce.order_placed`) で失敗したイベント数の内訳。これを使用して、インテグレーションのどのイベントに最初に対応すべきかを特定します。
+- **イベント別エラー:** 各推奨イベントタイプ (例: `ecommerce.cart_updated`や`ecommerce.order_placed`) で失敗したイベント数の内訳。これを使用して、インテグレーションのどのイベントに最初に対応すべきかを特定します。
 - **ソース別エラー:** APIとSDKの分割。これにより、どのインテグレーションが失敗を生成しているかを特定できます。
 
 これらのメールを受信していない場合や受信者リストを確認したい場合は、Brazeアカウントチームにお問い合わせください。
@@ -1284,7 +1284,7 @@ Brazeはワークスペース管理者に、おすすめイベントのバリデ
    - `missing_property`: 必須フィールドが欠落しています。解決するには、必須フィールドを追加してください。
    - `extra_property`: カスタムフィールドが`properties`のトップレベルにあります。解決するには、カスタムフィールドを`metadata` (イベントレベル) または`products[].metadata` (製品ごと) 内に移動してください。
    - `unexpected_data_type`: 値のタイプが間違っています (例: `total_value`が文字列として送信された場合)。解決するには、送信前に値を変換してください。
-3. **修正したペイロードを本番環境にロールアウトする前に開発ワークスペースでテストします。** テストユーザーに対して既知のテストイベントを送信し、そのユーザーのプロファイルで期待されるおすすめイベントの動作 (例: カートオブジェクトの更新、収益の増加、カート放棄トリガーの発火) を確認してください。
+3. **修正したペイロードを本番環境にロールアウトする前に開発ワークスペースでテストします。** テストユーザーに対して既知のテストイベントを送信し、そのユーザーのプロファイルで期待される推奨イベントの動作 (例: カートオブジェクトの更新、収益の増加、カート放棄トリガーの発火) を確認してください。
 4. **次の失敗メールを監視して**、そのイベント、ソース、タイプの失敗数がゼロに減少したことを確認します。
 
 イベントごとの完全なプロパティ要件については、[イベントスキーマ](#event-schemas)を参照してください。

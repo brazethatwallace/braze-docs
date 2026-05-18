@@ -29,14 +29,14 @@ BrazeはShopifyのすべてのLiquidフィルターをサポートしている�
 {% raw %}
 ```liquid
 {{"Big Sale" | upcase}}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 BIG SALE
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -54,16 +54,16 @@ BIG SALE
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-```liquid
+`````````liquid
  {{ "Big Sale" | upcase | remove: "BIG" }}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 SALE
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -130,9 +130,9 @@ Liquidで整数（整数値）を整数で除算する場合、答えが浮動�
 
 {% raw %}
 
-```liquid
+`````````liquid
 {{custom_attribute.${current_rewards_balance} | plus: {{custom_attribute.${giftcard_balance}}}}}
-```
+`````````
 
 この例は、1行のLiquidで複数のカスタム属性を参照できないため、動作しません。代わりに、数学関数を実行する前に、これらの値の少なくとも1つを変数に割り当てる必要があります。2つのカスタム属性を加算するには、2行のLiquidが必要です。
 
@@ -145,9 +145,9 @@ Liquidで整数（整数値）を整数で除算する場合、答えが浮動�
 
 1. `assign` タグを使用して、`current_rewards_balance` のカスタム属性を「balance」という用語に置き換えます。これにより、操作可能な `balance` という名前の変数が作成されます。
 
-```liquid
+`````````liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
-```
+`````````
 
 {: start="2"}
 2. `plus` フィルターを使用して、各ユーザーのギフトカード残高とリワード残高（`{{balance}}` オブジェクトで表される）を結合します。
@@ -155,17 +155,17 @@ Liquidで整数（整数値）を整数で除算する場合、答えが浮動�
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-```liquid
+`````````liquid
 {% assign balance = {{custom_attribute.${current_rewards_balance}}} %}
 You have ${{custom_attribute.${giftcard_balance} | plus: {{balance}}}} to spend!
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 You have $35 to spend!
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -184,10 +184,10 @@ You have $35 to spend!
 {% alert important %}
 `money` フィルターで数値を正しくフォーマットするには、数値からカンマを削除し、`money` フィルターの前に `plus: 0` フィルターを追加してください。例えば、以下のLiquidを参照してください。<br><br>
 {% raw %}
-```liquid
+`````````liquid
 {% assign my_int = "350000.25" | plus: 0 %}
 {{ my_int | money }}
-```
+`````````
 {% endraw %}
 {% endalert %}
 
@@ -200,9 +200,9 @@ Shopifyの `money` フィルターの動作は、Brazeでの使用方法とは�
 {% raw %}
 カスタム属性（`account_balance` など）を入力する場合は、常に `money` フィルターを使用して、小数点を正しい位置に配置し、数値の末尾からゼロが削除されないようにする必要があります。
 
-```liquid
+`````````liquid
 ${{custom_attribute.${account_balance} | money}}
-```
+`````````
 {% endraw %}
 
 | MONEYフィルターあり | MONEYフィルターなし |
@@ -216,16 +216,16 @@ Brazeの `money` フィルターは、プリセット設定に従って自動的
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-```liquid
+`````````liquid
 ${{event_properties.${rewards_redeemed} | money }}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 $145.00
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -235,16 +235,16 @@ Shopifyの [money](https://shopify.dev/api/liquid/filters/money) フィルター
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-```liquid
+`````````liquid
 ${{event_properties.${rewards_redeemed} | divided_by: 100.00 | money }}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 $1.45
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -312,16 +312,16 @@ Liquidでは、ストレート引用符とカーリー引用符は異なりま�
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-```liquid
+`````````liquid
 {{custom_attribute.${date_attribute} | date: '%b %d'}}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 03 June
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -331,16 +331,16 @@ Liquidでは、ストレート引用符とカーリー引用符は異なりま�
 {% tabs local %}
 {% tab 入力 %}
 {% raw %}
-```liquid
+`````````liquid
 {{custom_attribute.${date_attribute} | date: '%s' }}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 1433351621
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}

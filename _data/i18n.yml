@@ -62,6 +62,11 @@ en:
   glossary_liquid_use_cases_search_hint: Results update automatically as you type.
   glossary_liquid_use_cases_no_results: No use cases matching these filters
   glossary_liquid_use_cases_showing: Showing __COUNT__ of __TOTAL__ use cases
+  sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
+  liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
+  message_engagement_events_glossary_intro: "Use the search bar or the checkboxes below to find the events you need to use Currents effectively.<br><br>These schema consist of the Braze Events that are directly related to message sending."
+  customer_behavior_events_glossary_title: Customer behavior and user events
+  customer_behavior_events_glossary_intro: "Use the search bar or the checkboxes below to find the events you need to use Currents effectively.<br><br>These schema include other App or Website activity such as Sessions, Custom Events, and Purchases tracked through the platform."
   currents_customer_behavior_tag_labels:
     attribution: Attribution
     "custom events": Custom Events
@@ -267,6 +272,11 @@ ja:
   glossary_liquid_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
   glossary_liquid_use_cases_no_results: この条件に一致するユースケースはありません
   glossary_liquid_use_cases_showing: ユースケース __TOTAL__ 件中 __COUNT__ 件を表示
+  sql_segment_extensions_glossary_intro: "検索バーまたは下のチェックボックスから、SQLセグメントエクステンションのサンプルクエリを参照してください。"
+  liquid_use_case_glossary_intro: "Liquidを使った理想的なパーソナライゼーションのヒントをお探しですか？カテゴリ別に整理したLiquidユースケース集をご覧ください。<br><br>検索バーまたは下のチェックボックスから、ニーズに合ったユースケースを探してください。"
+  message_engagement_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマは、メッセージ送信に直接関連するBrazeイベントで構成されています。"
+  customer_behavior_events_glossary_title: 顧客行動とユーザーイベント
+  customer_behavior_events_glossary_intro: "検索バーまたは下のチェックボックスから、Currentsを効果的に使うために必要なイベントを探してください。<br><br>これらのスキーマには、セッション、カスタムイベント、購入など、プラットフォームを通じて追跡されるアプリまたはWebサイトのその他のアクティビティが含まれます。"
   currents_customer_behavior_tag_labels:
     attribution: アトリビューション
     "custom events": カスタムイベント

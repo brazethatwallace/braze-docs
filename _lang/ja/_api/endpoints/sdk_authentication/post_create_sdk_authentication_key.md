@@ -28,15 +28,15 @@ description: "この記事では、「SDK認証キーを作成」Brazeエンド�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
-```json
+`````````
+`````````json
 {
   "app_id": "App API identifier",
   "rsa_public_key_str": "RSA public key string",
   "description": "description",
   "make_primary": false
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_authentication/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -60,14 +60,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
   "description": "SDK Authentication Key for iOS App",
   "make_primary": false
 }'
-```
+`````````
 
 ## 応答 {#response}
-```json
+`````````json
 {
   "id": "key id"
 }
-```
+`````````
 
 ## 応答パラメーター {#response-parameters}
 

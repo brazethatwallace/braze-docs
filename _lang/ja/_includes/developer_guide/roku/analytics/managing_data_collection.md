@@ -26,7 +26,7 @@ sub WipeBrazeData()
     registry.Delete("braze.section.config")
     registry.Flush()
 end sub
-```
+`````````
 
 ### ステップ 2: Braze SDKを再初期化する {#step-2-re-initialize-the-braze-sdk}
 

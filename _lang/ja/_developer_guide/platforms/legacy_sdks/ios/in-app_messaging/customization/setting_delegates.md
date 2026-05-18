@@ -27,14 +27,14 @@ noindex: true
 
 ```objc
 [[Appboy sharedInstance].inAppMessageController.inAppMessageUIController setInAppMessageUIDelegate:self];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInAppMessageUIDelegate?(self)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -50,16 +50,16 @@ Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInA
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy sharedInstance].inAppMessageController.delegate = self;
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.inAppMessageController.delegate = self
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -68,22 +68,22 @@ Appboy.sharedInstance()?.inAppMessageController.delegate = self
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API_KEY"
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKInAppMessageControllerDelegateKey : self }];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,
                  withAppboyOptions:[ ABKInAppMessageControllerDelegateKey : self ])
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

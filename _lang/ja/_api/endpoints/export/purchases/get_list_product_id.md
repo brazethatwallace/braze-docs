@@ -38,19 +38,19 @@ description: "この記事では、「製品IDをエクスポートする」Braz
 {% raw %}
 ```
 https://rest.iad-01.braze.com/purchases/product_list?page=1
-```
+`````````
 {% endraw %}
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
   "products": [
     "product_name" (string), the name of the product
   ],
   "message": "success"
 }
-```
+`````````
 
 {% endapi %}
 

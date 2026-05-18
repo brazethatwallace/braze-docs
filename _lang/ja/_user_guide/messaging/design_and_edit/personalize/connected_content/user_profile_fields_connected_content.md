@@ -23,7 +23,7 @@ toc_headers: h2
 ```liquid
 Hi ${first_name},
 {% connected_content https://examplewebsite.com :rerender %}
-```
+`````````
 {% endraw %}
 
 コネクテッドコンテンツの応答が {% raw %}`Your language is ${language}`{% endraw %} の場合、この例で表示されるコンテンツは`Hi Jon, your language is`となります。
@@ -33,9 +33,9 @@ Hi ${first_name},
 Liquidのパスバックを正しくレンダリングするには、以下のコードスニペットに示すように、リクエストのどこかに {% raw %}`${language}`{% endraw %} タグを含める必要があります。Liquidプリプロセッサーは、応答のテンプレート化に備えて、ユーザーから「language」属性を取得することを認識します。
 
 {%raw%}
-```liquid
+`````````liquid
 Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${language} :rerender %}
-```
+`````````
 {% endraw %}
 
 {% alert important %}
@@ -51,9 +51,9 @@ Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${lan
 例えば、以下の例で`message`イベントプロパティにJSON形式を壊す可能性のある文字が含まれている場合、この例のように`json_escape`フィルターを追加します。
 
 {% raw %}
-```liquid
+`````````liquid
 [{
 "message":"{{event_properties.${message} | json_escape}}"
 }]
-```
+`````````
 {% endraw %}

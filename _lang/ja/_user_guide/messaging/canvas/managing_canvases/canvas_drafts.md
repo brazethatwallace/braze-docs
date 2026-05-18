@@ -5,7 +5,7 @@ alias: "/save_as_draft/"
 page_order: 1
 description: "この参照記事では、すでに起動済みのキャンバスの下書きを保存する方法について説明します。"
 page_type: reference
-tool: Canvas
+tool: キャンバス
 ---
 
 # キャンバスの下書きを保存

@@ -14,27 +14,27 @@ Braze Vega SDKを使えば、ユーザー向けの分析データを収集し、
 
 ```bash
 npm install @braze/vega-sdk --save
-```
+`````````
 
 インストール後、必要なメソッドをインポートできる：
 
-```javascript
+`````````javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
-```
+`````````
 {% endtab %}
 
 {% tab yarn %}
 プロジェクトでYarnを使用している場合、Braze Vega SDKを依存関係として追加できる。
 
-```bash
+`````````bash
 yarn add @braze/vega-sdk
-```
+`````````
 
 インストール後、必要なメソッドをインポートできる：
 
-```javascript
+`````````javascript
 import { initialize, changeUser, openSession } from "@braze/vega-sdk";
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -46,7 +46,7 @@ import { initialize, changeUser, openSession } from "@braze/vega-sdk";
 他のBrazeメソッドを呼び出す前に、プロミ`changeUser`スを待機または解決しなければならない。さもなければ、イベントや属性が誤ったユーザーに設定される可能性がある。
 {% endalert %}
 
-```javascript
+`````````javascript
 import { useEffect } from "react-native";
 import {
   initialize,
@@ -86,7 +86,7 @@ const App = () => {
     // Your app components
   );
 };
-```
+`````````
 
 {% alert important %}
 匿名ユーザーは[MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users)にカウントされる可能性がある。その結果、これらのユーザーをMAUカウントから除外するために、条件付きでSDKをロードするか、初期化したい場合があります。
@@ -102,11 +102,11 @@ SDKのログ記録のイネーブルメントを有効にすれば、デバッ�
 
 デバッグメッセージをコンソールに記録するには`initialize()`、`enableLogging: true`以下を実行する:
 
-```javascript
+`````````javascript
 initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
   enableLogging: true
 });
-```
+`````````
 
 {% alert important %}
 基本ログは全てのユーザーに公開されるため、本番環境にコードをリリースする前にログ記録を無効にすることを検討せよ。
@@ -116,47 +116,47 @@ initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
 
 初期化後にSDKのログ出力をイネーブルメントまたは無効`toggleLogging()`にするには、以下を使用する：
 
-```javascript
+`````````javascript
 import { toggleLogging } from "@braze/vega-sdk";
 
 // Enable logging
 toggleLogging();
-```
+`````````
 
 #### カスタムロギング
 
 SDKのログ処理をより細かくコントロールするために、カスタムロガー関数を`setLogger()`指定するには``を使用する。
 
-```javascript
+`````````javascript
 import { setLogger } from "@braze/vega-sdk";
 
 setLogger((message) => {
   console.log("Braze Custom Logger: " + message);
   // Add your custom logging logic here
 });
-```
+`````````
 
 ### 設定オプション
 
 SDKの動作をカスタマイズするために`initialize()`、追加の設定オプションを渡すことができる：
 
-```javascript
+`````````javascript
 await initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT", {
   sessionTimeoutInSeconds: 60,        // Configure session timeout (default is 30 seconds)
   appVersionNumber: "1.2.3.4",        // Set your app version
   enableLogging: true,                 // Enable SDK logging
 });
-```
+`````````
 
 ## SDKをアップグレードする
 
 NPMやYarnからBraze Vega SDKを参照している場合、パッケージ依存関係を更新することで最新版にアップグレードできる：
 
-```bash
+`````````bash
 npm update @braze/vega-sdk
 # or, using yarn:
 yarn upgrade @braze/vega-sdk
-```
+`````````
 
 ## 統合のテスト
 

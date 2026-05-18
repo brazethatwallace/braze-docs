@@ -34,9 +34,9 @@ description: "この記事では、Content Blocksの作成Brazeエンドポイ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "name": (required, string) Must be less than 100 characters,
   "description": (optional, string) The description of the Content Block. Must be less than 250 character,
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR_REST_API_KEY
   "state": (optional, string) Choose `active` or `draft`. Defaults to `active` if not specified,
   "tags": (optional, array of strings) Tags must already exist
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -69,18 +69,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
   "state": "draft",
   "tags": ["marketing"]
 }'
-```
+`````````
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
   "content_block_id": (string) Your newly generated block id,
   "liquid_tag": (string) The generated block tag from the Content Block name,
   "created_at": (string) The time the Content Block was created in ISO 8601,
   "message": "success"
 }
-```
+`````````
 
 ## トラブルシューティング {#troubleshooting}
 

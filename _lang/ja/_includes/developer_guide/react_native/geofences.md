@@ -33,7 +33,7 @@ import Braze from '@braze/react-native-sdk';
 
 // Android only: call this after the user grants location permission
 Braze.requestLocationInitialization();
-```
+`````````
 
 ### ステップ 5:ジオフェンスを手動でリクエストする（オプション） {#step-5-manually-request-geofences-optional}
 
@@ -42,11 +42,11 @@ iOSとAndroidの両方で、`requestGeofences`を使用して特定のGPS座標�
 1. 自動ジオフェンスリクエストを無効にします。Androidでは、`braze.xml`で`com_braze_automatic_geofence_requests_enabled`を`false`に設定します。iOSでは、Brazeの設定で`automaticGeofenceRequests`を`false`に設定します。
 2. 指定した緯度と経度で`requestGeofences`を呼び出します：
 
-```javascript
+`````````javascript
 import Braze from '@braze/react-native-sdk';
 
 Braze.requestGeofences(33.078947, -116.601356);
-```
+`````````
 
 {% alert important %}
 ジオフェンスは、SDKによる自動リクエストまたはこのメソッドによる手動リクエストのいずれかで、セッションごとに一度だけリクエストできます。

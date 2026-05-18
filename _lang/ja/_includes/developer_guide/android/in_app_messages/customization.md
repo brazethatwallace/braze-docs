@@ -12,7 +12,7 @@ Braze SDKにはデフォルトの`DefaultHtmlInAppMessageActionListener`クラ�
 
 このリスナーは、カスタムHTMLで作成されたメッセージとドラッグ＆ドロップ（DnD）エディターで作成されたメッセージの__両方__に適用されます。従来のIAMには適用されません。従来のIAMとは、Brazeに組み込まれたSDKレンダリングのメッセージタイプ（スライドアップ、モーダル、フルなど）で、元のアプリ内メッセージ作成画面で定義済みのレイアウトを使用して作成されたものです。カスタムHTMLやDnD IAMとは異なり、HTMLアクションリスナーのフローを通過しません。
 
-カスタム`IHtmlInAppMessageActionListener`を設定すると、そのロジックが_すべての_DnDメッセージのデフォルトのクリック動作をオーバーライドします。マーケティングチームのCampaignに予期しない影響を与える可能性があるため、この点をチームに周知してください。
+カスタム`IHtmlInAppMessageActionListener`を設定すると、そのロジックが_すべての_DnDメッセージのデフォルトのクリック動作をオーバーライドします。マーケティングチームのキャンペーンに予期しない影響を与える可能性があるため、この点をチームに周知してください。
 {% endtab %}
 {% endtabs %}
 
@@ -82,10 +82,10 @@ public class CustomHtmlInAppMessageActionListener implements IHtmlInAppMessageAc
     return true;
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtmlInAppMessageActionListener {
 
     override fun onCloseClicked(inAppMessage: IInAppMessage, url: String, queryBundle: Bundle) {
@@ -104,7 +104,7 @@ class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtm
         return true
     }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -124,19 +124,19 @@ class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtm
 
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 @Override
 public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMessage) {
   return InAppMessageOperation.DISPLAY_NOW;
 }
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMessageOperation {
   return InAppMessageOperation.DISPLAY_NOW
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -170,14 +170,14 @@ Brazeへの他の呼び出しの前に、[`Application.onCreate()`](https://deve
 
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(new CustomHtmlInAppMessageActionListener(context));
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(CustomHtmlInAppMessageActionListener(context))
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -191,7 +191,7 @@ BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(C
 {% tab Kotlin %}
 **アプリ内メッセージの種類**<br>
 
-```kotlin
+`````````kotlin
 class BrazeDemoApplication : Application(){
  override fun onCreate() {
     super.onCreate()
@@ -200,12 +200,12 @@ class BrazeDemoApplication : Application(){
     BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory(CustomInAppMessageViewFactory())
   }
 }
-```
+`````````
 {% endtab %}
 {% tab Java %}
 **アプリ内メッセージの種類**<br>
 
-```java
+`````````java
 public class BrazeDemoApplication extends Application {
   @Override
   public void onCreate{
@@ -215,7 +215,7 @@ public class BrazeDemoApplication extends Application {
     BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewFactory(new CustomInAppMessageViewFactory());
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -241,7 +241,7 @@ Brazeのアプリ内メッセージタイプには、ほとんどのカスタム
 
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 public class CustomInAppMessageViewFactory implements IInAppMessageViewFactory {
   @Override
   public View createInAppMessageView(Activity activity, IInAppMessage inAppMessage) {
@@ -260,10 +260,10 @@ public class CustomInAppMessageViewFactory implements IInAppMessageViewFactory {
     }
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
   override fun createInAppMessageView(activity: Activity, inAppMessage: IInAppMessage): View {
     // Uses a custom view for slideups, modals, and full in-app messages.
@@ -280,7 +280,7 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
     }
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -292,7 +292,7 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
 
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 public class CustomInAppMessageViewWrapper extends DefaultInAppMessageViewWrapper {
   public CustomInAppMessageViewWrapper(View inAppMessageView,
                                        IInAppMessage inAppMessage,
@@ -321,10 +321,10 @@ public class CustomInAppMessageViewWrapper extends DefaultInAppMessageViewWrappe
     Toast.makeText(mInAppMessageView.getContext().getApplicationContext(), "Closed in-app message", Toast.LENGTH_SHORT).show();
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 class CustomInAppMessageViewWrapper(inAppMessageView: View,
                                     inAppMessage: IInAppMessage,
                                     inAppMessageViewLifecycleListener: IInAppMessageViewLifecycleListener,
@@ -349,7 +349,7 @@ class CustomInAppMessageViewWrapper(inAppMessageView: View,
     Toast.makeText(mInAppMessageView.context.applicationContext, "Closed in-app message", Toast.LENGTH_SHORT).show()
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -359,7 +359,7 @@ class CustomInAppMessageViewWrapper(inAppMessageView: View,
 
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 public class CustomInAppMessageAnimationFactory implements IInAppMessageAnimationFactory {
 
   @Override
@@ -378,10 +378,10 @@ public class CustomInAppMessageAnimationFactory implements IInAppMessageAnimatio
     return animation;
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 class CustomInAppMessageAnimationFactory : IInAppMessageAnimationFactory {
   override fun getOpeningAnimation(inAppMessage: IInAppMessage): Animation {
     val animation: Animation = AlphaAnimation(0, 1)
@@ -397,7 +397,7 @@ class CustomInAppMessageAnimationFactory : IInAppMessageAnimationFactory {
     return animation
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -427,14 +427,14 @@ Brazeへの他の呼び出しの前に、[`Application.onCreate()`](https://deve
 
 {% subtabs %}
 {% subtab JAVA %}
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(new CustomInAppMessageViewWrapper());
-```
+`````````
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageViewWrapperFactory(CustomInAppMessageViewWrapper())
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -453,7 +453,7 @@ BrazeのUI要素は、Android標準のUIガイドラインにマッチしたデ�
 
 デフォルトのスタイルは、Braze SDKの[`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml)ファイルで確認できます。
 
-```xml
+`````````xml
   <style name="Braze"/>
   <style name="Braze.InAppMessage"/>
   <style name="Braze.InAppMessage.Header">
@@ -468,14 +468,14 @@ BrazeのUI要素は、Android標準のUIガイドラインにマッチしたデ�
     <item name="android:textStyle">bold</item>
     <item name="android:layout_centerHorizontal">true</item>
   </style>
-```
+`````````
 
 必要に応じて、これらのスタイルをオーバーライドし、アプリにより適したルックアンドフィールを作成できます。
 
 スタイルをオーバーライドするには、スタイル全体をプロジェクトの`styles.xml`ファイルにコピーし、変更を加えます。すべての属性が正しく設定されるようにするには、スタイル全体をローカルの`styles.xml`にコピーする必要があります。これらのカスタムスタイルは、個々のUI要素を変更するためのものであり、レイアウトを全面的に変更するものではないことに注意してください。レイアウトレベルの変更はカスタムビューで処理する必要があります。
 
 {% alert note %}
-XMLを修正することなく、BrazeのCampaignでいくつかの色を直接カスタマイズできます。Brazeダッシュボードで設定した色は、他の場所で設定した色よりも優先されることに注意してください。
+XMLを修正することなく、Brazeのキャンペーンでいくつかの色を直接カスタマイズできます。Brazeダッシュボードで設定した色は、他の場所で設定した色よりも優先されることに注意してください。
 {% endalert %}
 
 ### フォントのカスタマイズ {#customizing-the-font}
@@ -486,7 +486,7 @@ XMLを修正することなく、BrazeのCampaignでいくつかの色を直接�
 
 以下は、最後の行でカスタムフォントファミリ`my_custom_font_family`が参照されている部分的なコード例です。
 
-```xml
+`````````xml
   <style name="Braze.InAppMessage.Button">
     <item name="android:layout_height">wrap_content</item>
     ...
@@ -494,7 +494,7 @@ XMLを修正することなく、BrazeのCampaignでいくつかの色を直接�
     <item name="android:fontFamily">@font/my_custom_font_family</item>
     <item name="fontFamily">@font/my_custom_font_family</item>
   </style>
-```
+`````````
 
 ボタンテキストの`Braze.InAppMessage.Button`スタイルとは別に、メッセージテキストのスタイルは`Braze.InAppMessage.Message`、メッセージヘッダーのスタイルは`Braze.InAppMessage.Header`です。アプリ内メッセージの全テキストにカスタムフォントファミリを使用する場合は、`Braze.InAppMessage`スタイルにフォントファミリを設定できます。このスタイルは、すべてのアプリ内メッセージの親スタイルとなります。
 
@@ -526,7 +526,7 @@ XMLを修正することなく、BrazeのCampaignでいくつかの色を直接�
 
 {% tabs %}
 {% tab JAVA %}
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(new DefaultInAppMessageManagerListener() {
   @Override
   public void beforeInAppMessageViewOpened(View inAppMessageView, IInAppMessage inAppMessage) {
@@ -543,10 +543,10 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(new 
     BrazeInAppMessageManager.getInstance().setBackButtonDismissesInAppMessageView(true);
   }
 });
-```
+`````````
 {% endtab %}
 {% tab KOTLIN %}
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(object : DefaultInAppMessageManagerListener() {
   override fun beforeInAppMessageViewOpened(inAppMessageView: View, inAppMessage: IInAppMessage) {
     super.beforeInAppMessageViewOpened(inAppMessageView, inAppMessage)
@@ -561,7 +561,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
     BrazeInAppMessageManager.getInstance().setBackButtonDismissesInAppMessageView(true)
   }
 })
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -573,9 +573,9 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
 
 デフォルトでは、外部タップによるモーダルの閉じ操作は`false`に設定されています。この値を`true`に設定すると、ユーザーがアプリ内メッセージの外側をタップした際にモーダルアプリ内メッセージが閉じられます。この動作は、以下を呼び出すことで切り替えることができます。
 
-```java
+`````````java
 BrazeInAppMessageManager.getInstance().setClickOutsideModalViewDismissInAppMessageView(true)
-```
+`````````
 
 ## 向きのカスタマイズ {#customizing-the-orientation}
 
@@ -583,22 +583,22 @@ BrazeInAppMessageManager.getInstance().setClickOutsideModalViewDismissInAppMessa
 
 {% tabs %}
 {% tab JAVA %}
-```java
+`````````java
 public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMessage) {
   // Set the orientation to portrait
   inAppMessage.setOrientation(Orientation.PORTRAIT);
   return InAppMessageOperation.DISPLAY_NOW;
 }
-```
+`````````
 {% endtab %}
 {% tab KOTLIN %}
-```kotlin
+`````````kotlin
 override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMessageOperation {
   // Set the orientation to portrait
   inAppMessage.orientation = Orientation.PORTRAIT
   return InAppMessageOperation.DISPLAY_NOW
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -610,7 +610,7 @@ override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMess
 
 {% tabs %}
 {% tab JAVA %}
-```java
+`````````java
 @Override
 public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMessage) {
   if (inAppMessage instanceof IInAppMessageThemeable && ViewUtils.isDeviceInNightMode(BrazeInAppMessageManager.getInstance().getApplicationContext())) {
@@ -618,17 +618,17 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
   }
   return InAppMessageOperation.DISPLAY_NOW;
 }
-```
+`````````
 {% endtab %}
 {% tab KOTLIN %}
-```kotlin
+`````````kotlin
 override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMessageOperation {
   if (inAppMessage is IInAppMessageThemeable && ViewUtils.isDeviceInNightMode(BrazeInAppMessageManager.getInstance().applicationContext!!)) {
     (inAppMessage as IInAppMessageThemeable).enableDarkTheme()
   }
   return InAppMessageOperation.DISPLAY_NOW
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

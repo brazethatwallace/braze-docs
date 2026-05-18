@@ -64,7 +64,7 @@ Brazeは複数通貨での購入もサポートしています。USD以外の通
 
 ```swift
 Appboy.sharedInstance()?.logPurchase("product_name", inCurrency: "USD", atPrice: NSDecimalNumber(string: "1.99"), withQuantity: 1)
-```
+`````````
 
 この例では、「product_name」は購入された製品の名前、「USD」は購入の通貨、「1.99」は製品の価格、「1」は購入数量です。
 
@@ -81,11 +81,11 @@ Appboy.sharedInstance()?.logPurchase("product_name", inCurrency: "USD", atPrice:
 
 以下は、Swiftを使用してiOSアプリでカスタムイベントをログに記録する例です。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent("completed_level")
-```
+`````````
 
-この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、Campaignのトリガーやメッセージングのパーソナライズに使用できます。
+この例では、「completed_level」は、ユーザーがゲームでレベルをクリアしたときにログに記録されるカスタムイベントの名前です。このカスタムイベントはBrazeのユーザープロファイルに記録され、キャンペーンのトリガーやメッセージングのパーソナライズに使用できます。
 
 詳細については、専用の[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)の記事をご覧ください。
 
@@ -99,9 +99,9 @@ Appboy.sharedInstance()?.logCustomEvent("completed_level")
 
 以下は、Swiftを使用してiOSアプリでカスタムイベントをログに記録する例です。
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent("updated_profile")
-```
+`````````
 
 この例では、「updated_profile」は、ユーザーがプロファイルを更新したときにログに記録されるカスタムイベントの名前です。
 
@@ -110,10 +110,10 @@ Appboy.sharedInstance()?.logCustomEvent("updated_profile")
 
 以下は、Swiftを使用してiOSアプリでプロパティ付きのカスタムイベントをログに記録する例です。
 
-```swift
+`````````swift
 let properties: [AnyHashable: Any] = ["Property Name": "Property Value"]
 Appboy.sharedInstance()?.logCustomEvent("updated_profile", withProperties: properties)
-```
+`````````
 
 この例では、カスタムイベントに「Property Name」というプロパティがあり、その値は「Property Value」です。
 
@@ -138,10 +138,10 @@ Let's say you have an eCommerce app, and you want to track the purchase itself a
 
 Here's an example of how you might do this in an iOS app using Swift:
 
-```swift
+`````````swift
 let properties: [AnyHashable: Any] = ["Product Category": "Electronics"]
 Appboy.sharedInstance()?.logCustomEvent("Purchase", withProperties: properties)
-```
+`````````
 
 In this example, "Purchase" is the name of the custom event, and the properties dictionary contains additional information about the event. In this case, the product category is "Electronics". Now you can segment your users based on the product categories they purchase from.
 
@@ -151,10 +151,10 @@ Consider a fitness app where users can purchase personal training sessions or pr
 
 Here's an example of how you might do this in an iOS app using Swift:
 
-```swift
+`````````swift
 let properties: [AnyHashable: Any] = ["Workout Plan": "10 Sessions Personal Training"]
 Appboy.sharedInstance()?.logCustomEvent("Purchase", withProperties: properties)
-```
+`````````
 
 In this example, "Purchase" is the name of the custom event, and the properties dictionary contains additional information about the event. In this case, the workout plan is "10 Sessions Personal Training". Now you can segment your users based on the types of workout plans they purchase.
 

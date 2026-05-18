@@ -128,7 +128,7 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
     -- Return the results
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
-```
+`````````
 {% endraw %}
 
 {: start="2"}
@@ -140,12 +140,12 @@ $$;
 デフォルトでは、すべての `USERS_*` イベントタイプについて、2年以上経過したデータがバックアップされます。
 
 {% raw %}
-```sql
+`````````sql
 -- Copy all the rows that are two years or older in all the 'USERS_*' tables 
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab フィルター指定 %}
@@ -153,12 +153,12 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
 バックアップするデータの期間を選択するフィルターを指定し、選択したイベントテーブルのみをバックアップするためのテーブル名フィルターを指定します。
 
 {% raw %}
-```sql
+`````````sql
 -- Copy all the rows that are one year or older in all the 'USERS_BEHAVIORS_*' tables
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA', DATEADD(year, -1, CURRENT_DATE()), 'USERS_BEHAVIORS_%')
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -174,7 +174,7 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA', DA
 1. プロシージャ `UNLOAD_BRAZE_SHARE` を作成します。このプロシージャは、Braze が共有するすべてのデータを指定したステージにコピーするために使用されます。
 
 {% raw %}
-```sql
+`````````sql
 CREATE PROCEDURE UNLOAD_BRAZE_SHARE(
     SOURCE_DATABASE STRING, -- Database name of the braze data share
     SOURCE_SCHEMA STRING, -- Schema name of the braze data share
@@ -240,7 +240,7 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
     
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
-```
+`````````
 {% endraw %}
 
 {: start="2"}
@@ -252,7 +252,7 @@ $$;
 デフォルトでは、`USERS_` プレフィックスを持つすべてのテーブルがコピーされます。
 
 {% raw %}
-```sql
+`````````sql
 -- Create a Snowflake stage to store the file
 create stage MY_EXPORT_STAGE;
 
@@ -263,7 +263,7 @@ CALL UNLOAD_BRAZE_SHARE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-0
 
 -- List the files that are unloaded
 LIST @MY_EXPORT_STAGE;
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% tab フィルター指定 %}
@@ -271,7 +271,7 @@ LIST @MY_EXPORT_STAGE;
 プロシージャにフィルターを指定して、指定したテーブルのみをアンロードします。
 
 {% raw %}
-```sql
+`````````sql
 -- Create a Snowflake stage to store the file
 create stage MY_EXPORT_STAGE;
 
@@ -281,7 +281,7 @@ CALL EXPORT_BRAZE_SHARE_TO_STAGE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '
 
 -- List the files that are unloaded 
 LIST @MY_EXPORT_STAGE;
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}

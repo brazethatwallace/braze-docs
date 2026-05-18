@@ -31,7 +31,7 @@ description: "このリファレンス記事では、Brazeのコンテンツカ�
   "uri_text": (optional, string) the card's link text,
   "extra": (optional, object) additional keys and values sent with the card,
 }
-```
+`````````
 
 {% alert important %}
 現在、Brazeがサポートする有効期限は最大30日間です。

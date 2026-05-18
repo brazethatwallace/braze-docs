@@ -6,4 +6,4 @@
 
 ```javascript
 BrazePlugin.setCustomUserAttribute("KEY", "VALUE");
-```
+`````````

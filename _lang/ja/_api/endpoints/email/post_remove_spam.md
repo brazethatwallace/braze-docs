@@ -30,13 +30,13 @@ description: "この記事では、スパムリストからメールアドレス
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "email": "example@braze.com"
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -46,12 +46,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/email/spam/remove' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
   "email": "example@braze.com"
 }'
-```
+`````````
 {% endapi %}

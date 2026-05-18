@@ -18,7 +18,7 @@ tool: Currents
 
 ## 仕組み
 
-抽出、読み込み、変換 (ELT) プロセスは、データを [Snowflake](https://www.snowflake.com/) に移動する自動プロセスです。これにより、[Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) を使用して Looker でそのデータを可視化し、インサイトやフィードバックを Campaigns、Canvases、および Segments で活用できます。
+抽出、読み込み、変換 (ELT) プロセスは、データを [Snowflake](https://www.snowflake.com/) に移動する自動プロセスです。これにより、[Braze Looker Blocks](https://marketplace.looker.com/marketplace/directory) を使用して Looker でそのデータを可視化し、インサイトやフィードバックを キャンペーン、キャンバス、および セグメント で活用できます。
 
 Currents から S3 へのエクスポートを設定し、ライブイベントデータを受信したら、次のコンポーネントを設定することにより Snowflake でライブ ELT パイプラインを設定できます。
 
@@ -48,26 +48,26 @@ CREATE OR REPLACE STAGE
     url='s3://snowpipe-demo/'
     credentials = (AWS_KEY_ID = '...' AWS_SECRET_KEY = '...' );
 show stages;
-```
+`````````
 
 {: start="3"}
 3. ステージの AVRO ファイル形式を定義します。
 
-```sql
+`````````sql
 CREATE FILE FORMAT
     currents.public.currents_avro
     type = 'avro'
     compression = 'auto';
-```
+`````````
 
-```sql
+`````````sql
 ALTER STAGE
     currents.public.braze_data
 SET
     file_format = currents.public.currents_avro;
-```
+`````````
 
-```sql
+`````````sql
 CREATE OR REPLACE PIPE
   pipe_users_messages_pushnotification_open
     auto_ingest=true AS
@@ -100,7 +100,7 @@ COPY INTO
 
               FROM
 @currents.public.braze_data/currents/dataexport.prod-01.S3.integration.INTEGRATION_ID_GOES_HERE/event_type=users.messages.pushnotification.Open/);
-```
+`````````
 
 {: start="4"}
 4. 最後に、`show pipes;` コマンドを使用して SQS 情報を表示します。このパイプは自動取り込みパイプとして作成されたため、`NOTIFICATION_CHANNEL` という新しい列に SQS キューの名前が表示されます。
@@ -134,7 +134,7 @@ Braze Currents は特定のデータタイプの特定のフィールドを通�
 
 1. 以下の Currents スキーマの構造を使用して、継続的にデータを読み込むテーブルを `INTO` で作成します。
 
-```sql
+`````````sql
 CREATE TABLE
   users_behaviors_app_firstsession (
         id               STRING,
@@ -153,14 +153,14 @@ CREATE TABLE
         os_version       STRING,
         device_model     STRING
     );
-```
+`````````
 
 {: start="2"}
 2. `auto_ingest` パイプを作成し、以下を指定します。
   2.1. 読み込み先のテーブル
   2.2 テーブルの読み込み方法
 
-```sql
+`````````sql
 CREATE OR REPLACE PIPE
   pipe_users_behaviors_app_firstsession
     auto_ingest=true AS
@@ -187,7 +187,7 @@ COPY INTO
 
               FROM
 @currents.public.braze_data/currents/dataexport.prod-01.S3.integration.INTEGRATION_ID_GOES_HERE/event_type=users.behaviors.app.FirstSession/);
-```
+`````````
 
 {% alert warning %}
 イベントタイプごとに `CREATE TABLE` コマンドと `CREATE PIPE` コマンドを繰り返す必要があります。
@@ -198,7 +198,7 @@ COPY INTO
 
 1. 以下の Currents スキーマの構造を使用して、継続的にデータを読み込むテーブルを `INTO` で作成します。
 
-```sql
+`````````sql
 CREATE TABLE
     public_users_messages_pushnotification_open (
         id STRING,
@@ -223,14 +223,14 @@ CREATE TABLE
         button_action_type STRING,
         button_string STRING
         );
-```
+`````````
 
 {: start="2"}
 2. AUTO 継続読み込みパイプを作成し、以下を指定します。
   2.1. 読み込み先のテーブル
   2.2 テーブルの読み込み方法
 
-```sql
+`````````sql
 CREATE OR REPLACE PIPE
   pipe_users_messages_pushnotification_open
     auto_ingest=true AS
@@ -263,7 +263,7 @@ COPY INTO
 
               FROM
 @currents.public.braze_data/currents/dataexport.prod-01.S3.integration.INTEGRATION_ID_GOES_HERE/event_type=users.messages.pushnotification.Open/);
-```
+`````````
 
 {% alert warning %}
 イベントタイプごとに `CREATE TABLE` コマンドと `CREATE PIPE` コマンドを繰り返す必要があります。

@@ -35,7 +35,7 @@ tool: Currents
 ```bash
 pip install boto3
 pip install psycopg2
-```
+`````````
 
 ## 権限
 
@@ -59,7 +59,7 @@ S3 ローダーには、Currents データを含むファイルへの読み取�
 
 以下のサンプルプログラムは、`users.messages.contentcard.Impression` イベントのデータを S3 から Redshift の `content_card_impression` テーブルに読み込みます。
 
-```
+`````````
 if __name__ == '__main__':
     host = '{YOUR_CLUSTER}.redshift.amazonaws.com'
     port = 5439
@@ -108,20 +108,20 @@ if __name__ == '__main__':
     cc_impression_job = S3LoadJob(cc_impression_redshift, cc_impression_s3, role,
         aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)
     cc_impression_job.perform()
-```
+`````````
 
 ### 認証情報
 
 ローダーを実行するには、まず Redshift クラスターの `host`、`port`、`database`、および `COPY` クエリを実行できる Redshift ユーザーの `user` と `password` を指定する必要があります。さらに、前のセクションで作成した S3 読み取りアクセス権を持つ Redshift ロールの ARN を指定する必要があります。
 
-```
+`````````
 host = '{YOUR_CLUSTER}.redshift.amazonaws.com'
 port = 5439
 database = '{YOUR_DATABASE}'
 user = '{YOUR_USER}'
 password = '{YOUR_PASSWORD}'
 role = '{YOUR_REDSHIFT_ROLE_ARN}'
-```
+`````````
 
 ### ジョブの設定
 
@@ -131,7 +131,7 @@ role = '{YOUR_REDSHIFT_ROLE_ARN}'
 
 すべてのファイルを一度にコピーするのに時間がかかりすぎる場合は、ローダーに `batch_size` オプションを渡すこともできます。`batch_size` を渡すと、ローダーはすべてを同時にコピーする必要なく、一度に1バッチずつインクリメンタルにコピーしてコミットできます。1バッチの読み込みにかかる時間は、`batch_size`、ファイルのサイズ、および Redshift クラスターのサイズによって異なります。
 
-```
+`````````
 # Content Card Impression Avro fields:
 #   id            - string
 #   user_id       - string
@@ -159,4 +159,4 @@ cc_impression_redshift_column_def = [
     ('device_model', 'text')
 ]
 cc_impression_batch_size = 1000
-```
+`````````

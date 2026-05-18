@@ -36,19 +36,19 @@ Adjustのパートナーページを更新し、お客様がこのAPIキーに�
 
 ## キャンペーン詳細の改善 {#campaign-details-improvement}
 
-拡張されたキャンペーン詳細が、**Campaign**ページの…お待たせしました…**Campaign Details**セクションに表示されるようになりました！
+拡張されたキャンペーン詳細が、**キャンペーン**ページの…お待たせしました…**キャンペーン Details**セクションに表示されるようになりました！
 
-## SegmentとCanvasで「自分のものだけを表示」 {#show-only-mine-in-segments-canvas}
+## セグメントとキャンバスで「自分のものだけを表示」 {#show-only-mine-in-segments-canvas}
 
-**Campaigns**ページの「自分のものだけを表示」チェックフィルターは非常に人気があることが証明されています。そのため、CanvasおよびSegmentリストにもこのオプションを追加します！
+**キャンペーン**ページの「自分のものだけを表示」チェックフィルターは非常に人気があることが証明されています。そのため、キャンバスおよびセグメントリストにもこのオプションを追加します！
 
 ### 進行動作 {#advancement-behavior}
 
-ユーザーが1つのCanvasステップから次のステップに[進むタイミング]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択できるようになりました。これらのオプションには「メッセージ送信済み」と「遅延後にオーディエンス全体」が含まれます。
+ユーザーが1つのキャンバスステップから次のステップに[進むタイミング]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択できるようになりました。これらのオプションには「メッセージ送信済み」と「遅延後にオーディエンス全体」が含まれます。
 
-### Canvasのアプリ内メッセージ {#in-app-messages-in-canvas}
+### キャンバスのアプリ内メッセージ {#in-app-messages-in-canvas}
 
-[アプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)をCanvasで利用できるようになりました。Canvasステップを追加し、使用可能なチャネルを参照してアプリ内メッセージを追加します。
+[アプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)をキャンバスで利用できるようになりました。キャンバスステップを追加し、使用可能なチャネルを参照してアプリ内メッセージを追加します。
 
 # 今月上旬 {#earlier-this-month}
 
@@ -70,17 +70,17 @@ Brazeからメールメッセージの「返信先」アドレスに `null` 値�
 
 ## キャンペーン比較 {#campaign-comparisons}
 
-[複数のCampaignを一度に確認し、相対的なパフォーマンスを比較]({{site.baseurl}}/report_builder/)できます。Brazeで1つのウィンドウに並べて表示しましょう！
+[複数のキャンペーンを一度に確認し、相対的なパフォーマンスを比較]({{site.baseurl}}/report_builder/)できます。Brazeで1つのウィンドウに並べて表示しましょう！
 
 ## LiquidでディスパッチIDをメッセージにテンプレート化する {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-`dispatch_id` の動作はCanvasとCampaignで異なります。これは、BrazeがCanvasステップ（スケジュール可能なエントリステップを除く）を、「スケジュール済み」の場合でもトリガーされたイベントとして扱うためです。CanvasとCampaignでの[`dispatch_id` の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)の詳細を確認してください。
+`dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、「スケジュール済み」の場合でもトリガーされたイベントとして扱うためです。キャンバスとキャンペーンでの[`dispatch_id` の動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)の詳細を確認してください。
 {% endalert %}
 
-（URLなどで）メッセージ内からメッセージのディスパッチを追跡する場合は、`dispatch_id` でテンプレート化できます。この書式は、サポートされているパーソナライゼーションタグの一覧の[Canvas Attributes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)にあります。
+（URLなどで）メッセージ内からメッセージのディスパッチを追跡する場合は、`dispatch_id` でテンプレート化できます。この書式は、サポートされているパーソナライゼーションタグの一覧の[キャンバス Attributes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)にあります。
 
-これは `api_id` と同じように動作します。つまり、`api_id` はCampaignの作成時に使用できないため、プレースホルダーとしてテンプレート化され、`dispatch_id_for_unsent_campaign` としてプレビューされます。IDはメッセージが送信される前に生成され、送信時に含まれます。
+これは `api_id` と同じように動作します。つまり、`api_id` はキャンペーンの作成時に使用できないため、プレースホルダーとしてテンプレート化され、`dispatch_id_for_unsent_campaign` としてプレビューされます。IDはメッセージが送信される前に生成され、送信時に含まれます。
 
 {% alert warning %}
 アプリ内メッセージには `dispatch_id` がないため、`dispatch_id_for_unsent_campaign` のLiquidテンプレート化はアプリ内メッセージでは機能しません。
@@ -88,8 +88,8 @@ Brazeからメールメッセージの「返信先」アドレスに `null` 値�
 
 ## 「自分のものだけを表示」設定の保持 {#show-only-mine-setting-persists}
 
-Campaignグリッドの「自分のものだけを表示」フィルターは、**Campaigns**ページにアクセスするたびに保持されるようになりました。
+キャンペーングリッドの「自分のものだけを表示」フィルターは、**キャンペーン**ページにアクセスするたびに保持されるようになりました。
 
 ## ABテストの更新 {#ab-testing-updates}
 
-1回限りの[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を、最大8つのバリアント（およびオプションのコントロール）とともに、ユーザーが指定した割合のCampaignオーディエンスに送信してから、事前にスケジュールされた時間に残りのオーディエンスに最適なバリアントを送信できます。
+1回限りの[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を、最大8つのバリアント（およびオプションのコントロール）とともに、ユーザーが指定した割合のキャンペーンオーディエンスに送信してから、事前にスケジュールされた時間に残りのオーディエンスに最適なバリアントを送信できます。

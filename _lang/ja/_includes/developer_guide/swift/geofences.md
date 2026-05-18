@@ -54,12 +54,12 @@ configuration.location.automaticGeofenceRequests = true
 
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:brazeApiKey
                                     endpoint:brazeEndpoint];
@@ -73,7 +73,7 @@ configuration.location.automaticGeofenceRequests = YES;
 
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -93,7 +93,7 @@ AppDelegate.braze = braze;
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
   endpoint: "<BRAZE_ENDPOINT>"
@@ -109,12 +109,12 @@ configuration.location.distanceFilter = 8000
 
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
     [[BRZConfiguration alloc] initWithApiKey:brazeApiKey
                                     endpoint:brazeEndpoint];
@@ -129,7 +129,7 @@ configuration.location.distanceFilter = 8000;
 
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -148,17 +148,17 @@ AppDelegate.braze = braze;
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 var locationManager = CLLocationManager()
 locationManager.requestWhenInUseAuthorization()
-```
+`````````
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-```objc
+`````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestWhenInUseAuthorization];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -174,17 +174,17 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 var locationManager = CLLocationManager()
 locationManager.requestAlwaysAuthorization()
-```
+`````````
 {% endsubtab %}
 
 {% subtab OBJECTIVE-C %}
-```objc
+`````````objc
 CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 [locationManager requestAlwaysAuthorization];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -203,7 +203,7 @@ Braze SDKがバックエンドにジオフェンスをリクエストすると�
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "{BRAZE_API_KEY}",
   endpoint: "{BRAZE_ENDPOINT}"
@@ -211,19 +211,19 @@ let configuration = Braze.Configuration(
 configuration.automaticGeofencesRequest = false
 let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration =
   [[BRZConfiguration alloc] initWithApiKey:{BRAZE_API_KEY}
                                   endpoint:{BRAZE_ENDPOINT}];
 configuration.automaticGeofencesRequest = NO;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -235,17 +235,17 @@ AppDelegate.braze = braze;
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
-```
+`````````
 
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [AppDelegate.braze requestGeofencesWithLatitude:latitude
                                       longitude:longitude];
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -278,7 +278,7 @@ Brazeは不要なリクエストを避けるため、1セッションあたり1�
 
 デバイスは、更新が行われるときだけインターネットに接続する必要があります。サーバーからジオフェンスを正常に受信した後は、デバイスがオフライン状態であっても、ジオフェンスのエントリや退出を記録することが可能です。これは、デバイスの位置情報がインターネット接続とは別個に動作するためです。
 
-例えば、あるデバイスがセッション開始時にジオフェンスを正常に受信・登録した後、オフライン状態になったとします。その後、登録済みのジオフェンスのいずれかに入ると、Braze Campaignをトリガーできます。
+例えば、あるデバイスがセッション開始時にジオフェンスを正常に受信・登録した後、オフライン状態になったとします。その後、登録済みのジオフェンスのいずれかに入ると、Braze キャンペーンをトリガーできます。
 
 #### アプリがバックグラウンド状態になったり終了したりすると、なぜジオフェンスが監視されなくなるのですか？ {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 

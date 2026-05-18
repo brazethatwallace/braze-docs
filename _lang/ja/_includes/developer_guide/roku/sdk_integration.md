@@ -13,13 +13,13 @@ Braze SDK ファイルは、[Braze Roku SDK リポジトリ](https://github.com/
 
 ```
 <script type="text/brightscript" uri="pkg:/source/BrazeSDK.brs"/>
-```
+`````````
 
 ### ステップ3:構成
 
 `main.brs` 内で、グローバルノードにBrazeのコンフィギュレーションを設定する：
 
-```brightscript
+`````````brightscript
 globalNode = screen.getGlobalNode()
 config = {}
 config_fields = BrazeConstants().BRAZE_CONFIG_FIELDS
@@ -28,7 +28,7 @@ config[config_fields.API_KEY] = {YOUR_API_KEY}
 config[config_fields.ENDPOINT] = {YOUR_ENDPOINT}
 config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
-```
+`````````
 
 [SDK エンドポイント]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)と API キーは、Braze ダッシュボード内にあります。
 
@@ -36,10 +36,10 @@ globalNode.addFields({brazeConfig: config})
 
 Braze インスタンスを初期化します。
 
-```brightscript
+`````````brightscript
 m.BrazeTask = createObject("roSGNode", "BrazeTask")
 m.Braze = getBrazeInstance(m.BrazeTask)
-```
+`````````
 
 ## オプション構成
 

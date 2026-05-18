@@ -16,9 +16,9 @@ mParticleの組み込みキットを使用してWebでBrazeを統合している
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-### ステップ 1:プッシュプライマーCampaignを作成する {#step-1-create-a-push-primer-campaign}
+### ステップ 1:プッシュプライマーキャンペーンを作成する {#step-1-create-a-push-primer-campaign}
 
-まず、Brazeダッシュボードで「Prime for Push」アプリ内メッセージングCampaignを作成する必要があります。
+まず、Brazeダッシュボードで「Prime for Push」アプリ内メッセージングキャンペーンを作成する必要があります。
 
 1. 希望するテキストとスタイリングで**モーダル**アプリ内メッセージを作成します。
 2. 次に、クリック時の動作を**メッセージを閉じる**に設定します。この動作は後でカスタマイズします。
@@ -75,6 +75,6 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
   // show the in-app message now
   braze.showInAppMessage(inAppMessage);
 });
-```
+`````````
 
 ユーザーにソフトプッシュプロンプトを表示したい場合は、このアプリ内メッセージをトリガーする任意のイベント名で`braze.logCustomEvent`を呼び出してください。

@@ -44,11 +44,11 @@ noindex: true
 - name: Modal
   link: /docs/user_guide/message_building_by_channel/in-app_messages/creative_details/#modal
   image: /assets/img/braze_icons/layout-alt-01.svg
-```
+`````````
 
 ## 例 {#example}
 
-```yaml
+`````````yaml
 ---
 nav_title: Creative Details
 page_order: 4
@@ -76,4 +76,4 @@ Braze in-app messages have both global and individual creative specifications. F
 {% alert important %}
   These details only apply to our most recent in-app message generation (Generation 3). If you are not using our newest generation of in-app messages, check out our [previous in-app message generations]({{ site.baseurl }}/help/best_practices/in-app_messages/previous_in-app_message_generations/) documentation.
 {% endalert %}
-```
+`````````

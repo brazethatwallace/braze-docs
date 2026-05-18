@@ -33,8 +33,8 @@ description: "この記事では、新しいダッシュボードユーザーア
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-SCIM-TOKEN-KEY
-```
-```
+`````````
+`````````
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "userName": "user@test.com",
@@ -75,7 +75,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
         ]
     }
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -89,7 +89,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
@@ -126,10 +126,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         ]
     }
 }'
-```
+`````````
 
 ## 応答 {#response}
-```json
+`````````json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
     "id": "dfa245b7-24195aec-887bb3ad-602b3340",
@@ -203,7 +203,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
         ]
     }
 }
-```
+`````````
 
 ## 応答パラメーター {#response-parameters}
 
@@ -222,7 +222,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/scim/v2/Users' \
 
 この `userName` またはメールアドレスを持つユーザーがBrazeにすでに存在する場合、エンドポイントは次のように応答します。
 
-```http
+`````````http
 HTTP/1.1 409 Conflict
 Date: Tue, 10 Sep 2019 02:22:30 GMT
 Content-Type: text/json;charset=UTF-8
@@ -232,6 +232,6 @@ Content-Type: text/json;charset=UTF-8
   "detail": "User already exists in the database.",
   "status": 409
 }
-```
+`````````
 
 {% endapi %}

@@ -36,12 +36,12 @@ Braze.getInstance(context).subscribeToPushNotificationEvents(event -> {
   final String myCustomKvp1 = parsedData.getBrazeExtras().getString("my first kvp");
   final String myCustomKvp2 = parsedData.getBrazeExtras().getString("my second kvp");
 });
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
     val parsedData = event.notificationPayload
 
@@ -66,7 +66,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
     val myCustomKvp1 = parsedData.brazeExtras.getString("my first kvp")
     val myCustomKvp2 = parsedData.brazeExtras.getString("my second kvp")
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ Brazeは、Brazeプッシュ通知からのデータを含む [`BrazeNotificatio
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 // Factory method implemented in your custom IBrazeNotificationFactory
 @Override
 public Notification createNotification(BrazeNotificationPayload brazeNotificationPayload) {
@@ -102,12 +102,12 @@ public Notification createNotification(BrazeNotificationPayload brazeNotificatio
   // Example of retrieving a custom KVP ("my_key" -> "my_value")
   String customKvp = brazeNotificationPayload.getBrazeExtras().getString("my_key");
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 // Factory method implemented in your custom IBrazeNotificationFactory
 override fun createNotification(brazeNotificationPayload: BrazeNotificationPayload): Notification {
   // Example of getting notification title
@@ -116,7 +116,7 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
   // Example of retrieving a custom KVP ("my_key" -> "my_value")
   val customKvp = brazeNotificationPayload.getBrazeExtras().getString("my_key")
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -135,16 +135,16 @@ Brazeにカスタム通知ファクトリーを使用するように指示する
 {% tab JAVA %}
 
 
-```java
+`````````java
 setCustomBrazeNotificationFactory(IBrazeNotificationFactory brazeNotificationFactory);
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFactory)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -161,16 +161,16 @@ setCustomBrazeNotificationFactory(brazeNotificationFactory: IBrazeNotificationFa
 {% tab JAVA %}
 
 
-```java
+`````````java
 setCustomBrazeNotificationFactory(null);
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 setCustomBrazeNotificationFactory(null)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -183,11 +183,11 @@ Braze SDKバージョン3.1.1では、HTMLをデバイスに送信すること�
 
 この例は、以下のHTMLでレンダリングされます。
 
-```html
+`````````html
 <p><span style="color: #99cc00;">M</span>u<span style="color: #008080;">lti</span>Colo<span style="color: #ff6600;">r</span> <span style="color: #000080;">P</span><span style="color: #00ccff;">u</span><span style="color: #ff0000;">s</span><span style="color: #808080;">h</span></p>
 
 <p><em>test</em> <span style="text-decoration: underline; background-color: #ff6600;"><strong>message</strong></span></p>
-```
+`````````
 
 Androidでは、プッシュ通知内で有効なHTML要素やタグが制限されていることに注意してください。たとえば、`marquee` は使用できません。
 
@@ -201,9 +201,9 @@ Androidでは、プッシュ通知内で有効なHTML要素やタグが制限さ
 {% tab braze.xml %}
 `braze.xml` に以下を追加します。
 
-```xml
+`````````xml
 <bool translatable="false" name="com_braze_push_notification_html_rendering_enabled">true</bool>
-```
+`````````
 {% endtab %}
 
 {% tab BrazeConfig %}
@@ -212,22 +212,22 @@ Androidでは、プッシュ通知内で有効なHTML要素やタグが制限さ
 {% subtabs local %}
 {% subtab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setPushHtmlRenderingEnabled(true)
   .build();
 Braze.configure(this, brazeConfig);
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setPushHtmlRenderingEnabled(true)
     .build()
 Braze.configure(this, brazeConfig)
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -348,7 +348,7 @@ Android 12を実行しているデバイスでは、カスタムプッシュ通�
 
 Androidプッシュメッセージを作成する場合、この機能は**通知タイプ**ドロップダウンで使用できます。
 
-![プッシュCampaignエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![プッシュキャンペーンエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## 設定 {#settings}
 

@@ -60,7 +60,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 ##### H5 Banner
 
 ###### H6 Banner
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -68,16 +68,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 
 ヘッダーにアンカーを追加するには、ヘッダーがある行の末尾に次のコードを追加します。`anchor-text`をこの見出しのアンカーに置き換えます。小文字を使用し、単語間にハイフンを入れてください。
 
-```
+`````````
 # Heading Text {#anchor-text}
-```
+`````````
 
 番号記号`#`の後にカスタムアンカーが続く標準リンクを作成することで、カスタムアンカーを持つ見出しにリンクできます。
 
 {% raw %}
-```
+`````````
 Here is my [link](#anchor-text)
-```
+`````````
 {% endraw %}
 
 ## フォントテスト {#font-test}
@@ -97,7 +97,7 @@ _**太字強調**_
 
 {% endtab %}
 {% tab Markdown %}
-```
+`````````
 Normal Text
 
 *Emphasize Text*
@@ -107,7 +107,7 @@ Normal Text
 _**Bold Emphasize**_
 
 ~~Strikethrough~~
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -121,18 +121,18 @@ _**Bold Emphasize**_
 Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at lectus tempus tempor.
 
 #### 引用ブロック {#quote-chunk}
-```
+`````````
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor.
-```
+`````````
 {% endtab %}
 {% tab Markdown %}
-```
+`````````
 > Quoted Text
 
 Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at lectus tempus tempor.
 
-``` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor. ```
-```
+````````` Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectus tempus tempor. ```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -155,7 +155,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
 {% endtab %}
 {% tab Markdown %}
-```
+`````````
 | Instance | Dashboard URL                                                         | REST Endpoint                   |
 |----------|-----------------------------------------------------------------------|---------------------------------|
 | US-01    | `https://dashboard.braze.com` or<br> `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` |
@@ -170,7 +170,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | EU-02    | `https://dashboard-02.braze.eu`                                       | `https://rest.fra-02.braze.eu`  |
 | AU-01    | `https://dashboard.au-01.braze.com/`                                  | `https://rest.au-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table Test" }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -178,13 +178,13 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 
 テーブルの列ごとのワードブレークをリセットするには、次の構文を使用します。
 
-```markdown
+`````````markdown
 {: .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM .reset-td-br-NUM aria-label="Resetting Table word-break by column" }
-```
+`````````
 
 `NUM`を対応する列番号に置き換えます（最大4列まで）。4列未満の場合は、余分な`.reset-td-br-NUM`プレースホルダーを削除してください。テーブルは次のようになります。
 
-```markdown
+`````````markdown
 | Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | An email was successfully delivered to a User's mail server. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
@@ -192,7 +192,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 | In-App Message Impression                                        | Platform-specific Feed | User viewed an In-App Message.                               | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Resetting Table word-break by column" }
 
-```
+`````````
 {% tabs local %}
 {% tab 導入前 %}
 
@@ -220,9 +220,9 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 リンクはこちら: [Braze.com](https://www.braze.com){: height="36px" width="36px"}
 {% endtab %}
 {% tab Markdown %}
-```
+`````````
 [Braze.com](https://www.braze.com)
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -246,7 +246,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {% endtab %}
 {% tab Markdown %}
 
-```
+`````````
 ![Logo]({% image_buster /assets/img/braze-logo-mark.png %}){: style="max-width:30%;"}
 
 [![Braze]({% image_buster /assets/img/braze-logo-mark.png %})](https://www.braze.com)
@@ -254,7 +254,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 ![Text]({% image_buster /assets/img/logo-braze-fa.svg %}){: style="max-width:30%; color: green" }
 
 ![Text]({% image_buster /assets/img/logo-braze-fa.svg %}){: style="float:right;max-width:30%;" }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -271,7 +271,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {% endtab %}
 {% tab Markdown %}
 {% raw %}
-```
+`````````
 {% gallery %}
 {{site.baseurl}}/assets/img_archive/EBTH_Email.png?bf892368baf287cba5ab9a6e3b09431d  <br> This is a [link](https://www.braze.com).
 {{site.baseurl}}/assets/img_archive/iHeartRadio_Email.png?ecd2c8fe148939b7de957fe85cd6317e  <br> This is another `comment`.
@@ -279,7 +279,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {{site.baseurl}}/assets/img/schellman_iso27001_seal_grey_CMYK_300dpi_jpg.png?1b1fb9dbb80b0332c62512dcf9c83258 <br> **IMAGE TITLE** <br> This is a test to see if it will line break.
 {{site.baseurl}}/assets/img/SOC2.png?6338040be8e98c4c9abe1f35b3e43e3a  <br> This is a regular comment.
 {% endgallery %}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -290,9 +290,9 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 <div class="iactiveImg" data-ii="6967"></div><script src="https://interactive-img.com/js/include.js"></script>
 {% endtab %}
 {% tab Markdown %}
-```
+`````````
 <div class="iactiveImg" data-ii="6967"></div><script src="https://interactive-img.com/js/include.js"></script>
-```
+`````````
 {% endtab %}
 {% endtabs %}
 <!--- Leaving formatting here just in case it's important...
@@ -304,20 +304,20 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 {% tabs %}
 {% tab Styling %}
 #### コードテスト Objective C
-```objc
+`````````objc
 - (void)submitFeedback:(ABKFeedback * )feedback
  withCompletionHandler:(nullable void (^)(ABKFeedbackSentResult feedbackSentResult))completionHandler;
-```
+`````````
 
 #### コードテスト Swift
-```swift
+`````````swift
 Appboy.sharedInstance()?.submitFeedback(feedback) { (feedbackSentResult) in
       print("Feedback sent: (feedbackSentResult)")
     }
-```
+`````````
 
 #### コードテスト Java
-```java
+`````````java
 @Override
 public void onResume() {
   super.onResume();
@@ -325,28 +325,28 @@ public void onResume() {
   // in-app messages from Braze.
   BrazeInAppMessageManager.getInstance().registerInAppMessageManager(activity);
 }
-```
+`````````
 
 #### コードテスト json
-```json
+`````````json
 {
    "attributes" : "Attributes" ,
    "events" : ["Array", "Of", "Object"],
    "purchases" : ["Array" ,"Of" ,"Purchase" ,"Object"]
 }
-```
+`````````
 
 #### コードテスト JavaScript
-```javascript
+`````````javascript
 braze.subscribeToFeedUpdates(function(feed) {
   var cards = feed.cards;
   braze.showFeed(undefined, cards);
 });
 braze.requestFeedRefresh();
-```
+`````````
 
 #### Pygmentsテスト
-```python
+`````````python
 #!/usr/bin/python3
 
 from engine import RunForrestRun
@@ -361,7 +361,7 @@ class Foo:
 	def run(self):
 		RunForrestRun()  # run along!
 
-```
+`````````
 {% endtab %}
 {% tab Markdown %}
 ![Markdownの例]({% image_buster /assets/img_archive/code_snippet.png %})
@@ -386,7 +386,7 @@ class Foo:
 {% endtab %}
 {% tab Markdown %}
 {% raw %}
-```
+`````````
 {% alert tip %}
 This is a tip
 {% endalert %}
@@ -406,7 +406,7 @@ This is a warning
 {% alert update %}
 This is a update
 {% endalert %}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -443,25 +443,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tortor at lectu
 YouTube動画を埋め込むには、YouTube IDが必要です。URLの`v=`の後に表示されます。たとえば、`https://www.youtube.com/watch?v=VR1qn1OBP7k`のIDは`VR1qn1OBP7k`です。
 
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[youtube_id]" source="youtube" %}
-```
+`````````
 {% endraw %}
 
 右寄せまたは左寄せにし、最大幅を50%に制限するには、`align`パラメーターに`left`または`right`を使用します。
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[youtube_id]" align="left" source="youtube" %}
 
 {% multi_lang_include video.html id="[youtube_id]" align="right" source="youtube" %}
-```
+`````````
 {% endraw %}
 
 Loomの例:
 {% raw %}
-```html
+`````````html
 {% multi_lang_include video.html id="[lid]" source="loom" %}
-```
+`````````
 {% endraw %}
 
 {% endtab %}
@@ -472,11 +472,11 @@ Loomの例:
 高解像度表示用に左側に静的動画を配置するフィーチャー動画レイアウトを使用するには、ページのYAMLヘッダーに`video_id`と`video_type`（`youtube`など）を追加します。デフォルトでは`video_source`は`youtube`に設定されています。
 
 {% raw %}
-```yaml
+`````````yaml
 layout: featured_video
 video_id: [video_id]
 video_source: youtube
-```
+`````````
 {% endraw %}
 
 ## リストテスト
@@ -508,7 +508,7 @@ video_source: youtube
 
 {% endtab %}
 {% tab Markdown %}
-```
+`````````
 #### Bullet
 
 - List 1
@@ -532,7 +532,7 @@ video_source: youtube
         1. Sub Sub List 4
     2. Sub list 4b
         1. sub sub list 4
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -542,18 +542,18 @@ video_source: youtube
 {% details クリックして展開 %}
 #### 隠しコードブロックがあります！
 
-```python
+`````````python
 print("hello world!")
-```
+`````````
 {% enddetails %}
 {% endtab %}
 {% tab Markdown %}
 {% raw %}
-```liquid
+`````````liquid
 {% details Click me to Expand %}
 ...
 {% enddetails %}
-```
+`````````
 {% endraw %}
 {% endtab %}
 {% endtabs %}
@@ -567,34 +567,34 @@ print("hello world!")
 
 `AppDelegate.m`ファイルに次のコード行を追加します。
 
-```objc
+`````````objc
 {% if include.platform == 'iOS' %}#import "Appboy-iOS-SDK/AppboyKit.h"{% else %}#import <AppboyTVOSKit/AppboyKit.h>{% endif %}
-```
+`````````
 
 `AppDelegate.m`ファイル内の`application:didFinishLaunchingWithOptions`メソッドに次のスニペットを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
          inApplication:application
      withLaunchOptions:launchOptions];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
 Braze SDKをCocoaPodsまたはCarthageで統合する場合は、`AppDelegate.swift`ファイルに次のコード行を追加します。
 
-```swift
+`````````swift
 {% if include.platform == 'iOS' %}#import Appboy_iOS_SDK{% else %}#import AppboyTVOSKit{% endif %}
-```
+`````````
 
 SwiftプロジェクトでObjective-Cコードを使用する方法の詳細については、[Apple Developer Docs][apple_initial_setup_19]を参照してください。
 
 `AppDelegate.swift`の`application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool`に次のスニペットを追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -611,7 +611,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 {% endalert %}
 
 {% raw %}
-```liquid
+`````````liquid
 {% tabs %}
 {% tab objective-c %}
 Content of objective-c
@@ -620,18 +620,18 @@ Content of objective-c
 Content of swift
 {% endtab %}
 {% endtabs %}
-```
+`````````
 {% endraw %}
 
 #### ローカルタブ
 特定のセクションのタブコンテンツのみを変更する自己完結型タブの場合は、親タブブロックでlocalパラメーターを使用します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% tabs local %}
 ...
 {% endtabs %}
-```
+`````````
 {% endraw %}
 
 #### サブタブ
@@ -665,7 +665,7 @@ Content of swift
 
 ##### Markdown
 {% raw %}
-```
+`````````
 {% tabs local %}
 {% tab Tab 1 %}
 tab content 1
@@ -690,7 +690,7 @@ Subtab 2a content
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
-```
+`````````
 {% endraw %}
 
 [1]: {% image_buster /assets/img_archive/code_snippet.png %}

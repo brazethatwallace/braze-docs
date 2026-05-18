@@ -13,20 +13,20 @@ channel:
 
 > 到達性センターは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/) の使用をサポートし、送信済みメールのデータを追跡して送信ドメインに関するデータを収集することで、メールパフォーマンスに関するより深いインサイトを提供します。
 
-メールの到達性は、Campaignの成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
+メールの到達性は、キャンペーンの成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
 
-到達性センターにアクセスするには、「Campaigns、Canvases、カード、Segments、メディアライブラリへのアクセス」および「使用状況データの表示」の[レガシーユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions)、またはワークスペースに対する以下のドロップダウンに記載されている[詳細権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions)が必要です。
+到達性センターにアクセスするには、「キャンペーン、キャンバス、カード、セグメント、メディアライブラリへのアクセス」および「使用状況データの表示」の[レガシーユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions)、またはワークスペースに対する以下のドロップダウンに記載されている[詳細権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions)が必要です。
 
 {% details 到達性センターのユーザー権限 %}
 
 {% multi_lang_include deprecations/user_permissions.md %}
 
-- Campaignの表示
-- Campaignの編集
-- Campaignのアーカイブ
-- Canvasの表示
-- Canvasの編集
-- Canvasのアーカイブ
+- キャンペーンの表示
+- キャンペーンの編集
+- キャンペーンのアーカイブ
+- キャンバスの表示
+- キャンバスの編集
+- キャンバスのアーカイブ
 - フリークエンシーキャップルールの表示
 - フリークエンシーキャップルールの編集
 - メッセージ優先度の表示
@@ -35,8 +35,8 @@ channel:
 - フィーチャーフラグの表示
 - フィーチャーフラグの編集
 - フィーチャーフラグのアーカイブ
-- Segmentの表示
-- Segmentの編集
+- セグメントの表示
+- セグメントの編集
 - IAMテンプレートの表示
 - IAMテンプレートの編集
 - IAMテンプレートのアーカイブ

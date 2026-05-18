@@ -33,7 +33,7 @@ Love the games? Get 10% off your next one with code SAVE10.
 {% else %}
 {% abort_message() %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 このメッセージは、試合に参加したことが確認されている顧客にのみ送信されます。
@@ -43,26 +43,26 @@ Love the games? Get 10% off your next one with code SAVE10.
 顧客の言語が英語の場合に一致する「if」文と、英語を話さない、またはプロファイルに言語が設定されていない人に対してメッセージを中止する「else」文を作成することで、英語を話す顧客にのみメッセージを送信できます。
 
 {% raw %}
-```liquid
+`````````liquid
 
 {% if ${language} == 'en' %}
 Send this message in English!
 {% else %}
 {% abort_message() %}
 {% endif %}
-```
+`````````
 
 デフォルトでは、Braze はメッセージアクティビティログに汎用的なエラーメッセージを記録します。
 
-```text
+`````````text
 {% abort_message %} called
-```
+`````````
 
 また、かっこ内に文字列を含めることで、中止メッセージにメッセージアクティビティログへの記録内容を指定することもできます。
 
-```liquid
+`````````liquid
 {% abort_message('language was nil') %}
-```
+`````````
 {% endraw %}
 
 ![開発者コンソールのメッセージエラーログ。中止メッセージとして「language was nil」が表示されています。]({% image_buster /assets/img_archive/developer_console.png %})

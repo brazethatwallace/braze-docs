@@ -195,40 +195,40 @@ erDiagram
     }
 
     %% Relationships for Group Labels
-    GROUP_1["Campaign Snapshots and Log"] { }
+    GROUP_1["キャンペーン Snapshots and Log"] { }
     CHANGELOGS_CAMPAIGN_SHARED ||--o{ GROUP_1 : joins
     SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED ||--o{ GROUP_1 : joins
     GROUP_1 ||--o{ EVENT : joins
 
-    GROUP_2["Campaign Events"] { }
+    GROUP_2["キャンペーン Events"] { }
     CAMPAIGN_ENROLLMENT_EVENT ||--o{ GROUP_2 : joins
     CAMPAIGN_CONVERSION_EVENT ||--o{ GROUP_2 : joins
     GROUP_2 ||--o{ EVENT : joins
 
-    GROUP_3["Canvas Events"] { }
+    GROUP_3["キャンバス Events"] { }
     CANVAS_ENTRY_EVENT ||--o{ GROUP_3 : joins
     CANVAS_EXPERIMENT_STEP_ENTRY_EVENT ||--o{ GROUP_3 : joins
     CANVAS_EXIT_EVENT ||--o{ GROUP_3 : joins
     GROUP_3 ||--o{ EVENT : joins
 
-    GROUP_4["Canvas Steps"] { }
+    GROUP_4["キャンバス Steps"] { }
     CANVAS_VARIATION ||--o{ GROUP_4 : joins
     CANVAS_STEP ||--o{ GROUP_4 : joins
     GROUP_4 ||--o{ EVENT : joins
 
-    GROUP_5["Canvas Experiments"] { }
+    GROUP_5["キャンバス Experiments"] { }
     CANVAS_EXPERIMENT_STEP_CONVERSION_EVENT ||--o{ GROUP_5 : joins
     CANVAS_CONVERSION_EVENT ||--o{ GROUP_5 : joins
     GROUP_5 ||--o{ EVENT : joins
 
-    GROUP_6["Canvas Snapshots and Log"] { }
+    GROUP_6["キャンバス Snapshots and Log"] { }
     CHANGELOGS_CANVAS_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_CANVAS_FLOW_STEP_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_CANVAS_STEP_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_CANVAS_VARIATION_SHARED ||--o{ GROUP_6 : joins
     SNAPSHOTS_EXPERIMENT_STEP_SHARED ||--o{ GROUP_6 : joins
     GROUP_6 ||--o{ EVENT : joins
-```
+`````````
 
 - `PK` = 主キー
 - `FK` = 外部キー
@@ -237,7 +237,7 @@ erDiagram
 
 ### `TOKENSTATECHANGE_SHARED`
 
-```json
+`````````json
 // USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED
 // Push Notification Token State Change Events.
 
@@ -268,11 +268,11 @@ erDiagram
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-```
+`````````
 
 ### `ABORT_SHARED`
 
-```json
+`````````json
 // USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED
 // An originally scheduled pushnotification message was aborted for some reason.
 
@@ -291,11 +291,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
     },
     "native_keys": {
         "TIME": "UNIX timestamp at which the event happened",
@@ -310,11 +310,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-```
+`````````
 
 ### `BOUNCE_SHARED`
 
-```json
+`````````json
 // USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED
 // When a push notification bounces.
 
@@ -333,11 +333,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
     },
     "native_keys": {
         "PUSH_TOKEN": "Push token of the event",
@@ -354,11 +354,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-```
+`````````
 
 ### `INFLUENCEDOPEN_SHARED`
 
-```json
+`````````json
 // USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED
 // When a user opens the app after receiving a notification without clicking on the notification.
 
@@ -376,11 +376,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
         "DEVICE_ID": "ID of the device on which the event occurred"
     },
     "native_keys": {
@@ -400,11 +400,11 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-```
+`````````
 
 ### `IOSFOREGROUND_SHARED`
 
-```json
+`````````json
 // USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED
 // When a user receives a push notification while the app is open.
 // This event is not supported by the Swift SDK and is deprecated in the Obj-C SDK.
@@ -423,11 +423,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
         "DEVICE_ID": "ID of the device on which the event occurred",
         "SEND_ID": "Message send ID this message belongs to",
         "AD_ID": "[PII] Advertising identifier"
@@ -457,11 +457,11 @@ erDiagram
         "SLIDE_ID": "Slide identifier of the push carousel slide user clicks on"
     }
 }
-```
+`````````
 
 ### `SEND_SHARED`
 
-```json
+`````````json
 // USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED
 // When we send a push notification to a user.
 
@@ -480,11 +480,11 @@ erDiagram
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received"
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received"
     },
     "native_keys": {
         "PUSH_TOKEN": "Push token of the event",
@@ -503,4 +503,4 @@ erDiagram
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-```
+`````````

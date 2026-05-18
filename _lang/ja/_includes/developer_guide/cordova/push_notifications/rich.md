@@ -15,22 +15,22 @@ target 'NOTIFICATION_SERVICE_EXTENSION' do
   use_frameworks! :linkage => :static
   pod 'BrazeNotificationService'
 end
-```
+`````````
 
 `NOTIFICATION_SERVICE_EXTENSION` を通知サービス拡張機能の名前で置き換えます。Podfile は次のようになります。
 
-```ruby
+`````````ruby
 target 'MyAppRichNotificationService' do
   use_frameworks! :linkage => :static
   pod 'BrazeNotificationService'
 end
-```
+`````````
 
 ### ステップ 3:CocoaPods の依存関係を再インストールする
 
 ターミナルで、プロジェクトの iOS ディレクトリに移動し、CocoaPod の依存関係を再インストールします。
 
-```bash
+`````````bash
 cd PATH_TO_PROJECT/platform/ios
 pod install
-```
+`````````

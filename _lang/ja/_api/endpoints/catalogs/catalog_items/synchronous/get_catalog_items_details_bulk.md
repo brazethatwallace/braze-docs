@@ -55,15 +55,15 @@ description: "この記事では、「複数のカタログ項目の詳細をリ
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ### カーソル付き {#with-cursor}
 
-```
+`````````
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items?cursor=c2tpcDow' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
@@ -77,11 +77,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 カタログの項目数が50以下の場合、`Link` ヘッダーは存在しません。カーソルのない呼び出しでは、`prev` は表示されません。項目の最後のページを表示している場合、`next` は表示されません。
 {% endalert %}
 
-```
+`````````
 Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/all_restaurants/items?cursor=c2tpcDoxMDA=>; rel="next"
-```
+`````````
 
-```json
+`````````json
 {
   "items": [
     {
@@ -114,13 +114,13 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
   ],
   "message": "success"
 }
-```
+`````````
 
 ### エラー応答例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
 
-```json
+`````````json
 {
   "errors": [
     {
@@ -136,7 +136,7 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
   ],
   "message": "Invalid Request"
 }
-```
+`````````
 
 ## トラブルシューティング {#troubleshooting}
 

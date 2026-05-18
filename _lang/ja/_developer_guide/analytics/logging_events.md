@@ -24,7 +24,7 @@ description: "Braze SDKを通じてカスタムイベントを記録する方法
 
 ```javascript
 braze.logCustomEvent("YOUR_EVENT_NAME");
-```
+`````````
 
 代わりにGoogle Tag Managerを使用したい場合は、**カスタムイベント**タグタイプを使用して、[`logCustomEvent`メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)を呼び出し、カスタムイベントプロパティをオプションで含めて、カスタムイベントをBrazeに送信できます。これを行うには：
 
@@ -39,14 +39,14 @@ braze.logCustomEvent("YOUR_EVENT_NAME");
 
 {% subtabs %}
 {% subtab java %}
-```java
+`````````java
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME);
-```
+`````````
 {% endsubtab %}
 {% subtab kotlin %}
-```kotlin
+`````````kotlin
 Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -55,30 +55,30 @@ Braze.getInstance(context).logCustomEvent(YOUR_EVENT_NAME)
 {% tab swift %}
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.logCustomEvent(name: "YOUR_EVENT_NAME")
-```
+`````````
 {% endsubtab %}
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze logCustomEvent:@"YOUR_EVENT_NAME"];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab flutter %}
-```dart
+`````````dart
 braze.logCustomEvent('YOUR_EVENT_NAME');
-```
+`````````
 {% endtab %}
 
 {% tab cordova %}
 Braze Cordovaプラグインメソッドを使用します：
 
-```javascript
+`````````javascript
 BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
-```
+`````````
 
 `logCustomEvent` APIは以下を受け付けます：
 - `eventName`（必須の文字列）：最大255文字まで使用できます。名前を`$`で始めないでください。英数字と句読点を使用してください。
@@ -99,37 +99,37 @@ BrazePlugin.logCustomEvent("YOUR_EVENT_NAME");
 
 {% subtabs %}
 {% subtab java %}
-```java
+`````````java
 Braze.getInstance(context).logCustomEvent("Entered " + visit.getPlace());
 Braze.getInstance(context).requestImmediateDataFlush();
-```
+`````````
 {% endsubtab %}
 
 {% subtab kotlin %}
-```kotlin
+`````````kotlin
 Braze.getInstance(context).logCustomEvent("Entered " + visit.getPlace())
 Braze.getInstance(context).requestImmediateDataFlush()
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab react native %}
-```javascript
+`````````javascript
 Braze.logCustomEvent("YOUR_EVENT_NAME");
-```
+`````````
 {% endtab %}
 
 {% tab roku %}
-```brightscript
+`````````brightscript
 m.Braze.logEvent("YOUR_EVENT_NAME")
-```
+`````````
 {% endtab %}
 
 {% tab unity %}
-```csharp
+`````````csharp
 AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -141,7 +141,7 @@ AppboyBinding.LogCustomEvent("YOUR_EVENT_NAME");
 
 {% tabs %}
 {% tab web %}
-```javascript
+`````````javascript
 braze.logCustomEvent("YOUR-EVENT-NAME", {
   you: "can",
   pass: false,
@@ -152,13 +152,13 @@ braze.logCustomEvent("YOUR-EVENT-NAME", {
      deeply: ["nested", "json"]
   }
 });
-```
+`````````
 {% endtab %}
 
 {% tab android %}
 {% subtabs %}
 {% subtab java %}
-```java
+`````````java
 Braze.logCustomEvent("YOUR-EVENT-NAME",
     new BrazeProperties(new JSONObject()
         .put("you", "can")
@@ -175,10 +175,10 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ));
-```
+`````````
 {% endsubtab %}
 {% subtab kotlin %}
-```kotlin
+`````````kotlin
 Braze.logCustomEvent("YOUR-EVENT-NAME",
     BrazeProperties(JSONObject()
         .put("you", "can")
@@ -195,7 +195,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
                 .put("json"))
         )
 ))
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -203,7 +203,7 @@ Braze.logCustomEvent("YOUR-EVENT-NAME",
 {% tab swift %}
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.logCustomEvent(
   name: "YOUR-EVENT-NAME",
   properties: [
@@ -217,10 +217,10 @@ AppDelegate.braze?.logCustomEvent(
     ]
   ]
 )
-```
+`````````
 {% endsubtab %}
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze logCustomEvent:@"YOUR-EVENT-NAME"
                        properties:@{
   @"you": @"can",
@@ -232,47 +232,47 @@ AppDelegate.braze?.logCustomEvent(
     @"deeply": @[@"nested", @"json"]
   }
 }];
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab flutter %}
-```dart
+`````````dart
 braze.logCustomEvent('custom_event_with_properties', properties: {
     'key1': 'value1',
     'key2': ['value2', 'value3'],
     'key3': false,
 });
-```
+`````````
 {% endtab %}
 
 {% tab cordova %}
 プロパティオブジェクトを使ってカスタムイベントをログに記録します：
 
-```javascript
+`````````javascript
 var properties = {};
 properties["key1"] = "value1";
 properties["key2"] = ["value2", "value3"];
 properties["key3"] = false;
 BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", properties);
-```
+`````````
 
 プロパティをインラインで渡すこともできます：
 
-```javascript
+`````````javascript
 BrazePlugin.logCustomEvent("YOUR-EVENT-NAME", {
   "key": "value",
   "amount": 42,
 });
-```
+`````````
 
 公式のCordovaサンプルアプリには、文字列、数値、ブール値、配列、およびネストされたオブジェクトのプロパティが含まれています：
 - [`sample-project/www/js/index.js`（230行目から251行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/sample-project/www/js/index.js#L230-L251)
 
 サンプルプロジェクトの抜粋：
 
-```javascript
+`````````javascript
 var properties = {};
 properties["One"] = "That's the Way of the World";
 properties["Two"] = "After the Love Has Gone";
@@ -294,7 +294,7 @@ BrazePlugin.logCustomEvent("cordovaCustomEventWithNestedProperties", {
     "key": [1, "2", true]
   }
 });
-```
+`````````
 
 APIとネイティブブリッジの詳細については、以下を参照してください：
 - [`www/BrazePlugin.js` JSDoc（128行目から140行目）](https://github.com/braze-inc/braze-cordova-sdk/blob/86132bc7f0b6ddf1b598b0e612db70f11744801c/www/BrazePlugin.js#L128-L140)
@@ -303,25 +303,25 @@ APIとネイティブブリッジの詳細については、以下を参照し�
 {% endtab %}
 
 {% tab react native %}
-```javascript
+`````````javascript
 Braze.logCustomEvent("custom_event_with_properties", {
     key1: "value1",
     key2: ["value2", "value3"],
     key3: false,
 });
-```
+`````````
 {% endtab %}
 
 {% tab roku %}
-```brightscript
+`````````brightscript
 m.Braze.logEvent("YOUR_EVENT_NAME", {"stringPropKey" : "stringPropValue", "intPropKey" : Integer intPropValue})
-```
+`````````
 {% endtab %}
 
 {% tab unity %}
-```csharp
+`````````csharp
 AppboyBinding.LogCustomEvent("event name", properties(Dictionary<string, object>));
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

@@ -1,20 +1,20 @@
 ---
 nav_title: "チュートリアル: クイックサービスレストラン"
-article_title: Intelligence Suite チュートリアル
+article_title: インテリジェントスイート チュートリアル
 page_order: 10
 search_rank: 12
-description: "Braze Intelligence Suiteを初めてご利用の場合はこのチュートリアルから始めましょう。"
+description: "Braze インテリジェントスイートを初めてご利用の場合はこのチュートリアルから始めましょう。"
 tool:
   - Dashboard
 ---
 
-# Intelligence Suite チュートリアル {#intelligence-suite-tutorial}
+# インテリジェントスイート チュートリアル {#intelligence-suite-tutorial}
 
-> Braze Intelligence Suiteを初めてご利用の場合はこのチュートリアルから始めましょう！一般的な情報については、「[Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/)」を参照してください。
+> Braze インテリジェントスイートを初めてご利用の場合はこのチュートリアルから始めましょう！一般的な情報については、「[インテリジェントスイート]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/)」を参照してください。
 
 ## チュートリアル: クイックサービスレストラン {#tutorial-quick-service-restaurant}
 
-勤務しているSandwichEmperorというファストフード店に、期間限定の新メニューアイテム「Royal Roast」があるとします。Intelligence Suiteの2つの機能を使用して、Canvasでパーソナライズされたプロモーションを送信します。
+勤務しているSandwichEmperorというファストフード店に、期間限定の新メニューアイテム「Royal Roast」があるとします。インテリジェントスイートの2つの機能を使用して、キャンバスでパーソナライズされたプロモーションを送信します。
 
 ### ステップ1:インテリジェントタイミングによる通知の送信時間の決定 {#step-1-use-intelligent-timing-for-when-to-send-notifications}
 
@@ -30,8 +30,8 @@ tool:
 
 インテリジェントセレクションは、十分なデータを収集して最もパフォーマンスの高いメッセージを決定した後、将来の送信の100%にそのメッセージを使用します。
 
-![インテリジェントセレクションを有効にしたCanvasのABテストセクション。]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
+![インテリジェントセレクションを有効にしたキャンバスのABテストセクション。]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-### ステップ3:Canvasの起動 {#step-3-launch-the-canvas}
+### ステップ3:キャンバスの起動 {#step-3-launch-the-canvas}
 
-インテリジェントタイミングとインテリジェントセレクションの両方を使用して、Royal Roastのプロモーションのタイミングとメッセージングが最適化されるように設定しました。Canvasを起動して、ユーザーの好みに合わせて送信が変化していく様子を確認できます。
+インテリジェントタイミングとインテリジェントセレクションの両方を使用して、Royal Roastのプロモーションのタイミングとメッセージングが最適化されるように設定しました。キャンバスを起動して、ユーザーの好みに合わせて送信が変化していく様子を確認できます。

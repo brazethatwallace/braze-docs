@@ -41,9 +41,9 @@ APIリクエストでメッセージの全内容を指定したい場合に、�
 POST YOUR_REST_ENDPOINT/messages/send
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "external_user_ids": ["user123"],
   "messages": {
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   }
 }
-```
+`````````
 
 WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object/)を参照してください。
 
@@ -68,7 +68,7 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
 
 ### 例：メール {#example-email}
 
-```json
+`````````json
 {
   "external_user_ids": ["user123"],
   "messages": {
@@ -80,7 +80,7 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
     }
   }
 }
-```
+`````````
 
 他のチャネルについては、[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を参照してください。
 
@@ -94,10 +94,10 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
 
 ### ステップ1：APIトリガー型キャンペーンを作成する {#step-1-create-an-api-triggered-campaign}
 
-1. Brazeダッシュボードで、**Messaging** > **Campaigns**に移動します。
+1. Brazeダッシュボードで、**Messaging** > **キャンペーン**に移動します。
 2. **Create Campaign**を選択し、次に**API-Triggered Campaign**（「API Campaign」ではありません）を選択します。
 3. メッセージチャネル（WhatsApp、メール、SMSなど）を追加し、ダッシュボードでメッセージ内容を作成します。
-4. **Campaign ID**（複数のメッセージバリアントを使用する場合は**Send ID**も）をメモしておきます。これらをAPIリクエストで使用します。
+4. **キャンペーン ID**（複数のメッセージバリアントを使用する場合は**Send ID**も）をメモしておきます。これらをAPIリクエストで使用します。
 
 APIトリガー型キャンペーンの作成に関する詳細は、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)を参照してください。
 
@@ -105,13 +105,13 @@ APIトリガー型キャンペーンの作成に関する詳細は、[APIトリ�
 
 `campaign_id`と`recipients`（または`broadcast`/`audience`）を指定して、`/campaigns/trigger/send`にPOSTリクエストを送信します。`messages`オブジェクトは含めないでください。コンテンツはキャンペーンから取得されます。
 
-```
+`````````
 POST YOUR_REST_ENDPOINT/campaigns/trigger/send
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "campaign_id": "YOUR_CAMPAIGN_ID",
   "recipients": [
@@ -120,7 +120,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   ]
 }
-```
+`````````
 
 リクエスト本文の全体（`trigger_properties`、`send_to_existing_only`、`attributes`などを含む）については、[APIトリガー配信を使用したキャンペーン送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body)のエンドポイントリファレンスを参照してください。
 
@@ -136,4 +136,4 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 - 対応している場合は、Brazeの[パーソナライゼーション機能]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)を使ってコンテンツをカスタマイズしてください。
 - メッセージングが関連規制に準拠していることを確認し、必要なオプトアウトオプションとプライバシー通知を含めてください。
-- その他のエンドポイント（スケジューリング、Canvasトリガーなど）については、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を参照してください。
+- その他のエンドポイント（スケジューリング、キャンバストリガーなど）については、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を参照してください。

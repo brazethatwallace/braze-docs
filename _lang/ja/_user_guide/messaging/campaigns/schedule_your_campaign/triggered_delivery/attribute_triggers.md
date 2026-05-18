@@ -6,7 +6,7 @@ alias: /attribute_triggers/
 page_type: reference
 description: "このリファレンス記事では、属性トリガーの概要と、属性トリガーを使用してユーザーにアクションベースのメッセージを送信する方法について説明します。"
 tool:
-  - Campaigns
+  - キャンペーン
 
 ---
 
@@ -75,7 +75,7 @@ tool:
 {% raw %}
 ```liquid
 Your rewards tier was just changed to {{custom_attribute.${AA_current_rewards_tier}}}
-```
+`````````
 {% endraw %}
 
 #### 特定の値

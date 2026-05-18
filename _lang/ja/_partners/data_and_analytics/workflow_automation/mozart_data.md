@@ -88,7 +88,7 @@ Snowflakeウェアハウスの設定後に、Mozart Dataの **Integration** ペ�
 
 ```sql
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
-```
+`````````
 
 #### ステップ4: 接続をテストする {#step-4-test-connection}
 

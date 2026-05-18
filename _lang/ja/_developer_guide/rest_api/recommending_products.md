@@ -40,11 +40,11 @@ description: "この参照記事では、Braze REST API、カタログ、コネ�
 POST YOUR_REST_ENDPOINT/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
 `YOUR_REST_ENDPOINT` をワークスペースの[RESTエンドポイントURL]({{site.baseurl}}/api/basics/#endpoints)に置き換えてください。
 
-```json
+`````````json
 {
   "attributes": [
     {
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   ]
 }
-```
+`````````
 
 後でLiquidテンプレートで参照しやすいように、わかりやすい属性名（`recommended_product_id` など）を使用してください。レコメンデーションエンジンが新しい結果を生成するたびに定期的に更新し、おすすめの精度を維持してください。
 
@@ -73,14 +73,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 {% raw %}
 IDで特定の製品を参照するには、`catalog_items` Liquidタグを使用します。たとえば、`retail_products` という名前のカタログから製品 `1001` をおすすめするには：
 
-```liquid
+`````````liquid
 {% catalog_items retail_products 1001 %}
 
 We have a new item we think you'll like:
 Category: {{ items[0].category }}
 Name: {{ items[0].name }}
 Price: ${{ items[0].price }}
-```
+`````````
 {% endraw %}
 
 #### 複数のカタログアイテムをおすすめする {#recommend-multiple-catalog-items}
@@ -88,7 +88,7 @@ Price: ${{ items[0].price }}
 {% raw %}
 1つのタグで複数のアイテムを参照することもできます。たとえば、3つの製品を紹介するには：
 
-```liquid
+`````````liquid
 {% catalog_items retail_products 1001 1003 1005 %}
 
 New items added in:
@@ -97,7 +97,7 @@ New items added in:
 - {{ items[2].category }}
 
 Visit our store to learn more!
-```
+`````````
 {% endraw %}
 
 #### ユーザーのおすすめを使用してアイテムをテンプレート化する {#template-items-using-a-users-recommendation}
@@ -105,12 +105,12 @@ Visit our store to learn more!
 {% raw %}
 [ステップ 1](#step-1-store-recommendations-on-user-profiles)のカスタム属性とカタログルックアップを組み合わせて、各ユーザーに合わせたおすすめをパーソナライズします。
 
-```liquid
+`````````liquid
 {% catalog_items retail_products {{custom_attribute.${recommended_product_id}}} %}
 
 Hi {{${first_name}}}, check out our pick for you:
 {{ items[0].name }} — ${{ items[0].price }}
-```
+`````````
 {% endraw %}
 
 ### オプションB: コネクテッドコンテンツ {#option-b-connected-content}
@@ -120,12 +120,12 @@ Hi {{${first_name}}}, check out our pick for you:
 {% raw %}
 たとえば、内部APIがIDで製品詳細を返す場合：
 
-```liquid
+`````````liquid
 {% connected_content https://api.yourcompany.com/products/{{custom_attribute.${recommended_product_id}}} :save product %}
 
 Hi {{${first_name}}}, we think you'll love:
 {{ product.name }} — ${{ product.price }}
-```
+`````````
 {% endraw %}
 
 メッセージからのAPI呼び出しの詳細については、[API呼び出しを行う]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)を参照してください。
@@ -141,7 +141,7 @@ Hi {{${first_name}}}, we think you'll love:
 1. [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを使用して、自分のユーザープロファイルにテストおすすめを書き込みます。
 2. カタログまたはコネクテッドコンテンツを使用しておすすめ製品を参照するテストメッセージを送信します。
 3. 配信されたメッセージで製品詳細が正しく表示されることを確認します。
-4. Brazeダッシュボードで、CampaignまたはCanvasの結果ページに移動し、送信が記録されていることを確認します。
+4. Brazeダッシュボードで、キャンペーンまたはキャンバスの結果ページに移動し、送信が記録されていることを確認します。
 
 ## 考慮事項 {#considerations}
 

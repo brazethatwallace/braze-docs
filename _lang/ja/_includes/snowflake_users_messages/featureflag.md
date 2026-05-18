@@ -16,11 +16,11 @@
         "APP_GROUP_API_ID": "API ID of the app group this user belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
-        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the Canvas step message variation this user received",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
+        "CANVAS_STEP_MESSAGE_VARIATION_API_ID": "API ID of the キャンバス step message variation this user received",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
         "EXTERNAL_USER_ID": "[PII] External ID of the user",
         "DEVICE_ID": "ID of the device on which the event occurred",
@@ -43,4 +43,4 @@
         "SF_CREATED_AT": "when this event was picked up by the Snowpipe"
     }
 }
-```
+`````````

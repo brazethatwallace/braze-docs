@@ -42,7 +42,7 @@ YotpoプロダクトIDを確認するには、以下のステップを実行し�
 YotpoとBrazeを統合するには、以下のステップを実行します。
 
 1. Brazeのダッシュボードに移動します。
-2. **Campaigns**ページで**Create Campaign**をクリックし、**Email**を選択します。
+2. **キャンペーン**ページで**Create キャンペーン**をクリックし、**Email**を選択します。
 3. 好みのテンプレートを選択します。
 4. **Edit email body**をクリックし、ユースケースに応じた[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)のスニペットを追加します。
     - [製品の星評価とレビュー件数を表示する](#star-review-count)
@@ -66,7 +66,7 @@ The average rating for this product is:
 
 {% else %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 `<YOTPO-API-KEY>` をお使いのYotpoレビューAPIキーに置き換えてください。`product_id` はBrazeから動的に取得されます。統合を機能させるには、Brazeの `product_id` がYotpoの製品ID（通常はeコマース親製品ID）と一致している必要があります。
@@ -78,7 +78,7 @@ The average rating for this product is:
 このスニペットを使って、メールに含まれる特定の商品のトップ（公開済み）レビューを提供します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://api.yotpo.com/v1/widget/<YOTPO-API-KEY>/products/{{event_properties.${product_id}}}/reviews.json?per_page=50&star=5&sort=votes_up :save result %}
 
 {% if {{result.response.reviews[0].score}} == 5 %}
@@ -89,7 +89,7 @@ Recent 5 Star Review for this product:
 
 {% else %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 `<YOTPO-API-KEY>` をお使いのYotpoレビューAPIキーに置き換えてください。`product_id` はBrazeから動的に取得されます。統合が機能するためには、Brazeの `product_id` がYotpoの製品ID（通常はeコマース親製品ID）と一致している必要があります。
@@ -103,7 +103,7 @@ Recent 5 Star Review for this product:
 次のスニペットを使用して、タグ付けされ公開されたYotpo画像を取得し、ストック画像の代わりに、または追加のギャラリーとしてメールに追加します。
 
 {% raw %}
-```liquid
+`````````liquid
 
 {% connected_content https://api.yotpo.com/v1/widget/<YOTPO-API-KEY>/albums/product/{{event_properties.${product_id}}}?per_page=1 :save result %}
 
@@ -118,7 +118,7 @@ The Visual content of the product:
 Image return NULL
 
 {% endif %}
-```
+`````````
 {% endraw %}
 
 `<YOTPO-API-KEY>` をお使いのYotpoレビューAPIキーに置き換えてください。`product_id` はBrazeから動的に取得されます。統合が機能するためには、Brazeの `product_id` がYotpoの製品ID（通常はeコマース親製品ID）と一致している必要があります。
@@ -132,7 +132,7 @@ Image return NULL
 次のスニペットを使用して、顧客のロイヤルティポイント残高を取得してメールメッセージに使用します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content
 
 https://loyalty.yotpo.com/api/v2/customers?customer_email=**{{${email_address}}}**
@@ -148,7 +148,7 @@ https://loyalty.yotpo.com/api/v2/customers?customer_email=**{{${email_address}}}
 You have {{publication.points_balance}} points
 
 Only {{publication.vip_tier_upgrade_requirements.points_needed}} more points to become part of our VIP Tier!
-```
+`````````
 {% endraw %}
 
 `<YOTPO-LOYALTY-GUID>` と `<YOTPO-LOYALTY-API-KEY>` をお使いのYotpoロイヤルティ認証情報に置き換えてください。`email_address` はBrazeから動的に取得されます。この統合が機能するためには、メールアドレスがこのメールを受信する顧客のメールアドレスと一致している必要があります。

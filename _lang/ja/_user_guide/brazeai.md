@@ -28,16 +28,16 @@ guide_featured_list:
   - name: 生成 AI
     link: /docs/user_guide/brazeai/generative_ai
     image: /assets/img/braze_icons/lightbulb-02.svg
-  - name: Intelligence Suite
+  - name: インテリジェントスイート
     link: /docs/user_guide/brazeai/intelligence_suite
     image: /assets/img/braze_icons/clock.svg
   - name: アイテムのおすすめ
     link: /docs/user_guide/brazeai/item_recommendations
     image: /assets/img/braze_icons/hearts.svg
-  - name: Operator
+  - name: オペレーター
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Predictive Suite
+  - name: 予測スイート
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: パーソナライズ済みパス

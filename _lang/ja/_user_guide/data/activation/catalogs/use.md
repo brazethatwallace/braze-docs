@@ -2,12 +2,12 @@
 nav_title: カタログの使用
 article_title: カタログを使う
 page_order: 1.5
-description: "この参照記事では、Liquidを通してBrazeのCampaignsで非ユーザーデータを参照するためにカタログを使用する方法について説明します。"
+description: "この参照記事では、Liquidを通してBrazeのキャンペーンで非ユーザーデータを参照するためにカタログを使用する方法について説明します。"
 ---
 
 # カタログの使用 {#using-catalogs}
 
-> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用して、BrazeのCampaignsで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
+> カタログを作成した後、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/)を使用して、Brazeのキャンペーンで非ユーザーデータを参照できます。Liquidがサポートされているドラッグ＆ドロップエディター内の任意の場所を含む、すべてのメッセージングチャネルでカタログを使用できます。
 
 ## メッセージでカタログを使う {#using-catalogs-in-a-message}
 
@@ -26,7 +26,7 @@ description: "この参照記事では、Liquidを通してBrazeのCampaignsで�
 {% raw %}
 ```liquid
 {% catalog_items Games %}
-```
+`````````
 {% endraw %}
 
 ### ステップ 2: カタログアイテムを選択する {#step-2-select-catalog-items}
@@ -36,11 +36,11 @@ description: "この参照記事では、Liquidを通してBrazeのCampaignsで�
 例えば、Talesゲームのタイトルと価格を参照するには、カタログアイテムとしてTalesの`id`（1234）を選択し、表示する情報として`title`と`price`をリクエストします。
 
 {% raw %}
-```liquid
+`````````liquid
 {% catalog_items Games 1234 %}
 
 Get {{ items[0].title }} for just {{ items[0].price }}!
-```
+`````````
 {% endraw %}
 
 これは次のように表示されます。
@@ -69,15 +69,15 @@ Get {{ items[0].title }} for just {{ items[0].price }}!
 Liquidの周りにテキストを追加することで、メッセージをさらにパーソナライズできます。
 
 {% raw %}
-```liquid
+`````````liquid
 Get the ultimate trio {% catalog_items Games 1234 1235 1236 %}
 {{ items[0].title }}, {{ items[1].title }}, and {{ items[2].title }} today!
-```
+`````````
 {% endraw %}
 
 これは以下のように返されます。
 
-```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
+`````````Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
 Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
@@ -90,14 +90,14 @@ You can use catalog items to create conditional statements. For example, you can
 #### With catalog items
 
 {% raw %}
-```liquid
+`````````liquid
 {% catalog_items Games 1234 %}
 {% if items[0].on_sale == true %}
   {{ items[0].title }} is on sale! Get it for {{ items[0].price }}.
 {% else %}
   Check out {{ items[0].title }} at full price.
 {% endif %}
-```
+`````````
 {% endraw %}
 
 この例では、`catalog_items`タグが`Games`カタログからアイテム`1234`を取得し、`if`ステートメントが`on_sale`フィールドをチェックして異なるメッセージを表示します。
@@ -105,7 +105,7 @@ You can use catalog items to create conditional statements. For example, you can
 #### カタログセレクションの場合
 
 {% raw %}
-```liquid
+`````````liquid
 {% catalog_selection_items item-list selections %}
 {% if items[0].venue_name.size > 10 %}
 Message if the venue name's size is more than 10 characters.
@@ -114,7 +114,7 @@ Message if the venue name's size is 10 characters or fewer.
 {% else %}
 {% abort_message('no venue_name') %}
 {% endif %}
-```
+`````````
 {% endraw %}
 
 この例では、`venue_name`フィールドの文字数が10文字より多いか少ないかによって、異なるメッセージが表示されます。`venue_name`が空白の場合、メッセージは中止されます。
@@ -130,11 +130,11 @@ Liquidの構文エラーを避けるには、メッセージ作成画面の**+**
 例えば、Gamesカタログの`image_link`を「Tales」のプロモーションメッセージに追加するには、**Catalog Items**フィールドで`id`を選択し、**Information to Display**フィールドで`image_link`を選択します。これにより、以下のLiquidタグが画像フィールドに追加されます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% catalog_items Games 1234 %}
 
 {{ items[0].image_link }}
-```
+`````````
 {% endraw %}
 
 ![画像フィールドで使用されるカタログのLiquidタグを含むコンテンツカード作成画面。]({% image_buster /assets/img_archive/catalog_image_link1.png %})
@@ -147,7 +147,7 @@ Liquidがレンダリングされると、次のように表示されます。
 
 テンプレート化を使って、カスタム属性に基づいてカタログアイテムをダイナミックに取得することもできます。例えば、あるユーザーがカスタム属性`wishlist`（カタログのゲームIDの配列）を持っているとします。
 
-```json
+`````````json
 {
     "attributes": [
         {
@@ -156,7 +156,7 @@ Liquidがレンダリングされると、次のように表示されます。
         }
     ]
 }
-```
+`````````
 
 {% alert note %}
 カタログ内のJSONオブジェクトは、APIを介してのみ取り込まれます。CSVファイルを使用してJSONオブジェクトをアップロードすることはできません。
@@ -171,12 +171,12 @@ Liquidテンプレートを使用することで、ウィッシュリストのID
 例えば、「Tales」（ウィッシュリストに含まれているカタログのアイテム）がセール中であることをユーザーに通知するために、メッセージ作成画面で以下を追加できます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign wishlist = {{custom_attribute.${wishlist}}}%}
 {% catalog_items Games {{ wishlist[0] }} %}
 
 Get {{ items[0].title }} now for {{ items[0].price }}!
-```
+`````````
 {% endraw %}
 
 以下のように表示されます。
@@ -205,22 +205,22 @@ Liquidロジックを使用してカタログを手動で組み立てること�
 以下のLiquidコンテンツをレンダリングするには:
 
 {% raw %}
-```liquid
+`````````liquid
 Hi ${first_name},
 
 {% catalog_items Messages greet_msg :rerender %}
 {{ items[0].Welcome_Message }}
-```
+`````````
 {% endraw %}
 
 次のように表示されます。
 
 {% raw %}
-```
+`````````
 Hi Peter,
 
 Welcome to our store, Peter!
-```
+`````````
 {% endraw %}
 
 {% alert note %}

@@ -31,13 +31,13 @@ description: "この記事では、スケジュールされたメッセージを
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "schedule_id": (required, string) the `schedule_id` to delete (obtained from the response to create schedule)
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -47,13 +47,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/schedule/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
   "schedule_id": "schedule_identifier"
 }'
-```
+`````````
 
 {% endapi %}

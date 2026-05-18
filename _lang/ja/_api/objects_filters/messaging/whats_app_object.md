@@ -22,7 +22,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
   "message_type": (required, string) the type of WhatsApp message being sent under the `message` key (template_message | text_response_message | text_image_response_message | quick_reply_response_message | list_response_message | flow_response_message),
   "message": (required, object) The message object that must include the required fields based on the selected `message_type`. Below are the specific message structures for each type. Refer to the relevant message type for the required fields and their format.
 }
-```
+`````````
 
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
 
@@ -30,7 +30,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 
 #### template_message
 
-```json
+`````````json
 {
   "template_name": (required, string) the WhatsApp template name for the message,
   "template_language_code": (required, string) the language code of the WhatsApp template for the message,
@@ -39,10 +39,10 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
   "button_variables": (optional, button variables object) an object to specify button variable values for specified template_name, required if buttons have variables; see object specification below,
   "header_media_uri": (optional, string) URI to the header media, if the header is of type IMAGE in specified template_name. Only IMAGE and TEXT header types are supported by the messages/send API.
 }
-```
+`````````
 
 {% alert important %}
-**メディア送信の制限:**メディア送信(ドキュメント、動画、および他のメディアタイプ) は、`messages/send` API ではサポートされていません。API を介して送信されるテンプレート メッセージでは、TEXT およびIMAGE ヘッダータイプのみがサポートされます。WhatsApp テンプレートがドキュメント、ビデオ、または他のメディアタイプのヘッダーを使用している場合、`messages/send` API を使用して送信することはできません。[Campaigns Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)またはBraze ダッシュボードを使用して、メディアヘッダーsでテンプレートsを送信します。
+**メディア送信の制限:**メディア送信(ドキュメント、動画、および他のメディアタイプ) は、`messages/send` API ではサポートされていません。API を介して送信されるテンプレート メッセージでは、TEXT およびIMAGE ヘッダータイプのみがサポートされます。WhatsApp テンプレートがドキュメント、ビデオ、または他のメディアタイプのヘッダーを使用している場合、`messages/send` API を使用して送信することはできません。[キャンペーン Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)またはBraze ダッシュボードを使用して、メディアヘッダーsでテンプレートsを送信します。
 {% endalert %}
 
 ##### ヘッダー変数オブジェクト
@@ -55,102 +55,102 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 `header_image_uri` は、テンプレートメッセージではなく、レスポンスメッセージタイプ(`quick_reply_response_message` など)にのみ使用されます。
 {% endalert %}
 
-```json
+`````````json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0"
 }
-```
+`````````
 現在、指定できるヘッダー変数は0個か1個だけである。
 
 
 ###### 例
 
-```json
+`````````json
 {
   "0": "Check it out!"
 }
-```
+`````````
 
 ##### ボディ変数オブジェクト
 
 `body_variables` オブジェクトを使用すると、WhatsApp テンプレートのボディ変数の値を指定することができる。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）である。
-```json
+`````````json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
   "$TEMPLATE_VARIABLE_INDEX_1": "$TEMPLATE_VARIABLE_VALUE_1"
 }
-```
+`````````
 
 ###### 例
 
-```json
+`````````json
 {
   "0": "Check it out!",
   "1": "It's pretty neat."
 }
-```
+`````````
 
 ##### ボタン変数オブジェクト
 
 `button_variables` オブジェクトを使用すると、WhatsApp テンプレートのボタン変数の値を指定することができる。各キーは、指定された値で置換するWhatsAppテンプレート変数のインデックス（ゼロインデックス）である。
 
-```json
+`````````json
 {
   "$TEMPLATE_VARIABLE_INDEX_1": "$TEMPLATE_VARIABLE_VALUE_1"
 }
-```
+`````````
 
 現在、指定できるボタン変数は 1 つだけで、CTA URL のパスコンポーネントです。変数のインデックスは、テンプレート内のCTA URLボタンのインデックスと一致しなければならない。例えば、CTAボタンがテンプレートの2番目のボタンであれば、変数インデックス「1」を使う。
 
 ###### 例
 
-```json
+`````````json
 {
   "1": "/marketing/promotion123"
 }
-```
+`````````
 
 ### 応答メッセージ
 
 #### text_response_message
 
-```json
+`````````json
 {
   "body": (required, string) the body of the message to send,
   "preview_url": (optional, boolean) whether WhatsApp should render a preview of links included in body
 }
-```
+`````````
 
 ###### 例
 
-```json
+`````````json
 {
   "body": "Check out our new deals at https://braze.com",
   "preview_url": true
 }
-```
+`````````
 
 #### text_image_response_message
 
-```json
+`````````json
 {
   "image_uri": (required, string) the uri of the image to send,
   "caption": (optional, string) the caption for the image being sent
 }
-```
+`````````
 
 ###### 例
 
-```json
+`````````json
 {
   "image_uri": "https://braze.com/promotion.jpg",
   "caption": "This won't last for long, check it out!"
 }
-```
+`````````
 
 #### quick_reply_response_message
 
-```json
+`````````json
 {
   "body": (required, string) the body of the message to send,
   "header_image_uri": (optional, string) the URI of the image to send as the message header (only valid if header_text not present),
@@ -158,19 +158,19 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
   "footer": (optional, string) the footer of the message to send,
   "buttons": (required, array) array of Button objects. Will render in message based on order in array.
 }
-```
+`````````
 
 ##### ボタン・オブジェクト
 
-```json
+`````````json
 {
   "text": (required, string) the text of the button
 }
-```
+`````````
 
 ###### 例
 
-```json
+`````````json
 {
   "body": "Want to keep hearing from us?",
   "buttons": [
@@ -182,13 +182,13 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
     }
   ]
 }
-```
+`````````
 
 #### list_response_message
 
 `list_response_message` タイプを使用すると、WhatsApp でリストベースのメッセージを送信できます。このメッセージタイプには、受信者が対話できる項目のリストが含まれます。
 
-```json
+`````````json
 {
   "header": (optional, string) the header of the message to send,
   "body": (required, string) the body of the message to send,
@@ -197,25 +197,25 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
     "list_button_text": (required, string) the text that will appear on the list button,
     "list_sections": (required, array) an array of List Section Objects
 }
-```
+`````````
 
 #### リストセクションオブジェクト
 
-```json
+`````````json
 {
   "section_title": (required, string) The title of the section,
   "list_rows": (required, array) An array of List Row Objects
 }
-```
+`````````
 
 #### リスト行オブジェクト
 
-```json
+`````````json
 {
   "row_title": (required, string) The title of the row,
   "row_description": (optional, string) The description for the row
 }
-```
+`````````
 
 ##### 制約
 
@@ -225,7 +225,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 
 ##### 例
 
-```json
+`````````json
 {
   "body": "Here is a list of options to choose from:",
   "list": {
@@ -260,13 +260,13 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
     ]
   }
 }
-```
+`````````
 
 #### flow_response_message
 
 `flow_response_message` 型では、フローベースのメッセージをWhatsAppで送信できます。このメッセージタイプには、受信者が完了できる対話式フローが含まれています。
 
-```json
+`````````json
 {
   "header_text": (optional, string) the header text of the message to send,
   "body": (required, string) the body of the message to send,
@@ -276,16 +276,16 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
     "flow_id": (required, string) the unique identifier of the WhatsApp Flow,
   "generate_custom_attribute": (optional, boolean) whether to save flow response on the user profile and generate a custom attribute upon responding to this flow message
 }
-```
+`````````
 
 ##### フローボタンオブジェクト
 
-```json
+`````````json
 {
   "caption": (required, string) The text displayed on the button,
   "flow_id": (required, string) The ID of the flow
 }
-```
+`````````
 
 ##### 制約
 
@@ -295,7 +295,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 
 ##### 例
 
-```json
+`````````json
 {
   "body": "Please complete your order details",
   "flow_button": {
@@ -304,4 +304,4 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
   },
   "generate_custom_attribute": true
 }
-```
+`````````

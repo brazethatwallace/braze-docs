@@ -21,20 +21,20 @@ Liquidタグは、メッセージ内のプレースホルダーとして機能�
 {% raw %}
 ```liquid
 Hi {{ ${first_name} | default: 'Valued User' }}, thanks for using the App!
-```
+`````````
 {% endraw %}
 
 Janet Doeという名前のユーザーの場合、メッセージは次のいずれかで表示されます。
 
-```
+`````````
 Hi Janet, thanks for using the App!
-```
+`````````
 
 または...
 
-```
+`````````
 Hi Valued User, thanks for using the App!
-```
+`````````
 
 {% alert important %}
 HTMLコメント（`<!-- -->`）は、Liquidが読み取られる前に削除されるため、HTMLコメント内のLiquidタグはメッセージに**レンダリングされません**。適切にレンダリングするには、使用したいすべてのLiquidタグがHTMLコメントの外側にあることを確認してください。
@@ -94,69 +94,69 @@ Liquidには、ダイナミックなパーソナライゼーションを作成�
 
 条件文でフィルターを直接使用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {% if my_array | size > 3 %}
 You have more than 3 items!
 {% endif %}
-```
+`````````
 
 代わりに、フィルター結果を変数に割り当ててください：
 
-```liquid
+`````````liquid
 {% assign array_size = my_array | size %}
 {% if array_size > 3 %}
 You have more than 3 items!
 {% endif %}
-```
+`````````
 
 ##### forループでフィルター結果を使用する {#use-a-filter-result-in-a-for-loop}
 
 `for`ループのイテラブルにフィルターを適用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {% for item in my_array | reverse %}
 {{ item }}
 {% endfor %}
-```
+`````````
 
 代わりに、フィルター処理された値を変数に割り当ててください：
 
-```liquid
+`````````liquid
 {% assign reversed = my_array | reverse %}
 {% for item in reversed %}
 {{ item }}
 {% endfor %}
-```
+`````````
 
 ##### 配列アクセスでフィルター結果を使用する {#use-a-filter-result-for-array-access}
 
 角括弧内でフィルターを使用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {{ my_array[my_var | minus: 1] }}
-```
+`````````
 
 代わりに、まずフィルター処理された値を割り当ててください：
 
-```liquid
+`````````liquid
 {% assign adjusted_index = my_var | minus: 1 %}
 {{ my_array[adjusted_index] }}
-```
+`````````
 
 ##### 比較結果を変数に格納する {#store-a-comparison-result-in-a-variable}
 
 `assign`文で演算子を使用することはできません。以下は正しくありません：
 
-```liquid
+`````````liquid
 {% assign is_vip = total_spend > 100 %}
 {% if is_vip %}
 Welcome to the VIP lounge!
 {% endif %}
-```
+`````````
 
 代わりに、条件文を使用して変数を設定してください：
 
-```liquid
+`````````liquid
 {% assign is_vip = false %}
 {% if total_spend > 100 %}
 {% assign is_vip = true %}
@@ -165,7 +165,7 @@ Welcome to the VIP lounge!
 {% if is_vip %}
 Welcome to the VIP lounge!
 {% endif %}
-```
+`````````
 
 {% endraw %}
 
@@ -189,13 +189,13 @@ Welcome to the VIP lounge!
 
 以下のタグはすべて正しいです：
 
-```liquid
+`````````liquid
 {% if custom_attribute.${Number_Game_Attended} == 1 %}
 {% if {{custom_attribute.${Number_Game_Attended}}} == 1 %}
 
 {% assign value_one = {{custom_attribute.${one}}} %}
 {% assign value_one = custom_attribute.${one} %}
-```
+`````````
 
 {% endraw %}
 

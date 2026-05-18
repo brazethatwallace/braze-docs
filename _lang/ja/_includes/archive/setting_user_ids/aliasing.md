@@ -14,14 +14,14 @@
 
 ```objc
  [[Appboy sharedInstance].user addAlias:ALIAS_NAME withLabel:ALIAS_LABEL];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -31,16 +31,16 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -49,23 +49,23 @@ Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 
 {% elsif include.platform == "Web" %}
 
-```javascript
+`````````javascript
 braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
-```
+`````````
 
 {% elsif include.platform == "Swift" %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.add(alias: ALIAS_NAME, label: ALIAS_LABEL)
-```
+`````````
 
 {% elsif include.platform == "REST" %}
 
-```json
+`````````json
 {
   "alias_name" : (required, string),
   "alias_label" : (required, string)
 }
-```
+`````````
 
 {% endif %}

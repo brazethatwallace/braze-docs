@@ -320,7 +320,7 @@ Content-Type: application/json
     }
   }
 }
-```
+`````````
 
 ## データ変換のユースケース {#data-transformation-use-cases}
 
@@ -339,7 +339,7 @@ Content-Type: application/json
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 
@@ -406,12 +406,12 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return “brazecall” to create an output
 return brazecall;
-```
+`````````
 
 {% endtab %}
 {% tab Output %}
 
-```json
+`````````json
 {
   "events": [
     {
@@ -465,7 +465,7 @@ return brazecall;
     }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -479,7 +479,7 @@ Typeformの隠しフィールドを使用して、Typeformの回答でこの情�
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 /* In the Typeform webhook payload each question is stored as a “title” within each object of the “fields” array. Our code defines a “title” variable where we store the value of each field title. */
 const titles = payload.form_response.definition.fields.map(field => field.title);
 
@@ -546,12 +546,12 @@ let brazecall = {
 
 // After the /users/track request is assigned to brazecall, you will want to explicitly return “brazecall” to create an output
 return brazecall;
-```
+`````````
 
 {% endtab %}
 {% tab Output %}
 
-```json
+`````````json
 {
   "events": [
     {
@@ -605,7 +605,7 @@ return brazecall;
     }
   ]
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

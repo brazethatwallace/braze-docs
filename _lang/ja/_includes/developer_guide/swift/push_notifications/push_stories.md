@@ -64,7 +64,7 @@ end
 target 'YourNotificationServiceExtensionTarget' do
 pod 'BrazeNotificationService'
 end
-```
+`````````
 
 {% alert note %}
 リッチプッシュの実装方法については、[リッチ通知]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/rich_notifications/?tab=swift%20package%20manager)を参照してください。
@@ -90,21 +90,21 @@ Podfileを更新したら、ターミナル内でXcodeアプリプロジェク�
 
 `NotificationViewController.swift`に以下の行を追加し、ヘッダーファイルをインポートします。
 
-```swift
+`````````swift
 import BrazePushStory
-```
+`````````
 
 次に、[`BrazePushStory.NotificationViewController`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/)を継承してデフォルトの実装を置き換えます。
 
-```swift
+`````````swift
 class NotificationViewController: BrazePushStory.NotificationViewController {}
-```
+`````````
 
 #### プッシュストーリーイベントのカスタム処理 {#custom-handling-push-story-events}
 
 独自のカスタムロジックを実装してプッシュストーリー通知イベントを処理する場合は、上記のように`BrazePushStory.NotificationViewController`を継承し、以下のように[`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:))メソッドをオーバーライドします。
 
-```swift
+`````````swift
 import BrazePushStory
 import UserNotifications
 import UserNotificationsUI
@@ -122,7 +122,7 @@ class NotificationViewController: BrazePushStory.NotificationViewController {
     // Custom handling logic
   }
 }
-```
+`````````
 
 ### ステップ 5: 通知コンテンツ拡張plistを設定する
 
@@ -151,9 +151,9 @@ class NotificationViewController: BrazePushStory.NotificationViewController {
 
 Brazeを初期化する前に、アプリグループの名前をBraze設定の[`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup)プロパティに割り当てます。
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(apiKey: "<YOUR-BRAZE-API-KEY>",
                                         endpoint: "<YOUR-BRAZE-ENDPOINT>")
 configuration.push.appGroup = "REPLACE_WITH_APPGROUP"
 let braze = Braze(configuration: configuration)
-```
+`````````

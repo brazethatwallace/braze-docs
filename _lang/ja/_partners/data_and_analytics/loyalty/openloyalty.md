@@ -69,11 +69,11 @@ Open Loyaltyに、先ほど生成したURLへ特定のイベントを送信す�
 1.  Open Loyalty管理パネルにログインします。
 2.  **General > Webhooks**に移動します。
 3.  **Add new webhook**をクリックし、サブスクリプションを設定します。
-    * **eventName**：追跡したいイベントを選択します（例：`AvailablePointsAmountChanged`、`CustomerLevelChanged`、`CampaignEffectWasApplied`）。
+    * **eventName**：追跡したいイベントを選択します（例：`AvailablePointsAmountChanged`、`CustomerLevelChanged`、`キャンペーンEffectWasApplied`）。
     * **url**：ステップ1のBraze Webhook URLを貼り付けます。
     * 以下のヘッダーを追加します。
       * `Content-Type: application/json`
-      * `User-Agent: partner-OpenLoyalty`
+      * `User-エージェント: partner-OpenLoyalty`
 4.  Webhookサブスクリプションを保存します。
 
 ### ステップ 3：データ変換を設定する {#step-3-configure-the-data-transformation}
@@ -113,7 +113,7 @@ let brazecall = {
 };
 
 return brazecall;
-```
+`````````
 
 {: start="4"}
 4. **Validate**をクリックして、コードがサンプルペイロードに対して正しく実行されることを確認し、**Activate**をクリックします。
@@ -123,11 +123,11 @@ return brazecall;
 
 インバウンドの統合が完了したら、**アウトバウンド更新**を設定し、Brazeでの行動に基づいてOpen Loyalty会員を変更します。
 
-### ステップ 1：Braze Webhook Campaignを設定する {#step-1-configure-braze-webhook-campaign}
+### ステップ 1：Braze Webhook キャンペーンを設定する {#step-1-configure-braze-webhook-campaign}
 
 このプロセスでは、Braze Webhookを使用してOpen Loyalty Member APIに`PATCH`リクエストを送信します（例：「VIP」ラベルを追加する）。
 
-1.  Brazeで、新しい**Webhook Campaign**を作成します（またはCanvas内のWebhookを使用します）。
+1.  Brazeで、新しい**Webhook キャンペーン**を作成します（またはキャンバス内のWebhookを使用します）。
 2.  **Compose Webhook**をクリックします。
 3.  **Webhook URL**：Open Loyaltyインスタンス、テナントID、ユーザーID用のBraze Liquid変数を使ってURLを構築します。
     * フォーマット：
@@ -142,7 +142,7 @@ return brazecall;
       * `User-Agent: Braze`
 5.  **Request Body**：`Raw text`を選択し、ペイロードを貼り付けます。
 
-```json
+`````````json
 {
   "customer": {
     "labels": [
@@ -153,20 +153,20 @@ return brazecall;
     ]
   }
 }
-```
+`````````
 
 ### ステップ 2：トリガーを設定する {#step-2-configure-the-trigger}
 
 1.  **Delivery**または**Entry Schedule**タブに移動します。
 2.  以下のフィールドに入力します。
     * **Delivery Method**：アクションベース。
-    * **Trigger**：関連するトリガーを定義します（例：ユーザーがBrazeで特定のSegmentに入る）。
-    * **Launch**：Campaignを有効化します。
+    * **Trigger**：関連するトリガーを定義します（例：ユーザーがBrazeで特定のセグメントに入る）。
+    * **Launch**：キャンペーンを有効化します。
 
 ## トラブルシューティング {#troubleshooting}
 
 ### インバウンドイベントを検証する {#verify-inbound-events}
-データ変換がアクティブになると、データがカスタムイベントとしてBrazeに表示されます。**Perform Custom Event**トリガーでCampaignを作成し、定義したイベント（例：`Loyalty Event Triggered`）が利用可能かどうかを確認することで検証できます。
+データ変換がアクティブになると、データがカスタムイベントとしてBrazeに表示されます。**Perform Custom Event**トリガーでキャンペーンを作成し、定義したイベント（例：`Loyalty Event Triggered`）が利用可能かどうかを確認することで検証できます。
 
 ### アウトバウンドWebhookを検証する {#verify-outbound-webhooks}
 Brazeのメッセージアクティビティログを確認し、Webhookが`200 OK`ステータスを返したことを確認します。

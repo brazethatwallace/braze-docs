@@ -89,7 +89,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
      PHONE VARCHAR(16777216),
      PAYLOAD VARCHAR(16777216) NOT NULL
 );
-```
+`````````
 
 データベース、スキーマ、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -104,23 +104,23 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 
 #### ステップ 1.2: ロールとデータベース権限の設定 {#step-12-set-up-the-role-and-database-permissions}
 
-```sql
+`````````sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
 
 GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
 GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO ROLE BRAZE_INGESTION_ROLE;
-```
+`````````
 
 必要に応じて名前を更新してください。ただし、権限は上記の例と一致する必要があります。
 
 #### ステップ 1.3: ウェアハウスの設定とBrazeロールへのアクセス権の付与 {#step-13-set-up-the-warehouse-and-give-access-to-braze-role}
 
-```sql
+`````````sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
-```
+`````````
 
 {% alert note %}
 ウェアハウスは**自動再開**フラグをオンにしておく必要があります。オンにしない場合は、Brazeがクエリの実行時にウェアハウスをオンにできるように、追加の`OPERATE`権限を付与する必要があります。
@@ -128,11 +128,11 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 
 #### ステップ 1.4: ユーザーの設定 {#step-14-set-up-the-user}
 
-```sql
+`````````sql
 CREATE USER BRAZE_INGESTION_USER;
 
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
-```
+`````````
 
 このステップの後、Brazeと接続情報を共有し、ユーザーに追加する公開キーを受け取ります。
 
@@ -152,12 +152,12 @@ Snowflakeアカウントの設定によっては、Snowflakeのネットワー�
 #### ステップ 1.1: テーブルの設定
 
 オプションで、ソーステーブルを保持する新規データベースとスキーマを設定します。
-```sql
+`````````sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
-```
+`````````
 CDI連携に使用するテーブル（またはビュー）を作成します。
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
    updated_at timestamptz default sysdate,
    --at least one of external_id, alias_name and alias_label, or braze_id is required
@@ -172,7 +172,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
    phone varchar,
    payload varchar(max)
 )
-```
+`````````
 
 データベース、スキーマ、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -187,11 +187,11 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 
 #### ステップ 1.2: ユーザーの作成と権限の付与 {#step-12-create-user-and-grant-permissions}
 
-```sql
+`````````sql
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
-```
+`````````
 
 これらは、このユーザーに最低限必要な権限です。CDI連携を複数作成する場合は、スキーマに権限を付与したり、グループを使用して権限を管理したりすることもできます。
 
@@ -216,13 +216,13 @@ Brazeダッシュボードのリージョンに対応する以下のIPからの�
 
 オプションで、ソーステーブルを保持する新規のプロジェクトまたはデータセットを設定します。
 
-```sql
+`````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-```
+`````````
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
-```sql
+`````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp,
@@ -238,7 +238,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
   phone STRING,
   payload JSON
 );
-```
+`````````
 
 | フィールド名 | タイプ | モード |
 |---|---|---|
@@ -299,14 +299,14 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 オプションで、ソーステーブルを保持する新しいカタログまたはスキーマを設定します。
 
-```sql
+`````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
-```
+`````````
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
 
-```sql
+`````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp(),
@@ -322,7 +322,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
   phone STRING,
   payload STRING, STRUCT, or MAP
 );
-```
+`````````
 
 
 | フィールド名 | タイプ | モード |
@@ -412,7 +412,7 @@ Brazeに接続するFabricリソースは、共有ワークスペースに配置
 #### ステップ 1.4: テーブルの設定 {#step-14-set-up-the-table}
 BrazeはFabricウェアハウスのテーブルとビューの両方をサポートしています。新しいウェアハウスを作成する必要がある場合は、ステップ 1.3の共有ワークスペース内に作成してください。Fabricコンソールで**Create** > **Data Warehouse** > **Warehouse**と進みます。
 
-```sql
+`````````sql
 CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -429,7 +429,7 @@ CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
   PHONE VARCHAR
 )
 GO
-```
+`````````
 
 ウェアハウス、スキーマ、テーブルまたはビューには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -481,9 +481,9 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 その方法の詳細については、[Snowflakeのドキュメント](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)を参照してください。任意の時点でキーをローテーションする場合は、Brazeが新しいキーペアを生成して新しい公開キーを提供できます。
 
-```sql
+`````````sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
-```
+`````````
 {% endtab %}
 {% tab Redshift %}
 

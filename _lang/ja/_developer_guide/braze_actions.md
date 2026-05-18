@@ -27,16 +27,16 @@ HTMLアプリ内メッセージの場合、HTMLメッセージタイプではデ
     "type": "container",
     "steps": []
 }
-```
+`````````
 
 個々の `step` には、アクションの `type` とオプションの `args` 配列が含まれます。
 
-```json
+`````````json
 {
     "type": "logCustomEvent",
     "args": ["event name", {"event": ["properties"]}]
 }
-```
+`````````
 
 ## URI
 
@@ -44,7 +44,7 @@ BrazeアクションのURIスキームは `brazeActions://v1/{base64encodedJsonS
 
 次のJavaScriptは、JSON文字列のエンコードとデコードの方法を示しています。
 
-```javascript
+`````````javascript
 function decode(encoded) {
     const binary = window.atob(encoded.replace(/-/g, '+').replace(/_/g, '/'));
     let bits8 = new Uint8Array(binary.length);
@@ -75,7 +75,7 @@ function encode(input) {
     }
     return btoa(utf8String).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }
-```
+`````````
 
 ## 対応アクション {#supported-actions}
 

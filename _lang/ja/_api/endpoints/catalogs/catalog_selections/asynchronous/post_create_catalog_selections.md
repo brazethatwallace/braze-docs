@@ -85,7 +85,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "sort_order": "desc"
   }
 }'
-```
+`````````
 
 ### フィルター演算子 {#filter-operators}
 
@@ -110,17 +110,17 @@ APIは、1回のセレクションリクエストにつき最大4つのフィル
 
 ステータスコード `202` は、次の応答本文を返す可能性があります。
 
-```json
+`````````json
 {
   "message": "success"
 }
-```
+`````````
 
 ### エラー応答の例 {#example-error-response}
 
 ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照してください。
 
-```json
+`````````json
 {
   "errors": [
     {
@@ -136,7 +136,7 @@ APIは、1回のセレクションリクエストにつき最大4つのフィル
   ],
   "message": "Invalid Request"
 }
-```
+`````````
 
 ## トラブルシューティング {#troubleshooting}
 

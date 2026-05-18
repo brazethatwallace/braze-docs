@@ -45,7 +45,7 @@ BrazeでWebhookテンプレートを使用するには、まずOppizi APIキー�
 
 ### ステップ 2: BrazeでWebhookテンプレートを作成する {#step-2-create-a-braze-webhook-template}
 
-次に、今後のCampaignsやCanvasesで使用するために、BrazeでOppizi用のWebhookテンプレートを作成します。
+次に、今後のキャンペーンやキャンバスで使用するために、BrazeでOppizi用のWebhookテンプレートを作成します。
 
 1. Brazeで**Templates** > **Webhook Templates**に移動します。
 
@@ -91,7 +91,7 @@ Webhookテンプレートに、以下のフィールドを入力します。
         "state" : "{{custom_attribute.${state}}}"
     }
 }
-```
+`````````
 {% endraw %}
 
 ### ステップ 3: Oppiziでダイレクトメールワークフローを作成する {#step-3-create-a-direct-mail-workflow-in-oppizi}
@@ -106,4 +106,4 @@ OppiziのワークフローIDを含むリクエストボディを追加した後
 
 テストを実行するには、リクエストボディの`requestType`を`live`から`test`に更新します。このステップは、ダイレクトメールのオーディエンスにテスト受信者が追加されるのを防ぐために重要です。
 
-テストが完了したら、`requestType`を`live`に戻してCanvasを保存します。これで、自動ダイレクトメールキャンペーンを開始する準備が整いました。
+テストが完了したら、`requestType`を`live`に戻してキャンバスを保存します。これで、自動ダイレクトメールキャンペーンを開始する準備が整いました。

@@ -16,4 +16,4 @@ Brazeでカスタムイベントを記録することで、アプリの使用パ
 
 ```csharp
 bool LogCustomEvent(string YOUR_EVENT_NAME)
-```
+`````````

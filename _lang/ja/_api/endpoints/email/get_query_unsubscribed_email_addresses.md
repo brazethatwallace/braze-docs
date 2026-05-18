@@ -50,13 +50,13 @@ description: "この記事では、配信停止メールのリストの取得ま
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
-```
+`````````
 
 ## 応答 {#response}
 
 エントリは降順で表示されます。
 
-```json
+`````````json
 {
   "emails": [
     {
@@ -74,5 +74,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?
   ],
   "message": "success"
 }
-```
+`````````
 {% endapi %}

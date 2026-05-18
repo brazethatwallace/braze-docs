@@ -13,7 +13,7 @@ search_rank: 1
 
 # メールテンプレートの作成 {#create-an-email-template}
 
-> Brazeダッシュボードには、カスタマイズされた目を引くメールを作成し、後でCampaignsで使用するために保存できるメールテンプレートエディターがあります。独自の[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)をアップロードすることもできます。
+> Brazeダッシュボードには、カスタマイズされた目を引くメールを作成し、後でキャンペーンで使用するために保存できるメールテンプレートエディターがあります。独自の[HTMLメールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)をアップロードすることもできます。
 
 ## ステップ 1:メールテンプレートエディターに移動する {#step-1-navigate-to-the-email-template-editor}
 
@@ -75,15 +75,15 @@ Brazeダッシュボードで、**テンプレート** > **メールテンプレ
 
 ## ステップ 6:テンプレートを保存する {#step-6-save-your-template}
 
-**テンプレートを保存**を選択して、テンプレートを必ず保存してください。これで、任意のCampaignまたはCanvasコンポーネントでこのテンプレートを使用する準備が整いました。テンプレートにアクセスするには、作成時に使用した編集エクスペリエンスを選択し、利用可能なテンプレートのリストから選択します。
+**テンプレートを保存**を選択して、テンプレートを必ず保存してください。これで、任意のキャンペーンまたはキャンバスコンポーネントでこのテンプレートを使用する準備が整いました。テンプレートにアクセスするには、作成時に使用した編集エクスペリエンスを選択し、利用可能なテンプレートのリストから選択します。
 
 {% alert note %}
-既存のテンプレートに編集を加えた場合、以前のバージョンのテンプレートを使用して作成されたCampaignsにはその変更は反映されません。
+既存のテンプレートに編集を加えた場合、以前のバージョンのテンプレートを使用して作成されたキャンペーンにはその変更は反映されません。
 {% endalert %}
 
 ### テンプレートを管理する {#manage-your-templates}
 
-メールテンプレートは、**テンプレート** > **メールテンプレート**で表示でき、ステータス、タイプ、タグ、作成者でフィルタリングしたり、テンプレート名で検索したりできます。これらのテンプレートを表示するには、**Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、ユーザー設定センターへのアクセス**権限（または**メールテンプレートの表示**などの同等の詳細権限）が必要です。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+メールテンプレートは、**テンプレート** > **メールテンプレート**で表示でき、ステータス、タイプ、タグ、作成者でフィルタリングしたり、テンプレート名で検索したりできます。これらのテンプレートを表示するには、**キャンペーン、キャンバス、カード、Content Blocks、フィーチャーフラグ、セグメント、メディアライブラリ、ロケーション、プロモーションコード、ユーザー設定センターへのアクセス**権限（または**メールテンプレートの表示**などの同等の詳細権限）が必要です。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
 
 メールテンプレートを増やしていくにつれて、メールテンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとクリエイティブコンテンツのライブラリの作成と管理について詳しくは、[テンプレートとメディア]({{site.baseurl}}/user_guide/messaging/templates/)をご覧ください。
 

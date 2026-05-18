@@ -47,15 +47,15 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "attributes": (optional, one attributes object),
   "events": (optional, one event object),
   "purchases": (optional, one purchase object),
 }
-```
+`````````
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -78,7 +78,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 成功メッセージは以下の応答を返します。これには、Brazeが更新したユーザープロファイルデータに関する情報が含まれます。
 
-```json
+`````````json
 {
     "users": (optional, object), the identifier of the user in the request. May be empty if no users are found and _update_existing_only key is set to true,
         "custom_attributes": (optional, object), the custom attributes as a result of the request. Braze lists only custom attributes from the request,
@@ -86,13 +86,13 @@ Authorization: Bearer YOUR_REST_API_KEY
         "purchase_events": (optional, object), the purchase events as a result of the request. Braze lists only purchase events from the request,
     },
     "message": "success"
-```
+`````````
 
 ### 致命的なエラーを含むメッセージ {#message-with-fatal-errors}
 
 メッセージに致命的なエラーがある場合、以下の応答が返されます。
 
-```json
+`````````json
 {
   "message": <fatal error message>,
   "errors": [
@@ -101,7 +101,7 @@ Authorization: Bearer YOUR_REST_API_KEY
     }
   ]
 }
-```
+`````````
 
 ## リクエストとレスポンスの例 {#example-requests-and-responses}
 
@@ -109,7 +109,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 #### リクエスト {#request}
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -127,11 +127,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
         }
     ]
 }'
-```
+`````````
 
 #### 応答 {#response}
 
-```
+`````````
 {
     "users": [
         {
@@ -149,13 +149,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
     ],
     "message": "success"
 }
-```
+`````````
 
 ### メールでカスタムイベントを更新する {#update-a-custom-event-by-email}
 
 #### リクエスト
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -183,11 +183,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
         }
     ]
 }'
-```
+`````````
 
 #### 応答
 
-```
+`````````
 {
     "users": [
         {
@@ -204,13 +204,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
     ],
     "message": "success"
 }
-```
+`````````
 
 ### ユーザーエイリアスで購入イベントを更新する {#update-a-purchase-event-by-user-alias}
 
 #### リクエスト
 
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -243,11 +243,11 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
    }
   ]
 }'
-```
+`````````
 
 #### 応答
 
-```
+`````````
 {
     "users": [
         {
@@ -267,7 +267,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
     ],
     "message": "success"
 }
-```
+`````````
 
 ## よくある質問 {#frequently-asked-questions}
 

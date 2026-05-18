@@ -138,7 +138,7 @@ Currentsのエクスポートは、JSONではなく、Apache Avroフォーマッ
 
 ```
 Google Cloud Storage Credentials are invalid. Please ensure that your credentials string, bucket name, and prefix are valid. You do not have read permission.
-```
+`````````
 
 Google Cloud IAMサービスアカウントに以下の権限があることを確認してください。
 

@@ -127,7 +127,7 @@ Braze アカウントで 2 要素認証（2FA）が強制されていない場�
 
 ## 昇格アクセス {#elevated-access}
 
-昇格アクセスは、Braze ダッシュボードでの機密性の高いアクションに対して追加のセキュリティレイヤーを提供します。有効にすると、ユーザーはSegmentのエクスポートや API キーの表示を行う前にアカウントを再認証する必要があります。昇格アクセスを使用するには、**設定** > **管理者設定** > **セキュリティ設定**に移動してトグルをオンにします。
+昇格アクセスは、Braze ダッシュボードでの機密性の高いアクションに対して追加のセキュリティレイヤーを提供します。有効にすると、ユーザーはセグメントのエクスポートや API キーの表示を行う前にアカウントを再認証する必要があります。昇格アクセスを使用するには、**設定** > **管理者設定** > **セキュリティ設定**に移動してトグルをオンにします。
 
 ユーザーが再認証できない場合、元の場所にリダイレクトされ、機密性の高いアクションを続行できません。再認証に成功すると、ログアウトしない限り、次の 1 時間は再認証の必要はありません。
 
@@ -172,20 +172,20 @@ Braze アカウントで 2 要素認証（2FA）が強制されていない場�
 - Enabled Elevated Access Enforcement
 - Disabled Elevated Access Enforcement
 
-Campaign
-- Added Campaign
-- Edited Campaign
+キャンペーン
+- Added キャンペーン
+- Edited キャンペーン
 
-Canvas
+キャンバス
 - Added Journey
 - Edited Journey
 
-### Segment
-- Added Segment
-- Edited Segment
+### セグメント
+- Added セグメント
+- Edited セグメント
 - Exported data to CSV
-- Exported Segment via API
-- Segment Users Deleted
+- Exported セグメント via API
+- セグメント Users Deleted
 - Cleared Cohort
 
 ### REST API キー {#rest-api-key}
@@ -252,8 +252,8 @@ Removed Push Credential
 - Catalog Deleted
 
 ### Braze Agents
-- Created Agent
-- Edited Agent
+- Created エージェント
+- Edited エージェント
 
 ### BrazeAI Operator
 - Requested BrazeAI Operator Response
@@ -295,7 +295,7 @@ Removed Push Credential
 | -------------------- | ------ | ----- |
 | ユーザー検索 | ログインしたユーザーは、メールアドレス、電話番号、名、または姓で検索できません：{::nomarkdown} <ul> <li>ユーザープロファイルを表示する際に、前述の標準属性項目とカスタム属性が表示されません。</li> <li>Braze ダッシュボードからユーザープロファイルの前述の標準属性項目を編集できません。</li> <li>ユーザープロファイルのサブスクリプションステータスを更新できません。</li></ul> {:/} | このセクションへのアクセスには、ユーザープロファイルの表示権限が引き続き必要です。 |
 | ユーザーインポート | ユーザーは**ユーザーインポート**ページからファイルをダウンロードできません。 | |
-| {::nomarkdown} <ul> <li>Segments</li> <li>Campaigns</li> <li>Canvas</li> </ul> {:/} | **ユーザーデータ**ドロップダウンで：{::nomarkdown} <ul> <li>ユーザーには<b>メールアドレスを CSV 形式でエクスポート</b>オプションが表示されません。</li> <li><b>ユーザーデータを CSV 形式でエクスポート</b>を選択した場合、CSV ファイルに前述の標準属性項目とカスタム属性が含まれません。</li> </ul> {:/} | |
+| {::nomarkdown} <ul> <li>セグメント</li> <li>キャンペーン</li> <li>キャンバス</li> </ul> {:/} | **ユーザーデータ**ドロップダウンで：{::nomarkdown} <ul> <li>ユーザーには<b>メールアドレスを CSV 形式でエクスポート</b>オプションが表示されません。</li> <li><b>ユーザーデータを CSV 形式でエクスポート</b>を選択した場合、CSV ファイルに前述の標準属性項目とカスタム属性が含まれません。</li> </ul> {:/} | |
 | 内部テストグループ | ユーザーは、内部テストグループに追加されたユーザーの前述の標準属性項目にアクセスできません。 | |
 | メッセージアクティビティログ | ユーザーは、メッセージアクティビティログで特定されたユーザーの前述の標準属性項目にアクセスできません。 | |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }

@@ -33,7 +33,7 @@
 {% endcapture %}
 Use {{code}} for an exclusive discount!
 {% message_extras :key cardscode :value {{code}} %}
-```
+`````````
 {% endraw %}
 
 {% endif %}

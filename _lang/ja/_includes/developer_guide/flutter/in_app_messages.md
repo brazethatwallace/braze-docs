@@ -30,18 +30,18 @@ BrazePlugin.configure(
     braze.inAppMessagePresenter = customPresenter
   }
 )
-```
+`````````
 
 カスタムプレゼンタークラスでは、`BrazePlugin.processInAppMessage(message)` と `super.present(message: message)` を呼び出して、データを Dart に転送し、デフォルトの UI を表示します。
 
-```swift
+`````````swift
 class CustomInAppMessagePresenter: BrazeInAppMessageUI {
   override func present(message: Braze.InAppMessage) {
     BrazePlugin.processInAppMessage(message)
     super.present(message: message)
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab Flutter SDK 17.1.0 and earlier %}
@@ -57,7 +57,7 @@ iOS でアプリ内メッセージのデフォルトプレゼンターを設定�
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 import BrazeUI
 
 override func application(
@@ -73,12 +73,12 @@ override func application(
 
   return true
 }
-```
+`````````
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-```objc
+`````````objc
 @import BrazeUI;
 
 - (BOOL)application:(UIApplication *)application
@@ -93,7 +93,7 @@ override func application(
   [self.window makeKeyAndVisible];
   return YES;
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}

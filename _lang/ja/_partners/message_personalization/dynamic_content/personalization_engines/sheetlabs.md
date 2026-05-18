@@ -1,7 +1,7 @@
 ---
 nav_title: Sheetlabs
 article_title: Sheetlabs
-description: "このリファレンス記事では、BrazeとSheetlabsのパートナーシップについて説明します。Sheetlabsは、スプレッドシートから取得したデータを使ってマーケティングCampaignをパーソナライズできるサービスです。"
+description: "このリファレンス記事では、BrazeとSheetlabsのパートナーシップについて説明します。Sheetlabsは、スプレッドシートから取得したデータを使ってマーケティングキャンペーンをパーソナライズできるサービスです。"
 alias: /partners/sheetlabs/
 page_type: partner
 search_tag: Partner
@@ -14,7 +14,7 @@ _この統合はSheetlabsによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-SheetlabsとBrazeの統合により、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用して、BrazeマーケティングCampaignにSheetlabs APIを含めることができます。これは一般的に、Googleスプレッドシート（マーケティングチームが直接更新する）とBrazeテンプレートの橋渡しとして使用されます。これにより、翻訳やカスタム属性の大規模なセットなど、Brazeテンプレートでより多くのことを実現できます。
+SheetlabsとBrazeの統合により、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用して、BrazeマーケティングキャンペーンにSheetlabs APIを含めることができます。これは一般的に、Googleスプレッドシート（マーケティングチームが直接更新する）とBrazeテンプレートの橋渡しとして使用されます。これにより、翻訳やカスタム属性の大規模なセットなど、Brazeテンプレートでより多くのことを実現できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -27,7 +27,7 @@ SheetlabsとBrazeの統合により、[コネクテッドコンテンツ]({{site
 
 BrazeとSheetlabsの統合により、以下のユースケースを実現できます。
 
-1. **マーケターアクセスとBraze Campaignアクセスの分離**: チームによっては、すべてのスタッフにBrazeのテンプレートやコンテンツを直接設定するアクセス権を与えたくない場合があります。代わりに、スタッフがスプレッドシートでマーケティングコンテンツを更新できるようにしたいと考えています。SheetlabsはスプレッドシートとBrazeの橋渡しを提供し、リアルタイムで更新できます。
+1. **マーケターアクセスとBraze キャンペーンアクセスの分離**: チームによっては、すべてのスタッフにBrazeのテンプレートやコンテンツを直接設定するアクセス権を与えたくない場合があります。代わりに、スタッフがスプレッドシートでマーケティングコンテンツを更新できるようにしたいと考えています。SheetlabsはスプレッドシートとBrazeの橋渡しを提供し、リアルタイムで更新できます。
 2. **翻訳**: Brazeテンプレートはネイティブに翻訳をサポートしていません。複数の言語をサポートしたい場合は、複数のテンプレートを作成する必要があります。SheetlabsをBrazeと併用することで、1つのBrazeテンプレートを複数の言語に翻訳できます。
 3. **カスタム属性の拡張**: Brazeには、設定可能なカスタム属性が一定数用意されています。SheetlabsをBrazeと併用することで、この初期割り当てを超えてカスタム属性を追加できます。
 
@@ -63,7 +63,7 @@ APIにアクセスできるようになったので、コネクテッドコン�
 {{translations[0].greeting}} {{${first_name}}},
 
 {{translations[0].message_body}}
-```
+`````````
 {% endraw %}
 {% alert tip %}
 Sheetlabsとの統合に関する詳しい例やアドバイスについては、[Sheetlabsのドキュメント](https://app.sheetlabs.com/docs/producers/braze/)を参照してください。

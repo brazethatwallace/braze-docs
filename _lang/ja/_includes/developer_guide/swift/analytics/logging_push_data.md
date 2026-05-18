@@ -53,10 +53,10 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
     remoteStorage.store([customEventDictionary], forKey: .pendingCustomEvents)
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveCustomEvent:(NSDictionary<NSString *, id> *)properties {
   // 1 
   NSDictionary<NSString *, id> *customEventDictionary = [[NSDictionary alloc] initWithEventName:@"YOUR-EVENT-NAME" properties:properties];
@@ -74,7 +74,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
     [remoteStorage store:@[ customEventDictionary ] forKey:RemoteStorageKeyPendingCustomAttributes];
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -91,7 +91,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift 
+````````` swift 
 func logPendingCustomEventsIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingEvents = remoteStorage.retrieve(forKey: .pendingCustomEvents) as? [[String: Any]] else { return }
@@ -124,10 +124,10 @@ func logPendingCustomEventsIfNecessary() {
   // 6    
   remoteStorage.removeObject(forKey: .pendingCustomEvents)
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingEventsIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingEvents = [remoteStorage retrieveForKey:RemoteStorageKeyPendingCustomEvents];
@@ -160,7 +160,7 @@ func logPendingCustomEventsIfNecessary() {
   // 6  
   [remoteStorage removeObjectForKey:RemoteStorageKeyPendingCustomEvents];
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -177,7 +177,7 @@ func logPendingCustomEventsIfNecessary() {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift 
+````````` swift 
 func saveCustomAttribute() {
   // 1 
   let customAttributeDictionary: [String: Any] = ["YOUR-CUSTOM-ATTRIBUTE-KEY": "YOUR-CUSTOM-ATTRIBUTE-VALUE"]
@@ -194,10 +194,10 @@ func saveCustomAttribute() {
     remoteStorage.store([customAttributeDictionary], forKey: .pendingCustomAttributes)
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-``` objc
+````````` objc
 - (void)saveCustomAttribute {
   // 1 
   NSDictionary<NSString *, id> *customAttributeDictionary = @{ @"YOUR-CUSTOM-ATTRIBUTE-KEY": @"YOUR-CUSTOM-ATTRIBUTE-VALUE" };
@@ -215,7 +215,7 @@ func saveCustomAttribute() {
     [remoteStorage store:@[ customAttributeDictionary ] forKey:RemoteStorageKeyPendingCustomAttributes];
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -230,7 +230,7 @@ func saveCustomAttribute() {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift 
+````````` swift 
 func logPendingCustomAttributesIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingAttributes = remoteStorage.retrieve(forKey: .pendingCustomAttributes) as? [[String: Any]] else { return }
@@ -253,10 +253,10 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
     }
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingCustomAttributesIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingAttributes = [remoteStorage retrieveForKey:RemoteStorageKeyPendingCustomAttributes];
@@ -277,7 +277,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
     [self setCustomAttributeWith:key andValue:[keysAndValues objectForKey:key]];
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -294,7 +294,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift 
+````````` swift 
 func saveUserAttribute() {
   // 1 
   guard let data = try? PropertyListEncoder().encode(UserAttribute.userAttributeType("USER-ATTRIBUTE-VALUE")) else { return }
@@ -311,10 +311,10 @@ func saveUserAttribute() {
     remoteStorage.store([data], forKey: .pendingUserAttributes)
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveUserAttribute {
   // 1 
   UserAttribute *userAttribute = [[UserAttribute alloc] initWithUserField:@"USER-ATTRIBUTE-VALUE" attributeType:UserAttributeTypeEmail];
@@ -338,7 +338,7 @@ func saveUserAttribute() {
     [remoteStorage store:@[data] forKey:RemoteStorageKeyPendingUserAttributes];
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -353,7 +353,7 @@ func saveUserAttribute() {
 
 {% subtabs global %}
 {% subtab Swift %}
-``` swift 
+````````` swift 
 func logPendingUserAttributesIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingAttributes = remoteStorage.retrieve(forKey: .pendingUserAttributes) as? [Data] else { return }
@@ -372,10 +372,10 @@ func logPendingUserAttributesIfNecessary() {
   // 4   
   remoteStorage.removeObject(forKey: .pendingUserAttributes)
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingUserAttributesIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingAttributes = [remoteStorage retrieveForKey:RemoteStorageKeyPendingUserAttributes];
@@ -403,7 +403,7 @@ func logPendingUserAttributesIfNecessary() {
   // 4 
   [remoteStorage removeObjectForKey:RemoteStorageKeyPendingUserAttributes];
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -414,7 +414,7 @@ func logPendingUserAttributesIfNecessary() {
 {% details RemoteStorage Helper File %}
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 enum RemoteStorageKey: String, CaseIterable {
    
   // MARK: - Notification Content Extension Analytics
@@ -461,10 +461,10 @@ class RemoteStorage: NSObject {
     }
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @interface RemoteStorage ()
  
 @property (nonatomic) StorageType storageType;
@@ -525,14 +525,14 @@ class RemoteStorage: NSObject {
       [NSException raise:NSGenericException format:@"Unexpected FormatType."];
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}
 {% details UserAttribute Helper File %}
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 enum UserAttribute: Hashable {
   case email(String?)
 }
@@ -559,10 +559,10 @@ extension UserAttribute: Codable {
     self = .email(email)
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation UserAttribute
  
 - (id)initWithUserField:(NSString *)userField attributeType:(UserAttributeType)attributeType {
@@ -589,14 +589,14 @@ extension UserAttribute: Codable {
 }
  
 @end
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}
 {% details EventName Dictionary Helper File %}
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 extension Dictionary where Key == String, Value == Any {
   init(eventName: String, properties: [String: Any]? = nil) {
     self.init()
@@ -609,10 +609,10 @@ extension Dictionary where Key == String, Value == Any {
     }
   }
 }
-```
+`````````
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation NSDictionary (Helper)
  
 - (id)initWithEventName:(NSString *)eventName properties:(NSDictionary *)properties {
@@ -628,7 +628,7 @@ extension Dictionary where Key == String, Value == Any {
 }
  
 @end
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% enddetails %}

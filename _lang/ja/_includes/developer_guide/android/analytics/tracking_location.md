@@ -12,16 +12,16 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
     brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE);
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).getCurrentUser { brazeUser ->
   brazeUser.setLastKnownLocation(LATITUDE_DOUBLE_VALUE, LONGITUDE_DOUBLE_VALUE, ALTITUDE_DOUBLE_VALUE, ACCURACY_DOUBLE_VALUE)
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -42,7 +42,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 `AndroidManifest.xml` は次のようになります。
 
-```xml
+`````````xml
 <manifest ... >
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -51,7 +51,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
         ...
     </application>
 </manifest>
-```
+`````````
 
 ## 継続的な追跡を無効にする {#disabling-continuous-tracking}
 
@@ -62,9 +62,9 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 コンパイル時に位置情報の継続的な追跡を無効にするには、`braze.xml` で `com_braze_enable_location_collection` を `false` に設定します。
 
-```xml
+`````````xml
 <bool name="com_braze_enable_location_collection">false</bool>
-```
+`````````
 
 {% endtab %}
 {% tab runtime %}
@@ -74,22 +74,22 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
   .setIsAutomaticLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setIsAutomaticLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}

@@ -40,16 +40,16 @@ description: "この記事では、セグメントリストのエクスポート
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=1&sort_direction=desc' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "segments" : [
         {
-            "id" : (string) the Segment API identifier,
+            "id" : (string) the セグメント API identifier,
             "name" : (string) segment name,
             "analytics_tracking_enabled" : (boolean) whether the segment has analytics tracking enabled,
             "tags" : (array) the tag names associated with the segment formatted as strings
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
         ...
     ]
 }
-```
+`````````
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

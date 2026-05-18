@@ -27,6 +27,6 @@ STEP 2: PERFORM ANOTHER ACTION
 STEP 3: END STATE
 
 <!-- The content of the use case should be step-by-step instructions for the user to follow. Be explicit about basic things: where to do things and where to put them. Discuss why the user would make the fictional choices they're making. The goal of the use case is to create an example that resembles a "real world" artifact, and can later be adapted into a real application using the user's own data and industry standards. Be clear that this is a fictional example so the user feels safe with experimenting and doesn't make a mistake with real-world consequences. -->
-```
+`````````
 {% endraw %}
 {% enddetails %}

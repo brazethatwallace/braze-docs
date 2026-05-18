@@ -1,24 +1,24 @@
 ---
-nav_title: "POST: スケジュールされたAPIトリガーCanvasesを更新する"
-article_title: "POST: スケジュールされたAPIトリガーCanvasesを更新する"
+nav_title: "POST: スケジュールされたAPIトリガーキャンバスを更新する"
+article_title: "POST: スケジュールされたAPIトリガーキャンバスを更新する"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「スケジュールされたAPIトリガーCanvasesを更新」Brazeエンドポイントの詳細について説明します。"
+description: "この記事では、「スケジュールされたAPIトリガーキャンバスを更新」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# スケジュールされたAPIトリガーCanvasesを更新する {#update-scheduled-api-triggered-canvases}
+# スケジュールされたAPIトリガーキャンバスを更新する {#update-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
-> このエンドポイントを使用して、ダッシュボードで作成されたスケジュール済みAPIトリガーCanvasesを更新します。
+> このエンドポイントを使用して、ダッシュボードで作成されたスケジュール済みAPIトリガーキャンバスを更新します。
 
 これにより、どのアクションがメッセージ送信のトリガーになるかを決めることができます。Brazeがメッセージ自体にテンプレート化する`trigger_properties`を渡すことができます。
 
-このエンドポイントを使用してメッセージを送信するには、[Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)を構築するときに作成されたCanvas IDが必要です。
+このエンドポイントを使用してメッセージを送信するには、[キャンバス]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)を構築するときに作成されたキャンバス IDが必要です。
 
 スケジュールは、スケジュール作成リクエストや以前のスケジュール更新リクエストで提供したものを完全に上書きします。
   - たとえば、最初に`"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}`を指定し、更新で`"schedule" : {"time" : "2015-02-20T14:14:47"}`を指定した場合、Brazeはユーザーのローカル時間ではなく、UTCで指定した時間にメッセージを送信します。
@@ -39,9 +39,9 @@ description: "この記事では、「スケジュールされたAPIトリガー
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "canvas_id": (required, string) see Canvas identifier,
   "schedule_id": (required, string) the `schedule_id` to update (obtained from the response to create schedule),
@@ -49,7 +49,7 @@ Authorization: Bearer YOUR-REST-API-KEY
     // required, see create schedule documentation
   }
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -61,7 +61,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/update' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -73,6 +73,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
     "in_local_time": true
   }
 }'
-```
+`````````
 
 {% endapi %}

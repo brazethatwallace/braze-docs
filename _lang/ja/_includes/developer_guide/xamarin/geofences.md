@@ -33,7 +33,7 @@
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-```
+`````````
 
 {% alert important %}
 Android 10以降のデバイスでは、アプリがバックグラウンドで動作している間ジオフェンスが機能するために、バックグラウンド位置情報アクセス権限が必要です。
@@ -43,16 +43,16 @@ Android 10以降のデバイスでは、アプリがバックグラウンドで�
 
 Brazeの設定で位置情報の収集が有効になっていることを確認してください。自動位置情報収集なしでジオフェンスを有効にしたい場合は、`Braze.xml`に以下を設定します：
 
-```xml
+`````````xml
 <bool name="com_braze_enable_location_collection">true</bool>
 <bool name="com_braze_geofences_enabled">true</bool>
-```
+`````````
 
 ### ステップ 5: 実行時に位置情報の権限をリクエストする {#step-5-request-location-permissions-at-runtime}
 
 ジオフェンスを登録する前に、ユーザーから位置情報の権限をリクエストする必要があります。C#コードでは、次のパターンを使用します：
 
-```csharp
+`````````csharp
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
 
@@ -65,21 +65,21 @@ public override void OnRequestPermissionsResult(int requestCode, string[] permis
 {
   // ...existing code for handling permission result...
 }
-```
+`````````
 
 権限が付与された後、Brazeの位置情報収集を初期化します：
 
-```csharp
+`````````csharp
 Braze.GetInstance(this).RequestLocationInitialization();
-```
+`````````
 
 ### ステップ 6: ジオフェンスの更新を手動でリクエストする（オプション） {#step-6-manually-request-geofence-updates-optional}
 
 特定のロケーションに対してジオフェンスを手動でリクエストするには：
 
-```csharp
+`````````csharp
 Braze.GetInstance(this).RequestGeofences(latitude, longitude);
-```
+`````````
 
 {% alert important %}
 ジオフェンスは、SDKによる自動リクエストまたはこのメソッドによる手動リクエストのいずれかで、セッションごとに1回のみリクエストできます。
@@ -97,12 +97,12 @@ Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 
 `Info.plist`に位置情報サービスの使用説明文字列を追加します：
 
-```xml
+`````````xml
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 <string>This app uses your location to enable geofences and location-based messaging.</string>
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>This app uses your location to enable geofences and location-based messaging.</string>
-```
+`````````
 
 {% alert important %}
 Appleは`NSLocationAlwaysUsageDescription`を廃止しました。iOS 14以降では上記のキーを使用してください。
@@ -112,7 +112,7 @@ Appleは`NSLocationAlwaysUsageDescription`を廃止しました。iOS 14以降�
 
 アプリの起動コード（例：`App.xaml.cs`）で、ジオフェンスを有効にしてBrazeを設定します：
 
-```csharp
+`````````csharp
 using BrazeKit;
 using BrazeLocation;
 
@@ -123,25 +123,25 @@ configuration.Location.GeofencesEnabled = true;
 configuration.Location.AutomaticGeofenceRequests = true;
 // ...other configuration...
 var braze = new Braze(configuration);
-```
+`````````
 
 ### ステップ 5: バックグラウンド位置情報の更新を有効にする（オプション） {#step-5-enable-background-location-updates-optional}
 
 バックグラウンドでジオフェンスを監視するには、`Info.plist`に以下の設定を追加して**Location updates**バックグラウンドモードを有効にします：
 
-```xml
+`````````xml
 <key>UIBackgroundModes</key>
 <array>
   <string>location</string>
 </array>
-```
+`````````
 
 次に、Brazeの設定で以下を設定します：
 
-```csharp
+`````````csharp
 configuration.Location.AllowBackgroundGeofenceUpdates = true;
 configuration.Location.DistanceFilter = 8000; // meters
-```
+`````````
 
 {% alert important %}
 バッテリーの消耗を防ぐため、`DistanceFilter`をアプリのニーズに合った値に設定してください。
@@ -151,14 +151,14 @@ configuration.Location.DistanceFilter = 8000; // meters
 
 ユーザーから`When In Use`または`Always`の許可をリクエストします：
 
-```csharp
+`````````csharp
 using CoreLocation;
 
 var locationManager = new CLLocationManager();
 locationManager.RequestWhenInUseAuthorization();
 // or
 locationManager.RequestAlwaysAuthorization();
-```
+`````````
 
 {% alert important %}
 `Always`の許可がない場合、iOSはアプリが使用されていない間、位置情報サービスの実行を制限します。これはオペレーティングシステムによって強制されるものであり、Braze SDKでは回避できません。

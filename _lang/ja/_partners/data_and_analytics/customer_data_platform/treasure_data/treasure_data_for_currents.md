@@ -64,7 +64,7 @@ Brazeで**Currents** > **+ Create Current** > **Treasure Data Export**に移動�
         },
             "properties": {
                 "campaign_id": "11234567-89ab-cdef-0123-456789abcdef",
-                "campaign_name": "Test Campaign",
+                "campaign_name": "Test キャンペーン",
                 "dispatch_id": "12345qwert",
                 "message_variation_id": "c1234567-89ab-cdef-0123-456789abcdef",
                 "email_address": "test@example.com",
@@ -74,7 +74,7 @@ Brazeで**Currents** > **+ Create Current** > **Treasure Data Export**に移動�
         }
     ]
 }
-```
+`````````
 
 #### インジェストされたビューの例 {#example-of-the-ingested-view}
 

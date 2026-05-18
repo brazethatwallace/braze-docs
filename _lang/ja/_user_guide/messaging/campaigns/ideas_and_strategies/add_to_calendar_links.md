@@ -25,14 +25,14 @@ channel: email
 
 ```
 https://ics.agical.io/?subject=EVENT_SUBJECT&location=EVENT_LOCATION&dtstart=START_TIME&dtend=END_TIME&description=EVENT_DESCRIPTION&format=gcal
-```
+`````````
 
 {% endtab %}
 {% tab iCal or Outlook %}
 
-```
+`````````
 https://ics.agical.io/?subject=EVENT_SUBJECT&location=EVENT_LOCATION&dtstart=START_TIME&dtend=END_TIME&description=EVENT_DESCRIPTION
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -49,9 +49,9 @@ https://ics.agical.io/?subject=EVENT_SUBJECT&location=EVENT_LOCATION&dtstart=STA
 
 以下は「Google カレンダーに追加」URL の例です：
 
-```
+`````````
 https://ics.agical.io/?subject=Meet%20Braze&location=114%20Sansome%20Street&dtstart=2021-06-24T15:00:00Z&dtend=2021-06-24T16:00:00Z&description=Braze%20Party&format=gcal
-```
+`````````
 
 ### 追加パラメーター
 

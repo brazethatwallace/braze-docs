@@ -62,28 +62,28 @@ URLは、サポートされているLiquidパーソナライゼーションタ�
 {% raw %}
 ```
 https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom_attribute.${attribute1}}}
-```
+`````````
 {% endraw %}
 
 以下の例に示すように、カスタム定義のLiquid変数を短縮することもできます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign url_var = {{event_properties.${url_slug}}} %}
 https://example.com/{{url_var}}
-```
+`````````
 {% endraw %}
 
 BrazeはLiquidによってレンダリングされたURL（APIトリガープロパティに含まれるURLを含む）を短縮します。たとえば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}が有効なURLを表す場合、BrazeはKakaoTalkメッセージを送信する前にそのURLを短縮してトラッキングします。
 
 ## テスト {#testing}
 
-CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにKakaoTalkメッセージをプレビューして送信します。
+キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにKakaoTalkメッセージをプレビューして送信します。
 
 プレビューは、関連するパーソナライゼーションと短縮URLで更新されます。
 
 {% alert important %}
-アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
+アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ## レポート {#reporting}
@@ -97,19 +97,19 @@ KakaoTalkパフォーマンステーブルには、バリアントごとのク�
 KakaoTalkメッセージ内のURLをクリックしたユーザーを、以下のセグメンテーションフィルターとトリガーを使用してリターゲティングできます。
 
 - アクションベースのトリガー
-    - Interact with Campaign
+    - Interact with キャンペーン
     - Interact with Step
 
 - セグメンテーションフィルター
-    - Clicked/Opened Campaign
-    - Clicked/Opened Campaign or Canvas with Tag
+    - Clicked/Opened キャンペーン
+    - Clicked/Opened キャンペーン or キャンバス with Tag
     - Clicked/Opened Step
 
 ## よくある質問 {#frequently-asked-questions}
 
 ### テスト送信で受け取るリンクは実際のURLですか？ {#are-the-links-i-receive-when-test-sending-real-urls}
 
-はい、テスト送信時に実際のURLが生成されます。ただし、起動されたCampaignで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
+はい、テスト送信時に実際のURLが生成されます。ただし、起動されたキャンペーンで送信される正確なURLは、テスト送信で送信されたものとは異なる場合があります。
 
 ### URLが短縮される前にUTMパラメーターを追加できますか？ {#can-i-add-utm-parameters-to-a-url-before-it-is-shortened}
 

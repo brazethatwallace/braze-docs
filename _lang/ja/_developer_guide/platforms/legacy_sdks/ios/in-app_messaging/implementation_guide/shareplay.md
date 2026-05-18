@@ -50,7 +50,7 @@ override var nibName: String {
 override func loadView() {
   Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -60,7 +60,7 @@ override func loadView() {
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 func configureVideoPlayer() {
   guard let urlString = inAppMessage.extras?["video_url"] as? String,
         let url = URL(string: urlString) else { return }
@@ -77,7 +77,7 @@ func configureVideoPlayer() {
   videoPlayerContainer.addSubview(playerViewController.view)
   playerViewController.didMove(toParent: self)
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -97,7 +97,7 @@ func configureVideoPlayer() {
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 struct MediaItem: Hashable, Codable {
   let title: String
   let url: URL
@@ -117,7 +117,7 @@ struct MediaItemActivity: GroupActivity {
     return metadata
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -138,7 +138,7 @@ struct MediaItemActivity: GroupActivity {
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 private var subscriptions = Set<AnyCancellable>()
 private var selectedMediaItem: MediaItem? {
   didSet {
@@ -158,7 +158,7 @@ private func launchVideoPlayerIfNecessary() {
       .assign(to: \.selectedMediaItem, on: self)
       .store(in: &subscriptions)
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -168,7 +168,7 @@ private func launchVideoPlayerIfNecessary() {
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 override func viewDidDisappear(_ animated: Bool) {
   super.viewDidDisappear(animated)
   groupSession?.leave()
@@ -188,7 +188,7 @@ class CoordinationManager() {
   }
 ...
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -198,7 +198,7 @@ SharePlayインジケーターを動的に非表示または表示すること�
 
 {% tabs %}
 {% tab Swift %}
-```swift
+`````````swift
 private var isEligibleForSharePlay: Bool = false {
   didSet {
     sharePlayButton.isHidden = !isEligibleForSharePlay
@@ -214,6 +214,6 @@ override func viewDidLoad() {
     .assign(to: \.isEligibleForSharePlay, on: self)
     .store(in: &subscriptions)
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}

@@ -25,7 +25,7 @@ channel:
    xcrun simctl openurl booted "myapp://products/123"
    ```
    ここでリンクが機能しない場合、問題はアプリのURL処理にあり、Brazeの問題ではありません。
-4. **URLの形式を確認します。** Campaignに設定されたURLが、ハンドラーが期待する形式と一致しているか確認してください。よくある間違いには、パスコンポーネントの欠落や大文字小文字の誤りがあります。
+4. **URLの形式を確認します。** キャンペーンに設定されたURLが、ハンドラーが期待する形式と一致しているか確認してください。よくある間違いには、パスコンポーネントの欠落や大文字小文字の誤りがあります。
 
 ## ユニバーサルリンクがアプリではなくSafariで開く {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -54,13 +54,13 @@ AASAの検証は、[Appleの検索検証ツール](https://search.developer.appl
 
 ```bash
 swcutil dl -d yourdomain.com
-```
+`````````
 
 ### `AppDelegate`を確認する {#check-the-appdelegate}
 
 `application(_:continue:restorationHandler:)`が`AppDelegate`に実装されており、`NSUserActivity`を正しく処理していることを確認してください：
 
-```swift
+`````````swift
 func application(_ application: UIApplication,
                  continue userActivity: NSUserActivity,
                  restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -71,16 +71,16 @@ func application(_ application: UIApplication,
   // Handle the URL
   return true
 }
-```
+`````````
 
 ### Braze SDKの設定を確認する {#verify-braze-sdk-configuration}
 
 Brazeから配信されるプッシュ通知、アプリ内メッセージ、またはContent Cardsからユニバーサルリンクを使用している場合、`forwardUniversalLinks`が有効になっていることを確認してください：
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(apiKey: "<BRAZE_API_KEY>", endpoint: "<BRAZE_ENDPOINT>")
 configuration.forwardUniversalLinks = true
-```
+`````````
 
 {% alert note %}
 ユニバーサルリンクの転送には、アプリケーションのエンタイトルメントへのアクセスが必要です。シミュレーターで実行している場合、これらのエンタイトルメントは直接利用できません。シミュレーターでテストするには、**Copy Bundle Resources** ビルドフェーズに`.entitlements`ファイルを追加してください。
@@ -122,12 +122,12 @@ ESP固有の設定手順については、[ユニバーサルリンクとアプ�
 
 [詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)、問題を再現します。`Opening`ログエントリを探してください：
 
-```
+`````````
 Opening '<URL>':
 - channel: <SOURCE_CHANNEL>
 - useWebView: <true/false>
 - isUniversalLink: <true/false>
-```
+`````````
 
 機能しているチャネルと機能していないチャネルのログ出力を比較してください。`useWebView`や`isUniversalLink`の違いは、SDKがリンクを異なる方法で解釈していることを示しています。
 
@@ -152,7 +152,7 @@ Opening '<URL>':
 
 `BrazeDelegate`がBranchリンクをインターセプトし、Branch SDKに渡す必要があります。以下を確認してください：
 
-```swift
+`````````swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   if let host = context.url.host, host.contains("app.link") {
     // Route to Branch SDK
@@ -162,7 +162,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   // Let Braze handle other links
   return true
 }
-```
+`````````
 
 `shouldOpenURL`がBranchリンクに対して`true`を返す場合、BrazeはBranchにルーティングせず直接処理します。
 

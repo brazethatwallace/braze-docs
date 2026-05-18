@@ -26,17 +26,17 @@ Brazeは、[`User`クラス](https://js.appboycdn.com/web-sdk/latest/doc/classes
 {% subtab First name %}
 ```javascript
 braze.getUser().setFirstName("SomeFirstName");
-```
+`````````
 {% endsubtab %}
 {% subtab Gender %}
-```javascript
+`````````javascript
 braze.getUser().setGender(braze.User.Genders.FEMALE);
-```
+`````````
 {% endsubtab %}
 {% subtab Date of birth %}
-```javascript
+`````````javascript
 braze.getUser().setDateOfBirth(2000, 12, 25);
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -46,11 +46,11 @@ Google Tag Managerを使用する場合、標準属性項目（ユーザーの�
 
 たとえば、性別属性は、値として次のいずれかを使用できます: `"m" | "f" | "o" | "u" | "n" | "p"`。したがって、ユーザーの性別を女性に設定するには、次の内容のカスタムHTMLタグを作成します:
 
-```html
+`````````html
 <script>
 window.braze.getUser().setGender("f")
 </script>
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -62,19 +62,19 @@ Web SDKでデフォルトのユーザー属性を解除するには、関連す�
 
 {% tabs local %}
 {% tab First name %}
-```javascript
+`````````javascript
 braze.getUser().setFirstName(null);
-```
+`````````
 {% endtab %}
 {% tab Gender %}
-```javascript
+`````````javascript
 braze.getUser().setGender(null);
-```
+`````````
 {% endtab %}
 {% tab Date of birth %}
-```javascript
+`````````javascript
 braze.getUser().setDateOfBirth(null, null, null);
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -90,18 +90,18 @@ braze.getUser().setDateOfBirth(null, null, null);
 {% subtab String %}
 `string`値でカスタム属性を設定するには:
 
-```javascript
+`````````javascript
 braze.getUser().setCustomUserAttribute(
   YOUR_ATTRIBUTE_KEY_STRING,
   YOUR_STRING_VALUE
 );
-```
+`````````
 
 {% endsubtab %}
 {% subtab Integer %}
 `integer`値でカスタム属性を設定するには:
 
-```javascript
+`````````javascript
 braze.getUser().setCustomUserAttribute(
   YOUR_ATTRIBUTE_KEY_STRING,
   YOUR_INT_VALUE
@@ -112,13 +112,13 @@ braze.getUser().incrementCustomUserAttribute(
   YOUR_ATTRIBUTE_KEY_STRING,
   THE_INTEGER_VALUE_BY_WHICH_YOU_WANT_TO_INCREMENT_THE_ATTRIBUTE
 );
-```
+`````````
 
 {% endsubtab %}
 {% subtab Date %}
 `date`値でカスタム属性を設定するには:
 
-```javascript
+`````````javascript
 braze.getUser().setCustomUserAttribute(
   YOUR_ATTRIBUTE_KEY_STRING,
   YOUR_DATE_VALUE
@@ -135,7 +135,7 @@ braze.getUser().setCustomUserAttribute(
   YOUR_ATTRIBUTE_KEY_STRING,
   new Date(secondsFromEpoch * 1000)
 );
-```
+`````````
 
 {% endsubtab %}
 {% subtab Array %}
@@ -145,7 +145,7 @@ braze.getUser().setCustomUserAttribute(
 
 `array`値でカスタム属性を設定するには:
 
-```javascript
+`````````javascript
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, YOUR_ARRAY_OF_STRINGS);
 
 // Adding a new element to a custom attribute with an array value
@@ -153,7 +153,7 @@ braze.getUser().addToCustomAttributeArray(YOUR_ATTRIBUTE_KEY_STRING, "new string
 
 // Removing an element from a custom attribute with an array value
 braze.getUser().removeFromCustomAttributeArray(YOUR_ATTRIBUTE_KEY_STRING, "value to be removed");
-```
+`````````
 
 {% alert important %}
 このメソッドでBrazeに渡される日付は、JavaScriptのDateオブジェクトでなければなりません。
@@ -169,13 +169,13 @@ braze.getUser().removeFromCustomAttributeArray(YOUR_ATTRIBUTE_KEY_STRING, "value
 {% tab google tag manager %}
 Google Tag Managerのスクリプト言語の制限により、カスタムユーザー属性は使用できません。カスタム属性を記録するには、次の内容でカスタムHTMLタグを作成します:
 
-```html
+`````````html
 <script>
   // Note: If using SDK version 3.x or below, use `window.appboy` instead of `window.braze`
   // Version 4 or greater should use `window.braze`
 window.braze.getUser().setCustomUserAttribute("attribute name", "attribute value");
 </script>
-```
+`````````
 
 {% alert important %}
 GTMテンプレートでは、イベントまたは購入のネストされたプロパティはサポートされていません。前述のHTMLを使用して、ネストされたプロパティを必要とするイベントや購入を記録できます。
@@ -187,15 +187,15 @@ GTMテンプレートでは、イベントまたは購入のネストされた�
 
 カスタム属性を解除するには、関連するメソッドに`null`を渡します。
 
-```javascript
+`````````javascript
 braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
-```
+`````````
 
 ### 階層化カスタム属性 {#nesting-custom-attributes}
 
 カスタム属性内にプロパティをネストすることもできます。次の例では、ネストされたプロパティを持つ`favorite_book`オブジェクトが、ユーザープロファイルのカスタム属性として設定されています。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)を参照してください。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 const favoriteBook = {
@@ -205,7 +205,7 @@ const favoriteBook = {
 };
 
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
-```
+`````````
 
 ### REST APIの使用 {#using-the-rest-api}
 
@@ -228,12 +228,12 @@ braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 
 ### ユーザーのメール配信停止 {#unsubscribing-a-user-from-email}
 
-```javascript
+`````````javascript
 braze.getUser().setEmailNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);
-```
+`````````
 
 ### ユーザーのプッシュ通知の配信停止 {#unsubscribing-a-user-from-push}
 
-```java
+`````````java
 braze.getUser().setPushNotificationSubscriptionType(braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED);
-```
+`````````

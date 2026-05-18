@@ -70,14 +70,14 @@
           inApplication:application
       withLaunchOptions:options
       withAppboyOptions:@{ ABKMinimumTriggerTimeIntervalKey : @(5) }];
-```
+`````````
 
 {% elsif include.platform == "Android" %}
 この値をオーバーライドするには、`braze.xml` で `com_appboy_trigger_action_minimum_time_interval_seconds` を次のように設定します。
 
-```xml
+`````````xml
   <integer name="com_appboy_trigger_action_minimum_time_interval_seconds">5</integer>
-```
+`````````
 {% endif %}
 
 [in_app_message_1]: http://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_slideup.html

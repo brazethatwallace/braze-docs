@@ -6,7 +6,7 @@ page_type: glossary
 layout: sql_segment_extensions_glossary
 alias: "/sql_segments_use_cases/"
 description: "この記事では、SQL セグメントエクステンション向けにテスト済みで実証されたクエリを紹介します。"
-tool: Segments
+tool: セグメント
 ---
 
 {% api %}
@@ -15,16 +15,16 @@ tool: Segments
 Event
 {% endapitags %}
 
-過去に特定のメールCampaignを複数回開封したユーザーを選択します。
+過去に特定のメールキャンペーンを複数回開封したユーザーを選択します。
 
-これは、インプレッション数によるアプリ内メッセージのキャップにも使用できます。たとえば、3回以上のインプレッションがあるユーザーを選択し、同じCampaignのSegment除外として設定できます。
+これは、インプレッション数によるアプリ内メッセージのキャップにも使用できます。たとえば、3回以上のインプレッションがあるユーザーを選択し、同じキャンペーンのセグメント除外として設定できます。
 
 ```sql
 SELECT user_id FROM "USERS_MESSAGES_EMAIL_OPEN_SHARED"
 WHERE campaign_api_id='8f7026dc-e9b7-40e6-bdc7-96cf58e80faa'
 GROUP BY user_id
 HAVING count(*) > 1
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -35,11 +35,11 @@ Property
 
 スポーツに賭けを行い、すべての賭け金の合計が特定の金額を超えるユーザーを選択します。
 
-```sql
+`````````sql
 select user_id from "USERS_BEHAVIORS_CUSTOMEVENT_SHARED"
 where name='Bet On Sports'
 group by 1 having sum(get_path(parse_json(properties), 'amount')) > 150
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -52,13 +52,13 @@ Event, Time range
 
 これは、さまざまなチャネルにおける反応性の高いユーザーなど、ユーザーのエンゲージメントレベルを判定する場合にも使用できます。
 
-```sql
+`````````sql
 SELECT user_id, COUNT(DISTINCT id) AS num_emails_opened
 FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -30, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
 GROUP BY user_id;
 HAVING COUNT(DISTINCT id) > 3
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -67,9 +67,9 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-過去4四半期のそれぞれで購入を行ったユーザーを選択します。このユーザーSegmentは、[オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/)と組み合わせて、獲得向けの高価値な類似顧客を特定するために使用できます。
+過去4四半期のそれぞれで購入を行ったユーザーを選択します。このユーザーセグメントは、[オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/)と組み合わせて、獲得向けの高価値な類似顧客を特定するために使用できます。
 
-```sql
+`````````sql
 ELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -90, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
@@ -85,7 +85,7 @@ INTERSECT
 SELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -365, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= DATEADD(day, -271, CURRENT_TIMESTAMP());
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -96,7 +96,7 @@ Purchase, Property
 
 14日以内にプロパティ `"type = shops"` を含む購入を行った顧客を選択します。
 
-```sql
+`````````sql
 SELECT
 user_id
 FROM
@@ -114,7 +114,7 @@ AND
 to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
 GROUP BY 1
 HAVING COUNT(id) > 0;
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -123,9 +123,9 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-SMS CampaignまたはCanvasが送信されたが、メッセージがキャリアに到達しなかったユーザーを選択します。たとえば、キューオーバーフローによってメッセージが停止された場合などです。
+SMS キャンペーンまたはキャンバスが送信されたが、メッセージがキャリアに到達しなかったユーザーを選択します。たとえば、キューオーバーフローによってメッセージが停止された場合などです。
 
-```sql
+`````````sql
 SELECT
 user_id
 FROM
@@ -135,7 +135,7 @@ CANVAS_ID='63067c50740cc3377f8200d5'
 AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_CARRIERSEND_SHARED WHERE CANVAS_ID='63067c50740cc3377f8200d5')
 GROUP BY 1
 HAVING COUNT(id) > 0;
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -144,9 +144,9 @@ HAVING COUNT(id) > 0;
 Message, Carrier
 {% endapitags %}
 
-これは、特定のCanvasから送信されたが配信されなかった他の種類のメッセージにも転用できます。
+これは、特定のキャンバスから送信されたが配信されなかった他の種類のメッセージにも転用できます。
 
-```sql
+`````````sql
 SELECT
 user_id
 FROM
@@ -156,8 +156,8 @@ CANVAS_ID='id pulled from URL'
 AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_CARRIERSEND_SHARED WHERE CANVAS_ID='id pulled from URL')
 GROUP BY 1
 HAVING COUNT(id) > 0;
-```
-`CANVAS_ID` は、CanvasのURLの `/canvas/` の後にある番号です。
+`````````
+`CANVAS_ID` は、キャンバスのURLの `/canvas/` の後にある番号です。
 {% endapi %}
 
 {% api %}
@@ -166,12 +166,12 @@ HAVING COUNT(id) > 0;
 Purchase, Property
 {% endapitags %}
 
-```sql
+`````````sql
 SELECT DISTINCT EXTERNAL_USER_ID
 FROM "USERS_BEHAVIORS_PURCHASE_SHARED",
 LATERAL FLATTEN(input=>parse_json(properties):modifiers) as f
 WHERE f.VALUE::STRING = 'Bacon'
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -184,7 +184,7 @@ Error, Delivery
 
 このクエリはインクリメンタルエディターを使用し、過去90日間に3回以上の拒否送信があり、配信が0件のユーザーを検索します。
 
-```sql
+`````````sql
 SELECT
   $date(time), user_id, COUNT(id)
 FROM
@@ -195,7 +195,7 @@ WHERE
   time > $start_date
     AND TO_PHONE_NUMBER NOT IN (SELECT TO_PHONE_NUMBER FROM USERS_MESSAGES_SMS_DELIVERY_SHARED)
 GROUP BY 1, 2;
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -210,7 +210,7 @@ Event, Property, Time range
 - モール `Funan` で取引した
 - 過去90日間に3回以上取引した
 
-```sql
+`````````sql
 SELECT
 USER_ID
 FROM
@@ -224,7 +224,7 @@ USER_ID
 HAVING
 SUM(get_path(parse_json(properties), 'total_value')) > 500
 AND COUNT(*) > 3
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -233,14 +233,14 @@ AND COUNT(*) > 3
 Session, Device
 {% endapitags %}
 
-```sql
+`````````sql
 select user_id, external_user_id, device_id, platform, os_version, device_model, to_timestamp(max(time)) last_session
 from users_behaviors_app_sessionstart
 where app_group_id = ''
 and date_trunc(day, to_timestamp(time)) <= to_timestamp('2023-08-07')
 and device_model = ''
 group by user_id, external_user_id, device_id, platform, os_version, device_model
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -249,14 +249,14 @@ group by user_id, external_user_id, device_id, platform, os_version, device_mode
 Time range
 {% endapitags %}
 
-```sql
+`````````sql
 SELECT DISTINCT USER_ID, to_timestamp_ntz(time)
 FROM USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED
 WHERE to_timestamp_ntz(time) >= '2023-08-03'::timestamp_ntz
 AND to_timestamp_ntz(time) <= '2023-08-09'::timestamp_ntz
 AND BUTTON_ID = '1'
 AND CAMPAIGN_ID = '64c8cd9c4d38d13091957b1c'
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -265,7 +265,7 @@ AND CAMPAIGN_ID = '64c8cd9c4d38d13091957b1c'
 Purchase, Time range
 {% endapitags %}
 
-```sql
+`````````sql
 SELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= '2023-09-01'::timestamp_ntz
@@ -280,7 +280,7 @@ SELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= '2023-11-01'::timestamp_ntz
 AND to_timestamp_ntz(time) <= '2023-11-30'::timestamp_ntz;
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -293,7 +293,7 @@ Event, Property
 
 プロパティはタイトルIDです。そうでなければ、フィルターに100以上のタイトルIDを含める必要があります。インクリメンタルセグメントエクステンションはコスト最適化が可能で、ヘッダーで日付範囲を指定できます。
 
-```sql
+`````````sql
 SELECT
   $date(time),
   USER_ID,
@@ -306,7 +306,7 @@ WHERE
   AND (PARSE_JSON(PROPERTIES):property_name::INT) IN (1, 2)
 GROUP BY
   1, 2;
-```
+`````````
 {% endapi %}
 
 {% api %}
@@ -315,7 +315,7 @@ GROUP BY
 Message
 {% endapitags %}
 
-```sql
+`````````sql
 WITH user_email_counts AS (
   SELECT
     USER_ID,
@@ -342,7 +342,7 @@ user_daily_average AS (
 SELECT
   AVG(daily_average)
 FROM user_daily_average;
-```
+`````````
 
 {% alert tip %}
 SMSメッセージの場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。プッシュ通知の場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。
@@ -355,7 +355,7 @@ SMSメッセージの場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHAR
 Message
 {% endapitags %}
 
-```sql
+`````````sql
 WITH user_email_counts AS (
   SELECT
     USER_ID,
@@ -381,7 +381,7 @@ user_weekly_average AS (
 SELECT
   AVG(weekly_average) AS average_weekly_emails
 FROM user_weekly_average;
-```
+`````````
 {% alert tip %}
 SMSメッセージの場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。プッシュ通知の場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHARED` を `USERS_MESSAGES_SMS_SEND_SHARED` に置き換えてください。
 {% endalert %}

@@ -42,20 +42,20 @@ Braze は、特定の高度な機能の内部実装にサイレントプッシ�
     // ... Gated logic here (such as pinging your server to download content) ...
   }
 }
-```
+`````````
 
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
   if (![ABKPushUtils isAppboyInternalRemoteNotification:userInfo]) {
     // ... Gated logic here (such as pinging server for content) ...
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
   let pushDictionary = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary as? [AnyHashable : Any] ?? [:]
   let launchedFromAppboyInternalPush = ABKPushUtils.isAppboyInternalRemoteNotification(pushDictionary)
@@ -63,9 +63,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // ... Gated logic here (such as pinging your server to download content) ...
   }
 }
-```
+`````````
 
-```swift
+`````````swift
 func application(_ application: UIApplication,
                  didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                  fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -73,7 +73,7 @@ func application(_ application: UIApplication,
     // ... Gated logic here (such as pinging server for content) ...
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

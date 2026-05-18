@@ -13,12 +13,12 @@ Brazeの最新機能を利用するには、当社のWeb SDKを導入せよ。
 **クライアントサイド統合については：**
 ```bash
 npm install @braze/web-sdk
-```
+`````````
 
 <!-- **For server-side integration:**
-```bash
+`````````bash
 npm install @braze/javascript-sdk
-``` -->
+````````` -->
 
 <!-- The Braze JavaScript SDK is primarily designed for headless (server-side) environments and is currently in [beta](https://www.braze.com/company/legal/beta-terms). -->
 
@@ -38,7 +38,7 @@ BrazeをChatGPTアプリに統合する方法は、ユースケースに応じ�
 
 MCPサーバーファイルに以下のメタデータを追加し、Brazeドメインを許可する。CDNドメインは[地域](https://www.braze.com/docs/developer_guide/platforms/web/content_security_policy)に応じて更新すること：
 
-```javascript
+`````````javascript
 "openai/widgetCSP": {
   connect_domains: ["https://YOUR-SDK-ENDPOINT"],
   resource_domains: [
@@ -48,13 +48,13 @@ MCPサーバーファイルに以下のメタデータを追加し、Brazeドメ
     "https://use.fontawesome.com"
   ],
 }
-```
+`````````
 
 実際のBraze SDKエンドポイントで`YOUR-SDK-ENDPOINT`置き換える。
 
 #### useBrazeフックを設定する
 
-```javascript
+`````````javascript
 import { useBraze } from "./utils/braze";
 
 function YourWidget() {
@@ -79,11 +79,11 @@ function YourWidget() {
     // Your widget JSX
   );
 }
-```
+`````````
 
 #### Brazeコンテンツカードを表示する
 
-```javascript
+`````````javascript
 const [cards, setCards] = useState([]);
 
 useEffect(() => {
@@ -102,11 +102,11 @@ useEffect(() => {
     braze.removeAllSubscriptions();
   }
 }, []);
-```
+`````````
 
 #### ウィジェットのイベントのトラッキング
 
-```javascript
+`````````javascript
 // Track user interactions within your widget
 const handleButtonClick = () => {
   braze.logCustomEvent("widget_button_clicked", {
@@ -121,7 +121,7 @@ const handleItemInteraction = (itemId) => {
     interaction_type: "view_details"
   });
 };
-```
+`````````
 
 ### サーバーサイド統合（MCPサーバー）
 
@@ -130,24 +130,24 @@ MCPサーバー上でメッセージング機能のサーバーサイド統合�
 
 <!-- #### Import the Braze functions
 
-```javascript
+`````````javascript
 // Import the desired methods from wherever you saved the file
 import { BrazeSessionInfo, logCustomEvent, logPurchase } from "./braze/braze.js";
-```
+`````````
 
 #### Set up session information
 
-```javascript
+`````````javascript
 // Create session info for Braze
 const brazeSessionInfo: BrazeSessionInfo = {
   userId: userId,
   sessionId: sessionId || "default-session"
 };
-```
+`````````
 
 #### Track user interactions
 
-```javascript
+`````````javascript
 // Log custom events for user interactions
 await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
   app_id: "your_chatgpt_app_id",
@@ -155,11 +155,11 @@ await logCustomEvent(brazeSessionInfo, "chatgpt_app_interaction", {
   user_authenticated: userId !== "anonymous",
   timestamp: new Date().toISOString()
 });
-```
+`````````
 
 #### Track purchases and transactions
 
-```javascript
+`````````javascript
 // Calculate order details for purchases
 const totalPrice = examplePriceMethod(args.size, args.quantity);
 const orderId = `ORDER-${Date.now()}`;
@@ -185,7 +185,7 @@ await logPurchase(
   args.quantity, 
   purchaseProperties
 );
-```
+`````````
 
 {% alert tip %}
 Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging) to verify your integration and troubleshoot any issues.

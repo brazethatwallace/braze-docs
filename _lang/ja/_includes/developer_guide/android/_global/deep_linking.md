@@ -45,12 +45,12 @@ public class CustomDeeplinkHandler implements IBrazeDeeplinkHandler {
     }
   }
 }
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 
   override fun gotoUri(context: Context, uriAction: UriAction) {
@@ -81,7 +81,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
     private val TAG = BrazeLogger.getBrazeLogTag(CustomDeeplinkHandler::class.java)
   }
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -93,7 +93,7 @@ class CustomDeeplinkHandler : IBrazeDeeplinkHandler {
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
   @Override
   public void gotoUri(Context context, UriAction uriAction) {
@@ -113,12 +113,12 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(new IBrazeDeeplinkHandler() {
     }
   }
 });
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
   override fun gotoUri(context: Context, uriAction: UriAction) {
     val extras = uriAction.extras
@@ -137,7 +137,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
     }
   }
 })
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -163,24 +163,24 @@ Brazeがアプリ内でWebサイトのディープリンクを開く場合、そ
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
     .setCustomWebViewActivityClass(MyCustomWebViewActivity::class)
     ...
     .build();
 Braze.configure(this, brazeConfig);
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val brazeConfig = BrazeConfig.Builder()
     .setCustomWebViewActivityClass(MyCustomWebViewActivity::class.java)
     ...
     .build()
 Braze.configure(this, brazeConfig)
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

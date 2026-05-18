@@ -51,24 +51,24 @@ Brazeでプッシュプライマーアプリ内メッセージを作成するに
 {% subtab OBJECTIVE-C %}
 ```objc
 requestAuthorizationWithOptions
-```
+`````````
 {% endsubtab %}
 {% subtab swift %}
-```swift
+`````````swift
 requestAuthorization
-```
+`````````
 {% endsubtab %}
 {% subtab JavaScript %}
-```javascript
+`````````javascript
 braze.requestPushPermission()
 // or
 appboy.registerAppboyPushMessages()
-```
+`````````
 {% endsubtab %}
 {% subtab Java %}
-```java
+`````````java
 android.permission.POST_NOTIFICATIONS
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -86,15 +86,15 @@ android.permission.POST_NOTIFICATIONS
 
 たとえば、ニュースアプリでは以下のようなプッシュプライマーを使用できます。
 
-```plaintext
+`````````plaintext
 Breaking news on the go! Enable push notifications to get alerts for major stories and topics that matter to you.
-```
+`````````
 
 ストリーミングアプリでは以下のようなものが考えられます。
 
-```plaintext
+`````````plaintext
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
-```
+`````````
 
 ベストプラクティスと追加リソースについては、[カスタムオプトインプロンプトの作成]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を参照してください。
 
@@ -119,7 +119,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 
 ## ステップ 5: ユーザーをターゲットにする {#step-5-target-users}
 
-プッシュプライマーCampaignの目標は、プッシュ許可をまだ付与していないデバイスを持つユーザーに促すことです。これには、初回ユーザーや、新しいデバイスを取得したりアプリケーションを再インストールした既存ユーザーが含まれます。
+プッシュプライマーキャンペーンの目標は、プッシュ許可をまだ付与していないデバイスを持つユーザーに促すことです。これには、初回ユーザーや、新しいデバイスを取得したりアプリケーションを再インストールした既存ユーザーが含まれます。
 
 {% alert important %}
 **ノーコードプッシュプライマーによる自動抑制**: ノーコードプッシュプライマー（「プッシュ許可をリクエスト」ボタンアクション）を使用する場合、セグメンテーションにプッシュサブスクリプションフィルターを追加する必要はありません。SDKは、ユーザーの他のデバイスでのプッシュステータスに関係なく、すでにアクティブなプッシュトークンを持つデバイスでアプリ内メッセージを自動的に抑制します。複数のデバイスを持つユーザーのターゲティングの詳細については、[複数のデバイスを持つユーザーのターゲティング](#targeting-users-with-multiple-devices)を参照してください。
@@ -131,7 +131,7 @@ Get push notifications from Movie Cannon? Notifications may include new movies, 
 `Push Subscription Status is not Opted In`のようなユーザーレベルのフィルターを使用すると、別のデバイスですでにオプトインしているユーザーが除外され、新しいデバイスでプロンプトを受け取れなくなります。
 {% endalert %}
 
-それ以外にも、最も適切と思われる追加のSegmentを決定できます。たとえば、2回目の購入を完了したユーザー、会員になるためにアカウントを作成したばかりのユーザー、または週に2回以上アプリを訪問するユーザーをターゲットにすることができます。これらの重要なSegmentのユーザーをターゲットにすることで、ユーザーがオプトインしてプッシュが有効になる可能性が高まります。
+それ以外にも、最も適切と思われる追加のセグメントを決定できます。たとえば、2回目の購入を完了したユーザー、会員になるためにアカウントを作成したばかりのユーザー、または週に2回以上アプリを訪問するユーザーをターゲットにすることができます。これらの重要なセグメントのユーザーをターゲットにすることで、ユーザーがオプトインしてプッシュが有効になる可能性が高まります。
 
 ### 複数のデバイスを持つユーザーのターゲティング {#targeting-users-with-multiple-devices}
 
@@ -147,12 +147,12 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスA: Android、プッシュにオプトイン済み
 - デバイスB: iOS、プッシュにオプトインしていない
 
-**機能しないSegmentフィルター：**
-- `Push enabled = false` - ユーザーはAndroidデバイスでプッシュが有効なため、Segmentに含まれません。SegmentにはiOSデバイスが含まれません。
-- `Push subscription status is not opted in` - ユーザーはAndroidデバイスでプッシュが有効なため、Segmentに含まれません。SegmentにはiOSデバイスが含まれません。
+**機能しないセグメントフィルター：**
+- `Push enabled = false` - ユーザーはAndroidデバイスでプッシュが有効なため、セグメントに含まれません。セグメントにはiOSデバイスが含まれません。
+- `Push subscription status is not opted in` - ユーザーはAndroidデバイスでプッシュが有効なため、セグメントに含まれません。セグメントにはiOSデバイスが含まれません。
 
-**機能するSegmentフィルター：**
-- `Push enabled for iOS = false` - ユーザーはAndroidデバイスでプッシュが有効ですが、iOSデバイスのみをターゲットにしているため、ユーザーはSegmentに含まれます。SegmentにはiOSデバイスが含まれます。
+**機能するセグメントフィルター：**
+- `Push enabled for iOS = false` - ユーザーはAndroidデバイスでプッシュが有効ですが、iOSデバイスのみをターゲットにしているため、ユーザーはセグメントに含まれます。セグメントにはiOSデバイスが含まれます。
 
 {% enddetails %}
 
@@ -162,13 +162,13 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスA: プッシュにオプトイン済み
 - デバイスB: 仮承認済みだがオプトインしていない
 
-**機能しないSegmentフィルター：**
-- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
-- `Provisionally opted in = true` - デバイスAは完全にオプトイン済みのため、仮承認状態ではありません。ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
-- `Push enabled for app > iOS = false` - デバイスAはiOSでプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
-- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBが含まれません。
+**機能しないセグメントフィルター：**
+- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+- `Provisionally opted in = true` - デバイスAは完全にオプトイン済みのため、仮承認状態ではありません。ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+- `Push enabled for app > iOS = false` - デバイスAはiOSでプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
+- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBが含まれません。
 
-**結果：** これらのプッシュフィルターをどのように組み合わせても、Segmentから少なくとも1つのデバイスが除外されます。
+**結果：** これらのプッシュフィルターをどのように組み合わせても、セグメントから少なくとも1つのデバイスが除外されます。
 
 {% enddetails %}
 
@@ -179,10 +179,10 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 - デバイスB: プッシュにオプトインしていない
 - デバイスC: プッシュにオプトインしていない
 
-**機能しないSegmentフィルター：**
-- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
-- `Push enabled for app > X = false` - デバイスAは指定されたアプリでプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
-- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはSegmentに含まれません。SegmentにはデバイスBとCが含まれません。
+**機能しないセグメントフィルター：**
+- `Push enabled = false` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
+- `Push enabled for app > X = false` - デバイスAは指定されたアプリでプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
+- `Push subscription status is not opted in` - デバイスAはプッシュにオプトイン済みのため、ユーザーはセグメントに含まれません。セグメントにはデバイスBとCが含まれません。
 
 **結果：** これらのプッシュフィルターをどのように組み合わせても、少なくとも1つのデバイスがターゲットから外れます。
 
@@ -202,15 +202,15 @@ Brazeはデバイスレベルではなくプロファイルレベルでユーザ
 
 **ノーコードプッシュプライマーが必要**: 自動抑制が機能するには、ノーコードプッシュプライマーを使用する必要があります。「プッシュ許可をリクエスト」ボタンアクションの代わりにカスタムロジックやディープリンクを設定した場合、SDKはプッシュプライマーを表示しようとしていることを識別できません。その結果、そのデバイスのサブスクリプション状態に関係なくメッセージが表示されます。
 
-**オプトアウトしたユーザーの抑制**: プッシュを明示的にオプトアウトしたユーザー（ネイティブリクエストやデバイス設定から）に対してアプリ内メッセージを抑制し、それらのユーザーを別のナーチャリングCampaignでリターゲティングしたい場合があります。これを行うには、ノーコードプライマーと組み合わせて以下のLiquidロジックを使用します。
+**オプトアウトしたユーザーの抑制**: プッシュを明示的にオプトアウトしたユーザー（ネイティブリクエストやデバイス設定から）に対してアプリ内メッセージを抑制し、それらのユーザーを別のナーチャリングキャンペーンでリターゲティングしたい場合があります。これを行うには、ノーコードプライマーと組み合わせて以下のLiquidロジックを使用します。
 
 {% raw %}
-```liquid
+`````````liquid
 {% if targeted_device.${foreground_push_enabled} == false %}
 {% abort_message('user turned off push notifications') %}
 {% endif %}
 - message goes here -
-```
+`````````
 {% endraw %}
 
 `targeted_device` Liquidフィルターは、ユーザープロファイルではなく、メッセージが表示されるデバイスのみを参照します。そのデバイスでは、アクティブなフォアグラウンドプッシュトークンがある場合に`foreground_push_enabled`が`true`に設定され、オペレーティングシステムがプッシュ通知が無効であると報告した場合（ユーザーが明示的にオフにした場合など）に`false`に設定されます。プッシュ許可状態にまだ応答していない完全に新しいデバイスの場合、`foreground_push_enabled`は未設定で値がありません。Liquid条件は{% raw %}`false`{% endraw %}を具体的にチェックするため、明示的にオプトアウトしたデバイスに対してのみプライマーを抑制し、この不明な状態のデバイスは引き続き対象となりプッシュプライマーを受け取ることができます。

@@ -59,7 +59,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 標準統合では、次のイベントがデフォルトで有効になります。
 
-| Brazeおすすめイベント | Shopifyカスタムイベント | Shopifyカスタム属性 |
+| Braze推奨イベント | Shopifyカスタムイベント | Shopifyカスタム属性 |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>製品の閲覧</li><li>カート更新</li><li>チェックアウト開始</li><li>注文完了</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
@@ -72,7 +72,7 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
 
 **Track Shopify data**ステップで、統合の一部として初期履歴データの読み込みを含めるチェックボックスを選択します。
 
-インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなCampaignsやCanvasesで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
+インポートされる内容、収益レポートの動作、セットアップのスクリーンショット、およびアクティブなキャンペーンやキャンバスで既にBrazeを使用している場合のガイダンスについては、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
 
 ### （詳細）カスタムデータトラッキング設定 {#advanced-custom-data-tracking-setup}
 
@@ -127,7 +127,7 @@ braze.logCustomEvent(
   }
 );
 
-```
+`````````
 
 イベントやカスタム属性をログに記録するには、ユーザーのデバイスでSDKが初期化（アクティビティをリッスン）されている必要があります。カスタムデータのロギングの詳細については、[User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html)および[logCustomEvent object](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)を参照してください。
 
@@ -184,17 +184,17 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 
 #### サンプルエンドポイント {#example-endpoint}
 
-```http
+`````````http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
-```
+`````````
 
 #### 期待される応答 {#expected-response}
 Brazeは、external IDのJSONを返す`200`ステータスコードを期待します。
-```json
+`````````json
 {
   "external_id": "my_external_id"
 }
-```
+`````````
 
 #### 検証 {#validation}
 `shopify_customer_id`と`email_address`（存在する場合）がShopifyの顧客値と一致することを検証することが重要です。[Shopify Admin API](https://shopify.dev/docs/api/admin-graphql)または[Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer)を使用してこれらのパラメーターを検証し、正しい`braze.external_id`メタフィールドを取得できます。

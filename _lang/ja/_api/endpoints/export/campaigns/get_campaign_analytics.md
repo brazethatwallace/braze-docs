@@ -45,14 +45,14 @@ description: "この記事では、キャンペーン分析のエクスポート
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_series?campaign_id={{campaign_identifier}}&length=7&ending_at=2020-06-28T23:59:59-5:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 
 ## 応答 {#responses}
 
 ### マルチチャネル応答 {#multichannel-response}
 
-```json
+`````````json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
@@ -149,11 +149,11 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
         }
     ],
 }
-```
+`````````
 
 ### 多変量応答 {#multivariate-response}
 
-```json
+`````````json
 {
     "data" : [
         {
@@ -222,7 +222,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
          }],
          ...
 }
-```
+`````````
 
 使用可能なメッセージタイプは、`email`、`trigger_in_app_message`、`webhook`、`android_push`、`ios_push`、`kindle_push`、`web_push` です。すべてのプッシュメッセージタイプには、`android_push` と同じ統計が表示されます。
 

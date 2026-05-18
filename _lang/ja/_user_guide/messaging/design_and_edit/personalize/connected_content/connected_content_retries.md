@@ -26,7 +26,7 @@ description: "このリファレンス記事では、コネクテッドコンテ
 ```
 {% connected_content https://yourwebsite.com/api/endpoint :retry %}
 {% connected_content https://www.braze.com :save my_content :basic_auth auth_name :retry %}
-```
+`````````
 {% endraw %}
 
 コネクテッドコンテンツの呼び出しに `:retry` タグが含まれている場合、Braze は最大5回まで呼び出しのリトライを試みます。

@@ -17,7 +17,7 @@ Google が Eclipse Android Developer Tools プラグインの[サポートを終
 
 ```bash
 $ git clone git@github.com:braze-inc/braze-android-sdk.git
-```
+`````````
 
 ## ステップ 2
 Brazeプロジェクトをローカルのワークスペースにインポートする。

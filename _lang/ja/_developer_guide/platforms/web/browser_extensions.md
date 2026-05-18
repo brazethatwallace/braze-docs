@@ -69,14 +69,14 @@ Braze Web SDKを統合するには、まず最新のJavaScriptライブラリー
     // Initialize Braze here
     </script>
 </html>
-```
+`````````
 
 ### バックグラウンドスクリプト（Manifest v2のみ） {#background-script}
 
 拡張機能のバックグラウンドスクリプト内でBrazeを使用するには、Brazeライブラリーを`manifest.json`の`background.scripts`配列に追加します。これにより、グローバル`braze`変数がバックグラウンドスクリプトコンテキストで使用できるようになります。
 
 
-```json
+`````````json
 {
     "manifest_version": 2,
     "background": {
@@ -86,7 +86,7 @@ Braze Web SDKを統合するには、まず最新のJavaScriptライブラリー
         ]
     }
 }
-```
+`````````
 
 ### オプションページ {#options-page}
 
@@ -98,13 +98,13 @@ SDKが組み込まれると、通常どおりにライブラリーを初期化�
 
 Cookieはブラウザ拡張機能ではサポートされていないため、`noCookies: true`で初期化することでCookieを無効にできます。
 
-```javascript
+`````````javascript
 braze.initialize("YOUR-API-KEY-HERE", {
     baseUrl: "YOUR-API-ENDPOINT",
     enableLogging: true,
     noCookies: true
 });
-```
+`````````
 
 サポートされている初期化オプションの詳細については、[Web SDKリファレンス](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize)を参照してください。
 

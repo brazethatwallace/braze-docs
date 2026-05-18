@@ -18,15 +18,15 @@ Cordova 6以降をお使いの場合は、GitHubから直接SDKを追加でき�
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
-```
+`````````
 {% endtab %}
 
 {% tab ジオフェンス有効 %}
 ロケーション収集とジオフェンスを使用する予定がある場合は、GitHubの`geofence-branch`を使用してください。
 
-```bash
+`````````bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -40,17 +40,17 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 {% tabs %}
 {% tab ios %}
-```xml
+`````````xml
 <preference name="com.braze.ios_api_key" value="BRAZE_API_KEY" />
 <preference name="com.braze.ios_api_endpoint" value="CUSTOM_API_ENDPOINT" />
-```
+`````````
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <preference name="com.braze.android_api_key" value="BRAZE_API_KEY" />
 <preference name="com.braze.android_api_endpoint" value="CUSTOM_API_ENDPOINT" />
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -66,21 +66,21 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 {% tabs %}
 {% tab ios %}
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.ios_api_key" value="BRAZE_API_KEY" />
     <preference name="com.braze.ios_api_endpoint" value="sdk.fra-01.braze.eu" />
 </platform>
-```
+`````````
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_api_key" value="BRAZE_API_KEY" />
     <preference name="com.braze.android_api_endpoint" value="sdk.fra-01.braze.eu" />
 </platform>
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -94,23 +94,23 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% tab ios %}
 整数の設定は、以下の例のように文字列表現として読み取られます。
 
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.ios_flush_interval_seconds" value="10" />
     <preference name="com.braze.ios_session_timeout" value="5" />
 </platform>
-```
+`````````
 {% endtab %}
 
 {% tab android %}
 Cordova 8.0.0以降のフレームワークによる設定の処理方法に従い、整数のみの設定（送信者IDなど）は、以下の例のように先頭に`str_`を付加した文字列に設定する必要があります。
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_fcm_sender_id" value="str_64422926741" />
     <preference name="com.braze.android_default_session_timeout" value="str_10" />
 </platform>
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -120,23 +120,23 @@ Cordova 8.0.0以降のフレームワークによる設定の処理方法に従�
 {% tab ios %}
 ブール値の設定は、以下の例のように`YES`および`NO`キーワードを文字列表現としてSDKによって読み取られます。
 
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.should_opt_in_when_push_authorized" value="YES" />
     <preference name="com.braze.ios_disable_automatic_push_handling" value="NO" />
 </platform>
-```
+`````````
 {% endtab %}
 
 {% tab android %}
 ブール値の設定は、以下の例のように`true`および`false`キーワードを文字列表現としてSDKによって読み取られます。
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.should_opt_in_when_push_authorized" value="true" />
     <preference name="com.braze.is_session_start_based_timeout_enabled" value="false" />
 </platform>
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -215,7 +215,7 @@ Cordova 8.0.0以降のフレームワークによる設定の処理方法に従�
 
 {% tabs %}
 {% tab ios %}
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.ios_disable_automatic_push_registration" value="NO"/"YES" />
     <preference name="com.braze.ios_disable_automatic_push_handling" value="NO"/"YES" />
@@ -235,11 +235,11 @@ Cordova 8.0.0以降のフレームワークによる設定の処理方法に従�
     <preference name="com.braze.ios_use_automatic_request_policy" value="YES"/"NO" />
     <preference name="com.braze.should_opt_in_when_push_authorized" value="YES"/"NO" />
 </platform>
-```
+`````````
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_small_notification_icon" value="RESOURCE_ENTRY_NAME_FOR_ICON_DRAWABLE" />
     <preference name="com.braze.android_large_notification_icon" value="RESOURCE_ENTRY_NAME_FOR_ICON_DRAWABLE" />
@@ -266,7 +266,7 @@ Cordova 8.0.0以降のフレームワークによる設定の処理方法に従�
     <preference name="com.braze.push_deep_link_back_stack_activity_class_name" value="DEEPLINK_BACKSTACK_ACTIVITY_CLASS_NAME" />
     <preference name="com.braze.should_opt_in_when_push_authorized" value="true"/"false" />
 </platform>
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -274,10 +274,10 @@ Cordova 8.0.0以降のフレームワークによる設定の処理方法に従�
 
 デフォルトでは、Android Cordovaプラグインは自動的にセッションをトラッキングします。自動セッショントラッキングを無効にするには、プロジェクトの`config.xml`ファイル内の`platform`要素に以下の設定を追加してください。
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_disable_auto_session_tracking" value="true" />
 </platform>
-```
+`````````
 
 セッショントラッキングを再開するには、`BrazePlugin.startSessionTracking()`を呼び出してください。次回の`Activity.onStart()`以降に開始されたセッションのみがトラッキングされることに注意してください。

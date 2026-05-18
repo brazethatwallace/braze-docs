@@ -17,7 +17,7 @@ guide_featured_list:
   - name: API
     link: /docs/help/help_articles/api/
     image: /assets/img/braze_icons/terminal-square.svg
-  - name: CampaignsとCanvas
+  - name: キャンペーンとキャンバス
     link: /docs/user_guide/messaging/
     image: /assets/img/braze_icons/annotation.svg
   - name: Content Cards
@@ -35,7 +35,7 @@ guide_featured_list:
   - name: プッシュ
     link: /docs/user_guide/channels/push/
     image: /assets/img/braze_icons/message-square-02.svg
-  - name: Segments
+  - name: セグメント
     link: /docs/user_guide/audience/segments/
     image: /assets/img/braze_icons/users-01.svg
 ---

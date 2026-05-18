@@ -49,12 +49,12 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
     }
   }
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
 **ABKInAppMessage サブクラス**<br> 
 
-```objc
+`````````objc
 - (ABKInAppMessageViewController *)inAppMessageViewControllerWithInAppMessage:(ABKInAppMessage *)inAppMessage {
   if ([inAppMessage isKindOfClass:[ABKInAppMessageSlideup class]]) {
     return [self slideupViewControllerWithInAppMessage:inAppMessage]; //Custom Method
@@ -68,7 +68,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
     return [[ABKInAppMessageViewController alloc] initWithInAppMessage:inAppMessage];
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -93,13 +93,13 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 {% tab Swift %}
 **`offset` 変数を更新**<br>
 `offset` 変数を更新し、必要に応じて独自のオフセットを設定します。
-```swift
+`````````swift
 func setSlideConstraint() {
   offset = 0
 }
-```
+`````````
 
-```swift
+`````````swift
 override var offset: CGFloat {
   get {
     return super.offset
@@ -108,36 +108,36 @@ override var offset: CGFloat {
     super.offset = newValue + adjustedOffset
   }
 }
-```
+`````````
 
 {% details Version 3.34.0 or earlier  %}
 **`slideConstraint` 変数を更新**<br>
 `slideConstraint` パブリック変数はスーパークラス `ABKInAppMessageSlideupViewController` から取得されます。 
 
-```swift
+`````````swift
 func setSlideConstraint() {
     slideConstraint?.constant = bottomSpacing
 }
-```
+`````````
 
-```swift
+`````````swift
 private var bottomSpacing: CGFloat {
     return AppboyManager.shared.activeApplicationViewController.topMostViewController().view.safeAreaInsets.bottom
 }
-``` 
+````````` 
 [`topMostViewController()`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/Utils/UIViewController_Util.swift#L17) 機能については、Braze Demo リポジトリにアクセスしてください。
 {% enddetails %}
 {% endtab %}
 {% tab Objective-C %}
 **`offset` 変数を更新**<br>
 `offset` 変数を更新し、必要に応じて独自のオフセットを設定します。
-```objc
+`````````objc
 - (void)setOffset {
   self.offset = 0;
 }
-```
+`````````
 
-```objc
+`````````objc
 - (CGFloat)offset {
   return [super offset];
 }
@@ -145,22 +145,22 @@ private var bottomSpacing: CGFloat {
 - (void)setOffset:(CGFloat)offset {
   [super setOffset:offset + [self adjustedOffset]];
 }
-```
+`````````
 {% details Version 3.34.0 or earlier  %}
 **`slideConstraint` 変数を更新**<br>
 `slideConstraint` パブリック変数はスーパークラス `ABKInAppMessageSlideupViewController` から取得されます。 
 
-```objc
+`````````objc
 - (void)self.setSlideConstraint:(NSLayoutConstraint *)slideConstraint {
   slideConstraint.constant = bottomSpacing;
 }
-```
+`````````
 
-```objc
+`````````objc
 - (CGFloat)bottomSpacing {
   return [AppboyManager shared].activeApplicationViewController.topMostViewController.view.safeAreaInsets.bottom;
 }
-```
+`````````
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -170,19 +170,19 @@ private var bottomSpacing: CGFloat {
 **カスタム制約のオーバーライドと設定**<br>
 `beforeMoveInAppMessageViewOnScreen()` をオーバーライドし、必要に応じて独自のカスタム制約値を設定します。元の値はスーパークラスに設定されます。
 
-```swift
+`````````swift
 override func beforeMoveInAppMessageViewOnScreen() {
   super.beforeMoveInAppMessageViewOnScreen()
   setOffset()
 }
-```
+`````````
 
 {% details Version 3.34.0 or earlier %}
-```swift
+`````````swift
 override func beforeMoveInAppMessageViewOnScreen() {
   setSlideConstraint()
 }
-```
+`````````
 {% enddetails %}
 
 {% endtab %}
@@ -190,19 +190,19 @@ override func beforeMoveInAppMessageViewOnScreen() {
 **カスタム制約のオーバーライドと設定**<br> 
 `beforeMoveInAppMessageViewOnScreen()` をオーバーライドし、必要に応じて独自のカスタム制約値を設定します。元の値はスーパークラスに設定されます。
 
-```objc
+`````````objc
 - (void)beforeMoveInAppMessageViewOnScreen {
   [super beforeMoveInAppMessageViewOnScreen];
   [self setOffset];
 }
-```
+`````````
 
 {% details Version 3.34.0 or earlier  %}
-```objc
+`````````objc
 - (void)beforeMoveInAppMessageViewOnScreen {
   [self setSlideConstraint:self.slideConstraint];
 }
-```
+`````````
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -237,7 +237,7 @@ override func beforeMoveInAppMessageViewOnScreen() {
 **UI 表示動作に `view_type` を使用**<br>
 `view_type` に対して `extras` ディクショナリを照会して、目的のサブクラス化されたビューコントローラをロードします。
 
-```swift
+`````````swift
 func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalViewController {
   switch inAppMessage.extras?[InAppMessageKey.viewType.rawValue] as? String {
   case InAppMessageViewType.picker.rawValue:
@@ -246,13 +246,13 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
     return ABKInAppMessageModalViewController(inAppMessage: inAppMessage)
   }
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
 **UI 表示動作に `view_type` を使用**<br>
 `view_type` に対して `extras` ディクショナリを照会して、目的のサブクラス化されたビューコントローラをロードします。
 
-```objc
+`````````objc
 - (ABKInAppMessageModalViewController *)modalViewControllerWithInAppMessage:(ABKInAppMessage *)inAppMessage {
   InAppMessageData *inAppMessageData = [[InAppMessageData alloc] init];
   NSString *key = [inAppMessageData rawValueForInAppMessageKey:InAppMessageKeyViewType];
@@ -264,7 +264,7 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
     return [[ABKInAppMessageModalViewController alloc] initWithInAppMessage:inAppMessage];
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -272,7 +272,7 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
 {% tab Swift %}
 **オーバーライドしてカスタムビューを提供する**<br>
 `loadView()` をオーバーライドし、必要に応じて独自のカスタムビューを設定します。
-```swift
+`````````swift
 override var nibname: String{
   return "ModalPickerViewController"
 }
@@ -280,17 +280,17 @@ override var nibname: String{
 override func loadView() {
   Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
 **オーバーライドしてカスタムビューを提供する**<br>
 `loadView()` をオーバーライドし、必要に応じて独自のカスタムビューを設定します。
-```objc
+`````````objc
 - (void)loadView {
   NSString *nibName = @"ModalPickerViewController";
   [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -298,26 +298,26 @@ override func loadView() {
 {% tab Swift %}
 **動的リストのフォーマット変数**<br>
 `UIPickerView` コンポーネントをリロードする前に、`inAppMessage` メッセージ変数は_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。例として、これは [`components(separatedBy: ", ")`](https://developer.apple.com/documentation/foundation/nsstring/1413214-components) を使用して実現できます。
-```swift
+`````````swift
 override func viewDidLoad() {
   super.viewDidLoad()
  
   items = inAppMessage.message.separatedByCommaSpaceValue
   pickerView.reloadAllComponents()
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
 **PickerView の形式変数**<br>
 `UIPickerView` コンポーネントをリロードする前に、`inAppMessage` メッセージ変数は_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。たとえば、[`componentsSeparatedByString`](https://developer.apple.com/documentation/foundation/nsstring/1413214-componentsseparatedbystring?language=objc) を使用してこれを実現できます。
-```objc
+`````````objc
 - (void)viewDidLoad {
   [super viewDidLoad];
    
   self.items = [[NSArray alloc] initWithArray:[self.inAppMessage.message componentsSeparatedByString:@", "]];
   [self.pickerView reloadAllComponents];
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -325,18 +325,18 @@ override func viewDidLoad() {
 {% tab Swift %}
 **カスタム属性を割り当てる**<br>
 サブクラスを使用して、ユーザーが [送信] を押した後に、属性とそれに対応する選択した値を Braze に渡します。
-```swift
+`````````swift
 @IBAction func primaryButtonTapped(_ sender: Any) {
   guard let item = selectedItem, !item.isEmpty, let attributeKey = inAppMessage.extras?[InAppMessageKey.attributeKey.rawValue] as? String else { return }
      
   AppboyManager.shared.setCustomAttributeWithKey(attributeKey, andStringValue: item)
 }
-```
+`````````
 {% endtab %}
 {% tab Objective-C %}
 **カスタム属性を割り当てる**<br>
 サブクラスを使用して、ユーザーが [送信] を押した後に、属性とそれに対応する選択した値を Braze に渡します。
-```objc
+`````````objc
 - (IBAction)primaryButtonTapped:(id)sender {
   InAppMessageData *inAppMessageData = [[InAppMessageData alloc] init];
   NSString *key = [inAppMessageData rawValueForInAppMessageKey:InAppMessageKeyAttributeKey];
@@ -345,7 +345,7 @@ override func viewDidLoad() {
     [[AppboyManager shared] setCustomAttributeWithKey:self.inAppMessage.extras[key] andStringValue:self.selectedItem];
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

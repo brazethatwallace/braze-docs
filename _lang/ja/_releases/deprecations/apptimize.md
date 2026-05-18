@@ -76,11 +76,11 @@ Apptimize の実験データに基づいて Braze でカスタムターゲティ
 
 ```objc
 [ApptimizeAppboy setupExperimentTracking];
-```
+`````````
 
 #### Appboy-Apptimize.h:
 
-```objc
+`````````objc
 //  Apptimize-Appboy.h
 
 #ifndef Apptimize_Appboy_h
@@ -91,11 +91,11 @@ Apptimize の実験データに基づいて Braze でカスタムターゲティ
 @end
 
 #endif /* Apptimize_Appboy_h */
-```
+`````````
 
 #### Appboy-Apptimize.m:
 
-```objc
+`````````objc
 //  Apptimize-Appboy.m
 
 #import <Foundation/Foundation.h>
@@ -210,27 +210,27 @@ NSString *const ApptimizeAppboyTestEnrollmentStorageKey = @"ApptimizeAppboyTestE
 }
 
 @end
-```
+`````````
 
 ### Android
 
 `apptimizeappboy.java` クラスをアプリにインポートして、メインの `activity`
 実装で非公開メンバー `appboyApptimizeIntegration` を作成します。
 
-```java
+`````````java
 private ApptimizeAppboy appboyApptimizeIntegration;
-```
+`````````
 
 次に、onCreate メソッドで、Braze とApptimize を初期化した後、次のようにします。
 
-```java
+`````````java
 appboyApptimizeIntegration = new ApptimizeAppboy();
 appboyApptimizeIntegration.configureExperimentTracking(this);
-```    
+`````````    
 
 #### ApptimizeAppboy.java:
 
-```java
+`````````java
 package com.apptimize.appboykit;
 
 import java.io.File;
@@ -400,4 +400,4 @@ public class ApptimizeAppboy
     private static String ApptimizeAppboyStorageDirectory;
     private static String ApptimizeAppboyTestEnrollmentStorage = "ApptimizeAppboyTestEnrollmentStorage";
 }
-```
+`````````

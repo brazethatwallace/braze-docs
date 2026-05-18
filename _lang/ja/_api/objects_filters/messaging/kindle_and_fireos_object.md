@@ -27,6 +27,6 @@ description: "このリファレンス記事では、Braze KindleおよびFireOS
    "sound": (optional, string) the location of a custom notification sound within the app,
    "custom_uri": (optional, string) a web URL, or Deep Link URI
 }
-```
+`````````
 
 `priority`パラメータは`-2`から`2`までの値を受け入れます。`-2`は最低の優先度を表し、`2`は最高の優先度を表します。`0`はデフォルト値です。この整数範囲外で送信された値は、デフォルトの`0`に設定されます。

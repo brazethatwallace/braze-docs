@@ -29,14 +29,14 @@
 
 ```java
 BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(context);
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(context)
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -46,7 +46,7 @@ BrazeInAppMessageManager.getInstance().ensureSubscribedToInAppMessageEvents(cont
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 @Override
 public void onResume() {
   super.onResume();
@@ -54,19 +54,19 @@ public void onResume() {
   // in-app messages from Braze.
   BrazeInAppMessageManager.getInstance().registerInAppMessageManager(activity);
 }
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 public override fun onResume() {
   super.onResume()
   // Registers the BrazeInAppMessageManager for the current Activity. This Activity will now listen for
   // in-app messages from Braze.
   BrazeInAppMessageManager.getInstance().registerInAppMessageManager(this)
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -76,25 +76,25 @@ public override fun onResume() {
 {% subtabs %}
 {% subtab JAVA %}
 
-```java
+`````````java
 @Override
 public void onPause() {
   super.onPause();
   // Unregisters the BrazeInAppMessageManager for the current Activity.
   BrazeInAppMessageManager.getInstance().unregisterInAppMessageManager(activity);
 }
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 public override fun onPause() {
   super.onPause()
   // Unregisters the BrazeInAppMessageManager.
   BrazeInAppMessageManager.getInstance().unregisterInAppMessageManager(this)
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -110,7 +110,7 @@ public override fun onPause() {
 {% subtabs local %}
 {% subtab JAVA %}
 
-```java
+`````````java
 public class MyApplication extends Application {
   @Override
   public void onCreate() {
@@ -121,12 +121,12 @@ public class MyApplication extends Application {
     registerActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener(inAppMessageBlocklist));
   }
 }
-```
+`````````
 
 {% endsubtab %}
 {% subtab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()
@@ -136,6 +136,6 @@ class MyApplication : Application() {
     registerActivityLifecycleCallbacks(BrazeActivityLifecycleCallbackListener(inAppMessageBlocklist))
   }
 }
-```
+`````````
 {% endsubtab %}
 {% endsubtabs %}

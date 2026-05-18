@@ -39,7 +39,7 @@ description: "このリファレンス記事では、Brazeで使用されるさ�
    "buttons" : (optional, array of Apple push action button objects) push action buttons to display,
    "apns_priority": (optional, integer) override the default apns_priority value using an integer between 1 and 10; use 10 for immediate delivery, 5 for power-aware delivery, and 1 to minimize power impact and avoid waking the device,
 }
-```
+`````````
 
 ターゲットユーザーのiOSデバイスでプッシュ通知を受信させるには、`messages`にAppleプッシュオブジェクトを含める必要があります。`alert`文字列、`extra`オブジェクト、およびその他のオプションパラメータの合計バイト数は1912を超えてはなりません。Appleが許可するメッセージサイズを超えた場合、メッセージングAPIはエラーを返します。`extra`オブジェクトにキー`ab`または`aps`を含むメッセージは拒否されます。
 
@@ -51,7 +51,7 @@ AppleプッシュオブジェクトをLive Activitiesペイロードの一部と
 
 ほとんどの場合、`alert`は`apple_push`オブジェクト内の文字列として指定できます。
 
-```json
+`````````json
 {
    "body": (required unless content-available is true in the Apple Push Object, string) the text of the alert message,
    "title": (optional, string) a short string describing the purpose of the notification, displayed as part of the Apple Watch notification interface,
@@ -62,11 +62,11 @@ AppleプッシュオブジェクトをLive Activitiesペイロードの一部と
    "loc_args": (optional, array of strings) variable string values to appear in place of the format specifiers in loc_key,
    "sound": (optional, string) the location of a custom notification sound within the app (live activities only),
 }
-```
+`````````
 
 #### 例 {#example}
 
-```json
+`````````json
 {
   "broadcast": false,
   "external_user_ids": ["PushTest12"],
@@ -83,7 +83,7 @@ AppleプッシュオブジェクトをLive Activitiesペイロードの一部と
     }
   }
 }
-```
+`````````
 
 ## Apple プッシュアクションボタンオブジェクト {#apple-push-action-button-object}
 
@@ -102,22 +102,22 @@ iOSプッシュアクションボタンを使用するには、Appleプッシュ
 | `ab_cat_more` | More | `ab_pb_more` | OPEN_APP、URI、またはDEEP_LINK |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Apple push action button object for Braze default buttons" }
 
-```json
+`````````json
 {
   "action_id": (required, string) the button's action identifier,
   "action": (optional, string) one of "OPEN_APP", "URI", "DEEP_LINK", or "CLOSE". Defaults to either "OPEN_APP" or "CLOSE" depending on the button,
   "uri": (optional, string) a web URL or Deep Link URI,
   "use_webview": (optional, boolean) whether to open the web URL inside the app if the action is "URI", defaults to true
 }
-```
+`````````
 
 ### アプリで定義されたカテゴリ用のAppleプッシュアクションボタンオブジェクト {#apple-push-action-button-object-for-categories-defined-by-your-app}
 
-```json
+`````````json
 {
   "action_id": (required, string) the button's action identifier,
   "action": (required, string) one of "URI" or "DEEP_LINK",
   "uri": (required, string) a web URL or Deep Link URI,
   "use_webview": (optional, boolean) whether to open the web URL inside the app if the action is "URI", defaults to true
 }
-```
+`````````

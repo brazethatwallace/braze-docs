@@ -22,7 +22,7 @@ LimbikをBrazeで使用するには、以下が必要です。
 | Limbik `account_id` | Limbikのアカウントチームに問い合わせるか、Limbikの`/rest/api/organizations`エンドポイントにGETリクエストを送信してください。 |
 | Limbikアクセストークン（`access_token`） | Limbikの`login`エンドポイントにPOSTリクエストを送信し、返された`access_token`の値を`Authorization`ヘッダーのBearerトークンとして使用してください。 |
 | Braze REST APIキー | 「Messages」権限を持つBraze REST APIキー。Brazeダッシュボードの**設定** > **APIキー**で作成してください。 |
-| Braze `campaign_id` | **Messaging** > **Campaigns**に移動し、Campaignを選択します。使用したいCampaignがまだ存在しない場合は、作成して保存してください。Campaignページの下部にCampaign API識別子があります。 |
+| Braze `campaign_id` | **Messaging** > **キャンペーン**に移動し、キャンペーンを選択します。使用したいキャンペーンがまだ存在しない場合は、作成して保存してください。キャンペーンページの下部にキャンペーン API識別子があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 予測エンドポイントを使用する前に、まずアクセス可能な組織（`account_id`）を特定する必要があります。ほとんどの顧客は1つの組織のみですが、一部のアカウントでは複数の組織が利用可能な場合があります。
@@ -35,13 +35,13 @@ LimbikをBrazeで使用するには、以下が必要です。
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/organizations' \
   -H 'accept: application/json'
-```
+`````````
 
 {% enddetails %}
 
 {% details レスポンス例 %}
 
-```json
+`````````json
 {
   "data": [
     {
@@ -50,7 +50,7 @@ curl -X 'GET' \
     }
   ]
 }
-```
+`````````
 
 目的の組織の`uid`を選択し、以降のすべてのAPIリクエストで`account_id`ヘッダーとして使用します。
 
@@ -62,7 +62,7 @@ APIエンドポイントにアクセスするには、認証用のBearerトー�
 
 {% details ログインリクエスト %}
 
-```sh
+`````````sh
 curl -X 'POST' \
   'https://cortex.prod.limbik.com/rest/api/auth/login' \
   -H 'accept: application/json' \
@@ -71,7 +71,7 @@ curl -X 'POST' \
   "username": "your_username",
   "password": "your_password"
 }'
-```
+`````````
 
 {% enddetails %}
 
@@ -79,18 +79,18 @@ curl -X 'POST' \
 
 レスポンスには、以降のすべてのAPIリクエストでBearerトークンとして使用できる`access_token`が含まれています。
 
-```json
+`````````json
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "Bearer"
 }
-```
+`````````
 
 すべてのAPIリクエストの`Authorization`ヘッダーにこのトークンを含めてください。
 
-```
+`````````
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
+`````````
 
 {% alert note %}
 PostmanなどのAPIプラットフォームを使用して、以下のワークフローのように、異なる組織から複数のREST APIエンドポイントを呼び出す自動化ワークフローを設定できます。
@@ -108,13 +108,13 @@ BrazeとLimbikのREST APIエンドポイントの両方を使用することで�
 
 このエンドポイントを使用してメッセージを生成し、予測テンプレートで返します。リクエスト例：
 
-```sh
+`````````sh
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/forecasts/generate/template?prompt=YOUR_PROMPT' \
   -H 'account_id: YOUR_ACCOUNT_ID' \
   -H 'Authorization: Bearer YOUR_ACCESS_TOKEN' \
   -H 'accept: application/json'
-```
+`````````
 
 `YOUR_PROMPT`、`YOUR_ACCOUNT_ID`、`YOUR_ACCESS_TOKEN`を、プロンプトテキスト、組織ID（組織エンドポイントから取得）、ログインエンドポイントからのBearerトークンに置き換えてください。
 
@@ -124,7 +124,7 @@ curl -X 'GET' \
 
 Limbik予測テンプレートのレスポンス例：
 
-```json
+`````````json
 [
   {
     "type": "Message",
@@ -147,7 +147,7 @@ Limbik予測テンプレートのレスポンス例：
     }
   }
 ]
-```
+`````````
 
 このユースケースの重要な要素は`additionalDetail`フィールドで、Limbikが生成したメッセージコピーが含まれています。
 
@@ -162,15 +162,15 @@ Limbik予測テンプレートのレスポンス例：
 - **`type`:** メッセージタイプ（例：AI生成コンテンツの場合は`"Generate"`、検証済みメッセージの場合は`"Message"`）
 - **`displayText`:** メッセージの短いタイトルまたは要約
 - **`additionalDetail`:** **完全なAI生成メッセージコピー** - メッセージングプラットフォームを通じて送信できる完全なメッセージテキストを含む主要フィールドです
-- **`population`:** このメッセージのターゲット層とSegments
+- **`population`:** このメッセージのターゲット層とセグメント
 
 ### Brazeでの使用 {#using-with-braze}
 
-Limbikのレスポンスの`additionalDetail`フィールドには、Brazeに送信するメッセージコピーが含まれています。一般的なインテグレーションパターンの1つは、Brazeのトリガー送信エンドポイントを呼び出す際に、その値を`trigger_properties.payload`に渡すことです。以下の例では、`{{additionalDetail}}`をLimbikの`additionalDetail`フィールドの実際の文字列に、`{{YOUR_CAMPAIGN_ID}}`をCampaign IDに置き換えてください。
+Limbikのレスポンスの`additionalDetail`フィールドには、Brazeに送信するメッセージコピーが含まれています。一般的なインテグレーションパターンの1つは、Brazeのトリガー送信エンドポイントを呼び出す際に、その値を`trigger_properties.payload`に渡すことです。以下の例では、`{{additionalDetail}}`をLimbikの`additionalDetail`フィールドの実際の文字列に、`{{YOUR_CAMPAIGN_ID}}`をキャンペーン IDに置き換えてください。
 
 ### Brazeトリガーメッセージリクエスト例 {#braze-trigger-message-request-example}
 
-```json
+`````````json
 {
   "campaign_id": "{{YOUR_CAMPAIGN_ID}}",
   "trigger_properties": {
@@ -178,7 +178,7 @@ Limbikのレスポンスの`additionalDetail`フィールドには、Brazeに送
   },
   "broadcast": true
 }
-```
+`````````
 
 ## ユースケース - 合成オーディエンスの詳細 {#use-case-synthetic-audience-details}
 
@@ -190,31 +190,31 @@ Limbikのレスポンスの`additionalDetail`フィールドには、Brazeに送
 Connected Audienceオブジェクトは、Brazeの「デフォルト」属性に基づいてユーザーをターゲットにすることはできないため、ターゲットにしたい属性はBrazeにカスタム属性として保存する必要があります。
 {% endalert %}
 
-特定のSegmentsの予測スコアを取得するには、利用可能な国とそれに対応するSegmentsを特定します。
+特定のセグメントの予測スコアを取得するには、利用可能な国とそれに対応するセグメントを特定します。
 
 ### ステップ 1: 利用可能な国を一覧表示する {#step-1-list-available-countries}
 
 アカウントで利用可能な国の一覧を取得します。
 
-```sh
+`````````sh
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/populations/list/aca61bd5-7132-499c-946e-42d092cc1156' \
   -H 'accept: application/json'
-```
+`````````
 
 レスポンスから、使用したい国を特定します。たとえば、米国の`id`は`56`です。
 
-### ステップ 2: 利用可能なSegmentsを取得する {#step-2-retrieve-available-segments}
+### ステップ 2: 利用可能なセグメントを取得する {#step-2-retrieve-available-segments}
 
-国IDを取得した後、その国の全Segments一覧を取得します。
+国IDを取得した後、その国の全セグメント一覧を取得します。
 
 {% details 呼び出し例 %}
 
-```sh
+`````````sh
 curl -X 'GET' \
   'https://cortex.prod.limbik.com/rest/api/populations/aca61bd5-7132-499c-946e-42d092cc1156/56' \
   -H 'accept: application/json'
-```
+`````````
 
 {% alert note %}
 レスポンスは大きくなる場合があります。パフォーマンス向上のため、このデータを名前またはキーでキャッシュ（例：Redis）してください。
@@ -226,7 +226,7 @@ curl -X 'GET' \
 
 たとえば、米国の成人集団の女性をターゲットにする場合：
 
-```json
+`````````json
 [
   {
     "id": 56,
@@ -248,19 +248,19 @@ curl -X 'GET' \
     ]
   }
 ]
-```
+`````````
 
 {% alert note %}
-- Segmentsは簡略化されたコンポジットキー形式で指定されます（例：`gender::female`）。
-- APIレスポンスの完全なコンポジットキー（`us2::gender::female`）は、カテゴリ名とSegment名のみに短縮されます。
-- 利用可能な集団とSegmentsの完全なリファレンスについては、[Limbikオーディエンス](https://audiences.limbik.com/)を参照してください。
+- セグメントは簡略化されたコンポジットキー形式で指定されます（例：`gender::female`）。
+- APIレスポンスの完全なコンポジットキー（`us2::gender::female`）は、カテゴリ名とセグメント名のみに短縮されます。
+- 利用可能な集団とセグメントの完全なリファレンスについては、[Limbikオーディエンス](https://audiences.limbik.com/)を参照してください。
 {% endalert %}
 
 選択した予測メッセージのコンポジットキー値を使用して、これらの合成オーディエンス記述子をBrazeの実際のユーザープロファイルの値にマッピングできます。
 
 たとえば、コンポジットキー（`fr1::education_level::master_s_degree`）をBrazeのConnected Audienceオブジェクトで以下のように使用できます。
 
-```json
+`````````json
 {
   "AND": [
     {
@@ -272,7 +272,7 @@ curl -X 'GET' \
     }
   ]
 }
-```
+`````````
 
 {% enddetails %}
 
@@ -286,7 +286,7 @@ Limbikを使用して、合成オーディエンスに対するメッセージ�
 
 {% details 汎用リクエスト例 %}
 
-```sh
+`````````sh
 curl -X 'POST' \
   'https://cortex.prod.limbik.com/rest/api/forecasts/synchronous' \
   -H 'accept: application/json' \
@@ -301,13 +301,13 @@ curl -X 'POST' \
     "segments": []
   }
 }'
-```
+`````````
 
 {% enddetails %}
 
 {% details レスポンス例（省略版） %}
 
-```json
+`````````json
 {
   "uid": "6c5e28ef-8796-4659-a743-d842a06c9bf7",
   "datetime": "2026-02-11T20:04:06.545+00:00",
@@ -343,17 +343,17 @@ curl -X 'POST' \
     "model_variant": "v4_0_0"
   }
 }
-```
+`````````
 
 {% enddetails %}
 
-### オプション 2: Segmentsを使用した予測ペイロードの準備 {#option-2-prepare-forecast-payload-with-segments}
+### オプション 2: セグメントを使用した予測ペイロードの準備 {#option-2-prepare-forecast-payload-with-segments}
 
-選択したSegmentsを使用して予測ペイロードを作成します。Segmentsは簡略化されたコンポジットキー形式を使用します。
+選択したセグメントを使用して予測ペイロードを作成します。セグメントは簡略化されたコンポジットキー形式を使用します。
 
-{% details Segment固有のリクエスト例 %}
+{% details セグメント固有のリクエスト例 %}
 
-```json
+`````````json
 {
   "type": "Generate",
   "displayText": "Formula one season testing 2026",
@@ -365,6 +365,6 @@ curl -X 'POST' \
     ]
   }
 }
-```
+`````````
 
 {% enddetails %}

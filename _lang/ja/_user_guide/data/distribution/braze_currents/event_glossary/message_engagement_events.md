@@ -24,9 +24,9 @@ search_rank: 6
 
 このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示します。開発者とビジネスインテリジェンス戦略チームは、構成要素をしっかり理解したうえで、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやグラフを作成したり、その他の貴重なデータ指標を活用したりすることができます。
 
-![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、Campaignまたはキャンバストラッキングプロパティ、イベント固有のプロパティごとにグループ化されている。]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、キャンペーンまたはキャンバストラッキングプロパティ、イベント固有のプロパティごとにグループ化されている。]({% image_buster /assets/img/message_engagement_event.png %})
 
-メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**Campaign / キャンバス追跡**プロパティ、および**イベント固有**のプロパティで構成されます。
+メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン / キャンバス追跡**プロパティ、および**イベント固有**のプロパティで構成されます。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -65,7 +65,7 @@ Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つ�
 {% endalert %}
 
 {% alert note %}
-Campaignやキャンバスの更新後、特定のフィールドが最新の状態を表示するのに時間がかかる場合があります。これらのフィールドは以下のとおりです。
+キャンペーンやキャンバスの更新後、特定のフィールドが最新の状態を表示するのに時間がかかる場合があります。これらのフィールドは以下のとおりです。
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>
@@ -83,7 +83,7 @@ Campaignやキャンバスの更新後、特定のフィールドが最新の状
 ## エージェントが実行したイベント {#agent-executed-events}
 
 {% apitags %}
-Agent
+エージェント
 {% endapitags %}
 
 これは、エージェントコンソールのエージェントが実行された際の Kafka レコードスキーマです。
@@ -99,11 +99,11 @@ Agent
   "cache_hit" : "(required, boolean) whether or not this request hit the cache to return the response",
   "cache_tokens" : "(required, int) how many cached tokens this request used",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "completion_tokens" : "(required, int) how many completion tokens this request used",
   "duration" : "(required, int) how long the invocation took in milliseconds",
   "error" : "(optional, string) Description of error",
@@ -125,11 +125,11 @@ Agent
   "total_tokens" : "(required, int) how many total tokens this request used",
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // agentconsole.AgentExecuted
 
 {
@@ -141,11 +141,11 @@ Agent
     "cache_hit" : "(required, boolean) whether or not this request hit the cache to return the response",
     "cache_tokens" : "(required, int) how many cached tokens this request used",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "completion_tokens" : "(required, int) how many completion tokens this request used",
     "duration" : "(required, int) how long the invocation took in milliseconds",
     "error" : "(optional, string) Description of error",
@@ -169,7 +169,7 @@ Agent
     "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -186,7 +186,7 @@ Agent
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // agentconsole.ToolInvocation
 
 {
@@ -202,11 +202,11 @@ Agent
   "tool_call_id" : "(required, string) globally unique id for this tool call",
   "tool_name" : "(required, string) Name of the Tool"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // agentconsole.ToolInvocation
 
 {
@@ -226,7 +226,7 @@ Agent
   "time" : "(required, long) unix timestamp at which this event is logged",
   "user" : { }
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -247,7 +247,7 @@ Uninstall
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.behaviors.Uninstall
 
 {
@@ -259,11 +259,11 @@ Uninstall
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Uninstall (users.behaviors.Uninstall)
 
 {
@@ -278,11 +278,11 @@ Uninstall
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.behaviors.Uninstall
 
 {
@@ -299,11 +299,11 @@ Uninstall
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Uninstall (users.behaviors.Uninstall)
 
 {
@@ -319,11 +319,11 @@ Uninstall
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Application Uninstalls (users.behaviors.Uninstall)
 
 {
@@ -352,11 +352,11 @@ Uninstall
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Application Uninstalled (users.behaviors.Uninstall)
 
 {
@@ -376,7 +376,7 @@ Uninstall
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -393,7 +393,7 @@ Subscription
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.behaviors.subscription.GlobalStateChange
 
 {
@@ -402,11 +402,11 @@ Subscription
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "channel" : "(optional, string) Channel this event belongs to",
   "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
   "email_address" : "(optional, string) [PII] Email address of the user",
@@ -420,11 +420,11 @@ Subscription
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Global Subscription State Change (users.behaviors.subscription.GlobalStateChange)
 
 {
@@ -434,11 +434,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "email_address" : "(optional, string) [PII] Email address of the user",
@@ -455,11 +455,11 @@ Subscription
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.behaviors.subscription.GlobalStateChange
 
 {
@@ -471,11 +471,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "email_address" : "(optional, string) [PII] Email address of the user",
@@ -492,11 +492,11 @@ Subscription
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Global Subscription State Change (users.behaviors.subscription.GlobalStateChange)
 
 {
@@ -508,11 +508,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -527,11 +527,11 @@ Subscription
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Global Subscription State Changes (users.behaviors.subscription.GlobalStateChange)
 
 {
@@ -546,11 +546,11 @@ Subscription
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "channel" : "(optional, string) Channel this event belongs to",
           "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -575,11 +575,11 @@ Subscription
     "email" : "(optional, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Global Subscription State Changed (users.behaviors.subscription.GlobalStateChange)
 
 {
@@ -598,11 +598,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -615,7 +615,7 @@ Subscription
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -634,7 +634,7 @@ Subscription
 | 受信メッセージ | SMS などのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合 |
 | 移行 | 内部移行または保守スクリプトによってユーザーが更新された場合 |
 | ユーザーマージ | ユーザーのマージプロセスによってユーザーが更新された場合 |
-| Canvasユーザー更新ステップ | Canvasユーザー更新ステップによってユーザーが更新された場合 |
+| キャンバスユーザー更新ステップ | キャンバスユーザー更新ステップによってユーザーが更新された場合 |
 | プッシュトークン登録 | トークン登録プロセスによってユーザーが更新された場合 |
 | リスト配信停止 | ユーザーがBrazeの mailto またはワンクリックリスト配信停止ヘッダーを使用して配信停止した場合 |
 | その他 | デモまたはプロバイダーの同期ジョブ、SMS および WhatsApp イベントコールバックなど、その他のソースが含まれます |
@@ -658,7 +658,7 @@ Subscription
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.behaviors.subscriptiongroup.StateChange
 
 {
@@ -667,11 +667,11 @@ Subscription
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "channel" : "(optional, string) Channel this event belongs to",
   "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -689,11 +689,11 @@ Subscription
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Subscription Group State Change (users.behaviors.subscriptiongroup.StateChange)
 
 {
@@ -704,11 +704,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -727,11 +727,11 @@ Subscription
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.behaviors.subscriptiongroup.StateChange
 
 {
@@ -743,11 +743,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -768,11 +768,11 @@ Subscription
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Subscription Group State Change (users.behaviors.subscriptiongroup.StateChange)
 
 {
@@ -784,11 +784,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -806,11 +806,11 @@ Subscription
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Subscription Group State Changes (users.behaviors.subscriptiongroup.StateChange)
 
 {
@@ -827,11 +827,11 @@ Subscription
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "channel" : "(optional, string) Channel this event belongs to",
           "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -859,11 +859,11 @@ Subscription
     "email" : "(optional, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Subscription Group State Changed (users.behaviors.subscriptiongroup.StateChange)
 
 {
@@ -882,11 +882,11 @@ Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "channel" : "(optional, string) Channel this event belongs to",
     "channel_identifier" : "(optional, string) [PII] The user's identifier on the channel the event is for.",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -902,7 +902,7 @@ Subscription
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -914,13 +914,13 @@ Subscription
 
 {% api %}
 
-## Campaignコンバージョンイベント {#campaign-conversion-events}
+## キャンペーンコンバージョンイベント {#campaign-conversion-events}
 
 {% apitags %}
-Campaign, Conversion
+キャンペーン, Conversion
 {% endapitags %}
 
-このイベントは、Campaignにコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
+このイベントは、キャンペーンにコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
 コンバージョンイベントは `conversion_behavior` フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index` フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
@@ -928,7 +928,7 @@ Campaign, Conversion
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.campaigns.Conversion
 
 {
@@ -947,11 +947,11 @@ Campaign, Conversion
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Campaign Conversion (users.campaigns.Conversion)
 
 {
@@ -974,11 +974,11 @@ Campaign, Conversion
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.campaigns.Conversion
 
 {
@@ -1004,11 +1004,11 @@ Campaign, Conversion
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Campaign Conversion (users.campaigns.Conversion)
 
 {
@@ -1032,11 +1032,11 @@ Campaign, Conversion
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Campaign Conversions (users.campaigns.Conversion)
 
 {
@@ -1074,11 +1074,11 @@ Campaign, Conversion
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Campaign Converted (users.campaigns.Conversion)
 
 {
@@ -1106,24 +1106,24 @@ Campaign, Conversion
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 {% endapi %}
 
 {% api %}
-## Campaignコントロールグループの登録イベント {#campaign-control-group-enrollment-events}
+## キャンペーンコントロールグループの登録イベント {#campaign-control-group-enrollment-events}
 
 {% apitags %}
-Campaign, Entry
+キャンペーン, Entry
 {% endapitags %}
 
-このイベントは、複数のバリアントを持つCampaignに設定されたコントロールバリアントにユーザーが登録されたときに発生します。このイベントは、このユーザーに対するチャネル送信イベントが発生しないために生成されます。
+このイベントは、複数のバリアントを持つキャンペーンに設定されたコントロールバリアントにユーザーが登録されたときに発生します。このイベントは、このユーザーに対するチャネル送信イベントが発生しないために生成されます。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.campaigns.EnrollInControl
 
 {
@@ -1140,11 +1140,11 @@ Campaign, Entry
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Campaign Control Group Enrollment (users.campaigns.EnrollInControl)
 
 {
@@ -1165,11 +1165,11 @@ Campaign, Entry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.campaigns.EnrollInControl
 
 {
@@ -1193,11 +1193,11 @@ Campaign, Entry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Campaign Control Group Enrollment (users.campaigns.EnrollInControl)
 
 {
@@ -1219,11 +1219,11 @@ Campaign, Entry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Campaign Control Group Enrollments (users.campaigns.EnrollInControl)
 
 {
@@ -1259,11 +1259,11 @@ Campaign, Entry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Campaign Control Group Entered (users.campaigns.EnrollInControl)
 
 {
@@ -1289,20 +1289,20 @@ Campaign, Entry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 {% endapi %}
 
 {% api %}
-## Canvasコンバージョンイベント {#canvas-conversion-events}
+## キャンバスコンバージョンイベント {#canvas-conversion-events}
 
 {% apitags %}
-Canvas, Conversion
+キャンバス, Conversion
 {% endapitags %}
 
-このイベントは、Canvasでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
+このイベントは、キャンバスでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
 コンバージョンイベントは `conversion_behavior` フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index` フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
@@ -1310,18 +1310,18 @@ Canvas, Conversion
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvas.Conversion
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "app_id" : "(optional, string) API ID of the app on which this event occurred",
   "canvas_id" : "(required, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(required, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(required, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
   "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -1330,12 +1330,12 @@ Canvas, Conversion
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
-// Canvas Conversion (users.canvas.Conversion)
+`````````json
+// キャンバス Conversion (users.canvas.Conversion)
 
 {
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -1343,11 +1343,11 @@ Canvas, Conversion
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior"
   },
@@ -1357,11 +1357,11 @@ Canvas, Conversion
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvas.Conversion
 
 {
@@ -1371,11 +1371,11 @@ Canvas, Conversion
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior"
   },
@@ -1387,12 +1387,12 @@ Canvas, Conversion
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
-// Canvas Conversion (users.canvas.Conversion)
+`````````json
+// キャンバス Conversion (users.canvas.Conversion)
 
 {
   "event" : "(required, string) The event type name, as it is exported to Mixpanel",
@@ -1401,11 +1401,11 @@ Canvas, Conversion
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -1415,12 +1415,12 @@ Canvas, Conversion
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
-// Canvas Conversions (users.canvas.Conversion)
+`````````json
+// キャンバス Conversions (users.canvas.Conversion)
 
 {
   "device_info" : {
@@ -1433,11 +1433,11 @@ Canvas, Conversion
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
           "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -1457,12 +1457,12 @@ Canvas, Conversion
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
-// Canvas Converted (users.canvas.Conversion)
+`````````json
+// キャンバス Converted (users.canvas.Conversion)
 
 {
   "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
@@ -1476,11 +1476,11 @@ Canvas, Conversion
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
     "device_id" : "(optional, string) ID of the device on which the event occurred"
@@ -1489,34 +1489,34 @@ Canvas, Conversion
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 {% endapi %}
 
 {% api %}
-## Canvasエントリイベント {#canvas-entry-events}
+## キャンバスエントリイベント {#canvas-entry-events}
 
 {% apitags %}
-Canvas, Entry
+キャンバス, Entry
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasに入ったときに発生します。このイベントは、ユーザーがどのバリアントに入ったかを示します。
+このイベントは、ユーザーがキャンバスに入ったときに発生します。このイベントは、ユーザーがどのバリアントに入ったかを示します。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvas.Entry
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "canvas_id" : "(required, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(required, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(required, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group",
@@ -1524,23 +1524,23 @@ Canvas, Entry
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
-// Canvas Entry (users.canvas.Entry)
+`````````json
+// キャンバス Entry (users.canvas.Entry)
 
 {
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -1549,11 +1549,11 @@ Canvas, Entry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvas.Entry
 
 {
@@ -1562,11 +1562,11 @@ Canvas, Entry
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -1577,12 +1577,12 @@ Canvas, Entry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
-// Canvas Entry (users.canvas.Entry)
+`````````json
+// キャンバス Entry (users.canvas.Entry)
 
 {
   "event" : "(required, string) The event type name, as it is exported to Mixpanel",
@@ -1590,11 +1590,11 @@ Canvas, Entry
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group",
@@ -1603,12 +1603,12 @@ Canvas, Entry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
-// Canvas Entries (users.canvas.Entry)
+`````````json
+// キャンバス Entries (users.canvas.Entry)
 
 {
   "device_info" : {
@@ -1621,11 +1621,11 @@ Canvas, Entry
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group",
           "source_request_id" : "(required, string) Globally unique ID for this event"
@@ -1644,12 +1644,12 @@ Canvas, Entry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
-// Canvas Entered (users.canvas.Entry)
+`````````json
+// キャンバス Entered (users.canvas.Entry)
 
 {
   "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
@@ -1662,11 +1662,11 @@ Canvas, Entry
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "in_control_group" : "(required, boolean) Whether the user was enrolled in the control group"
   },
@@ -1674,7 +1674,7 @@ Canvas, Entry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -1684,14 +1684,14 @@ Canvas, Entry
 ## 退出オーディエンスマッチイベント {#exit-match-audience-events}
 
 {% apitags %}
-Exit, Canvas
+Exit, キャンバス
 {% endapitags %}
 
-このイベントは、ユーザーがオーディエンスに一致してCanvasを退出したときに発生します。
+このイベントは、ユーザーがオーディエンスに一致してキャンバスを退出したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvas.exit.MatchedAudience
 
 {
@@ -1699,34 +1699,34 @@ Exit, Canvas
   "app_group_id" : "(required, string) API ID of the app group this user belongs to",
   "canvas_api_id" : "(optional, string) [DEPRECATED]",
   "canvas_id" : "(required, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
   "canvas_step_api_id" : "(optional, string) [DEPRECATED]",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
   "canvas_variation_api_id" : "(optional, string) [DEPRECATED]",
-  "canvas_variation_id" : "(required, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_variation_id" : "(required, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Exit Match Audience (users.canvas.exit.MatchedAudience)
 
 {
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received"
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -1734,11 +1734,11 @@ Exit, Canvas
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvas.exit.MatchedAudience
 
 {
@@ -1747,11 +1747,11 @@ Exit, Canvas
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received"
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user" : {
@@ -1759,11 +1759,11 @@ Exit, Canvas
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Exit Match Audience (users.canvas.exit.MatchedAudience)
 
 {
@@ -1772,22 +1772,22 @@ Exit, Canvas
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Exit Matched Audiences (users.canvas.exit.MatchedAudience)
 
 {
@@ -1799,11 +1799,11 @@ Exit, Canvas
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -1820,11 +1820,11 @@ Exit, Canvas
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Exit Matched Audience (users.canvas.exit.MatchedAudience)
 
 {
@@ -1838,17 +1838,17 @@ Exit, Canvas
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received"
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -1859,14 +1859,14 @@ Exit, Canvas
 ## 退出イベント実行イベント {#exit-perform-event-events}
 
 {% apitags %}
-Exit, Canvas
+Exit, キャンバス
 {% endapitags %}
 
-このイベントは、ユーザーがイベントを実行してCanvasを退出したときに発生します。
+このイベントは、ユーザーがイベントを実行してキャンバスを退出したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvas.exit.PerformedEvent
 
 {
@@ -1874,34 +1874,34 @@ Exit, Canvas
   "app_group_id" : "(required, string) API ID of the app group this user belongs to",
   "canvas_api_id" : "(optional, string) [DEPRECATED]",
   "canvas_id" : "(required, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
   "canvas_step_api_id" : "(optional, string) [DEPRECATED]",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
   "canvas_variation_api_id" : "(optional, string) [DEPRECATED]",
-  "canvas_variation_id" : "(required, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_variation_id" : "(required, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Exit Perform Event (users.canvas.exit.PerformedEvent)
 
 {
   "event_properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received"
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
   "insert_id" : "(required, string) Globally unique ID for this event",
@@ -1909,11 +1909,11 @@ Exit, Canvas
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvas.exit.PerformedEvent
 
 {
@@ -1922,11 +1922,11 @@ Exit, Canvas
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received"
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user" : {
@@ -1934,11 +1934,11 @@ Exit, Canvas
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Exit Perform Event (users.canvas.exit.PerformedEvent)
 
 {
@@ -1947,22 +1947,22 @@ Exit, Canvas
     "$partner_id" : "braze",
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "time" : "(required, int) UNIX timestamp at which the event happened",
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Exit Performed Events (users.canvas.exit.PerformedEvent)
 
 {
@@ -1974,11 +1974,11 @@ Exit, Canvas
         "custom_attributes" : {
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "source_request_id" : "(required, string) Globally unique ID for this event"
         },
         "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
@@ -1995,11 +1995,11 @@ Exit, Canvas
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Exit Performed Event (users.canvas.exit.PerformedEvent)
 
 {
@@ -2013,17 +2013,17 @@ Exit, Canvas
   "properties" : {
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received"
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -2033,24 +2033,24 @@ Exit, Canvas
 ## 実験ステップコンバージョンイベント {#experiment-step-conversion-events}
 
 {% apitags %}
-Canvas
+キャンバス
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasの実験ステップでコンバージョンを達成したときに発生します。
+このイベントは、ユーザーがキャンバスの実験ステップでコンバージョンを達成したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvas.experimentstep.Conversion
 
 {
   "app_id" : "(optional, string) API ID of the app on which this event occurred",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
   "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
   "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
@@ -2061,22 +2061,22 @@ Canvas
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Experiment Step Conversion (users.canvas.experimentstep.Conversion)
 
 {
   "event_properties" : {
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
@@ -2089,11 +2089,11 @@ Canvas
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvas.experimentstep.Conversion
 
 {
@@ -2102,11 +2102,11 @@ Canvas
   "properties" : {
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
@@ -2119,11 +2119,11 @@ Canvas
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Experiment Step Conversion (users.canvas.experimentstep.Conversion)
 
 {
@@ -2132,11 +2132,11 @@ Canvas
     "$partner_id" : "braze",
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -2148,11 +2148,11 @@ Canvas
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Experiment Step Conversions (users.canvas.experimentstep.Conversion)
 
 {
@@ -2163,11 +2163,11 @@ Canvas
       "data" : {
         "custom_attributes" : {
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
           "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
           "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
@@ -2189,11 +2189,11 @@ Canvas
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Experiment Step Converted (users.canvas.experimentstep.Conversion)
 
 {
@@ -2207,11 +2207,11 @@ Canvas
   "properties" : {
     "app_id" : "(optional, string) API ID of the app on which this event occurred",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "conversion_behavior" : "(optional, string) JSON-encoded string describing the conversion behavior",
     "conversion_behavior_index" : "(optional, int) Index of the conversion behavior",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
@@ -2222,7 +2222,7 @@ Canvas
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -2232,23 +2232,23 @@ Canvas
 ## 実験分割エントリイベント {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas
+キャンバス
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasの実験ステップパスに入ったときに発生します。
+このイベントは、ユーザーがキャンバスの実験ステップパスに入ったときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvas.experimentstep.SplitEntry
 
 {
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
   "experiment_split_name" : "(optional, string) Name of the experiment split",
   "experiment_step_id" : "(optional, string) API ID of the experiment step this event belongs to",
@@ -2258,21 +2258,21 @@ Canvas
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Experiment Split Entry (users.canvas.experimentstep.SplitEntry)
 
 {
   "event_properties" : {
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
     "experiment_split_name" : "(optional, string) Name of the experiment split",
     "experiment_step_id" : "(optional, string) API ID of the experiment step this event belongs to",
@@ -2284,11 +2284,11 @@ Canvas
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvas.experimentstep.SplitEntry
 
 {
@@ -2296,11 +2296,11 @@ Canvas
   "id" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
     "experiment_split_name" : "(optional, string) Name of the experiment split",
     "experiment_step_id" : "(optional, string) API ID of the experiment step this event belongs to",
@@ -2312,11 +2312,11 @@ Canvas
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Experiment Split Entry (users.canvas.experimentstep.SplitEntry)
 
 {
@@ -2324,11 +2324,11 @@ Canvas
   "properties" : {
     "$partner_id" : "braze",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
     "experiment_split_name" : "(optional, string) Name of the experiment split",
@@ -2339,11 +2339,11 @@ Canvas
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Experiment Split Entries (users.canvas.experimentstep.SplitEntry)
 
 {
@@ -2354,11 +2354,11 @@ Canvas
       "data" : {
         "custom_attributes" : {
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
           "experiment_split_name" : "(optional, string) Name of the experiment split",
           "experiment_step_id" : "(optional, string) API ID of the experiment step this event belongs to",
@@ -2379,11 +2379,11 @@ Canvas
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Experiment Split Entered (users.canvas.experimentstep.SplitEntry)
 
 {
@@ -2396,11 +2396,11 @@ Canvas
   "messageId" : "(required, string) Globally unique ID for this event",
   "properties" : {
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "experiment_split_id" : "(optional, string) API ID of the experiment split the user enrolled in",
     "experiment_split_name" : "(optional, string) Name of the experiment split",
     "experiment_step_id" : "(optional, string) API ID of the experiment step this event belongs to",
@@ -2410,7 +2410,7 @@ Canvas
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -2420,25 +2420,25 @@ Canvas
 ## キャンバスステップ進行イベント {#canvas-step-progression-events}
 
 {% apitags %}
-Canvas, Progression
+キャンバス, Progression
 {% endapitags %}
 
-このイベントは、ユーザーがCanvasのステップを進み、何らかの結果を得たときに発生します。このイベントは、ステップへの開始時または終了時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）とAdvanceの結果のみがステップ進行イベントを生成します。
+このイベントは、ユーザーがキャンバスのステップを進み、何らかの結果を得たときに発生します。このイベントは、ステップへの開始時または終了時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）とAdvanceの結果のみがステップ進行イベントを生成します。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.canvasstep.Progression
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "canvas_entry_id" : "(required, string) Unique identifier for this instance of a user in a canvas",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "exit_reason" : "(optional, string) If this is an exit, the reason a user exited the canvas during the step",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -2449,12 +2449,12 @@ Canvas, Progression
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
-// Canvas Step Progression (users.canvasstep.Progression)
+`````````json
+// キャンバス Step Progression (users.canvasstep.Progression)
 
 {
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -2462,11 +2462,11 @@ Canvas, Progression
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_entry_id" : "(required, string) Unique identifier for this instance of a user in a canvas",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "exit_reason" : "(optional, string) If this is an exit, the reason a user exited the canvas during the step",
     "is_canvas_entry" : "(optional, boolean) Whether this is entry into a first step in a canvas",
     "next_step_id" : "(optional, string) API ID of the next step in the canvas",
@@ -2478,11 +2478,11 @@ Canvas, Progression
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.canvasstep.Progression
 
 {
@@ -2492,11 +2492,11 @@ Canvas, Progression
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_entry_id" : "(required, string) Unique identifier for this instance of a user in a canvas",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "exit_reason" : "(optional, string) If this is an exit, the reason a user exited the canvas during the step",
     "is_canvas_entry" : "(optional, boolean) Whether this is entry into a first step in a canvas",
     "next_step_id" : "(optional, string) API ID of the next step in the canvas",
@@ -2509,12 +2509,12 @@ Canvas, Progression
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
-// Canvas Step Progression (users.canvasstep.Progression)
+`````````json
+// キャンバス Step Progression (users.canvasstep.Progression)
 
 {
   "event" : "(required, string) The event type name, as it is exported to Mixpanel",
@@ -2523,11 +2523,11 @@ Canvas, Progression
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_entry_id" : "(required, string) Unique identifier for this instance of a user in a canvas",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "exit_reason" : "(optional, string) If this is an exit, the reason a user exited the canvas during the step",
@@ -2539,12 +2539,12 @@ Canvas, Progression
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
-// Canvas Step Progressions (users.canvasstep.Progression)
+`````````json
+// キャンバス Step Progressions (users.canvasstep.Progression)
 
 {
   "device_info" : {
@@ -2558,11 +2558,11 @@ Canvas, Progression
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "canvas_entry_id" : "(required, string) Unique identifier for this instance of a user in a canvas",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "exit_reason" : "(optional, string) If this is an exit, the reason a user exited the canvas during the step",
           "is_canvas_entry" : "(optional, boolean) Whether this is entry into a first step in a canvas",
@@ -2584,12 +2584,12 @@ Canvas, Progression
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
-// Canvas Step Progression (users.canvasstep.Progression)
+`````````json
+// キャンバス Step Progression (users.canvasstep.Progression)
 
 {
   "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
@@ -2603,11 +2603,11 @@ Canvas, Progression
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "canvas_entry_id" : "(required, string) Unique identifier for this instance of a user in a canvas",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "exit_reason" : "(optional, string) If this is an exit, the reason a user exited the canvas during the step",
     "is_canvas_entry" : "(optional, boolean) Whether this is entry into a first step in a canvas",
@@ -2618,7 +2618,7 @@ Canvas, Progression
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -2636,7 +2636,7 @@ Banner, Abort
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.banner.Abort
 
 {
@@ -2652,12 +2652,12 @@ Banner, Abort
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -2676,11 +2676,11 @@ Banner, Abort
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Banner Abort (users.messages.banner.Abort)
 
 {
@@ -2699,12 +2699,12 @@ Banner, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2719,11 +2719,11 @@ Banner, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.banner.Abort
 
 {
@@ -2742,12 +2742,12 @@ Banner, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2762,11 +2762,11 @@ Banner, Abort
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Banner Abort (users.messages.banner.Abort)
 
 {
@@ -2785,12 +2785,12 @@ Banner, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -2803,11 +2803,11 @@ Banner, Abort
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Banner Aborts (users.messages.banner.Abort)
 
 {
@@ -2835,12 +2835,12 @@ Banner, Abort
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -2860,11 +2860,11 @@ Banner, Abort
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Banner Aborted (users.messages.banner.Abort)
 
 {
@@ -2890,12 +2890,12 @@ Banner, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
@@ -2904,7 +2904,7 @@ Banner, Abort
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -2927,7 +2927,7 @@ Banner, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.banner.Click
 
 {
@@ -2942,12 +2942,12 @@ Banner, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -2966,11 +2966,11 @@ Banner, Clicks
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Banner Click (users.messages.banner.Click)
 
 {
@@ -2988,12 +2988,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3008,11 +3008,11 @@ Banner, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.banner.Click
 
 {
@@ -3030,12 +3030,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3050,11 +3050,11 @@ Banner, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Banner Click (users.messages.banner.Click)
 
 {
@@ -3072,12 +3072,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -3090,11 +3090,11 @@ Banner, Clicks
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Banner Clicks (users.messages.banner.Click)
 
 {
@@ -3121,12 +3121,12 @@ Banner, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3146,11 +3146,11 @@ Banner, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Banner Clicked (users.messages.banner.Click)
 
 {
@@ -3175,12 +3175,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
@@ -3189,7 +3189,7 @@ Banner, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -3203,7 +3203,7 @@ Banner, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.banner.Dismiss
 
 {
@@ -3218,12 +3218,12 @@ Banner, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -3242,11 +3242,11 @@ Banner, Clicks
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Banner Dismissal (users.messages.banner.Dismiss)
 
 {
@@ -3265,12 +3265,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "carrier" : "(optional, string) Carrier of the device",
     "country" : "(optional, string) [PII] Country of the user",
     "device_model" : "(optional, string) Model of the device",
@@ -3291,11 +3291,11 @@ Banner, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.banner.Dismiss
 
 {
@@ -3313,12 +3313,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "carrier" : "(optional, string) Carrier of the device",
     "country" : "(optional, string) [PII] Country of the user",
     "device_model" : "(optional, string) Model of the device",
@@ -3339,11 +3339,11 @@ Banner, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Banner Dismissal (users.messages.banner.Dismiss)
 
 {
@@ -3361,12 +3361,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "carrier" : "(optional, string) Carrier of the device",
     "country" : "(optional, string) [PII] Country of the user",
     "$device" : "(optional, string) Model of the device",
@@ -3387,11 +3387,11 @@ Banner, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Banner Dismissals (users.messages.banner.Dismiss)
 
 {
@@ -3419,12 +3419,12 @@ Banner, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "carrier" : "(optional, string) Carrier of the device",
           "country" : "(optional, string) [PII] Country of the user",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -3453,11 +3453,11 @@ Banner, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Banner Dismissed (users.messages.banner.Dismiss)
 
 {
@@ -3482,12 +3482,12 @@ Banner, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "carrier" : "(optional, string) Carrier of the device",
     "country" : "(optional, string) [PII] Country of the user",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -3504,7 +3504,7 @@ Banner, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -3521,7 +3521,7 @@ Banner, Impressions
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.banner.Impression
 
 {
@@ -3535,12 +3535,12 @@ Banner, Impressions
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -3559,11 +3559,11 @@ Banner, Impressions
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Banner Impression (users.messages.banner.Impression)
 
 {
@@ -3580,12 +3580,12 @@ Banner, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3600,11 +3600,11 @@ Banner, Impressions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.banner.Impression
 
 {
@@ -3621,12 +3621,12 @@ Banner, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3641,11 +3641,11 @@ Banner, Impressions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Banner Impression (users.messages.banner.Impression)
 
 {
@@ -3662,12 +3662,12 @@ Banner, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -3680,11 +3680,11 @@ Banner, Impressions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Banner Impressions (users.messages.banner.Impression)
 
 {
@@ -3710,12 +3710,12 @@ Banner, Impressions
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3735,11 +3735,11 @@ Banner, Impressions
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Banner Viewed (users.messages.banner.Impression)
 
 {
@@ -3763,12 +3763,12 @@ Banner, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
@@ -3777,7 +3777,7 @@ Banner, Impressions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -3794,7 +3794,7 @@ Abort, Content Cards
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.contentcard.Abort
 
 {
@@ -3804,12 +3804,12 @@ Abort, Content Cards
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -3821,11 +3821,11 @@ Abort, Content Cards
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Content Card Abort (users.messages.contentcard.Abort)
 
 {
@@ -3837,11 +3837,11 @@ Abort, Content Cards
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3853,11 +3853,11 @@ Abort, Content Cards
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.contentcard.Abort
 
 {
@@ -3870,11 +3870,11 @@ Abort, Content Cards
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3888,11 +3888,11 @@ Abort, Content Cards
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Content Card Abort (users.messages.contentcard.Abort)
 
 {
@@ -3905,11 +3905,11 @@ Abort, Content Cards
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -3921,11 +3921,11 @@ Abort, Content Cards
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Content Card Aborts (users.messages.contentcard.Abort)
 
 {
@@ -3943,11 +3943,11 @@ Abort, Content Cards
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -3969,11 +3969,11 @@ Abort, Content Cards
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Content Card Aborted (users.messages.contentcard.Abort)
 
 {
@@ -3991,11 +3991,11 @@ Abort, Content Cards
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -4006,13 +4006,13 @@ Abort, Content Cards
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、特定のメッセージ配信（Campaign送信など）の ID です。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、特定のメッセージ配信（キャンペーン送信など）の ID です。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 Content Card messages every 1 week`
@@ -4031,7 +4031,7 @@ Content Cards, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.contentcard.Click
 
 {
@@ -4043,11 +4043,11 @@ Content Cards, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "content_card_id" : "(required, string) ID of the card that generated this event",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "device_model" : "(optional, string) Model of the device",
@@ -4062,11 +4062,11 @@ Content Cards, Clicks
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Content Card Click (users.messages.contentcard.Click)
 
 {
@@ -4081,11 +4081,11 @@ Content Cards, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4102,11 +4102,11 @@ Content Cards, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.contentcard.Click
 
 {
@@ -4121,11 +4121,11 @@ Content Cards, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4143,11 +4143,11 @@ Content Cards, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Content Card Click (users.messages.contentcard.Click)
 
 {
@@ -4162,11 +4162,11 @@ Content Cards, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -4182,11 +4182,11 @@ Content Cards, Clicks
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Content Card Clicks (users.messages.contentcard.Click)
 
 {
@@ -4210,11 +4210,11 @@ Content Cards, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4237,11 +4237,11 @@ Content Cards, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Content Card Clicked (users.messages.contentcard.Click)
 
 {
@@ -4264,11 +4264,11 @@ Content Cards, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4280,7 +4280,7 @@ Content Cards, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -4302,7 +4302,7 @@ Content Cards, Dismissal
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.contentcard.Dismiss
 
 {
@@ -4314,11 +4314,11 @@ Content Cards, Dismissal
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "content_card_id" : "(required, string) ID of the card that generated this event",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "device_model" : "(optional, string) Model of the device",
@@ -4333,11 +4333,11 @@ Content Cards, Dismissal
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Content Card Dismiss (users.messages.contentcard.Dismiss)
 
 {
@@ -4352,11 +4352,11 @@ Content Cards, Dismissal
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4373,11 +4373,11 @@ Content Cards, Dismissal
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.contentcard.Dismiss
 
 {
@@ -4392,11 +4392,11 @@ Content Cards, Dismissal
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4414,11 +4414,11 @@ Content Cards, Dismissal
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Content Card Dismiss (users.messages.contentcard.Dismiss)
 
 {
@@ -4433,11 +4433,11 @@ Content Cards, Dismissal
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -4453,11 +4453,11 @@ Content Cards, Dismissal
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Content Card Dismisses (users.messages.contentcard.Dismiss)
 
 {
@@ -4481,11 +4481,11 @@ Content Cards, Dismissal
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4508,11 +4508,11 @@ Content Cards, Dismissal
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Content Card Dismissed (users.messages.contentcard.Dismiss)
 
 {
@@ -4535,11 +4535,11 @@ Content Cards, Dismissal
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4551,7 +4551,7 @@ Content Cards, Dismissal
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -4573,7 +4573,7 @@ Content Cards, Impressions
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.contentcard.Impression
 
 {
@@ -4585,11 +4585,11 @@ Content Cards, Impressions
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "content_card_id" : "(required, string) ID of the card that generated this event",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "device_model" : "(optional, string) Model of the device",
@@ -4604,11 +4604,11 @@ Content Cards, Impressions
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Content Card Impression (users.messages.contentcard.Impression)
 
 {
@@ -4623,11 +4623,11 @@ Content Cards, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4644,11 +4644,11 @@ Content Cards, Impressions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.contentcard.Impression
 
 {
@@ -4663,11 +4663,11 @@ Content Cards, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4685,11 +4685,11 @@ Content Cards, Impressions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Content Card Impression (users.messages.contentcard.Impression)
 
 {
@@ -4704,11 +4704,11 @@ Content Cards, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -4724,11 +4724,11 @@ Content Cards, Impressions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Content Card Impressions (users.messages.contentcard.Impression)
 
 {
@@ -4752,11 +4752,11 @@ Content Cards, Impressions
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4779,11 +4779,11 @@ Content Cards, Impressions
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Content Card Viewed (users.messages.contentcard.Impression)
 
 {
@@ -4806,11 +4806,11 @@ Content Cards, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4822,7 +4822,7 @@ Content Cards, Impressions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -4845,7 +4845,7 @@ Content Cards, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.contentcard.Send
 
 {
@@ -4853,11 +4853,11 @@ Content Cards, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "content_card_id" : "(required, string) ID of the card that generated this event",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -4870,11 +4870,11 @@ Content Cards, Sends
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Content Card Send (users.messages.contentcard.Send)
 
 {
@@ -4884,11 +4884,11 @@ Content Cards, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -4902,11 +4902,11 @@ Content Cards, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.contentcard.Send
 
 {
@@ -4917,11 +4917,11 @@ Content Cards, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -4937,11 +4937,11 @@ Content Cards, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Content Card Send (users.messages.contentcard.Send)
 
 {
@@ -4952,11 +4952,11 @@ Content Cards, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -4970,11 +4970,11 @@ Content Cards, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Content Card Sends (users.messages.contentcard.Send)
 
 {
@@ -4990,11 +4990,11 @@ Content Cards, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -5018,11 +5018,11 @@ Content Cards, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Content Card Sent (users.messages.contentcard.Send)
 
 {
@@ -5038,11 +5038,11 @@ Content Cards, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -5055,13 +5055,13 @@ Content Cards, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `message_extras` を使用すると、コネクテッドコンテンツからの動的データ、カスタム属性（言語や国など）、およびCanvasエントリプロパティで送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
+- `message_extras` を使用すると、コネクテッドコンテンツからの動的データ、カスタム属性（言語や国など）、およびキャンバスエントリプロパティで送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
 
 {% endapi %}
 
@@ -5076,7 +5076,7 @@ Abort, Email
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Abort
 
 {
@@ -5086,12 +5086,12 @@ Abort, Email
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
@@ -5105,11 +5105,11 @@ Abort, Email
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Abort (users.messages.email.Abort)
 
 {
@@ -5121,11 +5121,11 @@ Abort, Email
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -5139,11 +5139,11 @@ Abort, Email
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Abort
 
 {
@@ -5156,11 +5156,11 @@ Abort, Email
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -5176,11 +5176,11 @@ Abort, Email
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Abort (users.messages.email.Abort)
 
 {
@@ -5193,11 +5193,11 @@ Abort, Email
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -5211,11 +5211,11 @@ Abort, Email
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Aborts (users.messages.email.Abort)
 
 {
@@ -5233,11 +5233,11 @@ Abort, Email
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -5261,11 +5261,11 @@ Abort, Email
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Aborted (users.messages.email.Abort)
 
 {
@@ -5285,11 +5285,11 @@ Abort, Email
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -5301,13 +5301,13 @@ Abort, Email
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type` は、グローバルなフリークエンシーキャップルールによりメッセージが中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止をトリガーした特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 email messages every 1 week`
@@ -5325,7 +5325,7 @@ Email, Bounce
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Bounce
 
 {
@@ -5334,11 +5334,11 @@ Email, Bounce
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -5355,11 +5355,11 @@ Email, Bounce
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Bounce (users.messages.email.Bounce)
 
 {
@@ -5370,11 +5370,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -5391,11 +5391,11 @@ Email, Bounce
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Bounce
 
 {
@@ -5407,11 +5407,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -5431,11 +5431,11 @@ Email, Bounce
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Bounce (users.messages.email.Bounce)
 
 {
@@ -5447,11 +5447,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -5468,11 +5468,11 @@ Email, Bounce
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Bounces (users.messages.email.Bounce)
 
 {
@@ -5489,11 +5489,11 @@ Email, Bounce
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -5520,11 +5520,11 @@ Email, Bounce
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Bounced (users.messages.email.Bounce)
 
 {
@@ -5543,11 +5543,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -5562,14 +5562,14 @@ Email, Bounce
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作は、キャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -5581,11 +5581,11 @@ Email, Bounce
 Email, Clicks
 {% endapitags %}
 
-このイベントは、ユーザーがメールをクリックしたときに発生します。ユーザーが複数回クリックしたり、メール内の異なるリンクをクリックしたりすると、同じCampaignについて複数のイベントが生成される場合があります。
+このイベントは、ユーザーがメールをクリックしたときに発生します。ユーザーが複数回クリックしたり、メール内の異なるリンクをクリックしたりすると、同じキャンペーンについて複数のイベントが生成される場合があります。
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Click
 
 {
@@ -5594,11 +5594,11 @@ Email, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
   "device_model" : "(optional, string) Model of the device",
   "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -5624,11 +5624,11 @@ Email, Clicks
   "user_agent" : "(optional, string) User agent on which the click occurred",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Click (users.messages.email.Click)
 
 {
@@ -5639,11 +5639,11 @@ Email, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_model" : "(optional, string) Model of the device",
     "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -5670,11 +5670,11 @@ Email, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Click
 
 {
@@ -5686,11 +5686,11 @@ Email, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_model" : "(optional, string) Model of the device",
     "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -5719,11 +5719,11 @@ Email, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Click (users.messages.email.Click)
 
 {
@@ -5735,11 +5735,11 @@ Email, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -5766,11 +5766,11 @@ Email, Clicks
     "user_agent" : "(optional, string) User agent on which the click occurred"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Clicks (users.messages.email.Click)
 
 {
@@ -5788,11 +5788,11 @@ Email, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -5827,11 +5827,11 @@ Email, Clicks
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Link Clicked (users.messages.email.Click)
 
 {
@@ -5852,11 +5852,11 @@ Email, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -5880,11 +5880,11 @@ Email, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Shopify %}
-```json
+`````````json
 // Email Click (users.messages.email.Click)
 
 {
@@ -5900,14 +5900,14 @@ Email, Clicks
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
   "external_user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作は、CanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作は、キャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーされたイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -5922,7 +5922,7 @@ Email, Deferral
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Deferral
 
 {
@@ -5931,12 +5931,12 @@ Email, Deferral
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "deferral_reason" : "(optional, string) [PII] The SMTP reason code and user friendly message received for this deferral event",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
@@ -5954,11 +5954,11 @@ Email, Deferral
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Deferral (users.messages.email.Deferral)
 
 {
@@ -5968,11 +5968,11 @@ Email, Deferral
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "deferral_reason" : "(optional, string) [PII] The SMTP reason code and user friendly message received for this deferral event",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
@@ -5991,11 +5991,11 @@ Email, Deferral
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Deferral
 
 {
@@ -6007,11 +6007,11 @@ Email, Deferral
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "deferral_reason" : "(optional, string) [PII] The SMTP reason code and user friendly message received for this deferral event",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
@@ -6031,11 +6031,11 @@ Email, Deferral
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Deferral (users.messages.email.Deferral)
 
 {
@@ -6047,11 +6047,11 @@ Email, Deferral
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "deferral_reason" : "(optional, string) [PII] The SMTP reason code and user friendly message received for this deferral event",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -6068,11 +6068,11 @@ Email, Deferral
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Deferrals (users.messages.email.Deferral)
 
 {
@@ -6087,11 +6087,11 @@ Email, Deferral
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "deferral_reason" : "(optional, string) [PII] The SMTP reason code and user friendly message received for this deferral event",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6118,11 +6118,11 @@ Email, Deferral
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Deferred (users.messages.email.Deferral)
 
 {
@@ -6141,11 +6141,11 @@ Email, Deferral
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "deferral_reason" : "(optional, string) [PII] The SMTP reason code and user friendly message received for this deferral event",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6160,14 +6160,14 @@ Email, Deferral
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6182,7 +6182,7 @@ Email, Delivery
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Delivery
 
 {
@@ -6190,11 +6190,11 @@ Email, Delivery
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6210,11 +6210,11 @@ Email, Delivery
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Delivery (users.messages.email.Delivery)
 
 {
@@ -6224,11 +6224,11 @@ Email, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6244,11 +6244,11 @@ Email, Delivery
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Delivery
 
 {
@@ -6259,11 +6259,11 @@ Email, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6282,11 +6282,11 @@ Email, Delivery
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Delivery (users.messages.email.Delivery)
 
 {
@@ -6297,11 +6297,11 @@ Email, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -6317,11 +6317,11 @@ Email, Delivery
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Deliveries (users.messages.email.Delivery)
 
 {
@@ -6337,11 +6337,11 @@ Email, Delivery
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6367,11 +6367,11 @@ Email, Delivery
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Delivered (users.messages.email.Delivery)
 
 {
@@ -6389,11 +6389,11 @@ Email, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6407,14 +6407,14 @@ Email, Delivery
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6430,7 +6430,7 @@ Email, Spam
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.MarkAsSpam
 
 {
@@ -6438,11 +6438,11 @@ Email, Spam
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6458,11 +6458,11 @@ Email, Spam
   "user_agent" : "(optional, string) User agent on which the spam report occurred",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Mark As Spam (users.messages.email.MarkAsSpam)
 
 {
@@ -6472,11 +6472,11 @@ Email, Spam
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6493,11 +6493,11 @@ Email, Spam
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.MarkAsSpam
 
 {
@@ -6508,11 +6508,11 @@ Email, Spam
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6531,11 +6531,11 @@ Email, Spam
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Mark As Spam (users.messages.email.MarkAsSpam)
 
 {
@@ -6546,11 +6546,11 @@ Email, Spam
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -6567,11 +6567,11 @@ Email, Spam
     "user_agent" : "(optional, string) User agent on which the spam report occurred"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Marks As Spam (users.messages.email.MarkAsSpam)
 
 {
@@ -6587,11 +6587,11 @@ Email, Spam
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6618,11 +6618,11 @@ Email, Spam
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Marked as Spam (users.messages.email.MarkAsSpam)
 
 {
@@ -6640,11 +6640,11 @@ Email, Spam
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -6659,14 +6659,14 @@ Email, Spam
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6677,7 +6677,7 @@ Email, Spam
 Email, Opens
 {% endapitags %}
 
-このイベントは、ユーザーがメールを開封したときに発生します。ユーザーが同じメールを複数回開封した場合、同じCampaignに対して複数のイベントが生成されることがあります。
+このイベントは、ユーザーがメールを開封したときに発生します。ユーザーが同じメールを複数回開封した場合、同じキャンペーンに対して複数のイベントが生成されることがあります。
 
 {% alert important %}
 メール開封イベントのフィールド `device_model` と `mailbox_provider` が空になることは既知の動作です。現時点ではこれらを無視してください。
@@ -6685,7 +6685,7 @@ Email, Opens
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Open
 
 {
@@ -6694,11 +6694,11 @@ Email, Opens
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
   "device_model" : "(optional, string) Model of the device",
   "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -6720,11 +6720,11 @@ Email, Opens
   "user_agent" : "(optional, string) User agent on which the open occurred",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Open (users.messages.email.Open)
 
 {
@@ -6735,11 +6735,11 @@ Email, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_model" : "(optional, string) Model of the device",
     "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -6762,11 +6762,11 @@ Email, Opens
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Open
 
 {
@@ -6778,11 +6778,11 @@ Email, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_model" : "(optional, string) Model of the device",
     "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -6807,11 +6807,11 @@ Email, Opens
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Open (users.messages.email.Open)
 
 {
@@ -6823,11 +6823,11 @@ Email, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -6850,11 +6850,11 @@ Email, Opens
     "user_agent" : "(optional, string) User agent on which the open occurred"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Opens (users.messages.email.Open)
 
 {
@@ -6872,11 +6872,11 @@ Email, Opens
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -6908,11 +6908,11 @@ Email, Opens
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Opened (users.messages.email.Open)
 
 {
@@ -6933,11 +6933,11 @@ Email, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_class" : "(optional, string) Device class extracted from user_agent (mobile, desktop, tablet, etc...)",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "device_os" : "(optional, string) Device operating system extracted from user_agent",
@@ -6957,11 +6957,11 @@ Email, Opens
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Shopify %}
-```json
+`````````json
 // Email Open (users.messages.email.Open)
 
 {
@@ -6976,14 +6976,14 @@ Email, Opens
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
   "external_user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。
 
 {% endapi %}
 
@@ -6998,7 +6998,7 @@ Email, Retry
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Retry
 
 {
@@ -7006,12 +7006,12 @@ Email, Retry
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -7030,11 +7030,11 @@ Email, Retry
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Retry (users.messages.email.Retry)
 
 {
@@ -7044,11 +7044,11 @@ Email, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7065,11 +7065,11 @@ Email, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Retry
 
 {
@@ -7080,11 +7080,11 @@ Email, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7102,11 +7102,11 @@ Email, Retry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Retry (users.messages.email.Retry)
 
 {
@@ -7117,11 +7117,11 @@ Email, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -7137,11 +7137,11 @@ Email, Retry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Retries (users.messages.email.Retry)
 
 {
@@ -7157,11 +7157,11 @@ Email, Retry
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7187,11 +7187,11 @@ Email, Retry
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Retried (users.messages.email.Retry)
 
 {
@@ -7209,11 +7209,11 @@ Email, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7227,7 +7227,7 @@ Email, Retry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -7245,7 +7245,7 @@ Email, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Send
 
 {
@@ -7253,11 +7253,11 @@ Email, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -7271,11 +7271,11 @@ Email, Sends
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Send (users.messages.email.Send)
 
 {
@@ -7285,11 +7285,11 @@ Email, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7304,11 +7304,11 @@ Email, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Send
 
 {
@@ -7319,11 +7319,11 @@ Email, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7340,11 +7340,11 @@ Email, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Send (users.messages.email.Send)
 
 {
@@ -7355,11 +7355,11 @@ Email, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -7374,11 +7374,11 @@ Email, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Sends (users.messages.email.Send)
 
 {
@@ -7394,11 +7394,11 @@ Email, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7425,11 +7425,11 @@ Email, Sends
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Sent (users.messages.email.Send)
 
 {
@@ -7447,11 +7447,11 @@ Email, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7466,11 +7466,11 @@ Email, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Shopify %}
-```json
+`````````json
 // Email Send (users.messages.email.Send)
 
 {
@@ -7485,15 +7485,15 @@ Email, Sends
   "event_type" : "(required, string) The Shopify event type name (e.g. email_sent, sms_sent)",
   "external_user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
 
 {% endapi %}
 
@@ -7508,7 +7508,7 @@ Email, Bounce
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.SoftBounce
 
 {
@@ -7517,11 +7517,11 @@ Email, Bounce
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7537,11 +7537,11 @@ Email, Bounce
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Soft Bounce (users.messages.email.SoftBounce)
 
 {
@@ -7552,11 +7552,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7572,11 +7572,11 @@ Email, Bounce
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.SoftBounce
 
 {
@@ -7588,11 +7588,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7611,11 +7611,11 @@ Email, Bounce
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Soft Bounce (users.messages.email.SoftBounce)
 
 {
@@ -7627,11 +7627,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -7647,11 +7647,11 @@ Email, Bounce
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Soft Bounces (users.messages.email.SoftBounce)
 
 {
@@ -7668,11 +7668,11 @@ Email, Bounce
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7698,11 +7698,11 @@ Email, Bounce
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Email Soft Bounced (users.messages.email.SoftBounce)
 
 {
@@ -7721,11 +7721,11 @@ Email, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "esp" : "(optional, string) ESP related to the event (SparkPost, SendGrid, or Amazon SES)",
@@ -7739,14 +7739,14 @@ Email, Bounce
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -7765,7 +7765,7 @@ Email, Subscription
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.email.Unsubscribe
 
 {
@@ -7773,11 +7773,11 @@ Email, Subscription
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "email_address" : "(required, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -7790,11 +7790,11 @@ Email, Subscription
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Email Unsubscribe (users.messages.email.Unsubscribe)
 
 {
@@ -7804,11 +7804,11 @@ Email, Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7822,11 +7822,11 @@ Email, Subscription
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.email.Unsubscribe
 
 {
@@ -7837,11 +7837,11 @@ Email, Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "email_address" : "(required, string) [PII] Email address of the user",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7857,11 +7857,11 @@ Email, Subscription
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Email Unsubscribe (users.messages.email.Unsubscribe)
 
 {
@@ -7872,11 +7872,11 @@ Email, Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -7890,11 +7890,11 @@ Email, Subscription
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Email Unsubscribes (users.messages.email.Unsubscribe)
 
 {
@@ -7910,11 +7910,11 @@ Email, Subscription
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7938,11 +7938,11 @@ Email, Subscription
     "email" : "(required, string) [PII] Email address of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Unsubscribed (users.messages.email.Unsubscribe)
 
 {
@@ -7960,11 +7960,11 @@ Email, Subscription
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "ip_pool" : "(optional, string) IP pool from which the email send was made",
@@ -7976,14 +7976,14 @@ Email, Subscription
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-  - `dispatch_id` の動作はCanvasとCampaignsで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+  - `dispatch_id` の動作はキャンバスとキャンペーンで異なります。これは、Brazeがキャンバスステップ（スケジュール可能なエントリステップを除く）を、スケジュール済みの場合でもトリガーイベントとして扱うためです。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
 
 {% endapi %}
 
@@ -8002,7 +8002,7 @@ Feature Flags, Impressions
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.featureflag.Impression
 
 {
@@ -8012,12 +8012,12 @@ Feature Flags, Impressions
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "carrier" : "(optional, string) Carrier of the device",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -8037,11 +8037,11 @@ Feature Flags, Impressions
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Feature Flag Experiment Impression (users.messages.featureflag.Impression)
 
 {
@@ -8053,11 +8053,11 @@ Feature Flags, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -8072,11 +8072,11 @@ Feature Flags, Impressions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.featureflag.Impression
 
 {
@@ -8089,11 +8089,11 @@ Feature Flags, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -8109,11 +8109,11 @@ Feature Flags, Impressions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Feature Flag Experiment Impression (users.messages.featureflag.Impression)
 
 {
@@ -8126,11 +8126,11 @@ Feature Flags, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -8144,11 +8144,11 @@ Feature Flags, Impressions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Feature Flag Experiment Impressions (users.messages.featureflag.Impression)
 
 {
@@ -8168,11 +8168,11 @@ Feature Flags, Impressions
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -8193,11 +8193,11 @@ Feature Flags, Impressions
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Feature Flag Experiment Impressed (users.messages.featureflag.Impression)
 
 {
@@ -8218,11 +8218,11 @@ Feature Flags, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -8232,7 +8232,7 @@ Feature Flags, Impressions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -8249,7 +8249,7 @@ In-App Messages, Abort
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.inappmessage.Abort
 
 {
@@ -8264,12 +8264,12 @@ In-App Messages, Abort
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "card_id" : "(optional, string) API ID of the card",
   "carrier" : "(optional, string) Carrier of the device",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -8288,11 +8288,11 @@ In-App Messages, Abort
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "version" : "(required, string) Which version of in-app message, legacy or triggered"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // In-App Message Abort (users.messages.inappmessage.Abort)
 
 {
@@ -8309,11 +8309,11 @@ In-App Messages, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -8329,11 +8329,11 @@ In-App Messages, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.inappmessage.Abort
 
 {
@@ -8350,11 +8350,11 @@ In-App Messages, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8372,11 +8372,11 @@ In-App Messages, Abort
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // In-App Message Abort (users.messages.inappmessage.Abort)
 
 {
@@ -8393,11 +8393,11 @@ In-App Messages, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -8413,11 +8413,11 @@ In-App Messages, Abort
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // In-App Message Aborts (users.messages.inappmessage.Abort)
 
 {
@@ -8443,11 +8443,11 @@ In-App Messages, Abort
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -8469,11 +8469,11 @@ In-App Messages, Abort
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // In-App Message Aborted (users.messages.inappmessage.Abort)
 
 {
@@ -8498,11 +8498,11 @@ In-App Messages, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8514,7 +8514,7 @@ In-App Messages, Abort
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -8541,7 +8541,7 @@ In-App Messages, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.inappmessage.Click
 
 {
@@ -8554,11 +8554,11 @@ In-App Messages, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "card_id" : "(optional, string) API ID of the card",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "device_model" : "(optional, string) Model of the device",
@@ -8573,11 +8573,11 @@ In-App Messages, Clicks
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // In-App Message Click (users.messages.inappmessage.Click)
 
 {
@@ -8593,11 +8593,11 @@ In-App Messages, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8614,11 +8614,11 @@ In-App Messages, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.inappmessage.Click
 
 {
@@ -8634,11 +8634,11 @@ In-App Messages, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8656,11 +8656,11 @@ In-App Messages, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // In-App Message Click (users.messages.inappmessage.Click)
 
 {
@@ -8676,11 +8676,11 @@ In-App Messages, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -8696,11 +8696,11 @@ In-App Messages, Clicks
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // In-App Message Clicks (users.messages.inappmessage.Click)
 
 {
@@ -8725,11 +8725,11 @@ In-App Messages, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "card_id" : "(optional, string) API ID of the card",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8752,11 +8752,11 @@ In-App Messages, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // In-App Message Clicked (users.messages.inappmessage.Click)
 
 {
@@ -8780,11 +8780,11 @@ In-App Messages, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8796,7 +8796,7 @@ In-App Messages, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -8823,7 +8823,7 @@ In-App Messages, Impressions
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.inappmessage.Impression
 
 {
@@ -8835,11 +8835,11 @@ In-App Messages, Impressions
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "card_id" : "(optional, string) API ID of the card",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "device_model" : "(optional, string) Model of the device",
@@ -8856,11 +8856,11 @@ In-App Messages, Impressions
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // In-App Message Impression (users.messages.inappmessage.Impression)
 
 {
@@ -8875,11 +8875,11 @@ In-App Messages, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8898,11 +8898,11 @@ In-App Messages, Impressions
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.inappmessage.Impression
 
 {
@@ -8917,11 +8917,11 @@ In-App Messages, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -8941,11 +8941,11 @@ In-App Messages, Impressions
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // In-App Message Impression (users.messages.inappmessage.Impression)
 
 {
@@ -8960,11 +8960,11 @@ In-App Messages, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
@@ -8982,11 +8982,11 @@ In-App Messages, Impressions
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // In-App Message Impressions (users.messages.inappmessage.Impression)
 
 {
@@ -9010,11 +9010,11 @@ In-App Messages, Impressions
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "card_id" : "(optional, string) API ID of the card",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -9039,11 +9039,11 @@ In-App Messages, Impressions
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // In-App Message Viewed (users.messages.inappmessage.Impression)
 
 {
@@ -9066,11 +9066,11 @@ In-App Messages, Impressions
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "card_id" : "(optional, string) API ID of the card",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -9084,7 +9084,7 @@ In-App Messages, Impressions
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -9106,7 +9106,7 @@ LINE, Abort
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.line.Abort
 
 {
@@ -9116,10 +9116,10 @@ LINE, Abort
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -9134,11 +9134,11 @@ LINE, Abort
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Abort (users.messages.line.Abort)
 
 {
@@ -9150,9 +9150,9 @@ LINE, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
@@ -9168,11 +9168,11 @@ LINE, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.line.Abort
 
 {
@@ -9185,9 +9185,9 @@ LINE, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
@@ -9204,11 +9204,11 @@ LINE, Abort
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Abort (users.messages.line.Abort)
 
 {
@@ -9221,9 +9221,9 @@ LINE, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -9238,11 +9238,11 @@ LINE, Abort
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Aborts (users.messages.line.Abort)
 
 {
@@ -9260,9 +9260,9 @@ LINE, Abort
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -9287,11 +9287,11 @@ LINE, Abort
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Aborted (users.messages.line.Abort)
 
 {
@@ -9309,9 +9309,9 @@ LINE, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -9325,13 +9325,13 @@ LINE, Abort
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 LINE messages every 1 week`
@@ -9349,7 +9349,7 @@ LINE, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.line.Click
 
 {
@@ -9357,10 +9357,10 @@ LINE, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -9379,11 +9379,11 @@ LINE, Clicks
   "user_agent" : "(optional, string) User agent on which the click occurred",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Click (users.messages.line.Click)
 
 {
@@ -9393,9 +9393,9 @@ LINE, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -9415,11 +9415,11 @@ LINE, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.line.Click
 
 {
@@ -9430,9 +9430,9 @@ LINE, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -9453,11 +9453,11 @@ LINE, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Click (users.messages.line.Click)
 
 {
@@ -9468,9 +9468,9 @@ LINE, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -9489,11 +9489,11 @@ LINE, Clicks
     "user_agent" : "(optional, string) User agent on which the click occurred"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Clicks (users.messages.line.Click)
 
 {
@@ -9509,9 +9509,9 @@ LINE, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
@@ -9540,11 +9540,11 @@ LINE, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Clicked (users.messages.line.Click)
 
 {
@@ -9560,9 +9560,9 @@ LINE, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
@@ -9579,13 +9579,13 @@ LINE, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -9601,7 +9601,7 @@ LINE, Inbound Received
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.line.InboundReceive
 
 {
@@ -9609,10 +9609,10 @@ LINE, Inbound Received
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -9629,11 +9629,11 @@ LINE, Inbound Received
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // LINE Inbound Receive (users.messages.line.InboundReceive)
 
 {
@@ -9643,9 +9643,9 @@ LINE, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
@@ -9663,11 +9663,11 @@ LINE, Inbound Received
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.line.InboundReceive
 
 {
@@ -9678,9 +9678,9 @@ LINE, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
@@ -9699,11 +9699,11 @@ LINE, Inbound Received
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // LINE Inbound Receive (users.messages.line.InboundReceive)
 
 {
@@ -9714,9 +9714,9 @@ LINE, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -9733,11 +9733,11 @@ LINE, Inbound Received
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // LINE Inbound Receives (users.messages.line.InboundReceive)
 
 {
@@ -9753,9 +9753,9 @@ LINE, Inbound Received
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -9782,11 +9782,11 @@ LINE, Inbound Received
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // LINE Inbound Received (users.messages.line.InboundReceive)
 
 {
@@ -9802,9 +9802,9 @@ LINE, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -9820,13 +9820,13 @@ LINE, Inbound Received
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -9841,7 +9841,7 @@ LINE, Retry
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.line.Retry
 
 {
@@ -9849,10 +9849,10 @@ LINE, Retry
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -9869,11 +9869,11 @@ LINE, Retry
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Line Retry (users.messages.line.Retry)
 
 {
@@ -9883,9 +9883,9 @@ LINE, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(optional, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(optional, string) The LINE Channel Name the message was sent to or received from",
@@ -9903,11 +9903,11 @@ LINE, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.line.Retry
 
 {
@@ -9918,9 +9918,9 @@ LINE, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(optional, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(optional, string) The LINE Channel Name the message was sent to or received from",
@@ -9939,11 +9939,11 @@ LINE, Retry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Line Retry (users.messages.line.Retry)
 
 {
@@ -9954,9 +9954,9 @@ LINE, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -9973,11 +9973,11 @@ LINE, Retry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Line Retries (users.messages.line.Retry)
 
 {
@@ -9993,9 +9993,9 @@ LINE, Retry
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "line_channel_id" : "(optional, string) The LINE Channel ID the message was sent to or received from",
@@ -10022,11 +10022,11 @@ LINE, Retry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Line Retried (users.messages.line.Retry)
 
 {
@@ -10042,9 +10042,9 @@ LINE, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(optional, string) The LINE Channel ID the message was sent to or received from",
@@ -10060,7 +10060,7 @@ LINE, Retry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -10077,7 +10077,7 @@ LINE, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.line.Send
 
 {
@@ -10085,10 +10085,10 @@ LINE, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -10104,11 +10104,11 @@ LINE, Sends
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Send (users.messages.line.Send)
 
 {
@@ -10118,9 +10118,9 @@ LINE, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
@@ -10137,11 +10137,11 @@ LINE, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.line.Send
 
 {
@@ -10152,9 +10152,9 @@ LINE, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
     "line_channel_name" : "(required, string) The LINE Channel Name the message was sent to or received from",
@@ -10172,11 +10172,11 @@ LINE, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Send (users.messages.line.Send)
 
 {
@@ -10187,9 +10187,9 @@ LINE, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -10205,11 +10205,11 @@ LINE, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Sends (users.messages.line.Send)
 
 {
@@ -10225,9 +10225,9 @@ LINE, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -10253,11 +10253,11 @@ LINE, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Sent (users.messages.line.Send)
 
 {
@@ -10273,9 +10273,9 @@ LINE, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "line_channel_id" : "(required, string) The LINE Channel ID the message was sent to or received from",
@@ -10290,13 +10290,13 @@ LINE, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -10311,7 +10311,7 @@ Live Activity, Outcome
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.liveactivity.Outcome
 
 {
@@ -10328,11 +10328,11 @@ Live Activity, Outcome
   "update_token" : "(optional, string) Live Activity update token",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Live Activity Outcome (users.messages.liveactivity.Outcome)
 
 {
@@ -10352,11 +10352,11 @@ Live Activity, Outcome
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.liveactivity.Outcome
 
 {
@@ -10378,11 +10378,11 @@ Live Activity, Outcome
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Live Activity Outcome (users.messages.liveactivity.Outcome)
 
 {
@@ -10403,11 +10403,11 @@ Live Activity, Outcome
     "update_token" : "(optional, string) Live Activity update token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Live Activity Outcomes (users.messages.liveactivity.Outcome)
 
 {
@@ -10441,11 +10441,11 @@ Live Activity, Outcome
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Live Activity Outcome (users.messages.liveactivity.Outcome)
 
 {
@@ -10470,7 +10470,7 @@ Live Activity, Outcome
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -10488,7 +10488,7 @@ Live Activity, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.liveactivity.Send
 
 {
@@ -10504,11 +10504,11 @@ Live Activity, Sends
   "update_token" : "(optional, string) Live Activity update token",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Live Activity Send (users.messages.liveactivity.Send)
 
 {
@@ -10527,11 +10527,11 @@ Live Activity, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.liveactivity.Send
 
 {
@@ -10552,11 +10552,11 @@ Live Activity, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Live Activity Send (users.messages.liveactivity.Send)
 
 {
@@ -10576,11 +10576,11 @@ Live Activity, Sends
     "update_token" : "(optional, string) Live Activity update token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Live Activity Sends (users.messages.liveactivity.Send)
 
 {
@@ -10613,11 +10613,11 @@ Live Activity, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Live Activity Sent (users.messages.liveactivity.Send)
 
 {
@@ -10641,7 +10641,7 @@ Live Activity, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -10658,7 +10658,7 @@ Abort, Push
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.pushnotification.Abort
 
 {
@@ -10669,12 +10669,12 @@ Abort, Push
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -10687,11 +10687,11 @@ Abort, Push
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Push Notification Abort (users.messages.pushnotification.Abort)
 
 {
@@ -10704,11 +10704,11 @@ Abort, Push
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -10721,11 +10721,11 @@ Abort, Push
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.pushnotification.Abort
 
 {
@@ -10739,11 +10739,11 @@ Abort, Push
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -10758,11 +10758,11 @@ Abort, Push
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Push Notification Abort (users.messages.pushnotification.Abort)
 
 {
@@ -10776,11 +10776,11 @@ Abort, Push
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -10793,11 +10793,11 @@ Abort, Push
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Push Notification Aborts (users.messages.pushnotification.Abort)
 
 {
@@ -10817,11 +10817,11 @@ Abort, Push
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -10843,11 +10843,11 @@ Abort, Push
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Push Notification Aborted (users.messages.pushnotification.Abort)
 
 {
@@ -10866,11 +10866,11 @@ Abort, Push
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -10882,13 +10882,13 @@ Abort, Push
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 push messages every 1 week`
@@ -10906,7 +10906,7 @@ Push, Sends, Bounce
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.pushnotification.Bounce
 
 {
@@ -10918,11 +10918,11 @@ Push, Sends, Bounce
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -10936,11 +10936,11 @@ Push, Sends, Bounce
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Push Notification Bounce (users.messages.pushnotification.Bounce)
 
 {
@@ -10955,11 +10955,11 @@ Push, Sends, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -10974,11 +10974,11 @@ Push, Sends, Bounce
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.pushnotification.Bounce
 
 {
@@ -10993,11 +10993,11 @@ Push, Sends, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -11013,11 +11013,11 @@ Push, Sends, Bounce
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Push Notification Bounce (users.messages.pushnotification.Bounce)
 
 {
@@ -11032,11 +11032,11 @@ Push, Sends, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -11050,11 +11050,11 @@ Push, Sends, Bounce
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Push Notification Bounces (users.messages.pushnotification.Bounce)
 
 {
@@ -11077,11 +11077,11 @@ Push, Sends, Bounce
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11104,11 +11104,11 @@ Push, Sends, Bounce
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Push Notification Bounced (users.messages.pushnotification.Bounce)
 
 {
@@ -11128,11 +11128,11 @@ Push, Sends, Bounce
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11145,14 +11145,14 @@ Push, Sends, Bounce
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
 - Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データを取り込んでいる場合は、`ad_id`の送信を有効にするフィーチャーフリッパーについて、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
-- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11167,7 +11167,7 @@ Push, iOS, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.pushnotification.IosForeground
 
 {
@@ -11179,11 +11179,11 @@ Push, iOS, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -11196,11 +11196,11 @@ Push, iOS, Sends
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Push Notification iOS Foreground Open (users.messages.pushnotification.IosForeground)
 
 {
@@ -11215,11 +11215,11 @@ Push, iOS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11235,11 +11235,11 @@ Push, iOS, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.pushnotification.IosForeground
 
 {
@@ -11254,11 +11254,11 @@ Push, iOS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11275,11 +11275,11 @@ Push, iOS, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Push Notification iOS Foreground Open (users.messages.pushnotification.IosForeground)
 
 {
@@ -11294,11 +11294,11 @@ Push, iOS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -11313,11 +11313,11 @@ Push, iOS, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Ios Foreground Push Opened (users.messages.pushnotification.IosForeground)
 
 {
@@ -11340,11 +11340,11 @@ Push, iOS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11355,7 +11355,7 @@ Push, iOS, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -11363,7 +11363,7 @@ Push, iOS, Sends
 
 - `ad_id`、`ad_id_type`、および`ad_tracking_enabled`については、ネイティブSDKを通じてiOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift)および[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id)を参照してください。
 - Kafkaを使用して[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して`ad_id`の送信を有効にしてください。
-- `dispatch_id`は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11375,7 +11375,7 @@ Push, iOS, Sends
 Push, Opens
 {% endapitags %}
 
-このイベントは、ユーザーがプッシュ通知を直接クリックしてアプリケーションを開封したときに発生します。現在、プッシュ開封イベントは「オープン数の合計」ではなく「直接開封数」を指します。Campaignレベルの「誘発された開封数」に表示される統計情報は、ユーザーレベルで帰属していないため、これに含まれません。
+このイベントは、ユーザーがプッシュ通知を直接クリックしてアプリケーションを開封したときに発生します。現在、プッシュ開封イベントは「オープン数の合計」ではなく「直接開封数」を指します。キャンペーンレベルの「誘発された開封数」に表示される統計情報は、ユーザーレベルで帰属していないため、これに含まれません。
 
 {% alert note %}
 まれに、Currentsデータにおいてプッシュ開封が対応するプッシュ送信イベントより前に表示されることがあります。これは以下の理由によるものです。
@@ -11385,7 +11385,7 @@ Push, Opens
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.pushnotification.Open
 
 {
@@ -11399,12 +11399,12 @@ Push, Opens
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "device_model" : "(optional, string) Model of the device",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -11419,11 +11419,11 @@ Push, Opens
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Push Notification Open (users.messages.pushnotification.Open)
 
 {
@@ -11438,11 +11438,11 @@ Push, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11458,11 +11458,11 @@ Push, Opens
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.pushnotification.Open
 
 {
@@ -11479,11 +11479,11 @@ Push, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11500,11 +11500,11 @@ Push, Opens
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Push Notification Open (users.messages.pushnotification.Open)
 
 {
@@ -11519,11 +11519,11 @@ Push, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "$device" : "(optional, string) Model of the device",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -11538,11 +11538,11 @@ Push, Opens
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Push Notification Opens (users.messages.pushnotification.Open)
 
 {
@@ -11566,11 +11566,11 @@ Push, Opens
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11592,11 +11592,11 @@ Push, Opens
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Push Notification Tapped (users.messages.pushnotification.Open)
 
 {
@@ -11619,11 +11619,11 @@ Push, Opens
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11634,7 +11634,7 @@ Push, Opens
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -11642,7 +11642,7 @@ Push, Opens
 
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
 - Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11657,7 +11657,7 @@ Push, Retry
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.pushnotification.Retry
 
 {
@@ -11666,12 +11666,12 @@ Push, Retry
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -11689,11 +11689,11 @@ Push, Retry
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Push Notification Retry (users.messages.pushnotification.Retry)
 
 {
@@ -11704,11 +11704,11 @@ Push, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -11724,11 +11724,11 @@ Push, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.pushnotification.Retry
 
 {
@@ -11740,11 +11740,11 @@ Push, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -11761,11 +11761,11 @@ Push, Retry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Push Notification Retry (users.messages.pushnotification.Retry)
 
 {
@@ -11777,11 +11777,11 @@ Push, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -11796,11 +11796,11 @@ Push, Retry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Push Notification Retries (users.messages.pushnotification.Retry)
 
 {
@@ -11818,11 +11818,11 @@ Push, Retry
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11846,11 +11846,11 @@ Push, Retry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Push Notification Retried (users.messages.pushnotification.Retry)
 
 {
@@ -11867,11 +11867,11 @@ Push, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -11884,7 +11884,7 @@ Push, Retry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -11901,7 +11901,7 @@ Push, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.pushnotification.Send
 
 {
@@ -11913,11 +11913,11 @@ Push, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -11933,11 +11933,11 @@ Push, Sends
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Push Notification Send (users.messages.pushnotification.Send)
 
 {
@@ -11952,11 +11952,11 @@ Push, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "locale_key" : "(optional, string) [PII] The key corresponding to the translations (for example 'en-us') used to compose this message (null for default).",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -11973,11 +11973,11 @@ Push, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.pushnotification.Send
 
 {
@@ -11992,11 +11992,11 @@ Push, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "locale_key" : "(optional, string) [PII] The key corresponding to the translations (for example 'en-us') used to compose this message (null for default).",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -12014,11 +12014,11 @@ Push, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Push Notification Send (users.messages.pushnotification.Send)
 
 {
@@ -12033,11 +12033,11 @@ Push, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -12053,11 +12053,11 @@ Push, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Push Notification Sends (users.messages.pushnotification.Send)
 
 {
@@ -12080,11 +12080,11 @@ Push, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "locale_key" : "(optional, string) [PII] The key corresponding to the translations (for example 'en-us') used to compose this message (null for default).",
@@ -12109,11 +12109,11 @@ Push, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Push Notification Sent (users.messages.pushnotification.Send)
 
 {
@@ -12133,11 +12133,11 @@ Push, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "locale_key" : "(optional, string) [PII] The key corresponding to the translations (for example 'en-us') used to compose this message (null for default).",
@@ -12152,7 +12152,7 @@ Push, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -12160,8 +12160,8 @@ Push, Sends
 
 - `ad_id`、`ad_id_type`、および `ad_tracking_enabled` については、ネイティブSDKを通じて、iOS IDFAとAndroid Google広告IDを明示的に収集する必要があります。この設定の詳細については、[iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) および [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id) を参照してください。
 - Kafkaを使用して [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) データを取り込んでいる場合は、カスタマーサクセスマネージャーに連絡して、`ad_id` の送信を有効にしてください。
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。同じ配信に属するイベントをグループ化するために `dispatch_id` を使用することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -12177,7 +12177,7 @@ RCS, Abort
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.Abort
 
 {
@@ -12186,12 +12186,12 @@ RCS, Abort
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -12200,11 +12200,11 @@ RCS, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Abort  (users.messages.rcs.Abort)
 
 {
@@ -12214,11 +12214,11 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -12229,11 +12229,11 @@ RCS, Abort
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.Abort
 
 {
@@ -12245,11 +12245,11 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -12260,11 +12260,11 @@ RCS, Abort
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Abort  (users.messages.rcs.Abort)
 
 {
@@ -12276,11 +12276,11 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -12290,11 +12290,11 @@ RCS, Abort
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Aborts (users.messages.rcs.Abort)
 
 {
@@ -12309,11 +12309,11 @@ RCS, Abort
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -12333,11 +12333,11 @@ RCS, Abort
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Aborted (users.messages.rcs.Abort)
 
 {
@@ -12354,11 +12354,11 @@ RCS, Abort
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -12367,7 +12367,7 @@ RCS, Abort
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -12390,19 +12390,19 @@ RCS, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.Click
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "element_label" : "(optional, string) Optional details about the clicked element, such as the text of a suggested reply or button. \nExample: Button or chip text (will be reply message body for reply chips and buttons)",
   "element_type" : "(optional, string) Specifies if an interaction_type that is common across suggestions and buttons came from a suggestion or button. Examples: Suggestion, Button",
@@ -12422,11 +12422,11 @@ RCS, Clicks
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Click (users.messages.rcs.Click)
 
 {
@@ -12435,11 +12435,11 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "element_label" : "(optional, string) Optional details about the clicked element, such as the text of a suggested reply or button. \nExample: Button or chip text (will be reply message body for reply chips and buttons)",
     "element_type" : "(optional, string) Specifies if an interaction_type that is common across suggestions and buttons came from a suggestion or button. Examples: Suggestion, Button",
     "interaction_type" : "(required, string) The type of interaction that generated the click. Example string values: Text URL, Reply, OpenURL",
@@ -12460,11 +12460,11 @@ RCS, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.Click
 
 {
@@ -12474,11 +12474,11 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "element_label" : "(optional, string) Optional details about the clicked element, such as the text of a suggested reply or button. \nExample: Button or chip text (will be reply message body for reply chips and buttons)",
     "element_type" : "(optional, string) Specifies if an interaction_type that is common across suggestions and buttons came from a suggestion or button. Examples: Suggestion, Button",
     "interaction_type" : "(required, string) The type of interaction that generated the click. Example string values: Text URL, Reply, OpenURL",
@@ -12500,11 +12500,11 @@ RCS, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Click (users.messages.rcs.Click)
 
 {
@@ -12514,11 +12514,11 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "element_label" : "(optional, string) Optional details about the clicked element, such as the text of a suggested reply or button. \nExample: Button or chip text (will be reply message body for reply chips and buttons)",
@@ -12539,11 +12539,11 @@ RCS, Clicks
     "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Clicks (users.messages.rcs.Click)
 
 {
@@ -12558,11 +12558,11 @@ RCS, Clicks
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "element_label" : "(optional, string) Optional details about the clicked element, such as the text of a suggested reply or button. \nExample: Button or chip text (will be reply message body for reply chips and buttons)",
           "element_type" : "(optional, string) Specifies if an interaction_type that is common across suggestions and buttons came from a suggestion or button. Examples: Suggestion, Button",
@@ -12593,11 +12593,11 @@ RCS, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Clicked (users.messages.rcs.Click)
 
 {
@@ -12614,11 +12614,11 @@ RCS, Clicks
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "element_label" : "(optional, string) Optional details about the clicked element, such as the text of a suggested reply or button. \nExample: Button or chip text (will be reply message body for reply chips and buttons)",
     "element_type" : "(optional, string) Specifies if an interaction_type that is common across suggestions and buttons came from a suggestion or button. Examples: Suggestion, Button",
@@ -12636,7 +12636,7 @@ RCS, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -12653,19 +12653,19 @@ RCS, Delivery
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.Delivery
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -12679,11 +12679,11 @@ RCS, Delivery
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Delivery (users.messages.rcs.Delivery)
 
 {
@@ -12692,11 +12692,11 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -12711,11 +12711,11 @@ RCS, Delivery
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.Delivery
 
 {
@@ -12725,11 +12725,11 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -12745,11 +12745,11 @@ RCS, Delivery
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Delivery (users.messages.rcs.Delivery)
 
 {
@@ -12759,11 +12759,11 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -12778,11 +12778,11 @@ RCS, Delivery
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Deliveries (users.messages.rcs.Delivery)
 
 {
@@ -12797,11 +12797,11 @@ RCS, Delivery
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
@@ -12827,11 +12827,11 @@ RCS, Delivery
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Delivered (users.messages.rcs.Delivery)
 
 {
@@ -12848,11 +12848,11 @@ RCS, Delivery
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
@@ -12865,13 +12865,13 @@ RCS, Delivery
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、特定のメッセージ配信（Campaign送信など）のIDです。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、特定のメッセージ配信（キャンペーン送信など）のIDです。同じディスパッチから発生するすべてのプッシュイベントは、同じ `dispatch_id` を含みます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -12887,7 +12887,7 @@ RCS, Inbound Received
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.InboundReceive
 
 {
@@ -12895,12 +12895,12 @@ RCS, Inbound Received
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "media_urls" : "(optional, array of string) Media URLs from the user",
@@ -12914,11 +12914,11 @@ RCS, Inbound Received
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Inbound Receive (users.messages.rcs.InboundReceive)
 
 {
@@ -12927,11 +12927,11 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -12947,11 +12947,11 @@ RCS, Inbound Received
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.InboundReceive
 
 {
@@ -12962,11 +12962,11 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -12982,11 +12982,11 @@ RCS, Inbound Received
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Inbound Receive (users.messages.rcs.InboundReceive)
 
 {
@@ -12997,11 +12997,11 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "media_urls" : "(optional, array of string) Media URLs from the user",
@@ -13016,11 +13016,11 @@ RCS, Inbound Received
     "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Inbound Receives (users.messages.rcs.InboundReceive)
 
 {
@@ -13034,11 +13034,11 @@ RCS, Inbound Received
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "message_body" : "(optional, string) Typed response from the user",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -13063,11 +13063,11 @@ RCS, Inbound Received
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Inbound Received (users.messages.rcs.InboundReceive)
 
 {
@@ -13085,11 +13085,11 @@ RCS, Inbound Received
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -13102,7 +13102,7 @@ RCS, Inbound Received
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -13119,19 +13119,19 @@ RCS, Read
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.Read
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -13140,11 +13140,11 @@ RCS, Read
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Read (users.messages.rcs.Read)
 
 {
@@ -13152,11 +13152,11 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)"
@@ -13167,11 +13167,11 @@ RCS, Read
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.Read
 
 {
@@ -13181,11 +13181,11 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)"
@@ -13196,11 +13196,11 @@ RCS, Read
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Read (users.messages.rcs.Read)
 
 {
@@ -13210,11 +13210,11 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -13224,11 +13224,11 @@ RCS, Read
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Reads (users.messages.rcs.Read)
 
 {
@@ -13241,11 +13241,11 @@ RCS, Read
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event"
@@ -13266,11 +13266,11 @@ RCS, Read
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Read (users.messages.rcs.Read)
 
 {
@@ -13287,11 +13287,11 @@ RCS, Read
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
   },
@@ -13299,7 +13299,7 @@ RCS, Read
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -13316,19 +13316,19 @@ RCS, Rejection
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.Rejection
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "error" : "(optional, string) Error name",
@@ -13345,11 +13345,11 @@ RCS, Rejection
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Rejection (users.messages.rcs.Rejection)
 
 {
@@ -13358,11 +13358,11 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
@@ -13380,11 +13380,11 @@ RCS, Rejection
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.Rejection
 
 {
@@ -13394,11 +13394,11 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
@@ -13417,11 +13417,11 @@ RCS, Rejection
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Rejection (users.messages.rcs.Rejection)
 
 {
@@ -13431,11 +13431,11 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -13453,11 +13453,11 @@ RCS, Rejection
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Rejections (users.messages.rcs.Rejection)
 
 {
@@ -13472,11 +13472,11 @@ RCS, Rejection
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "error" : "(optional, string) Error name",
@@ -13505,11 +13505,11 @@ RCS, Rejection
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Rejected (users.messages.rcs.Rejection)
 
 {
@@ -13526,11 +13526,11 @@ RCS, Rejection
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
@@ -13546,7 +13546,7 @@ RCS, Rejection
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -13564,19 +13564,19 @@ RCS, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.rcs.Send
 
 {
   "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -13592,11 +13592,11 @@ RCS, Sends
   "to_phone_number" : "(required, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Send (users.messages.rcs.Send)
 
 {
@@ -13605,11 +13605,11 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
@@ -13626,11 +13626,11 @@ RCS, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.rcs.Send
 
 {
@@ -13640,11 +13640,11 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_rcs_sender" : "(optional, string) The RCS sender ID or agent name used to send the message",
@@ -13662,11 +13662,11 @@ RCS, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Send (users.messages.rcs.Send)
 
 {
@@ -13676,11 +13676,11 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -13697,11 +13697,11 @@ RCS, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Sends (users.messages.rcs.Send)
 
 {
@@ -13716,11 +13716,11 @@ RCS, Sends
           "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -13748,11 +13748,11 @@ RCS, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Sent (users.messages.rcs.Send)
 
 {
@@ -13769,11 +13769,11 @@ RCS, Sends
     "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -13788,13 +13788,13 @@ RCS, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -13809,7 +13809,7 @@ Abort, SMS
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.Abort
 
 {
@@ -13819,12 +13819,12 @@ Abort, SMS
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -13833,11 +13833,11 @@ Abort, SMS
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Abort (users.messages.sms.Abort)
 
 {
@@ -13848,11 +13848,11 @@ Abort, SMS
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -13863,11 +13863,11 @@ Abort, SMS
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.Abort
 
 {
@@ -13880,11 +13880,11 @@ Abort, SMS
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -13895,11 +13895,11 @@ Abort, SMS
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Abort (users.messages.sms.Abort)
 
 {
@@ -13912,11 +13912,11 @@ Abort, SMS
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -13926,11 +13926,11 @@ Abort, SMS
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Aborts (users.messages.sms.Abort)
 
 {
@@ -13946,11 +13946,11 @@ Abort, SMS
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event",
@@ -13970,11 +13970,11 @@ Abort, SMS
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Aborted (users.messages.sms.Abort)
 
 {
@@ -13992,11 +13992,11 @@ Abort, SMS
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "subscription_group_id" : "(optional, string) Subscription group API ID"
@@ -14005,7 +14005,7 @@ Abort, SMS
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -14032,7 +14032,7 @@ SMS, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.CarrierSend
 
 {
@@ -14040,11 +14040,11 @@ SMS, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -14058,11 +14058,11 @@ SMS, Sends
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Carrier Send (users.messages.sms.CarrierSend)
 
 {
@@ -14072,11 +14072,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -14091,11 +14091,11 @@ SMS, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.CarrierSend
 
 {
@@ -14106,11 +14106,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -14127,11 +14127,11 @@ SMS, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Carrier Send (users.messages.sms.CarrierSend)
 
 {
@@ -14142,11 +14142,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -14161,11 +14161,11 @@ SMS, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Carrier Sends (users.messages.sms.CarrierSend)
 
 {
@@ -14181,11 +14181,11 @@ SMS, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -14211,11 +14211,11 @@ SMS, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Sent to Carrier (users.messages.sms.CarrierSend)
 
 {
@@ -14233,11 +14233,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -14250,13 +14250,13 @@ SMS, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14272,7 +14272,7 @@ SMS, Delivery
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.Delivery
 
 {
@@ -14280,11 +14280,11 @@ SMS, Delivery
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -14299,11 +14299,11 @@ SMS, Delivery
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Delivery (users.messages.sms.Delivery)
 
 {
@@ -14313,11 +14313,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
     "is_sms_fallback" : "(optional, boolean) Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
@@ -14333,11 +14333,11 @@ SMS, Delivery
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.Delivery
 
 {
@@ -14348,11 +14348,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
     "is_sms_fallback" : "(optional, boolean) Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
@@ -14370,11 +14370,11 @@ SMS, Delivery
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Delivery (users.messages.sms.Delivery)
 
 {
@@ -14385,11 +14385,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -14405,11 +14405,11 @@ SMS, Delivery
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Deliveries (users.messages.sms.Delivery)
 
 {
@@ -14425,11 +14425,11 @@ SMS, Delivery
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -14456,11 +14456,11 @@ SMS, Delivery
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Delivered (users.messages.sms.Delivery)
 
 {
@@ -14478,11 +14478,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -14496,13 +14496,13 @@ SMS, Delivery
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14517,7 +14517,7 @@ SMS, Delivery
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.DeliveryFailure
 
 {
@@ -14525,11 +14525,11 @@ SMS, Delivery
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "error" : "(optional, string) Error name",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -14545,11 +14545,11 @@ SMS, Delivery
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Delivery Failure (users.messages.sms.DeliveryFailure)
 
 {
@@ -14559,11 +14559,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "is_sms_fallback" : "(optional, boolean) Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
@@ -14580,11 +14580,11 @@ SMS, Delivery
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.DeliveryFailure
 
 {
@@ -14595,11 +14595,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "is_sms_fallback" : "(optional, boolean) Indicates that an SMS fallback message was sent due to a rejected RCS message. The message could result in delivery, delivery failure, or rejection. It can be linked to the RCS Rejection event via a send ID and dispatch ID",
@@ -14618,11 +14618,11 @@ SMS, Delivery
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Delivery Failure (users.messages.sms.DeliveryFailure)
 
 {
@@ -14633,11 +14633,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -14654,11 +14654,11 @@ SMS, Delivery
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Delivery Failures (users.messages.sms.DeliveryFailure)
 
 {
@@ -14674,11 +14674,11 @@ SMS, Delivery
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "error" : "(optional, string) Error name",
@@ -14706,11 +14706,11 @@ SMS, Delivery
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Delivery Failed (users.messages.sms.DeliveryFailure)
 
 {
@@ -14728,11 +14728,11 @@ SMS, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
@@ -14747,13 +14747,13 @@ SMS, Delivery
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -14768,12 +14768,12 @@ SMS, Inbound Received
 
 Brazeがインバウンドメッセージを受信すると、その電話番号を共有するすべてのユーザーにインバウンドメッセージを帰属させます。その結果、Brazeインスタンス内の複数のユーザーが同じ電話番号を共有している場合、インバウンドメッセージごとに複数のイベントを受信する可能性があります。以前にそのユーザーに送信されたメッセージに基づいて特定のユーザーIDへのアトリビューションが必要な場合は、SMS配信イベントを使用して、Brazeの番号から最後にメッセージを受信したユーザーIDにインバウンド受信イベントを帰属させることができます。
 
-BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのCampaignまたはCanvasコンポーネントへの返信であることを検出した場合、CampaignまたはCanvasのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、Brazeの番号から送信された最後のアウトバウンドSMSメッセージの帰属Campaign情報には1分間のキャッシュがあります。
+BrazeがこのインバウンドメッセージがBrazeから送信されたアウトバウンドのキャンペーンまたはキャンバスコンポーネントへの返信であることを検出した場合、キャンペーンまたはキャンバスのメタデータもイベントに含まれます。Brazeは、インバウンドメッセージをアウトバウンドメッセージから4時間以内に届いた返信として定義します。ただし、Brazeの番号から送信された最後のアウトバウンドSMSメッセージの帰属キャンペーン情報には1分間のキャッシュがあります。
 
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.InboundReceive
 
 {
@@ -14782,11 +14782,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "inbound_phone_number" : "(required, string) The inbound number that the message was sent to",
@@ -14799,11 +14799,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Inbound Received (users.messages.sms.InboundReceive)
 
 {
@@ -14813,11 +14813,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "inbound_phone_number" : "(required, string) The inbound number that the message was sent to",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
@@ -14832,11 +14832,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.InboundReceive
 
 {
@@ -14848,11 +14848,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "inbound_phone_number" : "(required, string) The inbound number that the message was sent to",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
@@ -14867,11 +14867,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Inbound Received (users.messages.sms.InboundReceive)
 
 {
@@ -14883,11 +14883,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "inbound_phone_number" : "(required, string) The inbound number that the message was sent to",
     "$insert_id" : "(required, string) Globally unique ID for this event",
@@ -14901,11 +14901,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "user_phone_number" : "(required, string) [PII] The user's phone number from which the message was received"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Inbound Received (users.messages.sms.InboundReceive)
 
 {
@@ -14920,11 +14920,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "inbound_phone_number" : "(required, string) The inbound number that the message was sent to",
           "message_body" : "(optional, string) Typed response from the user",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -14948,11 +14948,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Inbound Received (users.messages.sms.InboundReceive)
 
 {
@@ -14971,11 +14971,11 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "inbound_phone_number" : "(required, string) The inbound number that the message was sent to",
     "media_urls" : "(optional, array of string) Media URLs from the user",
     "message_body" : "(optional, string) Typed response from the user",
@@ -14987,7 +14987,7 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -15009,7 +15009,7 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.Rejection
 
 {
@@ -15017,11 +15017,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "error" : "(optional, string) Error name",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -15038,11 +15038,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Rejection (users.messages.sms.Rejection)
 
 {
@@ -15052,11 +15052,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -15074,11 +15074,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.Rejection
 
 {
@@ -15089,11 +15089,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
     "from_phone_number" : "(optional, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -15113,11 +15113,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Rejection (users.messages.sms.Rejection)
 
 {
@@ -15128,11 +15128,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -15150,11 +15150,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Rejections (users.messages.sms.Rejection)
 
 {
@@ -15170,11 +15170,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "error" : "(optional, string) Error name",
@@ -15203,11 +15203,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Rejected (users.messages.sms.Rejection)
 
 {
@@ -15225,11 +15225,11 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "error" : "(optional, string) Error name",
@@ -15245,13 +15245,13 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -15266,7 +15266,7 @@ SMS, Retry
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.Retry
 
 {
@@ -15274,12 +15274,12 @@ SMS, Retry
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -15290,11 +15290,11 @@ SMS, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Retry (users.messages.sms.Retry)
 
 {
@@ -15303,11 +15303,11 @@ SMS, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "retry_log" : "(optional, string) Log message describing retry details",
@@ -15320,11 +15320,11 @@ SMS, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.Retry
 
 {
@@ -15335,11 +15335,11 @@ SMS, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "retry_log" : "(optional, string) Log message describing retry details",
@@ -15352,11 +15352,11 @@ SMS, Retry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Retry (users.messages.sms.Retry)
 
 {
@@ -15367,11 +15367,11 @@ SMS, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -15383,11 +15383,11 @@ SMS, Retry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Retries (users.messages.sms.Retry)
 
 {
@@ -15401,11 +15401,11 @@ SMS, Retry
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "retry_log" : "(optional, string) Log message describing retry details",
@@ -15427,11 +15427,11 @@ SMS, Retry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Retried (users.messages.sms.Retry)
 
 {
@@ -15447,11 +15447,11 @@ SMS, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "retry_log" : "(optional, string) Log message describing retry details",
@@ -15462,7 +15462,7 @@ SMS, Retry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -15479,7 +15479,7 @@ SMS, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.Send
 
 {
@@ -15487,11 +15487,11 @@ SMS, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -15506,11 +15506,11 @@ SMS, Sends
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Send (users.messages.sms.Send)
 
 {
@@ -15520,11 +15520,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -15540,11 +15540,11 @@ SMS, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.Send
 
 {
@@ -15555,11 +15555,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -15577,11 +15577,11 @@ SMS, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Send (users.messages.sms.Send)
 
 {
@@ -15592,11 +15592,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -15612,11 +15612,11 @@ SMS, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Sends (users.messages.sms.Send)
 
 {
@@ -15632,11 +15632,11 @@ SMS, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -15663,11 +15663,11 @@ SMS, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Sent (users.messages.sms.Send)
 
 {
@@ -15685,11 +15685,11 @@ SMS, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "category" : "(optional, string) Keyword category name, only populated for auto-reply messages: 'opt-in', 'opt-out', 'help', or custom value",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -15703,11 +15703,11 @@ SMS, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Shopify %}
-```json
+`````````json
 // SMS Send (users.messages.sms.Send)
 
 {
@@ -15722,14 +15722,14 @@ SMS, Sends
   "phone" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "phone_sha256" : "(optional, string) SHA-256 hash of the E.164 normalized phone number; only present for SMS events"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag/) を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -15745,7 +15745,7 @@ SMS, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.sms.ShortLinkClick
 
 {
@@ -15753,11 +15753,11 @@ SMS, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
   "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
@@ -15772,11 +15772,11 @@ SMS, Clicks
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // SMS Short Link Click (users.messages.sms.ShortLinkClick)
 
 {
@@ -15786,11 +15786,11 @@ SMS, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -15806,11 +15806,11 @@ SMS, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.sms.ShortLinkClick
 
 {
@@ -15821,11 +15821,11 @@ SMS, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -15843,11 +15843,11 @@ SMS, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // SMS Short Link Click (users.messages.sms.ShortLinkClick)
 
 {
@@ -15858,11 +15858,11 @@ SMS, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
@@ -15878,11 +15878,11 @@ SMS, Clicks
     "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // SMS Short Link Clicks (users.messages.sms.ShortLinkClick)
 
 {
@@ -15898,11 +15898,11 @@ SMS, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -15928,11 +15928,11 @@ SMS, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // SMS Short Link Clicked (users.messages.sms.ShortLinkClick)
 
 {
@@ -15950,11 +15950,11 @@ SMS, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "is_suspected_bot_click" : "(optional, boolean) Whether this event was processed as a bot event",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -15968,11 +15968,11 @@ SMS, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Shopify %}
-```json
+`````````json
 // SMS Short Link Click (users.messages.sms.ShortLinkClick)
 
 {
@@ -15987,7 +15987,7 @@ SMS, Clicks
   "phone" : "(optional, string) [PII] The user's phone number from which the message was received",
   "phone_sha256" : "(optional, string) SHA-256 hash of the E.164 normalized phone number; only present for SMS events"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -16004,7 +16004,7 @@ Abort, Webhooks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.webhook.Abort
 
 {
@@ -16014,12 +16014,12 @@ Abort, Webhooks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -16031,11 +16031,11 @@ Abort, Webhooks
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Webhook Abort (users.messages.webhook.Abort)
 
 {
@@ -16047,11 +16047,11 @@ Abort, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -16063,11 +16063,11 @@ Abort, Webhooks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.webhook.Abort
 
 {
@@ -16080,11 +16080,11 @@ Abort, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -16098,11 +16098,11 @@ Abort, Webhooks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Webhook Abort (users.messages.webhook.Abort)
 
 {
@@ -16115,11 +16115,11 @@ Abort, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -16131,11 +16131,11 @@ Abort, Webhooks
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Webhook Aborts (users.messages.webhook.Abort)
 
 {
@@ -16153,11 +16153,11 @@ Abort, Webhooks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -16179,11 +16179,11 @@ Abort, Webhooks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Webhook Aborted (users.messages.webhook.Abort)
 
 {
@@ -16201,11 +16201,11 @@ Abort, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -16216,13 +16216,13 @@ Abort, Webhooks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 webhook messages every 1 week`
@@ -16240,7 +16240,7 @@ Failure, Webhooks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.webhook.Failure
 
 {
@@ -16248,12 +16248,12 @@ Failure, Webhooks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "content_length" : "(optional, int) Content length of the response",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "endpoint_url" : "(optional, string) The endpoint URL of the failed webhook",
@@ -16273,11 +16273,11 @@ Failure, Webhooks
   "webhook_duration" : "(optional, int) Total duration of this request in milliseconds",
   "webhook_failure_source" : "(optional, string) To tell whether an error was created by Braze or by the endpoint itself. The source field could be External Endpoint, Treat no status code to host unreachable"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Webhook Failure (users.messages.webhook.Failure)
 
 {
@@ -16286,11 +16286,11 @@ Failure, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_length" : "(optional, int) Content length of the response",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "endpoint_url" : "(optional, string) The endpoint URL of the failed webhook",
@@ -16312,11 +16312,11 @@ Failure, Webhooks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.webhook.Failure
 
 {
@@ -16327,11 +16327,11 @@ Failure, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_length" : "(optional, int) Content length of the response",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "endpoint_url" : "(optional, string) The endpoint URL of the failed webhook",
@@ -16353,11 +16353,11 @@ Failure, Webhooks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Webhook Failure (users.messages.webhook.Failure)
 
 {
@@ -16368,11 +16368,11 @@ Failure, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_length" : "(optional, int) Content length of the response",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -16393,11 +16393,11 @@ Failure, Webhooks
     "webhook_failure_source" : "(optional, string) To tell whether an error was created by Braze or by the endpoint itself. The source field could be External Endpoint, Treat no status code to host unreachable"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Webhook Failures (users.messages.webhook.Failure)
 
 {
@@ -16411,11 +16411,11 @@ Failure, Webhooks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "content_length" : "(optional, int) Content length of the response",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "endpoint_url" : "(optional, string) The endpoint URL of the failed webhook",
@@ -16446,11 +16446,11 @@ Failure, Webhooks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Webhook Failed (users.messages.webhook.Failure)
 
 {
@@ -16466,11 +16466,11 @@ Failure, Webhooks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "content_length" : "(optional, int) Content length of the response",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "endpoint_url" : "(optional, string) The endpoint URL of the failed webhook",
@@ -16490,13 +16490,13 @@ Failure, Webhooks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -16512,7 +16512,7 @@ Webhooks, Retry
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.webhook.Retry
 
 {
@@ -16520,12 +16520,12 @@ Webhooks, Retry
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "country" : "(optional, string) [PII] Country of the user",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
@@ -16542,11 +16542,11 @@ Webhooks, Retry
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Webhook Retry (users.messages.webhook.Retry)
 
 {
@@ -16556,11 +16556,11 @@ Webhooks, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -16575,11 +16575,11 @@ Webhooks, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.webhook.Retry
 
 {
@@ -16590,11 +16590,11 @@ Webhooks, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -16610,11 +16610,11 @@ Webhooks, Retry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Webhook Retry (users.messages.webhook.Retry)
 
 {
@@ -16625,11 +16625,11 @@ Webhooks, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -16643,11 +16643,11 @@ Webhooks, Retry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Webhook Retries (users.messages.webhook.Retry)
 
 {
@@ -16663,11 +16663,11 @@ Webhooks, Retry
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -16691,11 +16691,11 @@ Webhooks, Retry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Webhook Retried (users.messages.webhook.Retry)
 
 {
@@ -16711,11 +16711,11 @@ Webhooks, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -16728,7 +16728,7 @@ Webhooks, Retry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -16745,7 +16745,7 @@ Webhooks, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.webhook.Send
 
 {
@@ -16753,11 +16753,11 @@ Webhooks, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
@@ -16769,11 +16769,11 @@ Webhooks, Sends
   "timezone" : "(optional, string) Time zone of the user",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // Webhook Send (users.messages.webhook.Send)
 
 {
@@ -16783,11 +16783,11 @@ Webhooks, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -16800,11 +16800,11 @@ Webhooks, Sends
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.webhook.Send
 
 {
@@ -16815,11 +16815,11 @@ Webhooks, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -16834,11 +16834,11 @@ Webhooks, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // Webhook Send (users.messages.webhook.Send)
 
 {
@@ -16849,11 +16849,11 @@ Webhooks, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -16866,11 +16866,11 @@ Webhooks, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // Webhook Sends (users.messages.webhook.Send)
 
 {
@@ -16886,11 +16886,11 @@ Webhooks, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -16913,11 +16913,11 @@ Webhooks, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // Webhook Sent (users.messages.webhook.Send)
 
 {
@@ -16933,11 +16933,11 @@ Webhooks, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
@@ -16949,14 +16949,14 @@ Webhooks, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語や国など）、およびCanvasエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `message_extras` を使用すると、コネクテッドコンテンツからのダイナミックなデータ、カスタム属性（言語や国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag/)を参照してください。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -16971,7 +16971,7 @@ WhatsApp, Abort
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Abort
 
 {
@@ -16982,12 +16982,12 @@ WhatsApp, Abort
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -17000,11 +17000,11 @@ WhatsApp, Abort
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Abort (users.messages.whatsapp.Abort)
 
 {
@@ -17017,11 +17017,11 @@ WhatsApp, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -17034,11 +17034,11 @@ WhatsApp, Abort
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.whatsapp.Abort
 
 {
@@ -17052,11 +17052,11 @@ WhatsApp, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -17071,11 +17071,11 @@ WhatsApp, Abort
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Abort (users.messages.whatsapp.Abort)
 
 {
@@ -17089,11 +17089,11 @@ WhatsApp, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -17106,11 +17106,11 @@ WhatsApp, Abort
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Aborts (users.messages.whatsapp.Abort)
 
 {
@@ -17129,11 +17129,11 @@ WhatsApp, Abort
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -17157,11 +17157,11 @@ WhatsApp, Abort
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Aborted (users.messages.whatsapp.Abort)
 
 {
@@ -17182,11 +17182,11 @@ WhatsApp, Abort
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -17197,13 +17197,13 @@ WhatsApp, Abort
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 - `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types)を参照してください。
 - `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
 - `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 WhatsApp messages every 1 week`
@@ -17222,7 +17222,7 @@ WhatsApp, Clicks
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Click
 
 {
@@ -17230,12 +17230,12 @@ WhatsApp, Clicks
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
@@ -17249,11 +17249,11 @@ WhatsApp, Clicks
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Tracked Link Click (users.messages.whatsapp.Click)
 
 {
@@ -17263,11 +17263,11 @@ WhatsApp, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "short_url" : "(required, string) Shortened url that was clicked",
@@ -17282,11 +17282,11 @@ WhatsApp, Clicks
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.whatsapp.Click
 
 {
@@ -17297,11 +17297,11 @@ WhatsApp, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "short_url" : "(required, string) Shortened url that was clicked",
@@ -17317,11 +17317,11 @@ WhatsApp, Clicks
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Tracked Link Click (users.messages.whatsapp.Click)
 
 {
@@ -17332,11 +17332,11 @@ WhatsApp, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
@@ -17350,11 +17350,11 @@ WhatsApp, Clicks
     "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Tracked Link Clicks (users.messages.whatsapp.Click)
 
 {
@@ -17370,11 +17370,11 @@ WhatsApp, Clicks
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -17399,11 +17399,11 @@ WhatsApp, Clicks
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Tracked Link Clicked (users.messages.whatsapp.Click)
 
 {
@@ -17421,11 +17421,11 @@ WhatsApp, Clicks
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -17436,7 +17436,7 @@ WhatsApp, Clicks
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -17453,7 +17453,7 @@ WhatsApp, Delivery
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Delivery
 
 {
@@ -17462,12 +17462,12 @@ WhatsApp, Delivery
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -17485,11 +17485,11 @@ WhatsApp, Delivery
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Delivery (users.messages.whatsapp.Delivery)
 
 {
@@ -17500,11 +17500,11 @@ WhatsApp, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -17522,11 +17522,11 @@ WhatsApp, Delivery
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.whatsapp.Delivery
 
 {
@@ -17538,11 +17538,11 @@ WhatsApp, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -17562,11 +17562,11 @@ WhatsApp, Delivery
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Delivery (users.messages.whatsapp.Delivery)
 
 {
@@ -17578,11 +17578,11 @@ WhatsApp, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -17600,11 +17600,11 @@ WhatsApp, Delivery
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Deliveries (users.messages.whatsapp.Delivery)
 
 {
@@ -17621,11 +17621,11 @@ WhatsApp, Delivery
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -17654,11 +17654,11 @@ WhatsApp, Delivery
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Delivered (users.messages.whatsapp.Delivery)
 
 {
@@ -17677,11 +17677,11 @@ WhatsApp, Delivery
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -17697,13 +17697,13 @@ WhatsApp, Delivery
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -17718,7 +17718,7 @@ WhatsApp, Failure
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Failure
 
 {
@@ -17727,12 +17727,12 @@ WhatsApp, Failure
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -17752,11 +17752,11 @@ WhatsApp, Failure
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Failure (users.messages.whatsapp.Failure)
 
 {
@@ -17767,11 +17767,11 @@ WhatsApp, Failure
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -17791,11 +17791,11 @@ WhatsApp, Failure
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.whatsapp.Failure
 
 {
@@ -17807,11 +17807,11 @@ WhatsApp, Failure
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -17833,11 +17833,11 @@ WhatsApp, Failure
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Failure (users.messages.whatsapp.Failure)
 
 {
@@ -17849,11 +17849,11 @@ WhatsApp, Failure
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -17873,11 +17873,11 @@ WhatsApp, Failure
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Failures (users.messages.whatsapp.Failure)
 
 {
@@ -17894,11 +17894,11 @@ WhatsApp, Failure
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -17929,11 +17929,11 @@ WhatsApp, Failure
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Failed (users.messages.whatsapp.Failure)
 
 {
@@ -17952,11 +17952,11 @@ WhatsApp, Failure
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -17974,13 +17974,13 @@ WhatsApp, Failure
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -17996,7 +17996,7 @@ WhatsApp, Inbound Received
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.InboundReceive
 
 {
@@ -18006,12 +18006,12 @@ WhatsApp, Inbound Received
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "catalog_id" : "(optional, string) Catalog ID of a product if a product is referenced in the inbound message. Otherwise, empty.",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -18033,11 +18033,11 @@ WhatsApp, Inbound Received
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event",
   "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Inbound Received (users.messages.whatsapp.InboundReceive)
 
 {
@@ -18049,11 +18049,11 @@ WhatsApp, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "catalog_id" : "(optional, string) Catalog ID of a product if a product is referenced in the inbound message. Otherwise, empty.",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.",
     "flow_response_json" : "(optional, string) [PII] The form values the user responded with. Present if the user is responding to a WhatsApp Flow.",
@@ -18075,11 +18075,11 @@ WhatsApp, Inbound Received
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.whatsapp.InboundReceive
 
 {
@@ -18092,11 +18092,11 @@ WhatsApp, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "catalog_id" : "(optional, string) Catalog ID of a product if a product is referenced in the inbound message. Otherwise, empty.",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.",
     "flow_response_json" : "(optional, string) [PII] The form values the user responded with. Present if the user is responding to a WhatsApp Flow.",
@@ -18120,11 +18120,11 @@ WhatsApp, Inbound Received
     "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Inbound Received (users.messages.whatsapp.InboundReceive)
 
 {
@@ -18137,11 +18137,11 @@ WhatsApp, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "catalog_id" : "(optional, string) Catalog ID of a product if a product is referenced in the inbound message. Otherwise, empty.",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -18163,11 +18163,11 @@ WhatsApp, Inbound Received
     "user_phone_number" : "(optional, string) [PII] The user's phone number from which the message was received"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Inbound Received (users.messages.whatsapp.InboundReceive)
 
 {
@@ -18185,11 +18185,11 @@ WhatsApp, Inbound Received
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "catalog_id" : "(optional, string) Catalog ID of a product if a product is referenced in the inbound message. Otherwise, empty.",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.",
@@ -18221,11 +18221,11 @@ WhatsApp, Inbound Received
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Inbound Received (users.messages.whatsapp.InboundReceive)
 
 {
@@ -18245,11 +18245,11 @@ WhatsApp, Inbound Received
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "catalog_id" : "(optional, string) Catalog ID of a product if a product is referenced in the inbound message. Otherwise, empty.",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the user is responding to a WhatsApp Flow.",
@@ -18269,7 +18269,7 @@ WhatsApp, Inbound Received
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -18286,7 +18286,7 @@ WhatsApp, Read
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Read
 
 {
@@ -18295,12 +18295,12 @@ WhatsApp, Read
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -18318,11 +18318,11 @@ WhatsApp, Read
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Read (users.messages.whatsapp.Read)
 
 {
@@ -18333,11 +18333,11 @@ WhatsApp, Read
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -18355,11 +18355,11 @@ WhatsApp, Read
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.whatsapp.Read
 
 {
@@ -18371,11 +18371,11 @@ WhatsApp, Read
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -18395,11 +18395,11 @@ WhatsApp, Read
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Read (users.messages.whatsapp.Read)
 
 {
@@ -18411,11 +18411,11 @@ WhatsApp, Read
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -18433,11 +18433,11 @@ WhatsApp, Read
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Reads (users.messages.whatsapp.Read)
 
 {
@@ -18454,11 +18454,11 @@ WhatsApp, Read
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -18487,11 +18487,11 @@ WhatsApp, Read
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Read (users.messages.whatsapp.Read)
 
 {
@@ -18510,11 +18510,11 @@ WhatsApp, Read
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -18530,13 +18530,13 @@ WhatsApp, Read
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id`は、Campaign送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージ配信のIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じ配信に属するイベントをグループ化することで、その配信のプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -18551,7 +18551,7 @@ WhatsApp, Retry
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Retry
 
 {
@@ -18560,12 +18560,12 @@ WhatsApp, Retry
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -18580,11 +18580,11 @@ WhatsApp, Retry
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Retry (users.messages.whatsapp.Retry)
 
 {
@@ -18595,11 +18595,11 @@ WhatsApp, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -18615,11 +18615,11 @@ WhatsApp, Retry
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Custom HTTP Connector %}
-```json
+`````````json
 // users.messages.whatsapp.Retry
 
 {
@@ -18631,11 +18631,11 @@ WhatsApp, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -18652,11 +18652,11 @@ WhatsApp, Retry
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Retry (users.messages.whatsapp.Retry)
 
 {
@@ -18668,11 +18668,11 @@ WhatsApp, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -18687,11 +18687,11 @@ WhatsApp, Retry
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Retries (users.messages.whatsapp.Retry)
 
 {
@@ -18708,11 +18708,11 @@ WhatsApp, Retry
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -18738,11 +18738,11 @@ WhatsApp, Retry
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Retried (users.messages.whatsapp.Retry)
 
 {
@@ -18761,11 +18761,11 @@ WhatsApp, Retry
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
@@ -18778,7 +18778,7 @@ WhatsApp, Retry
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -18796,7 +18796,7 @@ WhatsApp, Sends
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.messages.whatsapp.Send
 
 {
@@ -18805,11 +18805,11 @@ WhatsApp, Sends
   "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
   "campaign_name" : "(optional, string) Name of the campaign",
   "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-  "canvas_name" : "(optional, string) Name of the Canvas",
-  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
-  "canvas_step_name" : "(optional, string) Name of the Canvas step",
-  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_name" : "(optional, string) Name of the キャンバス",
+  "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the キャンバス step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+  "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
   "device_id" : "(optional, string) ID of the device on which the event occurred",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
@@ -18828,11 +18828,11 @@ WhatsApp, Sends
   "to_phone_number" : "(optional, string) [PII] Phone number of the user receiving the message in e.164 format (for example +14155552671)",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 
 {% tab Amplitude %}
-```json
+`````````json
 // WhatsApp Send (users.messages.whatsapp.Send)
 
 {
@@ -18843,11 +18843,11 @@ WhatsApp, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -18866,11 +18866,11 @@ WhatsApp, Sends
   "time" : "(required, long) UNIX timestamp at which the event happened",
   "user_id" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 
 {% tab カスタムHTTPコネクター %}
-```json
+`````````json
 // users.messages.whatsapp.Send
 
 {
@@ -18882,11 +18882,11 @@ WhatsApp, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
     "from_phone_number" : "(required, string) Phone number used to send in e.164 format (for example +14155552671)",
@@ -18907,11 +18907,11 @@ WhatsApp, Sends
     "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Mixpanel %}
-```json
+`````````json
 // WhatsApp Send (users.messages.whatsapp.Send)
 
 {
@@ -18923,11 +18923,11 @@ WhatsApp, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
@@ -18946,11 +18946,11 @@ WhatsApp, Sends
     "token" : "(required, string) The Mixpanel API token"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab mParticle %}
-```json
+`````````json
 // WhatsApp Sends (users.messages.whatsapp.Send)
 
 {
@@ -18967,11 +18967,11 @@ WhatsApp, Sends
           "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
           "campaign_name" : "(optional, string) Name of the campaign",
           "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-          "canvas_name" : "(optional, string) Name of the Canvas",
-          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-          "canvas_step_name" : "(optional, string) Name of the Canvas step",
-          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "canvas_name" : "(optional, string) Name of the キャンバス",
+          "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+          "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+          "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -19001,11 +19001,11 @@ WhatsApp, Sends
     "customerid" : "(required, string) [PII] External ID of the user"
   }
 }
-```
+`````````
 {% endtab %}
 
 {% tab Segment %}
-```json
+`````````json
 // WhatsApp Sent (users.messages.whatsapp.Send)
 
 {
@@ -19024,11 +19024,11 @@ WhatsApp, Sends
     "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
     "campaign_name" : "(optional, string) Name of the campaign",
     "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
-    "canvas_name" : "(optional, string) Name of the Canvas",
-    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
-    "canvas_step_name" : "(optional, string) Name of the Canvas step",
-    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
-    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "canvas_name" : "(optional, string) Name of the キャンバス",
+    "canvas_step_id" : "(optional, string) API ID of the キャンバス step this event belongs to",
+    "canvas_step_name" : "(optional, string) Name of the キャンバス step",
+    "canvas_variation_id" : "(optional, string) API ID of the キャンバス variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the キャンバス variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "flow_id" : "(optional, string) The unique ID of the Flow in the WhatsApp Manager. Present if the message includes a CTA to respond to a WhatsApp Flow",
@@ -19045,13 +19045,13 @@ WhatsApp, Sends
   "type" : "track",
   "userId" : "(optional, string) [PII] External ID of the user"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
 #### プロパティの詳細
 
-- `dispatch_id` は、Campaign送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -19066,7 +19066,7 @@ Profile
 
 {% tabs %}
 {% tab Cloud Storage %}
-```json
+`````````json
 // users.profile.Update
 
 {
@@ -19091,7 +19091,7 @@ Profile
   "update_source" : "(required, string) The source of this update",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 

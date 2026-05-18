@@ -5,7 +5,7 @@ alias: "/send_to_destination/"
 page_order: 11.5
 page_type: reference
 description: "この参照記事では、送信先へ送信コンポーネントと、キャンバスでの使用方法について説明します。"
-tool: Canvas
+tool: キャンバス
 ---
 
 # 送信先へ送信ステップ
@@ -28,7 +28,7 @@ tool: Canvas
 
 ドロップダウンを選択するか、**送信先**フィールドにキャンバス名を入力します。次に、**完了**を選択します。
 
-![「Feature Adoption」という名前のキャンバスから「New Canvas」にユーザーを送信するように設定された送信先へ送信ステップ。]({% image_buster /assets/img/send_to_destination2.png %})
+![「Feature Adoption」という名前のキャンバスから「New キャンバス」にユーザーを送信するように設定された送信先へ送信ステップ。]({% image_buster /assets/img/send_to_destination2.png %})
 
 ### ステップ 3: 送信先をプレビューする
 

@@ -25,13 +25,13 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
     └── layout/
         ├── liveupdate_collapsed.xml
         └── liveupdate_expanded.xml
-```
+`````````
 
 各XMLファイルで、カスタムレイアウトを作成します。Superb Owlは、折りたたみ時と展開時のRemoteViewレイアウト用に次のレイアウトを作成しました。
 
 {% tabs local %}
 {% tab  Example: Collapsed layout %}
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -45,12 +45,12 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
         android:layout_height="0dp"
         android:layout_weight="1" />
 </LinearLayout>
-```
+`````````
 {% endtab %}
 
 {% tab Example: Expanded layout %}
 {% details サンプルコードを表示 %}
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -128,7 +128,7 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 
     </LinearLayout>
 </LinearLayout>
-```
+`````````
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -140,7 +140,7 @@ Androidでは、カスタム通知ビューを実装するために使用でき�
 次の例では、Superb Owlが進行中の試合のRemoteViewレイアウトを表示するカスタム通知ファクトリーを作成しました。[次のステップ](#android_step-3-map-custom-data)では、チームのデータをアクティビティにマッピングする`getTeamInfo`という新しいメソッドを作成します。
 
 {% details サンプルコードを表示 %}
-```kotlin
+`````````kotlin
 import android.app.Notification
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
@@ -202,7 +202,7 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
         }
     }
 }
-```
+`````````
 {% enddetails %}
 
 ### ステップ3: カスタムデータをマッピングする {#step-3-map-custom-data}
@@ -211,7 +211,7 @@ class MyCustomNotificationFactory : BrazeNotificationFactory() {
 
 Superb Owlは、各チームの名前とロゴを展開されたライブ更新にマッピングするために、次のメソッドを作成しました。
 
-```kotlin
+`````````kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
     override fun createNotification(payload: BrazeNotificationPayload): Notification? {
         // Your existing code
@@ -227,13 +227,13 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
         }
     }
 }
-```
+`````````
 
 ### ステップ4: カスタム通知ファクトリーを設定する {#step-4-set-the-custom-notification-factory}
 
 アプリケーションクラスで[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用して、カスタム通知ファクトリーを設定します。
 
-```kotlin
+`````````kotlin
 import com.braze.Braze
 
 class MyApplication : Application() {
@@ -244,7 +244,7 @@ class MyApplication : Application() {
         Braze.customBrazeNotificationFactory = MyCustomNotificationFactory()
     }
 }
-```
+`````````
 
 ### ステップ5: アクティビティを送信する {#step-5-send-the-activity}
 
@@ -254,7 +254,7 @@ class MyApplication : Application() {
 
 Superb Owlは次のcurlコマンドを使用してリクエストを送信しました。
 
-```
+`````````
 curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
   -H "Authorization: Bearer {REST_API_KEY}" \
   -H "Content-Type: application/json" \
@@ -277,7 +277,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
       }
     }
   }'
-```
+`````````
 
 {% alert tip %}
 curlコマンドはテストに役立ちますが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。

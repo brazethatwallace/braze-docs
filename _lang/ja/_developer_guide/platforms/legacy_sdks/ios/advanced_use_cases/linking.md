@@ -39,28 +39,28 @@ Xcode を使用して `Info.plist` ファイルを編集します。
         </array>
     </dict>
 </array>
-```
+`````````
 
 ## ステップ 2:カスタムスキームを許可リストに登録する (iOS 9 以降) {#step-2-allowlist-the-custom-scheme-ios-9}
 
 iOS 9 以降では、アプリが開くことを許可されているカスタムスキームの許可リストが必要です。このリストに含まれないスキームを呼び出そうとすると、デバイスのログにエラーが記録され、ディープリンクは開かれません。以下はこのエラーの例です。
 
-```
+`````````
 <Warning>: -canOpenURL: failed for URL: "yourapp://deeplink" – error: "This app is not allowed to query for scheme yourapp"
-```
+`````````
 
 たとえば、アプリ内メッセージをタップしたときに Facebook アプリが開かれるようにするには、アプリの許可リストに Facebook カスタムスキーム (`fb`) が含まれている必要があります。含まれていないと、システムがディープリンクを拒否します。自分のアプリ内のページやビューに誘導するディープリンクでも、アプリのカスタムスキームがアプリの `Info.plist` に含まれている必要があります。
 
 アプリがディープリンクする必要があるすべてのスキームを、キー `LSApplicationQueriesSchemes` を使用してアプリの `Info.plist` の許可リストに追加する必要があります。以下に例を示します。
 
-```html
+`````````html
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>myapp</string>
     <string>facebook</string>
     <string>twitter</string>
 </array>
-```
+`````````
 
 詳細については、`LSApplicationQueriesSchemes` キーに関する [Apple のドキュメント](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14)を参照してください。
 
@@ -71,26 +71,26 @@ iOS 9 以降では、アプリが開くことを許可されているカスタ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *path  = [url path];
   NSString *query = [url query];
   // Here you should insert code to take some action based upon the path and query.
   return YES;
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   let query = url.query
   // Here you should insert code to take some action based upon the path and query.
   return true
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -104,7 +104,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application
 continueUserActivity:(NSUserActivity *)userActivity
   restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
@@ -114,12 +114,12 @@ continueUserActivity:(NSUserActivity *)userActivity
   }
   return YES;
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
   if (userActivity.activityType == NSUserActivityTypeBrowsingWeb) {
     let url = userActivity.webpageURL
@@ -127,7 +127,7 @@ func application(_ application: UIApplication, continue userActivity: NSUserActi
   }
   return true
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -148,14 +148,14 @@ ATS は iOS 9 以降にデフォルトで適用されます。すべての接続
 
 アプリケーションの `Info.plist` で例外として指定されていない限り、これらの要件に従わない接続は次のようなエラーにより失敗します。
 
-```
+`````````
 CFNetwork SSLHandshake failed (-9801)
 Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secure connection to the server cannot be made."
-```
+`````````
 
-```
+`````````
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
-```
+`````````
 
 ATS コンプライアンスは、モバイルアプリ内で開かれたリンク (クリックされたリンクのデフォルト処理) に適用され、Web ブラウザーから外部で開かれたサイトには適用されません。
 
@@ -164,7 +164,7 @@ ATS コンプライアンスは、モバイルアプリ内で開かれたリン�
 ATS は、次の 3 つの方法のいずれかで処理できます。
 
 #### すべてのリンクが ATS に準拠していることを確認する (推奨) {#confirm-all-links-are-ats-compliant-recommended}
-(アプリ内メッセージやプッシュCampaignsから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
+(アプリ内メッセージやプッシュキャンペーンから) ユーザーを誘導する既存のリンクが ATS の要件を満たすようにすることで、Braze 統合が ATS 要件を満たすことができます。ATS の制限を回避する方法はありますが、リンクされたすべての URL が ATS に準拠するようにすることをお勧めします。Apple がアプリケーションのセキュリティをこれまで以上に重視していることを考えると、ATS の例外を許可する以下のアプローチが Apple によってサポートされる保証はありません。
 
 SSL ツールにより、Web サーバーのセキュリティの問題を正確に特定できます。この Qualys, Inc. の [SSL サーバーテスト](https://www.ssllabs.com/ssltest/index.html)は、Apple ATS 9 および iOS 9 への準拠に特化した項目を提供します。
 
@@ -173,7 +173,7 @@ SSL ツールにより、Web サーバーのセキュリティの問題を正確
 
 ATS の例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -189,7 +189,7 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
         </dict>
     </dict>
 </dict>
-```
+`````````
 
 詳細については、[アプリトランスポートセキュリティのキー](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33)に関する Apple の記事を参照してください。
 
@@ -197,13 +197,13 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
 
 ATS を完全に無効にできます。ただし、セキュリティ保護が失われることと、将来の iOS との互換性の両方を考慮して、この方法は推奨されないことに注意してください。ATS を無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
-```
+`````````
 
 ATS エラーをデバッグする方法の詳細については、[Shipping an App With App Transport Security](http://timekl.com/blog/2015/08/21/shipping-an-app-with-app-transport-security/?utm_campaign=iOS+Dev+Weekly&utm_medium=email&utm_source=iOS_Dev_Weekly_Issue_213) を参照してください。
 
@@ -216,24 +216,24 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   // Handle urlString
   return YES;
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
     return true
   }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -255,7 +255,7 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)handleAppboyURL:(NSURL *)url fromChannel:(ABKChannel)channel withExtras:(NSDictionary *)extras {
   if ([[url.host lowercaseString] isEqualToString:@"MY-DOMAIN.com"]) {
     // Custom handle link here
@@ -264,12 +264,12 @@ Braze iOS SDK v2.21.0 以降、SDKはリンクをパーセントエンコード�
   // Let Braze handle links otherwise
   return NO;
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [AnyHashable : Any]?) -> Bool {
   if (url.host == "MY-DOMAIN.com") {
     // Custom handle link here
@@ -278,7 +278,7 @@ func handleAppboyURL(_ url: URL?, from channel: ABKChannel, withExtras extras: [
   // Let Braze handle links otherwise
   return false;
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -304,7 +304,7 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -315,12 +315,12 @@ iOS は、アプリから iOS 設定アプリケーションのページにユ�
   }
   return YES;
 }
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   if (path == "settings") {
@@ -328,7 +328,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
   }
   return true
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

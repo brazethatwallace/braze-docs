@@ -4,7 +4,7 @@ article_title: テストキャンバスの送信
 page_order: 1
 description: "このリファレンス記事では、キャンバスを起動前にテストする方法とベストプラクティスについて説明します。"
 page_type: reference
-tool: Canvas
+tool: キャンバス
 ---
 
 # テストキャンバスの送信

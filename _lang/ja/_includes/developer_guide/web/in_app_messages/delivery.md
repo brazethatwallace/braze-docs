@@ -29,13 +29,13 @@ SDKのセッション開始セマンティクスについて詳しくは、[セ�
 ```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
-```
+`````````
 
 ## キーと値のペア {#key-value-pairs}
 
-BrazeでCampaignを作成する際、キーと値のペアを `extras` として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。以下に例を示します。
+Brazeでキャンペーンを作成する際、キーと値のペアを `extras` として設定できます。アプリ内メッセージングオブジェクトはこれを使用してアプリにデータを送信できます。以下に例を示します。
 
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 braze.subscribeToInAppMessage(function(inAppMessage) {
@@ -56,7 +56,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
   }
   braze.showInAppMessage(inAppMessage);
 });
-```
+`````````
 
 ## 自動トリガーを無効にする {#disabling-automatic-triggers}
 
@@ -64,7 +64,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 
 読み込みスニペット内の `braze.automaticallyShowInAppMessages()` 呼び出しを削除し、アプリ内メッセージの表示・非表示を処理するカスタムロジックを作成します。
 
-```javascript
+`````````javascript
 braze.subscribeToInAppMessage(function(inAppMessage) {
   // control group messages should always be "shown"
   // this will log an impression and not show a visible message
@@ -82,7 +82,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
       // do nothing
   }
 });
-```
+`````````
 
 {% alert important %}
 Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `braze.showInAppMessage` を呼び出すと、メッセージが複数回表示される可能性があります。
@@ -98,21 +98,21 @@ Webサイトから `braze.automaticallyShowInAppMessages()` を削除せずに `
 
 アプリ内メッセージはサイト内で作成し、リアルタイムでローカルに表示することもできます。ダッシュボードで使用できるすべてのカスタマイズオプションはローカルでも使用できます。これは、アプリ内でトリガーしたいメッセージをリアルタイムで表示する場合に特に便利です。ただし、これらのローカルで作成されたメッセージの分析は、Brazeダッシュボードでは利用できません。
 
-```javascript
+`````````javascript
   // Displays a slideup type in-app message.
   var message = new braze.SlideUpMessage("Welcome to Braze! This is an in-app message.");
   message.slideFrom = braze.InAppMessage.SlideFrom.TOP;
   braze.showInAppMessage(message);
-```
+`````````
 
 ## 離脱意図メッセージのトリガー {#triggering-exit-intent-messages}
 
 離脱意図メッセージとは、訪問者がサイトを離れる前に重要な情報を伝えるために使用される、邪魔にならないアプリ内メッセージです。
 
-これらのメッセージタイプにトリガーを設定するには、Webサイトに離脱意図ライブラリー（[ouibounceのオープンソースライブラリー](https://github.com/carlsednaoui/ouibounce)など）を実装し、以下のコードを使用してBrazeでカスタムイベントとして `'exit intent'` を記録します。これにより、今後のアプリ内メッセージCampaignでこのメッセージタイプをカスタムイベントトリガーとして使用できます。
+これらのメッセージタイプにトリガーを設定するには、Webサイトに離脱意図ライブラリー（[ouibounceのオープンソースライブラリー](https://github.com/carlsednaoui/ouibounce)など）を実装し、以下のコードを使用してBrazeでカスタムイベントとして `'exit intent'` を記録します。これにより、今後のアプリ内メッセージキャンペーンでこのメッセージタイプをカスタムイベントトリガーとして使用できます。
 
-```javascript
+`````````javascript
   var _ouibounce = ouibounce(false, {
     callback: function() { braze.logCustomEvent('exit intent'); }
   });
-```
+`````````

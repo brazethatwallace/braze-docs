@@ -16,7 +16,7 @@ description: "この記事では、「キャンペーンの詳細のエクスポ
 
 > このエンドポイントを使用して、`campaign_id` で識別できる、指定されたキャンペーンの関連情報を取得します。
 
-Canvasデータを取得する場合は、[Canvasの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)エンドポイントを参照してください。
+キャンバスデータを取得する場合は、[キャンバスの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)エンドポイントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
@@ -42,12 +42,12 @@ Canvasデータを取得する場合は、[Canvasの詳細のエクスポート]
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/details?campaign_id={{campaign_identifier}}' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 
 ## レスポンス {#responses}
 
-```json
+`````````json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "created_at" : (string) the date created as ISO 8601 date,
@@ -74,7 +74,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
     },
     "conversion_behaviors": (array) the conversion event behaviors assigned to the campaign, see the following conversions behavior section.
 }
-```
+`````````
 
 ### チャネル別のメッセージ {#messages-by-channel}
 
@@ -83,18 +83,18 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% tabs %}
 {% tab Content Cards %}
 
-```json
+`````````json
 {
     "channel": "content_cards",
     "name": (string) the name of variant,
     "extras": (hash) any key-value pairs provided; only present if at least one key-value pair has been set
 }
-```
+`````````
 
 {% endtab %}
 {% tab メール %}
 
-```json
+`````````json
 {
     "channel": "email",
     "name": (string) the name of the variant,
@@ -111,7 +111,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
     "should_whitespace_header": (boolean) whether there should be a whitespace header,
     "email_headers": (array) list of email headers
 }
-```
+`````````
 
 {% endtab %}
 {% tab アプリ内メッセージ %}
@@ -120,7 +120,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 #### アンケート {#surveys}
 
-```json
+`````````json
 {
     "type": (string) the description of in-app message type, such as "survey",
     "data": {
@@ -144,23 +144,23 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
         ]
     }
 }
-```
+`````````
 
 #### スライドアップ、モーダル、フルスクリーンアプリ内メッセージ {#slideup-modal-fullscreen-in-app-messages}
 
-```json
+`````````json
 {
     "channel": "in_app_message",
     "name": (string) the name of the variant,
     "message": (string, optional) the body text,
     "extras": (hash, optional) any key-value pairs provided; only present if at least one key-value pair has been set
 }
-```
+`````````
 
 {% endtab %}
 {% tab プッシュ %}
 
-```json
+`````````json
 {
     "channel": (string) the description of the channel, such as "ios_push" or "android_push",
     "name": (string) the name of the variant,
@@ -171,24 +171,24 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
     "image_url": (string) the image URL for an Android notification image, an iOS notification image, or a Web push icon image,
     "large_image_url": (string) the web notification image URL for Android Chrome and Windows web push actions; null in other cases
 }
-```
+`````````
 
 {% endtab %}
 {% tab SMS %}
 
-```json
+`````````json
 {
   "channel": "sms",
   "body": (string) the payload body,
   "from": (string) the list of numbers associated with the subscription group,
   "subscription_group_id": (string) the API id of the subscription group targeted in the SMS message
 }
-```
+`````````
 
 {% endtab %}
 {% tab Webhook %}
 
-```json
+`````````json
 {
     "channel": "webhook",
     "url": (string) the URL for webhook,
@@ -197,14 +197,14 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
     "headers": (hash) the specified request headers,
     "method": (string) the HTTP method, either POST or GET
 }
-```
+`````````
 
 {% endtab %}
 {% tab WhatsApp %}
 
 #### テンプレートメッセージ {#template-messages}
 
-```json
+`````````json
 {
   "channel": "whats_app",
   "subscription_group_id": (string) the API ID of the subscription group selected in the WhatsApp message
@@ -215,11 +215,11 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
   "body_variables": (array) the list of strings, if present, of Liquid variables being inserted into body of WhatsApp template being sent,
   "button_variables": (array) the list of strings, if present, of Liquid variables being inserted into buttons of WhatsApp template being sent
 }
-```
+`````````
 
 #### レスポンスメッセージ {#response-messages}
 
-```json
+`````````json
 {
   "channel": "whats_app",
   "subscription_group_id": (string) the API ID of the subscription group selected in the WhatsApp message,
@@ -230,17 +230,17 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
   "footer_text": (string, optional) the text, if present, of the footer of the message being sent,
   "buttons": (array) list of button objects in the message being sent ({"text": (string) the text of the button})
 }
-```
+`````````
 
 {% endtab %}
 {% tab コントロールメッセージ %}
 
-```json
+`````````json
 {
     "channel": (string) the description of the channel that the control is for,
     "type": "control"
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -254,76 +254,76 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% tabs %}
 {% tab メールのクリック %}
 
-```json
+`````````json
 {
     "type": "Clicks Email",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours
 }
-```
+`````````
 
 {% endtab %}
 {% tab メールの開封 %}
 
-```json
+`````````json
 {
     "type": "Opens Email",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours
 }
-```
+`````````
 
 {% endtab %}
 {% tab 購入（任意の購入） %}
 
-```json
+`````````json
 {
     "type": "Makes Any Purchase",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours
 }
-```
+`````````
 
 {% endtab %}
 {% tab 購入（特定の製品） %}
 
-```json
+`````````json
 {
     "type": "Makes Specific Purchase",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours,
     "product": (string) the name of the product, such as "Feline Body Armor"
 }
-```
+`````````
 
 {% endtab %}
 {% tab カスタムイベントの実行 %}
 
-```json
+`````````json
 {
     "type": "Performs Custom Event",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours,
     "custom_event_name": (string) the name of the event, such as "Used Feline Body Armor"
 }
-```
+`````````
 
 
 {% endtab %}
 {% tab アプリのアップグレード %}
 
-```json
+`````````json
 {
     "type": "Upgrades App",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours,
     "app_ids": (array or null) array of app ids, such as ["12345", "67890"], or `null` if "Track sessions for any app" is selected in the UI
 }
-```
+`````````
 {% endtab %}
 {% tab アプリの使用 %}
 
-```json
+`````````json
 {
     "type": "Starts Session",
     "window": (integer) the number of seconds during which the user can convert on this event, such as 86400, which is 24 hours,
     "app_ids": (array or null) array of app ids, such as ["12345", "67890"], or `null` if "Track sessions for any app" is selected in the UI
 }
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

@@ -12,7 +12,7 @@ tool:
 
 # [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} 正規表現 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
 
-> 正規表現（一般的にregexとして知られています）は、検索パターンを定義する文字列です。正規表現を使用すると、テキストのグループ化を検証したり、検索と置換のアクションを実行したりできます。Brazeでは、正規表現を活用して、ターゲットオーディエンスのセグメンテーションやCampaignフィルタリングにおいて、より柔軟な文字列マッチングソリューションを提供しています。<br><br>このページでは、正規表現（regex）の概要、使い方、よくある質問、および正規表現をテストするためのregexデバッガーについて説明しています。
+> 正規表現（一般的にregexとして知られています）は、検索パターンを定義する文字列です。正規表現を使用すると、テキストのグループ化を検証したり、検索と置換のアクションを実行したりできます。Brazeでは、正規表現を活用して、ターゲットオーディエンスのセグメンテーションやキャンペーンフィルタリングにおいて、より柔軟な文字列マッチングソリューションを提供しています。<br><br>このページでは、正規表現（regex）の概要、使い方、よくある質問、および正規表現をテストするためのregexデバッガーについて説明しています。
 
 <!--{% multi_lang_include video.html id="3h5Xbhl-TxE" align="right" %}-->
 
@@ -150,7 +150,7 @@ $( document ).ready(function() {
 
 ```
 [a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z.-]+
-```
+`````````
 
 このregexは以下の3つの部分に分解できます：
 
@@ -170,17 +170,17 @@ $( document ).ready(function() {
 
 x以上（≥）の値を検索する場合は、以下のregexを使用します：
 
-```
+`````````
 ^([x-y]|\d{z,})$
-```
+`````````
 
 ここで、`x-y`は最初の桁の数値範囲（0-9）、`z`はxの桁数より1つ多い数です。例えば、50以上の値の場合、regexは`^([5-9][0-9]|\d{3,})$`となります。
 
 x以下（≤）の値を検索する場合は、以下のregexを使用します：
 
-```
+`````````
 ^([x-y]|[a-b])$
-```
+`````````
 
 ここで、`x-y`は最初の桁の数値範囲（0-9）、`a-b`はxの下限範囲です。例えば、50以下の値の場合、regexは`^([5-9][0-9]|[0-4][0-9])$`となります。
 
@@ -202,8 +202,8 @@ regexを使用して電話番号をフィルタリングする前に、ユーザ
 
 例えば、特定の市外局番「718」で電話番号をフィルタリングしたい場合、電話番号フィルターを使用し、`matches regex`に設定して、以下のregexを入力します：
 
-```
+`````````
 ^1?718\d\d\d\d\d\d\d
-```
+`````````
 
 ![「^1?718\d\d\d\d\d\d\d」のregexに一致する電話番号のフィルター]({% image_buster /assets/img/regex/regeximg3.png %})

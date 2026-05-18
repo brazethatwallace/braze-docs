@@ -43,13 +43,13 @@ description: "この記事では、「新しいユーザーエイリアスの作
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
-```
+`````````
 
-```json
+`````````json
 {
   "user_aliases" : (required, array of new user alias object)
 }
-```
+`````````
 
 ### リクエストパラメーター {#request-parameters}
 
@@ -60,16 +60,16 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### 新しいユーザーエイリアスオブジェクトを指定したエンドポイントリクエスト本文 {#endpoint-request-body-with-new-user-alias-object-specification}
 
-```json
+`````````json
 {
   "external_id" : (optional, string),
   "alias_name" : (required, string),
   "alias_label" : (required, string)
 }
-```
+`````````
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
@@ -82,18 +82,18 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
     }
   ]
 }'
-```
+`````````
 
 ## 応答 {#response}
 
 同じ`alias_label`と`alias_name`が既にユーザーに存在するためにエイリアスがスキップされた場合でも、レスポンス本文は成功を示すことがあります。詳細については、[エイリアスラベルと名前が既に存在する場合](#when-the-alias-label-and-name-already-exist)を参照してください。
 
-```json
+`````````json
 {
     "aliases_processed": 1,
     "message": "success"
 }
-```
+`````````
 
 
 {% endapi %}

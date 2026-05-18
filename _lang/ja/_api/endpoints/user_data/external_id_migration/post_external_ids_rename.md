@@ -41,13 +41,13 @@ description: "この記事では、「外部IDの名前を変更」エンドポ�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "external_id_renames" : (required, array of external ID rename objects)
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -63,7 +63,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 - `current_external_id`と`new_external_id`を同じにすることはできません。
 
 ## リクエスト例 {#request-example}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids/rename' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -75,19 +75,19 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
     }
   ]
 }'
-```
+`````````
 
 ## 応答 {#response}
 
 この応答は、成功したすべての名前変更と、関連するエラーを伴う失敗した名前変更を確認します。`rename_errors`フィールドのエラーメッセージは、元のリクエストの配列内のオブジェクトのインデックスを参照します。
 
-```
+`````````
 {
   "message" : (string) status message,
   "external_ids" : (array of strings) successful rename operations,
   "rename_errors": (array of arrays) <minor error message>
 }
-```
+`````````
 
 `message`フィールドは、有効なリクエストに対しては`success`を返します。より具体的なエラーは`rename_errors`配列に格納されます。`message`フィールドは、以下の場合にエラーを返します。
 

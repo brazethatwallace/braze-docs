@@ -2,7 +2,7 @@
 nav_title: 起動後のキャンペーン編集
 article_title: 起動後のキャンペーン編集
 page_order: 1
-tool: Campaigns
+tool: キャンペーン
 page_type: reference
 description: "このリファレンス記事では、起動後のキャンペーンの特定の側面を編集した場合の結果について概要を説明します。"
 

@@ -29,9 +29,9 @@ BrazeとPypestreamの統合により、最初のアウトリーチから会話�
 
 ## ユースケース {#use-cases}
 
-BrazeとPypestreamの連携により、Canvasesで以下のような一般的なユースケースを実現できます。
-* **インテリジェントなリターゲティング**：Pypestreamで収集されたリッチなデータポイントをすべて活用して、ユーザーがブランドとの会話エンゲージメントを終えた後にBraze Canvasでリターゲティングします。
-* **ダイナミックターゲティング**：特定のコホートやSegmentsに基づいて既存顧客や見込み顧客にコンタクトし、Pypestreamを介してカスタマイズされた会話エクスペリエンスを提供します。
+BrazeとPypestreamの連携により、キャンバスで以下のような一般的なユースケースを実現できます。
+* **インテリジェントなリターゲティング**：Pypestreamで収集されたリッチなデータポイントをすべて活用して、ユーザーがブランドとの会話エンゲージメントを終えた後にBraze キャンバスでリターゲティングします。
+* **ダイナミックターゲティング**：特定のコホートやセグメントに基づいて既存顧客や見込み顧客にコンタクトし、Pypestreamを介してカスタマイズされた会話エクスペリエンスを提供します。
 * **文脈に応じた顧客インサイト**：エンドユーザー（既存の顧客または見込み客）がWebサイトでやり取りをした後、Pypestream Event Listenerから取り込んだWebページタグとBrazeに保存されている顧客データを組み合わせることで、完全にパーソナライズされ、コンテキストに即した会話型インタラクションを提供できます。
 
 ## 統合 {#integration}
@@ -69,13 +69,13 @@ PARAMS = {
         'braze_user_track': 'users/track'
     },
 }
-```
+`````````
 
 ### ステップ2:アクションノードテンプレートを開発する {#step-2-develop-action-node-template}
 
 アクションノードは、前のステップで設定されたそれぞれのBrazeエンドポイントを使用して、ソリューションがデプロイされた環境を活用します。このステップでは、特定のBrazeエンドポイントを統合するためのアクションノードを開発します。統合を開発する際のガイドとして、以下のテンプレートを使用してください。
 
-```
+`````````
 # -*- coding: utf-8 -*-
 r'''
     ______  ______  _____________________  _________    __  ___
@@ -154,7 +154,7 @@ class BrazeExample:
             log('BrazeExample Exception error: {}'.format(err))
 
         return {'success': 'error'}
-```
+`````````
 ### ステップ3:ソリューションデザインを更新する {#step-3-update-the-solution-designs}
 
 Braze REST APIと統合する最後のステップでは、前のステップで開発したアクションノードを使用するように、Pypestreamの[Design Studio](https://platform.pypestream.com/design-studio/)内でフローを設定します。
@@ -165,7 +165,7 @@ Design Studioでモードを設定する方法の概要については、この[
 
 ## 統合のユースケース {#integration-use-case}
 
-前提条件が満たされ、アクションノード構造が作成されると、開発者はBraze APIエンドポイントとのインタラクションを行うためのブランクのCanvasを使用できます。この例では、アクションノードをBrazeの[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に統合するために必要な手順を示します。具体的には、Pypestreamの会話フローに入る特定のユーザーを追跡するためにユーザープロファイルを作成します。
+前提条件が満たされ、アクションノード構造が作成されると、開発者はBraze APIエンドポイントとのインタラクションを行うためのブランクのキャンバスを使用できます。この例では、アクションノードをBrazeの[`/user/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)に統合するために必要な手順を示します。具体的には、Pypestreamの会話フローに入る特定のユーザーを追跡するためにユーザープロファイルを作成します。
 
 ### ステップ1:会話の中でユーザーからデータを収集する {#step-1-collect-data-from-the-user-in-conversation}
 
@@ -186,7 +186,7 @@ Design Studioでモードを設定する方法の概要については、この[
 
 アクションノードを開発するための同じ構造を活用して、ユーザーから収集したデータをアクションノードに入力し、`/user/track`エンドポイントを経由してBrazeに送信できます。
 
-```
+`````````
 # -*- coding: utf-8 -*-
 r'''
     ______  ______  _____________________  _________    __  ___
@@ -275,7 +275,7 @@ class BrazeExample:
             log('BrazeExample Exception error: {}'.format(err))
 
         return {'success': 'error'}
-```
+`````````
 
 ### ステップ3:アクションノードの成功/失敗時にリダイレクトするようにソリューションフローを更新する {#step-3-update-solution-flows-to-redirect-upon-successfailure-of-action-node}
 

@@ -45,11 +45,11 @@ search_tag: Partner
 
 ### ステップ1:Brazeでセグメントを作成する {#step-1-create-a-segment-in-braze}
 
-Brazeで、SessionMのプロモーションやオファーでターゲットとするユーザーのSegmentを作成します。
+Brazeで、SessionMのプロモーションやオファーでターゲットとするユーザーのセグメントを作成します。
 
-![「カスタム属性」フィルターを選択したセグメントビルダー。]({% image_buster /assets/img/sessionm/CreateSegment.png %})
+![「カスタム属性」フィルターを選択したセグメントビルダー。]({% image_buster /assets/img/sessionm/Createセグメント.png %})
 
-### ステップ2:BrazeのSegmentをSessionMにインポートする {#step-2-import-braze-segments-into-sessionm}
+### ステップ2:BrazeのセグメントをSessionMにインポートする {#step-2-import-braze-segments-into-sessionm}
 
 #### オプション1:SessionMタグエンドポイントにエクスポートする（推奨） {#option-1-export-to-the-sessionm-tag-endpoint-recommended}
 
@@ -74,7 +74,7 @@ Brazeで、SessionMのプロモーションやオファーでターゲットと�
 
 ![Webhookの設定。]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-配信をスケジュールし、[以前に作成した](#step-1-create-a-segment-in-braze)Segmentをターゲットとするように**Target Audiences**を設定してから、Campaignを開始します。
+配信をスケジュールし、[以前に作成した](#step-1-create-a-segment-in-braze)セグメントをターゲットとするように**Target Audiences**を設定してから、キャンペーンを開始します。
 
 {% alert important %}
 このプロセスは、PostmanなどのAPIクライアントを使用して、[SessionMタグエンドポイント](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag)にリクエストを直接送信することでも実行できます。この場合、リクエストには顧客、タグ名、各ユーザーの存続時間（1回の呼び出しにつき1ユーザー）を指定します。
@@ -93,13 +93,13 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 ],
 "ttl":20000
 }'
-```
+`````````
 {% endraw %}
 {% endalert %}
 
 #### オプション2:CSVインポート {#option-2-csv-import}
 
-Brazeセグメンターを使用してBrazeのSegmentをエクスポートし、タグ付けする顧客、タグ名、ファイル内の各ユーザーの存続期間を含むCSVファイルをSessionMに提供します。
+Brazeセグメンターを使用してBrazeのセグメントをエクスポートし、タグ付けする顧客、タグ名、ファイル内の各ユーザーの存続期間を含むCSVファイルをSessionMに提供します。
 
 ## Brazeでリアルタイムのオファーウォレットを取得する {#retrieving-real-time-offer-wallet-with-braze}
 
@@ -117,14 +117,14 @@ SessionMは、設定可能ないくつかの異なる内部レバーから顧客
 
 ### ステップ2:SessionMオファーウォレットAPIを呼び出す {#step-2-call-sessionm-offer-wallet-api}
 
-SessionMオファーのあるCampaignまたはキャンバスステップで、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を使用して、[SessionM `get_user_offers`エンドポイント](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/)にAPIコールを行います。
+SessionMオファーのあるキャンペーンまたはキャンバスステップで、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を使用して、[SessionM `get_user_offers`エンドポイント](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/)にAPIコールを行います。
 
 コネクテッドコンテンツリクエストで、ユーザーのSessionM `user_id`と`retailer_id`を指定して、顧客のウォレットにあるアクティブなオファーの完全なリストを取得します。このエンドポイントへの各リクエストには、1人のユーザーを含めることができます。コネクテッドコンテンツコールの基本認証ヘッダー用のエンコードされた文字列キーについては、SessionMチームに問い合わせてください。
 
 リクエスト本文では、`culture`のデフォルトは`en-US`ですが、Liquidを使用して、多言語SessionMオファー用にユーザーの言語をテンプレート化することができます（たとえば、{% raw %}`"culture":"{{${language}}}"`{% endraw %}を使用します）。
 
 {% raw %}
-```
+`````````
 {% capture postbody %}
 {"retailer_id":"YOUR-RETAIL-ID","user_id":"{{${user_id}}}","skip":0,"take":1000,"include_pending_extended_data":false,"culture":"en-US"}
 {% endcapture %}
@@ -139,7 +139,7 @@ SessionMオファーのあるCampaignまたはキャンバスステップで、[
      :body {{postbody}}
      :save wallet
 %}
-```
+`````````
 {% endraw %}
 
 ### ステップ3:Brazeメッセージングにオファーウォレットを入力する {#step-3-populate-offer-wallet-to-braze-messaging}
@@ -147,7 +147,7 @@ SessionMオファーのあるCampaignまたはキャンバスステップで、[
 エンドポイントにリクエストが行われた後、SessionMは各オファーの完全な詳細とともに、発行済み状態のオファーの完全なリストを返します。これは返されたレスポンスの例です：
 
 {% raw %}
-```
+`````````
 {
     "status": "ok",
     "payload": {
@@ -184,7 +184,7 @@ SessionMオファーのあるCampaignまたはキャンバスステップで、[
       "available_points": 100
     }
 }
-```
+`````````
 {% endraw %}
 
 Liquidドット記法を使えば、これをメッセージに入力できます。たとえば、結果として得られる`offer_id`でメッセージをパーソナライズするには、{% raw %}`{{wallet.payload.available_points}}`{% endraw %}を使用してリターンペイロードを活用できます。これは`100`を返します。
@@ -209,7 +209,7 @@ SessionMのすべてのテンプレートにある標準フィールドには、
 - `email address`
 
 {% alert note %}
-`broadcast flag`を`true`に設定すると、BrazeのCampaignまたはCanvasがターゲットとするSegment全体にメッセージが送信されます。
+`broadcast flag`を`true`に設定すると、Brazeのキャンペーンまたはキャンバスがターゲットとするセグメント全体にメッセージが送信されます。
 {% endalert %}
 
 特定のニーズに応じてフィールドを追加設定することもできます：
@@ -221,33 +221,33 @@ SessionMのすべてのテンプレートにある標準フィールドには、
 
 追加フィールドは、メッセージをパーソナライズするための`trigger_properties`としてBrazeに送信されます。
 
-### ステップ2:BrazeのCampaignまたはCanvasを作成する {#step-2-create-a-braze-campaign-or-canvas}
+### ステップ2:Brazeのキャンペーンまたはキャンバスを作成する {#step-2-create-a-braze-campaign-or-canvas}
 
-SessionMによってトリガーされるAPIトリガーのCampaignまたはCanvasをBrazeで作成します。`offer_id`や`offer title`などの追加フィールドが設定されている場合は、Liquid（例：{% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}）を使用して、パーソナライズされたフィールドをメッセージングに追加します。
+SessionMによってトリガーされるAPIトリガーのキャンペーンまたはキャンバスをBrazeで作成します。`offer_id`や`offer title`などの追加フィールドが設定されている場合は、Liquid（例：{% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %}）を使用して、パーソナライズされたフィールドをメッセージングに追加します。
 
 ![APIトリガーのプロパティ。]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-**Schedule Delivery**タブで、CampaignまたはCanvas IDをメモします。これはSessionM Campaignの**Advanced Settings**に追加されます。
+**Schedule Delivery**タブで、キャンペーンまたはキャンバス IDをメモします。これはSessionM キャンペーンの**Advanced Settings**に追加されます。
 
-![APIトリガーCampaign。]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
+![APIトリガーキャンペーン。]({% image_buster /assets/img/sessionm/apiTriggerキャンペーン.png %})
 
-CampaignまたはCanvasの詳細を確定し、**Launch**を選択します。
+キャンペーンまたはキャンバスの詳細を確定し、**Launch**を選択します。
 
-### ステップ3:SessionMのプロモーションまたはメッセージングCampaignを作成する {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
+### ステップ3:SessionMのプロモーションまたはメッセージングキャンペーンを作成する {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
 
-次に、SessionMでCampaignを作成します。
+次に、SessionMでキャンペーンを作成します。
 
-![SessionM Campaign作成画面。]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
+![SessionM キャンペーン作成画面。]({% image_buster /assets/img/sessionm/SessionMキャンペーンCreation.png %})
 
 SessionM Campaignの詳細設定を更新して、`braze_campaign_id`または`braze_canvas_id`を含む以下のJSONペイロードを含めます。
 
 {% raw %}
-```
+`````````
 {
 "braze_campaign_id": "{{CAMPAIGN ID}}",
 "braze_canvas_id": "{{CANVAS ID}}",
 }
-```
+`````````
 {% endraw %}
 
 ![SessionMの詳細設定。]({% image_buster /assets/img/sessionm/SessionMAdvancedSettings.png %}){: style="max-width:85%;"}

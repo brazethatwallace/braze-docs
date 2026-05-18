@@ -33,7 +33,7 @@ description: "この参考記事では、Braze メールオブジェクトのさ
     "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
     "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
 }
-```
+`````````
 
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
   - アプリがワークスペースに設定されている場合、有効な`app_id` は、ユーザーのプロファイルに固有のアプリがあるかどうかに関係なく、ワークスペース内のすべてのユーザーで動作します。
@@ -51,7 +51,7 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
 
 ## 添付ファイル付き電子メールオブジェクトの例
 
-```json
+`````````json
 {
   "external_user_ids": ["YOUR_EXTERNAL_USER_ID"],
   "messages":{
@@ -64,7 +64,7 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
      }
   }
 }
-```
+`````````
 
 ## 電子メール添付ファイルの認証
 
@@ -72,7 +72,7 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
 2. 名前を入力し、ユーザー名とパスワードを追加する。
 3. `/messages/send` エンドポイントの電子メール・オブジェクトに、添付ファイルの詳細でクレデンシャル名を指定する`basic_auth_credential` プロパティを含める。クレデンシャル名を`company_basic_auth_credential_name` とした、以下の例を参照のこと：
 
-```json
+`````````json
 {
   "external_user_ids": ["recipient_user_id"],
   "messages":{
@@ -89,5 +89,5 @@ Braze では、添付ファイルの `url` に Google Drive のリンクを使�
     }
   }
 }
-```
+`````````
 

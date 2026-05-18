@@ -18,4 +18,4 @@ iOS 用の Braze Cordova SDK を統合すると、基本的なプッシュ通知
     <preference name="com.braze.ios_disable_automatic_push_registration" value="NO" />
     <preference name="com.braze.ios_disable_automatic_push_handling" value="NO" />
 </platform>
-```
+`````````

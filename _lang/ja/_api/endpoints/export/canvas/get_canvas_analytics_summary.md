@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Canvasデータサマリー分析のエクスポート"
-article_title: "GET: Canvasデータサマリー分析のエクスポート"
+nav_title: "GET: キャンバスデータサマリー分析のエクスポート"
+article_title: "GET: キャンバスデータサマリー分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
+description: "この記事では、キャンバスデータサマリー分析のエクスポートBrazeエンドポイントについて説明します。"
 
 ---
 {% api %}
-# Canvasデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
+# キャンバスデータサマリー分析のエクスポート {#export-canvas-data-summary-analytics}
 {% apimethod get %}
 /canvas/data_summary
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの時系列データのロールアップをエクスポートし、Canvas結果の簡潔なサマリーを提供します。
+> このエンドポイントを使用して、キャンバスの時系列データのロールアップをエクスポートし、キャンバス結果の簡潔なサマリーを提供します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1eb1b760-6b00-4c03-bcfb-12646f2ba6da {% endapiref %}
 
@@ -48,15 +48,15 @@ description: "この記事では、Canvasデータサマリー分析のエクス
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
   "data": {
-    "name": (string) the Canvas name,
+    "name": (string) the キャンバス name,
     "total_stats": {
       "revenue": (float) the number of dollars of revenue (USD),
       "conversions": (int) the number of conversions,
@@ -96,7 +96,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
   },
   "message": (required, string) the status of the export, returns 'success' on successful completion
 }
-```
+`````````
 
 {% alert important %}
 **`influenced_opens` フィールド:** APIレスポンスでは、`influenced_opens` フィールドは開封の総数（直接開封と間接開封の両方を合わせたもの）を表します。Brazeダッシュボードでは、「間接開封」は直接開封を除いた間接開封のみを指します。これはAPIのレガシー命名規則によるものです。

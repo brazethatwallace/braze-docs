@@ -32,13 +32,13 @@ description: "この記事では、「SDK認証キーを削除」Brazeエンド�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
-```json
+`````````
+`````````json
 {
   "app_id": "App API Identifier",
   "key_id": "key id"
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_authentication/delete' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -58,11 +58,11 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
   "app_id": "01234567-89ab-cdef-0123-456789abcdef",
   "key_id": "fedcba98-7654-3210-fedc-ba9876543210"
 }'
-```
+`````````
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
   "keys": [
     {
@@ -73,7 +73,7 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/app_group/sdk_au
     }
   ]
 }
-```
+`````````
 
 ## 応答パラメーター {#response-parameters}
 

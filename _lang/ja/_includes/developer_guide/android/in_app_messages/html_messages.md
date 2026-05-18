@@ -20,18 +20,18 @@ myWebView.loadUrl("javascript:" + javascriptString);
 
 final InAppMessageJavascriptInterface javascriptInterface = new InAppMessageJavascriptInterface(context, inAppMessage);
 myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge");
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val javascriptString = context.assets.getAssetFileStringContents("braze-html-bridge.js")
 myWebView.loadUrl("javascript:" + javascriptString!!)
 
 val javascriptInterface = InAppMessageJavascriptInterface(context, inAppMessage)
 myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge")
-```
+`````````
 
 {% endtab %}
 {% endtabs %}
@@ -42,7 +42,7 @@ YouTubeやその他のHTML5コンテンツは、HTMLアプリ内メッセージ�
 
 以下は、HTMLスニペットにYouTube動画を埋め込んだ例です。
 
-```html
+`````````html
 <body>
     <div class="box">
         <div class="relativeTopRight">
@@ -52,7 +52,7 @@ YouTubeやその他のHTML5コンテンツは、HTMLアプリ内メッセージ�
         </iframe>
     </div>
 </body>
-```
+`````````
 
 ## ディープリンクの使用 {#using-deep-links}
 
@@ -61,11 +61,11 @@ AndroidのHTMLアプリ内メッセージでディープリンクや外部リン
 以下は、コードスニペットにおけるディープリンクの例です。
 
 {% raw %}
-```javascript
+`````````javascript
 <script>
 document.querySelectorAll('[data-button-id]').forEach(function (node)
 Unknown macro: { node.addEventListener('click', function () { brazeBridge.logClick(node.dataset.buttonId); brazeBridge.closeMessage(); }); }
 );
 </script>
-```
+`````````
 {% endraw %}

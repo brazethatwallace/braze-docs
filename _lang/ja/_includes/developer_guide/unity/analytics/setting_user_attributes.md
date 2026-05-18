@@ -25,52 +25,52 @@ Brazeは、`BrazeBinding`オブジェクトを使用して以下のユーザー�
 {% tab First name %}
 ```csharp
 BrazeBinding.SetUserFirstName("first name");
-```
+`````````
 {% endtab %}
 {% tab Last name %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserLastName("last name");
-```
+`````````
 {% endtab %}
 {% tab Email %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserEmail("email@email.com");
-```
+`````````
 {% endtab %}
 {% tab Gender %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserGender(Appboy.Models.Gender);
-```
+`````````
 {% endtab %}
 {% tab Birth date %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserDateOfBirth("year(int)", "month(int)", "day(int)");
-```
+`````````
 {% endtab %}
 {% tab Country %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserCountry("country name");
-```
+`````````
 {% endtab %}
 {% tab Home city %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserHomeCity("city name");
-```
+`````````
 {% endtab %}
 {% tab Email subscription %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType);
-```
+`````````
 {% endtab %}
 {% tab Push subscription %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType);
-```
+`````````
 {% endtab %}
 {% tab Phone number %}
-```csharp
+`````````csharp
 BrazeBinding.SetUserPhoneNumber("phone number");
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -78,9 +78,9 @@ BrazeBinding.SetUserPhoneNumber("phone number");
 
 デフォルトのユーザー属性を解除するには、関連するメソッドに`null`を渡します。
 
-```csharp
+`````````csharp
 BrazeBinding.SetUserFirstName(null);
-```
+`````````
 
 ## カスタムユーザー属性 {#custom-user-attributes}
 
@@ -93,46 +93,46 @@ BrazeBinding.SetUserFirstName(null);
 {% tabs %}
 {% tab String %}
 
-```csharp
+`````````csharp
 AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string custom attribute");
-```
+`````````
 
 {% endtab %}
 
 {% tab Integer %}
 
-```csharp
+`````````csharp
 // Set Integer Attribute
 AppboyBinding.SetCustomUserAttribute("custom int attribute key", 'integer value');
 // Increment Integer Attribute
 AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
-```
+`````````
 {% endtab %}
 
 {% tab Float %}
 
-```csharp
+`````````csharp
 AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
-```
+`````````
 
 {% endtab %}
 
 {% tab Boolean %}
 
-```csharp
+`````````csharp
 AppboyBinding.SetCustomUserAttribute("custom boolean attribute key", 'boolean value');
-```
+`````````
 {% endtab %}
 
 {% tab Date %}
 
-```csharp
+`````````csharp
 AppboyBinding.SetCustomUserAttributeToNow("custom date attribute key");
-```
+`````````
 
-```csharp
+`````````csharp
 AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute key", 'integer value');
-```
+`````````
 
 {% alert note %}
 Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)形式（`2013-07-16T19:20:30+01:00`など）か、`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式（`2016-12-14T13:32:31.601-0800`など）でなければなりません。
@@ -142,14 +142,14 @@ Brazeに渡される日付は、[ISO 8601](http://en.wikipedia.org/wiki/ISO_8601
 
 {% tab Array %}
 
-```csharp
+`````````csharp
 // Setting An Array
 AppboyBinding.SetCustomUserAttributeArray("key", array(List), sizeOfTheArray(int))
 // Adding to an Array
 AppboyBinding.AddToCustomUserAttributeArray("key", "Attribute")
 // Removing an item from an Array
 AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -161,9 +161,9 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 カスタム属性を解除するには、`UnsetCustomUserAttribute`メソッドに関連する属性キーを渡します。
 
-```csharp
+`````````csharp
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
-```
+`````````
 
 ### REST APIの使用 {#using-the-rest-api}
 
@@ -173,13 +173,13 @@ REST APIを使用して、ユーザー属性を設定または解除すること
 
 ユーザーのメールまたはプッシュサブスクリプションを設定するには、以下のいずれかの関数を呼び出します。
 
-```csharp
+`````````csharp
 // Email notifications
 AppboyBinding.SetUserEmailNotificationSubscriptionType()
 
 // Push notifications
 AppboyBinding.SetPushNotificationSubscriptionType()`
-```
+`````````
 
 どちらの関数も引数として`Appboy.Models.AppboyNotificationSubscriptionType`を取り、3つの異なるステータスがあります。
 
@@ -206,12 +206,12 @@ Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオ�
 
 ### メールサブスクリプションの設定 {#setting-email-subscriptions}
 
-```csharp
+`````````csharp
 AppboyBinding.SetUserEmailNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
-```
+`````````
 
 ### プッシュ通知サブスクリプションの設定 {#setting-push-notification-subscriptions}
 
-```csharp
+`````````csharp
 AppboyBinding.SetUserPushNotificationSubscriptionType(AppboyNotificationSubscriptionType.OPTED_IN);
-```
+`````````

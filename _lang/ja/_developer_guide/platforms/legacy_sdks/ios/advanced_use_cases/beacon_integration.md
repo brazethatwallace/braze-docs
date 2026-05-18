@@ -26,15 +26,15 @@ Infillion ビーコンを設定してアプリに統合すると、カスタム�
 ```objc
 [[Appboy sharedInstance] logCustomEvent:@"Entered %@", visit.place.name];
 [[Appboy sharedInstance] flushDataAndProcessRequestQueue];
-```
+`````````
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logCustomEvent("Entered %@", visit.place.name)
 Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

@@ -61,7 +61,7 @@ sequenceDiagram
   Server ->> BrazeAPI: POST /messages/live_activity/update
   Note right of BrazeAPI: Activity can be ended via:<br> - User manually dismisses<br>- Times out after 12 hours<br>- Setting `end_activity: true` on `/messages/live_activity/update`
   APNS ->> Device: Live activity is dismissed
-```
+`````````
 {% enddetails %}
 {% endtab %}
 {% endtabs %}
@@ -101,7 +101,7 @@ sequenceDiagram
 
 競争している2つの野生動物救助チームに、保護しているフクロウに対してポイントが与えられるSuperb Owlショーの更新をユーザーに提供するライブアクティビティを作成すると想定してみましょう。この例では、`SportsActivityAttributes`という構造体を作成しましたが、`ActivityAttributes`の独自の実装を使用することもできます。
 
-```swift
+`````````swift
 #if canImport(ActivityKit)
   import ActivityKit
 #endif
@@ -116,7 +116,7 @@ struct SportsActivityAttributes: ActivityAttributes {
   var gameName: String
   var gameNumber: String
 }
-```
+`````````
 
 ### ステップ 2: アクティビティを開始する {#start-the-activity}
 
@@ -145,7 +145,7 @@ Xcodeプロジェクトで、アプリの名前を選択し、**General**を選�
 iOSは`brazeActivityId`プロパティをライブアクティビティのpush-to-startペイロードの対応するフィールドにマップするため、名前を変更したり、他の値を割り当てたりしないでください。
 {% endalert %}
 
-```swift
+`````````swift
 import BrazeKit
 
 #if canImport(ActivityKit)
@@ -166,7 +166,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
   // 2. Add the `String?` property to represent the activity ID.
   var brazeActivityId: String?
 }
-```
+`````````
 
 #### ステップ 2.3: push-to-startの登録 {#step-23-register-for-push-to-start}
 
@@ -180,7 +180,7 @@ iOSオペレーティングシステムは、デバイスが再起動した後�
 
 次の例では、`LiveActivityManager`クラスがライブアクティビティオブジェクトを処理します。次に、`registerPushToStart`メソッドが`SportsActivityAttributes`を登録します。
 
-```swift
+`````````swift
 import BrazeKit
 
 #if canImport(ActivityKit)
@@ -200,7 +200,7 @@ class LiveActivityManager {
   }
 
 }
-```
+`````````
 
 #### ステップ 2.4: push-to-start通知を送信する {#step-24-send-a-push-to-start-notification}
 
@@ -221,7 +221,7 @@ class LiveActivityManager {
 
 この例では、ライブアクティビティオブジェクトのインターフェイスとして`LiveActivityManager`というクラスを作成します。次に、`pushTokenTag`を`"sports-game-2024-03-15"`に設定します。
 
-```swift
+`````````swift
 import BrazeKit
 
 #if canImport(ActivityKit)
@@ -248,7 +248,7 @@ class LiveActivityManager {
   }
 
 }
-```
+`````````
 
 ライブアクティビティウィジェットによって、この初期コンテンツがユーザーに表示されます。
 
@@ -268,7 +268,7 @@ Brazeがアプリ起動時にライブアクティビティを追跡できるよ
 
 ###### 例 {#example}
 
-```swift
+`````````swift
 import UIKit
 import BrazeKit
 
@@ -295,7 +295,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
-```
+`````````
 
 ### ステップ 4: アクティビティを更新する {#update-the-activity}
 
@@ -361,7 +361,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 Appleが提供するライブアクティビティ機能は、JavaScriptでは変換できない言語機能（Swift Concurrency、generics、SwiftUIなど）を使用しているため、ライブアクティビティ用のReact Native固有のJavaScriptコンビニエンスAPIは存在しません。
 
-#### BrazeはCampaignやCanvasステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
+#### Brazeはキャンペーンやキャンバスステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
 
 いいえ、現在サポートされていません。
 

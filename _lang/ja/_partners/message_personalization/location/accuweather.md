@@ -23,7 +23,7 @@ _この統合はAccuWeatherによって管理されています。_
 
 ## 利用可能なAccuWeather API {#available-accuweather-apis}
 
-以下は、BrazeのCampaignsやCanvasesで参照できるAccuWeather APIです。
+以下は、Brazeのキャンペーンやキャンバスで参照できるAccuWeather APIです。
 
 | API | 説明 |
 |---|---|
@@ -55,7 +55,7 @@ It's raining! Grab an umbrella!
 {% else %}
 Enjoy the weather!
 {% endif %}
-```
+`````````
 {% endraw %}
 
 ![「雨が降っています！傘を持っていきましょう！」と表示されたコネクテッドコンテンツのプッシュメッセージがAndroidデバイスに表示されている様子]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
@@ -69,14 +69,14 @@ Enjoy the weather!
 {% raw %}
 1番目の `connected_content` タグ内で、[Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) に対するGETリクエストが実行されます。この例では、郵便番号のカスタム属性がない場合、代わりにユーザーの `{{${city}}}` を利用できます。
 
-```
+`````````
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
-```
+`````````
 {% endraw %}
 
 以下は、AccuWeatherがJSONオブジェクトとして返す内容の例です。
 
-```json
+`````````json
 [
   {
     "Version": 1,
@@ -150,7 +150,7 @@ Enjoy the weather!
     ]
   }
 ]
-```
+`````````
 
 「Key」IDは有用な変数であり、2番目のGETリクエストで使用されます。
 このJSONオブジェクトは、URLの後に `:save location_info` を指定することで、ローカル変数 `location_info` に格納できます。
@@ -162,13 +162,13 @@ Enjoy the weather!
 2番目の `connected_content` タグで、[Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) に対するGETリクエストが実行されます。リクエストURLに**ロケーションキー**を追加する必要があります。`connected_content` タグの例を次に示します。
 
 {% raw %}
-```
+`````````
 {% connected_content http://dataservice.accuweather.com/currentconditions/v1/{{location_info[0].Key}}?apikey={your API key} :save local_weather %}
-```
+`````````
 
 以下は、返されたJSONオブジェクトです。
 
-```json
+`````````json
 [
   {
     "LocalObservationDateTime": "2018-04-10T09:35:00-07:00",
@@ -192,7 +192,7 @@ Enjoy the weather!
     "Link": "http://www.accuweather.com/en/us/seattle-wa/98104/current-weather/41333_pc?lang=en-us"
   }
 ]
-```
+`````````
 
 `connected_content` タグに見られるように、JSONオブジェクトは、URLの後に `:save local_weather` を追加することで、ローカル変数 `local_weather` に格納されます。
 

@@ -43,15 +43,15 @@ description: "この記事では、「統合一覧の取得」Brazeエンドポ�
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ### カーソル付き {#with-cursor}
 
-```
+`````````
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cursor=c2tpcDow' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
@@ -63,11 +63,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cu
 `Link` ヘッダーは、統合の合計が10件以下の場合は存在しません。カーソルなしの呼び出しでは、`prev` は表示されません。アイテムの最後のページを表示している場合、`next` は表示されません。
 {% endalert %}
 
-```
+`````````
 Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=c2tpcDoxMDA=>; rel="next"
-```
+`````````
 
-```json
+`````````json
 {
   "results": [
     {
@@ -86,7 +86,7 @@ Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=
   ],
   "message": "success"
 }
-```
+`````````
 
 ## トラブルシューティング {#troubleshooting}
 

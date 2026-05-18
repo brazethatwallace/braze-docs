@@ -378,7 +378,7 @@ SELECT
         )
     ) AS PAYLOAD
 FROM EXAMPLE_DATA;
-```
+`````````
 
 このデータはどれもBrazeに同期されていないため、CDIのソーステーブルにすべて追加します。
 
@@ -573,7 +573,7 @@ CDIを使用したデータポイント使用量は、REST APIやSDKなどの他
 {% tabs local %}
 {% tab Snowflake %}
 このクエリをSnowflakeで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
      attribute_2 string,
@@ -592,11 +592,11 @@ SELECT
             'yet_another_attribute',
             attribute_3)
     )as PAYLOAD FROM "EXAMPLE_USER_DATA";
-```
+`````````
 {% endtab %}
 {% tab Redshift %}
 このクエリをRedshiftで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
      attribute_2 string,
@@ -615,11 +615,11 @@ SELECT
             'yet_another_attribute',
             attribute_3)
     ) as PAYLOAD FROM "EXAMPLE_USER_DATA";
-```
+`````````
 {% endtab %}
 {% tab BigQuery %}
 このクエリをBigQueryで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
      attribute_3 NUMERIC,
@@ -636,11 +636,11 @@ SELECT
       )
     ) as PAYLOAD
   FROM BRAZE.EXAMPLE_USER_DATA;
-```
+`````````
 {% endtab %}
 {% tab Databricks %}
 このクエリをDatabricksで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
     attribute_2 STRING,
@@ -659,11 +659,11 @@ SELECT
       )
     ) as PAYLOAD
   FROM BRAZE.EXAMPLE_USER_DATA;
-```
+`````````
 {% endtab %}
 {% tab Microsoft Fabric %}
 このクエリをMicrosoft Fabricで使用して、ソース列をCDIフィールドにフォーマットします。
-```sql
+`````````sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
     attribute_2 VARCHAR,
@@ -680,7 +680,7 @@ AS SELECT
     JSON_OBJECT('attribute_1':attribute_1, 'attribute_2':attribute_2, 'attribute_3':attribute_3, 'attribute_4':attribute_4) as PAYLOAD
 
 FROM [braze].[users] ;
-```
+`````````
 {% endtab %}
 
 {% endtabs %}

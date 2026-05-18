@@ -16,7 +16,7 @@ function success(position) {
 }
 
 navigator.geolocation.getCurrentPosition(success);
-```
+`````````
 
 Brazeにデータが送信される際、SDKはユーザーのIPアドレスから自動的にユーザーの国を検出できるようになった。詳細については、[setLastKnownLocation() を](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation)参照のこと。
 
@@ -26,7 +26,7 @@ Brazeにデータが送信される際、SDKはユーザーのIPアドレスか�
 
 もし彼らがオプトインすれば、位置情報が更新されるたびに成功コールバックが呼び出されるようになる。
 
-```javascript
+`````````javascript
 function success(position) {
   var coords = position.coords;
   braze.getUser().setLastKnownLocation(
@@ -39,7 +39,7 @@ function success(position) {
 }
 
 navigator.geolocation.watchPosition(success);
-```
+`````````
 
 {% alert important %}
 トラッキング追跡を無効にする方法については、[Mozilla開発者向けドキュメントを](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition)参照のこと。

@@ -35,15 +35,15 @@ v3.0.0からTypeScriptの定義が含まれるようになりました。2.xか�
 npm install --save @braze/web-sdk
 # or, using yarn:
 # yarn add @braze/web-sdk
-```
+`````````
 
 インストール後は、通常の方法でライブラリーを`import`または`require`できます。
 
-```typescript
+`````````typescript
 import * as braze from "@braze/web-sdk";
 // or, using `require`
 const braze = require("@braze/web-sdk");
-```
+`````````
 {% endsubtab %}
 
 {% subtab braze cdn %}
@@ -66,7 +66,7 @@ Braze Web SDKをWebサイトに追加した後、Brazeダッシュボードの**
 **Web SDKリクエストにおけるカスタムドメインはサポートされていません：** Web SDKの`baseUrl`はBraze SDKエンドポイントでなければなりません（例：`sdk.iad-05.braze.com`）。BrazeはCNAMEレコードを介して顧客所有のドメインを経由するWeb SDKトラフィックのルーティングをサポートしていません。Web SDKのリクエストを自身のドメインから発信する必要がある場合は、Brazeサポートにお問い合わせください。
 {% endalert %}
 
-```javascript
+`````````javascript
 // initialize the SDK
 braze.initialize('YOUR-API-KEY-HERE', {
     baseUrl: "YOUR-SDK-ENDPOINT-HERE",
@@ -91,7 +91,7 @@ if (isLoggedIn){
 
 // `openSession` should be called last - after `changeUser` and `automaticallyShowInAppMessages`
 braze.openSession();
-```
+`````````
 
 {% alert important %}
 **アプリ内メッセージの表示：** アプリ内メッセージがトリガーされた際に自動的に表示するには、`braze.automaticallyShowInAppMessages()`を呼び出す必要があります。この呼び出しがないと、アプリ内メッセージは自動的に表示されません。メッセージ表示を手動で管理したい場合は、この呼び出しを削除し、代わりに`braze.subscribeToInAppMessage()`を使用してください。詳細については、[アプリ内メッセージ配信]({{site.baseurl}}/developer_guide/in_app_messages/delivery/)を参照してください。
@@ -156,7 +156,7 @@ SDKの初期化をユーザー操作まで遅らせると、バナーやContent 
 
 **条件付き初期化の例：**
 
-```javascript
+`````````javascript
 // Only initialize Braze if your custom bot detection determines this is not a bot
 if (!isLikelyBot()) {
   braze.initialize('YOUR-API-KEY-HERE', {
@@ -165,7 +165,7 @@ if (!isLikelyBot()) {
   braze.automaticallyShowInAppMessages();
   braze.openSession();
 }
-```
+`````````
 
 ### ベストプラクティス {#best-practices}
 
@@ -185,32 +185,32 @@ if (!isLikelyBot()) {
 {% tab before initialization %}
 SDKが初期化される前に、基本的なデバッグメッセージをJavaScriptコンソールに記録するには`enableLogging`を使用します。
 
-```javascript
+`````````javascript
 enableLogging: true
-```
+`````````
 
 メソッドは次のようになります。
 
-```javascript
+`````````javascript
 braze.initialize('API-KEY', {
     baseUrl: 'API-ENDPOINT',
     enableLogging: true
 });
 braze.openSession();
-```
+`````````
 {% endtab %}
 
 {% tab after initialization %}
 SDKが初期化された後、基本的なデバッグメッセージをJavaScriptコンソールに記録するには`braze.toggleLogging()`を使用します。メソッドは次のようになります。
 
-```javascript
+`````````javascript
 braze.initialize('API-KEY', {
     baseUrl: 'API-ENDPOINT',
 });
 braze.openSession();
 ...
 braze.toggleLogging();
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -222,19 +222,19 @@ braze.toggleLogging();
 
 カスタムデバッグメッセージをJavaScriptコンソールに記録するには、`setLogger`を使用します。基本ログとは異なり、これらのログはユーザーには表示されません。
 
-```javascript
+`````````javascript
 setLogger(loggerFunction: (message: STRING) => void): void
-```
+`````````
 
 `STRING`を1つの文字列パラメーターとしてメッセージに置き換えます。メソッドは次のようになります。
 
-```javascript
+`````````javascript
 braze.initialize('API-KEY');
 braze.setLogger(function(message) {
     console.log("Braze Custom Logger: " + message);
 });
 braze.openSession();
-```
+`````````
 
 ## SDKをアップグレードする {#upgrading-the-sdk}
 
@@ -259,15 +259,15 @@ RSSリーダーまたは任意のサービスを使用して、[リリースフ�
 
 次の非同期スクリプトタグをheadに追加します。
 
-```js
+`````````js
 <script async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"></script>
-```
+`````````
 
 #### ステップ2：サブスクリプションウィジェットを追加する {#step-2-add-subscription-widgets}
 
 HTMLのbodyにウィジェットを追加し、ユーザーがプッシュ通知の登録と配信停止を行えるようにします。
 
-```js
+`````````js
 <!-- A subscription widget -->
 <amp-web-push-widget visibility="unsubscribed" layout="fixed" width="250" height="80">
   <button on="tap:amp-web-push.subscribe">Subscribe to Notifications</button>
@@ -277,7 +277,7 @@ HTMLのbodyにウィジェットを追加し、ユーザーがプッシュ通知
 <amp-web-push-widget visibility="subscribed" layout="fixed" width="250" height="80">
   <button on="tap:amp-web-push.unsubscribe">Unsubscribe from Notifications</button>
 </amp-web-push-widget>
-```
+`````````
 
 #### ステップ3：`helper-iframe`と`permission-dialog`を追加する {#step-3-add-helper-iframe-and-permission-dialog}
 
@@ -296,7 +296,7 @@ Webサイトのルートディレクトリに`service-worker.js`ファイルを�
 
 HTMLのbodyに次の`amp-web-push` HTML要素を追加します。[`apiKey`と`baseUrl`](https://documenter.getpostman.com/view/4689407/SVYrsdsG)をクエリパラメーターとして`service-worker-URL`に追加する必要があることに注意してください。
 
-```js
+`````````js
 <amp-web-push
 layout="nodisplay"
 id="amp-web-push"
@@ -304,7 +304,7 @@ helper-iframe-url="FILE_PATH_TO_YOUR_HELPER_IFRAME"
 permission-dialog-url="FILE_PATH_TO_YOUR_PERMISSION_DIALOG"
 service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseUrl={YOUR_BASE_URL}"
 >
-```
+`````````
 {% enddetails %}
 
 ### 非同期モジュール定義（AMD） {#asynchronous-module-definition-amd}
@@ -319,14 +319,14 @@ service-worker-url="FILE_PATH_TO_YOUR_SERVICE_WORKER?apiKey={YOUR_API_KEY}&baseU
 
 RequireJSまたは他のAMDモジュールローダーを使用する場合は、ライブラリーのコピーをセルフホスティングし、他のリソースと同様に参照することをお勧めします。
 
-```javascript
+`````````javascript
 require(['path/to/braze.min.js'], function(braze) {
   braze.initialize('YOUR-API-KEY-HERE', { baseUrl: 'YOUR-SDK-ENDPOINT' });
   // Required if you want in-app messages to display automatically
   braze.automaticallyShowInAppMessages();
   braze.openSession();
 });
-```
+`````````
 
 ### Electron {#electron}
 
@@ -336,13 +336,13 @@ Electronは公式にはWebプッシュ通知をサポートしていません（
 
 Jestを使用している場合、`SyntaxError: Unexpected token 'export'`のようなエラーが表示されることがあります。これを修正するには、Braze SDKを無視するように`package.json`の設定を調整します。
 
-```
+`````````
 "jest": {
   "transformIgnorePatterns": [
     "/node_modules/(?!@braze)"
   ]
 }
-```
+`````````
 
 ### SSRフレームワーク {#ssr}
 
@@ -352,7 +352,7 @@ Web SDKはブラウザー環境で動作します。SSRフレームワークで�
 
 このセクションにフレームワークが記載されていない場合は、クライアント専用のライフサイクルフックからBrazeを動的にインポートできます。
 
-```javascript
+`````````javascript
 // MyComponent/braze-exports.js
 // Export the parts of the SDK that you need.
 export { initialize, openSession } from "@braze/web-sdk";
@@ -367,11 +367,11 @@ useEffect(() => {
         openSession();
     });
 }, []);
-```
+`````````
 
 webpackを使用している場合は、特定のSDKエクスポートのみを動的にインポートできます。
 
-```javascript
+`````````javascript
 // MyComponent.js
 useEffect(() => {
     import(
@@ -385,13 +385,13 @@ useEffect(() => {
         openSession();
     });
 }, []);
-```
+`````````
 
 #### Next.jsとRemix用の共有フック {#shared-hook-for-nextjs-and-remix}
 
 再利用可能な`useBraze`フックを作成し、アプリのルート付近で呼び出します。
 
-```tsx
+`````````tsx
 // hooks/useBraze.ts
 import { useEffect, useRef } from "react";
 
@@ -427,13 +427,13 @@ export function useBraze() {
       });
   }, []);
 }
-```
+`````````
 
 #### Next.js（App Router） {#nextjs-app-router}
 
 アプリをラップするクライアントコンポーネントで`useBraze`を呼び出します。
 
-```tsx
+`````````tsx
 // app/components/AppRoot.tsx
 "use client";
 
@@ -444,9 +444,9 @@ export function AppRoot({ children }: { children: ReactNode }) {
   useBraze();
   return <>{children}</>;
 }
-```
+`````````
 
-```tsx
+`````````tsx
 // app/layout.tsx
 import type { ReactNode } from "react";
 import { AppRoot } from "./components/AppRoot";
@@ -464,13 +464,13 @@ export default function RootLayout({
     </html>
   );
 }
-```
+`````````
 
 #### Next.js（Pages Router） {#nextjs-pages-router}
 
 カスタムアプリコンポーネントの先頭で`useBraze`を呼び出します。
 
-```tsx
+`````````tsx
 // pages/_app.tsx
 import type { AppProps } from "next/app";
 import { useBraze } from "../hooks/useBraze";
@@ -482,7 +482,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Component {...pageProps} />
   );
 }
-```
+`````````
 
 #### Remix
 
@@ -490,7 +490,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ローカルのRemix検証例を実行するには、`PORT=4013 npm run dev`を使用します。
 
-```tsx
+`````````tsx
 // app/root.tsx
 import { Outlet } from "@remix-run/react";
 import { useBraze } from "./hooks/useBraze";
@@ -500,13 +500,13 @@ export default function App() {
 
   return <Outlet />;
 }
-```
+`````````
 
 #### イベントのログ記録とユーザーの更新 {#logging-events-and-updating-users}
 
 `useBraze`がアプリのルートでSDKを初期化した後、他のクライアントコンポーネントからBrazeメソッドを呼び出すことができます。一般的なパターンは、`onClick`や`onSubmit`などのユーザーアクション内でメソッドを呼び出すことです。この例では、SDKメソッドはファイルの先頭ではなく、クリックハンドラー内で読み込まれます。これにより、Web SDKをサーバーコードから分離し、そのアクションに必要なものだけを読み込みます。`webpackExports`コメントは、どのメソッドを含めるかをwebpackに指示するため、バンドルサイズを小さく保てます。
 
-```tsx
+`````````tsx
 // app/components/BuyButton.tsx
 "use client";
 
@@ -524,7 +524,7 @@ export function BuyButton() {
 
   return <button onClick={handleClick}>Buy</button>;
 }
-```
+`````````
 
 この例は、ユーザーが**Buy**をクリックした際にアクティビティを記録する`BuyButton`コンポーネントを示しています。まず、クリック時に`logCustomEvent`、`logPurchase`、`getUser`のみをインポートします。次に、ユーザー属性を更新し、カスタムイベントを記録し、購入を記録します。このパターンにより、初期化を`useBraze`に集中させながら、任意のクライアントコンポーネントから意味のあるアクションをトラッキングできます。
 
@@ -542,11 +542,11 @@ Tealium iQは、基本的なターンキーBraze統合を提供します。統�
 
 Viteを使用していて、循環依存関係や`Uncaught TypeError: Class extends value undefined is not a constructor or null`に関する警告が表示される場合は、Braze SDKを[依存関係の検出](https://vitejs.dev/guide/dep-pre-bundling.html#customizing-the-behavior)から除外する必要があるかもしれません。
 
-```
+`````````
 optimizeDeps: {
     exclude: ['@braze/web-sdk']
 },
-```
+`````````
 
 ### その他のタグマネージャー {#other-tag-managers}
 

@@ -45,7 +45,7 @@ document.getElementById("button").onclick = function () {
     braze.showInAppMessage(deferredMessage);
   }
 };
-```
+`````````
 
 !!step
 lines-index.js=2
@@ -106,7 +106,7 @@ lines-index.js=13-15
 
 {% scrolly %}
 
-```kotlin file=MainApplication.kt
+`````````kotlin file=MainApplication.kt
 import android.app.Application
 import com.braze.Braze
 import com.braze.support.BrazeLogger
@@ -163,9 +163,9 @@ class MyApplication : Application() {
         BrazeInAppMessageManager.getInstance().requestDisplayInAppMessage()
     }
 }
-```
+`````````
 
-```kotlin file=MainActivity.kt
+`````````kotlin file=MainActivity.kt
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -200,7 +200,7 @@ fun ContentView() {
         }
     }
 }
-```
+`````````
 
 !!step
 lines-MainApplication.kt=13-16
@@ -262,7 +262,7 @@ lines-MainActivity.kt=29
 
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import SwiftUI
 import BrazeKit
 import BrazeUI
@@ -310,9 +310,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BrazeInAppMessageUIDelega
         (braze.inAppMessagePresenter as? BrazeInAppMessageUI)?.presentNext()
     }
 }
-```
+`````````
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main
@@ -325,9 +325,9 @@ struct IAMDeferApp: App {
         }
     }
 }
-```
+`````````
 
-```swift file=ContentView.swift
+`````````swift file=ContentView.swift
 import SwiftUI
 
 struct ContentView: View {
@@ -342,7 +342,7 @@ struct ContentView: View {
         .padding()
     }
 }
-```
+`````````
 
 !!step
 lines-AppDelegate.swift=5

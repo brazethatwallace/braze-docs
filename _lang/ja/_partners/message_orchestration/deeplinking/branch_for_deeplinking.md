@@ -43,7 +43,7 @@ Xcodeで、アプリターゲット > **Signing & Capabilities** に移動し、
 ```
 applinks:yourapp.app.link
 applinks:yourapp-alternate.app.link
-```
+`````````
 
 カスタムBranchドメインを使用している場合は、それも追加してください。
 
@@ -53,19 +53,19 @@ Braze SDKの設定で`forwardUniversalLinks`を`true`に設定し、SDKがユニ
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 let configuration = Braze.Configuration(apiKey: "<BRAZE_API_KEY>", endpoint: "<BRAZE_ENDPOINT>")
 configuration.forwardUniversalLinks = true
 let braze = Braze(configuration: configuration)
-```
+`````````
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"<BRAZE_API_KEY>"
                                                                   endpoint:@"<BRAZE_ENDPOINT>"];
 configuration.forwardUniversalLinks = YES;
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -75,7 +75,7 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   if let host = context.url.host,
      host.contains("app.link") || host.contains("yourdomain.com") {
@@ -86,10 +86,10 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   // Let Braze handle all other links
   return true
 }
-```
+`````````
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 - (BOOL)braze:(Braze *)braze shouldOpenURL:(BRZURLContext *)context {
   NSString *host = context.url.host;
   if (host && ([host containsString:@"app.link"] || [host containsString:@"yourdomain.com"])) {
@@ -98,7 +98,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   }
   return YES;
 }
-```
+`````````
 {% endtab %}
 {% endtabs %}
 
@@ -117,7 +117,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 
 ## トラブルシューティング {#troubleshooting}
 
-BrazeのCampaignsからBranchリンクが期待どおりに動作しない場合は、以下のステップに従ってください。
+BrazeのキャンペーンからBranchリンクが期待どおりに動作しない場合は、以下のステップに従ってください。
 
 ### Braze外でリンクが動作するか確認する {#verify-the-link-works-outside-of-braze}
 

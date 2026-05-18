@@ -47,12 +47,12 @@ description: "この記事では、「ハードバウンスメールアドレス
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
-```
+`````````
 
 ## 応答 {#response}
 エントリは降順で表示されます。
 
-```json
+`````````json
 {
   "emails": [
     {
@@ -70,5 +70,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?
   ],
   "message": "success"
 }
-```
+`````````
 {% endapi %}

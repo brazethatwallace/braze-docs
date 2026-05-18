@@ -14,15 +14,15 @@
 ```java
 Braze.getInstance(context).logCustomEvent("Entered " + visit.getPlace());
 Braze.getInstance(context).requestImmediateDataFlush();
-```
+`````````
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).logCustomEvent("Entered " + visit.getPlace())
 Braze.getInstance(context).requestImmediateDataFlush()
-```
+`````````
 
 {% endtab %}
 {% endtabs %}

@@ -17,7 +17,7 @@ description: "コネクテッドコンテンツを使用してREST APIからメ�
 ```liquid
 {% connected_content https://api.example.com/user/{{${user_id}}}/recommendations :save recs %}
 We think you'll love {{recs.top_pick}}!
-```
+`````````
 {% endraw %}
 
 コネクテッドコンテンツはGETリクエストとPOSTリクエストをサポートしています。Brazeはサーバーが2秒以内に応答することを要求するため、エンドポイントは低レイテンシーになるよう設計してください。

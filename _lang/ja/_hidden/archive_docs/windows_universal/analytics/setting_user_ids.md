@@ -16,7 +16,7 @@ hidden: true
 
 ```csharp
 Appboy.SharedInstance.ChangeUser(YOUR_USER_ID_STRING);
-```
+`````````
 
 {% alert warning %}
 **ユーザーがログアウトするときに `changeUser()` を呼び出さないでください。`changeUser()` は、ユーザーがアプリケーションにログインするときにのみ呼び出される必要があります。**`changeUser()`を静的なデフォルト値に設定すると、ユーザーが再度ログインするまで、すべてのユーザーアクティビティがそのデフォルト「ユーザー」に関連付けられます。

@@ -20,10 +20,10 @@
         "CAMPAIGN_ID": "BSON ID of the campaign this event belongs to",
         "CAMPAIGN_API_ID": "API ID of the campaign this event belongs to",
         "MESSAGE_VARIATION_API_ID": "API ID of the message variation this user received",
-        "CANVAS_ID": "BSON ID of the Canvas this event belongs to",
-        "CANVAS_API_ID": "API ID of the Canvas this event belongs to",
-        "CANVAS_VARIATION_API_ID": "API ID of the Canvas variation this event belongs to",
-        "CANVAS_STEP_API_ID": "API ID of the Canvas step this event belongs to",
+        "CANVAS_ID": "BSON ID of the キャンバス this event belongs to",
+        "CANVAS_API_ID": "API ID of the キャンバス this event belongs to",
+        "CANVAS_VARIATION_API_ID": "API ID of the キャンバス variation this event belongs to",
+        "CANVAS_STEP_API_ID": "API ID of the キャンバス step this event belongs to",
         "SUBSCRIPTION_GROUP_API_ID": "Subscription group API ID",
         "DISPATCH_ID": "ID of the dispatch this message belongs to"
     },
@@ -40,4 +40,4 @@
         "SEND_ID": "Message send ID this message belongs to"
     }
 }
-```
+`````````

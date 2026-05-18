@@ -36,11 +36,11 @@ description: "この記事では、「SDK認証キーの一覧」Brazeエンド�
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authentication/keys?app_id=01234567-89ab-cdef-0123-456789abcdef' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
   "keys": [
     {
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
     }
   ]
 }
-```
+`````````
 
 ## 応答パラメーター {#response-parameters}
 

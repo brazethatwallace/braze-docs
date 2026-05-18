@@ -5,7 +5,7 @@ page_order: 6
 
 page_type: reference
 description: "このリファレンス記事では、キャンペーンアラートの概要、そのメリット、および安心感を得るための設定方法について説明します。"
-tool: Campaigns
+tool: キャンペーン
 channel:
 - email
 - webhooks
@@ -46,5 +46,5 @@ channel:
 "app_group_name":"Sample workspace",
 "campaign_name":"Sample campaign",
 "campaign_api_id":"fe787bc5-d13f-4123-b22f-3bd48f9fc407","upper_threshold":0,"lower_threshold":500,"value":4}}
-```
+`````````
 

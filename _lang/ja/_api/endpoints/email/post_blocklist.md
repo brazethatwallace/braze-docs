@@ -31,13 +31,13 @@ description: "この記事では、メールのブロックリスト登録Braze�
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
-```
+`````````
 
-```json
+`````````json
 {
   "email": ["blocklist_email1","blocklist_email2"]
 }
-```
+`````````
 
 ## リクエストパラメーター {#request-parameters}
 
@@ -47,13 +47,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
-```
+`````````
 curl --location --request POST 'https://rest.iad-01.braze.com/email/blocklist' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 --data-raw '{
   "email": ["blocklist_email1","blocklist_email2"]
 }'
-```
+`````````
 
 {% endapi %}

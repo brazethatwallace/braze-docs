@@ -16,7 +16,7 @@ description: "この記事では、「送信分析をエクスポートする」
 
 > このエンドポイントを使用して、APIキャンペーンに関して追跡された `send_id` のさまざまな統計の日次情報を取得します。
 
-Brazeは送信後14日間、送信分析を保存します。Campaignのコンバージョンは、特定のユーザーがCampaignから受け取った直近の `send_id` に帰属します。
+Brazeは送信後14日間、送信分析を保存します。キャンペーンのコンバージョンは、特定のユーザーがキャンペーンから受け取った直近の `send_id` に帰属します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
@@ -44,12 +44,12 @@ Brazeは送信後14日間、送信分析を保存します。Campaignのコン�
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_series?campaign_id={{campaign_identifier}}&send_id={{send_identifier}}&length=30&ending_at=2014-12-10T23:59:59-05:00' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
-```
+`````````
 {% endraw %}
 
 ## 応答 {#response}
 
-```json
+`````````json
 {
     "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
@@ -94,7 +94,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
     ],
   "message": "success"
 }
-```
+`````````
 
 {% alert tip %}
 CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。

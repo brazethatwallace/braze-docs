@@ -19,14 +19,14 @@ if (featureFlag?.enabled) {
 } else {
    return <ExistingFeature />
 }
-```
+`````````
 
 {% endtab %}
 {% tab Android %}
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 FeatureFlag featureFlag = braze.getFeatureFlag("my-new-feature");
 braze.logFeatureFlagImpression("my-new-feature");
 if (featureFlag != null && featureFlag.getEnabled()) {
@@ -34,12 +34,12 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 } else {
   return new ExistingFeature();
 }
-```
+`````````
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 val featureFlag = braze.getFeatureFlag("my-new-feature")
 braze.logFeatureFlagImpression("my-new-feature")
 if (featureFlag?.enabled == true) {
@@ -47,7 +47,7 @@ if (featureFlag?.enabled == true) {
 } else {
   return ExistingFeature()
 }
-```
+`````````
 
 {% endsubtab %}
 {% endsubtabs %}
