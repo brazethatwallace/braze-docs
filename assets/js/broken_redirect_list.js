@@ -1250,7 +1250,6 @@ validurls['/docs/developer_guide/platform_integration_guides/legacy_sdks/tvos/in
 validurls['/docs/developer_guide/platform_integration_guides/legacy_sdks/tvos/content_cards'] = '/docs/developer_guide/content_cards/?sdktab=tvos';
 validurls['/docs/developer_guide/platform_integration_guides/tvos/in-app_messaging'] = '/docs/developer_guide/in_app_messages/?sdktab=tvos';
 validurls['/docs/developer_guide/platform_integration_guides/tvos/content_cards'] = '/docs/developer_guide/content_cards/?sdktab=tvos';
-
 validurls['/docs/engagement_by_device'] = '/docs/user_guide/analytics/dashboards/channel_performance/?tab=email%20performance#email-performance-dashboard';
 
 validurls['/docs/partners/message_orchestration/additional_channels/messaging'] = '/docs/partners/additional_channels_and_extensions';
@@ -4104,7 +4103,15 @@ validurls['/docs/user_guide/message_building_by_channel/whatsapp/testing'] = '/d
 
 // Channel testing pages (deleted): redirect to Send test messages with tab
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign'] = '/docs/user_guide/channels/whatsapp/create_a_whatsapp_message';
-validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration';
+// Granular permissions migration article removed: send all legacy paths to Company user permissions
+validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administrative/manage_your_braze_users/user_permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administrative/manage_your_braze_users/user_permissions/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
 validurls['/docs/create_sms_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
 validurls['/docs/create_rcs_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
 validurls['/docs/create_mms_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
