@@ -24,6 +24,22 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 - セレクションごとに最大10個のフィルターを追加できます。
 - セレクションは、Brazeのカタログデータからおすすめを絞り込むのに最適です。インスピレーションをお探しの場合は、[アイテムのおすすめについて]({{site.baseurl}}/user_guide/brazeai/item_recommendations/)にあるユースケースの例を参照してください。
 
+## サポートされている演算子 {#supported-operators}
+
+セレクションフィルターを作成する際、使用可能な演算子は選択したフィールドタイプによって異なります。
+
+| フィールドタイプ | 使用可能な演算子 |
+| --- | --- |
+| 文字列 | `equals`、`does not equal`、`is any of`、`is none of` |
+| 数値 | `equals`、`does not equal`、`greater than`、`less than` |
+| ブール値 | `is` |
+| 時間 | `before`、`after` |
+| 配列 | `includes value`、`does not include value` |
+| 地理 | `geo within`、`geo outside` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported operators" }
+
+`is any of`と`is none of`演算子は文字列フィールドで使用でき、それぞれ最大10個の値をサポートしています。
+
 ## セレクションの作成 {#creating-a-selection}
 
 セレクションを作成するには、以下の手順に従います。
@@ -32,7 +48,7 @@ description: "このリファレンス記事では、Braze Campaignでデータ�
 2. **セレクション**タブを選択し、**セレクションを作成**をクリックします。
 3. セレクションに名前とオプションの説明を入力します。
 4. **Filter Field**で、フィルターしたいカタログの列を選択します。1,000文字を超える文字列フィールドはフィルターとして選択できません。
-5. 関連する演算子（例:「equals」や「does not equal」）と属性を選択して、フィルター基準の定義を完了します。
+5. 関連する演算子と属性を選択して、フィルター基準の定義を完了します。演算子のフィールドタイプ別の一覧については、[サポートされている演算子](#supported-operators)を参照してください。
 6. **Sort type**セクションで、結果のソート方法を決定します。デフォルトでは、結果は順不同で返されます。特定のフィールドでソートするには、**Randomize Sort Order**をオフにし、**Sort Field**と**Sort Order**（昇順または降順）を指定します。
 7. **Results limit**セクションで、結果数を入力します（最大50件）。
 8. **Create Selection**を選択します。

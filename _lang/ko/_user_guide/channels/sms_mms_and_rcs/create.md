@@ -240,18 +240,18 @@ Liquid를 사용할 계획이라면 선택한 개인화에 기본값을 포함�
 
 Braze는 항상 메시지를 보내기 전에 미리보기하고 테스트할 것을 권장합니다. **테스트** 탭으로 전환하여 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트 SMS, MMS 또는 RCS 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리볼 수 있습니다.
 
-![작성기의 테스트 탭에서 SMS 문구를 미리보는 모습. 프로필 섹션에서 이름 필드가 "James"로 설정되어 있습니다. 미리보기 섹션에서 SMS에 "Hi James, we appreciate your support!"라고 표시됩니다.]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 SMS가 몇 개의 세그먼트로 분할될 수 있는지 테스트하려면 [SMS 세그먼트 계산기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator)로 문구 길이를 테스트하세요.
 {% endalert %}
+
+![작성기의 테스트 탭에서 SMS 문구를 미리보는 모습. 프로필 섹션에서 이름 필드가 "James"로 설정되어 있습니다. 미리보기 섹션에서 SMS에 "Hi James, we appreciate your support!"라고 표시됩니다.]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 MMS의 경우 자산(이미지 및 메시지 본문)의 순서를 사용자 지정할 수 없습니다. 순서는 메시지를 수신하는 전화기에 따라 달라집니다.
 {% endalert %}
 
 {% alert note %}
-RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종 사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요.
+RCS 렌더링은 사용자의 운영체제, 기기 제조사, 통신사 및 메시징 앱(예: Google Messages vs. Apple Messages)에 의해 제어되므로 메시지 모양이 달라질 수 있습니다. Braze에 표시되는 미리보기는 최종 사용자가 수신하는 것과 정확히 일치하지 않을 수 있습니다. 가능하면 실제 기기에서 최종 렌더링을 확인하세요. iOS 기기에서의 RCS 렌더링에 대한 자세한 내용은 [iOS 기기에서 RCS 메시지가 정확하게 렌더링되지 않는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices)를 참조하세요.
 {% endalert %}
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs)를 참조하세요.

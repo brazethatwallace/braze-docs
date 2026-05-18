@@ -17,7 +17,7 @@ channel:
 
 ## 일반 {#general}
 
-### SMS API 오브젝트에서 `app_id`란 무엇인가요? {#what-is-an-appid-in-the-sms-api-object}
+### SMS API 오브젝트에서 `app_id`란 무엇인가요? {#what-is-an-app_id-in-the-sms-api-object}
 
 앱 식별자 API 키 또는 `app_id`는 워크스페이스 내 특정 앱에 활동을 연결하는 매개변수입니다. 워크스페이스 내에서 어떤 앱과 상호작용하는지를 지정합니다. 예를 들어, iOS 앱용 `app_id`, Android 앱용 `app_id`, 웹 통합용 `app_id`가 각각 있습니다.
 
@@ -180,6 +180,17 @@ MMS는 구독 그룹이 "MMS 활성화"로 간주될 때만 Braze 대시보드�
 또한, 원래 MMS가 활성화되지 않았던 짧은 코드의 활성화를 Twilio가 다시 승인해야 하는 특정 상황이 있습니다. 이 승인 프로세스는 몇 주가 걸릴 수 있습니다.
 
 ## RCS
+
+### iOS 기기에서 RCS 메시지가 정확하게 렌더링되지 않는 이유는 무엇인가요? {#why-doesnt-my-rcs-message-render-accurately-on-ios-devices}
+
+RCS 메시지는 운영체제 및 메시징 앱에 따라 iOS 기기에서 다르게 렌더링될 수 있습니다. iOS 기기에서는 다음과 같은 동작이 발생할 수 있습니다:
+
+- 동일한 대화 스레드에 있는 서로 다른 RCS 메시지의 추천 동작이 함께 그룹화되어 잘못된 순서로 표시될 수 있습니다.
+- 리치 카드 버튼 및 리치 카드 외부에 있는 추천 동작이 리치 카드 버튼이나 추천 동작을 탭한 후에도 계속 표시될 수 있습니다.
+
+{% alert note %}
+Braze는 작성한 RCS 페이로드를 전송하며, 메시징 클라이언트가 추천 동작의 순서, 그룹화 및 숨김을 제어합니다. 전송 전에 리치 카드와 추천 동작 또는 추천 답장을 사용하는 RCS 메시지를 Android 및 iOS 기기 모두에서 테스트하세요.
+{% endalert %}
 
 ### RCS로 사전 녹음된 음성 메일을 보낼 수 있나요? {#can-i-send-pre-recorded-voicemails-with-rcs}
 

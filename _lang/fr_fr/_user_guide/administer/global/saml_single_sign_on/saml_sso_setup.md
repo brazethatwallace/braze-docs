@@ -55,7 +55,7 @@ Sur la même page, saisissez les informations suivantes :
 | Condition requise | Détails |
 |---|---|
 | Nom SAML | Ce nom apparaîtra comme texte du bouton sur l'écran de connexion.<br>Il s'agit généralement du nom de votre fournisseur d'identité, comme « Okta ». |
-| URL cible | Cette URL est fournie après la configuration de Braze dans votre IdP.<br> Certains IdP l'appellent URL SSO ou endpoint SAML 2.0. |
+| URL cible | Cette URL est fournie après la configuration de Braze dans votre IdP.<br>Certains IdP l'appellent URL SSO ou endpoint SAML 2.0. |
 | Certificat | Le certificat `x.509` fourni par votre fournisseur d'identité.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer Braze" }
 
@@ -166,6 +166,12 @@ Demandez à l'utilisateur concerné de [vider le cache et les cookies de son nav
 ### Avez-vous configuré votre RelayState ? {#did-you-set-your-relaystate}
 
 Si vous obtenez l'erreur `ERROR_CODE_SSO_INVALID_RELAY_STATE`, votre RelayState pourrait être mal configuré ou inexistant. Si ce n'est pas déjà fait, vous devez configurer votre RelayState dans votre système de gestion IdP. Pour les étapes à suivre, consultez [Configuration de votre RelayState](#setting-up-your-relaystate).
+
+### La connexion SSO réussie vous ramène-t-elle à la page de connexion Braze ? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Cela peut se produire lorsque le RelayState n'est pas correctement configuré. Vérifiez que vous avez créé une clé API (dans **Paramètres** > **Clés API**) pour la connexion IdP et que vous avez défini cette clé API comme paramètre `RelayState` dans votre IdP. Le RelayState identifie le compte d'entreprise auquel vous vous connectez. Pour des instructions détaillées, consultez [Configuration de votre RelayState](#setting-up-your-relaystate).
+
+Si vous ne parvenez toujours pas à vous connecter, [contactez l'assistance Braze]({{site.baseurl}}/braze_support/) avec une trace SAML si possible. Pour obtenir de l'aide sur la capture d'une trace, consultez [Obtenir une trace SAML](#obtaining-a-saml-trace).
 
 ### L'utilisateur est-il bloqué dans une boucle de connexion entre Okta et Braze ? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 

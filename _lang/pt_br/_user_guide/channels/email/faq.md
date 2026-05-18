@@ -79,7 +79,7 @@ Para Campaigns de e-mail e Canvas, o botão de parar não interrompe imediatamen
 
 Embora a Braze não envie mais solicitações depois que a Campaign ou o Canvas é interrompido, a análise de dados ainda pode aumentar enquanto o ESP termina de processar as solicitações que já estão em andamento.
 
-### Por que estou vendo mais *Cliques Totais* do que *Aberturas Totais* na minha análise de dados de e-mail? {#why-am-i-seeing-more-total-clicks-than-total-opens-in-my-email-analytics}
+### Por que estou vendo mais *Cliques Totais* do que *Aberturas Totais* na minha análise de dados de e-mail? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
 *Aberturas Totais* é a contagem de quantas vezes o e-mail foi aberto pelos usuários, enquanto *Cliques Totais* é a contagem de quantas vezes os usuários clicaram dentro do e-mail entregue, incluindo qualquer tipo de clique, como cliques em links. Você pode estar vendo mais cliques do que aberturas por qualquer um dos seguintes motivos:
 
@@ -105,9 +105,9 @@ A Braze rastreia links de cancelamento de inscrição se o seguinte Liquid for u
 
 ### Por que estou vendo um número diferente de cancelamentos de inscrição do que cliques no meu link de cancelamento de inscrição? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-Se houver mais *Cancelamentos de inscrição* do que usuários que clicaram no link de cancelamento de inscrição no corpo do e-mail, as ações do cabeçalho list-unsubscribe geralmente explicam a diferença — um clique no cabeçalho list-unsubscribe conta como um *Cancelamento de inscrição*, mas não como um *Clique* no link do corpo.
+Se houver mais *Cancelamentos de inscrição* do que usuários que clicaram no link de cancelamento de inscrição no corpo do e-mail, o [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) geralmente explica a diferença. O list-unsubscribe é um caminho adicional de cancelamento de inscrição no cabeçalho do e-mail (não o link no corpo da mensagem). Quando um usuário cancela a inscrição dessa forma, isso conta como *Cancelamento de inscrição*, mas não conta como um clique na URL de cancelamento de inscrição rastreada no corpo.
 
-Se o número total de cliques no link de cancelamento de inscrição do corpo for maior que o número de *Cancelamentos de inscrição*, os usuários podem ter clicado no link mais de uma vez.
+Se o número total de cliques no link de cancelamento de inscrição do corpo for maior que o número de *Cancelamentos de inscrição*, os usuários podem ter clicado no link mais de uma vez — por exemplo, se cancelaram a inscrição, se inscreveram novamente e depois cancelaram a inscrição de novo, a análise de dados de e-mail pode registrar múltiplos cliques no detalhamento de cliques.
 
 Se um usuário clica no link de cancelamento de inscrição duas vezes (por exemplo, se cancelou a inscrição, se inscreveu novamente e depois cancelou a inscrição de novo), isso conta duas vezes na análise de dados de e-mail.
 
