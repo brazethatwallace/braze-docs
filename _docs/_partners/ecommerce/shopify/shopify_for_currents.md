@@ -6,14 +6,16 @@ page_type: partner
 tool: Currents
 search_tag: Partner
 alias: /shopify_for_currents/
+hidden: true
+noindex: true
 
 ---
 
 # Shopify for Currents
 
-> [Shopify](https://www.shopify.com/) is a leading global commerce company providing trusted tools to start, grow, market, and manage a business of any size. Shopify makes commerce better for everyone with a platform and services engineered for reliability while delivering a better shopping experience for consumers everywhere.
+> [Shopify](https://www.shopify.com/) is a leading global commerce company providing trusted tools to start, grow, market, and manage a business of any size. Shopify's platform and services are engineered for reliability while delivering a better shopping experience for consumers everywhere.
 
-The Braze integration with Shopify provides a powerful solution for eCommerce businesses looking to enhance their customer engagement and drive personalized marketing efforts. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can also connect data to Shopify to power internal reporting and better track last-touch attribution for purchases.
+The Braze integration with Shopify provides a powerful solution for eCommerce businesses looking to enhance their customer engagement and drive personalized marketing efforts. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can connect data to Shopify to power internal reporting and better track last-touch attribution for purchases.
 
 ## Prerequisites
 
@@ -21,21 +23,21 @@ The Braze integration with Shopify provides a powerful solution for eCommerce bu
 | ----------- | ----------- |
 | Currents | To export data into Shopify, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
 | Shopify store | Be sure that you've already [set up at least one Shopify store with Braze]({{site.baseurl}}/shopify_standard_integration/). |
-| Shopify store owner or staff member permissions | {::nomarkdown}<ul><li>Access to all General and Online Store settings.</li><li> Additional Admin Permissions:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+| Shopify store owner or staff member permissions | {::nomarkdown}<ul><li>Access to all <b>General</b> and <b>Online Store</b> settings.</li><li> Additional administrator permissions:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
 
 ### Step 1: Set up your Shopify Store
 
-If you have not already, follow [the instructions on this page]({{site.baseurl}}/shopify_standard_integration/) to set up at least one Shopify store with Braze.
+If you have not already, follow [Shopify standard integration setup]({{site.baseurl}}/shopify_standard_integration/) steps to set up at least one Shopify store with Braze.
 
 ### Step 2: Create Braze Current
 
-1. In Braze, navigate to **Partner Integrations** > **Currents** > **+ Create New Current** > **Shopify Export**.
+1. In Braze, go to **Partner Integrations** > **Currents** > **+ Create New Current** > **Shopify Export**.
 2. Provide an integration name and contact email.
-3. In the **Credentials** section, select the Shopify store that you previously created in **Step 1**.
-4. Next, select the events you want to track; a list of available events is provided.
-5. Lastly, click **Launch Current**
+3. In the **Credentials** section, select the Shopify store that you set up in [Step 1](#step-1-set-up-your-shopify-store).
+4. Select the events you want to track. A list of available events is provided.
+5. Seelct **Launch Current**
 
 ![The Braze Shopify Currents page. This page includes fields for integration name, contact email, and Shopify Store.]({% image_buster /assets/img/Shopify/shopify_currents.png %})

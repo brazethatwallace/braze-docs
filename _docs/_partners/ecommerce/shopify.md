@@ -33,9 +33,6 @@ guide_featured_list:
 - name: Unique Discount Codes
   link: /docs/shopify_discount_codes/
   image: /assets/img/braze_icons/tag-01.svg
-- name: Shopify for Currents
-  link: /docs/shopify_for_currents/
-  image: /assets/img/braze_icons/building-01.svg
 
 guide_menu_title: "Other articles"
 guide_menu_list:
