@@ -19,8 +19,12 @@ import subprocess
 import sys
 from collections import defaultdict
 from collections.abc import Iterable
+from datetime import datetime
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
+
+_PHASE2_BRANCH_TZ = ZoneInfo("America/New_York")
 
 try:
     import yaml
@@ -460,34 +464,15 @@ def _run_rule_verification(
     return failed_required, lines
 
 
-def _open_pr_exists_for_rule(*, cwd: Path, rule_id: str) -> bool:
-    """Avoid stacking duplicate weekly drafts for the same rule."""
-    prefix = f"support-analyzer/phase2-{rule_id}-"
-    raw = _run_capture(
-        [
-            "gh",
-            "pr",
-            "list",
-            "--base",
-            "develop",
-            "--state",
-            "open",
-            "--limit",
-            "500",
-            "--json",
-            "headRefName",
-        ],
-        cwd=cwd,
-    )
-    try:
-        items = json.loads(raw or "[]")
-    except json.JSONDecodeError:
-        return False
-    for item in items:
-        ref = item.get("headRefName") or ""
-        if ref.startswith(prefix):
-            return True
-    return False
+def _phase2_run_date_ymd() -> str:
+    """Eastern date stamp for branch names (matches digest PR workflow timezone)."""
+    return datetime.now(_PHASE2_BRANCH_TZ).strftime("%Y-%m-%d")
+
+
+def _phase2_branch_name(*, rule_id: str, run_id: str, ymd: str | None = None) -> str:
+    """Unique branch per workflow run; date segment aids triage in the GitHub UI."""
+    day = ymd or _phase2_run_date_ymd()
+    return f"support-analyzer/phase2-{rule_id}-{day}-{run_id}"
 
 
 def main() -> None:
@@ -693,8 +678,10 @@ def _phase2_process_rules(
             continue
 
         pr_cfg = rule.get("pr") or {}
-        branch = f"support-analyzer/phase2-{rid}-{run_id}"
-        title = pr_cfg.get("title") or f"[SA] Phase 2 — {rid}"
+        ymd = _phase2_run_date_ymd()
+        branch = _phase2_branch_name(rule_id=rid, run_id=run_id, ymd=ymd)
+        title_base = pr_cfg.get("title") or f"[SA] Phase 2 — {rid}"
+        title = title_base if ymd in title_base else f"{title_base} — {ymd}"
         draft = pr_cfg.get("draft", True)
         labels = pr_cfg.get("labels") or ["support analyzer"]
         note = (pr_cfg.get("verification_note") or "").strip()
@@ -746,13 +733,6 @@ Automated **Phase 2** doc proposal from `support_analyzer_phase2_rules.yml` (rul
 
         if args.dry_run:
             print(f"[dry-run] would create branch {branch} with {len(pending_files)} file(s)", file=sys.stderr)
-            continue
-
-        if _open_pr_exists_for_rule(cwd=root, rule_id=rid):
-            print(
-                f"rule {rid}: skip — an open Phase 2 PR already exists for this rule on develop",
-                file=sys.stderr,
-            )
             continue
 
         _run(["git", "fetch", "origin", "develop"], cwd=root)
