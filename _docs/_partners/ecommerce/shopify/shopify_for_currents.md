@@ -15,6 +15,10 @@ noindex: true
 
 > [Shopify](https://www.shopify.com/) is a leading global commerce company providing trusted tools to start, grow, market, and manage a business of any size. Shopify's platform and services are engineered for reliability while delivering a better shopping experience for consumers everywhere.
 
+{% alert important %}
+This integration is currently in beta. For more information, contact your Braze customer success manager.
+{% endalert %}
+
 The Braze integration with Shopify provides a powerful solution for eCommerce businesses looking to enhance their customer engagement and drive personalized marketing efforts. With [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), you can connect data to Shopify to power internal reporting and better track last-touch attribution for purchases.
 
 ## Prerequisites
