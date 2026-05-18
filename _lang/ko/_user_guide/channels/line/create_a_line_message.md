@@ -23,7 +23,7 @@ LINE 메시지를 만들기 전에 다음을 수행하세요:
 2. 정책, 제한 사항 및 콘텐츠 규칙을 확인하세요.
 3. [LINE 연결을 설정하세요]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-Braze에서 LINE 메시지를 발송하면 계정의 메시지 크레딧이 차감됩니다.
+Braze에서 LINE 메시지를 발송하면 계정의 메시지 또는 액션 크레딧이 차감됩니다.
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
@@ -80,9 +80,9 @@ Liquid를 사용할 계획이라면 개인화에 기본값을 포함해야 합�
 
 ## 3단계: 메시지 미리보기 및 테스트 {#step-3-preview-and-test-your-message}
 
-**테스트** 탭으로 전환하여 콘텐츠 테스트 그룹 또는 개별 사용자에게 테스트 LINE 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리 볼 수 있습니다.
+**Test** 탭으로 전환하여 콘텐츠 테스트 그룹 또는 개별 사용자에게 테스트 LINE 메시지를 보내거나, Braze에서 직접 사용자로서 메시지를 미리 볼 수 있습니다.
 
-![테스트 메시지 미리보기가 표시된 '테스트' 탭.]({% image_buster /assets/img/line/test_preview.png %})
+![테스트 메시지 미리보기가 표시된 "Tests" 탭.]({% image_buster /assets/img/line/test_preview.png %})
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=line)를 참조하세요.
 

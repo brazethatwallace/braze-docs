@@ -2,7 +2,7 @@
 nav_title: 보고서
 article_title: LINE 보고서
 page_order: 21
-description: "이 참조 문서에서는 Braze에서 사용되는 LINE 측정기준과 LINE Campaigns에서 이를 확인하는 방법을 다룹니다."
+description: "이 참조 문서에서는 Braze에서 사용되는 LINE 측정기준과 LINE Campaign에서 이를 확인하는 방법을 다룹니다."
 page_type: reference
 channel:
  - LINE
@@ -41,7 +41,7 @@ LINE의 열람 및 클릭 관련 통계는 특정 날짜에 20명 이상의 사�
 
 ![두 배리언트에 대한 측정기준을 보여주는 'LINE Performance' 패널.]({% image_buster /assets/img/line/line_performance.png %})
 
-보기를 간소화하려면 **\+ Add/Remove Columns**를 선택하고 원하는 측정기준을 해제합니다. 기본값으로 모든 측정기준이 표시됩니다.
+보기를 간소화하려면 **+ Add/Remove Columns**를 선택하고 원하는 측정기준을 해제합니다. 기본값으로 모든 측정기준이 표시됩니다.
 
 #### LINE 측정기준 {#line-metrics}
 
@@ -54,7 +54,7 @@ LINE의 열람 및 클릭 관련 통계는 특정 날짜에 20명 이상의 사�
 | 총 열람 수 | 하루 최소 20건의 메시지 임계값에 도달한 후 사용자가 발송된 LINE 메시지를 열람한 총 횟수입니다. |
 | 고유 클릭 수 | 하루 최소 20건의 메시지 임계값에 도달한 후 사용자가 클릭한 LINE 메시지의 총 수입니다. |
 | 총 클릭 수 | 하루 최소 20건의 메시지 임계값에 도달한 후 사용자가 발송된 LINE 메시지를 클릭한 총 횟수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE metrics" }
 
 ### 과거 성과 {#historical-performance}
 

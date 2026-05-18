@@ -35,7 +35,7 @@ Campaigns 및 Canvases에서 사용할 수 있는 상태는 다음과 같습니�
 | 아카이브 | 아카이브된 Campaigns 및 Canvases는 더 이상 발송되지 않는 메시지입니다. 이러한 Campaigns 및 Canvases는 [**홈**]({{site.baseurl}}/user_guide/analytics/dashboards/home/) 및 [**매출**]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) 페이지의 통계 그래프에서도 제거됩니다. |
 | 중지됨 | 중지된 Campaigns 및 Canvases는 일시 중지된 상태이지만 여전히 편집할 수 있습니다. Canvas를 재개하려면 Canvas 빌더의 **Summary** 단계로 이동하여 **Resume Canvas**를 선택하세요. Campaigns의 경우 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택한 다음 **Resume**을 선택하세요. 자세한 내용은 [중지된 Canvas 동작](#stopped-canvas-behavior)을 참조하세요. |
 | 유휴 | Campaign 또는 Canvas가 더 이상 메시지를 발송하지 않을 때, Braze는 Campaigns 및 Canvases 목록을 정리하고 관리할 수 있도록 유휴 상태를 할당합니다. 자동으로 중지될 Campaigns 또는 Canvases와 관련 중지 날짜를 확인할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available statuses" }
 
 ### 중지된 Canvas 동작 {#stopped-canvas-behavior}
 

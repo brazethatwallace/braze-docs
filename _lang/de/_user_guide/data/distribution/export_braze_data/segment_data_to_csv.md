@@ -12,14 +12,14 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Segmentdaten nach 
 > Auf dieser Seite erfahren Sie, wie Sie einen CSV-Export von Nutzerdaten eines Segments anfragen können und welche Daten im Export enthalten sind.
 
 {% alert note %}
-CSV-Exportoptionen werden im Dropdown-Menü **User Data** nur für Unternehmensnutzer:innen angezeigt, die über die [Berechtigung „Nutzerdaten als CSV exportieren“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für diesen Workspace verfügen.
+CSV-Exportoptionen werden im Dropdown-Menü **User Data** nur für Unternehmensnutzer:innen angezeigt, die über die [Berechtigung „Nutzerdaten exportieren“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) für diesen Workspace verfügen.
 {% endalert %}
 
 Um Segmentdaten in eine CSV-Datei zu exportieren, wählen Sie bei der Bearbeitung eines Segments das Dropdown-Menü **User Data** aus und wählen Sie, ob Sie die Nutzerdaten oder die E-Mail-Adressen für das Segment exportieren möchten.
 
 ![Abschnitt „Segmentdetails“ mit dem Dropdown-Menü „User Data“ und Exportoptionen.]({% image_buster /assets/img_archive/csvexport.png %})
 
-Sie können einen CSV-Export auch von der Hauptseite **Segments** aus anfragen, indem Sie das Dropdown-Menü <i class="fas fa-gear" aria-label="Einstellungen"></i> **Settings** für ein Segment auswählen:
+Sie können einen CSV-Export auch von der Hauptseite **Segments** aus anfragen, indem Sie das Dropdown-Menü <i class="fas fa-gear"></i> **Settings** für ein Segment auswählen:
 
 ![Dropdown-Menü „Settings“ auf der Hauptseite „Segments“.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -91,7 +91,7 @@ Abhängig von Ihrer Auswahl ist Folgendes in Ihrem Export enthalten.
 | windows_ad_ids              | Windows-Werbe-IDs                       |
 | Custom events               | Basierend auf der Auswahl beim Export                             |
 | Custom attributes           | Basierend auf der Auswahl beim Export                             |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzerdaten als CSV exportieren" }
 
 {% alert note %}
 Wenn Sie Nutzerdaten aus einem Canvas-Schritt exportieren, enthält die CSV alle Nutzer:innen, die sich im Laufe der Lebensdauer des Canvas-Schritts in diesem Schritt befunden haben. Sie können den Export nicht auf einen Datumsbereich oder ein anderes Zeitfenster beschränken. Informationen zur Durchführung dieser Exporte finden Sie unter [Canvas-Daten exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
@@ -108,7 +108,7 @@ Wenn Sie Nutzerdaten aus einem Canvas-Schritt exportieren, enthält die CSV alle
 | unsubscribed_from_emails_at | Datum der Abmeldung von E-Mails |
 | opted_in_to_emails_at       | Datum des Opt-in für E-Mails      |
 | user_aliases                | Nutzer-Aliase, falls vorhanden   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Mail-Adressen als CSV exportieren" }
 
 {% alert tip %}
 Hilfe zu CSV- und API-Exporten finden Sie in unserem Artikel zur [Fehlerbehebung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).

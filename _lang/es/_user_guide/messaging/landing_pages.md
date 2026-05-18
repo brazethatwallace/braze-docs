@@ -33,11 +33,11 @@ Antes de poder acceder, crear y publicar páginas de inicio, necesitas [permisos
 
 El número de páginas de inicio publicadas y dominios personalizados que puedes usar depende de tu tipo de plan: gratuito o de pago (incremental).
 
-| Característica                                                                                                   | Nivel gratuito     | Nivel de pago (incremental)     |
+| Característica | Nivel gratuito | Nivel de pago (incremental) |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| Páginas de inicio publicadas                                                                 | Cinco por empresa | 20 adicionales |
-| Dominios personalizados          | Uno por empresa | Cinco adicionales |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| Páginas de inicio publicadas | Cinco por empresa | 20 adicionales |
+| Dominios personalizados | Uno por empresa | Cinco adicionales |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de plan" }
 
 ## Añadir Google Tag Manager a una página de inicio {#adding-google-tag-manager-to-a-landing-page}
 
@@ -63,6 +63,12 @@ Para más detalles sobre la implementación de Google Tag Manager, consulta la [
 ### ¿Cuál es el tamaño máximo para las páginas de inicio? {#whats-the-maximum-size-for-landing-pages}
 
 El tamaño del cuerpo de la página de inicio puede ser de hasta 500 KB.
+
+### ¿Pueden las páginas de inicio gestionar escenarios de alto tráfico? {#can-landing-pages-handle-high-traffic-scenarios}
+
+Sí, las páginas de inicio no personalizadas pueden gestionar escenarios de alto tráfico de forma eficaz. Cuando se solicita por primera vez una página de inicio no personalizada, Braze la almacena en caché a través de Cloudflare. Esto significa que todas las solicitudes posteriores del mismo enlace se sirven desde la caché, por lo que el rendimiento no se degrada en solicitudes de alto volumen. Esta caché dura 24 horas, y las vistas de páginas en caché no cuentan para los límites de velocidad.
+
+Para páginas de inicio personalizadas (que usan personalización con Liquid), los límites de velocidad se aplican a las solicitudes no almacenadas en caché. Para mantener un rendimiento óptimo, consulta [Consideraciones de personalización]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages/#personalization-considerations).
 
 ### ¿Hay algún requisito técnico para publicar una página de inicio? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 

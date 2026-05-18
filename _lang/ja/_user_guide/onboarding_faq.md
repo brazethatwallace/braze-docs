@@ -84,7 +84,7 @@ Users
 | 購読中 | Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュサブスクリプション状態です。 |
 | オプトイン | ユーザーがプッシュ通知を受け取ることを明示的に希望した状態です。Brazeは、ユーザーがOSレベルのプッシュプロンプトを承認した場合に、ユーザーのオプトイン状態を自動的に `Opted-In` に移動します。<br><br>これはAndroid 12以下のユーザーには適用されません。|
 | 配信停止 | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除した状態です。デフォルトで、Brazeのプッシュキャンペーンは `Subscribed` または `Opted-in` のユーザーのみをターゲットにします。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
 
 {% endapi %}
 {% api %}

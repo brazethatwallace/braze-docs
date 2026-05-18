@@ -55,7 +55,7 @@ La configuración de una sincronización de catálogos sigue de cerca el proceso
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
 3. Si tu cuenta de Snowflake tiene políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio CDI pueda conectarse. Para ver una lista de IP, consulta la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-4. En el dashboard de Braze, ve a **Socios tecnológicos** > **Snowflake** y crea una nueva sincronización.
+4. En el dashboard de Braze, ve a **Technology Partners** > **Snowflake** y crea una nueva sincronización.
 5. Introduce los detalles de conexión (o reutiliza las credenciales existentes) y la tabla de origen.
 6. Continúa con el paso 2 del flujo de configuración, selecciona el tipo de sincronización "Catalogs" e introduce el nombre de la integración y la planificación. Ten en cuenta que el nombre de la integración debe **coincidir exactamente** con el nombre del catálogo que creaste anteriormente.
 7. Elige una frecuencia de sincronización y continúa con el siguiente paso.
@@ -116,6 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | OBLIGATORIO |
 | ID | STRING | OBLIGATORIO |
 | DELETED | BOOLEAN | OPCIONAL |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT o MAP | OBLIGATORIO |
 | ID | STRING | OBLIGATORIO |
 | DELETED | BOOLEAN | NULABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -202,7 +204,7 @@ Crea archivos de origen en S3 en formato JSON o CSV. Cada archivo debe incluir l
 | `PAYLOAD` | Sí | Una cadena JSON de los campos que se van a sincronizar con el elemento de catálogo en Braze. |
 | `DELETED` | Opcional | Cuando se establece en `true`, se elimina el elemento de catálogo correspondiente del catálogo. |
 | `UPDATED_AT` | *No compatible* | El almacenamiento de archivos no admite columnas `UPDATED_AT`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 Los nombres de archivo deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para ayudar a garantizar la unicidad.

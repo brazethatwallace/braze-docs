@@ -29,7 +29,7 @@ La version minimale du SDK conforme à la norme WCAG 2.1 est proche de la versio
 | **3.1.2** | Mineur | Texte alternatif par défaut pour les images |
 | **2.4.1** | **Majeur** | HTML sémantique (`h1` ou `button`), attributs ARIA, navigation au clavier, gestion du focus |
 | **2.0.5** | Mineur | Gestion du focus, navigation au clavier, étiquettes |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
 
 ## Fonctionnalités d'accessibilité prises en charge {#supported-accessibility-features}
 

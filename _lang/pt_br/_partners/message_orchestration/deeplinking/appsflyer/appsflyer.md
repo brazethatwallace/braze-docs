@@ -27,7 +27,7 @@ Também é possível passar seus públicos da AppsFlyer (coortes) diretamente pa
 | SDK da AppsFlyer | Além do SDK da Braze obrigatório, você deve instalar o [SDK da AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started).
 | Configuração completa do domínio de e-mail | Você deve ter concluído a [etapa de configuração de IP e domínio]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) para configurar seu e-mail durante a integração com a Braze. |
 | Certificado SSL | Seu [certificado SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) deve estar configurado. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -128,7 +128,7 @@ Se sua integração foi bem-sucedida, a Braze mapeia todos os dados de instalaç
 | `campaign` | Campaign atribuída |
 | `af_adset` | Grupo de anúncios atribuído |
 | `af_ad` | Anúncio atribuído |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 Você pode segmentar sua base de usuários por dados de atribuição no dashboard da Braze usando os filtros de atribuição de instalação.
 

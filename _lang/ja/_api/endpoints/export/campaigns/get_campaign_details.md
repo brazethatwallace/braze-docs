@@ -32,10 +32,10 @@ Canvasデータを取得する場合は、[Canvasの詳細のエクスポート]
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 必須 | 文字列 | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br> API キャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページ、またはダッシュボードの**キャンペーンの詳細**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
+| `campaign_id` | 必須 | 文字列 | [キャンペーン API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。<br><br> API キャンペーンの `campaign_id` は、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページ、またはダッシュボードの**Campaign Details**ページで確認できます。または、[キャンペーンリストのエクスポートエンドポイント](#campaign-list-endpoint)を使用することもできます。 |
 | `post_launch_draft_version` | オプション | ブール値 | 開始後の下書きがあるメッセージの場合、これを `true` に設定すると、利用可能な下書きの変更が表示されます。デフォルトは `false` です。 |
 | `include_has_translatable_content` | オプション | ブール値 | `true` に設定すると、API レスポンスに各メッセージの `has_translatable_content` フィールドが含まれます。デフォルトは `false` です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 {% raw %}
@@ -92,7 +92,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Email %}
+{% tab メール %}
 
 ```json
 {
@@ -114,7 +114,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab In-app messages %}
+{% tab アプリ内メッセージ %}
 
 レスポンスの形式は、アプリ内メッセージのタイプによって異なります。アンケートのアプリ内メッセージは `type` と `data` フィールドを返します。その他のアプリ内メッセージタイプ（スライドアップ、モーダル、フルスクリーン）は `name`、`message`、`extras` フィールドを返します。
 
@@ -158,7 +158,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Push %}
+{% tab プッシュ %}
 
 ```json
 {
@@ -233,7 +233,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Control messages %}
+{% tab コントロールメッセージ %}
 
 ```json
 {
@@ -252,7 +252,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 
 {% tabs %}
-{% tab Clicks email %}
+{% tab メールのクリック %}
 
 ```json
 {
@@ -262,7 +262,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Opens email %}
+{% tab メールの開封 %}
 
 ```json
 {
@@ -272,7 +272,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Makes purchase (any purchase) %}
+{% tab 購入（任意の購入） %}
 
 ```json
 {
@@ -282,7 +282,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Makes purchase (specific product) %}
+{% tab 購入（特定の製品） %}
 
 ```json
 {
@@ -293,7 +293,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Performs custom event %}
+{% tab カスタムイベントの実行 %}
 
 ```json
 {
@@ -305,7 +305,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 
 {% endtab %}
-{% tab Upgrades app %}
+{% tab アプリのアップグレード %}
 
 ```json
 {
@@ -315,7 +315,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 {% endtab %}
-{% tab Uses app %}
+{% tab アプリの使用 %}
 
 ```json
 {

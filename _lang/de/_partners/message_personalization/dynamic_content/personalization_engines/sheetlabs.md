@@ -14,20 +14,20 @@ _Diese Integration wird von Sheetlabs gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Sheetlabs und Braze erlaubt Ihnen die Verwendung von [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um Sheetlabs-APIs in Ihre Braze-Marketingkampagnen einzubinden. Diese Funktion wird in der Regel verwendet, um eine Brücke zwischen einem Google Spreadsheet (das direkt vom Marketing-Team aktualisiert wird) und Braze-Templates zu schlagen. So können Sie mit Braze-Templates mehr erreichen, z. B. Übersetzungen oder größere Mengen angepasster Attribute.
+Die Integration von Sheetlabs und Braze erlaubt Ihnen die Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um Sheetlabs-APIs in Ihre Braze-Marketingkampagnen einzubinden. Diese Funktion wird in der Regel verwendet, um eine Brücke zwischen einem Google Spreadsheet (das direkt vom Marketing-Team aktualisiert wird) und Braze-Templates zu schlagen. So können Sie mit Braze-Templates mehr erreichen, z. B. Übersetzungen oder größere Mengen angepasster Attribute.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Sheetlabs-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Sheetlabs-Konto](https://sheetlabs.com/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
 Die Integration von Braze und Sheetlabs ermöglicht die folgenden Anwendungsfälle:
 
-1. **Trennung des Marketer-Zugriffs vom Zugriff auf Braze-Kampagnen**: Einige Teams möchten vermeiden, dass alle Mitarbeitenden Zugriff auf die direkte Konfiguration von Braze-Templates und -Inhalten haben. Stattdessen wollen sie, dass ihre Mitarbeitenden Marketing-Inhalte in einer Tabellenkalkulation aktualisieren. Sheetlabs bildet die Brücke zwischen Tabellenkalkulationen und Braze und kann in Realtime aktualisiert werden.
+1. **Trennung des Marketer-Zugriffs vom Zugriff auf Braze-Campaigns**: Einige Teams möchten vermeiden, dass alle Mitarbeitenden Zugriff auf die direkte Konfiguration von Braze-Templates und -Inhalten haben. Stattdessen wollen sie, dass ihre Mitarbeitenden Marketing-Inhalte in einer Tabellenkalkulation aktualisieren. Sheetlabs bildet die Brücke zwischen Tabellenkalkulationen und Braze und kann in Realtime aktualisiert werden.
 2. **Übersetzungen**: Braze-Templates unterstützen von Haus aus keine Übersetzungen. Wenn Sie mehrere Sprachen unterstützen möchten, müssen Sie mehrere Templates erstellen. Wenn Sie Sheetlabs in Verbindung mit Braze verwenden, können Sie ein einziges Braze-Template verwenden, das in mehrere Sprachen übersetzt ist.
 3. **Angepasste Attribute erweitern**: Braze bietet eine bestimmte Anzahl angepasster Attribute, die konfiguriert werden können. Wenn Sie Sheetlabs in Verbindung mit Braze verwenden, können Sie über diese anfängliche Zuteilung hinaus weitere angepasste Attribute hinzufügen.
 
@@ -52,7 +52,7 @@ Gehen Sie als Nächstes in Sheetlabs zu **APIs > Create API** und geben Sie Ihre
 
 Jetzt sollten Sie in der Lage sein, über einen Link wie diesen auf Ihre API zuzugreifen:<br> [`https://sheetlabs.com/ACME/email1_translations?country=en`](https://sheetlabs.com/ACME/email1_translations?country=en).
 
-### 3. Schritt: Verwenden Sie die API in Braze Connected Content {#step-3-use-the-api-in-braze-connected-content}
+### 3. Schritt: Verwenden Sie die API in Braze Connected-Content {#step-3-use-the-api-in-braze-connected-content}
 
 Da Ihre API nun zugänglich ist, können Sie sie in Ihren Connected-Content-Aufrufen verwenden. Hier sehen Sie ein Beispiel dafür, wie ein Übersetzungs-Template aussehen könnte:
 

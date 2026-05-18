@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### Beispiel eines Abfrage-Payloads {#example-query-payload}
+#### Beispiel eines Abfrage-Payloads
 
 ```json
 {

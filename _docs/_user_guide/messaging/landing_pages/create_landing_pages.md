@@ -41,7 +41,7 @@ We suggest following these best practices:
 | Meta description | A text snippet that displays in search results. | Use between 140-160 characters.|
 | Favicon | The icon that appears next to the site title on the browser tab. | Use an aspect ratio of 1:1, and a supported file type of PNG, JPEG, or ICO. |
 | Page URL | This is URL path to your landing page. This value is also referenced when using [landing page liquid tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) that you can embed in a message to automatically identify when they submit your form.| This value must be unique across your workspace. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
 
 ### Step 3: Customize the page
 
@@ -68,7 +68,7 @@ You can use these blocks to add content and customize the layout of your landing
 | Link        | A hyperlink that users can click to navigate to a specified URL. Can be embedded within text or standalone. |
 | Spacer      | An invisible block that adds vertical spacing between elements for improved layout and readability. |
 | Custom Code | A block that allows you to insert and run custom HTML, CSS, or JavaScript for advanced customization. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
 
 ##### Span text
 
@@ -89,7 +89,7 @@ You can use these blocks to create a form that links user-submitted data to thei
 | Dropdown      | Users can select an item from a pre-defined list. You can add any custom attribute strings to the list. |
 | Checkbox      | If a user checks the box, the block's attribute is set to `true`. If left unchecked, it's attribute is set to `false`. |
 | Checkbox Group| Users can select from multiple choices presented. Values are either set or added to a defined array custom attribute. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 After creating a landing page with a form, be sure to embed its [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) into your message. With this tag, Braze can automatically identify and update existing user profiles when they submit the form.

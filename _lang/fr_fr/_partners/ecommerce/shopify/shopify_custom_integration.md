@@ -306,9 +306,9 @@ export async function loader(args) {
 }
 ```
 
-### Étape 5 : Ajouter le suivi des événements Produit consulté et Panier mis à jour {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
+### Étape 5 : Ajouter le suivi des événements Product Viewed et Cart Updated {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
 
-#### Événements Produit consulté {#product-viewed-events}
+#### Événements Product Viewed {#product-viewed-events}
 
 1. Ajoutez cette fonction à votre fichier `Tracking.jsx` :
 
@@ -388,7 +388,7 @@ async function loadCriticalData({context, params, request}) {
 }
 ```
 
-#### Événements Panier mis à jour {#cart-updated-events}
+#### Événements Cart Updated {#cart-updated-events}
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify cart token alias' %}
 
@@ -613,7 +613,8 @@ Avec les SDK de Braze, vous pouvez suivre des événements personnalisés ou des
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Étape 5 : Configuration personnalisée du suivi des données (avancée)" style="width: 100%;">
+  <caption>Étape 5 : Configuration personnalisée du suivi des données (avancée)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Événements personnalisés</th>
@@ -662,7 +663,7 @@ Les étapes suivantes dépendent de votre sélection d'ID externe :<br><br>
 - **Si vous avez sélectionné l'ID client Shopify, l'e-mail ou l'e-mail haché :** Passez directement à l'étape 6.4 en ignorant les étapes 6.1 à 6.3.
 {% endalert %}
 
-#### Étape 6.1 : Créer le métafield `braze.external_id` {#step-61-create-the-brazeexternalid-metafield}
+#### Étape 6.1 : Créer le métafield `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Dans le panneau d'administration de Shopify, accédez à **Settings** > **Metafields**.
 2. Sélectionnez **Customers** > **Add definition**.
@@ -689,7 +690,7 @@ Braze envoie les paramètres suivants à votre endpoint :
 | shopify_customer_id  | Oui      | Chaîne de caractères    | L'ID du client Shopify.                                         |
 | shopify_storefront   | Oui      | Chaîne de caractères    | Le nom de la vitrine pour la requête. Ex : `<storefront_name>.myshopify.com` |
 | email_address        | Non       | Chaîne de caractères    | L'adresse e-mail de l'utilisateur connecté. <br><br>Ce champ peut être absent dans certains scénarios de webhook. La logique de votre endpoint doit gérer les valeurs nulles (par exemple, récupérer l'e-mail via shopify_customer_id si votre logique interne l'exige). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Spécifications de l'endpoint" }
 
 ##### Exemple d'endpoint {#example-endpoint}
 

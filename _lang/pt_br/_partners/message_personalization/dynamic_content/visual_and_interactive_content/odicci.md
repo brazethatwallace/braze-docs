@@ -57,7 +57,7 @@ Antes de começar, você precisará do seguinte:
 ### Etapa 2: Obter sua chave da API REST da Braze {#step-2-obtain-your-braze-rest-api-key}
 
 1. Faça login na sua conta Braze.
-2. Acesse **Developer Console > REST API Keys**.
+2. Acesse **Console de desenvolvedor > REST API Keys**.
 3. Crie uma nova chave de API ou copie uma existente com a permissão `users.track`.
 
 ### Etapa 3: Ativar a integração no nível da experiência {#step-3-activate-the-integration-at-the-experience-level}

@@ -19,19 +19,19 @@ tool: Reports
 
 以下に、計算式を使用して検出できる行動パターンの例をいくつか示します。
 
-- **ライドシェアアプリ:** ユーザーが乗車をキャンセルしたときのカスタムイベントがある場合、キャンセルされた乗車数 / DAUの関数を設定して、特定のユーザー **Segments** が他よりも多くの乗車をキャンセルする傾向があるかどうかを確認できます。
-- **eコマースアプリ:** 特定の商品ID / MAUの購入に対する関数を設定することで、すべてのプロモーションをBrazeで追跡できなくても、最近プロモーションした商品の人気を **Segments** 間で比較することができます。
-- **広告を使用したメディアアプリ:** ユーザー体験が動画やオーディオクリップの間にある広告によって中断される場合、広告途中の離脱をカスタムイベントとして記録し、広告途中の離脱 / DAUの比率を計算することで、広告なしのプレミアムサブスクリプションの **Campaign** でターゲットにする最適な **Segments** を見つけることができます。
+- **ライドシェアアプリ:** ユーザーが乗車をキャンセルしたときのカスタムイベントがある場合、キャンセルされた乗車数 / DAUの関数を設定して、特定のユーザーSegmentsが他よりも多くの乗車をキャンセルする傾向があるかどうかを確認できます。
+- **eコマースアプリ:** 特定の商品ID / MAUの購入に対する関数を設定することで、すべてのプロモーションをBrazeで追跡できなくても、最近プロモーションした商品の人気をSegments間で比較することができます。
+- **広告を使用したメディアアプリ:** ユーザー体験が動画やオーディオクリップの間にある広告によって中断される場合、広告途中の離脱をカスタムイベントとして記録し、広告途中の離脱 / DAUの比率を計算することで、広告なしのプレミアムサブスクリプションのCampaignでターゲットにする最適なSegmentsを見つけることができます。
 
 ## 計算式の作成 {#creating-formulas}
 
 計算式には、ダッシュボードの[ホーム]({{site.baseurl}}/user_guide/analytics/dashboards/home/)、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/)、[カスタムイベントレポート]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)の各ページにある統計パネルからアクセスできます。このパネルを表示するには、**Performance Over Time** チャートに移動し、**Statistics For** ドロップダウンを **KPI Formulas** に変更してから、少なくとも1つのKPI計算式を選択してチャートに入力します。
 
-![Brazeダッシュボードで KPI 計算式の統計を表示する]({% image_buster /assets/img_archive/kpi_forms.png %})
+![BrazeダッシュボードでKPI計算式の統計を表示する]({% image_buster /assets/img_archive/kpi_forms.png %})
 
 新しい計算式を作成するには、次の手順に従います。
 
-1. 適切なダッシュボード（**Home**、**Revenue Report**、または**Custom Events Report**）に移動します。
+1. 適切なダッシュボード（**Home**、**Revenue Report**、または **Custom Events Report**）に移動します。
 2. **Manage KPI Formulas** を選択します。
 3. 計算式の名前を入力します。
 4. 該当する分子と分母を選択します。
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | セッション | DAU |
 | | Segmentサイズ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
 
 ### 収益ダッシュボード {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | 購入（すべて） | DAU |
 | 選択した購入（ギフトカードや商品IDなど） | MAU |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
 
 ### カスタムイベントダッシュボード {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | カスタムイベント数 | MAU |
 |  | DAU |
-|  | Segmentサイズ（[分析トラッキング]({{site.baseurl}}/viewing_and_understanding_segment_data/)が有効な **Segments** のみ使用できます） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+|  | Segmentサイズ（[分析トラッキング]({{site.baseurl}}/viewing_and_understanding_segment_data/)が有効なSegmentsのみ使用できます） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }

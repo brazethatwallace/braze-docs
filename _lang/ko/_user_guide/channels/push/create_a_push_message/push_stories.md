@@ -9,14 +9,14 @@ channel:
 
 ---
 
-# Push Stories
+# Push Stories {#push-stories}
 
 > Push Stories는 Instagram과 Facebook에서 대중화된 사진 캐러셀 기능을 활용하여 마케터가 푸시 내에서 풍부하고 일관된 스토리를 전달하는 캐러셀 페이지를 만들 수 있게 해줍니다. 이 페이지는 이미지, 클릭 동작, 제목, 설명으로 구성됩니다. 사용자는 이 페이지를 스와이프하며 여러분이 전달하는 스토리를 볼 수 있습니다.
 
 | Android 예시 (확장됨) | iOS 예시 (확장됨) |
 | :-----: | :----------: |
 | ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
 iOS SDK 버전 3.13.0 이상에서는 SDK가 이미지를 다운로드하는 방식이 변경되어 첫 번째 이미지의 썸네일이 푸시의 축소된 보기에 표시되지 않습니다. 메시지 문구에서 사용자가 이미지를 보려면 푸시를 확장하도록 안내해야 합니다.

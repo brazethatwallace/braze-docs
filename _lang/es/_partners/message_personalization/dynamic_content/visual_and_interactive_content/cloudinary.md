@@ -26,7 +26,7 @@ Son posibles métodos de integración más avanzados, como el uso de [Contenido 
 | Requisitos     | Descripción |
 |-----------------------|-----------------|
 | Cuenta de Cloudinary  | Se requiere una [cuenta de Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aprovechar esta asociación  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Métodos de integración {#integration-methods}
 
@@ -75,7 +75,7 @@ La forma más directa de utilizar imágenes y videos directamente desde el DAM d
 Consulta [Video]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) para ver consideraciones específicas sobre Android e iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Convertir videos en GIFs %}
 
 ## Convierte videos en GIFs para correos electrónicos {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Atributos de segmentación %}
 
 ## Selecciona dinámicamente los activos de Campaign en función de los atributos de segmentación {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Si no se encuentra una coincidencia exacta, la función selecciona automáticame
 Consulta el [repositorio de GitHub `braze-personalization`](https://github.com/cloudinary-devs/braze-personalization) de Cloudinary para obtener instrucciones sobre cómo crear y aplicar funciones personalizadas, y un ejemplo de función personalizada para la selección de activos y opciones alternativas para una Campaign determinada. Para más información, ponte en contacto con el equipo de soporte de Cloudinary.
 {% endalert %}
 
-### Requisitos previos {#prerequisites}
+### Requisitos previos
 
 Para habilitar la selección dinámica de activos, Cloudinary debe ser capaz de devolver un conjunto de activos basados en etiquetas y metadatos. Si el tipo de entrega de lista está restringido, Cloudinary no puede proporcionar la lista dinámica necesaria para la selección personalizada de activos en las Campaigns de Braze.
 - Desbloquea el tipo de entrega de lista: abre la Configuración de seguridad en tu consola de Cloudinary y borra el elemento de lista de recursos en Tipos de imagen restringidos.
@@ -161,7 +161,7 @@ https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Generación de imágenes personalizadas %}
 
 ## Generación de imágenes personalizadas {#personalized-image-generation}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Live-Aktivität starten"
 article_title: "POST: Live-Aktivität starten"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -82,7 +82,7 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 | `external_user_ids` | Optional, wenn `segment_id` oder `audience` bereitgestellt wird | String-Array | Siehe [externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximal 50 externe Nutzer-IDs. |
 | `segment_id ` | Optional, wenn `external_user_ids` oder `audience` bereitgestellt wird | String | Siehe [Segment-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Optional, wenn `external_user_ids` oder `segment_id` bereitgestellt wird | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 

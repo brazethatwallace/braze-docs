@@ -71,7 +71,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 수신자 구독 상태 |  |
 | 반복 스케줄 |  |
 | 트랜잭션 여부 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,7 +87,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 수신자 구독 상태 |  |
 | 반복 스케줄 | 종료 기준 |
 | 트랜잭션 여부 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 캔버스 단계의 필터 기준(예: [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) 단계)은 대상 워크스페이스로 복사되지 않습니다. 복사 후 해당 필터를 다시 구성하세요.
 
@@ -105,7 +105,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | Campaign 상호작용 | Campaign ID |
 | 커스텀 이벤트 이름 |  |
 | 제품 이름 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -116,7 +116,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | Canvas 상호작용 | Canvas ID |
 | 커스텀 이벤트 이름 |  |
 | 제품 이름 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
@@ -132,7 +132,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | Campaign 상호작용 | Campaign ID |
 | 커스텀 이벤트 이름 |  |
 | 제품 이름 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -143,7 +143,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | Canvas 상호작용 | Canvas ID |
 | 커스텀 이벤트 이름 |  |
 | 제품 이름 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -156,10 +156,10 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 복사됨 | 생략됨 |
 |---|---|
 | 발송 비율 | API ID |
-| 유형 | 시드 그룹 ID |
-|  | 링크 템플릿 ID |
-|  | 내부 사용자 그룹 ID |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 유형 |  시드 그룹 ID |
+|  |  링크 템플릿 ID |
+|  |  내부 사용자 그룹 ID |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -167,10 +167,10 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 복사됨 | 생략됨 |
 |---|---|
 | 발송 비율 | API ID |
-| 유형 | 시드 그룹 ID |
-|  | 링크 템플릿 ID |
-|  | 내부 사용자 그룹 ID |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 유형 |  시드 그룹 ID |
+|  |  링크 템플릿 ID |
+|  |  내부 사용자 그룹 ID |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -184,12 +184,12 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 복사됨 | 생략됨 |
 |---|---|
 | 이메일 본문 | 발신 주소 |
-| 메시지 추가 항목 | 회신 대상 |
-| 제목 | BCC |
-| 제목줄 | 링크 템플릿 |
-|  | 링크 별칭 지정 |
+| 메시지 추가 항목 |  회신 대상 |
+| 제목 |  BCC |
+| 제목줄 |  링크 템플릿 |
+|  |  링크 별칭 지정 |
 |  | 번역 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -197,12 +197,12 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 복사됨 | 생략됨 |
 |---|---|
 | 이메일 본문 | 발신 주소 |
-| 메시지 추가 항목 | 회신 대상 |
-| 제목 | BCC |
-| 제목줄 | 링크 템플릿 |
-|  | 링크 별칭 지정 |
+| 메시지 추가 항목 |  회신 대상 |
+| 제목 |  BCC |
+| 제목줄 |  링크 템플릿 |
+|  |  링크 별칭 지정 |
 |  | 번역 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 프리헤더 |  |
 | 인라인 CSS |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +231,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 프리헤더 |  |
 | 인라인 CSS |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +248,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 제목줄 | 지역 |
 | 헤더 | 태그 |
 | | 번역 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +260,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 제목줄 | 지역 |
 | 헤더 | 태그 |
 | | 번역 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 설명 | API 키 |
 | 콘텐츠 | 지역 |
 | HTML 및 드래그 앤 드롭 콘텐츠 | 태그 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -287,7 +287,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 설명 | API 키 |
 | 콘텐츠 | 지역 |
 | HTML 및 드래그 앤 드롭 콘텐츠 | 태그 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +303,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 링크 단축 | VCF 미디어 항목 |
 | 클릭 추적 |  |
 | 미디어 항목 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +314,7 @@ Canvas를 다른 워크스페이스로 복사하려면:
 | 링크 단축 | VCF 미디어 항목 |
 | 클릭 추적 |  |
 | 미디어 항목 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}

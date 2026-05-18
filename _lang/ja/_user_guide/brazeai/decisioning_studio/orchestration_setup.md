@@ -31,7 +31,7 @@ toc_headers: h2
 | **Braze** | ネイティブAPI統合（推奨） | 低 |
 | **Salesforce Marketing Cloud** | APIイベント + Journey Builder | 中 |
 | **その他のCEP** | カスタム（レコメンデーションファイル） | 高 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
 
 {% alert tip %}
 すでにBrazeをCEPとして使用している場合は、最もスムーズな設定体験のためにネイティブBraze統合を使用することをお勧めします。
@@ -52,7 +52,7 @@ toc_headers: h2
 | **メール表示名とアドレス** | Campaignsに使用する送信者情報（**設定** > **メール設定**で確認できます）。 |
 | **ベーステンプレート** | エージェントがオーケストレーションに使用するメッセージテンプレート。各テンプレートに対してAPIトリガーCampaignsを作成します。 |
 | **テストユーザーID** | 起動前に統合をテストするためのユーザーID。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -64,7 +64,7 @@ toc_headers: h2
 | **データエクステンション** | サブスクライバーデータ、エンゲージメントデータ、レコメンデーション用のデータエクステンションが必要です。 |
 | **メールテンプレート** | Decisioning Studioで使用するテンプレートと、各テンプレートのテンプレートID。 |
 | **Journey Builderアクセス** | APIイベントエントリソースを使用したマルチステップジャーニーの作成とアクティベーションへのアクセス。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab その他のCEP %}
@@ -76,7 +76,7 @@ BrazeまたはSalesforce Marketing Cloud以外のCEPを使用している場合�
 | **データ取り込み機能** | CEPは、各顧客のパーソナライズされた決定を含むレコメンデーションファイル（通常CSVまたはJSON）を取り込める必要があります。 |
 | **ダイナミックコンテンツサポート** | Campaignsはレコメンデーションデータに基づいてフィールドを動的に入力できる必要があります。 |
 | **カスタムエンジニアリングリソース** | チームがレコメンデーションファイルを読み取り、コミュニケーションをトリガーする統合を構築する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% endtabs %}
@@ -90,7 +90,7 @@ BrazeまたはSalesforce Marketing Cloud以外のCEPを使用している場合�
 ベーステンプレートとは、AI意思決定エージェントが使用する可能性のあるメッセージテンプレートです。以下を検討してください：
 
 - **テンプレートの数は？** エージェントは1つのテンプレートでも複数のテンプレートでも動作できます。複数の場合、エージェントは各顧客が受け取るテンプレートをパーソナライズできます。
-- **どのチャネル？** メール、プッシュ、SMS、またはそれらの組み合わせ。各チャネルには個別のテンプレートとCampaignsが必要になる場合があります。
+- **どのチャネル？** メール、プッシュ、SMS、またはそれらの組み合わせです。各チャネルには個別のテンプレートとCampaignsが必要になる場合があります。
 - **どのダイナミック要素？** エージェントがパーソナライズするメッセージの部分（件名、CTA、オファー、タイミングなど）を特定します。これらはAPIトリガープロパティまたはダイナミックプレースホルダーになります。
 
 ### 再適格性設定 {#re-eligibility-settings}
@@ -114,7 +114,7 @@ Braze統合の場合、エージェントが最適化するディメンション
 | コールトゥアクション | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | オファー | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | 割引額 | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API trigger properties" }
 
 ## 統合の設定 {#integration-setup}
 

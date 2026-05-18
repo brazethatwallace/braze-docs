@@ -33,7 +33,7 @@ Seenは、カスタマーライフサイクル全体にわたって、以下の�
 | Seenプラットフォームへのアクセス | SeenプラットフォームのサブスクリプションまたはアクティブなSeenキャンペーンが必要です。ワークスペースIDを取得し、APIトークンを生成するには、ワークスペース設定にアクセスする必要があります。 |
 | Brazeデータ変換Webhook URL | Brazeデータ変換は、Seenからの受信データをBrazeの/users/trackエンドポイントで受け入れられるように再フォーマットします。 |
 | Brazeユーザーデータ | 動画のパーソナライゼーションには、ユーザーレベルのデータが必要です。関連する属性がBrazeで利用可能であることを確認し、一意識別子として**braze_id**を渡してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 
@@ -128,7 +128,7 @@ Journeyを設定するには、以下の手順に従います。
 | `id` | Brazeから送信される`braze_id`と一致する必要があります |
 | `player_url` | パーソナライズされた動画プレーヤーのユニークなURL |
 | `email_thumbnail_url` | 生成された動画サムネイルのURL |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
 
 ユースケースで追加の属性が必要な場合は、それらをレスポンスに含め、Brazeでマッピングしてください。
 

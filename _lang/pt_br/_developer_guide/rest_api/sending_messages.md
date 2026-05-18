@@ -19,6 +19,7 @@ Essa abordagem funciona com qualquer canal de envio de mensagens suportado pela 
 | **ID da Campaign** | Opcional. Omita para enviar sem rastreamento de campanha no dashboard, ou forneça um ID de campanha da API mais `message_variation_id` em cada mensagem para rastrear no dashboard. | Obrigatório. |
 | **Conteúdo da mensagem** | Você deve incluir um objeto `messages` na requisição (por exemplo, `messages.whats_app`, `messages.email`). | Não aceito. O conteúdo da mensagem é definido na campanha no dashboard da Braze. |
 | **Caso de uso** | Envie uma mensagem com o conteúdo totalmente especificado na requisição da API. | Dispare uma campanha pré-construída (conteúdo no dashboard) para destinatários específicos via API. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
 Para detalhes completos de requisição e resposta, consulte as referências dos endpoints [Enviar mensagens imediatamente (somente API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) e [Enviar campanhas usando entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
 

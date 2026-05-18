@@ -37,7 +37,7 @@ description: "이 문서에서는 캠페인 분석 내보내기 Braze 엔드포�
 | `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요.<br><br> API 캠페인의 `campaign_id`는 대시보드 내 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지와 **Campaign Details** 페이지에서 확인할 수 있으며, [캠페인 목록 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)를 사용할 수도 있습니다. |
 | `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수입니다. 1에서 100 사이(포함)여야 합니다. |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜입니다. 기본값은 요청 시점입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 

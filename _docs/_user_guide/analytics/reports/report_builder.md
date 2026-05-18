@@ -95,7 +95,7 @@ If you want to report on Canvas variants or steps, select **Canvases** for rows 
 | Total Revenue | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. Unavailable with **Channels** drilldown. |
 | Unique Impressions | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. |
 | Unique Recipients | Available for Campaigns, Canvases, Campaigns and Canvases, Tags. Unavailable with **Channels** drilldown. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Metrics availability" }
 
 ### Deleted message variants
 

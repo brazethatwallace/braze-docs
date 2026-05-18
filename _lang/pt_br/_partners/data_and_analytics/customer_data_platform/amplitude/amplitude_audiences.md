@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > A [Amplitude](https://amplitude.com/) é uma plataforma de análise de dados e business intelligence de produtos.
 
@@ -22,7 +22,7 @@ A integração bidirecional entre a Braze e a Amplitude permite a [importação 
 |---|---|
 | Conta da Amplitude | É necessário ter uma [conta da Amplitude](https://amplitude.com/) para usar essa parceria. |
 | Currents | Para exportar dados de volta para a Amplitude, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado em sua conta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Escolha uma integração {#choose-an-integration}
 
@@ -37,21 +37,22 @@ A Amplitude e a Braze oferecem dois métodos de integração diferentes. Leia a 
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Braze REST API key | Uma chave **Braze REST API** com todas as permissões.<br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
-| Braze REST endpoint | [A URL do seu endpoint **Braze REST API**][1]. Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões.<br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| Endpoint REST da Braze | [A URL do seu endpoint REST][1]. Seu endpoint dependerá da URL da Braze para sua instância. |
 | Identificador do app Braze | O identificador do app que receberá eventos da Amplitude. Ele pode ser encontrado em **Braze Dashboard > Developer Console > Settings**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ### Configuração da Amplitude {#amplitude-setup}
 
 1. Na Amplitude, navegue até **Data Destinations** e procure "Braze - Event Stream".
 2. Digite um nome de sincronização e clique em **Create Sync**.
-3. Clique em **Edit** e forneça seu endpoint **Braze REST API**, sua **REST API** key e o identificador do app Braze.
+3. Clique em **Edit** e forneça seu endpoint REST da Braze, sua chave da API REST e o identificador do app Braze.
 4. Use o filtro de eventos de envio para selecionar os eventos a serem enviados. Você pode enviar todos os eventos, mas a Amplitude recomenda escolher os mais importantes.
 5. Quando terminar, ative o destino e salve.
 
 Consulte [Braze Event Streaming](https://www.docs.developers.amplitude.com/data/destinations/braze/) para saber mais sobre essa integração.
 
-## Sincronize as características e os cálculos do usuário {#sync-user-traits-and-computations}
+## Sincronizar características e cálculos do usuário {#sync-user-traits-and-computations}
 
 Use públicos para enviar propriedades e cálculos do usuário para a Braze como atributos personalizados. Você poderá sincronizar as propriedades do usuário ou as propriedades computadas dos usuários que estiveram ativos nos últimos 90 dias.
 

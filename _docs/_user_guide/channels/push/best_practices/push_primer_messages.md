@@ -30,7 +30,7 @@ Additionally, note the following platform-specific details:
 |----------|----------------------|
 | **Android 12 and earlier** | Implementing push primers is not recommended because push is opted-in by default. |
 | **Android 13+** | If a user denies your push permission prompt twice, Android blocks further prompts—including Braze push primer messages. To grant permission after this, users must manually enable push for your app in their device settings. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 {% endtab %}
 
 {% tab swift %}

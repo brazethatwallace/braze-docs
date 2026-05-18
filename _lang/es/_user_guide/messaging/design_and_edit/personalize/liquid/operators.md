@@ -12,7 +12,7 @@ description: "Esta página de referencia describe los operadores que admite Liqu
 
 Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis son caracteres no válidos en Liquid e impiden que tus etiquetas funcionen.
 
-| Sintaxis| Descripción del operador|
+|   Sintaxis| Descripción del operador|
 |---------|-----------|
 | ==  | igual a        |
 | !=  | no es igual a|
@@ -23,7 +23,7 @@ Esta tabla enumera los operadores admitidos. Ten en cuenta que los paréntesis s
 | or | condición A o condición B|
 | and | condición A y condición B|
 | contains | comprueba si una cadena o un arreglo de cadenas contiene una cadena|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
 Los operadores se pueden usar en sentencias condicionales (`if`, `elsif`, `unless`) pero no en sentencias `assign`, bucles `for` ni corchetes de acceso a arreglos. En las etiquetas `case` y `when`, cada rama compara la expresión `case` con un valor `when` usando igualdad en lugar de expresiones de operadores arbitrarios. Para ver ejemplos, consulta [Lógica condicional de mensajería]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Para un desglose completo, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).

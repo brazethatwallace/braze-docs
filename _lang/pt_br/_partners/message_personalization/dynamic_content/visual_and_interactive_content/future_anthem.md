@@ -26,7 +26,7 @@ Este recurso está atualmente em acesso antecipado. Entre em contato com a equip
 | Conta da Future Anthem | Uma conta da Future Anthem. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissão para o [endpoint `users.track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Você pode criar essa chave no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint REST da Braze | O [endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) da Braze que corresponde à sua instância, como `rest.iad-01.com`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 
@@ -42,6 +42,7 @@ A equipe de sucesso do cliente da Future Anthem ajuda você a configurar sua int
 | Atributos de exemplo na Future Anthem | Atributos de exemplo na Braze |
 | ----------------------------------- | --------------------------- |
 | ![Dashboard da Future Anthem mostrando atributos de perfil de um jogador.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Perfil de usuário da Braze mostrando atributos de objeto personalizado sincronizados da Future Anthem.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integration" }
 
 ## Atributos personalizados da Braze {#braze-custom-attributes}
 
@@ -57,7 +58,7 @@ Estes são os atributos personalizados disponíveis na Braze. Para saber mais, c
 | Recomendações de apostas acumuladoras (rótulos de eventos) | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | Objeto |
 | Recomendações de apostas acumuladoras (odds numéricas) | `{"Bet_1": 1.5, "Bet_2": 2}` | Objeto |
 | Recomendações de apostas do construtor de apostas | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | Objeto |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab Bonus Recommendations %}
@@ -73,7 +74,7 @@ Estes são os atributos personalizados disponíveis na Braze. Para saber mais, c
 | Recomendação de valor de bônus Aposte e Ganhe | 20 | Número |
 | Outras recomendações de valor de bônus | 0 | Número |
 | CLTV futuro | 3126 | Número |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab Game Recommendations %}
@@ -88,7 +89,7 @@ Estes são os atributos personalizados disponíveis na Braze. Para saber mais, c
 | Próximo (sequenciamento de jogo) | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | Array |
 | Jogos populares | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | Array |
 | Jogos em alta | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | Array |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -97,7 +98,7 @@ Estes são os atributos personalizados disponíveis na Braze. Para saber mais, c
 | Subcategoria | Exemplo | Tipo de dado |
 | ----------- | ------- | --------- |
 | Mostra em qual cluster o jogador está | High Value Game Diverse | String |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -107,7 +108,7 @@ Estes são os atributos personalizados disponíveis na Braze. Para saber mais, c
 | ----------- | ------- | --------- |
 | Pontuação de risco | 0.5 | Número |
 | Jogador arriscado | True | Booleano |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% endtabs %}

@@ -28,7 +28,7 @@ Braze hostet unsere Anwendung auf mehreren Clustern weltweit. Die URL für die I
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
 | KR-01 | `https://rest.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cluster URLs" }
 
 ## Endpunkt-URLs {#endpoint-urls}
 
@@ -65,7 +65,7 @@ Der Kohortenname-Endpunkt kann verwendet werden, um den Namen einer Kohorte auf 
 | `cohort_id` | String | Ja | Bezeichner für die Kohorte. Dieser Bezeichner sollte für den angegebenen Client eindeutig sein. |
 | `name` | String | Ja | Vom Client festgelegter Name für die Kohorte |
 | `created_at` | String | Ja | Zeitstempel im ISO-8601-Format |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cohort name endpoint" }
 
 #### Beispiel einer Anfrage: {#example-request}
 
@@ -90,7 +90,7 @@ Der Nutzer:innen-Kohorte-Endpunkt erlaubt es, anzugeben, welche Nutzer:innen zu 
 | `client_secret` | String | Ja | Datenimport-Schlüssel für den Client, zu dessen Kohorte dies gehört. |
 | `cohort_id` | String | Ja | Bezeichner für die Kohorte. Der Bezeichner sollte für den angegebenen Client eindeutig sein. |
 | `cohort_changes` | Array von Objekten | Ja | Objekte können zwei Felder haben. Das erste, `user_ids`, ist erforderlich und kann ein Array aus `external_ids`, `device_ids` und `aliases` sein. Jedes Element ist eine ID für eine:n Nutzer:in, deren/dessen Status in der Kohorte sich geändert hat. Das zweite Feld, `should_remove`, ist ein optionaler Boolescher Wert, der angibt, ob die Nutzer:innen in diesem Objekt aus der Kohorte entfernt werden sollen, anstatt sie hinzuzufügen. Der Standardwert ist false. Die maximale kombinierte Länge der Nutzer:innen-IDs in einer einzelnen Anfrage beträgt 1.000.<br/><br/>Identifizierte Nutzer:innen können entweder über ihre `external_id` oder ihren `alias` abgeglichen werden. Anonyme Nutzer:innen können über ihre `device_id` abgeglichen werden. Wenn Sie eine Geräte-ID für eine:n identifizierte:n Nutzer:in übergeben, wird Braze diese:n Nutzer:in nicht hinzufügen oder entfernen. Sie müssen für identifizierte Nutzer:innen externe IDs oder Aliase verwenden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="User cohort endpoint" }
 
 #### Beispiel einer Anfrage:
 
@@ -130,6 +130,6 @@ In der folgenden Tabelle finden Sie spezifische Fehlercodes für die Kohortenimp
 |  | Partner nicht für Client mit Client-Geheimnis aktiviert: **&#60;client secret&#62;** |
 |  | Unbefugter Zugriff |
 | `423` | Ressource gesperrt |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Weitere Informationen zur Fehlerbehebung finden Sie unter [Fehler und Antworten]({{site.baseurl}}/api/errors/), wo die verschiedenen Fehler und Server-Antworten behandelt werden, die bei der Verwendung der Braze API auftreten können.

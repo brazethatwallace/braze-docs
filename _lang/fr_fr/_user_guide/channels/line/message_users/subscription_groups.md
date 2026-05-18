@@ -17,7 +17,7 @@ alias: /line/subscription_groups/
 | --- | --- |
 | Abonné | L'utilisateur a suivi le canal LINE depuis son application LINE. Les utilisateurs sont automatiquement abonnés lorsqu'ils suivent le canal après que vous avez terminé les étapes d'intégration. |
 | Désabonné | L'utilisateur n'a pas suivi le canal LINE depuis son application LINE, ou l'utilisateur a explicitement cessé de suivre le canal LINE. <br><br> Les utilisateurs qui se désabonnent d'un groupe d'abonnement LINE ne recevront plus aucun message LINE provenant des canaux d'envoi appartenant à ce groupe d'abonnement. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="LINE subscription groups" }
 
 ## Définir le groupe d'abonnement LINE d'un utilisateur {#setting-a-users-line-subscription-group}
 

@@ -1,6 +1,6 @@
 ## Blocs éditeur pour les pages d'accueil {#landing-page-editor-blocks}
 
-Les blocs éditeur pour les pages d'accueil se trouvent dans la section **Créer** de l'**éditeur par glisser-déposer**, sous **Lignes** et les catégories de blocs. Faites glisser un bloc dans la colonne d'une ligne ; il s'ajuste automatiquement à la largeur de la colonne. Sélectionnez un bloc pour modifier ses paramètres dans le panneau de propriétés situé à droite.
+Les blocs éditeur pour les pages d'accueil se trouvent dans la section **Build** de l'**éditeur par glisser-déposer**, sous **Rows** et les catégories de blocs. Faites glisser un bloc dans la colonne d'une ligne ; il s'ajuste automatiquement à la largeur de la colonne. Sélectionnez un bloc pour modifier ses paramètres dans le panneau de propriétés situé à droite.
 
 Pour plus d'informations sur la création et la publication de pages d'accueil, consultez [Créer des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
 
@@ -21,7 +21,7 @@ Ajoute un élément cliquable pour des actions telles que l'ouverture d'un lien 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
 {% alert important %}
-Si vous configurez un bouton avec **Envoyer le formulaire lorsque le bouton est cliqué** et ouvrez une URL web dans un nouvel onglet, iOS Safari peut bloquer la navigation. Ouvrez l'URL post-envoi dans le même onglet lors de l'envoi de formulaires. Pour plus d'informations, consultez [Créer des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
+Si vous configurez un bouton avec **Submit form when button is clicked** et ouvrez une URL web dans un nouvel onglet, iOS Safari peut bloquer la navigation. Ouvrez l'URL post-envoi dans le même onglet lors de l'envoi de formulaires. Pour plus d'informations, consultez [Créer des pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/).
 {% endalert %}
 
 ### Bouton radio {#radio-button}
@@ -65,7 +65,7 @@ Insère du code HTML, CSS ou JavaScript personnalisé pour une personnalisation 
 | Propriété | Description |
 | --- | --- |
 | Code personnalisé | Vous permet d'ajouter, de modifier ou de supprimer du HTML, du CSS et du JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
@@ -125,4 +125,4 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 
 ## Bon à savoir {#things-to-know}
 
-- **Vidéo :** le compositeur standard n'inclut pas de bloc vidéo dédié. Utilisez **Code personnalisé** pour intégrer un lecteur si nécessaire. Pour plus d'informations, consultez [Pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/).
+- **Vidéo :** le compositeur standard n'inclut pas de bloc vidéo dédié. Utilisez **Custom code** pour intégrer un lecteur si nécessaire. Pour plus d'informations, consultez [Pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/).

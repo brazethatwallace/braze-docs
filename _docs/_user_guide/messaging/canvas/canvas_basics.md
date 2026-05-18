@@ -52,7 +52,7 @@ Using the five W's (what, when, who, why, and where) of visualization can help i
 
 ### The "what": Name your Canvas
 
-> What are you trying to help the user do or understand?
+*What are you trying to help the user do or understand?*
 
 Never underestimate the power of the name. Braze is built for collaboration, so this is a good time to get grounded in how you'll communicate goals with your team.
 
@@ -60,7 +60,7 @@ You can add tags and name the steps and variants in a Canvas. For more on custom
 
 ### The "why": Identify conversion events
 
-> Building upon the "what", why are you building this Canvas? 
+*Building upon the "what", why are you building this Canvas?*
 
 It's always important to have a defined goal in mind and Canvas helps you understand how you are performing against KPIs like session engagement, purchases, and custom events.
 
@@ -73,7 +73,7 @@ Selecting at least one [conversion event]({{site.baseurl}}/user_guide/messaging/
 
 ### The "when": Create starting conditions
 
-> When will a user start this experience?
+*When will a user start this experience?*
 
 Your answer will determine the details of when and how your Canvas is delivered to your customer. Users can enter your Canvas in one of two ways: scheduled or action-based triggers.
 
@@ -85,7 +85,7 @@ Scheduled delivery allows you to send a Canvas immediately to your target audien
 
 ### The "who": Select an audience
 
-> Who are you trying to reach? 
+*Who are you trying to reach?*
 
 To define your "who", you can use pre-defined segments available in Canvas. You can also add more filters to further focus on connecting to your targeted audience. After building these segments, only the users who match the target audience criteria can enter the Canvas journey, leading to a more personalized experience. See this table for available filters and how they segment your users to fit your use case.
 
@@ -97,10 +97,11 @@ To define your "who", you can use pre-defined segments available in Canvas. You 
 | Marketing Activity  | Segment customers based on universal behaviors such as the last engagement.                         |
 | User Attributes     | Segment customers by their constant attributes and characteristics.                                 |
 | Install Attribution | Segment customers by their first source, ad group, campaign, or ad.                                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="The &quot;who&quot;: Select an audience" }
 
 ### The "where": Find my audience
 
-> Where can I best reach my audience? 
+*Where can I best reach my audience?*
 
 This is where we determine which messaging channels make the most sense for your user journey. Ideally, you'd want to reach your users where they're most accessible. With that in mind, you can use any of the following channels with Canvas:
 * [Email]({{site.baseurl}}/user_guide/channels/email/)
@@ -112,7 +113,7 @@ This is where we determine which messaging channels make the most sense for your
 
 ### The "how": Build the complete experience
 
-> How do I build my Canvas journey after identifying the five W's?
+*How do I build my Canvas journey after identifying the five W's?*
 
 The "how" collectively summarizes how you'll create your Canvas and how you'll reach your users with your message. For example, in order for a message to be effective, you should optimize the timing of your messaging with regards to the time zones across your different users.
 

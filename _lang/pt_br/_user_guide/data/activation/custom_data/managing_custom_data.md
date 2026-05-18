@@ -79,7 +79,7 @@ Se você precisar que todos os dados de usuários existentes correspondam ao nov
 | Booleano | As entradas `1`, `true`, `t` (não diferenciam maiúsculas de minúsculas) são armazenadas como `true` |
 | Booleano | As entradas `0`, `false`, `f` (não diferenciam maiúsculas de minúsculas) são armazenadas como `false` |
 | Número | Números inteiros ou de ponto flutuante (como `1`, `1.5`) são armazenados como números |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Coerção de tipos de dados" }
 
 Para saber mais sobre opções de filtro específicas expostas por diferentes comparações de tipos de dados, confira [Configurando relatórios]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Para saber mais sobre os diferentes tipos de dados disponíveis, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
 

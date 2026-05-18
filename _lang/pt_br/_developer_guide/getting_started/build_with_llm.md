@@ -12,7 +12,7 @@ platform:
 
 > Use assistentes de codificação com IA para acelerar seu fluxo de trabalho de integração com a Braze. Conecte seu IDE ao servidor MCP da documentação da Braze por meio do Context7 e obtenha orientações precisas e atualizadas sobre SDK diretamente no seu ambiente de desenvolvimento.
 
-Assistentes de codificação com IA podem ajudar você a escrever código de integração, solucionar problemas e explorar recursos do SDK da Braze — mas apenas se tiverem o contexto correto. O servidor MCP da documentação da Braze fornece ao seu assistente de IA acesso direto à documentação da Braze, para que ele possa gerar trechos de código precisos e responder a perguntas técnicas com base nas referências mais recentes do SDK.
+Assistentes de codificação com IA podem ajudar você a escrever código de integração, solucionar problemas e explorar recursos do SDK da Braze&#8212;mas apenas se tiverem o contexto correto. O servidor MCP da documentação da Braze fornece ao seu assistente de IA acesso direto à documentação da Braze, para que ele possa gerar trechos de código precisos e responder a perguntas técnicas com base nas referências mais recentes do SDK.
 
 ## Conectando-se ao MCP da documentação da Braze {#connecting-to-the-braze-docs-mcp}
 
@@ -124,7 +124,7 @@ programmatically. Use context7.
 
 Esses prompts demonstram tarefas comuns de integração para o [SDK Web da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
 
-#### Inicializando o SDK {#initializing-the-sdk}
+#### Inicializando o SDK
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with
@@ -168,6 +168,6 @@ Você pode acessar a documentação do Guia do Desenvolvedor da Braze como arqui
 |------|-------------|
 | [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Um índice das páginas de documentação do desenvolvedor da Braze com títulos e descrições. Use como ponto de partida para descobrir a documentação disponível. |
 | [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | A documentação completa do desenvolvedor da Braze em um único arquivo de texto simples, formatado para consumo por LLMs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Documentação em texto simples" }
 
 Esses arquivos seguem o [padrão llms.txt](https://llmstxt.org/), uma convenção emergente para tornar a documentação acessível a ferramentas de IA. Você pode referenciar esses arquivos diretamente nos seus prompts ou colar o conteúdo deles em um LLM para contexto.

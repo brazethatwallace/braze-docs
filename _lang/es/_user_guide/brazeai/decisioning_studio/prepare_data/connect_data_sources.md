@@ -23,7 +23,7 @@ Decisioning Studio admite múltiples patrones de integración para conectar dato
 | **Ingesta de datos de Cloud de Braze (CDI)** | Conectar almacenes de datos externos | Media |
 | **Almacenamiento en la nube (GCS, AWS, Azure)** | Exportaciones directas de datos desde otras plataformas | Media |
 | **Integraciones CEP** | Extensiones de datos de SFMC, Klaviyo | Media |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## Tipos de datos de clientes {#customer-data-types}
 
@@ -35,7 +35,7 @@ Los siguientes activos de datos de clientes ayudan a los agentes a personalizar 
 | **Comportamiento del cliente** | Patrones de actividad e interacción | Inicios de sesión en la cuenta, tipo de dispositivo, interacciones con atención al cliente, uso del producto |
 | **Historial de transacciones** | Datos de compras y conversiones | Productos comprados, importes de transacciones, métodos de pago, canales de compra |
 | **Interacción de marketing** | Respuestas a comunicaciones | Aperturas/clics de correo electrónico, interacción con SMS, actividad web y móvil, respuestas a cuestionarios |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
 
 {% alert tip %}
 Cuanta más información tengan los agentes sobre tus clientes, mejor será su rendimiento. Considera incluir datos sobre cualquier información que sea especialmente importante para tu negocio (por ejemplo, ¿quieres ver cómo la IA trata de forma diferente a tus clientes de fidelización? Asegúrate de que el estado de fidelización esté incluido en los datos de clientes).

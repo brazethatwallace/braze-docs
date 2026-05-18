@@ -153,63 +153,64 @@ Segment, Campaign 또는 Canvas는 다른 워크스페이스에 저장된 데이
   }
 </style>
 
-<table>
+<table aria-label="각 접근 방식에 대한 개요">
+  <caption>각 접근 방식에 대한 개요</caption>
     <tr>
         <th></th>
-        <th colspan="2">별도의 워크스페이스</th>
-        <th colspan="2">공유 워크스페이스</th>
+        <th colspan="2" scope="colgroup">별도의 워크스페이스</th>
+        <th colspan="2" scope="colgroup">공유 워크스페이스</th>
     </tr>
     <tr>
         <th></th>
-        <th>장점</th>
-        <th>단점</th>
-        <th>장점</th>
-        <th>단점</th>
+        <th scope="col">장점</th>
+        <th scope="col">단점</th>
+        <th scope="col">장점</th>
+        <th scope="col">단점</th>
     </tr>
     <tr>
-        <td>타겟팅</td>
+        <th scope="row">타겟팅</th>
         <td>커뮤니케이션을 분리하는 가장 안전한 방법입니다. Campaign은 특정 고객 프로필만 타겟팅하도록 보장됩니다.</td>
         <td>사용자가 다른 워크스페이스에 다른 고객 프로필을 가지고 있는 것을 알고 있어도 교차 프로모션 메시징을 보낼 수 없습니다.</td>
         <td>사용자가 워크스페이스에 여러 개의 앱을 가지고 있는 것을 알고 있는 경우 교차 프로모션 메시징을 보낼 수 있습니다.<br><br>여러 앱에서 사용자 데이터를 참조할 수 있습니다. 예를 들어, John은 앱 1과 관련된 X 속성과 앱 2와 관련된 Y 속성을 가지고 있으며, 두 속성 모두 하나의 Campaign에서 참조할 수 있습니다.</td>
-        <td>실수로 여러 앱 인스턴스에 걸쳐 사용자를 타겟팅할 수 있는 인적 오류의 여지가 더 커집니다.<br><br>In-App Messages를 보내려면 하나의 Campaign이 실수로 다른 앱에 표시되지 않도록 앱별 커스텀 이벤트가 있어야 합니다. 예를 들어 <code>app_1_action</code> 대 <code>app_2_action</code>.</td>
+        <td>실수로 여러 앱 인스턴스에 걸쳐 사용자를 타겟팅할 수 있는 인적 오류의 여지가 더 커집니다.<br><br>인앱 메시지를 보내려면 하나의 Campaign이 실수로 다른 앱에 표시되지 않도록 앱별 커스텀 이벤트가 있어야 합니다. 예를 들어 <code>app_1_action</code> 대 <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>커스텀 이벤트 및 속성</td>
+        <th scope="row">커스텀 이벤트 및 속성</th>
         <td>커스텀 속성 및 이벤트는 앱 인스턴스에만 적용되도록 보장됩니다.</td>
         <td>워크스페이스 전반에서 사용자 행동을 추적할 수 없습니다.<br><br><b>팁:</b> 이를 위해 여러 개의 Currents 커넥터를 활용할 수 있습니다.</td>
         <td>워크스페이스의 모든 앱 인스턴스에서 사용자 행동을 추적할 수 있습니다.</td>
         <td>커스텀 속성 및 이벤트는 모든 앱 인스턴스에 적용되므로 고객 프로필의 어떤 데이터가 어떤 앱 인스턴스와 관련이 있는지 구분하기 어려울 수 있습니다. 예를 들어, "date_of_parking"이 앱 1 또는 앱 2와 관련이 있습니까? 이를 방지하려면 체계적인 이름 지정 규칙을 사용해야 합니다.</td>
     </tr>
     <tr>
-        <td>최대 게재빈도 설정</td>
+        <th scope="row">최대 게재빈도 설정</th>
         <td>최대 게재빈도 설정은 각 앱 인스턴스에 대해 개별적으로 정의할 수 있습니다(워크스페이스 기준).</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>최대 게재빈도 설정은 앱 단위가 아닌 모든 Campaign에 적용되므로 고객에게 과도한 메시지를 보내는 것을 방지하기가 더 어렵습니다.</td>
     </tr>
     <tr>
-        <td>고객 프로필의 구독 상태</td>
+        <th scope="row">고객 프로필의 구독 상태</th>
         <td>각 고객 프로필의 구독 상태는 각 앱 인스턴스에 고유합니다.</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>고객 프로필의 구독 상태는 앱 인스턴스 전반에서 결합됩니다.<br><br><b>팁:</b> 대신 <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>커스텀 속성</a> 을 사용하여 사용자의 구독을 관리할 수 있습니다.</td>
     </tr>
     <tr>
-        <td>회사 사용자 권한</td>
+        <th scope="row">회사 사용자 권한</th>
         <td>N/A</td>
         <td>대시보드 사용자의 <a href='/docs/user_guide/administer/global/user_management/permissions'>사용자 권한</a> 업데이트는 사용자가 액세스해야 하는 각 워크스페이스에 대해 별도로 수행해야 합니다.</td>
         <td>대시보드 사용자에 대해 <a href='/docs/user_guide/administer/global/user_management/permissions'>사용자 권한</a> 을 한 번 설정하면 워크스페이스의 모든 앱 인스턴스에 대해 동일한 권한을 갖게 됩니다.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>콘텐츠 복제</td>
+        <th scope="row">콘텐츠 복제</th>
         <td>N/A</td>
         <td>워크스페이스 간에 Segments, 푸시 또는 콘텐츠 카드 Campaign, Canvases를 복제할 수 없습니다.</td>
-        <td>다음 지원되는 채널에 대해 <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간 Campaign 복제</a> 를 할 수 있습니다: SMS, In-App Messages, 이메일, 이메일 템플릿, Content Blocks. <br><br>Segments, Campaign, Canvases를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
+        <td>다음 지원되는 채널에 대해 <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>워크스페이스 간 Campaign 복제</a> 를 할 수 있습니다: SMS, 인앱 메시지, 이메일, 이메일 템플릿, Content Blocks. <br><br>Segments, Campaign, Canvases를 복제하여 한 앱 인스턴스에서 다른 앱 인스턴스로 콘텐츠를 재사용할 수 있습니다.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>분석</td>
+        <th scope="row">분석</th>
         <td>글로벌 통계는 홈 페이지에서 정확하게 확인할 수 있습니다.</td>
         <td>N/A</td>
         <td>N/A</td>

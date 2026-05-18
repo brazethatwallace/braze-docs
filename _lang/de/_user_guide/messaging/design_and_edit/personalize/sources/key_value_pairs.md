@@ -55,7 +55,7 @@ Der Apple Push Notification Service (APNs) unterstützt das Festlegen von Alarme
 | badge             | Zahl                        | Steuert die Zahl, die als Badge auf dem App-Symbol angezeigt wird                                                                                                                              |
 | sound             | String                      | Der Name der Sounddatei, die als Alarm abgespielt wird; muss sich im App-Bundle oder im Ordner ```Library/Sounds``` befinden                                                                                    |
 | content-available | Zahl                        | Eingabewerte von 1 signalisieren der App die Verfügbarkeit neuer Informationen beim Start oder bei der Wiederaufnahme einer Sitzung |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS-Bibliothek" }
 
 
 ##### Bibliothek der Alarmeigenschaften {#alert-properties-library}
@@ -70,7 +70,7 @@ Der Apple Push Notification Service (APNs) unterstützt das Festlegen von Alarme
 | loc-key        | String oder null         | Ein Schlüssel, der die Benachrichtigungsnachricht für die aktuelle Lokalisierung aus der Datei ```Localizable.strings``` festlegt                                  |
 | loc-args       | String-Array             | String-Werte, die anstelle der Lokalisierungsformat-Spezifizierer im loc-key erscheinen können                                                       |
 | launch-image   | Strings                  | Der Name einer Bilddatei im App-Bundle, die als Startbild verwendet werden soll, wenn Nutzer:innen auf den Aktions-Button tippen oder den Aktions-Slider bewegen |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Bibliothek der Alarmeigenschaften" }
 
 Der Braze-Nachrichten-Editor übernimmt automatisch die Erstellung der folgenden Schlüssel: **alert** und **seine Eigenschaften**, **content-available**, **sound** und **category**.
 

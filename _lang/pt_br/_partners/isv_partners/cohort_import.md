@@ -28,7 +28,7 @@ A Braze hospeda nosso aplicativo em vários clusters ao redor do mundo. A URL do
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
 | KR-01 | `https://rest.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cluster URLs" }
 
 ## URLs dos endpoints {#endpoint-urls}
 
@@ -58,14 +58,14 @@ Essa chave é gerada no dashboard do cliente nas configurações de integração
 
 O endpoint do nome da coorte pode ser usado para especificar o nome de uma coorte com base em seu ID. Esse endpoint deve ser chamado sempre que uma coorte for inicialmente exportada para a Braze ou quando o nome de uma coorte já conhecida pela Braze for alterado.
 
-| Campo | Tipo | Obrigatório | Notas |
+| Campo | Tipo | Obrigatória | Notas |
 | ----- | ---- | -------- | ----- |
 | `partner_api_key` | String | Sim | Chave de API específica do parceiro, usada em todas as solicitações do parceiro para a Braze. Essa chave será específica do cluster (consulte [Chave de API do parceiro](#partner-api-key)), portanto, o parceiro precisará conhecer o cluster no qual as coortes serão gravadas. |
 | `client_secret` | String | Sim | Chave de importação de dados para o cliente ao qual a coorte pertence. |
 | `cohort_id` | String | Sim | Identificador da coorte. Esse identificador deve ser exclusivo para o cliente especificado. |
 | `name` | String | Sim | Nome especificado pelo cliente para a coorte |
 | `created_at` | String | Sim | Carimbo de data/hora no formato ISO-8601 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cohort name endpoint" }
 
 #### Exemplo de solicitação: {#example-request}
 
@@ -84,13 +84,13 @@ O endpoint do nome da coorte pode ser usado para especificar o nome de uma coort
 
 O endpoint de coorte de usuários permite especificar quais usuários foram adicionados ou removidos de uma determinada coorte. Esse endpoint deve ser chamado quando uma coorte é atualizada. Somente os usuários que entraram recentemente na coorte ou que saíram da coorte desde a última atualização devem ser enviados à Braze.
 
-| Campo | Tipo | Obrigatório | Notas |
+| Campo | Tipo | Obrigatória | Notas |
 | ----- | ---- | -------- | ----- |
 | `partner_api_key` | String | Sim | Chave de API específica do parceiro, usada em todas as solicitações do parceiro para a Braze. Essa chave será específica do cluster (consulte [Chave de API do parceiro](#partner-api-key)), portanto, a integração precisará conhecer o cluster no qual as coortes serão gravadas. |
 | `client_secret` | String | Sim | Chave de importação de dados para o cliente ao qual a coorte pertence. |
 | `cohort_id` | String | Sim | Identificador da coorte. O identificador deve ser exclusivo para o cliente especificado. |
 | `cohort_changes` | Vetor de objetos | Sim | Os objetos podem ter dois campos. Um deles, `user_ids`, é obrigatório e pode ser um vetor de `external_ids`, `device_ids` e `aliases`. Cada elemento é um ID de um usuário cujo status na coorte foi alterado. O segundo campo, `should_remove`, é um booleano opcional que indica se os usuários desse objeto devem ser removidos da coorte em vez de adicionados. O padrão é false. O comprimento máximo combinado dos IDs de usuário em uma única solicitação é de 1.000.<br/><br/>Os usuários identificados podem ser correspondidos pelo `external_id` ou `alias`. Os usuários anônimos podem ser correspondidos pelo `device_id`. Se você passar um ID de dispositivo para um usuário identificado, a Braze não adicionará nem removerá esse usuário. Você deve usar IDs externos ou aliases para usuários identificados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="User cohort endpoint" }
 
 #### Exemplo de solicitação:
 
@@ -130,6 +130,6 @@ Consulte a tabela a seguir para ver os códigos de erro específicos dos endpoin
 |  | Parceiro não ativado para cliente com segredo de cliente: **&#60;client secret&#62;** |
 |  | Acesso não autorizado |
 | `423` | Recurso bloqueado |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Para obter mais informações sobre solução de problemas, consulte [Erros e respostas]({{site.baseurl}}/api/errors/), que aborda os vários erros e respostas do servidor que podem surgir ao usar a API da Braze.

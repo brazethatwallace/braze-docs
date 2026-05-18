@@ -110,7 +110,7 @@ Füllen Sie für jede Eigenschaft, die Sie hinzufügen möchten, Folgendes aus:
 | Eigenschaftstyp | Der Datentyp für die Eigenschaft. Unterstützte Typen sind String, Boolescher Wert, Zahl, Zeitstempel, Bild-URL und JSON-Objekt. | String |
 | Eigenschaftsschlüssel | Der eindeutige Bezeichner für die Eigenschaft. Dieser Schlüssel wird im SDK verwendet, um auf die Eigenschaft zuzugreifen. | `color` |
 | Wert | Der der Eigenschaft zugewiesene Wert. Muss dem ausgewählten Eigenschaftstyp entsprechen. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 Wenn Sie fertig sind, wählen Sie **Done**.
 
@@ -125,7 +125,7 @@ Wenn Sie fertig sind, wählen Sie **Done**.
 
 Die [Banner-Priorität]({{site.baseurl}}/user_guide/channels/banners/#priority) bestimmt die Reihenfolge, in der Banner angezeigt werden, wenn sie dasselbe Placement teilen. Um die Priorität manuell festzulegen:
 
-1. Wählen Sie **Set exact priority**.
+1. Wählen Sie **Genaue Priorität festlegen**.
 2. Ordnen Sie die Kampagnen per Drag-and-Drop in der richtigen Prioritätsreihenfolge an.
 3. Wählen Sie **Apply Sort**.
 

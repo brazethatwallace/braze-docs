@@ -31,7 +31,7 @@ search_rank: 2
 | Meta Business Manager 계정 | 이 메시징 채널을 활용하려면 Meta Business 계정이 필요합니다. |
 | WhatsApp Business 계정 | 이 메시징 채널을 활용하려면 WhatsApp Business 계정이 필요합니다. |
 | WhatsApp 전화번호 | 메시징 채널을 사용하려면 WhatsApp의 [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) 또는 [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) 요구 사항을 충족하는 전화번호를 확보해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

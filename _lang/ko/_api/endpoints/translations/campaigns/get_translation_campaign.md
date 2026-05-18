@@ -35,13 +35,13 @@ description: "이 문서에서는 캠페인에 대한 모든 번역 보기 엔�
 | `message_variation_id` | 필수 | 문자열 | 메시지 배리언트의 ID입니다. |
 | `locale_id` | 선택 사항 | 문자열 | 응답을 필터링할 로케일 UUID입니다. |
 | `post_launch_draft_version` | 선택 사항 | 부울 | `true`인 경우 최신 라이브 게시 버전 대신 최신 초안 버전을 반환합니다. 기본값은 `false`이며 최신 라이브 버전을 반환합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 모든 번역 ID는 범용 고유 식별자(UUID)로 간주되며, GET 엔드포인트의 응답에서 확인할 수 있습니다.
 {% endalert %}
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/campaigns/translations?campaign_id={campaign_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \

@@ -17,10 +17,10 @@ channel:
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | Infobip-Konto | Ein Infobip-Konto ist erforderlich, um den BYO-WhatsApp-Konnektor zu nutzen. |
-| Messaging-Credits | Sie verbrauchen Braze-Messaging-Credits, wenn Sie WhatsApp-Nachrichten senden. |
+| Nachrichten- oder Action-Credits | Sie verbrauchen Braze Action-Credits, wenn Sie WhatsApp-Nachrichten senden. |
 | WhatsApp-Voraussetzungen | Erfüllen Sie alle [WhatsApp-Voraussetzungen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
 | Telefonnummer | Wir empfehlen, der Einfachheit halber [eine Telefonnummer über Infobip zu erwerben](https://www.infobip.com/docs/numbers/getting-started). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Einrichtung {#set-up}
 
@@ -116,4 +116,4 @@ Obwohl alle bestehenden Funktionen mit Braze unterstützt werden, werden diese A
 | --- | --- |
 | Verarbeitung eingehender Nachrichten in Braze und Infobip | Dies verhindert Logikketten, die von einem der beiden Systeme getriggert werden und dadurch doppelte und möglicherweise widersprüchliche Nachrichtenverläufe erzeugen. |
 | Senden von Nachrichten über Braze und Infobip | Für WhatsApp Business-Konten, die mit Braze verbunden sind, erfolgt der gesamte Versand über Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Hinweise" }

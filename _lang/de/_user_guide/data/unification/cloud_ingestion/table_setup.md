@@ -19,7 +19,7 @@ Für CDI-Nutzerdaten-Syncs konfigurieren Sie beides:
 | --- | --- |
 | Einrichtung der Quelltabelle | Erforderliche Spalten, Nutzer-Bezeichner und `UPDATED_AT`-Sync-Verhalten |
 | Payload-Formatierung | JSON-Felder in `PAYLOAD`, einschließlich Objektstruktur für Attribute, Ereignisse und Käufe |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tabelleneinrichtung im Vergleich zur Payload-Formatierung" }
 
 Braze liest zuerst die Zeilen aus Ihrer Quelltabelle und validiert dann das `PAYLOAD`-Feld basierend auf dem ausgewählten Datentyp.
 
@@ -38,7 +38,7 @@ Für Data-Warehouse-Nutzerdaten-Syncs sollte Ihre Quelltabelle oder -ansicht Fol
 
 Jede Zeile sollte jeweils nur einen Bezeichnertyp enthalten, auch wenn Ihre Tabelle mehrere Bezeichner-Spalten enthält.
 
-### `UPDATED_AT`-Anforderungen {#updatedat-requirements}
+### `UPDATED_AT`-Anforderungen {#updated_at-requirements}
 
 - Speichern Sie `UPDATED_AT`-Werte in UTC, um Probleme mit der Sommerzeit zu vermeiden.
 - Braze synchronisiert Zeilen, bei denen `UPDATED_AT` später als der zuletzt synchronisierte Wert ist.
@@ -59,7 +59,7 @@ Der `PAYLOAD`-Wert folgt denselben Objektformaten, die vom Braze-Endpunkt `/user
 | `attributes` | [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | [Ereignis-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PAYLOAD-Spalte einrichten" }
 
 Für verschachtelte Attribute geben Sie Datumsangaben im Format an, das unter [Datumsangaben als Objekteigenschaften erfassen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties) beschrieben ist.
 

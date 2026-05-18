@@ -23,7 +23,7 @@ Decisioning Studio Goは、Decisioning Studio Proと比較して機能が簡素�
 | **顧客データ** | エンゲージメントのみ | すべての1Pデータ |
 | **設定** | セルフサービス | AI意思決定サービスサポート |
 | **実験グループ** | Go + ランダムコントロール + オプションのBAU | 完全にカスタマイズ可能 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Go versus Pro capabilities" }
 
 ## Goエージェントの設計 {#design-your-go-agent}
 
@@ -82,7 +82,7 @@ Decisioning Studio Goは自動的に実験グループを作成し、パフォ�
 | **Decisioning Studio Go** | AIによって最適化されたおすすめを受け取る顧客 |
 | **ランダムコントロール** | ランダムに選択されたオプションを受け取る顧客（ベースライン比較） |
 | **通常運用（オプション）** | 既存のCampaignを受け取る顧客（現在のパフォーマンスと比較する場合） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
 
 {% alert important %}
 正確な比較のためには、顧客が複数の実験グループに属さないようにし、顧客が偏りなくランダムにグループに割り当てられるようにしてください。

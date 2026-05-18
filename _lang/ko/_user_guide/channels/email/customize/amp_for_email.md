@@ -23,7 +23,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | Gmail 계정 인에이블먼트 | [Gmail 계정 활성화](#enabling-gmail-account)를 참조하세요. |
 | Google 발신자 인증 | Gmail은 DKIM, SPF, DMARC를 사용하여 AMP 이메일의 [발신자를 인증](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication)합니다. 계정에 이를 설정해야 합니다. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
 | AMP 이메일 요소 | 매력적인 AMP 이메일에는 다양한 구성요소의 전략적 사용이 포함됩니다. 아래 [구성요소](#components) 섹션의 필수 요소 탭을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ### 지원되는 이메일 클라이언트 {#supported-email-clients}
 
@@ -35,6 +35,7 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
@@ -99,7 +100,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | 식별 <br><br> `⚡4email` 또는 `amp4email`| 이메일을 AMP HTML 이메일로 식별합니다. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
 | AMP 런타임 로드 <br><br> `<script>` | JavaScript를 사용하여 이메일에서 AMP를 실행할 수 있게 합니다. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
 | CSS 보일러플레이트 | AMP가 로드될 때까지 콘텐츠를 숨깁니다. <br> AMP 이메일을 지원하는 이메일 공급자는 검증된 AMP 스크립트만 클라이언트에서 실행되도록 보안 검사를 시행합니다. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
   {% endtab %}
   {% tab 동적 %}
@@ -110,7 +111,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 |---------|--------------|---------|
 | [아코디언](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| 사용자가 콘텐츠 개요를 보고 원하는 섹션으로 이동할 수 있게 합니다. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
 | [양식](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| AMP 문서에서 입력 필드를 제출하는 양식을 만듭니다. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
@@ -125,7 +126,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | [애니메이션 이미지](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-anim`| 런타임을 통해 관리되는 애니메이션 이미지(보통 GIF)를 표시합니다. | `<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>` |
 | [캐러셀](https://amp.dev/documentation/components/amp-carousel?format=email) <br><br> `amp-carousel`| 유사한 여러 콘텐츠를 가로 축을 따라 표시합니다. | `<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>` |
 | [이미지](https://amp.dev/documentation/components/amp-img?format=email) | HTML `img` 태그를 대체하는 런타임 관리 요소입니다. <br>  이미지에 [라이트박스를 만들](https://amp.dev/documentation/components/amp-image-lightbox?format=email) 수도 있습니다. | `<amp-img alt="A view of the sea"` <br> `src="images/sea.jpg"` <br> `width="900"` <br>  `height="675"` <br>  `layout="responsive">`  <br> `</amp-img>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
@@ -137,7 +138,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | 구성요소 | 설명 |
 |---------|--------------|
 | [데이터 바인딩 및 표현식](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| 데이터 바인딩과 JavaScript와 유사한 표현식을 통해 AMP 페이지에 커스텀 상태 기반 인터랙티비티를 추가합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Components" }
 
 {% alert note %}
 사용자 인증이 필요한 구성요소는 [Google 액세스 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) 또는 [프록시 어설션 토큰](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens)을 사용해야 합니다.
@@ -203,7 +204,8 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
     }
 </style>
 
-<table>
+<table aria-label="Metrics and analytics">
+  <caption>측정기준 및 분석</caption>
     <thead>
         <tr>
             <th>측정기준</th>

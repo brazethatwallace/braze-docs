@@ -4,7 +4,7 @@ nav_title: セグメンテーションフィルター
 article_title: セグメンテーションフィルター
 layout: glossary_page
 glossary_top_header: "セグメンテーションフィルター"
-glossary_top_text: Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href="/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types">カスタム属性データタイプ</a> をご覧ください。
+glossary_top_text: "Braze SDKは、特定の機能や属性に基づいてユーザーをセグメント化し、ターゲティングするための強力なフィルターを提供します。フィルターカテゴリーでこれらのフィルターを検索または絞り込むことができます。<br><br>ユーザーのセグメント化に使用できるさまざまなカスタム属性データタイプについては、<a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">カスタム属性データタイプ</a> をご覧ください。"
 
 page_type: glossary
 tool: Segments
@@ -69,7 +69,7 @@ glossaries:
     tags:
       - Custom attribute
   - name: Custom Event
-    description: ユーザーが特別に記録されたイベントを実行したかどうかを判定します。<br><br>例:<br>プロパティ activity_name でアクティビティが完了。<br><br>タイムゾーン:<br>UTC - 暦日 = 1暦日は24〜48時間のユーザー履歴を確認します
+    description: ユーザーが特別に記録されたイベントを実行したかどうかを判定します。<br><br>例:<br>プロパティactivity_nameでアクティビティが完了。<br><br>タイムゾーン:<br>UTC - 暦日 = 1暦日は24〜48時間のユーザー履歴を確認します
     tags:
       - Custom events
   - name: First Did Custom Event
@@ -429,7 +429,7 @@ glossaries:
     tags:
       - Demographic attributes
   - name: Unformatted Phone Number
-    description: 未フォーマットの電話番号でユーザーをセグメント化します。括弧、ダッシュ、その他の記号は含まれません。
+    description: 未フォーマットの電話番号でユーザーをセグメント化します。かっこ、ダッシュ、その他の記号は含まれません。
     tags:
       - Demographic attributes
   - name: First Name
@@ -449,7 +449,7 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Number
-    description: ユーザーのアプリの最新バージョン番号でセグメント化します。<br><br>「未満」または「以下」を使用する場合、メインアプリバージョンが存在しない場合、このフィルターは<code>true</code>を返します。これは、ユーザーがそのアプリバージョンよりも古いためです。つまり、ユーザーの最後のメインアプリバージョンが存在しない場合、自動的にフィルターに一致します。<br><br>現在のアプリバージョンが反映されるまでに時間がかかる場合があります。ユーザープロファイルのアプリバージョンは、SDKによって情報がキャプチャされた時点で更新されますが、これはユーザーがアプリを開いた時に依存します。ユーザーがアプリを開かない場合、現在のバージョンは更新されません。これらのフィルターは遡及的にも適用されません。現在および将来のバージョンに対して「より大きい」または「等しい」を使用することをお勧めしますが、過去のバージョンフィルターを使用すると予期しない動作が発生する可能性があります。
+    description: ユーザーのアプリの最新バージョン番号でセグメント化します。かっこ内のバージョン番号がフィルタリングに使用され、その前の番号は参照用です。例えば、「3.7.0(134.0.0.0)」の場合、「134.0.0.0」がフィルタリングされるバージョン番号です。<br><br>「未満」または「以下」を使用する場合、メインアプリバージョンが存在しない場合、このフィルターは<code>true</code>を返します。これは、ユーザーがそのアプリバージョンよりも古いためです。つまり、ユーザーの最後のメインアプリバージョンが存在しない場合、自動的にフィルターに一致します。<br><br>現在のアプリバージョンが反映されるまでに時間がかかる場合があります。ユーザープロファイルのアプリバージョンは、SDKによって情報がキャプチャされた時点で更新されますが、これはユーザーがアプリを開いた時に依存します。ユーザーがアプリを開かない場合、現在のバージョンは更新されません。これらのフィルターは遡及的にも適用されません。現在および将来のバージョンに対して「より大きい」または「等しい」を使用することをお勧めしますが、過去のバージョンフィルターを使用すると予期しない動作が発生する可能性があります。
     tags:
       - App
   - name: Uninstalled
@@ -581,11 +581,11 @@ glossaries:
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Category
-    description: 特定の予測に基づくイベント実行の可能性でユーザーをセグメント化します。
+    description: 特定の予測に基づくイベント実行の可能性カテゴリーでユーザーをセグメント化します。
     tags:
       - Intelligence and predictive
   - name: Event Likelihood Score
-    description: 特定の予測に基づくイベント実行の可能性でユーザーをセグメント化します。
+    description: 特定の予測に基づくイベント実行の可能性スコアでユーザーをセグメント化します。
     tags:
       - Intelligence and predictive
   - name: Intelligent Channel

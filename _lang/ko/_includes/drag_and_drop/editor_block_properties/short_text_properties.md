@@ -13,4 +13,4 @@
 | 색상 | 필드에 입력된 텍스트의 색상입니다. |
 | 텍스트 정렬 | 필드 내 입력 텍스트의 가로 정렬입니다. |
 | 패딩 | 블록 주위의 간격입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

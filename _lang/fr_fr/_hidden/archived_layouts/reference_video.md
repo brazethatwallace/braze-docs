@@ -85,7 +85,7 @@ Pensez à définir les paramètres ou éléments que les utilisateurs devront aj
 | -------- | ----------- |
 | Page Title | Choisissez le nom que vous voulez pour votre page. Ce champ est obligatoire. |
 | My First Heading | Nous recommandons de le mettre en majuscules. Cependant, cela reste facultatif. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 ## Sujet 2 à propos de ce concept {#topic-2-regarding-this-concept}
 

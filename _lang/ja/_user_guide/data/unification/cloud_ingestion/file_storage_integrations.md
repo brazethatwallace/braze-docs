@@ -39,7 +39,7 @@ S3 用のクラウドデータ取り込み (CDI) を使用して、AWS アカウ
 | Amazon リソースネーム (ARN) | ARN は、AWS リソースの一意の識別子です。 |
 | アイデンティティとアクセス管理 (IAM) | IAM は、AWS リソースへのアクセスを安全にコントロールできる Web サービスです。このチュートリアルでは、IAM ポリシーを作成し、それを IAM ロールに割り当てて、S3 バケットを Braze クラウドデータ取り込みと統合します。 |
 | Amazon Simple Queue Service (SQS) | SQS は、分散ソフトウェアシステムとコンポーネントを統合できるホストキューです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
 
 ## AWS でのクラウドデータ取り込みの設定 {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -69,7 +69,7 @@ SQS キューはグローバルに一意でなければなりません（例え�
 
 この設定では ARN と SQS の URL を頻繁に使用するため、それらを必ずメモしてください。
 
-![「詳細設定」を選択し、例として JSON オブジェクトを用いて、キューにアクセスできるユーザーを定義する。]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
+![「詳細設定」を選択し、例として JSON オブジェクトを用いて、キューにアクセスできるユーザーを定義する画面。]({% image_buster /assets/img/cloud_ingestion/s3_ARN.png %})
 
 ### ステップ 3: アクセスポリシーの設定 {#step-3-set-up-access-policy}
 
@@ -174,7 +174,7 @@ AWS での設定を完了するには、IAM ロールを作成し、ステップ
 ![S3 の「Create Role」ページ。このページには、ロール名、ロールの説明、信頼できるエンティティ、ポリシー、および権限境界のフィールドがあります。]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
 
 {: start="7"}
-6. ステップ 5 で作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横のチェックマークを選択してアタッチします。完了したら **Next** を選択します。
+6. ステップ 4 で作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横のチェックマークを選択してアタッチします。完了したら **Next** を選択します。
 
 ![新しいポリシー名が選択されたロール ARN。]({% image_buster /assets/img/create_role_3_attach.png %})
 
@@ -243,7 +243,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 | `BRAZE_ID` | Braze のユーザー識別子です。これは Braze SDKによって生成されます。クラウドデータ取り込み経由で Braze ID を使用して新規ユーザーを作成することはできません。新規ユーザーを作成するには、external ID またはユーザーエイリアスを指定します。 |
 | `EMAIL` | ユーザーのメールアドレスです。同じメールアドレスを持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。メールと電話の両方を含める場合は、Braze はメールをプライマリ識別子として使用します。 |
 | `PHONE` | ユーザーの電話番号です。同じ電話番号を持つプロファイルが複数存在する場合、最後に更新されたプロファイルが優先されて更新されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
 
 識別子に加えて、各行には Braze のユーザーに同期させたいフィールドの JSON 文字列を含む `PAYLOAD` 列が必要です。
 
@@ -260,7 +260,7 @@ Braze は、AWS によって強制される以上の追加のファイル名要�
 | `ID` | はい | カタログアイテムの一意の識別子です。Braze でアイテムの作成、更新、または削除に使用されます。 |
 | `PAYLOAD` | はい | 同期するカタログフィールドと値の JSON 文字列です。Braze のカタログのスキーマと一致する必要があります。 |
 | `DELETED` | いいえ | `true` の場合、一致する `ID` のカタログアイテムが Braze のカタログから削除されます。作成または更新操作の場合は、この列を省略するか `false` に設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
 
 ### 例 {#examples}
 
@@ -321,7 +321,7 @@ ID,PAYLOAD,DELETED
 
 S3 向けクラウドデータ取り込みは、ファイルアップロードを通じてユーザーとカタログアイテムの削除をサポートしています。それぞれに別々の同期とファイル形式を使用します。
 
-- **[ユーザーの削除](#deleting-users)** – データタイプ「**Delete Users**」で同期を作成し、ユーザー識別子のみを含むファイル（ペイロードなし）をアップロードします。
+- **[ユーザーの削除](#deleting-users)** – データタイプ **Delete Users** で同期を作成し、ユーザー識別子のみを含むファイル（ペイロードなし）をアップロードします。
 - **[カタログアイテムの削除](#deleting-catalog-items)** – 既存のカタログ同期を使用し、削除対象のアイテムをマークする `deleted`（または `DELETED`）列を追加します。
 
 ### ユーザーの削除 {#deleting-users}
@@ -339,7 +339,7 @@ S3 のファイルを使って Braze でユーザープロファイルを削除�
 | `EXTERNAL_ID` | Braze で使用される `external_id` と一致します。 |
 | `ALIAS_NAME` と `ALIAS_LABEL` | 両方の列を合わせて、ユーザーをエイリアスで識別します。 |
 | `BRAZE_ID` | Braze が生成したユーザー ID（既存ユーザーのみ）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
 
 {% alert important %}
 ユーザーの削除は永続的で元に戻すことはできません。削除する予定のユーザーのみを含めてください。詳細については、[クラウドデータ取り込みを使用したユーザーの削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)を参照してください。

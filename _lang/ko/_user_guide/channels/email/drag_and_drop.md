@@ -18,7 +18,8 @@ tool:
 
 드래그 앤 드롭 편집기는 [콘텐츠](#content)와 [행](#rows)을 두 가지 핵심 구성요소로 사용하여 HTML을 추가로 사용하지 않고도 워크플로를 간소화합니다.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
+    <caption>콘텐츠 및 행 편집기 구성요소</caption>
     <tr>
         <th style="width: 50%;">콘텐츠</th>
         <th style="width: 50%;">행</th>
@@ -32,7 +33,7 @@ tool:
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="About the editor" }
 
 ### 콘텐츠 {#content}
 
@@ -141,6 +142,16 @@ tool:
 고급 기능은 Campaign 또는 Canvas 작성기에 표시됩니다. 고급 기능에서는 인라인 CSS 설정을 수정하고 헤더 또는 추가 키-값 페어를 입력할 수 있습니다(구성된 경우).
 {% endalert %}
 
+#### 이메일 첨부 파일 추가 {#adding-email-attachments}
+
+**발송 설정** > **고급**에서 다음 방법으로 이메일 첨부 파일을 추가할 수 있습니다:
+
+- **파일 업로드:** 컴퓨터에서 직접 파일을 드래그 앤 드롭하거나 찾아보기하여 이메일에 업로드합니다. Braze는 업로드 전에 파일 유형과 크기(기본값 최대 2&nbsp;MB)를 검증한 후 미디어 라이브러리에 업로드합니다. 2&nbsp;MB 제한을 초과하는 파일은 업로드할 수 없습니다.
+- **미디어 라이브러리 사용:** [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에 이미 저장된 자산을 찾아보고 선택합니다. PDF, Word 문서, Excel 파일, PowerPoint 프레젠테이션이 모두 지원됩니다.
+- **URL에서 추가:** 파일을 가리키는 URL을 입력하고 표시 파일 이름을 제공합니다. Braze는 이메일 작성 중에 임의의 URL의 크기를 확인할 수 없으므로 파일 크기는 발송 시 적용됩니다. 이 필드에서는 Liquid가 지원되지 않습니다.
+
+고려해야 할 구체적인 모범 사례는 [이메일 가이드라인]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/)을 참조하세요.
+
 ### 4단계: 이메일 테스트 {#step-4-test-your-email}
 
 발송 정보를 추가한 후에는 마지막으로 이메일을 테스트할 차례입니다.
@@ -191,7 +202,8 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 평균 내보내기 HTML 데이터 크기가 줄어들어 로딩 및 렌더링이 빨라지고, 모바일 클리핑이 줄어들며, 대역폭 소비가 감소했습니다.
 
 조건부 주석과 CSS 미디어 쿼리의 수를 최소화하는 다음 업데이트를 기반으로 HTML 렌더링이 개선되었습니다. 결과적으로 HTML 파일이 더 작고 효율적으로 코딩됩니다.
-- `<div>` 요소 기반 디자인에서 표준 `<table>` 형식 코드베이스로 마이그레이션
+- `<div>` 요소 기반 디자인에서 표준 `<table aria-label="Use Inbox Vision">` 형식 코드베이스로 마이그레이션
+  <caption>Use Inbox Vision</caption>
 - [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email)이 간결하게 재코딩됨
 - 최종 HTML 코드가 태그 사이의 공백을 제거하도록 압축됨
 - 투명 구분선이 자동으로 콘텐츠 패딩으로 변환됨
@@ -301,7 +313,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 | `meta` | 페이지 설명이나 키워드와 같은 메타데이터를 제공합니다. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | 내부 CSS 스타일을 삽입합니다. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | 브라우저 탭에 표시되는 문서의 제목을 설정합니다. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | 태그 | 속성 | 설명 | 예시 |
 | --- | --- | --- | --- |
@@ -319,7 +331,7 @@ Inbox Vision을 사용하면 이메일 클라이언트 및 모바일 기기의 �
 | `style` | `type` | 스타일 콘텐츠의 MIME 유형입니다. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | 스타일이 적용되는 미디어 또는 기기를 지정합니다. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | 속성 없음 | `title` 태그는 속성을 허용하지 않습니다. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 링크 이름은 최대 63바이트까지 가능하며, 제한을 초과하면 자동으로 잘립니다.

@@ -53,7 +53,7 @@ Lobで実行する内容に応じて、webhookのHTTPリクエストで対応す
 
 #### リクエストヘッダーとメソッド {#request-headers-and-method}
 
-Lobには、認証用のHTTPヘッダーとHTTPメソッドが必要です。以下の内容はすでにキーと値のペアとしてテンプレートに含まれていますが、**設定**タブで`<LOB_API_KEY>`をご使用のLob APIキーに置き換える必要があります。このキーの直後に「:」を付加し、base 64でエンコードする必要があります。
+Lobには、認証用のHTTPヘッダーとHTTPメソッドが必要です。以下の内容はすでにキーと値のペアとしてテンプレートに含まれていますが、**Settings**タブで`<LOB_API_KEY>`をご使用のLob APIキーに置き換える必要があります。このキーの直後に「:」を付加し、base 64でエンコードする必要があります。
 
 - **HTTPメソッド**: POST
 - **リクエストヘッダー**:
@@ -87,7 +87,7 @@ Lobポストカードエンドポイントのリクエスト本文の例を次�
 
 ### ステップ3: リクエストをプレビューする {#step-3-preview-your-request}
 
-この時点で、Campaignはテストと送信の準備ができているはずです。エラーが発生した場合は、LobダッシュボードとBraze開発者コンソールのエラーメッセージログを確認してください。例えば、以下のエラーは、認証ヘッダーのフォーマットが正しくないために発生したものです。
+この時点で、Campaignはテストと送信の準備ができているはずです。エラーが発生した場合は、Lobダッシュボードと Braze開発者コンソールのエラーメッセージログを確認してください。例えば、以下のエラーは、認証ヘッダーのフォーマットが正しくないために発生したものです。
 
 {% alert important %}
 ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
@@ -159,5 +159,5 @@ return brazecall;
 
 ### ステップ3: Lobでwebhookを作成する {#step-3-create-a-webhook-in-lob}
 
-1. テンプレートの作成が完了したら、**アクティブ化する**を選択し、**Webhook URL**をクリップボードにコピーします。
+1. テンプレートの作成が完了したら、**Activate**を選択し、**Webhook URL**をクリップボードにコピーします。
 2. Lobで[新しいwebhookを作成し](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1)、BrazeのWebhook URLを使用してwebhookを受信します。

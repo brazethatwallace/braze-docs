@@ -51,6 +51,7 @@ Braze에서 제공하는 LLM을 사용할 때, 해당 모델의 제공업체는 
 | **낮음** | 약간 더 많은 추론이 도움이 되지만 깊은 분석이 필요하지 않은 작업. |
 | **중간** | 다단계 또는 미묘한 작업(예: 여러 입력을 분석하여 동작을 추천). |
 | **높음** | 복잡한 추론, 엣지 케이스, 또는 모델이 답변하기 전에 단계를 거쳐야 할 때. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
 **최소**로 시작하여 에이전트의 응답을 테스트하는 것을 권장합니다. 에이전트가 정확한 답변을 제공하는 데 어려움을 겪는 경우 사고 수준을 **낮음** 또는 **중간**으로 조정할 수 있습니다. 드문 경우에 **높음** 사고 수준이 필요할 수 있지만, 이 수준을 사용하면 높은 토큰 비용과 더 긴 응답 시간 또는 타임아웃 오류의 위험이 높아질 수 있습니다. 에이전트가 다단계 추론과 합리적인 응답 시간 사이에서 균형을 맞추는 데 어려움을 겪는 경우, 사용 사례를 Canvas 또는 카탈로그에서 함께 작동할 수 있는 둘 이상의 에이전트로 분리하는 것을 고려하세요.
 
@@ -104,7 +105,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 ```
 {% endraw %}
 
-**에이전트 콘솔**의 **Logs** 섹션에서 에이전트의 입력 및 출력 세부 정보를 검토하여 Liquid에서 렌더링된 값을 확인할 수 있습니다.
+**에이전트 콘솔**의 **로그** 섹션에서 에이전트의 입력 및 출력 세부 정보를 검토하여 Liquid에서 렌더링된 값을 확인할 수 있습니다.
 
 ![지침에 Liquid가 포함된 에이전트의 세부 정보.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
@@ -469,7 +470,7 @@ Max Characters: 20
 | **likelihood_score** | 숫자 |
 | **explanation** | 문자열 |
 | **confidence_score** | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
 
 ![likelihood score, explanation, confidence score에 대한 세 가지 출력 필드를 보여주는 에이전트 콘솔.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -515,13 +516,9 @@ Max Characters: 20
 
 에이전트가 응답에서 준수해야 할 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/)을 선택할 수 있습니다. 예를 들어, 에이전트가 사용자에게 체육관 멤버십 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
 
-## 온도 {#temperature}
+## 사용자별 상호작용 기록 {#user-history}
 
-사용자가 모바일 앱에 로그인하도록 유도하는 카피를 생성하기 위해 에이전트를 사용하려는 경우, 에이전트가 더 창의적이고 컨텍스트 변수의 뉘앙스를 활용할 수 있도록 더 높은 온도를 설정할 수 있습니다. 에이전트를 사용하여 감정 점수를 생성하는 경우, 부정적인 설문조사 응답에 대한 에이전트의 추측을 피하기 위해 더 낮은 온도를 설정하는 것이 이상적일 수 있습니다. 이 설정을 테스트하고 에이전트가 생성한 출력을 검토하여 시나리오에 맞게 조정하는 것을 권장합니다.
-
-{% alert note %}
-온도는 현재 OpenAI와 함께 사용이 지원되지 않습니다.
-{% endalert %}
+사용자의 상호작용 데이터에는 최근 Campaign 및 Canvas 열기, 클릭, 전환 데이터가 포함됩니다. 예를 들어, Canvas에서 평가될 때 에이전트가 참조할 수 있도록 이 컨텍스트를 포함할 수 있습니다. 사용자별 상호작용 기록은 에이전트가 개인화된 메시지 카피를 작성하는 역할을 할 때도 영향을 줄 수 있습니다.
 
 ## 에이전트 복제 {#duplicate-agents}
 

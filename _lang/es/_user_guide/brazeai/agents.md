@@ -10,12 +10,12 @@ description: "Los agentes de Braze pueden generar contenido, tomar decisiones in
 > Los agentes de Braze son asistentes basados en inteligencia artificial que puedes crear dentro de Braze. Los agentes pueden generar contenido, tomar decisiones inteligentes y enriquecer tus datos para que puedas entregar experiencias del cliente más personalizadas.
 
 {% alert important %}
-Se necesitan créditos de mensajes para acceder y utilizar los agentes de Braze. Si actualmente no tienes créditos de mensajes y quieres utilizar los agentes de Braze, ponte en contacto con tu director de cuentas para conocer los pasos a seguir.
+Se necesitan créditos de mensajes o de acciones para acceder y utilizar los agentes de Braze. Si actualmente no tienes créditos de acciones y quieres utilizar los agentes de Braze, ponte en contacto con tu director de cuentas para conocer los pasos a seguir.
 {% endalert %}
 
 Mira este video para obtener un resumen de los agentes de Braze en la Consola de Agente.
 
-{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" %}
+{% multi_lang_include video.html id="afd0hp0vrh" source="wistia" title="Braze Agents in Agent Console overview" %}
 
 ## ¿Por qué utilizar los agentes de Braze? {#why-use-braze-agents}
 
@@ -57,8 +57,7 @@ Los agentes se configuran con instrucciones (indicaciones del sistema) que defin
 | [Variable de salida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/#define-the-output-variable) | El resultado que produce el agente cuando se utiliza en los pasos en Canvas. Las variables de salida almacenan el resultado del agente para personalizar contenido o guiar las rutas del flujo de trabajo. Las variables de salida pueden ser de tipo cadena, número o booleano. |
 | [Invocación](#limitations) | Una sola ejecución del agente. Esto cuenta para tus límites diarios. |
 | [Formato de salida]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#select-output) | La estructura de datos predefinida de la respuesta del agente. |
-| [Temperatura]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) | El nivel de desviación del resultado del agente. Esto define el grado de precisión o creatividad que puede alcanzar tu agente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceptos clave" }
 
 ## Limitaciones {#limitations}
 

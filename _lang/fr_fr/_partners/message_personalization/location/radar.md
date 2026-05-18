@@ -28,7 +28,7 @@ De plus, les API Radar Geo peuvent être utilisées pour enrichir ou personnalis
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Identifiant de l'application | L'[identifiant de votre application]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) se trouve dans le tableau de bord de Braze sous **Paramètres** > **Clés API**. |
 | Clé API iOS<br>Clé API Android | Ces clés API se trouvent dans le tableau de bord de Braze sous **Paramètres** > **Paramètres des applications**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Intégration {#integration}
 
@@ -72,7 +72,7 @@ Par exemple, ciblez tous les utilisateurs qui ont visité votre magasin au cours
 
 L'exemple suivant montre comment mettre en place une promotion pour inciter les utilisateurs à proximité à se rendre en magasin grâce à une offre numérique.
 
-![Image Android d'un message push de contenu connecté affichant « New In Store Deals, Walmart and target near you ».]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
+![Image Android d'un message push de contenu connecté affichant « New In Store Deals, Walmart and Target near you ».]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
 
 Pour commencer, vous devez disposer de votre clé API publiable Radar, que vous utiliserez dans vos URL de requête.
 

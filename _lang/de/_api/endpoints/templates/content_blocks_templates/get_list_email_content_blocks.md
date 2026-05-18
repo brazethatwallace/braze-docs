@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Verfügbare Content Blocks auflisten"
 article_title: "GET: Verfügbare Content Blocks auflisten"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `modified_before`  |  Optional | String im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format | Ruft nur Content Blocks ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `limit` | Optional | Positive Zahl | Maximale Anzahl der abzurufenden Content Blocks. Standardmäßig 100, wenn nicht angegeben, mit einem maximal zulässigen Wert von 1000. |
 | `offset`  |  Optional | Positive Zahl | Anzahl der Content Blocks, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -75,6 +75,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `Content Block number limit exceeds maximum of 1000` | Ändern Sie den Parameter `limit` in eine Ganzzahl kleiner als 1000. |
 | `Offset is invalid` | Der Parameter `offset` muss eine Ganzzahl größer als 0 sein. |
 | `Offset must be greater than 0` | Ändern Sie den Parameter `offset` in eine Ganzzahl größer als 0. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

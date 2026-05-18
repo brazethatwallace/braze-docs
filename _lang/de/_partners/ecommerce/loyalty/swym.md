@@ -26,7 +26,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Swym  | Die Apps Swym Wishlist Plus, Back in Stock oder beide müssen auf Ihrer E-Commerce-Plattform (Shopify oder BigCommerce) installiert sein, und Sie müssen den Enterprise-Tarif nutzen.       |
 | Ein Braze-REST-API-Schlüssel  | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Ein Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -74,7 +74,7 @@ Gehen Sie in Ihrer Wishlist Plus App auf den Tab **Marketing** und suchen Sie de
 | Price Drop alert | Ein Produkt auf einer Wunschliste wird reduziert |
 | Low Stock alert | Ein Produkt auf der Wunschliste ist nur noch in geringer Stückzahl vorrätig |
 | Back in Stock alert | Ein Produkt auf der Wunschliste ist wieder auf Lager |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Wishlist Plus App – Events" }
 
 #### Swym Back in Stock Alerts App – Events
 
@@ -83,7 +83,7 @@ Gehen Sie in Ihrer Wishlist Plus App auf den Tab **Marketing** und suchen Sie de
 | Back in Stock Acknowledgment | Ein Käufer abonniert die Benachrichtigung, wenn ein Produkt wieder auf Lager ist |
 | Restock Alert | Das Produkt, für das ein Käufer eine Back-in-Stock-Warnung angefordert hat, ist wieder vorrätig |
 | Restock Reminder | Folgewarnung (in der Regel ca. 24 Stunden nach dem ersten Restock Alert, konfigurierbar) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Swym Back in Stock Alerts App – Events" }
 
 ### 3. Schritt: Erstellen Sie eine Braze-Kampagne oder ein Canvas {#step-3-create-a-braze-campaign-or-canvas}
 

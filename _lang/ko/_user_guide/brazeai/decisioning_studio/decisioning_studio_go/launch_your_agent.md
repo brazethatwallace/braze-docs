@@ -55,7 +55,7 @@ BAU 보고를 설정하기 전에 BAU 처리 그룹, Decisioning Studio Go 그�
 |-----|---------------|
 | **Braze** | Campaigns 및 Canvases |
 | **Salesforce Marketing Cloud** | 여정만 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 **CEP의 오디언스 ID:**
 
@@ -63,14 +63,14 @@ BAU 보고를 설정하기 전에 BAU 처리 그룹, Decisioning Studio Go 그�
 |-----|---------------|
 | **Braze** | Segments만 |
 | **Salesforce Marketing Cloud** | 데이터 확장만 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 BAU 오디언스를 추적하는 기존 오디언스가 없다면 새로 생성해야 합니다.
 
 ### 고려 사항 {#considerations}
 
 - **클릭 KPI만 해당:** Decisioning Studio Go와 마찬가지로 BAU 보고는 클릭 KPI만 다루며 전환 KPI는 포함하지 않습니다.
-- **Canvas 제한 사항:** 현재 특정 **Canvas** 단계 ID로 필터링하는 기능은 지원하지 않습니다. 모든 **Canvas** 단계의 이벤트가 BAU 데이터에 포함됩니다. 특정 **Canvas** 단계만 포함해야 하는 경우 BAU와의 비교가 무효화될 수 있습니다.
+- **Canvas 제한 사항:** 현재 특정 캔버스 단계 ID로 필터링하는 기능은 지원하지 않습니다. 모든 캔버스 단계의 이벤트가 BAU 데이터에 포함됩니다. 특정 캔버스 단계만 포함해야 하는 경우 BAU와의 비교가 무효화될 수 있습니다.
 
 ### BAU 보고 설정하기
 

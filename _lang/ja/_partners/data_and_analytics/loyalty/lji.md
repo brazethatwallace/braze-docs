@@ -30,7 +30,7 @@ BrazeとGRAVTY®の統合は、両プラットフォーム間でロイヤルテ�
 | Braze REST APIキー | `campaigns.trigger.send`、`canvas.trigger.send`、`users.track`の権限を持つREST APIキー。<br><br> このキーはBrazeダッシュボードの**設定** > **APIキー**から作成します。 |
 | Braze APIエンドポイント | BrazeのRESTエンドポイント（例：`https://rest.fra-01.braze.eu`）。詳細については、[Brazeインスタンスとエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を参照してください。 |
 | CampaignまたはCanvas ID | GRAVTY®からトリガーする**Campaigns**または**Canvas**ワークフローのID。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## ユースケース {#use-cases}
 

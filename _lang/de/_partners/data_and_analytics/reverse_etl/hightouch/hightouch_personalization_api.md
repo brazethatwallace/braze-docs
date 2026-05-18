@@ -26,10 +26,10 @@ Die Personalization API von Hightouch bietet einen REST-Endpunkt zur Verwendung 
 | Definierte Anwendungsfälle | Bevor Sie die API einrichten, müssen Sie Ihren Anwendungsfall für diese Integration festlegen. In der folgenden Liste finden Sie gängige Anwendungsfälle. |
 | In einem Cloud Data Warehouse oder einer anderen Datenquelle gespeicherte Daten | Hightouch lässt sich mit [über 25 Datenquellen](https://hightouch.com/integrations) integrieren. |
 | Hightouch API-Schlüssel | Dieser kann unter **Hightouch > Settings > API keys > Add API key** erstellt werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab Anwendungsfälle %}
 
 ### Anwendungsfälle {#use-cases}
 
@@ -42,7 +42,7 @@ Zu den gängigen Anwendungsfällen gehören:
 - **Empfehlungen auf Basis finanzieller oder medizinischer Daten** – Finanzdaten unterliegen strengen Anforderungen, die Hightouch durch seine [strengen Richtlinien zur Datensicherheit](https://hightouch.com/docs/security/overview#compliance) erfüllt. Mit Hightouch können Sie Kundensegmente auf der Grundlage finanzieller oder medizinischer Daten erstellen, ohne die zugrunde liegenden Attribute offenzulegen, die in Ihren Segmentierungskriterien verwendet werden.
 
 {% endtab %}
-{% tab Datasets %}
+{% tab Datensätze %}
 
 ### Datensätze {#datasets}
 
@@ -86,7 +86,7 @@ Folgen Sie diesen Anweisungen, um beides abzuschließen:
 3. Rufen Sie die [Übersichtsseite **Syncs**](https://app.hightouch.com/syncs) auf und klicken Sie auf den Button **Add sync**. Wählen Sie dann das entsprechende Modell und das Ziel aus, das Sie zuvor eingerichtet haben.<br><br>
 4. Geben Sie einen alphanumerischen Namen für die Sammlung ein. Sammlungen sind konzeptionell ähnlich wie Datenbanktabellen. Jede sollte einen bestimmten Datentyp repräsentieren, z. B. Kund:innen oder Rechnungen. Die Sammlungsnamen müssen alphanumerisch sein und werden Teil Ihres Personalization-API-Endpunkts.<br><br>
 5. Geben Sie als Nächstes an, welche Spalte aus Ihrem Modell als Primärindex für die Datensatzsuche dienen soll. Dieses Feld muss jeden Datensatz in der Sammlung eindeutig identifizieren und ist oft derselbe wie der Primärschlüssel Ihres Modells. Die Personalization API unterstützt Abfragen über mehrere Indizes. Sie könnten zum Beispiel Kundenprofile mit `user_id`, `anonymous_id` oder `email_address` abrufen wollen. Um mehrere Indizes zu aktivieren, wenden Sie sich an den [Hightouch-Support](mailto:friends@hightouch.com).<br><br>
-6. Verwenden Sie den Feld-Mapper, um festzulegen, welche Spalten aus Ihrem Modell in die API-Antwort-Payload aufgenommen werden sollen. Sie können diese Felder umbenennen und den erweiterten Mapper verwenden, um Transformationen mit Hilfe der Liquid-Template-Sprache anzuwenden.<br><br>
+6. Verwenden Sie den Feld-Mapper, um festzulegen, welche Spalten aus Ihrem Modell in die API-Antwort-Payload aufgenommen werden sollen. Sie können diese Felder umbenennen und den erweiterten Mapper verwenden, um Transformationen mithilfe der Liquid-Template-Sprache anzuwenden.<br><br>
 7. Wählen Sie das passende [Löschverhalten](https://www.hightouch.com/docs/destinations/personalization-api#delete-behavior) für Ihren Anwendungsfall aus.<br><br>
 8. Klicken Sie abschließend auf **Continue** und wählen Sie einen [Sync-Zeitplan](https://hightouch.com/docs/syncs/schedule-sync-ui) aus.
 
@@ -167,10 +167,10 @@ Die folgenden Liquid-Referenzen würden diese Beispieldaten zurückgeben:
 
 | Liquid-Template | Zurückgegebenes Beispiel |
 | --- | --- |
-| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
-| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
-| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
+| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
+| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
 
 ## Fehlerbehebung {#troubleshooting}
 

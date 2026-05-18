@@ -75,6 +75,10 @@ A Braze rastreia as desinstalações observando quando as mensagens push enviada
 
 FCM e APNs impõem restrições ao rastreamento de desinstalação. A Braze incrementa apenas a contagem de desinstalação quando FCM ou APNs nos informam que um usuário desinstalou, mas esses sistemas de terceiros podem nos notificar sobre desinstalações a qualquer momento. Use o rastreamento de desinstalação para detectar tendências direcionais em vez de estatísticas precisas.
 
+A Braze trata as seguintes respostas do FCM como respostas de remoção de token (desinstalação): `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` e `SENDER_ID_MISMATCH`.
+
+Para mais informações sobre como usar o rastreamento de desinstalação, veja nosso post no blog [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
+
 ## Solução de problemas {#troubleshooting}
 
 ### Por que de repente estou vendo um pico de desinstalações? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}

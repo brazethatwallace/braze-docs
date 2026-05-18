@@ -333,6 +333,14 @@ Uma notificação informa se suas credenciais foram validadas com sucesso. O AWS
 {% endtab %}
 {% endtabs %}
 
+## Atualização das credenciais do Amazon S3 para Currents {#updating-currents-credentials}
+
+Você pode atualizar as credenciais do Amazon S3 em um conector Braze Currents existente sem interromper a integração ou perder dados já exportados para o seu bucket.
+
+Para atualizar as credenciais — ou para alternar entre **AWS Secret Access Key** e **AWS Role ARN** — conclua as etapas do lado do IAM e da AWS para o método escolhido descritas anteriormente neste artigo (políticas, usuário ou função e identificadores conforme necessário).
+
+Quando terminar de preparar as credenciais na AWS, acesse **Integrações de parceiros** > **Currents** na Braze, localize seu conector Amazon S3 na lista, selecione **Edit**, atualize as **Credentials** e selecione **Update Current**. A Braze valida as credenciais inseridas; seu conector continua funcionando e os dados já no seu bucket permanecem disponíveis. Para saber mais, consulte [Atualização de Currents em Configurar Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
+
 ## Comportamento de exportação {#export-behavior}
 
 Os usuários que integraram uma solução de armazenamento de dados na nuvem e exportam APIs, relatórios de dashboard ou relatórios CSV experimentam o seguinte:

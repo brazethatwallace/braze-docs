@@ -12,7 +12,7 @@ tool: Reports
 search_rank: 2
 guide_featured_title: "セクション記事"
 guide_featured_list:
-  - name: Campaign分析
+  - name: キャンペーン分析
     link: /docs/user_guide/analytics/reports/campaign_analytics
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: レポートビルダー
@@ -33,7 +33,7 @@ guide_featured_list:
 
 guide_menu_title: "その他の記事"
 guide_menu_list:
-  - name: Canvas分析
+  - name: Canvasの分析
     link: /docs/user_guide/analytics/reports/canvas_analytics
     image: /assets/img/braze_icons/line-chart-down-01.svg
   - name: ファネルレポート
@@ -51,8 +51,8 @@ guide_menu_list:
 
 | レポート | 最適な用途 | 説明 |
 | --- | --- | --- |
-| [Campaign分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) | チャネル別のCampaign結果 | 各Campaignのリアルタイム結果をメッセージングチャネル別に表示します。 |
-| [Canvas分析]({{site.baseurl}}/user_guide/analytics/reports/canvas_analytics/) | Canvasのパフォーマンス | Canvasのトップライン統計、バリアントのパフォーマンス、ステップレベルの指標を表示します。 |
+| [キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) | チャネル別のCampaign結果 | 各Campaignのリアルタイム結果をメッセージングチャネル別に表示します。 |
+| [Canvasの分析]({{site.baseurl}}/user_guide/analytics/reports/canvas_analytics/) | Canvasのパフォーマンス | Canvasのトップライン統計、バリアントのパフォーマンス、ステップレベルの指標を表示します。 |
 | [レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) | Campaign間の比較 | 複数のCampaignまたはCanvasesの結果を、カスタマイズ可能な指標とドリルダウンで単一のビューで比較します。 |
 | [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) | カスタムSQL分析 | SnowflakeのBrazeデータに対してカスタムSQLクエリを記述するか、一般的な分析用のビルド済みテンプレートを使用します。 |
 | [エンゲージメントレポート]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/) | スケジュールされたメールエクスポート | 選択したCampaignおよびCanvasesのエンゲージメント統計の定期的なCSVエクスポートを設定します。 |

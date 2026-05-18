@@ -17,10 +17,10 @@ channel:
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta de Infobip | Se requiere una cuenta de Infobip para usar el conector BYO WhatsApp.
-| Créditos de mensajería | Consumes créditos de mensajería de Braze cuando envías mensajes de WhatsApp. |
+| Créditos de mensaje o acción | Consumes créditos de acción de Braze cuando envías mensajes de WhatsApp. |
 | Requisitos de WhatsApp | Completa todos los [requisitos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
 | Número de teléfono | Te sugerimos [adquirir un número de teléfono a través de Infobip](https://www.infobip.com/docs/numbers/getting-started) por conveniencia. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configuración {#set-up}
 
@@ -55,7 +55,7 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 6. Después de crear la clave, copia la clave de API.
     - La clave solo se puede copiar durante un tiempo limitado después de la creación. Puedes repetir estos pasos para crear una nueva clave si necesitas conectar otra cuenta de WhatsApp Business en el futuro.
 
-![Clave de API de ejemplo de Braze con 6 alcances agregados.]({% image_buster /assets/img/whatsapp/byo_connector/api_key.png %})
+!["Braze Example API Key" con 6 alcances agregados.]({% image_buster /assets/img/whatsapp/byo_connector/api_key.png %})
 
 {: start="7"}
 7. Copia la URL base de la API de la cuenta.
@@ -110,10 +110,11 @@ Confirma que tu cuenta de WhatsApp Business no esté conectada a un espacio de t
 
 ## Consideraciones {#considerations}
 
+
 Si bien toda la funcionalidad existente con Braze es compatible, estos casos de uso actualmente no son compatibles.
 
 | Caso de uso | Razón |
 | --- | --- |
 | Procesamiento de mensajes entrantes en Braze e Infobip | Esto evita cadenas lógicas que se desencadenan por cualquiera de los dos sistemas, generando consecuentemente hilos de mensajes duplicados y potencialmente contradictorios. |
 | Envío de mensajes desde Braze e Infobip | Para las cuentas de WhatsApp Business conectadas a Braze, todos los envíos se originan desde Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consideraciones" }

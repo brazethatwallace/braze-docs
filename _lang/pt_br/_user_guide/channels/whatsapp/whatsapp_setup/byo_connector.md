@@ -17,10 +17,10 @@ channel:
 | Requisito | Descrição |
 | --- | --- |
 | Conta Infobip | Uma conta Infobip é necessária para usar o conector BYO WhatsApp.
-| Créditos de envio de mensagens | Você consome créditos de envio de mensagens da Braze ao enviar mensagens pelo WhatsApp. |
+| Créditos de mensagem ou ação | Você consome créditos de ação da Braze ao enviar mensagens pelo WhatsApp. |
 | Requisitos do WhatsApp | Conclua todos os [requisitos do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
 | Número de telefone | Sugerimos que você [adquira um número de telefone pela Infobip](https://www.infobip.com/docs/numbers/getting-started) por conveniência. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configuração {#set-up}
 
@@ -117,4 +117,4 @@ Embora todas as funcionalidades existentes com a Braze sejam suportadas, estes c
 | --- | --- |
 | Processar mensagens de entrada na Braze e na Infobip | Isso impede cadeias lógicas que são acionadas por qualquer um dos sistemas, consequentemente gerando threads de mensagens duplicadas e potencialmente contraditórias. |
 | Enviar mensagens pela Braze e pela Infobip | Para contas WhatsApp Business conectadas à Braze, todo o envio é originado pela Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações" }

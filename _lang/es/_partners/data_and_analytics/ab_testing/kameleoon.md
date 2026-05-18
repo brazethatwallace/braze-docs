@@ -19,11 +19,11 @@ Antes de empezar, necesitarás lo siguiente:
 | --- | --- |
 | Cuenta Kameleoon | Se necesita una cuenta Kameleoon para beneficiarse de esta asociación.|
 | Cuenta Braze| Una cuenta Braze activa con el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás que se habilite la segmentación de propiedades del evento. Para solicitarlo, consulta [Consideraciones](#considerations).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
-Kameleoon envía eventos personalizados a Braze para identificar a los usuarios que participan en campañas de experimentación y personalización, lo que permite una orientación más precisa y mensajes personalizados.
+Kameleoon envía eventos personalizados a Braze para identificar a los usuarios que participan en campañas de experimentación y personalización, lo que permite una segmentación más precisa y mensajes personalizados.
 
 ## Integración de Kameleoon {#integrating-kameleoon}
 
@@ -87,7 +87,7 @@ Aparecerán las herramientas de informe asociadas al experimento. Selecciona **E
 
 ### Paso 4: Analiza y aprovecha tus datos de Kameleoon en Braze {#step-4-analyze-and-leverage-your-kameleoon-data-in-braze}
 
-Una vez configurada la integración, Kameleoon enviará a Braze eventos personalizados denominados `kameleoon_exposure` con propiedades como **Experiment name**, **Experiment ID**, **Variation name**, **Variation ID**.
+Una vez configurada la integración, Kameleoon enviará a Braze eventos personalizados denominados `kameleoon_exposure` con propiedades como **Experiment name**, **Experiment ID**, **Variation name** y **Variation ID**.
 
 ![El registro de usuarios del evento personalizado en Braze, mostrando un ejemplo de carga útil del evento que ha recibido Braze de Kameleoon.]({% image_buster /assets/img/kameleoon/img_9.png %})
 
@@ -101,7 +101,8 @@ Además, se podrá acceder a estos eventos a través de [los objetos de eventos 
 
 Antes de poder utilizar la segmentación de propiedades de eventos, necesitarás habilitarla en Braze. Utiliza la siguiente plantilla para ponerte en contacto con tu CSM de Braze o con el equipo de soporte para obtener acceso.
 
-   <table>
+   <table aria-label="Solicitar segmentación de propiedades del evento">
+     <caption>Solicitar segmentación de propiedades del evento</caption>
    <thead>
       <tr>
          <th>Campo</th>
@@ -126,7 +127,7 @@ Antes de poder utilizar la segmentación de propiedades de eventos, necesitarás
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Solicitar segmentación de propiedades del evento" }
 
 ### Puntos de datos de Braze {#braze-data-points}
 

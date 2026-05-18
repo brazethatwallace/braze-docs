@@ -92,6 +92,10 @@ Cookieをクリアするとログアウトされるため、保存されてい�
 
 ブラウザーのキャッシュとCookieをクリアしても問題が解決しない場合は、[サポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
 
+### Google Chromeの「Aw, Snap!」エラー {#aw-snap-error-in-google-chrome}
+
+Google Chromeで「Aw, Snap!」エラーが表示される場合、ChromeがBrazeダッシュボードページの読み込みに問題を抱えています。トラブルシューティングの手順については、[Chromeの一般的なエラーメッセージに関するヘルプ](https://support.google.com/chrome/answer/95669?co=GENIE.Platform%3DDesktop&hl=en)を参照してください。
+
 ### ダッシュボードのナビゲーション中に「Please Refresh Page」または「Unexpected Error」が表示される {#please-refresh-page-or-unexpected-error-while-navigating-the-dashboard}
 
 このエラーは、会社ユーザーがどのワークスペースにも属していない場合に表示されることがあります。トラブルシューティングの手順：

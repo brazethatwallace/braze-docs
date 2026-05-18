@@ -8,11 +8,11 @@ search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/looker-integration-with-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Looker {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlooker-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderlooker}
 
 > ビジネスインテリジェンスおよびビッグデータ分析プラットフォームである [Looker](https://looker.com/) を使用すると、リアルタイムのビジネス分析をシームレスに探索、分析、共有できます。
 
-BrazeとLookerの統合により、会社ユーザーはREST APIを介してファーストパーティの [Looker Blocks](#looker-blocks) と [Looker Actions](#looker-actions) のユーザーフラグ機能を活用できます。フラグを設定したユーザーをSegmentsに追加して、将来のBraze CampaignsやCanvasesを[ターゲット](#segment-users)にすることができます。LookerをBrazeと併用するには、[Braze Currentsを使用してデータウェアハウス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)にBrazeデータを送信し、Braze Looker Blocksを使用してLookerでBrazeデータを素早くモデル化および視覚化することをお勧めします。
+BrazeとLookerの統合により、会社ユーザーはREST APIを介してファーストパーティの[Looker Blocks](#looker-blocks)と[Looker Actions](#looker-actions)のユーザーフラグ機能を活用できます。フラグを設定したユーザーをSegmentsに追加して、将来のBraze CampaignsやCanvasesを[ターゲット](#segment-users)にすることができます。LookerをBrazeと併用するには、[Braze Currentsを使用してデータウェアハウス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)にBrazeデータを送信し、Braze Looker Blocksを使用してLookerでBrazeデータを素早くモデル化および視覚化することをお勧めします。
 
 ## 前提条件 {#prerequisites}
 
@@ -20,8 +20,8 @@ BrazeとLookerの統合により、会社ユーザーはREST APIを介してフ�
 |---|---|
 | Lookerアカウント | このパートナーシップを活用するには、[Lookerアカウント](https://looker.com/)が必要です。 |
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント  | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)に応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 #### 注意事項 {#considerations}
 
@@ -56,7 +56,7 @@ Brazeは[Snowflake](https://www.snowflake.com/)をデータウェアハウスと
 |---|---|
 | メッセージエンゲージメント分析ブロック | このブロックには、プッシュ、メール、アプリ内メッセージ、Webhook、コンバージョン、Canvasエントリ、およびCampaignコントロールグループ登録イベントに関するデータが含まれます。<br><br>この[Lookerブロック](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)の詳細については、[GitHubのコード](https://github.com/llooker/braze_message_engagement_block)をご確認ください。 |
 | ユーザー動作分析ブロック | このブロックには、カスタムイベント、購入、セッション、ロケーションイベント、アンインストールに関するデータが含まれます。<br><br>この[Lookerブロック](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct)の詳細については、[GitHubのコード](https://github.com/llooker/braze_retention_block)をご確認ください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available Blocks" }
 
 ### Looker Actions {#looker-actions}
 

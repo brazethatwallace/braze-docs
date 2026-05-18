@@ -23,7 +23,7 @@ Pour supprimer des utilisateurs, vous devez être administrateur ou disposer de 
 |------------|-------------|
 | Delete Users | Supprimer définitivement des utilisateurs individuellement ou en masse. |
 | View User Deletion Records | Consulter les enregistrements de suppression d'utilisateurs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## À propos de la suppression d'utilisateurs {#about-user-deletion}
 
@@ -34,7 +34,7 @@ La suppression d'utilisateurs vous permet de gérer votre base de données en su
 | Taille maximale | Vous pouvez supprimer jusqu'à 100 millions de profils utilisateurs lors de la suppression d'un segment. |
 | Période d'attente | Toutes les suppressions de segments nécessitent une période d'attente de 7 jours plus le temps nécessaire au traitement des suppressions. |
 | Limites de tâches | Un seul segment peut être supprimé à la fois, ce qui inclut la période d'attente de 7 jours. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de la suppression d'utilisateurs" }
 
 ## Supprimer des utilisateurs {#deleting-users}
 
@@ -42,9 +42,9 @@ Vous pouvez supprimer un [utilisateur individuel](#delete-individual) ou un [seg
 
 ### Supprimer un utilisateur individuel {#delete-individual}
 
-Pour supprimer un utilisateur individuel de Braze, accédez à **Audience** > **Rechercher des utilisateurs**, puis recherchez et sélectionnez un utilisateur. Si vous supprimez un profil utilisateur en double, vérifiez que vous avez sélectionné le bon.
+Pour supprimer un utilisateur individuel de Braze, accédez à **Audience** > **Search Users**, puis recherchez et sélectionnez un utilisateur. Si vous supprimez un profil utilisateur en double, vérifiez que vous avez sélectionné le bon.
 
-![La page « Rechercher des utilisateurs » dans Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
+![La page « Search Users » dans Braze.]({% image_buster /assets/img/audience_management/duplicate_users/individual_merging/search_user.png %}){: style="max-width:75%;"}
 
 {% alert warning %}
 Les suppressions d'utilisateurs individuels sont permanentes : les profils ne peuvent pas être récupérés après leur suppression.
@@ -96,7 +96,7 @@ Vous disposez de 7 jours pour annuler les suppressions de segments en attente. P
 
 Dans les détails de l'enregistrement de suppression, sélectionnez **Cancel deletion**.
 
-![La fenêtre « Détails de l'enregistrement de suppression » dans l'onglet « Delete Users ».]({% image_buster /assets/img/audience_management/deleting_users/deletion_record_details.png %}){: style="max-width:55%;"}
+![La fenêtre « Deletion Record Details » dans l'onglet « Delete Users ».]({% image_buster /assets/img/audience_management/deleting_users/deletion_record_details.png %}){: style="max-width:55%;"}
 
 {% alert tip %}
 Lorsqu'une suppression en masse d'utilisateurs est en cours, vous pouvez l'annuler à tout moment. Cependant, les utilisateurs déjà supprimés avant l'annulation ne peuvent pas être restaurés.
@@ -111,7 +111,7 @@ Vous pouvez vérifier l'état d'une suppression à l'aide des [filtres de segmen
 Lorsque vous demandez la suppression d'un segment d'utilisateurs, un [filtre de segment]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) appelé **Pending Deletion** est automatiquement créé. Vous pouvez l'utiliser pour :
 
 - Voir l'ensemble exact d'utilisateurs liés à une date d'exécution de suppression spécifique.
-- Exclure ces utilisateurs des Campaigns afin qu'ils ne reçoivent pas de messages avant leur suppression.
+- Exclure ces utilisateurs des campagnes afin qu'ils ne reçoivent pas de messages avant leur suppression.
 - Exporter la liste si vous en avez besoin à des fins de conformité ou d'archivage.
 
 ### Manage Audience {#manage-audience}
@@ -132,7 +132,7 @@ Sur cette page, vous trouverez les informations générales suivantes pour toute
 | Demandeur | L'utilisateur qui a initié la demande de suppression. |
 | Nom du segment | Le nom du segment utilisé pour sélectionner les utilisateurs en attente de suppression. |
 | État | Indique si la demande de suppression est en attente, en cours ou terminée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage Audience" }
 
 Pour plus de détails sur une demande spécifique, sélectionnez <i class="fa-solid fa-eye"></i> pour afficher les détails de l'enregistrement de suppression. Vous pouvez également [annuler les suppressions de segments en attente](#cancel) depuis cet écran.
 
@@ -164,7 +164,7 @@ Si une fusion planifiée inclut des profils utilisateurs en attente de suppressi
 
 Les données envoyées depuis des systèmes externes ou des SDK sont toujours acceptées, mais les utilisateurs seront supprimés comme prévu, indépendamment de l'activité.
 
-### Les Canvas et les Campaigns se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
+### Les Canvas et les campagnes se déclenchent-ils pour les utilisateurs en attente de suppression ? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 
 Oui. Cependant, vous pouvez ajouter un filtre d'inclusion de segment pour exclure tous les utilisateurs avec le [filtre de segment](#segment-filters) **Pending Deletion**.
 

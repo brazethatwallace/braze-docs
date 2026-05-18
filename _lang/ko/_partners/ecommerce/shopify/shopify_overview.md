@@ -19,8 +19,8 @@ Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케�
 | 요구 사항 | 설명 |
 | --- | --- |
 | Shopify 스토어 | 활성 Shopify 스토어가 있어야 합니다. |
-| Shopify 스토어 소유자 또는 직원 권한 | {::nomarkdown}<ul><li>모든 일반 및 온라인 스토어 설정에 대한 접근 권한.</li><li> 추가 관리자 권한:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Shopify 스토어 소유자 또는 직원 권한 | {::nomarkdown}<ul><li>모든 일반 및 온라인 스토어 설정에 대한 접근 권한.</li><li> 추가 관리자 권한:<ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 통합 방법 {#how-to-integrate}
 
@@ -66,7 +66,7 @@ Braze는 Shopify 통합을 사용하여 게스트 쇼핑 경험부터 식별된 
 | 결제 토큰 사용자 별칭 | 사용자가 결제 프로세스를 시작할 때 Braze가 생성하는 별칭입니다. 이 토큰은 Shopify 결제 토큰을 사용하여 생성됩니다.<br><br> 고객이 Shop Pay를 빠른 결제 옵션으로 사용하는 경우, Shopify가 특정 표준 결제 이벤트를 건너뛰어 Braze가 결제 토큰 별칭을 추가하는 데 필요한 데이터를 수신하지 못할 수 있습니다. |
 | Shopify 고객 ID 별칭 | Shopify 고객 ID는 계정 로그인 시 또는 주문이 완료될 때 외부 ID가 할당되면서 별칭으로 지정됩니다. |
 | Braze `external_id` | 기기와 플랫폼 간에 고객을 추적하는 데 도움이 되는 고유 식별자입니다. 사용자가 기기를 전환하거나 앱을 재설치할 때 여러 프로필이 생성되는 것을 방지하여 일관된 사용자 경험을 유지하고 분석을 개선합니다.<br><br>Shopify 통합은 다음 `external_id` 유형을 지원합니다: <br><br>{::nomarkdown}<ul><li>Shopify 고객 ID(기본값)</li><li>커스텀 외부 ID</li><li>해시된 이메일(SHA-256)</li><li>해시된 이메일(SHA-1)</li><li>해시된 이메일(MD5)</li><li>이메일</li></ul>{:/}Braze는 다음과 같은 경우 SDK 내에서 changeUser 메서드를 호출하여 사용자에게 `external_id`를 할당합니다: <br><br>{::nomarkdown}<ul><li>사용자가 로그인하거나 계정을 생성할 때</li><li>주문이 완료될 때</li></ul>{:/}<br> 익명 프로필에 `external_id`를 할당할 때 어떤 일이 발생하는지에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)를 참조하세요.<br><br>Braze는 또한 `external_id`를 활용하여 Shopify 웹훅의 다운스트림 이커머스 행동 데이터를 귀속시킵니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User and data syncing" }
 
 이 통합은 Braze SDK와 Shopify 서비스가 함께 작동하여 Shopify 데이터를 거의 실시간으로 올바른 사용자에게 적절히 추적하고 귀속시켜야 합니다. 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/)를 참조하세요.
 
@@ -98,7 +98,7 @@ Shopify의 이메일 마케팅 옵트인 상태는 Braze에서 사용자의 [글
 | 이메일이 유효하지 않음 | 가입 취소됨 |
 | SMS 가입됨 | 가입됨 |
 | SMS 가입 취소됨 | 가입 취소됨 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Syncing Shopify email and SMS marketing opt-ins" }
 
 ### 가입 양식 {#sign-up-forms}
 

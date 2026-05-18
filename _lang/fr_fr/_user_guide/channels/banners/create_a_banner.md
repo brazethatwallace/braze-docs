@@ -110,7 +110,7 @@ Pour chaque propriété que vous souhaitez ajouter, remplissez les champs suivan
 | Type de propriété | Le type de données de la propriété. Les types pris en charge incluent chaîne de caractères, valeur booléenne, nombre, horodatage, URL d'image et objet JSON. | Chaîne de caractères |
 | Clé de propriété | L'identifiant unique de la propriété. Cette clé est utilisée dans le SDK pour accéder à la propriété. | `color` |
 | Valeur | La valeur attribuée à la propriété. Elle doit correspondre au type de propriété sélectionné. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3.4: Add custom properties (optional) #custom-properties" }
 
 Lorsque vous avez terminé, sélectionnez **Done**.
 

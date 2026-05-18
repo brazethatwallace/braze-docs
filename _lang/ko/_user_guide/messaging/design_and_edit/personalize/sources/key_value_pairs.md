@@ -55,7 +55,7 @@ Apple 푸시 알림 서비스(APNs)는 키-값 페어를 사용하여 알림 기
 | badge             | 숫자                      | 앱 아이콘에 배지로 표시되는 숫자를 제어합니다                                                                                                                              |
 | sound             | 문자열                      | 알림으로 재생할 사운드 파일의 이름입니다. 앱 번들 또는 ```Library/Sounds``` 폴더에 있어야 합니다                                                                                    |
 | content-available | 숫자                      | 입력 값 1은 앱 시작 또는 세션 재개 시 새로운 정보의 가용성을 앱에 알립니다 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="APS library" }
 
 
 ##### 알림 등록정보 라이브러리 {#alert-properties-library}
@@ -70,7 +70,7 @@ Apple 푸시 알림 서비스(APNs)는 키-값 페어를 사용하여 알림 기
 | loc-key        | 문자열 또는 null           | ```Localizable.strings``` 파일에서 현재 현지화에 대한 알림 메시지를 설정하는 키                                  |
 | loc-args       | 문자열 배열         | loc-key의 현지화 형식 지정자 대신 표시될 수 있는 문자열 값                                                       |
 | launch-image   | 문자열                  | 사용자가 실행 버튼을 탭하거나 실행 슬라이드를 이동할 때 시작 이미지로 사용할 앱 번들의 이미지 파일 이름 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Alert properties library" }
 
 Braze 메시지 작성기는 다음 키의 생성을 자동으로 처리합니다: **alert** 및 **해당 등록정보**, **content-available**, **sound**, **category**.
 

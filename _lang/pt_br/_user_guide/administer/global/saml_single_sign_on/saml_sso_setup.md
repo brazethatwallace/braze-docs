@@ -20,8 +20,8 @@ Durante a configuração, será solicitado que você forneça uma URL de login e
 |---|---|
 | URL do Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Para domínios da União Europeia, a URL do ACS é `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Em alguns IdPs, isso também pode ser chamado de URL de resposta, URL de login, URL de público ou URI de público. |
 | Entity ID | `braze_dashboard` |
-| Chave de API do RelayState | Acesse **Configurações** > **Chaves de API** e crie uma chave de API com permissões `sso.saml.login`. Em seguida, insira a chave de API gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Chave de API do RelayState | Acesse **Settings** > **API Keys** e crie uma chave de API com permissões `sso.saml.login`. Em seguida, insira a chave de API gerada como o parâmetro `RelayState` no seu IdP. Para etapas detalhadas, consulte [Configurando seu RelayState](#setting-up-your-relaystate). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Configurando o SAML SSO {#setting-up-saml-sso}
 
@@ -35,9 +35,10 @@ Se você planeja usar o Okta como seu provedor de identidade, certifique-se de u
 
 | Atributo SAML | Obrigatório? | Atributos SAML aceitos |
 |---|---|---|
-|`email` | Obrigatória | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
+| `email` | Obrigatório | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Opcional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Opcional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
 
 {% alert note %}
 A Braze exige apenas `email` na asserção SAML.
@@ -47,16 +48,16 @@ A Braze exige apenas `email` na asserção SAML.
 
 Quando você terminar de configurar a Braze no seu provedor de identidade, ele fornecerá uma URL de destino e um certificado `x.509` para inserir na sua conta da Braze.
 
-Depois que o gerente da sua conta ativar o SAML SSO para a sua conta, acesse **Configurações** > **Configurações de administrador** > **Configurações de segurança** e alterne a seção SAML SSO para **ATIVADO**.
+Depois que o gerente da sua conta ativar o SAML SSO para a sua conta, acesse **Settings** > **Admin Settings** > **Security Settings** e alterne a seção SAML SSO para **ON**.
 
 Na mesma página, insira o seguinte:
 
 | Requisito | Informações |
 |---|---|
-| Nome SAML | Isso aparecerá como o texto do botão na tela de login.<br>Normalmente é o nome do seu provedor de identidade, como "Okta". |
-| URL de destino | Isso é fornecido após configurar a Braze no seu IdP.<br> Alguns IdPs chamam isso de URL de SSO ou endpoint SAML 2.0. |
+| SAML Name | Isso aparecerá como o texto do botão na tela de login.<br>Normalmente é o nome do seu provedor de identidade, como "Okta". |
+| Target URL | Isso é fornecido após configurar a Braze no seu IdP.<br> Alguns IdPs chamam isso de URL de SSO ou endpoint SAML 2.0. |
 | Certificado | O certificado `x.509` fornecido pelo seu provedor de identidade.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
 
 Certifique-se de que o seu certificado `x.509` siga este formato ao adicioná-lo ao dashboard:
 
@@ -76,12 +77,12 @@ Salve suas configurações de segurança e faça logout. Em seguida, faça login
 
 ## Configurando seu RelayState {#setting-up-your-relaystate}
 
-1. Na Braze, acesse **Configurações** > **APIs e identificadores**.
-2. Na guia **Chaves de API**, selecione o botão **Criar chave de API**.
-3. No campo **Nome da chave de API**, insira um nome para a sua chave.
-4. Expanda o menu suspenso **SSO** em **Permissões** e marque **sso.saml.login**.<br><br>![A seção "Permissões" com sso.saml.login marcado.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
-5. Selecione **Criar chave de API**.
-6. Na guia **Chaves de API**, copie o identificador ao lado da chave de API que você criou.
+1. Na Braze, acesse **Settings** > **APIs and Identifiers**.
+2. Na guia **API Keys**, selecione o botão **Create API key**.
+3. No campo **API key name**, insira um nome para a sua chave.
+4. Expanda o menu suspenso **SSO** em **Permissions** e marque **sso.saml.login**.<br><br>![A seção "Permissions" com sso.saml.login marcado.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+5. Selecione **Create API key**.
+6. Na guia **API Keys**, copie o identificador ao lado da chave de API que você criou.
 7. Cole a chave de API do RelayState no RelayState do seu IdP (também pode aparecer como "Relay State" ou "Default Relay State" dependendo do seu IdP).
 
 ## Comportamento do SSO {#sso-behavior}
@@ -90,9 +91,9 @@ Os membros que optarem por usar SSO não poderão mais usar suas senhas como faz
 
 ## Restrição {#restriction}
 
-Você pode restringir os membros da sua organização para que façam login apenas com Google SSO ou SAML SSO. Para ativar as restrições, acesse **Configurações de segurança** e selecione **Exigir login apenas com Google SSO** ou **Exigir login apenas com SAML SSO personalizado**.
+Você pode restringir os membros da sua organização para que façam login apenas com Google SSO ou SAML SSO. Para ativar as restrições, acesse **Security Settings** e selecione **Enforce Google SSO only login** ou **Enforce custom SAML SSO only login**.
 
-![Exemplo de configuração da seção "Regras de autenticação" com um comprimento mínimo de senha de 8 caracteres e reutilização de senha de 3 vezes. As senhas expirarão após 180 dias, e os usuários serão desconectados após 1.440 minutos de inatividade.]({% image_buster /assets/img/sso3.png %})
+![Exemplo de configuração da seção "Authentication Rules" com um comprimento mínimo de senha de 8 caracteres e reutilização de senha de 3 vezes. As senhas expirarão após 180 dias, e os usuários serão desconectados após 1.440 minutos de inatividade.]({% image_buster /assets/img/sso3.png %})
 
 Ao ativar as restrições, os usuários da Braze da sua empresa não poderão mais fazer login usando uma senha, mesmo que tenham feito login com uma senha anteriormente.
 
@@ -109,7 +110,7 @@ Para executar um rastreamento SAML, você precisará de um rastreador SAML. Aqui
 
 ### Etapa 1: Abra o rastreador SAML {#step-1-open-the-saml-tracer}
 
-Selecione o rastreador SAML na barra de navegação do seu navegador. Certifique-se de que **Pausar** não esteja selecionado, pois isso impedirá que o rastreador SAML capture o que é enviado nas solicitações SAML. Quando o rastreador SAML estiver aberto, você verá o rastreamento sendo preenchido.
+Selecione o rastreador SAML na barra de navegação do seu navegador. Certifique-se de que **Pause** não esteja selecionado, pois isso impedirá que o rastreador SAML capture o que é enviado nas solicitações SAML. Quando o rastreador SAML estiver aberto, você verá o rastreamento sendo preenchido.
 
 ![Rastreador SAML para Google Chrome.]({% image_buster /assets/img/saml_tracer_example.png %})
 
@@ -119,9 +120,9 @@ Acesse o dashboard da Braze e tente fazer login usando SSO. Se você encontrar u
 
 ### Etapa 3: Exporte e envie para a Braze {#step-3-export-and-send-to-braze}
 
-Selecione **Exportar**. Em **Selecionar perfil de filtro de cookies**, selecione **Nenhum**. Em seguida, selecione **Exportar**. Isso gerará um arquivo JSON que você pode enviar ao suporte da Braze para solução de problemas adicional.
+Selecione **Export**. Em **Select cookie-filter profile**, selecione **None**. Em seguida, selecione **Export**. Isso gerará um arquivo JSON que você pode enviar ao suporte da Braze para solução de problemas adicional.
 
-![Menu "Preferências de exportação de rastreamento SAML" com a opção "Nenhum" selecionada.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
+![Menu "Export SAML-trace preferences" com a opção "None" selecionada.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
 
 ## Solução de problemas {#troubleshooting}
 
@@ -165,6 +166,12 @@ Peça ao usuário afetado para [limpar o cache e os cookies do navegador](https:
 ### Você configurou seu RelayState? {#did-you-set-your-relaystate}
 
 Se você está recebendo o erro `ERROR_CODE_SSO_INVALID_RELAY_STATE`, seu RelayState pode estar configurado incorretamente ou não existir. Se ainda não fez isso, você precisa configurar seu RelayState no sistema de gerenciamento do seu IdP. Para as etapas, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
+
+### O login bem-sucedido por SSO redireciona você para a página de login da Braze? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Isso pode acontecer quando o RelayState não está configurado corretamente. Confirme que você criou uma chave de API (em **Settings** > **API Keys**) para login pelo IdP e definiu essa chave de API como o parâmetro `RelayState` no seu IdP. O RelayState identifica em qual conta da empresa você está fazendo login. Para instruções passo a passo, consulte [Configurando seu RelayState](#setting-up-your-relaystate).
+
+Se ainda não conseguir fazer login, [fale com o suporte da Braze]({{site.baseurl}}/braze_support/) com um rastreamento SAML, se possível. Para ajuda na captura de um rastreamento, consulte [Obtendo um rastreamento SAML](#obtaining-a-saml-trace).
 
 ### O usuário está preso em um loop de login entre o Okta e a Braze? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 

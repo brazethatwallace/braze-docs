@@ -28,7 +28,7 @@ Os [Secure Data Shares](https://docs.snowflake.com/en/user-guide/data-sharing-in
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Conta Snowflake | Você precisa de uma conta do Snowflake com permissões de nível de administrador.                                                                                                                                      |
 | Conta LiveRamp  | Entre em contato com sua equipe de contas LiveRamp ou [snowflake@liveramp.com](mailto:snowflake@liveramp.com) para discutir os aplicativos LiveRamp necessários dentro do Snowflake.                              |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Configuração da integração {#setting-up-the-integration}
 
@@ -56,13 +56,13 @@ Em seguida, crie uma tabela de dados com o [formato necessário](https://docs.li
 |-----------------|--------------|
 | IPI completa        | As informações de identificação pessoal (IPI) incluem o nome, o endereço postal, o e-mail e o número de telefone do usuário. **Nota:** nem todos os identificadores são necessários para cada registro. |
 | Apenas e-mail      | Os endereços de e-mail do usuário, como `alex-lee@email.com`. |
-| Dispositivo          | Isso inclui cookies de terceiros, IDs de publicidade móvel (MAIDs), IDs de TV conectada (CTV IDs) e RampIDs (resolvidos para um RampID de residência). |
+| Dispositivo          | Inclui cookies de terceiros, IDs de publicidade móvel (MAIDs), IDs de TV conectada (CTV IDs) e RampIDs (resolvidos para um RampID de residência). |
 | CIDs            | Esses são identificadores de um parceiro de plataforma ou de uma sincronização de identidade com a LiveRamp, como seu ID de cliente interno. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Criar uma tabela de dados" }
 
 #### Identificadores da Braze {#braze-identifiers}
 
-Os registros de eventos da Braze contêm identificadores que podem ser usados no app nativo da LiveRamp. Para obter uma lista completa dos identificadores disponíveis para cada tipo de evento, baixe o [Braze Event Schemas and Identifiers (Esquemas e identificadores de eventos da Braze)]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
+Os registros de eventos da Braze contêm identificadores que podem ser usados no app nativo da LiveRamp. Para obter uma lista completa dos identificadores disponíveis para cada tipo de evento, baixe o [Braze Event Schemas and Identifiers]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt).
 
 | Tipo de identificador | Descrição  |
 |-----------------|--------------|
@@ -70,7 +70,7 @@ Os registros de eventos da Braze contêm identificadores que podem ser usados no
 | `EMAIL_ADDRESS`   | Endereço de e-mail que pode ser usado em conjunto com os serviços de resolução somente por e-mail da LiveRamp |
 | `TO_PHONE_NUMBER` | Número de telefone, que pode ser usado em conjunto com os serviços de resolução de IPI da LiveRamp. |
 | `EXTERNAL_USER_ID` | O ID externo associado a um usuário, que pode ser usado em conjunto com os serviços de resolução de dispositivos (CID) da LiveRamp. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores da Braze" }
 
 {% alert important %}
 O uso de qualquer identificador personalizado específico do cliente ou da marca no aplicativo da LiveRamp requer uma [sincronização de identidade com a LiveRamp](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html).

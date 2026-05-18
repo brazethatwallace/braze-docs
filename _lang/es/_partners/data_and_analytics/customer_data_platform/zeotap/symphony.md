@@ -24,7 +24,7 @@ Para crear campañas de marketing por correo electrónico, incorpora los correos
 | Nombre del cliente | Este es tu nombre de cliente para tu cuenta de Braze. Puedes encontrarlo navegando hasta la consola de Braze. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
 | Instancia | Tu instancia de Braze se puede obtener a través de tu administrador de incorporación de Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}
 
@@ -109,7 +109,7 @@ En esta sección puedes encontrar información detallada sobre todos los campos 
 | Idioma | Selección desplegable | • El formato aceptado es `ISO-639-1` estándar (por ejemplo, en).<br>• Incorpora el idioma correctamente formateado y asígnalo. |
 | Fecha de nacimiento | Selección desplegable | Asígnalo al campo `Date of Birth` que estás incorporando. |
 | Atributo personalizado | Entrada de datos personalizados | Asigna cualquier atributo de usuario a una entrada de datos personalizada, que luego se envía a Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported attributes" }
 
 ## Visualización de datos en la consola de Braze {#viewing-data-on-braze-console}
 

@@ -20,7 +20,7 @@ Pour en savoir plus sur les webhooks et comment les utiliser dans Braze, consult
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
-Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
+Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les campagnes sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
@@ -97,7 +97,7 @@ La méthode HTTP à utiliser varie en fonction de l'endpoint auquel vous envoyez
 | GET | Récupère des informations existantes, par opposition à l'écriture de nouvelles informations. Par définition, une requête GET ne prend pas en charge de corps de requête. |
 | PUT | Met à jour les informations sur l'endpoint, en remplaçant toute information existante par ce qui se trouve dans le corps de la requête. |
 | DELETE | Supprime la ressource dans l'URL HTTP. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### Corps de la requête {#request-body}
 
@@ -224,13 +224,13 @@ Lorsque la requête webhook est envoyée, le serveur récepteur renvoie un code 
 
 | Code de réponse | Marqué comme reçu ? | Nouvelles tentatives ? |
 |---------------|-----------|----------|
-| `20x` (succès)  | Oui |   N/A  |
-| `30x` (redirection)  | Non | Non |
-| `408` (délai d'expiration de la requête)  | Non | Oui |
-| `429` (limite de débit atteinte)  | Non | Oui |
-| `Autre 4XX` (erreur client)  | Non | Non |
-| `5XX` (erreur serveur)   | Non | Oui |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `20x` (succès) | Oui | N/A |
+| `30x` (redirection) | Non | Non |
+| `408` (délai d'expiration de la requête) | Non | Oui |
+| `429` (limite de débit atteinte) | Non | Oui |
+| `Autre 4XX` (erreur client) | Non | Non |
+| `5XX` (erreur serveur) | Non | Oui |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze effectue de nouvelles tentatives pour les codes d'état ci-dessus jusqu'à cinq fois dans un délai de 30 minutes en utilisant des délais exponentiels. Si nous ne parvenons pas à atteindre votre endpoint, les nouvelles tentatives peuvent s'étaler sur une période de 24 heures.<br><br>Chaque webhook dispose de 90 secondes avant d'expirer.

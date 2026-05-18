@@ -19,7 +19,7 @@ channel:
 - バックエンドからリアルタイムでSMSメッセージをトリガーする。
 - マーケティング部門が所有するすべてのCampaignsやCanvasesと並行して分析データをトラッキングする。
 - メッセージ遅延、フォローアップリターゲティング、ABテストといった追加のBraze機能でユースケースを拡張する。
-- 必要に応じて、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)に切り替えることで、メッセージテンプレートをBrazeダッシュボードで定義しつつ、送信はバックエンドからトリガーし続けることができる。
+- 必要に応じて、[APIトリガー配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)に切り替えることで、メッセージテンプレートをBrazeダッシュボードで定義しつつ、送信はバックエンドからトリガーし続けることができます。
 
 REST API経由でSMSメッセージを送信するには、BrazeダッシュボードでAPI Campaignを設定し、[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)エンドポイントを使用してメッセージを送信する必要があります。
 
@@ -32,7 +32,7 @@ REST API経由でSMSメッセージを送信するには、Brazeダッシュボ�
 | Braze REST APIキー | `messages.send` 権限を持つキー。作成するには、**設定** > **APIキー** > **APIキー**に移動します。 |
 | SMSサブスクリプショングループ | Brazeワークスペースで設定されたSMSサブスクリプショングループ。 |
 | バックエンドサービス | Braze REST APIに対してHTTP POSTリクエストを送信できるバックエンドサービスまたはスクリプト環境。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ステップ1：API Campaignを作成する {#step-1-create-an-api-campaign}
 

@@ -1,6 +1,6 @@
 ---
 nav_title: "API 개요"
-article_title: API 개요
+article_title: "API 개요"
 page_order: 2.1
 description: "이 참조 문서에서는 REST API가 무엇인지, 용어, API 키에 대한 개요를 포함하여 API 기본 사항을 다룹니다."
 page_type: reference
@@ -27,7 +27,7 @@ alias: /api/api_key/
 | [구독 그룹]({{site.baseurl}}/api/endpoints/subscription_groups/) | Braze 대시보드에 저장된 SMS 및 이메일 구독 그룹을 모두 나열하고 업데이트합니다. |
 | [템플릿]({{site.baseurl}}/api/endpoints/templates/)                     | 이메일 메시징 및 Content Blocks용 템플릿을 만들고 업데이트합니다.                   |
 | [사용자 데이터]({{site.baseurl}}/api/endpoints/user_data/)                     | 사용자를 식별, 추적 및 관리합니다.                                               |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze REST API collection" }
 
 ## API 정의 {#api-definitions}
 
@@ -73,7 +73,7 @@ REST API 키와 워크스페이스 API 키를 모두 `api_key`라고 부릅니�
 ![API 키 탭의 REST API 키 패널입니다.]({% image_buster /assets/img_archive/rest-api-key.png %})
 
 {% alert tip %}
-REST API 키 외에도 앱, 템플릿, Canvas, Campaign, Content Cards 및 Segment 등 특정 항목을 API에서 참조하는 데 사용할 수 있는 식별자 키라는 유형의 키도 있습니다. 자세한 내용은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/)을 참조하세요.
+REST API 키 외에도 앱, 템플릿, Canvas, Campaign, Content Cards 및 Segments 등 특정 항목을 API에서 참조하는 데 사용할 수 있는 식별자 키라는 유형의 키도 있습니다. 자세한 내용은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/)을 참조하세요.
 {% endalert %}
 
 ### REST API 키 만들기 {#creating-rest-api-keys}
@@ -110,7 +110,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `users.external_ids.remove` | [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/) | 기존 사용자의 외부 ID를 제거합니다. |
 | `users.alias.update` | [`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update/) | 기존 사용자의 별칭을 업데이트합니다. |
 | `users.export.global_control_group` | [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) | 글로벌 컨트롤 그룹에 있는 고객 프로필 정보를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
  {% endtab %}
  {% tab Email %}
@@ -123,7 +123,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `email.bounce.remove` | [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces/) | 하드바운스 목록에서 이메일 주소를 제거합니다. |
 | `email.spam.remove` | [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam/) | 스팸 목록에서 이메일 주소를 제거합니다. |
 | `email.blacklist` | [`/email/blacklist`]({{site.baseurl}}/api/endpoints/email/post_blacklist/) | 이메일 주소를 차단 목록에 추가합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Messages %}
@@ -136,7 +136,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `messages.schedule.delete` | [`/messages/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/) | 예약된 메시지를 삭제합니다. |
 | `messages.schedule_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | 예약된 모든 브로드캐스트 메시지를 쿼리합니다. |
 | `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/) | iOS 라이브 활동을 업데이트합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Campaigns %}
@@ -154,7 +154,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `sends.id.create` | [`/sends/id/create`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids/) | 메시지 대량 발송 추적을 위한 전송 ID를 만듭니다. |
 | `campaigns.url_info.details` | [`/campaigns/url_info/details`]({{site.baseurl}}) | Campaign 내 특정 메시지 변형의 URL 세부 정보를 쿼리합니다. |
 | `transactional.send` | [`/transactional/v1/campaigns/{campaign_id}/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message/) | 트랜잭션 메시징 엔드포인트를 사용하여 트랜잭션 메시지를 보낼 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Canvas %}
@@ -165,22 +165,22 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `canvas.trigger.schedule.create` | [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/) | API 트리거 전달로 Canvas 전송을 예약합니다. |
 | `canvas.trigger.schedule.update` | [`/canvas/trigger/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/) | API 트리거 전달로 예약된 Canvas를 업데이트합니다. |
 | `canvas.trigger.schedule.delete` | [`/canvas/trigger/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases/) | API 트리거 전달로 예약된 Canvas를 삭제합니다. |
-| `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) |  Canvas 목록을 쿼리합니다. |
+| `canvas.list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | Canvases 목록을 쿼리합니다. |
 | `canvas.data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | 일정 기간 동안의 Canvas 분석을 쿼리합니다. |
 | `canvas.details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | 특정 Canvas의 세부 정보를 쿼리합니다. |
 | `canvas.data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | 일정 기간 동안의 Canvas 분석 롤업을 쿼리합니다. |
 | `canvas.url_info.details` | [`/canvas/url_info/details`]({{site.baseurl}}/get_canvas_link_alias/) | 캔버스 단계 내 특정 메시지 변형의 URL 세부 정보를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Segments %}
 
 | 권한 | 엔드포인트 | 설명 |
 |---|---|---|
-| `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | Segment 목록을 쿼리합니다. |
+| `segments.list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | Segments 목록을 쿼리합니다. |
 | `segments.data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | 일정 기간 동안의 Segment 분석을 쿼리합니다. |
 | `segments.details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | 특정 Segment에 대한 세부 정보를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Purchases %}
@@ -190,7 +190,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `purchases.product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | 앱에서 구매된 제품 목록을 쿼리합니다. |
 | `purchases.revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | 일정 기간 동안 앱에서 기록된 일일 총 지출액을 쿼리합니다. |
 | `purchases.quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | 일정 기간 동안 앱의 일일 총 구매 수를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Events %}
@@ -199,7 +199,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 |---|---|---|
 | `events.list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | 커스텀 이벤트 목록을 쿼리합니다. |
 | `events.data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | 일정 기간 동안의 커스텀 이벤트 발생 횟수를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Sessions %}
@@ -207,18 +207,18 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | 권한 | 엔드포인트 | 설명 |
 |---|---|---|
 | `sessions.data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | 일정 기간 동안의 일일 세션 수를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab KPIs %}
 
 | 권한 | 엔드포인트 | 설명 |
 |---|---|---|
-| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) |  일정 기간 동안의 일일 고유 활성 사용자 수를 쿼리합니다. |
+| `kpi.dau.data_series` | [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | 일정 기간 동안의 일일 고유 활성 사용자 수를 쿼리합니다. |
 | `kpi.mau.data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | 일정 기간 동안 30일 롤링 기간의 총 고유 활성 사용자 수를 쿼리합니다. |
 | `kpi.new_users.data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | 일정 기간 동안의 일일 신규 사용자 수를 쿼리합니다. |
 | `kpi.uninstalls.data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | 일정 기간 동안의 일일 앱 설치 제거 횟수를 쿼리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Templates %}
@@ -229,7 +229,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `templates.email.info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | 특정 템플릿의 정보를 쿼리합니다. |
 | `templates.email.list` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | 이메일 템플릿 목록을 쿼리합니다. |
 | `templates.email.update` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | 대시보드에 저장된 이메일 템플릿을 업데이트합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SSO %}
@@ -237,7 +237,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | 권한 | 설명 |
 | --- | --- |
 | `sso.saml.login` | ID 공급자 시작 로그인을 설정합니다. 자세한 내용은 [서비스 제공업체(SP) 시작 로그인]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Content Blocks %}
@@ -248,7 +248,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `content_blocks.list` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | Content Blocks 목록을 쿼리합니다. |
 | `content_blocks.create` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | 대시보드에서 새 Content Block을 만듭니다. |
 | `content_blocks.update` | [`/content_blocks_update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | 대시보드에서 기존 Content Block을 업데이트합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Preference Center %}
@@ -259,7 +259,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `preference_center.list` | [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | 환경설정 센터를 나열합니다. |
 | `preference_center.update` | [`/preference_center/v1`]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center/)<br><br>[`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center/) | 환경설정 센터를 만들거나 업데이트합니다. |
 | `preference_center.user.get` | [`/preference_center/v1/{preferenceCenterExternalId}/url/{userId}`]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center/) | 사용자의 환경설정 센터 링크를 가져옵니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Subscription %}
@@ -269,7 +269,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `subscription.status.set` | [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) | 구독 그룹 상태를 설정합니다. |
 | `subscription.status.get` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | 구독 그룹 상태를 가져옵니다. |
 | `subscription.groups.get` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | 특정 사용자가 명시적으로 구독 및 구독 취소한 구독 그룹의 상태를 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SMS %}
@@ -278,7 +278,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 |---|---|---|
 | `sms.invalid_phone_numbers` | [`/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/) | 잘못된 전화번호를 쿼리합니다. |
 | `sms.invalid_phone_numbers.remove` | [`/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/) | 사용자에게서 잘못된 전화번호 플래그를 제거합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab Catalogs %}
@@ -298,7 +298,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `catalogs.delete` | [`/catalogs/{catalog_name}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/delete_catalog/) | 카탈로그를 삭제합니다. |
 | `catalogs.get_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | 기존 카탈로그에서 항목 미리보기를 가져옵니다. |
 | `catalogs.replace_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items/) | 기존 카탈로그의 항목을 교체합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% tab SDK Authentication %}
@@ -309,7 +309,7 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | `sdk_authentication.primary` | [`/app_group/sdk_authentication/primary`]({{site.baseurl}}/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key/) | SDK 인증 키를 앱의 기본 키로 표시합니다. |
 | `sdk_authentication.delete` | [`/app_group/sdk_authentication/delete`]({{site.baseurl}}/api/endpoints/sdk_authentication/delete_sdk_authentication_key/) | 앱의 SDK 인증 키를 삭제합니다. |
 | `sdk_authentication.keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | 앱의 모든 SDK 인증 키를 가져옵니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="REST API key permissions" }
 
 {% endtab %}
 {% endtabs %}
@@ -327,13 +327,13 @@ API 키 권한은 특정 API 호출에 대한 액세스를 제한하기 위해 �
 | Created By   | 키를 생성한 사용자의 이메일 주소입니다. 이 필드는 2023년 6월 이전에 생성된 키에 대해 "N/A"로 표시됩니다. |
 | Date Created | 이 키가 생성된 날짜입니다.                                                                                      |
 | Last Seen    | 이 키를 마지막으로 사용한 날짜입니다. 이 필드는 한 번도 사용되지 않은 키에 대해 "N/A"로 표시됩니다.                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Managing REST API keys" }
 
-API 키의 세부 정보를 보려면 키 위에 마우스를 올리고 <i class="fa-solid fa-eye" alt="View"></i> **View**를 선택하세요. 여기에는 이 키가 가진 모든 권한, 화이트리스트에 등록된 IP(있는 경우), 그리고 이 키가 Braze IP 화이트리스트에 등록되었는지 여부가 포함됩니다.
+API 키의 세부 정보를 보려면 키 위에 마우스를 올리고 <i class="fa-solid fa-eye" alt="보기"></i> **View**를 선택하세요. 여기에는 이 키가 가진 모든 권한, 화이트리스트에 등록된 IP(있는 경우), 그리고 이 키가 Braze IP 화이트리스트에 등록되었는지 여부가 포함됩니다.
 
 ![Braze 대시보드의 API 키 권한 목록입니다.]({% image_buster /assets/img_archive/view-api-key.png %})
 
-[사용자를 삭제할 때]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), Braze는 해당 사용자가 생성한 API 키를 삭제하지 않습니다. 키를 삭제하려면 키 위에 마우스를 올리고 <i class="fa-solid fa-trash-can" alt="Delete"></i> **Delete**를 선택하세요.
+[사용자를 삭제할 때]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/), Braze는 해당 사용자가 생성한 API 키를 삭제하지 않습니다. 키를 삭제하려면 키 위에 마우스를 올리고 <i class="fa-solid fa-trash-can" alt="삭제"></i> **Delete**를 선택하세요.
 
 !['Last Seen'이라는 이름의 API 키가 휴지통 아이콘과 함께 강조 표시되어 있으며, 'Delete'를 보여줍니다.]({% image_buster /assets/img_archive/api-key-options.png %}){: style="max-width:30%;"}
 
@@ -360,7 +360,7 @@ REST API 키와 SDK API 키는 보안 프로필이 다릅니다.
 | 목적 | REST API에 대한 서버 측 인증(메시지 전송, 데이터 내보내기, 사용자 관리) | Braze SDK에 대한 클라이언트 측 식별(데이터 수집, 인앱 메시지, Content Cards) |
 | 가시성 | **반드시 비공개로 유지해야 합니다.** 클라이언트 측 코드, 공개 리포지토리 또는 사용자 애플리케이션에 노출하지 마세요. | 공개되도록 설계되었습니다. Google Analytics 추적 ID와 유사하게 앱 바이너리에 번들되거나 웹 브라우저 JavaScript에서 볼 수 있습니다. |
 | 노출 시 해결 방법 | 즉시 키를 취소하고 **Settings** > **APIs and Identifiers** > **API Keys**에서 대체 키를 생성하세요. 노출된 REST API 키는 메시지 전송, 사용자 데이터 내보내기 또는 계정 설정 수정에 사용될 수 있습니다. | 조치가 필요하지 않습니다. SDK API 키는 데이터 수집과 클라이언트 측 메시징(예: 인앱 메시지 및 Content Cards) 검색만 가능합니다. 사용자 데이터를 내보내거나, 대신 메시지를 보내거나, Campaign을 수정할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Security of REST API keys and SDK API keys" }
 
 ### API IP 허용 목록 {#api-ip-allowlisting}
 
@@ -402,7 +402,7 @@ Braze에 대한 REST API 요청은 전체 요청 경로에서 전송 계층 보�
 | 3 | 네트워크 로드 밸런서(NLB) | 패킷을 애플리케이션 인프라로 전달합니다. NLB는 레이어 4에서 작동하므로 레이어 7 프록시가 없습니다. 패킷은 HTTP 수준의 검사나 수정 없이 전달됩니다. |
 | 4 | NGINX 인그레스 | 내부 TLS 연결을 종료하고 요청을 라우팅합니다. |
 | 5 | Unicorn(애플리케이션 서버) | 인증된 요청을 처리합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Network-level security" }
 
 TLS 암호화는 체인의 모든 구간을 포함합니다. 사용자 서버는 TLS를 통해 Cloudflare에 연결하고, Cloudflare는 NLB를 통해 NGINX 인그레스로 별도의 TLS 연결을 설정하므로 API 키와 요청 데이터는 전송 중에 암호화된 상태로 유지됩니다.
 

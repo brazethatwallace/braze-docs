@@ -8,4 +8,4 @@
 | Letter spacing | Modifies the distance in between each character. |
 | Text alignment | Moves the text to be aligned left, center, right, or justified. |
 | Placeholder text | A placeholder email address to display. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

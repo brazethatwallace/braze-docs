@@ -34,18 +34,18 @@ BrazeとJamppの統合により、会社ユーザーはBraze Webhookイベント
 | iOSアプリID | iOS用のBrazeアプリケーション固有の識別子（「012345678」など）。 |
 | Braze SDKでIDFA収集を有効にする | IDFA収集はBraze SDK内ではオプションであり、デフォルトでは無効になっています。 |
 | カスタム属性によるGoogle広告IDの収集 | Google広告IDの収集は顧客向けのオプションであり、[カスタム属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types)として収集できます。
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
 ### ステップ1:BrazeでWebhookテンプレートを作成する {#step-1-create-a-webhook-template-in-braze}
 
-将来のCampaignsまたはCanvasesで使用するJampp Webhookテンプレートを作成するには、Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動します。
+将来のCampaignsまたはCanvasesで使用するJampp Webhookテンプレートを作成するには、Brazeプラットフォームで**Templates** > **Webhook Templates**に移動します。
 
 一度だけのJampp Webhook Campaignを作成したい場合や、既存のテンプレートを使用したい場合は、新規Campaign作成時にBrazeで**Webhook**を選択してください。
 
 新しいWebhookテンプレートで、次のフィールドに入力します。
-- **リクエスト本文**：Raw Text
+- **Request Body**：Raw Text
 - **Webhook URL**：
 {% raw %}
 ```liquid
@@ -68,7 +68,7 @@ Webhook URLで次の操作を行う必要があります。
 - AndroidとiOSのアプリの一意のアプリケーション識別子（Android：「com.example」、iOS：「012345678」など）を渡します。
 - Google広告IDとしてトラッキングしている適切なカスタム属性の[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#using-liquid)を挿入します。この例では、Google広告IDが `aaid` としてリストされていますが、これを開発者が設定したカスタム属性名に置き換える必要があります。
 
-![Braze Webhookビルダーに表示されるWebhook URLおよびメッセージプレビュー。]({% image_buster /assets/img/jampp_webhook.png %})
+![Braze Webhookビルダーに表示されるWebhook URLとメッセージプレビュー。]({% image_buster /assets/img/jampp_webhook.png %})
 
 {% alert important %}
 BrazeはデバイスのIDFA/AAIDを自動的に収集しないため、これらの値を自分で保存する必要があります。このデータを収集するには、ユーザーの同意が必要になる場合があることに注意してください。
@@ -78,8 +78,8 @@ BrazeはデバイスのIDFA/AAIDを自動的に収集しないため、これら
 
 Jampp WebhookにはHTTPメソッドとリクエストヘッダーが必要です。
 
-- **HTTPメソッド**：GET
-- **リクエストヘッダー**：
+- **HTTP Method**：GET
+- **Request Headers**：
   - **Content-Type**: application/json
 
 ![Braze Webhookビルダーに表示されるリクエストヘッダー、HTTPメソッド、メッセージプレビュー。]({% image_buster /assets/img/jampp_method.png %})

@@ -31,7 +31,7 @@ Les messages contextuels peuvent contenir jusqu'à trois lignes de texte avant t
 | Disposition | Taille de la ressource | Notes |
 |--- | --- | --- |
 | Image + Texte | Rapport hauteur/largeur 1:1<br>Haute résolution 150 x 150&nbsp;px<br> Minimum 50 x 50&nbsp;px | Les images de différents rapports hauteur/largeur s'adapteront à un conteneur d'image carré, sans recadrage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
 
 Vous devriez toujours [prévisualiser et tester vos messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) sur une variété d'appareils pour vous assurer que les zones les plus importantes de votre image et de votre message apparaissent comme prévu. Notez que lors de la prévisualisation de votre message dans le composeur, le rendu réel sur les appareils peut différer.
 

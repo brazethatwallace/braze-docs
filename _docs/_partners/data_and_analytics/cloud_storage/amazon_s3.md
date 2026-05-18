@@ -333,6 +333,14 @@ A notification informs you whether your credentials have been successfully valid
 {% endtab %}
 {% endtabs %}
 
+## Updating Amazon S3 credentials for Currents {#updating-currents-credentials}
+
+You can update the Amazon S3 credentials on an existing Braze Currents connector without stopping the integration or losing data already exported to your bucket.
+
+To refresh credentials—or to switch between **AWS Secret Access Key** and **AWS Role ARN**—finish the IAM and AWS-side steps for your chosen method earlier in this article (policies, user or role, and identifiers as needed).
+
+When you've finished preparing credentials in AWS, go to **Partner Integrations** > **Currents** in Braze, locate your Amazon S3 connector in the list, select **Edit**, update **Credentials**, and select **Update Current**. Braze validates the credentials you enter; your connector keeps running and data already in your bucket remains available. For more information, see [Updating Currents in Set up Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
+
 ## Export behavior
 
 Users who have integrated a cloud data storage solution and export APIs, dashboard reports, or CSV reports experience the following:

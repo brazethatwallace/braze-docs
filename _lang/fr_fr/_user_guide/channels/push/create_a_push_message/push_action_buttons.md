@@ -72,6 +72,6 @@ Le tableau suivant indique le nombre de caractères que vous pouvez ajouter avan
 | 1 | 46 caractères |
 | 2 | 20 caractères |
 | 3 | 11 caractères |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}

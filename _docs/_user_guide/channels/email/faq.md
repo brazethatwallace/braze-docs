@@ -105,9 +105,9 @@ Braze tracks unsubscribe links if the following Liquid is used within emails: {%
 
 ### Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?
 
-If there are more _Unsubscribes_ than users who clicked the unsubscribe link in the email body, list-unsubscribe header actions often explain the gap—a click on the list-unsubscribe header counts as an _Unsubscribe_ but not as a _Click_ on the body link.
+If there are more _Unsubscribes_ than users who clicked the unsubscribe link in the email body, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) often explains the gap. List-unsubscribe is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward _Unsubscribes_ but does not count as a click on the tracked unsubscribe URL in the body.
 
-If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once.
+If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once—for example, if they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks in the click breakdown.
 
 If a user clicks the unsubscribe link twice (for example, if they unsubscribed, subscribed again, then unsubscribed again), this counts twice in email analytics.
 

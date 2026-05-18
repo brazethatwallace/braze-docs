@@ -126,14 +126,14 @@ Braze가 데이터를 수집하는 방법에 대해 자세히 알아보세요:
 ### Currents
 
 Currents는 Braze의 거의 실시간 메시지 참여 분석 스트리밍 도구입니다. 고객의 워크스페이스에서 전송된 Campaigns 및 Canvases에 대한 모든 발송, 전달, 열람, 클릭 등의 사용자 수준 데이터를 스트리밍합니다. 몇 가지 주의할 사항이 있습니다: Currents는 고객의 커넥터당 가격이 책정되므로 모든 신규 Currents 파트너는 EA 프로세스를 거쳐야 합니다. 커스텀 브랜드 UI를 구축하고 커넥터를 공개적으로 제공하기 전에 파트너에게 5명의 고객을 EA의 일부로 확보할 것을 요청합니다.
-- [파트너 설명서]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [파트너 설명서]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - Currents 커넥터를 구매한 모든 고객은 이러한 이벤트에 액세스할 수 있습니다.
 - [사용자 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) - Currents 커넥터를 구매하는 모든 고객이 이러한 이벤트를 포함하는 "모든 이벤트" 커넥터를 구매하는 것은 아닙니다.
 
 ### Snowflake 데이터 공유 {#snowflake-data-share}
 
 Snowflake 데이터 공유 커넥터를 구매한 고객은 자동으로 메시지 참여 및 사용자 행동 이벤트에 모두 액세스할 수 있습니다. Snowflake 데이터 공유를 파트너 통합으로 사용하는 경우, Braze는 고객을 대신하여 파트너의 Snowflake 인스턴스에 공유를 프로비저닝합니다. 참고로, 리전 간 데이터 공유는 고객에게 더 높은 비용을 요구하므로, Snowflake와 통합하려는 파트너에게 `US-EAST-1` 및/또는 `EU-CENTRAL-1`에 계정이 필요하다는 안내를 요청합니다.
-- [파트너 설명서]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [파트너 설명서]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
 ## Campaigns 및 Canvases 구축 및 트리거 {#building-and-triggering-campaigns-and-canvases}
 

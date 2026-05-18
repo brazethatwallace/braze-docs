@@ -17,10 +17,10 @@ search_rank: 1
 
 ## 前提条件 {#prerequisites}
 
-WhatsApp メッセージを作成する前に、[WhatsAppの概要]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)から以下を確認し、完了する必要があります。
+WhatsAppメッセージを作成する前に、[WhatsAppの概要]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)から以下を確認し、完了する必要があります。
   - ポリシー、制限、コンテンツルールを確認する
-  - WhatsApp 接続を設定する
-  - メッセージで使用する初期テンプレートを Meta で作成する
+  - WhatsApp接続を設定する
+  - メッセージで使用する初期テンプレートをMetaで作成する
 
 ## メッセージの作成 {#creating-a-message}
 
@@ -37,15 +37,15 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 
 **ステップ:**
 
-1. **Campaigns** ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成** をクリックします。
-2. **WhatsApp** を選択するか、複数チャネルをターゲットとするCampaignsの場合は **マルチチャネルキャンペーン** を選択します。
+1. **Campaigns**ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成**をクリックします。
+2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignsの場合は**マルチチャネルキャンペーン**を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
 5. Campaignに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加** ドロップダウンから **バリアントからコピー** を選択できます。
+Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -61,17 +61,17 @@ Campaign内のすべてのメッセージが類似している、または同じ
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% alert tip %}
-アクションベースのCanvasが受信WhatsAppメッセージによってトリガーされた場合、次のアクションパスまで、任意のCanvasステップでWhatsAppプロパティを参照できます。
+アクションベースのCanvasが受信WhatsAppメッセージによってトリガーされた場合、次のアクションパスまで、任意のキャンバスステップでWhatsAppプロパティを参照できます。
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2:WhatsApp メッセージを作成する {#step-2-compose-your-whatsapp-message}
+### ステップ 2:WhatsAppメッセージを作成する {#step-2-compose-your-whatsapp-message}
 
-ユースケースに応じて、WhatsApp [テンプレートメッセージ](#template-messages)または応答メッセージのどちらを作成するかを選択します。ビジネスが開始する会話はすべて承認済みテンプレートから開始する必要がありますが、応答メッセージは24時間のウィンドウ内でユーザーからの受信メッセージへの返信に使用できます。
+ユースケースに応じて、WhatsApp[テンプレートメッセージ](#template-messages)または応答メッセージのどちらを作成するかを選択します。ビジネスが開始する会話はすべて承認済みテンプレートから開始する必要がありますが、応答メッセージは24時間の時間枠内でユーザーからの受信メッセージへの返信に使用できます。
 
-![メッセージバリアントセクションでは、サブスクリプショングループと2つのメッセージタイプ（WhatsApp テンプレートメッセージと応答メッセージ）のいずれかを選択できます。]({% image_buster /assets/img/whatsapp/whatsapp_message_variants.png %}){: style="max-width:80%;"}
+![メッセージバリアントセクションでは、サブスクリプショングループと2つのメッセージタイプ（WhatsAppテンプレートメッセージと応答メッセージ）のいずれかを選択できます。]({% image_buster /assets/img/whatsapp/whatsapp_message_variants.png %}){: style="max-width:80%;"}
 
 {% tabs %}
 {% tab テンプレートメッセージ %}
@@ -91,7 +91,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 #### 変数 {#variables}
 
-Meta Business Managerで WhatsApp テンプレートを作成する際に変数を追加した場合、それらの変数はメッセージ作成画面で空白スペースとして表示されます。これらの空白スペースをLiquidまたはプレーンテキストに置き換えてください。プレーンテキストを使用するには、二重中括弧で囲んだ「ここにテキスト」の形式を使用します。テンプレートの作成時に画像を含めることを選択した場合、メディアライブラリから画像をアップロードまたは追加するか、画像URLを参照できます。可能な限り、一貫性と信頼性を確保するために、メディアライブラリに直接画像をアップロードすることをお勧めします。
+Meta Business ManagerでWhatsAppテンプレートを作成する際に変数を追加した場合、それらの変数はメッセージ作成画面で空白スペースとして表示されます。これらの空白スペースをLiquidまたはプレーンテキストに置き換えてください。プレーンテキストを使用するには、二重中括弧で囲んだ「ここにテキスト」の形式を使用します。テンプレートの作成時に画像を含めることを選択した場合、メディアライブラリから画像をアップロードまたは追加するか、画像URLを参照できます。可能な限り、一貫性と信頼性を確保するために、メディアライブラリに直接画像をアップロードすることをお勧めします。
 
 無効なテキストフィールド（グレーでハイライト表示）は、承認済みWhatsAppテンプレートの一部であるため編集できないことに注意してください。無効なテキストを更新する場合は、テンプレートを編集して再承認を受ける必要があります。
 
@@ -105,7 +105,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 ### ダイナミックリンク {#dynamic-links}
 
-コールトゥアクションURLには変数を含めることができますが、Metaでは `{% raw %}https://example.com/{{variable}}{% endraw %}` のようにURLの末尾に配置する必要があります。変数はBrazeでLiquidに置き換えることができます。リンクはテンプレートの一部として本文テキストに含めることもできます。これらのリンクはどちらも[クリックトラッキング]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking/)を使用して短縮およびトラッキングできます。
+コールトゥアクションURLには変数を含めることができますが、Metaでは`{% raw %}https://example.com/{{variable}}{% endraw %}`のようにURLの末尾に配置する必要があります。変数はBrazeでLiquidに置き換えることができます。リンクはテンプレートの一部として本文テキストに含めることもできます。これらのリンクはどちらも[クリックトラッキング]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking/)を使用して短縮およびトラッキングできます。
 
 ### ダイナミック画像 {#dynamic-images}
 
@@ -132,7 +132,7 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 Brazeでは、メッセージを送信する前に必ずプレビューとテストを行うことをお勧めします。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups)または個々のユーザーにテストWhatsAppメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
 
-![カスタムユーザー Max のプレビューメッセージ。]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
+![カスタムユーザーMaxのプレビューメッセージ。]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 応答メッセージ（テストメッセージを含む）を送信するには、会話ウィンドウが必要です。会話ウィンドウを開始するには、このメッセージに使用しているサブスクリプショングループに関連付けられた電話番号にWhatsAppメッセージを送信してください。関連付けられた電話番号は、**テスト**タブのアラートに記載されています。
@@ -165,7 +165,7 @@ WhatsAppメッセージは、スケジュールされた時間、アクション
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間のウィンドウを設定できます。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定できます。
 
 特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。クリエイティブに考え、このCampaignの成功をどのように測定したいかを検討してください。
 
@@ -194,7 +194,7 @@ Brazeを通じて送信するWhatsApp送信メッセージでは、以下の機�
 
 | 機能 | 詳細 | 最大サイズ | サポートされる形式 |
 | ------- | ------- | ------------- | ---------------------- |
-| ヘッダーテキスト | 文字列と変数パラメーターがサポートされています。 | — | —
+| ヘッダーテキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | 本文テキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | フッターテキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — | — |

@@ -28,8 +28,8 @@ search_tag: Partner
 | --- | --- |
 | [Infillion 매니저 계정](https://manager.gimbal.com/login/users/sign_in) | 이 파트너십을 활용하려면 Infillion 매니저 계정이 필요합니다. |
 | [Infillion Location SDK](https://docs.gimbal.com/index.html) | Infillion Location SDK는 근접 비콘과 지오펜스를 사용하여 매크로 및 마이크로 위치 기반 모바일 경험을 제공하며, 앱 사용자와 더 효과적으로 소통할 수 있도록 합니다. SDK를 구현하고 지오펜스(또는 비콘)를 설정해야 합니다. |
-| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **Settings** > **API Keys**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## SDK 통합 {#sdk-integration}
 

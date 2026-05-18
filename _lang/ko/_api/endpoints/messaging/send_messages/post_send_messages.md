@@ -101,7 +101,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `override_frequency_capping` | 선택 사항 | 부울 | Campaign의 `frequency_capping`을 무시하며, 기본값은 `false`입니다. |
 | `recipient_subscription_state` | 선택 사항 | 문자열 | 이를 사용하여 수신 동의한 사용자(`opted_in`), 구독했거나 수신 동의한 사용자(`subscribed`) 또는 구독 취소한 사용자를 포함한 모든 사용자(`all`)에게만 메시지를 보낼 수 있습니다. <br><br>`all` 사용자를 사용하면 트랜잭션 이메일 메시징에 유용합니다. 기본값은 `subscribed`입니다. |
 | `messages` | 선택 사항 | 메시징 오브젝트 | [사용 가능한 메시징 오브젝트]({{site.baseurl}}/api/objects_filters/#messaging-objects)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 ```

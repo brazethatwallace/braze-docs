@@ -19,7 +19,7 @@ Le remplissage rétrospectif est le processus de peuplement rétroactif d'un jeu
 | **Nouvelles fonctionnalités** | Vous avez identifié un nouvel indicateur important pour votre modèle, et vous disposez des journaux historiques bruts pour le calculer. | Vous ajoutez le « taux de clics » comme fonctionnalité et avez besoin de trois mois d'historique pour que le modèle dispose de suffisamment de données pour apprendre. |
 | **Récupération de données** | Votre pipeline de données a échoué certains jours, créant des lacunes dans les données transmises à Decisioning Studio. | Une panne du pipeline mardi a laissé un vide. Après le déploiement du correctif, vous remplissez rétrospectivement ces enregistrements manquants depuis le système source. |
 | **Changements de logique** | Vous avez mis à jour la formule de calcul d'une fonctionnalité ou modifié la définition d'un événement. | Vous avez redéfini « utilisateur actif » et devez réexporter les données historiques pour que le modèle s'entraîne sur la définition mise à jour. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When backfilling is needed" }
 
 ## Exigences {#requirements}
 

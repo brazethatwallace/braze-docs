@@ -69,7 +69,7 @@ Im Folgenden finden Sie alle wichtigen Elemente, die innerhalb eines Workspace k
 - [Unternehmensnutzer:innen-Berechtigungen](#company-user-permissions) (jedoch nicht die Unternehmensnutzer:innen selbst)
 - [Currents-Konnektoren](#currents-connectors)
 - [Nutzerprofile](#user-profiles) und die zugehörigen Nutzerdaten
-- [Segments, Campaigns und Canvases](#segments-campaigns-and-canvases)
+- [Segmente, Campaigns und Canvases](#segments-campaigns-and-canvases)
 
 #### App-Instanzen {#app-instances}
 
@@ -95,7 +95,7 @@ Wenn Sie beispielsweise getrennte Workspaces für die Entwicklungs- und die Prod
 
 Alle persistenten Daten, die mit einer Nutzerin oder einem Nutzer verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für die Fehlerbehebung und das Testen, da Sie einfach auf Informationen zur Engagement-Historie, Segmentzugehörigkeit, zum Gerät und zum Betriebssystem zugreifen können.
 
-#### Segments, Campaigns und Canvases {#segments-campaigns-and-canvases}
+#### Segmente, Campaigns und Canvases {#segments-campaigns-and-canvases}
 
 Ein Segment, eine Campaign oder ein Canvas kann nicht auf Daten zugreifen oder diese referenzieren, die sich in einem anderen Workspace befinden. Befinden sich dagegen mehrere Apps im selben Workspace, werden die Daten aller Apps zusammengefasst. Dies hat [Auswirkungen auf die Filter in Braze](#impact-on-segmentation-filters).
 
@@ -153,63 +153,64 @@ Die folgende Tabelle beschreibt die Vor- und Nachteile dieser beiden Ansätze zu
   }
 </style>
 
-<table>
+<table aria-label="Überblick über die einzelnen Ansätze">
+  <caption>Überblick über die einzelnen Ansätze</caption>
     <tr>
         <th></th>
-        <th colspan="2">Getrennte Workspaces</th>
-        <th colspan="2">Gemeinsame Workspaces</th>
+        <th colspan="2" scope="colgroup">Getrennte Workspaces</th>
+        <th colspan="2" scope="colgroup">Gemeinsame Workspaces</th>
     </tr>
     <tr>
         <th></th>
-        <th>Vorteile</th>
-        <th>Nachteile</th>
-        <th>Vorteile</th>
-        <th>Nachteile</th>
+        <th scope="col">Vorteile</th>
+        <th scope="col">Nachteile</th>
+        <th scope="col">Vorteile</th>
+        <th scope="col">Nachteile</th>
     </tr>
     <tr>
-        <td>Targeting</td>
+        <th scope="row">Targeting</th>
         <td>Der sicherste Weg, um die Kommunikation zu trennen. Campaigns sind garantiert nur auf bestimmte Nutzerprofile ausgerichtet.</td>
         <td>Sie können keine Cross-Promotion-Nachrichten senden, auch wenn Sie wissen, dass eine Nutzerin oder ein Nutzer ein anderes Nutzerprofil in einem anderen Workspace hat.</td>
         <td>Sie können Cross-Promotion-Nachrichten senden, wenn Sie wissen, dass eine Person mehrere Apps in Ihrem Workspace nutzt.<br><br>Sie können Nutzerdaten aus verschiedenen Apps referenzieren. Zum Beispiel hat John ein Attribut X, das für App 1 relevant ist, und ein Attribut Y, das für App 2 relevant ist – beide können in einer Campaign referenziert werden.</td>
-        <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App Messages zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> gegenüber <code>app_2_action</code>.</td>
+        <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App-Nachrichten zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> gegenüber <code>app_2_action</code>.</td>
     </tr>
     <tr>
-        <td>Angepasste Events und Attribute</td>
+        <th scope="row">Angepasste Events und Attribute</th>
         <td>Angepasste Attribute und Events sind garantiert spezifisch für eine App-Instanz.</td>
         <td>Das Nutzerverhalten kann nicht über Workspaces hinweg verfolgt werden.<br><br><b>Tipp:</b> Dazu können Sie mehrere Currents-Konnektoren nutzen.</td>
         <td>Das Nutzerverhalten kann über alle App-Instanzen im Workspace hinweg verfolgt werden.</td>
         <td>Angepasste Attribute und Events würden für alle App-Instanzen gelten, wodurch es schwierig werden könnte, zu erkennen, welche Daten in einem Nutzerprofil für welche App-Instanz relevant sind. Ist zum Beispiel „date_of_parking“ für App 1 oder App 2 relevant? Um dem entgegenzuwirken, sollten Sie gut strukturierte Namenskonventionen verwenden.</td>
     </tr>
     <tr>
-        <td>Frequency-Capping</td>
+        <th scope="row">Frequency-Capping</th>
         <td>Frequency-Capping kann für jede App-Instanz separat definiert werden (basierend auf dem Workspace).</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>Frequency-Capping gilt für alle Campaigns, nicht pro App, was es schwieriger macht, eine Überflutung der Kund:innen mit Nachrichten zu verhindern.</td>
     </tr>
     <tr>
-        <td>Abo-Status für Nutzerprofile</td>
+        <th scope="row">Abo-Status für Nutzerprofile</th>
         <td>Der Abo-Status jedes Nutzerprofils ist für jede App-Instanz eindeutig.</td>
         <td>N/A</td>
         <td>N/A</td>
         <td>Die Abo-Status eines Nutzerprofils werden über App-Instanzen hinweg kombiniert.<br><br><b>Tipp:</b> Sie könnten stattdessen <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>angepasste Attribute</a> verwenden, um die Abos Ihrer Nutzer:innen zu verwalten.</td>
     </tr>
     <tr>
-        <td>Unternehmensnutzer:innen-Berechtigungen</td>
+        <th scope="row">Unternehmensnutzer:innen-Berechtigungen</th>
         <td>N/A</td>
         <td>Das Aktualisieren der <a href='/docs/user_guide/administer/global/user_management/permissions'>Berechtigungen</a> für eine Dashboard-Nutzerin oder einen Dashboard-Nutzer muss für jeden Workspace, auf den die Person Zugriff benötigt, separat durchgeführt werden.</td>
         <td><a href='/docs/user_guide/administer/global/user_management/permissions'>Berechtigungen</a> können einmalig für eine Dashboard-Nutzerin oder einen Dashboard-Nutzer festgelegt werden und gelten dann für alle App-Instanzen im Workspace.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>Duplizieren von Inhalten</td>
+        <th scope="row">Duplizieren von Inhalten</th>
         <td>N/A</td>
-        <td>Segments, Push- oder Content-Card-Campaigns oder Canvases können nicht über Workspaces hinweg dupliziert werden.</td>
-        <td>Campaigns können für die folgenden unterstützten Kanäle <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>über Workspaces hinweg dupliziert werden</a>: SMS, In-App Messages, E-Mail, E-Mail-Templates und Content Blocks. <br><br>Sie können Segments, Campaigns und Canvases duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
+        <td>Segmente, Push- oder Content-Card-Campaigns oder Canvases können nicht über Workspaces hinweg dupliziert werden.</td>
+        <td>Campaigns können für die folgenden unterstützten Kanäle <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces/'>über Workspaces hinweg dupliziert werden</a>: SMS, In-App-Nachrichten, E-Mail, E-Mail-Templates und Content Blocks.<br><br>Sie können Segmente, Campaigns und Canvases duplizieren, um Inhalte von einer App-Instanz zur anderen wiederzuverwenden.</td>
         <td>N/A</td>
     </tr>
     <tr>
-        <td>Analytics</td>
+        <th scope="row">Analytics</th>
         <td>Die globalen Statistiken werden auf der Startseite korrekt angezeigt.</td>
         <td>N/A</td>
         <td>N/A</td>

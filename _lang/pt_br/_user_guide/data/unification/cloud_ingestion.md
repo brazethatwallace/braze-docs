@@ -19,7 +19,7 @@ Quando uma sincronização é executada, a Braze se conecta diretamente à sua i
 
 ### Encontrando seu ID de integração {#finding-your-integration-id}
 
-Você pode encontrar seu ID de integração na URL ao visualizar uma integração no dashboard da Braze. Navegue até **Configurações de dados** > **Ingestão de Dados na Nuvem** e selecione uma integração. O ID de integração aparece na URL no formato `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Por exemplo, se sua URL for `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, seu ID de integração é `abc123xyz`. Você pode usar esse ID ao fazer chamadas de API para disparar sincronizações ou verificar o status da sincronização.
+Você pode encontrar seu ID de integração na URL ao visualizar uma integração no dashboard da Braze. Navegue até **Data Settings** > **Cloud Data Ingestion** e selecione uma integração. O ID de integração aparece na URL no formato `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Por exemplo, se sua URL for `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, seu ID de integração é `abc123xyz`. Você pode usar esse ID ao fazer chamadas de API para disparar sincronizações ou verificar o status da sincronização.
 
 ## Casos de uso {#use-cases}
 
@@ -72,7 +72,7 @@ Ao sincronizar dados de usuários através da Ingestão de Dados na Nuvem, você
 | `BRAZE_ID` | O identificador de usuário da Braze gerado pelo SDK da Braze. Novos usuários não podem ser criados usando um ID da Braze através da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID de usuário externo ou um alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se múltiplos perfis com o mesmo endereço de e-mail existirem, o perfil mais recentemente atualizado é priorizado para atualizações. Se você incluir tanto e-mail quanto telefone, o e-mail é usado como o identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se múltiplos perfis com o mesmo número de telefone existirem, o perfil mais recentemente atualizado é priorizado para atualizações. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers for data ingestion" }
 
 Para informações detalhadas sobre como configurar colunas de tabela e requisitos de formatação de carga útil, consulte [Configuração de tabela para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
 
@@ -97,4 +97,4 @@ A Ingestão de Dados na Nuvem da Braze conta para o limite de taxa disponível, 
 | Tipo de dados | Você pode sincronizar atributos de usuário, eventos e compras através da Ingestão de Dados na Nuvem. |
 | Região da Braze | Este produto está disponível em todas as regiões da Braze. Qualquer região da Braze pode se conectar a qualquer região de origem de dados. |
 | Região de origem | A Braze se conecta ao seu data warehouse ou ambiente de nuvem em qualquer região ou provedor de nuvem. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }

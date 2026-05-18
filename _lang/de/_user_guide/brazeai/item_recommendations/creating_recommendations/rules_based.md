@@ -21,7 +21,8 @@ Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell fest
 
 Bei der Entscheidung, welches Empfehlungssystem zu Ihren verfügbaren Ressourcen und Anwendungsfällen passt, orientieren Sie sich an dieser Tabelle:
 
-<table style="text-align: center;">
+<table aria-label="Optionen des Empfehlungssystems" style="text-align: center;">
+  <caption>Optionen des Empfehlungssystems</caption>
   <thead>
     <tr>
       <th>Empfehlungssystem</th>
@@ -29,7 +30,7 @@ Bei der Entscheidung, welches Empfehlungssystem zu Ihren verfügbaren Ressourcen
       <th>No-Code-Lösung</th>
       <th>Kein fortgeschrittenes Liquid</th>
       <th>Aktualisiert automatisch den Produkt-Feed</th>
-      <th>Generiert mit Braze UI</th>
+      <th>Generiert mit der Braze-UI</th>
       <th>Kein Daten-Hosting und keine Fehlerbehebung</th>
     </tr>
   </thead>
@@ -72,7 +73,7 @@ Bei der Entscheidung, welches Empfehlungssystem zu Ihren verfügbaren Ressourcen
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Optionen des Empfehlungssystems" }
 
 ## Erstellen eines Empfehlungssystems {#creating-a-recommendation-engine}
 
@@ -90,7 +91,7 @@ So erstellen Sie Ihr Empfehlungssystem mithilfe eines Katalogs:
 
 ### Beispiel {#example}
 
-Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Content-Card-Campaign erstellen, die verschiedene Rezepte versendet, je nachdem, wie lange Nutzer:innen bereits bei Ihrer App angemeldet sind. Erstellen Sie zunächst einen Katalog und laden Sie ihn über eine CSV-Datei hoch, die die folgenden Informationen enthält:
+Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Content-Card-Kampagne erstellen, die verschiedene Rezepte versendet, je nachdem, wie lange Nutzer:innen bereits bei Ihrer App angemeldet sind. Erstellen Sie zunächst einen Katalog und laden Sie ihn über eine CSV-Datei hoch, die die folgenden Informationen enthält:
 
 | Feld | Beschreibung |
 |-----|-----------|
@@ -99,13 +100,13 @@ Nehmen wir an, Sie haben eine App für gesunde Ernährung und möchten eine Cont
 | **title** | Der Titel der Content-Card, die für jede ID verschickt wird, z. B. „Bereiten Sie diese Woche das Mittagessen vor“ oder „Lassen Sie uns Tacos machen“. |
 | **link** | Der Link zum Rezeptartikel. |
 | **image_url** | Das Bild, das dem Rezept entspricht. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
 Nachdem der Katalog in Braze hochgeladen wurde, überprüfen Sie die Vorschau einer ausgewählten Anzahl von Katalogartikeln, um die Richtigkeit der importierten Informationen zu bestätigen. Die Artikel können in der Vorschau zufällig angeordnet sein, aber das hat keinen Einfluss auf die Ausgabe des Empfehlungssystems.
 
 ![Beispielkatalog in Braze.]({% image_buster /assets/img/recs/catalog_items.png %})
 
-Erstellen Sie eine Content-Card-Campaign. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
+Erstellen Sie eine Content-Card-Kampagne. Geben Sie im Nachrichten-Editor die Liquid-Logik ein, um zu bestimmen, welche Nutzer:innen die Campaign erhalten sollen und welches Rezept und welches Bild angezeigt werden soll. In diesem Anwendungsfall ruft Braze das `start_date` (oder Registrierungsdatum) der Nutzerin oder des Nutzers ab und vergleicht es mit dem aktuellen Datum. Die Differenz in Tagen bestimmt, welche Content-Card gesendet wird.
 
 {% subtabs local %}
 {% subtab title %}
@@ -154,9 +155,9 @@ Erstellen Sie eine Content-Card-Campaign. Geben Sie im Nachrichten-Editor die Li
 
 Zum Beispiel:
 
-![Ein Beispiel für einen Nachrichten-Editor aus einer Content-Card-Campaign.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Ein Beispiel für einen Nachrichten-Editor aus einer Content-Card-Kampagne.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-Geben Sie im Abschnitt **On click behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Web-Geräten auf die Content-Card klicken.
+Geben Sie im Abschnitt **On click behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Internet-Geräten auf die Content-Card klicken.
 
 {% raw %}
 ```liquid
@@ -186,7 +187,7 @@ Um Ihr Empfehlungssystem mit Connected-Content zu erstellen, erstellen Sie zunä
 | **Tabellenkalkulation konvertieren** | Konvertieren Sie eine Tabellenkalkulation in einen JSON-API-Endpunkt, indem Sie einen Dienst wie SheetDP verwenden, und notieren Sie sich die API-URL, die dadurch erzeugt wird. |
 | **Einen angepassten Endpunkt erstellen** | Erstellen, hosten und pflegen Sie einen speziell entwickelten internen Endpunkt. |
 | **Ein Drittanbieter-System verwenden** | Verwenden Sie ein Empfehlungssystem eines Drittanbieters, z. B. eines unserer [Technologie-Partner]({{site.baseurl}}/partners/message_personalization/), darunter [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/) und andere. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
 Verwenden Sie als Nächstes Liquid in Ihrer Nachricht, die Ihren Endpunkt aufruft, um einen angepassten Attributwert mit dem Profil von Nutzer:innen abzugleichen und die entsprechende Empfehlung abzurufen.
 
@@ -210,7 +211,7 @@ Ersetzen Sie Folgendes:
 | `YOUR_API_URL` | Ersetzen Sie durch die tatsächliche URL Ihrer API. |
 | `RECOMMENDED_ITEM_IDS` | Ersetzen Sie durch den tatsächlichen Namen Ihres angepassten Attributs, das die IDs der empfohlenen Artikel enthält. Dieses Attribut wird als eine durch Semikolon getrennte Zeichenkette von IDs erwartet. |
 | `ITEM_ID` | Ersetzen Sie durch den tatsächlichen Namen des Attributs in Ihrer API-Antwort, das der Artikel-ID entspricht. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 
 {% alert note %}
 Dies ist ein einfaches Beispiel, das Sie je nach Ihren spezifischen Anforderungen und Ihrer Datenstruktur möglicherweise weiter anpassen müssen. Ausführlichere Anleitungen finden Sie in der [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) oder wenden Sie sich an eine Entwicklerin oder einen Entwickler.

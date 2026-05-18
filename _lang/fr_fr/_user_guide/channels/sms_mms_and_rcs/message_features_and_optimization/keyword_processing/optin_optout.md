@@ -29,7 +29,7 @@ Vous souhaitez étendre le traitement de vos désabonnements ? Essayez le [désa
 | Abonnement | `START`<br> `YES`<br> `UNSTOP` | Toute demande entrante contenant l'un de ces mots-clés d'`abonnement` entraînera un changement de l'état du groupe d'abonnement vers `abonné`. De plus, le pool d'expéditeurs associé à ce groupe d'abonnement pourra désormais envoyer un message SMS, MMS ou RCS à ce client (selon le type d'envoi de messages pris en charge par les expéditeurs). <br><br>L'utilisateur recevra votre réponse automatique d'abonnement définie. |
 | Désabonnement | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | Toute demande entrante contenant l'un de ces mots-clés de `désabonnement` entraînera un changement de l'état du groupe d'abonnement vers `désabonné`. De plus, le pool de numéros associé à ce groupe d'abonnement ne pourra plus envoyer de messages à ce client.<br><br>L'utilisateur recevra votre réponse automatique de désabonnement définie. |
 | Aide | `HELP`<br> `INFO` | L'utilisateur recevra votre réponse automatique d'aide définie. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default keywords" }
 
 Seul le **message exact, composé d'un seul mot** sera traité (insensible à la casse). Les mots-clés tels que `STOP PLEASE` seront ignorés, sauf si le [désabonnement approximatif]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/) est activé.
 

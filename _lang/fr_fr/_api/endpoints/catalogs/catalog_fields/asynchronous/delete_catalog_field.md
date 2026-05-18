@@ -31,7 +31,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | -------------- | -------- | --------- | -------------------------- |
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
 | `field_name` | Requis | Chaîne de caractères | Nom du champ du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de chemin" }
 
 ## Exemple de requête {#example-request}
 
@@ -84,9 +84,9 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | Erreur | Résolution des problèmes |
 | ------------------------------- | ---------------------------------------------------------------- |
 | `catalog-not-found` | Vérifiez que le nom du catalogue est valide. |
-| `field-referenced-by-selection` | Vérifiez que le champ du catalogue n'est pas actuellement utilisé par une sélection. |
-| `field-is-inventory` | Vérifiez que le champ du catalogue n'est pas utilisé comme champ d'inventaire. |
+| `field-referenced-by-selection` | Vérifiez que le champ du catalogue est actuellement utilisé par une sélection. |
+| `field-is-inventory` | Vérifiez que le champ du catalogue est utilisé comme champ d'inventaire. |
 | `invalid-field-name` | Vérifiez que le nom du champ du catalogue est valide. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 {% endapi %}

@@ -22,7 +22,7 @@ description: "この記事では、「ユーザーのマージ」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.merge` 権限を持つ [APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `merge_updates` | 必須 | 配列 | オブジェクトの配列。各オブジェクトには `identifier_to_merge` オブジェクトと `identifier_to_keep` オブジェクトが含まれている必要があり、それぞれが `external_id`、`user_alias`、`phone`、または `email` のいずれかでユーザーを参照する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### マージ動作 {#merge-behavior}
 
@@ -84,7 +84,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 - 初回購入日（Brazeは2つの日付のうち早い方を選択します）
 - 最終購入日（Brazeは2つの日付のうち遅い方を選択します）
 - アプリの概要
-- Last_X_at フィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
+- Last_X_atフィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
 - Campaignのインタラクションデータ（Brazeは最も新しい日付フィールドを選択します）
 - ワークフローの概要（Brazeは最も新しい日付フィールドを選択します）
 - メッセージとメッセージのエンゲージメント履歴
@@ -93,6 +93,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 {% alert note %}
 ユーザーをマージする場合、`/users/merge` エンドポイントの使用は、[`changeUser()` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)の使用と同じように機能します。
 {% endalert %}
+
+Brazeは、マージ時に3つのユーザータイプを異なる方法で処理します。削除対象としてマークされたユーザー、テストユーザー、およびグローバルコントロールグループのユーザーです。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
 
 #### カスタムイベント日と購入イベント日の動作 {#custom-event-date-and-purchase-event-date-behavior}
 
@@ -129,7 +131,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -176,7 +177,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -202,7 +202,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -218,7 +217,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### most_recently_updatedの優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### most_recently_updatedの優先順位付けを含めずに未識別ユーザーをマージする {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが2人いる場合、このリクエスト例ではユーザーはマージされません。そのメールアドレスを持つ未識別ユーザーが2人存在するためです。このリクエストは、メールアドレス `john.smith@braze.com` を持つ未識別ユーザーが1人だけの場合にのみ機能します。
 
@@ -227,7 +226,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -276,6 +274,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 1回のリクエストで指定できるマージ更新は50件までです。 |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | リクエストの識別子を確認してください。 |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates` に `identifier_to_merge` と `identifier_to_keep` の2つのオブジェクトのみが含まれていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -43,16 +43,16 @@ Braze에는 사용자와 소통할 수 있는 다양한 옵션이 있으며, 각
 
 | 채널 | 세부 정보 |
 |---|---|
-| In-App Messages | SDK 구현과 함께 채널별 단계가 필요합니다. |
+| 인앱 메시지 | SDK 구현과 함께 채널별 단계가 필요합니다. |
 | 푸시 | 메시징 자격 증명 및 푸시 토큰에 대한 적절한 처리를 제공하려면 SDK 구현이 필요합니다. |
 | 이메일 | 이것은 완전히 다른 프로세스입니다. 통합에 대한 자세한 내용은 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/) 섹션을 확인하세요. |
 | Content Cards | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)를 시작하려면 Braze 고객 성공 매니저에게 문의하세요. |
 | SMS 및 MMS | 통합에 대한 자세한 내용은 [SMS 설정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/) 섹션을 확인하세요. |
 | 웹훅 | SDK 구현과 함께 채널별 단계가 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: They implement your desired messaging channels" }
 
 {% alert tip %}
-Braze를 사용하여 각 채널에서 접근성 높은 **Campaigns**를 만들 수 있습니다. 개발자와 협력하여 구현 시 접근성 표준을 충족하는지 확인하세요.
+Braze를 사용하여 각 채널에서 접근성 높은 메시징 캠페인을 만들 수 있습니다. 개발자와 협력하여 구현 시 접근성 표준을 충족하는지 확인하세요.
 {% endalert %}
 
 ### 3단계: 데이터를 설정합니다 {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ Braze는 한 가지만 하는 도구가 아닙니다. 단순히 이메일을 보
 
 그렇다면 이 정보를 개발자에게 전달하려면 어떻게 해야 할까요?
 
-1. 마케팅 팀과 협력하여 추적해야 하는 **Campaigns**, 목표, 속성 및 이벤트를 정의하세요. 이러한 사용 사례를 정의하고 팀과 공유하세요.
+1. 마케팅 팀과 협력하여 추적해야 하는 캠페인, 목표, 속성 및 이벤트를 정의하세요. 이러한 사용 사례를 정의하고 팀과 공유하세요.
 2. 커스텀 데이터 요구 사항([커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 등)을 정의하세요.
 3. 거기서부터 해당 데이터를 추적하는 방법(SDK를 통해 트리거하는 방법 등)을 논의하세요.
 4. 필요한 [워크스페이스]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/) 수를 정의하세요. 엔지니어는 이러한 워크스페이스를 [테스트하고 구성]({{site.baseurl}}/user_guide/get_started/workspaces/)하는 방법을 알아야 합니다.

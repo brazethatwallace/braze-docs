@@ -26,7 +26,7 @@ Die folgenden Workflows haben jeweils unterschiedliche Reporting-Oberflächen.
 | --- | --- | --- |
 | Native Push-Analytics | Push-Metriken wie Öffnungen und beeinflusste Öffnungen, die mit Braze-Push-Campaigns verknüpft sind | Push-Campaign-Analytics, Currents-Nachrichten-Engagement-Events, Berichts-Builder |
 | Angepasste Events und Attribute | Analytics, die Sie definieren und über SDK-Methoden oder den `/users/track`-Endpunkt protokollieren | Nutzerprofile, Segmentierung, aktionsbasierte Campaigns und Canvases, Analytics für angepasste Events |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Native push analytics vs. custom event logging" }
 
 {% alert important %}
 Das Protokollieren eines angepassten Events (z. B. `push_notification_opened`) ist nicht dasselbe wie das native Braze-Push-Öffnungs-Tracking. Angepasste Events füllen keine nativen Push-Campaign-Öffnungsmetriken oder Push-Attribution.
@@ -801,9 +801,9 @@ Verwenden Sie die Reporting-Oberfläche, die zur Analytics-Kategorie passt:
 
 | Analytics-Kategorie | Wo Sie es in Braze einsehen können |
 | --- | --- |
-| Native Push-Analytics | Um Push-Öffnungsmetriken auf Campaign-Ebene anzuzeigen, navigieren Sie zur Seite **Campaign Analytics** Ihrer Push-Campaign. Für Metrik-Definitionen siehe [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Um angepasste Analytics-Ansichten zu erstellen, navigieren Sie zu **Analytics** > **Berichts-Builder (Neu)**. Für Navigationsschritte siehe [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Für Event-Schemas auf Warehouse-Ebene siehe [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
+| Native Push-Analytics | Um Push-Öffnungsmetriken auf Campaign-Ebene anzuzeigen, navigieren Sie zur Seite **Campaign Analytics** Ihrer Push-Campaign. Für Metrik-Definitionen siehe [Beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Um angepasste Analytics-Ansichten zu erstellen, navigieren Sie zu **Analytics** > **Report Builder (New)**. Für Navigationsschritte siehe [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Für Event-Schemas auf Warehouse-Ebene siehe [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
 | Angepasste Events und Attribute | Um Trends angepasster Events anzuzeigen, navigieren Sie zu **Analytics** > **Bericht zu angepassten Events**. Weitere Details finden Sie unter [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Um Werte auf Nutzerebene zu prüfen, navigieren Sie zur Seite **Nutzer:innen suchen** und öffnen Sie ein Profil. Für die Schritte siehe [Nutzerprofile]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Um Zielgruppen nach diesen Werten zu filtern, navigieren Sie zu **Zielgruppe** > **Segments**. Für Navigationsschritte siehe [Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) und Filteroptionen unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyzing results" }
 
 Informationen zur Erstellung angepasster Berichte finden Sie unter [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
 

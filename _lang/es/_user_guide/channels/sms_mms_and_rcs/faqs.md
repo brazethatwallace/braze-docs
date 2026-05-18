@@ -15,9 +15,9 @@ channel:
 
 > Este artículo responde a las preguntas más frecuentes sobre la mensajería SMS, MMS y RCS.
 
-## General
+## General {#general}
 
-### ¿Qué es un `app_id` en el objeto de API de SMS? {#what-is-an-appid-in-the-sms-api-object}
+### ¿Qué es un `app_id` en el objeto de API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
 
 La clave de API del identificador de aplicación o `app_id` es un parámetro que asocia la actividad con una aplicación específica en tu espacio de trabajo. Designa con qué aplicación dentro del espacio de trabajo estás interactuando. Por ejemplo, tendrás un `app_id` para tu aplicación iOS, un `app_id` para tu aplicación Android y un `app_id` para tu integración web.
 
@@ -25,7 +25,7 @@ Puedes encontrar tu `app_id` navegando a **Settings** > **App Settings** y local
 
 ### ¿Qué ocurre si varios usuarios tienen el mismo número de teléfono? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
-Cuando varios perfiles de usuario que comparten un número de teléfono (habilitado para SMS) son elegibles para una Campaign basada en acciones o un componente de Canvas al mismo tiempo, desencadenados por el evento de un SMS entrante, Braze deduplicará a los usuarios a nivel del componente de Canvas. Esto evitará que los usuarios reciban más de un mensaje de texto SMS por componente de Canvas, incluso si varios usuarios comparten el mismo número de teléfono.
+Cuando varios perfiles de usuario que comparten un número de teléfono (habilitado para SMS) son elegibles para una campaña basada en acciones o un componente de Canvas al mismo tiempo, desencadenados por el evento de un SMS entrante, Braze deduplicará a los usuarios a nivel del componente de Canvas. Esto evitará que los usuarios reciban más de un mensaje de texto SMS por componente de Canvas, incluso si varios usuarios comparten el mismo número de teléfono.
 
 {% alert note %}
 Braze no deduplica por número de teléfono para Canvas planificados.
@@ -58,7 +58,7 @@ Algunas desventajas de este enfoque incluyen:
 
 ### ¿Cómo se me facturará por SMS? {#how-will-i-be-billed-for-sms}
 
-Además de los cargos por códigos abreviados y largos, Braze proporciona una asignación de mensajes SMS para diferentes países. Es decir, trabajamos contigo para establecer un número determinado de segmentos de mensaje para diferentes países, que utilizarás para enviar Campaigns de SMS. La facturación se realiza por el número de segmentos de mensaje enviados por país. Para obtener más información sobre cómo se calculan los segmentos de mensaje, consulta nuestra guía de [Segmentos de mensaje y límites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Tu director de cuentas se pondrá en contacto contigo para informarte si estás cerca de alcanzar tu máximo, proporcionando informes relevantes para mantenerte informado. Para más preguntas sobre excedentes, ponte en contacto con tu representante de Braze.
+Además de los cargos por códigos abreviados y largos, Braze proporciona una asignación de mensajes SMS para diferentes países. Es decir, trabajamos contigo para establecer un número determinado de segmentos de mensaje para diferentes países, que utilizarás para enviar campañas de SMS. La facturación se realiza por el número de segmentos de mensaje enviados por país. Para obtener más información sobre cómo se calculan los segmentos de mensaje, consulta nuestra guía de [Segmentos de mensaje y límites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Tu director de cuentas se pondrá en contacto contigo para informarte si estás cerca de alcanzar tu máximo, proporcionando informes relevantes para mantenerte informado. Para más preguntas sobre excedentes, ponte en contacto con tu representante de Braze.
 
 ### ¿Los precios de MMS y SMS son diferentes? {#does-mms-and-sms-pricing-differ}
 
@@ -90,7 +90,7 @@ Es posible que se te cobren segmentos de mensaje adicionales si tienes personali
 
 ### ¿Se pueden incluir enlaces en un SMS? {#can-you-include-links-in-an-sms}
 
-Puedes incluir cualquier enlace en cualquier Campaign de SMS que desees. Sin embargo, hay algunas consideraciones a tener en cuenta:
+Puedes incluir cualquier enlace en cualquier campaña de SMS que desees. Sin embargo, hay algunas consideraciones a tener en cuenta:
 
 - Los enlaces pueden ocupar gran parte del límite de 160 caracteres para SMS. Si incluyes un enlace y texto, puede resultar en dos mensajes SMS en lugar de solo uno.
 - Las empresas a menudo usan acortadores de enlaces para limitar el impacto en el recuento de caracteres de un enlace. Sin embargo, si envías un enlace acortado a través de un código largo, los operadores pueden bloquear o rechazar el mensaje, ya que pueden sospechar de la redirección del enlace.
@@ -166,7 +166,7 @@ Braze no tiene control sobre el orden de visualización cuando se incluyen tanto
 
 ### ¿MMS requiere un proceso de incorporación separado? {#does-mms-require-a-separate-onboarding-process}
 
-No. MMS ahora está incluido en nuestro proceso de incorporación de SMS. Los clientes existentes que ya pasaron por la incorporación pueden comenzar a enviar Campaigns de MMS después de completar los siguientes pasos:
+No. MMS ahora está incluido en nuestro proceso de incorporación de SMS. Los clientes existentes que ya pasaron por la incorporación pueden comenzar a enviar campañas de MMS después de completar los siguientes pasos:
 
 1. Comprar MMS.
 2. Ponerse en contacto con el equipo de incorporación de Braze para solicitar que se active la función de MMS. Esto habilitará MMS y se creará o actualizará un grupo de suscripción de SMS/MMS para ti.
@@ -180,6 +180,17 @@ MMS solo se muestra en el dashboard de Braze cuando un grupo de suscripción se 
 Además, ciertas situaciones requerirán que Twilio vuelva a aprobar la habilitación de códigos abreviados que originalmente no tenían MMS habilitado. Este proceso de aprobación puede tardar semanas.
 
 ## RCS
+
+### ¿Por qué mi mensaje RCS no se muestra correctamente en dispositivos iOS? {#why-doesnt-my-rcs-message-render-accurately-on-ios-devices}
+
+Los mensajes RCS pueden mostrarse de forma diferente en un dispositivo iOS dependiendo del sistema operativo y la aplicación de mensajería. En dispositivos iOS, pueden ocurrir los siguientes comportamientos:
+
+- Las acciones sugeridas de diferentes mensajes RCS en el mismo hilo de conversación pueden agruparse y mostrarse en el orden incorrecto.
+- Los botones de tarjetas enriquecidas y las acciones sugeridas que están fuera de la tarjeta enriquecida pueden permanecer visibles incluso después de tocar un botón de tarjeta enriquecida o una acción sugerida.
+
+{% alert note %}
+Braze envía la carga útil de RCS que compones, mientras que el cliente de mensajería controla cómo se ordenan, agrupan y ocultan las acciones sugeridas. Asegúrate de probar los mensajes RCS, especialmente aquellos que usan tarjetas enriquecidas con acciones sugeridas o respuestas sugeridas, tanto en dispositivos Android como iOS antes de enviarlos.
+{% endalert %}
 
 ### ¿Puedo enviar mensajes de voz pregrabados con RCS? {#can-i-send-pre-recorded-voicemails-with-rcs}
 

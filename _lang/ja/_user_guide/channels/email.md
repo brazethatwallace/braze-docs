@@ -35,8 +35,8 @@ Brazeでメールを送信する前に、専用IP、ドメイン、メール認�
 | リッチメッセージ | リッチでダイナミックなHTMLメッセージを作成できます。 |
 | マルチメディアコンテンツ | 動画や画像など、ユーザーのエンゲージメントを高めるマルチメディアコンテンツを簡単に配置できます。 |
 | ニュースレター | 月刊または週刊のニュースレターを手軽に送信し、ユーザーエンゲージメントを維持します。 |
-| トランザクション | 最近の購入をユーザーに通知し、重要な製品情報や配送情報を[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)で届けます。
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| トランザクション | 最近の購入をユーザーに通知し、重要な製品情報や配送情報を[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)で届けます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## メールサービス {#email-services}
 

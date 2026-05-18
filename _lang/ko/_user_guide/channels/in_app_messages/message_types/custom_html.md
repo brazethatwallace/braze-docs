@@ -39,7 +39,7 @@ HTML 인앱 메시지를 사용하면 다음을 포함하여 메시지의 외관
 
 커스텀 JavaScript 외에도 Braze SDK는 이러한 편리한 URL 단축키를 사용하여 분석 데이터를 전송할 수 있습니다. 이러한 쿼리 매개변수와 URL 스킴은 모두 대소문자를 구분합니다.
 
-### 버튼 클릭 추적 (지원 중단) {#button-click-tracking-deprecated}
+### 버튼 클릭 추적(지원 중단) {#button-click-tracking-deprecated}
 
 {% alert warning %}
 `abButtonID` 사용은 [미리보기가 포함된 HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/) 메시지 유형에서 지원되지 않습니다. 자세한 내용은 [업그레이드 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview)를 참조하세요.
@@ -61,13 +61,13 @@ HTML 인앱 메시지를 사용하면 다음을 포함하여 메시지의 외관
 인앱 메시지는 Button 1과 Button 2 클릭만 지원합니다. 이 두 버튼 ID 중 하나를 지정하지 않는 URL은 일반적인 "본문 클릭"으로 기록됩니다.
 {% endalert %}
 
-### 새 창에서 링크 열기 (모바일 전용) {#open-link-in-new-window-mobile-only}
+### 새 창에서 링크 열기(모바일 전용) {#open-link-in-new-window-mobile-only}
 
 앱 외부의 링크를 새 창에서 열려면 `?abExternalOpen=true`를 설정하세요. 링크를 열기 전에 메시지가 닫힙니다.
 
 딥링킹의 경우 Braze는 `abExternalOpen` 값에 관계없이 URL을 엽니다.
 
-### 딥링크로 열기 (모바일 전용) {#open-as-deeplink-mobile-only}
+### 딥링크로 열기(모바일 전용) {#open-as-deeplink-mobile-only}
 
 Braze가 HTTP 또는 HTTPS 링크를 딥링크로 처리하도록 하려면 `?abDeepLink=true`를 설정하세요.
 
@@ -117,7 +117,7 @@ HTML 업로드로 사용자 지정 코드 인앱 메시지를 생성할 때, Cam
 | SVG 이미지       | `.svg`                            |
 | JavaScript 파일 | `.js`                             |
 | CSS 파일        | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
 
 Braze는 두 가지 이유로 자산을 미디어 라이브러리에 업로드하는 것을 권장합니다:
 
@@ -153,8 +153,8 @@ HTML 편집기 내에서 <i class="fa-solid fa-magnifying-glass"></i> **Search**
 | Button 1   | `brazeBridge.logClick('0')` |
 | Button 2   | `brazeBridge.logClick('1')` |
 | 본문 클릭 | `brazeBridge.logClick()`    |
-| 커스텀 버튼 추적 |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 커스텀 버튼 추적 | `brazeBridge.logClick('your custom name here')` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking" }
 
 {% alert note %}
 이 버튼 추적 방법은 이전의 자동 클릭 추적 방법(예: `?abButtonId=0`)을 대체하며, 해당 방법은 제거되었습니다.
@@ -172,3 +172,4 @@ HTML 편집기 내에서 <i class="fa-solid fa-magnifying-glass"></i> **Search**
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes" }

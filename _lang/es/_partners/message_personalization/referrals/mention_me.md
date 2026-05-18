@@ -22,7 +22,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Una cuenta de Mention Me   | Se necesita una cuenta de [Mention Me](https://mention-me.com/login) para aprovechar esta asociación.                                                                     |
 | Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track` y `templates.email.create`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
 | Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 

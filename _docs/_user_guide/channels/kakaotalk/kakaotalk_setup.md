@@ -20,7 +20,7 @@ channel:
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Types of KakaoTalk accounts
 
@@ -28,7 +28,7 @@ channel:
 | --- | --- |
 | Basic channel | A standard KakaoTalk channel that any organization can set up. It enables broadcast messaging and 1:1 chat through KakaoTalk. |
 | [Business channel](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | An upgraded, business-verified KakaoTalk channel that requires an application and verification process. It offers enhanced features, such as {::nomarkdown}<ul><li>Verified badge</li><li>Appearance as a recommended channel</li><li>Support for business messaging</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### Apply for a business channel 
 
@@ -70,7 +70,7 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 | **Channel name (카카오톡 채널 프로필명)** | In your Comm.One dashboard, go to **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Go to <b>Account Management (계정 관리)</b>, select the menu icon, then select <b>View Details (자세히보기)</b>.</li><li>Go to <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
 | **Credential (ID) & Password (비밀번호)** | Go to the same location for the **Sender number (사업자 등록번호)**, then go to **API** > **Brand Message (브랜드 메시지)**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -114,7 +114,7 @@ Go to your Infobip dashboard and gather the following information.
 | **Sender name / Sender key** | Select **Channels and Numbers** > **Channels**, then select the **Senders** tab. |
 | **Sender profile UUID** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
 | **Channel name** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## Set user profiles
 

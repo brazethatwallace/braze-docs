@@ -73,7 +73,7 @@ Webhookを設定するときに、次の設定を使用してWebhook URLにBraze
 
 ![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
-### ステップ4: Brazeキャンペーンを作成する {#step-4-create-a-braze-campaign}
+### ステップ4: Braze Campaignを作成する {#step-4-create-a-braze-campaign}
 
 zapの設定が完了したら、Liquidフォーマットを使用してメッセージに情報を表示することで、WordPressデータを使用してBraze CampaignsやCanvasesをカスタマイズできます。
 

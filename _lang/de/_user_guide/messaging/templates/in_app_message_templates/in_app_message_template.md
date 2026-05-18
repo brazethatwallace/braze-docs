@@ -27,7 +27,7 @@ Wie Sie ein Template hinzufügen, hängt von Ihrem Ziel ab:
 | Ein Drag-and-Drop-Layout zur Wiederverwendung speichern | Wählen Sie im [Drag-and-Drop-In-App-Nachrichten-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) die Option **Save as template**, nachdem Sie den Editor verlassen haben (Sie müssen die Campaign zuerst starten ODER als Entwurf speichern). Das Template erscheint unter **Templates** > **In-App Message Templates** für Ihre nächste Nachricht. |
 | Ein Farbprofil oder CSS-Template erstellen (traditioneller Editor) | Wählen Sie auf der Seite **In-App Message Templates** die Option **+ Create** und dann **Color Profile** oder **CSS Template**. Weitere Informationen finden Sie unter [Farbprofile und CSS-Templates](#reusable-color-profiles). |
 | Ein Braze-Template anpassen | [Erstellen Sie eine In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) im Drag-and-Drop-Editor, wählen Sie ein Braze-Template aus, nehmen Sie Ihre Anpassungen vor und wählen Sie **Save as template**. Beschreibungen der einzelnen Braze-Templates finden Sie unter [In-App-Nachricht-Templates]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Erstellungsmethode wählen" }
 
 {% alert note %}
 Farbprofile und CSS-Templates gelten für den traditionellen Editor. Wenn Sie den Drag-and-Drop-Editor verwenden, nutzen Sie die [Stileinstellungen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) für die Gestaltung auf Nachrichtenebene.

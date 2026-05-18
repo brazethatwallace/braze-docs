@@ -24,7 +24,7 @@ search_tag: Partner
 | --- | --- |
 | Trustpilotアカウント | TrustpilotのAPIへのアクセス権を持つTrustpilotアカウントが必要です。 |
 | Trustpilot認証キー | APIキーを設定し、アクセストークンをリクエストする必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 

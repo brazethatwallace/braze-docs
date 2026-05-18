@@ -71,7 +71,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | 受信者のサブスクリプション状態 |  |
 | 繰り返しスケジュール |  |
 | トランザクション |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 {% endtab %}
 {% tab canvas %}
@@ -87,7 +87,7 @@ Audience Syncステップを含むCanvasをコピーする場合、設定はコ�
 | 受信者のサブスクリプション状態 |  |
 | 繰り返しスケジュール | 離脱条件 |
 | トランザクション |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Details" }
 
 Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)ステップ）はコピー先のワークスペースにコピーされません。コピー後にこれらのフィルターを再設定してください。
 
@@ -102,10 +102,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Campaignインタラクション | Campaign ID |
+| Campaignインタラクション |  Campaign ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% tab canvas %}
@@ -113,10 +113,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Canvasインタラクション | Canvas ID |
+| Canvasインタラクション |  Canvas ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion behaviors" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,10 +129,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Campaignインタラクション | Campaign ID |
+| Campaignインタラクション |  Campaign ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% tab canvas %}
@@ -140,10 +140,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | タイプ動作 | ワークスペースID |
-| Canvasインタラクション | Canvas ID |
+| Canvasインタラクション |  Canvas ID |
 | カスタムイベント名 |  |
 | 製品名 |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
 
 {% endtab %}
 {% endtabs %}
@@ -156,10 +156,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | 送信割合 | API ID |
-| タイプ | シードグループID |
-|  | リンクテンプレートID |
-|  | 内部ユーザーグループID |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| タイプ |  シードグループID |
+|  |  リンクテンプレートID |
+|  |  内部ユーザーグループID |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% tab canvas %}
@@ -167,10 +167,10 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | 送信割合 | API ID |
-| タイプ | シードグループID |
-|  | リンクテンプレートID |
-|  | 内部ユーザーグループID |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| タイプ |  シードグループID |
+|  |  リンクテンプレートID |
+|  |  内部ユーザーグループID |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message variations" }
 
 {% endtab %}
 {% endtabs %}
@@ -184,12 +184,12 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | メール本文 | 送信元アドレス |
-| メッセージエクストラ | 返信先 |
-| タイトル | BCC |
-| 件名 | リンクテンプレート |
-|  | リンクエイリアス |
+| メッセージエクストラ |  返信先 |
+| タイトル |  BCC |
+| 件名 |  リンクテンプレート |
+|  |  リンクエイリアス |
 |  | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -197,12 +197,12 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | コピーされる | 省略される |
 |---|---|
 | メール本文 | 送信元アドレス |
-| メッセージエクストラ | 返信先 |
-| タイトル | BCC |
-| 件名 | リンクテンプレート |
-|  | リンクエイリアス |
+| メッセージエクストラ |  返信先 |
+| タイトル |  BCC |
+| 件名 |  リンクテンプレート |
+|  |  リンクエイリアス |
 |  | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email message variation" }
 
 {% endtab %}
 {% endtabs %}
@@ -219,7 +219,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | プリヘッダー |  |
 | インラインCSS |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% tab canvas %}
@@ -231,7 +231,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | プリヘッダー |  |
 | インラインCSS |  |
 | AMP HTML |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email body" }
 
 {% endtab %}
 {% endtabs %}
@@ -248,7 +248,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | 件名 | テリトリー |
 | ヘッダー | タグ |
 | | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% tab canvas %}
@@ -260,7 +260,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | 件名 | テリトリー |
 | ヘッダー | タグ |
 | | 翻訳 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Email templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -276,7 +276,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | 説明 | APIキー |
 | コンテンツ | テリトリー |
 | HTMLおよびドラッグ＆ドロップコンテンツ | タグ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% tab canvas %}
@@ -287,7 +287,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | 説明 | APIキー |
 | コンテンツ | テリトリー |
 | HTMLおよびドラッグ＆ドロップコンテンツ | タグ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
@@ -303,7 +303,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | リンク短縮 | VCFメディアアイテム |
 | クリックトラッキング |  |
 | メディアアイテム |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% tab canvas %}
@@ -314,7 +314,7 @@ Canvasステップのフィルター条件（例：[条件分岐]({{site.baseurl
 | リンク短縮 | VCFメディアアイテム |
 | クリックトラッキング |  |
 | メディアアイテム |  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS message variation" }
 
 {% endtab %}
 {% endtabs %}

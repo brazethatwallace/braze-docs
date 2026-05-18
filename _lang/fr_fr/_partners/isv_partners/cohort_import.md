@@ -28,7 +28,7 @@ Braze héberge son application sur plusieurs clusters à travers le monde. L'URL
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
 | KR-01 | `https://rest.kr-01.braze.com` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cluster URLs" }
 
 ## URL des endpoints {#endpoint-urls}
 
@@ -65,9 +65,9 @@ L'endpoint du nom de la cohorte permet de spécifier le nom d'une cohorte en fon
 | `cohort_id` | Chaîne de caractères | Oui | Identifiant de la cohorte. Cet identifiant doit être unique pour le client spécifié. |
 | `name` | Chaîne de caractères | Oui | Nom de la cohorte indiqué par le client |
 | `created_at` | Chaîne de caractères | Oui | Horodatage au format ISO-8601 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cohort name endpoint" }
 
-#### Exemple de requête : {#example-request}
+#### Exemple de requête {#example-request}
 
 `POST: https://rest.iad-01.braze.com/partners/[partner_name]/cohorts`
 ```
@@ -90,9 +90,9 @@ L'endpoint de la cohorte d'utilisateurs permet de spécifier quels utilisateurs 
 | `client_secret` | Chaîne de caractères | Oui | Clé d'importation des données pour le client auquel appartient cette cohorte. |
 | `cohort_id` | Chaîne de caractères | Oui | Identifiant de la cohorte. L'identifiant doit être unique pour le client spécifié. |
 | `cohort_changes` | Tableau d'objets | Oui | Les objets peuvent comporter deux champs. Le premier, `user_ids`, est obligatoire et peut être un tableau d'`external_ids`, de `device_ids` et d'`aliases`. Chaque élément est un ID pour un utilisateur dont le statut dans la cohorte a changé. Le second champ, `should_remove`, est un booléen facultatif qui indique si les utilisateurs de cet objet doivent être supprimés de la cohorte au lieu d'y être ajoutés. La valeur par défaut est false. La longueur maximale combinée des ID d'utilisateur dans une même requête est de 1 000.<br/><br/>Les utilisateurs identifiés peuvent être associés par leur `external_id` ou leur `alias`. Les utilisateurs anonymes peuvent être associés par leur `device_id`. Si vous transmettez un ID d'appareil pour un utilisateur identifié, Braze n'ajoutera ni ne supprimera cet utilisateur. Vous devez utiliser des ID externes ou des aliases pour les utilisateurs identifiés. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="User cohort endpoint" }
 
-#### Exemple de requête :
+#### Exemple de requête
 
 `POST: https://rest.iad-01.braze.com/partners/[partner_name]/cohorts/users`
 ```
@@ -130,6 +130,6 @@ Reportez-vous au tableau suivant pour les codes d'erreur spécifiques aux endpoi
 |  | Le partenaire n'est pas activé pour le client avec le secret client : **&#60;client secret&#62;** |
 |  | Accès non autorisé |
 | `423` | Ressource verrouillée |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 Pour une résolution des problèmes supplémentaire, reportez-vous à la section [Erreurs et réponses]({{site.baseurl}}/api/errors/), qui traite des différentes erreurs et réponses du serveur pouvant survenir lors de l'utilisation de l'API de Braze.

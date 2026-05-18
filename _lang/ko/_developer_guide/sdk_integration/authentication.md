@@ -1,20 +1,20 @@
 ---
 page_order: 1.2
-nav_title: Authentication
+nav_title: 인증
 article_title: Braze SDK 인증 설정
 description: "이 참조 문서에서는 SDK 인증 및 Braze SDK에서 이 기능을 활성화하는 방법을 다룹니다."
 platform:
   - iOS
   - Android
   - Web
-  
+
 ---
 
-# SDK 인증 설정
+# SDK 인증 설정 {#set-up-sdk-authentication}
 
 > SDK 인증을 통해 로그인한 사용자를 대신하여 SDK 요청에 암호화 증명(서버 측에서 생성됨)을 제공할 수 있습니다.
 
-## 작동 방식
+## 작동 방식 {#how-it-works}
 
 앱에서 이 기능을 활성화한 후에는 유효하지 않거나 누락된 JSON 웹 토큰(JWT)이 포함된 모든 요청을 거부하도록 Braze 대시보드를 구성할 수 있습니다. 여기에는 다음이 포함됩니다:
 
@@ -25,7 +25,7 @@ platform:
 
 이제 인증되지 않은 로그인 사용자가 앱의 SDK API 키를 사용하여 다른 사용자를 사칭하는 등의 악의적인 행동을 수행하는 것을 방지할 수 있습니다.
 
-## 인증 설정
+## 인증 설정 {#setting-up-authentication}
 
 ### 1단계: 서버 설정 {#server-side-integration}
 
@@ -53,8 +53,9 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | ----- | -------- | ----------------------------------- |
 | `alg` | 예  | 지원되는 알고리즘은 `RS256`입니다. |
 | `typ` | 예  | 유형은 `JWT`와 같아야 합니다.        |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 **JWT 페이로드**
 
@@ -62,8 +63,9 @@ JWT를 생성할 때 다음 필드가 필요합니다:
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | 예  | "subject"는 `changeUser`를 호출할 때 Braze SDK에 제공하는 사용자 ID와 같아야 합니다  |
 | `exp` | 예 | "expiration"은 이 토큰이 만료되는 시점입니다.                                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Create a JSON Web Token for the current user #create-jwt" }
 
 {% alert tip %}
 JSON 웹 토큰에 대해 더 알아보거나 이 서명 프로세스를 단순화하는 많은 오픈 소스 라이브러리를 둘러보려면 [https://jwt.io](https://jwt.io)를 확인하세요.
@@ -79,7 +81,7 @@ JSON 웹 토큰에 대해 더 알아보거나 이 서명 프로세스를 단순�
 iOS 통합의 경우, 이 페이지에서는 Braze Swift SDK에 대한 단계를 설명합니다. 레거시 AppboyKit iOS SDK에서의 샘플 사용법은 [이 파일](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/AppDelegate.m) 및 [이 파일](https://github.com/Appboy/appboy-ios-sdk/blob/master/Example/Stopwatch/Sources/Utils/SdkAuthDelegate.m)을 참조하십시오.
 {% endalert %}
 
-#### 2.1단계: Braze SDK에서 인증을 활성화합니다.
+#### 2.1단계: Braze SDK에서 인증 활성화 {#step-21-enable-authentication-in-the-braze-sdk}
 
 이 기능이 활성화되면 Braze SDK는 현재 사용자의 마지막으로 알려진 JWT를 Braze 서버에 대한 네트워크 요청에 추가합니다.
 
@@ -281,7 +283,7 @@ Braze Expo 플러그인을 사용할 때는 앱 구성에서 `enableSdkAuthentic
 {% endtab %}
 {% endtabs %}
 
-#### 2.2단계: 현재 사용자의 JWT 설정
+#### 2.2단계: 현재 사용자의 JWT 설정 {#step-22-set-the-current-users-jwt}
 
 앱에서 Braze `changeUser` 메서드를 호출할 때마다 [서버 측에서 생성된](#braze-dashboard) JWT도 함께 제공하세요.
 
@@ -517,7 +519,7 @@ braze.subscribeToSdkAuthenticationFailures((error) => {
   console.log("Error code:", error.errorCode);
   console.log("User ID:", error.userId);
   // Note: Do not log error.signature as it contains sensitive authentication credentials
-  
+
   // Verify the error.userId matches the currently logged-in user
   // Fetch a new token from your server and set it
   fetchNewSignature(error.userId).then((newSignature) => {
@@ -534,7 +536,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
   Braze.Events.SDK_AUTHENTICATION_ERROR,
   (error) => {
     console.log(`SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.`);
-    
+
     const updated_jwt = getNewTokenSomehow(error);
     Braze.setSdkAuthenticationSignature(updated_jwt);
   }
@@ -607,7 +609,7 @@ BrazePlugin braze = BrazePlugin();
 
 braze.setBrazeSdkAuthenticationErrorCallback((BrazeSdkAuthenticationError error) async {
   print("SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.");
-  
+
   String newSignature = getNewTokenSomehow(error);
   braze.setSdkAuthenticationSignature(newSignature);
 });
@@ -643,7 +645,7 @@ Braze.GetInstance(this).SubscribeToSdkAuthenticationFailures((error) => {
 ```javascript
 BrazePlugin.subscribeToSdkAuthenticationFailures((error) => {
   console.log(`SDK Authentication for ${error.user_id} failed with error code ${error.error_code}.`);
-  
+
   const newSignature = getNewTokenSomehow(error);
   BrazePlugin.setSdkAuthenticationSignature(newSignature);
 });
@@ -691,7 +693,7 @@ const sdkAuthErrorSubscription = Braze.addListener(
   Braze.Events.SDK_AUTHENTICATION_ERROR,
   (error) => {
     console.log(`SDK Authentication for ${error.userId} failed with error code ${error.errorCode}.`);
-    
+
     const updated_jwt = getNewTokenSomehow(error);
     Braze.setSdkAuthenticationSignature(updated_jwt);
   }
@@ -715,12 +717,12 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 대시보드 **설정 관리** 페이지에서 각 앱에는 Braze가 요청을 검증하는 방식을 제어하는 세 가지 SDK 인증 상태가 있습니다.
 
-| 설정| 설명|
+| 설정 | 설명 |
 | ------ | ---------- |
 | **비활성화됨** | Braze는 사용자에게 제공된 JWT를 확인하지 않습니다. (기본 설정)|
 | **선택 사항** | Braze는 로그인한 사용자의 요청을 확인하지만, 유효하지 않은 요청을 거부하지 않습니다. |
 | **필수** | Braze는 로그인한 사용자의 요청을 확인하고 유효하지 않은 JWT를 거부합니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enforcement options #enforcement-options" }
 
 ![]({% image_buster /assets/img/sdk-auth-settings.png %})
 
@@ -730,30 +732,30 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 ## 공개 키 관리 {#key-management}
 
-### 공개 키 추가
+### 공개 키 추가 {#adding-a-public-key}
 
 앱당 최대 세 개의 공개 키(기본, 보조 및 3차)를 추가할 수 있습니다. 필요한 경우 동일한 키를 둘 이상의 앱에 추가할 수도 있습니다. 공개 키를 추가하려면:
 
-1. Braze 대시보드로 이동하여 **설정** > **앱 설정**을 선택합니다.
+1. Braze 대시보드로 이동하여 **Settings** > **App Settings**를 선택합니다.
 2. 사용 가능한 앱 목록에서 앱을 선택합니다.
-3. **SDK 인증**에서 **공개 키 추가**를 선택합니다.
-4. 선택적 설명을 입력하고, 공개 키를 붙여넣은 다음, **공개 키 추가**를 선택합니다.
+3. **SDK Authentication**에서 **Add Public Key**를 선택합니다.
+4. 선택적 설명을 입력하고, 공개 키를 붙여넣은 다음, **Add Public Key**를 선택합니다.
 
-### 새 기본 키 할당
+### 새 기본 키 할당 {#assign-a-new-primary-key}
 
 보조 키 또는 3차 키를 새 기본 키로 할당하려면:
 
-1. Braze 대시보드로 이동하여 **설정** > **앱 설정**을 선택합니다.
+1. Braze 대시보드로 이동하여 **Settings** > **App Settings**를 선택합니다.
 2. 사용 가능한 앱 목록에서 앱을 선택합니다.
-3. **SDK 인증**에서 키를 선택하고 **관리** > **기본 키로 설정**을 선택합니다.
+3. **SDK Authentication**에서 키를 선택하고 **Manage** > **Make Primary Key**를 선택합니다.
 
-### 키 삭제
+### 키 삭제 {#deleting-a-key}
 
 기본 키를 삭제하려면 먼저 [새 기본 키를 할당](#assign-a-new-primary-key)한 다음, 키를 삭제합니다. 기본 키가 아닌 키를 삭제하려면:
 
-1. Braze 대시보드로 이동하여 **설정** > **앱 설정**을 선택합니다.
+1. Braze 대시보드로 이동하여 **Settings** > **App Settings**를 선택합니다.
 2. 사용 가능한 앱 목록에서 앱을 선택합니다.
-3. **SDK 인증**에서 기본 키가 아닌 키를 선택하고 **관리** > **공개 키 삭제**를 선택합니다.
+3. **SDK Authentication**에서 기본 키가 아닌 키를 선택하고 **Manage** > **Delete Public Key**를 선택합니다.
 
 ## 분석 {#analytics}
 
@@ -765,19 +767,19 @@ Braze 대시보드에서 앱의 SDK 인증 설정이 **필수**로 설정되지 
 
 ## 오류 코드 {#error-codes}
 
-| 오류 코드| 오류 사유 | 설명 | 해결 방법 |
+| 오류 코드 | 오류 사유 | 설명 | 해결 방법 |
 | --------  | ------------ | ---------  | ---------  |
-| 10 | `EXPIRATION_REQUIRED` | 만료는 Braze 사용을 위한 필수 필드입니다.| JWT 생성 로직에 `exp` 또는 만료 필드를 추가하십시오. |
-| 20 | `DECODING_ERROR` | 일치하지 않는 공개 키 또는 일반적인 포착되지 않은 오류.| JWT를 JWT 테스트 도구에 복사하여 JWT가 유효하지 않은 형식인 이유를 진단하십시오. |
-| 21 | `SUBJECT_MISMATCH` | 예상 subject와 실제 subject가 동일하지 않습니다.| `sub` 필드는 `changeUser` SDK 메서드에 전달된 것과 동일한 사용자 ID여야 합니다. |
-| 22 | `EXPIRED` | 제공된 토큰이 만료되었습니다.| 만료 기간을 연장하거나 만료 전에 주기적으로 토큰을 새로고침하십시오. |
-| 23 | `INVALID_PAYLOAD` | 토큰 페이로드가 유효하지 않습니다.| JWT를 JWT 테스트 도구에 복사하여 JWT가 유효하지 않은 형식인 이유를 진단하십시오. |
-| 24 | `INCORRECT_ALGORITHM` | 토큰의 알고리즘이 지원되지 않습니다.| JWT를 `RS256` 암호화 방식으로 변경하십시오. 다른 유형은 지원되지 않습니다. |
-| 25 | `PUBLIC_KEY_ERROR` | 공개 키를 올바른 형식으로 변환할 수 없습니다.| JWT를 JWT 테스트 도구에 복사하여 JWT가 유효하지 않은 형식인 이유를 진단하십시오. |
-| 26 | `MISSING_TOKEN` | 요청에 토큰이 제공되지 않았습니다.| `changeUser(id, token)` 호출 시 토큰을 반드시 전달하고, 토큰이 비어 있지 않은지 확인하십시오.|
-| 27 | `NO_MATCHING_PUBLIC_KEYS` | 제공된 토큰과 일치하는 공개 키가 없습니다.| JWT에 사용된 비공개 키가 앱에 구성된 공개 키와 일치하지 않습니다. 이 API 키와 일치하는 워크스페이스의 올바른 앱에 공개 키를 추가했는지 확인하십시오.|
-| 28 | `PAYLOAD_USER_ID_MISMATCH` | 요청 페이로드 내 모든 사용자 ID가 요구되는 대로 일치하지 않습니다.| 이는 예상치 못한 상황이며, 잘못된 형식의 페이로드가 발생할 수 있습니다. 고객지원 티켓을 열어 도움을 받으세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| 10 | `EXPIRATION_REQUIRED` | 만료는 Braze 사용을 위한 필수 필드입니다. | JWT 생성 로직에 `exp` 또는 만료 필드를 추가하십시오. |
+| 20 | `DECODING_ERROR` | 일치하지 않는 공개 키 또는 일반적인 포착되지 않은 오류. | JWT를 JWT 테스트 도구에 복사하여 JWT가 유효하지 않은 형식인 이유를 진단하십시오. |
+| 21 | `SUBJECT_MISMATCH` | 예상 subject와 실제 subject가 동일하지 않습니다. | `sub` 필드는 `changeUser` SDK 메서드에 전달된 것과 동일한 사용자 ID여야 합니다. |
+| 22 | `EXPIRED` | 제공된 토큰이 만료되었습니다. | 만료 기간을 연장하거나 만료 전에 주기적으로 토큰을 새로고침하십시오. |
+| 23 | `INVALID_PAYLOAD` | 토큰 페이로드가 유효하지 않습니다. | JWT를 JWT 테스트 도구에 복사하여 JWT가 유효하지 않은 형식인 이유를 진단하십시오. |
+| 24 | `INCORRECT_ALGORITHM` | 토큰의 알고리즘이 지원되지 않습니다. | JWT를 `RS256` 암호화 방식으로 변경하십시오. 다른 유형은 지원되지 않습니다. |
+| 25 | `PUBLIC_KEY_ERROR` | 공개 키를 올바른 형식으로 변환할 수 없습니다. | JWT를 JWT 테스트 도구에 복사하여 JWT가 유효하지 않은 형식인 이유를 진단하십시오. |
+| 26 | `MISSING_TOKEN` | 요청에 토큰이 제공되지 않았습니다. | `changeUser(id, token)` 호출 시 토큰을 반드시 전달하고, 토큰이 비어 있지 않은지 확인하십시오.|
+| 27 | `NO_MATCHING_PUBLIC_KEYS` | 제공된 토큰과 일치하는 공개 키가 없습니다. | JWT에 사용된 비공개 키가 앱에 구성된 공개 키와 일치하지 않습니다. 이 API 키와 일치하는 워크스페이스의 올바른 앱에 공개 키를 추가했는지 확인하십시오.|
+| 28 | `PAYLOAD_USER_ID_MISMATCH` | 요청 페이로드 내 모든 사용자 ID가 요구되는 대로 일치하지 않습니다. | 이는 예상치 못한 상황이며, 잘못된 형식의 페이로드가 발생할 수 있습니다. 고객지원 티켓을 열어 도움을 받으세요. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Error codes #error-codes" }
 
 ## 자주 묻는 질문(FAQ) {#faq}
 

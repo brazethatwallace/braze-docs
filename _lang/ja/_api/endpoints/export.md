@@ -20,7 +20,7 @@ page_type: reference
 | Braze REST APIキー | 呼び出す予定のエンドポイントに対する適切なエクスポート権限を持つREST APIキー。APIキーは特定のエンドポイントにスコープされ、作成後に権限を変更することはできません。詳細については、[REST APIキー]({{site.baseurl}}/api/basics/#about-rest-api-keys)を参照してください。 |
 | 関連する識別子 | エクスポートしたいデータの識別子（Campaign ID、Segment ID、Canvas IDなど）。これらはBrazeダッシュボードで確認できます。完全なリストについては、[API識別子タイプ]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | クラウドストレージの認証情報（オプション） | 大規模なデータセットをエクスポートする場合は、[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)、[Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/)、または[Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/)バケットを接続して、エクスポートファイルをストレージに直接書き込むことができます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert note %}
 APIアクセス権を持たないマーケターやチームメンバーの場合は、組織内の開発者または管理者と連携してAPIキーと統合を設定してください。
@@ -41,7 +41,7 @@ APIアクセス権を持たないマーケターやチームメンバーの場�
 | カスタムイベント | イベント名、イベントリスト、時系列のイベント分析 | [カスタムイベントエンドポイント]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
 | カスタム属性 | 属性名 | [カスタム属性エンドポイント]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
 | 購入 | 時間別収益データ、製品IDリスト、購入数 | [購入エンドポイント]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What you can export" }
 
 ## エクスポートデータの配信方法 {#how-export-data-is-delivered}
 
@@ -88,7 +88,7 @@ APIエクスポートは、ダッシュボードからダウンロードするCS
 | ユーザーデータ | POST | [識別子によるユーザーデータ]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
 | ユーザーデータ | POST | [Segmentによるユーザーデータ]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
 | ユーザーデータ | POST | [グローバルコントロールグループによるユーザーデータ]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Export endpoints" }
 
 ## 関連記事 {#related-articles}
 

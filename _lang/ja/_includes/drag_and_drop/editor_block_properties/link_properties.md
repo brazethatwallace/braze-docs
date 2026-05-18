@@ -4,4 +4,4 @@
 | フォントウェイト | テキストの太さを決定します。 |
 | 文字間隔 | 各文字間の距離を調整します。 |
 | テキストカラー | テキストの色を変更します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

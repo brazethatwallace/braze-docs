@@ -26,7 +26,7 @@ L'intégration de Braze et PassKit vous permet d'augmenter et de mesurer l'engag
 | `userDefinedID` | Pour mettre à jour de manière appropriée les événements personnalisés et les attributs personnalisés de vos utilisateurs entre PassKit et Braze, vous devez définir l'ID externe de Braze comme `userDefinedID`. Ce `userDefinedID` est utilisé lors des appels d'API aux endpoints PassKit. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -68,7 +68,7 @@ Vous pouvez inclure de nombreux composants dans votre payload, mais voici deux �
 | --------- | -------- | ---- | ----------- |
 |`person.externalId` | Requis | Chaîne de caractères | Défini comme l'ID externe de Braze, il est crucial pour que les rappels de PassKit vers Braze fonctionnent, car il permet aux utilisateurs de l'entreprise d'obtenir des coupons pour plusieurs offres au cours d'une seule Campaign. Non imposé comme unique. |
 | `members.member.externalId` | Facultatif | Chaîne de caractères | Défini comme l'ID externe de Braze, vous pouvez utiliser votre ID externe pour mettre à jour le pass de membre. La définition de ce champ impose l'unicité de l'utilisateur au sein du programme d'adhésion.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Étape 1 : Définir le payload des données de votre pass" }
 
 Pour une liste complète des champs disponibles, de leurs types et des descriptions utiles, consultez la [documentation GitHub de PassKit](https://github.com/PassKit/smart-pass-link-from-csv-generator).
 
@@ -220,11 +220,11 @@ Avant de commencer, voici les paramètres de payload JSON courants que vous pouv
 | `campaignId` (coupon) <br><br> `programId` (adhésion) | Chaîne de caractères | L'ID du modèle de Campaign ou de programme que vous avez créé dans PassKit. Pour le trouver, rendez-vous dans l'onglet **Settings** de votre projet PassKit Pass. |
 | `expiryDate` | Date/heure IO8601 | La date d'expiration du pass. Après la date d'expiration, le pass est automatiquement annulé (voir `isVoided`). Cette valeur remplacera le modèle et la valeur de la date de fin de Campaign. |
 | `status` | Chaîne de caractères | L'état actuel d'un coupon, tel que `REDEEMED` ou `UNREDEEMED`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres du payload" }
 
 ### Étape 1 : Créer votre modèle de webhook Braze {#step-1-create-your-braze-webhook-template}
 
-Pour créer un modèle de webhook PassKit à utiliser dans de futures Campaigns ou Canvas, accédez à la section **Templates & Media** dans le tableau de bord de Braze. Si vous souhaitez créer une campagne webhook PassKit unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
+Pour créer un modèle de webhook PassKit à utiliser dans de futures Campaigns ou Canvas, accédez à la section **Modèles et médias** dans le tableau de bord de Braze. Si vous souhaitez créer une campagne webhook PassKit unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
 
 Une fois que vous avez sélectionné le modèle de webhook PassKit, vous devriez voir ce qui suit :
 - **URL du webhook** : `https://api-pub1.passkit.io/coupon/singleUse/coupon`
@@ -260,7 +260,7 @@ Votre texte brut sera automatiquement mis en évidence s'il s'agit d'une balise 
 Prévisualisez votre requête dans le panneau **Preview** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Saved Webhook Templates** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
 
 ## Récupérer les détails du pass via le contenu connecté {#retrieve-pass-details-via-connected-content}

@@ -24,7 +24,7 @@ Obwohl Campaigns je nach Kanal unterschiedlich gestaltet werden können, gibt es
 | A/B-Tests | Bei Campaigns, die auf einen einzelnen Kanal abzielen, können Sie mehr als eine Version derselben Campaign versenden und sehen, welche am besten abschneidet. Mit einer [multivariaten Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/) können Sie Texte, Personalisierung und mehr in bis zu acht verschiedenen Varianten testen. |
 | API | Mit [API-Campaigns]({{site.baseurl}}/api/api_campaigns/) können Sie zeitkritische Nachrichten so schnell wie möglich versenden. Im Gegensatz zu anderen Campaign-Typen legen Sie im Braze-Dashboard weder die Nachricht noch die Empfänger:innen oder den Zeitplan fest. Stattdessen übergeben Sie diese Bezeichner in Ihren API-Aufrufen. Diese werden in der Regel für Realtime-Transaktionsnachrichten oder aktuelle Meldungen verwendet. |
 | Transaktions-E-Mails | [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/email/) von Braze sind speziell für den Versand automatisierter, nicht werblicher E-Mail-Nachrichten konzipiert, um eine vereinbarte Transaktion zwischen Ihnen und Ihren Kund:innen zu ermöglichen. Sie senden geschäftskritische Benachrichtigungen an einzelne Nutzer:innen, bei denen Geschwindigkeit von größter Bedeutung ist. *Verfügbar für ausgewählte Pakete.* |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 {% alert note %}
 Reguläre Campaigns und A/B-Test-Campaigns können geplant werden (z. B. um eine Liste von Nutzer:innen über ein bevorstehendes Ereignis zu informieren) oder automatisch als Reaktion auf eine Nutzeraktion versendet werden (z. B. um eine E-Mail zu senden, wenn jemand Ihren Newsletter abonniert). Erfahren Sie mehr über die [Planung von Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
@@ -77,7 +77,7 @@ Die folgende Tabelle gibt einen Überblick über die unterstützten Kanäle.
 | [Connected TV]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/) | Interagieren Sie mit Nutzer:innen auf vernetzten Fernsehplattformen. |
 | [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) | Ermöglichen Sie Realtime-Kommunikation und Integration mit externen Systemen durch benutzerdefinierte HTTP-Callbacks. |
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | Treten Sie mit Nutzer:innen auf LINE in Kontakt, der beliebtesten Messaging-App in Japan. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging channels" }
 
 <sup>*Als Add-on-Feature verfügbar.</sup>
 

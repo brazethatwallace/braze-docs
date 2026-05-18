@@ -23,7 +23,8 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Erreurs 4XX">
+  <caption>Erreurs 4XX</caption>
   <thead>
     <tr>
       <th>Code d'erreur</th>
@@ -129,13 +130,13 @@ Les erreurs `5XX` indiquent un problème au niveau de l'endpoint. Elles sont gé
 | **529 Host Overloaded** | L'hôte de l'endpoint est surchargé et n'a pas pu répondre. |
 | **598 Host Unhealthy** | Braze a simulé la réponse parce que l'hôte de l'endpoint est temporairement marqué comme défaillant. Pour en savoir plus, consultez la section [Détection d'un hôte défaillant](#unhealthy-host-detection). |
 | **599 Connection Error** | Braze a rencontré une erreur de délai de connexion réseau en essayant d'établir une connexion à l'endpoint, ce qui signifie que l'endpoint peut être instable ou hors service. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erreurs 5XX" }
 
 ### Résolution des erreurs 5XX {#resolving-5xx-errors}
 
 Voici quelques conseils pour résoudre les erreurs `5XX` les plus courantes :
 
-- Consultez le message d'erreur pour obtenir des détails spécifiques dans le **Journal d'activité des messages**. Pour les webhooks, rendez-vous dans la section **Performance au fil du temps** sur la page d'accueil de Braze et sélectionnez les statistiques des webhooks. Vous pourrez y trouver l'horodatage indiquant quand les erreurs se sont produites.
+- Consultez le message d'erreur pour obtenir des détails spécifiques dans le **Journal d'activité des messages**. Pour les webhooks, rendez-vous dans la section **Performance Over Time** sur la page d'accueil de Braze et sélectionnez les statistiques des webhooks. Vous pourrez y trouver l'horodatage indiquant quand les erreurs se sont produites.
 - Assurez-vous de ne pas envoyer trop de requêtes qui surchargent l'endpoint. Vous pouvez envoyer par lots ou ajuster la limite de débit pour vérifier si cela réduit les erreurs.
 
 ## Détection d'un hôte défaillant {#unhealthy-host-detection}
@@ -182,7 +183,7 @@ Ces e-mails ne sont envoyés qu'une fois par jour au niveau de l'espace de trava
 
 Pour vous inscrire à la réception de ces e-mails, procédez comme suit :
 
-1. Allez dans **Paramètres** > **Paramètres d'administration** > **Préférences de notification**.
+1. Allez dans **Settings** > **Admin Settings** > **Notification Preferences**.
 2. Sélectionnez **Connected Content Errors** et **Webhook Errors** dans la section **Canvas & Campaigns**.
 
 ### Entrées du journal d'activité des messages {#message-activity-log-entries}

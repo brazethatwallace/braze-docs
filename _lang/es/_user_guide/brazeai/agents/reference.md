@@ -51,6 +51,7 @@ Algunos proveedores de LLM pueden permitirte ajustar el nivel de razonamiento de
 | **Bajo** | Tareas que se benefician de un poco más de razonamiento pero no necesitan un análisis profundo. |
 | **Medio** | Tareas de varios pasos o con matices (como analizar varias entradas para recomendar una acción). |
 | **Alto** | Razonamiento complejo, casos extremos o cuando necesitas que el modelo trabaje los pasos antes de responder. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
 Recomendamos empezar con **Mínimo** y probar las respuestas de tu agente. Luego, puedes ajustar el nivel de razonamiento a **Bajo** o **Medio** si encuentras que el agente tiene dificultades para proporcionar respuestas precisas. En casos excepcionales, puede ser necesario un nivel de razonamiento **Alto**, aunque usar este nivel puede resultar en altos costes de tokens y tiempos de respuesta más largos o mayor riesgo de errores de tiempo de espera. Si tu agente tiene dificultades para equilibrar el razonamiento de varios pasos con tiempos de respuesta razonables, considera dividir tu caso de uso en más de un agente que puedan trabajar juntos en un Canvas o catálogo.
 
@@ -469,7 +470,7 @@ Si deseas dar formato a las respuestas de un cuestionario de comentarios sencill
 | **likelihood_score** | Número |
 | **explanation** | Cadena |
 | **confidence_score** | Número |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
 
 ![Consola de Agente mostrando tres campos de salida para puntuación de probabilidad, explicación y puntuación de confianza.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -515,13 +516,9 @@ Puedes seleccionar hasta cinco Segments para que el agente compare la pertenenci
 
 Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) que tu agente debe seguir en sus respuestas. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 
-## Temperatura {#temperature}
+## Historial de interacción específico del usuario {#user-history}
 
-Si tu objetivo es utilizar un agente para generar textos que animen a los usuarios a iniciar sesión en tu aplicación móvil, puedes establecer una temperatura más alta para que tu agente sea más creativo y utilice los matices de las variables de contexto. Si utilizas un agente para generar puntuaciones de opinión, lo ideal sería establecer una temperatura más baja para evitar cualquier especulación del agente sobre las respuestas negativas del cuestionario. Te recomendamos que pruebes esta configuración y revises los resultados generados por el agente para adaptarlos a tu situación.
-
-{% alert note %}
-Actualmente, las temperaturas no son compatibles con OpenAI.
-{% endalert %}
+Los datos de interacción de un usuario incluyen sus aperturas, clics y datos de conversión recientes de Campaign y Canvas. Por ejemplo, puedes incluir este contexto para que un agente lo consulte cuando se evalúa en Canvas. El historial de interacción específico del usuario también puede ayudar a influir en un agente cuando su tarea es redactar textos de mensajes personalizados.
 
 ## Duplicar agentes {#duplicate-agents}
 

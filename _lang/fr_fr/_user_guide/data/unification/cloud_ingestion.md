@@ -72,7 +72,7 @@ Lors de la synchronisation des données utilisateur via Cloud Data Ingestion, vo
 | `BRAZE_ID` | L'identifiant utilisateur Braze généré par le SDK Braze. Il n'est pas possible de créer de nouveaux utilisateurs à l'aide d'un Braze ID via Cloud Data Ingestion. Pour créer de nouveaux utilisateurs, spécifiez un ID utilisateur externe ou un alias d'utilisateur. |
 | `EMAIL` | L'adresse e-mail de l'utilisateur. Si plusieurs profils avec la même adresse e-mail existent, le profil le plus récemment mis à jour est prioritaire pour les mises à jour. Si vous indiquez à la fois l'adresse e-mail et le numéro de téléphone, l'adresse e-mail est utilisée comme identifiant principal. |
 | `PHONE` | Le numéro de téléphone de l'utilisateur. Si plusieurs profils avec le même numéro de téléphone existent, le profil le plus récemment mis à jour est prioritaire pour les mises à jour. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identifiants utilisateur pour l'ingestion de données" }
 
 Pour obtenir des informations détaillées sur la configuration des colonnes de table et les exigences de formatage du payload, consultez la documentation sur la [configuration des tables pour Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
 
@@ -97,4 +97,4 @@ Braze Cloud Data Ingestion est pris en compte dans la limite de débit disponibl
 | Type de données | Vous pouvez synchroniser les attributs utilisateur, les événements et les achats via Cloud Data Ingestion. |
 | Région Braze | Ce produit est disponible dans toutes les régions Braze. Toute région Braze peut se connecter à n'importe quelle région de données source. |
 | Région source | Braze se connecte à votre entrepôt de données ou à votre environnement cloud, quelle que soit la région ou le fournisseur de services cloud. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limites du produit" }

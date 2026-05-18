@@ -9,7 +9,7 @@
 
 #### 設定 {#setup}
 
-Canvasページで**Canvasテンプレートを使用** > **Brazeテンプレート**を選択し、**閲覧の放棄**テンプレートを適用します。
+Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**閲覧の放棄**テンプレートを適用します。
 
 ##### デフォルト設定 {#default-settings}
 
@@ -42,7 +42,7 @@ Canvasでは、以下の設定が事前に構成されています。
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -73,11 +73,11 @@ Canvasでは、以下の設定が事前に構成されています。
 
 ![「カート放棄」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### 設定 {#setup}
+#### 設定
 
-Canvasページで**Canvasテンプレートを使用** > **Brazeテンプレート**を選択し、**カート放棄**テンプレートを適用します。
+Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**カート放棄**テンプレートを適用します。
 
-##### デフォルト設定 {#default-settings}
+##### デフォルト設定
 
 Canvasでは、以下の設定が事前に構成されています。
 - 基本情報
@@ -121,7 +121,7 @@ Canvasでは、以下の設定が事前に構成されています。
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -174,11 +174,11 @@ Shopifyを使用する場合は、次のLiquidテンプレートを使用して�
 
 ![「購入手続き放棄」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### 設定 {#setup}
+#### 設定
 
-Canvasページで**Canvasテンプレートを使用** > **Brazeテンプレート**を選択し、**購入手続き放棄**テンプレートを適用します。
+Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**購入手続き放棄**テンプレートを適用します。
 
-##### デフォルト設定 {#default-settings}
+##### デフォルト設定
 
 Canvasでは、以下の設定が事前に構成されています。
 
@@ -212,7 +212,7 @@ Canvasでは、以下の設定が事前に構成されています。
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -241,7 +241,7 @@ Canvasでは、以下の設定が事前に構成されています。
 | ----- | -------- |
 | `true`（デフォルト） | カートが放棄されていない場合（つまり、ユーザーがその後注文を完了した場合）、メッセージは中止されます。 |
 | `false` | カートが放棄状態でなくてもメッセージが送信され、現在のチェックアウトステータスに関係なくメールにカートの詳細を含めることができます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="abortifnotabandoned #abort-if-not-abandoned" }
 
 送信時にカートがまだ放棄状態と見なされているかどうかに関係なくチェックアウトリマインダーを送信したい場合は、`abort_if_not_abandoned` を `false` に設定します。パラメーターを省略するか `true` に設定すると、Brazeはすでに購入を完了したユーザーへのメッセージを中止します。
 
@@ -258,15 +258,15 @@ Canvasでは、以下の設定が事前に構成されています。
 
 ### 注文確認とフィードバック調査 {#order-confirmation-and-feedback-survey}
 
-**注文確認＆フィードバック調査**テンプレートを使用して、注文の成功を確認し、顧客満足度を向上させます。
+**注文確認とフィードバック調査**テンプレートを使用して、注文の成功を確認し、顧客満足度を向上させます。
 
 ![「注文確認」Canvasテンプレートが適用され、「エントリルール」が展開された状態。]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### 設定 {#setup}
+#### 設定
 
-Canvasページで**Canvasテンプレートを使用** > **Brazeテンプレート**を選択し、**注文確認＆フィードバック調査**テンプレートを適用します。
+Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**注文確認とフィードバック調査**テンプレートを適用します。
 
-##### デフォルト設定 {#default-settings}
+##### デフォルト設定
 
 Canvasでは、以下の設定が事前に構成されています。
 
@@ -296,7 +296,7 @@ Canvasでは、以下の設定が事前に構成されています。
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

@@ -9,7 +9,7 @@ description: "Cet article présente les détails de l'endpoint Braze permettant 
 
 ---
 {% api %}
-# Envoyer des messages de campagne via une distribution déclenchée par API {#send-campaign-messages-using-api-triggered-delivery}
+# Envoyer des messages de Campaign via une distribution déclenchée par API {#send-campaign-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
@@ -18,7 +18,7 @@ description: "Cet article présente les détails de l'endpoint Braze permettant 
 
 La distribution déclenchée par API vous permet d'héberger le contenu des messages dans le tableau de bord de Braze tout en contrôlant, via votre API, quand un message est envoyé et à qui.
 
-Si vous ciblez un segment, un enregistrement de votre requête est conservé dans la [console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID de campagne]({{site.baseurl}}/api/identifier_types/) créé lors de la création d'une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Si vous ciblez un segment, un enregistrement de votre requête est conservé dans la [console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID de Campaign]({{site.baseurl}}/api/identifier_types/) créé lors de la création d'une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -72,13 +72,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id`|Requis|Chaîne de caractères|Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
-| `send_id`| Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types/). |
-| `trigger_properties`| Facultatif | Objet | Voir [propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Les paires clé-valeur de personnalisation s'appliquent à tous les utilisateurs de cette requête. |
-|`broadcast`| Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à l'ensemble du segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur true, une liste `recipients` ne peut pas être incluse. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |
-|`audience`| Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). Lorsque vous incluez `audience`, le message est envoyé uniquement aux utilisateurs qui correspondent aux filtres définis, tels que les attributs personnalisés et les statuts d'abonnement. |
-|`recipients`| Facultatif | Tableau | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Si `send_to_existing_only` est `false`, un objet `attributes` doit être inclus.<br><br>Vous pouvez mettre à jour le statut du groupe d'abonnement d'un utilisateur en incluant `subscription_groups` dans l'objet `attributes` imbriqué. Pour plus de détails, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Si `recipients` n'est pas fourni et que `broadcast` est défini sur true, le message est envoyé à l'ensemble du segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze.<br><br>Si `email` est l'identifiant, vous devez inclure [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) dans l'objet destinataire. |
-|`attachments`| Facultatif | Tableau | Si `broadcast` est défini sur true, la liste `attachments` ne peut pas être incluse. |
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de Campaign]({{site.baseurl}}/api/identifier_types/). |
+| `send_id` | Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types/). |
+| `trigger_properties` | Facultatif | Objet | Voir [propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Les paires clé-valeur de personnalisation s'appliquent à tous les utilisateurs de cette requête. |
+| `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à l'ensemble du segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur true, une liste `recipients` ne peut pas être incluse. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |
+| `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience/). Lorsque vous incluez `audience`, le message est envoyé uniquement aux utilisateurs qui correspondent aux filtres définis, tels que les attributs personnalisés et les statuts d'abonnement. |
+| `recipients` | Facultatif | Tableau | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object/).<br><br>Si `send_to_existing_only` est `false`, un objet `attributes` doit être inclus.<br><br>Vous pouvez mettre à jour le statut du groupe d'abonnement d'un utilisateur en incluant `subscription_groups` dans l'objet `attributes` imbriqué. Pour plus de détails, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/).<br><br>Si `recipients` n'est pas fourni et que `broadcast` est défini sur true, le message est envoyé à l'ensemble du segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze.<br><br>Si `email` est l'identifiant, vous devez inclure [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) dans l'objet destinataire. |
+| `attachments` | Facultatif | Tableau | Si `broadcast` est défini sur true, la liste `attachments` ne peut pas être incluse. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ### Comportement de résolution des destinataires {#recipient-resolution-behavior}
@@ -94,6 +94,9 @@ Découvrez comment les limites de destinataires et la création de profils fonct
 - Le tableau `recipients` peut contenir jusqu'à 50 objets, chacun contenant une seule chaîne `external_user_id` et un objet `trigger_properties`.
 - Lorsque `send_to_existing_only` est `true` (valeur par défaut), Braze envoie le message uniquement aux utilisateurs existants.
 - Lorsque `send_to_existing_only` est `false` et qu'un objet `attributes` est fourni, Braze crée un nouvel utilisateur s'il n'en existe pas.
+- **Les nouveaux profils nécessitent `attributes` avec `send_to_existing_only: false`.** Braze exécute la création ou la mise à jour pré-envoi à partir de l'objet `attributes` dans le même destinataire. Si vous définissez `send_to_existing_only` sur `false` mais omettez `attributes` (ou envoyez un objet vide), Braze n'hydrate pas les données du profil de la même manière, et vous n'obtenez donc pas le comportement combiné « créer ou mettre à jour l'utilisateur, puis envoyer » pour lequel ce modèle est conçu.
+- **Adressage e-mail et SMS.** Pour la plupart des envois par e-mail ou SMS déclenchés par API à une personne qui n'est pas encore dans Braze, incluez les champs de distribution nécessaires dans `attributes` (par exemple `email`, ou les attributs téléphoniques utilisés par votre espace de travail pour le SMS). Vous pouvez également y définir l'appartenance à un groupe d'abonnement ou le statut d'abonnement lorsque l'état d'abonnement doit être modifié dans le même appel.
+- **Éligibilité à la Campaign.** Une fois le profil créé ou mis à jour, cet utilisateur doit toujours correspondre à l'audience cible de la Campaign dans le tableau de bord et aux règles d'envoi du canal (par exemple, être abonné aux e-mails), sinon Braze n'envoie pas le message.
 - Définir `send_to_existing_only` sur `false` n'est pas pris en charge pour les alias d'utilisateur. Les nouveaux utilisateurs disposant uniquement d'un alias ne peuvent pas être créés via cet endpoint. Pour envoyer un message à un utilisateur disposant uniquement d'un alias, celui-ci doit déjà exister dans Braze.
 
 #### Identifiant e-mail et résolution des égalités de priorisation {#email-identifier-and-prioritization-ties}

@@ -9,7 +9,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 # 연결된 오디언스 오브젝트 {#connected-audience-object}
 
-> 연결된 오디언스는 API 요청 내에서 인라인으로 정의하는 동적 오디언스 필터로, Braze 대시보드에서 Segment를 생성하거나 관리하지 않고도 발송 시점에 적합한 사용자를 타겟팅할 수 있습니다.
+> 연결된 오디언스는 API 요청 내에서 인라인으로 정의하는 동적 오디언스 필터로, Braze 대시보드에서 Segments를 생성하거나 관리하지 않고도 발송 시점에 적합한 사용자를 타겟팅할 수 있습니다.
 
 가능한 모든 오디언스 조합에 대해 Segment를 미리 만드는 대신, API 호출의 `audience` 파라미터에 필터 기준을 직접 전달합니다. Braze는 각 사용자를 해당 기준에 따라 실시간으로 평가하고, 조건에 일치하는 사용자에게만 메시지를 전달합니다. 즉, 단일 Campaign, Canvas 또는 API 전용 메시지 정의로 비즈니스 로직에 따라 무제한의 오디언스 변형을 처리할 수 있습니다.
 
@@ -48,7 +48,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | 이커머스 | 온라인 소매업체가 `wishlisted_products` 배열에 해당 제품 ID가 포함된 사용자에게 가격 인하 또는 재입고 알림을 발송합니다. |
 | 여행 | 여행 앱이 `booked_flight` 속성이 영향을 받는 항공편 번호와 일치하는 사용자에게 항공편 지연 알림을 발송합니다. |
 | 금융 서비스 | 트레이딩 플랫폼이 `watchlist` 배열에 가격 임계값을 넘은 종목 코드가 포함된 사용자에게 알림을 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 각 경우에 단일 Campaign 또는 API 전용 메시지 정의로 모든 변형을 처리합니다. 백엔드가 필터 값을 결정하고 API 요청에 전달하므로, 각 제품, 프로그램, 팀 또는 위치별로 별도의 Segment나 Campaign을 생성할 필요가 없습니다.
 
@@ -138,7 +138,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | 숫자 | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | 부울 | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | 시간 | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Allowed comparisons by data type" }
 
 #### 속성 비교 시 주의 사항 {#attribute-comparison-caveats}
 
@@ -146,7 +146,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | --- | --- |
 | `value` | `exists` 또는 `does_not_exist` 비교를 사용하는 경우 `value`는 필요하지 않습니다. `before` 및 `after` 비교를 사용하는 경우 `value`는 ISO 8601 날짜/시간 문자열이어야 합니다. |
 | `matches_regex` | `matches_regex` 비교를 사용할 때 전달되는 값은 문자열이어야 합니다. Braze에서 정규표현식을 사용하는 방법에 대해 자세히 알아보려면 [정규표현식]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) 및 [커스텀 속성 데이터 유형]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
 
 #### 커스텀 속성 예시 {#custom-attribute-example}
 
@@ -205,7 +205,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 이 필터를 사용하면 사용자의 이메일 구독 상태를 기준으로 세분화할 수 있습니다.
 
-#### 필터 본문 {#filter-body}
+#### 필터 본문
 
 ```json
 {
@@ -224,7 +224,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 이 필터를 사용하면 사용자가 앱을 마지막으로 사용한 시점을 기준으로 세분화할 수 있습니다. 이 필터에는 두 개의 필드가 포함되어 있습니다:
 
-#### 필터 본문 {#filter-body}
+#### 필터 본문
 ```json
 {
   "last_used_app":

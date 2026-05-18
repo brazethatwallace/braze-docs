@@ -25,8 +25,8 @@ Existen dos estados de suscripción para los usuarios de SMS y RCS: `subscribed`
 | Estado | Definición |
 | --------- | ---------- |
 | Suscrito | El usuario está suscrito para recibir SMS y RCS de un grupo de suscripción específico. Un usuario puede suscribirse ya sea actualizando su estado de suscripción a través de la API de suscripción de Braze o enviando un mensaje de texto con una palabra clave de adhesión voluntaria. Un usuario debe estar suscrito a un grupo de suscripción de SMS o RCS para recibir SMS, RCS o ambos. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está habilitada, los usuarios deben confirmar su intención de adhesión antes de que su estado de suscripción se actualice a `Subscribed`. |
-| Cancelado | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios que cancelen la suscripción de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS ya no recibirán ningún SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Establecer el estado de un usuario {#set-a-users-state}
 
@@ -108,10 +108,10 @@ Usa [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agen
 2. Crea un Canvas basado en acciones desencadenado por **Send an SMS inbound message**, dentro de la categoría de palabras clave **Other**.
 3. Agrega el [paso de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) al Canvas para identificar la intención de cancelación.
 4. Agrega un [paso de Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) de SMS posterior para confirmar la solicitud: "Parece que estás intentando cancelar la suscripción de SMS, así que vamos a darte de baja. Si esto es un error, envía START para volver a suscribirte."
-5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Cancelado".
+5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Dado de baja".
 
 {% alert note %}
-El uso de la Consola de Agente consume créditos de mensaje.
+El uso de la Consola de Agente consume créditos de mensaje o de acción.
 {% endalert %}
 
 ## Migrar tráfico de SMS a RCS {#migrate-sms-traffic-to-rcs}
@@ -131,8 +131,8 @@ Define tu audiencia usando uno de los siguientes métodos. A continuación, ve a
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Crear un segmento** | Crea un segmento que incluya a todos los usuarios en un grupo de suscripción o un subconjunto usando filtros de segmentación (como un 5-10 % aleatorio). Los segmentos se actualizan antes de cada envío para reflejar tu base de usuarios actual. |
-| **Aplicar filtros de Campaign o Canvas** | Refina la audiencia en el paso **Target Audience** de tu Campaign o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Aplicar filtros de campaña o Canvas** | Refina la audiencia en el paso **Target Audience** de tu campaña o Canvas. Ajusta las opciones de segmentación sin salir de la página para mayor flexibilidad. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### Paso 3: Configurar un paso de Actualización de usuario {#step-3-configure-a-user-update-step}
 

@@ -29,7 +29,7 @@ Vous pouvez suivre les abonnements et désabonnements SMS à l'aide des méthode
 | Segmenteur | Le segmenteur affiche le nombre d'utilisateurs dans un [groupe d'abonnement]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#subscription-group) spécifique. Il ne déduplique pas par numéro de téléphone : si plusieurs utilisateurs partagent le même numéro de téléphone, chaque instance est comptée séparément. |
 | Série temporelle du groupe d'abonnement | Fournit un instantané quotidien des abonnements pour les e-mails et les numéros de téléphone. La série temporelle comptabilise les abonnements, les désabonnements et les réabonnements. Par exemple, si un utilisateur s'abonne, se désabonne, puis se réabonne, il est compté comme un seul utilisateur abonné. |
 | Currents | Utilisez Currents pour exporter les [événements d'abonnement et d'engagement]({{site.baseurl}}/message_events_glossary/) pour vos propres rapports. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivre les abonnements et désabonnements SMS" }
 
 {% alert note %}
 Les statistiques _Abonnement_ et _Désabonnement_ dans le panneau **SMS/MMS/RCS Performance** reflètent les utilisateurs qui s'abonnent ou se désabonnent via des mots-clés entrants (par exemple, en envoyant « START » pour s'abonner ou « STOP » pour se désabonner). Ces chiffres sont généralement inférieurs à ceux affichés dans le segmenteur, car ils comptent le nombre de fois où ces mots-clés ont été envoyés par SMS, et non le nombre total d'utilisateurs abonnés aux SMS.
@@ -73,4 +73,8 @@ Ce tableau reflète la facturation de Braze, et non celle de votre fournisseur. 
 | Distribué | Le fournisseur SMS a reçu une confirmation de distribution du message de la part de l'opérateur en amont (et, lorsque disponible, de l'appareil de destination). | Facturé |
 | Rejeté | Le fournisseur SMS a reçu un accusé de rejet indiquant que le message n'a pas été distribué. Cela peut se produire pour plusieurs raisons, notamment le filtrage de contenu par l'opérateur ou l'indisponibilité de l'appareil de destination. | Facturé |
 | Envoyé à l'opérateur | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | Des frais peuvent s'appliquer en fonction des résultats d'envoi de chaque message |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Frais appliqués aux résultats d'envoi SMS" }
+
+## Rapprocher les *rejets* avec Snowflake ou Currents {#reconcile-rejections-with-snowflake-or-currents}
+
+L'indicateur *Rejets* dans le tableau de bord est un décompte agrégé au niveau de l'espace de travail. Il ne s'agit pas d'un export ligne par ligne, ce qui signifie que vous ne pouvez pas toujours faire correspondre chaque rejet à une ligne unique dans Snowflake ou à un événement `users.messages.sms.Rejection` unique dans Currents. Par exemple, si le profil utilisateur a été supprimé avant que Braze n'ait terminé le traitement du rejet pour l'export vers l'entrepôt de données, ce rejet n'apparaît pas dans votre table `USERS_MESSAGES_SMS_REJECTION_SHARED` ni dans le payload Currents, alors que les rapports SMS agrégés peuvent toujours refléter le résultat. Pour en savoir plus, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#sms-message-events-and-deleted-user-profiles) et les [événements de rejet SMS]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) dans le glossaire des événements Currents.

@@ -113,7 +113,7 @@ CSV経由でアップロードされたカスタム属性は、データポイ�
 | Twitter | フォロイー |
 | Twitter | ツイート数 |
 | Facebook | いいね |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
 
 {% endtab %}
 {% tab 請求対象 %}
@@ -167,7 +167,7 @@ table td {
 | AppsFlyerコホート割り当て | すべての割り当て | |
 | 最新のロケーション | すべての最新ロケーション | ジオフェンスへの入退出ではデータポイントは記録されません。これは、ジオフェンスデータがユーザープロファイルに対して保存されないためです。ジオフェンスはAppleとGoogleの位置情報サービスによって監視されています。Brazeは、ユーザーがジオフェンスをトリガーしたときにのみ通知を受け取ります。 |
 | Twitter | ユーザー名 | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
 
 {% endtab %}
 {% endtabs %}

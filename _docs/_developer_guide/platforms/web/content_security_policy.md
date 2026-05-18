@@ -42,7 +42,7 @@ Your URL must match the [API SDK endpoint]({{site.baseurl}}/user_guide/administe
 |URL|Information|
 |---|-----------|
 |`connect-src https://sdk.iad-01.braze.com`|Allows the SDK to communicate with Braze APIs. Change this URL to match the [API SDK endpoint]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) for your chosen `baseUrl` initialization option.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
 
@@ -51,14 +51,14 @@ Your URL must match the [API SDK endpoint]({{site.baseurl}}/user_guide/administe
 |`script-src https://js.appboycdn.com`|Required when using the CDN-hosted integration.|
 |`script-src 'unsafe-eval'`|Required when using the integration snippet which contains reference to `appboyQueue`. To avoid using this directive, [integrate the SDK using NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager) instead.|
 |`script-src 'nonce-...'`<br>or<br>`script-src 'unsafe-inline'`|Required for certain in-app messages, such as custom HTML.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
 |URL|Information|
 |---|-----------|
 |`img-src: appboy-images.com braze-images.com cdn.braze.eu`|Required when using Braze CDN-hosted images. Hostnames may vary based on dashboard cluster.<br><br>**Important:** If you're using custom fonts, you also need to include `font-src`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
 
 ## Font Awesome {#font-awesome}
 

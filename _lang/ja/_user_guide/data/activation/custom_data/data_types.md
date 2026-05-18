@@ -159,7 +159,7 @@ toc_headers: h2
 
 **ユーザープロファイル**に保存されたすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users)である限り、無期限に保持されます。
 
-## カスタム属性のデータタイプ {#custom-attribute-data-types}
+## カスタム属性のデータタイプ
 
 カスタム属性は非常に柔軟なツールであり、優れたターゲティングを可能にします。
 
@@ -184,7 +184,7 @@ toc_headers: h2
 | ブール値がtrue、false、trueまたは未設定、falseまたは未設定のいずれかであるかを確認する | **IS**  | **TRUE**、**FALSE**、**TRUE OR NOT SET**、または **FALSE OR NOT SET** | このフィルターが `coffee_drinker` を指定している場合、ユーザーは以下の状況でこのフィルターにマッチします: <br> {::nomarkdown}<ul><li>このフィルターが <code>true</code> で、ユーザーが <code>coffee_drinker</code> の値を持っている場合</li><li>このフィルターが <code>false</code> で、ユーザーが <code>coffee_drinker</code> の値を持っていない場合</li><li>このフィルターが <code>true or not set</code> で、ユーザーが <code>coffee_drinker</code> の値を持っているか、値がない場合</li><li>このフィルターが <code>false or not set</code> で、ユーザーが <code>coffee_drinker</code> またはいかなる値も持っていない場合</li></ul>{:/} |
 | ブール値がユーザーのプロファイルに**存在し**、nullでないかを確認する | **IS NOT BLANK**  | **N/A** | このフィルターが `coffee_drinker` を指定し、ユーザーが属性 `coffee_drinker` の値を持っている場合、ユーザーはこのフィルターにマッチします。 |
 | ブール値がユーザーのプロファイルに**存在しない**か、nullであるかを確認する | **IS BLANK**  | **N/A** | このフィルターが `coffee_drinker` を指定し、ユーザーが属性 `coffee_drinker` を持っていないか、`coffee_drinker` の値がnullの場合、ユーザーはこのフィルターにマッチします。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab 数値 %}
@@ -203,7 +203,7 @@ toc_headers: h2
 | 数値属性が**数値**より**小さい**かを確認する | **LESS THAN** | **NUMBER** | このフィルターが `10` を指定し、ユーザープロファイルの値が `10` より小さい場合、ユーザーはこのフィルターにマッチします。 |
 | 数値属性がユーザーのプロファイルに**存在し**、nullでないかを確認する | **IS NOT BLANK** | **N/A** | ユーザープロファイルに指定された数値属性が含まれている場合、値に関係なくユーザーはこのフィルターにマッチします。 |
 | 数値属性がユーザーのプロファイルに**存在しない**か、nullであるかを確認する | **IS BLANK** | **N/A** | ユーザープロファイルに指定された数値属性が含まれていないか、属性の値がnullの場合、ユーザーはこのフィルターにマッチします。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### 数値属性の詳細 {#number-attribute-details}
 
@@ -227,7 +227,7 @@ toc_headers: h2
 | 文字列属性が入力された文字列の**いずれとも完全に一致しない**かを確認する | **IS NONE OF** |**STRING**<br>大文字小文字を区別する。複数の文字列を指定可能（最大256） | このフィルターが `book`、`bookmark`、`reading light` を指定し、ユーザープロファイルにそれらの文字列のいずれも含まれていない場合、ユーザーはこのフィルターにマッチします。|
 | 文字列属性が入力された文字列の**いずれかに部分一致する**かを確認する | **CONTAINS ANY OF** | **STRING**<br>大文字小文字を区別する。複数の文字列を指定可能（最大256） | このフィルターが `gold` を指定し、ユーザープロファイルのいずれかの文字列に `gold` が含まれている場合（`gold_tier` や `former_gold_tier` など）、ユーザーはこのフィルターにマッチします。 |
 | 文字列属性が入力された文字列の**いずれにも部分一致しない**かを確認する | **DOESN'T CONTAIN ANY OF** | **STRING**<br>大文字小文字を区別する。複数の文字列を指定可能（最大256） | このフィルターが `gold` を指定し、ユーザープロファイルのいずれの文字列にも `gold` が含まれていない場合、ユーザーはこのフィルターにマッチします。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -261,7 +261,7 @@ toc_headers: h2
 | 配列属性が入力された値の**いずれにも部分一致する値を含まない**かを確認する | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>大文字小文字を区別する。複数の値を指定可能（最大256） | このフィルターが `gold` を指定し、ユーザープロファイルの配列のいずれの文字列にも `gold` が含まれていない場合、ユーザーはこのフィルターにマッチします。つまり、`gold_tier` や `former_gold_tier` などの文字列値を持つユーザーはこのフィルターにマッチしません。|
 | 配列属性が入力された値の**すべてを含む**かを確認する | **IS ALL OF** | **STRING**<br>大文字小文字を区別する。複数の値を指定可能（最大256） | このフィルターが `sci-fi, fantasy, romance` を指定し、ユーザープロファイルにそれらの値がすべて含まれている場合、ユーザーはこのフィルターにマッチします。ユーザーは `horror` やその他の値も持っていてもこのフィルターにマッチします。|
 | 配列属性が入力された値の**すべてを含まない**かを確認する | **ISN'T ALL OF** | **STRING**<br>大文字小文字を区別する。複数の値を指定可能（最大256） | このフィルターが `sci-fi, fantasy, romance` を指定し、ユーザープロファイルにそれらの値がすべて含まれていない場合、ユーザーはこのフィルターにマッチします。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 正規表現（regex）の使用方法について詳しくは、以下のリソースを参照してください。
@@ -296,7 +296,7 @@ toc_headers: h2
 | 時間属性が**今後X日未満先**であるかを確認する | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | このフィルターが `7` を指定し、ユーザープロファイルの日付が今後7日未満先の場合、ユーザーはこのフィルターにマッチします。|
 | 時間属性がユーザーのプロファイルに**存在し**、nullでないかを確認する | **IS NOT BLANK** | **N/A** | このフィルターがユーザープロファイルにある時間属性を指定している場合、ユーザーはこのフィルターにマッチします。|
 | 時間属性がユーザーのプロファイルに**存在しない**か、nullであるかを確認する | **IS BLANK** | **N/A** | このフィルターがユーザープロファイルにない時間属性を指定している場合、ユーザーはこのフィルターにマッチします。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### 時間属性の詳細 {#time-attribute-details}
 
@@ -331,7 +331,7 @@ toc_headers: h2
 | 文字列 | does not equal | is none of | 1つ以上の値 |
 | 配列 | includes value | includes any of | 1つ以上の値 |
 | 配列 | doesn't include value | includes none of | 1つ以上の値 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## イベントプロパティのデータタイプ {#event-property-data-types}
 
@@ -401,7 +401,7 @@ toc_headers: h2
 | 時間 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の日付と時刻、またはUnixタイムスタンプ（秒）。 | ✅ はい | ✅ はい |
 | JSONオブジェクト（オブジェクト） | キーと値のペアを持つネストされたオブジェクト。プラットフォームに表示されますが、APIまたはCDIを通じてのみ作成または更新できます。 | ❌ いいえ | ✅ はい |
 | 文字列配列（配列） | 文字列のリスト。プラットフォームに表示されますが、APIまたはCDIを通じてのみ作成または更新できます。最大100要素。 | ❌ いいえ | ✅ はい |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### 形式と例 {#format-and-examples}
 
@@ -413,6 +413,6 @@ toc_headers: h2
 | 数値 | 整数または小数 | <code>42</code> または <code>19.99</code> |
 | オブジェクト | JSONオブジェクト | <code>{"key": "value", "price": 10}</code> |
 | 配列 | 文字列の配列 | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
 カタログの作成と更新については、[カタログの作成]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)を参照してください。

@@ -34,7 +34,7 @@ Los BSUID tienen tres características clave:
 | Único | Dos usuarios no comparten el mismo BSUID dentro de tu portafolio de negocio. |
 | Con alcance de negocio | El mismo usuario tendrá un BSUID diferente con cada empresa a la que envíe mensajes. Los BSUID no se pueden compartir ni comparar entre diferentes portafolios de negocio. |
 | Disponible en webhooks | Los BSUID se incluyen en todas las mismas cargas útiles de webhook que actualmente llevan el número de teléfono del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
 
 ## Cambios en los tipos de usuario de WhatsApp {#changes-to-whatsapp-user-types}
 
@@ -44,7 +44,7 @@ Después del lanzamiento de los nombres de usuario de WhatsApp, habrá dos tipos
 | ----- | ----- | ----- |
 | Usuarios sin nombre de usuario | Número de teléfono (sin cambios) | Número de teléfono (sin cambios) |
 | Usuarios con nombre de usuario | Nombre de usuario (mostrado), BSUID (backend) | BSUID, número de teléfono para usuarios que tienen una conversación existente con tu empresa |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
 
 La diferencia clave es que un usuario que adopta un nombre de usuario solo comparte su número de teléfono con tu empresa si tuviste una conversación previa con él o si aparece en tu libreta de contactos de WhatsApp.
 
@@ -144,13 +144,13 @@ Meta gestiona el proceso de vinculación de portafolios de negocio. Para comenza
 | Un solo portafolio de negocio | BSUID regular |
 | Múltiples portafolios vinculados | BSUID principal (preferido). Si no existe un BSUID principal, se usa el BSUID regular |
 | Múltiples portafolios no vinculados | BSUID regular (puede resultar en perfiles de usuario duplicados por portafolio) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
 ### ¿Mis Campaigns y Canvas existentes dejarán de funcionar cuando se lancen los nombres de usuario de WhatsApp? {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
 
-No. Las Campaigns y Canvas existentes seguirán funcionando. Los usuarios que no adopten un nombre de usuario no se verán afectados en absoluto. Para los usuarios que adopten un nombre de usuario y tengan un historial de conversación existente con tu empresa, Braze seguirá usando su número de teléfono como identificador principal.
+No. Las Campaigns y los Canvas existentes seguirán funcionando. Los usuarios que no adopten un nombre de usuario no se verán afectados en absoluto. Para los usuarios que adopten un nombre de usuario y tengan un historial de conversación existente con tu empresa, Braze seguirá usando su número de teléfono como identificador principal.
 
 ### ¿Qué sucede con un usuario que adopta un nombre de usuario pero ya ha enviado mensajes a mi empresa? {#what-happens-to-a-user-who-adopts-a-username-but-has-already-messaged-my-business}
 

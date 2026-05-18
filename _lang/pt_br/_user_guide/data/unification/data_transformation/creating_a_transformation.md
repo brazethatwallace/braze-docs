@@ -16,7 +16,7 @@ description: "Este artigo de referência fornece etapas para criar uma transform
 | --- | --- |
 | Autenticação de dois fatores ou SSO | Você deve ter a [autenticação de dois fatores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#two-factor-authentication) (2FA) ou o [login único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#single-sign-on-sso-authentication) (SSO) ativado para sua conta. |
 | Permissões corretas | Você deve ser um administrador de conta ou um administrador de espaço de trabalho, ou ter permissões de usuário para "Gerenciar Transformações". |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Etapa 1: Identificar uma plataforma de origem {#step-1-identify-a-source-platform}
 
@@ -49,7 +49,7 @@ Aqui está como fica para o Typeform:
 A Transformação de dados da Braze pode ainda não oferecer suporte a plataformas externas que exigem verificação ou autenticação especial para webhooks. Considere deixar [feedback do produto]({{site.baseurl}}/user_guide/administer/personal/product_portal/) se tiver interesse em usar esse tipo de plataforma com a Transformação de dados da Braze.
 {% endalert %}
 
-## Etapa 4: Escreva o código de transformação {#step-4-write-transformation-code}
+## Etapa 4: Escrever o código de transformação {#step-4-write-transformation-code}
 
 Se você tem pouca ou nenhuma experiência com código JavaScript ou prefere instruções mais detalhadas, siga a guia **Iniciante - POST: Rastrear usuários** ou **Iniciante - PUT: Atualizar vários itens do catálogo** para escrever seu código de transformação.
 
