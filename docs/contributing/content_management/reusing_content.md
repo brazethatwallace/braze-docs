@@ -86,3 +86,7 @@ The reference would be similar to the following:
 ### Example output
 
 ![Content reuse example on Braze Docs.](../../../assets/img/contributing/styling_examples/includes.png)
+
+## Sitemap last-modified dates
+
+The nightly sitemap workflow sets each article's `lastmod` to the latest git commit date among the article and every include it references (including nested includes). If you change only a shared include, every page that renders that include gets an updated `lastmod` on the next nightly run, even when the article `.md` file did not change.
