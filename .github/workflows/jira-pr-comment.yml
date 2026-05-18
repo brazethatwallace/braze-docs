@@ -49,10 +49,8 @@ jobs:
             exit 0
           fi
 
-          COMMENT_TEXT="🤖 Cursor Agent: A draft PR is ready for your review: ${PR_URL} Please review the proposed changes and merge or request edits as needed."
-
           COMMENT_JSON=$(jq -n \
-            --arg text "${COMMENT_TEXT}" \
+            --arg pr_url "${PR_URL}" \
             '{
               body: {
                 version: 1,
@@ -63,7 +61,28 @@ jobs:
                     content: [
                       {
                         type: "text",
-                        text: $text
+                        text: "🤖 Cursor Agent: A draft PR is ready for your review: "
+                      },
+                      {
+                        type: "text",
+                        text: $pr_url,
+                        marks: [
+                          {
+                            type: "link",
+                            attrs: {
+                              href: $pr_url
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    type: "paragraph",
+                    content: [
+                      {
+                        type: "text",
+                        text: "Please review the proposed changes and merge or request edits as needed."
                       }
                     ]
                   }
