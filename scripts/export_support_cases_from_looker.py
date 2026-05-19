@@ -39,12 +39,21 @@ _SECRET_REDACTIONS: list[tuple[re.Pattern[str], str]] = [
         re.compile(r"\b(?:AKIA|ASIA|AIDA|AROA|AIPA|ANPA|ANVA|AGPA)[0-9A-Z]{16}\b"),
         "[REDACTED_AWS_ACCESS_KEY_ID]",
     ),
+    (
+        re.compile(r"\bSG\.[A-Za-z0-9_-]{16,}\.[A-Za-z0-9_-]{16,}\b"),
+        "[REDACTED_SENDGRID_API_KEY]",
+    ),
     (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{82,}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bgho_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bghu_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bghs_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bghr_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
+    (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "[REDACTED_SLACK_TOKEN]"),
+    (
+        re.compile(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b"),
+        "[REDACTED_STRIPE_KEY]",
+    ),
 ]
 
 

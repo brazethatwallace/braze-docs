@@ -139,7 +139,7 @@ Export fails closed without **`SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DAT
 | Symptom | What to check |
 |---------|----------------|
 | **Export** fails | Looker secrets, query id variable, network; Actions log for `export_support_cases_from_looker.py`. |
-| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked; export now redacts AWS/GitHub token patterns—re-run workflow after merge. If it still fails, check the log for redaction count and unblock only if a new pattern slipped through. |
+| **Export** push rejected (GH013) | Case text contained a credential GitHub push protection blocked. The export script redacts common patterns (AWS access keys, SendGrid `SG.…` keys, GitHub/Slack/Stripe tokens) before push—re-run after updating `export_support_cases_from_looker.py` if a new secret type appears. Check the log for redaction count; do not unblock secrets in GitHub unless you intend to store them on the data branch. |
 | **Digest** fails with empty CSV | Branch **`support-analyzer-data`** missing or empty file; ensure `export` succeeded. |
 | **Phase 2** fails “script not found” | For scheduled runs, `support_analyzer_phase2.py` must exist on **default branch**; merge the script before relying on schedule-only. |
 | **Phase 2** fails strict anchors | Target `_docs` file missing anchor text on `develop`; fix anchor or rule in a PR, or adjust rule. |
