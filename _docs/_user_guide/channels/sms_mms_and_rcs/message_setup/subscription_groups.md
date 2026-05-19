@@ -28,8 +28,6 @@ There are two subscription states for SMS and RCS users: `subscribed` and `unsub
 | Unsubscribed | User has explicitly opted out of messaging from your SMS and RCS subscription group and the sending phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or you can unsubscribe users through the [Braze subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Users unsubscribed from an SMS and RCS subscription group will no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
-#{% multi_lang_include api/orphaned_subscription_states.md %}
-
 ### Set a user's state
 
 When a phone number is updated on a user profile, the new phone number inherits the subscription group status of the user. If the phone number is updated to a number that already exists in Braze, the subscription status of that existing phone number is inherited.
@@ -49,6 +47,8 @@ To set a user's subscription group state, use one of the following methods:
 When updating a user's subscription group status as part of a Canvas flow, use a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step instead of a webhook. The User Update step waits for processing to complete before advancing the user to the next step, so subsequent messaging steps use the updated subscription status.
 
 If you use a webhook to update subscription groups, the user advances as soon as the webhook is sent—not when the subscription change finishes processing. This can create a race condition where a follow-up SMS step executes before the user is subscribed, causing the message to fail for a portion of users. If you must use a webhook, add a Delay step of at least 1 minute before the next messaging step.
+
+#{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Check a user's group
 
