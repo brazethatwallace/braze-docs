@@ -148,6 +148,10 @@ Arrays, push tokens, and custom event data types aren’t supported in user impo
 When importing default attributes, the column headers you use must exactly match the spelling and capitalization of default user attributes. Otherwise, Braze detects these as [custom attributes](#custom-attributes) instead.
 {% endalert %}
 
+{% alert tip %}
+For the complete list of standard attributes Braze recognizes (across SDK, API, CSV, and Cloud Data Ingestion), see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). The following table covers only the subset that can be set through CSV import.
+{% endalert %}
+
 The following default attributes are available for user import.
 
 | User Profile Field | Data Type | Description | Required? |

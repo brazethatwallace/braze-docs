@@ -1250,7 +1250,6 @@ validurls['/docs/developer_guide/platform_integration_guides/legacy_sdks/tvos/in
 validurls['/docs/developer_guide/platform_integration_guides/legacy_sdks/tvos/content_cards'] = '/docs/developer_guide/content_cards/?sdktab=tvos';
 validurls['/docs/developer_guide/platform_integration_guides/tvos/in-app_messaging'] = '/docs/developer_guide/in_app_messages/?sdktab=tvos';
 validurls['/docs/developer_guide/platform_integration_guides/tvos/content_cards'] = '/docs/developer_guide/content_cards/?sdktab=tvos';
-
 validurls['/docs/engagement_by_device'] = '/docs/user_guide/analytics/dashboards/channel_performance/?tab=email%20performance#email-performance-dashboard';
 
 validurls['/docs/partners/message_orchestration/additional_channels/messaging'] = '/docs/partners/additional_channels_and_extensions';
@@ -3293,6 +3292,7 @@ validurls['/docs/partners/message_personalization/dynamic_content/visual_and_int
 validurls['/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/customer_data_api/#connecting-to-the-movable-ink-customer-data-api'] = '/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/customer_data_api/#connect-to-the-movable-ink-customer-data-api';
 validurls['/docs/partners/additional_channels_and_extensions/additional_channels/advertising/liveramp/#connecting-liveramp-snowflake-and-braze'] = '/docs/partners/additional_channels_and_extensions/additional_channels/advertising/liveramp/#connect-liveramp-snowflake-and-braze';
 validurls['/docs/partners/ecommerce/loyalty/voucherify/voucherify_fetching_data_through_braze_connected_content/#fetching-data-through-connected-content'] = '/docs/partners/ecommerce/loyalty/voucherify';
+validurls['/docs/partners/ecommerce/shopify/shopify_for_currents/'] = '/docs/partners/ecommerce/shopify/shopify_overview';
 validurls['/docs/partners/ecommerce/shopify/multiple_stores/#connecting-multiple-shopify-stores'] = '/docs/partners/ecommerce/shopify/multiple_stores/#connect-multiple-shopify-stores';
 validurls['/docs/partners/ecommerce/shopify/discount_codes/#sending-unique-discount-codes-through-shopify'] = '/docs/partners/ecommerce/shopify/discount_codes/#send-unique-discount-codes-through-shopify';
 
@@ -4103,7 +4103,15 @@ validurls['/docs/user_guide/message_building_by_channel/whatsapp/testing'] = '/d
 
 // Channel testing pages (deleted): redirect to Send test messages with tab
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign'] = '/docs/user_guide/channels/whatsapp/create_a_whatsapp_message';
-validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration';
+// Granular permissions migration article removed: send all legacy paths to Company user permissions
+validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administrative/manage_your_braze_users/user_permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administrative/manage_your_braze_users/user_permissions/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/user_guide/administer/global/user_management/permissions/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/granular_permissions_migration'] = '/docs/user_guide/administer/global/user_management/permissions';
+validurls['/docs/granular_permissions_migration/'] = '/docs/user_guide/administer/global/user_management/permissions';
 validurls['/docs/create_sms_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
 validurls['/docs/create_rcs_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';
 validurls['/docs/create_mms_message'] = '/docs/user_guide/channels/sms_mms_and_rcs/create';

@@ -147,8 +147,6 @@ Before you can edit or create catalogs in the browser, you need the following [u
 - Export Catalogs
 - Delete Catalogs
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ### Step 1: Enter catalog details
 
 Enter a name and optional description for your catalog. Keep the following requirements in mind when naming your catalog:

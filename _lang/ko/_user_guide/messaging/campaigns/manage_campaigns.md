@@ -12,8 +12,8 @@ description: "캠페인 관리에 대한 랜딩 페이지입니다. 여기에서
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
-  - name: 시작 후 캠페인 변경
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/change_your_campaign_after_launch
+  - name: 시작 후 캠페인 편집
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: 캠페인 알림
     link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts
