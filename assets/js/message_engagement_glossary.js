@@ -6,7 +6,7 @@
 (function ($) {
   'use strict';
 
-  /* ── helpers ─────────────────────────────────────────────────────────── */
+  /*  helpers  */
 
   function readJson(id) {
     try {
@@ -53,7 +53,7 @@
     return required.every(function (r) { return lower.indexOf(r.trim().toLowerCase()) > -1; });
   }
 
-  /* ── fragment cache & loader ─────────────────────────────────────────── */
+  /*  fragment cache & loader  */
 
   var fragmentCache = {};
 
@@ -79,7 +79,7 @@
     });
   }
 
-  /* ── overview visibility ─────────────────────────────────────────────── */
+  /*  overview visibility  */
 
   function updateOverviewVisibility() {
     var hasSearch = !!($('#api_search').val() || '').length;
@@ -91,7 +91,7 @@
     if (!active) $('#glossary-overview').removeAttr('aria-hidden');
   }
 
-  /* ── search / filter ─────────────────────────────────────────────────── */
+  /*  search / filter  */
 
   var noResultsTimer = null;
   var countTimer = null;
@@ -178,7 +178,7 @@
     }
   }
 
-  /* ── filter toggle (show all / show fewer) ───────────────────────────── */
+  /*  filter toggle (show all / show fewer)  */
 
   function updateFilterToggleButton() {
     var $btn = $('#glossary-filter-toggle');
@@ -200,7 +200,7 @@
     $('.filter-overflow').addClass('filter-overflow--hidden');
   }
 
-  /* ── initialise ──────────────────────────────────────────────────────── */
+  /*  initialise  */
 
   $(document).ready(function () {
     currentsEventsI18n = readJson('glossary-currents-events-i18n-json') || currentsEventsI18n;
