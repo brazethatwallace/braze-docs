@@ -179,7 +179,7 @@ This is the Kafka record schema for when an Agent Console agent is executed.
 ## Tool invocation events {#tool-invocation-events}
 
 {% apitags %}
-Agent, Tool
+Agent
 {% endapitags %}
 
 This is the Kafka record schema for when a tool is executed. A tool is a function given to an LLM to fulfill an objective.
@@ -386,7 +386,7 @@ This event is not fired when the user actually uninstalls the app, as that's imp
 ## Global Subscription State Change events {#global-subscription-state-change-events}
 
 {% apitags %}
-Subscription, Global
+Subscription
 {% endapitags %}
 
 This event occurs when Braze receives a request to update the global subscription state of the user.
@@ -647,7 +647,7 @@ This event occurs when Braze receives a request to update the global subscriptio
 ## Subscription Group State Change events {#subscription-group-state-change-events}
 
 {% apitags %}
-Subscription, Subscription Group
+Subscription
 {% endapitags %}
 
 This event occurs when the subscription state of a user in a subscription group changes.
@@ -1683,7 +1683,7 @@ This event occurs when a user enters into the Canvas. This event tells you which
 ## Exit Match Audience events {#exit-match-audience-events}
 
 {% apitags %}
-Exit, Canvas, Match Audience
+Exit, Canvas
 {% endapitags %}
 
 This event occurs when a user has exited a Canvas by matching an audience.
@@ -1857,7 +1857,7 @@ This event occurs when a user has exited a Canvas by matching an audience.
 ## Exit Perform Event events {#exit-perform-event-events}
 
 {% apitags %}
-Exit, Canvas, Perform Event
+Exit, Canvas
 {% endapitags %}
 
 This event occurs when a user has exited a Canvas by performing an event.
@@ -14008,7 +14008,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
 ## SMS Carrier Send events {#sms-carrier-send-events}
 
 {% apitags %}
-SMS, Sends, Carrier
+SMS, Sends
 {% endapitags %}
 
 This event occurs when an SMS is sent to the carrier.

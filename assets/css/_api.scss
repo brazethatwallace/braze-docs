@@ -88,14 +88,18 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 24px 32px;
     }
     .api_filter_group {
       border: 0;
       margin: 0;
       padding: 0;
       min-width: 0;
+      flex: 1 1 220px;
+      max-width: 100%;
       legend {
         font-family: $braze-bold;
         font-size: 14px;
@@ -109,8 +113,9 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 4px;
     }
     #api_search {
       flex: 1 0 100%;
@@ -135,18 +140,15 @@
       flex: 1 0 100%;
       margin-top: 15px;
     }
-    .api_filter_div {
-      flex: 1 0 50%;
-      @media (min-width: $window-medium-px) {
-        flex: 0 0 33%;
-      }
-      @media (min-width: $window-large-px) {
-        flex: 0 0 25%;
-      }
+    .api_filter_group .api_filter_div {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 100%;
       label {
+        display: block;
         padding-left: 1em;
         text-indent: -1.10em;
-        padding-right: 1em;
+        padding-right: 0;
       }
     }
   }

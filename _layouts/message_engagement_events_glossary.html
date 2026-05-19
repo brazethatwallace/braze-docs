@@ -63,7 +63,7 @@ $(document).ready(function() {
   var messageEngagementTagLabels = {};
   var messageEngagementTagGroups = {};
   var messageEngagementTagGroupLabels = {};
-  var messageEngagementTagGroupOrder = ['channel', 'action', 'journey', 'subscription', 'other'];
+  var messageEngagementTagGroupOrder = ['channel', 'action', 'journey'];
   try {
     var _cei = document.getElementById('glossary-currents-events-i18n-json');
     if (_cei && _cei.textContent) {
@@ -206,7 +206,7 @@ $(document).ready(function() {
     if (groupId && messageEngagementTagGroupOrder.indexOf(groupId) !== -1) {
       return groupId;
     }
-    return 'other';
+    return 'action';
   }
 
   function appendFilterCheckbox(parent, tagKey, alltags) {
