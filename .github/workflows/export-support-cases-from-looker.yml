@@ -12,7 +12,7 @@
 # Data sensitivity: Support Cases CSV may contain consumer PII. Keep this repository private,
 # limit branch access, and scope the Looker saved query appropriately. The export script
 # requires SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA=1 in Actions and redacts common
-# credential patterns (for example AWS access key IDs) before commit so push protection can succeed.
+# credential patterns (AWS keys, SendGrid SG.* keys, GitHub/Slack/Stripe tokens, etc.) before commit.
 #
 # Secrets: LOOKER_CLIENT_ID, LOOKER_CLIENT_SECRET
 # Optional variable: LOOKER_SUPPORT_CASES_QUERY_ID
