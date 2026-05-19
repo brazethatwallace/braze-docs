@@ -274,10 +274,8 @@ $(document).ready(function() {
     var is_active = (search_str && search_str.length > 0) || has_filters;
     if (is_active) {
       $('#glossary-overview').attr('aria-hidden', 'true').addClass('glossary-overview--hidden');
-      $('#glossary-overview-rule').addClass('glossary-overview--hidden');
     } else {
       $('#glossary-overview').removeAttr('aria-hidden').removeClass('glossary-overview--hidden');
-      $('#glossary-overview-rule').removeClass('glossary-overview--hidden');
     }
   }
 
@@ -387,24 +385,6 @@ $(document).ready(function() {
 
 
   function initialize() {
-    // Extract overview content: everything in #api_list before the first .api_div
-    var $apiList = $('#api_list');
-    var $overviewTarget = $('#glossary-overview-content');
-    var $children = $apiList.contents();
-    var overviewNodes = [];
-    var hitFirstApiDiv = false;
-    $children.each(function() {
-      if (hitFirstApiDiv) return false;
-      if ($(this).is('.api_div')) {
-        hitFirstApiDiv = true;
-        return false;
-      }
-      overviewNodes.push(this);
-    });
-    if (overviewNodes.length && $overviewTarget.length) {
-      $(overviewNodes).detach().appendTo($overviewTarget);
-    }
-
     alltags = find_tags();
     set_tags(alltags);
 
@@ -520,14 +500,14 @@ $(document).ready(function() {
 
     <div id="results_count"></div>
 
+    {%- assign content_parts = content | split: '<!--overview-end-->' -%}
     <section id="glossary-overview" aria-label="Overview">
       <h2>Overview</h2>
-      <div id="glossary-overview-content"></div>
+      {{ content_parts[0] }}
     </section>
-    <hr id="glossary-overview-rule" aria-hidden="true">
 
     <div id="api_list" class="flex mx-auto api_div">
-      {{content}}
+      {{ content_parts[1] }}
     </div>
     <div id="results_msg"></div>
 

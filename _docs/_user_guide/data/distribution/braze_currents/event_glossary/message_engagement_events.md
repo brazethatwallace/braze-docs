@@ -61,23 +61,23 @@ Certain events return a `platform` value that specifies the platform of the user
 Currents will drop events with excessively large payloads of greater than 900&nbsp;KB.
 {% endalert %}
 
-{% alert note %}
-Objects related to Canvas Flow have IDs that can be used for grouping and translated to human-readable names through the [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
-{% endalert %}
+## Canvas and campaign notes
 
-{% alert note %}
+Objects related to Canvas Flow have IDs that can be used for grouping and translated to human-readable names through the [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+
 Certain fields might take longer to display their most recent state after a campaign or Canvas is updated. These fields are:
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
+
+- "campaign_name"
+- "canvas_name"
+- "canvas_step_name"
+- "conversion_behavior"
+- "canvas_variation_name"
+- "experiment_split_name"
+- "message_variation_name"
+
 If complete consistency is required, we recommend waiting an hour from the last update to these fields before sending out your messaging to your users.
-{% endalert %}
+
+<!--overview-end-->
 
 {% api %}
 ## Agent executed events {#agent-executed-events}

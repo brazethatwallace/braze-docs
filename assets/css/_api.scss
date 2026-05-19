@@ -90,21 +90,6 @@
   // Overview section: visible/hidden state
   #glossary-overview {
     margin-bottom: 24px;
-    transition: opacity 0.2s ease;
-    h2 {
-      font-family: $braze-bold;
-      font-size: 1.4em;
-      margin-top: 24px;
-      margin-bottom: 12px;
-    }
-    &.glossary-overview--hidden {
-      display: none;
-    }
-  }
-  #glossary-overview-rule {
-    border: 0;
-    border-top: 1px solid #d8d8d8;
-    margin: 0 0 32px;
     &.glossary-overview--hidden {
       display: none;
     }
@@ -300,11 +285,11 @@
     width: 1px;
   }
 
-  // Hidden overflow filter items (collapsed state)
-  .filter-overflow--hidden {
-    display: none;
-  }
+}
 
+// Hidden overflow filter items — scoped outside #api-main because filters live in #toc_col
+.filter-overflow--hidden {
+  display: none;
 }
 
 // Sidebar filter panel (lives in #toc_col for this layout)
