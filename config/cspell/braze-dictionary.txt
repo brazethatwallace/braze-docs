@@ -722,6 +722,7 @@ snapshottable
 SNCM
 SNDS
 Snowflake
+Snowsight
 Snowpipe
 Snowpipes
 sobjects
