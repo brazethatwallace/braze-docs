@@ -49,7 +49,8 @@ _SECRET_REDACTIONS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\bghu_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bghs_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
     (re.compile(r"\bghr_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),
-    (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "[REDACTED_SLACK_TOKEN]"),
+    # b/a/p/r/s bot-app tokens; e enterprise; o legacy OAuth (GitHub push protection scans all).
+    (re.compile(r"\bxox[bapreso]-[A-Za-z0-9-]{10,}\b"), "[REDACTED_SLACK_TOKEN]"),
     (
         re.compile(r"\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b"),
         "[REDACTED_STRIPE_KEY]",
