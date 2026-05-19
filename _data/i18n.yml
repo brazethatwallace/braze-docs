@@ -53,6 +53,7 @@ en:
   glossary_currents_events_search_hint: Results update automatically as you type.
   glossary_currents_events_no_results: No events matching these filters
   glossary_currents_events_showing: Showing __COUNT__ of __TOTAL__ events
+  glossary_currents_events_filter_hint: Select tags from any group. Events must match all selected tags.
   glossary_sql_use_cases_search_placeholder: Search
   glossary_sql_use_cases_search_aria: Search use cases
   glossary_sql_use_cases_search_hint: Results update automatically as you type.
@@ -120,6 +121,58 @@ en:
     uninstall: Uninstall
     webhooks: Webhooks
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    "match audience": journey
+    "perform event": journey
+    progression: journey
+    global: subscription
+    profile: subscription
+    subscription: subscription
+    "subscription group": subscription
+    uninstall: subscription
+    carrier: other
+    ios: other
+    tool: other
+  currents_message_engagement_tag_group_labels:
+    channel: Channels
+    action: Message actions
+    journey: Campaigns and Canvas
+    subscription: Subscriptions and profile
+    other: Other
   sql_segment_use_cases_tag_labels:
     carrier: Carrier
     delivery: Delivery
@@ -264,6 +317,7 @@ ja:
   glossary_currents_events_search_hint: 入力に応じて結果が自動的に更新されます。
   glossary_currents_events_no_results: この条件に一致するイベントはありません
   glossary_currents_events_showing: イベント __TOTAL__ 件中 __COUNT__ 件を表示
+  glossary_currents_events_filter_hint: 任意のグループからタグを選択します。イベントは選択したすべてのタグに一致する必要があります。
   glossary_sql_use_cases_search_placeholder: 検索
   glossary_sql_use_cases_search_aria: ユースケースを検索
   glossary_sql_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
@@ -331,6 +385,58 @@ ja:
     uninstall: アンインストール
     webhooks: Webhook
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    "match audience": journey
+    "perform event": journey
+    progression: journey
+    global: subscription
+    profile: subscription
+    subscription: subscription
+    "subscription group": subscription
+    uninstall: subscription
+    carrier: other
+    ios: other
+    tool: other
+  currents_message_engagement_tag_group_labels:
+    channel: チャネル
+    action: メッセージアクション
+    journey: キャンペーンとキャンバス
+    subscription: 購読とプロファイル
+    other: その他
   sql_segment_use_cases_tag_labels:
     carrier: キャリア
     delivery: 配信
@@ -410,6 +516,7 @@ ko:
   glossary_currents_events_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
   glossary_currents_events_no_results: 이 필터와 일치하는 이벤트가 없습니다
   glossary_currents_events_showing: 이벤트 __TOTAL__개 중 __COUNT__개 표시
+  glossary_currents_events_filter_hint: 모든 그룹에서 태그를 선택할 수 있습니다. 이벤트는 선택한 모든 태그와 일치해야 합니다.
   glossary_sql_use_cases_search_placeholder: 검색
   glossary_sql_use_cases_search_aria: 사용 사례 검색
   glossary_sql_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
@@ -477,6 +584,58 @@ ko:
     uninstall: 제거
     webhooks: Webhook
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    "match audience": journey
+    "perform event": journey
+    progression: journey
+    global: subscription
+    profile: subscription
+    subscription: subscription
+    "subscription group": subscription
+    uninstall: subscription
+    carrier: other
+    ios: other
+    tool: other
+  currents_message_engagement_tag_group_labels:
+    channel: 채널
+    action: 메시지 작업
+    journey: 캠페인 및 캔버스
+    subscription: 구독 및 프로필
+    other: 기타
   sql_segment_use_cases_tag_labels:
     carrier: 통신사
     delivery: 전달

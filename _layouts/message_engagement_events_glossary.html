@@ -50,11 +50,20 @@ hide_binary_feedback: false
 <script type="application/json" id="glossary-currents-message-engagement-tag-labels-json">
 {{ glossary_loc.currents_message_engagement_tag_labels | default: i18n_en.currents_message_engagement_tag_labels | jsonify }}
 </script>
+<script type="application/json" id="glossary-currents-message-engagement-tag-groups-json">
+{{ glossary_loc.currents_message_engagement_tag_groups | default: i18n_en.currents_message_engagement_tag_groups | jsonify }}
+</script>
+<script type="application/json" id="glossary-currents-message-engagement-tag-group-labels-json">
+{{ glossary_loc.currents_message_engagement_tag_group_labels | default: i18n_en.currents_message_engagement_tag_group_labels | jsonify }}
+</script>
 <script type="text/javascript">
 
 $(document).ready(function() {
   var currentsEventsI18n = { noResults: '', showing: '' };
   var messageEngagementTagLabels = {};
+  var messageEngagementTagGroups = {};
+  var messageEngagementTagGroupLabels = {};
+  var messageEngagementTagGroupOrder = ['channel', 'action', 'journey', 'subscription', 'other'];
   try {
     var _cei = document.getElementById('glossary-currents-events-i18n-json');
     if (_cei && _cei.textContent) {
@@ -67,6 +76,18 @@ $(document).ready(function() {
       messageEngagementTagLabels = JSON.parse(_metl.textContent) || {};
     }
   } catch (e) { messageEngagementTagLabels = {}; }
+  try {
+    var _metg = document.getElementById('glossary-currents-message-engagement-tag-groups-json');
+    if (_metg && _metg.textContent) {
+      messageEngagementTagGroups = JSON.parse(_metg.textContent) || {};
+    }
+  } catch (e) { messageEngagementTagGroups = {}; }
+  try {
+    var _metgl = document.getElementById('glossary-currents-message-engagement-tag-group-labels-json');
+    if (_metgl && _metgl.textContent) {
+      messageEngagementTagGroupLabels = JSON.parse(_metgl.textContent) || {};
+    }
+  } catch (e) { messageEngagementTagGroupLabels = {}; }
   function glossaryFormatCount(template, count, total) {
     if (!template) return '';
     return String(template).replace(/__COUNT__/g, String(count)).replace(/__TOTAL__/g, String(total));
@@ -180,23 +201,58 @@ $(document).ready(function() {
     });
     return alltags;
   }
+  function tagGroupForKey(tagKey) {
+    var groupId = messageEngagementTagGroups[tagKey];
+    if (groupId && messageEngagementTagGroupOrder.indexOf(groupId) !== -1) {
+      return groupId;
+    }
+    return 'other';
+  }
+
+  function appendFilterCheckbox(parent, tagKey, alltags) {
+    var filter_slug = string_to_slug(tagKey);
+    var filter_div = $('<div>').addClass('api_filter_div');
+    var filter_label = $('<label>').attr('for', 'api_' + filter_slug);
+    var filter_cb = $('<input>').attr('id', 'api_' + filter_slug).attr('type', 'checkbox').attr('name', 'filter_' + filter_slug).val(alltags[tagKey]);
+    var labelText = (messageEngagementTagLabels && Object.prototype.hasOwnProperty.call(messageEngagementTagLabels, tagKey))
+      ? messageEngagementTagLabels[tagKey]
+      : alltags[tagKey];
+    filter_label.append(filter_cb).append(' ' + labelText);
+    filter_div.append(filter_label);
+    parent.append(filter_div);
+  }
+
   function set_tags(alltags) {
-    var tag_div = $('#api_filter_list');
-    var sorted_tags = []
-    $.each(alltags, function(k,v){
-      sorted_tags.push(k)
+    var container = $('#api_filter_list');
+    container.empty();
+    var grouped = {};
+    messageEngagementTagGroupOrder.forEach(function(groupId) {
+      grouped[groupId] = [];
+    });
+    var sorted_tags = [];
+    $.each(alltags, function(k) {
+      sorted_tags.push(k);
     });
     sorted_tags.sort();
-    $.each(sorted_tags,function(k,v){
-      var filter_slug = string_to_slug(v);
-      var filter_div = $('<div>').addClass('api_filter_div');
-      var filter_label = $('<label>').attr('for','api_' + filter_slug);
-      var filter_cb = $('<input>').attr('id','api_' + filter_slug).attr('type','checkbox').attr('name','filter_' + filter_slug).val(v)
-      var labelText = (messageEngagementTagLabels && Object.prototype.hasOwnProperty.call(messageEngagementTagLabels, v)) ? messageEngagementTagLabels[v] : alltags[v];
-      filter_label.append(filter_cb).append(' ' + labelText);
-      filter_div.append(filter_label);
-      tag_div.append(filter_div);
-    })
+    sorted_tags.forEach(function(tagKey) {
+      grouped[tagGroupForKey(tagKey)].push(tagKey);
+    });
+    messageEngagementTagGroupOrder.forEach(function(groupId) {
+      if (!grouped[groupId].length) {
+        return;
+      }
+      var fieldset = $('<fieldset>').addClass('api_filter_group');
+      var legendText = (messageEngagementTagGroupLabels && messageEngagementTagGroupLabels[groupId])
+        ? messageEngagementTagGroupLabels[groupId]
+        : groupId;
+      fieldset.append($('<legend>').text(legendText));
+      var groupList = $('<div>').addClass('api_filter_group_list');
+      grouped[groupId].forEach(function(tagKey) {
+        appendFilterCheckbox(groupList, tagKey, alltags);
+      });
+      fieldset.append(groupList);
+      container.append(fieldset);
+    });
   }
 
 
@@ -394,8 +450,9 @@ $(document).ready(function() {
     {% multi_lang_include layouts/message_engagement_events_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_currents_events_search_placeholder }}" aria-label="{{ glossary_loc.glossary_currents_events_search_aria }}" aria-describedby="search-hint" />
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_currents_events_search_placeholder }}" aria-label="{{ glossary_loc.glossary_currents_events_search_aria }}" aria-describedby="search-hint api-filter-hint" />
         <span id="search-hint" class="sr-only">{{ glossary_loc.glossary_currents_events_search_hint }}</span>
+        <p id="api-filter-hint" class="api-filter-hint">{{ glossary_loc.glossary_currents_events_filter_hint | default: i18n_en.glossary_currents_events_filter_hint }}</p>
         <div id="api_filter_list"></div>
     </div>
 
