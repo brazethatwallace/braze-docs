@@ -220,7 +220,10 @@ $(document).ready(function() {
     filter_label.append(filter_cb).append(' ' + labelText);
     filter_div.append(filter_label);
     parent.append(filter_div);
+    return filter_div;
   }
+
+  var FILTER_TRUNCATE_COUNT = 4;
 
   function set_tags(alltags) {
     var container = $('#api_filter_list');
@@ -247,12 +250,35 @@ $(document).ready(function() {
         : groupId;
       fieldset.append($('<legend>').text(legendText));
       var groupList = $('<div>').addClass('api_filter_group_list');
-      grouped[groupId].forEach(function(tagKey) {
-        appendFilterCheckbox(groupList, tagKey, alltags);
+      grouped[groupId].forEach(function(tagKey, idx) {
+        var filterDiv = appendFilterCheckbox(groupList, tagKey, alltags);
+        if (idx >= FILTER_TRUNCATE_COUNT) {
+          filterDiv.addClass('filter-overflow');
+        }
       });
       fieldset.append(groupList);
       container.append(fieldset);
     });
+  }
+
+  function updateFilterToggleButton() {
+    var $btn = $('#glossary-filter-toggle');
+    var expanded = $btn.attr('aria-expanded') === 'true';
+    $btn.find('.show-more-text').attr('aria-hidden', expanded ? 'true' : 'false');
+    $btn.find('.show-less-text').attr('aria-hidden', expanded ? 'false' : 'true');
+  }
+
+  function updateOverviewVisibility() {
+    var search_str = $('#api_search').val();
+    var has_filters = $('.api_filter_div input[type="checkbox"]:checked').length > 0;
+    var is_active = (search_str && search_str.length > 0) || has_filters;
+    if (is_active) {
+      $('#glossary-overview').attr('aria-hidden', 'true').addClass('glossary-overview--hidden');
+      $('#glossary-overview-rule').addClass('glossary-overview--hidden');
+    } else {
+      $('#glossary-overview').removeAttr('aria-hidden').removeClass('glossary-overview--hidden');
+      $('#glossary-overview-rule').removeClass('glossary-overview--hidden');
+    }
   }
 
 
@@ -263,6 +289,7 @@ $(document).ready(function() {
     var altChar = false;
 
     function search_apis(api_hash) {
+      updateOverviewVisibility();
       var result_cnt = 0;
       var resultsMsg = $('#results_msg');
       var resultsCount = $('#results_count');
@@ -360,8 +387,43 @@ $(document).ready(function() {
 
 
   function initialize() {
+    // Extract overview content: everything in #api_list before the first .api_div
+    var $apiList = $('#api_list');
+    var $overviewTarget = $('#glossary-overview-content');
+    var $children = $apiList.contents();
+    var overviewNodes = [];
+    var hitFirstApiDiv = false;
+    $children.each(function() {
+      if (hitFirstApiDiv) return false;
+      if ($(this).is('.api_div')) {
+        hitFirstApiDiv = true;
+        return false;
+      }
+      overviewNodes.push(this);
+    });
+    if (overviewNodes.length && $overviewTarget.length) {
+      $(overviewNodes).detach().appendTo($overviewTarget);
+    }
+
     alltags = find_tags();
     set_tags(alltags);
+
+    // Wire filter toggle (show all / show fewer)
+    var $toggleBtn = $('#glossary-filter-toggle');
+    updateFilterToggleButton();
+    $toggleBtn.on('click', function() {
+      var expanded = $toggleBtn.attr('aria-expanded') === 'true';
+      $toggleBtn.attr('aria-expanded', expanded ? 'false' : 'true');
+      updateFilterToggleButton();
+      if (expanded) {
+        $('.filter-overflow').addClass('filter-overflow--hidden');
+      } else {
+        $('.filter-overflow').removeClass('filter-overflow--hidden');
+      }
+    });
+    // Start collapsed
+    $('.filter-overflow').addClass('filter-overflow--hidden');
+
     var query_str = parseTagsQueryParam();
     $('.api_filter_div input[type="checkbox"]').each(function(e){
       $(this).on('click', function(e){
@@ -371,6 +433,8 @@ $(document).ready(function() {
         $(this).prop('checked',true);
       }
     });
+
+    updateOverviewVisibility();
 
     if (query_str.length > 0) {
       search_apis();
@@ -450,13 +514,17 @@ $(document).ready(function() {
     {% multi_lang_include layouts/message_engagement_events_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_currents_events_search_placeholder }}" aria-label="{{ glossary_loc.glossary_currents_events_search_aria }}" aria-describedby="search-hint api-filter-hint" />
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_currents_events_search_placeholder }}" aria-label="{{ glossary_loc.glossary_currents_events_search_aria }}" aria-describedby="search-hint" />
         <span id="search-hint" class="sr-only">{{ glossary_loc.glossary_currents_events_search_hint }}</span>
-        <p id="api-filter-hint" class="api-filter-hint">{{ glossary_loc.glossary_currents_events_filter_hint | default: i18n_en.glossary_currents_events_filter_hint }}</p>
-        <div id="api_filter_list"></div>
     </div>
 
     <div id="results_count"></div>
+
+    <section id="glossary-overview" aria-label="Overview">
+      <h2>Overview</h2>
+      <div id="glossary-overview-content"></div>
+    </section>
+    <hr id="glossary-overview-rule" aria-hidden="true">
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
@@ -481,13 +549,14 @@ $(document).ready(function() {
 
     {% include footer.html class="footer_api" %}
 </div>
-<!-- button id="toc_toggle" class="btn btn-info collapsed notoc d-print-none" data-toggle="collapse" aria-expanded="false" href="#toc_col" >
-   <i class="fas"></i>
-</button -->
 <div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
-  {%- unless hide_toc -%}
-  <div id="toc" ></div>
-  {%- endunless -%}
+  <aside id="glossary-filter-sidebar" aria-label="Filter by category">
+    <div id="api_filter_list"></div>
+    <button id="glossary-filter-toggle" aria-expanded="false" aria-controls="api_filter_list">
+      <span class="show-more-text">Show all filters</span>
+      <span class="show-less-text" aria-hidden="true">Show fewer filters</span>
+    </button>
+  </aside>
   {% unless hide_binary_feedback -%}
   {% include binary_feedback.html  %}
   {% endunless -%}
