@@ -139,7 +139,11 @@ $(document).ready(function() {
     var alltags = {};
     api_tags.each(function(k,v){
       var curtag = $(this);
-      var tag_list = curtag.attr('data-tags').split(',');
+      var tag_list_raw = curtag.attr('data-tags');
+      if (!tag_list_raw) {
+        return;
+      }
+      var tag_list = tag_list_raw.split(',');
       for (var i = 0; i < tag_list.length; i++) {
         var trimtag = tag_list[i].trim();
         if (trimtag.toLowerCase() != 'all') {
@@ -204,9 +208,10 @@ $(document).ready(function() {
         curdiv.show();
         if (!showall) {
           var curtag = curdiv.find('.api_tags').first();
-          var apitags = []
-          if (curtag) {
-            apitags = curtag.attr('data-tags-lower').split(',');
+          var apitags = [];
+          var tagsLower = curtag.length ? curtag.attr('data-tags-lower') : '';
+          if (tagsLower) {
+            apitags = tagsLower.split(',');
           }
 
           if (selected_vals.length) {
@@ -291,6 +296,40 @@ $(document).ready(function() {
     $('#api_search').on('input',function(e){
       search_apis();
     });
+
+    function loadCurrentsLazyTab($pane) {
+      var fragmentUrl = $pane.attr('data-currents-fragment');
+      var loaded = $pane.attr('data-currents-loaded');
+      if (!fragmentUrl || loaded === 'true' || loaded === 'loading') {
+        return;
+      }
+      $pane.attr('data-currents-loaded', 'loading');
+      $.get(fragmentUrl).done(function(html) {
+        $pane.html(html);
+        $pane.attr('data-currents-loaded', 'true');
+      }).fail(function() {
+        $pane.html('<p>Unable to load this schema. Refresh the page and try again.</p>');
+        $pane.removeAttr('data-currents-loaded');
+      });
+    }
+
+    $('#api-main').on('click', '.tab_toggle', function() {
+      var tabTarget = $(this).attr('data-tab-target');
+      var tabSlug = $(this).attr('data-tab');
+      if (!tabTarget || !tabSlug) {
+        return;
+      }
+      setTimeout(function() {
+        var $pane = $('#' + tabTarget + ' .ab-tab-pane.' + tabSlug + '_tab[data-currents-lazy]');
+        loadCurrentsLazyTab($pane);
+      }, 0);
+    });
+
+    setTimeout(function() {
+      $('#api_list .ab-tab-pane[data-currents-lazy].active').each(function() {
+        loadCurrentsLazyTab($(this));
+      });
+    }, 150);
 
     var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
     if (location_hash && $(location_hash).offset()) {

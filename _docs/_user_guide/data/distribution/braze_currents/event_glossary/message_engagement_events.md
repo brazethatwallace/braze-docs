@@ -8,6 +8,7 @@ page_type: glossary
 description: "This glossary lists the various Message Engagement Events that Braze can track and send to chosen Data Warehouses using Currents."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
 
 Storage schemas apply to the flat file event data we send to Data Warehouse Storage partners (Google Cloud Storage, Amazon S3, and Microsoft Azure Blob Storage). For schemas that apply to the other partners, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) and check their respective pages.
@@ -3193,6 +3194,10 @@ This event occurs when a user clicks a banner.
 
 {% api %}
 ## Banner Dismissal events {#banner-dismissal-events}
+
+{% apitags %}
+Banner
+{% endapitags %}
 
 This event occurs when a user dismisses a banner.
 
