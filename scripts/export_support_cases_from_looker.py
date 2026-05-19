@@ -40,8 +40,8 @@ _SECRET_REDACTIONS: list[tuple[re.Pattern[str], str]] = [
         "[REDACTED_AWS_ACCESS_KEY_ID]",
     ),
     (
-        # No trailing \\b — keys may abut quotes/commas in CSV; lengths align with GitHub secret scanning.
-        re.compile(r"SG\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}"),
+        # Leading word boundary only — trailing boundary omitted for CSV punctuation after keys.
+        re.compile(r"\bSG\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}"),
         "[REDACTED_SENDGRID_API_KEY]",
     ),
     (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "[REDACTED_GITHUB_TOKEN]"),

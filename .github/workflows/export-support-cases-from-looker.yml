@@ -63,8 +63,10 @@ jobs:
         run: |
           git fetch origin support-analyzer-data "${{ github.ref_name }}" 2>/dev/null || true
           git checkout -B support-analyzer-data origin/support-analyzer-data 2>/dev/null || git checkout -b support-analyzer-data
-          # support-analyzer-data only stores CSV; export script must come from the workflow ref (develop).
-          git checkout "origin/${{ github.ref_name }}" -- scripts/export_support_cases_from_looker.py
+          # CSV-only branch: copy export script from workflow ref without staging it for commit.
+          mkdir -p scripts
+          git show "origin/${{ github.ref_name }}:scripts/export_support_cases_from_looker.py" \
+            > scripts/export_support_cases_from_looker.py
 
       - uses: actions/setup-python@v6
         with:
