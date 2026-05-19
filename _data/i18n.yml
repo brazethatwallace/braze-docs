@@ -81,6 +81,7 @@ en:
     bounce: Bounce
     campaign: Campaign
     canvas: Canvas
+    carrier: Carrier
     clicks: Clicks
     "content cards": Content Cards
     conversion: Conversion
@@ -92,15 +93,18 @@ en:
     exit: Exit
     failure: Failure
     "feature flags": Feature Flags
+    global: Global
     impressions: Impressions
     "in-app messages": In-App Messages
     "inbound received": Inbound Received
     ios: iOS
     line: LINE
     "live activity": Live Activity
+    "match audience": Match Audience
     opens: Opens
     outcome: Outcome
     profile: Profile
+    "perform event": Perform Event
     progression: Progression
     push: Push
     rcs: RCS
@@ -111,6 +115,8 @@ en:
     sms: SMS
     spam: Spam
     subscription: Subscription
+    "subscription group": Subscription Group
+    tool: Tool
     uninstall: Uninstall
     webhooks: Webhooks
     whatsapp: WhatsApp
@@ -286,6 +292,7 @@ ja:
     bounce: バウンス
     campaign: Campaign
     canvas: Canvas
+    carrier: キャリア
     clicks: クリック数
     "content cards": コンテンツカード
     conversion: コンバージョン
@@ -297,15 +304,18 @@ ja:
     exit: 終了
     failure: 失敗
     "feature flags": フィーチャーフラグ
+    global: グローバル
     impressions: インプレッション
     "in-app messages": アプリ内メッセージ
     "inbound received": 受信
     ios: iOS
     line: LINE
     "live activity": ライブアクティビティ
+    "match audience": オーディエンス一致
     opens: 開封
     outcome: 結果
     profile: プロファイル
+    "perform event": イベント実行
     progression: 進行
     push: プッシュ
     rcs: RCS
@@ -316,6 +326,8 @@ ja:
     sms: SMS
     spam: スパム
     subscription: 購読
+    "subscription group": 購読グループ
+    tool: ツール
     uninstall: アンインストール
     webhooks: Webhook
     whatsapp: WhatsApp
@@ -426,6 +438,7 @@ ko:
     bounce: 바운스
     campaign: Campaign
     canvas: Canvas
+    carrier: 통신사
     clicks: 클릭
     "content cards": 콘텐츠 카드
     conversion: 전환
@@ -437,15 +450,18 @@ ko:
     exit: 종료
     failure: 실패
     "feature flags": 기능 플래그
+    global: 글로벌
     impressions: 노출
     "in-app messages": 인앱 메시지
     "inbound received": 수신
     ios: iOS
     line: LINE
     "live activity": 라이브 액티비티
+    "match audience": 오디언스 일치
     opens: 오픈
     outcome: 결과
     profile: 프로필
+    "perform event": 이벤트 수행
     progression: 진행
     push: 푸시
     rcs: RCS
@@ -456,6 +472,8 @@ ko:
     sms: SMS
     spam: 스팸
     subscription: 구독
+    "subscription group": 구독 그룹
+    tool: 도구
     uninstall: 제거
     webhooks: Webhook
     whatsapp: WhatsApp
