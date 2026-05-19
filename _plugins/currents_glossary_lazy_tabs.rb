@@ -18,14 +18,15 @@ module CurrentsGlossaryLazyTabs
     return html unless html.include?('ab-tab-pane')
     return html if html.include?('data-currents-lazy="true"')
 
-    fragment = Nokogiri::HTML::DocumentFragment.parse(html)
+    doc = Nokogiri::HTML.parse(html)
     fragment_dir = File.join(dest, FRAGMENTS_DIR, page_slug)
     FileUtils.mkdir_p(fragment_dir)
 
     baseurl = '' if baseurl == '/'
 
-    fragment.css('.ab-tab-pane').each do |pane|
+    doc.css('.ab-tab-pane').each do |pane|
       next if pane['class'].to_s.include?(KEEP_TAB_CLASS)
+      next if pane['data-currents-lazy'] == 'true'
 
       pane_id = pane['id']
       next if pane_id.nil? || pane_id.empty?
@@ -42,7 +43,7 @@ module CurrentsGlossaryLazyTabs
       pane['data-currents-lazy'] = 'true'
     end
 
-    fragment.to_html
+    doc.to_html
   end
 
   Jekyll::Hooks.register :site, :post_write do |site|
