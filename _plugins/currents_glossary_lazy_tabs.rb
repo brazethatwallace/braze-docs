@@ -3,11 +3,10 @@
 require 'fileutils'
 require 'nokogiri'
 
-# Offloads non–Cloud Storage Currents glossary tab panes to static fragment
-# files so the main glossary HTML stays under agent/crawler size limits.
+# Offloads all Currents glossary tab panes (including Cloud Storage) to static
+# fragment files so the main glossary HTML stays small and loads fast.
 # Enable per page with front matter: lazy_partner_tabs: true
 module CurrentsGlossaryLazyTabs
-  KEEP_TAB_CLASS = 'cloudstorage_tab'
   FRAGMENTS_DIR = 'currents_glossary_tab_fragments'
   SCRIPT_PLACEHOLDER_PREFIX = '@@@CURRENTS_GLOSSARY_SCRIPT'
 
@@ -56,7 +55,6 @@ module CurrentsGlossaryLazyTabs
     baseurl = '' if baseurl == '/'
 
     doc.css('.ab-tab-pane').each do |pane|
-      next if pane['class'].to_s.include?(KEEP_TAB_CLASS)
       next if pane['data-currents-lazy'] == 'true'
 
       pane_id = pane['id']

@@ -41,435 +41,17 @@ hide_binary_feedback: false
    <i class="fas"></i>
 </button -->
 
+{%- comment -%} i18n data blobs — read by message_engagement_glossary.js {%- endcomment -%}
 <script type="application/json" id="glossary-currents-events-i18n-json">
 {
   "noResults": {{ glossary_loc.glossary_currents_events_no_results | jsonify }},
   "showing": {{ glossary_loc.glossary_currents_events_showing | jsonify }}
 }
 </script>
-<script type="application/json" id="glossary-currents-message-engagement-tag-labels-json">
-{{ glossary_loc.currents_message_engagement_tag_labels | default: i18n_en.currents_message_engagement_tag_labels | jsonify }}
-</script>
-<script type="application/json" id="glossary-currents-message-engagement-tag-groups-json">
-{{ glossary_loc.currents_message_engagement_tag_groups | default: i18n_en.currents_message_engagement_tag_groups | jsonify }}
-</script>
-<script type="application/json" id="glossary-currents-message-engagement-tag-group-labels-json">
-{{ glossary_loc.currents_message_engagement_tag_group_labels | default: i18n_en.currents_message_engagement_tag_group_labels | jsonify }}
-</script>
-<script type="text/javascript">
 
-$(document).ready(function() {
-  var currentsEventsI18n = { noResults: '', showing: '' };
-  var messageEngagementTagLabels = {};
-  var messageEngagementTagGroups = {};
-  var messageEngagementTagGroupLabels = {};
-  var messageEngagementTagGroupOrder = ['channel', 'action', 'journey'];
-  try {
-    var _cei = document.getElementById('glossary-currents-events-i18n-json');
-    if (_cei && _cei.textContent) {
-      currentsEventsI18n = JSON.parse(_cei.textContent);
-    }
-  } catch (e) { /* keep defaults */ }
-  try {
-    var _metl = document.getElementById('glossary-currents-message-engagement-tag-labels-json');
-    if (_metl && _metl.textContent) {
-      messageEngagementTagLabels = JSON.parse(_metl.textContent) || {};
-    }
-  } catch (e) { messageEngagementTagLabels = {}; }
-  try {
-    var _metg = document.getElementById('glossary-currents-message-engagement-tag-groups-json');
-    if (_metg && _metg.textContent) {
-      messageEngagementTagGroups = JSON.parse(_metg.textContent) || {};
-    }
-  } catch (e) { messageEngagementTagGroups = {}; }
-  try {
-    var _metgl = document.getElementById('glossary-currents-message-engagement-tag-group-labels-json');
-    if (_metgl && _metgl.textContent) {
-      messageEngagementTagGroupLabels = JSON.parse(_metgl.textContent) || {};
-    }
-  } catch (e) { messageEngagementTagGroupLabels = {}; }
-  function glossaryFormatCount(template, count, total) {
-    if (!template) return '';
-    return String(template).replace(/__COUNT__/g, String(count)).replace(/__TOTAL__/g, String(total));
-  }
-  function string_to_slug(str) {
-    str = str.replace(/^\s+|\s+$/g, ''); // trim
-    str = str.toLowerCase();
-
-    // remove accents, swap ñ for n, etc
-    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-    var to   = "aaaaeeeeiiiioooouuuunc------";
-    for (var i=0, l=from.length ; i<l ; i++) {
-        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-    }
-
-  str = str.replace(/[\(\)]/g, '') // remove parenthesis
-        .replace(/[^a-z0-9 -]/g, '-') // remove invalid chars
-        .replace(/\s+/g, '-') // collapse whitespace and replace by -
-        .replace(/-+/g, '-');  // collapse dashes
-
-    return str;
-  }
-  function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  };
-
-  function parseTagsQueryParam() {
-    var raw = getUrlParameter('tags');
-    if (!raw) {
-      return [];
-    }
-    return raw.toLowerCase().split(',').map(function(tag) {
-      return tag.trim();
-    }).filter(function(tag) {
-      return tag.length > 0;
-    });
-  }
-
-
-  var alltags = {}
-
-  function matchterms(searchterm, items) {
-    var found = false;
-    if (Array.isArray(items)) {
-      for (var i = 0; i < items.length; i++ ) {
-        if (Array.isArray(searchterm)) {
-          for (var j = 0; j < searchterm.length; j++ ) {
-            if (items[i].trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
-              found = true
-            }
-          }
-        }
-        else {
-          if (items[i].trim().toLowerCase() == searchterm.trim().toLowerCase()) {
-            found = true
-          }
-        }
-      }
-    }
-    else {
-      if (Array.isArray(searchterm)) {
-        for (var j = 0; j < searchterm.length; j++ ) {
-          if (items.trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
-            found = true
-          }
-        }
-      }
-      else {
-        if (items.trim().toLowerCase().indexOf(searchterm.trim().toLowerCase()) > -1) {
-          found = true
-        }
-      }
-    }
-    return found;
-  }
-
-  function matchAllTags(required, items) {
-    if (!required.length) {
-      return true;
-    }
-    var normalizedItems = items.map(function(item) {
-      return item.trim().toLowerCase();
-    });
-    for (var i = 0; i < required.length; i++) {
-      if (normalizedItems.indexOf(required[i].trim().toLowerCase()) === -1) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function find_tags(){
-    var api_tags = $('.api_tags');
-    var alltags = {};
-    api_tags.each(function(k,v){
-      var curtag = $(this);
-      var tag_list_raw = curtag.attr('data-tags');
-      if (!tag_list_raw) {
-        return;
-      }
-      var tag_list = tag_list_raw.split(',');
-      for (var i = 0; i < tag_list.length; i++) {
-        var trimtag = tag_list[i].trim();
-        if (trimtag.toLowerCase() != 'all') {
-          alltags[trimtag.toLowerCase()] = trimtag;
-        }
-      }
-    });
-    return alltags;
-  }
-  function tagGroupForKey(tagKey) {
-    var groupId = messageEngagementTagGroups[tagKey];
-    if (groupId && messageEngagementTagGroupOrder.indexOf(groupId) !== -1) {
-      return groupId;
-    }
-    return 'action';
-  }
-
-  function appendFilterCheckbox(parent, tagKey, alltags) {
-    var filter_slug = string_to_slug(tagKey);
-    var filter_div = $('<div>').addClass('api_filter_div');
-    var filter_label = $('<label>').attr('for', 'api_' + filter_slug);
-    var filter_cb = $('<input>').attr('id', 'api_' + filter_slug).attr('type', 'checkbox').attr('name', 'filter_' + filter_slug).val(alltags[tagKey]);
-    var labelText = (messageEngagementTagLabels && Object.prototype.hasOwnProperty.call(messageEngagementTagLabels, tagKey))
-      ? messageEngagementTagLabels[tagKey]
-      : alltags[tagKey];
-    filter_label.append(filter_cb).append(' ' + labelText);
-    filter_div.append(filter_label);
-    parent.append(filter_div);
-    return filter_div;
-  }
-
-  var FILTER_TRUNCATE_COUNT = 4;
-
-  function set_tags(alltags) {
-    var container = $('#api_filter_list');
-    container.empty();
-    var grouped = {};
-    messageEngagementTagGroupOrder.forEach(function(groupId) {
-      grouped[groupId] = [];
-    });
-    var sorted_tags = [];
-    $.each(alltags, function(k) {
-      sorted_tags.push(k);
-    });
-    sorted_tags.sort();
-    sorted_tags.forEach(function(tagKey) {
-      grouped[tagGroupForKey(tagKey)].push(tagKey);
-    });
-    messageEngagementTagGroupOrder.forEach(function(groupId) {
-      if (!grouped[groupId].length) {
-        return;
-      }
-      var fieldset = $('<fieldset>').addClass('api_filter_group');
-      var legendText = (messageEngagementTagGroupLabels && messageEngagementTagGroupLabels[groupId])
-        ? messageEngagementTagGroupLabels[groupId]
-        : groupId;
-      fieldset.append($('<legend>').text(legendText));
-      var groupList = $('<div>').addClass('api_filter_group_list');
-      grouped[groupId].forEach(function(tagKey, idx) {
-        var filterDiv = appendFilterCheckbox(groupList, tagKey, alltags);
-        if (idx >= FILTER_TRUNCATE_COUNT) {
-          filterDiv.addClass('filter-overflow');
-        }
-      });
-      fieldset.append(groupList);
-      container.append(fieldset);
-    });
-  }
-
-  function updateFilterToggleButton() {
-    var $btn = $('#glossary-filter-toggle');
-    var expanded = $btn.attr('aria-expanded') === 'true';
-    $btn.find('.show-more-text').attr('aria-hidden', expanded ? 'true' : 'false');
-    $btn.find('.show-less-text').attr('aria-hidden', expanded ? 'false' : 'true');
-  }
-
-  function updateOverviewVisibility() {
-    var search_str = $('#api_search').val();
-    var has_filters = $('.api_filter_div input[type="checkbox"]:checked').length > 0;
-    var is_active = (search_str && search_str.length > 0) || has_filters;
-    if (is_active) {
-      $('#glossary-overview').attr('aria-hidden', 'true').addClass('glossary-overview--hidden');
-    } else {
-      $('#glossary-overview').removeAttr('aria-hidden').removeClass('glossary-overview--hidden');
-    }
-  }
-
-
-    var noResultsTimer = null;
-    var countTimer = null;
-    var innerTimer = null;
-    var lastAnnouncedCount = -1;
-    var altChar = false;
-
-    function search_apis(api_hash) {
-      updateOverviewVisibility();
-      var result_cnt = 0;
-      var resultsMsg = $('#results_msg');
-      var resultsCount = $('#results_count');
-      var resultsCountLive = $('#results_count_live');
-      var resultsMsgLive = $('#results_msg_live');
-
-      clearTimeout(noResultsTimer);
-      clearTimeout(countTimer);
-      clearTimeout(innerTimer);
-      resultsCount.hide();
-      resultsMsg.hide();
-      var api_div = $('#api_list .api_div');
-      var total_cnt = api_div.length;
-      var search_str = $('#api_search').val().toLowerCase();
-      var selected_vals = [];
-      $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
-       selected_vals.push($(this).val());
-      })
-      var showall = true;
-      if (selected_vals.length || search_str) {
-        showall = false;
-      }
-      api_div.each(function(k,v){
-        var filtered = false;
-        var curdiv = $(this);
-        curdiv.show();
-        if (!showall) {
-          var curtag = curdiv.find('.api_tags').first();
-          var apitags = [];
-          var tagsLower = curtag.length ? curtag.attr('data-tags-lower') : '';
-          if (tagsLower) {
-            apitags = tagsLower.split(',');
-          }
-
-          if (selected_vals.length) {
-            // api doesn't have an all tag filter explicitly
-            if (apitags.indexOf('all') == -1) {
-              // check if tag
-
-              if (!matchAllTags(selected_vals, apitags) && !filtered) {
-                filtered = true;
-              }
-            }
-          }
-          if (!filtered && search_str) {
-            var curcontent = curdiv.text().replace(/(\n|\r\n|\r)\d+/g,"").toLowerCase().replace(/\s\s+/g, ' ');
-            if (curcontent.indexOf(search_str) < 0) {
-              filtered = true
-            }
-          }
-          if (filtered) {
-            curdiv.hide();
-          }
-          else {
-            curdiv.show();
-            result_cnt++;
-          }
-        }
-      })
-      if (!showall) {
-        if (!result_cnt) {
-          resultsMsg.show().text(currentsEventsI18n.noResults || '');
-          noResultsTimer = setTimeout(function() {
-            resultsCountLive.text('');
-            resultsMsgLive.text('');
-            innerTimer = setTimeout(function() {
-              resultsMsgLive.text(currentsEventsI18n.noResults || '');
-            }, 150);
-          }, 900);
-        } else {
-          var message = glossaryFormatCount(currentsEventsI18n.showing, result_cnt, total_cnt);
-          resultsCount.show().text(message);
-          resultsMsgLive.text('');
-          countTimer = setTimeout(function() {
-            var message = glossaryFormatCount(currentsEventsI18n.showing, result_cnt, total_cnt);
-            var liveMessage = message;
-            if (result_cnt === lastAnnouncedCount) {
-              altChar = !altChar;
-              if (altChar) liveMessage += ' ';
-            }
-            lastAnnouncedCount = result_cnt;
-            resultsCountLive.text('');
-            innerTimer = setTimeout(function() {
-              resultsCountLive.text(liveMessage);
-            }, 150);
-          }, 900);
-        }
-      } else {
-        resultsMsg.text('');
-        resultsCountLive.text('');
-        resultsMsgLive.text('');
-        lastAnnouncedCount = -1;
-      }
-    };
-
-
-  function initialize() {
-    alltags = find_tags();
-    set_tags(alltags);
-
-    // Wire filter toggle (show all / show fewer)
-    var $toggleBtn = $('#glossary-filter-toggle');
-    updateFilterToggleButton();
-    $toggleBtn.on('click', function() {
-      var expanded = $toggleBtn.attr('aria-expanded') === 'true';
-      $toggleBtn.attr('aria-expanded', expanded ? 'false' : 'true');
-      updateFilterToggleButton();
-      if (expanded) {
-        $('.filter-overflow').addClass('filter-overflow--hidden');
-      } else {
-        $('.filter-overflow').removeClass('filter-overflow--hidden');
-      }
-    });
-    // Start collapsed
-    $('.filter-overflow').addClass('filter-overflow--hidden');
-
-    var query_str = parseTagsQueryParam();
-    $('.api_filter_div input[type="checkbox"]').each(function(e){
-      $(this).on('click', function(e){
-        search_apis();
-      });
-      if (matchterms($(this).val(), query_str)) {
-        $(this).prop('checked',true);
-      }
-    });
-
-    updateOverviewVisibility();
-
-    if (query_str.length > 0) {
-      search_apis();
-    }
-
-    $('#api_search').on('input',function(e){
-      search_apis();
-    });
-
-    function loadCurrentsLazyTab($pane) {
-      var fragmentUrl = $pane.attr('data-currents-fragment');
-      var loaded = $pane.attr('data-currents-loaded');
-      if (!fragmentUrl || loaded === 'true' || loaded === 'loading') {
-        return;
-      }
-      $pane.attr('data-currents-loaded', 'loading');
-      $.get(fragmentUrl).done(function(html) {
-        $pane.html(html);
-        $pane.attr('data-currents-loaded', 'true');
-      }).fail(function() {
-        $pane.html('<p>Unable to load this schema. Refresh the page and try again.</p>');
-        $pane.removeAttr('data-currents-loaded');
-      });
-    }
-
-    $('#api-main').on('click', '.tab_toggle', function() {
-      var tabTarget = $(this).attr('data-tab-target');
-      var tabSlug = $(this).attr('data-tab');
-      if (!tabTarget || !tabSlug) {
-        return;
-      }
-      setTimeout(function() {
-        var $pane = $('#' + tabTarget + ' .ab-tab-pane.' + tabSlug + '_tab[data-currents-lazy]');
-        loadCurrentsLazyTab($pane);
-      }, 0);
-    });
-
-    setTimeout(function() {
-      $('#api_list .ab-tab-pane[data-currents-lazy].active').each(function() {
-        loadCurrentsLazyTab($(this));
-      });
-    }, 150);
-
-    var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
-    if (location_hash && $(location_hash).offset()) {
-      // Scroll to generated hash
-      $('html, body').animate({
-        scrollTop: $(location_hash).offset().top
-      });
-    }
-  };
-  initialize();
-});
-</script>
-
+{% javascript_asset_tag message_engagement_glossary %}
+- /assets/js/message_engagement_glossary.js
+{% endjavascript_asset_tag %}
 
 <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 d-print-none collapse d-md-block" id="nav_bar"  >
   <div id="nav_col" class="  ">
@@ -529,9 +111,47 @@ $(document).ready(function() {
 
     {% include footer.html class="footer_api" %}
 </div>
+
+{%- comment -%}
+  Right sidebar: filter panel replaces the TOC on this layout.
+  Checkboxes rendered at build time from i18n data (no JS DOM build cost).
+{%- endcomment -%}
+{%- assign tag_labels   = glossary_loc.currents_message_engagement_tag_labels | default: i18n_en.currents_message_engagement_tag_labels -%}
+{%- assign tag_groups   = glossary_loc.currents_message_engagement_tag_groups | default: i18n_en.currents_message_engagement_tag_groups -%}
+{%- assign group_labels = glossary_loc.currents_message_engagement_tag_group_labels | default: i18n_en.currents_message_engagement_tag_group_labels -%}
+{%- assign group_order  = "channel,action,journey" | split: "," -%}
 <div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
   <aside id="glossary-filter-sidebar" aria-label="Filter by category">
-    <div id="api_filter_list"></div>
+    <div id="api_filter_list">
+      {%- for group_id in group_order -%}
+        {%- assign group_label = group_labels[group_id] | default: group_id -%}
+        <fieldset class="api_filter_group">
+          <legend>{{ group_label }}</legend>
+          <div class="api_filter_group_list">
+            {%- assign group_index = 0 -%}
+            {%- for tag_entry in tag_groups -%}
+              {%- if tag_entry[1] == group_id -%}
+                {%- assign tag_key   = tag_entry[0] -%}
+                {%- assign tag_label = tag_labels[tag_key] | default: tag_key -%}
+                {%- assign filter_id = tag_key | downcase | replace: ' ', '-' -%}
+                {%- if group_index >= 4 -%}
+                  {%- assign overflow_class = " filter-overflow filter-overflow--hidden" -%}
+                {%- else -%}
+                  {%- assign overflow_class = "" -%}
+                {%- endif -%}
+                <div class="api_filter_div{{ overflow_class }}">
+                  <label for="api_{{ filter_id }}">
+                    <input id="api_{{ filter_id }}" type="checkbox" name="filter_{{ filter_id }}" value="{{ tag_key }}">
+                    {{ tag_label }}
+                  </label>
+                </div>
+                {%- assign group_index = group_index | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </fieldset>
+      {%- endfor -%}
+    </div>
     <button id="glossary-filter-toggle" aria-expanded="false" aria-controls="api_filter_list">
       <span class="show-more-text">Show all filters</span>
       <span class="show-less-text" aria-hidden="true">Show fewer filters</span>
