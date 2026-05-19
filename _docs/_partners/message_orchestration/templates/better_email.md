@@ -37,7 +37,7 @@ Better Email is built for marketing teams who want to manage emails through a de
 - Collaborate across teams—designers, marketers, and developers—on email production
 - Use Braze for campaign execution and want to remove the handoff bottleneck between design and deployment
 
-## Integration
+## Integrate Better Email with Braze
 
 ### Step 1: Find your Braze values
 
@@ -87,6 +87,6 @@ If an export or sync fails, verify the following:
 
 For further support, contact [support@better.email](mailto:support@better.email).
 
-## Using the integration
+## Use the integration
 
 You can find your exported Better Email templates in Braze under **Templates & Media** > **Email Templates**. Use them in any Braze campaign or Canvas.
