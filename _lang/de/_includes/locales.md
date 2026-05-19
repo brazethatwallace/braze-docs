@@ -38,6 +38,6 @@ Ja, aber achten Sie darauf, dass das HTML-Styling nicht mit dem Inhalt übersetz
 | Die Übersetzungsdatei enthält Lokalisierungen, die in den Einstellungen unter **Unterstützung mehrerer Sprachen** nicht vorhanden sind.                                                           | Diese Lokalisierungen werden nicht in Braze gespeichert.                                                                      |
 | Die Übersetzungsdatei enthält Textblöcke, die in der aktuellen Nachricht nicht vorhanden sind (z. B. im aktuellen Entwurf zum Zeitpunkt des Hochladens der Übersetzungen). | Textblöcke, die in der aktuellen Nachricht nicht vorhanden sind, werden nicht aus der Übersetzungsdatei in Braze übernommen. |
 | Eine Lokalisierung wird aus einer Nachricht entfernt, nachdem sie als Teil der Übersetzungsdatei in die Nachricht hochgeladen wurde.                           | Wenn Sie die Lokalisierung entfernen, werden alle damit verbundenen Übersetzungen in der Nachricht gelöscht.                   |
-{: .reset-td-br_1 .reset-td-br-2 aria-label="Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch?" }
 
 {% endif %}
