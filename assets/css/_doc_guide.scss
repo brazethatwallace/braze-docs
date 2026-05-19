@@ -372,8 +372,15 @@ $doc_transition_time: 0.25s;
 }
 #doc-main-search {
 	margin: 50px auto auto auto;
+	display: flex;
+	justify-content: center;
 	@media (min-width: $window-xxlarge-px) {
 		max-width: 1500px;
+	}
+	.su__container {
+		max-width: 1250px !important;
+		padding: 0 !important;
+		width: 100% !important;
 	}
 }
 #footer_div {
