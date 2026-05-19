@@ -75,7 +75,7 @@ Se você estiver usando a [navegação antiga]({{site.baseurl}}/user_guide/admin
 
 Aqui, você pode classificar, pesquisar e desativar o rastreamento de aliases de link.
 
-![Página de Tracked Link Aliases mostrando aliases de link ativos e inativos associados a várias Campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
+![Página de aliases de link rastreados mostrando aliases de link ativos e inativos associados a várias Campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
 Use os endpoints [List link alias for campaign]({{site.baseurl}}/get_campaign_link_alias/) e [List link alias for Canvas]({{site.baseurl}}/get_canvas_link_alias/) para extrair o `alias` definido em cada variante de mensagem em uma campanha ou em um componente do Canvas específico de e-mail.
@@ -262,7 +262,9 @@ No editor de arrastar e soltar, os campos que contêm um link (como a **URL** de
 
 ### Exemplo de Content Block {#content-block-example}
 
+{% raw %}
 Se um Content Block contém um link como `https://www.braze.com/{{custom_attribute.${offer_id}}}` sem um `?` ou `&` final, a Braze não sabe onde adicionar o `lid`, então o link não é capturado para **Link Management**. Adicione `?` ou `&` no final da URL no Content Block (dependendo de já existir ou não uma query string), salve o Content Block e o link poderá ser reconhecido.
+{% endraw %}
 
 ### Relatórios quando a URL varia por usuário {#reporting-when-the-url-varies-per-user}
 

@@ -15,11 +15,9 @@ channel:
 
 メールの到達性は、Campaignの成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
 
-到達性センターにアクセスするには、「Campaigns、Canvases、カード、Segments、メディアライブラリへのアクセス」および「使用状況データの表示」の[レガシーユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions)、またはワークスペースに対する以下のドロップダウンに記載されている[詳細権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions)が必要です。
+到達性センターにアクセスするには、ワークスペースに対する以下のドロップダウンに記載されている[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
 {% details 到達性センターのユーザー権限 %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - Campaignの表示
 - Campaignの編集
@@ -70,7 +68,7 @@ channel:
 到達性センターに接続する前に、Google Postmaster Toolsアカウントをセットアップする必要があります。仕事用または個人用のGmailアカウントを使用してGoogle Postmasterをセットアップできます。
 
 1. [Google Postmaster Toolsダッシュボード](https://postmaster.google.com/managedomains?pli=1)にアクセスします。
-2. 右下の<i class="fas fa-plus-circle" aria-label="追加"></i>プラスアイコンを選択します。
+2. 右下の<i class="fas fa-plus-circle"></i>プラスアイコンを選択します。
 3. ルート（親）ドメインを入力してメールを認証します。TXTレコードが、Brazeで使用しているサブドメインでは**なく**、このルート（親）ドメインに紐付けられていることを確認してください。ルート（親）ドメインを検証すると、追加のTXTレコードを作成せずに、後からPostmaster Toolsにサブドメインを追加できます。例えば、`braze.com`を検証すると、後から`demo.braze.com`をPostmaster Toolsに別のサブドメインとして追加し、サブドメインレベルの指標を確認できます。
 4. GoogleがTXTレコードを生成します。このレコードはドメインのDNSに直接追加できます。通常、DNSを管理している担当者がこの作業を行います。特定のDNSの更新方法に関する情報とガイダンスについては、[Verify your domain (host-specific steps)](https://support.google.com/a/topic/1409901)を参照してください。
 5. **Next**を選択します。<br>![メールを認証するためのドメイン「demo.braze.com」の例。]({% image_buster /assets/img_archive/domain_authentication.png %})

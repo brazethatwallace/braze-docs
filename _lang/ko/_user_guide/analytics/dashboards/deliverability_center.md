@@ -15,11 +15,9 @@ channel:
 
 이메일 전달 가능성은 캠페인 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
 
-전달 가능성 센터에 접근하려면 워크스페이스에 대해 "Access Campaigns, Canvases, Cards, Segments, Media Library" 및 "View Usage Data" [레거시 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) 또는 아래 드롭다운에 나열된 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions)이 필요합니다.
+전달 가능성 센터에 접근하려면 워크스페이스에 대해 아래 드롭다운에 나열된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
 
 {% details 전달 가능성 센터에 필요한 사용자 권한 %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - Campaigns 보기
 - Campaigns 편집

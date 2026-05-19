@@ -481,7 +481,7 @@ Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utiliz
 
 Esta estadística utiliza un modelo de análisis propio creado por Braze para reconstruir una estimación de la tasa de apertura única de la campaña como si las aperturas automáticas no existieran. Aunque recibimos etiquetas de *Machine Opens* en algunos eventos de apertura de los remitentes de correo electrónico (véase más arriba), estas etiquetas a menudo pueden etiquetar aperturas reales como aperturas automáticas. En otras palabras, las *Other Opens* son probablemente una subestimación de las aperturas reales (por usuarios reales). En su lugar, Braze utiliza los datos de clics de cada campaña para deducir la tasa a la que los humanos reales abrieron el mensaje. Esto compensa varios mecanismos de apertura automática, incluido el MPP de Apple.
 
-La _Estimated Real Open Rate_ se calcula 36 horas después del inicio del envío del correo electrónico y se recalcula cada 24 horas a partir de entonces. Si una campaña se repite, la estimación se vuelve a calcular 36 horas después de que se produzca otro envío.
+La _Estimated Real Open Rate_ se calcula 24 horas después del inicio del envío del correo electrónico y se recalcula cada 72 horas a partir de entonces.
 
 Dado que esta métrica se recalcula de forma continua, el valor de la _Estimated Real Open Rate_ puede cambiar con el tiempo a medida que se reciben nuevas señales de interacción (como aperturas y clics) y se incorporan al modelo. En la práctica, la _Estimated Real Open Rate_ puede seguir actualizándose diariamente mientras la campaña permanezca activa.
 

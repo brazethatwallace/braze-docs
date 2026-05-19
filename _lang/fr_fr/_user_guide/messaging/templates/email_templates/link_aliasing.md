@@ -262,7 +262,9 @@ Dans l'éditeur glisser-déposer, les champs contenant un lien (comme l'**URL** 
 
 ### Exemple avec un Content Block {#content-block-example}
 
+{% raw %}
 Si un Content Block contient un lien tel que `https://www.braze.com/{{custom_attribute.${offer_id}}}` sans `?` ou `&` final, Braze ne sait pas où ajouter `lid`, et le lien n'est pas pris en compte pour **Link Management**. Ajoutez `?` ou `&` à la fin de l'URL dans le Content Block (selon qu'une chaîne de requête existe déjà ou non), enregistrez le Content Block, et le lien pourra être reconnu.
+{% endraw %}
 
 ### Rapports lorsque l'URL varie par utilisateur {#reporting-when-the-url-varies-per-user}
 

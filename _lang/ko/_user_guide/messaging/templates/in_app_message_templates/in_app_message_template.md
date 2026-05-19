@@ -24,9 +24,9 @@ Braze 대시보드에서 **템플릿** > **인앱 메시지 템플릿**으로 �
 
 | 목표 | 수행 방법 |
 |------|------------|
-| 드래그 앤 드롭 레이아웃을 재사용하기 위해 저장 | [드래그 앤 드롭 인앱 메시지 작성기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)에서 편집기를 종료한 후 **Save as template**을 선택합니다(먼저 Campaign을 시작하거나 초안으로 저장해야 합니다). 템플릿은 다음 메시지를 위해 **템플릿** > **인앱 메시지 템플릿**에 표시됩니다. |
-| 색상 프로필 또는 CSS 템플릿 생성(기존 편집기) | **인앱 메시지 템플릿** 페이지에서 **+ Create**를 선택한 다음 **Color Profile** 또는 **CSS Template**을 선택합니다. 자세한 내용은 [색상 프로필 및 CSS 템플릿](#reusable-color-profiles)을 참조하세요. |
-| Braze 템플릿 커스터마이즈 | 드래그 앤 드롭 편집기에서 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)하고, Braze 템플릿을 선택한 후 커스터마이즈한 다음 **Save as template**을 선택합니다. 각 Braze 템플릿에 대한 설명은 [인앱 메시지 템플릿]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/)을 참조하세요. |
+| 드래그 앤 드롭 레이아웃을 재사용하기 위해 저장 | [드래그 앤 드롭 인앱 메시지 작성기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)에서 편집기를 종료한 후 **템플릿으로 저장**을 선택합니다(먼저 Campaign을 시작하거나 초안으로 저장해야 합니다). 템플릿은 다음 메시지를 위해 **템플릿** > **인앱 메시지 템플릿**에 표시됩니다. |
+| 색상 프로필 또는 CSS 템플릿 생성(기존 편집기) | **인앱 메시지 템플릿** 페이지에서 **+ 생성**을 선택한 다음 **Color Profile** 또는 **CSS Template**을 선택합니다. 자세한 내용은 [색상 프로필 및 CSS 템플릿](#reusable-color-profiles)을 참조하세요. |
+| Braze 템플릿 커스터마이즈 | 드래그 앤 드롭 편집기에서 [인앱 메시지를 생성]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)하고, Braze 템플릿을 선택한 후 커스터마이즈한 다음 **템플릿으로 저장**을 선택합니다. 각 Braze 템플릿에 대한 설명은 [인앱 메시지 템플릿]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/)을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose how to create a template" }
 
 {% alert note %}
@@ -37,7 +37,7 @@ Braze 대시보드에서 **템플릿** > **인앱 메시지 템플릿**으로 �
 
 **템플릿** > **인앱 메시지 템플릿**에서 필터, 검색하거나 템플릿을 열어 편집할 수 있습니다. 다른 템플릿 유형과 마찬가지로 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)하거나 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)할 수 있습니다. 템플릿 및 미디어 워크플로에 대한 개요는 [템플릿]({{site.baseurl}}/user_guide/messaging/templates/)을 참조하세요.
 
-템플릿에 접근하려면 권한이 필요합니다. 예를 들어, 인앱 메시지 템플릿을 보거나 편집하려면 "Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers" 또는 이에 상응하는 세부 권한을 부여하세요. 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
+인앱 메시지 템플릿에 접근하려면 인앱 메시지 템플릿을 보거나 편집할 수 있는 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다.
 
 ### 색상 프로필 및 CSS 템플릿 생성 {#reusable-color-profiles}
 
@@ -45,7 +45,7 @@ Braze 대시보드에서 **템플릿** > **인앱 메시지 템플릿**으로 �
 다음 옵션은 [기존 편집기]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)에 적용됩니다. 드래그 앤 드롭 편집기를 사용하는 경우 대신 [스타일 설정]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)을 사용하세요.
 {% endalert %}
 
-기존 템플릿을 편집하거나 **+ Create**를 선택하고 **Color Profile** 또는 **CSS Template**을 선택하여 인앱 메시지를 위한 새 템플릿을 만들 수 있습니다.
+기존 템플릿을 편집하거나 **+ 생성**을 선택하고 **Color Profile** 또는 **CSS Template**을 선택하여 인앱 메시지를 위한 새 템플릿을 만들 수 있습니다.
 
 #### 색상 프로필 {#color-profile}
 

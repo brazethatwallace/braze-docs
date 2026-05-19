@@ -87,8 +87,6 @@ As propriedades de eventos para eventos personalizados são atualizadas em tempo
 
 Você precisa da [permissão de usuário]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para criar segmentos com base na recência e frequência de propriedades de eventos.
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 Por padrão, você pode ter 20 propriedades de eventos segmentáveis por espaço de trabalho. Entre em contato com o gerente da sua conta na Braze para aumentar esse limite.
 
 Para adicionar propriedades de eventos para segmentação, faça o seguinte:
