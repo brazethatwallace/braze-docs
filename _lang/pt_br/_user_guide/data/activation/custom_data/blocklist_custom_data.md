@@ -20,47 +20,45 @@ Para bloquear dados personalizados, você precisa das [permissões de usuário](
 
 {% details Permissões de usuário para bloqueio de dados personalizados %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- View Frequency Capping Rules
-- Edit Frequency Capping Rules
-- View Message Prioritization
-- Edit Message Prioritization
-- View Content Blocks
-- View Feature Flags
-- Edit Feature Flags
-- Archive Feature Flags
-- View Segments
-- Edit Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- View Link Templates
-- Edit Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- View Locations
-- Edit Locations
-- Archive Locations
-- View Promotion Codes
-- Edit Promotion Codes
-- Export Promotion Codes
-- View Preference Centers
-- Edit Preference Centers
-- View Reports
-- Edit Reports
+- Visualizar Campaigns
+- Editar Campaigns
+- Arquivar Campaigns
+- Visualizar Canvas
+- Editar Canvas
+- Arquivar Canvas
+- Visualizar regras do limite de frequência
+- Editar regras do limite de frequência
+- Visualizar priorização de mensagens
+- Editar priorização de mensagens
+- Visualizar Content Blocks
+- Visualizar Feature Flags
+- Editar Feature Flags
+- Arquivar Feature Flags
+- Visualizar Segments
+- Editar Segments
+- Visualizar modelos de IAM
+- Editar modelos de IAM
+- Arquivar modelos de IAM
+- Visualizar modelos de e-mail
+- Editar modelos de e-mail
+- Arquivar modelos de e-mail
+- Visualizar modelos de webhook
+- Editar modelos de webhook
+- Visualizar modelos de link
+- Editar modelos de link
+- Visualizar ativos da biblioteca de mídia
+- Editar ativos da biblioteca de mídia
+- Excluir ativos da biblioteca de mídia
+- Visualizar locais
+- Editar locais
+- Arquivar locais
+- Visualizar códigos de promoção
+- Editar códigos de promoção
+- Exportar códigos de promoção
+- Visualizar centrais de preferências
+- Editar centrais de preferências
+- Visualizar relatórios
+- Editar relatórios
 
 {% enddetails %}
 

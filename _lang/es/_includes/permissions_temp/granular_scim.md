@@ -1,16 +1,12 @@
 ## Migración de permisos granulares {#granular-permissions-migration}
 
-{% alert important %}
-Los permisos granulares se encuentran en fase de acceso anticipado. Cuando se planifique la migración para tu empresa, los administradores de Braze recibirán correos electrónicos y banners en el dashboard notificándoles la [migración de permisos granulares]({{site.baseurl}}/granular_permissions_migration/).
-{% endalert %}
-
 Las integraciones SCIM existentes y [los objetos API SCIM heredados]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) seguirán funcionando después de la migración de permisos granulares a finales de abril.
 
 No es necesario que tomes ninguna medida inmediata. Sin embargo, te recomendamos que revises tus integraciones para ver si hay permisos que vayan a ser granularizados. Por ejemplo, si actualmente estás enviando `basic_access` en la API, te sugerimos que actualices tu integración después de la granularización para incluir los permisos específicos (por ejemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze seguirá aceptando cadenas heredadas, como `basic_access`, después de la migración de permisos granulares, para que las integraciones existentes no se vean afectadas.
 
-## Objeto permisos {#permissions-object}
+## Objeto de permisos {#permissions-object}
 
-El objeto permisos es un campo que se encuentra en algunas de las peticiones y respuestas cuando se interactúa con el recurso usuario a través de los permisos de ID SCIM.
+El objeto de permisos es un campo que se encuentra en algunas de las peticiones y respuestas cuando se interactúa con el recurso de usuario a través de los permisos de ID SCIM.
 
 {% alert note %}
 Los grupos de aplicaciones han pasado a llamarse espacios de trabajo en Braze, pero las claves de esta página siguen haciendo referencia a la terminología antigua (por ejemplo, `appGroup`, `appGroupName`).
@@ -40,7 +36,7 @@ Un objeto de permisos del espacio de trabajo válido es un objeto JSON con los s
 
 | Clave | Obligatoria | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
-| `appGroupName`| Opcional | Cadena | Nombre del espacio de trabajo. Sirve para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. |
+| `appGroupName` | Opcional | Cadena | Nombre del espacio de trabajo. Sirve para especificar a qué espacio de trabajo corresponden los permisos contenidos en este objeto. |
 | `appGroupId` | Obligatorio si falta `appGroupName` | Cadena | ID del espacio de trabajo, que sirve como método alternativo para especificar el espacio de trabajo. |
 | `appGroupPermissionSets` | Opcional | Matriz | Matriz con un único [objeto de conjunto de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object). |
 | `appGroupPermissions` | Obligatoria | Matriz | Matriz de cadenas de permisos a nivel del espacio de trabajo de la tabla de [cadenas de permisos del espacio de trabajo]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings), en la que la presencia de la cadena corresponde a que el usuario tiene el permiso correspondiente para el espacio de trabajo especificado. |

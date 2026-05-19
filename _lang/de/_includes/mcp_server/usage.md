@@ -67,10 +67,6 @@ Weitere Informationen zur Funktion `get_canvas_list` finden Sie unter [Verfügba
 ### Ein E-Mail-Template erstellen {#create-an-email-template}
 
 {% tabs %}
-{% tab Claude %}
-![„Ein E-Mail-Template erstellen“ wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/create_an_email_template.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 ![„Ein E-Mail-Template erstellen“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
@@ -81,10 +77,6 @@ Weitere Informationen zur Funktion `create_email_template` finden Sie unter [Ver
 ### Einen Content-Block aktualisieren {#update-a-content-block}
 
 {% tabs %}
-{% tab Claude %}
-![„Einen Content-Block aktualisieren“ wird in Claude gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/claude/update_a_content_block.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 ![„Einen Content-Block aktualisieren“ wird in Cursor gestellt und beantwortet.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}

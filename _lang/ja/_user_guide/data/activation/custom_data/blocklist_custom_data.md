@@ -20,47 +20,45 @@ description: "このリファレンス記事では、Brazeでカスタムイベ�
 
 {% details カスタムデータのブロックリスト登録に必要なユーザー権限 %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- View Frequency Capping Rules
-- Edit Frequency Capping Rules
-- View Message Prioritization
-- Edit Message Prioritization
-- View Content Blocks
-- View Feature Flags
-- Edit Feature Flags
-- Archive Feature Flags
-- View Segments
-- Edit Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- View Link Templates
-- Edit Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- View Locations
-- Edit Locations
-- Archive Locations
-- View Promotion Codes
-- Edit Promotion Codes
-- Export Promotion Codes
-- View Preference Centers
-- Edit Preference Centers
-- View Reports
-- Edit Reports
+- Campaignsを表示
+- Campaignsを編集
+- Campaignsをアーカイブ
+- Canvasesを表示
+- Canvasesを編集
+- Canvasesをアーカイブ
+- フリークエンシーキャップルールを表示
+- フリークエンシーキャップルールを編集
+- メッセージ優先順位を表示
+- メッセージ優先順位を編集
+- Content Blocksを表示
+- フィーチャーフラグを表示
+- フィーチャーフラグを編集
+- フィーチャーフラグをアーカイブ
+- Segmentsを表示
+- Segmentsを編集
+- IAMテンプレートを表示
+- IAMテンプレートを編集
+- IAMテンプレートをアーカイブ
+- メールテンプレートを表示
+- メールテンプレートを編集
+- メールテンプレートをアーカイブ
+- Webhookテンプレートを表示
+- Webhookテンプレートを編集
+- リンクテンプレートを表示
+- リンクテンプレートを編集
+- メディアライブラリアセットを表示
+- メディアライブラリアセットを編集
+- メディアライブラリアセットを削除
+- ロケーションを表示
+- ロケーションを編集
+- ロケーションをアーカイブ
+- プロモーションコードを表示
+- プロモーションコードを編集
+- プロモーションコードをエクスポート
+- ユーザー設定センターを表示
+- ユーザー設定センターを編集
+- レポートを表示
+- レポートを編集
 
 {% enddetails %}
 
@@ -113,15 +111,15 @@ SDKにはブロックリスト用として最大300件のアイテムが送信�
 カスタムイベントまたはカスタム属性を削除するには、以下の手順に従います。
 
 1. 削除するデータタイプに応じて、**データ設定** > **カスタム属性**または**カスタムイベント**に移動します。
-2. カスタムデータに移動し、<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**アクション** > **ブロックリスト**を選択します。
-3. カスタムデータがブロックリストに登録されてから7日後に、<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**アクション** > **削除**を選択します。
+2. カスタムデータに移動し、<i class="fa-solid fa-ellipsis-vertical" aria-label="その他のアクション"></i>&nbsp;**アクション** > **ブロックリスト**を選択します。
+3. カスタムデータがブロックリストに登録されてから7日後に、<i class="fa-solid fa-ellipsis-vertical" aria-label="その他のアクション"></i>&nbsp;**アクション** > **削除**を選択します。
 
 ### 削除の仕組み {#how-deletion-works}
 
 カスタムデータを削除すると、以下が発生します。
 
-- **カスタム属性の場合：**すべてのユーザーのプロファイルから属性データが完全に削除されます。
-- **カスタムイベントの場合：**すべてのユーザーのプロファイルからイベントメタデータが完全に削除されます。
+- **カスタム属性の場合：** すべてのユーザーのプロファイルから属性データが完全に削除されます。
+- **カスタムイベントの場合：** すべてのユーザーのプロファイルからイベントメタデータが完全に削除されます。
 
 属性またはイベントが削除対象として選択されると、そのステータスは**ゴミ箱**に変更されます。その後7日間は、属性またはイベントを復元できます。7日後に復元しない場合、データは完全に削除されます。属性またはイベントを復元した場合、ブロックリスト登録済みの状態に戻ります。
 
@@ -131,7 +129,7 @@ SDKにはブロックリスト用として最大300件のアイテムが送信�
 
 カスタムデータを削除する際は、以下の点に留意してください。
 
-* **削除は永久的です。**データは復元できません。
+* **削除は永久的です。** データは復元できません。
 * データはBrazeプラットフォームおよびユーザープロファイルから削除されます。
 * 削除後にカスタム属性名またはカスタムイベント名を「再利用」できます。つまり、削除後にカスタムデータがBrazeに「再出現」した場合、停止されていないインテグレーションが同じカスタムデータ名でデータを送信していることが原因である可能性があります。
 * 削除の結果カスタムデータが再出現した場合、再度ブロックリストに登録する必要がある場合があります。カスタムデータが削除されるため、ブロックリスト登録ステータスは保持されません。
