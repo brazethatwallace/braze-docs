@@ -9,16 +9,47 @@ require 'nokogiri'
 module CurrentsGlossaryLazyTabs
   KEEP_TAB_CLASS = 'cloudstorage_tab'
   FRAGMENTS_DIR = 'currents_glossary_tab_fragments'
+  SCRIPT_PLACEHOLDER_PREFIX = '@@@CURRENTS_GLOSSARY_SCRIPT'
 
   def self.lazy_tab_pages(site)
     site.collections.values.flat_map(&:docs).select { |doc| doc.data['lazy_partner_tabs'] }
+  end
+
+  # Replace inline <script> blocks with placeholders so Nokogiri does not treat
+  # literal "</script>" sequences inside JavaScript as closing the element.
+  def self.mask_scripts(html)
+    placeholders = []
+    out = html.dup
+    i = 0
+    while (start = out.index(/<script\b/i, i))
+      tag_end = out.index('>', start)
+      break unless tag_end
+
+      body_start = tag_end + 1
+      close = out.index(/<\/script>/i, body_start)
+      break unless close
+
+      placeholders << out[start...(close + 9)]
+      placeholder = "#{SCRIPT_PLACEHOLDER_PREFIX}#{placeholders.length - 1}@@@"
+      out[start...(close + 9)] = placeholder
+      i = start + placeholder.length
+    end
+    [out, placeholders]
+  end
+
+  def self.unmask_scripts(html, placeholders)
+    placeholders.each_with_index do |script, index|
+      html.sub!("#{SCRIPT_PLACEHOLDER_PREFIX}#{index}@@@", script)
+    end
+    html
   end
 
   def self.process_html!(html, dest, page_slug, baseurl)
     return html unless html.include?('ab-tab-pane')
     return html if html.include?('data-currents-lazy="true"')
 
-    doc = Nokogiri::HTML.parse(html)
+    masked_html, scripts = mask_scripts(html)
+    doc = Nokogiri::HTML.parse(masked_html)
     fragment_dir = File.join(dest, FRAGMENTS_DIR, page_slug)
     FileUtils.mkdir_p(fragment_dir)
 
@@ -43,7 +74,7 @@ module CurrentsGlossaryLazyTabs
       pane['data-currents-lazy'] = 'true'
     end
 
-    doc.to_html
+    unmask_scripts(doc.to_html, scripts)
   end
 
   Jekyll::Hooks.register :site, :post_write do |site|
