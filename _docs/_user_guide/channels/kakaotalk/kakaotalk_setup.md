@@ -103,6 +103,10 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 Only the channels mapped to a single common ID can be registered.
 {% endalert %}
 
+{% alert important %}
+A KakaoTalk Sender Key can only be integrated into one workspace (app group) at a time. If you need to use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact Braze Support to remove the integration. After the integration is removed, you can set up the integration in the new workspace.
+{% endalert %}
+
 #### Infobip
 
 Go to your Infobip dashboard and gather the following information.
