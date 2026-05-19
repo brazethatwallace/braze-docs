@@ -51,14 +51,14 @@ Existing keys reused: `conversion`, `entry`, `failure`, `opens`.
 
 ## D. Test plan
 
-- [ ] `bundle exec jekyll build` succeeds
-- [ ] Filter **Banner** + **Dismissal** → only Banner Dismissal events
-- [ ] Filter **SMS** + **Delivery** + **Failure** → only SMS Delivery Failure (not SMS Delivery)
-- [ ] Filter **SMS** + **Sends** + **Carrier** → only SMS Carrier Send (not SMS Send)
-- [ ] Filter **Agent** + **Tool** → only Tool invocation (not Agent executed)
-- [ ] `?tags=banner,dismissal` pre-checks both boxes; results match AND
-- [ ] `?tags=` and `?tags=banner,` do not break filtering
-- [ ] VoiceOver / search accessibility behavior unchanged
+- [x] `bundle exec jekyll build` succeeds
+- [x] Filter **Banner** + **Dismissal** → only Banner Dismissal events
+- [x] Filter **SMS** + **Delivery** + **Failure** → only SMS Delivery Failure (not SMS Delivery)
+- [x] Filter **SMS** + **Sends** + **Carrier** → only SMS Carrier Send (not SMS Send)
+- [x] Filter **Agent** + **Tool** → only Tool invocation (not Agent executed)
+- [x] `?tags=banner,dismissal` pre-checks both boxes; results match AND
+- [x] `?tags=` and `?tags=banner,` do not break filtering (`parseTagsQueryParam` strips empty tokens)
+- [ ] VoiceOver / search accessibility behavior unchanged (manual QA)
 
 ## E. Out of scope
 
