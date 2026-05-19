@@ -61,7 +61,7 @@ Certain events return a `platform` value that specifies the platform of the user
 Currents will drop events with excessively large payloads of greater than 900&nbsp;KB.
 {% endalert %}
 
-## Canvas and campaign notes
+### Canvas and campaign notes
 
 Objects related to Canvas Flow have IDs that can be used for grouping and translated to human-readable names through the [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
 
