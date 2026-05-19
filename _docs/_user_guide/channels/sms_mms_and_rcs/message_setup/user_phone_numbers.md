@@ -44,7 +44,11 @@ When importing phone numbers, it's important that you follow the [recommended fo
 User phone numbers appear in Braze as a string of digits. If you import a number that contains non-digits (such as `,`, `-`, or `(`) other than the leading {% raw %}`+`{% endraw %}, the non-digits are removed when rendered in Braze. For example, importing `+1 (724) 123-4567` appears as `+17241234567`.
 {% endalert %}
 
-## Handling invalid phone numbers
+## Phone number validation
+
+Braze uses Google's [libphonenumber](https://github.com/google/libphonenumber) library to validate phone numbers. When new mobile number prefixes are introduced, support is added as the upstream library is updated. Braze does not maintain a separate list of valid prefixes.
+
+### Handling invalid phone numbers
 
 When a phone number is deemed invalid, Braze will mark the user's phone number as invalid and will not attempt to send further communications to that phone number. An invalid phone number is marked in the **Engagement Tab** of a user profile.
 
