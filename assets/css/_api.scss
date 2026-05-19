@@ -93,6 +93,22 @@
     &.glossary-overview--hidden {
       display: none;
     }
+    a {
+      font-family: $braze-bold;
+      display: inline;
+      color: $black-shark;
+      font-weight: 700;
+      border-bottom-width: 2px;
+      border-color: $braze-link-color;
+      text-decoration: none;
+      transition: all ease 0.2s;
+      -webkit-transition: all ease 0.2s;
+      -moz-transition: all ease 0.2s;
+      &:hover {
+        background-color: $braze-link-color;
+        color: #fff;
+      }
+    }
   }
 
   .api_div {
