@@ -169,7 +169,7 @@
         var liveMessage = glossaryFormatCount(currentsEventsI18n.showing, result_cnt, total_cnt);
         if (result_cnt === lastAnnouncedCount) {
           altChar = !altChar;
-          if (altChar) liveMessage += '\u00a0';
+          if (altChar) liveMessage += '\xa0';
         }
         lastAnnouncedCount = result_cnt;
         resultsCountLive.text('');
