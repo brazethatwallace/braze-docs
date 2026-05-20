@@ -14,9 +14,9 @@ Quiet hours are configured at the campaign or Canvas level.
 
 ## How quiet hours work
 
-When quiet hours are enabled and a message would otherwise send during the restricted window, Braze holds the message and delivers it at the next available time after quiet hours end.
+When quiet hours are enabled and a message would otherwise be sent during the restricted window, Braze holds the message and delivers it at the next available time after quiet hours end.
 
-For example, if quiet hours run from 10:00 PM to 6:00 AM and a message is scheduled for 5:30 AM, Braze delivers it at 6:00 AM instead.
+For example, if quiet hours run from 10 pm to 6 am and a message is scheduled for 5:30 am, Braze delivers it at 6 am instead.
 
 {% alert note %}
 Quiet hours apply in each user's local time zone.

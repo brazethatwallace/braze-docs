@@ -187,7 +187,7 @@ To view additional statistics, such as the average lifetime revenue for targeted
 
 ### Step 1.4: Select your send settings
 
-Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over messaging them.
+Select **Send Settings** to edit your subscription settings, turn on rate limiting, and to turn on [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/). By turning on [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) or [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), you can ease the marketing pressure placed on your users and ensure you aren't over-messaging them.
 
 For Canvases targeting email and push channels, you may want to limit your Canvas so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in status:
 
@@ -203,7 +203,7 @@ These subscription settings are applied on a per-step basis, meaning that there 
 With this configuration, don't include any filters in the **Target Audience** step that limits the audience to a single channel (for example, `Foreground Push Enabled = True` or `Email Subscription = Opted-In`).
 {% endalert %}
 
-If desired, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) (the time during which your messages will not be sent) for your Canvas. Check **Enable Quiet Hours** in your **Send Settings**. Then, select your quiet hours in your user's local time and what action will follow if the message triggers inside of those quiet hours.
+If desired, specify [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) (the time during which your messages will not be sent) for your Canvas. Check **Enable Quiet Hours** in your **Send Settings**. Then, select your quiet hours in your user's local time and what action will follow if the message triggers inside of those quiet hours.
 
 ![The "Quiet Hours" page displaying a checkbox for enabling quiet hours. If enabled, the start time, end time, and fallback behavior can be set.]({% image_buster /assets/img/quiet_hours.png %})
 
