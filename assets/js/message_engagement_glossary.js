@@ -47,10 +47,10 @@
     });
   }
 
-  function matchAllTags(required, items) {
+  function matchAnyTag(required, items) {
     if (!required.length) return true;
     var lower = items.map(function (i) { return i.trim().toLowerCase(); });
-    return required.every(function (r) { return lower.indexOf(r.trim().toLowerCase()) > -1; });
+    return required.some(function (r) { return lower.indexOf(r.trim().toLowerCase()) > -1; });
   }
 
   /*  fragment cache & loader  */
@@ -133,7 +133,7 @@
       var apitags = tagsLower ? tagsLower.split(',') : [];
       var filtered = false;
 
-      if (selected_vals.length && apitags.indexOf('all') === -1 && !matchAllTags(selected_vals, apitags)) {
+      if (selected_vals.length && apitags.indexOf('all') === -1 && !matchAnyTag(selected_vals, apitags)) {
         filtered = true;
       }
       if (!filtered && search_str) {
