@@ -24,10 +24,12 @@ Quiet hours apply in each user's local time zone.
 
 ## Quiet hours and Intelligent Timing
 
-Quiet hours and Intelligent Timing operate independently. Enabling quiet hours does not require Intelligent Timing to be on, and the same is true in reverse.
+Quiet hours and Intelligent Timing operate independently. Enabling quiet hours does not require Intelligent Timing to be on, and the same is true in reverse. In general, we recommend choosing one or the other rather than using both together, unless there are policy, compliance, or other requirements that make quiet hours necessary alongside Intelligent Timing.
 
 - **Without Intelligent Timing:** Quiet hours act as a no-send window for your scheduled send time. If the scheduled time falls within quiet hours, the message is held and sent when the window closes.
 - **With Intelligent Timing:** Braze still calculates each user's optimal send time. If that time falls within quiet hours, the message is held and delivered at the nearest edge of the quiet window instead.
+
+For more information on configuring quiet hours within an Intelligent Timing campaign, see [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/).
 
 ## Things to consider
 
