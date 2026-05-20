@@ -50,3 +50,11 @@ Yes. The destination Canvas can have a draft or idle status.
 ### Are context variables preserved?
 
 Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) of the source Canvas is always passed to the destination Canvas.
+
+### Do users enter at the start of the destination Canvas?
+
+Users enter at the start of the destination Canvas. At this time, you can't link to a specific Canvas step inside the destination Canvas.
+
+### How does advancement behavior work for Send to Destination steps?
+
+Users who enter the Send to Destination step continue their user journey if there are additional steps in the source Canvas. If users also meet the entry rules of the destination Canvas, they can enter that Canvas and begin that journey.
