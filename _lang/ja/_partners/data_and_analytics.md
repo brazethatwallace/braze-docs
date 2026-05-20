@@ -97,7 +97,7 @@ valid_partner_list:
   url: /docs/partners/redpoint/
 - name: Rudderstack
   url: /docs/partners/rudderstack/
-- name: Segment
+- name: セグメント
   url: /docs/partners/segment/
 - name: Simon Data
   url: /docs/partners/simon_data/

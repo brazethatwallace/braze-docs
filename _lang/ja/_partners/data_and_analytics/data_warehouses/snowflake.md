@@ -18,10 +18,10 @@ BrazeはSnowflakeとの2つの統合を提供しています。これらを組�
 
 ### データ共有（BrazeからSnowflake） {#data-sharing-braze-to-snowflake}
 
-Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)により、BrazeのエンゲージメントおよびCampaignデータにSnowflakeインスタンスから直接、安全かつリアルタイムにアクセスできます。アカウント間でデータのコピーや転送は行われません。すべての共有はSnowflake独自のサービスレイヤーとメタデータストアを介して行われます。
+Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)により、BrazeのエンゲージメントおよびキャンペーンデータにSnowflakeインスタンスから直接、安全かつリアルタイムにアクセスできます。アカウント間でデータのコピーや転送は行われません。すべての共有はSnowflake独自のサービスレイヤーとメタデータストアを介して行われます。
 
 **データ共有は次のような場合に使用します。**
-- Snowflake SQLを使用してBrazeのイベントおよびCampaignデータをクエリする
+- Snowflake SQLを使用してBrazeのイベントおよびキャンペーンデータをクエリする
 - 複雑なレポートを作成し、アトリビューションモデリングを実行する
 - BrazeデータをSnowflakeウェアハウス内の他のデータと結合する
 - チャネル、業界、デバイスプラットフォーム全体でエンゲージメントデータをベンチマークする
@@ -87,7 +87,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して次の
 - 生のイベントまたはユーザーデータをCRM（Salesforceなど）にマッピングする
 - その他多数
 
-利用可能なテーブルと列の完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。Snowflakeデータ共有には、そのリファレンスのすべてのテーブルに加え、スナップショット、CampaignおよびCanvasの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルが含まれます。
+利用可能なテーブルと列の完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。Snowflakeデータ共有には、そのリファレンスのすべてのテーブルに加え、スナップショット、キャンペーンおよびキャンバスの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルが含まれます。
 
 [未加工のテーブルスキーマをダウンロード]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})してテキストファイルとして確認することもできます。
 

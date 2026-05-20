@@ -1,7 +1,7 @@
 ---
 nav_title: Digioh
 article_title: Digioh
-description: "この参考記事では、BrazeとDigiohのパートナーシップについて概説しています。Digiohは、ポップアップ、フォーム、アンケート、コミュニケーションのユーザー設定センターを作成し、BrazeのCampaignsを通じてエンゲージメントを促進する調査プラットフォームです。"
+description: "この参考記事では、BrazeとDigiohのパートナーシップについて概説しています。Digiohは、ポップアップ、フォーム、アンケート、コミュニケーションのユーザー設定センターを作成し、Brazeのキャンペーンを通じてエンゲージメントを促進する調査プラットフォームです。"
 alias: /partners/digioh/
 page_type: partner
 search_tag: Partner
@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Digioh
 
-> [Digioh](https://www.digioh.com/)は、リストの増加、ファーストパーティデータの取得、およびBrazeのCampaignsでのそのデータの活用をサポートします。
+> [Digioh](https://www.digioh.com/)は、リストの増加、ファーストパーティデータの取得、およびBrazeのキャンペーンでのそのデータの活用をサポートします。
 
 _この統合はDigiohによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとDigiohの統合により、ドラッグ＆ドロップビルダーを使用して、顧客とつながるオンブランドのフォーム、ポップアップ、ユーザー設定センター、ランディングページ、アンケートを作成できます。Digiohは統合セットアップを支援し、最初のCampaignの構築、デザイン、起動をサポートします。
+BrazeとDigiohの統合により、ドラッグ＆ドロップビルダーを使用して、顧客とつながるオンブランドのフォーム、ポップアップ、ユーザー設定センター、ランディングページ、アンケートを作成できます。Digiohは統合セットアップを支援し、最初のキャンペーンの構築、デザイン、起動をサポートします。
 
 !["Digiohで柔軟性の高いメールとコミュニケーションのユーザー設定センターを作成する"]({% image_buster /assets/img/digioh/pref_pop_examples.png %}){: style="border:0"}
 

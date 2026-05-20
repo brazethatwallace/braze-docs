@@ -25,7 +25,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withURI: uri)
 ```
 
@@ -51,14 +51,14 @@ inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withUR
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL) onInAppMessageClicked:(ABKInAppMessage *)inAppMessage;
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 ```
 
@@ -72,7 +72,7 @@ func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)onInAppMessageButtonClicked:(ABKInAppMessageImmersive *)inAppMessage
                              button:(ABKInAppMessageButton *)button;
 
@@ -84,7 +84,7 @@ func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func onInAppMessageButtonClicked(inAppMessage: ABKInAppMessageImmersive!,
                                  button: ABKInAppMessageButton) -> Bool
 
@@ -102,7 +102,7 @@ func onInAppMessageHTMLButtonClicked(inAppMessage: ABKInAppMessageHTML!,
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 if ([inAppMessage isKindOfClass:[ABKInAppMessageImmersive class]]) {
       ABKInAppMessageImmersive *immersiveIAM = (ABKInAppMessageImmersive *)inAppMessage;
       NSArray<ABKInAppMessageButton *> *buttons = immersiveIAM.buttons;
@@ -115,7 +115,7 @@ if ([inAppMessage isKindOfClass:[ABKInAppMessageImmersive class]]) {
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 if inAppMessage is ABKInAppMessageImmersive {
       let immersiveIAM = inAppMessage as! ABKInAppMessageImmersive;
       for button in inAppMessage.buttons as! [ABKInAppMessageButton]{

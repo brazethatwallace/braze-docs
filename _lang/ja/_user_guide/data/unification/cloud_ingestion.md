@@ -29,7 +29,7 @@ Brazeクラウドデータ取り込み機能を使用すると、以下のこと
 - データウェアハウスからBrazeへ、属性、イベント、購入履歴を含むユーザーデータを安全に同期できます。
 - クラウドデータ取り込みをCurrentsまたはSnowflakeデータ共有と組み合わせることで、Brazeでデータループを閉じることができます。
 
-さらに、[接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/)はゼロコピーの代替手段です。Brazeがデータウェアハウスやファイルストレージソリューションに直接クエリを実行してCDI Segmentを構築できます。基盤となるデータをBrazeにコピーする必要は一切ありません。
+さらに、[接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/)はゼロコピーの代替手段です。Brazeがデータウェアハウスやファイルストレージソリューションに直接クエリを実行してCDI セグメントを構築できます。基盤となるデータをBrazeにコピーする必要は一切ありません。
 
 ## サポートされるデータソース {#supported-data-sources}
 

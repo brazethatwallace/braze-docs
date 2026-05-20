@@ -6,7 +6,7 @@
   - type (required): "canvas" or "campaign" — selects the dashboard analytics label in the sentence.
 {% endcomment %}
 {% if include.type == 'canvas' %}
-{% capture dashboard_match %}ダッシュボードのCanvas分析{% endcapture %}
+{% capture dashboard_match %}ダッシュボードのキャンバス分析{% endcapture %}
 {% elsif include.type == 'campaign' %}
 {% capture dashboard_match %}ダッシュボードのエンゲージメント分析{% endcapture %}
 {% endif %}

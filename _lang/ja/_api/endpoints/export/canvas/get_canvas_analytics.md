@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Canvasデータシリーズ分析のエクスポート"
-article_title: "GET: Canvasデータシリーズ分析のエクスポート"
+nav_title: "GET: キャンバスデータシリーズ分析のエクスポート"
+article_title: "GET: キャンバスデータシリーズ分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
+description: "この記事では、キャンバスデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# Canvasデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
+# キャンバスデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
 {% apimethod get %}
 /canvas/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの時系列データをエクスポートします。
+> このエンドポイントを使用して、キャンバスの時系列データをエクスポートします。
 
 {% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
 

@@ -75,7 +75,7 @@
 {% elsif include.platform == "Android" %}
 この値をオーバーライドするには、`braze.xml` で `com_appboy_trigger_action_minimum_time_interval_seconds` を次のように設定します。
 
-```xml
+`````````xml
   <integer name="com_appboy_trigger_action_minimum_time_interval_seconds">5</integer>
 ```
 {% endif %}

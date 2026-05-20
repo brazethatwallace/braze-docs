@@ -79,15 +79,15 @@ Meta Business Managerで、**Account Tools**の下にある**Message Templates**
 
 #### テンプレートの承認時間 {#template-approval-time}
 
-メッセージテンプレートの承認ステータスは、Meta Business Managerの**Message Template**ページ、またはBrazeでCampaignやCanvasを作成する際に確認できます。さらに、通知権限の設定に応じて、WhatsAppチームからメールで通知を受け取ることもできます。
+メッセージテンプレートの承認ステータスは、Meta Business Managerの**Message Template**ページ、またはBrazeでキャンペーンやキャンバスを作成する際に確認できます。さらに、通知権限の設定に応じて、WhatsAppチームからメールで通知を受け取ることもできます。
 
 {% alert note %}
-承認済みテンプレートは、任意の数のCampaignやCanvasesで使用できます。また、任意の数のオプトインユーザーに送信することもできます。これは、テンプレートの品質が低下しない限り有効です。
+承認済みテンプレートは、任意の数のキャンペーンやキャンバスで使用できます。また、任意の数のオプトインユーザーに送信することもできます。これは、テンプレートの品質が低下しない限り有効です。
 {% endalert %}
 
-### ステップ 4:WhatsApp Campaignを作成する {#step-4-create-a-whatsapp-campaign}
+### ステップ 4:WhatsApp キャンペーンを作成する {#step-4-create-a-whatsapp-campaign}
 
-WhatsAppテンプレートが承認されたら、ダッシュボードに移動して[WhatsApp CanvasまたはCampaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を作成できます。
+WhatsAppテンプレートが承認されたら、ダッシュボードに移動して[WhatsApp キャンバスまたはキャンペーン]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を作成できます。
 
 {% alert note %}
 WhatsApp Businessアカウントが作成されると、Metaが初期メッセージング制限を決定します。詳細については、[スループット]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/#throughput)をご確認ください。

@@ -7,7 +7,7 @@ guide_top_text: "キャンペーンを送信する前に、必ずメッセージ
 page_order: 4
 
 tool:
-  - Campaigns
+  - キャンペーン
   - Reports
 page_type: landing
 description: "このランディングページでは、キャンペーンのテストとヒントをまとめています。テストメッセージの送信やABテストの実施など、キャンペーンのテストに関するリソースをご覧いただけます。"
