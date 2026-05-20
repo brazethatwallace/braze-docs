@@ -3688,7 +3688,6 @@ validurls['/docs/user_guide/brazeai/operator/getting_started'] = '/docs/user_gui
 validurls['/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/#things-to-know'] = '/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables';
 validurls['/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties'] = '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties';
 
-// validurls['OLD'] = 'NEW';
 validurls['/docs/user_guide/personalization_and_dynamic_content'] = '/docs/user_guide/messaging/design_and_edit/personalize';
 validurls['/docs/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#inserting-pre-formatted-variables'] = '/docs/user_guide/messaging/design_and_edit/personalize/dashboard_tools/#insert-pre-formatted-variables-and-defaults';
 validurls['/docs/user_guide/personalization_and_dynamic_content/liquid/using_liquid/#liquid-editor-enhancements'] = '/docs/user_guide/messaging/design_and_edit/personalize/dashboard_tools/#liquid-editor-enhancements';
@@ -4675,6 +4674,8 @@ validurls['/docs/user_guide/messaging_fundamentals/re_eligibility'] = '/docs/use
 validurls['/docs/user_guide/messaging_fundamentals/sending_test_messages'] = '/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages';
 validurls['/docs/user_guide/messaging_fundamentals/target_users'] = '/docs/user_guide/messaging/messaging_fundamentals/target_users';
 
+validurls['/docs/user_guide/brazeai/intelligence_suite/tutorial/'] = '/docs/user_guide/brazeai/intelligence_suite/use_case/';
+
 // Platform URL mapping audit (2026-05): old in-product URLs → current docs paths
 validurls['/docs/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting/#message-performance'] = '/docs/user_guide/channels/email/reporting/#email-performance';
 validurls['/docs/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#estimated-real-open-rate'] = '/docs/user_guide/channels/email/reporting#estimated-real-open-rate';
@@ -4787,3 +4788,5 @@ validurls['/docs/user_guide/engagement_tools/landing_pages/personalizing_pages/#
 validurls['/docs/user_guide/engagement_tools/landing_pages/personalizing_pages/#how-to-avoid-unpublishing'] = '/docs/user_guide/messaging/landing_pages/personalize_landing_pages/#avoid-unpublishing-landing-pages';
 validurls['/docs/partners/data_and_analytics/cohort_import/overview'] = '/docs/partners/data_and_analytics/cohort_import';
 validurls['/docs/developer_guide/in_app_messages/tutorials/defer_and_restore_triggered_messages'] = '/docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages';
+
+// validurls['OLD'] = 'NEW';
