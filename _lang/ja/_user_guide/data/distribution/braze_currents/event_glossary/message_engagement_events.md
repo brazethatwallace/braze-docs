@@ -179,7 +179,7 @@ Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つ�
 ## ツール呼び出しイベント {#tool-invocation-events}
 
 {% apitags %}
-Agent
+エージェント
 {% endapitags %}
 
 これは、ツールが実行された際の Kafka レコードスキーマです。ツールとは、目的を達成するために LLM に提供される関数です。

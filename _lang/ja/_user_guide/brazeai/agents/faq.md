@@ -38,7 +38,7 @@ Braze Autoモデルを使用するメリットには以下があります。
 
 ### エージェントが指示やルールに従わないのはなぜですか？ {#why-did-my-agent-not-follow-my-instructions-or-rules}
 
-[Operator]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して、エージェントが指示に従わない理由をトラブルシューティングすることを検討してください。Operatorはステップバイステップの手順と詳細な説明を提供できます。
+[オペレーター]({{site.baseurl}}/user_guide/brazeai/operator/)を使用して、エージェントが指示に従わない理由をトラブルシューティングすることを検討してください。オペレーターはステップバイステップの手順と詳細な説明を提供できます。
 
 ### エージェントが複雑なタスクに苦戦しています。パフォーマンスを改善するにはどうすればよいですか？ {#subagent-approach}
 

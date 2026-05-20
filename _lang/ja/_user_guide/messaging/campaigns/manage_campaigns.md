@@ -6,14 +6,14 @@ guide_top_header: "キャンペーンの管理"
 guide_top_text: "キャンペーンを起動したら、あとはデータが届くのを見守りましょう。キャンペーンに変更を加えたり、アラートを設定したり、キャンペーンをアーカイブしたりする必要がある場合は、以下の記事を参考にしてください。"
 page_order: 3
 
-tool: Campaigns
+tool: キャンペーン
 page_type: landing
 description: "このランディングページでは、キャンペーンの管理について説明します。キャンペーンの承認、複製、アラート、アーカイブ、起動後のキャンペーン変更などに関する記事をご覧いただけます。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
-  - name: 起動後のキャンペーン変更
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/change_your_campaign_after_launch
+  - name: 起動後のキャンペーン編集
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: キャンペーンアラート
     link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts

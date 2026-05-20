@@ -20,7 +20,7 @@ channel:
 
 ### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
-**テンプレート** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
+**コンテンツ** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
 
 ![新しいテンプレートを作成するボタンがあるWhatsAppテンプレートページ。]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

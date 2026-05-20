@@ -139,7 +139,7 @@ return brazecall;
     * **Request Headers**：
       * `Content-Type`: `application/json`
       * `X-AUTH-TOKEN`: `<YOUR_PERMANENT_TOKEN>`
-      * `User-Agent: Braze`
+      * `User-エージェント: Braze`
 5.  **Request Body**：`Raw text`を選択し、ペイロードを貼り付けます。
 
 ```json

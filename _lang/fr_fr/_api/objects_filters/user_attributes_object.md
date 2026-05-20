@@ -143,6 +143,10 @@ Pour des exemples d'API utilisant `add`, `remove` et `update`, consultez l'[exem
 Les champs de profil utilisateur suivants sont sensibles à la casse. Veillez à les référencer en minuscules.
 {% endalert %}
 
+{% alert tip %}
+Pour une référence des attributs standard destinée aux utilisateurs, organisée par catégorie et incluant des conseils pour le SDK, l'API, le CSV et l'Ingestion de données cloud, consultez la section [Attributs standard]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
+{% endalert %}
+
 | Champ de profil utilisateur | Spécification du type de données |
 | ---| --- |
 | alias_name | (string) |
@@ -171,7 +175,7 @@ Les champs de profil utilisateur suivants sont sensibles à la casse. Veillez à
 | subscription_groups| Tableau d'objets avec les chaînes de caractères `subscription_group_id` et `subscription_state`, par exemple, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Les valeurs disponibles pour `subscription_state` sont « subscribed » et « unsubscribed ».|
 | time_zone | (chaîne de caractères) Nom du fuseau horaire provenant de la [base de données des fuseaux horaires de l'IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (par exemple, « America/New_York » ou « Eastern Time (US & Canada) »). Seules les valeurs de fuseau horaire valides sont définies. |
 | twitter | Hachage contenant l'un des éléments suivants : `id` (integer), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (integer), `friends_count` (integer), `statuses_count` (integer). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs de profil utilisateur Braze" }
 
 Les paramètres linguistiques explicitement définis via cette API ont priorité sur les informations régionales que Braze reçoit automatiquement de l'appareil.
 
@@ -327,7 +331,7 @@ La remarque suivante s'applique uniquement aux applications Android. Les applica
 
 Si vous devez envoyer des notifications push Android à vos utilisateurs avant que l'intégration du SDK Braze ne soit terminée, utilisez des paires clé-valeur pour valider les notifications push.
 
-Vous devez disposer d'un récepteur pour gérer et afficher les payloads de notification push. Pour notifier le récepteur du payload, ajoutez les paires clé-valeur nécessaires à la campagne push. Les valeurs de ces paires dépendent du partenaire push spécifique que vous utilisiez avant Braze.
+Vous devez disposer d'un récepteur pour gérer et afficher les payloads de notification push. Pour notifier le récepteur du payload, ajoutez les paires clé-valeur nécessaires à la Campaign push. Les valeurs de ces paires dépendent du partenaire push spécifique que vous utilisiez avant Braze.
 
 {% alert note %}
 Pour certains fournisseurs de notifications push, Braze doit aplatir les paires clé-valeur afin qu'elles puissent être correctement interprétées. Pour aplatir les paires clé-valeur d'une application Android spécifique, contactez votre gestionnaire de la satisfaction client.

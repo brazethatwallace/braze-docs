@@ -95,7 +95,7 @@ WhatsAppオブジェクトの完全な仕様については、[WhatsAppオブジ
 ### ステップ1：APIトリガー型キャンペーンを作成する {#step-1-create-an-api-triggered-campaign}
 
 1. Brazeダッシュボードで、**Messaging** > **キャンペーン**に移動します。
-2. **Create Campaign**を選択し、次に**API-Triggered Campaign**（「API Campaign」ではありません）を選択します。
+2. **Create キャンペーン**を選択し、次に**API-Triggered キャンペーン**（「API キャンペーン」ではありません）を選択します。
 3. メッセージチャネル（WhatsApp、メール、SMSなど）を追加し、ダッシュボードでメッセージ内容を作成します。
 4. **キャンペーン ID**（複数のメッセージバリアントを使用する場合は**Send ID**も）をメモしておきます。これらをAPIリクエストで使用します。
 

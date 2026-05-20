@@ -68,6 +68,10 @@ Content Cardsの[メッセージステップ]({{site.baseurl}}/user_guide/messag
 
 ![Content Cardsの有効期限にコンテキスト変数を使用して「Personalize duration」が設定された有効期限設定。]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cardsの最大有効期限は30日間です。コンテキスト変数を使用したパーソナライズされた期間を使用する場合でも同様です。30日を超える値を設定しても、30日に制限されます。詳細については、[カードの有効期限]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration)を参照してください。
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 

@@ -8,7 +8,7 @@ guide_top_text: "このセクションでは、Brazeが提供する3つの配信
 
 page_type: landing
 description: "このセクションでは、3つのキャンペーン配信方法（スケジュール配信、アクションベースの配信、APIトリガー配信）と、それぞれの設定方法および使い方について説明します。"
-tool: Campaigns
+tool: キャンペーン
 
 guide_featured_title: "配信タイプ"
 guide_featured_list:

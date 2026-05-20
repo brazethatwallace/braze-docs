@@ -12,6 +12,8 @@ description: "このリファレンス記事では、カスタムHTTPコネク�
 
 > カスタムCurrentsコネクターを統合して、Brazeからリアルタイムでイベントデータを取得し、よりカスタマイズされた分析、レポート、オートメーションを実現する方法を説明します。
 
+{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
+
 ## 前提条件 {#prerequisites}
 
 BrazeでカスタムCurrentsコネクターを統合するには、エンドポイントURLと[オプションの認証トークン](#authentication)を提供する必要があります。
@@ -20,11 +22,11 @@ BrazeでカスタムCurrentsコネクターを統合するには、エンドポ�
 
 ## 統合 {#integration}
 
-### ステップ 1:エンドポイントを設定する {#step-1-set-up-your-endpoint}
+### ステップ1:エンドポイントを設定する {#step-1-set-up-your-endpoint}
 
 この統合を設定するには、エンドポイントURLが必要です。エンドポイントはHTTP POSTリクエストを受信し、イベントの正常な受信を確認するために`2XX`ステータスコードを返す必要があります。Brazeからのリクエストを認証する場合は、ベアラートークンも必要です。
 
-### ステップ 2:Braze Currentsを設定する {#step-2-configure-braze-currents}
+### ステップ2:Braze Currentsを設定する {#step-2-configure-braze-currents}
 
 Brazeで、**パートナー連携** > **データのエクスポート**に移動し、**Create New Current**をクリックして、**Custom Currents Export**を選択します。
 

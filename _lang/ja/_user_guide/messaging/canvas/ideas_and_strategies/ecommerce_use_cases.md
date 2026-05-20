@@ -19,7 +19,7 @@ toc_headers: h2
 
 キャンバス テンプレートを使用するには:
 1. **Messaging** > **キャンバス** に移動します。
-2. **Create キャンバス** > **Use a Canvas Template** を選択します。
+2. **Create キャンバス** > **Use a キャンバス Template** を選択します。
 3. **Braze templates** タブで使用したいテンプレートを探します。テンプレート名を選択するとプレビューできます。
 4. 使用したいテンプレートの **Apply Template** を選択します。<br><br>![「キャンバス templates」ページが「Braze templates」タブで開かれ、最近使用したテンプレートと選択可能な Braze テンプレートのリストが表示されています。]({% image_buster /assets/img_archive/apply_template.png %}){: style="max-width:80%;"}
 

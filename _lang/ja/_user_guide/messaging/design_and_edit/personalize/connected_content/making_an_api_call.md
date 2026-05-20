@@ -222,16 +222,16 @@ Braze はすべてのサービスに使用される予約済みの IP セット�
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
 
-### `User-Agent` ヘッダー
+### `User-エージェント` ヘッダー
 
-Braze はすべてのコネクテッドコンテンツおよび Webhook リクエストに、以下のような `User-Agent` ヘッダーを含めます。
+Braze はすべてのコネクテッドコンテンツおよび Webhook リクエストに、以下のような `User-エージェント` ヘッダーを含めます。
 
 `````````text
 Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 ```
 
 {% alert tip %}
-ハッシュ値は定期的に変更されることに注意してください。`User-Agent` でトラフィックをフィルタリングする場合は、`Braze Sender` で始まるすべての値を許可してください。
+ハッシュ値は定期的に変更されることに注意してください。`User-エージェント` でトラフィックをフィルタリングする場合は、`Braze Sender` で始まるすべての値を許可してください。
 {% endalert %}
 
 ## トラブルシューティング

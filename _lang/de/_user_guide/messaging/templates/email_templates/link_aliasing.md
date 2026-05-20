@@ -262,7 +262,9 @@ Im Drag-and-Drop-Editor validieren Felder, die einen Link enthalten (z. B. eine 
 
 ### Content-Block-Beispiel {#content-block-example}
 
+{% raw %}
 Wenn ein Content Block einen Link wie `https://www.braze.com/{{custom_attribute.${offer_id}}}` ohne abschließendes `?` oder `&` enthält, weiß Braze nicht, wo `lid` angehängt werden soll, sodass der Link nicht für **Link Management** erfasst wird. Fügen Sie `?` oder `&` am Ende der URL im Content Block hinzu (je nachdem, ob bereits ein Query-String vorhanden ist), speichern Sie den Content Block, und der Link kann erkannt werden.
+{% endraw %}
 
 ### Reporting, wenn die URL pro Nutzer:in variiert {#reporting-when-the-url-varies-per-user}
 

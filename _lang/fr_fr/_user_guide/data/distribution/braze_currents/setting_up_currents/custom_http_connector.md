@@ -12,6 +12,8 @@ description: "Cet article de référence explique comment configurer un connecte
 
 > Découvrez comment intégrer un connecteur Currents personnalisé afin de recevoir les données d'événements de Braze en temps réel, pour des analyses, des rapports et une automatisation plus personnalisés.
 
+{% multi_lang_include early_access_beta_alert.md feature='The Custom HTTP Connector' type='beta' %}
+
 ## Conditions préalables {#prerequisites}
 
 Pour intégrer un connecteur Currents personnalisé dans Braze, vous devrez fournir une URL d'endpoint et un [jeton d'authentification facultatif](#authentication).
@@ -26,7 +28,7 @@ Vous aurez besoin d'une URL d'endpoint pour configurer cette intégration. Votre
 
 ### Étape 2 : Configurer Braze Currents {#step-2-configure-braze-currents}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Exportation de données**, cliquez sur **Create New Current** et sélectionnez **Custom Currents Export**.
+Dans Braze, accédez à **Partner Integrations** > **Data Export**, cliquez sur **Create New Current** et sélectionnez **Custom Currents Export**.
 
 Donnez un nom à votre export ainsi qu'un e-mail de contact, puis passez à la page **Current Details**. Sur cette page, saisissez l'URL de votre endpoint et le jeton bearer facultatif.
 

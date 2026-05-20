@@ -140,7 +140,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 異なるワークスペースを同じSnowflakeアカウントに接続する場合は、連携を作成するBrazeワークスペースごとに一意のユーザーを作成する必要があります。ワークスペース内では、複数の連携にわたって同じユーザーを再利用できますが、同じSnowflakeアカウントのユーザーが複数のワークスペースで重複すると、連携の作成に失敗します。
 {% endalert %}
 
-#### ステップ 1.5: Snowflakeネットワークポリシーで Braze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
+#### ステップ 1.5: SnowflakeネットワークポリシーでBraze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシーで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
@@ -471,9 +471,16 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 ソースの名前を選択し、Snowflakeの認証情報と設定を入力して、次のステップに進みます。
 
-{% alert note %}
-**Snowflake Account Locator**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。通常、`xy12345.us-east-1.aws`のような形式です。これはデータベース名やウェアハウス名とは異なります。
-{% endalert %}
+続行する前に、**Snowflake Account Locator**に入力する値を確認してください。
+
+**Snowflake Account Locator**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。`myorganization-myaccount`のようなアカウント識別子の値のみを入力してください。`https://`、`.snowflakecomputing.com`、またはパスは含めないでください。
+
+Snowflakeのアカウント識別子を確認するには:
+
+1. Snowsightで、アカウントメニューを選択します。
+2. **View account details**を選択します。
+3. **Account identifier**の値をコピーします。
+4. SnowflakeのURLからコピーする場合は、`.snowflakecomputing.com`より前の値のみを使用してください。
 
 #### ステップ 2.2: Brazeユーザーへの公開キーの追加 {#step-22-add-a-public-key-to-the-braze-user}
 

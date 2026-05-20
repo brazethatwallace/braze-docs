@@ -17,7 +17,7 @@ description: "このリファレンス記事では、SDKインテグレーショ
 
 ## 前提条件 {#prerequisites}
 
-内部グループを作成・管理するには、[開発者コンソールへのアクセスのレガシー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions)、または以下の[詳細権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions)が必要です。
+内部グループを作成・管理するには、以下の[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
 - APIキーの表示
 - APIキーの編集
@@ -32,8 +32,6 @@ description: "このリファレンス記事では、SDKインテグレーショ
 - API使用状況アラートの編集
 - SDKデバッガーの編集
 - SDKデバッガーの表示
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ## 内部グループの作成 {#creating-an-internal-group}
 
@@ -133,6 +131,6 @@ IPプールを使用してメールを送信する場合、利用可能なドロ
 
 #### キャンバスの場合 {#for-canvas}
 
-キャンバスのシードグループはトリガーされたどのようなキャンペーンとも同様に機能します。Brazeはメールメッセージを含むすべてのステップを自動的に検出し、ユーザーがその特定のメールステップに初めて到達したときに送信します。
+キャンバスのシードグループは、トリガーされたキャンペーンと同様に機能します。Brazeはメールメッセージを含むすべてのステップを自動的に検出し、ユーザーがその特定のメールステップに初めて到達したときに送信します。
 
 シードグループにメールが送信された後にメールステップが更新された場合、Brazeは更新されたステップのみに送信するか、すべてのステップに送信するか、またはシードをオフにするかのオプションを提示します。

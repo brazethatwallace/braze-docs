@@ -1,9 +1,5 @@
 ## 細粒度権限の移行 {#granular-permissions-migration}
 
-{% alert important %}
-細粒度権限は早期アクセス段階にあります。会社の移行が計画された場合、Brazeの管理者はメールとダッシュボード上のバナーで[細粒度権限の移行]({{site.baseurl}}/granular_permissions_migration/)について通知を受け取ります。
-{% endalert %}
-
 既存のSCIM統合と[レガシーSCIM APIオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api)は、4月下旬の細粒度権限移行後も引き続き動作します。
 
 すぐに何かアクションを起こす必要はありません。ただし、細粒度化される権限について統合設定を確認することをお勧めします。例えば、現在APIで `basic_access` を送信している場合、細粒度化後に統合を更新し、特定の権限（例：`"appGroupPermissions":["view_campaigns","edit_campaigns"]`）を含めることをお勧めします。Brazeは、既存の統合が壊れないように、細粒度権限移行後もレガシー文字列（`basic_access` など）を引き続き受け付けます。
@@ -40,7 +36,7 @@ Brazeではアプリグループはワークスペースに改名されました
 
 | キー | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `appGroupName`| オプション | 文字列 | ワークスペースの名前です。このオブジェクトに含まれる権限がどのワークスペースに対するものかを指定するために使用されます。 |
+| `appGroupName` | オプション | 文字列 | ワークスペースの名前です。このオブジェクトに含まれる権限がどのワークスペースに対するものかを指定するために使用されます。 |
 | `appGroupId` | `appGroupName` がない場合は必須 | 文字列 | ワークスペースのIDです。ワークスペースを指定する代替方法として機能します。 |
 | `appGroupPermissionSets` | オプション | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-set-object)を持つ配列です。 |
 | `appGroupPermissions` | 必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-strings)テーブルに基づくワークスペースレベルの権限文字列の配列です。文字列が存在する場合、指定されたワークスペースに対してユーザーが対応する権限を持っていることを示します。 |

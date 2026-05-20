@@ -143,6 +143,10 @@ Für API-Beispiele, die `add`, `remove` und `update` verwenden, siehe [Objekt-Ar
 Bei den folgenden Nutzerprofilfeldern wird zwischen Groß- und Kleinschreibung unterschieden. Achten Sie daher darauf, diese Felder in Kleinbuchstaben zu referenzieren.
 {% endalert %}
 
+{% alert tip %}
+Eine kund:innenorientierte Referenz der Standardattribute, die nach Kategorien geordnet ist und Hinweise für SDK, API, CSV und Cloud-Datenaufnahme enthält, finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
+{% endalert %}
+
 | Nutzerprofilfeld | Datentyp-Spezifikation |
 | ---| --- |
 | alias_name | (String) |
@@ -238,7 +242,7 @@ Bei der manuellen Push-Token-Migration werden diese zuvor erstellten Schlüssel 
 
 Migrieren Sie iOS- (APNs) und Android- (FCM) Tokens programmatisch auf Ihre Plattform mithilfe des [`users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Sie können sowohl identifizierte Nutzer:innen (Nutzer:innen mit einer zugehörigen externen ID) als auch anonyme Nutzer:innen (Nutzer:innen ohne externe ID) migrieren.
 
-Geben Sie während der Push-Token-Migration die `app_id` Ihrer App an, um das entsprechende Push-Token mit der entsprechenden App zu verknüpfen. Jede App (iOS, Android usw.) hat ihre eigene `app_id`, die Sie im Abschnitt **Identifikation** auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) finden. Achten Sie darauf, dass Sie die richtige `app_id` der jeweiligen Plattform verwenden.
+Geben Sie während der Push-Token-Migration die `app_id` Ihrer App an, um das entsprechende Push-Token mit der entsprechenden App zu verknüpfen. Jede App (iOS, Android usw.) hat ihre eigene `app_id`, die Sie im Abschnitt **Identification** auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) finden. Achten Sie darauf, dass Sie die richtige `app_id` der jeweiligen Plattform verwenden.
 
 {% alert important %}
 Es ist nicht möglich, Web-Push-Tokens über die API zu migrieren. Das liegt daran, dass Web-Push-Tokens nicht demselben Schema entsprechen wie andere Plattformen.

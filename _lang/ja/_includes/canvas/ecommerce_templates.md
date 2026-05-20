@@ -75,7 +75,7 @@
 
 #### 設定
 
-Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**カート放棄**テンプレートを適用します。
+キャンバスページで**Use a Canvas Template** > **Braze templates**を選択し、**カート放棄**テンプレートを適用します。
 
 ##### デフォルト設定
 
@@ -176,7 +176,7 @@ Shopifyを使用する場合は、次のLiquidテンプレートを使用して�
 
 #### 設定
 
-Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**購入手続き放棄**テンプレートを適用します。
+キャンバスページで**Use a Canvas Template** > **Braze templates**を選択し、**購入手続き放棄**テンプレートを適用します。
 
 ##### デフォルト設定
 
@@ -264,7 +264,7 @@ Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、
 
 #### 設定
 
-Canvasページで**Use a Canvas Template** > **Braze templates**を選択し、**注文確認とフィードバック調査**テンプレートを適用します。
+キャンバスページで**Use a Canvas Template** > **Braze templates**を選択し、**注文確認とフィードバック調査**テンプレートを適用します。
 
 ##### デフォルト設定
 

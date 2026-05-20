@@ -42,7 +42,7 @@ WhatsApp キャンペーンまたはキャンバスステップを既読した�
 
 #### 特定のWhatsApp キャンペーンを開封/既読したユーザーをリターゲティング {#retarget-users-who-have-openedread-a-specific-whatsapp-campaign}
 
-1. **Clicked/Opened Campaign** フィルターを使用してセグメントを作成します。
+1. **Clicked/Opened キャンペーン** フィルターを使用してセグメントを作成します。
 2. **read WhatsApp message** を選択します。
 3. 目的のキャンペーンを選択します。
 

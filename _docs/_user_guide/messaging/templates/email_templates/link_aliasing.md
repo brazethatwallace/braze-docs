@@ -262,7 +262,9 @@ In the drag-and-drop editor, fields that hold a link (such as a button **URL**) 
 
 ### Content Block example
 
+{% raw %}
 If a Content Block contains a link such as `https://www.braze.com/{{custom_attribute.${offer_id}}}` with no trailing `?` or `&`, Braze does not know where to append `lid`, so the link is not picked up for **Link Management**. Add `?` or `&` at the end of the URL in the Content Block (depending on whether a query string already exists), save the Content Block, and the link can be recognized.
+{% endraw %}
 
 ### Reporting when the URL varies per user
 

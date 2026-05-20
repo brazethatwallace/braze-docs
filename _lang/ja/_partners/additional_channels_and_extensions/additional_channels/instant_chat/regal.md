@@ -236,7 +236,7 @@ Brazeの[データ変換]({{site.baseurl}}/data_transformation/)機能を使用�
 
 1. データ変換に名前を付けてください。イベントWebhookごとにデータ変換を設定することをお勧めします。
 
-2. 接続をテストするには、Regal Agent Desktopから携帯電話への発信コールを作成し、Conversation Summaryフォームを送信してcall.completedイベントを作成します。
+2. 接続をテストするには、Regal エージェント Desktopから携帯電話への発信コールを作成し、Conversation Summaryフォームを送信してcall.completedイベントを作成します。
 
 3. Regalの連絡先をBrazeプロファイルにマッピングするために使用する識別子を決定します。Regalイベントで利用可能な識別子には以下が含まれます：
    - `userId` - この識別子を以前に連絡先に送信した場合にのみ、イベントに設定されます

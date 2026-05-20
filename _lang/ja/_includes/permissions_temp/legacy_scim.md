@@ -88,9 +88,9 @@ Brazeではアプリグループはワークスペースに改名されました
 | 権限名 | SCIM API文字列 |
 | --- | --- |
 | Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
+| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |
@@ -119,9 +119,9 @@ Brazeではアプリグループはワークスペースに改名されました
 | 権限名 | SCIM API文字列 |
 | --- | --- |
 | Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
+| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit セグメント | `edit_segments` |
 | Export User Data | `export_user_data` |

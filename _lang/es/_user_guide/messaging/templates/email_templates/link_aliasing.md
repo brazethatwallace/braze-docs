@@ -262,7 +262,9 @@ En el editor de arrastrar y soltar, los campos que contienen un enlace (como la 
 
 ### Ejemplo de Content Block {#content-block-example}
 
+{% raw %}
 Si un Content Block contiene un enlace como `https://www.braze.com/{{custom_attribute.${offer_id}}}` sin un `?` o `&` final, Braze no sabe dónde añadir `lid`, por lo que el enlace no se detecta para **Link Management**. Añade `?` o `&` al final de la URL en el Content Block (dependiendo de si ya existe una cadena de consulta), guarda el Content Block y el enlace podrá ser reconocido.
+{% endraw %}
 
 ### Informes cuando la URL varía por usuario {#reporting-when-the-url-varies-per-user}
 
