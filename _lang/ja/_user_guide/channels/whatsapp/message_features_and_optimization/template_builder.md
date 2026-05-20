@@ -20,7 +20,7 @@ channel:
 
 ### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
-**テンプレート** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
+**コンテンツ** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
 
 ![新しいテンプレートを作成するボタンがあるWhatsAppテンプレートページ。]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -96,7 +96,7 @@ channel:
 
 WhatsApp テンプレートビルダーでは、現在マーケティングテンプレートのみがサポートされています。
 
-## 承認済みテンプレートをキャンペーンで使用する {#use-an-approved-template-in-a-campaign}
+## 承認済みテンプレートをCampaignで使用する {#use-an-approved-template-in-a-campaign}
 
 Metaがテンプレートを承認した後、WhatsApp CampaignまたはCanvasで使用できます。
 
