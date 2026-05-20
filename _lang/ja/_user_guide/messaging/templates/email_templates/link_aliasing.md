@@ -262,7 +262,9 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 ### Content Blocksの例 {#content-block-example}
 
+{% raw %}
 Content Blocksに`https://www.braze.com/{{custom_attribute.${offer_id}}}`のようなリンクが含まれており、末尾に`?`または`&`がない場合、Brazeは`lid`を付加する場所がわからないため、リンクは**リンク管理**に取得されません。Content Block内のURLの末尾に`?`または`&`を追加し（クエリ文字列がすでに存在するかどうかに応じて）、Content Blocksを保存すると、リンクが認識されるようになります。
+{% endraw %}
 
 ### ユーザーごとにURLが異なる場合のレポート {#reporting-when-the-url-varies-per-user}
 

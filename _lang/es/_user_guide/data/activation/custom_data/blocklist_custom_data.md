@@ -20,47 +20,45 @@ Para bloquear datos personalizados, necesitas los [permisos de usuario]({{site.b
 
 {% details Permisos de usuario para bloquear datos personalizados %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- View Frequency Capping Rules
-- Edit Frequency Capping Rules
-- View Message Prioritization
-- Edit Message Prioritization
-- View Content Blocks
-- View Feature Flags
-- Edit Feature Flags
-- Archive Feature Flags
-- View Segments
-- Edit Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- View Link Templates
-- Edit Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- View Locations
-- Edit Locations
-- Archive Locations
-- View Promotion Codes
-- Edit Promotion Codes
-- Export Promotion Codes
-- View Preference Centers
-- Edit Preference Centers
-- View Reports
-- Edit Reports
+- Ver Campaigns
+- Editar Campaigns
+- Archivar Campaigns
+- Ver Canvas
+- Editar Canvas
+- Archivar Canvas
+- Ver reglas de limitación de frecuencia
+- Editar reglas de limitación de frecuencia
+- Ver priorización de mensajes
+- Editar priorización de mensajes
+- Ver Content Blocks
+- Ver conmutadores de características
+- Editar conmutadores de características
+- Archivar conmutadores de características
+- Ver Segments
+- Editar Segments
+- Ver plantillas de IAM
+- Editar plantillas de IAM
+- Archivar plantillas de IAM
+- Ver plantillas de correo electrónico
+- Editar plantillas de correo electrónico
+- Archivar plantillas de correo electrónico
+- Ver plantillas de Webhook
+- Editar plantillas de Webhook
+- Ver plantillas de enlace
+- Editar plantillas de enlace
+- Ver activos de la biblioteca de medios
+- Editar activos de la biblioteca de medios
+- Eliminar activos de la biblioteca de medios
+- Ver ubicaciones
+- Editar ubicaciones
+- Archivar ubicaciones
+- Ver códigos promocionales
+- Editar códigos promocionales
+- Exportar códigos promocionales
+- Ver centros de preferencias
+- Editar centros de preferencias
+- Ver informes
+- Editar informes
 
 {% enddetails %}
 
@@ -78,7 +76,7 @@ Para dejar de rastrear un atributo personalizado, evento o producto específico,
 2. Selecciona el atributo personalizado, evento o producto. Para atributos personalizados y eventos, puedes seleccionar hasta 100 para bloquear a la vez.
 3. Selecciona **Blocklist**.
 
-![Múltiples atributos personalizados seleccionados que están bloqueados en la página de Atributos personalizados.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
+![Múltiples atributos personalizados seleccionados que están bloqueados en la página de atributos personalizados.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
 Puedes bloquear hasta 300 atributos personalizados y 300 eventos personalizados. Para evitar la recopilación de ciertos atributos de dispositivo, consulta nuestra [guía del SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection).
 

@@ -27,15 +27,15 @@ channel:
 
 Braze는 모든 링크 URL에 `lid`(링크 식별자라고도 함)라는 추가 매개변수를 추가하여 이메일 내 링크를 고유하게 식별합니다. 이 `lid` 값을 통해 Braze는 나머지 URL 매개변수가 다르더라도 링크에 대한 사용자 상호작용을 추적, 모니터링 및 집계할 수 있습니다. 이를 통해 사용자가 이메일 캠페인의 콘텐츠에 어떻게 참여하는지에 대한 인사이트를 제공합니다.
 
-이메일 캠페인, 이메일 메시지가 포함된 Canvas 또는 Content Blocks이 복제되면 링크 식별자도 업데이트됩니다.
+이메일 Campaign, 이메일 메시지가 포함된 Canvas 또는 Content Blocks이 복제되면 링크 식별자도 업데이트됩니다.
 
 ## 링크 별칭 생성 {#creating-a-link-alias}
 
 {% alert important %}
-**Link Management**는 Braze가 계정에 대해 링크 관리를 활성화하면 캠페인 또는 Canvas 이메일 작성기에 표시됩니다. **링크 별칭**을 생성하고 편집하려면 링크 별칭 지정이 활성화되어 있어야 합니다. **Link Management**가 표시되지 않으면 계정 매니저에게 연락하여 링크 별칭 지정을 활성화하세요.
+**Link Management**는 Braze가 계정에 대해 링크 관리를 활성화하면 Campaign 또는 Canvas 이메일 작성기에 표시됩니다. **링크 별칭**을 생성하고 편집하려면 링크 별칭 지정이 활성화되어 있어야 합니다. **Link Management**가 표시되지 않으면 계정 매니저에게 연락하여 링크 별칭 지정을 활성화하세요.
 {% endalert %}
 
-링크 별칭을 생성하려면 캠페인 또는 Canvas 구성요소에서 이메일 본문을 열고 **콘텐츠** 영역에서 **Link Management**를 엽니다. 드래그 앤 드롭 및 HTML 작성기는 동일한 사이드바 레이아웃을 사용합니다:
+링크 별칭을 생성하려면 Campaign 또는 Canvas 구성요소에서 이메일 본문을 열고 **콘텐츠** 영역에서 **Link Management**를 엽니다. 드래그 앤 드롭 및 HTML 작성기는 동일한 사이드바 레이아웃을 사용합니다:
 
 ### 드래그 앤 드롭 편집기 {#drag-and-drop-editor}
 
@@ -78,7 +78,7 @@ Braze는 모든 링크 URL에 `lid`(링크 식별자라고도 함)라는 추가 
 ![다양한 캠페인과 연결된 활성 및 비활성 링크 별칭을 보여주는 추적된 링크 별칭 페이지.]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
-[Campaign의 링크 별칭 목록]({{site.baseurl}}/get_campaign_link_alias/) 및 [Canvas의 링크 별칭 목록]({{site.baseurl}}/get_canvas_link_alias/) 엔드포인트를 사용하여 캠페인의 각 메시지 배리언트 또는 이메일 전용 Canvas 구성요소에 설정된 `alias`를 추출할 수 있습니다.
+[Campaign의 링크 별칭 목록]({{site.baseurl}}/get_campaign_link_alias/) 및 [Canvas의 링크 별칭 목록]({{site.baseurl}}/get_canvas_link_alias/) 엔드포인트를 사용하여 Campaign의 각 메시지 배리언트 또는 이메일 전용 Canvas 구성요소에 설정된 `alias`를 추출할 수 있습니다.
 {% endalert %}
 
 Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며, 세분화 및 보고 목적에 적합한 명명 규칙을 제공할 것을 권장합니다. 이를 통해 모든 링크를 추적할 수 있습니다.
@@ -131,7 +131,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 
 | 이메일 본문의 링크 | 별칭이 적용된 링크 |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
+| {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%} | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Link with anchor and capture tag" }
 
 ## 링크 별칭 추적 {#tracking-link-aliases}
@@ -142,7 +142,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 링크 참여 측정기준을 추적하려면 링크가 HTTP 또는 HTTPS로 시작하는지 확인하세요. 특정 링크의 클릭 추적을 해제하려면 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
 {% endalert %}
 
-Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 Segment를 생성할 수 있습니다.
+Braze에서는 추적할 링크를 무제한으로 선택할 수 있지만, 가장 최근에 열어본 링크에 대해서만 사용자를 리타겟팅할 수 있습니다. 사용자 프로필에는 가장 최근에 클릭한 100개의 링크가 포함됩니다. 예를 들어, 500개의 링크를 추적하고 사용자가 500개 모두를 클릭한 경우, 가장 최근에 클릭한 100개의 링크를 기반으로 리타겟팅하거나 세그먼트를 생성할 수 있습니다.
 
 ![두 개의 링크가 선택된 Link Management 탭.]({% image_buster /assets/img/link_management_dnd.png %})
 
@@ -152,9 +152,9 @@ Braze는 프로필 수준에서 마지막으로 클릭한 링크 별칭 100개�
 
 ### 행동 기반 필터 {#action-based-filters}
 
-모든 링크(추적 또는 비추적)를 타겟팅하는 행동 기반 메시지를 생성하거나, 이메일 캠페인 또는 Canvas 구성요소에서 별칭을 클릭했는지 여부에 따라 사용자를 리타겟팅할 수 있습니다.
+모든 링크(추적 또는 비추적)를 타겟팅하는 행동 기반 메시지를 생성하거나, 이메일 Campaign 또는 Canvas 구성요소에서 별칭을 클릭했는지 여부에 따라 사용자를 리타겟팅할 수 있습니다.
 
-![사용자가 Canvas 구성요소에서 별칭을 클릭했거나 캠페인과 상호작용한 경우를 타겟팅하는 행동 기반 옵션.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+![사용자가 Canvas 구성요소에서 별칭을 클릭했거나 Campaign과 상호작용한 경우를 타겟팅하는 행동 기반 옵션.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
 
 ### 세분화 필터 {#segmentation-filters}
 
@@ -162,17 +162,17 @@ Braze에서 이메일에 링크 별칭이 있고 사용자가 이를 클릭하�
 
 "모든 Campaign 또는 캔버스 단계에서 별칭 클릭" 세분화 필터를 사용한 후 이 링크 별칭의 이름을 변경하기로 결정하면, 사용자 프로필의 이전 클릭 데이터는 **업데이트되지 않으며** 여전히 이전 링크 별칭으로 표시됩니다. 따라서 새 링크 별칭을 기반으로 사용자를 타겟팅하면 이전 링크 별칭의 데이터는 포함되지 않습니다.
 
-"Campaign에서 별칭 클릭" 또는 "Canvas에서 별칭 클릭" 세분화 필터를 사용하면 특정 캠페인 또는 Canvas에서 특정 별칭을 클릭했는지 여부로 사용자를 필터링합니다. 여러 사용자가 동일한 이메일 주소를 공유하고 링크 별칭이 클릭되면, 해당 이메일 주소를 공유하는 다른 모든 사용자의 프로필이 업데이트됩니다. 이러한 프로필은 클릭 이벤트뿐만 아니라 전달 및 열기 이벤트에 의해서도 업데이트됩니다.
+"Campaign에서 별칭 클릭" 또는 "Canvas에서 별칭 클릭" 세분화 필터를 사용하면 특정 Campaign 또는 Canvas에서 특정 별칭을 클릭했는지 여부로 사용자를 필터링합니다. 여러 사용자가 동일한 이메일 주소를 공유하고 링크 별칭이 클릭되면, 해당 이메일 주소를 공유하는 다른 모든 사용자의 프로필이 업데이트됩니다. 이러한 프로필은 클릭 이벤트뿐만 아니라 전달 및 열기 이벤트에 의해서도 업데이트됩니다.
 
 다음 세분화 필터는 이벤트가 처리되는 시점에 추적되는 클릭 이벤트에 적용됩니다. 즉, 추적되지 않은 링크는 기존 데이터를 제거하지 않으며 링크를 추적해도 데이터가 소급 적용되지 않습니다. 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 참조하세요.
 
 #### 링크 추적 해제 {#untracking-links}
 
-링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 Segment가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
+링크 추적을 해제해도 추적 해제된 별칭에 대한 필터가 있는 기존 세그먼트가 재할당되지 않습니다. 이전 데이터는 새로운 데이터로 대체될 때까지 사용자 프로필에 남아 있습니다.
 
 아카이브된 메시지의 링크는 자동으로 추적이 해제됩니다. 그러나 아카이브된 메시지가 아카이브 해제되면 링크를 다시 추적해야 합니다. 링크 별칭이 추적되면 링크 보고는 최상위 도메인이나 전체 URL 대신 별칭으로 인덱싱됩니다.
 
-이메일 캠페인의 모든 링크와 해당 총 클릭 수를 보려면 **Message Analytics** > **이메일 성과** > **Preview & Heatmap**으로 이동하여 **Show Heatmap** 토글을 선택합니다.
+이메일 Campaign의 모든 링크와 해당 총 클릭 수를 보려면 **Message Analytics** > **이메일 성과** > **Preview & Heatmap**으로 이동하여 **Show Heatmap** 토글을 선택합니다.
 
 ![링크 별칭과 총 클릭 수가 표시된 총 클릭 수별 링크 테이블 패널.]({% image_buster /assets/img/link_alias_total_clicks.png %}){: style="max-width:60%;"}
 
@@ -262,7 +262,9 @@ https://example.com/campaign/to/abc123?#user_id={{${user_id}}}&source=email
 
 ### Content Blocks 예시 {#content-block-example}
 
+{% raw %}
 Content Blocks에 후행 `?` 또는 `&`가 없는 `https://www.braze.com/{{custom_attribute.${offer_id}}}` 같은 링크가 포함된 경우, Braze는 `lid`를 추가할 위치를 알 수 없으므로 해당 링크가 **Link Management**에 인식되지 않습니다. Content Blocks의 URL 끝에 `?` 또는 `&`를 추가하고(쿼리 문자열이 이미 존재하는지 여부에 따라) Content Blocks을 저장하면 링크가 인식될 수 있습니다.
+{% endraw %}
 
 ### URL이 사용자별로 다른 경우의 보고 {#reporting-when-the-url-varies-per-user}
 

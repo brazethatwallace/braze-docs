@@ -91,40 +91,38 @@ Sie können eine von drei Möglichkeiten wählen, wie Nutzer:innen in Ihr Canvas
 #### Typen von Entry-Zeitplänen {#entry-schedule-types}
 
 {% tabs local %}
-  {% tab Geplante Zustellung %}
-    Bei der geplanten Zustellung treten Nutzer:innen nach einem Zeitplan ein, ähnlich wie Sie eine Campaign planen würden. Sie können Nutzer:innen in ein Canvas eintragen, sobald es gestartet wird, sie zu einem zukünftigen Zeitpunkt in Ihre Journey eintreten lassen oder auf wiederkehrender Basis (täglich, wöchentlich oder monatlich).
+{% tab Geplante Zustellung %}
+Bei der geplanten Zustellung treten Nutzer:innen nach einem Zeitplan ein, ähnlich wie Sie eine Campaign planen würden. Sie können Nutzer:innen in ein Canvas eintragen, sobald es gestartet wird, sie zu einem zukünftigen Zeitpunkt in Ihre Journey eintreten lassen oder auf wiederkehrender Basis (täglich, wöchentlich oder monatlich).
 
-    Wenn Sie einen monatlich wiederkehrenden Zeitplan auswählen, beachten Sie, dass einige Monate den ausgewählten Tag möglicherweise nicht haben. Angenommen, Sie haben ein Canvas so eingerichtet, dass es monatlich am 31. Tag gesendet wird. In diesem Szenario sendet Braze am letzten Tag des jeweiligen Monats, z. B. am 30. April, da der 31. April nicht existiert.
+Wenn Sie einen monatlich wiederkehrenden Zeitplan auswählen, beachten Sie, dass einige Monate den ausgewählten Tag möglicherweise nicht haben. Angenommen, Sie haben ein Canvas so eingerichtet, dass es monatlich am 31. Tag gesendet wird. In diesem Szenario sendet Braze am letzten Tag des jeweiligen Monats, z. B. am 30. April, da der 31. April nicht existiert.
 
-    In diesem Beispiel treten Nutzer:innen basierend auf den zeitbasierten Optionen jeden Dienstag um 12 Uhr in ihrer Ortszeit wöchentlich in dieses Canvas ein, beginnend am 14. November 2025 bis zum 31. Dezember 2025.
+In diesem Beispiel treten Nutzer:innen basierend auf den zeitbasierten Optionen jeden Dienstag um 12 Uhr in ihrer Ortszeit wöchentlich in dieses Canvas ein, beginnend am 14. November 2025 bis zum 31. Dezember 2025.
 
-    ![Die Seite „Entry-Zeitplan“ mit dem Typ „Geplant“. Aufgrund der Auswahl werden zeitbasierte Optionen angezeigt, einschließlich Häufigkeit, Startzeit, Wiederholung, Tage und mehr.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
+![Die Seite „Entry-Zeitplan“ mit dem Typ „Geplant“. Aufgrund der Auswahl werden zeitbasierte Optionen angezeigt, einschließlich Häufigkeit, Startzeit, Wiederholung, Tage und mehr.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-    Bei der Zustellung in der Ortszeit prüft Braze die Eintrittsberechtigung zweimal: zuerst zur Samoa-Zeit (UTC+13) am geplanten Tag und dann zur Ortszeit der Nutzer:innen. Nutzer:innen müssen beide Prüfungen bestehen, um in das Canvas einzutreten. Wenn Ihre Eintrittsfilter relative Zeitfenster verwenden (z. B. „mehr als 2 Tage her“), ist der 24-Stunden-Zeitraum zum Zeitpunkt der ersten Prüfung möglicherweise noch nicht abgelaufen, was dazu führen kann, dass Nutzer:innen einen Tag zu spät eintreten. Um dies zu vermeiden, verwenden Sie ein breiteres Zeitfenster, z. B. mindestens zwei Tage. Weitere Details finden Sie unter [Wann prüft Braze Nutzer:innen für die Zustellung in der Ortszeit?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
-  {% endtab %}
-  {% tab Aktionsbasierte Zustellung %}
-    Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, wie z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
+Bei der Zustellung in der Ortszeit prüft Braze die Eintrittsberechtigung zweimal: zuerst zur Samoa-Zeit (UTC+13) am geplanten Tag und dann zur Ortszeit der Nutzer:innen. Nutzer:innen müssen beide Prüfungen bestehen, um in das Canvas einzutreten. Wenn Ihre Eintrittsfilter relative Zeitfenster verwenden (z. B. „mehr als 2 Tage her“), ist der 24-Stunden-Zeitraum zum Zeitpunkt der ersten Prüfung möglicherweise noch nicht abgelaufen, was dazu führen kann, dass Nutzer:innen einen Tag zu spät eintreten. Um dies zu vermeiden, verwenden Sie ein breiteres Zeitfenster, z. B. mindestens zwei Tage. Weitere Details finden Sie unter [Wann prüft Braze Nutzer:innen für die Zustellung in der Ortszeit?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
+{% endtab %}
+{% tab Aktionsbasierte Zustellung %}
+Bei der aktionsbasierten Zustellung treten Nutzer:innen in das Canvas ein und beginnen Nachrichten zu erhalten, wenn sie bestimmte Aktionen ausführen, wie z. B. Ihre App öffnen, einen Kauf tätigen oder ein angepasstes Event triggern.
 
-    Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App Messages nicht verfügbar ist.
+Sie können weitere Aspekte des Canvas-Verhaltens im Fenster **Entry-Zielgruppe** steuern, einschließlich Regeln für die Wiederberechtigung und Frequency-Capping-Einstellungen. Beachten Sie, dass die aktionsbasierte Zustellung für Canvas-Komponenten mit In-App Messages nicht verfügbar ist.
 
-    ![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
+![Ein Beispiel für aktionsbasierte Zustellung. Nutzer:innen treten in das Canvas ein, wenn sie einen Kauf tätigen, mit einem Eintrittsfenster ab 13:30 Uhr am 10. Juni 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
-  {% alert important %}
-  Wenn Ihr aktionsbasiertes Canvas Nachrichten früher als erwartet sendet, überprüfen Sie, ob der Zeitstempel Ihres angepassten Events mit der aktuellen Zeit statt mit einer zurückdatierten Zeit gesendet wird. Wenn beispielsweise ein aktionsbasiertes Canvas eine dreistündige Verzögerung nach Ausführung eines angepassten Events hat, verwendet Braze den mit dem angepassten Event gesendeten Zeitstempel, um diese Verzögerung zu berechnen. Wenn der Zeitstempel um mehr als drei Stunden zurückdatiert ist, behandelt Braze die Verzögerung als bereits abgelaufen und sendet die Nachricht sofort.
-  {% endalert %}
+{% alert important %}
+Wenn Ihr aktionsbasiertes Canvas Nachrichten früher als erwartet sendet, überprüfen Sie, ob der Zeitstempel Ihres angepassten Events mit der aktuellen Zeit statt mit einer zurückdatierten Zeit gesendet wird. Wenn beispielsweise ein aktionsbasiertes Canvas eine dreistündige Verzögerung nach Ausführung eines angepassten Events hat, verwendet Braze den mit dem angepassten Event gesendeten Zeitstempel, um diese Verzögerung zu berechnen. Wenn der Zeitstempel um mehr als drei Stunden zurückdatiert ist, behandelt Braze die Verzögerung als bereits abgelaufen und sendet die Nachricht sofort.
+{% endalert %}
+{% endtab %}
+{% tab API-getriggerte Zustellung %}
+Bei der API-getriggerten Zustellung treten Nutzer:innen in Ihr Canvas ein und beginnen Nachrichten zu erhalten, nachdem sie über den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) per API hinzugefügt wurden. Im Dashboard finden Sie auch ein Beispiel für eine cURL-Anfrage sowie die Möglichkeit, optionalen [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) über das [Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) zuzuweisen.
 
-  {% endtab %}
-  {% tab API-getriggerte Zustellung %}
-    Bei der API-getriggerten Zustellung treten Nutzer:innen in Ihr Canvas ein und beginnen Nachrichten zu erhalten, nachdem sie über den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) per API hinzugefügt wurden. Im Dashboard finden Sie auch ein Beispiel für eine cURL-Anfrage sowie die Möglichkeit, optionalen [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) über das [Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) zuzuweisen.
+![Ein Beispiel für API-getriggerte Zustellung mit einer Canvas-ID und einem Beispiel einer cURL-Anfrage.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
-    ![Ein Beispiel für API-getriggerte Zustellung mit einer Canvas-ID und einem Beispiel einer cURL-Anfrage.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
-
-    Sie können die folgenden Endpunkte für die API-getriggerte Zustellung verwenden:
-    - [POST: Canvas-Nachrichten über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-    - [POST: API-getriggerte Canvases planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-    - [POST: Geplante API-getriggerte Canvases aktualisieren]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
-
-  {% endtab %}
+Sie können die folgenden Endpunkte für die API-getriggerte Zustellung verwenden:
+- [POST: Canvas-Nachrichten über API-getriggerte Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
+- [POST: API-getriggerte Canvases planen]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [POST: Geplante API-getriggerte Canvases aktualisieren]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
+{% endtab %}
 {% endtabs %}
 
 Nachdem Sie Ihre Zustellungsmethode ausgewählt haben, passen Sie die Einstellungen an Ihren Anwendungsfall an und fahren Sie dann mit der Festlegung Ihrer Zielgruppe fort.
@@ -132,7 +130,7 @@ Nachdem Sie Ihre Zustellungsmethode ausgewählt haben, passen Sie die Einstellun
 {% details Deduplizierungsverhalten für Canvases mit dem ursprünglichen Editor %}
 Wenn das Fenster für die Wiederberechtigung kürzer ist als die maximale Dauer des Canvas, kann es vorkommen, dass Nutzer:innen erneut eintreten und Nachrichten von mehr als einer Komponente erhalten. Im Grenzfall, dass der Wiedereintritt von Nutzer:innen dieselbe Komponente wie der vorherige Eintritt erreicht, dedupliziert Braze die Nachrichten dieser Komponente.
 
-Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim vorherigen Eintritt erreichen und für jeden Eintritt für eine In-App-Nachricht berechtigt sind, erhalten sie die Nachricht zweimal (abhängig von der In-App Messages-Priorität), solange sie eine Sitzung zweimal erneut öffnen.
+Wenn Nutzer:innen erneut in das Canvas eintreten, dieselbe Komponente wie beim vorherigen Eintritt erreichen und für jeden Eintritt für eine In-App-Nachricht berechtigt sind, erhalten sie die Nachricht zweimal (abhängig von der In-App-Nachrichten-Priorität), solange sie eine Sitzung zweimal erneut öffnen.
 {% enddetails %}
 
 ### Schritt 1.3: Legen Sie Ihre Entry-Zielgruppe fest {#step-13-set-your-target-entry-audience}

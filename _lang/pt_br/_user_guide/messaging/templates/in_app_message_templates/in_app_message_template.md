@@ -37,7 +37,7 @@ Perfis de cores e modelos CSS se aplicam ao editor tradicional. Se você usa o e
 
 Em **Modelos** > **Modelos de mensagens no app**, filtre, pesquise ou abra um modelo para editar. Você pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) modelos como outros tipos de modelo. Para uma visão geral dos fluxos de trabalho de modelos e mídia, consulte [Modelos]({{site.baseurl}}/user_guide/messaging/templates/).
 
-Você precisa de permissão para acessar modelos. Por exemplo, conceda "Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers" ou a permissão granular equivalente para visualizar ou editar modelos de mensagens no app. Para mais informações, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Para acessar modelos de mensagens no app, você precisa de [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para visualizar ou editar modelos de mensagens no app.
 
 ### Criar perfis de cores e modelos CSS {#reusable-color-profiles}
 

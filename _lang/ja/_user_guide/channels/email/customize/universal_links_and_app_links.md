@@ -3,16 +3,16 @@ nav_title: "ユニバーサルリンクとApp Links"
 article_title: "ユニバーサルリンクとApp Links"
 page_order: 6.4
 page_type: reference
-description: "この記事では、Apple ユニバーサルリンクと Android App Links の設定方法について説明します。"
+description: "この記事では、Apple ユニバーサルリンクと Android App Linksの設定方法について説明します。"
 channel: email
 ---
 
 # ユニバーサルリンクとApp Links {#universal-links-and-app-links}
 
-> この記事では、Apple ユニバーサルリンクと Android App Links の設定方法について説明します。
+> この記事では、Apple ユニバーサルリンクと Android App Linksの設定方法について説明します。
 
 {% alert tip %}
-すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASA ファイルが必要なタイミングに関するガイダンスについては、[iOS ディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
+すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
 {% endalert %}
 
 Apple ユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
@@ -358,3 +358,11 @@ AASAファイル（iOS）またはDigital Asset Linksファイル（Android）�
 
 - **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 - **Android:** アプリ情報ページを開きます（アプリアイコンを長押しして ⓘ をクリック）。アプリ情報メニュー内で**Open by default**を見つけてタップします。アプリが開くことを許可されているすべての検証済みリンクが表示される画面が表示されます。クリックトラッキングドメインがそのリストに含まれていることを確認します。
+
+#### トラッキングドメインが.well-knownファイルを提供できない場合 {#tracking-domain-cant-serve-well-known-files}
+
+場合によっては、ESPの制限やインフラの制約により、クリックトラッキングドメインが必要な`.well-known`ファイルをホストできないことがあります。トラッキングドメインにAASAまたはDigital Asset Linksファイルをホストできない場合は、以下のオプションを検討してください。
+
+- **ESPにトラッキングドメインでファイルをホストするよう依頼する:** クリックトラッキングサブドメインは通常、ESP（SendGrid、SparkPost、またはAmazon SES）を指すCNAMEです。ESPがそのドメインのトラフィックを終端するため、`.well-known`ファイルをホストできます。SendGridとSparkPostはどちらもこれをサポートしています。ESPに直接連絡してリクエストしてください。
+- **ディープリンクURLのクリックトラッキングを選択的に無効にする:** ESPがファイルをホストできない場合、特定のユニバーサルリンクのクリックトラッキングを無効にして、メインドメイン（AASAまたはDigital Asset Linksファイルをホストできる場所）に直接移動するようにできます。この方法では、それらの特定のリンクのクリック分析が失われる可能性があることに注意してください。手順については、[リンクごとのクリックトラッキングの無効化](#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
+- **トラッキングサブドメインの前にCDNを配置する:** 完全なクリックトラッキングカバレッジとディープリンクの両方が必要な場合は、トラッキングサブドメインの前にCDN（CloudflareやCloudFrontなど）を配置できます。CDNを設定して`.well-known`ファイルをローカルで提供し、その他のすべてのトラフィックをESPにプロキシします。このアプローチはより複雑ですが、クリックトラッキングとユニバーサルリンクの両方を完全に制御できます。

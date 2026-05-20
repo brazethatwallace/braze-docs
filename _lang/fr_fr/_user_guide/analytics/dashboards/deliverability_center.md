@@ -15,11 +15,9 @@ channel:
 
 La livrabilité des e-mails est au cœur du succès de vos campagnes. Grâce au Centre de livrabilité du tableau de bord de Braze, vous pouvez consulter vos domaines par **IP Reputation** ou **Delivery Errors** afin de détecter et résoudre d'éventuels problèmes de livrabilité.
 
-Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations utilisateur héritées]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) « Access Campaigns, Canvases, Cards, Segments, Media Library » et « View Usage Data », ou des [autorisations granulaires]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions) listées dans le menu déroulant ci-dessous pour votre espace de travail.
+Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) listées dans le menu déroulant ci-dessous pour votre espace de travail.
 
 {% details Autorisations utilisateur pour le Centre de livrabilité %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - Campaigns : consulter
 - Campaigns : modifier
