@@ -222,16 +222,16 @@ Braze はすべてのサービスに使用される予約済みの IP セット�
 
 {% multi_lang_include data_centers.md datacenters='ips' %}
 
-### `User-Agent` ヘッダー
+### `User-エージェント` ヘッダー
 
-Braze はすべてのコネクテッドコンテンツおよび Webhook リクエストに、以下のような `User-Agent` ヘッダーを含めます。
+Braze はすべてのコネクテッドコンテンツおよび Webhook リクエストに、以下のような `User-エージェント` ヘッダーを含めます。
 
-```text
+`````````text
 Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 ```
 
 {% alert tip %}
-ハッシュ値は定期的に変更されることに注意してください。`User-Agent` でトラフィックをフィルタリングする場合は、`Braze Sender` で始まるすべての値を許可してください。
+ハッシュ値は定期的に変更されることに注意してください。`User-エージェント` でトラフィックをフィルタリングする場合は、`Braze Sender` で始まるすべての値を許可してください。
 {% endalert %}
 
 ## トラブルシューティング
@@ -262,7 +262,7 @@ Braze はメッセージペイロードをレンダリングするために、�
 GET リクエストはデフォルトでキャッシュされます（[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)を参照）。**POST リクエストはデフォルトではキャッシュされません**が、コネクテッドコンテンツの呼び出しに `:cache_max_age` を追加することでキャッシュを有効にできます。これにより、同じ POST（たとえば、トークンやコンテンツリクエスト）がキャッシュ時間枠内で繰り返し行われる場合のエンドポイント負荷を軽減できます。
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://api.example.com/token :method post :body grant_type=client_credentials :cache_max_age 900 :save token %}
 ```
 {% endraw %}

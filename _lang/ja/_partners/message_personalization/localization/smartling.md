@@ -1,7 +1,7 @@
 ---
 nav_title: Smartling
 article_title: Smartling
-description: "このリファレンス記事では、BrazeとSmartlingのパートナーシップについて説明します。Smartlingはクラウドベースのローカライゼーションソフトウェアです。Braze Connectorは、HTMLメールテンプレート、Content Blocks、Canvases、Campaignメールメッセージの翻訳をサポートします。"
+description: "このリファレンス記事では、BrazeとSmartlingのパートナーシップについて説明します。Smartlingはクラウドベースのローカライゼーションソフトウェアです。Braze Connectorは、HTMLメールテンプレート、Content Blocks、キャンバス、キャンペーンメールメッセージの翻訳をサポートします。"
 alias: /partners/smartling/
 page_type: partner
 search_tag: Partner
@@ -15,7 +15,7 @@ _この統合はSmartlingによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Braze Connectorは、CampaignsおよびCanvases（メール、プッシュ、アプリ内メッセージ、バナー）、メールテンプレート、およびContent Blocksのメッセージの翻訳をサポートします。各チャネルまたは機能でサポートされているエディタータイプについては、以下の表を参照してください。
+Braze Connectorは、キャンペーンおよびキャンバス（メール、プッシュ、アプリ内メッセージ、バナー）、メールテンプレート、およびContent Blocksのメッセージの翻訳をサポートします。各チャネルまたは機能でサポートされているエディタータイプについては、以下の表を参照してください。
 
 | チャネル/機能 | 従来のエディター（例：HTML） | ドラッグ＆ドロップエディター |
 | --------------- | ----------------------------- | -------------------- |
@@ -33,7 +33,7 @@ Braze Connectorは、CampaignsおよびCanvases（メール、プッシュ、ア
 
 ユースケースに応じて、レガシー翻訳ワークフローまたは更新されたワークフローを使用してContent Blocksの翻訳を管理します。
 
-更新されたワークフローでは、Brazeの多言語サポートとメッセージのロケールを使用して、翻訳タグがContent Blockに追加されます。ただし、Smartlingはメッセージレベルで翻訳を実行します。コンテンツは、CampaignまたはCanvasに含まれ、ターゲットロケールが設定されている場合にのみ翻訳されます。詳細については、[Content Blocksの翻訳の管理](#managing-translations-for-content-blocks)を参照してください。
+更新されたワークフローでは、Brazeの多言語サポートとメッセージのロケールを使用して、翻訳タグがContent Blockに追加されます。ただし、Smartlingはメッセージレベルで翻訳を実行します。コンテンツは、キャンペーンまたはキャンバスに含まれ、ターゲットロケールが設定されている場合にのみ翻訳されます。詳細については、[Content Blocksの翻訳の管理](#managing-translations-for-content-blocks)を参照してください。
 
 レガシーワークフローの詳細については、[レガシーワークフローを使用した翻訳の管理](#managing-translations-using-the-legacy-workflow)を参照してください。
 
@@ -108,7 +108,7 @@ Smartlingは、以下の方法でコンテンツを検索および選択する�
 ![翻訳タグ付きのBrazeメール。]({% image_buster /assets/img/smartling/image6_ny_promotion.png %})
 
 {: start="2"}
-2. 翻訳するCampaignを見つけたら、フォルダーを選択し、バリアントを選択して、**Request Translation**を選択します。
+2. 翻訳するキャンペーンを見つけたら、フォルダーを選択し、バリアントを選択して、**Request Translation**を選択します。
 
 ![翻訳のリクエスト。]({% image_buster /assets/img/smartling/image7_request_translation.png %})
 
@@ -129,7 +129,7 @@ Smartlingは、以下の方法でコンテンツを検索および選択する�
 
 ### ステップ5：Brazeで多言語ユーザーとしてメッセージをプレビューする {#step-5-preview-the-message-as-a-multi-language-user-in-braze}
 
-Brazeで、多言語ユーザーとしてCampaignをプレビューし、翻訳が正しく適用されていることを確認します。
+Brazeで、多言語ユーザーとしてキャンペーンをプレビューし、翻訳が正しく適用されていることを確認します。
 
 ![多言語ユーザープレビュー。]({% image_buster /assets/img/smartling/image11_preview.png %})
 
@@ -139,13 +139,13 @@ Content Blocksは、Brazeの**テンプレートとメディア**セクション
 
 ### メッセージコンポーネントの一部として保存された翻訳 {#translation-stored-as-part-of-the-message-component}
 
-翻訳タグはContent Blockに属します。ただし、Smartlingはメッセージレベルで翻訳を実行します。コンテンツは、CampaignまたはCanvasに含まれ、ターゲットロケールが設定されている場合にのみ翻訳されます。
+翻訳タグはContent Blockに属します。ただし、Smartlingはメッセージレベルで翻訳を実行します。コンテンツは、キャンペーンまたはキャンバスに含まれ、ターゲットロケールが設定されている場合にのみ翻訳されます。
 
 ### 考慮事項 {#considerations}
 
 - HTMLおよびドラッグ＆ドロップの両方のContent Blockエディターで、翻訳タグを手動でContent Blockに追加する必要があります。
 - ロケールはメッセージレベルで選択されます。Content Block自体では選択されません。
-- Canvasでは、Liquidタグを使用して手動で追加する代わりに、行を使用してContent Blocksをメッセージに挿入することをお勧めします。Content Blockをプレビューからメールにドラッグすると、ローカルコピーが作成されます。「親」Content Blockへの変更は、そのブロックを使用している他のCampaignsには反映されません。
+- キャンバスでは、Liquidタグを使用して手動で追加する代わりに、行を使用してContent Blocksをメッセージに挿入することをお勧めします。Content Blockをプレビューからメールにドラッグすると、ローカルコピーが作成されます。「親」Content Blockへの変更は、そのブロックを使用している他のキャンペーンには反映されません。
 - Content BlockのLiquidタグを使用する場合は、少なくとも1つの翻訳タグをメール本文に直接含めるようにしてください。翻訳タグを手動で追加すると、多言語ドロップダウンからロケールを選択できます。SmartlingはContent Blockの翻訳タグを取得します。`comment`タグを追加して、ユーザーにテキストが表示されないようにすることができます。
 
 ## レガシーワークフローを使用した翻訳の管理 {#managing-translations-using-the-legacy-workflow}

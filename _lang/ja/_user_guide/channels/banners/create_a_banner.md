@@ -2,20 +2,20 @@
 nav_title: "バナーを作成"
 article_title: "バナーを作成"
 page_order: 1
-description: "このリファレンス記事では、BrazeのCampaignとCanvasを使用してバナーを作成、構成、設定、送信する方法について説明します。"
+description: "このリファレンス記事では、Brazeのキャンペーンとキャンバスを使用してバナーを作成、構成、設定、送信する方法について説明します。"
 tool:
-  - Campaigns
+  - キャンペーン
 channel:
   - banners
 ---
 
 # バナーを作成 {#create-a-banner}
 
-> BrazeでCampaignやCanvasを構築する際にバナーを作成する方法を説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/user_guide/channels/banners/)を参照してください。
+> Brazeでキャンペーンやキャンバスを構築する際にバナーを作成する方法を説明します。一般的な情報については、[バナーについて]({{site.baseurl}}/user_guide/channels/banners/)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-バナーを起動する前に、開発チームが[アプリまたはWebサイトにプレースメントを設定する]({{site.baseurl}}/developer_guide/banners/placements/)必要があります。その間にバナーCampaignの下書きを作成することはできますが、プレースメントが設定されるまでCampaignを起動することはできません。
+バナーを起動する前に、開発チームが[アプリまたはWebサイトにプレースメントを設定する]({{site.baseurl}}/developer_guide/banners/placements/)必要があります。その間にバナーキャンペーンの下書きを作成することはできますが、プレースメントが設定されるまでキャンペーンを起動することはできません。
 
 ## バナーメッセージを作成する {#create-a-banner-message}
 
@@ -23,28 +23,28 @@ channel:
 
 ### ステップ2: メッセージの作成場所を選択する {#step-2-choose-where-to-build-your-message}
 
-メッセージをCampaignとCanvasのどちらで送信すべきかわからない場合は、Campaignは単一のターゲットメッセージングCampaignに適しており、Canvasはマルチステップのユーザージャーニーに適しています。
+メッセージをキャンペーンとキャンバスのどちらで送信すべきかわからない場合は、キャンペーンは単一のターゲットメッセージングキャンペーンに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab Campaign %}
 
-1. **Messaging** > **Campaigns** に移動し、**Create Campaign** を選択します。
+1. **Messaging** > **キャンペーン** に移動し、**Create キャンペーン** を選択します。
 2. **Banner** を選択します。
-3. Campaignにわかりやすく意味のある名前を付けます。
-4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。タグを使用すると、Campaignを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
-5. 以前に作成したプレースメントを選択して、Campaignに関連付けます。
+3. キャンペーンにわかりやすく意味のある名前を付けます。
+4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。タグを使用すると、キャンペーンを見つけやすくなり、レポートを作成しやすくなります。たとえば、レポートビルダーを使用する際に、関連するタグでフィルタリングできます。
+5. 以前に作成したプレースメントを選択して、キャンペーンに関連付けます。
 6. 必要に応じてバリアントを追加します。各バリアントに異なるメッセージタイプとレイアウトを選択できます。バリアントの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
-7. バナーCampaignの開始日時を選択します。デフォルトでは、バナーは無期限に継続します。**End Time** を選択して終了日時を指定することで、これを変更できます。
+7. バナーキャンペーンの開始日時を選択します。デフォルトでは、バナーは無期限に継続します。**End Time** を選択して終了日時を指定することで、これを変更できます。
 
 {% alert tip %}
-Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant** ドロップダウンから **Copy from Variant** を選択できます。
+キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant** ドロップダウンから **Copy from Variant** を選択できます。
 {% endalert %}
 
 {% endtab %}
 {% tab Canvas %}
 
-1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
-2. Canvasを設定した後、Canvasビルダーでメッセージステップを追加します。ステップにわかりやすく意味のある名前を付けます。
+1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+2. キャンバスを設定した後、キャンバスビルダーでメッセージステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. メッセージングチャネルとして **Banner** を選択します。
 4. バナーのプレースメントを選択します。
 5. バナーの優先度を設定します。[バナーの優先度]({{site.baseurl}}/user_guide/channels/banners/#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。
@@ -101,7 +101,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 カスタムプロパティを追加するには、**Settings** > **Properties** > **Add property** を選択します。
 
-![バナーCampaignに最初のカスタムプロパティを追加するオプションを表示するプロパティページ。]({% image_buster /assets/img/banners/add_property.png %})
+![バナーキャンペーンに最初のカスタムプロパティを追加するオプションを表示するプロパティページ。]({% image_buster /assets/img/banners/add_property.png %})
 
 追加したいプロパティごとに、以下の項目を入力します。
 
@@ -116,7 +116,7 @@ Campaign内のすべてのメッセージが類似している、または同じ
 
 ![キーがcolor、値が#FF0000の文字列プロパティを持つプロパティページ。]({% image_buster /assets/img/banners/example_property.png %})
 
-### ステップ4: CampaignまたはCanvasの残りの部分を構築する {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### ステップ4: キャンペーンまたはキャンバスの残りの部分を構築する {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -126,31 +126,31 @@ Campaign内のすべてのメッセージが類似している、または同じ
 [バナーの優先度]({{site.baseurl}}/user_guide/channels/banners/#priority)は、同じプレースメントを共有するバナーの表示順序を決定します。優先度を手動で設定するには：
 
 1. **Set exact priority** を選択します。
-2. Campaignをドラッグ＆ドロップして正しい優先度に並べ替えます。
+2. キャンペーンをドラッグ＆ドロップして正しい優先度に並べ替えます。
 3. **Apply Sort** を選択します。
 
 {% alert tip %}
-同じプレースメントIDを使用する複数のバナーCampaignがある場合は、ドラッグ＆ドロップの優先度ソーターを使用して正確な優先度を定義することをお勧めします。
+同じプレースメントIDを使用する複数のバナーキャンペーンがある場合は、ドラッグ＆ドロップの優先度ソーターを使用して正確な優先度を定義することをお勧めします。
 {% endalert %}
 
 #### オーディエンスを選択する {#choose-your-audience}
 
-1. **Target Audiences** で、Segmentまたはフィルターを選択してオーディエンスを絞り込みます。おおよそのSegment人口のプレビューが自動的に表示されます。正確なSegmentメンバーシップは、メッセージが送信される前に計算されます。
+1. **Target Audiences** で、セグメントまたはフィルターを選択してオーディエンスを絞り込みます。おおよそのセグメント人口のプレビューが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に計算されます。
 
 {% multi_lang_include target_audiences.md %}
 
 {:start="2"}
-2. **Assign Conversions** で、コンバージョンイベントを定義して、Campaignを受信した後にユーザーが特定のアクションを実行する頻度を追跡します。アクションをコンバージョンとしてカウントするための最大30日間の時間枠を設定できます。
+2. **Assign Conversions** で、コンバージョンイベントを定義して、キャンペーンを受信した後にユーザーが特定のアクションを実行する頻度を追跡します。アクションをコンバージョンとしてカウントするための最大30日間の時間枠を設定できます。
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、Campaignを受信した後にユーザーが特定のアクションを実行する頻度である[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンとしてカウントされる最大30日間の時間枠を設定するオプションがあります。
+Brazeでは、キャンペーンを受信した後にユーザーが特定のアクションを実行する頻度である[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を追跡できます。ユーザーが指定されたアクションを実行した場合にコンバージョンとしてカウントされる最大30日間の時間枠を設定するオプションがあります。
 
 {% endtab %}
 
 {% tab Canvas %}
 
-まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)の実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/)の実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -161,4 +161,4 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 ### ステップ6: 確認してデプロイする {#step-6-review-and-deploy}
 
-CampaignまたはCanvasの構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)を行い、準備ができたら送信します。
+キャンペーンまたはキャンバスの構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/)を行い、準備ができたら送信します。

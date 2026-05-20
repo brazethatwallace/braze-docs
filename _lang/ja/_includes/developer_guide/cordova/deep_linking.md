@@ -14,7 +14,7 @@
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_handle_push_deep_links_automatically" value="true" />
 </platform>
@@ -22,7 +22,7 @@
 
 ディープリンクが追跡された際のバックスタック動作をカスタマイズするには、以下のオプション設定を追加することもできる：
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_handle_push_deep_links_automatically" value="true" />
     <preference name="com.braze.is_push_deep_link_back_stack_activity_enabled" value="true" />

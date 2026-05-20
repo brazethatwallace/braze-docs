@@ -88,7 +88,7 @@ valid_partner_list:
   url: /docs/partners/looker/
 - name: Kubit
   url: /docs/partners/kubit/
-- name: Segment
+- name: セグメント
   url: /docs/partners/segment/
 - name: mParticle
   url: /docs/partners/mparticle_overview/

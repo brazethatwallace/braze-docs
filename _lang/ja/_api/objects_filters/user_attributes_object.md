@@ -126,7 +126,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 ##### オブジェクトの配列の例 {#array-of-objects-example}
 
-このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてSegmentを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
+このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてセグメントを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
 
 ```json
 {"hotel_stays": [
@@ -183,7 +183,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 この例には、API呼び出しあたり合計75個の許可された属性オブジェクトのうち、4個のユーザー属性オブジェクトが含まれています。
 
-```http
+`````````http
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -259,7 +259,7 @@ API移行の代わりに、SDKを統合し、トークンベースが自然に�
 
 以下に例を示します。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -285,7 +285,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 以下に例を示します。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -331,7 +331,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 Braze SDKの統合が完了する前にAndroidプッシュ通知をユーザーに送信する必要がある場合は、キーと値のペアを使用してプッシュ通知を検証します。
 
-プッシュペイロードを処理し表示するレシーバーが必要です。プッシュペイロードをレシーバーに通知するには、必要なキーと値のペアをプッシュCampaignに追加します。これらのペアの値は、Brazeの前に使用していた特定のプッシュパートナーによって決まります。
+プッシュペイロードを処理し表示するレシーバーが必要です。プッシュペイロードをレシーバーに通知するには、必要なキーと値のペアをプッシュキャンペーンに追加します。これらのペアの値は、Brazeの前に使用していた特定のプッシュパートナーによって決まります。
 
 {% alert note %}
 一部のプッシュ通知プロバイダーでは、Brazeがキーと値のペアを適切に解釈できるようにフラット化する必要があります。特定のAndroidアプリのキーと値のペアをフラット化するには、カスタマーサクセスマネージャーにお問い合わせください。

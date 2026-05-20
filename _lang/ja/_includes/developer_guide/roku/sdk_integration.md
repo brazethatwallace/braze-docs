@@ -19,7 +19,7 @@ Braze SDK ファイルは、[Braze Roku SDK リポジトリ](https://github.com/
 
 `main.brs` 内で、グローバルノードにBrazeのコンフィギュレーションを設定する：
 
-```brightscript
+`````````brightscript
 globalNode = screen.getGlobalNode()
 config = {}
 config_fields = BrazeConstants().BRAZE_CONFIG_FIELDS
@@ -36,7 +36,7 @@ globalNode.addFields({brazeConfig: config})
 
 Braze インスタンスを初期化します。
 
-```brightscript
+`````````brightscript
 m.BrazeTask = createObject("roSGNode", "BrazeTask")
 m.Braze = getBrazeInstance(m.BrazeTask)
 ```

@@ -44,23 +44,23 @@ loplatが提供するカスタムイベントのロケーション情報は、�
 
 ### ステップ2：Brazeとloplat Xのダッシュボードを同期し、キャンペーンを作成する {#step-2-sync-the-braze-and-loplat-x-dashboards-and-create-a-campaign}
 
-Brazeダッシュボードで新しいAPIキーを作成します。APIキーをコピーして、loplat Xダッシュボードの**Settings** > **API Settings**に貼り付けます。詳細については、[loplat Xユーザーガイド](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e?pvs=25)を参照してください。
+Brazeダッシュボードで新しいAPIキーを作成します。APIキーをコピーして、loplat Xダッシュボードの**Settings** > **API Settings**に貼り付けます。詳細については、[loplat Xユーザーガイド](https://loplatx-user-guide.notion.site/キャンペーン-integration-b92f8120cbe74d19a3a5f593657b4e8e?pvs=25)を参照してください。
 
 #### APIトリガー配信 {#api-triggered-delivery}
 
-1. **API-Triggered Delivery**で送信するBraze CampaignまたはCanvasを作成し、Campaign IDをコピーします。
-2. すべてのステップを完了した後、BrazeでCampaignを起動します。
-3. loplat Xに移動し、[loplat Xユーザーガイド](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb)の指示に従ってキャンペーンを作成します。
-4. **Campaign Message Settings**の下にBraze Campaign IDを貼り付け、キャンペーンを起動します。
+1. **API-Triggered Delivery**で送信するBraze キャンペーンまたはキャンバスを作成し、キャンペーン IDをコピーします。
+2. すべてのステップを完了した後、Brazeでキャンペーンを起動します。
+3. loplat Xに移動し、[loplat Xユーザーガイド](https://loplatx-user-guide.notion.site/キャンペーン-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb)の指示に従ってキャンペーンを作成します。
+4. **キャンペーン Message Settings**の下にBraze キャンペーン IDを貼り付け、キャンペーンを起動します。
 
 ![]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
 
 #### アクションベースの配信 {#action-based-delivery}
 
-この統合により、ジオフェンス情報、地域、ブランド名、または店舗名を送信することでロケーション条件を適用できます。さらに、作成したカスタムイベントを使用してSegmentを追加したり、コンバージョンを割り当てたりできます。
-1. [loplat Xユーザーガイド](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#f898aa55ef74440aba76dd9a0e3e7598)の指示に従って、loplat Xキャンペーンを作成します。
-2. **Campaign Message Settings**の下にカスタムイベントを追加し、キャンペーンを起動します。
-3. Brazeダッシュボードに移動して、**Action-Based Delivery**で送信するCampaignまたはCanvasを作成します。
+この統合により、ジオフェンス情報、地域、ブランド名、または店舗名を送信することでロケーション条件を適用できます。さらに、作成したカスタムイベントを使用してセグメントを追加したり、コンバージョンを割り当てたりできます。
+1. [loplat Xユーザーガイド](https://loplatx-user-guide.notion.site/キャンペーン-integration-b92f8120cbe74d19a3a5f593657b4e8e#f898aa55ef74440aba76dd9a0e3e7598)の指示に従って、loplat Xキャンペーンを作成します。
+2. **キャンペーン Message Settings**の下にカスタムイベントを追加し、キャンペーンを起動します。
+3. Brazeダッシュボードに移動して、**Action-Based Delivery**で送信するキャンペーンまたはキャンバスを作成します。
 4. loplat Xで作成したカスタムイベントを選択して、ロケーショントリガーアクションを設定します。
 
 ![]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})

@@ -443,10 +443,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 **データソース**: Braze SDK<br>
 **ユースケース**: カート放棄
 
-放棄カートCanvasでは、まず最初のショッピングカートのLiquidタグを追加し、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
+放棄カートキャンバスでは、まず最初のショッピングカートのLiquidタグを追加し、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
 
 {% raw %}
-```liquid
+`````````liquid
 {% shopping_cart {{context.${cart_id}}} %}
 ```
 {% endraw %}
@@ -488,10 +488,10 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 顧客がShop Payを高速チェックアウトオプションとして使用した場合、Shopifyは特定の標準チェックアウトイベント（Shopifyチェックアウト開始Webhookなど）をスキップすることがあります。これにより、Brazeがチェックアウトトークンエイリアスの追加に必要なデータを受信できず、チェックアウト放棄のトラッキングやユーザープロファイルの照合に影響を与える可能性があります。
 {% endalert %}
 
-放棄チェックアウトCanvasでは、まず次のLiquidタグを使用する必要があります。
+放棄チェックアウトキャンバスでは、まず次のLiquidタグを使用する必要があります。
 
 {% raw %}
-```liquid
+`````````liquid
 {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
 {{context.${cart_id}}}
 ```
@@ -860,7 +860,7 @@ Braze SDKが収集するデータの詳細については、[SDKデータ収集]
 BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
 
 {% alert note %}
-アクティブなCampaignsやCanvasesを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがSegmentsやジャーニーにどのように影響するかを確認してください。
+アクティブなキャンペーンやキャンバスを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがセグメントやジャーニーにどのように影響するかを確認してください。
 {% endalert %}
 
 {% multi_lang_include shopify.md section='Custom external ID historical backfill' %}

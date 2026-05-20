@@ -23,11 +23,11 @@ vCardは仮想連絡先ファイル（VCF）とも呼ばれ、アドレス帳や
 
 ### Airbridge - アトリビューション {#airbridge-attribution}
 
-[AirbridgeとBrazeの統合]({{site.baseurl}}/partners/message_orchestration/attribution/airbridge/)により、すべてのオーガニックおよび非オーガニックのインストールアトリビューションデータをBrazeに渡して、よりパーソナライズされたマーケティングCampaignsを構築し、ユーザーがどこで獲得されたかを正確に把握することができます。
+[AirbridgeとBrazeの統合]({{site.baseurl}}/partners/message_orchestration/attribution/airbridge/)により、すべてのオーガニックおよび非オーガニックのインストールアトリビューションデータをBrazeに渡して、よりパーソナライズされたマーケティングキャンペーンを構築し、ユーザーがどこで獲得されたかを正確に把握することができます。
 
 ### Kubit - 分析 {#kubit-analytics}
 
-[Kubit]({{site.baseurl}}/partners/data_and_analytics/analytics/kubit/)は、インスタントな製品インサイトを提供する、ノーコードのセルフサービス分析プラットフォームです。コード不要のBrazeとのシームレスな統合により、ユーザーコホート情報をBrazeにインポートし、特定のコホートをターゲットにしたエンゲージメントCampaignsを開始できます。また、Snowflake Secure Data Sharingを使用することで、Brazeの生のCampaignおよびインプレッションデータをKubitの製品分析と統合し、これらのCampaignsの効果をリアルタイムで測定できます。
+[Kubit]({{site.baseurl}}/partners/data_and_analytics/analytics/kubit/)は、インスタントな製品インサイトを提供する、ノーコードのセルフサービス分析プラットフォームです。コード不要のBrazeとのシームレスな統合により、ユーザーコホート情報をBrazeにインポートし、特定のコホートをターゲットにしたエンゲージメントキャンペーンを開始できます。また、Snowflake Secure Data Sharingを使用することで、Brazeの生のキャンペーンおよびインプレッションデータをKubitの製品分析と統合し、これらのキャンペーンの効果をリアルタイムで測定できます。
 
 ### Census - 顧客データプラットフォーム {#census-customer-data-platform}
 

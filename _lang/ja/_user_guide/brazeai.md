@@ -28,7 +28,7 @@ guide_featured_list:
   - name: 生成 AI
     link: /docs/user_guide/brazeai/generative_ai
     image: /assets/img/braze_icons/lightbulb-02.svg
-  - name: Intelligence Suite
+  - name: インテリジェントスイート
     link: /docs/user_guide/brazeai/intelligence_suite
     image: /assets/img/braze_icons/clock.svg
   - name: アイテムのおすすめ
@@ -57,7 +57,7 @@ guide_featured_list:
 
 | 目標 | おすすめの機能 |
 | --- | --- |
-| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | Brazeエージェント（Canvasまたはカタログ）、単発の下書きコピーには生成 AI |
+| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | Brazeエージェント（キャンバスまたはカタログ）、単発の下書きコピーには生成 AI |
 | どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | コンテンツオプティマイザー（メール、プッシュ通知、またはSMS/MMS/RCS）または勝者バリアント |
 | オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | Decisioning Studio |
 | チャーンする可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | Predictive ChurnまたはPredictive Events |
