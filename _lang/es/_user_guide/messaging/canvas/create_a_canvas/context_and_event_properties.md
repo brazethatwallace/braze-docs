@@ -66,11 +66,6 @@ Dado este comportamiento, Braze recomienda encarecidamente que uses un filtro de
 ```
 {% endraw %}
 
-#### Excepciones {#exceptions}
-
-- Las marcas de tiempo no se normalizan a UTC en el primer paso de un Canvas si ese paso es un paso de Mensaje.
-- Las marcas de tiempo no se normalizan a UTC en ningún paso de Mensaje que use el canal de mensajes dentro de la aplicación, independientemente de su orden en el Canvas.
-
 ## Caso de uso {#use-case}
 
 ![Un paso de Rutas de acción seguido de un paso de Retraso y un paso de Mensaje para usuarios que han añadido un artículo a su lista de deseos, y una ruta para el resto.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}

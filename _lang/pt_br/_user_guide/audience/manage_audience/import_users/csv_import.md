@@ -148,6 +148,10 @@ Arrays, tokens por push e tipos de dados de eventos personalizados não são sup
 Ao importar atributos padrão, os cabeçalhos de coluna que você usar devem corresponder exatamente à ortografia e capitalização dos atributos de usuário padrão. Caso contrário, a Braze os detectará como [atributos personalizados](#custom-attributes).
 {% endalert %}
 
+{% alert tip %}
+Para a lista completa de atributos padrão que a Braze reconhece (via SDK, API, CSV e Ingestão de dados na nuvem), consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). A tabela a seguir abrange apenas o subconjunto que pode ser definido por meio da importação por CSV.
+{% endalert %}
+
 Os seguintes atributos padrão estão disponíveis para importação de usuários.
 
 | Campo do perfil de usuário | Tipo de dado | Descrição | Obrigatório? |

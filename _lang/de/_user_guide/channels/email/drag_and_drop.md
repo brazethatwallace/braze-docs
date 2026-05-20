@@ -142,6 +142,16 @@ Unter **Sendeeinstellungen** können Sie Personalisierung für E-Mail-Header und
 Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
 {% endalert %}
 
+#### E-Mail-Anhänge hinzufügen {#adding-email-attachments}
+
+Unter **Sendeeinstellungen** > **Erweitert** können Sie E-Mail-Anhänge mit den folgenden Methoden hinzufügen:
+
+- **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt hochzuladen. Braze validiert den Dateityp und die Größe (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen, und die Dateien werden dann in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
+- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
+- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt überprüft. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
+
+Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
+
 ### 4. Schritt: E-Mail testen {#step-4-test-your-email}
 
 Nachdem Sie Ihre Sendeinformationen hinzugefügt haben, ist es an der Zeit, Ihre E-Mail zu testen.

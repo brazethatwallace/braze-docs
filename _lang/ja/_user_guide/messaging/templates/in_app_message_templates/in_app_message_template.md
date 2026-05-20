@@ -37,7 +37,7 @@ Brazeダッシュボードで、**テンプレート** > **アプリ内メッセ
 
 **テンプレート** > **アプリ内メッセージテンプレート**で、テンプレートのフィルタリング、検索、または編集のために開くことができます。他のテンプレートタイプと同様に、テンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとメディアのワークフローの概要については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
 
-テンプレートにアクセスするには権限が必要です。たとえば、「Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス」またはそれに相当する詳細な権限を付与して、アプリ内メッセージテンプレートの表示や編集を行えるようにします。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+アプリ内メッセージテンプレートにアクセスするには、アプリ内メッセージテンプレートの表示または編集を行うための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
 ### カラープロファイルとCSSテンプレートの作成 {#reusable-color-profiles}
 

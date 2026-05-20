@@ -28,7 +28,7 @@ Die Integration von Braze und Amazon S3 bietet zwei Integrationsstrategien:
 | Amazon S3-Konto | Sie benötigen ein Amazon S3-Konto, um die Vorteile dieser Partnerschaft zu nutzen. |
 | Dedizierter S3-Bucket | Vor der Integration mit Amazon S3 müssen Sie einen S3-Bucket für Ihre App erstellen.<br><br>Wenn Sie bereits einen S3-Bucket haben, empfehlen wir Ihnen dennoch, einen neuen Bucket speziell für Braze zu erstellen, damit Sie die Berechtigungen einschränken können. In der folgenden Anleitung erfahren Sie, wie Sie einen neuen Bucket erstellen. |
 | Currents | Um Daten zurück in Amazon S3 zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto einrichten lassen. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Erstellen eines neuen S3-Buckets {#creating-a-new-s3-bucket}
 
@@ -332,6 +332,14 @@ Eine Benachrichtigung informiert Sie darüber, ob Ihre Zugangsdaten erfolgreich 
 
 {% endtab %}
 {% endtabs %}
+
+## Aktualisierung der Amazon S3-Zugangsdaten für Currents {#updating-currents-credentials}
+
+Sie können die Amazon S3-Zugangsdaten eines bestehenden Braze-Currents-Konnektors aktualisieren, ohne die Integration zu stoppen oder bereits in Ihren Bucket exportierte Daten zu verlieren.
+
+Um Zugangsdaten zu aktualisieren – oder zwischen **AWS Secret Access Key** und **AWS Role ARN** zu wechseln – führen Sie zunächst die IAM- und AWS-seitigen Schritte für Ihre gewählte Methode weiter oben in diesem Artikel durch (Richtlinien, Nutzer:in oder Rolle und Bezeichner nach Bedarf).
+
+Wenn Sie die Zugangsdaten in AWS vorbereitet haben, gehen Sie in Braze zu **Partnerintegrationen** > **Currents**, suchen Sie Ihren Amazon S3-Konnektor in der Liste, wählen Sie **Edit**, aktualisieren Sie die **Credentials** und wählen Sie **Update Current**. Braze validiert die eingegebenen Zugangsdaten; Ihr Konnektor läuft weiter und die bereits in Ihrem Bucket vorhandenen Daten bleiben verfügbar. Weitere Informationen finden Sie unter [Currents aktualisieren in Currents einrichten]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
 
 ## Exportverhalten {#export-behavior}
 

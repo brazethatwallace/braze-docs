@@ -11,7 +11,7 @@ toc_headers: h2
 
 # エージェントステップ {#agent-step}
 
-> エージェントステップを使用すると、AIを活用した意思決定やコンテンツ生成をCanvasワークフローに直接組み込むことができます。一般的な情報については、[Braze エージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を参照してください。
+> エージェントステップを使用すると、AIを活用した意思決定やコンテンツ生成をCanvasワークフローに直接組み込むことができます。一般的な情報については、[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を参照してください。
 
 ![Canvasのユーザージャーニーにおけるエージェントステップ。]({% image_buster /assets/img/ai_agent/agent_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
@@ -53,7 +53,7 @@ toc_headers: h2
 | オブジェクト | 単一のLLM呼び出しで、予測可能なデータ構造内の上記データタイプを1つ以上活用 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
-出力変数は、コンテキスト変数と同じテンプレート構文を使用してCanvas全体で使用できます。**Context Variable**Segmentフィルターを使用するか、Liquidを使用してエージェントの応答を直接テンプレート化します: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}。
+出力変数は、コンテキスト変数と同じテンプレート構文を使用してCanvas全体で使用できます。**Context Variable** Segmentフィルターを使用するか、Liquidを使用してエージェントの応答を直接テンプレート化します: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}。
 
 オブジェクト出力変数から特定のプロパティを使用するには、Liquidでドット記法を使用してそのプロパティにアクセスします: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
@@ -112,7 +112,7 @@ toc_headers: h2
 
 エージェントのパフォーマンスとクレジット消費を既存のジャーニーと比較してテストするには、[実験パス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)ステップを追加して、オーディエンスの一部のみがエージェントステップを含むブランチに入るようにします。
 
-たとえば、約25,000回の呼び出しを使用して、1日あたり2,000人のユーザーをエージェントのあるパスに送り、残りをコントロールパスまたはエージェントのないパスに送ります。1〜2週間データを収集し、パス間でKPI、カウンター指標、エージェントクレジット消費を比較してから、エージェント対応ブランチへのトラフィックを増やしてください。
+たとえば、1日あたり数千人のユーザーをエージェントのあるパスに送り、残りをコントロールパスまたはエージェントのないパスに送ることから始めることができます。1〜2週間データを収集し、パス間でKPI、カウンター指標、エージェントクレジット消費を比較します。こうすることで、エージェント対応ブランチへのトラフィックを増やす前に確信を持ちROIを証明でき、呼び出し消費も抑えられます。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -131,7 +131,7 @@ toc_headers: h2
 
 ## 関連記事 {#related-articles}
 
-- [Braze エージェントの概要]({{site.baseurl}}/user_guide/brazeai/agents/)
+- [Brazeエージェントの概要]({{site.baseurl}}/user_guide/brazeai/agents/)
 - [カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/)
 - [エージェントのデプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/)
 - [エージェントのリファレンス]({{site.baseurl}}/user_guide/brazeai/agents/reference/)

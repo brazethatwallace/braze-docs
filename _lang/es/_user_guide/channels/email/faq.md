@@ -79,7 +79,7 @@ Para las campañas de correo electrónico y los Canvas, el botón de detener no 
 
 Aunque Braze no enviará más solicitudes una vez que la campaña o el Canvas se haya detenido, los análisis aún pueden aumentar mientras el ESP termina de procesar las solicitudes que ya están en curso.
 
-### ¿Por qué veo más *Clics totales* que *Aperturas totales* en mis análisis de correo electrónico? {#why-am-i-seeing-more-total-clicks-than-total-opens-in-my-email-analytics}
+### ¿Por qué veo más *Clics totales* que *Aperturas totales* en mis análisis de correo electrónico? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
 *Aperturas totales* es el recuento de cuántas veces los usuarios abrieron el correo electrónico, mientras que *Clics totales* es el recuento de cuántas veces los usuarios hicieron clic dentro del correo electrónico entregado, incluyendo cualquier tipo de clics como clics en enlaces. Puedes estar viendo más clics que aperturas por cualquiera de las siguientes razones:
 
@@ -105,9 +105,9 @@ Braze rastrea los enlaces de cancelación de suscripción si se utiliza el sigui
 
 ### ¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-Si hay más *Cancelaciones de suscripción* que usuarios que hicieron clic en el enlace de cancelación de suscripción en el cuerpo del correo electrónico, las acciones del encabezado list-unsubscribe a menudo explican la diferencia: un clic en el encabezado list-unsubscribe cuenta como una *Cancelación de suscripción* pero no como un *Clic* en el enlace del cuerpo.
+Si hay más *Cancelaciones de suscripción* que usuarios que hicieron clic en el enlace de cancelación de suscripción en el cuerpo del correo electrónico, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) a menudo explica la diferencia. List-unsubscribe es una ruta adicional de cancelación de suscripción en el encabezado del correo electrónico (no el enlace en el cuerpo de tu mensaje). Cuando un usuario cancela la suscripción de esa forma, cuenta como una *Cancelación de suscripción* pero no como un clic en la URL de cancelación de suscripción rastreada en el cuerpo.
 
-Si el número total de clics en el enlace de cancelación de suscripción del cuerpo es mayor que el número de *Cancelaciones de suscripción*, es posible que los usuarios hayan hecho clic en el enlace más de una vez.
+Si el número total de clics en el enlace de cancelación de suscripción del cuerpo es mayor que el número de *Cancelaciones de suscripción*, es posible que los usuarios hayan hecho clic en el enlace más de una vez; por ejemplo, si cancelaron la suscripción, se suscribieron de nuevo y luego cancelaron la suscripción otra vez, los análisis de correo electrónico pueden registrar múltiples clics en el desglose de clics.
 
 Si un usuario hace clic en el enlace de cancelación de suscripción dos veces (por ejemplo, si canceló la suscripción, se suscribió de nuevo y luego canceló la suscripción otra vez), esto cuenta dos veces en los análisis de correo electrónico.
 

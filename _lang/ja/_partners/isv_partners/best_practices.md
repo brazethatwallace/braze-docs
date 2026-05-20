@@ -110,7 +110,7 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 ## Brazeへのユーザーオーディエンスの送信 {#sending-audiences-of-users-to-braze}
 
 [コホートインポート同期パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/cohort_import/)<br>
-- ユーザーのオーディエンスは、Braze Cohort Import APIエンドポイントを使用して、コホートとしてBrazeに同期できます。これらのオーディエンスをユーザー属性としてユーザープロファイルに保存するのではなく、セグメンテーションツール内のパートナーブランドフィルターを使用してこのコホートを作成し、ターゲットに設定できます。これにより、特定のユーザーセグメントをより効率的に見つけてターゲットにすることができます。
+- ユーザーのオーディエンスは、Braze Cohort Import APIエンドポイントを使用して、コホートとしてBrazeに同期できます。これらのオーディエンスをユーザー属性としてユーザープロファイルに保存するのではなく、セグメンテーションツール内のパートナーブランドフィルターを使用してこのコホートを作成し、ターゲットに設定できます。これにより、特定のユーザーSegmentをより効率的に見つけてターゲットにすることができます。
 - コホートインポートエンドポイントはパブリックではなく、各パートナーに固有です。このため、コホートエンドポイントへの同期は、顧客のワークスペースのレート制限にカウントされません。
 
 [ユーザートラック]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)<br>
@@ -126,14 +126,14 @@ Braze内にそのメールアドレスまたは電話番号を持つユーザー
 ### Currents
 
 Currentsは、Brazeのほぼリアルタイムのメッセージエンゲージメント分析ストリーミングツールです。顧客のワークスペースから送信されたCampaignsおよびCanvasesのすべての送信、配信、開封、クリックなどに関するユーザーレベルのデータがストリーミングされます。いくつかの注意点があります。Currentsの価格は顧客のコネクターあたりで設定されるため、すべての新しいCurrentsパートナーはEAプロセスを経る必要があります。カスタムブランドのUIを構築し、コネクターを一般に公開する前に、パートナーにはEAの一部として5社の顧客を確保していただくようお願いしています。
-- [パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - Currentsコネクターを購入したすべての顧客がこれらのイベントにアクセスできます。
 - [ユーザー行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) - Currentsコネクターを購入したすべての顧客が、これらのイベントを含む「すべてのイベント」コネクターを購入するとは限りません。
 
 ### Snowflakeデータシェア {#snowflake-data-share}
 
 Snowflakeデータシェアコネクターを購入した顧客は、メッセージエンゲージメントイベントとユーザー行動イベントの両方に自動的にアクセスできるようになります。Snowflakeデータシェアがパートナー連携として使用される場合、Brazeは顧客に代わってパートナーのSnowflakeインスタンスに共有をプロビジョニングします。クロスリージョンのデータ共有は顧客にとってより高い価格帯となるため、Snowflakeとの連携を希望するパートナーには`US-EAST-1`および/または`EU-CENTRAL-1`にアカウントが必要であるというガイダンスをお伝えしています。
-- [パートナーのドキュメント]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
 ## CampaignsとCanvasesの構築とトリガー {#building-and-triggering-campaigns-and-canvases}
 

@@ -94,6 +94,8 @@ Este endpoint mescla os seguintes campos se eles não forem encontrados no usuá
 Ao mesclar usuários, o uso do endpoint `/users/merge` funciona da mesma forma que o [método `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
+A Braze lida com três tipos de usuários de forma diferente ao mesclar: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global. Para saber mais, consulte [Comportamento de mesclagem de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/).
+
 #### Comportamento da data do evento personalizado e da data do evento de compra {#custom-event-date-and-purchase-event-date-behavior}
 
 Esses campos mesclados atualizam filtros "para X eventos em Y dias". Para eventos de compra, esses filtros incluem "número de compras em Y dias" e "dinheiro gasto nos últimos Y dias".

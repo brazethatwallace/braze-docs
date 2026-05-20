@@ -14,7 +14,7 @@ description: "Cet article de référence explique comment créer et utiliser des
 
 Les sélections sont des groupes de données qui permettent de personnaliser un message pour chaque utilisateur de votre campagne. Lorsque vous utilisez une sélection, vous configurez essentiellement des filtres personnalisés basés sur des colonnes spécifiques de votre catalogue. Il peut s'agir de filtres pour la marque, la taille, l'emplacement, la date d'ajout, etc. Cela vous donne le contrôle sur ce que vous montrez aux utilisateurs en vous permettant de définir des critères auxquels les éléments doivent répondre au préalable.
 
-Après avoir créé un catalogue, vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos campagnes ou recommandations Braze.
+Après avoir créé un catalogue, vous pouvez référencer davantage les données de votre catalogue en incorporant des sélections dans vos Campaigns ou recommandations Braze.
 
 ![La section Sélections dans un exemple de catalogue.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -24,6 +24,22 @@ Après avoir créé un catalogue, vous pouvez référencer davantage les donnée
 - Vous pouvez ajouter jusqu'à 10 filtres par sélection.
 - Les sélections sont idéales pour affiner les recommandations à partir des données de catalogue Braze. Si vous cherchez de l'inspiration, consultez [À propos des recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) pour des exemples de cas d'utilisation.
 
+## Opérateurs pris en charge {#supported-operators}
+
+Lors de la création d'un filtre de sélection, les opérateurs disponibles dépendent du type de champ que vous sélectionnez.
+
+| Type de champ | Opérateurs disponibles |
+| --- | --- |
+| Chaîne de caractères | `equals`, `does not equal`, `is any of`, `is none of` |
+| Nombre | `equals`, `does not equal`, `greater than`, `less than` |
+| Valeur booléenne | `is` |
+| Heure | `before`, `after` |
+| Tableau | `includes value`, `does not include value` |
+| Géo | `geo within`, `geo outside` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported operators" }
+
+Les opérateurs `is any of` et `is none of` sont disponibles pour les champs de type chaîne de caractères et prennent chacun en charge jusqu'à 10 valeurs.
+
 ## Créer une sélection {#creating-a-selection}
 
 Pour créer une sélection, procédez comme suit.
@@ -32,7 +48,7 @@ Pour créer une sélection, procédez comme suit.
 2. Sélectionnez l'onglet **Selection** et cliquez sur **Create Selection**.
 3. Donnez un nom à votre sélection et, éventuellement, une description.
 4. Dans le champ **Filter Field**, sélectionnez la colonne du catalogue sur laquelle vous souhaitez filtrer. Les champs de type chaîne de caractères de plus de 1 000 caractères ne peuvent pas être sélectionnés pour les filtres.
-5. Terminez la définition de vos critères de filtrage en sélectionnant l'opérateur approprié (par exemple, « equals » ou « does not equal ») et l'attribut.
+5. Terminez la définition de vos critères de filtrage en sélectionnant l'opérateur et l'attribut appropriés. Pour une liste complète des opérateurs par type de champ, consultez [Opérateurs pris en charge](#supported-operators).
 6. Dans la section **Sort type**, déterminez comment les résultats sont triés. Par défaut, les résultats sont renvoyés sans ordre particulier. Pour spécifier un tri sur un champ spécifique, désactivez l'option **Randomize Sort Order** et précisez le **Sort Field** et l'ordre de tri (**Sort Order** : croissant ou décroissant).
 7. Dans la section **Results limit**, saisissez le nombre de résultats (jusqu'à 50).
 8. Sélectionnez **Create Selection**.
@@ -46,7 +62,7 @@ Après avoir créé une sélection, vous pouvez utiliser la section **Preview fo
 L'utilisation de Liquid dans les catalogues, comme les attributs personnalisés et les événements personnalisés, peut donner lieu à des résultats différents pour chaque utilisateur de votre sélection.
 
 {% alert note %}
-Le Contenu connecté Liquid n'est pas pris en charge dans ces paramètres de filtrage.
+Le Liquid de Contenu connecté n'est pas pris en charge dans ces paramètres de filtrage.
 {% endalert %}
 
 ![Paramètres de filtrage pour la sélection du catalogue lorsque l'attribut est défini sur un attribut personnalisé Liquid.]({% image_buster /assets/img_archive/catalog_selections7.png %})

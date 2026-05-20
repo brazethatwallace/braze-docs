@@ -87,8 +87,6 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 イベントプロパティの頻度と最新性に基づいてSegmentを作成するには、「Edit Custom Event Property Segmentation」[ユーザー権限]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage)が必要です。
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 デフォルトでは、ワークスペースごとに20個のセグメント可能なイベントプロパティを設定できます。この制限を引き上げるには、Brazeアカウントマネージャーにお問い合わせください。
 
 セグメンテーション用のイベントプロパティを追加するには、以下の手順を実行します。

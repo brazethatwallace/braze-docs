@@ -37,7 +37,7 @@ Farbprofile und CSS-Templates gelten für den traditionellen Editor. Wenn Sie de
 
 Unter **Templates** > **In-App Message Templates** können Sie Templates filtern, suchen oder öffnen, um sie zu bearbeiten. Sie können Templates wie andere Template-Typen [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates). Einen Überblick über Template- und Medien-Workflows finden Sie unter [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
 
-Sie benötigen die entsprechenden Berechtigungen, um auf Templates zuzugreifen. Gewähren Sie beispielsweise die Berechtigung „Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segmente, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren aufrufen“ oder die entsprechende granulare Berechtigung, um In-App-Nachricht-Templates anzuzeigen oder zu bearbeiten. Weitere Informationen finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Um auf In-App-Nachricht-Templates zuzugreifen, benötigen Sie [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) zum Anzeigen oder Bearbeiten von In-App-Nachricht-Templates.
 
 ### Farbprofile und CSS-Templates erstellen {#reusable-color-profiles}
 

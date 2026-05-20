@@ -12,10 +12,6 @@ channel:
 
 > WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のCampaignsやCanvasesで使用できます。
 
-{% alert note %}
-WhatsApp テンプレートビルダーは現在、早期アクセス段階です。アクセスについてはBrazeアカウントマネージャーにお問い合わせください。
-{% endalert %}
-
 ## 前提条件 {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -24,7 +20,7 @@ WhatsApp テンプレートビルダーは現在、早期アクセス段階で�
 
 ### ステップ 1:WhatsApp テンプレートに移動する {#step-1-go-to-whatsapp-templates}
 
-**テンプレート** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
+**コンテンツ** > **WhatsApp テンプレート**に移動し、**新規テンプレートを作成**を選択します。
 
 ![新しいテンプレートを作成するボタンがあるWhatsAppテンプレートページ。]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

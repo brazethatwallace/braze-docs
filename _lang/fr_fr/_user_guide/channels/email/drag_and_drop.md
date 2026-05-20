@@ -142,6 +142,16 @@ Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les e
 Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou de Canvas. Dans les fonctionnalités avancées, vous pouvez modifier votre paramètre CSS en ligne et saisir des paires clé-valeur d'en-tête ou supplémentaires (si configurées).
 {% endalert %}
 
+#### Ajouter des pièces jointes à l'e-mail {#adding-email-attachments}
+
+Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
+
+- **Télécharger un fichier :** Glissez-déposez ou parcourez pour télécharger un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant le téléchargement, puis ces fichiers sont téléchargés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être téléchargés.
+- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
+- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+
+Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+
 ### Étape 4 : Tester votre e-mail {#step-4-test-your-email}
 
 Après avoir ajouté vos informations d'envoi, il est enfin temps de tester votre e-mail.
@@ -310,14 +320,14 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `base` | `href` | URL de base à utiliser pour les URL relatives. | ```<base href="https://braze.com">``` |
 | `base` | `target`| Cible par défaut pour tous les hyperliens et formulaires. | ```<base target="_blank">``` |
 | `link` | `href` | URL vers la ressource externe. | ```<link href="style.css">``` |
-| `link` | `rel` | Définit les relations entre le message actuel et le message lié. | ```<link rel="stylesheet">``` |
+| `link` | `rel` | Définit les relations entre le document actuel et la ressource liée. | ```<link rel="stylesheet">``` |
 | `link` | `type` | Type de la ressource liée. | ```<link type="text/css">``` |
 | `link` | `sizes` | Spécifie les tailles des icônes. | ```<link rel="icon" sizes="32x32" href="favicon-32.png">``` |
 | `link` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
-| `meta` | `name` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
-| `meta` | `content` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta name="description" content="Page about our newest products">``` |
+| `meta` | `name` | Définit le nom de la métadonnée. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
+| `meta` | `content` | Définit la valeur de la métadonnée. | ```<meta name="description" content="Page about our newest products">``` |
 | `meta` | `charset` | Déclare l'encodage des caractères. | ```<meta charset="UTF-8">``` |
-| `meta` | `property` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta property="og:title" content="Website title">``` |
+| `meta` | `property` | Définit une propriété de métadonnée (par exemple Open Graph). | ```<meta property="og:title" content="Website title">``` |
 | `style` | `type` | Type MIME du contenu de style. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Aucun attribut | La balise `title` n'accepte aucun attribut. | ```<title>Kitchenerie</title>``` |

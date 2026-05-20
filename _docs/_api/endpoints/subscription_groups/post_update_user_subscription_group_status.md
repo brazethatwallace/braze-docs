@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "This article outlines details about the Update user's subscription group status Braze endpoint."
 ---
+
 {% api %}
 # Update user's subscription group status
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 {% alert note %}
 If you're interested in using this endpoint with [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), contact your customer success manager.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Rate limit
 

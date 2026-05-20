@@ -66,11 +66,6 @@ tool: Canvas
 ```
 {% endraw %}
 
-#### 예외 사항 {#exceptions}
-
-- 해당 단계가 메시지 단계인 경우, Canvas의 첫 번째 단계에서는 타임스탬프가 UTC로 정규화되지 않습니다.
-- Canvas에서의 순서와 관계없이, 인앱 메시지 채널을 사용하는 모든 메시지 단계에서는 타임스탬프가 UTC로 정규화되지 않습니다.
-
 ## 사용 사례 {#use-case}
 
 ![위시리스트에 아이템을 추가한 사용자를 위한 행동 경로 단계, 지연 단계, 메시지 단계와 다른 모든 사용자를 위한 경로.]({% image_buster /assets/img_archive/canvas_entry_properties1.png %}){: style="float:right;max-width:30%;margin-left:15px;"}

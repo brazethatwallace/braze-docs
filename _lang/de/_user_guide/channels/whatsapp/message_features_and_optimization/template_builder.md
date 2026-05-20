@@ -10,11 +10,7 @@ channel:
 
 # WhatsApp-Template-Builder {#whatsapp-template-builder}
 
-> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Kampagnen und Canvases verwenden.
-
-{% alert note %}
-Der WhatsApp-Template-Builder befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, um Zugang zu erhalten.
-{% endalert %}
+> Mit dem WhatsApp-Template-Builder können Sie WhatsApp-Nachrichten-Templates direkt in Braze erstellen und einreichen – ohne zwischen Braze und dem Meta Business Manager wechseln zu müssen. Nachdem Meta Ihr Template genehmigt hat, können Sie es in beliebig vielen Campaigns und Canvases verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -24,7 +20,7 @@ Der WhatsApp-Template-Builder befindet sich derzeit im Early Access. Kontaktiere
 
 ### 1. Schritt: WhatsApp-Templates aufrufen {#step-1-go-to-whatsapp-templates}
 
-Gehen Sie zu **Templates** > **WhatsApp Templates** und wählen Sie **Create new template**.
+Gehen Sie zu **Content** > **WhatsApp Templates** und wählen Sie **Create new template**.
 
 ![WhatsApp-Templates-Seite mit Button zum Erstellen eines neuen Templates.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

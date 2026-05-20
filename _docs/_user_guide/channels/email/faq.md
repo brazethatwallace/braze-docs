@@ -19,7 +19,7 @@ If multiple profiles share an email address and one profile unsubscribes, Braze 
 
 The following scenarios can make it seem like a user received an email twice:
 
-- **An error occurred during campaign or Canvas creation:** The user may not receive the literal same send twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, check email configuration details such as images or subject lines. You can also refer to changelogs to see if the campaign or Canvas was modified after launch—a duplicate may share the same subject line as the original when the user received it.
+- **An error occurred during campaign or Canvas creation:** The user may not receive the same send twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, check email configuration details such as images or subject lines. You can also refer to changelogs to see if the campaign or Canvas was modified after launch—a duplicate may share the same subject line as the original when the user received it.
 - **Multiple user profiles have email forwarding:** If a user has multiple accounts in a given app but one account forwards mail, the user receives the campaign once per inbox; mail can appear twice in the inbox where messages are forwarded. Only some providers indicate when an email was forwarded from another account.
 - **Email configuration at the recipient:** Some clients merge inboxes ("universal inbox"). If the same campaign targets multiple accounts that share one inbox, it can look like one person got the campaign twice when two distinct profiles were actually messaged. The recipient can confirm whether multiple accounts are combined in one inbox.
 
@@ -61,7 +61,7 @@ Finally, your business and the types of emails you send may also affect delivery
 
 Email delivery metrics (deliveries, bounces, and spam rate) may not add up to 100% because of emails that are soft bounced and then not delivered after the retry period of up to 72 hours.
 
-Soft bounces are emails that bounce due to a temporary or transient issue, such as "mailbox full," "server temporarily not available," and more. If a soft bounced email is still not delivered after 72 hours, this email will not be accounted for in the campaign delivery metrics.
+Soft bounces are emails that bounce due to a temporary or transient issue, such as "mailbox full," "server temporarily not available," and more. If a soft-bounced email is still not delivered after 72 hours, this email will not be accounted for in the campaign delivery metrics.
 
 ### What is an email feedback loop?
 
@@ -105,9 +105,9 @@ Braze tracks unsubscribe links if the following Liquid is used within emails: {%
 
 ### Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?
 
-If there are more _Unsubscribes_ than users who clicked the unsubscribe link in the email body, list-unsubscribe header actions often explain the gap—a click on the list-unsubscribe header counts as an _Unsubscribe_ but not as a _Click_ on the body link.
+If there are more _Unsubscribes_ than users who clicked the unsubscribe link in the email body, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) often explains the gap. List-unsubscribe is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward _Unsubscribes_ but does not count as a click on the tracked unsubscribe URL in the body.
 
-If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once.
+If the total number of clicks on the body unsubscribe link is greater than the number of _Unsubscribes_, users may have clicked the link more than once—for example, if they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks in the click breakdown.
 
 If a user clicks the unsubscribe link twice (for example, if they unsubscribed, subscribed again, then unsubscribed again), this counts twice in email analytics.
 
@@ -154,12 +154,12 @@ Gmail strips all non-HTTP/HTTPS links from email messages. If your deep link use
 To work around this:
 
 - **Use Universal Links (iOS) or App Links (Android).** These use standard `https://` URLs that open your app when installed and fall back to a web page otherwise. Refer to [Universal Links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/) for setup instructions.
-- **Use a deep linking provider.** Services like [Branch](https://www.branch.io/) generate HTTP-formatted deep links that are compatible with email clients including Gmail.
+- **Use a deep linking provider.** Services like [Branch](https://www.branch.io/) generate HTTP-formatted deep links that are compatible with email clients, including Gmail.
 - **Set up a redirect endpoint.** Host an `https://` endpoint on your server that redirects to your app's custom-scheme URL. Email clients will preserve the `https://` link, and the redirect handles opening the app.
 
 ### Does the *Unique Opens* metric include *Machine Opens*?
 
-No. *Unique Opens* count only [Other Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#other-opens), which excludes emails identified as machine opens. *Machine Opens* are tracked separately. In the **Campaign Analytics** view and **Report Builder**, you can view both metrics independently.
+Yes. *Unique Opens* include *Machine Opens*. You can view both metrics in the **Campaign Analytics** view and **Report Builder**.
 
 ### Why does my email delivery volume not match my send volume?
 

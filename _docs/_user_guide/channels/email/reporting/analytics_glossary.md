@@ -275,6 +275,15 @@ _Unsubscribes_ reflect the standard unsubscribe link for Braze. Custom unsubscri
 </span>
 {:/}
 
+#### Why *Unsubscribes* and unsubscribe-link clicks can differ
+
+On the **Analytics** page for an email campaign or Canvas, compare the *Unsubscribes* count to clicks on the Braze unsubscribe URL in the per-link breakdown when you expand **Total Clicks** or **Unique Clicks**. The two often match but can differ:
+
+- **More *Unsubscribes* than clicks on the body unsubscribe URL:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward *Unsubscribes* but does not count as a click on the tracked unsubscribe URL in the body.
+- **More clicks on the body unsubscribe URL than *Unsubscribes*:** A user may select that link more than once. If they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks (for example, two) in the click breakdown.
+
+For more information, see [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+
 {% endapi %}
 
 {% api %}

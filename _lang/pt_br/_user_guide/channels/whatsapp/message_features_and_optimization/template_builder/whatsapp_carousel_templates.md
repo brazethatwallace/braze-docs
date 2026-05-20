@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Os modelos de carrossel do WhatsApp permitem criar mensagens interativas com vários cartões pelos quais os usuários podem deslizar. Cada carrossel pode conter até 10 cartões com imagens ou vídeos, além de botões personalizáveis para engajamento. Esse recurso é ideal para apresentar seus produtos e serviços, ou conteúdo em várias etapas em um formato visualmente atraente.
 
-{% alert note %}
-Os modelos de carrossel do WhatsApp estão em acesso antecipado. Fale com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
-{% endalert %}
-
 ## Pré-requisitos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}

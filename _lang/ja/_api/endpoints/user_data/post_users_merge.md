@@ -22,7 +22,7 @@ description: "この記事では、「ユーザーのマージ」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.merge` 権限を持つ [APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -84,7 +84,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 - 初回購入日（Brazeは2つの日付のうち早い方を選択します）
 - 最終購入日（Brazeは2つの日付のうち遅い方を選択します）
 - アプリの概要
-- Last_X_at フィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
+- Last_X_atフィールド（孤立したプロファイルのフィールドがより新しい場合、Brazeはフィールドを更新します）
 - Campaignのインタラクションデータ（Brazeは最も新しい日付フィールドを選択します）
 - ワークフローの概要（Brazeは最も新しい日付フィールドを選択します）
 - メッセージとメッセージのエンゲージメント履歴
@@ -93,6 +93,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 {% alert note %}
 ユーザーをマージする場合、`/users/merge` エンドポイントの使用は、[`changeUser()` メソッド](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)の使用と同じように機能します。
 {% endalert %}
+
+Brazeは、マージ時に3つのユーザータイプを異なる方法で処理します。削除対象としてマークされたユーザー、テストユーザー、およびグローバルコントロールグループのユーザーです。詳細については、[ユーザーマージの動作]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)を参照してください。
 
 #### カスタムイベント日と購入イベント日の動作 {#custom-event-date-and-purchase-event-date-behavior}
 

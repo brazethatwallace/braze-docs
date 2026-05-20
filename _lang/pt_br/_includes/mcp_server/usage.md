@@ -1,6 +1,6 @@
 # Usando o servidor MCP do Braze {#using-the-braze-mcp-server}
 
-> Aprenda a interagir com seus dados do Braze usando ferramentas de linguagem natural como Claude e Cursor. Para saber mais, consulte [Servidor MCP do Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Aprenda a interagir com seus dados da Braze por meio de linguagem natural usando ferramentas como Claude e Cursor. Para saber mais, consulte [Servidor MCP do Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -67,10 +67,6 @@ Para saber mais sobre a função `get_canvas_list`, consulte [Funções de API d
 ### Criar um modelo de e-mail {#create-an-email-template}
 
 {% tabs %}
-{% tab Claude %}
-!["Criar um modelo de e-mail" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/create_an_email_template.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 !["Criar um modelo de e-mail" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/create_an_email_template.png %})
 {% endtab %}
@@ -81,10 +77,6 @@ Para saber mais sobre a função `create_email_template`, consulte [Funções de
 ### Atualizar um bloco de conteúdo {#update-a-content-block}
 
 {% tabs %}
-{% tab Claude %}
-!["Atualizar um bloco de conteúdo" sendo perguntado e respondido no Claude.]({% image_buster /assets/img/mcp_server/claude/update_a_content_block.png %}){: style="max-width:85%;"}
-{% endtab %}
-
 {% tab Cursor %}
 !["Atualizar um bloco de conteúdo" sendo perguntado e respondido no Cursor.]({% image_buster /assets/img/mcp_server/cursor/update_a_content_block.png %})
 {% endtab %}

@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Las plantillas de carrusel de WhatsApp te permiten crear mensajes interactivos con múltiples tarjetas por las que los usuarios pueden deslizarse. Cada carrusel puede contener hasta 10 tarjetas con imágenes o videos, junto con botones personalizables para la interacción. Esta característica es ideal para mostrar tus productos y servicios, o contenido de varios pasos en un formato visualmente atractivo.
 
-{% alert note %}
-Las plantillas de carrusel de WhatsApp están en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en este acceso anticipado.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -168,21 +164,21 @@ Después de la composición, continúa con el flujo de trabajo de lanzamiento de
 
 ### Directrices de contenido {#content-guidelines}
 
-- **Ubicación del contenido del cuerpo:** Las variables no pueden colocarse al final del contenido del cuerpo. Añade al menos una palabra o signo de puntuación después de cada variable.
-- **Estructura de tarjetas consistente:** Todas las tarjetas deben tener la misma forma, tipo de medio y configuración de botones. Planifica tu contenido en consecuencia.
-- **Cantidad óptima de tarjetas:** Aunque puedes crear hasta 10 tarjetas, considera la experiencia del usuario. Demasiadas tarjetas pueden resultar abrumadoras; de 3 a 5 tarjetas funcionan bien para la mayoría de los casos de uso.
-- **Valores predeterminados:** Al usar variables de Liquid, proporciona siempre valores predeterminados para una vista previa precisa. Esto ayuda a confirmar que el mensaje se muestra correctamente si faltan ciertos datos del perfil de usuario.
+- **Ubicación del contenido del cuerpo:** las variables no pueden colocarse al final del contenido del cuerpo. Añade al menos una palabra o signo de puntuación después de cada variable.
+- **Estructura de tarjetas consistente:** todas las tarjetas deben tener la misma forma, tipo de medio y configuración de botones. Planifica tu contenido en consecuencia.
+- **Cantidad óptima de tarjetas:** aunque puedes crear hasta 10 tarjetas, considera la experiencia del usuario. Demasiadas tarjetas pueden resultar abrumadoras; de 3 a 5 tarjetas funcionan bien para la mayoría de los casos de uso.
+- **Valores predeterminados:** al usar variables de Liquid, proporciona siempre valores predeterminados para una vista previa precisa. Esto ayuda a confirmar que el mensaje se muestra correctamente si faltan ciertos datos del perfil de usuario.
 
 ### Cuentas de WhatsApp Business y grupos de suscripción {#whatsapp-business-accounts-and-subscription-groups}
 
-- **Entiende cómo se comparten las plantillas:** Las plantillas se comparten entre todos los grupos de suscripción dentro de la misma cuenta de WhatsApp Business (WABA), pero no entre diferentes WABAs. Planifica en consecuencia si administras múltiples WABAs.
-- **Organiza por WABA:** Si tienes múltiples WABAs, considera organizar tus plantillas por cuenta de negocio para evitar confusiones al seleccionar plantillas en campañas.
+- **Entiende cómo se comparten las plantillas:** las plantillas se comparten entre todos los grupos de suscripción dentro de la misma cuenta de WhatsApp Business (WABA), pero no entre diferentes WABAs. Planifica en consecuencia si administras múltiples WABAs.
+- **Organiza por WABA:** si tienes múltiples WABAs, considera organizar tus plantillas por cuenta de negocio para evitar confusiones al seleccionar plantillas en campañas.
 
 ### Pruebas y aprobación {#testing-and-approval}
 
-- **Previsualiza antes de enviar:** Siempre previsualiza tus plantillas para detectar errores antes de enviarlas a Meta para aprobación.
-- **Planifica el tiempo de aprobación:** Aunque la aprobación suele tardar solo unos minutos, ten en cuenta posibles retrasos al planificar los lanzamientos de campañas.
-- **Prueba a fondo:** Después de la aprobación, prueba tu carrusel con datos reales de usuarios para confirmar que todas las variables se completan correctamente y que la experiencia del usuario es fluida.
+- **Previsualiza antes de enviar:** siempre previsualiza tus plantillas para detectar errores antes de enviarlas a Meta para aprobación.
+- **Planifica el tiempo de aprobación:** aunque la aprobación suele tardar solo unos minutos, ten en cuenta posibles retrasos al planificar los lanzamientos de campañas.
+- **Prueba a fondo:** después de la aprobación, prueba tu carrusel con datos reales de usuarios para confirmar que todas las variables se completan correctamente y que la experiencia del usuario es fluida.
 
 ## Solución de problemas {#troubleshooting}
 
