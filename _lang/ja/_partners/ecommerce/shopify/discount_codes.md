@@ -3,12 +3,12 @@ nav_title: 固有の割引コード
 article_title: ユニークな割引コードを送る
 alias: /shopify_discount_codes/
 page_order: 7
-description: "この参考記事では、Shopifyの一括割引コードボットでBrazeプロモーションコードを使用し、CampaignsやCanvasesを通じてユニークな割引コードを送信する、コミュニティから投稿されたユースケースを取り上げます。"
+description: "この参考記事では、Shopifyの一括割引コードボットでBrazeプロモーションコードを使用し、キャンペーンやキャンバスを通じてユニークな割引コードを送信する、コミュニティから投稿されたユースケースを取り上げます。"
 ---
 
 # Shopifyを通じてユニークな割引コードを送信する {#send-unique-discount-codes-through-shopify}
 
-> このコミュニティから投稿されたユースケースは、Brazeの[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/)をShopify一括割引コードボットとともに使用し、CampaignsやCanvases用にユニークな割引コードを生成する方法を示します。ユニークな割引コードは、一般的なプロモーションコードの悪用を防ぐのに役立ちます。
+> このコミュニティから投稿されたユースケースは、Brazeの[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/)をShopify一括割引コードボットとともに使用し、キャンペーンやキャンバス用にユニークな割引コードを生成する方法を示します。ユニークな割引コードは、一般的なプロモーションコードの悪用を防ぐのに役立ちます。
 
 {% alert important %}
 これはコミュニティから提出された統合であり、Brazeは直接サポートしていません。一括割引コードボットはShopifyによって直接サポートされています。Brazeがサポートしているのは Brazeプロモーションコードのみです。
@@ -46,17 +46,17 @@ Brazeで、**Data Settings** > **Promotion Codes** > **Create Promotion Code Lis
 
 次にCSVファイルをアップロードし、**Save List** を選択します。
 
-### ステップ 4: BrazeのCampaignまたはCanvasステップに割引コードを追加する {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
+### ステップ 4: Brazeのキャンペーンまたはキャンバスステップに割引コードを追加する {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
-ユニークな割引コードを1回限りのCampaignで使用したい場合、または異なるCampaignsやCanvasステップでユーザーが複数のユニークなコードを受け取っても構わない場合は、保存したプロモーションコード一覧からコードのLiquidスニペットをコピーします。
+ユニークな割引コードを1回限りのキャンペーンで使用したい場合、または異なるキャンペーンやキャンバスステップでユーザーが複数のユニークなコードを受け取っても構わない場合は、保存したプロモーションコード一覧からコードのLiquidスニペットをコピーします。
 
 ![Liquidのコードスニペットとそれをコピーするボタン。][4]{: style="max-width:60%;"}
 
-CampaignまたはCanvasステップにLiquidスニペットを貼り付けます。
+キャンペーンまたはキャンバスステップにLiquidスニペットを貼り付けます。
 
-![CanvasステップにLiquidスニペットが追加される様子を示すGIF。][5]
+![キャンバスステップにLiquidスニペットが追加される様子を示すGIF。][5]
 
-CampaignsやCanvasesで割引コードが何度参照されても、ユーザーに単一のユニークな割引コードを受け取らせたい場合は、最初のメッセージステップの直前に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを作成し、割引コードを「Promo Code」のようなカスタム属性に割り当てます。
+キャンペーンやキャンバスで割引コードが何度参照されても、ユーザーに単一のユニークな割引コードを受け取らせたい場合は、最初のメッセージステップの直前に[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)ステップを作成し、割引コードを「Promo Code」のようなカスタム属性に割り当てます。
 
 {% alert tip %}
 **Data Settings** > **Custom Attributes** に移動して[カスタム属性を作成]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)することもできます。
@@ -73,15 +73,15 @@ CampaignsやCanvasesで割引コードが何度参照されても、ユーザー
 
 ## 割引コードの動作 {#discount-code-behavior}
 
-{% details マルチチャネルCampaignまたはCanvasステップ %}
+{% details マルチチャネルキャンペーンまたはキャンバスステップ %}
 
-割引コードスニペットがマルチチャネルCampaignやCanvasステップで使用されると、ユーザーは常にユニークなコードを受け取ります。ユーザーが複数のチャネルを通じてコードを受け取る資格がある場合、各チャネルを通じて同じコードを受け取ることになります。つまり、対象となるユーザーは、そのCampaignまたはCanvasステップによって送信されたすべてのメッセージで1つのコードのみを受け取ります。
+割引コードスニペットがマルチチャネルキャンペーンやキャンバスステップで使用されると、ユーザーは常にユニークなコードを受け取ります。ユーザーが複数のチャネルを通じてコードを受け取る資格がある場合、各チャネルを通じて同じコードを受け取ることになります。つまり、対象となるユーザーは、そのキャンペーンまたはキャンバスステップによって送信されたすべてのメッセージで1つのコードのみを受け取ります。
 
 {% enddetails %}
 
-{% details 異なるCanvasステップまたは別々のCampaigns %}
+{% details 異なるキャンバスステップまたは別々のキャンペーン %}
 
-割引コードが同じCanvas内の複数のステップまたは別々のCampaignsで参照される場合、対象となるユーザーには複数のユニークなプロモーションコード（各CanvasステップまたはCampaignにつき1つのコード）が発行されます。
+割引コードが同じキャンバス内の複数のステップまたは別々のキャンペーンで参照される場合、対象となるユーザーには複数のユニークなプロモーションコード（各キャンバスステップまたはキャンペーンにつき1つのコード）が発行されます。
 
 {% enddetails %}
 

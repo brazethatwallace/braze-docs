@@ -481,7 +481,7 @@ Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recu
 
 Esta estatística utiliza um modelo analítico proprietário criado pela Braze para reconstruir uma estimativa da taxa de abertura única da campanha como se as aberturas por máquina não existissem. Enquanto recebemos rótulos de *Machine Opens* em alguns eventos de abertura de remetentes de e-mail (veja acima), esses rótulos podem frequentemente classificar aberturas reais como aberturas por máquina. Em outras palavras, as *Other Opens* provavelmente são uma subestimação das aberturas reais (por usuários reais). Em vez disso, a Braze usa dados de cliques de cada campanha para inferir a taxa na qual humanos reais abriram a mensagem. Isso compensa vários mecanismos de abertura por máquina, incluindo o MPP da Apple.
 
-A _Estimated Real Open Rate_ é calculada 36 horas após o início do envio do e-mail e é recalculada a cada 24 horas a partir de então. Se uma campanha se repetir, a estimativa é recalculada 36 horas após outro envio ocorrer.
+A _Estimated Real Open Rate_ é calculada 24 horas após o início do envio do e-mail e é recalculada a cada 72 horas a partir de então.
 
 Como essa métrica é recalculada de forma contínua, o valor da _Estimated Real Open Rate_ pode mudar ao longo do tempo à medida que novos sinais de engajamento (como aberturas e cliques) são recebidos e incorporados ao modelo. Na prática, a _Estimated Real Open Rate_ pode continuar a ser atualizada diariamente enquanto uma campanha permanece ativa.
 

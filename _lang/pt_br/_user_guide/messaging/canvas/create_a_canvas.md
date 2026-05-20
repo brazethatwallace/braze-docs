@@ -41,7 +41,7 @@ O criador de Canvas vai guiar você passo a passo pela configuração do seu Can
   {% endtab %}
   {% tab Target Audience %}
     Aqui, você vai selecionar seu público-alvo:
-    - Crie seu público adicionando **Segments** e filtros
+    - Crie seu público adicionando segmentos e filtros
     - Ajuste a reentrada e os limites de entrada do Canvas
     - Veja um resumo do seu público-alvo
 
@@ -91,40 +91,38 @@ Você pode escolher uma das três formas pelas quais os usuários podem entrar n
 #### Tipos de cronograma de entrada {#entry-schedule-types}
 
 {% tabs local %}
-  {% tab Scheduled Delivery %}
-    Com a entrega agendada, os usuários entrarão em um cronograma de tempo, de forma semelhante a como você agendaria uma Campaign. Você pode inscrever usuários em um Canvas assim que ele for lançado, inseri-los na jornada em algum momento no futuro ou de forma recorrente (diária, semanal ou mensal).
+{% tab Scheduled Delivery %}
+Com a entrega agendada, os usuários entrarão em um cronograma de tempo, de forma semelhante a como você agendaria uma Campaign. Você pode inscrever usuários em um Canvas assim que ele for lançado, inseri-los na jornada em algum momento no futuro ou de forma recorrente (diária, semanal ou mensal).
 
-   Se você selecionar um cronograma recorrente mensal, observe que alguns meses podem não ter o dia selecionado. Por exemplo, digamos que você configure um Canvas para enviar mensalmente no dia 31. Nesse cenário, a Braze envia no último dia daquele mês, como 30 de abril, porque 31 de abril não existe.
+Se você selecionar um cronograma recorrente mensal, observe que alguns meses podem não ter o dia selecionado. Por exemplo, digamos que você configure um Canvas para enviar mensalmente no dia 31. Nesse cenário, a Braze envia no último dia daquele mês, como 30 de abril, porque 31 de abril não existe.
 
-    Neste exemplo, com base nas opções de tempo, os usuários entram neste Canvas toda terça-feira às 12h no fuso horário local, toda semana, começando em 14 de novembro de 2025 até 31 de dezembro de 2025.
+Neste exemplo, com base nas opções de tempo, os usuários entram neste Canvas toda terça-feira às 12h no fuso horário local, toda semana, começando em 14 de novembro de 2025 até 31 de dezembro de 2025.
 
-    ![A página "Cronograma de entrada" com o tipo definido como "Agendado". Devido à seleção, são exibidas opções baseadas em tempo, incluindo frequência, horário de início, recorrência, dias e mais.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
+![A página "Cronograma de entrada" com o tipo definido como "Agendado". Devido à seleção, são exibidas opções baseadas em tempo, incluindo frequência, horário de início, recorrência, dias e mais.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-    Ao usar a entrega no fuso horário local, a Braze avalia a elegibilidade de entrada duas vezes: primeiro no horário de Samoa (UTC+13) no dia agendado, e novamente no fuso horário local do usuário. O usuário precisa ser elegível em ambas as verificações para entrar no Canvas. Se seus filtros de entrada usam janelas de tempo relativas (por exemplo, "mais de 2 dias atrás"), o período de 24 horas pode não ter se passado no momento da primeira verificação, fazendo com que os usuários entrem um dia atrasados. Para evitar isso, use uma janela de tempo mais ampla, como pelo menos dois dias. Para mais detalhes, consulte [Quando a Braze avalia os usuários para entrega no fuso horário local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
-  {% endtab %}
-  {% tab Action-Based Delivery %}
-    Com a entrega baseada em ação, os usuários entrarão no Canvas e começarão a receber mensagens quando realizarem ações específicas, como abrir o app, fazer uma compra ou disparar um evento personalizado.
+Ao usar a entrega no fuso horário local, a Braze avalia a elegibilidade de entrada duas vezes: primeiro no horário de Samoa (UTC+13) no dia agendado, e novamente no fuso horário local do usuário. O usuário precisa ser elegível em ambas as verificações para entrar no Canvas. Se seus filtros de entrada usam janelas de tempo relativas (por exemplo, "mais de 2 dias atrás"), o período de 24 horas pode não ter se passado no momento da primeira verificação, fazendo com que os usuários entrem um dia atrasados. Para evitar isso, use uma janela de tempo mais ampla, como pelo menos dois dias. Para mais detalhes, consulte [Quando a Braze avalia os usuários para entrega no fuso horário local?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
+{% endtab %}
+{% tab Action-Based Delivery %}
+Com a entrega baseada em ação, os usuários entrarão no Canvas e começarão a receber mensagens quando realizarem ações específicas, como abrir o app, fazer uma compra ou disparar um evento personalizado.
 
-    Você pode controlar outros aspectos do comportamento do Canvas na janela **Público de entrada**, incluindo regras de reelegibilidade e configurações de limite de frequência. Observe que a entrega baseada em ação não está disponível para componentes do Canvas com mensagens no app.
+Você pode controlar outros aspectos do comportamento do Canvas na janela **Público de entrada**, incluindo regras de reelegibilidade e configurações de limite de frequência. Observe que a entrega baseada em ação não está disponível para componentes do Canvas com mensagens no app.
 
-    ![Um exemplo de entrega baseada em ação. Os usuários entrarão no Canvas se fizerem uma compra, com uma janela de entrada começando às 13h30 em 10 de junho de 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
+![Um exemplo de entrega baseada em ação. Os usuários entrarão no Canvas se fizerem uma compra, com uma janela de entrada começando às 13h30 em 10 de junho de 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
-  {% alert important %}
-  Se o seu Canvas baseado em ação enviar mensagens antes do esperado, verifique se o timestamp do evento personalizado está sendo enviado com o horário atual em vez de um horário retroativo. Por exemplo, se um Canvas baseado em ação tem uma postergação de três horas após o usuário realizar um evento personalizado, a Braze usa o timestamp enviado com o evento personalizado para avaliar essa postergação. Se o timestamp estiver retroativo em mais de três horas, a Braze tratará a postergação como já decorrida e enviará a mensagem imediatamente.
-  {% endalert %}
+{% alert important %}
+Se o seu Canvas baseado em ação enviar mensagens antes do esperado, verifique se o timestamp do evento personalizado está sendo enviado com o horário atual em vez de um horário retroativo. Por exemplo, se um Canvas baseado em ação tem uma postergação de três horas após o usuário realizar um evento personalizado, a Braze usa o timestamp enviado com o evento personalizado para avaliar essa postergação. Se o timestamp estiver retroativo em mais de três horas, a Braze tratará a postergação como já decorrida e enviará a mensagem imediatamente.
+{% endalert %}
+{% endtab %}
+{% tab API-Triggered Delivery %}
+Com a entrega disparada por API, os usuários entrarão no Canvas e começarão a receber mensagens após serem adicionados usando o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) via API. No dashboard, você pode encontrar um exemplo de solicitação cURL que faz isso, além de atribuir [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) opcional usando o [objeto de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/).
 
-  {% endtab %}
-  {% tab API-Triggered Delivery %}
-    Com a entrega disparada por API, os usuários entrarão no Canvas e começarão a receber mensagens após serem adicionados usando o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) via API. No dashboard, você pode encontrar um exemplo de solicitação cURL que faz isso, além de atribuir [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) opcional usando o [objeto de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/).
+![Um exemplo de entrega disparada por API com um ID do Canvas e um exemplo de solicitação cURL.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
-    ![Um exemplo de entrega disparada por API com um ID do Canvas e um exemplo de solicitação cURL.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
-
-    Você pode usar os seguintes endpoints para entrega disparada por API:
-    - [POST: Enviar mensagens do Canvas via entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-    - [POST: Agendar Canvas disparados por API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-    - [POST: Atualizar Canvas agendados disparados por API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
-
-  {% endtab %}
+Você pode usar os seguintes endpoints para entrega disparada por API:
+- [POST: Enviar mensagens do Canvas via entrega disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
+- [POST: Agendar Canvas disparados por API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [POST: Atualizar Canvas agendados disparados por API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
+{% endtab %}
 {% endtabs %}
 
 Após selecionar seu método de entrega, ajuste as configurações de acordo com seu caso de uso e continue para definir seu público-alvo.
@@ -137,7 +135,7 @@ Se um usuário reentrar no Canvas, alcançar o mesmo componente da entrada anter
 
 ### Etapa 1.3: Defina seu público-alvo de entrada {#step-13-set-your-target-entry-audience}
 
-Somente os usuários que correspondem aos critérios definidos podem entrar na jornada na etapa **Público-alvo**. Isso significa que a Braze avalia a elegibilidade do público-alvo primeiro, **antes** de os usuários entrarem na jornada do Canvas. Por exemplo, se você quiser direcionar novos usuários, pode selecionar um **Segment** de usuários que usaram seu app pela primeira vez há menos de uma semana.
+Somente os usuários que correspondem aos critérios definidos podem entrar na jornada na etapa **Público-alvo**. Isso significa que a Braze avalia a elegibilidade do público-alvo primeiro, **antes** de os usuários entrarem na jornada do Canvas. Por exemplo, se você quiser direcionar novos usuários, pode selecionar um segmento de usuários que usaram seu app pela primeira vez há menos de uma semana.
 
 Em **Controles de entrada**, você pode limitar o número de usuários toda vez que o Canvas for agendado para execução. Para Canvas baseados em disparo por API e baseados em ação, esse limite ocorre a cada hora UTC.
 
@@ -145,7 +143,7 @@ Em **Controles de entrada**, você pode limitar o número de usuários toda vez 
 
 #### Testando seu público {#testing-your-audience}
 
-Após adicionar **Segments** e filtros ao seu público-alvo, você pode testar se o público está configurado conforme esperado [buscando um usuário]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para confirmar se ele corresponde aos critérios do público.
+Após adicionar segmentos e filtros ao seu público-alvo, você pode testar se o público está configurado conforme esperado [buscando um usuário]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) para confirmar se ele corresponde aos critérios do público.
 
 ![O campo "Busca de usuário", que permite pesquisar por ID de usuário externo ou ID da Braze.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -167,17 +165,17 @@ A Braze não recomenda selecionar **Toda vez que o Canvas for agendado** para aq
 
 #### Definindo critérios de saída {#setting-exit-criteria}
 
-Definir os [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) determina quais usuários você deseja que saiam de um Canvas. Se um usuário realizar o evento de exceção ou corresponder aos **Segments** e filtros, ele não receberá mais mensagens.
+Definir os [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) determina quais usuários você deseja que saiam de um Canvas. Se um usuário realizar o evento de exceção ou corresponder aos segmentos e filtros, ele não receberá mais mensagens.
 
 #### Calculando o público-alvo {#calculating-target-population}
 
-Na seção **Público-alvo**, você pode ver um resumo do seu público, como os **Segments** selecionados e filtros adicionais, além de um detalhamento de quantos usuários são contatáveis por canal de envio de mensagens. Para calcular o número exato de usuários contatáveis no seu público-alvo em vez da estimativa padrão, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
+Na seção **Público-alvo**, você pode ver um resumo do seu público, como os segmentos selecionados e filtros adicionais, além de um detalhamento de quantos usuários são contatáveis por canal de envio de mensagens. Para calcular o número exato de usuários contatáveis no seu público-alvo em vez da estimativa padrão, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics).
 
 Observe que:
 
-- Calcular estatísticas exatas pode levar alguns minutos para ser executado. Essa função calcula apenas as estatísticas exatas no nível do **Segment**, não no nível do filtro ou grupo de filtros.
+- Calcular estatísticas exatas pode levar alguns minutos para ser executado. Essa função calcula apenas as estatísticas exatas no nível do segmento, não no nível do filtro ou grupo de filtros.
 - Enquanto as estatísticas exatas estão sendo carregadas, uma estimativa arredondada pode aparecer. O número exato aparece na seção **Usuários contatáveis** quando carregado. Você pode selecionar **Mostrar estatísticas adicionais** para um detalhamento completo.
-- Para **Segments** grandes, é normal ver pequenas variações mesmo ao calcular estatísticas exatas. A precisão dessa funcionalidade é esperada em 99,999% ou mais.
+- Para segmentos grandes, é normal ver pequenas variações mesmo ao calcular estatísticas exatas. A precisão dessa funcionalidade é esperada em 99,999% ou mais.
 
 Para ver estatísticas adicionais, como a receita média de tempo de vida dos usuários direcionados, selecione **Mostrar estatísticas adicionais**.
 

@@ -69,9 +69,9 @@ Braze は Currents にイベントをバックフィルしません。ただし�
 
 いいえ。Currents は送信イベントにカスタム属性を含めません。Currents はカスタムイベントとメッセージエンゲージメントイベントをログ記録します。利用可能なフィールドの完全なリストについては、[イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/)を参照してください。
 
-### Currents には Campaign タグやキーと値のペアが含まれますか？
+### Currents には キャンペーン タグやキーと値のペアが含まれますか？
 
-いいえ。Currents には Campaign タグやメッセージレベルのキーと値のペアは含まれません。回避策として、Campaign 内の Webhook チャネルを使用し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) でタグやキーと値のペアのデータをテンプレート化して、独自のエンドポイントにこの情報を送信できます。
+いいえ。Currents には キャンペーン タグやメッセージレベルのキーと値のペアは含まれません。回避策として、キャンペーン 内の Webhook チャネルを使用し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) でタグやキーと値のペアのデータをテンプレート化して、独自のエンドポイントにこの情報を送信できます。
 
 ### Braze は Currents の変更をどのように顧客に通知しますか？
 
@@ -81,9 +81,9 @@ Currents の変更（新しいイベントフィールドやイベントタイ�
 
 ストレージ要件は、イベントの量とエクスポートするイベントの種類によって異なります。Braze は [Avro 形式のサンプルイベント](https://github.com/braze-inc/currents-examples/tree/master/sample-data)を提供しており、ユースケースに合わせてファイルサイズを見積もることができます。
 
-### Currents データで Campaign 名やキャンバスステップ名が `NULL` になるのはなぜですか？
+### Currents データで キャンペーン 名やキャンバスステップ名が `NULL` になるのはなぜですか？
 
-新しい Campaign や Canvas を作成すると、名前がすべての Braze システムに伝播するまでに時間がかかることがあります。この時間枠内に Currents を通じて送信されたイベントでは、名前フィールド（`campaign_name` や `canvas_step_name` など）が `NULL` になることがあります。これは、イベントがログ記録される直前に名前が変更された場合にも発生します。これを回避するには、Campaign やキャンバスステップを作成または名前変更した後、送信前にしばらく時間を置いてください。
+新しい キャンペーン や キャンバス を作成すると、名前がすべての Braze システムに伝播するまでに時間がかかることがあります。この時間枠内に Currents を通じて送信されたイベントでは、名前フィールド（`campaign_name` や `canvas_step_name` など）が `NULL` になることがあります。これは、イベントがログ記録される直前に名前が変更された場合にも発生します。これを回避するには、キャンペーン やキャンバスステップを作成または名前変更した後、送信前にしばらく時間を置いてください。
 
 ### Currents がデータを書き込もうとしたときにストレージバケットが利用できない場合はどうなりますか？
 

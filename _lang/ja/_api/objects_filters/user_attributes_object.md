@@ -118,7 +118,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | 整数 | 「inc」フィールドと追加する量を持つオブジェクトを割り当てることで、整数カスタム属性をインクリメントできます。<br><br>例: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | 階層化カスタム属性 | 階層化カスタム属性は、属性のセットを別の属性のプロパティとして定義します。カスタム属性オブジェクトを定義するときに、そのオブジェクトに一連の属性を追加します。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)を参照してください。 |
 | 文字列 | 文字列カスタム属性は、テキストデータを格納するために使用される一連の文字です。たとえば、文字列を使用して、姓名、メールアドレス、好みを保存できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性のデータタイプ" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
 
 {% alert tip %}
 カスタムイベントとカスタム属性のどちらを使用するかについては、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
@@ -126,7 +126,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 ##### オブジェクトの配列の例 {#array-of-objects-example}
 
-このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてSegmentを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
+このオブジェクトの配列を使用すると、宿泊内の特定の条件に基づいてセグメントを作成し、Liquidテンプレートを使用して各宿泊のデータでメッセージをパーソナライズできます。
 
 ```json
 {"hotel_stays": [
@@ -141,6 +141,10 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 {% alert important %}
 次のユーザープロファイルフィールドは大文字と小文字を区別するため、これらのフィールドを小文字で参照するようにしてください。
+{% endalert %}
+
+{% alert tip %}
+カテゴリ別に整理された標準属性のリファレンス（SDK、API、CSV、クラウドデータ取り込みのガイダンスを含む）については、[標準属性]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/)を参照してください。
 {% endalert %}
 
 | ユーザープロファイルフィールド | データタイプ仕様 |
@@ -171,7 +175,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 | subscription_groups| `subscription_group_id`および`subscription_state`の文字列を持つオブジェクト配列（`[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`など）。`subscription_state`の利用可能な値は「subscribed」と「unsubscribed」です。|
 | time_zone | （文字列）[IANAタイムゾーンデータベース](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)のタイムゾーン名（例：「America/New_York」または「Eastern Time (US & Canada)」）。有効なタイムゾーン値のみが設定されます。 |
 | twitter | `id`（整数）、`screen_name`（文字列、X（旧Twitter）ハンドル）、`followers_count`（整数）、`friends_count`（整数）、`statuses_count`（整数）のいずれかを含むハッシュ。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeユーザープロファイルフィールド" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
 
 このAPIによって明示的に設定された言語値は、Brazeがデバイスから自動的に受信するロケール情報よりも優先されます。
 
@@ -179,7 +183,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 この例には、API呼び出しあたり合計75個の許可された属性オブジェクトのうち、4個のユーザー属性オブジェクトが含まれています。
 
-```http
+`````````http
 POST https://YOUR_REST_API_URL/users/track
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -230,7 +234,7 @@ Webプッシュトークンの性質上、Webプッシュを実装する際に�
 |----------------------|------------|
 | **サービスワーカー**  | デフォルトでは、Web SDKは`./service-worker`でサービスワーカーを探します。ただし、`manageServiceWorkerExternally`や`serviceWorkerLocation`などの別のオプションが指定されている場合を除きます。サービスワーカーの設定が適切でないと、ユーザーのプッシュトークンが期限切れになる可能性があります。 |
 | **期限切れトークン**   | ユーザーが60日間Webセッションを開始していない場合、プッシュトークンは期限切れになります。Brazeは期限切れのプッシュトークンを移行できないため、再エンゲージするには[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を送信する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Webトークンに関する考慮事項" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
 
 ### APIを使用した手動移行 {#manual-migration-through-api}
 
@@ -255,7 +259,7 @@ API移行の代わりに、SDKを統合し、トークンベースが自然に�
 
 以下に例を示します。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -281,7 +285,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 以下に例を示します。
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
@@ -327,7 +331,7 @@ Brazeは月に1回、`push_token_import`フラグが設定されたプッシュ�
 
 Braze SDKの統合が完了する前にAndroidプッシュ通知をユーザーに送信する必要がある場合は、キーと値のペアを使用してプッシュ通知を検証します。
 
-プッシュペイロードを処理し表示するレシーバーが必要です。プッシュペイロードをレシーバーに通知するには、必要なキーと値のペアをプッシュCampaignに追加します。これらのペアの値は、Brazeの前に使用していた特定のプッシュパートナーによって決まります。
+プッシュペイロードを処理し表示するレシーバーが必要です。プッシュペイロードをレシーバーに通知するには、必要なキーと値のペアをプッシュキャンペーンに追加します。これらのペアの値は、Brazeの前に使用していた特定のプッシュパートナーによって決まります。
 
 {% alert note %}
 一部のプッシュ通知プロバイダーでは、Brazeがキーと値のペアを適切に解釈できるようにフラット化する必要があります。特定のAndroidアプリのキーと値のペアをフラット化するには、カスタマーサクセスマネージャーにお問い合わせください。

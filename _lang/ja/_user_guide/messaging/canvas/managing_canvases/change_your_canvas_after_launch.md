@@ -6,7 +6,7 @@ description: "このリファレンス記事では、初回起動後にキャン
 alias: "/post-launch_edits/"
 page_type: reference
 tool:
-  - Canvas
+  - キャンバス
 
 ---
 

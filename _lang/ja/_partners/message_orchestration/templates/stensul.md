@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Stensul
 
-> [Stensul](https://stensul.com/)は、メールマーケターがCampaign作成のためにリアルタイムでBrazeに送信する前に、Stensulでモバイルレスポンシブでブランドに沿ったメールを作成するためのツールを提供します。
+> [Stensul](https://stensul.com/)は、メールマーケターがキャンペーン作成のためにリアルタイムでBrazeに送信する前に、Stensulでモバイルレスポンシブでブランドに沿ったメールを作成するためのツールを提供します。
 
 _この統合はStensulによって管理されています。_
 

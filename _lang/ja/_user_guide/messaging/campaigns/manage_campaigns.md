@@ -12,8 +12,8 @@ description: "このランディングページでは、キャンペーンの管
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
-  - name: 起動後のキャンペーン変更
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/change_your_campaign_after_launch
+  - name: 起動後のキャンペーン編集
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: キャンペーンアラート
     link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts

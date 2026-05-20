@@ -104,7 +104,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 
 #### ステップ 1.2: ロールとデータベース権限の設定 {#step-12-set-up-the-role-and-database-permissions}
 
-```sql
+`````````sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
 
 GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
@@ -116,7 +116,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO 
 
 #### ステップ 1.3: ウェアハウスの設定とBrazeロールへのアクセス権の付与 {#step-13-set-up-the-warehouse-and-give-access-to-braze-role}
 
-```sql
+`````````sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
@@ -128,7 +128,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 
 #### ステップ 1.4: ユーザーの設定 {#step-14-set-up-the-user}
 
-```sql
+`````````sql
 CREATE USER BRAZE_INGESTION_USER;
 
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
@@ -140,7 +140,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 異なるワークスペースを同じSnowflakeアカウントに接続する場合は、連携を作成するBrazeワークスペースごとに一意のユーザーを作成する必要があります。ワークスペース内では、複数の連携にわたって同じユーザーを再利用できますが、同じSnowflakeアカウントのユーザーが複数のワークスペースで重複すると、連携の作成に失敗します。
 {% endalert %}
 
-#### ステップ 1.5: Snowflakeネットワークポリシーで Braze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
+#### ステップ 1.5: SnowflakeネットワークポリシーでBraze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシーで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
@@ -152,12 +152,12 @@ Snowflakeアカウントの設定によっては、Snowflakeのネットワー�
 #### ステップ 1.1: テーブルの設定
 
 オプションで、ソーステーブルを保持する新規データベースとスキーマを設定します。
-```sql
+`````````sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
 CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 ```
 CDI連携に使用するテーブル（またはビュー）を作成します。
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
    updated_at timestamptz default sysdate,
    --at least one of external_id, alias_name and alias_label, or braze_id is required
@@ -187,7 +187,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
 
 #### ステップ 1.2: ユーザーの作成と権限の付与 {#step-12-create-user-and-grant-permissions}
 
-```sql
+`````````sql
 CREATE USER braze_user PASSWORD '{password}';
 GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
 GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
@@ -216,13 +216,13 @@ Brazeダッシュボードのリージョンに対応する以下のIPからの�
 
 オプションで、ソーステーブルを保持する新規のプロジェクトまたはデータセットを設定します。
 
-```sql
+`````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
-```sql
+`````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp,
@@ -299,14 +299,14 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 オプションで、ソーステーブルを保持する新しいカタログまたはスキーマを設定します。
 
-```sql
+`````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
 次のフィールドを持つ、CDI連携に使用するテーブルを1つ以上作成します。
 
 
-```sql
+`````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp(),
@@ -412,7 +412,7 @@ Brazeに接続するFabricリソースは、共有ワークスペースに配置
 #### ステップ 1.4: テーブルの設定 {#step-14-set-up-the-table}
 BrazeはFabricウェアハウスのテーブルとビューの両方をサポートしています。新しいウェアハウスを作成する必要がある場合は、ステップ 1.3の共有ワークスペース内に作成してください。Fabricコンソールで**Create** > **Data Warehouse** > **Warehouse**と進みます。
 
-```sql
+`````````sql
 CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -471,9 +471,16 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 ソースの名前を選択し、Snowflakeの認証情報と設定を入力して、次のステップに進みます。
 
-{% alert note %}
-**Snowflake Account Locator**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。通常、`xy12345.us-east-1.aws`のような形式です。これはデータベース名やウェアハウス名とは異なります。
-{% endalert %}
+続行する前に、**Snowflake Account Locator**に入力する値を確認してください。
+
+**Snowflake Account Locator**フィールドには、Snowflakeの[アカウント識別子](https://docs.snowflake.com/en/user-guide/admin-account-identifier)を入力します。`myorganization-myaccount`のようなアカウント識別子の値のみを入力してください。`https://`、`.snowflakecomputing.com`、またはパスは含めないでください。
+
+Snowflakeのアカウント識別子を確認するには:
+
+1. Snowsightで、アカウントメニューを選択します。
+2. **View account details**を選択します。
+3. **Account identifier**の値をコピーします。
+4. SnowflakeのURLからコピーする場合は、`.snowflakecomputing.com`より前の値のみを使用してください。
 
 #### ステップ 2.2: Brazeユーザーへの公開キーの追加 {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -481,7 +488,7 @@ Brazeダッシュボードで、**Data Settings** > **Cloud Data Ingestion** > *
 
 その方法の詳細については、[Snowflakeのドキュメント](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)を参照してください。任意の時点でキーをローテーションする場合は、Brazeが新しいキーペアを生成して新しい公開キーを提供できます。
 
-```sql
+`````````sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 ```
 {% endtab %}

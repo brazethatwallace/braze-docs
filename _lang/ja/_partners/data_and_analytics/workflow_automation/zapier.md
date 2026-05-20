@@ -23,7 +23,7 @@ BrazeとZapierのパートナーシップでは、Braze APIとBrazeの[Webhook](
 
 ## 統合 {#integration}
 
-以下のZapierの例では、POST Webhookを使ってWordPressからBrazeに情報を送信します。この情報を使用してBraze Canvasを作成できます。
+以下のZapierの例では、POST Webhookを使ってWordPressからBrazeに情報を送信します。この情報を使用してBraze キャンバスを作成できます。
 
 ### ステップ1: Zapierトリガーを作成する {#step-1-create-a-zapier-trigger}
 
@@ -73,9 +73,9 @@ Webhookを設定するときに、次の設定を使用してWebhook URLにBraze
 
 ![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
-### ステップ4: Braze Campaignを作成する {#step-4-create-a-braze-campaign}
+### ステップ4: Braze キャンペーンを作成する {#step-4-create-a-braze-campaign}
 
-zapの設定が完了したら、Liquidフォーマットを使用してメッセージに情報を表示することで、WordPressデータを使用してBraze CampaignsやCanvasesをカスタマイズできます。
+zapの設定が完了したら、Liquidフォーマットを使用してメッセージに情報を表示することで、WordPressデータを使用してBraze キャンペーンやキャンバスをカスタマイズできます。
 
 ## `/users/track`エンドポイントでZapierを使用する {#using-zapier-with-the-userstrack-endpoint}
 

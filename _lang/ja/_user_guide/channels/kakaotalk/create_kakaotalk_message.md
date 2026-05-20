@@ -14,13 +14,13 @@ channel:
 
 ## ステップ 1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
-KakaoTalkはCampaignsとCanvasの両方でサポートされています。Campaignsは単一のメッセージングキャンペーンに最適であり、Canvasesはマルチステップ、マルチチャネルのユーザージャーニーをオーケストレーションできます。
+KakaoTalkはキャンペーンとキャンバスの両方でサポートされています。キャンペーンは単一のメッセージングキャンペーンに最適であり、キャンバスはマルチステップ、マルチチャネルのユーザージャーニーをオーケストレーションできます。
 
 {% tabs local %}
 {% tab Campaign %}
 
-1. **Messaging** > **Campaigns** に移動し、**Create Campaign** を選択します。
-2. 単一チャネルのキャンペーンの場合は **KakaoTalk** を、複数チャネルのキャンペーンの場合は **Multichannel Campaign** を選択します。
+1. **Messaging** > **キャンペーン** に移動し、**Create キャンペーン** を選択します。
+2. 単一チャネルのキャンペーンの場合は **KakaoTalk** を、複数チャネルのキャンペーンの場合は **Multichannel キャンペーン** を選択します。
 
 ![メッセージングチャネルを選択するオプションのパネル。]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
@@ -29,10 +29,10 @@ KakaoTalkはCampaignsとCanvasの両方でサポートされています。Campa
 {% endtab %}
 {% tab Canvas %}
 
-1. [Canvasを作成](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/)します。
-2. Canvasビルダーでメッセージステップを追加し、**KakaoTalk** を選択します。
+1. [キャンバスを作成](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/)します。
+2. キャンバスビルダーでメッセージステップを追加し、**KakaoTalk** を選択します。
 
-![Canvasメッセージングチャネルの選択。]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
+![キャンバスメッセージングチャネルの選択。]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -174,12 +174,12 @@ KakaoTalkクリックトラッキングをオンにすると、Brazeは自動的
 以下のセグメンテーションフィルターとトリガーを使用して、KakaoTalkメッセージ内のURLをクリックしたユーザーをリターゲティングできます。
 
 - アクションベースのトリガー
-    - Campaignとのインタラクション
+    - キャンペーンとのインタラクション
     - ステップとのインタラクション
 
 - セグメンテーションフィルター
-    - Campaignのクリック/開封
-    - タグ付きCampaignまたはCanvasのクリック/開封
+    - キャンペーンのクリック/開封
+    - タグ付きキャンペーンまたはキャンバスのクリック/開封
     - ステップのクリック/開封
 
 ## ステップ 4:KakaoTalk メッセージをプレビューしてテストする {#step-4-preview-and-test-your-kakaotalk-message}
@@ -196,19 +196,19 @@ KakaoTalkメッセージを作成すると、メッセージプレビューが�
 
 送信結果の確認や問題のトラブルシューティングを行うには、**Settings** > **Message Activity Log**に移動します。詳細については、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)を参照してください。
 
-## ステップ 5:CampaignまたはCanvasの残りの部分を構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## ステップ 5:キャンペーンまたはキャンバスの残りの部分を構築する {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 KakaoTalkメッセージを構築するためのツールの最適な使用方法については、以下のセクションを参照してください。
 
 ### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
-KakaoTalkメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)または[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)（Canvasの場合）を参照してください。
+KakaoTalkメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)または[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)（キャンバスの場合）を参照してください。
 
 ユーザーがキャンペーンを再度受信できるようにしたり、フリークエンシーキャップルールをオンにしたりするなど、配信コントロールを指定できます。アクションベースの配信では、キャンペーンの期間とサイレント時間も設定できます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-Segmentsやフィルターを選択してオーディエンスを絞り込み、ユーザーをターゲットにします。現時点では、KakaoTalkはチャネルのフレンドにのみメッセージを送信できます。チャネルフレンドを示すカスタム属性を設定して、ユーザーを適切にセグメンテーションし、受信できないユーザーへのKakaoTalkメッセージ送信を回避することをお勧めします。
+セグメントやフィルターを選択してオーディエンスを絞り込み、ユーザーをターゲットにします。現時点では、KakaoTalkはチャネルのフレンドにのみメッセージを送信できます。チャネルフレンドを示すカスタム属性を設定して、ユーザーを適切にセグメンテーションし、受信できないユーザーへのKakaoTalkメッセージ送信を回避することをお勧めします。
 
 ### コンバージョンイベントを選択する {#choose-conversion-events}
 
@@ -220,4 +220,4 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 ## ステップ 6:確認してデプロイする {#step-6-review-and-deploy}
 
-CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、テストして、送信しましょう！
+キャンペーンまたはキャンバスの最後の構築が完了したら、詳細を確認し、テストして、送信しましょう！

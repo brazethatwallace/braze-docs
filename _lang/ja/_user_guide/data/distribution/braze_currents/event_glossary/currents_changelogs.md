@@ -43,31 +43,31 @@ tool: Currents
 ### ストレージに関する変更:
 
 * イベントタイプ `users.messages.banner.Abort` のフィールド変更:
-    * 新しい`string`フィールド `canvas_name` を追加しました: Canvas の名前
+    * 新しい`string`フィールド `canvas_name` を追加しました: キャンバス の名前
     * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
-    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
     * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
     * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
     * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
-    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する キャンバス バリエーションの API ID
 
 * イベントタイプ `users.messages.banner.Click` のフィールド変更:
     * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
     * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
-    * 新しい`string`フィールド `canvas_name` を追加しました: Canvas の名前
+    * 新しい`string`フィールド `canvas_name` を追加しました: キャンバス の名前
     * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
     * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
-    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
-    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する キャンバス バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
 
 * イベントタイプ `users.messages.banner.Impression` のフィールド変更:
     * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
     * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
-    * 新しい`string`フィールド `canvas_name` を追加しました: Canvas の名前
+    * 新しい`string`フィールド `canvas_name` を追加しました: キャンバス の名前
     * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
     * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
-    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する Canvas バリエーションの API ID
-    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する キャンバス バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
 
 ## バージョン 6 の変更点（リリース日：2026年3月4日）
 
@@ -80,7 +80,7 @@ tool: Currents
     * 新しい`string`フィールド `request_id` を追加しました: この LLM リクエスト全体と完全な実行に対するユニーク ID
 
 * イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
-    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
 
 ## バージョン 5 の変更点（リリース日：2026年2月4日）
 
@@ -119,7 +119,7 @@ tool: Currents
     * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
 * イベントタイプ `users.messages.rcs.Click` のフィールド変更:
-    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った Canvas バリエーションの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
     * フィールド `user_phone_number` が*オプション*になりました。
 
 * イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:

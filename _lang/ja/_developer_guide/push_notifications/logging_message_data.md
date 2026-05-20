@@ -8,7 +8,7 @@ noindex: true
 
 # プッシュ分析とカスタムイベントのログ記録 {#push-analytics-and-custom-event-logging}
 
-> このページでは、ネイティブプッシュ分析（開封、影響を受けた開封、Campaignレポート）とプッシュペイロードからのカスタムデータのログ記録（カスタムイベントと属性）のワークフローについて説明します。このガイドを使用して、ユースケースに該当するワークフローを特定し、プラットフォームに応じた手順に従ってください。
+> このページでは、ネイティブプッシュ分析（開封、影響を受けた開封、キャンペーンレポート）とプッシュペイロードからのカスタムデータのログ記録（カスタムイベントと属性）のワークフローについて説明します。このガイドを使用して、ユースケースに該当するワークフローを特定し、プラットフォームに応じた手順に従ってください。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,12 +24,12 @@ noindex: true
 
 | 分析カテゴリ | 説明 | 表示場所 |
 | --- | --- | --- |
-| ネイティブプッシュ分析 | 開封や影響を受けた開封など、BrazeプッシュCampaignに紐づくプッシュ指標 | プッシュCampaign分析、Currentsメッセージエンゲージメントイベント、レポートビルダー |
-| カスタムイベントと属性 | SDKメソッドまたは`/users/track`エンドポイントを通じて定義・ログ記録する分析 | ユーザープロファイル、セグメンテーション、アクションベースのCampaignsとCanvases、カスタムイベント分析 |
+| ネイティブプッシュ分析 | 開封や影響を受けた開封など、Brazeプッシュキャンペーンに紐づくプッシュ指標 | プッシュキャンペーン分析、Currentsメッセージエンゲージメントイベント、レポートビルダー |
+| カスタムイベントと属性 | SDKメソッドまたは`/users/track`エンドポイントを通じて定義・ログ記録する分析 | ユーザープロファイル、セグメンテーション、アクションベースのキャンペーンとキャンバス、カスタムイベント分析 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Native push analytics vs. custom event logging" }
 
 {% alert important %}
-カスタムイベント（`push_notification_opened`など）のログ記録は、Brazeのネイティブプッシュ開封トラッキングとは異なります。カスタムイベントは、ネイティブプッシュCampaignの開封指標やプッシュアトリビューションには反映されません。
+カスタムイベント（`push_notification_opened`など）のログ記録は、Brazeのネイティブプッシュ開封トラッキングとは異なります。カスタムイベントは、ネイティブプッシュキャンペーンの開封指標やプッシュアトリビューションには反映されません。
 {% endalert %}
 
 ## Brazeが自動的にログ記録するもの {#what-braze-logs-automatically}
@@ -74,7 +74,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 **バックグラウンド通知：**
 
-```swift
+`````````swift
 if let braze = AppDelegate.braze, braze.notifications.handleBackgroundNotification(
   userInfo: userInfo,
   fetchCompletionHandler: completionHandler
@@ -86,7 +86,7 @@ completionHandler(.noData)
 
 **ユーザー通知レスポンス：**
 
-```swift
+`````````swift
 if let braze = AppDelegate.braze, braze.notifications.handleUserNotification(
   response: response,
   withCompletionHandler: completionHandler
@@ -98,7 +98,7 @@ completionHandler()
 
 **フォアグラウンド通知：**
 
-```swift
+`````````swift
 func userNotificationCenter(
   _ center: UNUserNotificationCenter,
   willPresent notification: UNNotification,
@@ -189,7 +189,7 @@ Xcodeで、メインアプリターゲットに`App Groups`機能を追加しま
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func saveCustomEvent(with properties: [String: Any]? = nil) {
   // 1
   let customEventDictionary = Dictionary(eventName: "YOUR-EVENT-NAME", properties: properties)
@@ -209,7 +209,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveCustomEvent:(NSDictionary<NSString *, id> *)properties {
   // 1
   NSDictionary<NSString *, id> *customEventDictionary = [[NSDictionary alloc] initWithEventName:@"YOUR-EVENT-NAME" properties:properties];
@@ -244,7 +244,7 @@ SDKの初期化直後に、保存された分析をログ記録します。
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func logPendingCustomEventsIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingEvents = remoteStorage.retrieve(forKey: .pendingCustomEvents) as? [[String: Any]] else { return }
@@ -280,7 +280,7 @@ func logPendingCustomEventsIfNecessary() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingEventsIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingEvents = [remoteStorage retrieveForKey:RemoteStorageKeyPendingCustomEvents];
@@ -331,7 +331,7 @@ func logPendingCustomEventsIfNecessary() {
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func saveCustomAttribute() {
   // 1
   let customAttributeDictionary: [String: Any] = ["YOUR-CUSTOM-ATTRIBUTE-KEY": "YOUR-CUSTOM-ATTRIBUTE-VALUE"]
@@ -351,7 +351,7 @@ func saveCustomAttribute() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveCustomAttribute {
   // 1
   NSDictionary<NSString *, id> *customAttributeDictionary = @{ @"YOUR-CUSTOM-ATTRIBUTE-KEY": @"YOUR-CUSTOM-ATTRIBUTE-VALUE" };
@@ -384,7 +384,7 @@ SDKの初期化直後に、保存された分析をログ記録します。
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func logPendingCustomAttributesIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingAttributes = remoteStorage.retrieve(forKey: .pendingCustomAttributes) as? [[String: Any]] else { return }
@@ -410,7 +410,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingCustomAttributesIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingAttributes = [remoteStorage retrieveForKey:RemoteStorageKeyPendingCustomAttributes];
@@ -449,7 +449,7 @@ func setCustomAttributesWith(keysAndValues: [String: Any]) {
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func saveUserAttribute() {
   // 1
   guard let data = try? PropertyListEncoder().encode(UserAttribute.email("USER-ATTRIBUTE-VALUE")) else { return }
@@ -469,7 +469,7 @@ func saveUserAttribute() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)saveUserAttribute {
   // 1
   UserAttribute *userAttribute = [[UserAttribute alloc] initWithUserField:@"USER-ATTRIBUTE-VALUE" attributeType:UserAttributeTypeEmail];
@@ -508,7 +508,7 @@ SDKの初期化直後に、保存された分析をログ記録します。
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 func logPendingUserAttributesIfNecessary() {
   let remoteStorage = RemoteStorage(storageType: .suite)
   guard let pendingAttributes = remoteStorage.retrieve(forKey: .pendingUserAttributes) as? [Data] else { return }
@@ -530,7 +530,7 @@ func logPendingUserAttributesIfNecessary() {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 - (void)logPendingUserAttributesIfNecessary {
   RemoteStorage *remoteStorage = [[RemoteStorage alloc] initWithStorageType:StorageTypeSuite];
   NSArray *pendingAttributes = [remoteStorage retrieveForKey:RemoteStorageKeyPendingUserAttributes];
@@ -569,7 +569,7 @@ func logPendingUserAttributesIfNecessary() {
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 enum RemoteStorageKey: String, CaseIterable {
 
   // MARK: - Notification Content Extension Analytics
@@ -620,7 +620,7 @@ class RemoteStorage: NSObject {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @interface RemoteStorage ()
 
 @property (nonatomic) StorageType storageType;
@@ -689,7 +689,7 @@ class RemoteStorage: NSObject {
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 enum UserAttribute: Hashable {
   case email(String?)
 }
@@ -719,7 +719,7 @@ extension UserAttribute: Codable {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation UserAttribute
 
 - (id)initWithUserField:(NSString *)userField attributeType:(UserAttributeType)attributeType {
@@ -754,7 +754,7 @@ extension UserAttribute: Codable {
 
 {% subtabs global %}
 {% subtab Swift %}
-```swift
+`````````swift
 extension Dictionary where Key == String, Value == Any {
   init(eventName: String, properties: [String: Any]? = nil) {
     self.init()
@@ -770,7 +770,7 @@ extension Dictionary where Key == String, Value == Any {
 ```
 {% endsubtab %}
 {% subtab Objective-C %}
-```objc
+`````````objc
 @implementation NSMutableDictionary (Helper)
 
 + (instancetype)dictionaryWithEventName:(NSString *)eventName
@@ -801,8 +801,8 @@ extension Dictionary where Key == String, Value == Any {
 
 | 分析カテゴリ | Brazeでの確認場所 |
 | --- | --- |
-| ネイティブプッシュ分析 | Campaignレベルのプッシュ開封指標を確認するには、プッシュCampaignの**Campaign Analytics**ページに移動します。指標の定義については、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)を参照してください。カスタム分析ビューを作成するには、**Analytics** > **Report Builder (New)**に移動します。操作手順については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を参照してください。ウェアハウスレベルのイベントスキーマについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。 |
-| カスタムイベントと属性 | カスタムイベントのトレンドを確認するには、**Analytics** > **Custom Events Report**に移動します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。ユーザーレベルの値を確認するには、**Search Users**ページに移動してプロファイルを開きます。手順については、[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)を参照してください。これらの値でオーディエンスをフィルタリングするには、**Audience** > **Segments**に移動します。操作手順については、[Segmentの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)と[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)のフィルターオプションを参照してください。 |
+| ネイティブプッシュ分析 | キャンペーンレベルのプッシュ開封指標を確認するには、プッシュキャンペーンの**キャンペーン Analytics**ページに移動します。指標の定義については、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)を参照してください。カスタム分析ビューを作成するには、**Analytics** > **Report Builder (New)**に移動します。操作手順については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を参照してください。ウェアハウスレベルのイベントスキーマについては、[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)を参照してください。 |
+| カスタムイベントと属性 | カスタムイベントのトレンドを確認するには、**Analytics** > **Custom Events Report**に移動します。詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。ユーザーレベルの値を確認するには、**Search Users**ページに移動してプロファイルを開きます。手順については、[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)を参照してください。これらの値でオーディエンスをフィルタリングするには、**Audience** > **セグメント**に移動します。操作手順については、[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)と[セグメンテーションフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)のフィルターオプションを参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analyzing results" }
 
 カスタムレポートの作成については、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を参照してください。

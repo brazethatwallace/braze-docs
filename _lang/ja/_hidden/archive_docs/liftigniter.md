@@ -39,7 +39,7 @@ LiftIgniterとBrazeの統合はコネクテッドコンテンツを使用し、�
 
 {% endraw %}
 
-![LiftIgniter固有のコネクテッドコンテンツ呼び出しを含むプッシュCampaignの画像。画像フィールドにはコネクテッドコンテンツロジックも追加されています。]({% image_buster /assets/img/liftigniter.png %})
+![LiftIgniter固有のコネクテッドコンテンツ呼び出しを含むプッシュキャンペーンの画像。画像フィールドにはコネクテッドコンテンツロジックも追加されています。]({% image_buster /assets/img/liftigniter.png %})
 
 このメッセージを作成画面の本文に入力すると、メッセージをプレビューできます。以下の例に示すように、画像を取り込むこともできます。
 

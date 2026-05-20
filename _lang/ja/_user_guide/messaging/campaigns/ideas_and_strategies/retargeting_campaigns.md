@@ -5,7 +5,7 @@ page_order: 2
 page_type: reference
 description: "このリファレンス記事では、ユーザーが受信したメッセージに基づいてキャンペーンをリターゲティングする方法とその理由について説明します。"
 tool:
-  - Campaigns
+  - キャンペーン
   
 ---
 

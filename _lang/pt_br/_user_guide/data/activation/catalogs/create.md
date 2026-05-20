@@ -47,7 +47,7 @@ Antes de fazer upload do seu arquivo CSV, certifique-se de que ele atende aos se
 | Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano e hora. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatação | Formate todo o texto em letras minúsculas para manter a consistência. |
 | Codificação | Salve e faça upload do arquivo CSV usando a codificação UTF-8. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Revise seu arquivo CSV" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 Precisa de mais espaço para acomodar seus arquivos CSV? Fale com seu gerente de conta da Braze para saber mais sobre como fazer upgrade dos seus catálogos.
@@ -77,7 +77,7 @@ Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os 
 Você também pode [usar modelos em um nome de catálogo](#template-catalog-names), permitindo gerar nomes de catálogo dinamicamente com base em variáveis como idioma ou campanha.
 {% endalert %}
 
-![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![A catalog named "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 Selecione **Process Catalog** para criar o catálogo.
 
@@ -126,11 +126,11 @@ Criaremos o catálogo fazendo upload de um arquivo CSV. Os tipos de dados para `
 Esse tipo de dados não pode ser editado após a configuração do catálogo.
 {% endalert %}
 
-![Quatro nomes de colunas do catálogo: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
+![Four catalog column names: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
 Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Process Catalog**. A Braze verificará se há erros no catálogo antes da criação.
 
-![Um catálogo chamado "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
+![A catalog named "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 Observe que você não poderá editar esse nome depois que o catálogo for criado. Você pode excluir um catálogo e fazer upload novamente de uma versão atualizada usando o mesmo nome de catálogo.
 
@@ -147,8 +147,6 @@ Antes de poder editar ou criar catálogos no navegador, você precisa das seguin
 - Exportar Catálogos
 - Excluir Catálogos
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ### Etapa 1: Insira os detalhes do catálogo {#step-1-enter-catalog-details}
 
 Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os seguintes requisitos ao nomear seu catálogo:
@@ -161,17 +159,17 @@ Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os 
 Você também pode [usar modelos em um nome de catálogo](#template-catalog-names), permitindo gerar nomes de catálogo dinamicamente com base em variáveis como idioma ou campanha.
 {% endalert %}
 
-![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![A catalog named "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 ### Etapa 2: Crie seu catálogo {#step-2-create-your-catalog}
 
 Selecione seu catálogo na lista e, em seguida, selecione **Update Catalog** > **Add fields**. Insira o **Field name** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
 
-![Dois campos de exemplo: "rating" e "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
+![Two example fields "rating" and "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
 Selecione **Update Catalog** > **Add items** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Save Item** ou **Save and Add Another** para continuar adicionando seus itens.
 
-![Adicionar um item de catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![Add a catalog item.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 A Braze processa valores de tempo com base no registro de data e hora do dashboard. Por exemplo, se uma coluna tiver um valor de "03/13/2024" e seu fuso horário for o fuso horário do Pacífico, esse horário será importado para a Braze como "Mar 12, 2024, 5:00 PM".
@@ -243,7 +241,7 @@ A tabela a seguir resume as especificações do que você pode incluir nos catá
 | Caracteres do valor do item | Até 5.000 caracteres em um único valor. Por exemplo, se você tiver um campo chamado `description`, o número máximo de caracteres dentro do campo é 5.000. |
 | Caracteres do nome da coluna do item | Até 250 caracteres |
 | Seleções por catálogo | Até 30 seleções por catálogo |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificações" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
 {% alert important %}
 As Liquid tags de catálogo não podem ser usadas recursivamente, o que significa que você não pode referenciar um item de catálogo que, por sua vez, chama um segundo item de catálogo dentro da mesma avaliação Liquid.

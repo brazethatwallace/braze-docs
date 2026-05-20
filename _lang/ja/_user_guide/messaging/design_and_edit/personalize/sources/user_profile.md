@@ -30,7 +30,7 @@ Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
 
 たとえば、ユーザーの会員ティアに基づいてメッセージをパーソナライズするには次のようにします。
 
-```liquid
+`````````liquid
 {% if custom_attribute.${membership_tier} == 'gold' %}
   As a Gold member, you get early access to our new collection.
 {% else %}
@@ -48,7 +48,7 @@ Hi {{${first_name} | default: 'there'}}, check out our latest picks for you!
 
 たとえば、カスタムイベント `completed_purchase` に `product_name` プロパティが含まれている場合は次のようにします。
 
-```liquid
+`````````liquid
 Thanks for purchasing {{event_properties.${product_name}}}! Your order is on its way.
 ```
 {% endraw %}
@@ -62,7 +62,7 @@ API を通じてトリガーされるキャンペーンやキャンバスでは�
 
 たとえば、次のようにします。
 
-```liquid
+`````````liquid
 Your verification code is {{api_trigger_properties.${verification_code}}}.
 ```
 {% endraw %}
@@ -82,7 +82,7 @@ Your verification code is {{api_trigger_properties.${verification_code}}}.
 特定のユーザーのプロファイルフィールドが空の場合、Braze はデフォルトで空の文字列をレンダリングします。不完全に見えるメッセージを防ぐには、`default` Liquid フィルターを使用してフォールバック値を設定します。
 
 {% raw %}
-```liquid
+`````````liquid
 Hi {{${first_name} | default: 'there'}},
 ```
 {% endraw %}

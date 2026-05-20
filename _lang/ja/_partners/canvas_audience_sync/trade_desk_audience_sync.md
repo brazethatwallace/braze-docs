@@ -1,10 +1,10 @@
 ---
 nav_title: The Trade Desk
-article_title: Canvas Audience Sync - The Trade Desk
+article_title: キャンバス Audience Sync - The Trade Desk
 description: "このリファレンス記事では、Braze Audience Syncを The Trade Desk と連携して、行動トリガー、セグメンテーションなどに基づいた広告配信を行う方法について説明します。"
 alias: /trade_desk_audience_sync/
 tool:
-  - Canvas
+  - キャンバス
 page_order: 7
 ---
 
@@ -14,17 +14,17 @@ page_order: 7
 
 **オーディエンス同期の一般的なユースケース:**
 
-- The Trade Desk でパーソナライズ済みCampaignsを使用して既存ユーザーをリターゲティングする。
+- The Trade Desk でパーソナライズ済みキャンペーンを使用して既存ユーザーをリターゲティングする。
 - 除外ターゲティングのためにファーストパーティデータを The Trade Desk に送信する。
-- ユーザーを新規または既存のオーディエンスやCRMデータSegmentsに同期する。
+- ユーザーを新規または既存のオーディエンスやCRMデータセグメントに同期する。
 
 ## 前提条件 {#prerequisites}
 
-Canvasで The Trade Desk との Audience Sync ステップを設定する前に、以下の項目が作成、完了、または承認されていることを確認してください。
+キャンバスで The Trade Desk との Audience Sync ステップを設定する前に、以下の項目が作成、完了、または承認されていることを確認してください。
 
 | 要件 | Origin | 説明 |
 | --- | --- | --- |
-| APIトークン | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | The Trade Desk プラットフォームで作成された標準APIトークンです。The Trade Desk Audience Syncを使用するCanvasesへの影響を最小限に抑えるため、APIトークンの有効期間を最大1年に設定することをお勧めします。 |
+| APIトークン | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | The Trade Desk プラットフォームで作成された標準APIトークンです。The Trade Desk Audience Syncを使用するキャンバスへの影響を最小限に抑えるため、APIトークンの有効期間を最大1年に設定することをお勧めします。 |
 | The Trade Desk の利用規約とポリシー | The Trade Desk | The Trade Desk へのデータ送信を有効にするには、UID2/CRM参加ポリシーに同意する必要があります。The Trade Desk の担当者に連絡して、The Trade Desk へのデータ配信を有効にするための適切な署名があることを確認してください。<br><br> {::nomarkdown}<ul><li>アカウントでCRMデータ管理アクセスが有効になっていることを確認してください。The Trade Desk の担当者がサポートします。広告主IDが必要です。</li><li>標準APIトークンを準備してください。このページの手順に従って生成できます。</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
@@ -48,7 +48,7 @@ Canvasで The Trade Desk との Audience Sync ステップを設定する前に�
 
 ### ステップ 2: The Trade Desk との Audience Sync ステップを追加する {#step-2-add-an-audience-sync-step-with-the-trade-desk}
 
-Canvasにコンポーネントを追加し、**Audience Sync** を選択します。次に、Audience Sync パートナーとして **The Trade Desk** を選択します。
+キャンバスにコンポーネントを追加し、**Audience Sync** を選択します。次に、Audience Sync パートナーとして **The Trade Desk** を選択します。
 
 ![Audience Sync ステップで同期するパートナーを選択するオプション。]({% image_buster /assets/img/audience_sync/trade_desk/audience_sync_step.png %}){: style="max-width:90%;"}
 
@@ -73,9 +73,9 @@ Canvasにコンポーネントを追加し、**Audience Sync** を選択しま�
 EUリージョンが設定された The Trade Desk のオーディエンスに同期する場合、電話番号は The Trade Desk でサポートされていません。EUリージョンでの電話番号サポートについては、The Trade Desk にお問い合わせください。
 {% endalert %}
 
-### ステップ 4: Canvasを起動する {#step-4-launch-your-canvas}
+### ステップ 4: キャンバスを起動する {#step-4-launch-your-canvas}
 
-The Trade Deskへの Audience Syncを設定したら、Canvasを起動する準備が整いました。新しいオーディエンスが作成され、Audience Sync ステップを通過するユーザーは The Trade Desk のこのオーディエンスに渡されます。Canvasに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+The Trade Deskへの Audience Syncを設定したら、キャンバスを起動する準備が整いました。新しいオーディエンスが作成され、Audience Sync ステップを通過するユーザーは The Trade Desk のこのオーディエンスに渡されます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -89,7 +89,7 @@ The Trade Desk のCRMオーディエンスには最小オーディエンスサ�
 
 ### The Trade Desk にユーザーを渡した後、ユーザーがマッチしたかどうかはどのように確認できますか？ {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 
-The Trade Desk では、受信したIDがSegmentの横に表示されます。
+The Trade Desk では、受信したIDがセグメントの横に表示されます。
 
 - 受信済みIDは、過去30日間に受信したIDの数です。
 - アクティブIDは、過去7日間に入札で確認されたIDの数です。

@@ -16,7 +16,12 @@ tool: Canvas
 
 ![A Send to Destination step to send users to a new Canvas.]({% image_buster /assets/img/send_to_destination1.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Your current Canvas with the Send to Destination step is the source. Within the step, you can choose the destination Canvas. From here, users are sent to the destination Canvas. They will proceed down that Canvas if they meet the entry criteria there and will also continue to flow through the source Canvas.
+Your current Canvas with the Send to Destination step is the source. Within the step, you can choose the destination Canvas. The incoming users from the source Canvas must follow the entry rules of the destination Canvas. Let's say you have two Canvases:
+
+- **Source:** Canvas 1, includes a Send to Destination step that sends users to Canvas 2
+- **Destination:** Canvas 2, with the entry criteria to enter users who ordered an item
+
+This step allows users from Canvas 1 to be sent to Canvas 2. When users from Canvas 1 enter the Send to Destination step, they are evaluated by the entry rules of Canvas 2 to determine if they're eligible to enter the Canvas. In this case, users who ordered an item can enter Canvas 2 and also continue their journey in Canvas 1. For users who haven't ordered an item, they continue their journey in Canvas 1 only.
 
 ## Create a Send to Destination step
 
@@ -45,3 +50,11 @@ Yes. The destination Canvas can have a draft or idle status.
 ### Are context variables preserved?
 
 Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) of the source Canvas is always passed to the destination Canvas.
+
+### Do users enter at the start of the destination Canvas?
+
+Users enter at the start of the destination Canvas. At this time, you can't link to a specific Canvas step inside the destination Canvas.
+
+### How does advancement behavior work for Send to Destination steps?
+
+Users who enter the Send to Destination step continue their user journey if there are additional steps in the source Canvas. If users also meet the entry rules of the destination Canvas, they can enter that Canvas and begin that journey.

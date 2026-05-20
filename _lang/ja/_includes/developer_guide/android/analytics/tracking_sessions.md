@@ -33,7 +33,7 @@ Braze SDK は、セッションの更新をリッスンする[`subscribeToSessio
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionStateChangedEvent>() {
   @Override
   public void trigger(SessionStateChangedEvent message) {
@@ -47,7 +47,7 @@ Braze.getInstance(this).subscribeToSessionUpdates(new IEventSubscriber<SessionSt
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(this).subscribeToSessionUpdates { message ->
   if (message.eventType == SessionStateChangedEvent.ChangeType.SESSION_STARTED) {
     // A session has just been started

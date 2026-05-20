@@ -16,10 +16,10 @@ guide_featured_list:
     link: /docs/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch
     image: /assets/img/braze_icons/edit-05.svg
   - name: Campaign alerts
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/campaign_alerts
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/campaign_alerts
     image: /assets/img/braze_icons/bell-03.svg
   - name: Searching for campaigns
-    link: /docs/user_guide/messaging/campaigns/managing_campaigns/search_campaigns
+    link: /docs/user_guide/messaging/campaigns/manage_campaigns/search_campaigns
     image: /assets/img/braze_icons/search-refraction.svg
 
 guide_menu_title: "Additional resources"

@@ -81,7 +81,7 @@ iOSの文字数の詳細については、[iOS文字数ガイドライン]({{sit
 | --- | --- |
 | Chrome | 192 x 192 px以上 |
 | Firefox | 192 x 192 px以上 |
-| Safari | 192 x 192 px以上（macOS 13+のSafari 16ではCampaignごとに設定可能） |
+| Safari | 192 x 192 px以上（macOS 13+のSafari 16ではキャンペーンごとに設定可能） |
 | Opera | 192 x 192 px以上 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 

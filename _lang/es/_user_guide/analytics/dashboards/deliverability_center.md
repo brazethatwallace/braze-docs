@@ -15,11 +15,9 @@ channel:
 
 La capacidad de entrega del correo electrónico es el núcleo del éxito de una campaña. Usando el Centro de entrega en el dashboard de Braze, puedes ver tus dominios por **IP Reputation** o **Delivery Errors** para descubrir y solucionar cualquier problema potencial con la capacidad de entrega del correo electrónico.
 
-Para acceder al Centro de entrega, necesitas los [permisos de usuario heredados]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) "Access Campaigns, Canvases, Cards, Segments, Media Library" y "View Usage Data", o los [permisos granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions) del siguiente desplegable para tu espacio de trabajo.
+Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) del siguiente desplegable para tu espacio de trabajo.
 
 {% details Permisos de usuario para el Centro de entrega %}
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 - Ver Campaigns
 - Editar Campaigns
