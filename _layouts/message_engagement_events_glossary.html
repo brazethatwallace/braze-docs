@@ -83,10 +83,9 @@ hide_binary_feedback: false
     <div id="results_count"></div>
 
     {%- assign content_parts = content | split: '<!--overview-end-->' -%}
-    <section id="glossary-overview" aria-label="Overview">
-      <h2>Overview</h2>
+    <div id="glossary-preamble" aria-label="Overview">
       {{ content_parts[0] }}
-    </section>
+    </div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{ content_parts[1] }}

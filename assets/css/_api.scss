@@ -87,23 +87,42 @@
     }
   }
 
-  // Overview section: visible/hidden state
-  #glossary-overview {
+  // Preamble section (collapsible overview): visible/hidden state
+  #glossary-preamble {
     margin-bottom: 24px;
-    &.glossary-overview--hidden {
+    &.glossary-preamble--hidden {
       display: none;
     }
-    a {
-      font-family: $braze-bold;
-      display: inline;
-      color: $black-shark;
-      font-weight: bold;
-      text-decoration: none;
-      border-bottom: 2px solid #801ED7;
-      transition: border-color ease 0.2s, background-color ease 0.2s;
-      &:hover {
-        border-color: #000000;
-        background-color: transparent !important;
+  }
+
+  #api_list {
+    > .api-glossary-preamble {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+
+    > .details_title,
+    > details,
+    > .alert {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
+
+    .api-glossary-preamble {
+      details {
+        display: block;
+        width: 100%;
+        clear: both;
+        margin-bottom: 8px;
+      }
+
+      .details_title {
+        display: block;
+        width: 100%;
       }
     }
   }

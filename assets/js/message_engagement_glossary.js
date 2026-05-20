@@ -85,10 +85,10 @@
     var hasSearch = !!($('#api_search').val() || '').length;
     var hasFilters = document.querySelectorAll('.api_filter_div input[type="checkbox"]:checked').length > 0;
     var active = hasSearch || hasFilters;
-    $('#glossary-overview')
-      .toggleClass('glossary-overview--hidden', active)
+    $('#glossary-preamble')
+      .toggleClass('glossary-preamble--hidden', active)
       .attr('aria-hidden', active ? 'true' : null);
-    if (!active) $('#glossary-overview').removeAttr('aria-hidden');
+    if (!active) $('#glossary-preamble').removeAttr('aria-hidden');
   }
 
   /*  search / filter  */
