@@ -132,34 +132,23 @@ hide_binary_feedback: false
         <fieldset class="api_filter_group">
           <legend>{{ group_label }}</legend>
           <div class="api_filter_group_list">
-            {%- assign group_index = 0 -%}
             {%- for tag_entry in tag_groups -%}
               {%- if tag_entry[1] == group_id -%}
                 {%- assign tag_key   = tag_entry[0] -%}
                 {%- assign tag_label = tag_labels[tag_key] | default: tag_key -%}
                 {%- assign filter_id = tag_key | downcase | replace: ' ', '-' -%}
-                {%- if group_index >= 4 -%}
-                  {%- assign overflow_class = " filter-overflow filter-overflow--hidden" -%}
-                {%- else -%}
-                  {%- assign overflow_class = "" -%}
-                {%- endif -%}
-                <div class="api_filter_div{{ overflow_class }}">
+                <div class="api_filter_div">
                   <label for="api_{{ filter_id }}">
                     <input id="api_{{ filter_id }}" type="checkbox" name="filter_{{ filter_id }}" value="{{ tag_key }}">
                     {{ tag_label }}
                   </label>
                 </div>
-                {%- assign group_index = group_index | plus: 1 -%}
               {%- endif -%}
             {%- endfor -%}
           </div>
         </fieldset>
       {%- endfor -%}
     </div>
-    <button id="glossary-filter-toggle" aria-expanded="false">
-      <span class="show-more-text">Show all filters</span>
-      <span class="show-less-text" aria-hidden="true">Show fewer filters</span>
-    </button>
   </aside>
   {% unless hide_binary_feedback -%}
   {% include binary_feedback.html  %}
