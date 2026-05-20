@@ -75,7 +75,7 @@
       $pane.attr('data-currents-loaded', 'true');
     }).fail(function () {
       $pane.html('<p>Unable to load this schema. Refresh the page and try again.</p>');
-      $pane.removeAttr('data-currents-loaded');
+      $pane.attr('data-currents-loaded', 'true');
     });
   }
 

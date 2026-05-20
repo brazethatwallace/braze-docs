@@ -127,6 +127,15 @@
     }
   }
 
+  // Reserve space for lazy tab panes before their content loads so the page
+  // doesn't shift when schemas are fetched. Height is released after load.
+  .ab-tab-pane[data-currents-lazy] {
+    min-height: 420px;
+    &[data-currents-loaded="true"] {
+      min-height: 0;
+    }
+  }
+
   .api_div {
     flex: 1 0 100%;
     position: relative;
