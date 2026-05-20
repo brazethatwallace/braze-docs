@@ -50,3 +50,11 @@ tool: Canvas
 ### コンテキスト変数は保持されますか？ {#are-context-variables-preserved}
 
 はい。ソースCanvasの[コンテキスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)は常に送信先Canvasに渡されます。
+
+### ユーザーは送信先Canvasの最初から入りますか？ {#do-users-enter-at-the-start-of-the-destination-canvas}
+
+ユーザーは送信先Canvasの最初から入ります。現時点では、送信先Canvas内の特定のキャンバスステップにリンクすることはできません。
+
+### 送信先へ送信ステップの進行動作はどのように機能しますか？ {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+
+送信先へ送信ステップに入ったユーザーは、ソースCanvasに追加のステップがある場合、ユーザージャーニーを続行します。ユーザーが送信先Canvasのエントリルールも満たしている場合、そのCanvasに入り、そのジャーニーを開始できます。

@@ -101,6 +101,10 @@ Braze가 지원하는 모든 방법을 사용하여 사용자를 가져오거나
 | Channel access token | 공급자를 선택한 다음 **Channels** > 해당 채널 > **Messaging API**로 이동. 채널 액세스 토큰이 없으면 **Issue**를 선택합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
+{% alert note %}
+이미 통합된 LINE 채널의 채널 시크릿을 업데이트하거나 교체해야 하는 경우, [Braze 고객지원]({{site.baseurl}}/braze_support/)에 연락하여 업데이트를 요청하세요.
+{% endalert %}
+
 {: start="3"}
 3. **Settings** 페이지 > **Response settings**로 이동하여 다음을 수행합니다:
    - **Greeting message**를 끕니다. 이는 팔로우 트리거를 통해 Braze에서 처리할 수 있습니다.
