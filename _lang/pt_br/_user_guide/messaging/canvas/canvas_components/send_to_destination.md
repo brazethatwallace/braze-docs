@@ -27,7 +27,7 @@ Essa etapa permite que os usuários do Canvas 1 sejam enviados para o Canvas 2. 
 
 ### Etapa 1: Adicionar uma etapa {#step-1-add-a-step}
 
-Arraste e solte o componente **Send to Destination** da barra lateral, ou selecione o botão de adição <i class="fas fa-plus-circle" aria-label="Adicionar"></i> na parte inferior de uma etapa e selecione **Send to Destination**.
+Arraste e solte o componente **Send to Destination** da barra lateral, ou selecione o botão de adição <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Send to Destination**.
 
 ### Etapa 2: Escolher o destino {#step-2-choose-your-destination}
 
@@ -50,3 +50,11 @@ Sim. O Canvas de destino pode ter status de rascunho ou sem atividades.
 ### As variáveis de contexto são preservadas? {#are-context-variables-preserved}
 
 Sim. O [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) do Canvas de origem é sempre passado para o Canvas de destino.
+
+### Os usuários entram no início do Canvas de destino? {#do-users-enter-at-the-start-of-the-destination-canvas}
+
+Sim. Os usuários entram no início do Canvas de destino. No momento, não é possível vincular a uma etapa específica do Canvas dentro do Canvas de destino.
+
+### Como funciona o comportamento de avanço nas etapas Enviar para Destino? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+
+Os usuários que entram na etapa Enviar para Destino continuam sua jornada se houver etapas adicionais no Canvas de origem. Se os usuários também atenderem às regras de entrada do Canvas de destino, eles podem entrar nesse Canvas e iniciar essa jornada.

@@ -50,3 +50,11 @@ Oui. Le Canvas de destination peut avoir un statut de brouillon ou inactif.
 ### Les variables de contexte sont-elles conservées ? {#are-context-variables-preserved}
 
 Oui. Le [contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) du Canvas source est toujours transmis au Canvas de destination.
+
+### Les utilisateurs entrent-ils au début du Canvas de destination ? {#do-users-enter-at-the-start-of-the-destination-canvas}
+
+Les utilisateurs entrent au début du Canvas de destination. Pour le moment, il n'est pas possible de créer un lien vers une étape spécifique à l'intérieur du Canvas de destination.
+
+### Comment fonctionne le comportement d'avancement pour les étapes Envoyer vers une destination ? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+
+Les utilisateurs qui atteignent l'étape Envoyer vers une destination poursuivent leur parcours s'il existe des étapes supplémentaires dans le Canvas source. Si les utilisateurs remplissent également les règles d'entrée du Canvas de destination, ils peuvent y entrer et commencer ce parcours.

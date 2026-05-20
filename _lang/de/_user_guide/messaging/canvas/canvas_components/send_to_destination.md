@@ -50,3 +50,11 @@ Ja. Der Ziel-Canvas kann den Status „Entwurf“ oder „Inaktiv“ haben.
 ### Bleiben Kontextvariablen erhalten? {#are-context-variables-preserved}
 
 Ja. Der [Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) des Quell-Canvas wird immer an den Ziel-Canvas übergeben.
+
+### Betreten Nutzer:innen den Ziel-Canvas am Anfang? {#do-users-enter-at-the-start-of-the-destination-canvas}
+
+Nutzer:innen betreten den Ziel-Canvas am Anfang. Derzeit ist es nicht möglich, auf einen bestimmten Canvas-Schritt innerhalb des Ziel-Canvas zu verlinken.
+
+### Wie funktioniert das Fortschrittsverhalten bei Canvas-Schritten „An Ziel senden“? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+
+Nutzer:innen, die den Canvas-Schritt „An Ziel senden“ erreichen, setzen ihre Journey fort, wenn es weitere Schritte im Quell-Canvas gibt. Wenn Nutzer:innen auch die Eingangsregeln des Ziel-Canvas erfüllen, können sie diesen Canvas betreten und diese Journey beginnen.
