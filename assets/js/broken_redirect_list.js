@@ -4789,4 +4789,6 @@ validurls['/docs/user_guide/engagement_tools/landing_pages/personalizing_pages/#
 validurls['/docs/partners/data_and_analytics/cohort_import/overview'] = '/docs/partners/data_and_analytics/cohort_import';
 validurls['/docs/developer_guide/in_app_messages/tutorials/defer_and_restore_triggered_messages'] = '/docs/developer_guide/in_app_messages/tutorials/deferring_triggered_messages';
 
+validurls['/docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/api_triggered_delivery'] = '/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery';
+
 // validurls['OLD'] = 'NEW';
