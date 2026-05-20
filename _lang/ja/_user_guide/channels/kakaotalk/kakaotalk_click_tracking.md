@@ -97,12 +97,12 @@ KakaoTalkパフォーマンステーブルには、バリアントごとのク�
 KakaoTalkメッセージ内のURLをクリックしたユーザーを、以下のセグメンテーションフィルターとトリガーを使用してリターゲティングできます。
 
 - アクションベースのトリガー
-    - Interact with キャンペーン
+    - Interact with Campaign
     - Interact with Step
 
 - セグメンテーションフィルター
-    - Clicked/Opened キャンペーン
-    - Clicked/Opened キャンペーン or キャンバス with Tag
+    - Clicked/Opened Campaign
+    - Clicked/Opened Campaign or Canvas with Tag
     - Clicked/Opened Step
 
 ## よくある質問 {#frequently-asked-questions}

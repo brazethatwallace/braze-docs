@@ -26,7 +26,7 @@ tool: Canvas
 
 キャンバスを作成する前に、ストレートレッグパンツの在庫情報を含む[カタログを設定]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)し、Classic Straight Legジーンズの[再入荷通知を設定]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications)しました。ユーザーがアプリでClassic Straight Legジーンズをお気に入りに追加するカスタムイベントを実行した後に通知を購読するように設定しました。
 
-再入荷テンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a キャンバス template** > **Braze templates**を選択します。次に、**Back in Stock**の横にある**Apply Template**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
+再入荷テンプレートにアクセスするには、新しいキャンバスを作成する際に、**Use a Canvas template** > **Braze templates**を選択します。次に、**Back in Stock**の横にある**Apply Template**を選択します。これで、テンプレートをニーズに合わせてカスタマイズできます。
 
 ### ステップ 1: 詳細を設定する {#step-1-set-up-the-details}
 
