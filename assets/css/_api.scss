@@ -100,6 +100,12 @@
     .details_title {
       display: none;
     }
+    // The preamble lives inside #api-main, outside of #article-main, so it
+    // doesn't inherit the braze-link mixin applied to article body links.
+    // Apply it explicitly so links here match the rest of the docs site.
+    a {
+      @include braze-link;
+    }
   }
 
   #api_list {
