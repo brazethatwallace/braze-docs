@@ -34,17 +34,15 @@ No, global frequency capping only applies to push, email, SMS, webhook, WhatsApp
 
 ### Does frequency capping limit campaigns received or individual messages inside a send?
 
-Frequency capping applies to the campaign and Canvas step sends that a user receives, not individual messages.
+Frequency capping applies per dispatch, meaning each time Braze sends a campaign or Canvas step to a user counts toward your caps—not each message variant or platform inside that send.
 
-For example, if users can receive only two push campaigns per week and you send a recurring push campaign that delivers daily, those daily deliveries belong to one recurring campaign for capping purposes. The user can still be eligible for a different push campaign that week.
+For example, if users can receive only two push campaigns per week and you run a push campaign scheduled to send daily, each day's send counts toward the push cap. After two daily sends from that campaign, the user is capped for push for the rest of the week unless another campaign ignores frequency capping rules.
+
+When a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, let's say a campaign sends email, iOS push, and Android push in one delivery, and your workspace has rules for push, email, and a channel-agnostic limit. Each recurrence of that campaign counts once toward the push rule, once toward the email rule, and once toward the channel-agnostic rule. It does not count once per push platform or per message inside the send. For more on multichannel campaigns, see [Delivery rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules).
 
 ### If several messages are eligible at the same time and only some fit under the cap, which messages send?
 
 Braze sends up to the limit. When multiple sends compete in the same window, the messages that are processed first are the ones that count toward the cap. Remaining sends in that window are capped.
-
-### Do silent push notifications count toward the global frequency cap?
-
-Yes. Silent pushes are push notifications.
 
 ### Do failed webhooks count toward the global frequency cap?
 
