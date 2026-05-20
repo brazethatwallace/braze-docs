@@ -96,6 +96,7 @@
   var noResultsTimer = null;
   var countTimer = null;
   var innerTimer = null;
+  var searchDebounceTimer = null;
   var lastAnnouncedCount = -1;
   var altChar = false;
   var currentsEventsI18n = { noResults: '', showing: '' };
@@ -114,7 +115,8 @@
     resultsCount.hide();
     resultsMsg.hide();
 
-    var api_div = $('#api_list .api_div');
+    // Fix #4: use direct children only to exclude the #api_list container itself
+    var api_div = $('#api_list > .api_div');
     var total_cnt = api_div.length;
     var search_str = ($('#api_search').val() || '').toLowerCase();
     var selected_vals = [];
@@ -137,8 +139,11 @@
         filtered = true;
       }
       if (!filtered && search_str) {
-        var text = curdiv.text().replace(/(\n|\r\n|\r)\d+/g, '').toLowerCase().replace(/\s\s+/g, ' ');
-        if (text.indexOf(search_str) < 0) filtered = true;
+        // Fix #1: search only the event name (h2) and its one-line description (first
+        // <p> after .api_tags), not schema field content inside the tab panes.
+        var heading = (curdiv.find('h2').first().text() || '').toLowerCase();
+        var desc = (curdiv.find('.api_tags').first().next('p').text() || '').toLowerCase();
+        if (heading.indexOf(search_str) < 0 && desc.indexOf(search_str) < 0) filtered = true;
       }
 
       if (filtered) { curdiv.hide(); } else { curdiv.show(); result_cnt++; }
@@ -218,7 +223,11 @@
 
     if (query_str.length > 0) search_apis();
 
-    $('#api_search').on('input', search_apis);
+    // Fix #2: debounce text input to avoid layout thrash on every keystroke
+    $('#api_search').on('input', function () {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(search_apis, 150);
+    });
 
     /* lazy tab loading */
     $('#api-main').on('click', '.tab_toggle', function () {
