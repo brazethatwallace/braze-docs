@@ -410,10 +410,45 @@ If you're using Android Views, use this XML:
     app:placementId="global_banner" />
 ```
 
-If you're using Jetpack Compose, you can use this:
+To use Jetpack Compose, add the `com.braze:android-sdk-jetpack-compose` artifact to your app module. Use the same version as your other Braze Android SDK dependencies. This module is separate from `android-sdk-ui` and ships the [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) composable under `com.braze.jetpackcompose.banners`.
+
+{% alert note %}
+Some Compose UI libraries define their own `Banner` composable. Import `com.braze.jetpackcompose.banners.Banner` explicitly so you call Braze's API.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+Optionally pass `heightCallback` to receive the rendered height in dp when the banner size changes. For reference, see the [KDoc for `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+
+If you don't add the Jetpack Compose module, wrap [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) in [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView):
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 To get the Banner in Kotlin, use:
