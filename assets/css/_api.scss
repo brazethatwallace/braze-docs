@@ -93,6 +93,13 @@
     &.glossary-preamble--hidden {
       display: none;
     }
+    // The details_title divs are sticky-header anchor offsets. Inside the
+    // preamble they stack above the search input with negative margins,
+    // making the input unclickable. Suppress them — preamble collapsibles
+    // don't need deep-link anchor targets.
+    .details_title {
+      display: none;
+    }
   }
 
   #api_list {
