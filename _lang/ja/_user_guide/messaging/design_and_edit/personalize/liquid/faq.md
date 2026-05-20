@@ -12,7 +12,7 @@ description: "この記事では、Liquidに関するよくある質問への回
 
 ### BrazeでLiquidスニペットを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-snippets-in-braze}
 
-多くの場合、CampaignやCanvasesに移動し、メール本文やSegmentsなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
+多くの場合、キャンペーンやキャンバスに移動し、メール本文やセグメントなどの領域でパーソナライゼーションモーダルにLiquidを挿入することで、Liquidスニペットを組み込むことができます。
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
@@ -49,12 +49,12 @@ Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パ
 
 ### {{campaign.${name}}} と {{campaign.${message_name}}} の違いは何ですか？ {#whats-the-difference-between-campaignname-and-campaignmessagename}
 
-`{{campaign.${name}}}` と `{{campaign.${message_name}}}` はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもCampaign属性を参照します。`{{campaign.${name}}}` はCampaignの名前を示し、`{{campaign.${message_name}}}` はメッセージバリアントの名前です。
+`{{campaign.${name}}}` と `{{campaign.${message_name}}}` はどちらもサポートされているLiquidパーソナライゼーションタグです。どちらのタグもキャンペーン属性を参照します。`{{campaign.${name}}}` はキャンペーンの名前を示し、`{{campaign.${message_name}}}` はメッセージバリアントの名前です。
 {% endraw %}
 
 ### ネストされたオブジェクトでLiquidを使用するにはどうすればよいですか？ {#how-do-i-use-liquid-with-nested-objects}
 
-Brazeには、メッセージで使用できるSegments用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するSegmentを作成できます。
+Brazeには、メッセージで使用できるセグメント用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
 
 詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#multi-criteria-segmentation)をご覧ください。
 
@@ -72,7 +72,7 @@ Brazeには、メッセージで使用できるSegments用のLiquidコードを�
 
 ### 中止ロジックとは何ですか？また、どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
-中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングCampaignでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
+中止ロジックを使用すると、条件が満たされた場合にメッセージの送信を停止できます。これは、不完全なメッセージがユーザーに送信されるのを防ぐのに特に役立ちます。マーケティングキャンペーンでの中止ロジックの例については、[メッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)で詳しくご覧ください。
 
 ### forループロジックとは何ですか？また、どのように使用できますか？ {#what-is-for-loop-logic-and-how-can-i-use-it}
 
@@ -100,7 +100,7 @@ Liquidを使用するContent Blocksで送信されたメッセージに余分な
 #### 例 {#example}
 
 {% raw %}
-```liquid
+`````````liquid
 {% if {{custom_attribute.${has_discount}}} == true %}Discounted Item{% elsif {{custom_attribute.${is_new_arrival}}} == true %}New Arrival{% else %}Regular Item{% endif %}
 ```
 {% endraw %}
@@ -117,7 +117,7 @@ Liquidを使用するContent Blocksで送信されたメッセージに余分な
 #### 例 {#examples}
 
 {% raw %}
-```liquid
+`````````liquid
 {% comment %}Use assign for custom attributes{% endcomment %}
 {% assign name = {{custom_attribute.${first_name}}} %}
 {% assign price = {{custom_attribute.${price}}} | plus: 0 %}

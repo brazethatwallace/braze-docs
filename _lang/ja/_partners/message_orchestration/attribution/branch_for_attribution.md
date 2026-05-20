@@ -43,7 +43,7 @@ Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(c
 ```
 {% endtab %}
 {% tab Kotlin %}
-```kotlin
+`````````kotlin
 Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId)
 ```
 {% endtab %}
@@ -61,7 +61,7 @@ Swift SDK v5.7.0以降を使用しているお客様で、相互識別子とし�
 
 {% tabs local %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [braze deviceIdOnQueue:dispatch_get_main_queue() completion:^(NSString * _Nonnull deviceId) {
   [[Branch getInstance] setRequestMetadataKey:@"$braze_install_id" value:deviceId];
   // Branch init
@@ -70,7 +70,7 @@ Swift SDK v5.7.0以降を使用しているお客様で、相互識別子とし�
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 braze.deviceId { deviceId in
   Branch.getInstance.setRequestMetadata("$braze_install_id", deviceId)
   // Branch init
@@ -101,13 +101,13 @@ BrazeがBranchからアトリビューションデータを受信すると、Bra
 
 ## FacebookとX（旧Twitter）のアトリビューションデータ {#facebook-and-x-formerly-twitter-attribution-data}
 
-FacebookおよびX（旧Twitter）のCampaignsのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
+FacebookおよびX（旧Twitter）のキャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
 
 ## BrazeでのBranchクリックトラッキングURL（オプション） {#branch-click-tracking-urls-in-braze-optional}
 
-BrazeのCampaignsでクリックトラッキングリンクを使用すると、どのCampaignsがアプリのインストールやリエンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
+Brazeのキャンペーンでクリックトラッキングリンクを使用すると、どのキャンペーンがアプリのインストールやリエンゲージメントを促進しているかを簡単に確認できます。その結果、マーケティング活動をより効果的に測定できるようになり、ROIを最大化するためにどこにリソースを投資すべきかについて、データドリブン型の意思決定ができるようになります。
 
-Branchのクリックトラッキングリンクを使い始めるには、Branchの[ドキュメント](https://help.branch.io/using-branch/docs/ad-links)を参照してください。BrazeのCampaignsにBranchのクリックトラッキングリンクを直接挿入できます。その後Branchは、リンクをクリックしたユーザーをアトリビュートするために、[確率的アトリビューション手法](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings)を使用します。BrazeのCampaignsからのアトリビューションの精度を向上させるために、Branchトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
+Branchのクリックトラッキングリンクを使い始めるには、Branchの[ドキュメント](https://help.branch.io/using-branch/docs/ad-links)を参照してください。BrazeのキャンペーンにBranchのクリックトラッキングリンクを直接挿入できます。その後Branchは、リンクをクリックしたユーザーをアトリビュートするために、[確率的アトリビューション手法](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings)を使用します。Brazeのキャンペーンからのアトリビューションの精度を向上させるために、Branchトラッキングリンクにデバイス識別子を付加することをお勧めします。これにより、リンクをクリックしたユーザーを決定論的にアトリビュートできます。
 
 {% tabs local %}
 {% tab Android %}

@@ -16,7 +16,7 @@ search_tag: Partner
 
 # Voucherify
 
-> [Voucherify](https://www.voucherify.io/)は、プロモーション、クーポン、ロイヤルティプログラム、紹介、パーソナライズされたインセンティブを管理できるインセンティブ最適化エンジンです。Brazeとの連携により、CampaignsやCanvases内でダイナミックなインセンティブを配信し、インセンティブアクションをトリガーし、システム間でプロモーションデータを同期できます。カスタムバックエンドシステムを構築する必要はありません。
+> [Voucherify](https://www.voucherify.io/)は、プロモーション、クーポン、ロイヤルティプログラム、紹介、パーソナライズされたインセンティブを管理できるインセンティブ最適化エンジンです。Brazeとの連携により、キャンペーンやキャンバス内でダイナミックなインセンティブを配信し、インセンティブアクションをトリガーし、システム間でプロモーションデータを同期できます。カスタムバックエンドシステムを構築する必要はありません。
 
 ## 前提条件 {#prerequisites}
 
@@ -43,10 +43,10 @@ VoucherifyとBrazeを統合すると、以下のことが可能になります�
 
 - [Braze – Voucherify概要](https://docs.voucherify.io/integrations/braze-overview)：統合の概要とサポートされるユースケース。
 - [Brazeへのイベントストリーミング](https://docs.voucherify.io/integrations/stream-events-to-braze)：Voucherifyイベント（利用など）をBrazeに送信します。
-- [BrazeからVoucherifyへのデータ送信](https://docs.voucherify.io/integrations/send-data-from-braze)：BrazeのCampaignsからVoucherifyアクションをトリガーします。
+- [BrazeからVoucherifyへのデータ送信](https://docs.voucherify.io/integrations/send-data-from-braze)：BrazeのキャンペーンからVoucherifyアクションをトリガーします。
 - [Brazeコネクテッドコンテンツの概要](https://docs.voucherify.io/integrations/braze-connected-content-overview)：Brazeメッセージにインセンティブをダイナミックに取得します。
 - [Brazeカスタム属性へのディストリビューション](https://docs.voucherify.io/integrations/braze-custom-attributes)：VoucherifyデータをBrazeユーザープロファイルに保存します。
-- [Brazeへのクーポンエクスポート](https://docs.voucherify.io/integrations/braze-promotion-codes)：BrazeのCampaignsで使用するプロモーションコードを同期します。
+- [Brazeへのクーポンエクスポート](https://docs.voucherify.io/integrations/braze-promotion-codes)：Brazeのキャンペーンで使用するプロモーションコードを同期します。
 
 ## その他のリソース {#additional-resources}
 

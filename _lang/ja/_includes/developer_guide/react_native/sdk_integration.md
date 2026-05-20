@@ -29,7 +29,7 @@ npm install @braze/react-native-sdk
 ```
 {% endtab %}
 {% tab yarn %}
-```bash
+`````````bash
 yarn add @braze/react-native-sdk
 ```
 {% endtab %}
@@ -53,7 +53,7 @@ Braze Expoプラグインのバージョンが4.1.0以上であることを確�
 
 以下のコードスニペットは、Braze Expoプラグインをインストールするコマンドです。
 
-```bash
+`````````bash
 npx expo install @braze/expo-plugin
 ```
 
@@ -181,7 +181,7 @@ Android通知アイコンの詳細については、[Androidの通知アイコ�
 
 以下のコードスニペットは、アプリケーションをプリビルドするコマンドです。
 
-```bash
+`````````bash
 npx expo prebuild
 ```
 
@@ -195,7 +195,7 @@ npx expo prebuild
 
 以下のコードスニペットは、最上位プロジェクトの`build.gradle`の`buildscript` > `dependencies`にKotlin Gradleプラグインを追加する方法です。
 
-```groovy
+`````````groovy
 buildscript {
     dependencies {
         ...
@@ -211,7 +211,7 @@ buildscript {
 
 プロジェクトの`res/values`フォルダに`braze.xml`ファイルを作成します。APIキーとエンドポイントはJavaScriptからランタイムで提供されるため、このファイルでは不要です。以下のコードスニペットは、`com_braze_enable_delayed_initialization`で遅延初期化を有効にする方法です。
 
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <bool name="com_braze_enable_delayed_initialization">true</bool>
@@ -224,7 +224,7 @@ buildscript {
 
 以下のコードスニペットは、`AndroidManifest.xml`ファイルに必要な権限です。
 
-```xml
+`````````xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
@@ -240,7 +240,7 @@ Braze Android SDKバージョン12.2.0以降では、`gradle.properties`ファ�
 
 {% subtabs local %}
 {% subtab JAVA %}
-```java
+`````````java
 import com.braze.BrazeActivityLifecycleCallbackListener;
 
 @Override
@@ -252,7 +252,7 @@ public void onCreate() {
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 import com.braze.BrazeActivityLifecycleCallbackListener
 
 override fun onCreate() {
@@ -270,7 +270,7 @@ MainActivityで`android:launchMode`が`singleTask`に設定されている場合
 
 {% subtabs local %}
 {% subtab JAVA %}
-```java
+`````````java
 @Override
 public void onNewIntent(Intent intent) {
     super.onNewIntent(intent);
@@ -279,7 +279,7 @@ public void onNewIntent(Intent intent) {
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
     setIntent(intent)
@@ -296,7 +296,7 @@ override fun onNewIntent(intent: Intent) {
 
 この配布チャネルを使用する場合は、PodfileでCocoaPodsのソースの場所を手動で上書きしてください。以下のサンプルを参照し、`{your-version}`をインポートする関連バージョンに置き換えてください。
 
-```ruby
+`````````ruby
 pod 'BrazeKit', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeKit.podspec'
 pod 'BrazeUI', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeUI.podspec'
 pod 'BrazeLocation', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeLocation.podspec'
@@ -308,7 +308,7 @@ React Nativeではライブラリーがネイティブプラットフォーム�
 
 以下のコードスニペットは、プロジェクトのルートフォルダからPodをインストールする方法です。
 
-```bash
+`````````bash
 # To install using the React Native New Architecture
 cd ios && pod install
 
@@ -325,7 +325,7 @@ cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 
 以下のコードスニペットは、`AppDelegate.swift`ファイルの先頭でBraze SDKをインポートする方法です。
 
-```swift
+`````````swift
 import BrazeKit
 import braze_react_native_sdk
 ```
@@ -337,7 +337,7 @@ import braze_react_native_sdk
 
 以下のコードスニペットは、`BrazeReactInitializer.configure`を使用した`AppDelegate.swift`の実装例です。
 
-```swift
+`````````swift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   static var braze: Braze? = nil
@@ -365,7 +365,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 以下のコードスニペットは、`AppDelegate.m`ファイルの先頭でBraze SDKをインポートする方法です。
 
-```objc
+`````````objc
 @import BrazeKit;
 @import braze_react_native_sdk;
 ```
@@ -374,7 +374,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 以下のコードスニペットは、`BrazeReactInitializer`を使用した`AppDelegate.m`の実装例です。
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [BrazeReactInitializer configure:^(BRZConfiguration *configuration) {
@@ -409,7 +409,7 @@ Braze React Native SDKのバージョンが1.37.0以上であることを確認�
 
 以下のコードスニペットは、Braze Expoプラグインをインストールするコマンドです。
 
-```bash
+`````````bash
 npx expo install @braze/expo-plugin
 ```
 
@@ -542,7 +542,7 @@ Android通知アイコンの詳細については、[Androidの通知アイコ�
 
 以下のコードスニペットは、アプリケーションをプリビルドするコマンドです。
 
-```bash
+`````````bash
 npx expo prebuild
 ```
 
@@ -556,7 +556,7 @@ npx expo prebuild
 
 以下のコードスニペットは、最上位プロジェクトの`build.gradle`の`buildscript` > `dependencies`にKotlin Gradleプラグインを追加する方法です。
 
-```groovy
+`````````groovy
 buildscript {
     dependencies {
         ...
@@ -572,7 +572,7 @@ buildscript {
 
 Brazeサーバーに接続するには、プロジェクトの`res/values`フォルダに`braze.xml`ファイルを作成します。以下のコードスニペットは`braze.xml`の設定例です。API[キー]({{site.baseurl}}/api/identifier_types/)と[エンドポイント]({{site.baseurl}}/api/basics/#endpoints)を実際の値に置き換えてください。
 
-```xml
+`````````xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string translatable="false" name="com_braze_api_key">YOU_APP_IDENTIFIER_API_KEY</string>
@@ -582,7 +582,7 @@ Brazeサーバーに接続するには、プロジェクトの`res/values`フォ
 
 以下のコードスニペットは、`AndroidManifest.xml`ファイルに必要な権限です。
 
-```xml
+`````````xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
@@ -598,7 +598,7 @@ Braze Android SDKバージョン12.2.0以降では、`gradle.properties`ファ�
 
 {% subtabs local %}
 {% subtab JAVA %}
-```java
+`````````java
 import com.braze.BrazeActivityLifecycleCallbackListener;
 
 @Override
@@ -610,7 +610,7 @@ public void onCreate() {
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 import com.braze.BrazeActivityLifecycleCallbackListener
 
 override fun onCreate() {
@@ -628,7 +628,7 @@ MainActivityで`android:launchMode`が`singleTask`に設定されている場合
 
 {% subtabs local %}
 {% subtab JAVA %}
-```java
+`````````java
 @Override
 public void onNewIntent(Intent intent) {
     super.onNewIntent(intent);
@@ -637,7 +637,7 @@ public void onNewIntent(Intent intent) {
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
     setIntent(intent)
@@ -654,7 +654,7 @@ override fun onNewIntent(intent: Intent) {
 
 この配布チャネルを使用する場合は、PodfileでCocoaPodsのソースの場所を手動で上書きしてください。以下のコードスニペットはサンプルの上書きです。`{your-version}`をインポートする関連バージョンに置き換えてください。
 
-```ruby
+`````````ruby
 pod 'BrazeKit', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeKit.podspec'
 pod 'BrazeUI', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeUI.podspec'
 pod 'BrazeLocation', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeLocation.podspec'
@@ -666,7 +666,7 @@ React Nativeではライブラリーがネイティブプラットフォーム�
 
 以下のコードスニペットは、プロジェクトのルートフォルダからPodをインストールする方法です。
 
-```bash
+`````````bash
 # To install using the React Native New Architecture
 cd ios && pod install
 
@@ -680,7 +680,7 @@ cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 {% subtab SWIFT %}
 
 以下のコードスニペットは、`AppDelegate.swift`ファイルの先頭でBraze SDKをインポートする方法です。
-```swift
+`````````swift
 import BrazeKit
 import braze_react_native_sdk
 ```
@@ -693,7 +693,7 @@ import braze_react_native_sdk
 
 以下のコードスニペットは、`AppDelegate.swift`の設定例です。
 
-```swift
+`````````swift
 func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
@@ -725,7 +725,7 @@ static var braze: Braze? = nil
 {% subtab OBJECTIVE-C %}
 
 以下のコードスニペットは、`AppDelegate.m`ファイルの先頭でBraze SDKをインポートする方法です。
-```objc
+`````````objc
 #import <BrazeKit/BrazeKit-Swift.h>
 #import "BrazeReactBridge.h"
 ```
@@ -738,7 +738,7 @@ static var braze: Braze? = nil
 
 以下のコードスニペットは、`AppDelegate.m`の設定例です。
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Setup Braze
@@ -780,7 +780,7 @@ static Braze *_braze = nil;
 
 以下のコードスニペットは、React Nativeコードでライブラリーをインポートする方法です。
 
-```javascript
+`````````javascript
 import Braze from "@braze/react-native-sdk";
 ```
 
@@ -790,7 +790,7 @@ import Braze from "@braze/react-native-sdk";
 
 以下のコードスニペットは、`useEffect`内で`Braze.initialize()`を呼び出してアプリ起動時にSDKを初期化する方法です。
 
-```javascript
+`````````javascript
 import React, { useEffect } from "react";
 import Braze from "@braze/react-native-sdk";
 
@@ -809,7 +809,7 @@ const App = () => {
 
 以下のコードスニペットは、セッション中の後のタイミングまでSDKの初期化を遅延させる方法です。例えば、ユーザーが同意を付与した後やログインを完了した後に初期化できます。
 
-```javascript
+`````````javascript
 function onUserConsent() {
   Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
 }
@@ -823,7 +823,7 @@ iOSでは、`Braze.initialize()`の前に受信したプッシュ通知はキュ
 
 以下のコードスニペットは、AndroidとiOSのアプリで異なるAPIキーを使用する場合のプラットフォーム検出の方法です。
 
-```javascript
+`````````javascript
 import { Platform } from "react-native";
 import Braze from "@braze/react-native-sdk";
 
@@ -848,7 +848,7 @@ iOSでは、`Braze.initialize()`の前に行われたすべてのSDKメソッド
 
 React Native SDK 19.1.0以前では、ネイティブの初期化はステップ2で行われます。Brazeメソッドを呼び出すには、React Nativeコードでライブラリーをインポートしてください。詳細については、[サンプルプロジェクト](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject)を参照してください。
 
-```javascript
+`````````javascript
 import Braze from "@braze/react-native-sdk";
 ```
 
@@ -864,7 +864,7 @@ import Braze from "@braze/react-native-sdk";
 
 以下のコードスニペットは、アプリ内で特定のユーザーのセッションを開始する方法です。
 
-```javascript
+`````````javascript
 import Braze from "@braze/react-native-sdk";
 
 Braze.initialize("YOUR-API-KEY", "YOUR-SDK-ENDPOINT");
@@ -878,13 +878,13 @@ Braze.changeUser("{some-user-id}");
 
 SDKの統合をテストするには、以下のコードスニペットでいずれかのプラットフォームでユーザーの新しいセッションを開始します。
 
-```javascript
+`````````javascript
 Braze.changeUser("userId");
 ```
 
 以下のコードスニペットは、アプリ起動時にユーザーIDを割り当てる例です。
 
-```javascript
+`````````javascript
 import React, { useEffect } from "react";
 import Braze from "@braze/react-native-sdk";
 

@@ -246,7 +246,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 {% tabs local %}
 {% tab Input %}
 
-```javascript
+`````````javascript
 
 /* This template is based on the source platform's documentation here: https://stripe.com/docs/webhooks
 

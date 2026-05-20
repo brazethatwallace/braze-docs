@@ -10,7 +10,7 @@ description: "Brazeでeコマース推奨イベントを使用する方法につ
 
 > eコマースの[推奨イベント]({{site.baseurl}}/recommended_events/)は、共有された注文レベルのスキーマを使用しており、Brazeがeコマースデータの上に信頼性の高い機能を構築できるようにします。これには、ユーザープロファイル、セグメンテーション、メッセージング、レポート、AIを活用したレコメンデーションが含まれます。この記事の各セクションでは、Brazeで各機能を使用する方法について説明します。<br><br> プロパティの要件とデータタイプについては[イベントスキーマ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-schemas)を、イベントがバリデーションに失敗した場合の動作については[イベントのバリデーションとトラブルシューティング]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/#event-validation-and-troubleshooting)を参照してください。
 
-eコマースイベントは予測可能なスキーマに従っているため、Brazeは収益トラッキングや構築済みのCanvasテンプレートからAIを活用したレコメンデーションまで、信頼性の高い機能を構築できます。以下のセクションでは、各機能の概要と詳細ドキュメントへのリンクを紹介します。
+eコマースイベントは予測可能なスキーマに従っているため、Brazeは収益トラッキングや構築済みのキャンバステンプレートからAIを活用したレコメンデーションまで、信頼性の高い機能を構築できます。以下のセクションでは、各機能の概要と詳細ドキュメントへのリンクを紹介します。
 
 {% alert note %}
 Brazeのeコマースイベントとそのセグメント可能なイベントプロパティは、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)にカウントされません。
@@ -74,9 +74,9 @@ eコマースイベントは、カスタムイベントと同じ方法で[Liquid
 
 ノーコードの代替手段として、[ドラッグ＆ドロップ製品ブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/)が早期アクセスプログラムで利用可能です。
 
-### eコマースCanvasテンプレート {#ecommerce-canvas-templates}
+### eコマースキャンバステンプレート {#ecommerce-canvas-templates}
 
-Brazeは、eコマース推奨イベントをエントリ、終了、コンバージョン条件として事前設定した、すぐに使えるCanvasテンプレートを提供しています。カスタムセットアップなしでライフサイクルフローを起動できます。各テンプレートにはドラッグ＆ドロップのメールデザインが含まれており、ドラッグ＆ドロップ製品ブロック（現在早期アクセス中）をサポートしています。詳細なユースケースとLiquidの例については、[eコマースユースケース]({{site.baseurl}}/ecommerce_use_cases/)を参照してください。
+Brazeは、eコマース推奨イベントをエントリ、終了、コンバージョン条件として事前設定した、すぐに使えるキャンバステンプレートを提供しています。カスタムセットアップなしでライフサイクルフローを起動できます。各テンプレートにはドラッグ＆ドロップのメールデザインが含まれており、ドラッグ＆ドロップ製品ブロック（現在早期アクセス中）をサポートしています。詳細なユースケースとLiquidの例については、[eコマースユースケース]({{site.baseurl}}/ecommerce_use_cases/)を参照してください。
 
 これらのテンプレートは、最も一般的なeコマースライフサイクルフローをカバーしています。出発点として使用し、タイミング、チャネル、クリエイティブをオーディエンスに合わせてカスタマイズしてください。
 
@@ -92,7 +92,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.product_viewed` |
 | 終了イベント | `ecommerce.product_viewed`、`ecommerce.cart_updated`、`ecommerce.checkout_started`、Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce キャンバス templates" }
 
 {% endtab %}
 {% tab カート放棄 %}
@@ -106,7 +106,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.cart_updated` |
 | 終了イベント | `ecommerce.cart_updated`、`ecommerce.checkout_started`、Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce キャンバス templates" }
 
 {% alert tip %}
 `ecommerce.cart_updated`イベントはカート全体の置換（各イベントでカート全体を記述）またはオプションの`action`プロパティの`add`と`remove`の値を使用した増分更新をサポートしています。カートごとにいずれかのアプローチを選択し、同じ`cart_id`に対して置換と増分カート更新を混在させないでください。メッセージ内で{% raw %}`{% shopping_cart %}`{% endraw %} Liquidタグを使用して、送信時の現在のカート内容を動的に表示してください。
@@ -124,7 +124,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | エントリイベント | `ecommerce.checkout_started` |
 | 終了イベント | Placed Order |
 | コンバージョンイベント | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce キャンバス templates" }
 
 {% endtab %}
 {% tab 注文確認とアンケート %}
@@ -137,7 +137,7 @@ Brazeは、eコマース推奨イベントをエントリ、終了、コンバ�
 | --- | --- |
 | エントリイベント | `ecommerce.order_placed` |
 | コンバージョンイベント | セッション開始または`ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce キャンバス templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -160,15 +160,15 @@ eコマース推奨イベントは、顧客が現在使用しているものと�
 | レポート | 表示内容 |
 |---------------------------------------------|-------------------------------------------|
 | 収益レポート | 選択した日付範囲とアプリにおける、すべてのソースの合計収益、平均日次収益、日次購入数、ユーザーあたりの収益の推移。 |
-| ラストタッチアトリビューション収益ダッシュボード | 注文確定前にユーザーが最後にインタラクションしたCampaignまたはCanvasに帰属する収益。タッチイベントには、メールクリック、プッシュ開封、コンテンツカードクリック、アプリ内メッセージクリック、SMSまたはWhatsAppショートリンククリックが含まれます。 |
-| CampaignおよびCanvasの分析 | 1次コンバージョンウィンドウ内で特定のCampaignまたはCanvasに帰属する合計収益。 |
-| コンバージョンレポート | CampaignsおよびCanvasesのコンバージョンイベントに紐づく収益。<br> **注:** `ecommerce.order_placed`の収益をカウントするには、CampaignまたはCanvasのコンバージョンイベントとして「Place Order」コンバージョンイベントタイプを使用する必要があります。 |
-| セグメントインサイト | セグメントインサイトダッシュボードにおけるSegment間の収益比較。 |
+| ラストタッチアトリビューション収益ダッシュボード | 注文確定前にユーザーが最後にインタラクションしたキャンペーンまたはキャンバスに帰属する収益。タッチイベントには、メールクリック、プッシュ開封、コンテンツカードクリック、アプリ内メッセージクリック、SMSまたはWhatsAppショートリンククリックが含まれます。 |
+| キャンペーンおよびキャンバスの分析 | 1次コンバージョンウィンドウ内で特定のキャンペーンまたはキャンバスに帰属する合計収益。 |
+| コンバージョンレポート | キャンペーンおよびキャンバスのコンバージョンイベントに紐づく収益。<br> **注:** `ecommerce.order_placed`の収益をカウントするには、キャンペーンまたはキャンバスのコンバージョンイベントとして「Place Order」コンバージョンイベントタイプを使用する必要があります。 |
+| セグメントインサイト | セグメントインサイトダッシュボードにおけるセグメント間の収益比較。 |
 | レポートビルダー | レポートビルダーで構築されたカスタムレポートの収益指標。 |
 | ダッシュボードビルダー | ダッシュボードビルダーで構築されたカスタムダッシュボードの収益指標。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
-ユーザー以外の計算フィールド（例: CampaignまたはCanvasの収益）の場合、収益はすべてのレポートで同じ方法で計算されます。注文内の製品ごとに`price`に`quantity`を掛け、各`order_placed`イベント内の製品全体で合計します。
+ユーザー以外の計算フィールド（例: キャンペーンまたはキャンバスの収益）の場合、収益はすべてのレポートで同じ方法で計算されます。注文内の製品ごとに`price`に`quantity`を掛け、各`order_placed`イベント内の製品全体で合計します。
 
 {% alert note %}
 収益の二重カウントを避けるため、同じ注文に対してレガシー購入イベントとeコマース推奨イベントの両方を送信しないでください。レガシー購入から推奨イベントへの移行を計画している場合は、統合を変更する前にBrazeアカウントチームと調整してください。<br><br>
@@ -187,8 +187,8 @@ Brazeは、データウェアハウス、BIツール、またはダウンスト�
 |------------------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) | eコマースイベントはカスタムイベントとしてストリーミングされます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入として利用可能です。 |
 | [Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | eコマースイベントはカスタムイベントとして共有されます。`ecommerce.*`名前空間で検索してください。各注文の製品は購入テーブルで利用可能です。 |
-| [SegmentデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | SegmentメンバーのCSVエクスポートです。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
-| [Segmentごとのユーザープロファイルをエクスポート（API）]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | SegmentメンバーのユーザープロファイルデータがAPI経由で返されます。eコマースイベントはカスタムイベントとして含まれます。 |
+| [セグメントデータをCSVにエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | セグメントメンバーのCSVエクスポートです。eコマースイベントを含めるには、カスタムイベントドロップダウンから名前で選択してください。 |
+| [セグメントごとのユーザープロファイルをエクスポート（API）]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | セグメントメンバーのユーザープロファイルデータがAPI経由で返されます。eコマースイベントはカスタムイベントとして含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 
 ### 特定の製品でユーザーをセグメント化するにはどうすればよいですか？ {#how-do-i-segment-users-by-a-specific-product}

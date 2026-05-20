@@ -48,11 +48,11 @@ Braze内に既に存在するユーザーのみがコホートに追加または
 
 ### ステップ 4:Braze でユーザーをセグメント化する {#step-4-segment-users-in-braze}
 
-Brazeでこれらのユーザーのセグメントを作成するには、**エンゲージメント**の下の**Segments**に移動し、セグメントに名前を付け、フィルターとして**Amplitude Cohorts**を選択します。次に、「次を含む」オプションを使用し、Amplitudeで作成したコホートを選択します。
+Brazeでこれらのユーザーのセグメントを作成するには、**エンゲージメント**の下の**セグメント**に移動し、セグメントに名前を付け、フィルターとして**Amplitude Cohorts**を選択します。次に、「次を含む」オプションを使用し、Amplitudeで作成したコホートを選択します。
 
 ![Brazeセグメントビルダーで、フィルター「amplitude_cohorts」が「includes_value」および「Amplitude cohort test」に設定されています。]({% image_buster /assets/img/amplitude2.png %})
 
-保存後、CanvasやCampaign作成時のユーザーターゲティングステップでこのセグメントを参照できます。
+保存後、キャンバスやキャンペーン作成時のユーザーターゲティングステップでこのセグメントを参照できます。
 
 ## ユーザーマッチング {#user-matching}
 

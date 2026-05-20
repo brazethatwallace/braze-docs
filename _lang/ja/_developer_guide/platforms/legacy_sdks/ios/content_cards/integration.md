@@ -33,7 +33,7 @@ noindex: true
                                            object:nil];
 ```
 
-```objc
+`````````objc
 // Called when Content Cards are refreshed (via `requestContentCardsRefresh`)
 - (void)contentCardsUpdated:(NSNotification *)notification {
   BOOL updateIsSuccessful = [notification.userInfo[ABKContentCardsProcessedIsSuccessfulKey] boolValue];
@@ -44,7 +44,7 @@ noindex: true
 ```
 {% endtab %}
 {% tab swift %}
-```swift
+`````````swift
 // Subscribe to content card updates
 // Note: you should remove the observer where appropriate
 NotificationCenter.default.addObserver(self, selector:
@@ -52,7 +52,7 @@ NotificationCenter.default.addObserver(self, selector:
   name:NSNotification.Name.ABKContentCardsProcessed, object: nil)
 ```
 
-```swift
+`````````swift
 // Called when the Content Cards are refreshed (via `requestContentCardsRefresh`)
 @objc private func contentCardsUpdated(_ notification: Notification) {
   if let updateIsSuccessful = notification.userInfo?[ABKContentCardsProcessedIsSuccessfulKey] as? Bool {
@@ -139,7 +139,7 @@ Brazeには、バナー、キャプション付き画像、クラシックの3�
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 ABKContentCardsTableViewController *contentCards = [[ABKContentCardsTableViewController alloc] init];
 contentCards.title = @"Content Cards Title";
 contentCards.disableUnreadIndicator = YES;
@@ -149,7 +149,7 @@ contentCards.disableUnreadIndicator = YES;
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let contentCards = ABKContentCardsTableViewController()
 contentCards.title = "Content Cards Title"
 contentCards.disableUnreadIndicator = true
@@ -170,7 +170,7 @@ navigationController?.pushViewController(contentCards, animated: true)
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 ABKContentCardsViewController *contentCards = [[ABKContentCardsViewController alloc] init];
 contentCards.contentCardsViewController.title = @"Content Cards Title";
 contentCards.contentCardsViewController.disableUnreadIndicator = YES;
@@ -180,7 +180,7 @@ contentCards.contentCardsViewController.disableUnreadIndicator = YES;
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let contentCards = ABKContentCardsViewController()
 contentCards.contentCardsViewController.title = "Content Cards Title"
 contentCards.contentCardsViewController.disableUnreadIndicator = true

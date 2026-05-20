@@ -17,7 +17,7 @@ let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(braze: braze
 
 初期化された`scriptMessageHandler` をWkWebView の`userContentController` に追加します。
 
-```swift
+`````````swift
 configuration.userContentController.add(
   scriptMessageHandler,
   name: Braze.WebViewBridge.ScriptMessageHandler.name
@@ -26,13 +26,13 @@ configuration.userContentController.add(
 
 次に、設定を使用してWebView を作成します。
 
-```swift
+`````````swift
 let webView = WKWebView(frame: .zero, configuration: configuration)
 ```
 
 完了したら、コードは次のようになります。
 
-```swift
+`````````swift
 // Create the script message handler using your initialized Braze instance.
 let scriptMessageHandler = Braze.WebViewBridge.ScriptMessageHandler(braze: braze)
 
@@ -54,7 +54,7 @@ let webView = WKWebView(frame: .zero, configuration: configuration)
 
 次の例では、`BrazeBridge` は、既存のウェブコンテンツからBraze Swift SDKにカスタムイベントを記録します。
 
-```javascript
+`````````javascript
 <!DOCTYPE html>
 <html lang="en">
   <head>

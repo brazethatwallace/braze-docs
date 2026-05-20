@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Segment分析のエクスポート"
-article_title: "GET: Segment分析のエクスポート"
+nav_title: "GET: セグメント分析のエクスポート"
+article_title: "GET: セグメント分析のエクスポート"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "この記事では、Segment分析のエクスポートBrazeエンドポイントについて詳しく説明します。"
+description: "この記事では、セグメント分析のエクスポートBrazeエンドポイントについて詳しく説明します。"
 
 ---
 {% api %}
-# Segment分析のエクスポート {#export-segment-analytics}
+# セグメント分析のエクスポート {#export-segment-analytics}
 {% apimethod get %}
 /segments/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、Segmentの推定サイズの日次データを時系列で取得します。<br><br>Segmentの正確なサイズが必要な場合は、[`/users/export/segment` エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)でユーザーをエクスポートし、エクスポートされたプロファイル数をカウントしてください。
+> このエンドポイントを使用して、セグメントの推定サイズの日次データを時系列で取得します。<br><br>セグメントの正確なサイズが必要な場合は、[`/users/export/segment` エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)でユーザーをエクスポートし、エクスポートされたプロファイル数をカウントしてください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e {% endapiref %}
 

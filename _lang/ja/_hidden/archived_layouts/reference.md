@@ -9,9 +9,9 @@ page_type: reference
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -40,7 +40,7 @@ noindex: true
 
 # ページタイトル {#page-title}
 
->  このタイプの記事は、コンセプトを説明し、技術的なプロセスや製品のコンテンツ（Canvasステップ、セグメンテーション、特定のタイプのオブジェクトなど）に関する具体的な情報を含みます。リファレンステンプレートのもう1つのタイプは用語集です。この形式は、説明が必要な特定の概念がない限り、API用語集やリファレンスドキュメントでは使用されません。このページで[これ](#what-is-x-concept)、[それ](#topic-1-regarding-this-concept)、および[もう1つ](#topic-2-regarding-this-concept)を学ぶという概要を必ず説明してください。これは[一般的なリファレンスドキュメントの良いサンプル](https://guide.meteor.com/code-style.html)です。これは[非常に技術的なリファレンスドキュメント](https://www.w3schools.com/html/html_intro.asp)の良い例です。
+>  このタイプの記事は、コンセプトを説明し、技術的なプロセスや製品のコンテンツ（キャンバスステップ、セグメンテーション、特定のタイプのオブジェクトなど）に関する具体的な情報を含みます。リファレンステンプレートのもう1つのタイプは用語集です。この形式は、説明が必要な特定の概念がない限り、API用語集やリファレンスドキュメントでは使用されません。このページで[これ](#what-is-x-concept)、[それ](#topic-1-regarding-this-concept)、および[もう1つ](#topic-2-regarding-this-concept)を学ぶという概要を必ず説明してください。これは[一般的なリファレンスドキュメントの良いサンプル](https://guide.meteor.com/code-style.html)です。これは[非常に技術的なリファレンスドキュメント](https://www.w3schools.com/html/html_intro.asp)の良い例です。
 
 ## Xコンセプトとは {#what-is-x-concept}
 
@@ -53,7 +53,7 @@ noindex: true
 
 ## トピック1：このコンセプトについて {#topic-1-regarding-this-concept}
 
-これは、特定のタイプのCanvasステップがチャネルとどのように組み合わせて使われるかなど、このコンセプトの特定の側面を説明するものです。実際にこの操作を行う方法の例を確認するには、[このチュートリアルへのリンクをチェックしてください]()。
+これは、特定のタイプのキャンバスステップがチャネルとどのように組み合わせて使われるかなど、このコンセプトの特定の側面を説明するものです。実際にこの操作を行う方法の例を確認するには、[このチュートリアルへのリンクをチェックしてください]()。
 
 ### コードサンプル {#code-sample}
 

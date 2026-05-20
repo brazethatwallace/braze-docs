@@ -39,7 +39,7 @@ contentCardsTableViewController.delegate = delegate;
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 contentCardsTableViewController.delegate = delegate
 
 // Methods to implement in delegate

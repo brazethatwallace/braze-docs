@@ -62,7 +62,7 @@ The following request uses cURL. For better API request management, we recommend
 
 To upload your PARTNER_NAME data to Braze, make a POST request to `PARTNER_POST_URL` using the `application/json` content-type:
 
-```bash
+`````````bash
 curl -X POST "PARTNER_POST_URL" \
 -H "content-type: application/json" \
 -d '{"braze_host":"BRAZE_API_ENDPOINT", \
@@ -123,6 +123,6 @@ CONTENT.
 ### TROUBLESHOOTING_ITEM
 
 CONTENT.
-`````
+```
 {% endraw %}
 {% enddetails %}

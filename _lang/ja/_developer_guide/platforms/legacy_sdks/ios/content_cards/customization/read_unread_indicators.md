@@ -36,7 +36,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 (card as? ABKBaseContentCardCell).unviewedLineView.backgroundColor = UIColor.red
 ```
 

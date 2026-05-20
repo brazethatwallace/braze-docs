@@ -1,7 +1,7 @@
 ---
 nav_title: Scuba
 article_title: Scuba Analytics
-description: "このScubaとBrazeのテクニカルリファレンスでは、Braze Segmentsを使用してScubaのリアルタイムデータインサイトをアクティブにする方法を説明します。"
+description: "このScubaとBrazeのテクニカルリファレンスでは、Braze セグメントを使用してScubaのリアルタイムデータインサイトをアクティブにする方法を説明します。"
 page_type: partner
 search_tag: Partner
 noindex: true
@@ -74,21 +74,21 @@ curl -X POST "https://scuba.pliant.io/a/scuba-connectors/prod/braze-activation" 
 
 Scubaは、このエンドポイントに対して1分あたり50,000件のリクエストのレート制限を適用します。
 
-## Scubaの行動データを使用したSegmentの作成 {#creating-segments-using-scubas-behavioral-data}
+## Scubaの行動データを使用したセグメントの作成 {#creating-segments-using-scubas-behavioral-data}
 
-[データをアップロード](#uploading-your-scuba-data-to-braze)したら、Scubaの行動データを使用してBrazeでユーザーSegmentを作成できます。
+[データをアップロード](#uploading-your-scuba-data-to-braze)したら、Scubaの行動データを使用してBrazeでユーザーセグメントを作成できます。
 
-### ステップ1: 新しいSegmentを作成する {#step-1-create-a-new-segment}
+### ステップ1: 新しいセグメントを作成する {#step-1-create-a-new-segment}
 
-Brazeで、**Audience** > **Segments** に移動し、**Create Segment** を選択して、Segmentの名前を入力します。
+Brazeで、**Audience** > **セグメント** に移動し、**Create セグメント** を選択して、セグメントの名前を入力します。
 
-![Brazeでの新しいSegmentの作成。]({% image_buster /assets/img/scuba/analytics/segment_name.png %})
+![Brazeでの新しいセグメントの作成。]({% image_buster /assets/img/scuba/analytics/segment_name.png %})
 
 ### ステップ2: Scuba属性を探して選択する {#step-2-find-and-select-the-scuba-attribute}
 
-**Segment Details** > **Filters** で、**Custom Attributes** を選択します。
+**セグメント Details** > **Filters** で、**Custom Attributes** を選択します。
 
-![「Segment Details」での「Custom Attributes」フィルターの選択。]({% image_buster /assets/img/scuba/analytics/filter_attribute.png %})
+![「セグメント Details」での「Custom Attributes」フィルターの選択。]({% image_buster /assets/img/scuba/analytics/filter_attribute.png %})
 
 **Search custom attributes** を選択し、前回のPOSTリクエストで使用したアクタープロパティの名前を選択します。
 
