@@ -14,7 +14,7 @@ hidden: true
 
 Databricks Delta Sharing is part of Braze Data Distribution. For a full overview of Data Distribution options, see [Data Distribution]({{site.baseurl}}/user_guide/data/distribution/).
 
-## Setting up Delta Sharing
+## Set up Delta Sharing
 
 For Databricks, data sharing happens between a data provider and a data recipient. Your Braze account is the **data provider** because it creates and sends the share, and your Databricks account is the **data recipient** because it consumes the share to create a catalog you can query. For more details, see Databricks documentation on [reading data shared using Databricks-to-Databricks Delta Sharing (for recipients)](https://docs.databricks.com/en/delta-sharing/read-data-databricks.html).
 
@@ -51,9 +51,11 @@ Similar to Currents, you can use Databricks Delta Sharing to:
 - Map raw event or user data to a CRM (like Salesforce)
 - And more
 
-For a full list of available tables and columns, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Databricks Delta Sharing includes all tables in that reference.
+For a full list of tables and columns available in Databricks, [download the Databricks raw table schemas]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) as a text file. This file reflects the Databricks Delta Sharing schema (for example, `DB_CREATED_AT` for ingestion time). It is not interchangeable with the [Snowflake raw table schemas]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) or the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), which describe Snowflake naming and fields.
 
-You can also [download the raw table schemas]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) as a text file.
+{% alert note %}
+During the closed beta, not every table listed in the Databricks schema file may be available in your share. Column names and types can also differ from Snowflake Data Sharing (for example, `DB_CREATED_AT` instead of `SF_CREATED_AT`). Contact your Braze customer success manager if you need the current table list for your workspace.
+{% endalert %}
 
 ### User ID schema
 
@@ -66,6 +68,10 @@ Note the following differences between Braze and Databricks naming conventions f
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User ID schema" }
 
 ## Important information and limitations
+
+### Closed beta availability
+
+During the closed beta, your share may not include every table in the [Databricks raw table schemas]({% image_buster /assets/download_file/databricks-data-sharing-raw-table-schemas.txt %}) file. Shared data can also differ from Snowflake Data Sharing in column names and types. For example, Databricks shares use `DB_CREATED_AT` for ingestion time, while Snowflake shares use `SF_CREATED_AT`.
 
 ### Breaking versus non-breaking changes
 
