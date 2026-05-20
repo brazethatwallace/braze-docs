@@ -76,6 +76,20 @@ en:
     sessions: Sessions
     "token state change": Token State Change
     "update token": Update Token
+  currents_customer_behavior_tag_groups:
+    attribution: category
+    "custom events": category
+    "live activity": category
+    locations: category
+    purchases: category
+    push: category
+    "push to start token": category
+    "random bucket number": category
+    sessions: category
+    "token state change": category
+    "update token": category
+  currents_customer_behavior_tag_group_labels:
+    category: Event type
   currents_message_engagement_tag_labels:
     abort: Abort
     agent: Agent

@@ -9,6 +9,8 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
 {% alert tip %}
 These events are also available as SQL tables in the [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/), and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). For SQL table schemas and column details, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}
@@ -51,6 +53,9 @@ Storage schemas apply to the flat file event data we send to data warehouse stor
 Many of the events in this glossary are SDK-initiated. Some events, such as `token_state_change`, can be initiated by either the SDK or the backend (for example, in response to a push bounce). The `sdk_version`, `gender`, `language`, and `country` fields are only set for SDK-initiated events; for backend-initiated events, or when that information is not available or not set for the user, these fields may be `null`.
 {% endalert %}
 
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Random Bucket Number Update events {#random-bucket-number-update-events}
