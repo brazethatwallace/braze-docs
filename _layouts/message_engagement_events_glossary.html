@@ -44,8 +44,10 @@ hide_binary_feedback: false
 {%- comment -%} i18n data blobs — read by message_engagement_glossary.js {%- endcomment -%}
 <script type="application/json" id="glossary-currents-events-i18n-json">
 {
-  "noResults": {{ glossary_loc.glossary_currents_events_no_results | jsonify }},
-  "showing": {{ glossary_loc.glossary_currents_events_showing | jsonify }}
+  "noResults": {{ glossary_loc.glossary_currents_events_no_results | default: i18n_en.glossary_currents_events_no_results | jsonify }},
+  "showing": {{ glossary_loc.glossary_currents_events_showing | default: i18n_en.glossary_currents_events_showing | jsonify }},
+  "loading": {{ glossary_loc.glossary_currents_events_loading | default: i18n_en.glossary_currents_events_loading | jsonify }},
+  "loadError": {{ glossary_loc.glossary_currents_events_load_error | default: i18n_en.glossary_currents_events_load_error | jsonify }}
 }
 </script>
 
@@ -151,7 +153,7 @@ hide_binary_feedback: false
         </fieldset>
       {%- endfor -%}
     </div>
-    <button id="glossary-filter-toggle" aria-expanded="false" aria-controls="api_filter_list">
+    <button id="glossary-filter-toggle" aria-expanded="false">
       <span class="show-more-text">Show all filters</span>
       <span class="show-less-text" aria-hidden="true">Show fewer filters</span>
     </button>

@@ -74,7 +74,7 @@
       $pane.html(html);
       $pane.attr('data-currents-loaded', 'true');
     }).fail(function () {
-      $pane.html('<p>Unable to load this schema. Refresh the page and try again.</p>');
+      $pane.html('<p>' + (currentsEventsI18n.loadError || 'Unable to load this schema. Refresh the page and try again.') + '</p>');
       $pane.attr('data-currents-loaded', 'true');
     });
   }
@@ -88,7 +88,6 @@
     $('#glossary-preamble')
       .toggleClass('glossary-preamble--hidden', active)
       .attr('aria-hidden', active ? 'true' : null);
-    if (!active) $('#glossary-preamble').removeAttr('aria-hidden');
   }
 
   /*  search / filter  */
@@ -99,7 +98,7 @@
   var searchDebounceTimer = null;
   var lastAnnouncedCount = -1;
   var altChar = false;
-  var currentsEventsI18n = { noResults: '', showing: '' };
+  var currentsEventsI18n = { noResults: '', showing: '', loading: 'Loading schema\u2026', loadError: 'Unable to load this schema. Refresh the page and try again.' };
 
   function search_apis() {
     updateOverviewVisibility();
@@ -139,11 +138,10 @@
         filtered = true;
       }
       if (!filtered && search_str) {
-        // Fix #1: search only the event name (h2) and its one-line description (first
-        // <p> after .api_tags), not schema field content inside the tab panes.
-        var heading = (curdiv.find('h2').first().text() || '').toLowerCase();
-        var desc = (curdiv.find('.api_tags').first().next('p').text() || '').toLowerCase();
-        if (heading.indexOf(search_str) < 0 && desc.indexOf(search_str) < 0) filtered = true;
+        // Search the build-time keyword index (event name + tags + description +
+        // schema field names), which avoids touching lazy-loaded tab pane content.
+        var keywords = (curdiv.attr('data-search-keywords') || '').toLowerCase();
+        if (keywords.indexOf(search_str) < 0) filtered = true;
       }
 
       if (filtered) { curdiv.hide(); } else { curdiv.show(); result_cnt++; }
@@ -201,8 +199,6 @@
       updateFilterToggleButton();
       $('.filter-overflow').toggleClass('filter-overflow--hidden', expanded);
     });
-    // Start collapsed
-    $('.filter-overflow').addClass('filter-overflow--hidden');
   }
 
   /*  initialise  */

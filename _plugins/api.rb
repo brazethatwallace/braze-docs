@@ -9,7 +9,19 @@ module Api
       site = context.registers[:site]
       converter = site.find_converter_instance(Jekyll::Converters::Markdown)
       content = converter.convert(super)
-      return "<div id='#{@apiid}' class='api_div'>#{content}</div>"
+
+      # Build a search index from the event name (h2), tags, and description
+      # so JS can search field-level terms without reading lazy tab pane content.
+      h2_match    = content.match(/<h2[^>]*>(.*?)<\/h2>/i)
+      tags_match  = content.match(/data-tags=['"]([^'"]*)['"]/i)
+      desc_match  = content.match(/class='api_tags'[^>]*><\/div>\s*<p>(.*?)<\/p>/m)
+      keywords = [
+        h2_match   ? h2_match[1].gsub(/<[^>]+>/, '').strip   : '',
+        tags_match ? tags_match[1].strip                      : '',
+        desc_match ? desc_match[1].gsub(/<[^>]+>/, '').strip  : ''
+      ].reject(&:empty?).join(' ').downcase
+
+      return "<div id='#{@apiid}' class='api_div' data-search-keywords='#{keywords}'>#{content}</div>"
     end
   end
 

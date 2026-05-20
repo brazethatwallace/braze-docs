@@ -43,7 +43,16 @@ module CurrentsGlossaryLazyTabs
     html
   end
 
-  def self.process_html!(html, dest, page_slug, baseurl)
+  def self.loading_text(site, lang)
+    i18n = site.data['i18n'] || {}
+    locale = i18n[lang] || {}
+    en = i18n['en'] || {}
+    locale['glossary_currents_events_loading'] ||
+      en['glossary_currents_events_loading'] ||
+      'Loading schema\u2026'
+  end
+
+  def self.process_html!(html, dest, page_slug, baseurl, loading_label)
     return html unless html.include?('ab-tab-pane')
     return html if html.include?('data-currents-lazy="true"')
 
@@ -67,7 +76,7 @@ module CurrentsGlossaryLazyTabs
       fragment_url = "#{baseurl}/#{fragment_rel.tr('\\', '/')}"
       fragment_url = fragment_url.gsub(%r{//+}, '/')
 
-      pane.inner_html = '<p class="currents-lazy-tab-placeholder">Loading schema…</p>'
+      pane.inner_html = "<p class=\"currents-lazy-tab-placeholder\">#{loading_label}</p>"
       pane['data-currents-fragment'] = fragment_url
       pane['data-currents-lazy'] = 'true'
     end
@@ -82,9 +91,11 @@ module CurrentsGlossaryLazyTabs
       output_path = item.destination(site.dest)
       next unless File.exist?(output_path)
 
+      lang = item.data['lang'] || site.config['language'] || 'en'
+      loading_label = loading_text(site, lang)
       page_slug = item.data['slug'] || File.basename(item.url.to_s.chomp('/'))
       html = File.read(output_path)
-      processed = process_html!(html, site.dest, page_slug, baseurl)
+      processed = process_html!(html, site.dest, page_slug, baseurl, loading_label)
       next if processed == html
 
       File.write(output_path, processed)
