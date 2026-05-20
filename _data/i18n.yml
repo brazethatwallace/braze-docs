@@ -53,6 +53,8 @@ en:
   glossary_currents_events_search_hint: Results update automatically as you type.
   glossary_currents_events_no_results: No events matching these filters
   glossary_currents_events_showing: Showing __COUNT__ of __TOTAL__ events
+  glossary_currents_events_loading: Loading schema…
+  glossary_currents_events_load_error: Unable to load this schema. Refresh the page and try again.
   glossary_sql_use_cases_search_placeholder: Search
   glossary_sql_use_cases_search_aria: Search use cases
   glossary_sql_use_cases_search_hint: Results update automatically as you type.
@@ -64,9 +66,9 @@ en:
   glossary_liquid_use_cases_showing: Showing __COUNT__ of __TOTAL__ use cases
   sql_segment_extensions_glossary_intro: "Use the search bar or the checkboxes below to browse sample SQL Segment Extension queries."
   liquid_use_case_glossary_intro: "Looking for inspiration to craft the perfect personalization using Liquid? Take a look through our collection of Liquid use cases, outlined by category below.<br><br>Use the search bar or the checkboxes below to find the use cases that fit your need."
-  message_engagement_events_glossary_intro: "Use the search bar or the checkboxes below to find the events you need to use Currents effectively.<br><br>These schema consist of the Braze Events that are directly related to message sending."
+  message_engagement_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas consist of the Braze Events that are directly related to message sending."
   customer_behavior_events_glossary_title: Customer behavior and user events
-  customer_behavior_events_glossary_intro: "Use the search bar or the checkboxes below to find the events you need to use Currents effectively.<br><br>These schema include other App or Website activity such as Sessions, Custom Events, and Purchases tracked through the platform."
+  customer_behavior_events_glossary_intro: "Search or filter to find the Currents events you need. These schemas include other app or website activity such as sessions, custom events, and purchases tracked through the platform."
   currents_customer_behavior_tag_labels:
     attribution: Attribution
     "custom events": Custom Events
@@ -79,6 +81,20 @@ en:
     sessions: Sessions
     "token state change": Token State Change
     "update token": Update Token
+  currents_customer_behavior_tag_groups:
+    attribution: category
+    "custom events": category
+    "live activity": category
+    locations: category
+    purchases: category
+    push: category
+    "push to start token": category
+    "random bucket number": category
+    sessions: category
+    "token state change": category
+    "update token": category
+  currents_customer_behavior_tag_group_labels:
+    category: Event type
   currents_message_engagement_tag_labels:
     abort: Abort
     agent: Agent
@@ -119,6 +135,50 @@ en:
     uninstall: Uninstall
     webhooks: Webhooks
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: Channels and platforms
+    action: Message actions
+    journey: User journey
   sql_segment_use_cases_tag_labels:
     carrier: Carrier
     delivery: Delivery
@@ -263,6 +323,8 @@ ja:
   glossary_currents_events_search_hint: 入力に応じて結果が自動的に更新されます。
   glossary_currents_events_no_results: この条件に一致するイベントはありません
   glossary_currents_events_showing: イベント __TOTAL__ 件中 __COUNT__ 件を表示
+  glossary_currents_events_loading: スキーマを読み込んでいます…
+  glossary_currents_events_load_error: このスキーマを読み込めませんでした。ページを更新してもう一度お試しください。
   glossary_sql_use_cases_search_placeholder: 検索
   glossary_sql_use_cases_search_aria: ユースケースを検索
   glossary_sql_use_cases_search_hint: 入力に応じて結果が自動的に更新されます。
@@ -329,6 +391,50 @@ ja:
     uninstall: アンインストール
     webhooks: Webhook
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: チャネルとプラットフォーム
+    action: メッセージアクション
+    journey: ユーザージャーニー
   sql_segment_use_cases_tag_labels:
     carrier: キャリア
     delivery: 配信
@@ -408,6 +514,8 @@ ko:
   glossary_currents_events_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
   glossary_currents_events_no_results: 이 필터와 일치하는 이벤트가 없습니다
   glossary_currents_events_showing: 이벤트 __TOTAL__개 중 __COUNT__개 표시
+  glossary_currents_events_loading: 스키마 로드 중…
+  glossary_currents_events_load_error: 이 스키마를 로드할 수 없습니다. 페이지를 새로 고침하여 다시 시도하십시오.
   glossary_sql_use_cases_search_placeholder: 검색
   glossary_sql_use_cases_search_aria: 사용 사례 검색
   glossary_sql_use_cases_search_hint: 입력하면 결과가 자동으로 업데이트됩니다.
@@ -469,6 +577,50 @@ ko:
     uninstall: 제거
     webhooks: Webhook
     whatsapp: WhatsApp
+  currents_message_engagement_tag_groups:
+    agent: channel
+    banner: channel
+    "content cards": channel
+    email: channel
+    "feature flags": channel
+    "in-app messages": channel
+    line: channel
+    "live activity": channel
+    push: channel
+    rcs: channel
+    sms: channel
+    webhooks: channel
+    whatsapp: channel
+    abort: action
+    bounce: action
+    clicks: action
+    deferral: action
+    delivery: action
+    dismissal: action
+    failure: action
+    impressions: action
+    "inbound received": action
+    opens: action
+    outcome: action
+    profile: action
+    read: action
+    rejection: action
+    retry: action
+    sends: action
+    spam: action
+    subscription: action
+    uninstall: action
+    campaign: journey
+    canvas: journey
+    conversion: journey
+    entry: journey
+    exit: journey
+    progression: journey
+    ios: channel
+  currents_message_engagement_tag_group_labels:
+    channel: 채널 및 플랫폼
+    action: 메시지 작업
+    journey: 사용자 여정
   sql_segment_use_cases_tag_labels:
     carrier: 통신사
     delivery: 전달
