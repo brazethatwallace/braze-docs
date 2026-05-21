@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 ```
 
 {% alert note %}
-The `geo` data type stores a geographic coordinate as an array formatted as `[longitude, latitude]`.
+The `geo` data type stores a geographic coordinate as an array formatted as `[longitude, latitude]`. For example, `[-73.988103, 40.779109]`.
 {% endalert %}
 
 ## Response
