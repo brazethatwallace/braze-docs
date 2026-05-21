@@ -26,7 +26,7 @@ To restart your campaign, select **Resume**. Your campaign will continue sending
 
 For campaigns with a larger audience and rate limits, Braze partitions and schedules batches of messages to send at different times. When a campaign is stopped, sends aren't canceled immediately. Instead, they are canceled when they begin to run and detect that the campaign has been stopped.
 
-For example, if you start a rate-limited email campaign, pause it for a few hours, and then resume it, all messages that were scheduled to send during the paused hours will be canceled and will never send. Any remaining messages scheduled after the campaign resumes will continue to send. If re-eligibility is enabled for the campaign, users can become eligible to receive the campaign again in addition to any messages that were already queued before the campaign was stopped.
+For example, if you start a rate-limited email campaign, pause it for a few hours, and then resume it, all messages that were scheduled to send during the paused hours are canceled and never send. Any remaining messages scheduled after the campaign resumes continue to send. If re-eligibility is enabled for the campaign, users can become eligible to receive the campaign again in addition to any messages that were already queued before the campaign was stopped. 
 
 ## Triggered campaigns
 
