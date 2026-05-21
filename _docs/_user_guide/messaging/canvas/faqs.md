@@ -160,7 +160,7 @@ There is a one-step Canvas with Quiet Hours enabled:
 
 ### Why is my Canvas step conversion rate not equal to my Canvas variant total conversion rate?
 
-It is common for a Canvas variant's conversion total to be greater than the sum of its step total. This occurs because a user can perform a conversion event for a variant as soon as they enter the variant. However, this same conversion event doesn't count toward a Canvas step. So, any user who enters the Canvas, and performs the conversion event before receiving the first Canvas step, will be counted toward the variant conversion total, and not toward the step total. The same is true for a user who enters the Canvas but exits the Canvas before receiving any step.
+It is common for a Canvas variant's conversion total to be greater than the sum of its step total. This occurs because a user can perform a conversion event for a variant as soon as they enter the variant. However, this same conversion event doesn't count toward a Canvas step. So any user who enters the Canvas and performs the conversion event before receiving the first Canvas step is counted toward the variant conversion total and not toward the step total. The same is true for a user who enters the Canvas but exits the Canvas before receiving any step.
 
 Note that it is also possible for a user to enter a variant, not be sent any message from a step, and then convert. In this case, a conversion is not logged at the step level. However, because the user did technically convert, a conversion is logged at the Canvas level. 
 
