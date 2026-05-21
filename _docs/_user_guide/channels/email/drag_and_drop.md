@@ -76,6 +76,10 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 
 Not sure whether your email message should be sent using a campaign or a Canvas? Campaigns are better for single, targeted messaging campaigns, while Canvases are better for multi-step user journeys.
 
+{% alert note %}
+You can't save a drag-and-drop email from a campaign or Canvas directly to **Templates** > **Email Templates** as an email template. Build under **Templates** first, or see [Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) for recreating a drag-and-drop template or exporting HTML with **Download file**.
+{% endalert %}
+
 After you've selected where to build your message, let's dive into the steps to create a drag-and-drop email.
 
 ### Step 1: Select your template
