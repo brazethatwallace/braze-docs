@@ -30,7 +30,7 @@ Acknowledge the following before proceeding with integration:
 | App bot review and approval | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | When you are ready to release your bot to the public, you must submit it to Facebook for review and approval. This review process allows us to ensure your Messenger bot abides by our policies and functions as expected before making it available to everyone on Messenger. |
 | Page-scope IDs (PSIDs) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | You need to have users PSIDs to send messages on Facebook Messenger. When a user interacts with your app via Messenger, Facebook will create a PSID. This PSID can be sent to Braze as a string custom attribute.
 | Page access token | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | These access tokens are similar to user access tokens, except that they provide permission to APIs that read, write or modify the data belonging to a Facebook Page. To obtain a page access token, you need to obtain a user access token and ask for the `manage_pagespermission`. After you have the user access token, you then get the page access token via the Graph API.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -87,7 +87,7 @@ If you receive the message successfully, you can configure its delivery settings
 
 ## Using this integration
 
-Once set up, use this integration to target Facebook Messenger users. If you are not sending messages using users' phone numbers and plan on sending Messenger messages repeatedly, you should [create a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) for all users for whom the Messenger ID exists as a custom attribute and turn on [analytics tracking]({{site.baseurl}}/user_guide/data_and_analytics/reporting/viewing_and_understanding_segment_data/) to track your Messenger subscription rates over time. 
+Once set up, use this integration to target Facebook Messenger users. If you are not sending messages using users' phone numbers and plan on sending Messenger messages repeatedly, you should [create a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) for all users for whom the Messenger ID exists as a custom attribute and turn on [analytics tracking]({{site.baseurl}}/user_guide/audience/segments/segment_data/) to track your Messenger subscription rates over time. 
 
 ![Segment filter "messenger_id" set to "is not blank".]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 

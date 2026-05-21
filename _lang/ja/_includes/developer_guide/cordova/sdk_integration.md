@@ -1,72 +1,72 @@
-## Cordova SDKを統合する
+## Cordova SDKを統合する {#integrating-the-cordova-sdk}
 
-### 前提条件
+### 前提条件 {#prerequisites}
 
-開始する前に、お使いの環境が[最新のBraze Cordova SDKバージョンに](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements)対応していることを確認する。
+始める前に、お使いの環境が[最新のBraze Cordova SDKバージョン](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements)でサポートされていることを確認してください。
 
-### ステップ 1: SDK をプロジェクトに追加する
+### ステップ 1: SDKをプロジェクトに追加する {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
-以下の方法でBraze Cordova SDKのみを追加する。セキュリティ侵害につながる可能性があるため、他の方法でインストールを試みないこと。
+Braze Cordova SDKは、以下の方法でのみ追加してください。他の方法でインストールしようとすると、セキュリティ侵害につながる恐れがあります。
 {% endalert %}
 
-Cordova 6 以降では、GitHub から直接 SDK を追加できます。または、[GitHub リポジトリ](https://github.com/braze-inc/braze-cordova-sdk)の ZIP をダウンロードして、SDK を手動で追加することもできます。
+Cordova 6以降をお使いの場合は、GitHubから直接SDKを追加できます。または、[GitHubリポジトリ](https://github.com/braze-inc/braze-cordova-sdk)のZIPをダウンロードして、SDKを手動で追加することもできます。
 
 {% tabs local %}
-{% tab geofence disabled %}
-ロケーションコレクションとジオフェンスを使用する予定がない場合は、GitHub の `master` ブランチを使用してください。
+{% tab ジオフェンス無効 %}
+ロケーション収集とジオフェンスを使用する予定がない場合は、GitHubの`master`ブランチを使用してください。
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 ```
 {% endtab %}
 
-{% tab geofence enabled %}
-位置情報の収集とジオフェンスの使用を計画している場合は、GitHub の を使用します `geofence-branch` 。
+{% tab ジオフェンス有効 %}
+ロケーション収集とジオフェンスを使用する予定がある場合は、GitHubの`geofence-branch`を使用してください。
 
-```bash
+`````````bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
 ```
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-このステップを繰り返すことで、いつでも`master` と`geofence-branch` を切り替えることができる。
+このステップを繰り返すことで、いつでも`master`と`geofence-branch`を切り替えることができます。
 {% endalert %}
 
-### ステップ 2:プロジェクトを構成する
+### ステップ 2: プロジェクトを構成する {#step-2-configure-your-project}
 
-次に、プロジェクトの `config.xml` ファイル内の `platform` 要素に次の環境設定を追加します。
+次に、プロジェクトの`config.xml`ファイル内の`platform`要素に以下の設定を追加します。
 
 {% tabs %}
 {% tab ios %}
-```xml
+`````````xml
 <preference name="com.braze.ios_api_key" value="BRAZE_API_KEY" />
 <preference name="com.braze.ios_api_endpoint" value="CUSTOM_API_ENDPOINT" />
 ```
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <preference name="com.braze.android_api_key" value="BRAZE_API_KEY" />
 <preference name="com.braze.android_api_endpoint" value="CUSTOM_API_ENDPOINT" />
 ```
 {% endtab %}
 {% endtabs %}
 
-次のように置き換えます。
+以下の値を置き換えてください。
 
-| 値                 | 説明                                                                                                                      |
+| 値 | 説明 |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY`       | あなたの[Braze REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)。              |
-| `CUSTOM_API_ENDPOINT` | カスタムAPIエンドポイント。このエンドポイントは、Brazeダッシュボードの正しいアプリグループにBrazeインスタンスデータをルーティングするために使用されます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `BRAZE_API_KEY` | お使いの[Braze REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)。 |
+| `CUSTOM_API_ENDPOINT` | カスタムAPIエンドポイント。このエンドポイントは、Brazeインスタンスデータをダッシュボードの正しいアプリグループにルーティングするために使用されます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure your project" }
 
-`config.xml` ファイルの `platform` 要素は次のようになります。
+`config.xml`ファイルの`platform`要素は以下のようになります。
 
 {% tabs %}
 {% tab ios %}
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.ios_api_key" value="BRAZE_API_KEY" />
     <preference name="com.braze.ios_api_endpoint" value="sdk.fra-01.braze.eu" />
@@ -75,7 +75,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_api_key" value="BRAZE_API_KEY" />
     <preference name="com.braze.android_api_endpoint" value="sdk.fra-01.braze.eu" />
@@ -84,17 +84,17 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtab %}
 {% endtabs %}
 
-## プラットフォーム固有の構文
+## プラットフォーム固有の構文 {#platform-specific-syntax}
 
-以下のセクションでは、iOSやAndroidでCordovaを使用する際のプラットフォーム固有の構文について説明する。
+以下のセクションでは、iOSまたはAndroidでCordovaを使用する場合のプラットフォーム固有の構文について説明します。
 
-### 整数
+### 整数 {#integers}
 
 {% tabs %}
 {% tab ios %}
-整数の設定は、次の例のように文字列表現として読み取られます。
+整数の設定は、以下の例のように文字列表現として読み取られます。
 
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.ios_flush_interval_seconds" value="10" />
     <preference name="com.braze.ios_session_timeout" value="5" />
@@ -103,9 +103,9 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 {% endtab %}
 
 {% tab android %}
-Cordova 8.0.0 以降のフレームワークによる設定の処理方法に従って、整数のみの設定 (送信者 ID など) は、次の例のように先頭に `str_` が付加された文字列に設定する必要があります。
+Cordova 8.0.0以降のフレームワークによる設定の処理方法に従い、整数のみの設定（送信者IDなど）は、以下の例のように先頭に`str_`を付加した文字列に設定する必要があります。
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_fcm_sender_id" value="str_64422926741" />
     <preference name="com.braze.android_default_session_timeout" value="str_10" />
@@ -114,13 +114,13 @@ Cordova 8.0.0 以降のフレームワークによる設定の処理方法に従
 {% endtab %}
 {% endtabs %}
 
-### ブール値
+### ブール値 {#booleans}
 
 {% tabs %}
 {% tab ios %}
-ブール値の設定は、次の例のように、`YES` および `NO` キーワードを文字列表現として使用して SDK によって読み取られます。
+ブール値の設定は、以下の例のように`YES`および`NO`キーワードを文字列表現としてSDKによって読み取られます。
 
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.should_opt_in_when_push_authorized" value="YES" />
     <preference name="com.braze.ios_disable_automatic_push_handling" value="NO" />
@@ -129,9 +129,9 @@ Cordova 8.0.0 以降のフレームワークによる設定の処理方法に従
 {% endtab %}
 
 {% tab android %}
-ブール値の設定は、次の例のように、`true` および `false` キーワードを文字列表現として使用して SDK によって読み取られます。
+ブール値の設定は、以下の例のように`true`および`false`キーワードを文字列表現としてSDKによって読み取られます。
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.should_opt_in_when_push_authorized" value="true" />
     <preference name="com.braze.is_session_start_based_timeout_enabled" value="false" />
@@ -140,82 +140,82 @@ Cordova 8.0.0 以降のフレームワークによる設定の処理方法に従
 {% endtab %}
 {% endtabs %}
 
-## オプション構成 {#optional}
+## オプション設定 {#optional}
 
-次の設定をプロジェクトの `config.xml` ファイルの `platform` 要素に追加できます。
+以下の設定をプロジェクトの`config.xml`ファイルの`platform`要素に追加できます。
 
 {% tabs %}
 {% tab ios %}
-| メソッド
+| 方法 | 説明 |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-\|`ios_api_key` | アプリケーションのAPIキーを設定する。                                                                                                                                                                                                                |
-\|`ios_api_endpoint` | アプリケーションの[SDKエンドポイントを]({{site.baseurl}}/api/basics/#endpoints)設定する。                                                                                                                                                                 |
-\|`ios_disable_automatic_push_registration` | 自動プッシュ登録を無効にするかどうかを設定する。                                                                                                                                                                                          |
-\|`ios_disable_automatic_push_handling` | 自動プッシュ処理を無効にするかどうかを設定する。                                                                                                                                                                                              |
-\|`ios_enable_idfa_automatic_collection` | Braze SDKが自動的にIDFA情報を収集するかどうかを設定する。詳しくは、[Braze IDFAメソッドのドキュメントを](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/)参照のこと。|
-\|`enable_location_collection` | 自動ロケーション収集をイネーブルメントにするかどうかを設定する（ユーザーが許可した場合）。The`geofence-branch` |
-\|`geofences_enabled` | ジオフェンスをイネーブルメントにするかどうかを設定する。                                                                                                                                                                                                                   |
-\|`ios_session_timeout` | アプリケーションのBrazeセッションタイムアウトを秒単位で設定する。デフォルトは10秒である。                                                                                                                                                               |
-\|`sdk_authentication_enabled` |[SDK認証]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication)機能を有効にするかどうかを設定する。                                                                                              |
-\|`display_foreground_push_notifications` | アプリケーションがフォアグラウンドの間、プッシュ通知を表示するかどうかを設定する。                                                                                                                                                       |
-\|`ios_disable_un_authorization_option_provisional` |`UNAuthorizationOptionProvisional` を無効にするかどうかを設定する。                                                                                                                                                                                   |
-\|`trigger_action_minimum_time_interval_seconds` ｜トリガー間の最小時間間隔を秒単位で設定する。デフォルトは30秒である。                                                                                                                                                                   |
-\|`ios_push_app_group` | iOSプッシュ拡張のアプリグループIDを設定する。                                                                                                                                                                                                        |
-\|`ios_forward_universal_links` | SDKが自動的にユニバーサルリンクを認識し、システムメソッドに転送するかどうかを設定する。                                                                                                                                                     |
-\|`ios_log_level` |`Braze.Configuration.Logger` の最小ログレベルを設定する。                                                                                                                                                                                      |
-\|`ios_use_uuid_as_device_id` | ランダムに生成されたUUIDをデバイスIDとして使用するかどうかを設定する。                                                                                                                                                                                    |
-\|`ios_flush_interval_seconds` ｜自動データフラッシュの間隔を秒単位で設定する。デフォルトは10秒である。                                                                                                                                                                  |
-\|`ios_use_automatic_request_policy` |`Braze.Configuration.Api` のリクエストポリシーを自動にするか手動にするかを設定する。                                                                                                                                                          |
-\|`should_opt_in_when_push_authorized` | プッシュ権限が許可されたときに、ユーザーのサブスクリプション状態を自動的に`optedIn` に設定するかどうかを設定する。                                                                                                                       |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `ios_api_key` | アプリケーションのAPIキーを設定します。 |
+| `ios_api_endpoint` | アプリケーションの[SDKエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を設定します。 |
+| `ios_disable_automatic_push_registration` | 自動プッシュ登録を無効にするかどうかを設定します。 |
+| `ios_disable_automatic_push_handling` | 自動プッシュ処理を無効にするかどうかを設定します。 |
+| `ios_enable_idfa_automatic_collection` | Braze SDKがIDFA情報を自動的に収集するかどうかを設定します。詳細については、[BrazeのIDFAメソッドのドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/)を参照してください。 |
+| `enable_location_collection` | 自動ロケーション収集を有効にするかどうかを設定します（ユーザーが許可した場合）。`geofence-branch` |
+| `geofences_enabled` | ジオフェンスを有効にするかどうかを設定します。 |
+| `ios_session_timeout` | アプリケーションのBrazeセッションタイムアウトを秒単位で設定します。デフォルトは10秒です。 |
+| `sdk_authentication_enabled` | [SDK認証]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication)機能を有効にするかどうかを設定します。 |
+| `display_foreground_push_notifications` | アプリケーションがフォアグラウンドにある間、プッシュ通知を表示するかどうかを設定します。 |
+| `ios_disable_un_authorization_option_provisional` | `UNAuthorizationOptionProvisional`を無効にするかどうかを設定します。 |
+| `trigger_action_minimum_time_interval_seconds` | トリガー間の最小時間間隔を秒単位で設定します。デフォルトは30秒です。 |
+| `ios_push_app_group` | iOSプッシュ拡張機能のアプリグループIDを設定します。 |
+| `ios_forward_universal_links` | SDKがユニバーサルリンクを自動的に認識し、システムメソッドに転送するかどうかを設定します。iOSでプッシュ通知からのディープリンクを機能させるために必要です。デフォルトは無効です。 |
+| `ios_log_level` | `Braze.Configuration.Logger`の最小ログレベルを設定します。 |
+| `ios_use_uuid_as_device_id` | ランダムに生成されたUUIDをデバイスIDとして使用するかどうかを設定します。 |
+| `ios_flush_interval_seconds` | 自動データフラッシュの間隔を秒単位で設定します。デフォルトは10秒です。 |
+| `ios_use_automatic_request_policy` | `Braze.Configuration.Api`のリクエストポリシーを自動にするか手動にするかを設定します。 |
+| `should_opt_in_when_push_authorized` | プッシュ権限が承認された際に、ユーザーの通知サブスクリプション状態を自動的に`optedIn`に設定するかどうかを指定します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional configurations #optional" }
 
 {% alert tip %}
-詳細については、[GitHub:Braze iOS Cordova プラグイン](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m)を参照してください。
+詳細については、[GitHub: Braze iOS Cordovaプラグイン](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m)を参照してください。
 {% endalert %}
 {% endtab %}
 
 {% tab android %}
-| メソッド
+| 方法 | 説明 |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-\|`android_api_key` | アプリケーションのAPIキーを設定する。                                                                                                                                                        |
-\|`android_api_endpoint` | アプリケーションの[SDKエンドポイントを]({{site.baseurl}}/api/basics/#endpoints)設定する。                                                                                                         |
-\|`android_small_notification_icon` | 通知小アイコンを設定する。                                                                                                                                                             |
-｜`android_large_notification_icon` ｜通知の大きなアイコンを設定する。                                                                                                                                                             |
-\|`android_notification_accent_color` | 通知アクセントカラーを16進数で設定する。                                                                                                                        |
-\|`android_default_session_timeout` | アプリケーションのBrazeセッションタイムアウトを秒単位で設定する。デフォルトは10秒である。                                                                                                       |
-\|`android_handle_push_deep_links_automatically` | Braze SDKが自動的にプッシュディープリンクを処理するかどうかを設定する。                                                                                                                       |
-\|`android_log_level` アプリケーションのログレベルを設定する。デフォルトのログレベルは 4 で、最小限の情報をロギングします。デバッグのために冗長ロギングを有効にするには、ログレベル2を使う。                                    |
-\|`firebase_cloud_messaging_registration_enabled` | Firebase Cloud Messagingをプッシュ通知に使用するかどうかを設定する。                                                                                                                          |
-\|`android_fcm_sender_id` | Firebase Cloud Messaging の送信者 ID を設定する。                                                                                                                                                  |
-\|`enable_location_collection` | 位置情報の自動収集をイネーブルメントにするかどうかを設定する（ユーザーが許可した場合）。                                                                                                              |
-\|`geofences_enabled` | ジオフェンスをイネーブルメントにするかどうかを設定する。                                                                                                                                                           |
-\|`android_disable_auto_session_tracking` | Cordovaプラグインが自動的にセッションをトラッキングするのを無効にする。詳しくは、[自動セッション追跡を無効にする](#cordova_disable-automatic-session-tracking)｜を参照のこと。
-\|`sdk_authentication_enabled` |[SDK認証]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication)機能を有効にするかどうかを設定する。                                      |
-\|`trigger_action_minimum_time_interval_seconds` ｜トリガー間の最小時間間隔を秒単位で設定する。デフォルトは30秒である。                                                                                                           |
-\|`is_session_start_based_timeout_enabled` | セッションタイムアウトの動作を、セッション開始イベントとセッション終了イベントのどちらに基づいて行うかを設定する。                                                                                          |
-\|`default_notification_channel_name` | Brazeのデフォルト`NotificationChannel` に対して、`NotificationChannel.getName` 経由で見られるユーザー向けの名前を設定する。                                                                              |
-\|`default_notification_channel_description` | Brazeのデフォルト`NotificationChannel` に対して、`NotificationChannel.getDescription` を介して見られるユーザー向けの説明を設定する。                                                                |
-｜`does_push_story_dismiss_on_click` ｜プッシュストーリーをクリックしたときに自動的に解除するかどうかを設定する。                                                                                                                            |
-\|`is_fallback_firebase_messaging_service_enabled` | フォールバック Firebase Cloud Messaging Service の使用をイネーブルメントするかどうかを設定する。                                                                                                               |
-\|`fallback_firebase_messaging_service_classpath` | フォールバック Firebase Cloud Messaging Service のクラスパスを設定する。                                                                                                                         |
-\|`is_content_cards_unread_visual_indicator_enabled` | コンテンツカード未読視覚表示バーをイネーブルメントにするかどうかを設定する。                                                                                                                       |
-\|`is_firebase_messaging_service_on_new_token_registration_enabled` | Braze SDKが自動的にトークンを`com.google.firebase.messaging.FirebaseMessagingService.onNewToken` に登録するかどうかを設定する。                                                         |
-\|`is_push_deep_link_back_stack_activity_enabled` | ディープリンクを自動的にたどってプッシュする際に、Brazeがアクティビティをバックスタックに追加するかどうかを設定する。                                                                                   |
-\|`push_deep_link_back_stack_activity_class_name` | ディープリンクを自動的にたどってプッシュする際に、Brazeがバックスタックに追加するアクティビティを設定する。                                                                                     |
-\|`should_opt_in_when_push_authorized` | プッシュが許可されたときに、Brazeが自動的にユーザーをオプトインするかどうかを設定する。                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `android_api_key` | アプリケーションのAPIキーを設定します。 |
+| `android_api_endpoint` | アプリケーションの[SDKエンドポイント]({{site.baseurl}}/api/basics/#endpoints)を設定します。 |
+| `android_small_notification_icon` | 通知の小さなアイコンを設定します。 |
+| `android_large_notification_icon` | 通知の大きなアイコンを設定します。 |
+| `android_notification_accent_color` | 通知のアクセントカラーを16進数表記で設定します。 |
+| `android_default_session_timeout` | アプリケーションのBrazeセッションタイムアウトを秒単位で設定します。デフォルトは10秒です。 |
+| `android_handle_push_deep_links_automatically` | Braze SDKがプッシュディープリンクを自動的に処理するかどうかを設定します。Androidでプッシュ通知からのディープリンクを機能させるために必要です。デフォルトは無効です。 |
+| `android_log_level` | アプリケーションのログレベルを設定します。デフォルトのログレベルは4で、最小限の情報をログに記録します。デバッグ用の詳細ログを有効にするには、ログレベル2を使用してください。 |
+| `firebase_cloud_messaging_registration_enabled` | プッシュ通知にFirebase Cloud Messagingを使用するかどうかを設定します。 |
+| `android_fcm_sender_id` | Firebase Cloud Messagingの送信者IDを設定します。 |
+| `enable_location_collection` | 自動ロケーション収集を有効にするかどうかを設定します（ユーザーが許可した場合）。 |
+| `geofences_enabled` | ジオフェンスを有効にするかどうかを設定します。 |
+| `android_disable_auto_session_tracking` | Android Cordovaプラグインによるセッションの自動トラッキングを無効にします。詳細については、[自動セッショントラッキングの無効化](#cordova_disable-automatic-session-tracking)を参照してください。 |
+| `sdk_authentication_enabled` | [SDK認証]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication)機能を有効にするかどうかを設定します。 |
+| `trigger_action_minimum_time_interval_seconds` | トリガー間の最小時間間隔を秒単位で設定します。デフォルトは30秒です。 |
+| `is_session_start_based_timeout_enabled` | セッションタイムアウトの動作を、セッション開始イベントに基づくかセッション終了イベントに基づくかを設定します。 |
+| `default_notification_channel_name` | Brazeのデフォルト`NotificationChannel`で`NotificationChannel.getName`を通じてユーザーに表示される名前を設定します。 |
+| `default_notification_channel_description` | Brazeのデフォルト`NotificationChannel`で`NotificationChannel.getDescription`を通じてユーザーに表示される説明を設定します。 |
+| `does_push_story_dismiss_on_click` | Push Storiesがクリックされた際に自動的に非表示になるかどうかを設定します。 |
+| `is_fallback_firebase_messaging_service_enabled` | フォールバック用のFirebase Cloud Messagingサービスの使用を有効にするかどうかを設定します。 |
+| `fallback_firebase_messaging_service_classpath` | フォールバック用のFirebase Cloud Messagingサービスのクラスパスを設定します。 |
+| `is_content_cards_unread_visual_indicator_enabled` | Content Cardsの未読視覚インジケーターバーを有効にするかどうかを設定します。 |
+| `is_firebase_messaging_service_on_new_token_registration_enabled` | Braze SDKが`com.google.firebase.messaging.FirebaseMessagingService.onNewToken`でトークンを自動的に登録するかどうかを設定します。 |
+| `is_push_deep_link_back_stack_activity_enabled` | プッシュのディープリンクを自動的にたどる際に、Brazeがバックスタックにアクティビティを追加するかどうかを設定します。 |
+| `push_deep_link_back_stack_activity_class_name` | プッシュのディープリンクを自動的にたどる際に、Brazeがバックスタックに追加するアクティビティを設定します。 |
+| `should_opt_in_when_push_authorized` | プッシュが許可された際に、Brazeがユーザーを自動的にオプトインするかどうかを設定します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional configurations #optional" }
 
 {% alert tip %}
-詳細については、[GitHub:Braze Android Cordova プラグイン](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt)を参照してください。
+詳細については、[GitHub: Braze Android Cordovaプラグイン](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt)を参照してください。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-以下は、追加構成を含む `config.xml` ファイルの例です。
+以下は、追加設定を含む`config.xml`ファイルの例です。
 
 {% tabs %}
 {% tab ios %}
-```xml
+`````````xml
 <platform name="ios">
     <preference name="com.braze.ios_disable_automatic_push_registration" value="NO"/"YES" />
     <preference name="com.braze.ios_disable_automatic_push_handling" value="NO"/"YES" />
@@ -239,7 +239,7 @@ Cordova 8.0.0 以降のフレームワークによる設定の処理方法に従
 {% endtab %}
 
 {% tab android %}
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_small_notification_icon" value="RESOURCE_ENTRY_NAME_FOR_ICON_DRAWABLE" />
     <preference name="com.braze.android_large_notification_icon" value="RESOURCE_ENTRY_NAME_FOR_ICON_DRAWABLE" />
@@ -270,14 +270,14 @@ Cordova 8.0.0 以降のフレームワークによる設定の処理方法に従
 {% endtab %}
 {% endtabs %}
 
-## 自動セッション追跡を無効にする（Androidのみ） {#disable-automatic-session-tracking}
+## 自動セッショントラッキングを無効にする（Androidのみ） {#disable-automatic-session-tracking}
 
-デフォルトでは、Android Cordova プラグインは自動的にセッションを追跡します。自動セッショントラッキングを無効にするには、プロジェクトの `config.xml` ファイル内の `platform` 要素に次の設定を追加します。
+デフォルトでは、Android Cordovaプラグインは自動的にセッションをトラッキングします。自動セッショントラッキングを無効にするには、プロジェクトの`config.xml`ファイル内の`platform`要素に以下の設定を追加してください。
 
-```xml
+`````````xml
 <platform name="android">
     <preference name="com.braze.android_disable_auto_session_tracking" value="true" />
 </platform>
 ```
 
-トラッキングセッションを再開するには、`BrazePlugin.startSessionTracking()` を呼び出します。次回の `Activity.onStart()` 以降に開始されたセッションのみが追跡されることに注意してください。
+セッショントラッキングを再開するには、`BrazePlugin.startSessionTracking()`を呼び出してください。次回の`Activity.onStart()`以降に開始されたセッションのみがトラッキングされることに注意してください。

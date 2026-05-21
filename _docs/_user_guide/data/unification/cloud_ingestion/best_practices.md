@@ -2,7 +2,7 @@
 nav_title: Best practices
 article_title: Cloud Data Ingestion Best Practices
 toc_headers: h2
-page_order: 0
+page_order: 1
 page_type: reference
 description: "This page provides an overview of Cloud Data Ingestion, best practices, and product limitations."
 
@@ -43,11 +43,25 @@ Cloud Data Ingestion supports the following data types:
 - Catalog items
 - User delete requests
 
+### Avoiding data type issues
+
+When using CDI to sync data from external sources (such as Databricks or Snowflake), ensure your source columns use the correct data types before syncing. Common issues include:
+
+- **Timestamps stored as strings:** Make sure your date columns use a timestamp or datetime type in your source database, not a varchar or string.
+- **Numbers stored as strings:** Cast numeric columns to integer or float types in your source query before syncing.
+- **Inconsistent types across syncs:** If a column type changes between syncs, Braze may reject the new data. Verify your source schema remains consistent.
+
+For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+
 You can update user data by external ID, user alias, Braze ID, email, or phone number. You can delete users by external ID, user alias, or Braze ID. 
 
 ## What gets synced
 
-Each time a sync runs, Braze looks for rows that have not previously been synced. We check this using the `UPDATED_AT` column in your table or view. Braze selects and imports any rows where `UPDATED_AT` is equal to or later than the last `UPDATED_AT` timestamp from the last successful sync job.
+Each time a sync runs, Braze looks for rows that have not previously been synced. We check this using the `UPDATED_AT` column in your table or view. Braze selects and imports any rows where `UPDATED_AT` is later than the last synced `UPDATED_AT` value. Rows at the exact boundary timestamp may also be re-synced if new rows are added at that same timestamp between runs.
+
+{% alert important %}
+CDI tracks the number of rows at the last synced `UPDATED_AT` value. If new rows are added with that same timestamp between runs, CDI switches to an inclusive boundary (`>=`) and re-syncs all rows at that timestamp, including ones already processed. To avoid duplicate syncs and unnecessary data point consumption, use unique `UPDATED_AT` values across sync runs. For more information, see [Avoid resyncing rows with duplicate timestamps](#avoid-resyncing-rows-with-duplicate-timestamps).
+{% endalert %}
 
 In your data warehouse, add the following users and attributes to your table, setting the `UPDATED_AT` time to the time you add this data:
 
@@ -106,7 +120,7 @@ In your data warehouse, add the following users and attributes to your table, se
   </tbody>
 </table>
 
-During the next scheduled sync, Braze syncs all rows with a `UPDATED_AT` timestamp equal to or later than the most recent timestamp to user profiles. Braze updates or adds fields, so you do not need to sync the full user profile each time. After the sync, user profiles reflect the new updates:
+During the next scheduled sync, Braze syncs all rows with an `UPDATED_AT` timestamp later than the most recent synced timestamp. Braze updates or adds fields, so you do not need to sync the full user profile each time. After the sync, user profiles reflect the new updates:
 
 **Recurring sync, second run on July 20, 2022 at 12 pm**
 
@@ -178,7 +192,7 @@ During the next scheduled sync, Braze syncs all rows with a `UPDATED_AT` timesta
   </tbody>
 </table>
 
-A row was added, but the `UPDATED_AT` value is earlier than `2022-07-19 09:07:23` (stored from the first run). As a result, none of these rows will be synced in this run. The last `UPDATED_AT` for the sync is unchanged by this run, and remains as  `2022-07-19 09:07:23`.
+A new row was added for `customer_9012`, but its `UPDATED_AT` value (`2022-07-16 00:25:30`) is earlier than the stored timestamp (`2022-07-19 09:07:23`), so it won't be synced. However, the existing row for `customer_5678` has an `UPDATED_AT` value equal to the stored timestamp, so it is re-synced due to the inclusive boundary. For more details about this behavior, refer to [Make sure the UPDATED_AT time isn't the same time as your sync](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). The stored `UPDATED_AT` remains `2022-07-19 09:07:23`.
 
 **Recurring sync, third run on July 21, 2022 at 12 pm**
 
@@ -266,7 +280,7 @@ A row was added, but the `UPDATED_AT` value is earlier than `2022-07-19 09:07:23
   </tbody>
 </table>
 
-In this third run, another new row was added. Now, one row has an `UPDATED_AT` value later than `2022-07-19 09:07:23`, which means only one row will sync. The last `UPDATED_AT` is now set as `2022-07-21 08:30:00`.
+In this third run, another new row was added for `customer_1234` with an `UPDATED_AT` value (`2022-07-21 08:30:00`) later than the stored timestamp. This new row and the existing row for `customer_5678` (which has an `UPDATED_AT` equal to the stored timestamp) are both synced. The stored `UPDATED_AT` is now set as `2022-07-21 08:30:00`.
 
 {% alert note %}
 `UPDATED_AT` values are allowed to be even later than the run start time for a given sync. However, this is not recommended as it pushes the last `UPDATED_AT` timestamp "into the future" and subsequent syncs will not sync earlier values.
@@ -276,15 +290,18 @@ In this third run, another new row was added. Now, one row has an `UPDATED_AT` v
 
 The `UPDATED_AT` column should be in UTC to prevent issues with daylight savings time. Prefer UTC-only functions, such as `SYSDATE()` instead of `CURRENT_DATE()` whenever possible.
 
-## Make sure the `UPDATED_AT` time isn’t the same time as your sync
+## Avoid resyncing rows with duplicate timestamps {#avoid-resyncing-rows-with-duplicate-timestamps}
 
-Your CDI sync might have duplicate data if any `UPDATED_AT` fields are at the exact same time as the last `UPDATED_AT` timestamp of the previous successful sync job. This is because CDI will choose an "inclusive boundary" when it identifies any row that is the same time as the previous sync, and will make the rows able to sync. CDI will re-ingest those rows and create duplicate data.
+CDI tracks the number of rows at the last synced `UPDATED_AT` timestamp. If CDI detects that new rows have been added with that same timestamp since the last run, it uses an inclusive boundary (`>=`) to re-select all rows at that timestamp, including ones already processed. Otherwise, CDI uses an exclusive boundary (`>`) and only selects rows strictly later than the last synced value.
 
-Here are some suggestions to avoid duplicate data:
+For example, if a sync processes five rows at `UPDATED_AT = 2025-04-01 00:00:00`, and a sixth row is later added with the same timestamp, the next sync detects the count change and re-syncs all six rows. This can result in duplicate data and unnecessary data point consumption.
 
-- If you’re setting up a sync against a `VIEW`, don’t use `CURRENT_TIMESTAMP` as the default value. This will cause all data to sync every time the sync runs because the `UPDATED_AT` field will evaluate to the time our queries are run.
-- If you have very long-running pipelines or queries writing data to your source table, avoid running these concurrently with a sync, or avoid using the same timestamp for every row inserted.
-- Use a transaction to write all rows that have the same timestamp.
+To avoid this:
+
+- If you're setting up a sync against a `VIEW`, don't use `CURRENT_TIMESTAMP` as the default value. This causes all data to sync every time the sync runs because the `UPDATED_AT` field evaluates to the time the query runs.
+- If you have long-running pipelines or queries writing data to your source table, avoid running these concurrently with a sync, or avoid using the same timestamp for every row inserted.
+- Use a transaction to write all rows that share the same timestamp.
+- Use unique, monotonically increasing `UPDATED_AT` values to prevent rows from being re-selected after they've been processed.
 
 ### Example: Managing subsequent updates
 
@@ -296,7 +313,8 @@ This example shows the general process for syncing data for the first time, then
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
-<table>
+<table aria-label="Example: Managing subsequent updates">
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -403,7 +421,8 @@ None of this has synced to Braze before, so add all of it to the source table fo
 
 A sync runs, and Braze records that you synced all available data up until “2023-03-16 15:00:00”. Then, on the morning of day 2, you have an ETL that runs and some fields in your users table are updated (highlighted):
 
-<table>
+<table aria-label="Example: Managing subsequent updates">
+  <caption>Example: Managing subsequent updates</caption>
     <thead>
         <tr>
             <th>external_id</th>
@@ -522,7 +541,7 @@ CDI will only sync the new rows, so the next sync that runs will only sync the l
 
 ### Only write new or updated attributes to minimize consumption
 
-Each time a sync runs, Braze looks for rows that have not previously been synced. We check this using the `UPDATED_AT` column in your table or view. Braze selects and imports any rows where `UPDATED_AT` is equal to or later than the last `UPDATED_AT` timestamp from the last successful sync job, regardless of whether they are the same as what's currently on the user profile. Given that, we recommend only syncing attributes you want to add or update.
+Each time a sync runs, Braze looks for rows that have not previously been synced. We check this using the `UPDATED_AT` column in your table or view. Braze selects and imports any rows where `UPDATED_AT` is later than the last synced `UPDATED_AT` value, regardless of whether they are the same as what's currently on the user profile. Rows at the boundary timestamp may also be re-synced if new rows share that timestamp. Given that, we recommend only syncing attributes you want to add or update.
 
 Data point usage is identical using CDI as for other ingestion methods like REST APIs or SDKs, so it is up to you to make sure that you're only adding new or updated attributes into your source tables.
 
@@ -553,6 +572,7 @@ If you prefer to store each attribute in its own column internally, you need to 
 
 {% tabs local %}
 {% tab Snowflake %}
+Use this query in Snowflake to format source columns into CDI fields.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -575,6 +595,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
+Use this query in Redshift to format source columns into CDI fields.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -597,6 +618,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
+Use this query in BigQuery to format source columns into CDI fields.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
@@ -617,6 +639,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Databricks %}
+Use this query in Databricks to format source columns into CDI fields.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
@@ -639,6 +662,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
+Use this query in Microsoft Fabric to format source columns into CDI fields.
 ```sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
@@ -663,10 +687,7 @@ FROM [braze].[users] ;
 
 ### Use the `UPDATED_AT` timestamp
 
-We use the `UPDATED_AT` timestamp to track what data has been synced successfully to Braze. If many rows are written with the same timestamp while a sync is running, this may lead to duplicate data being synced to Braze. Some suggestions to avoid duplicate data:
-- If you're setting up a sync against a `VIEW`, don't use `CURRENT_TIMESTAMP` as the default value. This will cause all data to sync every time the sync runs because the `UPDATED_AT` field will evaluate to the time our queries are run. 
-- If you have very long-running pipelines or queries writing data to your source table, avoid running these concurrently with a sync, or avoid using the same timestamp for every row inserted.
-- Use a transaction to write all rows that have the same timestamp.
+Braze uses the `UPDATED_AT` timestamp to track what data has been synced successfully. CDI also tracks the number of rows at the last synced timestamp. If new rows are added with that same timestamp between runs, CDI re-syncs all rows at that timestamp, which can lead to duplicate data. For more details and tips, see [Avoid resyncing rows with duplicate timestamps](#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Table configuration
 
@@ -674,99 +695,12 @@ We have a public [GitHub repository](https://github.com/braze-inc/braze-examples
 
 ### Data formatting
 
-Any operations that are possible through the Braze `/users/track` endpoint are supported through Cloud Data Ingestion, including updating nested custom attributes, adding subscription status, and syncing custom events or purchases. 
+Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
 
-Fields within the payload should follow the same format as the corresponding `/users/track` endpoint. For detailed formatting requirements, refer to the following:
+Use that page to distinguish:
 
-| Data type | Formatting specifications |
-| --------- | ---------| --------- | ----------- |
-| `attributes` | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/) |
-| `events` | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
-Note the special requirement for [capturing dates]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support/#capturing-dates-as-object-properties) in nested attributes. 
-
-{% tabs local %}
-{% tab Nested Custom Attributes %}
-You may include nested custom attributes in the payload column for a custom attributes sync. 
-
-```json
-{
-      "most_played_song": {
-        "song_name": "Solea",
-        "artist_name": "Miles Davis",
-        "album_name": "Sketches of Spain",
-        "genre": "Jazz",
-        "play_analytics": {
-            "count": 1000,
-            "top_10_listeners": true
-        }
-      }
-}
-```
-
-{% endtab %}
-{% tab Event %}
-To sync events, an event name is required. Format the `time` field as an ISO 8601 string or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. If the `time` field is not present, Braze uses the `UPDATED_AT` column value as the event time. Other fields including `app_id` and `properties` are optional. 
-
-Note that you can only sync one event per row.
-
-```json
-{
-    "app_id" : "your-app-id",
-    "name" : "rented_movie",
-    "time" : "2013-07-16T19:20:45+01:00",
-    "properties": {
-        "movie": "The Sad Egg",
-        "director": "Dan Alexander"
-    }
-} 
-```
-
-{% endtab %}
-{% tab Purchase %}
-To sync purchase events, `product_id`, `currency`, and `price` are required. Format the `time` field, which is optional, as an ISO 8601 string or in `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. If the `time` field is not present, Braze uses the `UPDATED_AT` column value as the event time. Other fields, including `app_id`, `quantity` and `properties` are optional.
-
-Note that you can only sync one purchase event per row.
-
-```json
-{
-    "app_id" : "11ae5b4b-2445-4440-a04f-bf537764c9ad",
-    "product_id" : "Completed Order",
-    "currency" : "USD",
-    "price" : 219.98,
-    "time" : "2013-07-16T19:20:30+01:00",
-    "properties" : {
-        "products" : [ { "name": "Monitor", "category": "Gaming", "product_amount": 19.99 },
-        { "name": "Gaming Keyboard", "category": "Gaming ", "product_amount": 199.99 }
-        ]
-    }
-}
-```
-
-{% endtab %}
-{% tab Subscription Groups %}
-```json
-{
-    "subscription_groups" : [
-        {
-            "subscription_group_id": "subscription_group_identifier_1",
-            "subscription_state": "unsubscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_2",
-            "subscription_state": "subscribed"
-        },
-        {
-            "subscription_group_id": "subscription_group_identifier_3",
-            "subscription_state": "subscribed"
-        }
-      ]
-}
-```
-{% endtab %}
-{% endtabs %}
+- Source table requirements (required columns, identifier columns, and `UPDATED_AT` behavior)
+- Payload requirements (which fields must match the `/users/track` object format for each data type)
 
 ### Avoid timeouts for data warehouse queries
 
@@ -783,6 +717,6 @@ We recommend that queries be completed within one hour for optimal performance a
 | Data type              | You can sync user attributes, events, and purchases through Cloud Data Ingestion.                                                                                                  |
 | Braze region           | This product is available in all Braze regions. Any Braze region can connect to any source data region.                                                                              |
 | Source region       | Braze will connect to your data warehouse or cloud environment in any region or cloud provider.                                                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }
 
 <br><br>

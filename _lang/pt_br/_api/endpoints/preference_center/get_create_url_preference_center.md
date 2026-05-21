@@ -1,57 +1,57 @@
 ---
-nav_title: "OBTER: Gerar URL da Central de Preferências"
-article_title: "OBTER: Gerar URL da Central de Preferências"
+nav_title: "GET: Gerar URL da Central de Preferências"
+article_title: "GET: Gerar URL da Central de Preferências"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint \"Gerar URL da Central de Preferências\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Gerar URL da Central de Preferências\"."
 
 ---
 {% api %}
-# Gerar URL da Central de Preferências
+# Gerar URL da Central de Preferências {#generate-preference-center-url}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}/url/{userID}
 {% endapimethod %}
 
-> Use esse endpoint para gerar um URL para uma Central de Preferências.
+> Use esse endpoint para gerar uma URL para uma Central de Preferências.
 
-Cada URL da Central de Preferências é exclusivo para cada usuário.
+Cada URL da Central de Preferências é exclusiva para cada usuário.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0bc750ff-068e-4391-897e-6eddca2561cd {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.user.get`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
-Esse endpoint tem um limite de frequência de 1.000 solicitações por minuto, por espaço de trabalho.
+{% multi_lang_include rate_limits.md endpoint='get preference center' %} Esse limite de taxa é fixo e não é configurável.
 
-## Parâmetros da jornada
+## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Obrigatória | String | A ID de sua central de preferências. |
-|`userID`| Obrigatória | String | A ID do usuário. |
-{:  role="presentation" }
+| `preferenceCenterExternalID` | Obrigatório | String | O ID da sua Central de Preferências. |
+| `userID` | Obrigatório | String | O ID do usuário. |
+{: aria-label="Path parameters" }
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`preference_center_api_id`| Obrigatória | String | A ID de sua central de preferências. |
-|`external_id`| Obrigatória | String | A ID externa de um usuário. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preference_center_api_id` | Obrigatório | String | O ID da sua Central de Preferências. |
+| `external_id` | Obrigatório | String | O ID externo de um usuário. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v1/$preference_center_external_id/url/$user_external_id' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v
 {% endapi %}
 
 {% alert note %}
-Este endpoint gera apenas URLs para o novo Central de Preferências (como Central de Preferências criadas usando nossa API ou o editor de arrastar e soltar).
+Este endpoint gera apenas URLs para a nova Central de Preferências (como Centrais de Preferências criadas usando nossa API ou o editor de arrastar e soltar).
 {% endalert %}

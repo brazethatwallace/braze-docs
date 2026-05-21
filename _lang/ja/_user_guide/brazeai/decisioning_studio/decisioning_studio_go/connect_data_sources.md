@@ -1,86 +1,73 @@
 ---
-nav_title: データソースの接続
-article_title: データソースの接続
+nav_title: データを接続する
+article_title: データを接続する
 page_order: 1
-description: "BrazeAI決定スタジオGo がカスタマーエンゲージメントプラットフォームを介して顧客データに接続する方法について説明します。"
+description: "BrazeAI Decisioning Studio Goが、カスタマーエンゲージメントプラットフォームを通じて顧客データに接続する方法を学びます。"
 ---
 
-# データソースの接続
+# データを接続する {#connect-data-sources}
 
-> BrazeAI Decisioning Studio™Go は、カスタマーエンゲージメントプラットフォーム(CEP)を介して顧客データに接続します。ここでは、どのようなデータを使用し、どのように接続するかについて説明します。
+> BrazeAI Decisioning Studio™ Goは、カスタマーエンゲージメントプラットフォーム（CEP）を通じて顧客データに接続します。この記事では、どのようなデータが使用され、接続がどのように機能するかについて説明します。
 
-## 顧客データへのアクセス方法
+## Goが顧客データにアクセスする方法 {#how-go-accesses-customer-data}
 
-さまざまなソースとの直接データ統合をサポートするDecisioning Studio Proとは異なり、Decisioning Studio GoはCEPを通じて顧客データにアクセスします。つまり、
+さまざまなソースとの直接的なデータ統合をサポートするDecisioning Studio Proとは異なり、Decisioning Studio GoはCEPを介して顧客データにアクセスします。これは以下を意味します：
 
-- **オーディエンスデータ** は、CEP (Braze、Salesforce Marketing Cloud、またはKlaviyo) で定義されたSegments またはリストから直接プルされ、特定の事前定義された属性s (1P データではありません) のみを含めることができます。
-- **エンゲージメントデータ**(開封、クリック、送信)は、自動クエリーまたはCEP とのネイティブ統合によってキャプチャされます
-- **CEP で設定した以上の追加データパイプラインのセットアップ** は必要ありません
+- **オーディエンスデータ**は、CEP（BrazeまたはSalesforce Marketing Cloud）で定義されたセグメントまたはリストから直接取得され、特定の事前定義された属性のみを含めることができます（1Pデータは含まれません）
+- **エンゲージメントデータ**（開封、クリック、送信）は、自動クエリまたはCEPとのネイティブ統合を通じて取得されます
+- CEPで設定する内容以外に、**追加のデータパイプライン設定は不要**です
 
-## サポートされる統合パターン
+## サポートされている統合パターン {#supported-integration-patterns}
 
-Studio Go の決定では、データアクセス用に次のCEP がサポートされます。
+Decisioning Studio Goは、データアクセスにおいて以下のCEPをサポートしています：
 
 | CEP | オーディエンスソース | エンゲージメントデータ |
 |-----|-----------------|-----------------|
-| **Braze** | セグメント | Braze Currents輸出 |
-| **Salesforce Marketing Cloud** | データ拡張 | SQL クエリの自動化 |
-| **クラビヨ** | セグメント | ネイティブAPI 統合 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| **Braze** | セグメント | Braze Currentsエクスポート |
+| **Salesforce Marketing Cloud** | データエクステンション | SQLクエリオートメーション |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
-## CEPのデータ要件
+## CEP別のデータ要件 {#data-requirements-by-cep}
 
 {% tabs %}
 {% tab Braze %}
 
-### Braze要求事項
+### Brazeのデータ要件 {#braze-data-requirements}
 
-Braze統合の場合、デシジョンスタジオGoには以下が必要です。
+Brazeとの統合において、Decisioning Studio Goには以下が必要です：
 
-1. **Braze Currents**:デシジョンスタジオへエンゲージメントデータをエクスポートするには、Braze Currentsを有効にして設定する必要があります。これにより、エージェントは顧客レスポンスから学習できます。
+1. **Braze Currents：** Braze Currentsを有効にし、エンゲージメントデータをDecisioning Studio Goにエクスポートするよう設定する必要があります。これにより、エージェントは顧客の反応から学習できるようになります。
 
-2. **セグメントアクセス**:作成するAPI キーには、対象オーディエンスを定義するSegmentにアクセスするための権限が必要です。
+2. **セグメントアクセス：** 作成するAPIキーには、ターゲットオーディエンスを定義するセグメントにアクセスする権限が必要です。
 
-3. **ユーザプロファイルデータ**:エージェントが考慮するユーザープロファイル 属性s またはカスタム属性s は、Braze API からアクセス可能である必要があります。
+3. **ユーザープロファイルデータ：** エージェントに考慮させたいユーザープロファイル属性やカスタム属性は、すべてBraze APIを通じてアクセス可能である必要があります。
 
 {% alert important %}
-Braze Currentsエクスポートに、比較するキャンペーン(BAU キャンペーンを含む)のデータが含まれていることを確認します。
+比較対象とするキャンペーン（通常運用のキャンペーンを含む）のデータが、Braze Currentsのエクスポートに含まれていることを確認してください。
 {% endalert %}
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
-### SFMCのデータ要件
+### SFMCのデータ要件 {#sfmc-data-requirements}
 
-Salesforce Marketing Cloud 統合の場合、Decisioning Studio Go には以下が必要です。
+Salesforce Marketing Cloudとの統合において、Decisioning Studio Goには以下が必要です：
 
-1. **データ拡張**:オーディエンスは、デシジョンスタジオがアクセスできるデータエクステンションで定義する必要があります。サブスクライバキーをプライマリユーザー 識別子として使用します。
-2. **イベントアクセスの追跡**:インストール済みアプリケーションパッケージがエンドツーエンドの自動設定をサポートしている限り、追加の設定は必要ありません。 
+1. **データエクステンション：** オーディエンスは、Decisioning Studio Goがアクセス可能なデータエクステンションで定義されている必要があります。SubscriberKeyをプライマリユーザー識別子として使用してください。
+2. **トラッキングイベントへのアクセス：** インストール済みアプリパッケージがエンドツーエンドの自動セットアップをサポートしている限り、追加の設定は不要です。
 
-データエクステンションとSQLクエリーは、[オーケストレーションセットアップ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)の一部として設定されます。
-
-{% endtab %}
-{% tab Klaviyo %}
-
-### Klaviyoのデータ要件
-
-Klaviyo統合の場合、Decisioning Studio Goには以下が必要です。
-
-1. **セグメントアクセス**:オーディエンスは、API キーが使用できるKlaviyo Segmentとして定義する必要があります。
-2. **プロファイルデータ**:顧客 属性s を読み取るには、API キーにプロファイルへのフルアクセス権限が必要です。
-3. **メトリックアクセス**:エンゲージメント情報を取得するには、API キーにメトリクスとイベントへのフルアクセス権限が必要です。
+データエクステンションとSQLクエリは、[オーケストレーション設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)の一部として構成されます。
 
 {% endtab %}
 {% endtabs %}
 
-## ベストプラクティス
+## ベストプラクティス {#best-practices}
 
-- **データを新規に保持**:オーディエンス Segment s と顧客データが定期的に(最低でも毎日)更新されていることを確認してください。そうすることで、エージェントは最新の情報を使用できます。
-- **関連する属性を含めるs**:どのような顧客の特徴が、人口統計、エンゲージメント履歴、購買行動、ライフサイクルタグeなどのメッセージに影響を与えるかを考えてみよう。
+- **データを最新の状態に保つ：** オーディエンスのセグメントと顧客データが定期的に（最低でも毎日）更新されるようにしてください。これにより、エージェントは常に最新の情報を使用して動作できます。
+- **関連する属性を含める：** どの顧客特性がメッセージの効果に影響を与えるかを考えてみてください。デモグラフィック、エンゲージメント履歴、購買行動、ライフサイクルステージはすべて貴重なシグナルです。
 
-## 次のステップ
+## 次のステップ {#next-steps}
 
-Go がどのようにデータに接続するかを理解したので、CEP 統合のセットアップに進みます。
+Goがデータに接続する仕組みを理解したところで、CEP統合の設定に進みましょう：
 
-- [オーケストレーションの設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
-
+- [オーケストレーションを設定する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)

@@ -56,7 +56,9 @@ window.braze.getUser().setGender("f")
 
 ### Unsetting default attributes
 
-To unset a default user attribute, pass `null` to the related method. For example:
+You can remove or unset a user attribute through your app code, a REST API request, or a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) Canvas step. For array and boolean attributes, use `null`. For other data types, use an empty string (`""`).
+
+To unset a default user attribute with the Web SDK, pass `null` to the related method. For example:
 
 {% tabs local %}
 {% tab First name %}
@@ -138,9 +140,8 @@ braze.getUser().setCustomUserAttribute(
 {% endsubtab %}
 {% subtab Array %}
 
-You can have up to 25 elements in custom attribute arrays. Individual arrays that are manually set (not automatically detected) for **Data Type** can be increased up to 100 in the Braze dashboard under **Data Settings** > **Custom Attributes**. If you want this maximum increased, contact your Braze account manager.
+The default and maximum number of elements in an array is 500. You can update the maximum number of arrays in the Braze dashboard, under **Data Settings** > **Custom Attributes**. Arrays exceeding the maximum number of elements are truncated to contain the maximum number of elements.
 
-[Arrays]({{site.baseurl}}/developer_guide/platform_wide/getting_started/analytics_overview/#arrays) exceeding the maximum number of elements will be truncated to contain the maximum number of elements.
 
 To set a custom attribute with an `array` value:
 
@@ -219,7 +220,7 @@ To set up a subscription for your users (either email or push), call the functio
 | `braze.User.NotificationSubscriptionTypes.OPTED_IN` | Subscribed, and explicitly opted in |
 | `braze.User.NotificationSubscriptionTypes.SUBSCRIBED` | Subscribed, but not explicitly opted in |
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Unsubscribed and/or explicitly opted out |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
 
 When a user is registered for push, the browser forces them to choose to allow or block notifications, and if they choose to allow push, they are set `OPTED_IN` by default. 
 

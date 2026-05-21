@@ -23,6 +23,10 @@ Commons use cases for catalogs include:
 
 After this information is imported, you can begin accessing it in messages in a similar way to accessing custom attributes or custom event properties through Liquid.
 
+## Supported data types {#supported-data-types}
+
+For supported catalog data types, descriptions, how each can be created or updated (CSV vs API and CDI), and format and examples, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+
 ## Creating a catalog
 
 To create a catalog, go to **Data Settings** > **Catalogs**, then select **Create New Catalog** and choose one of the following options:
@@ -40,10 +44,10 @@ Before you upload your CSV file, ensure that your CSV file meets the following r
 | File size | For Free plans, the total size of all CSV files across a company is limited to 100 MB. For Pro plans, the maximum file size for a single CSV file is 2 GB. |
 | Field values | Each cell (field value) can contain up to 5,000 characters. |
 | Valid characters | The `id` column and all header values can only contain letters, numbers, hyphens, and underscores. |
-| Data types | Supported data types for uploading a CSV file include string, integer, float, boolean, or datetime. |
+| Data types | Supported data types for CSV uploads include string, number, boolean, and time. For the full list of data types, including those available only through the API and CDI, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatting | Format all text in lowercase to maintain consistency. |
 | Encoding | Save and upload the CSV file using UTF-8 encoding. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 Need more space to accommodate for your CSV files? Contact your Braze account manager for more information about upgrading your catalogs.
@@ -90,7 +94,8 @@ For this tutorial, we're using a catalog that lists two games, their cost, and a
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
+  <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -129,13 +134,18 @@ Next, we'll name this catalog "games_catalog" and select the **Process Catalog**
 
 Note that you won't be able to edit this name after the catalog is created. You can delete a catalog and re-upload an updated version using the same catalog name.
 
-After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/).
+After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
 {% tab Create in browser %}
 ### Prerequisites
 
-Before you can edit or create catalogs in the browser, you'll need the **Manage Catalogs Dashboard** permission.
+Before you can edit or create catalogs in the browser, you need the following [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) for your workspace:
+
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### Step 1: Enter catalog details
 
@@ -167,19 +177,7 @@ Braze processes time values based on the dashboard timestamp. For example, if a 
 {% endtab %}
 {% endtabs %}
 
-## Catalog data types
-
-Catalogs support various data types to help you organize and structure your data effectively. The following table describes each supported data type and how it maps to CSV and API type names:
-
-| Data Type | Format | Example | Description |
-|-----------|--------|---------|-------------|
-| String | Text | `"Hello World"` | Any sequence of characters used for text data such as names, descriptions, and IDs. Equivalent to the `string` type in CSV and API imports. |
-| Time | ISO 8601 or Unix timestamp (seconds) | `"2024-03-15T14:30:00Z"` | Date and time values formatted as ISO 8601 or Unix timestamp in seconds. Equivalent to the `time` type in the API and the `datetime` type in CSV imports. |
-| Boolean | `true` or `false` | `true` | Logical values representing true or false states. Equivalent to the `boolean` type in CSV and API imports. |
-| Number | Integer or decimal | `42` or `19.99` | Numeric values including integers and floating-point numbers for prices, quantities, ratings, and more. Equivalent to the `integer` and `float` types in CSV imports and the `number` type in the API. |
-| Object | JSON object | `{"key": "value", "price": 10}` | Complex nested data structures. API `type` value is `object`. Displayed as JSON Object in the dashboard. Only available via API or Cloud Data Ingestion (CDI). |
-| Array | Array of strings | `["red", "blue", "green"]` | Lists of string values. API `type` value is `array`. Displayed as String array in the dashboard. Only available through the API or CDI. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+For catalog data types with format and examples, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
 
 ## Using templates in catalog names {#template-catalog-names}
 
@@ -204,7 +202,7 @@ To update your catalog after uploading a CSV or creating a catalog in the browse
 
 As you build more catalogs, you can also use the [List catalogs endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) to return a list of the catalogs in a workspace.
 
-Supported data types for using API include: string, number, boolean, time, array, and object.
+The REST API supports all [catalog data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), including JSON objects and string arrays. JSON objects and string arrays can only be created or updated through the REST API.
 
 ### Using Cloud Data Ingestion
 
@@ -217,6 +215,8 @@ In addition to managing your catalogs, you can also use asynchronous and synchro
 For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
 
 ## Catalog storage {#tiers}
+
+For a quick overview of storage limits by plan, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
 
 The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
 
@@ -231,3 +231,18 @@ The storage size for the free version of catalogs is up to 100&nbsp;MB. You can 
 #### Catalogs Pro
 
 At a company level, the maximum storage for Catalogs Pro is based on the size of catalog data. The storage size options are: 5&nbsp;GB, 10&nbsp;GB, or 15&nbsp;GB. Note that the free version's storage (100&nbsp;MB) is included in each of these plans.
+
+## Specifications
+
+The following table summarizes specifications for what you can include in catalogs.
+
+| Area | Specifications |
+|------|-----------|
+| Item value characters | Up to 5,000 characters in a single value. For example, if you have a field labeled `description`, the maximum number of characters within the field is 5,000. |
+| Item column name characters | Up to 250 characters |
+| Selections per catalog | Up to 30 selections per catalog |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
+
+{% alert important %}
+Catalog Liquid tags cannot be used recursively, meaning you cannot reference a catalog item that then calls a second catalog item from within the same Liquid evaluation.
+{% endalert %}

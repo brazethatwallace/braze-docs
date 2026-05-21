@@ -1,90 +1,90 @@
 ---
-nav_title: Facebook Lead Ads via Zapier
-article_title: Facebook Lead Ads via Zapier
-description: "This reference article outlines the integration between Braze and Facebook Lead Ads via Zapier to automate the transfer of lead data from Facebook to Braze, enabling real-time engagement and personalized follow-up actions."
+nav_title: Zapier를 통한 Facebook Lead Ads
+article_title: Zapier를 통한 Facebook Lead Ads
+description: "이 참조 문서에서는 Zapier를 통한 Braze와 Facebook Lead Ads 간의 통합을 설명합니다. 이 통합을 통해 Facebook에서 Braze로 리드 데이터 전송을 자동화하여 실시간 참여와 개인화된 후속 동작을 수행할 수 있습니다."
 alias: /partners/facebook_via_zapier/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Facebook Lead Ads via Zapier integration
+# Zapier를 통한 Facebook Lead Ads 통합 {#facebook-lead-ads-via-zapier-integration}
 
-> With the Facebook Lead Ads integration via <a href="https://zapier.com/" target="_blank">Zapier</a>, you can import your leads from Facebook into Braze and track a custom event when leads are captured. 
+> <a href="https://zapier.com/" target="_blank">Zapier</a> 를 통한 Facebook Lead Ads 통합을 사용하면 Facebook에서 Braze로 리드를 가져오고 리드가 캡처될 때 커스텀 이벤트를 추적할 수 있습니다.
 
-Facebook Lead Ads is an ad format that allows businesses to collect lead information directly in Facebook. These ads are designed to make the lead generation process easy and seamless. By leveraging a Zapier integration and Braze, you can automate the transfer of lead data from Facebook to Braze, enabling real-time engagement and personalized follow-up actions. 
+Facebook Lead Ads는 비즈니스가 Facebook 내에서 직접 리드 정보를 수집할 수 있는 광고 형식입니다. 이 광고는 리드 생성 프로세스를 쉽고 원활하게 만들도록 설계되었습니다. Zapier 통합과 Braze를 활용하면 Facebook에서 Braze로 리드 데이터 전송을 자동화하여 실시간 참여와 개인화된 후속 동작을 수행할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirements | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| Zapier account | A Zapier account is required to take advantage of this partnership. This integration requires use of <a href="https://zapier.com/app/pricing/" target="_blank">premium Zapier apps</a>, so check that your Zapier plan has access to premium apps. |
-| <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Facebook Leads access</a> | Facebook Leads access is required for each ad account you plan to use with Braze. |
-| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | You will use Facebook Business Manager, a centralized tool to manage your brand’s Facebook assets (for example, ad accounts, pages, and apps), as part of this integration. |
-| <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Facebook ad account</a> | You will need an active Facebook ad account tied to your brand’s business manager. <br><br>Ensure that you have the "Manage ad accounts" permission for each ad account you plan to use with Braze, and that you have accepted your ad account terms and conditions. |
-| <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Facebook Page</a> | You will need an active Facebook Page tied to your brand’s business manager. <br><br>Ensure that you have the "Manage Pages" permissions for each Facebook Page you plan to use with Braze. |
-| Braze REST endpoint | Ensure you know your [REST endpoint URL]({{site.baseurl}}/api/basics/#api-definitions). Your API endpoint matches the dashboard URL for your Braze instance. <br><br> For example, if your dashboard URL is `https://dashboard-03.braze.com`, your endpoint will be `dashboard-03`. |
-| Braze REST API key | Ensure you have a Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Zapier 계정 | 이 파트너십을 활용하려면 Zapier 계정이 필요합니다. 이 통합에는 <a href="https://zapier.com/app/pricing/" target="_blank">프리미엄 Zapier 앱</a> 을 사용해야 하므로, Zapier 플랜에서 프리미엄 앱에 접근할 수 있는지 확인하세요. |
+| <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Facebook Leads 접근 권한</a> | Braze와 함께 사용할 각 광고 계정에 대해 Facebook Leads 접근 권한이 필요합니다. |
+| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | 이 통합의 일부로 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구인 Facebook Business Manager를 사용합니다. |
+| <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Facebook 광고 계정</a> | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정이 필요합니다. <br><br>Braze와 함께 사용할 각 광고 계정에 대해 "Manage ad accounts" 권한이 있는지, 그리고 광고 계정 이용약관에 동의했는지 확인하세요. |
+| <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Facebook 페이지</a> | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 페이지가 필요합니다. <br><br>Braze와 함께 사용할 각 Facebook 페이지에 대해 "Manage Pages" 권한이 있는지 확인하세요. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/api/basics/#api-definitions)을 알고 있는지 확인하세요. API 엔드포인트는 Braze 인스턴스의 대시보드 URL과 일치합니다. <br><br> 예를 들어, 대시보드 URL이 `https://dashboard-03.braze.com`이면 엔드포인트는 `dashboard-03`입니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키가 있는지 확인하세요. <br><br> 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Create a Lead Ads campaign with an instant form
+### 1단계: 인스턴트 양식으로 Lead Ads Campaign 생성 {#step-1-create-a-lead-ads-campaign-with-an-instant-form}
 
-From Facebook Ads Manager, create a <a href="https://www.facebook.com/business/help/397336587121938?id=735435806665862&helpref=uf_permalink" target="_blank">Facebook Leads campaign and Facebook Lead Ads form</a>.
+Facebook Ads Manager에서 <a href="https://www.facebook.com/business/help/397336587121938?id=735435806665862&helpref=uf_permalink" target="_blank">Facebook Leads Campaign과 Facebook Lead Ads 양식</a> 을 생성합니다.
 
-You can use either an email address or phone number when making a request to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to update or create the user profile. For this reason, include a **Contact field** for **email** or **phone** in your lead ad form. If you're collecting first names or last names, collect those separately in your form instead of using full names.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 요청할 때 이메일 주소 또는 전화번호를 사용하여 고객 프로필을 업데이트하거나 생성할 수 있습니다. 이러한 이유로 리드 광고 양식에 **이메일** 또는 **전화번호**에 대한 **연락처 필드**를 포함하세요. 이름이나 성을 수집하는 경우, 전체 이름을 사용하는 대신 양식에서 별도로 수집하세요.
 
-### Step 2: Connect your Facebook account to Zapier 
+### 2단계: Facebook 계정을 Zapier에 연결 {#step-2-connect-your-facebook-account-to-zapier}
 
-#### Step 2a: Select your connection method in Zapier
+#### 2a단계: Zapier에서 연결 방법 선택 {#step-2a-select-your-connection-method-in-zapier}
 
-In Zapier, go to **Apps** to search for available Facebook apps. Select either **Facebook Lead Ads** or **Facebook Lead Ads (for Business admins)**.
+Zapier에서 **Apps**로 이동하여 사용 가능한 Facebook 앱을 검색합니다. **Facebook Lead Ads** 또는 **Facebook Lead Ads (for Business admins)** 중 하나를 선택합니다.
 
-For more information on these two methods of connecting your Facebook account to Zapier, refer to:
+Facebook 계정을 Zapier에 연결하는 두 가지 방법에 대한 자세한 내용은 다음을 참조하세요:
 
 - <a href="https://help.zapier.com/hc/en-us/articles/8496123584781-How-to-get-started-with-Facebook-Lead-Ads-for-Business-Admins-on-Zapier#h_01HC9VZFZG0GR2KRYM5EQJN329" target="_blank">Facebook Lead Ads (for Business Admins)</a>
 - <a href="https://help.zapier.com/hc/en-us/articles/8496061306253#h_01HC9VMZ2XP0017AR6SE7S30JG" target="_blank">Facebook Lead Ads</a>
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
 
-#### Step 2b: Add Zapier to Leads Access in Facebook Business Manager
+#### 2b단계: Facebook Business Manager에서 Leads Access에 Zapier 추가 {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-In your Facebook Business Manager, go to **Integrations** > **Leads Access** on the left-hand menu. Select your Facebook Page, then click **CRMs**. On the CRM tab, select **Assign CRMs** and add **Zapier**.
+Facebook Business Manager에서 왼쪽 메뉴의 **Integrations** > **Leads Access**로 이동합니다. Facebook 페이지를 선택한 다음 **CRMs**를 클릭합니다. CRM 탭에서 **Assign CRMs**를 선택하고 **Zapier**를 추가합니다.
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
-For steps to assign Zapier as a CRM integration, refer to Facebook's <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">documentation</a>.
+Zapier를 CRM 통합으로 할당하는 단계는 Facebook의 <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">설명서</a> 를 참조하세요.
 
-### Step 3: Create your Zap
+### 3단계: Zap 생성 {#step-3-create-your-zap}
 
-#### Step 3a: Create the trigger 
+#### 3a단계: 트리거 생성 {#step-3a-create-the-trigger}
 
-Once you have connected your Facebook account, you can proceed to create a Zap. For the **Trigger**, select **Facebook Lead Ads** or **Facebook Lead Ads (for Business Admins)** based on your choice from step 2. 
+Facebook 계정을 연결한 후 Zap 생성을 진행할 수 있습니다. **Trigger**에서 2단계에서의 선택에 따라 **Facebook Lead Ads** 또는 **Facebook Lead Ads (for Business Admins)**를 선택합니다.
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap1.png %}){: style="max-width:80%;"}
 
-For the **Event**, select **New Leads** > **Continue**. 
+**Event**에서 **New Leads** > **Continue**를 선택합니다.
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap2.png %}){: style="max-width:80%;"}
 
-Select your Facebook account, then **Continue**. 
+Facebook 계정을 선택한 다음 **Continue**를 클릭합니다.
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap3.png %}){: style="max-width:80%;"}
 
-Select your Facebook Page and instant form you previously created, then **Continue**.
+이전에 생성한 Facebook 페이지와 인스턴트 양식을 선택한 다음 **Continue**를 클릭합니다.
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap4.png %}){: style="max-width:80%;"}
 
-Next, test this trigger. After validating your form output, select **Continue with selected record**.
+다음으로 이 트리거를 테스트합니다. 양식 출력을 검증한 후 **Continue with selected record**를 선택합니다.
 
-#### Step 3b: Create an action
+#### 3b단계: 동작 생성 {#step-3b-create-an-action}
 
-Add a new step, then select **Webhooks by Zapier**. Next, select **Custom Request** for the **Event** field, then click **Continue**. 
+새 단계를 추가한 다음 **Webhooks by Zapier**를 선택합니다. 그런 다음 **Event** 필드에서 **Custom Request**를 선택하고 **Continue**를 클릭합니다.
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap5.png %}){: style="max-width:80%;"}
 
-Lastly, set up your custom request by inserting fields in your payload. The following code snippet shows an example payload. 
+마지막으로 페이로드에 필드를 삽입하여 커스텀 요청을 설정합니다. 다음 코드 스니펫은 예시 페이로드를 보여줍니다.
 
 ```
 {
@@ -116,57 +116,55 @@ Lastly, set up your custom request by inserting fields in your payload. The foll
 }`
 ```
 
-Here's an example of what this looks like in Zapier:
+다음은 Zapier에서 이 설정이 어떻게 보이는지에 대한 예시입니다:
 
 ![]({% image_buster /assets/img/fb_lead_ads_zapier/configuration_example.png %}){: style="max-width:80%;"}
 
-After configuring your webhook, select **Continue and test**. If the test is successful, you can publish your Zap.
+웹훅을 구성한 후 **Continue and test**를 선택합니다. 테스트가 성공하면 Zap을 게시할 수 있습니다.
 
-### Step 4: Test your Facebook Lead Ads Zap
+### 4단계: Facebook Lead Ads Zap 테스트 {#step-4-test-your-facebook-lead-ads-zap}
 
-To test this end-to-end, use Facebook’s Leads Ads Testing Tool in your Facebook Developer Console. For more information, see <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/testing-troubleshooting/" target="_blank">Testing and Troubleshooting</a>.
+엔드투엔드 테스트를 수행하려면 Facebook 개발자 콘솔에서 Facebook의 Leads Ads Testing Tool을 사용하세요. 자세한 내용은 <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/testing-troubleshooting/" target="_blank">테스트 및 문제 해결</a> 을 참조하세요.
 
-## User identity management
+## 사용자 ID 관리 {#user-identity-management}
 
-This integration allows you to attribute your Facebook leads by email through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-phone-number).
+이 통합을 통해 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-phone-number)를 사용하여 이메일로 Facebook 리드를 연결할 수 있습니다.
 
-* If the email matches an existing user profile, Braze will update the profile with Facebook leads data.
-* If there are multiple user profiles with the same email, Braze will prioritize the most recently updated profile with an external ID for updates.
-* If the external ID doesn’t exist, Braze will prioritize the most recently updated profile with the matching email.
-* If no profile exists with the provided email, Braze will create a new profile and a new alias user profile will be created. To identify the newly created alias user profiles, use the [`/users/identify` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/).
+* 이메일이 기존 고객 프로필과 일치하면 Braze는 Facebook 리드 데이터로 프로필을 업데이트합니다.
+* 동일한 이메일을 가진 고객 프로필이 여러 개 있는 경우, Braze는 업데이트를 위해 외부 ID가 있는 가장 최근에 업데이트된 프로필을 우선시합니다.
+* 외부 ID가 존재하지 않는 경우, Braze는 일치하는 이메일을 가진 가장 최근에 업데이트된 프로필을 우선시합니다.
+* 제공된 이메일로 프로필이 존재하지 않는 경우, Braze는 새 프로필을 생성하고 새 별칭 고객 프로필이 생성됩니다. 새로 생성된 별칭 고객 프로필을 식별하려면 [`/users/identify` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)를 사용하세요.
 
 {% alert note %}
-You can also use a phone number or external ID as part of the request to Braze if those fields are available and the primary identifier you wish to for the integration. To do this, modify your request payload as indicated in the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+해당 필드가 사용 가능하고 통합에 사용하려는 기본 식별자인 경우, Braze에 대한 요청의 일부로 전화번호 또는 외부 ID를 사용할 수도 있습니다. 이렇게 하려면 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 표시된 대로 요청 페이로드를 수정하세요.
 {% endalert %}
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-{% details I tested the Trigger and Action successfully, so why am I unable to publish my Zapier Zap? %}
-To use this integration, you must have a <a href="https://zapier.com/app/pricing/" target="_blank">Zapier plan</a> that supports premium apps.
+{% details 트리거와 동작을 성공적으로 테스트했는데 왜 Zapier Zap을 게시할 수 없나요? %}
+이 통합을 사용하려면 프리미엄 앱을 지원하는 <a href="https://zapier.com/app/pricing/" target="_blank">Zapier 플랜</a> 이 있어야 합니다.
 {% enddetails %}
 
-{% details Why aren’t Facebook leads syncing to Braze? %}
-1. Check that you have administrator access to your Facebook Page, ad account, and lead access. Then, reconnect your account in Zapier.
-2. Verify that the instant form you created in Facebook maps to the form selected in your Trigger step. 
-3. Check that you have assigned Zapier to Leads Access by going to **Facebook Business Manager** > **Integrations** > **Lead Access**.
+{% details Facebook 리드가 Braze에 동기화되지 않는 이유는 무엇인가요? %}
+1. Facebook 페이지, 광고 계정 및 리드 접근 권한에 대한 관리자 접근 권한이 있는지 확인하세요. 그런 다음 Zapier에서 계정을 다시 연결하세요.
+2. Facebook에서 생성한 인스턴트 양식이 트리거 단계에서 선택한 양식과 매핑되는지 확인하세요.
+3. **Facebook Business Manager** > **Integrations** > **Lead Access**로 이동하여 Zapier가 Leads Access에 할당되었는지 확인하세요.
 {% enddetails %}
 
-{% details Why am I seeing duplicate user profiles with the same email? %}
-There are unique ways of creating and managing user profiles in Braze based on their [user profile lifecycle]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-profile-lifecycle).
+{% details 동일한 이메일을 가진 중복 고객 프로필이 표시되는 이유는 무엇인가요? %}
+Braze에서 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-profile-lifecycle)에 따라 고객 프로필을 생성하고 관리하는 고유한 방법이 있습니다.
 
-Depending on your internal processes and when you are triggering customers to be created within Braze, you may encounter duplicate user profiles due to a race condition of the user profile being created by the integration and when the user is created from your system. You can [merge user profiles]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) in Braze.
+내부 프로세스와 Braze 내에서 고객 생성을 트리거하는 시점에 따라, 통합에 의해 고객 프로필이 생성되는 것과 시스템에서 사용자가 생성되는 것 사이의 경합 조건으로 인해 중복 고객 프로필이 발생할 수 있습니다. Braze에서 [고객 프로필을 병합]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/)할 수 있습니다.
 {% enddetails %}
 
-{% details I don’t have a Zapier account. How can I trigger Facebook Lead Ads webhooks into Braze? %}
-If you don’t use Zapier and don’t plan on using Zapier, you can build the integration directly from Facebook into Braze. Refer to <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/" target="_blank">Lead Ads documentation</a> for more information.
+{% details Zapier 계정이 없습니다. Facebook Lead Ads 웹훅을 Braze로 트리거하려면 어떻게 해야 하나요? %}
+Zapier를 사용하지 않고 사용할 계획이 없는 경우, Facebook에서 Braze로 직접 통합을 구축할 수 있습니다. 자세한 내용은 <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/" target="_blank">Lead Ads 설명서</a> 를 참조하세요.
 
-For retrieving leads from Facebook, use <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhooks</a>. Refer to <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">Webhooks documentation</a> to get started with webhooks in Facebook.
+Facebook에서 리드를 검색하려면 <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">웹훅</a> 을 사용하세요. Facebook에서 웹훅을 시작하려면 <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">웹훅 설명서</a> 를 참조하세요.
 
-After establishing the webhooks URL in Facebook, work with your team to determine the best path to forward the data to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Similar to the Zapier approach, we’d recommend making a [request by email]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) through the `users/track` endpoint.
+Facebook에서 웹훅 URL을 설정한 후, 팀과 협력하여 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)로 데이터를 전달하는 최적의 경로를 결정하세요. Zapier 접근 방식과 유사하게, `users/track` 엔드포인트를 통해 [이메일로 요청]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#example-request-for-updating-a-user-profile-by-phone-number)하는 것을 권장합니다.
 {% enddetails %}
 
 {% alert tip %}
-For more troubleshooting tips, refer to Zapier’s <a href="https://help.zapier.com/hc/en-us/articles/8495982030861-Common-Problems-with-Facebook-Lead-Ads#h_01HC9V6Y652KQYYY96YG99T423" target="_blank">Facebook leads troubleshooting guide</a>.
+추가 문제 해결 팁은 Zapier의 <a href="https://help.zapier.com/hc/en-us/articles/8495982030861-Common-Problems-with-Facebook-Lead-Ads#h_01HC9V6Y652KQYYY96YG99T423" target="_blank">Facebook 리드 문제 해결 가이드</a> 를 참조하세요.
 {% endalert %}
-
-

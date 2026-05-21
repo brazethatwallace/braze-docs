@@ -1,14 +1,14 @@
 ---
 page_order: 1
-nav_title: Primeiros passos
+nav_title: Começar
 article_title: Como começar
 layout: dev_guide
 
-guide_top_header: "Primeiros passos com o Braze"
-guide_top_text: "Esta seção ajudará você e seus profissionais de marketing a se prepararem para usar o Braze para criar laços fortes e duradouros entre você e seus clientes. A esta altura, você já deve ter tido algum tipo de comunicação inicial com as equipes do Braze. <br> <br> Este guia pode complementar a integração totalmente orientada e aconselhar sobre ações de integração que você pode realizar por conta própria."
-description: "Esta seção ajudará você e sua equipe de marketing a se prepararem para usar o Braze para criar laços fortes e duradouros entre você e seus clientes! Este guia foi feito sob medida para complementar a integração totalmente guiada e aconselhar sobre ações de integração que você pode realizar por conta própria."
+guide_top_header: "Primeiros passos com a Braze"
+guide_top_text: "Esta seção ajudará você e seus profissionais de marketing a se prepararem para usar a Braze para criar laços fortes e duradouros entre você e seus clientes. A esta altura, você já deve ter tido algum tipo de comunicação inicial com as equipes da Braze. <br> <br> Este guia pode complementar a integração totalmente orientada e aconselhar sobre ações de integração que você pode realizar por conta própria."
+description: "Esta seção ajudará você e sua equipe de marketing a se prepararem para usar a Braze para criar laços fortes e duradouros entre você e seus clientes! Este guia foi feito sob medida para complementar a integração totalmente guiada e aconselhar sobre ações de integração que você pode realizar por conta própria."
 
-guide_featured_title: "Artigos de seção"
+guide_featured_title: "Artigos da seção"
 guide_featured_list:
   - name: Visão geral do SDK
     link: /docs/developer_guide/getting_started/sdk_overview/

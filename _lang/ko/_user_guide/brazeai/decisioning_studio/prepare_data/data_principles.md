@@ -1,0 +1,63 @@
+---
+nav_title: 일반 원칙
+article_title: Decisioning Studio의 일반 데이터 원칙
+page_order: 1
+page_type: reference
+description: "이 참조 문서에서는 BrazeAI Decisioning Studio에서 사용하는 모든 데이터 자산에 적용되는 일반 데이터 원칙을 다룹니다."
+---
+
+# 일반 원칙 {#general-principles}
+
+> 잘 구조화된 데이터는 효과적인 Decisioning Studio 에이전트의 기반입니다. 특정 자산 요구 사항을 자세히 살펴보기 전에, Decisioning Studio에 전송하는 모든 데이터에 적용되는 네 가지 핵심 원칙을 이해하는 것이 도움이 됩니다. 이러한 원칙을 위반하는 것은 모델 성능 저하의 가장 흔한 원인 중 하나입니다.
+
+## 모든 자산에 걸쳐 하나의 일관된 고객 식별자 사용 {#one-consistent-customer-identifier-across-all-assets}
+
+모든 데이터 자산(고객 프로필, 활성화, 참여, 전환)은 동일한 고객 식별자를 참조해야 합니다. 모든 자산에서 각 고객을 고유하고 일관되게 식별하는 하나의 기본 식별자가 있어야 합니다.
+
+| 요구 사항 | 위반 시 영향 |
+|-------------|------------------------|
+| 단일하고 고유한 고객 식별자가 모든 자산에 존재해야 합니다 | 서로 다른 자산이 서로 다른 ID 시스템을 사용하는 경우(예: 기능에는 웨어하우스 ID를, 활성화에는 플랫폼 ID를 사용), Decisioning Studio 엔진이 이를 안정적으로 조인할 수 없습니다. 이로 인해 피드백 루프가 깨지고 모델 학습과 보고 정확도가 모두 저하됩니다. 두 ID 시스템 간의 매핑이 일대다가 아닌 다대다로 밝혀지면, 그로 인한 데이터 무결성 문제가 심각해질 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One consistent customer identifier across all assets" }
+
+어떤 식별자를 사용해야 하는지에 대한 안내는 [Braze 외부 ID 사용]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/)을 참조하세요.
+
+## 이벤트 데이터는 스냅샷이 아닌 증분 스트림으로 전달해야 합니다 {#event-data-must-be-passed-as-an-incremental-stream-not-as-a-snapshot}
+
+전환, 참여, 활성화와 같은 이벤트는 특정 시점에 발생한 개별 사건을 나타냅니다. 이러한 이벤트는 집계된 스냅샷이 아닌 개별 레코드의 증분(추가 전용) 스트림으로 Decisioning Studio에 전달해야 합니다.
+
+| 요구 사항 | 위반 시 영향 |
+|-------------|------------------------|
+| 이벤트 데이터는 개별적이고 타임스탬프가 포함된 레코드로 구조화되어 증분 방식으로 전달되어야 합니다 | 이벤트 데이터가 스냅샷으로 집계되면(예: 개별 발송 레코드 대신 "마지막 발송 시간" 속성을 저장하는 경우), 각 이벤트의 정확한 타이밍을 잃게 됩니다. 이로 인해 결과를 특정 의사 결정에 정확하게 기여시키는 것이 불가능해지며, 모델이 학습하는 데 필요한 피드백 루프가 깨집니다. 정확한 이벤트 타임스탬프가 없으면, 전환이 정확히 언제 발생했는지 또는 어떤 추천이 이를 트리거했는지 알 수 없습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Event data must be passed as an incremental stream, not as a snapshot" }
+
+이 구분에 대한 전체 설명과 올바른 패턴 및 잘못된 패턴의 예시는 [스냅샷과 이벤트 스트림 비교]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)를 참조하세요.
+
+## 스냅샷 데이터는 정기적인 시간 기반 스케줄에 따라 업데이트해야 합니다 {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
+
+스냅샷 데이터(예: 고객 프로필 및 기능)는 특정 시점에서의 고객의 현재 상태를 나타냅니다. 스냅샷 데이터의 업데이트는 이벤트 트리거가 아닌 정기적인 스케줄(예: 매일)에 의해 수행되어야 합니다.
+
+| 요구 사항 | 위반 시 영향 |
+|-------------|------------------------|
+| 스냅샷은 해당 날짜에 이벤트가 있었는지 여부와 관계없이 모든 고객에 대해 정기적인 스케줄에 따라 업데이트되어야 합니다 | 스냅샷 업데이트가 이벤트 발생 시에만 트리거되면, 시간 경과에 의존하는 기능(예: "마지막 구매 이후 경과 일수" 또는 "등록 이후 경과 일수")이 최근 이벤트가 없는 고객에 대해 오래된 상태가 됩니다. 모델이 오래된 기능 값으로 학습하게 되어, 정확하고 시의적절한 추천을 제공하는 능력이 저하됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Snapshot data must be updated on a regular, time-driven schedule" }
+
+## 모든 자산은 최소 데이터 품질 및 무결성 요구 사항을 충족해야 합니다 {#all-assets-must-meet-minimum-data-quality-and-integrity-requirements}
+
+구조 외에도, 데이터 자체가 내부적으로 일관되고 유용할 만큼 충분히 완전해야 합니다.
+
+| 요구 사항 | 위반 시 영향 |
+|-------------|------------------------|
+| 각 자산에는 기본 키를 설정하는 데 필요한 필드와, 해당되는 경우 다른 자산에 대한 조인 키가 포함되어야 합니다. 중복 레코드는 수집 전에 제거하거나 중복 제거해야 합니다. | 중복되거나 매칭할 수 없는 레코드는 모델 학습에 노이즈를 추가하고 잘못된 기여도 분석을 유발할 수 있습니다. 키가 누락되면 엔진이 추천에서 전환까지의 고객 여정 전반에 걸쳐 이벤트를 연결할 수 없습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="All assets must meet minimum data quality and integrity requirements" }
+
+특히 이벤트 스트림 데이터의 경우, 각 레코드에는 최소한 다음이 포함되어야 합니다:
+
+**필수 필드:**
+- 고객 식별자
+- 이벤트가 발생한 타임스탬프(시스템에서 레코드가 생성된 시점이 아님; 이 둘은 다릅니다. 이것이 중요한 이유는 [스냅샷과 이벤트 스트림 비교]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/)를 참조하세요)
+- 시스템에서 레코드가 생성된 타임스탬프(증분 내보내기를 안정적으로 분할하는 데 사용됨)
+- 이벤트 유형
+- 관심 있는 특정 이벤트로 필터링하기에 충분한 필드
+
+**권장 필드:**
+- 이벤트 유형 간의 안정적인 매칭을 가능하게 하는 추가 이벤트 메타데이터(예: 전환 이벤트를 해당 전환에 선행한 특정 활성화에 다시 연결)

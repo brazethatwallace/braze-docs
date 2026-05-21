@@ -4,20 +4,20 @@ article_title: Socios de personalización de mensajes
 page_order: 1
 
 page_type: landing
-description: "Esta página de inicio enumera los socios de Braze (Alloys) que te permiten añadir personalización adicional a tus campañas y Canvas de Braze."
+description: "Esta página de inicio enumera los socios de Braze (Alloys) que te permiten añadir personalización adicional a tus Campaigns y Canvas de Braze."
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Message Personalization"
+partner_top_header: "Personalización de mensajes"
 
 valid_partner_list:
 - name: Jacquard
   url: /docs/partners/jacquard/
-- name: Avisa a
+- name: Notify
   url: /docs/partners/notify/
 - name: Trustpilot
   url: /docs/partners/trustpilot/
-- name: Amazon Personalizar
+- name: Amazon Personalize
   url: /docs/partners/amazon_personalize/
 - name: Dynamic Yield
   url: /docs/partners/dynamic_yield/
@@ -27,26 +27,28 @@ valid_partner_list:
   url: /docs/partners/movable_ink/
 - name: Sheetlabs
   url: /docs/partners/sheetlabs/
+- name: Limbik
+  url: /docs/partners/limbik/
 - name: Amplitude
   url: /docs/partners/amplitude/
 - name: Certona
   url: /docs/partners/certona/
-- name: Himno del futuro
+- name: CataBoom
+  url: /docs/partners/cataboom/
+- name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
   url: /docs/partners/judo/
-- name: Imágenes ingeniosas
+- name: Nifty Images
   url: /docs/partners/nifty_images/
 - name: Odicci
   url: /docs/partners/odicci/
 - name: Playable
   url: /docs/partners/playable/
-- name: VISTO
+- name: SEEN
   url: /docs/partners/seen/
 - name: Storyly
   url: /docs/partners/storyly/
-- name: Stylitics
-  url: /docs/partners/stylistics/
 - name: Worthy
   url: /docs/partners/worthy/
 - name: WSC Sports
@@ -59,7 +61,7 @@ valid_partner_list:
   url: /docs/partners/crowdin/
 - name: Lokalise
   url: /docs/partners/lokalise/
-- name: Phrase  
+- name: Phrase
   url: /docs/partners/phrase/
 - name: Smartling
   url: /docs/partners/smartling/
@@ -69,12 +71,8 @@ valid_partner_list:
   url: /docs/partners/stylitics/
 - name: NiftyImages
   url: /docs/partners/niftyimages/
-- name: Himno del futuro
-  url: /docs/partners/future_anthem
-- name: VISTO
-  url: /docs/partners/seen
-- name: Sólo palabras
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Transifex
   url: /docs/partners/transifex/
 - name: AccuWeather
@@ -95,6 +93,8 @@ valid_partner_list:
   url: /docs/partners/friendbuy/
 - name: ViralSweep
   url: /docs/partners/viralsweep/
-- name: Mencióname
+- name: Mention Me
   url: /docs/partners/mention_me/
+- name: VideoSmart
+  url: /docs/partners/videosmart/
 ---

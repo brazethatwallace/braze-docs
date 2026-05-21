@@ -1,2 +1,3 @@
-# Local config contains the GitHub token — never commit it
+# Local config contains secrets — never commit it
 config.json
+run.log

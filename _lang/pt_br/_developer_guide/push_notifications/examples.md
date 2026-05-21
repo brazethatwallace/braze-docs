@@ -1,14 +1,15 @@
 ---
 page_order: 10.1
 nav_title: Exemplos avançados
-article_title: Exemplos avançados de notificação por push para o SDK do Braze
+article_title: Exemplos avançados de notificações por push para o SDK da Braze
 channel:
   - push notifications
+hidden: true
 ---
 
-# Exemplos avançados de notificações por push
+# Exemplos avançados de notificações por push {#advanced-push-notification-examples}
 
-> O guia a seguir aborda alguns exemplos avançados de notificações por push para o SDK do Braze.
+> O guia a seguir cobre alguns exemplos avançados de notificações por push para o SDK da Braze.
 
 {% sdktabs %}
 {% sdktab android %}

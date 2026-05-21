@@ -1,50 +1,122 @@
-## Integração do SDK do Android
+## Integrando o SDK do Android {#integrating-the-android-sdk}
 
-### Etapa 1: Atualize seu `build.gradle`
+### Etapa 1: Atualize sua configuração de build do Gradle {#step-1-update-your-gradle-build-configuration}
 
-Em seu site `build.gradle`, adicione [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html) à sua lista de repositórios.
+Na configuração do repositório do seu projeto (por exemplo, `settings.gradle`, `settings.gradle.kts` ou `build.gradle` de nível superior), adicione [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html) à sua lista de repositórios. Essa sintaxe é a mesma para Groovy e Kotlin DSL.
 
-```kotlin
+```groovy
 repositories {
   mavenCentral()
 }
 ```
 
-Em seguida, adicione o Braze às suas dependências.
+Em seguida, adicione a Braze às suas dependências. Nos exemplos a seguir, substitua `SDK_VERSION` pela versão atual do seu SDK Android da Braze. Para a lista completa de versões, veja [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+
+{% alert note %}
+- Para Kotlin DSL (`build.gradle.kts`), use a sintaxe `implementation("...")`.
+- Para Groovy (`build.gradle`), use a sintaxe `implementation '...'`.
+- Para [catálogos de versão](https://developer.android.com/build/migrate-to-catalogs), adicione entradas ao seu arquivo `gradle/libs.versions.toml` e faça referência a elas usando os acessores gerados.
+{% endalert %}
 
 {% tabs local %}
 {% tab base only %}
-Se não planeja usar os componentes da interface do usuário do Braze, adicione o seguinte código ao seu site `build.gradle`. Substitua `SDK_VERSION` pela versão atual de seu Android Braze SDK. Para obter a lista completa de versões, consulte [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+Se você não planeja usar componentes de UI da Braze, adicione o seguinte às suas dependências.
 
-```kotlin
+{% subtabs local %}
+{% subtab Groovy %}
+```groovy
 dependencies {
     implementation 'com.braze:android-sdk-base:SDK_VERSION' // (Required) Adds dependencies for the base Braze SDK.
     implementation 'com.braze:android-sdk-location:SDK_VERSION' // (Optional) Adds dependencies for Braze location services.
 }
 ```
+{% endsubtab %}
+{% subtab Kotlin DSL %}
+```kotlin
+dependencies {
+    implementation("com.braze:android-sdk-base:SDK_VERSION") // (Required) Adds dependencies for the base Braze SDK.
+    implementation("com.braze:android-sdk-location:SDK_VERSION") // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% subtab Version catalog %}
+No seu arquivo `gradle/libs.versions.toml`:
+
+```toml
+[versions]
+braze = "SDK_VERSION"
+
+[libraries]
+braze-android-sdk-base = { group = "com.braze", name = "android-sdk-base", version.ref = "braze" }
+braze-android-sdk-location = { group = "com.braze", name = "android-sdk-location", version.ref = "braze" }
+```
+
+Então, no seu arquivo `build.gradle` ou `build.gradle.kts`, adicione as seguintes dependências. Essa sintaxe é a mesma para Groovy e Kotlin DSL.
+
+```groovy
+dependencies {
+    implementation(libs.braze.android.sdk.base) // (Required) Adds dependencies for the base Braze SDK.
+    implementation(libs.braze.android.sdk.location) // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
 {% endtab %}
 
 {% tab with ui components %}
-Se planeja usar os componentes da interface do usuário do Braze posteriormente, adicione o seguinte código ao seu site `build.gradle`.  Substitua `SDK_VERSION` pela versão atual de seu Android Braze SDK. Para obter a lista completa de versões, consulte [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+Se você planeja usar componentes de UI da Braze, adicione o seguinte às suas dependências.
 
-```kotlin
+{% subtabs local %}
+{% subtab Groovy %}
+```groovy
 dependencies {
-    implementation 'com.braze:android-sdk-ui:SDK_VERSION' // (Required) Adds dependencies for the Braze SDK and Braze UI components. 
+    implementation 'com.braze:android-sdk-ui:SDK_VERSION' // (Required) Adds dependencies for the Braze SDK and Braze UI components.
     implementation 'com.braze:android-sdk-location:SDK_VERSION' // (Optional) Adds dependencies for Braze location services.
 }
 ```
+{% endsubtab %}
+{% subtab Kotlin DSL %}
+```kotlin
+dependencies {
+    implementation("com.braze:android-sdk-ui:SDK_VERSION") // (Required) Adds dependencies for the Braze SDK and Braze UI components.
+    implementation("com.braze:android-sdk-location:SDK_VERSION") // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% subtab Version catalog %}
+No seu arquivo `gradle/libs.versions.toml`:
+
+```toml
+[versions]
+braze = "SDK_VERSION"
+
+[libraries]
+braze-android-sdk-ui = { group = "com.braze", name = "android-sdk-ui", version.ref = "braze" }
+braze-android-sdk-location = { group = "com.braze", name = "android-sdk-location", version.ref = "braze" }
+```
+
+Então, no seu arquivo `build.gradle` ou `build.gradle.kts`, adicione as seguintes dependências. Essa sintaxe é a mesma para Groovy e Kotlin DSL.
+
+```groovy
+dependencies {
+    implementation(libs.braze.android.sdk.ui) // (Required) Adds dependencies for the Braze SDK and Braze UI components.
+    implementation(libs.braze.android.sdk.location) // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Configure seu `braze.xml`
+### Etapa 2: Configure seu `braze.xml` {#step-2-configure-your-brazexml}
 
 {% alert note %}
-A partir de dezembro de 2019, os pontos de extremidade personalizados não serão mais fornecidos. Se você tiver um ponto de extremidade personalizado pré-existente, poderá continuar a usá-lo. Para obter mais informações, consulte nossa <a href="{{site.baseurl}}/api/basics/#endpoints">lista de endpoints disponíveis</a>.
+A partir de dezembro de 2019, os endpoints personalizados não são mais fornecidos. Se você tiver um endpoint personalizado pré-existente, poderá continuar a usá-lo. Para saber mais, consulte nossa <a href="{{site.baseurl}}/api/basics/#endpoints">lista de endpoints disponíveis</a>.
 {% endalert %}
 
-Crie um arquivo `braze.xml` na pasta `res/values` de seu projeto. Se estiver em um cluster de dados específico ou tiver um endpoint personalizado pré-existente, também será necessário especificar o endpoint no arquivo `braze.xml`. 
+Crie um arquivo `braze.xml` na pasta `res/values` do seu projeto. Se estiver em um cluster de dados específico ou tiver um endpoint personalizado pré-existente, também será necessário especificar o endpoint no arquivo `braze.xml`.
 
-O conteúdo desse arquivo deve se parecer com o seguinte trecho de código. Certifique-se de substituir `YOUR_APP_IDENTIFIER_API_KEY` pelo identificador encontrado na página **Manage Settings (Gerenciar configurações)** do dashboard do Braze. Faça o registro em [dashboard.braze.com](https://dashboard.braze.com) para encontrar seu [endereço de cluster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints). 
+O conteúdo desse arquivo deve se parecer com o seguinte trecho de código. Certifique-se de substituir `YOUR_APP_IDENTIFIER_API_KEY` pelo identificador encontrado na página **Gerenciar configurações** do dashboard da Braze. Faça login em [dashboard.braze.com](https://dashboard.braze.com) para encontrar seu [endereço de cluster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -54,9 +126,9 @@ O conteúdo desse arquivo deve se parecer com o seguinte trecho de código. Cert
 </resources>
 ```
 
-### Etapa 3: Adicionar permissões a `AndroidManifest.xml`
+### Etapa 3: Adicione permissões ao `AndroidManifest.xml` {#step-3-add-permissions-to-androidmanifestxml}
 
-Em seguida, adicione as seguintes permissões ao seu site `AndroidManifest.xml`:
+Em seguida, adicione as seguintes permissões ao seu `AndroidManifest.xml`:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -64,26 +136,26 @@ Em seguida, adicione as seguintes permissões ao seu site `AndroidManifest.xml`:
 ```
 
 {% alert note %}
-Com o lançamento do Android M, o Android mudou de um modelo de permissões de tempo de instalação para um modelo de permissões de tempo de execução. No entanto, essas duas permissões são permissões normais e são concedidas automaticamente se estiverem listadas no manifesto do app. Para saber mais, consulte a [documentação de permissões](https://developer.android.com/training/permissions/index.html) do Android.
+Com o lançamento do Android M, o Android mudou de um modelo de permissões em tempo de instalação para um modelo de permissões em tempo de execução. No entanto, essas duas permissões são permissões normais e são concedidas automaticamente se estiverem listadas no manifesto do app. Para saber mais, consulte a [documentação de permissões](https://developer.android.com/training/permissions/index.html) do Android.
 {% endalert %}
 
-### Etapa 4: Ativar a inicialização com postergação (opcional)
+### Etapa 4: Ativar inicialização atrasada (opcional) {#step-4-enable-delayed-initialization-optional}
 
-Para usar a inicialização por postergação, é necessária a versão mínima do Braze SDK:
+Para usar a inicialização atrasada, a versão mínima do SDK da Braze é necessária:
 
 {% sdk_min_versions android:38.0.0 %}
 
 {% alert note %}
-Enquanto a capacitação estiver ativada, todas as conexões de rede serão canceladas, impedindo que o SDK envie dados para os servidores Braze.
+Enquanto a inicialização atrasada está ativada, todas as conexões de rede são canceladas, impedindo que o SDK envie dados para os servidores da Braze.
 {% endalert %}
 
-#### Etapa 4.1: Atualize seu `braze.xml`
+#### Etapa 4.1: Atualize seu `braze.xml` {#step-41-update-your-brazexml}
 
-A inicialização com postergação está desativada por padrão. Para ativar, use uma das seguintes opções:
+A inicialização atrasada está desativada por padrão. Para ativar, use uma das seguintes opções:
 
 {% tabs %}
 {% tab Braze XML file %}
-No arquivo `braze.xml` de seu projeto, defina `com_braze_enable_delayed_initialization` como `true`.
+No arquivo `braze.xml` do seu projeto, defina `com_braze_enable_delayed_initialization` como `true`.
 
 ```xml
 <bool name="com_braze_enable_delayed_initialization">true</bool>
@@ -91,7 +163,7 @@ No arquivo `braze.xml` de seu projeto, defina `com_braze_enable_delayed_initiali
 {% endtab %}
 
 {% tab At runtime %}
-Para ativar a capacitação com postergação no tempo de execução, use o seguinte método.
+Para ativar a inicialização atrasada em tempo de execução, use o seguinte método.
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -113,20 +185,20 @@ Braze.enableDelayedInitialization(context)
 {% endtabs %}
 
 {% alert note %}
-Quando a inicialização postergada está ativada e uma notificação por push contém uma ação de deep linking, o deep link não é resolvido.
+Quando a inicialização atrasada está ativada e uma notificação por push contém uma ação de deep link, o deep link não é resolvido.
 {% endalert %}
 
-#### Etapa 4.2: Configurar a análise de dados push (opcional)
+#### Etapa 4.2: Configurar análise de dados de push (opcional) {#step-42-configure-push-analytics-optional}
 
-Quando a inicialização com postergação é ativada, as análises de dados push são enfileiradas por padrão. No entanto, você pode optar por enfileirar ou [descartar](#drop-push-analytics) [explicitamente](#explicitly-queue-push-analytics) a análise de dados push.
+Quando a inicialização atrasada está ativada, as análises de dados de push são enfileiradas por padrão. No entanto, você pode optar por [enfileirar explicitamente](#explicitly-queue-push-analytics) ou [descartar](#drop-push-analytics) as análises de dados de push.
 
 ##### Enfileirar explicitamente {#explicitly-queue-push-analytics}
 
-Para enfileirar explicitamente a análise de dados push, escolha uma das seguintes opções:
+Para enfileirar explicitamente as análises de dados de push, escolha uma das seguintes opções:
 
 {% tabs %}
 {% tab Braze XML file %}
-Em seu arquivo `braze.xml`, defina `com_braze_delayed_initialization_analytics_behavior` como `QUEUE`:
+No seu arquivo `braze.xml`, defina `com_braze_delayed_initialization_analytics_behavior` como `QUEUE`:
 
 ```xml
 <string name="com_braze_delayed_initialization_analytics_behavior">QUEUE</string>
@@ -134,7 +206,7 @@ Em seu arquivo `braze.xml`, defina `com_braze_delayed_initialization_analytics_b
 {% endtab %}
 
 {% tab At runtime %}
-Adicione `QUEUE` ao seu [`Braze.enableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-delayed-initialization.html) método:
+Adicione `QUEUE` ao seu método [`Braze.enableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-delayed-initialization.html):
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -155,13 +227,13 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 {% endtab %}
 {% endtabs %}
 
-##### Queda {#drop-push-analytics}
+##### Descartar {#drop-push-analytics}
 
-Para descartar a análise de dados por push, escolha uma das seguintes opções:
+Para descartar as análises de dados de push, escolha uma das seguintes opções:
 
 {% tabs %}
 {% tab Braze XML file %}
-Em seu arquivo `braze.xml`, defina `com_braze_delayed_initialization_analytics_behavior` como `DROP`: 
+No seu arquivo `braze.xml`, defina `com_braze_delayed_initialization_analytics_behavior` como `DROP`:
 
 ```xml
 <string name="com_braze_delayed_initialization_analytics_behavior">DROP</string>
@@ -169,7 +241,7 @@ Em seu arquivo `braze.xml`, defina `com_braze_delayed_initialization_analytics_b
 {% endtab %}
 
 {% tab At runtime %}
-Adicione `DROP` ao método [`Braze.enableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-delayed-initialization.html) method:
+Adicione `DROP` ao método [`Braze.enableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-delayed-initialization.html):
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -190,9 +262,9 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 {% endtab %}
 {% endtabs %}
 
-#### Etapa 4.3: Inicialização manual do SDK
+#### Etapa 4.3: Inicializar manualmente o SDK {#step-43-manually-initialize-the-sdk}
 
-Após o período de postergação escolhido, use o método [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) para inicializar manualmente o SDK.
+Após o período de atraso escolhido, use o método [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) para inicializar manualmente o SDK.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -211,11 +283,11 @@ Braze.disableDelayedInitialization(context)
 {% endtab %}
 {% endtabs %}
 
-### Etapa 5: Ativar o rastreamento da sessão do usuário
+### Etapa 5: Ativar o rastreamento de sessão do usuário {#step-5-enable-user-session-tracking}
 
-Ao ativar o rastreamento da sessão do usuário, as chamadas para `openSession()`, `closeSession()`,[`ensureSubscribedToInAppMessageEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/ensure-subscribed-to-in-app-message-events.html)e `InAppMessageManager` podem ser tratadas automaticamente.
+Quando você ativa o rastreamento de sessão do usuário, chamadas para `openSession()`, `closeSession()`, [`ensureSubscribedToInAppMessageEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/ensure-subscribed-to-in-app-message-events.html) e o registro de `InAppMessageManager` podem ser tratados automaticamente.
 
-Para registrar retornos de chamada do ciclo de vida da atividade, adicione o seguinte código ao método `onCreate()` da sua classe `Application`. 
+Para registrar callbacks do ciclo de vida da atividade, adicione o seguinte código ao método `onCreate()` da sua classe `Application`.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -242,32 +314,32 @@ class MyApplication : Application() {
 }
 ```
 
-Para obter a lista de parâmetros disponíveis, consulte [`BrazeActivityLifecycleCallbackListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-activity-lifecycle-callback-listener/index.html).
+Para a lista de parâmetros disponíveis, veja [`BrazeActivityLifecycleCallbackListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-activity-lifecycle-callback-listener/index.html).
 
 {% endtab %}
 {% endtabs %}
 
-## Teste de rastreamento de sessão
+## Teste de rastreamento de sessão {#testing-session-tracking}
 
 {% alert tip %}
-Você também pode usar o [SDK Debugger]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas do SDK.
+Você também pode usar o [Depurador do SDK]({{site.baseurl}}/developer_guide/debugging/) para diagnosticar problemas do SDK.
 {% endalert %}
 
-Se tiver problemas durante o teste, ative [a capacitação de registro detalhado](#android_enabling-logs) e use o logcat para detectar chamadas ausentes de `openSession` e `closeSession` em suas atividades.
+Se você encontrar problemas durante os testes, ative o [registro detalhado](#android_enabling-logs) e use o logcat para detectar chamadas ausentes de `openSession` e `closeSession` em suas atividades.
 
-1. No Braze, acesse **Overview (Visão geral)**, selecione seu app e, no menu suspenso **Display Data For (Exibir dados para** ), escolha **Today (Hoje**).
-    ![A página "Overview" (Visão geral) no Braze, com o campo "Display Data For" (Exibir dados para) definido como "Today" (Hoje).]({% image_buster /assets/img_archive/android_sessions.png %})
-2. Abra seu app e, em seguida, atualize o dashboard do Braze. Verifique se suas métricas aumentaram em 1.
-3. Navegue pelo seu app e verifique se apenas uma sessão foi registrada no Braze.
-4. Coloque o app em segundo plano por pelo menos 10 segundos e, em seguida, coloque-o em primeiro plano. Verifique se uma nova sessão foi registrada.
+1. Na Braze, acesse **Visão Geral**, selecione seu app e, no dropdown **Exibir Dados Para**, escolha **Hoje**.
+    ![A página "Visão Geral" na Braze, com o campo "Exibir Dados Para" definido como "Hoje".]({% image_buster /assets/img_archive/android_sessions.png %})
+2. Abra seu app e atualize o dashboard da Braze. Verifique se suas métricas aumentaram em 1.
+3. Navegue pelo seu app e verifique se apenas uma sessão foi registrada na Braze.
+4. Envie o app para o segundo plano por pelo menos 10 segundos e, em seguida, traga-o para o primeiro plano. Verifique se uma nova sessão foi registrada.
 
-## Configurações opcionais
+## Configurações opcionais {#optional-configurations}
 
-### Configuração do tempo de execução
+### Configuração em tempo de execução {#runtime-configuration}
 
-Para definir suas opções do Braze no código em vez de no arquivo `braze.xml`, use [a configuração de tempo de execução](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html). Se houver um valor em ambos os lugares, o valor de tempo de execução será usado em seu lugar. Depois que todas as configurações necessárias forem fornecidas em tempo de execução, você poderá excluir o arquivo `braze.xml`.
+Para definir suas opções da Braze no código em vez do seu arquivo `braze.xml`, use a [configuração em tempo de execução](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html). Se um valor existir em ambos os lugares, o valor em tempo de execução será usado. Depois que todas as configurações necessárias forem fornecidas em tempo de execução, você pode excluir seu arquivo `braze.xml`.
 
-No exemplo a seguir, um [objeto builder](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html) é criado e, em seguida, passado para [`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html). Observe que apenas algumas das opções de tempo de execução disponíveis são mostradas - consulte nosso [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html) para obter a lista completa.
+No exemplo a seguir, um [objeto builder](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html) é criado e, em seguida, passado para [`Braze.configure()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/configure.html). Observe que apenas algumas das opções de tempo de execução disponíveis são mostradas&#8212;consulte nosso [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/index.html) para a lista completa.
 
 {% tabs %}
 {% tab JAVA %}
@@ -301,12 +373,12 @@ Braze.configure(this, brazeConfig)
 {% endtabs %}
 
 {% alert tip %}
-Está procurando outro exemplo? Dê uma olhada em nosso [app de amostra Hello Braze](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/hello-braze/src/main/java/com/braze/helloworld/CustomApplication.java).
+Procurando outro exemplo? Confira nosso [app de exemplo Hello Braze](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/hello-braze/src/main/java/com/braze/helloworld/CustomApplication.java).
 {% endalert %}
 
-### ID de publicidade do Google
+### ID de publicidade do Google {#google-advertising-id}
 
-O [Google Advertising ID (GAID)](https://support.google.com/googleplay/android-developer/answer/6048248/advertising-id?hl=en) é um ID opcional específico do usuário, anônimo, exclusivo e redefinível para publicidade, fornecido pelos serviços do Google Play. O GAID permite que os usuários redefinam seu identificador, aceitem anúncios baseados em interesses nos aplicativos do Google Play e fornece aos desenvolvedores um sistema simples e padrão para continuar a monetizar seus apps.
+O [ID de Publicidade do Google (GAID)](https://support.google.com/googleplay/android-developer/answer/6048248/advertising-id?hl=en) é um ID opcional, específico do usuário, anônimo, único e redefinível para publicidade, fornecido pelos serviços do Google Play. O GAID permite que os usuários redefinam seu identificador, optem por não receber anúncios baseados em interesses nos apps do Google Play e fornece aos desenvolvedores um sistema simples e padrão para continuar a monetizar seus apps.
 
 O ID de publicidade do Google não é coletado automaticamente pelo SDK da Braze e deve ser definido manualmente por meio do método [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
 
@@ -357,35 +429,35 @@ O Google exige que o ID de publicidade seja coletado em um thread que não seja 
 {% endalert %}
 
 
-### monitoramento de localização
+### Monitoramento de localização {#location-tracking}
 
-Para ativar a coleta de locais do Braze, defina `com_braze_enable_location_collection` como `true` em seu arquivo `braze.xml`:
+Para ativar a coleta de localização da Braze, defina `com_braze_enable_location_collection` como `true` no seu arquivo `braze.xml`:
 
 ```xml
 <bool name="com_braze_enable_location_collection">true</bool>
 ```
 
 {% alert important %}
-A partir da versão 3.6.0 do Braze Android SDK, a coleta de locais da Braze é desativada por padrão.
+A partir da versão 3.6.0 do SDK Android da Braze, a coleta de localização da Braze é desativada por padrão.
 {% endalert %}
 
-### Registro
+### Registro {#logging}
 
-Por padrão, o nível de registro do Braze Android SDK é definido como `INFO`. Você pode [suprimir esses registros](#android_suppressing-logs) ou [definir um nível de registro diferente](#android_enabling-logs), como `VERBOSE`, `DEBUG` ou `WARN`.
+Por padrão, o nível de registro do SDK Android da Braze é definido como `INFO`. Você pode [suprimir esses registros](#android_suppressing-logs) ou [definir um nível de registro diferente](#android_enabling-logs), como `VERBOSE`, `DEBUG` ou `WARN`.
 
-#### Capacitação de registros
+#### Ativando registros {#enabling-logs}
 
-Para ajudar a solucionar problemas no seu app, ou reduzir o tempo de resposta com o suporte da Braze, você vai querer ativar registros detalhados para o SDK. Quando você enviar registros detalhados para o suporte da Braze, certifique-se de que eles comecem assim que você lançar seu aplicativo e terminem muito depois que seu problema ocorrer.
+Para ajudar a solucionar problemas no seu app ou reduzir os tempos de resposta com o suporte da Braze, você pode ativar registros detalhados para o SDK. Quando você enviar registros detalhados para o suporte da Braze, certifique-se de que eles comecem assim que você iniciar seu aplicativo e terminem bem depois que o problema ocorrer. Para uma visão centralizada, veja [Registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Para aprender a interpretar a saída do registro, veja [Lendo registros detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
 
-Lembre-se de que registro detalhados são destinados apenas para o seu ambiente de desenvolvimento, então é interessante desativá-los antes de lançar seu app.
+Lembre-se de que registros detalhados são destinados apenas ao seu ambiente de desenvolvimento, então é importante desativá-los antes de lançar seu app.
 
 {% alert important %}
-Ativar registros detalhados antes de qualquer outra chamada em `Application.onCreate()` para garantir que seus registros sejam o mais completos possível.
+Ative registros detalhados antes de qualquer outra chamada em `Application.onCreate()` para garantir que seus registros sejam o mais completos possível.
 {% endalert %}
 
 {% tabs local %}
 {% tab Application %}
-Para ativar logs diretamente no seu app, adicione o seguinte ao método `onCreate()` do seu aplicativo antes de qualquer outro método.
+Para ativar registros diretamente no seu app, adicione o seguinte ao método `onCreate()` do seu aplicativo antes de qualquer outro método.
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -401,9 +473,9 @@ BrazeLogger.logLevel = Log.MIN_LOG_LEVEL
 {% endsubtab %}
 {% endsubtabs %}
 
-Substitua `MIN_LOG_LEVEL` pelo **Constante** do nível de registro que você gostaria de definir como seu nível de registro mínimo. Quaisquer registro em um nível `>=` para o seu conjunto `MIN_LOG_LEVEL` serão encaminhados para o método padrão do Android [`Log`](https://developer.android.com/reference/android/util/Log). Qualquer registro `<` que você definir como `MIN_LOG_LEVEL` será descartado.
+Substitua `MIN_LOG_LEVEL` pela **Constante** do nível de registro que você deseja definir como seu nível mínimo. Quaisquer registros em um nível `>=` ao seu `MIN_LOG_LEVEL` definido serão encaminhados para o método padrão do Android [`Log`](https://developer.android.com/reference/android/util/Log). Quaisquer registros `<` ao seu `MIN_LOG_LEVEL` definido serão descartados.
 
-| Constante    | Valor          | Descrição                                                               |
+| Constante   | Valor          | Descrição                                                               |
 |-------------|----------------|---------------------------------------------------------------------------|
 | `VERBOSE`   | 2              | Registra as mensagens mais detalhadas para depuração e desenvolvimento.            |
 | `DEBUG`     | 3              | Registra mensagens descritivas para depuração e desenvolvimento.                  |
@@ -411,7 +483,7 @@ Substitua `MIN_LOG_LEVEL` pelo **Constante** do nível de registro que você gos
 | `WARN`      | 5              | Registra mensagens de aviso para identificar situações potencialmente prejudiciais.     |
 | `ERROR`     | 6              | Registra mensagens de erro para indicar falha no aplicativo ou problemas sérios. |
 | `ASSERT`    | 7              | Registra mensagens de asserção quando as condições são falsas durante o desenvolvimento.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
 
 Por exemplo, o código a seguir encaminhará os níveis de registro `2`, `3`, `4`, `5`, `6` e `7` para o método `Log`.
 
@@ -437,9 +509,9 @@ Para ativar registros no `braze.xml`, adicione o seguinte ao seu arquivo:
 <integer name="com_braze_logger_initial_log_level">MIN_LOG_LEVEL</integer>
 ```
 
-Substitua `MIN_LOG_LEVEL` pelo **Valor** do nível de registro que você gostaria de definir como seu nível de registro mínimo. Quaisquer registro em um nível `>=` para o seu conjunto `MIN_LOG_LEVEL` serão encaminhados para o método padrão do Android [`Log`](https://developer.android.com/reference/android/util/Log). Qualquer registro `<` que você definir como `MIN_LOG_LEVEL` será descartado.
+Substitua `MIN_LOG_LEVEL` pelo **Valor** do nível de registro que você deseja definir como seu nível mínimo. Quaisquer registros em um nível `>=` ao seu `MIN_LOG_LEVEL` definido serão encaminhados para o método padrão do Android [`Log`](https://developer.android.com/reference/android/util/Log). Quaisquer registros `<` ao seu `MIN_LOG_LEVEL` definido serão descartados.
 
-| Constante    | Valor          | Descrição                                                               |
+| Constante   | Valor          | Descrição                                                               |
 |-------------|----------------|---------------------------------------------------------------------------|
 | `VERBOSE`   | 2              | Registra as mensagens mais detalhadas para depuração e desenvolvimento.            |
 | `DEBUG`     | 3              | Registra mensagens descritivas para depuração e desenvolvimento.                  |
@@ -447,7 +519,7 @@ Substitua `MIN_LOG_LEVEL` pelo **Valor** do nível de registro que você gostari
 | `WARN`      | 5              | Registra mensagens de aviso para identificar situações potencialmente prejudiciais.     |
 | `ERROR`     | 6              | Registra mensagens de erro para indicar falha no aplicativo ou problemas sérios. |
 | `ASSERT`    | 7              | Registra mensagens de asserção quando as condições são falsas durante o desenvolvimento.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
 
 Por exemplo, o código a seguir encaminhará os níveis de registro `2`, `3`, `4`, `5`, `6` e `7` para o método `Log`.
 
@@ -457,17 +529,17 @@ Por exemplo, o código a seguir encaminhará os níveis de registro `2`, `3`, `4
 {% endtab %}
 {% endtabs %}
 
-#### Verificação de registros detalhados
+#### Verificação de registros detalhados {#verifying-verbose-logs}
 
-Para verificar se seus registros estão definidos para `VERBOSE`, verifique se `V/Braze` ocorre em algum lugar nos seus registros. Se isso acontecer, os registros detalhados foram ativados com sucesso. Por exemplo:
+Para verificar se seus registros estão definidos como `VERBOSE`, verifique se `V/Braze` aparece em algum lugar nos seus registros. Se aparecer, os registros detalhados foram ativados com sucesso. Por exemplo:
 
 ```
 2077-11-19 16:22:49.591 ? V/Braze v9.0.01 .bo.app.d3: Request started
 ```
 
-#### Supressão de registros
+#### Supressão de registros {#suppressing-logs}
 
-Para suprimir todos os registros do Braze Android SDK, defina o nível de registro como `BrazeLogger.SUPPRESS` no método `onCreate()` do seu aplicativo _antes de_ qualquer outro método.
+Para suprimir todos os registros do SDK Android da Braze, defina o nível de registro como `BrazeLogger.SUPPRESS` no método `onCreate()` da sua aplicação _antes_ de qualquer outro método.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -483,13 +555,13 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 {% endtab %}
 {% endtabs %}
 
-### Múltiplas chaves de API
+### Múltiplas chaves de API {#multiple-api-keys}
 
 O caso de uso mais comum para várias chaves de API é separar chaves de API para variantes de build de depuração e release.
 
-Para alternar facilmente entre várias chaves de API em suas compilações, recomendamos criar um arquivo `braze.xml` separado para cada [variante de compilação](https://developer.android.com/studio/build/build-variants.html) relevante. Uma variante de compilação é uma combinação de tipo de compilação e sabor do produto. Por padrão, os novos projetos Android são configurados com os [tipos de compilação`debug` e `release` ](https://developer.android.com/reference/tools/gradle-api/8.3/null/com/android/build/api/dsl/BuildType) e nenhum tipo de produto.
+Para alternar facilmente entre várias chaves de API em suas compilações, recomendamos criar um arquivo `braze.xml` separado para cada [variante de compilação](https://developer.android.com/studio/build/build-variants.html) relevante. Uma variante de compilação é uma combinação de tipo de compilação e sabor do produto. Por padrão, novos projetos Android são configurados com [tipos de build `debug` e `release`](https://developer.android.com/reference/tools/gradle-api/8.3/null/com/android/build/api/dsl/BuildType) e sem sabores de produto.
 
-Para cada variante de compilação relevante, crie um novo `braze.xml` no diretório `src/<build variant name>/res/values/`. Quando a variante de compilação for compilada, ela usará o nova chave de API.
+Para cada variante de build relevante, crie um novo `braze.xml` no diretório `src/<build variant name>/res/values/`. Quando a variante de compilação for compilada, ela usará a nova chave de API.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -499,12 +571,12 @@ Para cada variante de compilação relevante, crie um novo `braze.xml` no diret�
 ```
 
 {% alert tip %}
-Para saber como configurar a chave de API em seu código, consulte [Configuração do tempo de execução]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Para aprender a configurar a chave de API no seu código, veja [Configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
 {% endalert %}
 
-### Mensagem exclusiva no app TalkBack
+### Mensagem no app exclusiva com TalkBack {#exclusive-in-app-message-talkback}
 
-Em conformidade com as [diretrizes de acessibilidade do Android](https://developer.android.com/guide/topics/ui/accessibility), o SDK do Braze para Android oferece o Android Talkback por padrão. Para garantir que apenas o conteúdo das mensagens no app seja lido em voz alta - sem incluir outros elementos da tela, como a barra de título do app ou a navegação -, é possível ativar o modo exclusivo para o TalkBack.
+Em conformidade com as [diretrizes de acessibilidade do Android](https://developer.android.com/guide/topics/ui/accessibility), o SDK Android da Braze oferece o Android TalkBack por padrão. Para garantir que apenas o conteúdo das mensagens no app seja lido em voz alta — sem incluir outros elementos da tela, como a barra de título do app ou a navegação — você pode ativar o modo exclusivo para o TalkBack.
 
 Para ativar o modo exclusivo para mensagens no app:
 
@@ -532,11 +604,11 @@ Braze.configure(this, brazeConfigBuilder.build());
 {% endtab %}
 {% endtabs %}
 
-### R8 e ProGuard
+### R8 e ProGuard {#r8-and-proguard}
 
-A configuração de [redução de código](https://developer.android.com/build/shrink-code) é incluída automaticamente com sua integração Braze.
+A configuração de [redução de código](https://developer.android.com/build/shrink-code) é incluída automaticamente com sua integração da Braze.
 
-Os aplicativos do cliente que ofuscam o código da Braze devem armazenar arquivos de mapeamento de versão para que a Braze interprete os rastreamentos de pilha. Se você quiser manter todo o código da Braze, adicione o seguinte ao seu arquivo ProGuard:
+Os apps clientes que ofuscam o código da Braze devem armazenar arquivos de mapeamento de release para que a Braze interprete os rastreamentos de pilha. Se você quiser manter todo o código da Braze, adicione o seguinte ao seu arquivo ProGuard:
 
 ```
 -keep class bo.app.** { *; }

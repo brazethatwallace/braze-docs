@@ -2,7 +2,7 @@
 nav_title: AccuWeather
 article_title: AccuWeather
 alias: /partners/accuweather/
-description: "この参考記事では、BrazeとAccuWeatherのパートナーシップについて概説している。AccuWeatherは、マーケティング・キャンペーンをパーソナライズするために使用できる天気APIである。"
+description: "この参考記事では、BrazeとAccuWeatherのパートナーシップについて説明します。AccuWeatherは、マーケティングキャンペーンをパーソナライズするために使用できる天気APIです。"
 page_type: partner
 search_tag: Partner
 
@@ -10,37 +10,37 @@ search_tag: Partner
 
 # AccuWeather
 
-> [AccuWeather](https://www.accuweather.com/) は、世界中で気象予報サービスを提供するメディア企業です。AccuWeather を使用すると、マーケティングキャンペーンを強化、パーソナライズし、Braze [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/about_connected_content/) を使用して翻訳を自動化できます。 
+> [AccuWeather](https://www.accuweather.com/) は、世界中で気象予報サービスを提供するメディア企業です。AccuWeatherを使用すると、マーケティングキャンペーンを強化・パーソナライズし、Brazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)を使用して翻訳を自動化できます。
 
-_この統合は AccuWeather によって管理されます。_
+_この統合はAccuWeatherによって管理されています。_
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| AccuWeather API キー | リクエスト URL で使用する互換性のある API キーについては、AccuWeather アカウントマネージャーにお問い合わせください。<br><br>詳細な手順は、[AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) ページに記載されています。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| AccuWeather APIキー | リクエストURLで使用する互換性のあるAPIキーについては、AccuWeatherアカウントマネージャーにお問い合わせください。<br><br>詳細な手順は、[AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) ページに記載されています。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 利用可能なAccuWeather API
+## 利用可能なAccuWeather API {#available-accuweather-apis}
 
-以下は、BrazeのキャンペーンやCanvasで参照できるAccuWeather APIである。
+以下は、Brazeのキャンペーンやキャンバスで参照できるAccuWeather APIです。
 
 | API | 説明 |
 |---|---|
-|[Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | 希望の場所のロケーションキーを取得する。ロケーションキーを使用して、Forecast API または Current Conditions API から気象データを取得します。 |
-| [Forecast](https://apidev.accuweather.com/developers/forecastsAPIguide) | 特定の場所の予報情報を得る。 |
-| [Current Conditions](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) | 特定のロケーションの Current Conditions データを取得します。 |
-| [Indices](https://apidev.accuweather.com/developers/indicesApiGuide) | 特定の場所の日次指数値を取得する。インデックスの入手可能性は地域によって異なる。 |
-| [Weather Alarms](https://apidev.accuweather.com/developers/weatheralarmsAPIguide) | 特定の場所の天気アラームを取得する。AccuWeatherの天気予報アラームは、その場所の毎日の予報を使って決定される。天気予報が[特定のしきい値](https://apidev.accuweather.com/developers/weatheralarms)に一致するか、これを超過している場合、当該のロケーションにアラートが存在します。 |
+| [Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | 希望のロケーションのロケーションキーを取得します。ロケーションキーを使用して、Forecast APIまたはCurrent Conditions APIから気象データを取得します。 |
+| [Forecast](https://apidev.accuweather.com/developers/forecastsAPIguide) | 特定のロケーションの予報情報を取得します。 |
+| [Current Conditions](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) | 特定のロケーションのCurrent Conditionsデータを取得します。 |
+| [Indices](https://apidev.accuweather.com/developers/indicesApiGuide) | 特定のロケーションの日次指数値を取得します。インデックスの利用可能性はロケーションによって異なります。 |
+| [Weather Alarms](https://apidev.accuweather.com/developers/weatheralarmsAPIguide) | 特定のロケーションの天気アラームを取得します。AccuWeatherの天気アラームは、そのロケーションの日次予報を使用して決定されます。予報天気が[特定のしきい値](https://apidev.accuweather.com/developers/weatheralarms)に一致するか超過している場合、当該ロケーションにアラームが存在します。 |
 | [Alerts](https://apidev.accuweather.com/developers/alertsApiGuide) | 政府の気象庁や世界的な気象警報プロバイダーから悪天候警報を取得します。 |
-| [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | レーダーと衛星画像を入手する。 |
+| [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | レーダーおよび衛星画像を取得します。 |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | 世界中の熱帯低気圧の現在位置、過去の位置、予報を取得します。 |
-| [翻訳](https://apidev.accuweather.com/developers/translationsApiGuide) | 利用可能な言語のリストを取得する。特定のフレーズグループの翻訳を取得します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | 利用可能な言語のリストを取得します。特定のフレーズグループの翻訳を取得します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available AccuWeather APIs" }
 
-## コネクテッドコンテンツの例
+## コネクテッドコンテンツの例 {#connected-content-example}
 
-次に、米国内のユーザーの郵便番号に対応する場所の現在の状況に基づいて、2つの異なるタイプのメッセージを表示するコネクテッドコンテンツ呼び出しの例を示します。AccuWeather の Locations API エンドポイントと Current Conditions API エンドポイントが使用されています。
+次の例は、米国内のユーザーの郵便番号の現在の気象状況に基づいて、2種類の異なるメッセージを表示するコネクテッドコンテンツ呼び出しを示しています。AccuWeatherのLocations APIエンドポイントとCurrent Conditions APIエンドポイントが使用されています。
 {% raw %}
 
 ```liquid
@@ -58,23 +58,23 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-![雨が降っています」というコネクテッド・コンテンツのプッシュメッセージ！アンドロイド端末で表示される「傘を持とう]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
+![「雨が降っています！傘を持っていきましょう！」と表示されたコネクテッドコンテンツのプッシュメッセージがAndroidデバイスに表示されている様子]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){: style="max-width:40%"}
 
 2つのコネクテッドコンテンツ呼び出しの詳細を以下の例に示します。
 
 {% tabs %}
 {% tab Locations %}
-#### ロケーションAPIの例
+#### Locations APIの例 {#locations-api-example}
 
 {% raw %}
-1番目の `connected_content` タグ内で、[Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) に対する GET リクエストが実行されます。この例では、郵便番号のカスタム属性がない場合には、代わりにユーザーの `{{${city}}}` を利用できます。
+1番目の `connected_content` タグ内で、[Locations API](https://apidev.accuweather.com/developers/locationsAPIguide) に対するGETリクエストが実行されます。この例では、郵便番号のカスタム属性がない場合、代わりにユーザーの `{{${city}}}` を利用できます。
 
 ```
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
 ```
 {% endraw %}
 
-以下は、AccuWeatherがJSONオブジェクトとして返すものの例である：
+以下は、AccuWeatherがJSONオブジェクトとして返す内容の例です。
 
 ```json
 [
@@ -152,21 +152,21 @@ Enjoy the weather!
 ]
 ```
 
-「Key」ID は有用な変数であり、2番目の GET リクエストで使用されています。
-この JSON オブジェクトは、URL の後に `:save location_info` を指定することで、ローカル変数 `location_info` に格納できます。
+「Key」IDは有用な変数であり、2番目のGETリクエストで使用されます。
+このJSONオブジェクトは、URLの後に `:save location_info` を指定することで、ローカル変数 `location_info` に格納できます。
 {% endtab %}
 {% tab Current conditions %}
 
-#### Current Conditions API の例
+#### Current Conditions APIの例 {#current-conditions-api-example}
 
-2番目の `connected_content` タグで、[Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) に対する GET リクエストが実行されます。リクエスト URLに **ロケーションキー**を追加する必要があります。`connected_content` タグの例を次に示します。
+2番目の `connected_content` タグで、[Current Conditions API](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) に対するGETリクエストが実行されます。リクエストURLに**ロケーションキー**を追加する必要があります。`connected_content` タグの例を次に示します。
 
 {% raw %}
 ```
 {% connected_content http://dataservice.accuweather.com/currentconditions/v1/{{location_info[0].Key}}?apikey={your API key} :save local_weather %}
 ```
 
-以下は、返されたJSONオブジェクトである：
+以下は、返されたJSONオブジェクトです。
 
 ```json
 [
@@ -194,11 +194,11 @@ Enjoy the weather!
 ]
 ```
 
-`connected_content` タグに見られるように、JSONオブジェクトは、URLの後に`:save local_weather` を追加することで、ローカル変数`local_weather` に格納される。
+`connected_content` タグに見られるように、JSONオブジェクトは、URLの後に `:save local_weather` を追加することで、ローカル変数 `local_weather` に格納されます。
 
-`{{local_weather[0].WeatherText}}` を参照することで、[WeatherText](https://apidev.accuweather.com/developers/currentConditionsAPIGuide)の出力がどうなるかをテストすることができる。
+`{{local_weather[0].WeatherText}}` を参照することで、[WeatherText](https://apidev.accuweather.com/developers/currentConditionsAPIGuide)の出力がどうなるかをテストできます。
 
-API 呼び出しが `{{local_weather[0].WeatherText}}` で応答し、`Rain` を返す場合、ユーザーはプッシュを受信します。
+API呼び出しの `{{local_weather[0].WeatherText}}` が `Rain` を返した場合、ユーザーはプッシュを受信します。
 
 {% endraw %}
 {% endtab %}

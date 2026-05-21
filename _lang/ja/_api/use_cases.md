@@ -35,7 +35,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/dishwar
 }'
 ```
 
-この有料読み込むを送った後、レスポンスは、Brazeがキチネリーの食器カタログから3つのコレクションをうまく削除したことを確認します。
+このペイロードを送信した後、応答により、BrazeがKitchenerieの食器カタログから3つのコレクションを正常に削除したことが確認された。
 
 ```json
 {
@@ -53,7 +53,7 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/dishwar
 - delilah.york@example.com
 - evergreen.rebecca@example.com
 
-この作業を実行するには、開発者チームは`email.spam.remove` 権限で`/email/spam/remove` エンドポイントを使用するAPI キーを必要とします。このエンドポイントは、MovieCanonのメールプロバイダーが管理するBraze スパム一覧とスパム一覧からメールの住所を削除します。
+このタスクを達成するには、開発者チームはエンド`/email/spam/remove`ポイントを使用する権限`email.spam.remove`を持つAPI キーが必要だ。このエンドポイントは、BrazeのスパムリストとMovieCanonのメールプロバイダーが管理するスパムリストからメールアドレスを削除する。
 
 このリクエストを送るには、文字列のEメールアドレスか、修正するEメールアドレスを50個まで並べた配列のどちらかを含めます。削除する電子メールのリストが50以下なので、MovieCanonは以下のリクエスト・ボディでこのタスクを達成できます：
 
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-この有料読み込むを正常に送信した後、このレスポンスは、Brazeがムービーキャノンのスパム一覧からメールを削除したことを確認します。
+このペイロードを正常に送信した後、この応答はBrazeがMovieCanonのスパムリストからメールを削除したことを確認している。
 
 ```json
 {
@@ -94,7 +94,7 @@ Siege Valley Healthが、Brazeのダッシュボードでフィルタリング�
   		"name": "PatientReminder_FluShot_2020",
   		"tags": {
         "flu_shots", "patienthealth", "2020"
-      },
+      }
   	},
   	{
   		"id": "canvas_identifier_2",
@@ -102,9 +102,9 @@ Siege Valley Healthが、Brazeのダッシュボードでフィルタリング�
   		"name": "PatientReminder2_FluShot_2020",
   		"tags": {
         "flu_shots", "patienthealth", "reminder", "2020"
-      },
+      }
   	},
-    ... (more Canvases)
+    ... (more キャンバス)
   ],
   "message": 'success'
 }
@@ -126,7 +126,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 
 ## 今後スケジュールされているキャンペーンとキャンバスをチェックする
 
-一番忙しいのは、衣料品や美容品をネット販売し、店頭で販売する小売 (店)ブランド「Flash&Thread」のアプリがすばやい。同社のマーケティングチームは、2024年3月31日午後12時までに、Braze のダッシュボードから今後のキャンペーンとキャンバスをチェックしたいと考えています。これは、[`/messages/scheduled_broadcasts` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/)を使って実現できます。
+フラッシュスレッド&にとって、最も忙しい時期が間もなく訪れる。同社は衣料品や美容製品をオンラインと店舗で販売する小売ブランドだ。同社のマーケティングチームは、2024年3月31日午後12時までに、Braze のダッシュボードから今後のキャンペーンとキャンバスをチェックしたいと考えています。これは、[`/messages/scheduled_broadcasts` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/)を使って実現できます。
 
 これがリクエストの例です：
 
@@ -135,11 +135,11 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-このエンドポイントは、次のキャンペーンとキャンバスの一覧を返します。ここから、マーケティングチームは、レスポンス内のキャンペーンとキャンバスの`name` フィールドを参照することで、メッセージのリストを確認することができます。
+このエンドポイントは、今後のキャンペーンとキャンバスのリストを返す。ここから、マーケティングチームは、レスポンス内のキャンペーンとキャンバスの`name` フィールドを参照することで、メッセージのリストを確認することができます。
 
 ## 古いユーザー設定センターを表示します
 
-PoliterWeekly はデジタル雑誌で、購読者にはメールで連絡を取ることができます。マーケティングチームは、そのサブスクライバーのユーザーの行程をよりよく理解するために、PoliterWeeklyのユーザー設定センターがいつ作成され、最後に更新されたかを確認するために、詳細を確認したいと考えています。
+PoliterWeekly はデジタル雑誌で、購読者にはメールで連絡を取ることができます。マーケティングチームは、サブスクライバーの利用状況をより深く理解するため、PoliterWeeklyのユーザー設定センターの詳細を確認したいと考えている。具体的には、その設定がいつ作成され、最後に更新されたかを調べたいのだ。
 
 マーケティングチームは、[`/preference_center/v1/{preferenceCenterExternalID}` エンドポイント]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/)を使用して、次のようにパスパラメーターとしてユーザー設定センターの外部 ID を挿入するだけで済みます。
 
@@ -182,7 +182,7 @@ CashBlastr の主な目標は、迅速な送金と受取りの方法を簡素化
 
 [`/sms/invalid_phone_numbers/remove` エンドポイント]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/)でリクエストを送信するには、電話番号は [e.164 形式](https://en.wikipedia.org/wiki/E.164)の文字列の配列にする必要があり、リクエストごとに最大50個の電話番号を指定できます。リストは50電話番号を超えないので、ここにCashBlastrの開発チームが送るリクエストボディの例を示します：
 
-```json
+`````````http
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 {
@@ -190,7 +190,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-この有料読み込むを送信した後、レスポンスは、BrazeがBraze不正リストからCashBlastrから不正な電話番号を削除したことを確認します。
+このペイロードを送信した後、応答により、Brazeが無効な電話番号をCashBlastrからBrazeの無効リストから削除したことが確認される。
 
 ```json
 {
@@ -209,7 +209,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 ```
 {% endraw %}
 
-このエンドポイントでは、メールのユーザーのサブスクリプショングループ ステータスも一覧表示します。マルチユーザー のサブスクリプショングループ ステータスを表示するには、このボタンを使用します。
+このエンドポイントは、ユーザーのメールに関するサブスクリプショングループのステータスも一覧表示する。複数のユーザーのサブスクリプショングループのステータスを確認するために使う。
 
 ## メールメッセージ用のHTMLテンプレートをチェックする
 
@@ -235,4 +235,4 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/sta
 
 {% enddetails %}
 
-このテンプレート情報を確認した後、WorkFriends は [`/templates/email/update` エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/)を使用して、API を通じてメールテンプレートを更新することもできます。Braze ダッシュボードのメール テンプレートには、これらのエディットが反映されます。
+このテンプレート情報を確認した後、WorkFriends は [`/templates/email/update` エンドポイント]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/)を使用して、API を通じてメールテンプレートを更新することもできます。Brazeダッシュボードのメールテンプレートは、これらの編集内容を反映している。

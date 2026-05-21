@@ -14,43 +14,40 @@ search_tag: Partner
 
 _Esta integración está mantenida por Nift._
 
-## Sobre la integración
+## Sobre la integración {#about-the-integration}
 
 La integración de Braze y Nift te permite desencadenar automáticamente "agradecimientos" con regalos de Nift en momentos clave del ciclo de vida del cliente e identificar qué clientes utilizaron su regalo. Las tarjetas regalo de Nift pueden utilizarse para acceder a productos y servicios suministrados por marcas que confían en la tecnología de emparejamiento de Nift para captar nuevos clientes de forma rentable a escala.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 |---|---|
 | Cuenta Nift | Se necesita una cuenta Nift para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST Braze con todos los permisos de datos de usuario. <br><br> Puede crearse en el dashboard de Braze desde **Configuración** > **Claves API**. |
-| Punto final REST Braze | La URL de su punto final REST. Tu punto final dependerá de la URL Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de datos de usuario. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Integración
+## Integración {#integration}
 
-### Paso 1: Conecta con Braze en Nift
+### Paso 1: Conecta con Braze en Nift {#step-1-connect-to-braze-in-nift}
 
-Visita tu [panel de Nift](https://www.gonift.com/users/sign_in), ve a **Cuentas** > **Integraciones** > **Braze** y haz clic en **Conectar**.
+Visita tu [panel de Nift](https://www.gonift.com/users/sign_in), ve a **Accounts** > **Integrations** > **Braze** y haz clic en **Connect**.
 
-### Paso 2: Añadir credenciales Braze
+### Paso 2: Añade las credenciales de Braze {#step-2-add-braze-credentials}
 
-En la página **Vincula tu cuenta Braze**, proporciona tu clave de API REST Braze y selecciona tu punto final Braze, que dependerá de la URL Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints).
+En la página **Link your Braze Account**, proporciona tu clave de API REST de Braze y selecciona tu punto de conexión de Braze, que dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints).
 
-Puedes cambiar el nombre del parámetro ID de cliente en el enlace de referidos enviado a tus clientes. Nift lo utilizará para marcar a tus clientes como procesados en Braze cuando hayan seleccionado un regalo de una de nuestras marcas.
+Puedes cambiar el nombre del parámetro de ID de cliente en el enlace de referidos enviado a tus clientes. Nift lo utilizará para marcar a tus clientes como procesados en Braze cuando hayan seleccionado un regalo de una de nuestras marcas.
 
-Haz clic en **Vincular cuenta**.
+Haz clic en **Link Account**.
 
-!["Página de integración del servicio Nift que solicita al usuario la clave de API de Braze y la URL del panel de Braze.]({% image_buster /assets/img/nift/link_your_braze_account.png %})
+!["Página de integración del servicio Nift que solicita al usuario la clave de API de Braze y la URL del panel de Braze."]({% image_buster /assets/img/nift/link_your_braze_account.png %})
 
-## Utilizar la integración
+## Utilizar la integración {#using-the-integration}
 
 Para utilizar la integración, distribuye el enlace de referidos en tu mensajería. Cuando tu cliente utilice el enlace de referidos y seleccione un regalo de una de nuestras marcas, Nift lo marcará como procesado en Braze.
 
-Tras la integración con Braze, Nift empujará automáticamente los eventos al registro Braze existente del cliente con los siguientes datos:
+Tras la integración con Braze, Nift enviará automáticamente los eventos al registro de Braze existente del cliente con los siguientes datos:
 
 - Nombre del evento: `nift_processed`
-- Hora: La hora en que el cliente seleccionó/utilizó el regalo
-
-
-
+- Hora: la hora en que el cliente seleccionó/utilizó el regalo

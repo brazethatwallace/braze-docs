@@ -23,7 +23,7 @@ Both email address and external user ID filters offer the following options:
 | `equals`      | This will look for an exact match of the email or user ID that you provide. Use this if you only want to send the test campaigns to devices associated with a single email or user ID. |
 | `does not equal` | Use this if you want to exclude a particular email or user ID from test campaigns. |
 | `matches`     | This will find users that have email addresses or user IDs that match part of the search term you provide. You could use this to find only the users that have an `@yourcompany.com` address, allowing you to send messages to everyone on your team. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create a designated test segment a class="margin-fix" name="test-segment"/a" }
 
 You can select multiple specific emails using the "`matches`" option and separating the email addresses with a &#124; character. For example: "`matches`" "`email1@braze.com` &#124; `email2@braze.com`". You can also combine multiple operators together. For example, the test segment could include an email address filter that "`matches`" "`@braze.com`" and another filter that "`does not equal`" "`sales@braze.com`". 
 
@@ -129,7 +129,7 @@ Replace the following:
 | `EXTERNAL_USER_ID` | The external user ID used to send your message to a specific user. In Braze, go to **Audience** > **Search users**, then search for a user. |
 | `CUSTOM_KEY`         | (Optional) A custom key for additional data.              |
 | `CUSTOM_VALUE`       | (Optional) A custom value assigned to your custom key.    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Send the message" }
 {% endtab %}
 {% endtabs %}
 

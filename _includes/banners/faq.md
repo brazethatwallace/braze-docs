@@ -1,4 +1,4 @@
-# Banners: Frequently Asked Questions
+# Frequently asked questions
 
 > These are answers to frequently asked questions about Banners in Braze. For more general information, see [About Banners]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners{% endif %}).
 
@@ -24,6 +24,10 @@ If a user qualifies for multiple Banner campaigns that share the same placement,
 
 Banners are different from Content Cards, meaning you can’t use Banners and Content Cards in the same feed. To replace existing Content Card feeds with Banners, you’ll need to [create placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/).
 
+## Can Banners include video?
+
+The standard Banner composer supports images, text, and buttons. To include a video in a Banner, you could use a **Custom Code** block and render a video or embedded player in your app or website.
+
 ## Can I trigger a banner based on user actions?
 
 While Banners do not support [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery), you can target users based on their past actions using segmentation and priority.
@@ -35,9 +39,17 @@ For example, to show a special Banner only to users who have completed a `purcha
 When the user starts a new session or refreshes Banners after performing the action, Braze evaluates their eligibility. If they match the "Purchase" segment, the high-priority Banner will be displayed.
 
 
-## Can users manually dismiss a Banner?
+## Can users dismiss a Banner?
 
-No. Users cannot manually dismiss Banners. However, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
+{% alert important %}
+Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
+
+Users can manually dismiss Banners only if dismissal behavior is enabled and your workspace is participating in the early access. If dismissal isn't enabled or available for your workspace, you can control Banner visibility by managing user segment eligibility. When a user no longer meets the targeting criteria for a Banner campaign, they won't see it again on their next session.
+
+{% alert important %}
+[Banner dismissals]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals) are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
+{% endalert %}
 
 For example, if you display a promotional Banner until a user makes a purchase, logging an event such as `purchase_completed` can remove that user from the targeted segment, effectively hiding the Banner in subsequent sessions.
 
@@ -62,7 +74,7 @@ No. However, most Liquid tags are supported for Banner messages, except for `cat
 Yes. How click events are captured depends on how your Banner is rendered:
 
 - **Standard editor components:** If your Banner uses standard editor components (images, buttons, text), clicks are tracked automatically when using the SDK's insertion methods.
-- **Custom Code Blocks:** If your Banner uses the Custom Code editor block, you must call `brazeBridge.logClick()` from within your custom HTML to track clicks. This applies even when using the SDK methods to insert and render the Banner. This works the same as the [JavaScript bridge]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/html_in-app_messages/#javascript-bridge) for HTML in-app messages.
+- **Custom Code Blocks:** If you want to track clicks for elements within a Custom Code editor block, you must call `brazeBridge.logClick()` from within your custom HTML to track clicks. This applies even when using the SDK methods to insert and render the Banner. For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge).
 - **Custom UI (headless):** If you're building a fully custom UI using the Banner's custom properties instead of rendering the Banner HTML, call `logClick()` on the Banner object from your application code.
 
 For more information, see [Logging clicks]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks).

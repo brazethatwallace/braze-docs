@@ -97,6 +97,16 @@ braze.openSession();
 **In-App Message Display**: To display in-app messages automatically when they're triggered, you must call `braze.automaticallyShowInAppMessages()`. Without this call, in-app messages don't display automatically. If you want to manage message display manually, remove this call and use `braze.subscribeToInAppMessage()` instead. For more information, see [In-app message delivery]({{site.baseurl}}/developer_guide/in_app_messages/delivery/).
 {% endalert %}
 
+#### Troubleshooting missing sessions for anonymous users
+
+If you're seeing "Session missing" behavior, or you're not able to track the session for users who stay anonymous on web, make sure your integration calls `braze.openSession()` during initialization.
+
+- **Scenario:** Anonymous users can return a Braze ID, but session data is blank or missing.
+- **Cause:** The implementation doesn't call `braze.openSession()`.
+- **Resolution:** Always call `braze.openSession()` after initialization (and after `braze.changeUser()` if you set an external ID).
+
+For more information, see [Step 2: Initialize the SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web&tab=code-based%20integration#step-2-initialize-the-sdk).
+
 {% alert important %}
 Anonymous users on mobile or web devices may be counted towards your [MAU]({{site.baseurl}}/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data/#monthly-active-users). As a result, you may want to conditionally load or initialize the SDK to exclude these users from your MAU count.
 {% endalert %}
@@ -336,17 +346,18 @@ When using Jest, you may see an error similar to `SyntaxError: Unexpected token 
 
 ### SSR frameworks {#ssr}
 
-If you use a Server-Side Rendering (SSR) framework such as Next.js, you may encounter errors because the SDK is meant to be run in a browser environment. You can resolve these issues by dynamically importing the SDK.
+The Web SDK runs in a browser environment. In SSR frameworks, initialize Braze in a client-only component so your server never executes SDK code.
 
-You can retain the benefits of tree-shaking when doing so by exporting the parts of the SDK that you need in a separate file and then dynamically importing that file into your component.
+#### Framework-agnostic dynamic import
+
+If your framework isn't listed in this section, you can dynamically import Braze from a client-only lifecycle hook.
 
 ```javascript
 // MyComponent/braze-exports.js
-// export the parts of the SDK you need here
+// Export the parts of the SDK that you need.
 export { initialize, openSession } from "@braze/web-sdk";
 
 // MyComponent/MyComponent.js
-// import the functions you need from the braze exports file
 useEffect(() => {
     import("./braze-exports.js").then(({ initialize, openSession }) => {
         initialize("YOUR-API-KEY-HERE", {
@@ -358,7 +369,7 @@ useEffect(() => {
 }, []);
 ```
 
-Alternatively, if you're using webpack to bundle your app, you can take advantage of its magic comments to dynamically import only the parts of the SDK that you need.
+If you're using webpack, you can dynamically import only specific SDK exports.
 
 ```javascript
 // MyComponent.js
@@ -375,6 +386,151 @@ useEffect(() => {
     });
 }, []);
 ```
+
+#### Shared hook for Next.js and Remix
+
+Create a reusable `useBraze` hook and call it near your app root.
+
+```tsx
+// hooks/useBraze.ts
+import { useEffect, useRef } from "react";
+
+export function useBraze() {
+  const didInit = useRef(false);
+
+  useEffect(() => {
+    if (didInit.current) {
+      return;
+    }
+    didInit.current = true;
+
+    import("@braze/web-sdk")
+      .then((braze) => {
+        const initialized = braze.initialize("YOUR-API-KEY-HERE", {
+          // Use your Braze Web SDK endpoint, such as sdk.iad-01.braze.com.
+          baseUrl: "YOUR-SDK-ENDPOINT",
+          enableLogging: false,
+        });
+        if (!initialized) {
+          return;
+        }
+
+        // Optional: Identify signed-in users before opening a session.
+        // braze.changeUser("external-id");
+
+        // Optional: Automatically display in-app messages.
+        // braze.automaticallyShowInAppMessages();
+        braze.openSession();
+      })
+      .catch((error) => {
+        console.error("Unable to load Braze SDK:", error);
+      });
+  }, []);
+}
+```
+
+#### Next.js (App Router)
+
+Call `useBraze` in a client component that wraps your app.
+
+```tsx
+// app/components/AppRoot.tsx
+"use client";
+
+import type { ReactNode } from "react";
+import { useBraze } from "../hooks/useBraze";
+
+export function AppRoot({ children }: { children: ReactNode }) {
+  useBraze();
+  return <>{children}</>;
+}
+```
+
+```tsx
+// app/layout.tsx
+import type { ReactNode } from "react";
+import { AppRoot } from "./components/AppRoot";
+
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <AppRoot>{children}</AppRoot>
+      </body>
+    </html>
+  );
+}
+```
+
+#### Next.js (Pages Router)
+
+Call `useBraze` at the top of your custom app component.
+
+```tsx
+// pages/_app.tsx
+import type { AppProps } from "next/app";
+import { useBraze } from "../hooks/useBraze";
+
+export default function App({ Component, pageProps }: AppProps) {
+  useBraze();
+
+  return (
+    <Component {...pageProps} />
+  );
+}
+```
+
+#### Remix
+
+Call `useBraze` at the top of your root route component.
+
+For local Remix validation examples, run `PORT=4013 npm run dev`.
+
+```tsx
+// app/root.tsx
+import { Outlet } from "@remix-run/react";
+import { useBraze } from "./hooks/useBraze";
+
+export default function App() {
+  useBraze();
+
+  return <Outlet />;
+}
+```
+
+#### Logging events and updating users
+
+After `useBraze` initializes the SDK at your app root, other client components can call Braze methods. A common pattern is to call them inside user actions, such as `onClick` or `onSubmit`. In the example, the SDK methods are loaded inside the click handler instead of at the top of the file. This keeps the Web SDK out of server code and loads only what that action needs. The `webpackExports` comment tells webpack which methods to include, so your bundle stays smaller.
+
+```tsx
+// app/components/BuyButton.tsx
+"use client";
+
+export function BuyButton() {
+  const handleClick = async () => {
+    const { logCustomEvent, logPurchase, getUser } = await import(
+      /* webpackExports: ["logCustomEvent", "logPurchase", "getUser"] */
+      "@braze/web-sdk"
+    );
+
+    getUser()?.setCustomUserAttribute("last_purchase_date", "2026-05-04");
+    logCustomEvent("clicked_buy", { source: "product_page" });
+    logPurchase("sku_123", 19.99, "USD");
+  };
+
+  return <button onClick={handleClick}>Buy</button>;
+}
+```
+
+This example shows a `BuyButton` component that logs activity when someone clicks **Buy**. First, it imports only `logCustomEvent`, `logPurchase`, and `getUser` at click time. Then it updates a user attribute, logs a custom event, and logs a purchase. This pattern helps you keep initialization centralized in `useBraze`, while still tracking meaningful actions from any client component.
+
+If you're using Remix with Vite and package-root imports fail at runtime, use the existing Vite workaround. For more information, see [Vite]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_vite).
+
+For a full list of available methods, see the [Braze JavaScript reference documentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 ### Tealium iQ
 

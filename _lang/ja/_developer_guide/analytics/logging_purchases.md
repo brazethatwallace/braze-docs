@@ -1,12 +1,12 @@
 ---
-nav_title: ログ購入
-article_title: Braze SDKを通じて購入履歴を記録する。
+nav_title: 購入記録
+article_title: Braze SDKを通じて購入を記録する
 page_order: 3.2
 description: "Braze SDK を使用して購入を記録する方法について説明します。"
 
 ---
 
-# ログ購入
+# 購入記録
 
 > Braze SDK を使用してアプリ内購入をログに記録する方法について説明します。これにより、時間の経過やさまざまなソースにわたる収益を把握できるようになります。これにより、カスタムイベント、カスタム属性、および購入イベントを使用して、[生涯価値に基づいて]({{site.baseurl}}/developer_guide/analytics/#purchase-events--revenue-tracking)ユーザーをセグメント化できます。
 
@@ -14,7 +14,7 @@ description: "Braze SDK を使用して購入を記録する方法について�
 リストされていないラッパーSDK の場合は、代わりに関連するネイティブAndroid またはSwift メソッドを使用します。
 {% endalert %}
 
-USD以外の通貨がレポートされた場合、Brazeではレポートされた日の為替レートに基づいてUSDで表示される。通貨コンバージョンを防ぐため、通貨をUSDにハードコードする。
+レポートされた米ドル以外の通貨は、レポート日の為替レートに基づき、Brazeでは米ドルで表示される。コンバージョンを防ぐため、通貨を米ドルに固定する。
 
 ## 購入と売上のロギング
 
@@ -33,14 +33,14 @@ braze.logPurchase(product_id, price, "USD", quantity);
 1. **商品ID**と**価格**フィールドsが必要です。
 2. 購入プロパティを追加するには、**Add Row** ボタンを使用します。
 
-![Braze アクションタグ構成設定を示すダイアログボックス。含まれる設定は、「タグタイプ」、「外部ID」、「価格」、「通貨コード」、「数量」、「購入プロパティ」である。]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Braze アクションタグ構成設定を示すダイアログボックス。設定項目には「タグタイプ」「external ID」「価格」「通貨コード」「数量」「購入プロパティ」が含まれる。]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
 {% subtabs %}
 {% subtab java %}
 
-```java
+`````````java
 Braze.getInstance(context).logPurchase(
    String productId,
    String currencyCode,
@@ -52,7 +52,7 @@ Braze.getInstance(context).logPurchase(
 {% endsubtab %}
 {% subtab kotlin %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).logPurchase(
   productId: String,
   currencyCode: String,
@@ -69,14 +69,14 @@ Braze.getInstance(context).logPurchase(
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: price)
 ```
 
 {% endsubtab %}
 {% subtab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze logPurchase:"product_id"
                       currency:@"USD"
                          price:price];
@@ -88,7 +88,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 
 {% tab cordova %}
 
-```javascript
+`````````javascript
 var properties = {};
 properties["KEY"] = "VALUE";
 BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
@@ -98,7 +98,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 {% tab flutter %}
 
-```dart
+`````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: properties);
 ```
 
@@ -106,7 +106,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 
 {% tab react native %}
 
-```javascript
+`````````javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, properties);
 ```
 
@@ -114,7 +114,7 @@ Braze.logPurchase(productId, price, currencyCode, quantity, properties);
 
 {% tab roku %}
 
-```brightscript
+`````````brightscript
 m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantity)
 ```
 
@@ -122,7 +122,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 {% tab unity %}
 
-```csharp
+`````````csharp
 AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 ```
 
@@ -141,7 +141,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 {% tab web %}
 標準のWeb SDK 実装では、以下の方法を使用できます。
 
-```javascript
+`````````javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
@@ -168,7 +168,7 @@ items: [{
 {% subtabs %}
 {% subtab java %}
 
-```java
+`````````java
 BrazeProperties purchaseProperties = new BrazeProperties();
 purchaseProperties.addProperty("key", "value");
 Braze.getInstance(context).logPurchase(..., purchaseProperties);
@@ -177,7 +177,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties);
 {% endsubtab %}
 {% subtab kotlin %}
 
-```kotlin
+`````````kotlin
 val purchaseProperties = BrazeProperties()
 purchaseProperties.addProperty("key", "value")
 Braze.getInstance(context).logPurchase(..., purchaseProperties)
@@ -191,7 +191,7 @@ Braze.getInstance(context).logPurchase(..., purchaseProperties)
 {% subtabs %}
 {% subtab swift %}
 
-```swift
+`````````swift
 let purchaseProperties = ["key": "value"]
 AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: price, properties: purchaseProperties)
 ```
@@ -199,7 +199,7 @@ AppDelegate.braze?.logPurchase(productID: "product_id", currency: "USD", price: 
 {% endsubtab %}
 {% subtab objective-c %}
 
-```objc
+`````````objc
 NSDictionary *purchaseProperties = @{@"key": @"value"};
 [AppDelegate.braze logPurchase:@"product_id"
                       currency:@"USD"
@@ -213,7 +213,7 @@ NSDictionary *purchaseProperties = @{@"key": @"value"};
 
 {% tab cordova %}
 
-```javascript
+`````````javascript
 var properties = {};
 properties["key"] = "value";
 BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
@@ -223,7 +223,7 @@ BrazePlugin.logPurchase("PRODUCT_ID", 10, "USD", 5, properties);
 
 {% tab flutter %}
 
-```dart
+`````````dart
 braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": "value"});
 ```
 
@@ -231,7 +231,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": 
 
 {% tab react native %}
 
-```javascript
+`````````javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
 ```
 
@@ -239,7 +239,7 @@ Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
 
 {% tab roku %}
 
-```brightscript
+`````````brightscript
 m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantity, {"stringPropKey" : "stringPropValue", "intPropKey" : Integer intPropValue})
 ```
 
@@ -247,7 +247,7 @@ m.Braze.logPurchase("product_id", "currency_code", Double price, Integer quantit
 
 {% tab unity %}
 
-```csharp
+`````````csharp
 Dictionary<string, object> purchaseProperties = new Dictionary<string, object>
 {
     { "key", "value" }
@@ -283,28 +283,32 @@ REST API を使用して購入を記録することもできます。詳細に�
 
 ## 対応通貨
 
-サポートされている通貨記号です。他の通貨記号を指定すると警告が記録され、購入は Braze に記録されません。
+Brazeは以下の通貨記号をサポートしている。他の通貨記号を指定すると警告が記録され、購入はBrazeに記録されない。
 
-- `USD`
-- `CAD`
-- `EUR`
-- `GBP`
-- `JPY`
-- `AUD`
-- `CHF`
-- `NOK`
-- `MXN`
-- `NZD`
-- `CNY`
-- `RUB`
-- `TRY`
-- `INR`
-- `IDR`
-- `ILS`
-- `SAR`
-- `ZAR`
-- `AED`
-- `SEK`
-- `HKD`
-- `SPD`
-- `DKK`
+- `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`
+- `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`
+- `BSD``BTC`,`BTN`,`BWP`,`BYR` 、 `BZD`
+- `CAD`, `CDF`, `CHF`, `CLF`, `CLP`, `CNY`, `COP`, `CRC`, `CUC`, `CUP`, `CVE`, `CZK`
+- `DJF`, `DKK`, `DOP`, `DZD`
+- `EEK``EGP`,`ERN`,`ETB` 、 `EUR`
+- `FJD`, `FKP`
+- `GBP`, `GEL`, `GGP`, `GHS`, `GIP`, `GMD`, `GNF`, `GTQ`, `GYD`
+- `HKD``HNL`,`HRK`,`HTG` 、 `HUF`
+- `IDR`, `ILS`, `IMP`, `INR`, `IQD`, `IRR`, `ISK`
+- `JEP`, `JMD`, `JOD`, `JPY`
+- `KES`, `KGS`, `KHR`, `KMF`, `KPW`, `KRW`, `KWD`, `KYD`, `KZT`
+- `LAK``LBP`,`LKR`,`LRD`,`LSL`,`LTL`,`LVL` 、 `LYD`
+- `MAD`, `MDL`, `MGA`, `MKD`, `MMK`, `MNT`, `MOP`, `MRO`, `MTL`, `MUR`, `MVR`, `MWK`, `MXN`, `MYR`, `MZN`
+- `NAD``NGN`,`NIO`,`NOK`,`NPR` 、 `NZD`
+- `OMR`
+- `PAB`, `PEN`, `PGK`, `PHP`, `PKR`, `PLN`, `PYG`
+- `QAR`
+- `RON`, `RSD`, `RUB`, `RWF`
+- `SAR`, `SBD`, `SCR`, `SDG`, `SEK`, `SGD`, `SHP`, `SLL`, `SOS`, `SRD`, `STD`, `SVC`, `SYP`, `SZL`
+- `THB`, `TJS`, `TMT`, `TND`, `TOP`, `TRY`, `TTD`, `TWD`, `TZS`
+- `UAH``UGX`,`USD`,`UYU` 、 `UZS`
+- `VEF`, `VND`, `VUV`
+- `WST`
+- `XAF`, `XAG`, `XAU`, `XCD`, `XDR`, `XOF`, `XPD`, `XPF`, `XPT`
+- `YER`
+- `ZAR`, `ZMK`, `ZMW`, `ZWL`

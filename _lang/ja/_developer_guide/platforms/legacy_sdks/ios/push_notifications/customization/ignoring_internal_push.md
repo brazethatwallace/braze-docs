@@ -1,6 +1,6 @@
 ---
-nav_title: 内部プッシュを無視する
-article_title: iOSのBraze内部プッシュ通知を無視する
+nav_title: 内部からの圧力に目をつぶる
+article_title: iOS向けBraze内部プッシュ通知を無視する
 platform: iOS
 page_order: 4
 description: "この参考記事では、Braze の内部プッシュ通知を無視する方法について説明します。"
@@ -12,7 +12,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Braze内部のプッシュ通知を無視する
+# Brazeの内部プッシュ通知を無視する
 
 Braze は、特定の高度な機能の内部実装にサイレントプッシュ通知を使用します。ほとんどの統合では、アプリに代わって変更を行う必要はありません。ただし、内部プッシュ通知に依存する Braze 機能 (アンインストール追跡やジオフェンスなど) を統合する場合は、内部プッシュ通知を無視するようにアプリを更新することが必要になる場合があります。
 
@@ -44,7 +44,7 @@ Braze は、特定の高度な機能の内部実装にサイレントプッシ�
 }
 ```
 
-```objc
+`````````objc
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
   if (![ABKPushUtils isAppboyInternalRemoteNotification:userInfo]) {
     // ... Gated logic here (such as pinging server for content) ...
@@ -55,7 +55,7 @@ Braze は、特定の高度な機能の内部実装にサイレントプッシ�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
   let pushDictionary = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary as? [AnyHashable : Any] ?? [:]
   let launchedFromAppboyInternalPush = ABKPushUtils.isAppboyInternalRemoteNotification(pushDictionary)
@@ -65,7 +65,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-```swift
+`````````swift
 func application(_ application: UIApplication,
                  didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                  fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

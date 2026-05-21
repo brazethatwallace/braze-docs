@@ -1,27 +1,25 @@
 ---
-nav_title: "GET: Standard-Quellwerte für Canvas-Übersetzungs-Tags anzeigen"
-article_title: "GET: Standard-Quellwerte für Canvas-Übersetzungs-Tags anzeigen"
+nav_title: "GET: Standardquellwerte für Canvas-Übersetzungstags anzeigen"
+article_title: "GET: Standardquellwerte für Canvas-Übersetzungstags anzeigen"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "In diesem Artikel erfahren Sie Einzelheiten über den Endpunkt der Canvas-Übersetzungsquelle."
+description: "Dieser Artikel enthält detaillierte Informationen zum Canvas-Übersetzungsquellen-Endpunkt."
 ---
 
 {% api %}
-# Standard-Quellwerte für die Übersetzungstags eines Canvas anzeigen
+# Standardquellwerte für die Übersetzungstags eines Canvas anzeigen {#view-default-source-values-for-a-canvass-translation-tags}
 {% apimethod get %}
-/canvas/uebersetzungen/quelle
+/canvas/translations/source
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um alle Standard-Übersetzungsquellen für die Übersetzungstags eines Canvas anzuzeigen. Dies sind die Werte mit dem {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu den Features für die Übersetzung finden Sie unter [Lokalisierung in Nachrichten]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/).
+> Verwenden Sie diesen Endpunkt, um alle Standardübersetzungsquellen für die Übersetzungstags eines Canvas anzuzeigen. Dies sind die Werte mit dem {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
 
-{% alert important %}
-Dieser Endpunkt befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Braze-Account Manager, wenn Sie sich für die Teilnahme am Early Access interessieren.
-{% endalert %}
+{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.translations.get`.
 
@@ -29,22 +27,22 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## Abfrageparameter
+## Abfrageparameter {#query-parameters}
 
 | Parameter              | Erforderlich | Datentyp | Beschreibung                        |
 |------------------------|----------|-----------|------------------------------------|
 | `workflow_id`          | Erforderlich | String    | Die ID des Canvas.              |
-| `step_id`              | Erforderlich | String    | Die ID Ihres Canvas-Schrittes.        |
-|`message_variation_id`| Erforderlich | String | Die ID Ihrer Nachrichtenvariation. |
-| `locale_id`            | Optional | String    | Die ID (UUID) des Gebietsschemas.              |
-| `post_launch_draft_version`| Optional | Boolesch | Wenn `true` die letzte Entwurfsversion anstelle der letzten live veröffentlichten Version zurückgibt. Der Standardwert ist `false`, der die letzte Live-Version zurückgibt.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `step_id`              | Erforderlich | String    | Die ID Ihres Canvas-Schritts.        |
+| `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
+| `locale_id`            | Optional | String    | Die ID (UUID) der Locale.              |
+| `post_launch_draft_version` | Optional | Boolescher Wert | Wenn `true`, wird die neueste Entwurfsversion anstelle der zuletzt veröffentlichten Live-Version zurückgegeben. Standardmäßig `false`, wodurch die aktuellste Live-Version zurückgegeben wird.
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Abfrageparameter" }
 
 {% alert note %}
-Alle Übersetzungs-IDs werden als universelle eindeutige Bezeichner (UUIDs) betrachtet, die in der Antwort des GET-Endpunkts zu finden sind.
+Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
 {% endalert %}
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations/source?workflow_id={workflow_id}&step_id={step_id}&message_variation_id={message_variation_id}&locale_id={locale_uuid}&post_launch_draft_version=true' \
@@ -52,13 +50,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/canvas/translations
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt vier Status Code Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
+Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und `429`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Response Header und Body zurückgeben.
+Der Statuscode `200` könnte den folgenden Antwort-Header und -Body zurückgeben.
 
 ```json
 {
@@ -72,9 +70,9 @@ Der Status Code `200` könnte den folgenden Response Header und Body zurückgebe
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
 
 ```json
 {

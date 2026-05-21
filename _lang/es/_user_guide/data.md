@@ -1,53 +1,53 @@
 ---
-nav_title: Datos 
-article_title: Datos 
+nav_title: Datos
+article_title: Datos
 page_order: 3
-layout: dev_guide
-
-guide_top_header: "Datos"
-guide_top_text: "Los datos desempeñan un papel crucial en la mejora de tu estrategia de interacción con los clientes, habilitándote para crear experiencias personalizadas, comprender el comportamiento del cliente y optimizar las estrategias de mensajería. En Braze, creamos todas las capacidades de datos teniendo en cuenta tres cosas fundamentales: <br><br>**1.** <a href='/docs/user_guide/data/#making-customer-data-work-harder/'>Haz que los datos de clientes funcionen mejor.</a><br> **2.** <a href='/docs/user_guide/data/#enhancing-data-agility-to-drive-performance/'>Mejorar la agilidad de los datos para impulsar el rendimiento.</a><br>**3.** <a href='/docs/user_guide/data/#keeping-brands-data-secure-safe-and-compliant/'>Mantén los datos de las marcas seguros, protegidos y conformes.</a>" 
-
-guide_featured_title: "Plataforma de datos Braze"
-guide_featured_list:
-  - name: Unificación de datos
-    link: /docs/user_guide/data/unification/
-    image: /assets/img/braze_icons/upload-cloud-01.svg
-  - name: Activación de datos
-    link: /docs/user_guide/data/activation/
-    image: /assets/img/braze_icons/zap.svg
-  - name: Distribución de datos
-    link: /docs/user_guide/data/distribution/
-    image: /assets/img/braze_icons/users-01.svg
-  - name: Socios tecnológicos
-    link: /docs/partners/data_and_analytics/
-    image: /assets/img/braze_icons/settings-02.svg
-
-guide_menu_title2: "Data Infrastructure"
-guide_menu_list2:
-  - name: Centros de datos
-    link: /docs/user_guide/data/infrastructure/data_centers/
-    image: /assets/img/braze_icons/database-02.svg
-  - name: Cifrado a nivel de campo
-    link: /docs/user_guide/data/infrastructure/field_level_encryption/
-    image: /assets/img/braze_icons/book-closed.svg
-  - name: Puntos de datos
-    link: /docs/user_guide/data/infrastructure/data_points/
-    image: /assets/img/braze_icons/check-square-broken.svg
+description: "Aprende sobre la plataforma de datos de Braze, incluyendo cómo unificar, activar y distribuir tus datos."
 ---
 
-### Hacer que los datos de clientes funcionen mejor
+# Plataforma de datos de Braze {#braze-data-platform}
 
-- **Flexible y basado en componentes:** Nuestro objetivo global es ayudar a las marcas a utilizar sus datos de forma más eficaz y completa. Construida con una arquitectura componible, las marcas pueden aprovechar las tecnologías que necesitan para que sus datos trabajen más, sin middleware innecesario. 
-- **Integraciones del socio:** Damos prioridad a las integraciones con las mejores tecnologías del ecosistema (y ofrecemos API) que facilitan el intercambio bidireccional de datos en tiempo real.
-- **Arquitectura de procesamiento de flujos:** Los clientes pueden desencadenar acciones en cualquier punto de datos ingestado en Braze para segmentación, orquestación y personalización.
+> Aprende sobre la plataforma de datos de Braze, incluyendo cómo unificar, activar y distribuir tus datos.
 
-### Mejorar la agilidad de los datos para impulsar el rendimiento 
+La plataforma de datos de Braze (BDP) es un conjunto completo y componible de capacidades de datos e integraciones de socios que te permite crear experiencias personalizadas para tus clientes. En Braze, pensamos en los datos en términos de tres tareas relacionadas con los datos: [Unificación]({{site.baseurl}}/user_guide/data/unification/), [Activación]({{site.baseurl}}/user_guide/data/activation/) y [Distribución]({{site.baseurl}}/user_guide/data/distribution/).
 
-- **Fácil construcción de la audiencia:** Reduce la dependencia de los equipos técnicos para crear audiencias y entregar una interacción con los clientes personalizada a escala. 
+Al utilizar una combinación de características de la plataforma de datos de Braze, puedes aprovechar tus datos para crear mensajes significativos y dirigidos que respondan a lo que tus clientes hacen en tiempo real.
+
+## Cómo funciona {#how-it-works}
+
+### Unifica tus datos {#unify-your-data}
+
+Los datos de usuario fluyen hacia Braze a través de muchos puntos de entrada. Recopila y consolida datos propios de cualquier fuente utilizando [APIs]({{site.baseurl}}/api/home/) y [SDKs]({{site.baseurl}}/developer_guide/sdk_integration/). También puedes usar herramientas de ingesta integradas como [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) para crear una integración directa desde tu almacén de datos o solución de almacenamiento de archivos hacia Braze, o usar [Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation/) para crear y gestionar integraciones de webhook para transferir datos a Braze.
+
+### Activa tus datos {#activate-your-data}
+
+Limpia, organiza y prepara tus datos para su uso. Esto implica comprender los comportamientos y preferencias de tus clientes en tiempo real con perfiles de usuario y segmentos. Consulta el [Glosario de indicadores de informe]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) mientras creas mensajes dirigidos, y usa [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/) para enriquecer tus mensajes con datos de productos o contenido. Identifica cómo responden tus clientes a estas experiencias personalizadas.
+
+### Distribuye tus datos {#distribute-your-data}
+
+Transmite y [exporta tus datos]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/) a sistemas externos para obtener información y tomar decisiones en los siguientes pasos. Usa [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) para transmitir datos de eventos de Braze a un almacén de datos y alimentar herramientas de inteligencia empresarial. También puedes ampliar tus capacidades de datos con [integraciones de socios tecnológicos]({{site.baseurl}}/partners/data_and_analytics/).
+
+## Infraestructura de datos {#data-infrastructure}
+
+La infraestructura de datos de Braze incluye [centros de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_centers/) que ayudan a minimizar la latencia, es decir, el tiempo que tardan los datos en viajar entre el servidor y el usuario. Esta distribución geográfica permite que nuestros servicios sean fiables y escalables. También ofrecemos [cifrado a nivel de campo]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/) para ayudar a proteger datos sensibles y minimizar la información de identificación personal (PII) compartida en Braze. Para más información sobre uso y facturación, consulta [Puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+
+## Principios fundamentales {#core-principles}
+
+Los datos desempeñan un papel crucial en la mejora de tu estrategia de interacción con los clientes, ya que te permiten crear experiencias personalizadas, comprender el comportamiento del cliente y optimizar las estrategias de mensajería. En Braze, creamos todas las capacidades de datos teniendo en cuenta tres principios fundamentales:
+
+{% details Hacer que tus datos trabajen más %}
+- **Flexible y basado en componentes:** Nuestro objetivo principal es ayudarte a utilizar tus datos de forma más eficaz y completa. Construida con una arquitectura componible, puedes aprovechar las tecnologías que necesitas para que tus datos trabajen más, sin middleware innecesario.
+- **Integraciones de socios:** Braze prioriza las integraciones con las mejores tecnologías del ecosistema (y ofrece APIs) que facilitan el uso compartido de datos bidireccional en tiempo real.
+- **Arquitectura de procesamiento en flujo:** Puedes desencadenar acciones en cualquier punto de datos ingestado en Braze para segmentación, orquestación y personalización.
+{% enddetails %}
+
+{% details Mejorar la agilidad de los datos para impulsar el rendimiento %}
+- **Construcción flexible de audiencias:** Reduce la dependencia de los equipos técnicos para crear audiencias y entregar una interacción personalizada con los clientes a escala.
 - **Velocidad y rendimiento:** Los datos de interacción y la información se entregan en tiempo real, lo que favorece una interacción con los clientes iterativa y eficaz, así como una toma de decisiones empresariales más amplia.
+{% enddetails %}
 
-### Mantener los datos de las marcas seguros, protegidos y conformes a la normativa
-
-- **Prácticas de seguridad líderes del sector:** Realiza auditorías periódicas de terceros, incluidas SOC 2 Tipo 2 e ISO 27001, para cumplir las normas más exigentes del sector. Mantener un programa público de recompensas por errores para abordar de forma proactiva las vulnerabilidades potenciales y contar con un equipo de seguridad dedicado y comprometido a salvaguardar los datos de clientes.
-- **Cumplimiento industrial:** Proporcionar herramientas que promuevan el cumplimiento de la normativa de protección de datos, incluidos el RGPD y la CCPA.
-- **Privacidad de datos:** Habilita a los clientes para que gestionen el consentimiento del usuario final, procesen las solicitudes y actúen sobre los derechos de los consumidores.
+{% details Mantener tus datos seguros, protegidos y conformes a la normativa %}
+- **Prácticas de seguridad líderes del sector:** Realizamos auditorías periódicas de terceros, incluidas SOC 2 Tipo 2 e ISO 27001, para cumplir con las normas más exigentes del sector. Mantenemos un programa público de recompensas por errores para abordar de forma proactiva las vulnerabilidades potenciales y contamos con un equipo de seguridad dedicado y comprometido con la protección de tus datos.
+- **Cumplimiento normativo:** Proporcionamos herramientas que promueven el cumplimiento de la normativa de protección de datos, incluidos el RGPD y la CCPA.
+- **Privacidad de datos:** Puedes gestionar el consentimiento del usuario final, procesar solicitudes y actuar sobre los derechos de los consumidores.
+{% enddetails %}

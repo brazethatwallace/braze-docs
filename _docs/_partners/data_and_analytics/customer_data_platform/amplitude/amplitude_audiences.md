@@ -22,7 +22,7 @@ The Braze and Amplitude bi-directional integration allows you to [import your Am
 |---|---|
 | Amplitude account | An [Amplitude account](https://amplitude.com/) is required to take advantage of this partnership. |
 | Currents | In order to export data back into Amplitude, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Choose an integration 
 
@@ -40,6 +40,7 @@ Amplitude and Braze offer two different integration methods. Read through the fo
 | Braze REST API key | A Braze REST API key with the all permissions.<br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL][1]. Your endpoint will depend on the Braze URL for your instance. |
 | Braze app identifier | The identifier for the app that will receive Amplitude events. This can be found within the **Braze Dashboard > Developer Console > Settings**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitude Setup
 
@@ -105,6 +106,16 @@ Lastly, define the frequency of your sync.
 
 {% endtab %}
 {% endtabs %}
+
+## Troubleshooting
+
+### "We do not have enough data yet for this filter" when syncing a cohort
+
+If you get this error when [importing an Amplitude cohort]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/) into Braze, try the following:
+
+1. **Confirm user ID alignment.** The User ID in Amplitude (not the Amplitude ID) must match the External User ID in Braze (not the Braze or BSON ID) exactly. For example, User ID `12345` in Amplitude must match External User ID `12345` in Braze.
+2. **Regenerate your Braze API key.** In the Braze dashboard, go to **Partner Integrations** > **Technology Partners** > **Amplitude** and select **Generate New Key**. Then retry the Amplitude cohort sync using the new API key.
+3. **Confirm the cohort synced in Amplitude.** Contact [Amplitude support](https://help.amplitude.com/) to confirm that the cohort was successfully synced on Amplitude's side before troubleshooting further in Braze.
 
 ## Amplitude user profile API endpoints
 

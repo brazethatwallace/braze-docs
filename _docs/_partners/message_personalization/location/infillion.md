@@ -29,7 +29,7 @@ This integration works the same for Infillion beacons and Infillion geofence sol
 | [Infillion manager account](https://manager.gimbal.com/login/users/sign_in) | A Infillion manager account is required to take advantage of this partnership. |
 |[Infillion Location SDK](https://docs.gimbal.com/index.html) | The Infillion Location SDK powers macro and micro location-based mobile experiences using proximity beacons and geofences that allow you to communicate more effectively with your app users. You must have the SDK implemented, and geofences (or beacons) set up. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## SDK integration
 
@@ -40,7 +40,7 @@ If you anticipate creating more than 50 places, we recommend creating a generic 
 1. Integrate the [Infillion SDK](https://manager.gimbal.com/sdk_downloads) for Android and iOS into your app by following the instructions in the [Infillion documentation](https://docs.gimbal.com/).
 2. Use Infillion's [place REST API](https://docs.gimbal.com/rest.html) to get user `places`.
 3. Link your Infillion account to Braze by entering the Braze [REST API key](https://manager.gimbal.com/apps).
-4. Set up [custom events]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) in the Braze SDK. You can integrate Infillion with Braze for [Android and FireOS]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/beacon_integration/#gimbal-beacons) and [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/beacon_integration/#gimbal-beacons).
+4. Set up [custom events]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in the Braze SDK. You can integrate Infillion with Braze for [Android and FireOS]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/beacon_integration/#gimbal-beacons) and [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/beacon_integration/#gimbal-beacons).
 5. Log properties for these events (Place Name, Dwell Time).
 6. Use these properties and events for triggering campaigns and Canvases in Braze. 
 

@@ -1,14 +1,13 @@
 <head>
   <title>{% if page.article_title %}{{ page.article_title }}{% elsif page.nav_title %}{{ page.nav_title }}{% elsif page.title %}{{ page.title }}{% else %}{{{ site.title }}{% endif %}</title>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="google-site-verification" content="kI0o3QRqDw5zhtd9W5umZTzLTDe6X1tp-gybtFg_7bQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
    {% noindex {{ page.path }} %}
   <link rel="icon" type="image/x-icon" href="{{site.baseurl}}/assets/favicon.ico" sizes="160x160">
 
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncatewords: 25 }}{% else %}{% if page.content.size &gt; 5 %}{{ page.content | strip_html | truncatewords: 25 }}{% else %}{{{ page.id | slice: 1,page.id.size | replace: &apos;/&apos;, &apos; &apos; | replace: &apos;_&apos;, &apos; &apos; }}{% endif %}{% endif %}">
-  <link rel="canonical" {% if page.url="=" site.index_url %} href="{{ site.baseurl | prepend: site.homeurl }}" else endif/>
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.homeurl }}">
 
   <meta name="keywords" content="Braze, documentos, documentação, Appboy, academia{{ page.id | replace: &apos;_&apos;, &apos; &apos; | replace: &apos;/&apos;, &apos;, &apos; }} ">
 
@@ -53,10 +52,7 @@
   const page_collection_title = '{{page_collection_title}}';
   const page_collection_default_path = '{{page_collection_default_path}}';
   const site_language = '{{ site.language }}';
-  const site_i18n = {};
-  {% for i18n in site.data.i18n[site.language] %}
-  site_i18n['{{i18n[0]}}'] = '{{i18n[1]}}';
-  {%- endfor -%}
+  const site_i18n = {{ site.data.i18n[site.language] | jsonify }};
 </script>
 
 

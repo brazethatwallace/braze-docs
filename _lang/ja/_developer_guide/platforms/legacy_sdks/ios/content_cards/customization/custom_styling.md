@@ -27,7 +27,7 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
 コンテンツカードには、ダッシュボードに入力できるコンテンツ (メッセージテキスト、画像 URL、リンク、すべてのキーと値のペアなど) の最大サイズが 2 KB という制限があるため、送信する前にサイズを確認してください。このサイズを超えるとカードを送信できなくなります。
 
 {% alert important %}
-現在、。NET MAUI iOS 統合では、デフォルト "画像の上書きはサポートされていません。
+デフォルト画像の上書きは、現在のところ当社の.NET MAUI iOS統合ではサポートされていない。
 {% endalert %}
 
 ## ダークモードを無効にする
@@ -58,7 +58,7 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Accessing enableDarkTheme via ABKContentCardsViewController.contentCardsViewController.
 @IBAction func presentModalContentCards(_ sender: Any) {
   let contentCardsVC = ABKContentCardsViewController()

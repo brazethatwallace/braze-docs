@@ -5,13 +5,13 @@ page_order: 10
 description: "Learn how to generate images for your media library using DALL·E 3, an AI system from OpenAI and a Braze third-party provider."
 ---
 
-# Generate images with BrazeAI<sup>TM</sup>
+# Generate images with BrazeAI
 
 > {% multi_lang_include brazeai/generative_ai/about_images.md %}
 
 ## About the media library
 
-The media library allows you to manage your assets in a single, centralized location. To access your Braze media library, go to **Templates** > **Media Library**. For more detailed information, see [Media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/).
+The media library allows you to manage your assets in a single, centralized location. To access your Braze media library, go to **Templates** > **Media Library**. For more detailed information, see [Media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 
 ## Generating an image
 

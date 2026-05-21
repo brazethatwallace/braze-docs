@@ -1,4 +1,4 @@
-# Creating feature flags
+# Create feature flags
 
 > Feature flags allow you to remotely enable or disable functionality for a selection of users. Create a new feature flag within the Braze dashboard. Provide a name and an `ID`, a target audience, and a percentage of users for whom to enable to this feature. Then, using that same `ID` in your app or website's code, you can conditionally run certain parts of your business logic. To learn more about feature flags and how you can use them in Braze, see [About feature flags]({{site.baseurl}}/developer_guide/feature_flags/).
 
@@ -18,7 +18,7 @@ To manage feature flags in the dashboard, you'll either need to be an Administra
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Manage Feature Flags**                                                      | View, create, and edit feature flags.     |
 | **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | View the list of available feature flags. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Braze permissions" }
 
 ## Creating a feature flag
 
@@ -38,10 +38,10 @@ Under **Feature flag details**, enter a name, ID, and description for your featu
 | Field        | Description                                                                |
 |--------------|----------------------------------------------------------------------------|
 | Name         | A human-readable title for your marketers and administrators.              |
-| ID           | The unique ID you'll use in your code to check if this feature is [enabled for a user](#enabled). This ID cannot be changed later, so review our [ID naming best practices](#naming-conventions) before continuing. |
+| ID           | The unique ID you'll use in your code to check if this feature is [enabled for a user](#enabled). This ID cannot be changed later, so review the [ID naming best practices](#naming-conventions) before continuing. |
 | Description  | An optional description that gives some context about your feature flag.   |
 | Properties   | Optional properties that remotely configure your feature flag. They can be overwritten in Canvas steps or feature flag experiments. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Fill out the details" }
 
 ### Step 2a: Create custom properties
 
@@ -60,6 +60,7 @@ In the following example, the feature flag shows an out-of-stock banner for an e
 |`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
 |`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
 |`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2a: Create custom properties" }
 
 {% alert tip %}
 There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10 KB. Both property values and keys are limited to 255 characters in length.
@@ -831,13 +832,20 @@ featureFlagsStreamSubscription = braze.subscribeToFeatureFlags((featureFlags) {
 featureFlagsStreamSubscription.cancel();
 ```
 
-Then, make these changes in the iOS native layer as well. Note that there are no additional steps needed on the Android layer.
+{% subtabs %}
+{% subtab Flutter SDK 18.0.0+ %}
 
-1. Implement `featureFlags.subscribeToUpdates` to subscribe to feature flag updates as described in the [subscribeToUpdates](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/subscribetoupdates(_:)) documentation.
+Feature flag data is automatically forwarded from both the Android and iOS native layers. No additional setup is required.
 
-2. Your `featureFlags.subscribeToUpdates` callback implementation must call `BrazePlugin.processFeatureFlags(featureFlags)`.
+{% endsubtab %}
+{% subtab Flutter SDK 17.1.0 and earlier %}
 
-For an example, see [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) in our sample app.
+If you're using Flutter SDK 17.1.0 or earlier, feature flag data forwarding from the iOS native layer requires manual setup. Your application likely contains a `featureFlags.subscribeToUpdates` callback that calls `BrazePlugin.processFeatureFlags(featureFlags)`. To migrate to Flutter SDK 18.0.0, remove the `BrazePlugin.processFeatureFlags(_:)` call—data forwarding is now handled automatically.
+
+For an example, see [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) in the Braze Flutter SDK sample application.
+
+{% endsubtab %}
+{% endsubtabs %}
 
 {% endtab %}
 {% tab Roku %}
@@ -926,7 +934,7 @@ Replace the following:
 | `BEHAVIOR`  | The behavior of the feature. In your code, be sure the behavior is disabled by default and avoid using phrases like `disabled` in the feature flag name. |
 | `PRODUCT`   | The product the feature belongs to.                                                                                       |
 | `FEATURE`    | The name of the feature.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Naming conventions" }
 
 Here's an example feature flag where `show` is the behavior, `animation_profile` is the product, and `driver` is the feature:
 

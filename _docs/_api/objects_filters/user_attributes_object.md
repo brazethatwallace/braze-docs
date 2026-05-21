@@ -39,13 +39,40 @@ Use Braze user profile field names (listed as follows or any listed in the secti
   "my_array_custom_attribute" : { "add" : ["Value3"] },
   // Removing a value from an array custom attribute
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
+  // Array of objects custom attribute
+  "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
+  // Adding to an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
+  // Removing from an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
 - [External user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
 
+{% alert note %}
+For REST API requests to [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), use `add`, `remove`, and `update` keys for array operations. Keys prefixed with `$` (such as `$add`) are for SDK method payloads.
+
+When a REST API request uses `$add`, `$remove`, or `$update`, Braze can return `success` without applying the array update.
+
+For more details, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) and [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+{% endalert %}
+
 To remove a profile attribute, set it to `null`. Some fields, such as `external_id` and `user_alias` cannot be removed after they're added to a user profile.
+
+#### Identifier resolution
+
+Unless you're performing an [anonymous push token import](#push-token-import), each user attributes object must include at least one identifier: `external_id`, `user_alias`, `braze_id`, `email`, or `phone`. When possible, include only one identifier per object to avoid ambiguity about which user profile is being updated or created.
+
+Keep the following in mind when using identifiers:
+
+- **`external_id` and `user_alias` are mutually exclusive.** Including both in the same user attributes object returns an error. To add an alias to a user that already has an `external_id`, use the [`/users/alias/new` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_alias/).
+- **`email` takes precedence over `phone`.** If both `email` and `phone` are included in the same object, Braze uses `email` as the identifier. This means the attributes are applied to the user profile associated with that email address, even if the phone number belongs to a different profile.
+
+{% alert important %}
+To avoid unexpected behavior, use a single identifier per user attributes object. Providing multiple identifiers that reference different user profiles can lead to attributes being applied to the wrong profile.
+{% endalert %}
 
 #### Update existing profiles only
 
@@ -83,18 +110,18 @@ The following data types can be stored as a custom attribute:
 
 | Data Type | Notes |
 | --- | --- |
-| Arrays | Custom attribute arrays are supported. Adding an element to a custom attribute array appends the element to the end of the array, unless it's already present, in which case it gets moved from its current position to the end of the array.<br><br>For example, if the array `['hotdog','hotdog','hotdog','pizza']` were imported, it shows in the array attribute as `['hotdog', 'pizza']` because only unique values are supported.<br><br>In addition to setting the values of an array by saying something like `"my_array_custom_attribute":[ "Value1", "Value2" ]`, you may add to existing arrays by doing something like `"my_array_custom_attribute" : { "add" : ["Value3"] },` or remove values from an array by doing something like `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`<br><br>The maximum number of elements in custom attribute arrays defaults to 25, but can be increased up to 100 for an individual array. For more information, see [Arrays]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#arrays). |
-| Array of objects | Array of objects allows you to define a list of objects where each object contains a set of attributes. This can be useful if you need to store multiple sets of related data for a user, such as hotel stays, purchase history, or preferences. <br><br> For example, you can define a custom attribute on a user profile named `hotel_stays`. This custom attribute can be defined as an array where each object represents a separate stay, with attributes such as `hotel_name`, `check_in_date`, `nights_stayed`. For more details, see [this example](#array-of-objects-example). |
+| Arrays | Custom attribute arrays are supported. When you add an element, it's appended to the end of the array. If the element already exists, it's moved from its current position to the end.<br><br>Only unique values are stored. For example, importing `['hotdog','hotdog','hotdog','pizza']` results in `['hotdog', 'pizza']`.<br><br>You can set an array directly (for example, `"my_array_custom_attribute":[ "Value1", "Value2" ]`), add to an existing array with `"my_array_custom_attribute" : { "add" : ["Value3"] }`, or remove values with `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`.<br><br>The default and maximum number of elements in an array is 500. You can update the maximum number of arrays in the Braze dashboard, under **Data Settings** > **Custom Attributes**. For more information, see [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
+| Array of objects | Use an array of objects to define a list of objects where each object contains a set of attributes. Use this type to store multiple sets of related data for a user, such as hotel stays or preferences. <br><br>For example, define a custom attribute named `hotel_stays` on a user profile as an array where each object represents a separate stay, with attributes such as `hotel_name`, `check_in_date`, and `nights_stayed`.<br><br>Arrays of objects have no limit on the number of items but do have a maximum size of 100&nbsp;KB. If an update causes the array to exceed this limit, Braze drops the update, and the attribute is unchanged.<br><br>Add items with `$add`, remove items with `$remove`, and update items with `$update`. For details, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example), and [Array of objects example](#array-of-objects-example). |
 | Booleans | `true` or `false` |
-| Dates | Must be stored in the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format or in any of the following formats: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Note that "T" is a time designator, not a placeholder, and should not be changed or removed. <br><br>Time attributes without a time zone default to Midnight UTC (and are formatted on the dashboard as the equivalent of Midnight UTC in the company's time zone). <br><br> Events with timestamps in the future default to the current time. <br><br> For regular custom attributes, if the year is less than 0 or greater than 3000, Braze stores these values as strings on the user. |
+| Dates | Must be stored in the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format or in any of the following formats: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Note that "T" is a time designator, not a placeholder, and should not be changed or removed. <br><br>Time attributes without a time zone default to midnight UTC (and are formatted on the dashboard as the equivalent of midnight UTC in the company's time zone). To specify a time zone, append a UTC offset to the timestamp (for example, `2024-11-10T18:00:00-05:00` for EST). If the time zone offset is missing or formatted incorrectly, the value defaults to UTC. <br><br>Times are displayed on the dashboard in your company's time zone. For example, `2024-11-10T18:00:00-05:00` (6:00 PM EST) would appear as the equivalent time in your company's configured time zone. <br><br>Events with timestamps in the future default to the current time. <br><br>For regular custom attributes, if the year is less than 0 or greater than 3000, Braze stores the value as a string on the user profile. |
 | Floats | Float custom attributes are positive or negative numbers with a decimal point. For example, you can use floats to store account balances or user ratings for products or services. |
-| Integers | Integer custom attributes may be incremented by positive or negative integers by assigning them an object with the field "inc" and the value by which you want to increment them. <br><br>Example: `"my_custom_attribute_2" : {"inc" : int_value},`|
-| Nested custom attributes | Nested custom attributes define a set of attributes as a property of another attribute. When you define a custom attribute object, you define a set of additional attributes for that object. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/). |
+| Integers | You can increment integer custom attributes by assigning an object with the "inc" field and the amount to add. <br><br>Example: `"my_custom_attribute_2" : {"inc" : int_value},`|
+| Nested custom attributes | Nested custom attributes define a set of attributes as a property of another attribute. When you define a custom attribute object, you add a set of attributes to that object. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Strings | String custom attributes are sequences of characters used to store text data. For example, you can use strings to store first and last names, email addresses, or preferences. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
 
 {% alert tip %}
-For information on when you should use a custom event versus a custom attribute, see our respective documentation on [custom events]({{site.baseurl}}/user_guide/data/custom_data/custom_events/) and [custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/).
+For guidance on when to use a custom event versus a custom attribute, see [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) and [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
 {% endalert %}
 
 ##### Array of objects example
@@ -108,10 +135,16 @@ This array of objects allows you to create segments based on specific criteria w
 ]}
 ```
 
+For API examples that use `add`, `remove`, and `update`, see [Array of objects API example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example). For SDK examples that use `$add`, `$remove`, and `$update`, see [Array of objects SDK example]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+
 #### Braze user profile fields {#braze-user-profile-fields}
 
 {% alert important %}
 The following user profile fields are case sensitive, so be sure to reference these fields in lower case.
+{% endalert %}
+
+{% alert tip %}
+For a customer-facing reference of standard attributes that's organized by category and includes guidance for SDK, API, CSV, and Cloud Data Ingestion, see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
 {% endalert %}
 
 | User Profile Field | Data Type Specification |
@@ -133,16 +166,16 @@ The following user profile fields are case sensitive, so be sure to reference th
 | first_name | (string) |
 | gender | (string) "M", "F", "O" (other), "N" (not applicable), "P" (prefer not to say) or nil (unknown). |
 | home_city | (string) |
-| language | (string) we require that language be passed to Braze in the [ISO-639-1 standard](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). For supported languages, see our [list of accepted languages]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/language_codes/).<br><br>Setting `language` on a user by CSV import or API prevents Braze from automatically capturing this information through the SDK. |
+| language | (string) we require that language be passed to Braze in the [ISO-639-1 standard](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). For supported languages, see our [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/).<br><br>Setting `language` on a user by CSV import or API prevents Braze from automatically capturing this information through the SDK. |
 | last_name | (string) |
 | marked_email_as_spam_at | (string) Date at which the user's email was marked as spam. Appears in ISO 8601 format or in any of the following formats: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
-| phone | (string) We recommend providing phone numbers in the [E.164](https://en.wikipedia.org/wiki/E.164) format. For details, refer to [User phone numbers]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#formatting).|
+| phone | (string) We recommend providing phone numbers in the [E.164](https://en.wikipedia.org/wiki/E.164) format. For details, refer to [User phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format).|
 | push_subscribe | (string) Available values are "opted_in" (explicitly registered to receive push messages), "unsubscribed" (explicitly opted out of push messages), and "subscribed" (neither opted in nor out).  |
 | push_tokens | Array of objects with `app_id` and `token` string. You may optionally provide a `device_id` for the device this token is associated with, for example, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. If a `device_id` is not provided, one is randomly generated. |
 | subscription_groups| Array of objects with `subscription_group_id` and `subscription_state` string, for example, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Available values for `subscription_state` are "subscribed" and "unsubscribed".|
 | time_zone | (string) Of time zone name from [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (for example, "America/New_York" or "Eastern Time (US & Canada)"). Only valid time zone values are set. |
 | twitter | Hash containing any of `id` (integer), `screen_name` (string, X (formerly Twitter) handle), `followers_count` (integer), `friends_count` (integer), `statuses_count` (integer). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
 
 Language values that are explicitly set through this API take precedence over the locale information Braze automatically receives from the device.
 
@@ -191,7 +224,7 @@ If you were sending push notifications prior to integrating Braze, either on you
 
 After you [integrate the Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/), push tokens for your opted-in users are automatically migrated the next time they open your app. Until then, you can't send those users push notifications through Braze.
 
-Alternatively, you can [migrate your push tokens manually](#manual-migration-via-api), allowing you to re-engage your users more promptly.
+Alternatively, you can [migrate your push tokens manually](#manual-migration-through-api), allowing you to re-engage your users more promptly.
 
 #### Web token considerations
 
@@ -200,8 +233,8 @@ Due to the nature of web push tokens, be sure you consider the following when im
 |Consideration|Details|
 |----------------------|------------|
 | **Service workers**  | By default, the Web SDK looks for a service worker at `./service-worker` unless another option is specified, such as `manageServiceWorkerExternally` or `serviceWorkerLocation`. If your service worker isn't set up properly, it may lead to expired push tokens for your users. |
-| **Expired tokens**   | If a user hasn't started a web session within 60 days, their push token expires. Because Braze can't migrate expired push tokens, you must send a [push primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages) to re-engage them. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Expired tokens**   | If a user hasn't started a web session within 60 days, their push token expires. Because Braze can't migrate expired push tokens, you must send a [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) to re-engage them. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
 
 ### Manual migration through API
 
@@ -209,7 +242,7 @@ Manual push token migration is the process of importing these previously-created
 
 Programmatically migrate iOS (APNs) and Android (FCM) tokens to your platform by using the [`users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). You can migrate both identified users (users with an associated external ID) and anonymous users (users without an external ID).
 
-Specify your app's `app_id` during push token migration to associate the appropriate push token with the appropriate app. Each app (iOS, Android, etc.) has its own `app_id`, which can be found in the **Identification** section of the [API Keys]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) page. Be sure to use the correct platform's `app_id`.
+Specify your app's `app_id` during push token migration to associate the appropriate push token with the appropriate app. Each app (iOS, Android, etc.) has its own `app_id`, which can be found in the **Identification** section of the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page. Be sure to use the correct platform's `app_id`.
 
 {% alert important %}
 It is not possible to migrate web push tokens through the API. This is because web push tokens do not conform to the same schema as other platforms.

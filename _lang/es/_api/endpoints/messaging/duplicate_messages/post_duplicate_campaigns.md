@@ -1,34 +1,30 @@
 ---
-nav_title: "PUBLICAR: Campañas duplicadas"
-article_title: "PUBLICAR: Campañas duplicadas"
+nav_title: "POST: Duplicar campañas"
+article_title: "POST: Duplicar campañas"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Duplicar campañas."
+description: "En este artículo se describen los detalles del punto de conexión Duplicar campañas."
 
 ---
 {% api %}
-# Duplicar campañas utilizando la API
+# Duplicar campañas utilizando la API {#duplicate-campaigns-using-the-api}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /campaigns/duplicate
 {% endapimethod %}
 
-> Utilice este punto final para duplicar campañas. Este punto final de la API es similar a la [duplicación de campañas en el panel de control de Braze][1].
+> Utiliza este punto de conexión para duplicar campañas. Este punto de conexión de la API es similar a la [duplicación de campañas en el panel de Braze][1].
 
-{% alert important %}
-Duplicar una campaña utilizando la API está actualmente en acceso temprano. Ponte en contacto con tu director de cuentas de Braze si estás interesado en participar en el acceso anticipado.
-{% endalert %}
+## Requisitos previos {#prerequisites}
 
-## Requisitos previos
+Para utilizar este punto de conexión, deberás generar una clave de API con el permiso `campaigns.duplicate`.
 
-Para utilizar este punto final, deberás generar una clave de API con el permiso `campaigns.duplicate`.
+## Límite de velocidad {#rate-limit}
 
-## Límite de velocidad
+Este punto de conexión está limitado a 100 llamadas API por minuto.
 
-Este punto final está limitado a 100 llamadas API por minuto.
-
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -40,22 +36,24 @@ Authorization: Bearer YOUR-REST-API-KEY
   "campaign_id": (required, string) The campaign identifier,
   "name": (required, string) The name of the resulting campaign,
   "description": (optional, string) The description of the resulting campaign,
+  "tag_names": (optional, string) The tags of the resulting campaign,
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`campaign_id`| Obligatoria | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
-|`name`| Obligatoria | Cadena | El nombre de la campaña resultante. |
-|`description`| Opcional | Cadena | El campo de descripción de la campaña resultante. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Obligatorio | Cadena | Ver [identificador de campaña]({{site.baseurl}}/api/identifier_types/). |
+| `name` | Obligatorio | Cadena | El nombre de la campaña resultante. |
+| `description` | Opcional | Cadena | El campo de descripción de la campaña resultante. |
+| `tag_names` | Opcional | Cadena | Las etiquetas de la campaña resultante. Deben ser etiquetas existentes. Si añades etiquetas nuevas en la solicitud, sobrescribirán cualquier etiqueta que existiera en la campaña original. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 
-## Respuesta
+## Respuesta {#response}
 
-Este punto final devolverá un código de estado `202`, y la creación de la campaña se producirá de forma asíncrona. Puedes utilizar la [descarga de eventos de seguridad][2] para ver los registros de cuándo se duplicaron las campañas y mediante qué clave de API.
+Este punto de conexión devolverá un código de estado `202`, y la creación de la campaña se producirá de forma asíncrona. Puedes utilizar la [descarga de eventos de seguridad][2] para ver registros de cuándo se duplicaron las campañas y con qué clave de API.
 
 
 [1]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-campaigns-and-canvases

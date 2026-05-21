@@ -24,14 +24,14 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 ## Rate limit
 
-This endpoint has a rate limit of 1,000 requests per minute, per workspace.
+{% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
 ## Path parameters
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
 |`preferenceCenterExternalID`| Required | String | The ID for your preference center. |
-{: role="presentation" }
+{: aria-label="Path parameters" }
 
 ## Request parameters
 

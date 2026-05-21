@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: true
 hide_breadcrumb: false
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -14,8 +16,12 @@ hide_breadcrumb: false
 {%- assign hide_bottom_nav = page.hide_bottom_nav -%}
 {%- assign hide_breadcrumb = page.hide_breadcrumb -%}
 {%- assign hide_feedback = page.hide_feedback -%}
+{%- assign hide_toc = page.hide_toc -%}
 {%- unless hide_nav -%}
 {%- assign hide_nav = layout.hide_nav -%}
+{%- endunless -%}
+{%- unless hide_toc -%}
+{%- assign hide_toc = layout.hide_toc -%}
 {%- endunless -%}
 
 {%- unless hide_bottom_nav -%}
@@ -34,39 +40,22 @@ hide_breadcrumb: false
 <script type="text/javascript">
 var alloy_partners = {%- alloy_partner -%};
 
-{%- assign vp = '' -%}
-
-{%- for valid_partner in page.valid_partner_list  -%}
-  {%- if vp != '' -%}
-    {%- assign vp = vp | append: ','  -%}
-  {%- endif -%}
-
-  {%- capture vp -%}
-  {{vp}}
-  "{{ valid_partner['name'] | downcase }}": [["{{ valid_partner['name'] }}","{{ valid_partner['url'] }}","{{ valid_partner['title'] }}"]
-  {%- endcapture -%}
-
-  {%- assign alt_vp = '' -%}
-  {%- if valid_partner['alt'] -%}
-    {%- for valid_alt in valid_partner['alt']   -%}
-        {%- capture alt_vp -%}
-        {{alt_vp}} ,["{{ valid_partner['name'] }}","{{ valid_alt['url'] }}","{{ valid_alt['title'] }}"]
-        {%- endcapture -%}
-    {%- endfor -%}
-
-  {%- endif -%}
-
-  {%- capture vp -%}
-    {{vp}}{{alt_vp}}]
-  {%- endcapture -%}
-
-
-{% endfor %}
-
-
-var valid_partners = {
-  {{ vp }}
-}
+var valid_partner_list = {{ page.valid_partner_list | jsonify }};
+var valid_partners = {};
+(function() {
+  if (typeof valid_partner_list === 'undefined' || !valid_partner_list) return;
+  valid_partner_list.forEach(function(p) {
+    var key = (p.name || '').toLowerCase();
+    if (!key) return;
+    var title = (p.title != null && p.title !== '') ? p.title : '';
+    valid_partners[key] = [[p.name || '', p.url || '', title]];
+    if (p.alt && p.alt.length) {
+      p.alt.forEach(function(a) {
+        valid_partners[key].push([p.name || '', a.url || '', (a.title != null && a.title !== '') ? a.title : '']);
+      });
+    }
+  });
+})();
 
 var alloy_data;
 if ('result' in alloy_partners) {
@@ -253,6 +242,7 @@ $(document).ready(function() {
         $('#results_msg').show();
       }
 
+      return result_cnt;
     };
     var partner_hash = {'data':{},'search': {}, 'sorted': []};
     if (alloy_data) {
@@ -270,7 +260,12 @@ $(document).ready(function() {
       partner_hash['sorted'].sort();
       set_filters();
 
-      generate_partners(partner_hash,true);
+      var result_cnt = generate_partners(partner_hash,true);
+      if (result_cnt > 0) {
+        $('#partner_list_fallback').hide();
+      } else {
+        $('#partner_list_fallback').show();
+      }
 
       for (var i = 0 ; i < filter_select.length; i++ ) {
         $('#' + filter_select[i]).on('change',function(e){
@@ -281,6 +276,8 @@ $(document).ready(function() {
       $('#partner_search').on('keyup',function(e){
         generate_partners(partner_hash,false);
       });
+    } else {
+      $('#partner_list_fallback').show();
     }
   });
 </script>
@@ -294,7 +291,7 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="partner-main">
-    <div id="content_start"></div>
+    <div id="content_start" tabindex="-1"></div>
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
     </div>
@@ -307,7 +304,7 @@ $(document).ready(function() {
 
       <div id="partner_filter">
         <div class="partner_filter_div">
-          <label for="partner_search">&#8205;<input id="partner_search" type="search" placeholder="Search" aria-label="Partner Search"></label></div>
+          <label for="partner_search" class="sr-only">Search partners</label><input id="partner_search" type="search" placeholder="Search"></div>
         <div class="partner_filter_div">
           <label for="partner_category">&#8205;<select id="partner_category" class="select" aria-label="Partner Category">
             <option value="">All Categories</option>
@@ -331,6 +328,14 @@ $(document).ready(function() {
     <div id="partner_list" class="flex mx-auto">
 
     </div>
+    <div id="partner_list_fallback" class="partner-fallback-list">
+      <p>Partner documentation links:</p>
+      <ul class="list-unstyled">
+        {%- for p in page.valid_partner_list -%}
+        <li><a href="{{ p.url | remove_first: '/docs' | relative_url }}">{{ p.name }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
     <div id="results_msg"></div>
 
 
@@ -346,4 +351,13 @@ $(document).ready(function() {
     {%- endunless -%}
 
     {% include footer.html class="footer_partner" %}
+</div>
+<div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  <div class="gitedit_div" style="margin-top: 30px;padding-left: 5px;" aria-hidden="true"></div>
+  {%- unless hide_toc -%}
+  <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>

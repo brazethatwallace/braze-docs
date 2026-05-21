@@ -6,7 +6,7 @@ page_type: reference
 page_order: 0.0
 ---
 
-# Generate Liquid code with BrazeAI<sup>TM</sup>
+# Generate Liquid code with BrazeAI
 
 > The BrazeAI<sup>TM</sup> Liquid Assistant is a chat assistant powered by BrazeAI<sup>TM</sup> that helps generate the Liquid you need to personalize message content.
 
@@ -78,7 +78,7 @@ The following attributes are currently in beta for the BrazeAI<sup>TM</sup> Liqu
 | Default and standard user attributes | Attributes |
 | Custom attributes that have any of these data types: {::nomarkdown}<ul><li>Booleans</li><li>Numbers</li><li>Strings</li><li>Arrays</li><li>Time</li></ul>{:/} | Attributes |
 | Connected Content | Coding |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid attributes" }
 
 ## Best practices
 

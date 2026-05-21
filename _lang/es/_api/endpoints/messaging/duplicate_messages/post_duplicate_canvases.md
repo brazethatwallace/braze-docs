@@ -1,34 +1,30 @@
 ---
-nav_title: "PUBLICAR: Lienzos duplicados"
-article_title: "PUBLICAR: Lienzos duplicados"
+nav_title: "POST: Duplicar Canvas"
+article_title: "POST: Duplicar Canvas"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Lienzos duplicados."
+description: "Este artículo describe los detalles sobre el punto de conexión Duplicar Canvas."
 ---
 
 {% api %}
-# Duplicar lienzos utilizando la API
+# Duplicar Canvas utilizando la API {#duplicate-canvases-using-the-api}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
-> Utiliza este punto final para duplicar Lienzos. Este punto final de la API es similar a [duplicar Lienzos en el panel de Braze][1].
+> Utiliza este punto de conexión para duplicar Canvas. Este punto de conexión de la API es similar a [duplicar Canvas en el panel de Braze][1].
 
-{% alert important %}
-Este punto final se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si estás interesado en participar en el acceso anticipado.
-{% endalert %}
+## Requisitos previos {#prerequisites}
 
-## Requisitos previos
+Para utilizar este punto de conexión, deberás generar una clave de API con el permiso `canvas.duplicate`.
 
-Para utilizar este punto final, deberás generar una clave de API con el permiso `canvas.duplicate`.
+## Límite de velocidad {#rate-limit}
 
-## Límite de velocidad
+Este punto de conexión está limitado a 100 llamadas a la API por minuto.
 
-Este punto final está limitado a 100 llamadas API por minuto.
-
-## Cuerpo de la solicitud
+## Cuerpo de la solicitud {#request-body}
 
 ```
 Content-Type: application/json
@@ -44,19 +40,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`| Obligatoria | Cadena | Ver [identificador de Canvas](https://www.braze.com/docs/api/identifier_types/). |
-|`name`| Obligatoria | Cadena | El nombre del Canvas resultante. |
-|`description`| Opcional | Cadena | El campo de descripción del Canvas resultante. |
-|`tag_names` | Opcional | Cadena | Las etiquetas para el Canvas resultante. Deben ser etiquetas existentes. Si añades nuevas etiquetas en la solicitud, éstas sobrescribirán cualquier etiqueta que hubiera en el Canvas original. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas](https://www.braze.com/docs/api/identifier_types/). |
+| `name` | Obligatorio | Cadena | El nombre del Canvas resultante. |
+| `description` | Opcional | Cadena | El campo de descripción del Canvas resultante. |
+| `tag_names` | Opcional | Cadena | Las etiquetas del Canvas resultante. Deben ser etiquetas existentes. Si añades nuevas etiquetas en la solicitud, sobrescribirán cualquier etiqueta que hubiera en el Canvas original. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Respuesta
+## Respuesta {#response}
 
-Este punto final devolverá un código de estado `202`, y la creación del Canvas se producirá de forma asíncrona. Puedes utilizar la [descarga de eventos de Seguridad][2] para ver los registros de cuándo se duplicaron los Lienzos y mediante qué clave de API.
+Este punto de conexión devolverá un código de estado `202`, y la creación del Canvas se producirá de forma asíncrona. Puedes utilizar la [descarga de eventos de seguridad][2] para ver los registros de cuándo se duplicaron los Canvas y mediante qué clave de API.
 
 [1]: {{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/duplicating
 [2]: {{site.baseurl}}/user_guide/administrative/app_settings/company_settings/security_settings

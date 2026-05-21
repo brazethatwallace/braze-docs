@@ -1,6 +1,6 @@
 ---
-nav_title: "PUT:メールテンプレートの翻訳を更新"
-article_title: "PUT:メールテンプレートの翻訳を更新"
+nav_title: "PUT: メールテンプレートの翻訳を更新"
+article_title: "PUT: メールテンプレートの翻訳を更新"
 search_tag: Endpoint
 page_order: 4
 
@@ -10,43 +10,41 @@ description: "この記事では、「メールテンプレートの翻訳を更
 ---
 
 {% api %}
-# メールテンプレートの翻訳を更新
+# メールテンプレートの翻訳を更新 {#update-translations-for-an-email-template}
 {% apimethod put %}
 /templates/email/translations/
 {% endapimethod %}
 
-> [メールテンプレートの]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates)翻訳を更新するには、このエンドポイントを使用します。翻訳機能の詳細については、[メッセージのローカライゼーションを]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/)参照のこと。
+> このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)の翻訳を更新します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
 
-{% alert important %}
-このエンドポイントは現在早期アクセス中である。早期アクセスへの参加に興味がある方は、Brazeのアカウントマネージャーに連絡を。
-{% endalert %}
+{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`templates.translations.update`の権限が必要です。
+このエンドポイントを使用するには、`templates.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='translation endpoints' %}
 
-## パスパラメーター
+## パスパラメーター {#path-parameters}
 
-このエンドポイントにはパスパラメータがありません。
+このエンドポイントにはパスパラメーターはありません。
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `template_id` | 必須 | string | メールテンプレートの ID。 |
-| `locale_id` | 必須 | 文字列 | ロケールのID。 |
-| `translations_map` | 必須 | string | メールテンプレートの翻訳のマップ。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | 必須 | 文字列 | メールテンプレートのID。|
+| `locale_id` | 必須 | 文字列 | ロケールのID。|
+| `translations_map` | 必須 | 文字列 | メールテンプレートの翻訳のマップ。|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
-すべての翻訳IDは、ユニバーサルユニーク識別子（UUID）とみなされ、GETエンドポイントのレスポンスで見つけることができる。
+すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。
 {% endalert %}
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
 ```json
 {
@@ -60,11 +58,11 @@ description: "この記事では、「メールテンプレートの翻訳を更
 }
 ```
 
-## 応答
+## 応答 {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` という 4 つのステータスコードの応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 ```json
 {
@@ -72,9 +70,9 @@ description: "この記事では、「メールテンプレートの翻訳を更
 }
 ```
 
-### エラー応答例
+### エラー応答の例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。遭遇する可能性のあるエラーの詳細については、「[トラブルシューティング](#troubleshooting)」を参照のこと。
+ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

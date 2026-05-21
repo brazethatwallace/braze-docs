@@ -1,14 +1,14 @@
 ---
-nav_title: "データ＆分析"
-article_title: データ＆分析パートナー
+nav_title: "データと分析"
+article_title: データと分析パートナー
 page_order: 5
 
 page_type: landing
-description: "このページには、さまざまなツールやプロバイダー間でデータを送信、保存、調整できるようにする Braze パートナー (Alloys) が一覧表示されています。"
+description: "このページには、さまざまなツールやプロバイダー間でデータの送信、保存、調整を可能にするBrazeパートナー（Alloys）が一覧表示されています。"
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Data & Analytics"
+partner_top_header: "データと分析"
 
 valid_partner_list:
 - name: Optimizely
@@ -38,7 +38,7 @@ valid_partner_list:
 - name: Clarisights
   url: /docs/partners/clarisights/
 - name: Heap
-  url: /docs/partners/heap/ 
+  url: /docs/partners/heap/
 - name: Datadog
   url: /docs/partners/datadog/
 - name: ThoughtSpot
@@ -55,7 +55,7 @@ valid_partner_list:
   url: /docs/partners/saleswings/
 - name: Inbox Monster
   url: /docs/partners/inbox_monster/
-- name: キックボクシング
+- name: Kickbox
   url: /docs/partners/kickbox/
 - name: Amazon S3
   url: /docs/partners/amazon_s3/
@@ -65,18 +65,20 @@ valid_partner_list:
   url: /docs/partners/microsoft_azure_blob_storage_for_currents/
 - name: Tiny Clues
   url: /docs/partners/tinyclues/
-- name: トレジャーデータ
+- name: Treasure Data
   url: /docs/partners/treasure_data/
 - name: Adobe
   url: /docs/partners/adobe/
 - name: ActionIQ
   url: /docs/partners/actioniq/
-- name: アンペア
+- name: Amperity
   url: /docs/partners/amperity/
-- name: BlueConic
+- name: Blueconic
   url: /docs/partners/blueconic/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Dynamics 365 Customer Insights
   url: /docs/partners/dynamics_365_customer_insights
 - name: GrowthLoop
@@ -119,7 +121,7 @@ valid_partner_list:
   url: /docs/partners/onetrust/
 - name: Snowflake
   url: /docs/partners/snowflake/
-- name: Zapierを使ったFacebookリード広告
+- name: Facebook Lead Ads via Zapier
   url: /docs/partners/facebook_via_zapier/
 - name: Zapier
   url: /docs/partners/zapier/
@@ -139,8 +141,12 @@ valid_partner_list:
   url: /docs/partners/wyng/
 - name: Antavo
   url: /docs/partners/antavo/
+- name: Talon.One
+  url: /docs/partners/talonone/
 - name: FriendBuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY®
+  url: /docs/partners/lji/
 - name: Kognitiv Inspire
   url: /docs/partners/kognitiv/
 - name: Punchh
@@ -149,7 +155,7 @@ valid_partner_list:
   url: /docs/partners/sessionm/
 - name: Voucherify
   url: /docs/partners/voucherify/
-- name: 国勢調査
+- name: Census
   url: /docs/partners/census/
 - name: Airbyte
   url: /docs/partners/airbyte/
@@ -163,6 +169,6 @@ valid_partner_list:
   url: /docs/partners/eagle_eye/
 - name: Eppo
   url: /docs/partners/eppo/
-- name: レムニスク
+- name: Lemnisk
   url: /docs/partners/lemnisk/
 ---

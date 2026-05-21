@@ -1,7 +1,7 @@
 ---
 nav_title: Zero-copy personalization
 article_title: Zero-copy personalization using CDI
-page_order: 4
+page_order: 7
 page_type: reference
 description: "This page provides an overview of how to trigger Braze Canvases using CDI."
 ---
@@ -9,8 +9,6 @@ description: "This page provides an overview of how to trigger Braze Canvases us
 # Zero-copy personalization using CDI
 
 > Learn how to sync Canvas triggers using CDI for zero-copy personalization. This feature accesses user-specific information from your data storage solution and passes it to a destination Canvas. Canvas steps can optionally include personalization fields that are not persisted on Braze user profiles.
-
-{% include early_access_beta_alert.md feature='CDI Canvas triggers' %}
 
 ## Syncing Canvas triggers
 
@@ -51,7 +49,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 
 You can name the database, schema, and table as you’d like, but the column names should match the preceding definition.
 
-* `UPDATED_AT`: The time this row was updated or added to the table. Only rows added or updated since the last sync will be synced.  
+* `UPDATED_AT`: The time this row was updated or added to the table. Braze syncs rows where `UPDATED_AT` is later than the last synced value. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp.  
 * Either `external_id` or `alias_name` and `alias_label` as the user identifier column. These identify the users for whom you want to trigger Canvas messaging.  
   * `EXTERNAL_ID`: Identifies the user to enter into the Canvas. This should match the `external_id` value used in Braze.  
   * `ALIAS_NAME` and `ALIAS_LABEL`: These columns create a user alias object. `alias_name` should be a unique identifier, and `alias_label` specifies the alias type. Users may have multiple aliases with different labels, but only one alias_name per `alias_label`.  
@@ -108,7 +106,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 
 You can name the database, schema, and table as you’d like, but the column names should match the preceding definition.
 
-* `UPDATED_AT`: The time this row was updated or added to the table. Only rows added or updated since the last sync will be synced.  
+* `UPDATED_AT`: The time this row was updated or added to the table. Braze syncs rows where `UPDATED_AT` is later than the last synced value. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp.  
 * Either `external_id` or `alias_name` and `alias_label` as the user identifier column. These identify the users for whom you want to trigger Canvas messaging.  
   * `EXTERNAL_ID`: Identifies the user to enter into the Canvas. This should match the `external_id` value used in Braze.  
   * `ALIAS_NAME` and `ALIAS_LABEL`: These columns create a user alias object. `alias_name` should be a unique identifier, and alias_label specifies the alias type. Users may have multiple aliases with different labels, but only one `alias_name` per `alias_label`.  
@@ -151,7 +149,7 @@ Refer to the following when creating your source table:
 | **`EXTERNAL_ID`** | STRING | NULLABLE | 
 | **`ALIAS_NAME`** | STRING | NULLABLE | 
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Set up your source table in BigQuery" }
 
 {% alert note %}
 Properties are not required for every row or user. However, properties values be a valid JSON string. Input an empty `{}` string if there are no properties for the row.
@@ -180,7 +178,7 @@ Create a user and grant permissions. If you already have credentials from anothe
 | BigQuery User | Allows Braze to run queries, read metadata, and list tables. |
 | BigQuery Data Viewer | Allows Braze to view datasets and contents. |
 | BigQuery Job User | Allows Braze to run jobs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.3: Set up credentials" }
 
 After granting permissions, generate a JSON key. See [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) for instructions. You’ll upload it in the Braze dashboard later.
 
@@ -207,11 +205,11 @@ Refer to the following when creating your source table:
 | `EXTERNAL_ID` | STRING |  NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Set up your source table in Databricks" }
 
 You can name the schema and table as you’d like, but the column names should match the preceding definition.
 
-* `UPDATED_AT`: The time this row was updated or added to the table. Only rows added or updated since the last sync will be synced.  
+* `UPDATED_AT`: The time this row was updated or added to the table. Braze syncs rows where `UPDATED_AT` is later than the last synced value. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp.  
 * Either `external_id` or `alias_name` and `alias_label` as the user identifier column. These identify the users for whom you want to trigger Canvas messaging.  
   * `EXTERNAL_ID`: Identifies the user to enter into the Canvas. This should match the `external_id` value used in Braze.  
   * `ALIAS_NAME` and `ALIAS_LABEL`: These columns create a user alias object. `alias_name` should be a unique identifier, and `alias_label` specifies the alias type. Users may have multiple aliases with different labels, but only one alias_name per `alias_label`.  
@@ -285,10 +283,10 @@ To sync Canvas triggers from file storage, create a source file with the followi
 | `EXTERNAL_ID` | Yes, one of `external_id` or `alias_name`, and `alias_label` | This identifies the user you want to update. This should match the `external_id` value used in Braze. |
 | `ALIAS_NAME` and `ALIAS_LABEL` | Yes, one of `external_id` or `alias_name` and `alias_label` | These two columns create a user alias object. `alias_name` should be a unique identifier, and `alias_label` specifies the type of alias. Users may have multiple aliases with different labels, but only one `alias_name` per `alias_label`. |
 | `PROPERTIES` | Yes | JSON string of fields to make available as personalization properties in your Canvas. This should contain user-specific information. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.3: Configure network policies" }
 
 {% alert tip %}
-Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations](https://www.braze.com/docs/user_guide/data/cloud_ingestion/file_storage_integrations).
+Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 {% endtab %}
@@ -296,9 +294,9 @@ Filenames must follow AWS rules and be unique. Append timestamps to help ensure 
 
 #### Step 2: Configure your destination Canvas
 
-1. Set up your destination Canvas for Canvas triggers. Create a new or select an existing API-triggered Canvas. Refer to [Entry schedule types]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas#entry-schedule-types) for instructions on how to create a canvas with an API-triggered delivery schedule type.
+1. Set up your destination Canvas for Canvas triggers. Create a new or select an existing API-triggered Canvas. Refer to [Entry schedule types]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) for instructions on how to create a canvas with an API-triggered delivery schedule type.
 2. After selecting the API-triggered delivery schedule type, continue with Canvas setup and build your Canvas. Canvases can range from simple single-message sends to complex customer workflows with multiple steps.
-3. Within your Canvas steps, use [Canvas entry properties]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties) to personalize messages with properties fields that you plan to sync from your source table.
+3. Within your Canvas steps, use [Canvas entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) to personalize messages with properties fields that you plan to sync from your source table.
   * For example, if in Step 1 you instrumented a properties field for `account_balance`, you would use the following Liquid templating to personalize your message: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. After building your Canvas, launch it and proceed to [Step 3](#step-3-create-your-zero-copy-sync).
 
@@ -326,10 +324,14 @@ Review your entire configuration (from sync behavior to Canvas setup) to avoid u
 
 CDI Canvas triggers utilize your REST API rate limit for `/canvas/trigger/send`. If you're using this endpoint simultaneously with CDI Canvas triggers and your REST API integration, expect the combined usage to count towards your rate limit.
 
-While CDI Canvas triggers are in early access, consider the following details:
+Each sync run enters users into its respective destination Canvas at a maximum rate of approximately 3.75 million users per hour. Be prepared for longer source-to-Canvas entry times when:
 
-* Up to 5 active Canvas trigger syncs per workspace  
-* Each sync run will enter users into its respective destination Canvas at a maximum rate of approximately 3.75 million users per hour.  
-  * Be prepared for longer source-to-Canvas entry times when:  
-    * Syncing more than 3.75M users per sync run.  
-    * Using CDI Canvas triggers when already saturating your REST API's [rate limit for `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+* Syncing more than 3.75 million users per sync run.
+* Using CDI Canvas triggers when already saturating your REST API's [rate limit for `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit).
+
+Consider the following about zero-copy CDI when Message Archiving is enabled:
+
+* The results of the table are temporarily stored in Braze during processing. They are also exported to Snowflake for 30 days so you can view exactly what was synced.
+* Archived messages are not saved anywhere within Braze. The copies are sent to be stored exclusively in your configured storage.
+* When using zero-copy CDI with Canvas triggers, Braze doesn’t store a backup of the query results from the data warehouse and no data is copied into the user profile.
+* Canvas context properties may be logged in internal systems for up to 30 days.

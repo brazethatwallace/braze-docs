@@ -1,39 +1,39 @@
 ---
 nav_title: FAQ
-article_title: Decisioning Studio FAQ
-page_order: 10
+article_title: Decisioning Studio – FAQ
+page_order: 8
 page_type: FAQ
 description: "Auf dieser Seite finden Sie Antworten auf häufig gestellte Fragen zu Decisioning Studio."
 ---
 
-# Häufig gestellte Fragen
+# Häufig gestellte Fragen {#frequently-asked-questions}
 
 > Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zu Decisioning Studio.
 
-### Was ist ein Entscheidungsagenten?
+### Was ist ein Decisioning-Agent? {#what-is-a-decisioning-agent}
 
-Ein Decisioning Agent ist eine angepasste Konfiguration für BrazeAI Decisioning Studio™, die auf ein bestimmtes Geschäftsziel zugeschnitten ist. Dies wird durch die Erfolgsmetrik, die Dimensionen und die von Ihnen gewählten Optionen definiert. Der Decisioning Agent findet automatisch die optimale Aktion für jede Kund:in, um die von Ihnen gewählten Metriken zu maximieren.
+Ein Decisioning-Agent ist eine angepasste Konfiguration für BrazeAI Decisioning Studio™, die speziell auf ein bestimmtes Geschäftsziel zugeschnitten ist. Dies wird durch die von Ihnen gewählte Erfolgsmetrik, die Dimensionen und die Optionen bestimmt. Der Decisioning-Agent ermittelt automatisch die optimale Aktion für jede:n Kund:in, um die von Ihnen gewählte Geschäftsmetrik zu maximieren.
 
-### Für welche Metriken kann ich optimieren?
+### Welche Metriken kann ich optimieren? {#what-metrics-can-i-optimize-for}
 
-Sie können für jede Metrik optimieren, die Ihren Geschäftszielen entspricht, z.B. Umsatz, Konversionen, durchschnittlicher Umsatz pro Nutzer:innen (ARPU), Lifetime-Value (CLV), Gewinn, Vertragsverlängerungen oder jeden anderen KPI für Ihr Unternehmen.
+Sie können jede Geschäftsmetrik optimieren, die mit Ihren Zielen übereinstimmt, wie beispielsweise Umsatz, Conversions, durchschnittlicher Umsatz pro Nutzer:in (ARPU), Customer Lifetime-Value (CLV), Gewinn, Vertragsverlängerungen oder andere geschäftliche KPIs.
 
-### Was sind Dimensionen in Decisioning Studio?
+### Was sind Dimensionen in Decisioning Studio? {#what-are-dimensions-in-decisioning-studio}
 
-Dimensionen kann man sich als die *Arten von Hebeln* vorstellen, die der entscheidungsbefugte Agent ziehen kann, um die Erfolgsmetrik zu maximieren. Typische Dimensionen sind Angebot, Betreffzeile, Kreativ, Kanal oder Sendezeit.
+Dimensionen können als die *Arten von Hebeln* betrachtet werden, die der Decisioning-Agent betätigen kann, um die Erfolgsmetrik zu maximieren. Typische Dimensionen umfassen Angebot, Betreffzeile, Kreativkonzept, Kanal oder Versandzeitpunkt.
 
-### Was ist eine Aktionsbank?
+### Was ist eine Aktionsbank? {#what-is-an-action-bank}
 
-Die Aktionsbank definiert die *spezifischen Optionen*, die dem Entscheidungsagenten für jede Dimension "Hebel" zur Verfügung stehen. Für eine Kanaldimension würden Sie zum Beispiel die spezifischen Kanäle definieren, auf die der Entscheidungsagent Zugriff hat. Für eine Angebotsdimension würden Sie die spezifischen Angebote definieren, die der Entscheidungsträger testen kann.
+Die Aktionsbank definiert die *spezifischen Optionen*, auf die der Decisioning-Agent für jeden Dimensions-„Hebel“ Zugriff hat. Für eine Kanal-Dimension würden Sie beispielsweise die spezifischen Kanäle definieren, auf die der Decisioning-Agent Zugriff hat. Für eine Angebotsdimension würden Sie die spezifischen Angebote definieren, die der Decisioning-Agent testen kann.
 
-### Kann der Decisioning Agent Aktionen ausführen, die ich nicht konfiguriert habe?
+### Kann der Decisioning-Agent Aktionen ausführen, die ich nicht konfiguriert habe? {#can-the-decisioning-agent-take-actions-i-havent-configured}
 
-Nein. Der Decisioning Agent kann nur Aktionen ausführen, die Sie konfigurieren und zur Aktionsbank hinzufügen. Das bedeutet, dass alle möglichen Aktionen durch die Kombinationen dessen, was Sie in die Aktionsbank legen, definiert sind.
+Nein. Der Decisioning-Agent kann nur Aktionen ausführen, die Sie konfigurieren und zur Aktionsbank hinzufügen. Das bedeutet, dass alle möglichen Aktionen durch die Kombinationen definiert werden, die Sie in die Aktionsbank einfügen.
 
-### Was sind Sachzwänge?
+### Was sind Einschränkungen? {#what-are-constraints}
 
-Einschränkungen schränken die Aktionen des Entscheidungsagenten auf die Einhaltung wichtiger Geschäftsregeln ein. So kann beispielsweise verhindert werden, dass ein bestimmtes Angebot für Kund:in einer nicht zugelassenen Region ausgewählt wird, oder es kann ein maximales Budget festgelegt werden, das der Entscheidungsträger ausgeben darf.
+Einschränkungen begrenzen die Aktionen des Decisioning-Agents, um wichtige Geschäftsregeln einzuhalten. Dies könnte beispielsweise bedeuten, dass ein bestimmtes Angebot für Kund:innen in einer nicht berechtigten Region nicht ausgewählt werden kann oder dass ein maximales Budget für den Decisioning-Agent festgelegt wird.
 
-### Was ist der Unterschied zwischen Decisioning Studio Go und Decisioning Studio Pro?
+### Was ist der Unterschied zwischen Decisioning Studio Go und Decisioning Studio Pro? {#what-is-the-difference-between-decisioning-studio-go-and-decisioning-studio-pro}
 
-Decisioning Studio Pro beinhaltet KI Serviceleistungen; Dienste des zukunftsorientierten Data Science Teams von Braze, das Sie bei der Entwicklung und Konfiguration Ihres Agenten unterstützt, um Ihre Geschäftsergebnisse zu maximieren. Weitere Informationen finden Sie unter [Decisioning Studio Go gegenüber Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Decisioning Studio Pro umfasst die Unterstützung durch KI-Entscheidungsfindung-Dienste des vor Ort eingesetzten Data-Science-Teams von Braze, das Sie bei der Gestaltung und Konfiguration Ihres Agents unterstützt, um Ihre Geschäftsergebnisse zu maximieren. Weitere Informationen finden Sie unter [Decisioning Studio Go im Vergleich zu Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).

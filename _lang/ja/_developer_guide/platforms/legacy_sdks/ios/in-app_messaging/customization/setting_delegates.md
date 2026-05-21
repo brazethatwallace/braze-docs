@@ -1,6 +1,6 @@
 ---
-nav_title: 出席者を設定する
-article_title: iOS 用のアプリ内メッセージデリゲートの設定
+nav_title: 代議員を設定する
+article_title: iOS向けにアプリ内メッセージのデリゲートを設定する
 platform: iOS
 page_order: 2
 description: "この参考記事では、iOS アプリケーションのアプリ内メッセージングデリゲートの設定について説明します。"
@@ -12,7 +12,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 出席者を設定する
+# 代議員を設定する
 
 アプリ内メッセージの表示と配信のカスタマイズは、オプションのデリゲートを設定することでコードで実行できます。
 
@@ -32,7 +32,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInAppMessageUIDelegate?(self)
 ```
 
@@ -50,14 +50,14 @@ Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInA
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy sharedInstance].inAppMessageController.delegate = self;
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.inAppMessageController.delegate = self
 ```
 
@@ -68,7 +68,7 @@ Appboy.sharedInstance()?.inAppMessageController.delegate = self
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API_KEY"
           inApplication:application
       withLaunchOptions:options
@@ -78,7 +78,7 @@ Appboy.sharedInstance()?.inAppMessageController.delegate = self
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,

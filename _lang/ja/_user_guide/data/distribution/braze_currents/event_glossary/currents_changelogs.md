@@ -1,114 +1,336 @@
 ---
-nav_title: Currentsイベントチェンジログ
-page_order: 6
-description: "このページには、Currentsのリリースごとのイベント変更が含まれます。"
+nav_title: Currents 変更ログ
+article_title: Currents 変更ログ
+page_order: 3
+description: "このページには、Currents の各リリースにおけるイベントの変更点が記載されています。"
 tool: Currents
 ---
 
-# Currents変更ログ
+# Currents 変更ログ
 
-## バージョン5 の変更点(リリース日2026-02-04)
+> このページでは、Braze Currents の各リリースにおけるイベントおよびスキーマの変更点を一覧で紹介します。
 
-* 新しいイベントタイプ`agentconsole.AgentExecuted`を追加しました。
+## バージョン 8 の変更点（リリース日：2026年5月6日）
 
-* 新しいイベントタイプ`agentconsole.ToolInvocation`を追加しました。
+### ストレージに関する変更:
 
-* 新しいイベントタイプ`users.messages.email.Retry`を追加しました。
+* 新しいイベントタイプ `users.messages.banner.Dismiss` を追加しました。
 
-* 新しいイベントタイプ`users.messages.line.Retry`を追加しました。
+* イベントタイプ `users.messages.whatsapp.Abort` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
-* 新しいイベントタイプ`users.messages.pushnotification.Retry`を追加しました。
+* イベントタイプ `users.messages.whatsapp.Delivery` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
-* 新しいイベントタイプ`users.messages.sms.Retry`を追加しました。
+* イベントタイプ `users.messages.whatsapp.Failure` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
-* 新しいイベントタイプ`users.messages.webhook.Retry`を追加しました。
+* イベントタイプ `users.messages.whatsapp.InboundReceive` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: メッセージの送信元ユーザーの WhatsApp Business-Scoped User ID です。
+    * フィールド `user_phone_number` が*オプション*になりました。
 
-* 新しいイベントタイプ`users.messages.whatsapp.Retry`を追加しました。
+* イベントタイプ `users.messages.whatsapp.Read` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
-* フィールドがイベントタイプ`users.behaviors.pushnotification.TokenStateChange` に変更されました。
-    * 新しい`long` フィールド `time_ms` を追加しました。事象hのアプリが終了した時刻(ミリ秒)
+* イベントタイプ `users.messages.whatsapp.Retry` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
+* イベントタイプ `users.messages.whatsapp.Send` のフィールド変更:
+    * 新しい`string`フィールド `bsuid` を追加しました: このイベントに関連付けられた受信者の WhatsApp Business-Scoped User ID です。
 
-## バージョン4 の変更点(リリース日2026-01-08)
+## バージョン 7 の変更点（リリース日：2026年4月1日）
 
-* フィールドがイベントタイプ`users.behaviors.pushnotification.TokenStateChange` に変更されました。
-    * 新しい`string` フィールド `push_token` を追加しました。事象のプッシュトークン
+### ストレージに関する変更:
 
-* フィールドがイベントタイプ`users.messages.pushnotification.Bounce` に変更されました。
-    * 新しい`string` フィールド `push_token` を追加しました。事象のプッシュトークン
+* イベントタイプ `users.messages.banner.Abort` のフィールド変更:
+    * 新しい`string`フィールド `canvas_name` を追加しました: キャンバス の名前
+    * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
+    * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
+    * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する キャンバス バリエーションの API ID
 
-* フィールドがイベントタイプ`users.messages.pushnotification.Send` に変更されました。
-    * 新しい`string` フィールド `push_token` を追加しました。事象のプッシュトークン
+* イベントタイプ `users.messages.banner.Click` のフィールド変更:
+    * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
+    * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
+    * 新しい`string`フィールド `canvas_name` を追加しました: キャンバス の名前
+    * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する キャンバス バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
 
-* フィールドがイベントタイプ`users.messages.rcs.Click` に変更されました。
-    * 新しい`string` フィールド `canvas_variation_name` を追加しました。このユーザーが受け取ったキャンバスのバリエーション名
-    * フィールド`user_phone_number` が* オプション* になりました。
+* イベントタイプ `users.messages.banner.Impression` のフィールド変更:
+    * 新しい`string`フィールド `canvas_id` を追加しました: このイベントが属する Canvas の API ID
+    * 新しい`string`フィールド `canvas_step_id` を追加しました: このイベントが属するキャンバスステップの API ID
+    * 新しい`string`フィールド `canvas_name` を追加しました: キャンバス の名前
+    * 新しい`string`フィールド `canvas_step_name` を追加しました: キャンバスステップの名前
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_id` を追加しました: このイベントが属する キャンバス バリエーションの API ID
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
 
-* フィールドがイベントタイプ`users.messages.rcs.InboundReceive` に変更されました。
-    * フィールド`user_id` が* オプション* になりました。
+## バージョン 6 の変更点（リリース日：2026年3月4日）
 
-* フィールドがイベントタイプ`users.messages.rcs.Rejection` に変更されました。
-    * 新しい`string` フィールド `canvas_step_message_variation_id` を追加しました。このユーザーが受け取ったキャンバスステップメッセージのバリエーションのAPI ID
+### ストレージに関する変更:
 
+* イベントタイプ `agentconsole.AgentExecuted` のフィールド変更:
+    * 新しい`string`フィールド `error` を追加しました: エラーの説明
 
-## バージョン3 の変更点(リリース日2025-10-08)
+* イベントタイプ `agentconsole.ToolInvocation` のフィールド変更:
+    * 新しい`string`フィールド `request_id` を追加しました: この LLM リクエスト全体と完全な実行に対するユニーク ID
 
-* 新しいイベントタイプ`users.messages.line.Abort`を追加しました。
+* イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
 
-* 新しいイベントタイプ`users.messages.line.Click`を追加しました。
+## バージョン 5 の変更点（リリース日：2026年2月4日）
 
-* 新しいイベントタイプ`users.messages.line.InboundReceive`を追加しました。
+### ストレージに関する変更:
 
-* 新しいイベントタイプ`users.messages.line.Send`を追加しました。
+* 新しいイベントタイプ `agentconsole.AgentExecuted` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.Abort`を追加しました。
+* 新しいイベントタイプ `agentconsole.ToolInvocation` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.Click`を追加しました。
+* 新しいイベントタイプ `users.messages.email.Retry` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.Delivery`を追加しました。
+* 新しいイベントタイプ `users.messages.line.Retry` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.InboundReceive`を追加しました。
+* 新しいイベントタイプ `users.messages.pushnotification.Retry` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.Read`を追加しました。
+* 新しいイベントタイプ `users.messages.sms.Retry` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.Rejection`を追加しました。
+* 新しいイベントタイプ `users.messages.webhook.Retry` を追加しました。
 
-* 新しいイベントタイプ`users.messages.rcs.Send`を追加しました。
+* 新しいイベントタイプ `users.messages.whatsapp.Retry` を追加しました。
 
-* フィールドがイベントタイプ`users.messages.sms.Delivery` に変更されました。
-    * 新しい`boolean` フィールド `is_sms_fallback` を追加しました。受信拒否されたRCSメッセージにより、SMS フォールバックメッセージが送信されたことを示します。このメッセージは、配信、配信の失敗、または拒否の原因となる場合があります。送信ID およびディスパッチID を介してRCS 拒否イベントにリンクできます
+* イベントタイプ `users.behaviors.pushnotification.TokenStateChange` のフィールド変更:
+    * 新しい `long` フィールド `time_ms` を追加しました: イベントが発生した時刻（ミリ秒単位）
 
-* フィールドがイベントタイプ`users.messages.sms.DeliveryFailure` に変更されました。
-    * 新しい`boolean` フィールド `is_sms_fallback` を追加しました。受信拒否されたRCSメッセージにより、SMS フォールバックメッセージが送信されたことを示します。このメッセージは、配信、配信の失敗、または拒否の原因となる場合があります。送信ID およびディスパッチID を介してRCS 拒否イベントにリンクできます
+## バージョン 4 の変更点（リリース日：2026年1月7日）
 
-* フィールドがイベントタイプ`users.messages.sms.Rejection` に変更されました。
-    * 新しい`boolean` フィールド `is_sms_fallback` を追加しました。受信拒否されたRCSメッセージにより、SMS フォールバックメッセージが送信されたことを示します。このメッセージは、配信、配信の失敗、または拒否の原因となる場合があります。送信IDとディスパッチIDを介してRCS拒否イベントにリンクすることができ、送信IDとディスパッチIDを介してRCS拒否イベントにリンクすることができる。(事象プロパティ)
+### ストレージに関する変更:
 
-* フィールドがイベントタイプ`users.messages.whatsapp.Delivery` に変更されました。
-    * 新しい`string` フィールド `flow_id` を追加しました。WhatsAppマネージャのフローの一意のID。WhatsAppの流れに応答するためのCTAがメッセージに含まれている場合に存在する
-    * 新しい`string` フィールド `template_name`: [PII] WhatsApp マネージャーのテンプレートの名前を追加しました。テンプレートメッセージを送信する場合に表示します
-    * 新しい`string` フィールド `message_id` を追加しました。このメッセージのメタによって生成される一意のID
+* イベントタイプ `users.behaviors.pushnotification.TokenStateChange` のフィールド変更:
+    * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
-* フィールドがイベントタイプ`users.messages.whatsapp.Failure` に変更されました。
-    * 新しい`string` フィールド `message_id` を追加しました。このメッセージのメタによって生成される一意のID
-    * 新しい`string` フィールド `template_name`: [PII] WhatsApp マネージャーのテンプレートの名前を追加しました。テンプレートメッセージを送信する場合に表示します
-    * 新しい`string` フィールド `flow_id` を追加しました。WhatsAppマネージャのフローの一意のID。WhatsAppの流れに応答するためのCTAがメッセージに含まれている場合に存在する
+* イベントタイプ `users.messages.pushnotification.Bounce` のフィールド変更:
+    * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
-* フィールドがイベントタイプ`users.messages.whatsapp.InboundReceive` に変更されました。
-    * 新しい`string` フィールド `catalog_id` を追加しました。製品がインバウンドメッセージで参照されている場合の製品のカタログ ID。それ以外の場合は、空です。
-    * 新しい`string` フィールド `product_id` を追加しました。製品がインバウンドメッセージで参照されている場合の製品 SKU。それ以外の場合は、空です。
-    * 新しい`string` フィールド `flow_id` を追加しました。WhatsAppマネージャのフローの一意のID。ユーザーがWhatsAppの流れに反応している場合に表示されます。
-    * 新しい`string` フィールド `flow_response_json`: [PII] ユーザーが応答したフォーム値を追加しました。ユーザーがWhatsAppの流れに反応している場合に表示されます。
-    * 新しい`string` フィールド `message_id` を追加しました。このメッセージのメタによって生成される一意のID
-    * 新しい`string` フィールド `in_reply_to` を追加しました。このメッセージが応答していたメッセージのmessage_id
+* イベントタイプ `users.messages.pushnotification.Send` のフィールド変更:
+    * 新しい`string`フィールド `push_token` を追加しました: イベントのプッシュトークン
 
-* フィールドがイベントタイプ`users.messages.whatsapp.Read` に変更されました。
-    * 新しい`string` フィールド `template_name`: [PII] WhatsApp マネージャーのテンプレートの名前を追加しました。テンプレートメッセージを送信する場合に表示します
-    * 新しい`string` フィールド `message_id` を追加しました。このメッセージのメタによって生成される一意のID
-    * 新しい`string` フィールド `flow_id` を追加しました。WhatsAppマネージャのフローの一意のID。WhatsAppの流れに応答するためのCTAがメッセージに含まれている場合に存在する
+* イベントタイプ `users.messages.rcs.Click` のフィールド変更:
+    * 新しい`string`フィールド `canvas_variation_name` を追加しました: このユーザーが受け取った キャンバス バリエーションの名前
+    * フィールド `user_phone_number` が*オプション*になりました。
 
-* フィールドがイベントタイプ`users.messages.whatsapp.Send` に変更されました。
-    * 新しい`string` フィールド `flow_id` を追加しました。WhatsAppマネージャのフローの一意のID。WhatsAppの流れに応答するためのCTAがメッセージに含まれている場合に存在する
-    * 新しい`string` フィールド `template_name`: [PII] WhatsAppマネージャのテンプレートの名前を追加しました。テンプレートメッセージを送信する場合に表示します
-    * 新しい`string` フィールド `message_id` を追加しました。このメッセージのメタによって生成される一意のID
+* イベントタイプ `users.messages.rcs.InboundReceive` のフィールド変更:
+    * フィールド `user_id` が*オプション*になりました。
 
+* イベントタイプ `users.messages.rcs.Rejection` のフィールド変更:
+    * 新しい`string`フィールド `canvas_step_message_variation_id` を追加しました: このユーザーが受け取ったキャンバスステップメッセージバリエーションの API ID
+
+## バージョン 3 の変更点（リリース日：2025年10月8日）
+
+### ストレージに関する変更:
+
+* 新しいイベントタイプ `users.messages.line.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.line.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.line.InboundReceive` を追加しました。
+
+* 新しいイベントタイプ `users.messages.line.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.Delivery` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.InboundReceive` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.Read` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.Rejection` を追加しました。
+
+* 新しいイベントタイプ `users.messages.rcs.Send` を追加しました。
+
+* イベントタイプ `users.messages.sms.Delivery` のフィールド変更:
+    * 新しい`boolean`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。
+
+* イベントタイプ `users.messages.sms.DeliveryFailure` のフィールド変更:
+    * 新しい`boolean`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。
+
+* イベントタイプ `users.messages.sms.Rejection` のフィールド変更:
+    * 新しい`boolean`フィールド `is_sms_fallback` を追加しました: RCS メッセージが拒否されたため、SMS フォールバックメッセージが送信されたことを示します。このメッセージは配信、配信失敗、または拒否になる可能性があります。送信 ID とディスパッチ ID を使用して RCS Rejection イベントにリンクできます。（イベントプロパティ）
+
+* イベントタイプ `users.messages.whatsapp.Delivery` のフィールド変更:
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+
+* イベントタイプ `users.messages.whatsapp.Failure` のフィールド変更:
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+
+* イベントタイプ `users.messages.whatsapp.InboundReceive` のフィールド変更:
+    * 新しい`string`フィールド `catalog_id` を追加しました: インバウンドメッセージで製品が参照されている場合のカタログ ID。それ以外の場合は空です。
+    * 新しい`string`フィールド `product_id` を追加しました: インバウンドメッセージで製品が参照されている場合の製品 SKU。それ以外の場合は空です。
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。ユーザーが WhatsApp Flow に応答している場合に存在します。
+    * 新しい`string`フィールド `flow_response_json` を追加しました: [PII] ユーザーが応答したフォームの値。ユーザーが WhatsApp Flow に応答している場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `in_reply_to` を追加しました: このメッセージが返信した元メッセージの message_id
+
+* イベントタイプ `users.messages.whatsapp.Read` のフィールド変更:
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+
+* イベントタイプ `users.messages.whatsapp.Send` のフィールド変更:
+    * 新しい`string`フィールド `flow_id` を追加しました: WhatsApp Manager におけるフローのユニーク ID。メッセージに WhatsApp Flow への応答を求める CTA が含まれている場合に存在します。
+    * 新しい`string`フィールド `template_name` を追加しました: [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します。
+    * 新しい`string`フィールド `message_id` を追加しました: このメッセージに対して Meta が生成したユニーク ID
+
+## バージョン 2 の変更点（リリース日なし）
+
+### ストレージに関する変更:
+
+* 新しいイベントタイプ `users.behaviors.app.FirstSession` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.app.SessionEnd` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.app.SessionStart` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.CustomEvent` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.InstallAttribution` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.liveactivity.PushToStartTokenChange` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.liveactivity.UpdateTokenChange` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.Location` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.Purchase` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.pushnotification.TokenStateChange` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.subscription.GlobalStateChange` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.subscriptiongroup.StateChange` を追加しました。
+
+* 新しいイベントタイプ `users.behaviors.Uninstall` を追加しました。
+
+* 新しいイベントタイプ `users.campaigns.Conversion` を追加しました。
+
+* 新しいイベントタイプ `users.campaigns.EnrollInControl` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.Conversion` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.Entry` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.exit.MatchedAudience` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.exit.PerformedEvent` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.experimentstep.Conversion` を追加しました。
+
+* 新しいイベントタイプ `users.canvas.experimentstep.SplitEntry` を追加しました。
+
+* 新しいイベントタイプ `users.canvasstep.Progression` を追加しました。
+
+* 新しいイベントタイプ `users.messages.banner.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.banner.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.banner.Impression` を追加しました。
+
+* 新しいイベントタイプ `users.messages.contentcard.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.contentcard.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.contentcard.Dismiss` を追加しました。
+
+* 新しいイベントタイプ `users.messages.contentcard.Impression` を追加しました。
+
+* 新しいイベントタイプ `users.messages.contentcard.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Bounce` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Deferral` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Delivery` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.MarkAsSpam` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Open` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.SoftBounce` を追加しました。
+
+* 新しいイベントタイプ `users.messages.email.Unsubscribe` を追加しました。
+
+* 新しいイベントタイプ `users.messages.featureflag.Impression` を追加しました。
+
+* 新しいイベントタイプ `users.messages.inappmessage.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.inappmessage.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.inappmessage.Impression` を追加しました。
+
+* 新しいイベントタイプ `users.messages.liveactivity.Outcome` を追加しました。
+
+* 新しいイベントタイプ `users.messages.liveactivity.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.pushnotification.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.pushnotification.Bounce` を追加しました。
+
+* 新しいイベントタイプ `users.messages.pushnotification.IosForeground` を追加しました。
+
+* 新しいイベントタイプ `users.messages.pushnotification.Open` を追加しました。
+
+* 新しいイベントタイプ `users.messages.pushnotification.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.CarrierSend` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.Delivery` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.DeliveryFailure` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.InboundReceive` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.Rejection` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.sms.ShortLinkClick` を追加しました。
+
+* 新しいイベントタイプ `users.messages.webhook.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.webhook.Failure` を追加しました。
+
+* 新しいイベントタイプ `users.messages.webhook.Send` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.Abort` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.Click` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.Delivery` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.Failure` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.InboundReceive` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.Read` を追加しました。
+
+* 新しいイベントタイプ `users.messages.whatsapp.Send` を追加しました。
+
+* 新しいイベントタイプ `users.RandomBucketNumberUpdate` を追加しました。

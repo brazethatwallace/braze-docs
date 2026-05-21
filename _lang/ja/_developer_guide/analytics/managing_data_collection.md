@@ -1,14 +1,14 @@
 ---
-nav_title: データ収集の管理
-article_title: Braze SDKのデータコレクションの管理
+nav_title: データ収集を管理する
+article_title: Braze SDKのデータ収集を管理する
 page_order: 8
-description: "Braze SDKのデータ収集を管理する方法を学習する。"
+description: "Braze SDKのデータ収集を管理する方法について説明します。"
 
 ---
 
-# データ収集の管理
+# データ収集を管理する {#manage-data-collection}
 
-> Braze SDK のデータ収集を管理する方法を学習し、必要に応じてデータプライバシー規制に準拠できるようにします。
+> Braze SDKのデータ収集を管理する方法について説明します。必要に応じてデータプライバシー規制に準拠できます。
 
 {% sdktabs %}
 {% sdktab web %}
@@ -21,6 +21,14 @@ description: "Braze SDKのデータ収集を管理する方法を学習する。
 
 {% sdktab swift %}
 {% multi_lang_include developer_guide/swift/analytics/managing_data_collection.md %}
+{% endsdktab %}
+
+{% sdktab react native %}
+{% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
+{% endsdktab %}
+
+{% sdktab roku %}
+{% multi_lang_include developer_guide/roku/analytics/managing_data_collection.md %}
 {% endsdktab %}
 
 {% endsdktabs %}

@@ -1,5 +1,5 @@
 ---
-nav_title: 高度な実装（オプション）
+nav_title: 高度な実装（任意）
 article_title: iOS 用アプリ内メッセージ実装ガイド (オプション)
 platform: iOS
 page_order: 6
@@ -13,7 +13,7 @@ noindex: true
 
 <br>
 {% alert important %}
-基本的なアプリ内メッセージ開発者統合ガイドをお探しですか?見つける [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview/).
+基本的なアプリ内メッセージ開発者統合ガイドをお探しですか?それを見つけろ [here]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/overview/).
 {% endalert %}
 
 # アプリ内メッセージング実装ガイド
@@ -54,7 +54,7 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 {% tab Objective-C %}
 **ABKInAppMessage サブクラス**<br> 
 
-```objc
+`````````objc
 - (ABKInAppMessageViewController *)inAppMessageViewControllerWithInAppMessage:(ABKInAppMessage *)inAppMessage {
   if ([inAppMessage isKindOfClass:[ABKInAppMessageSlideup class]]) {
     return [self slideupViewControllerWithInAppMessage:inAppMessage]; //Custom Method
@@ -93,13 +93,13 @@ extension AppboyManager: ABKInAppMessageUIDelegate {
 {% tab Swift %}
 **`offset` 変数を更新**<br>
 `offset` 変数を更新し、必要に応じて独自のオフセットを設定します。
-```swift
+`````````swift
 func setSlideConstraint() {
   offset = 0
 }
 ```
 
-```swift
+`````````swift
 override var offset: CGFloat {
   get {
     return super.offset
@@ -114,30 +114,30 @@ override var offset: CGFloat {
 **`slideConstraint` 変数を更新**<br>
 `slideConstraint` パブリック変数はスーパークラス `ABKInAppMessageSlideupViewController` から取得されます。 
 
-```swift
+`````````swift
 func setSlideConstraint() {
     slideConstraint?.constant = bottomSpacing
 }
 ```
 
-```swift
+`````````swift
 private var bottomSpacing: CGFloat {
     return AppboyManager.shared.activeApplicationViewController.topMostViewController().view.safeAreaInsets.bottom
 }
-``` 
+```
 [`topMostViewController()`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/Utils/UIViewController_Util.swift#L17) 機能については、Braze Demo リポジトリにアクセスしてください。
 {% enddetails %}
 {% endtab %}
 {% tab Objective-C %}
 **`offset` 変数を更新**<br>
 `offset` 変数を更新し、必要に応じて独自のオフセットを設定します。
-```objc
+`````````objc
 - (void)setOffset {
   self.offset = 0;
 }
 ```
 
-```objc
+`````````objc
 - (CGFloat)offset {
   return [super offset];
 }
@@ -150,13 +150,13 @@ private var bottomSpacing: CGFloat {
 **`slideConstraint` 変数を更新**<br>
 `slideConstraint` パブリック変数はスーパークラス `ABKInAppMessageSlideupViewController` から取得されます。 
 
-```objc
+`````````objc
 - (void)self.setSlideConstraint:(NSLayoutConstraint *)slideConstraint {
   slideConstraint.constant = bottomSpacing;
 }
 ```
 
-```objc
+`````````objc
 - (CGFloat)bottomSpacing {
   return [AppboyManager shared].activeApplicationViewController.topMostViewController.view.safeAreaInsets.bottom;
 }
@@ -170,7 +170,7 @@ private var bottomSpacing: CGFloat {
 **カスタム制約のオーバーライドと設定**<br>
 `beforeMoveInAppMessageViewOnScreen()` をオーバーライドし、必要に応じて独自のカスタム制約値を設定します。元の値はスーパークラスに設定されます。
 
-```swift
+`````````swift
 override func beforeMoveInAppMessageViewOnScreen() {
   super.beforeMoveInAppMessageViewOnScreen()
   setOffset()
@@ -178,7 +178,7 @@ override func beforeMoveInAppMessageViewOnScreen() {
 ```
 
 {% details Version 3.34.0 or earlier %}
-```swift
+`````````swift
 override func beforeMoveInAppMessageViewOnScreen() {
   setSlideConstraint()
 }
@@ -190,7 +190,7 @@ override func beforeMoveInAppMessageViewOnScreen() {
 **カスタム制約のオーバーライドと設定**<br> 
 `beforeMoveInAppMessageViewOnScreen()` をオーバーライドし、必要に応じて独自のカスタム制約値を設定します。元の値はスーパークラスに設定されます。
 
-```objc
+`````````objc
 - (void)beforeMoveInAppMessageViewOnScreen {
   [super beforeMoveInAppMessageViewOnScreen];
   [self setOffset];
@@ -198,7 +198,7 @@ override func beforeMoveInAppMessageViewOnScreen() {
 ```
 
 {% details Version 3.34.0 or earlier  %}
-```objc
+`````````objc
 - (void)beforeMoveInAppMessageViewOnScreen {
   [self setSlideConstraint:self.slideConstraint];
 }
@@ -230,14 +230,14 @@ override func beforeMoveInAppMessageViewOnScreen() {
 
 `ABKInAppMessage` オブジェクト内の `extras` ディクショナリを使用して、表示すべき正しいビューを示す `view_type` キー (存在する場合) をクエリできます。アプリ内メッセージはメッセージごとに設定されるため、カスタムとデフォルトのモーダルビューが調和して機能することに注意してください。
 
-![メッセージ作成画面で検出された2 つのキーと値のペア。最初のキーと値のペアには、"attribute_key" "Favorite Team "が設定され、2番目には"view_type" "picker "が設定されている。]({% image_buster /assets/img/iam_implementation/dashboard2.png %}){: style="max-width:65%;"}
+![メッセージ作成画面で検出された2 つのキーと値のペア。最初のキーと値のペアは「お気に入りのチーム」に設定"attribute_key"され、2番目のペアは「選択者」に設定"view_type"されている。]({% image_buster /assets/img/iam_implementation/dashboard2.png %}){: style="max-width:65%;"}
 
 {% tabs %}
 {% tab Swift %}
 **UI 表示動作に `view_type` を使用**<br>
 `view_type` に対して `extras` ディクショナリを照会して、目的のサブクラス化されたビューコントローラをロードします。
 
-```swift
+`````````swift
 func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalViewController {
   switch inAppMessage.extras?[InAppMessageKey.viewType.rawValue] as? String {
   case InAppMessageViewType.picker.rawValue:
@@ -252,7 +252,7 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
 **UI 表示動作に `view_type` を使用**<br>
 `view_type` に対して `extras` ディクショナリを照会して、目的のサブクラス化されたビューコントローラをロードします。
 
-```objc
+`````````objc
 - (ABKInAppMessageModalViewController *)modalViewControllerWithInAppMessage:(ABKInAppMessage *)inAppMessage {
   InAppMessageData *inAppMessageData = [[InAppMessageData alloc] init];
   NSString *key = [inAppMessageData rawValueForInAppMessageKey:InAppMessageKeyViewType];
@@ -272,7 +272,7 @@ func modalViewController(inAppMessage: ABKInAppMessage) -> ABKInAppMessageModalV
 {% tab Swift %}
 **オーバーライドしてカスタムビューを提供する**<br>
 `loadView()` をオーバーライドし、必要に応じて独自のカスタムビューを設定します。
-```swift
+`````````swift
 override var nibname: String{
   return "ModalPickerViewController"
 }
@@ -285,7 +285,7 @@ override func loadView() {
 {% tab Objective-C %}
 **オーバーライドしてカスタムビューを提供する**<br>
 `loadView()` をオーバーライドし、必要に応じて独自のカスタムビューを設定します。
-```objc
+`````````objc
 - (void)loadView {
   NSString *nibName = @"ModalPickerViewController";
   [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
@@ -298,7 +298,7 @@ override func loadView() {
 {% tab Swift %}
 **動的リストのフォーマット変数**<br>
 `UIPickerView` コンポーネントをリロードする前に、`inAppMessage` メッセージ変数は_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。例として、これは [`components(separatedBy: ", ")`](https://developer.apple.com/documentation/foundation/nsstring/1413214-components) を使用して実現できます。
-```swift
+`````````swift
 override func viewDidLoad() {
   super.viewDidLoad()
  
@@ -310,7 +310,7 @@ override func viewDidLoad() {
 {% tab Objective-C %}
 **PickerView の形式変数**<br>
 `UIPickerView` コンポーネントをリロードする前に、`inAppMessage` メッセージ変数は_文字列_として出力されます。正しく表示するには、このメッセージを項目の配列としてフォーマットする必要があります。たとえば、[`componentsSeparatedByString`](https://developer.apple.com/documentation/foundation/nsstring/1413214-componentsseparatedbystring?language=objc) を使用してこれを実現できます。
-```objc
+`````````objc
 - (void)viewDidLoad {
   [super viewDidLoad];
    
@@ -325,7 +325,7 @@ override func viewDidLoad() {
 {% tab Swift %}
 **カスタム属性を割り当てる**<br>
 サブクラスを使用して、ユーザーが [送信] を押した後に、属性とそれに対応する選択した値を Braze に渡します。
-```swift
+`````````swift
 @IBAction func primaryButtonTapped(_ sender: Any) {
   guard let item = selectedItem, !item.isEmpty, let attributeKey = inAppMessage.extras?[InAppMessageKey.attributeKey.rawValue] as? String else { return }
      
@@ -336,7 +336,7 @@ override func viewDidLoad() {
 {% tab Objective-C %}
 **カスタム属性を割り当てる**<br>
 サブクラスを使用して、ユーザーが [送信] を押した後に、属性とそれに対応する選択した値を Braze に渡します。
-```objc
+`````````objc
 - (IBAction)primaryButtonTapped:(id)sender {
   InAppMessageData *inAppMessageData = [[InAppMessageData alloc] init];
   NSString *key = [inAppMessageData rawValueForInAppMessageKey:InAppMessageKeyAttributeKey];
@@ -367,7 +367,7 @@ override func viewDidLoad() {
 
 キーと値のペアに、`attribute_key` を入力します。このキーは、ユーザーが選択した値とともに、カスタム属性としてユーザープロファイルに保存されます。カスタムビューロジックは、Braze に送信されたユーザー属性を処理する必要があります。
 
-![メッセージ作成画面で見つかった3 つのキーと値のペア。最初のキーと値のペア"attribute_key" は "プッシュタグ "として設定され、2番目の"subtitle_text" は "イネーブルメント通知も... "として設定され、3番目の"view_type" は"table_list".]({% image_buster /assets/img/iam_implementation/dashboard3.png %}として設定される){: style="max-width:65%;"}
+![メッセージ作成画面で見つかった3 つのキーと値のペア。最初のキーと値のペアは「プッシュタグ」に"attribute_key"設定される。二つ目は「通知を有効にすると…」に"subtitle_text"設定される。三つ目は"view_type"が"table_list"に設定される。]({% image_buster /assets/img/iam_implementation/dashboard3.png %}){: style="max-width:65%;"}
 
 #### アプリ内メッセージタッチのインターセプト
 ![設定とトグルの行を表示する Apple デバイス。カスタムビューはボタンを処理し、ボタンコントロールの外側でのタッチはアプリ内メッセージによって処理され、閉じられます。]({% image_buster /assets/img/iam_implementation_guide.png %}){: style="float:right;max-width:30%;margin-left:10px;border:0"}

@@ -1,37 +1,37 @@
-# Braze MCP サーバーのセットアップ
+# Braze MCPサーバーの設定 {#setting-up-the-braze-mcp-server}
 
-> Braze MCP サーバーを設定する方法について説明します。この方法では、クロードやカーソルなどのツールを使用して、自然言語でBrazeデータを操作できます。詳しくは、[Braze MCP サーバ]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}を参照してください。
+> Braze MCPサーバーの設定方法を学習すれば、ClaudeやCursorのような自然言語ツールを使ってBrazeデータとやり取りできるようになります。より一般的な情報については、[Braze MCPサーバー]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}を参照してください。
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-開始する前に、次のものが必要になります。
+開始する前に、以下のものが必要です。
 
 | 前提条件 | 説明 |
 |--------------|-------------|
-| Braze API キー | 必要な権限を持つBraze API キー。[ Braze MCP サーバー](#create-api-key) を設定すると、新しい鍵が作成されます。 |
-| MCP クライアント | [Claude](https://claude.ai/)、[Cursor](https://cursor.com/)、[Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli)が正式にサポートされています。Braze MCP サーバーを使用するには、これらのクライアントs のいずれかに対応するアカウントが必要です。 |
-| 端子 | 端末アプリを使用して、コマンドを実行したり、ツールをインストールしたりできます。お使いのコンピューターにあらかじめインストールされている端末アプリを使用してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Braze APIキー | 必要な権限を持つBraze APIキー。[Braze MCPサーバーを設定する](#create-api-key)際に、新しいキーを作成します。 |
+| MCPクライアント | [Claude](https://claude.ai/)、[Cursor](https://cursor.com/)、[Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli)が公式にサポートされています。Braze MCPサーバーを使用するには、これらのクライアントのいずれかのアカウントが必要です。 |
+| ターミナル | コマンドの実行やツールのインストールに使用するターミナルアプリ。お好みのターミナルアプリ、またはコンピューターにプリインストールされているものを使用してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Braze MCP サーバーのセットアップ
+## Braze MCPサーバーの設定
 
-### ステップ 1: インストール `uv`
+### ステップ 1: `uv`をインストールする {#step-1-install-uv}
 
-まず、`uv`-a [コマンドラインツールをAstral](https://docs.astral.sh/uv/getting-started/installation/)でインストールし、依存性管理とPythonパッケージ処理を行います。
+まず、`uv`をインストールします。これは[Astralが提供するコマンドラインツール](https://docs.astral.sh/uv/getting-started/installation/)で、依存関係管理とPythonパッケージ処理に使用します。
 
 {% tabs local %}
 {% tab MacOS and Linux %}
-端末アプリアプリケーションを開き、次のコマンドを貼り付けてから、<kbd>Enter</kbd> を押します。
+ターミナルアプリケーションを開き、以下のコマンドを貼り付けて、<kbd>Enter</kbd>を押します。
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-出力は次のようになります。
+出力は以下のようになります。
 
-```bash
+`````````bash
 $ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 downloading uv 0.8.9 aarch64-apple-darwin
@@ -44,15 +44,15 @@ everything's installed!
 {% endtab %}
 
 {% tab Windows %}
- Windows PowerShell を開き、次のコマンドを貼り付けて、<kbd>Enter</kbd> を押します。
+ Windows PowerShellを開き、以下のコマンドを貼り付けて<kbd>Enter</kbd>を押します。
 
-```powershell
+`````````powershell
 irm https://astral.sh/uv/install.ps1 | iex
 ```
 
-出力は次のようになります。
+出力は以下のようになります。
 
-```powershell
+`````````powershell
 PS C:\Users\YourUser> irm https://astral.sh/uv/install.ps1 | iex
 
 Downloading uv 0.8.9 (x86_64-pc-windows-msvc)
@@ -65,179 +65,206 @@ everything's installed!
 {% endtab %}
 {% endtabs %}
 
-### ステップ 2:API キーの作成 {#create-api-key}
+### ステップ 2: APIキーを作成する {#create-api-key}
 
-Braze MCP サーバーは、Braze ユーザープロファイルs からデータを返さない38 個の読み取り専用エンドポイントs をサポートします。**Settings** > **APIs and Identifiers** > **API Keys**に移動し、以下の一部またはすべての権限を持つ新しいキーを作成します。
+Braze MCPサーバーには、読み取り専用エンドポイントと書き込みエンドポイントの両方が含まれています。これらのエンドポイントはBrazeユーザープロファイルからデータを返しません。書き込みエンドポイントを使用すると、エージェントがワークスペース内のコンテンツを作成または更新できます。
 
-{% details List of read-only, non-PII permissions %}
+APIキーを作成するには：
+
+1. **Settings** > **APIs and Identifiers** > **API Keys**に移動します。
+2. 新しいキーを作成します。
+3. 以下の権限の一部または全部をキーに割り当てます。
+
+{% alert important %}
+エージェントに使用させたい権限のみを割り当ててください。エージェントがBraze内で変更を行うことを防ぐには、APIキーを作成する際に書き込み権限を外しておいてください。
+{% endalert %}
+
+{% details サポートされている権限の一覧 %}
 #### キャンペーン
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | `campaigns.data_series` |
-| [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | `campaigns.details` |
-| [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | `campaigns.list` |
-| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | `campaigns.data_series` |
+| [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
+| [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
+| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンペーン" }
 
 #### キャンバス
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | `canvas.data_series` |
-| [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | `canvas.data_summary` |
-| [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | `canvas.details` |
-| [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | `canvas.data_series` |
+| [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
+| [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
+| [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="キャンバス" }
 
-#### カタログ
+#### Catalogs
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | `catalogs.get` |
-| [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | `catalogs.get_items` |
-| [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
+| [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
+| [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### クラウドデータ取り込み
+#### Cloud Data Ingestion
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | `cdi.integration_list` |
-| [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
+| [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
 
-#### コンテンツブロック
+#### Content Blocks
 
-| エンドポイント | 必要な許可 |
+`content_blocks.create`と`content_blocks.update`の権限は書き込み権限です。エージェントにワークスペース内のコンテンツブロックの作成や更新を許可する場合のみ、これらの権限を追加してください。
+
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | `content_blocks.list` |
-| [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | `content_blocks.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
+| [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### カスタム属性
+#### Custom Attributes
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### イベント
+#### Events
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | `events.list` |
-| [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | `events.data_series` |
-| [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
+| [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
+| [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
-#### KPI
+#### KPIs
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) | `kpi.new_users.data_series` |
-| [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | `kpi.dau.data_series` |
-| [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | `kpi.mau.data_series` |
-| [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | `kpi.new_users.data_series` |
+| [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | `kpi.dau.data_series` |
+| [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | `kpi.mau.data_series` |
+| [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### メッセージ
+#### Media Library
 
-| エンドポイント | 必要な許可 |
+`media_library.create`の権限は書き込み権限です。エージェントにメディアライブラリへのアセットアップロードを許可する場合のみ、この権限を追加してください。
+
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
-#### ユーザー設定センター
+#### Messages
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center) | `preference_center.list` |
-| [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
 
-#### 購入
+#### Preference Center
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | `purchases.product_list` |
-| [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | `purchases.revenue_series` |
-| [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
+| [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
+
+#### Purchases
+
+| エンドポイント | 必要な権限 |
+|----------|---------------------|
+| [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
+| [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
+| [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
 
 #### セグメント
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | `segments.list` |
-| [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | `segments.data_series` |
-| [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
+| [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
+| [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="セグメント" }
 
-#### 送信数
+#### Sends
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
 
-#### セッション
+#### Sessions
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
 
-#### SDK 認証キー
+#### SDK Authentication Keys
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
 
 #### Subscription
 
-| エンドポイント | 必要な許可 |
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | `subscription.status.get` |
-| [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
+| [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
 
-#### テンプレート
+#### Templates
 
-| エンドポイント | 必要な許可 |
+`templates.email.create`と`templates.email.update`の権限は書き込み権限です。エージェントにワークスペース内のメールテンプレートの作成や更新を許可する場合のみ、これらの権限を追加してください。
+
+| エンドポイント | 必要な権限 |
 |----------|---------------------|
-| [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | `templates.email.list` |
-| [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | `templates.email.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
+| [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-既存のAPI キーを再利用しないでください。作成は、MCP クライアント専用です。さらに、エージェントがBrazeでデータの書き込みまたは削除を試みる可能性があるため、読み取り専用の非PII権限のみを割り当てます。
+既存のAPIキーを再利用しないでください。MCPクライアント専用に新しいキーを作成してください。エージェントに必要な権限のみを割り当ててください。エージェントは付与された権限を使用しようとする可能性があるため、Braze内で変更を行わせたくない場合は、書き込み権限を外しておいてください。
 {% endalert %}
 
-### ステップ 3:識別子とエンドポイントを入手する
+### ステップ 3: 識別子とエンドポイントを取得する {#step-3-get-your-identifier-and-endpoint}
 
-MCP クライアントを設定するには、API キーの識別子とワークスペースのREST エンドポイントが必要です。これらの詳細を取得するには、ダッシュボード-keep this page 開封の**API Keys** ページに戻ります。そのため、[次回のステップ](#configure-client) 時に参照できます。
+MCPクライアントを設定する際には、APIキーの識別子とワークスペースのRESTエンドポイントが必要です。これらの詳細を取得するには、ダッシュボードの**API Keys**ページに戻ります。[次のステップ](#configure-client)で参照できるよう、このページを開いたままにしておいてください。
 
-![新しく作成されたAPI キーを示すBrazeの「API キー」とユーザーのREST エンドポイント。]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
+![Brazeの「API Keys」ページに、新しく作成されたAPIキーとユーザーのRESTエンドポイントが表示されている。]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
 
-### ステップ 4: MCP クライアントの設定 {#configure-client}
+### ステップ 4: MCPクライアントを設定する {#configure-client}
 
-事前に用意された設定ファイルを使用して、MCP クライアントを設定します。
+あらかじめ用意された設定ファイルを使って、MCPクライアントを設定します。
 
 {% tabs %}
 {% tab Claude %}
-[Claude Desktop](https://claude.ai/download) コネクタディレクトリを使用してMCP サーバを設定します。 
+[Claude Desktop](https://claude.ai/download)のコネクタディレクトリを使ってMCPサーバーを設定します。
 
-1. Claude Desktop で、**Settings**> **Connectors**> **コネクタをブラウズ**> **Desktop Extensions**> **Braze MCP Server**> **インストール** に移動します。
-2. API キーと基本URL を入力します。
-3. 設定を保存し、Claude Desktop を再起動します。
+1. Claude Desktopで、**Settings** > **Connectors** > **Browse Connectors** > **Desktop Extensions** > **Braze MCP Server** > **Install**に移動します。
+2. APIキーとベースURLを入力します。
+3. 設定を保存し、Claude Desktopを再起動します。
 
 {% endtab %}
 
 {% tab Cursor %}
-[Cursor](https://cursor.com/)で、**Settings**> **Tools and Integrations**> **MCP Tools**> **Add Custom MCP**に進み、次のスニペットを追加します。
+[Cursor](https://cursor.com/)で、**Settings** > **Tools and Integrations** > **MCP Tools** > **Add Custom MCP**に移動し、以下のスニペットを追加します。
 
 ```json
 {
@@ -254,7 +281,7 @@ MCP クライアントを設定するには、API キーの識別子とワーク
 }
 ```
 
-`key-identifier` および`rest-endpoint` を、Braze の**API Keys** ページの対応する値に置き換えます。設定は次のようになります。
+`key-identifier`と`rest-endpoint`を、Brazeの**API Keys**ページにある対応する値で置き換えます。設定は以下のようになります。
 
 ```json
 {
@@ -271,19 +298,19 @@ MCP クライアントを設定するには、API キーの識別子とワーク
 }
 ```
 
-終了したら、設定を保存し、Cursor を再起動します。
+完了したら、設定を保存してCursorを再起動します。
 {% endtab %}
 {% tab Gemini CLI %}
-Gemini CLIは、`~/.gemini/settings.json`からユーザー 設定sを読み取ります。これが存在しない場合は、ターミナルで以下を実行して作成できます。
+Gemini CLIはユーザー設定を`~/.gemini/settings.json`から読み込みます。このファイルが存在しない場合は、ターミナルで以下のコマンドを実行して作成できます。
 
-```powershell
+`````````powershell
 mkdir -p ~/.gemini
 nano ~/.gemini/settings.json
 ```
 
-次に、`yourname` をターミナルプロンプトの`@BZXXXXXXXX` の前の正確な文字列に置き換えます。次に、`key-identifier` および`rest-endpoint` を、Braze の**API Keys** ページの対応する値に置き換えます。 
+次に、`yourname`をターミナルプロンプトの`@BZXXXXXXXX`の前にある文字列に正確に置き換えます。続いて、`key-identifier`と`rest-endpoint`を、Brazeの**API Keys**ページにある対応する値で置き換えます。
 
-設定は次のようになります。
+設定は以下のようになります。
 
 ```json
 {
@@ -300,96 +327,96 @@ nano ~/.gemini/settings.json
 }
 ```
 
-完了したら、設定を保存し、Gemini CLI を再起動します。次に、Gemini で次のコマンドを実行して、Braze MCP サーバーが一覧表示されていること、およびツールとスキーマが使用可能であることを確認します。
+完了したら、設定を保存してGemini CLIを再起動します。次に、Geminiで以下のコマンドを実行して、Braze MCPサーバーがリストに表示されていること、およびツールとスキーマが使用可能であることを確認します。
 
-```powershell
+`````````powershell
 gemini
 /mcp
 /mcp desc
 /mcp schema
 ```
 
-使用可能なツールとスキーマとともに、`braze` サーバが一覧表示されます。
+利用可能なツールとスキーマとともに`braze`サーバーが一覧表示されるはずです。
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ 5: テストプロンプトを送信する
+### ステップ 5: テストプロンプトを送信する {#step-5-send-a-test-prompt}
 
-Braze MCP サーバーを設定したら、MCP クライアントにテストプロンプトを送信してみてください。他の例およびベストプラクティスについては、[Braze MCP サーバーの使用]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %})を参照してください。
+Braze MCPサーバーを設定したら、MCPクライアントにテストプロンプトを送信してみましょう。その他の例やベストプラクティスについては、[Braze MCPサーバーの使い方]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}を参照してください。
 
 {% tabs %}
 {% tab Claude %}
-![「私の利用可能なBraze機能は何ですか?」とクラウドで尋ねられ、答えられました。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+![Claudeで「利用可能なBraze機能は何ですか？」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-![カーソルで質問され、答えられている「私の利用可能なBraze機能は何ですか」。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+![Cursorで「利用可能なBraze機能は何ですか」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
 {% endtab %}
 
 {% tab Gemini CLI %}
-![利用可能なBraze機能は? Gemini CLIで質問され、回答されています。]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+![Gemini CLIで「利用可能なBraze機能は何ですか？」と質問し、回答が表示されている様子。]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
 {% endtab %}
 {% endtabs %}
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-### 端子エラー
+### ターミナルエラー {#terminal-errors}
 
-#### `uvx` コマンドが見つかりません
+#### `uvx`コマンドが見つからない {#uvx-command-not-found}
 
-`uvx` コマンドが見つからないというエラーが表示された場合は、`uv` を再インストールし、端末を再起動します。
+`uvx`コマンドが見つからないというエラーが表示された場合は、`uv`を再インストールしてターミナルを再起動してください。
 
-```bash
+`````````bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### `spawn uvx ENOENT` エラー
+#### `spawn uvx ENOENT`エラー {#spawn-uvx-enoent-error}
 
-`spawn uvx ENOENT` エラー を受け取った場合は、クライアントの設定ファイルのファイルパスを更新する必要があります。まず、端末を開封し、次のコマンドを実行します。
+`spawn uvx ENOENT`エラーが発生した場合は、クライアントの設定ファイル内のファイルパスを更新する必要があるかもしれません。まず、ターミナルを開いて以下のコマンドを実行します。
 
-```bash
+`````````bash
 which uvx
 ```
 
-このコマンドは、次のようなメッセージを返します。
+コマンドは以下のようなメッセージを返すはずです。
 
-```bash
+`````````bash
 /Users/alex-lee/.local/bin/uvx
 ```
 
-メッセージをクリップボードにコピーし、[クライアントの設定ファイル](#configure-client)を開封します。`"command": "uvx"` をコピーしたパスに置き換え、クライアントを再起動します。以下に例を示します。
+メッセージをクリップボードにコピーし、[クライアントの設定ファイル](#configure-client)を開きます。`"command": "uvx"`をコピーしたパスで置き換え、クライアントを再起動します。例：
 
 ```json
 "command": "/Users/alex-lee/.local/bin/uvx"
 ```
 
-#### パッケージのインストールが失敗する
+#### パッケージのインストールに失敗する {#package-installation-fails}
 
-パッケージのインストールが失敗した場合は、代わりに特定のPython バージョンをインストールしてみてください。
+パッケージのインストールに失敗した場合は、特定のPythonバージョンを指定してインストールしてみてください。
 
-```bash
+`````````bash
 uvx --python 3.12 braze-mcp-server@latest
 ```
 
-### クライアント設定
+### クライアント設定 {#client-configuration}
 
-#### MCP クライアントがBraze サーバーを見つけられない
+#### MCPクライアントがBrazeサーバーを見つけられない {#mcp-client-cant-find-the-braze-server}
 
-1. MCP クライアントの構成が正しいことを確認します。
-2. 設定変更後、MCP クライアントを再起動します。
-3. `uvx` がシステム`PATH` にあることを確認します。
+1. MCPクライアントの設定構文が正しいことを確認してください。
+2. 設定変更後にMCPクライアントを再起動してください。
+3. `uvx`がシステムの`PATH`に含まれていることを確認してください。
 
-#### 認証エラー
+#### 認証エラー {#authentication-errors}
 
-1. `BRAZE_API_KEY` が正しくアクティブであることを確認します。
-2. `BRAZE_BASE_URL` がBrazeインスタンスと一致していることを確認します。
-3. API キーに[正しい権限](#create-api-key)があることを確認します。
+1. `BRAZE_API_KEY`が正しく、アクティブであることを確認してください。
+2. `BRAZE_BASE_URL`がBrazeインスタンスと一致していることを確認してください。
+3. APIキーに[正しい権限](#create-api-key)が設定されていることを確認してください。
 
-#### 接続タイムアウトまたはネットワークエラー
+#### 接続タイムアウトまたはネットワークエラー {#connection-timeouts-or-network-errors}
 
-1. `BRAZE_BASE_URL` がインスタンスに適していることを確認します。
-2. ネットワークコネクションとファイヤーウォール設定を確認してください。
-3. ベースURL でHTTPS を使用していることを確認します。
+1. `BRAZE_BASE_URL`がインスタンスに対して正しいことを確認してください。
+2. ネットワーク接続とファイアウォールの設定を確認してください。
+3. ベースURLでHTTPSを使用していることを確認してください。
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

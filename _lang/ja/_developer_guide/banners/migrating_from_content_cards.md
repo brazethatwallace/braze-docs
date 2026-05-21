@@ -1,7 +1,7 @@
 ---
-nav_title: "コンテンツカードからの移行"
-article_title: "コンテンツカードからバナーへの移行"
-description: "サポートされているすべてのSDK、制限、利点のコードサンプルを含む、コンテンツカードからバナーへの移行方法について説明します。"
+nav_title: "Content Cardsから移行する"
+article_title: "Content Cardsからバナーへ移行する"
+description: "Content Cardsからバナーへの移行方法を学びます。サポートされている全SDKのコード例、制限事項、利点を含みます。"
 page_order: 5
 toc_headers: h2
 channel:
@@ -14,61 +14,61 @@ platform:
   - React Native
 ---
 
-# コンテンツカードからバナーへの移行
+# Content Cardsからバナーへ移行する {#migrate-from-content-cards-to-banners}
 
-> このガイドは、バナースタイルのメッセージング ユースケースのコンテンツカードからバナーへの移行に役立ちます。バナーは、インライン、永続的なインアプリおよびウェブメッセージ用のアイデアl です。これらは、アプリライケーションの特定の場所でイヤーをアプリします。
+> このガイドは、バナー形式のメッセージングユースケースにおいて、Content Cardsからバナーへの移行を支援するものです。バナーは、アプリケーション内の特定の配置に表示される、インラインで持続的なアプリ内メッセージおよびWebメッセージに最適です。
 
-## なぜバナーに移行するのか?
+## なぜバナーに移行するのか？ {#why-migrate-to-banners}
 
-- 開発チームがカスタムコンテンツカードを作成または管理している場合、バナーに移行すると、その継続的な投資を削減できます。バナーは、マーケター s にUI を直接コントロールさせ、他の作業のために開発者s を解放します。
-- 新しいホームページメッセージ、オンボーディングの流れ、または永続的なアナウンスを起動する場合は、コンテンツカードではなく、バナーで開始します。リアルタイムパーソナライゼーション、30 日間の有効期限なし、サイズ制限なし、1 日目からのネイティブ優先順位付けのメリットを得ることができます。
-- 30 日間の有効期限の制限を回避したり、複雑な再適格ロジックを管理したり、古いパーソナライゼーションにイライラしたりする場合、バナーはこれらの問題をネイティブに解決します。
+- エンジニアリングチームがカスタムContent Cardsを構築または保守している場合、バナーへの移行によりその継続的な投資を削減できます。バナーはマーケターがUIを直接コントロールできるようにし、開発者を他の作業に解放します。
+- 新しいホームページメッセージやオンボーディングフロー、常時表示の告知を立ち上げる場合は、Content Cardsで構築するよりバナーから始めましょう。リアルタイムのパーソナライゼーション、30日間の有効期限なし、サイズ制限なし、そしてネイティブな優先順位付けを導入初日から活用できます。
+- 30日間の有効期限制限を回避する必要がある場合、複雑な再適格性ロジックを管理している場合、あるいは陳腐化したパーソナライゼーションに悩まされている場合、バナーはこれらの問題をネイティブに解決します。
 
-バナースタイルのメッセージングのために、バナーはコンテンツカードよりもいくつかのタグを提供しています:
+バナーは、バナー形式のメッセージングにおいてContent Cardsよりもいくつかの利点があります：
 
-### 生産加速
+### 制作の加速 {#accelerated-production}
 
-- **必要な継続開発の短縮**:マーケターは、ドラッグアンドドロップエディターとカスタムHTMLを使用してカスタムメッセージを作成できます。カスタマイズのために開発者な支援は必要ありません
-- **柔軟なカスタマイズオプション**:エディタで直接デザインするか、HTMLを使用するか、既存のデータモデルをカスタムプロパティで活用します
+- **継続的なエンジニアリングサポートの必要性が減少**：マーケターは、カスタマイズに開発者の支援を必要とせずに、ドラッグ＆ドロップエディターとカスタムHTMLを使用して独自のメッセージを作成できます。
+- **柔軟なカスタマイズオプション**：エディター内で直接デザインするか、HTMLを使用するか、カスタムプロパティで既存のデータモデルを活用できます。
 
-### ベターUX
+### より良いユーザー体験 {#better-ux}
 
-- **動的内容更新s**:リフレッシュごとにリキッドロジックと適格性をリフレッシュし、ユーザーが最も適切な内容を常に確認できるようにします
-- **ネイティブ配置サポート**:メッセージは、フィードではなく、特定の文脈でアプリし、より良い文脈に応じた or 状況に即した関連性を提供します
-- **ネイティブ優先度**:カスタムロジックなしで表示順序を制御し、メッセージ階層の管理を容易にする
+- **ダイナミックなコンテンツの更新**：バナーはリフレッシュのたびにLiquidロジックと適格性を更新するため、ユーザーは常に最も関連性の高いコンテンツを閲覧できます。
+- **ネイティブ配置サポート**：メッセージはフィードではなく特定のコンテキストで表示されるため、文脈に応じた関連性が高くなります。
+- **ネイティブ優先順位付け**：カスタムロジックなしで表示順序をコントロールできるため、メッセージの階層構造を管理しやすくなります。
 
-### 永続性
+### 永続性 {#persistence}
 
-- **有効期限なし**:バナーキャンペーンsには、コンテンツカードのような30日間の有効期限がなく、メッセージの真の持続性を可能にします
+- **有効期限なし**：バナーキャンペーンにはContent Cardsのような30日間の有効期限がないため、メッセージを真に永続的に表示できます。
 
-## 移行時期
+## 移行するタイミング {#when-to-migrate}
 
-コンテンツカードを使用している場合は、バナーへの移行を検討してください。
+以下の目的でContent Cardsを使用している場合は、バナーへの移行を検討してください：
 
-- ホームページヒーロー、商品ページプロモーション、チェックアウトオファー
-- 永続的なナビゲーションのアナウンスまたはサイドバーメッセージ
-- 30 日以上実行されている常時オンメッセージ
-- リアルタイムのパーソナライゼーションと適格性が必要なメール
+- ホームページのヒーロー広告、商品ページのプロモーション、チェックアウト時のオファー
+- 常時表示のナビゲーション告知やサイドバーメッセージ
+- 30日以上継続する常時表示メッセージ
+- リアルタイムでのパーソナライゼーションと適格性を求めるメッセージ
 
-## コンテンツカードをいつ保持するか
+## Content Cardsを維持すべきケース {#when-to-keep-content-cards}
 
-必要に応じて、コンテンツカードの使用を続行します。
+以下が必要な場合は、Content Cardsを引き続き使用してください：
 
-- **飼料体験:**複数のスクロール可能なメッセージ、またはカードベースの"Inbox"を含むユースケース。
-- **特長:**バナーがネイティブにサポートしていないため、接続コンテンツまたはプロモーションコードを必要とするメッセージ。
-- **トリガー配信:**API-トリガー ed またはアクション ベースの配信を厳密に必要とするユースケース。Banner はAPI-トリガー ed またはアクション ベースの配信をサポートしていませんが、リアルタイム適格性評価とは、ユーザー s が更新ごとにSegmentメンバーシップに基づいて即座に適格または不適格になることを意味します。
+- **フィード体験：** 複数のスクロール可能なメッセージやカード形式の「受信トレイ」を伴うあらゆるユースケース。
+- **特定の機能：** コネクテッドコンテンツやプロモーションコードを必要とするメッセージ。バナーはこれらをネイティブでサポートしていません。
+- **トリガー配信：** APIトリガーまたはアクションベースの配信を厳密に必要とするユースケース。バナーはAPIトリガー型やアクションベースの配信をサポートしていませんが、リアルタイム適格性評価により、ユーザーは各リフレッシュ時にセグメントの所属に基づいて即座に適格か不適格かが判定されます。
 
-## 移行ガイド
+## 移行ガイド {#migration-guide}
 
-### 前提条件
+### 前提条件 {#prerequisites}
 
-移行する前に、Braze SDKが最低限必要なバージョンを満たしていることを確認してください。
+移行前に、Braze SDKが最低バージョン要件を満たしていることを確認してください：
 
 {% multi_lang_include sdk_versions.md feature='banners' %}
 
-### 更新を購読する
+### 更新をサブスクライブする {#subscribe-to-updates}
 
-#### コンテンツカードアプリへの侵入
+#### Content Cards方式 {#content-cards-approach}
 
 {% tabs %}
 {% tab Web %}
@@ -84,7 +84,7 @@ braze.subscribeToContentCardsUpdates((cards) => {
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 Braze.getInstance(context).subscribeToContentCardsUpdates { cards ->
   // Handle array of cards
   cards.forEach { card ->
@@ -94,7 +94,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates { cards ->
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 braze.contentCards.subscribeToUpdates { cards in
   // Handle array of cards
   for card in cards {
@@ -104,7 +104,7 @@ braze.contentCards.subscribeToUpdates { cards in
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
   const cards = update.cards;
   // Handle array of cards
@@ -115,7 +115,7 @@ Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 StreamSubscription contentCardsStreamSubscription = braze.subscribeToContentCards((List<BrazeContentCard> contentCards) {
   // Handle array of cards
   for (final card in contentCards) {
@@ -126,51 +126,51 @@ StreamSubscription contentCardsStreamSubscription = braze.subscribeToContentCard
 {% endtab %}
 {% endtabs %}
 
-#### バナーズ・アプリ・ローチ
+#### バナー方式 {#banners-approach}
 
 {% tabs %}
 {% tab Web %}
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 
 braze.subscribeToBannersUpdates((banners) => {
   // Get banner for specific placement
-  const globalBanner = braze.getBanner("global_banner");
-  if (globalBanner) {
-    console.log("Banner received for placement:", globalBanner.placementId);
+  const banner = braze.getBanner("sample_placement_id");
+  if (banner) {
+    console.log("Banner received for placement:", banner.placementId);
   }
 });
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   // Get banner for specific placement
-  val globalBanner = Braze.getInstance(context).getBanner("global_banner")
-  if (globalBanner != null) {
-    Log.d(TAG, "Banner received for placement: ${globalBanner.placementId}")
+  val banner = Braze.getInstance(context).getBanner("sample_placement_id")
+  if (banner != null) {
+    Log.d(TAG, "Banner received for placement: ${banner.placementId}")
   }
 }
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 braze.banners.subscribeToUpdates { banners in
   // Get banner for specific placement
-  braze.banners.getBanner(for: "global_banner") { banner in
-    if let banner = banner {
-      print("Banner received for placement: \(banner.placementId)")
-    }
+  braze.banners.getBanner(for: "sample_placement_id") { banner in
+    guard let banner = banner else { return }
+
+    print("Banner received for placement: \(banner.placementId)")
   }
 }
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 Braze.addListener(Braze.Events.BANNER_CARDS_UPDATED, (data) => {
   const banners = data.banners;
   // Get banner for specific placement
-  Braze.getBanner("global_banner").then(banner => {
+  Braze.getBanner("sample_placement_id").then(banner => {
     if (banner) {
       console.log("Banner received for placement:", banner.placementId);
     }
@@ -179,10 +179,10 @@ Braze.addListener(Braze.Events.BANNER_CARDS_UPDATED, (data) => {
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<BrazeBanner> banners) {
   // Get banner for specific placement
-  braze.getBanner("global_banner").then((banner) {
+  braze.getBanner("sample_placement_id").then((banner) {
     if (banner != null) {
       print("Banner received for placement: ${banner.placementId}");
     }
@@ -192,17 +192,17 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 {% endtab %}
 {% endtabs %}
 
-### 表示内容
+### コンテンツを表示する {#display-content}
 
 {% alert note %}
-コンテンツカードは、カスタムUIロジックを使用して手動でレンダリングできますが、バナーは、すぐに使用できるSDK方法でのみレンダリングできます。
+Content Cardsはカスタムのロジックで手動レンダリングできますが、バナーは標準のSDKメソッドでのみレンダリングできます。
 {% endalert %}
 
-#### コンテンツカードアプリへの侵入
+#### Content Cards方式
 
 {% tabs %}
 {% tab Web %}
-```javascript
+`````````javascript
 // Show default feed UI
 braze.showContentCards(document.getElementById("feed"));
 
@@ -217,7 +217,7 @@ cards.forEach(card => {
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 // Using default fragment
 val fragment = ContentCardsFragment()
 supportFragmentManager.beginTransaction()
@@ -236,7 +236,7 @@ cards.forEach { card ->
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 // Using default view controller
 let contentCardsController = BrazeContentCardUI.ViewController(braze: braze)
 navigationController?.pushViewController(contentCardsController, animated: true)
@@ -254,7 +254,7 @@ for card in cards {
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 // Launch default feed
 Braze.launchContentCards();
 
@@ -268,7 +268,7 @@ cards.forEach(card => {
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 // Launch default feed
 braze.launchContentCards();
 
@@ -283,51 +283,51 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### バナーズ・アプリ・ローチ
+#### バナー方式
 
 {% tabs %}
 {% tab Web %}
-```javascript
+`````````javascript
 braze.subscribeToBannersUpdates((banners) => {
-  const globalBanner = braze.getBanner("global_banner");
-  if (!globalBanner) {
+  const banner = braze.getBanner("sample_placement_id");
+  if (!banner) {
     return;
   }
 
   const container = document.getElementById("global-banner-container");
-  braze.insertBanner(globalBanner, container);
+  braze.insertBanner(banner, container);
 
-  if (globalBanner.isControl) {
+  if (banner.isControl) {
     container.style.display = "none";
   }
 });
 
-braze.requestBannersRefresh(["global_banner"]);
+braze.requestBannersRefresh(["sample_placement_id"]);
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 // Using BannerView in XML
 // <com.braze.ui.banners.BannerView
 //     android:id="@+id/banner_view"
 //     android:layout_width="match_parent"
 //     android:layout_height="wrap_content"
-//     app:placementId="global_banner" />
+//     app:placementId="sample_placement_id" />
 
 // Or programmatically
 val bannerView = BannerView(context).apply {
-  placementId = "global_banner"
+  placementId = "sample_placement_id"
 }
 container.addView(bannerView)
 
-Braze.getInstance(context).requestBannersRefresh(listOf("global_banner"))
+Braze.getInstance(context).requestBannersRefresh(listOf("sample_placement_id"))
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 // Using BannerUIView
 let bannerView = BrazeBannerUI.BannerUIView(
-  placementId: "global_banner",
+  placementId: "sample_placement_id",
   braze: braze,
   processContentUpdates: { result in
     switch result {
@@ -342,57 +342,57 @@ let bannerView = BrazeBannerUI.BannerUIView(
 )
 view.addSubview(bannerView)
 
-braze.banners.requestBannersRefresh(placementIds: ["global_banner"])
+braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementID='sample_placement_id'
 />
 
 // Or get banner data
-const banner = await Braze.getBanner("global_banner");
+const banner = await Braze.getBanner("sample_placement_id");
 if (banner) {
   // Render custom banner UI
 }
 
-Braze.requestBannersRefresh(["global_banner"]);
+Braze.requestBannersRefresh(["sample_placement_id"]);
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 // Using BrazeBannerView widget
 BrazeBannerView(
-  placementId: "global_banner",
+  placementId: "sample_placement_id",
 )
 
 // Or get banner data
-final banner = await braze.getBanner("global_banner");
+final banner = await braze.getBanner("sample_placement_id");
 if (banner != null) {
   // Render custom banner UI
 }
 
-braze.requestBannersRefresh(["global_banner"]);
+braze.requestBannersRefresh(["sample_placement_id"]);
 ```
 {% endtab %}
 {% endtabs %}
 
-### ログ分析(カスタムインプリメンテーション)
+### 分析のログ記録（カスタム実装） {#log-analytics-custom-implementations}
 
 {% alert note %}
-デフォルトのユーザーインターフェイスコンポーネントを使用すると、コンテンツカードとバナーの両方で分析が自動的に追跡されます。以下の例は、独自のUI を構築するカスタム実装の場合です。
+Content Cardsとバナーは、デフォルトのUIコンポーネントを使用する場合、自動的に分析データをトラッキングします。以下の例は、独自のUIを構築するカスタム実装向けです。
 {% endalert %}
 
-#### コンテンツカードアプリへの侵入
+#### Content Cards方式
 
 {% tabs %}
 {% tab Web %}
-```javascript
+`````````javascript
 // Manual impression logging required for custom implementations
 cards.forEach(card => {
-    braze.logContentCardImpressions([card]);
+  braze.logContentCardImpressions([card]);
 });
 
 // Manual click logging required for custom implementations
@@ -400,10 +400,10 @@ card.logClick();
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 // Manual impression logging required for custom implementations
 cards.forEach { card ->
-    card.logImpression()
+  card.logImpression()
 }
 
 // Manual click logging required for custom implementations
@@ -411,10 +411,10 @@ card.logClick()
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 // Manual impression logging required for custom implementations
 for card in cards {
-    card.context?.logImpression()
+  card.context?.logImpression()
 }
 
 // Manual click logging required for custom implementations
@@ -422,10 +422,10 @@ card.context?.logClick()
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 // Manual impression logging required for custom implementations
 cards.forEach(card => {
-    Braze.logContentCardImpression(card.id);
+  Braze.logContentCardImpression(card.id);
 });
 
 // Manual click logging required for custom implementations
@@ -433,10 +433,10 @@ Braze.logContentCardClicked(card.id);
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 // Manual impression logging required for custom implementations
 for (final card in cards) {
-    braze.logContentCardImpression(card);
+  braze.logContentCardImpression(card);
 }
 
 // Manual click logging required for custom implementations
@@ -445,61 +445,66 @@ braze.logContentCardClicked(card);
 {% endtab %}
 {% endtabs %}
 
-#### バナーズ・アプリ・ローチ
+#### バナー方式
 
 {% tabs %}
 {% tab Web %}
 
 {% alert important %}
-`insertBanner()` を使用すると、分析が自動的に追跡されます。`insertBanner()` を使用する場合は、手動ロギングを使用しないでください。
+`insertBanner()`を使用すると、分析は自動的にトラッキングされます。`insertBanner()`を使用している場合は、手動でのログ記録は使用しないでください。
 {% endalert %}
 
-```javascript
+`````````javascript
 // Analytics are automatically tracked when using insertBanner()
 // Manual logging should not be used when using insertBanner()
 
 // For custom implementations, use manual logging methods:
 // Log impression
-braze.logBannerImpressions([globalBanner]);
+braze.logBannerImpressions([banner]);
 
 // Log click (with optional buttonId)
-braze.logBannerClick("global_banner", buttonId);
+braze.logBannerClick("sample_placement_id", buttonId);
 ```
 {% endtab %}
 {% tab Android %}
 
 {% alert important %}
-BannerView を使用すると、分析が自動的に追跡されます。BannerView を使用する場合は、手動ロギングを使用しないでください。
+BannerViewを使用すると、分析データは自動的にトラッキングされます。BannerViewを使用する際は、手動でのログ記録は使用しないでください。
 {% endalert %}
 
-```kotlin
+`````````kotlin
 // Analytics are automatically tracked when using BannerView
 // Manual logging should not be used for default BannerView
 
 // For custom implementations, use manual logging methods:
 // Log impression
-Braze.getInstance(context).logBannerImpression("global_banner");
+Braze.getInstance(context).logBannerImpression("sample_placement_id");
 
 // Log click (with optional buttonId)
-Braze.getInstance(context).logBannerClick("global_banner", buttonId);
+Braze.getInstance(context).logBannerClick("sample_placement_id", buttonId);
 ```
 {% endtab %}
 {% tab Swift %}
 
 {% alert important %}
-BannerUIView を使用すると、分析が自動的に追跡されます。手動ロギングは、デフォルト BannerUIView には使用しないでください。
+BannerUIViewを使用すると、分析は自動的にトラッキングされます。デフォルトのBannerUIViewでは手動でのログ記録は使用しないでください。
 {% endalert %}
 
-```swift
+`````````swift
 // Analytics are automatically tracked when using BannerUIView
 // Manual logging should not be used for default BannerUIView
 
 // For custom implementations, use manual logging methods:
-// Log impression
-braze.banners.logImpression(placementId: "global_banner")
+// Get banner for specific placement
+braze.banners.getBanner(for: "sample_placement_id") { banner in
+  guard let banner = banner else { return }
 
-// Log click (with optional buttonId)
-braze.banners.logClick(placementId: "global_banner", buttonId: buttonId)
+  // Log impression
+  banner.context?.logImpression()
+
+  // Log click (with optional buttonId)
+  banner.context?.logClick(buttonId: buttonId)
+}
 
 // Control groups are automatically handled by BannerUIView
 ```
@@ -507,10 +512,10 @@ braze.banners.logClick(placementId: "global_banner", buttonId: buttonId)
 {% tab React Native %}
 
 {% alert important %}
-BrazeBannerView を使用すると、分析が自動的に追跡されます。手動ロギングは不要です。
+BrazeBannerViewを使用すると、分析は自動的にトラッキングされます。手動でのログ記録は不要です。
 {% endalert %}
 
-```javascript
+`````````javascript
 // Analytics are automatically tracked when using BrazeBannerView
 // No manual logging required
 
@@ -521,10 +526,10 @@ BrazeBannerView を使用すると、分析が自動的に追跡されます。�
 {% tab Flutter %}
 
 {% alert important %}
-BrazeBannerView を使用すると、分析が自動的に追跡されます。手動ロギングは不要です。
+BrazeBannerViewを使用すると、分析は自動的にトラッキングされます。手動でのログ記録は不要です。
 {% endalert %}
 
-```dart
+`````````dart
 // Analytics are automatically tracked when using BrazeBannerView
 // No manual logging required
 
@@ -534,13 +539,103 @@ BrazeBannerView を使用すると、分析が自動的に追跡されます。�
 {% endtab %}
 {% endtabs %}
 
-### コントロールグループの処理
+### プロパティの取得 {#getting-properties}
 
-#### コンテンツカードアプリへの侵入
+#### Content Cards方式
 
 {% tabs %}
 {% tab Web %}
-```javascript
+`````````javascript
+cards.forEach(card => {
+  console.log("Card id:", card.id, "Extras:", card.extras);
+});
+```
+{% endtab %}
+{% tab Android %}
+`````````kotlin
+cards.forEach { card ->
+  Log.d(TAG, "Card id: ${card.id} Extras: ${card.extras}")
+}
+```
+{% endtab %}
+{% tab Swift %}
+`````````swift
+for card in cards {
+  print("Card id: \(card.id) Extras: \(card.extras)")
+}
+```
+{% endtab %}
+{% tab React Native %}
+`````````javascript
+cards.forEach(card => {
+  console.log("Card id:", card.id, "Extras:", card.extras);
+});
+```
+{% endtab %}
+{% tab Flutter %}
+`````````dart
+for (final card in cards) {
+  print("Card id: ${card.id} Extras: ${card.extras}");
+}
+```
+{% endtab %}
+{% endtabs %}
+
+#### バナー方式
+
+{% tabs %}
+{% tab Web %}
+`````````javascript
+const banner = braze.getBanner("sample_placement_id");
+if (!banner) {
+  return;
+}
+
+console.log("Banner placement:", banner.placementId, "Properties:", banner.properties);
+```
+{% endtab %}
+{% tab Android %}
+`````````kotlin
+val banner = Braze.getInstance(context).getBanner("sample_placement_id")
+if (banner != null) {
+  Log.d(TAG, "Banner placement: ${banner.placementId} Properties: ${banner.properties}")
+}
+```
+{% endtab %}
+{% tab Swift %}
+`````````swift
+braze.banners.getBanner(for: "sample_placement_id") { banner in
+  guard let banner = banner else { return }
+
+  print("Banner placement: \(banner.placementId) Properties: \(banner.properties)")
+}
+```
+{% endtab %}
+{% tab React Native %}
+`````````javascript
+const banner = await Braze.getBanner("sample_placement_id");
+if (banner) {
+  console.log("Banner placement:", banner.placementId, "Properties:", banner.properties);
+}
+```
+{% endtab %}
+{% tab Flutter %}
+`````````dart
+final banner = await braze.getBanner("sample_placement_id");
+if (banner != null) {
+  print("Banner placement: ${banner.placementId} Properties: ${banner.properties}");
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### コントロールグループの処理 {#handling-control-groups}
+
+#### Content Cards方式
+
+{% tabs %}
+{% tab Web %}
+`````````javascript
 cards.forEach(card => {
   if (card.isControl) {
     // Logic for control cards ie. don't display but log analytics
@@ -551,7 +646,7 @@ cards.forEach(card => {
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 cards.forEach { card ->
   if (card.isControl) {
     // Logic for control cards ie. don't display but log analytics
@@ -562,7 +657,7 @@ cards.forEach { card ->
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 for card in cards {
   if card.isControl {
     // Logic for control cards ie. don't display but log analytics
@@ -573,7 +668,7 @@ for card in cards {
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 cards.forEach(card => {
   if (card.isControl) {
     // Logic for control cards ie. don't display but log analytics
@@ -584,7 +679,7 @@ cards.forEach(card => {
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 for (final card in cards) {
   if (card.isControl) {
     // Logic for control cards ie. don't display but log analytics
@@ -596,123 +691,122 @@ for (final card in cards) {
 {% endtab %}
 {% endtabs %}
 
-#### バナーズ・アプリ・ローチ
+#### バナー方式
 
 {% tabs %}
 {% tab Web %}
-```javascript
+`````````javascript
 braze.subscribeToBannersUpdates((banners) => {
-  const globalBanner = braze.getBanner("global_banner");
-  if (!globalBanner) {
+  const banner = braze.getBanner("sample_placement_id");
+  if (!banner) {
     return;
   }
 
   const container = document.getElementById("global-banner-container");
-  
+
   // Always call insertBanner to track impression (including control)
-  braze.insertBanner(globalBanner, container);
-  
+  braze.insertBanner(banner, container);
+
   // Hide if control group
-  if (globalBanner.isControl) {
+  if (banner.isControl) {
     container.style.display = "none";
   }
 });
 ```
 {% endtab %}
 {% tab Android %}
-```kotlin
+`````````kotlin
 // BannerView automatically handles control groups
 // No additional code needed
 val bannerView = BannerView(context).apply {
-  placementId = "global_banner"
+  placementId = "sample_placement_id"
 }
 ```
 {% endtab %}
 {% tab Swift %}
-```swift
+`````````swift
 // BannerUIView automatically handles control groups
 // No additional code needed
 let bannerView = BrazeBannerUI.BannerUIView(
-  placementId: "global_banner",
+  placementId: "sample_placement_id",
   braze: braze
 )
 ```
 {% endtab %}
 {% tab React Native %}
-```javascript
+`````````javascript
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementID='sample_placement_id'
 />
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 BrazeBannerView(
-  placementId: "global_banner",
+  placementId: "sample_placement_id",
 )
 ```
 {% endtab %}
 {% endtabs %}
 
-## 制限事項
+## 制限事項 {#limitations}
 
-コンテンツカードからバナーに移行する場合は、次の制限事項に注意してください。
+Content Cardsからバナーへ移行する際は、以下の制限事項に注意してください：
 
-### トリガーメッセージの移行
+### トリガーメッセージの移行 {#migrating-triggered-messages}
 
-バナーはスケジュールされた配信キャンペーンs のみに対応しています。以前にAPI-トリガーされたメッセージまたはアクションベースのメッセージを移行するには、それをSegmentベースのターゲットに変換します。
+バナーはスケジュールされた配信キャンペーンのみをサポートしています。以前APIトリガーまたはアクションベースで送信されていたメッセージを移行するには、セグメントベースのターゲティングに変換してください：
 
-- **例:**&quot をトリガーする代わりに、プロファイル" API を使用してカードを完了し、過去7 日間にサインアップしたがプロファイルを完了していないユーザーのSegmentを作成します。
-- **リアルタイム資格:**ユーザは、Segmentメンバーシップに基づいて、リフレッシュごとに即座にバナーの資格を取得するか、または資格を喪失します。
+- **例：** APIで「プロファイルを完了」カードをトリガーする代わりに、過去7日以内に登録したがプロファイルを完了していないユーザー向けのセグメントを作成します。
+- **リアルタイム適格性：** ユーザーは、各リフレッシュ時にセグメントの所属に基づいて、バナーの表示対象となるか否かが即座に判定されます。
 
-### 機能の違い
+### 機能の違い {#feature-differences}
 
-| 機能 | コンテンツカードによって促進された | バナー |
+| 機能 | Content Cards | バナー |
 |---------|--------------|---------|
 | **コンテンツ構造** |
-| フィードにおける多重カードs | ✅ 対応 | ✅ カルーセルのようなインプリメンテーションを実現するために、複数の配置を作成できます。配置ごとに1 つのバナーのみが返されます。 |
-| 複数配置 | N/A | ✅ 複数の配置をサポート |
-| カードの種類(クラシック、キャプション、イメージのみ) | ✅ 複数の事前定義型 | ✅ 単一HTMLベースのバナー(より柔軟) |
+| フィード内の複数カード | ✅ サポートされています | ✅ 複数の配置を作成でき、カルーセルのような実装を実現できます。各配置につき、バナーは1つだけ返されます。 |
+| 複数の配置 | N/A | ✅ 複数配置に対応しています |
+| カードの種類（クラシック、キャプション付き、画像のみ） | ✅ 複数の事前定義済みタイプ | ✅ 単一のHTMLベースのバナー（より柔軟性があります） |
 | **コンテンツ管理** |
-| ドラッグアンドドロップエディタ | ❌ カスタマイズに開発者が必要 | ✅ マーケターは開発なしで作成/更新できる |
-| カスタムHTML/CSS | ❌ カード構成に限定 | ✅ フルHTML/CSS対応 |
-| カスタマイズ用のキーと値のペア | ✅ 高度なカスタマイズに必要 | ✅ 詳細なカスタマイズのために、"properties"と呼ばれる厳密に型付けされたキーと値のペア |
-| **永続性& 期限切れ** |
-| カードの有効期限 | ✅ サポート(30 日制限) | ✅ サポート(有効期限なし) |
-| 真の持続性 | ❌ 最大30日間 | ✅ 無限の持続性 |
-| **& Targeting の表示** |
-| フィードUI | ✅ 使用可能な既定のフィード | ❌ 配置ベースのみ |
-| コンテキスト固有の配置 | ❌ 飼料ベース | ✅ ネイティブ配置サポート |
-| ネイティブの優先順位付け | ❌ カスタムロジックが必要 | ✅ 組み込みの優先順位付け |
-| **ユーザ間アクション** |
-| 手動解雇 | ✅ 対応 | ❌ 未対応 |
-| 固定カードs | ✅ 対応 | N/A |
+| ドラッグ＆ドロップエディター | ❌ カスタマイズには開発者が必要です | ✅ マーケターはエンジニアリングなしで作成・更新できます |
+| カスタムHTML/CSS | ❌ カード構造に限定されます | ✅ HTML/CSSの完全サポート |
+| カスタマイズ用のキーと値のペア | ✅ 高度なカスタマイズに必要です | ✅ 高度なカスタマイズのための「プロパティ」と呼ばれる強い型付けのキーと値のペア |
+| **永続性と有効期限** |
+| カードの有効期限 | ✅ サポート対象（30日間制限あり） | ✅ サポート対象（有効期限なし） |
+| 真の永続性 | ❌ 最大30日間 | ✅ 無制限の永続性 |
+| **表示とターゲティング** |
+| フィードUI | ✅ デフォルトのフィードが利用可能です | ❌ 配置ベースのみ |
+| 状況に即した配置 | ❌ フィードベース | ✅ ネイティブ配置サポート |
+| ネイティブ優先順位付け | ❌ カスタムロジックが必要です | ✅ 組み込みの優先順位付け |
+| **ユーザーインタラクション** |
+| 手動での解除 | ✅ サポートされています | ❌ サポートされていません |
+| 固定されたカード | ✅ サポートされています | N/A |
 | **分析** |
-| オート分析(デフォルトユーザーインターフェイス) | ✅ 対応 | ✅ 対応 |
-| 優先順位のソート | ❌ 未対応 | ✅ 対応 | 
+| 自動分析（デフォルトUI） | ✅ サポートされています | ✅ サポートされています |
+| 優先順位ソート | ❌ サポートされていません | ✅ サポートされています |
 | **コンテンツの更新** |
-| 液体テンプレーティングリフレッシュ | ❌ 送信/起動時にカードごとに1回 | ✅ リフレッシュごとにリフレッシュ |
-| 適格性の更新 | ❌ 送信/起動時にカードごとに1回 | ✅ セッションごとに更新 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Liquidテンプレート更新 | ❌ カードごとに送信時/起動時に1回のみ | ✅ リフレッシュのたびに更新されます |
+| 適格性の更新 | ❌ カードごとに送信時/起動時に1回のみ | ✅ セッションごとに更新されます |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Feature differences" }
 
-### 製品の制限事項
+### 製品の制限事項 {#product-limitations}
 
-- 配置ごとに最大25 のアクティブメッセージ。
-- リフレッシュ要求ごとに最大 10 個の配置 ID。これを超える要求は切り捨てられます。
+- 1つの配置につき最大25件のアクティブなメッセージです。
+- リフレッシュリクエストごとに最大10個の配置IDまでです。これを超えるリクエストは切り捨てられます。
 
-### SDK制限
+### SDKの制限事項 {#sdk-limitations}
 
-- 現在、バナーは。NET MAUI (Xamarin)、Cordova、Unity、ベガ、またはTV プラットフォームではサポートされていません。
-- 前提条件に記載されている最低限のSDKを使用していることを確認します。
+- バナーは現在、.NET MAUI（Xamarin）、Cordova、Unity、Vega、TVプラットフォームではサポートされていません。
+- 前提条件に記載されている最小SDKバージョンを使用していることを確認してください。
 
-## 関連記事
+## 関連記事 {#related-articles}
 
-- [バナーの配置]({{site.baseurl}}/developer_guide/banners/placements)
-- [チュートリアル:配置ID によるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
-- [バナー分析]({{site.baseurl}}/developer_guide/banners/analytics)
-- [バナーに関するよくある質問]({{site.baseurl}}/developer_guide/banners/faq)
-
+- [バナーの配置]({{site.baseurl}}/developer_guide/banners/placements/)
+- [チュートリアル：配置IDによるバナーの表示]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
+- [バナー分析]({{site.baseurl}}/developer_guide/banners/analytics/)
+- [バナーに関するよくある質問]({{site.baseurl}}/developer_guide/banners/faq/)

@@ -1,17 +1,17 @@
 ---
-nav_title: "DATEN UND ANALYSEN"
+nav_title: "Daten und Analytics"
 article_title: Daten- und Analytics-Partner
 page_order: 5
 
 page_type: landing
-description: "Auf dieser Seite finden Sie eine Liste der Braze-Partner (Technologie-Partner), die es Ihnen erlauben, Ihre Daten über verschiedene Tools und Anbieter hinweg zu senden, zu speichern und anderweitig zu koordinieren."
+description: "Auf dieser Seite finden Sie eine Liste der Braze Technologie-Partner, die es Ihnen ermöglichen, Ihre Daten über verschiedene Tools und Anbieter hinweg zu senden, zu speichern und anderweitig zu koordinieren."
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Data & Analytics"
+partner_top_header: "Daten und Analytics"
 
 valid_partner_list:
-- name: Optimal
+- name: Optimizely
   url: /docs/partners/optimizely/
 - name: VWO
   url: /docs/partners/vwo/
@@ -38,7 +38,7 @@ valid_partner_list:
 - name: Clarisights
   url: /docs/partners/clarisights/
 - name: Heap
-  url: /docs/partners/heap/ 
+  url: /docs/partners/heap/
 - name: Datadog
   url: /docs/partners/datadog/
 - name: ThoughtSpot
@@ -55,15 +55,15 @@ valid_partner_list:
   url: /docs/partners/saleswings/
 - name: Inbox Monster
   url: /docs/partners/inbox_monster/
-- name: Kickboxen
+- name: Kickbox
   url: /docs/partners/kickbox/
 - name: Amazon S3
   url: /docs/partners/amazon_s3/
-- name: Google-Cloudspeicher
+- name: Google Cloud Storage
   url: /docs/partners/google_cloud_storage_for_currents/
-- name: Microsoft Azure Blob-Speicher
+- name: Microsoft Azure Blob Storage
   url: /docs/partners/microsoft_azure_blob_storage_for_currents/
-- name: Winzige Anhaltspunkte
+- name: Tiny Clues
   url: /docs/partners/tinyclues/
 - name: Treasure Data
   url: /docs/partners/treasure_data/
@@ -77,6 +77,8 @@ valid_partner_list:
   url: /docs/partners/blueconic/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Dynamics 365 Customer Insights
   url: /docs/partners/dynamics_365_customer_insights
 - name: GrowthLoop
@@ -119,7 +121,7 @@ valid_partner_list:
   url: /docs/partners/onetrust/
 - name: Snowflake
   url: /docs/partners/snowflake/
-- name: Facebook Lead Ads über Zapier
+- name: Facebook Lead Ads via Zapier
   url: /docs/partners/facebook_via_zapier/
 - name: Zapier
   url: /docs/partners/zapier/
@@ -139,8 +141,12 @@ valid_partner_list:
   url: /docs/partners/wyng/
 - name: Antavo
   url: /docs/partners/antavo/
+- name: Talon.One
+  url: /docs/partners/talonone/
 - name: FriendBuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY®
+  url: /docs/partners/lji/
 - name: Kognitiv Inspire
   url: /docs/partners/kognitiv/
 - name: Punchh

@@ -5,21 +5,20 @@ noindex: true
 page_type: update
 description: "この記事には2019年1月のリリースノートが含まれています。"
 ---
-# 2019年1月
+# 2019年1月 {#january-2019}
 
 新年を迎えました！
 
-## Push time to live (TTL)
+## プッシュTTL（Push time to live） {#push-time-to-live-ttl}
 
-アカウント内の**設定の管理**で、[プッシュTTL設定]({{site.baseurl}}/user_guide/administrative/app_settings/push_settings/)タブをクリックして、デバイスがオフラインの場合に再送を試みる時間の長さを管理します。
+アカウント内の**設定の管理**で、[プッシュTTL設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/)タブをクリックして、デバイスがオフラインの場合に再送を試みる時間の長さを管理します。
 
-## コネクテッドコンテンツIPホワイトリスト
+## コネクテッドコンテンツのIPホワイトリスト {#connected-content-ip-whitelisting}
 
-Brazeは、内部チームによる多数のインフラのアップグレードにより、すべてのクラスターでコネクテッドコンテンツのIPホワイトリスト化を提供できるようになったことを発表できることを嬉しく思います。今後、EU 以外のクラスターの IP を追加する予定です。
+Brazeは、内部チームによる多数のインフラアップグレードにより、すべてのクラスターでコネクテッドコンテンツのIPホワイトリストを提供できるようになったことをお知らせいたします。今後、EU以外のクラスターのIPを追加する予定です。
 
-## キャンバス遅延
+## キャンバスの遅延 {#canvas-delay}
 
-キャンバス ステップをすぐに送信するオプションを追加しました。
+任意のキャンバスステップを即時送信するオプションを追加しました。
 
-![キャンバス ディレイ]({% image_buster /assets/img/canvas_delay_immediate.png %})
-
+![キャンバスの遅延]({% image_buster /assets/img/canvas_delay_immediate.png %})

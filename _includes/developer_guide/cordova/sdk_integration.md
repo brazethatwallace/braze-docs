@@ -60,7 +60,7 @@ Replace the following:
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `BRAZE_API_KEY`       | Your [Braze REST API key]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys).              |
 | `CUSTOM_API_ENDPOINT` | A custom API endpoint. This endpoint is used to route your Braze instance data to the correct App Group in your Braze dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure your project" }
 
 The `platform` element in your `config.xml` file should be similar to the following:
 
@@ -161,13 +161,13 @@ You can add any of the following preferences to the `platform` element in your p
 | `ios_disable_un_authorization_option_provisional` | Sets whether `UNAuthorizationOptionProvisional` should be disabled.                                                                                                                                                                                   |
 | `trigger_action_minimum_time_interval_seconds`    | Sets the minimum time interval in seconds between triggers. Defaults to 30 seconds.                                                                                                                                                                   |
 | `ios_push_app_group`                              | Sets the app group ID for iOS push extensions.                                                                                                                                                                                                        |
-| `ios_forward_universal_links`                     | Sets if the SDK should automatically recognize and forward universal links to the system methods.                                                                                                                                                     |
+| `ios_forward_universal_links`                     | Sets whether the SDK automatically recognizes and forwards universal links to the system methods. Required for deep links from push notifications to work on iOS. Defaults to disabled.                                                                |
 | `ios_log_level`                                   | Sets the minimum logging level for `Braze.Configuration.Logger`.                                                                                                                                                                                      |
 | `ios_use_uuid_as_device_id`                       | Sets if a randomly generated UUID should be used as the device ID.                                                                                                                                                                                    |
 | `ios_flush_interval_seconds`                      | Sets the interval in seconds between automatic data flushes. Defaults to 10 seconds.                                                                                                                                                                  |
 | `ios_use_automatic_request_policy`                | Sets whether the request policy for `Braze.Configuration.Api` should be automatic or manual.                                                                                                                                                          |
 | `should_opt_in_when_push_authorized`              | Sets if a user’s notification subscription state should automatically be set to `optedIn` when push permissions are authorized.                                                                                                                       |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional configurations #optional" }
 
 {% alert tip %}
 For more detailed information, see [GitHub: Braze iOS Cordova plugin](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m).
@@ -183,7 +183,7 @@ For more detailed information, see [GitHub: Braze iOS Cordova plugin](https://gi
 | `android_large_notification_icon`                                 | Sets the notification large icon.                                                                                                                                                             |
 | `android_notification_accent_color`                               | Sets the notification accent color using a hexadecimal representation.                                                                                                                        |
 | `android_default_session_timeout`                                 | Sets the Braze session timeout for your application in seconds. Defaults to 10 seconds.                                                                                                       |
-| `android_handle_push_deep_links_automatically`                    | Sets whether the Braze SDK should automatically handle push deep links.                                                                                                                       |
+| `android_handle_push_deep_links_automatically`                    | Sets whether the Braze SDK automatically handles push deep links. Required for deep links from push notifications to work on Android. Defaults to disabled.                                   |
 | `android_log_level`                                               | Sets the log level for your application. The default log level is 4 and will minimally log info. To enable verbose logging for debugging, use log level 2.                                    |
 | `firebase_cloud_messaging_registration_enabled`                   | Sets whether to use Firebase Cloud Messaging for push notifications.                                                                                                                          |
 | `android_fcm_sender_id`                                           | Sets the Firebase Cloud Messaging sender ID.                                                                                                                                                  |
@@ -203,7 +203,7 @@ For more detailed information, see [GitHub: Braze iOS Cordova plugin](https://gi
 | `is_push_deep_link_back_stack_activity_enabled`                   | Sets whether Braze will add an activity to the back stack when automatically following deep links for push.                                                                                   |
 | `push_deep_link_back_stack_activity_class_name`                   | Sets the activity that Braze will add to the back stack when automatically following deep links for push.                                                                                     |
 | `should_opt_in_when_push_authorized`                              | Sets if Braze should automatically opt-in the user when push is authorized.                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional configurations #optional" }
 
 {% alert tip %}
 For more detailed information, see [GitHub: Braze Android Cordova plugin](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt).

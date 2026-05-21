@@ -26,7 +26,7 @@ The Braze and Optimizely integration is a two-way integration that allows you to
 | Braze REST API key               | A Braze REST API key with the following permissions: `users.track`,`users.export.segments`,`segments.list`,`campaigns.trigger.send`, and `canvas.trigger.send`. |
 | Currents                         | To export data back into Optimizely, you need to have Braze Currents set up for your account. |
 | Optimizely URL and Token         | This can be obtained by navigating to your Optimizely dashboard and copying the ingestion URL and token. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -37,7 +37,7 @@ The Braze and Optimizely integration is a two-way integration that allows you to
     1. Enter Braze **REST API Key**.
     2. Select your Braze **Instance URL**.
     2. Select **Verify API Key**.
-3. In Braze, go to **[Currents]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents/)**.
+3. In Braze, go to **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)**.
 4. Select **Create New Current** > **Custom Currents Export**.
 5. Configure the Current using the endpoint and token provided in ODP. This is required to sync Braze events to ODP. 
 

@@ -6,18 +6,18 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts Katalogauswahl erstellen Braze."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Katalogauswahl erstellen“."
 
 ---
 {% api %}
-# Katalogauswahl erstellen
+# Katalogauswahl erstellen {#create-catalog-selection}
 {% apimethod post %}
 /catalogs/{catalog_name}/selections
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Auswahl in Ihrem Katalog zu treffen.
+> Verwenden Sie diesen Endpunkt, um eine Auswahl in Ihrem Katalog zu erstellen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.create_selection`.
 
@@ -25,21 +25,39 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog selections' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter      | Erforderlich | Datentyp | Beschreibung          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Erforderlich | String    | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Parameter der Anfrage
+## Anfrage-Parameter {#request-parameters}
 
 | Parameter   | Erforderlich | Datentyp | Beschreibung                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Erforderlich | Objekt    | Ein Objekt, das Auswahlkriterien enthält. Die Auswahlobjekte könnten `name`, `description`, `filters`, `results_limit`, `sort_field` und `sort_order` enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `selection` | Erforderlich | Objekt    | Ein Objekt, das Auswahlkriterien enthält. Eine vollständige Aufschlüsselung des Objekts und seiner Felder finden Sie unter [Katalogauswahl-Objekt]({{site.baseurl}}/api/objects_filters/catalog_selection_object/). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Beispiel Anfrage
+### Parameter des Auswahlobjekts {#selection-object-parameters}
+
+| Parameter        | Erforderlich | Datentyp | Beschreibung                                                                                                                                                        |
+| ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `name`           | Erforderlich | String    | Der Name der Katalogauswahl. |
+| `description`    | Optional | String    | Eine Beschreibung der Katalogauswahl. |
+| `external_id`    | Erforderlich | String    | Ein eindeutiger Bezeichner für die Auswahl. |
+| `source`         | Optional | String    | Die Quelle der Katalogdaten. Für Shopify-Kataloge verwenden Sie `"Shopify"`. Zulässige Werte sind `"Shopify"` und `"Braze"`. |
+| `filters`        | Optional | Array    | Ein Array von Filterobjekten, die auf die Katalogartikel angewendet werden sollen. Sie können bis zu vier Filter pro Anfrage angeben. Wenn keine Filter angegeben werden, werden alle Artikel aus dem Katalog einbezogen. |
+| `results_limit`  | Optional | Integer   | Die maximale Anzahl der zurückzugebenden Ergebnisse. Es muss sich um eine Zahl zwischen 1 und 50 handeln. |
+| `sort_field`     | Optional | String    | Das Feld, nach dem die Ergebnisse sortiert werden sollen. Dies muss zusammen mit `sort_order` verwendet werden. Wenn weder `sort_field` noch `sort_order` vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
+| `sort_order`     | Optional | String    | Die Reihenfolge, in der die Ergebnisse sortiert werden sollen. Zulässige Werte sind `"asc"` (aufsteigend) oder `"desc"` (absteigend). Dies muss zusammen mit `sort_field` verwendet werden. Wenn weder `sort_field` noch `sort_order` vorhanden sind, werden die Ergebnisse in zufälliger Reihenfolge zurückgegeben. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Selection object parameters" }
+
+{% alert note %}
+Die Parameter `sort_field` und `sort_order` müssen zusammen verwendet werden. Wenn Sie nur einen der beiden Parameter angeben oder beide Parameter weglassen, werden die Auswahlergebnisse in zufälliger Reihenfolge zurückgegeben.
+{% endalert %}
+
+## Beispielanfrage {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restaurants/selections' \
@@ -49,6 +67,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
   "selection": {
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
+    "external_id": "favorite-nyc-restaurants",
     "filters": [
       {
         "field": "City",
@@ -60,12 +79,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
         "operator": "greater than",
         "value": 7
       }
-    ]
+    ],
+    "results_limit": 10,
+    "sort_field": "Rating",
+    "sort_order": "desc"
   }
 }'
 ```
 
-### Filteroperatoren
+### Filteroperatoren {#filter-operators}
 
 | Feldtyp | Unterstützte Operatoren                                     |
 | ---------- | ------------------------------------------------------- |
@@ -74,15 +96,19 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter operators" }
 
-## Antwort
+{% alert note %}
+Die API unterstützt maximal vier Filter pro Auswahlanfrage. Im Braze-Dashboard können Sie bis zu 10 Filter pro Auswahl hinzufügen. Filter werden in der Reihenfolge angewendet, in der sie im Array erscheinen.
+{% endalert %}
 
-Es gibt drei Status Code Antworten für diesen Endpunkt: `202`, `400`, und `404`.
+## Antwort {#response}
 
-### Beispiel für eine erfolgreiche Antwort
+Es gibt drei Statuscode-Antworten für diesen Endpunkt: `202`, `400` und `404`.
 
-Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
+
+Der Statuscode `202` könnte den folgenden Antwortkörper zurückgeben.
 
 ```json
 {
@@ -90,9 +116,9 @@ Der Status Code `202` könnte den folgenden Antwortkörper zurückgeben.
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die auftreten können.
 
 ```json
 {
@@ -112,11 +138,11 @@ Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
+In der folgenden Tabelle finden Sie mögliche zurückgegebene Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler                                | Fehlersuche                                                                               |
+| Fehler                                | Fehlerbehebung                                                                               |
 |--------------------------------------|-----------------------------------------------------------------------------------------------|
 | `catalog-not-found`                  | Prüfen Sie, ob der Katalogname gültig ist.                                                         |
 | `company-size-limit-already-reached` | Das Limit für die Katalogspeichergröße ist erreicht.                                                    |
@@ -125,11 +151,11 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | `too-many-filters`                   | Prüfen Sie, ob die Auswahl zu viele Filter enthält.                                                  |
 | `selection-name-already-exists`      | Prüfen Sie, ob der Name der Auswahl bereits im Katalog vorhanden ist.                                    |
 | `selection-has-invalid-filter`       | Prüfen Sie, ob der Auswahlfilter gültig ist.                                                       |
-| `selection-invalid-results-limit`    | Prüfen Sie, ob die Ergebnisgrenze der Auswahl gültig ist.                                                |
+| `selection-invalid-results-limit`    | Prüfen Sie, ob das Ergebnislimit der Auswahl gültig ist.                                                |
 | `invalid-sorting`                    | Prüfen Sie, ob die Auswahlsortierung gültig ist.                                                      |
-| `invalid-sort-field`                 | Prüfen Sie, ob das Feld für die Auswahlsortierung gültig ist.                                                   |
+| `invalid-sort-field`                 | Prüfen Sie, ob das Sortierfeld der Auswahl gültig ist.                                                   |
 | `invalid-sort-order`                 | Prüfen Sie, ob die Sortierreihenfolge der Auswahl gültig ist.                                                   |
 | `selection-contains-too-many-arrays` | Prüfen Sie, ob die Auswahl mehr als ein Feld mit dem Typ `array` enthält. Es wird nur eines unterstützt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

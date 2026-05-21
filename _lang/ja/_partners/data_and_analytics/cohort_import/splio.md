@@ -1,73 +1,73 @@
 ---
-nav_title: スプリオ
-article_title: スプリオ
+nav_title: Splio
+article_title: Splio
 alias: /partners/splio/
-description: "この参考記事では、BrazeとSplioのパートナーシップについて概説している。このパートナーシップにより、よりターゲットを絞ったキャンペーンを送信し、新しい製品機会を見つけ、収益を向上させることができる。"
+description: "このリファレンス記事では、BrazeとSplioのパートナーシップについて説明します。このパートナーシップにより、よりターゲットを絞ったキャンペーンを送信し、新しい製品機会を見つけ、収益を向上させることができます。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# スプリオ
+# Splio
 
-> [Splioは](https://splio.com/)、カスタマーエクスペリエンスを損なわずにキャンペーン数を増やし、収益を上げることができるオーディエンス構築ツールであり、オンラインとオフラインの両方でCRMキャンペーンのパフォーマンスを追跡するための分析を提供する。
+> [Splio](https://splio.com/)は、カスタマーエクスペリエンスを損なうことなくキャンペーン数と収益を増やすことができるオーディエンス構築ツールであり、オンラインとオフラインの両方でCRM キャンペーンのパフォーマンスを追跡するための分析を提供します。
 
-BrazeとSplioの統合により、より良いCRM戦略を計画・実行し、よりターゲットを絞ったキャンペーンを送り、新しい製品機会を見つけ、収益を上げることができる。
+BrazeとSplioの統合により、より優れたCRM戦略を計画・実行し、よりターゲットを絞ったキャンペーンを送信し、新しい製品機会を見つけ、収益を向上させることができます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-| スプリオアカウント | この提携にはスプリオのアカウントが必要だ。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Splioアカウント | このパートナーシップにはSplioアカウントが必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## データインポート統合
+## データインポート統合 {#data-import-integration}
 
-BrazeとSplioを統合するには、Splioプラットフォームを設定し、既存のSplioキャンペーンをエクスポートし、今後のキャンペーンでユーザーをターゲットにするコホートセグメントをBrazeで作成する必要がある。
+BrazeとSplioを統合するには、Splioプラットフォームを設定し、既存のSplio キャンペーンをエクスポートし、今後のキャンペーンでユーザーをターゲットにするためのコホートセグメントをBrazeで作成する必要があります。
 
-### ステップ 1: Braze データインポートキーを取得する
+### ステップ 1: Brazeデータインポートキーを取得する {#step-1-get-the-braze-data-import-key}
 
-Brazeで、「**Partner Integrations**」>「**Technology Partners**」と進み、「**Splio**」を選択する。
+Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Splio**を選択します。
 
-RESTエンドポイントを見つけ、Brazeデータインポートキーを生成する。鍵を生成した後、新しい鍵を作成したり、既存の鍵を無効にしたりすることができる。<br><br>![RESTエンドポイントとデータインポートキーが記載されたSplioテクノロジーパートナーのページ。]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
+RESTエンドポイントを確認し、Brazeデータインポートキーを生成します。キーを生成した後、新しいキーを作成したり、既存のキーを無効にしたりできます。<br><br>![RESTエンドポイントとデータインポートキーが表示されたSplioテクノロジーパートナーページ。]({% image_buster /assets/img/tinyclues/tinyclues_6.png %}){: style="max-width:90%;"}
 
-統合を完了するには、データインポートキーとRESTエンドポイントをSplioデータオペレーションチームに提供する。スプリオは接続を確立し、セットアップ完了後にあなたに連絡する。
+統合を完了するには、データインポートキーとRESTエンドポイントをSplioデータオペレーションチームに提供してください。Splioが接続を確立し、セットアップ完了後に連絡します。
 
-### ステップ 2:スプリオのプラットフォームからキャンペーンをエクスポートする
+### ステップ 2: Splioプラットフォームからキャンペーンをエクスポートする {#step-2-export-a-campaign-from-the-splio-platform}
 
-BrazeでSplioユーザーのコホートを作成するには、まずSplioプラットフォームからエクスポートする必要がある。
+BrazeでSplioユーザーのコホートを作成するたびに、まずSplioプラットフォームからエクスポートする必要があります。
 
-Splioで、エクスポートしたいキャンペーンを選択し、**キャンペーンのエクスポートを**クリックする。エクスポート後、オーディエンスは自動的にBrazeアカウントにアップロードされる。
+Splioで、エクスポートしたいキャンペーンを選択し、**Export キャンペーン**をクリックします。エクスポート後、オーディエンスは自動的にBrazeアカウントにアップロードされます。
 
 ![Splioプラットフォームからキャンペーンをエクスポートする。]({% image_buster /assets/img/tinyclues/tinyclues_1.png %})
 
-### ステップ 3:Splioカスタムオーディエンスからセグメンテーションを作成する。
+### ステップ 3: Splioカスタムオーディエンスからセグメントを作成する {#step-3-create-a-segment-from-the-splio-custom-audience}
 
-Brazeで**Segmentsに**移動し、Splioコホートセグメントに名前を付け、フィルターとして**Splioコホートを**選択する。ここから、どのスプリオのコホートを含めるかを選択する。Splioコホートセグメントを作成した後、キャンペーンやキャンバスを作成する際にオーディエンスフィルターとして選択することができる。
+Brazeで**セグメント**に移動し、Splioコホートセグメントに名前を付け、フィルターとして**Splio Cohorts**を選択します。ここから、含めるSplioコホートを選択します。Splioコホートセグメントを作成した後、キャンペーンやキャンバスを作成する際にオーディエンスフィルターとして選択できます。
 
 ![BrazeでSplioコホートセグメントを作成する。]({% image_buster /assets/img/tinyclues/tinyclues_3.png %}){: style="max-width:90%;"}<br><br>
-![Brazeセグメントビルダーで、ユーザー属性フィルター「Splioコホート」が「includes」と「Primaryコホート」に設定されている。]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
+![Brazeセグメントビルダーで、ユーザー属性フィルター「Splioコホート」が「次を含む」と「Primary cohort」に設定されている。]({% image_buster /assets/img/tinyclues/tinyclues_4.png %}){: style="max-width:90%;"}
 
-コーホートの所在がわからず困っている？[トラブルシューティングの](#troubleshooting)セクションを参照してほしい。
+コホートが見つからない場合は、[トラブルシューティング](#troubleshooting)セクションを参照してください。
 
 {% alert important %}
-すでにBrazeに存在するユーザーだけが、コホートに追加または削除される。コホートインポートはBrazeに新しいユーザーを作成しない。
+すでにBrazeに存在するユーザーのみがコホートに追加または削除されます。コホートインポートではBrazeに新しいユーザーは作成されません。
 {% endalert %}
 
-## この統合を使う
+## この統合の使用方法 {#using-this-integration}
 
-Splioセグメントを使用するには、Brazeキャンペーンまたはキャンバスを作成し、ターゲットオーディエンスとしてセグメントを選択する。
+Splioセグメントを使用するには、Braze キャンペーンまたはキャンバスを作成し、ターゲットオーディエンスとしてセグメントを選択します。
 
-![Brazeキャンペーンビルダーのターゲティングステップで、"Target users by segment "フィルターが "Splio cohort "に設定されている。]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
+![Brazeキャンペーンビルダーのターゲティングステップで、「セグメントを基準にユーザーをターゲットに設定」フィルターが「Splioコホート」に設定されている。]({% image_buster /assets/img/tinyclues/tinyclues_5.png %}){: style="max-width:90%;"}
 
-## ユーザーマッチング
+## ユーザーマッチング {#user-matching}
 
-Brazeは、`external_id` または`alias` によって識別されたユーザーをマッチングする。匿名ユーザーは`device_id` でマッチングされる。元々匿名ユーザーとして作成された識別子ユーザーは、`device_id` ではマッチングできず、`external_id` または`alias` でマッチングしなければならない。
+Brazeは、識別されたユーザーを`external_id`または`alias`でマッチングします。匿名ユーザーは`device_id`でマッチングされます。もともと匿名ユーザーとして作成された識別済みユーザーは、`device_id`ではマッチングできず、`external_id`または`alias`でマッチングする必要があります。
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-リストで正しいコホートが見つからない場合は、Splioでキャンペーンの詳細を表示し、**エクスポートファイル名を**チェックして名前を確認する。
+リストで正しいコホートが見つからない場合は、Splioでキャンペーンの詳細を表示し、**Export File Name**を確認して名前を検証してください。
 
 ![キャンペーン詳細ページの下部にコホート名が表示されている。]({% image_buster /assets/img/tinyclues/tinyclues_2.png %}){: style="max-width:30%;"}
 
-オーディエンスの検索に問題がある場合は、[スプリオ・チームに](mailto:support-team@splio.com)連絡してサポートを受けてほしい。
+オーディエンスの取得に問題がある場合は、[Splioチーム](mailto:support-team@splio.com)に連絡してサポートを受けてください。

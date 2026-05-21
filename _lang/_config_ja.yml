@@ -27,6 +27,7 @@ collections:
     title: ドキュメンテーション
   user_guide:
     title: ユーザーガイド
+    default_nav_url: home/
   developer_guide:
     title: 開発者ガイド
   api:
@@ -34,8 +35,14 @@ collections:
     default_nav_url: basics/
   partners:
     title: テクノロジーパートナー
+  releases:
+    title: 新着情報
+    output: true
+    default_nav_url: home/
+    page_order: 6
   help:
-    title: ヘルプ
+    output: true
+    default_nav_url: home/
   hidden: # Hidden pages not directly linked via navigation
     title: Braze
   docs_pages: # Site specific pages. ie main redirects and search

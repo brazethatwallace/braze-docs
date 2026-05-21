@@ -12,7 +12,7 @@ layout: scrolly
 
 {% sdktabs %}
 {% sdktab web %}
-{% multi_lang_include developer_guide/prerequisites/web.md %} しかし、追加の設定は必要ない。
+{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加の設定は不要だ。
 
 ## Web でアプリ内メッセージを条件付きで表示する
 
@@ -79,7 +79,7 @@ lines-index.js=16
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} また、[Androidではアプリ内メッセージを有効にする]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages)必要がある。
+{% multi_lang_include developer_guide/prerequisites/android.md %} [Androidではアプリ内メッセージをイネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages)する必要がある。
 
 ## Android でアプリ内メッセージを条件付きで表示する
 
@@ -87,7 +87,7 @@ lines-index.js=16
 
 {% scrolly %}
 
-```kotlin file=MainApplication.kt
+`````````kotlin file=MainApplication.kt
 import android.app.Application
 import com.braze.Braze
 import com.braze.support.BrazeLogger
@@ -174,7 +174,7 @@ lines-MainApplication.kt=38,41
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} [Swiftのアプリ内メッセージを有効に]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)する必要もある。
+{% multi_lang_include developer_guide/prerequisites/swift.md %} [SWIFTのアプリ内メッセージ機能]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)も[イネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)する必要がある。
 
 ## SWIFT でアプリ内メッセージを条件付きで表示する
 
@@ -182,7 +182,7 @@ lines-MainApplication.kt=38,41
 
 {% scrolly %}
 
-```swift file=AppDelegate.swift
+`````````swift file=AppDelegate.swift
 import SwiftUI
 import BrazeKit
 import BrazeUI
@@ -219,7 +219,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, BrazeInAppMessageUIDelegate 
 }
 ```
 
-```swift file=SampleApp.swift
+`````````swift file=SampleApp.swift
 import SwiftUI
 
 @main

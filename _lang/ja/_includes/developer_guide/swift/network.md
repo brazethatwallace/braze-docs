@@ -1,12 +1,12 @@
-## ネットワーク・トラフィック・コントロール
+## ネットワークトラフィックコントロール
 
-### 加工方針を要請する
+### 処理方針の要求
 
 Braze では、ユーザーに対し、以下のプロトコルを使用してネットワーク トラフィックを制御するオプションが提供されます。
 
 {% tabs local %}
 {% tab automatic %}
-デフォルトでは、`RequestPolicy` enumの値は`automatic` に設定されている。設定すると、アプリ内メッセージなどユーザー向けデータがBraze機能に必要な場合に、即時サーバーリクエストが実行される。
+デフォルトでは、列挙型の`RequestPolicy`値は に設定される`automatic`。設定すると、アプリ内メッセージなどのBraze機能でユーザー向けデータが必要な場合、直ちにサーバーへのリクエストが実行される。
 
 Braze SDK では、以下を含むすべてのサーバー通信が自動的に処理されます。
 
@@ -18,10 +18,10 @@ Braze SDK では、以下を含むすべてのサーバー通信が自動的に�
 {% endtab %}
 
 {% tab manual %}
-`RequestPolicy` 列挙値が`manual` の場合、それ以外は自動リクエスト処理と同じパフォーマンスをする：
+列挙型の`RequestPolicy`値が の場合`manual`、自動リクエスト処理と同じパフォーマンスを持つが、以下の点が異なる：
 
 - カスタム属性とカスタムイベントデータが、ユーザーセッションを通じてサーバーに自動でフラッシュされません。
-- Braze で、アプリ内メッセージのリクエスト、アプリ内メッセージの Liquid テンプレート、ジオフェンス、位置情報の追跡などの内部機能に対する自動ネットワークリクエストが実行されます。詳細については、`Braze.Configuration.Api.RequestPolicy.manual` の[ドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/api-swift.class/requestpolicy-swift.enum/manual)を参照してください。これらの内部リクエストが行われると、リクエストタイプによっては、Brazeはローカルに保存されたカスタム属性やカスタムイベントデータをBrazeサーバーにフラッシュすることがある。
+- Braze で、アプリ内メッセージのリクエスト、アプリ内メッセージの Liquid テンプレート、ジオフェンス、位置情報の追跡などの内部機能に対する自動ネットワークリクエストが実行されます。詳細については、`Braze.Configuration.Api.RequestPolicy.manual` の[ドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/api-swift.class/requestpolicy-swift.enum/manual)を参照してください。これらの内部リクエストが行われた場合、リクエストの種類に応じて、Brazeはローカルに保存されたカスタム属性とカスタムイベントデータをBrazeサーバーに送信する可能性がある。
 {% endtab %}
 {% endtabs %}
 
@@ -36,7 +36,7 @@ AppDelegate.braze?.requestImmediateDataFlush()
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 [AppDelegate.braze requestImmediateDataFlush];
 ```
 {% endtab %}
@@ -48,12 +48,12 @@ AppDelegate.braze?.requestImmediateDataFlush()
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 configuration.api.requestPolicy = .automatic
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 configuration.api.requestPolicy = BRZRequestPolicyAutomatic;
 ```
 {% endtab %}

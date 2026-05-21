@@ -1,14 +1,14 @@
 ---
-nav_title: メッセージのパーソナライズ
+nav_title: メッセージのパーソナライゼーション
 article_title: メッセージパーソナライゼーションパートナー
 page_order: 1
 
 page_type: landing
-description: "このランディングページには、Brazeパートナー（Alloys）がリストされており、BrazeキャンペーンやCanvasに追加のパーソナライゼーションを追加することができます。"
+description: "このランディングページには、Brazeのキャンペーンやキャンバスに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Message Personalization"
+partner_top_header: "メッセージパーソナライゼーション"
 
 valid_partner_list:
 - name: Jacquard
@@ -27,10 +27,14 @@ valid_partner_list:
   url: /docs/partners/movable_ink/
 - name: Sheetlabs
   url: /docs/partners/sheetlabs/
+- name: Limbik
+  url: /docs/partners/limbik/
 - name: Amplitude
   url: /docs/partners/amplitude/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Future Anthem
   url: /docs/partners/future_anthem/
 - name: Judo
@@ -45,8 +49,6 @@ valid_partner_list:
   url: /docs/partners/seen/
 - name: Storyly
   url: /docs/partners/storyly/
-- name: Stylitics
-  url: /docs/partners/stylistics/
 - name: Worthy
   url: /docs/partners/worthy/
 - name: WSC Sports
@@ -59,7 +61,7 @@ valid_partner_list:
   url: /docs/partners/crowdin/
 - name: Lokalise
   url: /docs/partners/lokalise/
-- name: Phrase  
+- name: Phrase
   url: /docs/partners/phrase/
 - name: Smartling
   url: /docs/partners/smartling/
@@ -69,12 +71,8 @@ valid_partner_list:
   url: /docs/partners/stylitics/
 - name: NiftyImages
   url: /docs/partners/niftyimages/
-- name: Future Anthem
-  url: /docs/partners/future_anthem
-- name: SEEN
-  url: /docs/partners/seen
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Transifex
   url: /docs/partners/transifex/
 - name: AccuWeather
@@ -83,7 +81,7 @@ valid_partner_list:
   url: /docs/partners/bluedot/
 - name: Foursquare
   url: /docs/partners/foursquare/
-- name: インフィリオン
+- name: Infillion
   url: /docs/partners/infillion/
 - name: loplat
   url: /docs/partners/loplat/
@@ -97,4 +95,6 @@ valid_partner_list:
   url: /docs/partners/viralsweep/
 - name: Mention Me
   url: /docs/partners/mention_me/
+- name: VideoSmart
+  url: /docs/partners/videosmart/
 ---

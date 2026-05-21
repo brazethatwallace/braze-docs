@@ -16,7 +16,7 @@ search_tag: OtherLevels
 
 ## Overview
 
-The Braze and OtherLevels integration allows you to create custom GenAI videos through API calls to the OtherLevels Experience Platform, and then send these videos to your users as iOS push videos through [Braze Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/).
+The Braze and OtherLevels integration allows you to create custom GenAI videos through API calls to the OtherLevels Experience Platform, and then send these videos to your users as iOS push videos through [Braze Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/).
 
 Give your users a better experience with OtherLevels AI-powered experiences. Transform existing and third-party content into highly-scalable video and rich media for audiences that already consume content differently and respond strongly to contextually personalized experiences.
 
@@ -24,12 +24,12 @@ Give your users a better experience with OtherLevels AI-powered experiences. Tra
 
 Before you start, you'll need the following:
 
-| Prerequisite          | Description                                                                                                                                |
+| Requirements          | Description                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | An OtherLevels account   | An OtherLevels account is required to take advantage of this partnership.                                                                     |
 | A Braze REST API key  | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 This integration requires calling the OtherLevels Experience Platform API as part of the video generation process before messages can be sent to your users from Braze. cURL examples are provided as part of this documentation, however we recommend using API clients like Postman to automate the API calls.
 
@@ -132,7 +132,7 @@ Replace the following:
 | `TALENT_TEMPLATE` | A Talent Template ID. OtherLevels will work with you during account provisioning to create a talent (avatar). You will be provided one or multiple Talent IDs that can be used.                                                 |
 | `TALENT_MODEL` | A Talent Model ID. OtherLevels will work with you during account provisioning to create a talent (avatar). You will be provided one or multiple Talent Models that can be used.                                                 |
 | `INSERT_SCRIPT` | The exact script that you would like the talent to say during the video.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Call the OtherLevels Experience Platform API to generate a video #step-1" }
 
 As part of the API response, OtherLevels will return a JSON payload indicating a successful API call. The JSON will contain a unique `recipe_id` to identify the generated video. The `recipe_id` will be required in the next step.
 
@@ -178,7 +178,7 @@ Replace the following:
 | `BRAZE_API_KEY`         | Your Braze REST API key with the `users.track` permission.                                                                                                                                      |
 | `USER_ID`              | The User ID who will be receiving this particular video. For more examples of the identifiers which can be used, refer to [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users).                                                                                                                                                  |
 | `RECIPE_ID`       | The `recipe_id` received from the OtherLevels API response in [Step 1](#step-1).                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Setting the recipeid as a custom attribute" }
 
 ### Step 3: Sending through Braze Connected Content
 
@@ -210,7 +210,7 @@ The video background can be specified within the `bg_image` key.
 | Parameter             | Description                  |
 |-------------------------|----------------------------|
 | `url`    | HTTPS url for the background image. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 The video background size can be specified within the `resize_image` key. We recommend that the background image is sized the same as what is configured here.
 
@@ -218,7 +218,7 @@ The video background size can be specified within the `resize_image` key. We rec
 |-------------------------|----------------------------|
 | `width`    | Width of the background image, with options for both portrait and landscape modes. |
 | `height`     | Height of the background image, with options for both portrait and landscape modes.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 Video Overlay Options can be specified within the `image_video_overlay` key.
 
@@ -229,7 +229,7 @@ Video Overlay Options can be specified within the `image_video_overlay` key.
 | `color`              | Color of the overlay specified in RGB along with transparency video.                                                                   |
 | `y_pos`       | Y-axis offset from center.                                                              |
 | `x_pos`    | X-axis offset from center. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 ### Talent and script
 
@@ -242,7 +242,7 @@ The voice model used to process input scripts works best when providing a natura
 | Parameter             | Description                  |
 |-------------------------|----------------------------|
 | `speed`    | Specify the speed at which the talent will read the script. For example, `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent and script" }
 
 ## Additional considerations
 

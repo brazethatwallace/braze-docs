@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: Deep links
-article_title: Mensagens no app com deep link para o SDK Braze
+article_title: Deep linking em mensagens no app para o SDK da Braze
 channel:
   - push notifications
 ---
 
-# Mensagens no app com deep link
+# Deep linking em mensagens no app {#in-app-message-deep-linking}
 
-> Aprenda como usar deep link dentro de uma mensagem no app para o SDK Braze.
+> Aprenda como fazer deep link dentro de uma mensagem no app usando o SDK da Braze.
 
 {% sdktabs %}
 {% sdktab android %}

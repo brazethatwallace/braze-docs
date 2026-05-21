@@ -1,7 +1,7 @@
 ---
 nav_title: RudderStack
 article_title: RudderStack
-description: "This article outlines the partnership between Braze and RudderStack, an open-source customer data infrastructure offering seamless Braze integration for your Android, iOS, and web applications. With RudderStack, you can send your in-app customer event data directly to Braze for contextual analysis."
+description: "이 문서에서는 Android, iOS 및 웹 애플리케이션에 원활한 Braze 통합을 제공하는 오픈소스 고객 데이터 인프라인 Braze와 RudderStack 간의 파트너십에 대해 설명합니다. RudderStack을 사용하면 인앱 고객 이벤트 데이터를 상황별 분석을 위해 Braze로 직접 전송할 수 있습니다."
 page_type: partner
 search_tag: Partner
 
@@ -9,52 +9,52 @@ search_tag: Partner
 
 # RudderStack
 
-> [RudderStack](https://rudderstack.com/) is an open-source customer data infrastructure for collecting and routing customer event data to your preferred data warehouse and dozens of other analytics providers, such as Braze. It is enterprise-ready and offers a robust transformation framework to process your event data on the fly.
+> [RudderStack](https://rudderstack.com/)은 고객 이벤트 데이터를 수집하여 선호하는 데이터 웨어하우스 및 Braze를 비롯한 수십 개의 분석 제공업체로 라우팅하기 위한 오픈소스 고객 데이터 인프라입니다. 엔터프라이즈급으로 설계되었으며, 이벤트 데이터를 실시간으로 처리할 수 있는 강력한 변환 프레임워크를 제공합니다.
 
-The Braze and RudderStack integration offers a native SDK integration for your Android, iOS, and web applications and a server-to-server integration from your backend services.
+Braze와 RudderStack 통합은 Android, iOS 및 웹 애플리케이션을 위한 네이티브 SDK 통합과 백엔드 서비스에서의 서버 간 통합을 제공합니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | --- | --- |
-| RudderStack account | A [RudderStack account](https://app.rudderstack.com/) is required to take advantage of this partnership. |
-| Configured source | A [source](https://www.rudderstack.com/docs/dashboard-guides/sources/) is essentially the origin of any data sent to RudderStack, such as websites, mobile apps, or backend servers. You are required to configure the source before setting up Braze as a destination in RudderStack. |
-| Braze REST API key | A Braze REST API key with `users.track`, `users.identify`, `users.delete`, and `users.alias.new` permissions.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze app key | To get your app key in the Braze dashboard go to **Settings** > **App Settings** > **Identification** and find your app name. Save the associated identifier string.
-| Data center | Your data center aligns with your Braze dashboard [instance]({{site.baseurl}}/api/basics/#endpoints).  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| RudderStack 계정 | 이 파트너십을 활용하려면 [RudderStack 계정](https://app.rudderstack.com/)이 필요합니다. |
+| 구성된 소스 | [소스](https://www.rudderstack.com/docs/dashboard-guides/sources/)는 기본적으로 웹사이트, 모바일 앱 또는 백엔드 서버와 같이 RudderStack으로 전송되는 모든 데이터의 출처입니다. RudderStack에서 Braze를 대상으로 설정하기 전에 소스를 구성해야 합니다. |
+| Braze REST API 키 | `users.track`, `users.identify`, `users.delete`, `users.alias.new` 권한이 있는 Braze REST API 키.<br><br>Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze 앱 키 | Braze 대시보드에서 앱 키를 가져오려면 **설정** > **앱 설정** > **식별**로 이동하여 앱 이름을 찾습니다. 연결된 식별자 문자열을 저장합니다.
+| 데이터 센터 | 데이터 센터는 Braze 대시보드 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)와 일치합니다.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Add a source
+### 1단계: 소스 추가 {#step-1-add-a-source}
 
-To start sending data to Braze, you first need to make sure a source is set up in your RudderStack app. Visit [RudderStack](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#getting-started) to learn how to set up your data source.
+Braze로 데이터 전송을 시작하려면 먼저 RudderStack 앱에 소스가 설정되어 있는지 확인해야 합니다. 데이터 소스 설정 방법을 알아보려면 [RudderStack](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#getting-started)을 방문하세요.
 
-### Step 2: Configure destination
+### 2단계: 대상 구성 {#step-2-configure-destination}
 
-Now that your data source is set up, in the RudderStack dashboard, select **ADD DESTINATION** under **Destinations**. From the list of available destinations, select **Braze** and click **Next**.
+데이터 소스가 설정되면 RudderStack 대시보드에서 **Destinations** 아래의 **ADD DESTINATION**을 선택합니다. 사용 가능한 대상 목록에서 **Braze**를 선택하고 **Next**를 클릭합니다.
 
-In the Braze destination, provide the app key, Braze REST API key, data cluster, and native SDK option (device mode only). The native SDK option will use the Braze native SDK to send events if toggled on. 
+Braze 대상에서 앱 키, Braze REST API 키, 데이터 클러스터 및 네이티브 SDK 옵션(디바이스 모드 전용)을 제공합니다. 네이티브 SDK 옵션을 활성화하면 Braze 네이티브 SDK를 사용하여 이벤트를 전송합니다.
 
 ![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
-### 3단계: Choose the type of integration
+### 3단계: 통합 유형 선택 {#step-3-choose-the-type-of-integration}
 
-You can choose to integrate RudderStack's web and native client-side libraries with Braze using one the following approaches:
+다음 접근 방식 중 하나를 사용하여 RudderStack의 웹 및 네이티브 클라이언트 측 라이브러리를 Braze와 통합할 수 있습니다:
 
-- [Side-by-side / device mode](#device-mode)**:** RudderStack will send the event data to Braze directly from your client (browser or mobile application).
-- [Server-to-server / cloud mode](#cloud-mode)**:** The Braze SDK sends the event data directly to RudderStack, which is then transformed and routed to Braze.
-- [Hybrid mode](#hybrid-mode)**:** Use hybrid mode to send iOS and Android auto-generated and user-generated events to Braze using a single connection.
+- [병렬 통합 / 디바이스 모드](#device-mode)**:** RudderStack이 클라이언트(브라우저 또는 모바일 애플리케이션)에서 직접 Braze로 이벤트 데이터를 전송합니다.
+- [서버 간 / 클라우드 모드](#cloud-mode)**:** Braze SDK가 이벤트 데이터를 RudderStack으로 직접 전송하고, 이후 변환되어 Braze로 라우팅됩니다.
+- [하이브리드 모드](#hybrid-mode)**:** 하이브리드 모드를 사용하여 단일 연결로 iOS 및 Android 자동 생성 이벤트와 사용자 생성 이벤트를 Braze로 전송합니다.
 
 {% alert note %}
-Learn more about RudderStack's [connection modes](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/) and the benefits of each.
+RudderStack의 [연결 모드](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/)와 각 모드의 장점에 대해 자세히 알아보세요.
 {% endalert %}
 
-#### Side-by-side integration (device mode) {#device-mode}
+#### 병렬 통합(디바이스 모드) {#device-mode}
 
-With this mode, you can send your events to Braze using the Braze SDK set up on your website or mobile app.
+이 모드에서는 웹사이트 또는 모바일 앱에 설정된 Braze SDK를 사용하여 이벤트를 Braze로 전송할 수 있습니다.
 
-Set up the mappings to the RudderStack SDK for your platform on the Braze GitHub repository, as described under [supported methods](#supported-methods):
+[지원되는 메서드](#supported-methods)에 설명된 대로 Braze GitHub 리포지토리에서 플랫폼에 맞는 RudderStack SDK 매핑을 설정합니다:
 
 - [Android](https://github.com/rudderlabs/rudder-integration-braze-android)
 - [iOS](https://github.com/rudderlabs/rudder-integration-braze-ios/tree/master)
@@ -63,104 +63,104 @@ Set up the mappings to the RudderStack SDK for your platform on the Braze GitHub
 - [React Native](https://github.com/rudderlabs/rudder-sdk-react-native/tree/develop/libs/rudder-integration-braze-react-native)
 - [Flutter](https://github.com/rudderlabs/rudder-sdk-flutter/tree/develop/packages/integrations/rudder_integration_braze_flutter)
 
-To complete the device mode integration, refer to the detailed RudderStack instructions for [adding Braze to your project](https://rudderstack.com/docs/destinations/marketing/braze/#adding-device-mode-integration).
+디바이스 모드 통합을 완료하려면 [프로젝트에 Braze 추가](https://rudderstack.com/docs/destinations/marketing/braze/#adding-device-mode-integration)에 대한 RudderStack의 상세 지침을 참조하세요.
 
-#### Server-to-server integration (cloud mode) {#cloud-mode}
+#### 서버 간 통합(클라우드 모드) {#cloud-mode}
 
-In this mode, the SDK sends the event data directly to the RudderStack server. RudderStack then transforms this data and routes it to the desired destination. This transformation is done in the RudderStack backend using RudderStack's transformer module.
+이 모드에서는 SDK가 이벤트 데이터를 RudderStack 서버로 직접 전송합니다. 그런 다음 RudderStack이 이 데이터를 변환하여 원하는 대상으로 라우팅합니다. 이 변환은 RudderStack의 트랜스포머 모듈을 사용하여 RudderStack 백엔드에서 수행됩니다.
 
-To enable the integration, you will need to map the RudderStack methods to Braze, as described under [supported methods](#supported-methods).
+통합을 활성화하려면 [지원되는 메서드](#supported-methods)에 설명된 대로 RudderStack 메서드를 Braze에 매핑해야 합니다.
 
 {% alert note %}
-RudderStack's server-side SDKs (Java, Python, Node.js, Go, Ruby) support only cloud mode. This is because their server-side SDKs operate in the RudderStack backend and cannot load any Braze-specific SDK.
+RudderStack의 서버 측 SDK(Java, Python, Node.js, Go, Ruby)는 클라우드 모드만 지원합니다. 서버 측 SDK는 RudderStack 백엔드에서 작동하며 Braze 전용 SDK를 로드할 수 없기 때문입니다.
 {% endalert %}
 
 {% alert important %}
-The server-to-server integration does not support Braze UI features, such as push notifications or in-app messaging. These features are, however, supported by the device mode integration.
+서버 간 통합은 푸시 알림이나 인앱 메시징과 같은 Braze UI 기능을 지원하지 않습니다. 그러나 이러한 기능은 디바이스 모드 통합에서 지원됩니다.
 {% endalert %}
 
-#### Hybrid mode {#hybrid-mode}
+#### 하이브리드 모드 {#hybrid-mode}
 
-Use hybrid mode to send all events to Braze from your iOS and Android sources. 
+하이브리드 모드를 사용하여 iOS 및 Android 소스에서 모든 이벤트를 Braze로 전송합니다.
 
-When you choose hybrid mode to send events to Braze, RudderStack:
-1. Initializes the Braze SDK.
-2. Sends all the user-generated events (identify, track, page, screen, and group) to Braze only through cloud mode and blocks them from being sent via device mode.
-3. Sends the auto-generated events (in-app messages, push notifications that require the Braze SDK) via device mode.
+하이브리드 모드를 선택하여 이벤트를 Braze로 전송하면 RudderStack은 다음을 수행합니다:
+1. Braze SDK를 초기화합니다.
+2. 모든 사용자 생성 이벤트(identify, track, page, screen, group)를 클라우드 모드를 통해서만 Braze로 전송하고 디바이스 모드를 통한 전송은 차단합니다.
+3. 자동 생성 이벤트(인앱 메시지, Braze SDK가 필요한 푸시 알림)를 디바이스 모드를 통해 전송합니다.
 
-To [send events via hybrid mode](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-events-in-hybrid-mode), use the hybrid mode option while connecting your source to the Braze destination. Then, add the Braze integration to your project.
+[하이브리드 모드로 이벤트 전송](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-events-in-hybrid-mode)하려면 소스를 Braze 대상에 연결할 때 하이브리드 모드 옵션을 사용합니다. 그런 다음 프로젝트에 Braze 통합을 추가합니다.
 
-## Step 4: Configure additional settings
+## 4단계: 추가 설정 구성 {#step-4-configure-additional-settings}
 
-After completing the initial setup, configure the following settings to correctly receive your data in Braze:
+초기 설정을 완료한 후 Braze에서 데이터를 올바르게 수신하려면 다음 설정을 구성합니다:
 
-- **Enable subscription groups in group call**: Enable this setting to send the subscription group status in your group events. For more information, see [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Use Custom Attributes Operation**: Enable this setting if you want to use the [nested custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/) functionality in Braze to create segments and personalize your messages using a custom attribute object. For more information, see [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
-- **Track events for anonymous users**: Enable this setting to track anonymous user activity and send this information to Braze.
+- **Enable subscription groups in group call**: 이 설정을 활성화하면 그룹 이벤트에서 구독 그룹 상태를 전송합니다. 자세한 내용은 [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group)을 참조하세요.
+- **Use Custom Attributes Operation**: Braze에서 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) 기능을 사용하여 커스텀 속성 오브젝트로 세그먼트를 생성하고 메시지를 개인화하려면 이 설정을 활성화합니다. 자세한 내용은 [중첩 커스텀 속성으로 사용자 특성 전송](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes)을 참조하세요.
+- **Track events for anonymous users**: 이 설정을 활성화하면 익명 사용자 활동을 추적하고 이 정보를 Braze로 전송합니다.
 
-### Device mode settings
+### 디바이스 모드 설정 {#device-mode-settings}
 
-The following settings are applicable only if you’re sending events to Braze via the [device mode](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/#device-mode):
+다음 설정은 [디바이스 모드](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/#device-mode)를 통해 Braze로 이벤트를 전송하는 경우에만 적용됩니다:
 
-- **Client-side Events Filtering**: This setting lets you specify which events should be blocked or allowed to flow through to Braze. For more information on this setting, see [Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/).
-- **Deduplicate Traits**: Enable this setting to deduplicate the user traits in the [`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify) call.
-- **Show Braze logs**: This setting is applicable only while using the [JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/) as a source. Enable it to show the Braze logs to your users.
-- **OneTrust Cookie Categories**: This setting lets you associate the [OneTrust](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/) cookie consent groups to Braze.
+- **Client-side Events Filtering**: 이 설정을 사용하면 Braze로 전달되어야 하는 이벤트를 차단하거나 허용할 수 있습니다. 이 설정에 대한 자세한 내용은 [Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/)을 참조하세요.
+- **Deduplicate Traits**: 이 설정을 활성화하면 [`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify) 호출에서 사용자 특성을 중복 제거합니다.
+- **Show Braze logs**: 이 설정은 [JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/)를 소스로 사용하는 경우에만 적용됩니다. 이를 활성화하면 사용자에게 Braze 로그를 표시합니다.
+- **OneTrust Cookie Categories**: 이 설정을 사용하면 [OneTrust](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/) 쿠키 동의 그룹을 Braze에 연결할 수 있습니다.
 
-## Supported methods
+## 지원되는 메서드 {#supported-methods}
 
-Braze supports the RudderStack methods identify, track, screen, page, group, and alias.
+Braze는 RudderStack의 identify, track, screen, page, group, alias 메서드를 지원합니다.
 
 {% tabs %}
 {% tab Identify %}
 
-The RudderStack [`identify` method](https://rudderstack.com/docs/destinations/marketing/braze/#identify) associates users with their actions. RudderStack captures a unique user ID and optional traits associated with that user, such as name, email, IP address, etc.
+RudderStack의 [`identify` 메서드](https://rudderstack.com/docs/destinations/marketing/braze/#identify)는 사용자를 해당 행동과 연결합니다. RudderStack은 고유한 사용자 ID와 이름, 이메일, IP 주소 등 해당 사용자와 관련된 선택적 특성을 캡처합니다.
 
-**Delta management for identify calls**<br>
-If you send events to Braze via device mode, you can save costs by deduplicating your `identify` calls. To do so, enable the Deduplicate Traits dashboard setting. RudderStack then sends only the changed or modified attributes (traits) to Braze.
+**identify 호출의 델타 관리**<br>
+디바이스 모드를 통해 Braze로 이벤트를 전송하는 경우 `identify` 호출을 중복 제거하여 비용을 절감할 수 있습니다. 이를 위해 Deduplicate Traits 대시보드 설정을 활성화합니다. 그러면 RudderStack은 변경되거나 수정된 속성(특성)만 Braze로 전송합니다.
 
-**Deleting a user**<br>
-You can delete a user in Braze using the [Suppression with Delete regulation](https://www.rudderstack.com/docs/api/data-regulation-api/#adding-a-suppression-with-delete-regulation) of the RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regulation-api/).
+**사용자 삭제**<br>
+RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regulation-api/)의 [Suppression with Delete regulation](https://www.rudderstack.com/docs/api/data-regulation-api/#adding-a-suppression-with-delete-regulation)을 사용하여 Braze에서 사용자를 삭제할 수 있습니다.
 
 {% endtab %}
 {% tab Track %}
 
-RudderStack's [`track` method](https://rudderstack.com/docs/destinations/marketing/braze/#track) captures all the user activities and the properties associated with those activities.
+RudderStack의 [`track` 메서드](https://rudderstack.com/docs/destinations/marketing/braze/#track)는 모든 사용자 활동과 해당 활동에 관련된 등록정보를 캡처합니다.
 
-**Order completed**<br>
-On using the [RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) to call the track method for an event with the name `Order Completed`, RudderStack sends the products listed in that event to Braze as [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+**주문 완료**<br>
+[RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/)를 사용하여 `Order Completed`라는 이름의 이벤트에 대해 track 메서드를 호출하면, RudderStack은 해당 이벤트에 나열된 제품을 [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data)로 Braze에 전송합니다.
 
 {% endtab %}
 {% tab Screen %}
 
-RudderStack's [`screen` method](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#screen) allows you to record your users’ mobile screen views with any additional information about the viewed screen.
+RudderStack의 [`screen` 메서드](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#screen)를 사용하면 조회된 화면에 대한 추가 정보와 함께 사용자의 모바일 화면 조회를 기록할 수 있습니다.
 
 {% endtab %}
 {% tab Page %}
 
-RudderStack's [`page` method](https://rudderstack.com/docs/destinations/marketing/braze/#page) lets you record your website's page views. It also captures any other relevant information about that page.
+RudderStack의 [`page` 메서드](https://rudderstack.com/docs/destinations/marketing/braze/#page)를 사용하면 웹사이트의 페이지 조회를 기록할 수 있습니다. 또한 해당 페이지에 대한 기타 관련 정보도 캡처합니다.
 
 {% endtab %}
 {% tab Group %}
 
-RudderStack's [`group` method](https://rudderstack.com/docs/destinations/marketing/braze/#group) allows you to associate a user with a group.
+RudderStack의 [`group` 메서드](https://rudderstack.com/docs/destinations/marketing/braze/#group)를 사용하면 사용자를 그룹에 연결할 수 있습니다.
 
-**Subscription group status**<br>
-To update the subscription group status, enable the "Enable subscription groups in group call" setting in the RudderStack dashboard and send the subscription group status in the group call.
+**구독 그룹 상태**<br>
+구독 그룹 상태를 업데이트하려면 RudderStack 대시보드에서 "Enable subscription groups in group call" 설정을 활성화하고 group 호출에서 구독 그룹 상태를 전송합니다.
 
 {% endtab %}
 {% tab Alias %}
 
-RudderStack's [`alias` method](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#alias) allows you to merge different identities of a known user. Note that RudderStack supports the alias call for Braze only in cloud mode.
+RudderStack의 [`alias` 메서드](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#alias)를 사용하면 알려진 사용자의 서로 다른 ID를 병합할 수 있습니다. RudderStack은 클라우드 모드에서만 Braze에 대한 alias 호출을 지원합니다.
 
 {% endtab %}
 {% endtabs %}
 
-## Send user traits as nested custom attributes
+## 중첩 커스텀 속성으로 사용자 특성 전송 {#send-user-traits-as-nested-custom-attributes}
 
-You can send the user traits to Braze as nested custom attributes and perform add, update, and remove operations on them. To do so, enable the "Use Custom Attributes Operation dashboard" setting in RudderStack while configuring the Braze destination. This feature is only available in cloud mode.
+사용자 특성을 중첩 커스텀 속성으로 Braze에 전송하고 추가, 업데이트, 제거 작업을 수행할 수 있습니다. 이를 위해 Braze 대상을 구성할 때 RudderStack에서 "Use Custom Attributes Operation dashboard" 설정을 활성화합니다. 이 기능은 클라우드 모드에서만 사용할 수 있습니다.
 
-You can send the user traits as nested custom attributes in your `identify` events in the following format:
+다음 형식으로 `identify` 이벤트에서 사용자 특성을 중첩 커스텀 속성으로 전송할 수 있습니다:
 ```javascript
 rudderanalytics.identify("1hKOmRA4GRlm", {
   "cars": {
@@ -203,7 +203,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
 })
 ```
 
-To send the user traits as custom user attributes via the `track`, `page`, or `screen` calls, pass `traits` as a contextual field in the event:
+`track`, `page` 또는 `screen` 호출을 통해 사용자 특성을 커스텀 사용자 속성으로 전송하려면 이벤트에서 `traits`를 컨텍스트 필드로 전달합니다:
 ```javascript
 rudderanalytics.track("Product Viewed", {
     revenue: 8.99,
@@ -253,6 +253,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-For the update and remove operations, `identifier` is a required key. If add, update, or remove operations are not present in the nested array, RudderStack uses the create operation to create the properties by default. Refer to [Array of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/) for more information on sending nested custom attributes.
+업데이트 및 제거 작업의 경우 `identifier`는 필수 키입니다. 중첩 배열에 추가, 업데이트 또는 제거 작업이 없는 경우 RudderStack은 기본적으로 생성 작업을 사용하여 등록정보를 생성합니다. 중첩 커스텀 속성 전송에 대한 자세한 내용은 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/)을 참조하세요.
 {% endalert %}
-

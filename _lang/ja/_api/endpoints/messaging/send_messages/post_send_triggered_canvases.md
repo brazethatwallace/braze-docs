@@ -1,36 +1,36 @@
 ---
-nav_title: "POST:API トリガー配信を使用したCanvas メッセージの送信"
-article_title: "POST:API トリガー配信を使用したキャンバスメッセージの送信"
+nav_title: "POST: APIトリガー配信を使用したキャンバスメッセージの送信"
+article_title: "POST: APIトリガー配信を使用したキャンバスメッセージの送信"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「API トリガー配信を使用してキャンバスを送信」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、APIトリガー配信を使用したキャンバス送信Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# API トリガー配信を使用したCanvas メッセージの送信
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints %}。
+# APIトリガー配信を使用したキャンバスメッセージの送信 {#send-canvas-messages-using-api-triggered-delivery}
+{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /canvas/trigger/send
 {% endapimethod %}
 
-> このエンドポイントを使用して、API によってトリガーされる配信でキャンバスメッセージを送信します。
+> このエンドポイントを使用して、APIトリガー配信でキャンバスメッセージを送信します。
 
-API トリガー配信を使用すると、API を使用してメッセージの宛先と送信のタイミングを指定すると同時に、メッセージの内容を Braze ダッシュボードに保存できます。
+APIトリガー配信を使用すると、メッセージのコンテンツをBrazeダッシュボードに保存しながら、APIを使用してメッセージの送信タイミングと送信先を指定できます。
 
-このエンドポイントでメッセージを送信するには、[キャンバスID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)(キャンバスの構築時に作成されます)が必要です。
+このエンドポイントでメッセージを送信するには、[キャンバス ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)（キャンバスの構築時に作成されます）が必要です。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c9a8a5fe-a101-4755-99f2-73aa8fc146fe {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.trigger.send` 権限を持つ API キーを生成する必要があります。
+このエンドポイントを使用するには、`canvas.trigger.send` 権限を持つAPIキーを生成する必要があります。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='send endpoints' category='send messages endpoints' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -40,54 +40,44 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```json
 {
   "canvas_id": (required, string) see Canvas identifier,
-  "canvas_entry_properties": (optional, object) personalization key-value pairs that apply to all users in this request,
+  "context": (optional, object) Canvas context properties that apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if `recipients` is omitted,
   "audience": (optional, connected audience object) see connected audience,
   // Including 'audience' will only send to users in the audience
-  "recipients": (optional, array; if not provided and broadcast is not set to 'false', message will send to the entire segment targeted by the Canvas)
+  "recipients": (optional, array; if not provided and broadcast is not set to 'false', message sends to the entire segment targeted by the Canvas)
     [{
       // Either "external_user_id" or "user_alias" or "email" is required. Requests must specify only one.
       "user_alias": (optional, user alias object) user alias of user to receive message,
       "external_user_id": (optional, string) external identifier of user to receive message,
       "email": (optional, string) email address of user to receive message,
       "prioritization": (optional, array) prioritization array; required when using email,
-      "canvas_entry_properties": (optional, object) personalization key-value pairs that apply to this user (these key-value pairs override any keys that conflict with the parent `canvas_entry_properties`)
-      "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases
+      "context": (optional, object) Canvas context properties for this user; key-value pairs override any keys that conflict with the parent `context`,
+      "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases; if set to `false`, an `attributes` object must also be included,
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }],
     ...
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`| 必須かどうか | string | [キャンバス識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-|`canvas_entry_properties`| オプション | オブジェクト | これには、[Canvas エントリプロパティ]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object/)が含まれます。パーソナライゼーションのキーと値のペアは、このリクエストのすべてのユーザーに適用される。キャンバスエントリのプロパティオブジェクトの最大サイズは 50 KB に制限されています。<br><br>**注:**[キャンバスコンテキスト早期アクセス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/)に参加している場合、このパラメーターは `context` で、キャンバスエントリプロパティが含まれます。 |
-|`broadcast`| オプション | ブール値 | キャンペーンまたはキャンバスが対象とするSegment全体にメッセージを送信する場合は、`broadcast` をtrue に設定する必要があります。このパラメーターはデフォルトで false です (2017 年 8 月 31 日現在)。<br><br> `broadcast` が true に設定されている場合、`recipients` リストを含めることはできません。ただし、`broadcast: true` を設定するときは注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きな視聴者にメッセージが送信される可能性があるためです。 |
-|`audience`| オプション| 接続されたオーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
-|`recipients`| オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>指定がなく、`broadcast` が`true` に設定されている場合、メッセージはキャンバスがターゲットとするセグメンテーション全体に送られる。<br><br> `recipients` 配列には最大 50 個のオブジェクトを含めることができ、各オブジェクトには 1 つの `external_user_id` 文字列と `canvas_entry_properties` オブジェクトが含まれます。この呼び出しには、`external_user_id`、`user_alias`、または `email` が必要です。リクエストでは 1 つだけ指定する必要があります。<br><br>`email` が識別子の場合、[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) を受信者オブジェクトに含める必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | 必須 | 文字列 | [Canvas識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
+| `context` | オプション | オブジェクト | このリクエストのすべての受信者に対するキャンバスコンテキストプロパティです。パーソナライゼーションのキーと値のペアは、受信者ごとの`context`でキーが上書きされない限り、すべてのユーザーに適用されます。`context`オブジェクトは最大50KBです。 |
+| `broadcast` | オプション | ブール値 | Brazeダッシュボードでキャンバスのターゲットオーディエンスとして設定されたセグメント全体にメッセージを送信する場合、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
+| `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。`audience`を含めると、メッセージはカスタム属性やサブスクリプションステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
+| `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object/)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、受信者に`attributes`オブジェクトを含める必要があります。<br><br>指定されておらず、`broadcast`が`true`に設定されている場合、メッセージはBrazeダッシュボードでキャンバスのターゲットオーディエンスとして設定されたセグメント全体に送信されます。<br><br>`recipients`配列には最大50個のオブジェクトを含めることができます。各オブジェクトには`external_user_id`、`user_alias`、または`email`のいずれか1つを正確に含める必要があり、キャンバスコンテキストプロパティ用の受信者ごとの`context`オブジェクトを含めることもできます（受信者ごとのキーは競合する場合に親レベルの`context`を上書きします）。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email)を含める必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-{% alert important %}
-`recipients` パラメーターについて、`send_to_existing_only` が`true` の場合、Braze は既存ユーザーにのみメッセージを送信する。ただし、このフラグは、ユーザーのエイリアスでは使えません。<br><br>`send_to_existing_only` が `false` の場合、属性オブジェクトが含まれていなければなりません。`send_to_existing_only` が`false` **で、**指定された`id` を持つユーザーが存在しない場合、Braze はその ID と属性を持つユーザーを作成してからメッセージを送信する。
-{% endalert %}
-
-サーバー間の呼び出しに API を使用する顧客には、ファイアウォールの内側にある場合は、適切な API URL を許可リストに追加する必要が生じることがあります。
-
-{% alert note %}
-APIコールに特定のユーザーとダッシュボードのターゲットセグメントの両方を含めると、Brazeは、APIコールに含まれ、セグメンテーションフィルターに適合するユーザープロファイルにメッセージを送信する。
-{% endalert %}
-
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/send' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
   "canvas_id": "canvas_identifier",
-  "canvas_entry_properties": {"product_name" : "shoes", "product_price" : 79.99},
+  "context": {"product_name" : "shoes", "product_price" : 79.99},
   "broadcast": false,
   "audience": {
     "AND": [
@@ -152,13 +142,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 }'
 ```
 
-## 対応内容
+## レスポンスの詳細 {#response-details}
 
-メッセージ送信エンドポイントのレスポンスには、メッセージのディスパッチ時に参照できるように、メッセージの`dispatch_id` 。`dispatch_id` は、メッセージディスパッチの ID です (Braze から送信される「送信」ごとに固有の ID）。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
+メッセージ送信エンドポイントのレスポンスには、メッセージのディスパッチを参照するための`dispatch_id`が含まれます。`dispatch_id`はメッセージディスパッチのIDです（Brazeプラットフォームから送信される各「送信」に固有のID）。詳細については、[ディスパッチIDの動作]({{site.baseurl}}/help/help_articles/data/dispatch_id/)を参照してください。
 
-### 成功応答の例
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `201` は、次の応答本文を返す可能性があります。キャンバスがアーカイブされたり、停止されたり、一時停止された場合、キャンバスはこのエンドポイントを通じて送信されない。
+ステータスコード`201`は、次のレスポンス本文を返す可能性があります。キャンバスがアーカイブ、停止、または一時停止されている場合、このエンドポイントを通じてキャンバスは送信されません。
 
 ```
 {
@@ -168,16 +158,30 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sen
 }
 ```
 
-キャンバスがアーカイブされている場合、このようなメッセージ（`notice` ）が表示される："キャンバスがアーカイブされます。キャンバスのアーカイブを解除して、トリガーリクエストが有効になるようにします。"キャンバスがアクティブでない場合、`notice` のメッセージが表示される："キャンバスは一時停止されます。キャンバスを再開して、トリガーリクエストが有効になるようにしてください。」
+キャンバスがアーカイブされている場合、次の`notice`メッセージが表示されます：「The Canvas is archived. Unarchive the Canvas to ensure trigger requests will take effect.」キャンバスがアクティブでない場合、次の`notice`メッセージが表示されます：「The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect.」
 
-リクエストで致命的なエラーが発生した場合のエラーコードと説明については、[エラーとレスポンス]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+リクエストで致命的なエラーが発生した場合は、エラーコードと説明について[エラーとレスポンス]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 
-## キャンバスの属性オブジェクト
+## 考慮事項 {#considerations}
 
-メッセージングオブジェクト`attributes` を使用して、`canvas/trigger/send` エンドポイントを使用してAPI トリガーキャンバスを送信する前に、ユーザーの属性と値を追加、作成、または更新します。この API 呼び出しを使用すると、キャンバスを処理して送信する前に、ユーザー属性オブジェクトを処理します。これにより、[race conditions]({{site.baseurl}}/user_guide/engagement_tools/testing/race_conditions/)によって発生する問題のリスクを最小限に抑えることができます。ただし、デフォルトでは、サブスクリプショングループをこの方法で更新することはできません。
+APIトリガー配信を使用してキャンバスメッセージを送信するAPI呼び出しを行う際には、以下の点を考慮してください。
+
+- **既存ユーザーへの送信**：`send_to_existing_only`が`true`（デフォルト値）に設定されている場合、メッセージはBrazeの既存ユーザーにのみ送信されます。
+- **新規ユーザーの作成**：`send_to_existing_only`が`false`に設定されている場合、`attributes`オブジェクトを含める必要があります。指定されたIDのユーザーが存在しない場合、BrazeはそのIDと属性でユーザーを作成してからメッセージを送信します。
+- **新規プロファイルには`send_to_existing_only: false`と`attributes`が必要です。** Brazeは同じ受信者内の`attributes`オブジェクトから送信前の作成または更新を実行します。`send_to_existing_only`を`false`に設定しても`attributes`を省略した場合（または空のオブジェクトを送信した場合）、Brazeは同じ方法でプロファイルデータをハイドレートしないため、このパターンが意図する「ユーザーを作成または更新してから送信する」動作は得られません。
+- **メールとSMSのアドレス指定：** まだBrazeに存在しないユーザーへのメールまたはSMSのAPIトリガー送信のほとんどでは、`attributes`内に必要な配信フィールド（例：`email`、またはワークスペースがSMSに使用する電話属性）を含めてください。同じ呼び出しでオプトイン状態を変更する必要がある場合は、サブスクリプショングループのメンバーシップやサブスクリプションステータスもそこで設定できます。
+- **キャンバスの適格性：** プロファイルが存在または更新された後も、そのユーザーはキャンバスのダッシュボードターゲットオーディエンスとチャネル送信ルール（例：メールのオプトイン済み）に一致する必要があります。一致しない場合、Brazeはメッセージを送信しません。
+- **ユーザーエイリアスの制限**：`send_to_existing_only`フラグはユーザーエイリアスでは使用できません。エイリアスのみのユーザーに送信するには、そのユーザーがすでにBrazeに存在している必要があります。
+- **Segmentターゲティング**：このエンドポイントでは`segment_id`パラメーターはサポートされていません。Segmentをターゲットにするには、BrazeダッシュボードのCanvasのターゲットオーディエンス設定でSegmentを設定し、`broadcast: true`を使用するか、[接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)フィルターで`audience`パラメーターを使用します。
+- **複合ターゲティング**：`recipients`パラメーターを含め、かつダッシュボードでターゲットセグメントを設定した場合、メッセージはAPI呼び出しで指定されたユーザープロファイルのうち、セグメントのフィルターにも一致するものにのみ送信されます。
+- **サーバー間通信**：サーバー間通信を行う場合、ファイアウォールの内側にいるときは適切なAPI URLを許可リストに追加する必要がある場合があります。
+
+## キャンバスの属性オブジェクト {#attributes-object-for-canvas}
+
+メッセージングオブジェクト`attributes`を使用して、`canvas/trigger/send`エンドポイントでAPIトリガーキャンバスを送信する前に、ユーザーの属性と値を追加、作成、または更新します。このAPI呼び出しは、キャンバスを処理して送信する前にユーザー属性オブジェクトを処理します。これにより、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/)によって発生する問題のリスクを最小限に抑えることができます。ただし、デフォルトでは、サブスクリプショングループをこの方法で更新することはできません。
 
 {% alert note %}
-このエンドポイントのキャンペーンバージョンを探していますか?[API トリガー配信を使用したキャンペーンメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) を確認します。
+このエンドポイントのキャンペーンバージョンをお探しですか？[APIトリガー配信を使用したキャンペーンメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)を確認してください。
 {% endalert %}
 
 {% endapi %}

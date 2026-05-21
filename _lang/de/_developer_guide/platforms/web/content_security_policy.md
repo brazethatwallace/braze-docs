@@ -1,26 +1,26 @@
 ---
-nav_title: Kopfzeilen der Sicherheitsrichtlinien für Inhalte
-article_title: Inhaltssicherheitsrichtlinien-Kopfzeilen für das Web
+nav_title: Content-Security-Policy-Header
+article_title: Content-Security-Policy-Header für das Web
 platform: Web
 page_order: 21
 page_type: reference
-description: "Dieser Artikel beschreibt die für das Braze Web SDK benötigten Header der Content-Security-Policy."
+description: "Dieser Artikel beschreibt die für das Braze Web SDK benötigten Content-Security-Policy-Header."
 
 ---
 
-# Kopfzeilen der Sicherheitsrichtlinien für Inhalte
+# Content-Security-Policy-Header {#content-security-policy-headers}
 
-> Die Content-Security-Policy bietet zusätzliche Sicherheit, indem sie einschränkt, wie und wo Inhalte auf Ihrer Website geladen werden können. Dieser Referenzartikel beschreibt, welche Header der Content-Security-Policy beim Web SDK erforderlich sind.
+> Die Content-Security-Policy bietet zusätzliche Sicherheit, indem sie einschränkt, wie und wo Inhalte auf Ihrer Website geladen werden können. Dieser Referenzartikel beschreibt, welche Content-Security-Policy-Header beim Web SDK erforderlich sind.
 
 {% alert important %}
-Dieser Artikel richtet sich an Entwickler, die an Websites arbeiten, die CSP-Regeln durchsetzen und mit Braze integriert sind. Es ist nicht als Ratschlag gedacht, wie Sie die Sicherheit angehen sollten.
+Dieser Artikel richtet sich an Entwickler:innen, die an Websites arbeiten, die CSP-Regeln durchsetzen und mit Braze integriert sind. Er ist nicht als Ratschlag gedacht, wie Sie die Sicherheit angehen sollten.
 {% endalert %}
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
 ## Nonce-Attribute {#nonce}
 
-Wenn Sie in den Direktiven `script-src` oder `style-src` den Wert `nonce` verwenden, übergeben Sie diesen Wert an die Initialisierungsoption `contentSecurityNonce`, damit er an neu erstellte Skripte und Stile weitergegeben, die vom SDK generiert werden:
+Wenn Sie in den Direktiven `script-src` oder `style-src` einen `nonce`-Wert verwenden, übergeben Sie diesen Wert an die Initialisierungsoption `contentSecurityNonce`, damit er an neu erstellte Skripte und Stile weitergegeben wird, die vom SDK generiert werden:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -36,29 +36,29 @@ braze.initialize(apiKey, {
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-Ihre URL muss mit dem [API SDK-Endpunkt]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) der von Ihnen gewählten `baseUrl` Initialisierungsoption übereinstimmen.
+Ihre URL muss mit dem [API-SDK-Endpunkt]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) der von Ihnen gewählten `baseUrl`-Initialisierungsoption übereinstimmen.
 {% endalert %}
 
-|URL|Informationen|
+| URL | Informationen |
 |---|-----------|
-|`connect-src https://sdk.iad-01.braze.com`|Ermöglicht dem SDK die Kommunikation mit Braze-APIs. Ändern Sie diese URL so, dass sie dem [API SDK-Endpunkt]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/) für die von Ihnen gewählte `baseUrl` Initialisierungsoption entspricht.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `connect-src https://sdk.iad-01.braze.com` | Ermöglicht dem SDK die Kommunikation mit Braze-APIs. Ändern Sie diese URL so, dass sie dem [API-SDK-Endpunkt]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) für die von Ihnen gewählte `baseUrl`-Initialisierungsoption entspricht. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
 
-|URL|Informationen|
+| URL | Informationen |
 |---|-----------|
-|`script-src https://js.appboycdn.com`|Erforderlich, wenn Sie die im CDN gehostete Integration verwenden.|
-|`script-src 'unsafe-eval'`|Erforderlich bei Verwendung des Integrations-Snippets, das einen Verweis auf `appboyQueue` enthält. Wenn Sie diese Direktive nicht verwenden möchten, [integrieren Sie das SDK stattdessen mit NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager).|
-|`script-src 'nonce-...'`<br>oder<br>`script-src 'unsafe-inline'`|Erforderlich für bestimmte In-App-Nachrichten, wie z.B. benutzerdefiniertes HTML.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `script-src https://js.appboycdn.com` | Erforderlich, wenn Sie die im CDN gehostete Integration verwenden. |
+| `script-src 'unsafe-eval'` | Erforderlich bei Verwendung des Integrations-Snippets, das einen Verweis auf `appboyQueue` enthält. Wenn Sie diese Direktive nicht verwenden möchten, [integrieren Sie das SDK stattdessen mit NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager). |
+| `script-src 'nonce-...'`<br>oder<br>`script-src 'unsafe-inline'` | Erforderlich für bestimmte In-App-Nachrichten, wie z. B. benutzerdefiniertes HTML. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 
 ### `img-src` {#img-src}
 
-|URL|Informationen|
+| URL | Informationen |
 |---|-----------|
-|`img-src: appboy-images.com braze-images.com cdn.braze.eu`|Erforderlich bei der Verwendung von Bildern, die im CDN von Braze gehostet werden. Die Hostnamen können je nach Dashboard-Cluster variieren.<br><br>**Wichtig:** Wenn Sie angepasste Schriftarten verwenden, müssen Sie auch `font-src` einbeziehen.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Erforderlich bei der Verwendung von Bildern, die im CDN von Braze gehostet werden. Die Hostnamen können je nach Dashboard-Cluster variieren.<br><br>**Wichtig:** Wenn Sie angepasste Schriftarten verwenden, müssen Sie auch `font-src` einbeziehen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src #img-src" }
 
 ## Font Awesome {#font-awesome}
 

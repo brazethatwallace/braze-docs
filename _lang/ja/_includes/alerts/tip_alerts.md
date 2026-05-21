@@ -1,7 +1,7 @@
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) は、**From Display Name + Address** と**Reply-To Address** フィールド s を使用して、カスタム属性s に基づいてこれらをダイナミックなします。これにより、単一のメール キャンペーンまたはキャンバスステップを使用して、さまざまなブランド、地域、または部門から送信できます。
+**From Display Name + Address** と **返信先 Address** のフィールドでは、カスタム属性に基づいてダイナミックなテンプレートを作成するために [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) を使用できる。これにより、単一のメールキャンペーンやキャンバスステップを使って、異なるブランド、地域、部門から送信できる。
 {% endalert %}
 
 {% endif %}
@@ -9,7 +9,7 @@
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-コンテキストステップは、[Audience Paths]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths)または[Decision Split]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split)ステップsのトリガー実行イベントのプロパティを参照するために必要ではありません。フィルターグループ内のプロパティーは、**コンテキスト変数**フィルターを使用して直接的に参照できます。正しいデータタイプを選択してください。
+[オーディエンスパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths)や[条件分岐]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split)ステップにおいて、トリガーとなるイベントのプロパティを参照するためにコンテキストステップは必要ない。**コンテキスト変数**フィルターを使えば、フィルターグループ内でプロパティを直接参照できる。正しいデータ型を選択するように注意せよ。
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@
 {% if include.alert == 'catalog data images' %}
 
 {% alert tip %}
-カタログ トリガーアイテムの"画像 s をプルインするには、カタログに`image_url` という名前のフィールドが含まれている必要があります。その後、{%raw%}``{{ items[0].image_url }}``{%endraw%} を使用して参照できます。
+カタログのトリガーアイテム用に画像を読み込むには、カタログにという名前のフィールドが含まれている`image_url`必要がある。その後、. を使って参照できる{%raw%}``{{ items[0].image_url }}``{%endraw%}。
 {% endalert %}
 
 {% endif %}
@@ -106,13 +106,13 @@ CSV および API のエクスポートに関するヘルプについては、�
   メッセージの長さ: <span id="sms_length" style="padding-left: 5px;">0</span>文字。<br />
   SMSセグメント数：<span id="sms_segments" style="padding-left: 5px;">0</span>セグメント。<br />
   メッセージの出力： <span id="sms_output" style="padding-left: 5px;"></span><br />
-  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">文字エンコーディングの表示</label>
+  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">表示文字エンコーディング</label>
   <div class="segment_data_hide" id="character_encoding_container">
     <div class="encoding_legend">
-      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span>GSM-7文字</div>
-      <div class="encoding_legend_item"><span class="encoding_ucs2">UCS</span>UCS-2文字</div>
+      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> GSM-7 文字</div>
+      <div class="encoding_legend_item"><span class="encoding_ucs2">UCS</span> UCS-2 文字</div>
     </div>
-    <span id="character_encoding_label">文字エンコーディング: </span><span id="character_encoding" style="padding-left: 5px;"></span><br />
+    <span id="character_encoding_label">文字エンコーディング： </span><span id="character_encoding" style="padding-left: 5px;"></span><br />
   </div>
   <br />
   <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">表示セグメント</label>
@@ -120,7 +120,7 @@ CSV および API のエクスポートに関するヘルプについては、�
 </form>
 <script type="text/javascript">
 (function() {
-// SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
+// SMS セグメント Calculator - Note: Uses fixed DOM IDs, include only once per page
 var unicodeToGsm = {
 0x000A: [0x0A],
 0x000C: [0x1B, 0x0A],
@@ -338,12 +338,12 @@ if(smsutil.unicodeCodePoints(s).every(function (x) {return x in unicodeToGsm})) 
   return "ucs2";
 }
 },
-_segmentWith: function (maxSingleSegmentSize, maxConcatSegmentSize, doEncode) {
+_segmentWith: function (maxSingleセグメントSize, maxConcatセグメントSize, doEncode) {
 return function (listOfUnichrs) {
     var bytes = smsutil.map(listOfUnichrs, doEncode);
     if (listOfUnichrs.length == 0) {
         return [];
-    } else if ([].concat.apply([], bytes).length <= maxSingleSegmentSize) {
+    } else if ([].concat.apply([], bytes).length <= maxSingleセグメントSize) {
         return [{text:listOfUnichrs, bytes: bytes}];
     }
     var segments = []
@@ -353,7 +353,7 @@ return function (listOfUnichrs) {
         function nextChrLen() {
             return bytes[0] === undefined ? length : length + bytes[0].length;
         }
-        while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatSegmentSize) {
+        while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatセグメントSize) {
             var c = listOfUnichrs.shift()
             var b = bytes.shift();
             segment.text.push(c);
@@ -381,65 +381,65 @@ function countLength(type, s) {
   const t = (type === "auto") ?smsutil.pickencoding(s) : type；
 
   if (t === "gsm") {.
-    return s.length \+ (s.match(/^|€|{|}|[|]|~||/g) || []).length;
+    returns.length\+ (s.match(/^|€|{|}|[|]|~||/g) || []).length;
   } else {
     return s.length;
   }
 }
 
-関数escapeHtml(text) {
-  return text.replace(/[&<>"'/]/g、関数(c) {
-    切り替える(c) {
-      case '&': '&' を返します。
-      case '<': return '<';
-case '>': return '>';
+function escapeHtml(text) {
+  return text.replace(/[&<>"'/]/g, function (c) {
+    切り替える (c) {
+      case'&':  return '&';
+      case'<':return <';
+case '>'': return '>';
       case '"': return '"';
       case "'": return ''';
-      case '/': '/' を返します。
-      デフォルト: c を返します。
+      '/' の場合：'/' を返す。
+      デフォルト: cを返す。
       }
     });
   }
 
-関数getCharacterEncoding(char, type) {
+function getCharacterEncoding(char, type) {
   if (type === "ucs2") return "ucs2";
   if (type === "gsm") return "gsm";
 
-  // 自動検出の場合、キャラクタがGSM-7 に設定されているかどうかを確認します
-  const コードPoint = char.charCodeAt(0);
-  return (コードPoint in uniコードToGsm) ? "gsm" : "ucs2";
+  自動検出のため、文字がGSM-7設定に含まれているか確認する
+  const codePoint = char.charCodeAt(0);
+  return (codePoint in unicodeToGsm) ? "gsm" : "ucs2";
 }
 
-関数displayCharacterEncoding(text, type) {
-  const 文字= smsutil.unicodeCharacters(text);
+function displayCharacterEncoding(text, type) {
+  const characters = smsutil.unicodeCharacters(text);
   return characters.map((char, index) => {
     const encoding = getCharacterEncoding(char, type);
-    const displayChar = char === " " ? " " : escapeHtml(char);
+    const displayChar = char === " " ? " " : escapeHtml(char);
     const titleChar = char === " " ? "space" : char;
-    const encodingClass = encoding === "gsm" ? "encoding_gsm" : "encoding_ucs2";
-    const encodingLabel = encoding === "gsm" ?クォート;GSM&クォート; :"UCS";
+    const encodingClass = encoding === "gsm" ?"encoding_gsm"  : "encoding_ucs2";
+    const encodingLabel = encoding === "gsm" ?「GSM」：UCS
     return `<span id="character_encoding_data_${index}" class="${encodingClass}" title="${escapeHtml(titleChar)} - ${encoding.toUpperCase()}">${encodingLabel}</span>`;
   }).join("");
 }
 
 function updateSMSSplit(){
-    var sms_text = $('#sms_message_split').val();
-    var sms_type = $('#sms_split input[name=sms_type]:checked').val();
-    var uni コード = smsutil.unicodeCharacters(sms_text);
-    var enコードdChars = enコードr[sms_type](sms_text);
-    var smsSegments = Segmenter[sms_type](unicodeinput);
+    varsms_text  = $('#sms_message_split').val();
+    varsms_type  = $('#sms_split input[name=sms_type]:checked').val();
+    var unicodeinput = smsutil.unicodeCharacters(sms_text);
+    var encodedChars = encoder[sms_type](sms_text);
+    var smsセグメント = segmenter[sms_type](unicodeinput);
     $('#sms_length').html(countLength(sms_type, sms_text));
-    $('#sms_segments').html(smsSegments.length);
+    $('#sms_segments').html(smsセグメント.length);
 
     // Display character encoding
     $('#character_encoding').html(displayCharacterEncoding(sms_text, sms_type));
 
     const segmentColors = (i) => `segment_color_${i > 3 ? i%3 : i}`;
-    const segmentsHtml = smsSegments.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
+    const segmentsHtml = smsセグメント.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
 
     // Create message output with both segment and character indexing
     let characterIndex = 0;
-    const messageOutput = smsSegments.map((segment,segment_index) =>
+    const messageOutput = smsセグメント.map((segment,segment_index) =>
       segment.text.map((ch, i) => {
         const safeCh = ch === " " ? "\u00A0" : escapeHtml(ch);
         const result = `<div id='message_output_data_${segment_index}-${i}' data-char-index='${characterIndex}' class='message_output_char ${segmentColors(segment_index)}'>${safeCh}</div>`;
@@ -450,49 +450,49 @@ function updateSMSSplit(){
     $('#sms_output').html(messageOutput.join(""));
     $('#sms_segments_data').html(segmentsHtml);
 }
-// 3ウェイハイライトによるホバリング機能の強化
-// mouseenter/mouseleave を使用してハンドラの蓄積を避ける
-$("#sms_segments_data").on("mouseenter", "[id^='sms_segments_data_']", 関数(e){
-  const SegmentIndex = e.target.id.split("sms_segments_data_")[1];
+三方向ハイライト機能を備えた強化されたホバー機能
+マウスオーバー/マウスアウトイベントを使ってハンドラの蓄積を避ける
+$("#sms_segments_data").on("mouseenter", "[id^='sms_segments_data_']", function(e){
+  const segmentIndex = e.target.id.split("sms_segments_data_")[1];
   const messageOutputElement = `#message_output_data_${segmentIndex}`;
   const charIndex = $(messageOutputElement).attr('data-char-index');
-  const encodingElement = charIndex !== 未定義? `#character_encoding_data_${charIndex}` : null;
+  const encodingElement = charIndex !== undefined ? null`#character_encoding_data_${charIndex}` : null;
 
-  let elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
+  ハイライトする要素を let elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
   if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-seleave"on(&quot)}.on;, "[id^='sms_segments_data_']", 関数(e){
+}).on("mouseleave","[id^='sms_segments_data_']",function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
-$("#sms_output").on("mouseenter", "[id^='message_output_data_']", 関数(e){
-  const SegmentIndex = e.target.id.split("message_output_data_")[1];
-  const SegmentElement = `#sms_segments_data_${segmentIndex}`;
+$("#sms_output").on("mouseenter", "[id^='message_output_data_']", function(e){
+  const segmentIndex = e.target.id.split("message_output_data_")[1];
+  const segmentElement = `#sms_segments_data_${segmentIndex}`;
   const charIndex = $(e.target).attr('data-char-index');
-  const encodingElement = charIndex !== 未定義? `#character_encoding_data_${charIndex}` : null;
+  const encodingElement = charIndex !== undefined ? null`#character_encoding_data_${charIndex}` : null;
 
-  let elementsToHighlight = `${segmentElement}, #${e.target.id}`;
+  ハイライトする要素を let elementsToHighlight = `${segmentElement}, #${e.target.id}`;
   if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-seleave"on(&quot)}.on;, "[id^='message_output_data_']", 関数(e){
+}).on("mouseleave","[id^='message_output_data_']",function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
-$("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", 関数(e){
+$("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", function(e){
   const charIndex = e.target.id.split("character_encoding_data_")[1];
-  const const 出力要素= $(`[data-char-index='${charIndex}']`);
+  const messageOutputElement = $(`[data-char-index='${charIndex}']`);
   const messageOutputId = messageOutputElement.attr('id');
 
   if(messageOutputId) {
-    const SegmentIndex = messageOutputId.split("message_output_data_")[1];
-    const SegmentElement = `#sms_segments_data_${segmentIndex}`;
+    const segmentIndex = messageOutputId.split("message_output_data_")[1];
+    const segmentElement = `#sms_segments_data_${segmentIndex}`;
 
     const elementsToHighlight = `#${e.target.id}, #${messageOutputId}, ${segmentElement}`;
     $(elementsToHighlight).addClass("hover_segment");
   }
-mouseleave".on(&quot)}.on;, "[id^='character_encoding_data_']", 関数(e){
+}).on("mouseleave","[id^='character_encoding_data_']",function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 $('#segment_section').click(function() {
@@ -511,7 +511,7 @@ $('#encoding_section').click(function() {
     $("#character_encoding_container").hide();
   }
 });
-$('#sms_message_split').on("input", 関数(e){
+$('#sms_message_split').on("input", function(e){
   $('#auto_encoding').html("");
   updateSMSSplit();
 });
@@ -519,7 +519,7 @@ $('#sms_split input[name=sms_type]').change(function(e){
     $('#auto_encoding').html("");
     updateSMSSplit();
 });
-})(); // IIFEの終了
+})(); // IIFEの終わり
 </script>
 
 {% endalert %}

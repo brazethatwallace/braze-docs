@@ -1,115 +1,117 @@
 ---
-nav_title: Segmente Engagieren
-article_title: Segmente Engagieren
+nav_title: Segment Engage
+article_title: Segment Engage
 page_order: 3
 alias: /partners/segment_personas/
 alias: /partners/segment_engage/
 alias: /partners/data_and_infrastructure_agility/customer_data_platform/segment/segment_personas/
 
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Segment, einer Customer Data Platform, die Informationen sammelt und zwischen den Quellen in Ihrem Marketing Stack weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Segment, einer Customer Data Platform, die Informationen zwischen den Quellen in Ihrem Marketing-Stack sammelt und weiterleitet."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Segmente Engagieren
+# Segment Engage
 
-> [Segmente](https://segment.com) ist eine Customer Data Platform (CDP), mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser referenzierte Artikel gibt eine Übersicht über die Verbindung zwischen [Braze und Segment Engage](https://segment.com/docs/destinations/braze/#Engage) und beschreibt die Anforderungen und Prozesse für die ordnungsgemäße Implementierung und Nutzung.
+> [Segment](https://segment.com) ist eine Customer Data Platform, mit der Sie Ihre Kundendaten sammeln, bereinigen und aktivieren können. Dieser Referenzartikel gibt eine Übersicht über die Verbindung zwischen [Braze und Segment Engage](https://segment.com/docs/destinations/braze/#Engage) und beschreibt die Anforderungen und Prozesse für die ordnungsgemäße Implementierung und Nutzung.
 
-Die Integration von Braze und Segment erlaubt es Ihnen, mit [Engage](https://segment.com/docs/engage/), dem integrierten Audience-Builder von Segment, Segmente von Nutzer:innen auf der Grundlage von Daten zu erstellen, die Sie bereits über verschiedene Quellen gesammelt haben. Diese Zielgruppen werden dann mit Braze als Kohorte synchronisiert oder auf dem Kundenprofil durch [angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/) oder [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) gekennzeichnet, die zur Erstellung von Braze-Segmenten für das Retargeting in Kampagnen und Canvas verwendet werden können.
+Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https://segment.com/docs/engage/), dem integrierten Audience-Builder von Segment, Segmente von Nutzer:innen auf der Grundlage von Daten zu erstellen, die Sie bereits über verschiedene Quellen gesammelt haben. Diese Zielgruppen werden dann als Kohorte mit Braze synchronisiert oder im Nutzerprofil durch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) oder [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) gekennzeichnet, die zur Erstellung von Braze-Segmenten für das Retargeting in Kampagnen und Canvas verwendet werden können.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Segmente Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
-| Braze Cloud Ziel | Sie müssen bereits in Ihrer Segment-Integration [Braze als Zie eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben.<br><br>Dazu gehört die Angabe des richtigen Braze Datenzentrums und des REST API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Braze Datenimport-Schlüssel | Um die Zielgruppen von Engage als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel erstellen.<br><br>Der Kohortenimport befindet sich im Frühstadium. Wenden Sie sich an Ihren Customer-Success-Manager:in, um Zugriff auf dieses Feature zu erhalten. |
+| Segment-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
+| Braze-Cloud-Ziel | Sie müssen in Ihrer Segment-Integration bereits [Braze als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
+| Braze-Datenimport-Schlüssel | Um Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel generieren.<br><br>Der Kohortenimport befindet sich im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Kohorten Ziel-Integration
+## Kohorten-Ziel-Integration {#cohorts-destination-integration}
 
-### Schritt 1: Erstellen Sie eine Zielgruppe für Engage
-1. Gehen Sie in Segmente auf den Tab **Zielgruppen** in Engage und klicken Sie auf **Neu**.
-2. Schaffen Sie Ihre Zielgruppe. Ein Blitz in der oberen Ecke der Seite zeigt an, ob die Zielgruppe in Realtime aktualisiert wird.
-3. Wählen Sie dann Braze als Ihr Ziel aus.
-4. Eine Vorschau Ihrer Zielgruppe erhalten Sie, indem Sie auf **Überprüfen & Erstellen** klicken. Standardmäßig fragt Segmente alle historischen Daten ab, um den aktuellen Wert des berechneten Merkmals und der Zielgruppe festzulegen. Um diese Daten auszulassen, deaktivieren Sie die Option **Historisches Backfill**.
+### 1. Schritt: Erstellen Sie eine Engage-Zielgruppe {#step-1-create-an-engage-audience}
+1. Navigieren Sie in Segment zum Tab **Audiences** in Engage und klicken Sie auf **New**.
+2. Erstellen Sie Ihre Zielgruppe. Ein Blitzsymbol in der oberen Ecke der Seite zeigt an, ob die Zielgruppe in Realtime aktualisiert wird.
+3. Wählen Sie anschließend Braze als Ihr Ziel aus.
+4. Zeigen Sie eine Vorschau Ihrer Zielgruppe an, indem Sie auf **Review & Create** klicken. Standardmäßig fragt Segment alle historischen Daten ab, um den aktuellen Wert des berechneten Merkmals und der Zielgruppe festzulegen. Um diese Daten auszulassen, deaktivieren Sie die Option **Historical Backfill**.
 
-### Schritt 2: Erfassen Sie den Datenimport-Schlüssel für Ihre Kohorte
+### 2. Schritt: Erfassen Sie Ihren Kohorten-Datenimport-Schlüssel {#step-2-capture-your-cohort-data-import-key}
 
-Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologiepartner** und wählen Sie **Segmentierung**.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Segment**.
 
-Hier finden Sie Ihren REST-Endpunkt und generieren Ihren Datenimport-Schlüssel für Braze. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen.
+Hier finden Sie Ihren REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden ungültig machen.
 
-### Schritt 3: Verbinden Sie die Braze Kohorten Ziel
-Folgen Sie den [Anweisungen von Segment](https://segment.com/docs/connections/destinations/catalog/actions-braze-cohorts/#getting-started) zur Einrichtung der Kohorten-Zielgruppen, um Ihre Engage Zielgruppen als Kohorten mit Braze zu synchronisieren.
+### 3. Schritt: Verbinden Sie das Braze-Kohorten-Ziel {#step-3-connect-the-braze-cohorts-destination}
+Folgen Sie den [Anweisungen von Segment](https://segment.com/docs/connections/destinations/catalog/actions-braze-cohorts/#getting-started) zur Einrichtung des Kohorten-Ziels, um Ihre Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren.
 
-### Schritt 4: Erstellen Sie ein Braze Segment aus der Engage Zielgruppe
-Navigieren Sie in Braze zu **Segmente**, erstellen Sie ein neues Segment und wählen Sie **Segmente Kohorten** als Filter. Von hier aus können Sie wählen, welche Segmente der Kohorte Sie einbeziehen möchten. Nachdem das Segment Kohorte erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Kampagne oder ein Canvas erstellen.
+### 4. Schritt: Erstellen Sie ein Braze-Segment aus der Engage-Zielgruppe {#step-4-create-a-braze-segment-from-the-engage-audience}
+Navigieren Sie in Braze zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **Segment Cohorts** als Filter. Von hier aus können Sie auswählen, welche Segment-Kohorte Sie einbeziehen möchten. Nachdem das Segment-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter bei der Erstellung einer Campaign oder eines Canvas auswählen.
 
 ![]({% image_buster /assets/img/segment/segment3.png %})
 
-## Integration des Cloud-Modus
+## Cloud-Modus-Integration {#cloud-mode-integration}
 
-### Schritt 1: Erstellen Sie eine Segmente berechnete Eigenschaft oder Zielgruppe
+### 1. Schritt: Erstellen Sie ein berechnetes Merkmal oder eine Zielgruppe in Segment {#step-1-create-a-segment-computed-trait-or-audience}
 
-1. Gehen Sie in Segmente auf den Tab **Berechnete Merkmale** oder **Zielgruppen** in **Engage** und klicken Sie auf **Neu**.
-2. Erstellen Sie Ihre rechnerische Eigenschaft oder Zielgruppe. Ein Blitz in der oberen Ecke der Seite zeigt an, ob die Berechnung in Realtime aktualisiert wird.
-3. Wählen Sie dann **Braze** als Ihr Ziel aus. 
-4. Eine Vorschau Ihrer Zielgruppe erhalten Sie, indem Sie auf **Überprüfen & Erstellen** klicken. Standardmäßig fragt Segmente alle historischen Daten ab, um den aktuellen Wert des berechneten Merkmals und der Zielgruppe festzulegen. Um diese Daten auszulassen, deaktivieren Sie die Option **Historisches Backfill**.
-5. Passen Sie in den Einstellungen für berechnete Merkmale oder Zielgruppen die Verbindungseinstellungen an, je nachdem, wie Sie Ihre Daten an Braze senden möchten.
+1. Navigieren Sie in Segment zum Tab **Computed Traits** oder **Audiences** in **Engage** und klicken Sie auf **New**.
+2. Erstellen Sie Ihr berechnetes Merkmal oder Ihre Zielgruppe. Ein Blitzsymbol in der oberen Ecke der Seite zeigt an, ob die Berechnung in Realtime aktualisiert wird.
+3. Wählen Sie anschließend **Braze** als Ihr Ziel aus.
+4. Zeigen Sie eine Vorschau Ihrer Zielgruppe an, indem Sie auf **Review & Create** klicken. Standardmäßig fragt Segment alle historischen Daten ab, um den aktuellen Wert des berechneten Merkmals und der Zielgruppe festzulegen. Um diese Daten auszulassen, deaktivieren Sie die Option **Historical Backfill**.
+5. Passen Sie in den Einstellungen für das berechnete Merkmal oder die Zielgruppe die Verbindungseinstellungen an, je nachdem, wie Sie Ihre Daten an Braze senden möchten.
 
-#### Berechnete Merkmale und Zielgruppen
+#### Berechnete Merkmale und Zielgruppen {#computed-traits-and-audiences}
 
-[Berechnete Attribute](https://segment.com/docs/engage/audiences/computed-traits/) und [Zielgruppen](https://segment.com/docs/Engage/audiences/) können als angepasste Attribute oder angepasste Events an Braze gesendet werden.
-- Merkmale und Zielgruppen, die über den Aufruf `identify` gesendet werden, erscheinen in Braze als angepasste Attribute.
-- Traits und Zielgruppen, die über den Aufruf `track` gesendet werden, erscheinen in Braze als angepasste Events.
+[Berechnete Merkmale](https://segment.com/docs/engage/audiences/computed-traits/) und [Zielgruppen](https://segment.com/docs/Engage/audiences/) können als angepasste Attribute oder angepasste Events an Braze gesendet werden.
+- Merkmale und Zielgruppen, die über den `identify`-Aufruf gesendet werden, erscheinen in Braze als angepasste Attribute.
+- Merkmale und Zielgruppen, die über den `track`-Aufruf gesendet werden, erscheinen in Braze als angepasste Events.
 
-Sie können wählen, welche Methode Sie verwenden möchten (oder Sie verwenden beide), wenn Sie die berechnete Spur mit dem Braze-Ziel verbinden.
+Sie können wählen, welche Methode Sie verwenden möchten (oder beide verwenden), wenn Sie das berechnete Merkmal mit dem Braze-Ziel verbinden.
 
 {% tabs %}
 {% tab Identify %}
 
-Sie können berechnete Attribute und Zielgruppen als `identify` -Aufrufe an Braze senden, um angepasste Attribute in Braze zu erstellen. 
+Sie können berechnete Merkmale und Zielgruppen als `identify`-Aufrufe an Braze senden, um angepasste Attribute in Braze zu erstellen.
 
-Wenn Sie z.B. ein von Engage berechnetes Attribut für "Zuletzt gesehener Artikel" haben, finden Sie `last_product_viewed_item` im Profil des Nutzers:in unter **Angepasste Attribute**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe unter **Angepasste Attribute** als `true` aufgeführt finden.
+Wenn Sie beispielsweise ein von Engage berechnetes Merkmal für „Zuletzt angesehener Artikel“ haben, finden Sie `last_product_viewed_item` im Braze-Profil der Nutzer:in unter **Custom Attributes**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe unter **Custom Attributes** als `true` aufgeführt finden.
 
 | Berechnetes Merkmal | Zielgruppen |
 | -------------- | --------- |
-| ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil listet "last_product_viewed_item" als "Pullover" auf.]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil führt "dormant_shopper" als "wahr" auf.]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+| ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil listet „last_product_viewed_item“ als „Sweater“ auf.]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil führt „dormant_shopper“ als „true“ auf.]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Berechnete Merkmale und Zielgruppen" }
 
 {% endtab %}
 {% tab Track %}
 
-Sie können berechnete Merkmale und Zielgruppen als `track` Aufrufe an Braze senden, um angepasste Events in Braze zu erstellen. 
+Sie können berechnete Merkmale und Zielgruppen als `track`-Aufrufe an Braze senden, um angepasste Events in Braze zu erstellen.
 
-Um das vorherige Beispiel fortzusetzen: Wenn ein Nutzer eine berechnete Eigenschaft für "Zuletzt gesehener Artikel" hat, erscheint diese auf den Profilen der Nutzer:innen in Braze als `Trait Computed` mit der entsprechenden Anzahl und dem letzten Zeitstempel unter **Angepasste Events**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe, die Anzahl und den letzten Zeitstempel unter **Angepasste Attribute** als `true` finden.
+Um das vorherige Beispiel fortzusetzen: Wenn eine Nutzer:in ein berechnetes Merkmal für „Zuletzt angesehener Artikel“ hat, erscheint dieses in den Braze-Profilen der Nutzer:innen als `Trait Computed` mit der entsprechenden Anzahl und dem letzten Zeitstempel unter **Custom Events**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe, die Anzahl und den letzten Zeitstempel unter **Custom Attributes** als `true` finden.
 
 | Berechnetes Merkmal | Zielgruppen |
 | -------------- | --------- |
-| ![Der Abschnitt für angepasste Events in einem Nutzerprofil listet "Trait Computed" "1" Zeit auf, wobei der letzte Zeitpunkt "vor 20 Stunden" ist.]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil listet die Zeit "Zielgruppe eingegeben" "1" auf, wobei der letzte Zeitpunkt "9\. März um 1:45 Uhr" ist.]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+| ![Der Abschnitt für angepasste Events in einem Nutzerprofil listet „Trait Computed“ „1“ Mal auf, wobei der letzte Zeitpunkt „vor 20 Stunden“ ist.]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil listet „Audience Entered“ „1“ Mal auf, wobei der letzte Zeitpunkt „9. März um 1:45 Uhr“ ist.]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Berechnete Merkmale und Zielgruppen" }
 
 {% endtab %}
 {% endtabs %}
 
-### Schritt 2: Segmentierung der Nutzer:innen in Braze
+### 2. Schritt: Segmentieren Sie Nutzer:innen in Braze {#step-2-segment-users-in-braze}
 
-Um in Braze ein Segment dieser Nutzer:innen zu erstellen, navigieren Sie zu **Segmente** unter **Engagement**, erstellen ein neues Segment und benennen Ihr Segment. Als nächstes, je nachdem, welchen Anruf Sie verwendet haben:
-- **Bezeichner**: Wählen Sie **angepasstes Attribut** als Filter und suchen Sie Ihr angepasstes Attribut. Verwenden Sie dann die Option "matches regex" (Eigenschaft) oder die Option "equals" (Zielgruppe) und geben Sie die entsprechende Variable ein.
-- **Tracking**: Wählen Sie als Filter **angepasste Events** aus und suchen Sie nach Ihrem angepassten Event. Verwenden Sie dann die Option "mehr als", "weniger als" oder "genau" und geben Sie den gewünschten Wert ein. Dies hängt davon ab, wie Sie Ihr Segment definieren möchten.
+Um in Braze ein Segment dieser Nutzer:innen zu erstellen, navigieren Sie zu **Segments** unter **Engagement**, erstellen Sie ein neues Segment und benennen Sie es. Gehen Sie dann je nach verwendetem Aufruf wie folgt vor:
+- **Identify**: Wählen Sie **custom attribute** als Filter und suchen Sie Ihr angepasstes Attribut. Verwenden Sie dann die Option „matches regex“ (Merkmal) oder die Option „equals“ (Zielgruppe) und geben Sie die entsprechende Variable ein.
+- **Track**: Wählen Sie **custom event** als Filter und suchen Sie Ihr angepasstes Event. Verwenden Sie dann die Option „more than“, „less than“ oder „exactly“ und geben Sie den gewünschten Wert ein. Dies hängt davon ab, wie Sie Ihr Segment definieren möchten.
 
-Einmal gespeichert, können Sie dieses Segment bei der Erstellung von Canvas oder Kampagnen im Schritt Targeting Nutzer:innen referenzieren.
+Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvas oder Kampagnen im Schritt „Targeting von Nutzer:innen“ referenzieren.
 
-## Synchronisationszeit
+## Synchronisationszeit {#sync-time}
 
-Obwohl die Standardeinstellung für die Verbindung von Braze zu Segment Engage `Realtime` ist, gibt es einige Filter, die die Persona von der Synchronisierung in Realtime ausschließen, einschließlich einiger zeitbasierter Filter, die die Größe Ihrer Zielgruppe zum Zeitpunkt des Versands der Nachricht einschränken.
+Obwohl die Standardeinstellung für die Verbindung von Braze zu Segment Engage `Realtime` ist, gibt es einige Filter, die die Persona von der Realtime-Synchronisierung ausschließen, einschließlich einiger zeitbasierter Filter, die die Größe Ihrer Zielgruppe zum Zeitpunkt des Nachrichtenversands einschränken.
 
-## Testen von Segmenten mit dem Debugger
+## Testen mit dem Segment-Debugger {#segment-debugger-testing}
 
-Das Dashboard von Segmente bietet ein "Debugger"-Feature, mit dem Kunden testen können, ob die Daten von einer "Quelle" wie erwartet an ein "Ziel" übertragen werden.
+Das Dashboard von Segment bietet ein „Debugger“-Feature, mit dem Kund:innen testen können, ob die Daten von einer „Quelle“ wie erwartet an ein „Ziel“ übertragen werden.
 
-Dieses Feature stellt eine Verbindung zum [`/users/track` Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) von Braze  her, d.h. es kann nur für identifizierte Nutzer:innen verwendet werden (Nutzer:innen, die bereits eine ID für ihr Braze Nutzerprofil haben).
+Dieses Feature stellt eine Verbindung zum Braze-[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) her, d. h. es kann nur für identifizierte Nutzer:innen verwendet werden (Nutzer:innen, die bereits eine Nutzer-ID für ihr Braze-Nutzerprofil haben).
 
-Dies funktioniert nicht bei einer Side-by-side-Integration von Braze. Es werden keine Daten des Servers übertragen, wenn Sie nicht die richtigen Braze REST API-Informationen eingegeben haben.
-
+Dies funktioniert nicht bei einer Side-by-Side-Integration von Braze. Es werden keine Serverdaten übertragen, wenn Sie nicht die korrekten Braze-REST-API-Informationen eingegeben haben.

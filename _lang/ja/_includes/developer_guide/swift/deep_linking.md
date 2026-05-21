@@ -1,6 +1,10 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
-## ディープリンクを扱う
+{% alert tip %}
+カスタムスキームのディープリンク、ユニバーサルリンク、「アプリ内でWeb URLを開く」の選択方法については、[iOSディープリンクガイドを]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)参照せよ。トラブルシューティングについては、[ディープリンクのトラブルシューティングを]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)参照せよ。
+{% endalert %}
+
+## ディープリンクの扱い
 
 ### ステップ 1: スキームを登録する {#register-a-scheme}
 
@@ -41,7 +45,7 @@ Xcode を使用して `Info.plist` ファイルを編集します。
 
 以下は許可リストの例です。
 
-```html
+`````````html
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>myapp</string>
@@ -59,7 +63,7 @@ Xcode を使用して `Info.plist` ファイルを編集します。
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   let query = url.query
@@ -71,7 +75,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *path  = [url path];
   NSString *query = [url query];
@@ -83,24 +87,24 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-## アプリ・トランスポート・セキュリティ（ATS）
+## アプリ Transport Security (ATS)
 
-[アップルの](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)定義によれば、「App Transport Securityは、アプリとWebサービス間の接続のセキュリティを向上させる機能である。この機能は、安全な接続のベストプラクティスに準拠したデフォルトの接続要件で構成されています。アプリでこのデフォルト動作を無効にして、トランスポートセキュリティを無効にできます。」
+[Apple](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-SW14)の定義によれば、「App Transport Securityは、アプリとWebサービス間の接続のセキュリティを向上させる機能である。」この機能は、安全な接続のベストプラクティスに準拠したデフォルトの接続要件で構成されています。アプリでこのデフォルト動作を無効にして、トランスポートセキュリティを無効にできます。」
 
 ATS はデフォルトで適用されます。すべての接続が HTTPS を使用し、TLS 1.2を使用して暗号化され、前方秘匿性が確保される必要があります。詳細については、[ATS を使用して接続するための要件](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)を参照してください。Braze によりエンドデバイスに提供されるすべての画像は、TLS 1.2をサポートし、ATS と互換性のあるコンテンツ配信ネットワーク (「CDN」) によって処理されます。
 
-アプリケーションの`Info.plist` で例外として指定されていない限り、これらの要件に従わない接続は、以下のようなエラーで失敗する。
+アプリケーションの例外として明示的に指定されていない限り`Info.plist`、これらの要件を満たさない接続は、以下のようなエラーで失敗する。
 
-**エラー例 1：**
+**例エラー１：**
 
-```bash
+`````````bash
 CFNetwork SSLHandshake failed (-9801)
 Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secure connection to the server cannot be made."
 ```
 
-**エラー例2：**
+**例エラー2：**
 
-```bash
+`````````bash
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
@@ -108,7 +112,7 @@ ATS コンプライアンスは、モバイルアプリ内で開かれたリン�
 
 ### ATSとの連携
 
-ATSは以下のいずれかの方法で処理できるが、**ATSの要件に従うことを**推奨する。
+ATSは次のいずれかの方法で処理できるが、**ATSの要件に準拠することを**推奨する。
 
 {% tabs local %}
 {% tab Comply %}
@@ -120,7 +124,7 @@ ATSは以下のいずれかの方法で処理できるが、**ATSの要件に従
 
 ATS の例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -144,7 +148,7 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
 {% tab Fully disable %}
 ATS を完全に無効にできます。ただし、セキュリティ保護が失われることと、将来の iOS との互換性の両方を考慮して、この処理は推奨されないことに注意してください。ATS を無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -154,7 +158,7 @@ ATS を完全に無効にできます。ただし、セキュリティ保護が�
 {% endtab %}
 {% endtabs %}
 
-## URLを解読する
+## URLの解読
 
 SDK では、有効な `URL` を作成するためにリンクをパーセントエンコードします。適切な形式の URL で使用できないリンク文字 (ユニコード文字など) は、すべてパーセントエスケープされます。
 
@@ -163,7 +167,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
@@ -174,7 +178,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
@@ -187,7 +191,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
 
 ## アプリ設定へのディープリンク
 
-`UIApplicationOpenSettingsURLString` 、ユーザーをBrazeのプッシュ通知やアプリ内メッセージからアプリの設定にディープリンクさせることができる。
+Brazeのプッシュ通知やアプリ内メッセージから`UIApplicationOpenSettingsURLString`、ユーザーをアプリの設定画面に直接誘導できる。
 
 ユーザーをアプリから iOS 設定に移動させる手順は以下のとおりです。
 1. まず、アプリケーションが[スキームベースのディープリンク](#swift_register-a-scheme)または[ユニバーサルリンク](#swift_universal-links)用に設定されていることを確認します。
@@ -197,7 +201,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   if (path == "settings") {
@@ -210,7 +214,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -226,7 +230,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endtab %}
 {% endtabs %}
 
-## カスタマイズ・オプション {#customization-options}
+## カスタマイズオプション {#customization-options}
 
 ### デフォルト WebView のカスタマイズ
 
@@ -259,12 +263,12 @@ SDK では、ドメインの `apple-app-site-association` ファイルに対し�
 
 ### BrazeDelegate
 
-`BrazeDelegate` を使った例だ。詳細は、[Braze Swift SDKリファレンスを](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate)参照。
+以下に例を示す`BrazeDelegate`。詳細については、[Braze SWIFT SDKリファレンスを](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate)参照せよ。
 
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   if context.url.host == "MY-DOMAIN.com" {
     // Custom handle link here
@@ -278,7 +282,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)braze:(Braze *)braze shouldOpenURL:(BRZURLContext *)context {
   if ([[context.url.host lowercaseString] isEqualToString:@"MY-DOMAIN.com"]) {
     // Custom handle link here

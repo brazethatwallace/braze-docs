@@ -16,11 +16,9 @@ description: "This article outlines details about the Duplicate Canvases endpoin
 
 > Use this endpoint to duplicate Canvases. This API endpoint is similar to [duplicating Canvases in the Braze dashboard][1].
 
-{% include early_access_beta_alert.md feature='This endpoint' %}
-
 ## Prerequisites
 
-To use this endpoint, you'll need to generate an API key with the `canvas.duplicate` permission.
+To use this endpoint, you must generate an API key with the `canvas.duplicate` permission.
 
 ## Rate limit
 
@@ -50,7 +48,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`name`| Required | String | The name of the resulting Canvas. |
 |`description`| Optional | String | The description field for the resulting Canvas. |
 |`tag_names` | Optional | String | The tags for the resulting Canvas. These must be existing tags. If you add new tags in the request, they will overwrite any tags that were on the original Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Response
 

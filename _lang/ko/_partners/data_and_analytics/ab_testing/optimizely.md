@@ -2,7 +2,7 @@
 nav_title: Optimizely
 article_title: Optimizely
 page_order: 2
-description: "This reference article outlines the partnership between Braze and Optimizely that allows you to sync your Braze customer segments, events, and Currents events to Optimizely Data Platform."
+description: "이 참조 문서에서는 Braze 고객 Segments, 이벤트 및 Currents 이벤트를 Optimizely Data Platform에 동기화할 수 있는 Braze와 Optimizely 간의 파트너십에 대해 설명합니다."
 alias: /partners/optimizely/
 page_type: partner
 search_tag: Partner
@@ -10,124 +10,123 @@ search_tag: Partner
 
 # Optimizely
 
-> [Optimizely](https://www.optimizely.com/) is a leading digital experience platform that offers experimentation and content management tools for digital products and marketing campaigns.
+> [Optimizely](https://www.optimizely.com/)는 디지털 제품 및 마케팅 Campaign을 위한 실험 및 콘텐츠 관리 도구를 제공하는 선도적인 디지털 경험 플랫폼입니다.
 
-The Braze and Optimizely integration is a two-way integration that allows you to:
+Braze와 Optimizely 통합은 양방향 통합으로, 다음을 수행할 수 있습니다:
 
-- Sync your Braze customer segments and events to Optimizely Data Platform (ODP) nightly to enrich Optimizely customer profiles, reports, and segmentation.
-- Send Braze Currents events from Braze to Optimizely’s reporting tool.
-- Sync ODP customer data and events to Braze to enrich your Braze customer data and trigger Braze messaging based on customer events in ODP.
+- Braze 고객 Segments 및 이벤트를 Optimizely Data Platform(ODP)에 매일 밤 동기화하여 Optimizely 고객 프로필, 보고서 및 세분화를 강화합니다.
+- Braze에서 Optimizely의 보고 도구로 Braze 커런츠 이벤트를 전송합니다.
+- ODP 고객 데이터 및 이벤트를 Braze에 동기화하여 Braze 고객 데이터를 강화하고 ODP의 고객 이벤트를 기반으로 Braze 메시징을 트리거합니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement                     | Description |
+| 요구 사항                     | 설명 |
 |----------------------------------|-------------|
-| Optimizely Data Platform account | An Optimizely Data Platform (ODP) account is required to take advantage of this partnership. |
-| Braze REST API key               | A Braze REST API key with the following permissions: `users.track`,`users.export.segments`,`segments.list`,`campaigns.trigger.send`, and `canvas.trigger.send`. |
-| Currents                         | To export data back into Optimizely, you need to have Braze Currents set up for your account. |
-| Optimizely URL and Token         | This can be obtained by navigating to your Optimizely dashboard and copying the ingestion URL and token. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Optimizely Data Platform 계정 | 이 파트너십을 활용하려면 Optimizely Data Platform(ODP) 계정이 필요합니다. |
+| Braze REST API 키               | 다음 권한이 있는 Braze REST API 키: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send`, `canvas.trigger.send`. |
+| Currents                         | 데이터를 Optimizely로 다시 내보내려면 계정에 Braze 커런츠가 설정되어 있어야 합니다. |
+| Optimizely URL 및 토큰         | Optimizely 대시보드로 이동하여 수집 URL과 토큰을 복사하면 얻을 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Configure the integration
+### 1단계: 통합 구성 {#step-1-configure-the-integration}
 
-1. In the **App Directory** of Optimizely Data Platform (ODP), select the **Braze** app and then select **Install App**.
-2. Go to the **Settings** tab. In the **Authorization** section, do the following:
-    1. Enter Braze **REST API Key**.
-    2. Select your Braze **Instance URL**.
-    2. Select **Verify API Key**.
-3. In Braze, go to **[Currents]({{site.baseurl}}/user_guide/data/braze_currents/setting_up_currents/)**.
-4. Select **Create New Current** > **Custom Currents Export**.
-5. Configure the Current using the endpoint and token provided in ODP. This is required to sync Braze events to ODP. 
+1. Optimizely Data Platform(ODP)의 **App Directory**에서 **Braze** 앱을 선택한 다음 **Install App**을 선택합니다.
+2. **Settings** 탭으로 이동합니다. **Authorization** 섹션에서 다음을 수행합니다:
+    1. Braze **REST API Key**를 입력합니다.
+    2. Braze **Instance URL**을 선택합니다.
+    2. **Verify API Key**를 선택합니다.
+3. Braze에서 **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)**로 이동합니다.
+4. **Create New Current** > **Custom Currents Export**를 선택합니다.
+5. ODP에서 제공한 엔드포인트와 토큰을 사용하여 Current를 구성합니다. 이는 Braze 이벤트를 ODP에 동기화하는 데 필요합니다.
 
-![Optimizely authorization.]({% image_buster /assets/img/optimizely/image1_authorization.png %})
+![Optimizely 승인.]({% image_buster /assets/img/optimizely/image1_authorization.png %})
 
 {:start="6"}
-6\. In ODP, expand the **Segments** section and select specific segments from the **Segments to Sync** list, or select **Import All Customers** to sync all segments.
-7\. Add any [additional field mappings](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/29918568615949-Integrate-Braze%23h_01J6Z1P53JVDBFZ758Q78CK1QB&sa=D&source=editors&ust=1733948158380300&usg=AOvVaw3WSAND5ie3LCVuSxUlLanR) you want between Braze and ODP.
-8\. Select **Save**.
+6. ODP에서 **Segments** 섹션을 확장하고 **Segments to Sync** 목록에서 특정 Segments를 선택하거나, **Import All Customers**를 선택하여 모든 Segments를 동기화합니다.
+7. Braze와 ODP 간에 원하는 [추가 필드 매핑](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/29918568615949-Integrate-Braze%23h_01J6Z1P53JVDBFZ758Q78CK1QB&sa=D&source=editors&ust=1733948158380300&usg=AOvVaw3WSAND5ie3LCVuSxUlLanR)을 추가합니다.
+8. **Save**를 선택합니다.
 
-![Optimizely Braze segment sync.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
+![Optimizely Braze Segment 동기화.]({% image_buster /assets/img/optimizely/image2_syncsegment.png %})
 
 {% alert tip %}
-You must select segments to import Braze customer profiles. If you don't select any segments, the integration won't import any customer profiles.
+Braze 고객 프로필을 가져오려면 Segments를 선택해야 합니다. Segments를 선택하지 않으면 통합에서 고객 프로필을 가져오지 않습니다.
 {% endalert %}
 
-### Step 2: Map data fields
+### 2단계: 데이터 필드 매핑 {#step-2-map-data-fields}
 
-The integration has default data field mappings between Braze and ODP. For example, the **Email** field in Braze is mapped to the **Last Seen Email** field in ODP.
+통합에는 Braze와 ODP 간의 기본 데이터 필드 매핑이 있습니다. 예를 들어, Braze의 **Email** 필드는 ODP의 **Last Seen Email** 필드에 매핑됩니다.
 
-![Optimizely and Braze segment map fields.]({% image_buster /assets/img/optimizely/image3_emailmapfield.png %})
+![Optimizely와 Braze Segment 매핑 필드.]({% image_buster /assets/img/optimizely/image3_emailmapfield.png %})
 
-#### Map additional fields (optional)
+#### 추가 필드 매핑(선택 사항) {#map-additional-fields-optional}
 
-If there are additional data fields in Braze that you want to map to ODP, do the following in ODP:
+Braze에 ODP에 매핑하려는 추가 데이터 필드가 있는 경우 ODP에서 다음을 수행합니다:
 
-1. In the **Segments** section of the app, select the Braze field from the **Braze User Data Fields** drop-down list.
-2. Select the ODP field from the **ODP Customer Fields** drop-down list.
-3. Select **Save Field Map**.
+1. 앱의 **Segments** 섹션에서 **Braze User Data Fields** 드롭다운 목록에서 Braze 필드를 선택합니다.
+2. **ODP Customer Fields** 드롭다운 목록에서 ODP 필드를 선택합니다.
+3. **Save Field Map**을 선택합니다.
 
-![Optimizely Braze Segment Save Field Maps]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
+![Optimizely Braze Segment 필드 매핑 저장]({% image_buster /assets/img/optimizely/image4_mapfields.png %})
 
-#### Delete non-required field mappings (optional)
+#### 불필요한 필드 매핑 삭제(선택 사항) {#delete-non-required-field-mappings-optional}
 
-You can also delete any data field mappings that aren't required. Do the following in ODP:
+필요하지 않은 데이터 필드 매핑을 삭제할 수도 있습니다. ODP에서 다음을 수행합니다:
 
-1. In the **Segments** section of the app, select the field mapping you want to delete from the **Field Map** drop-down list.
-2. Select **Delete Field Map**.
+1. 앱의 **Segments** 섹션에서 **Field Map** 드롭다운 목록에서 삭제하려는 필드 매핑을 선택합니다.
+2. **Delete Field Map**을 선택합니다.
 
-![Optimizely Braze Segment Delete Field Maps]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
+![Optimizely Braze Segment 필드 매핑 삭제]({% image_buster /assets/img/optimizely/image5_deletephonefield.png %})
 
-### 3단계: Sync data from Optimizely Data Platform (ODP) to Braze
+### 3단계: Optimizely Data Platform(ODP)에서 Braze로 데이터 동기화 {#step-3-sync-data-from-optimizely-data-platform-odp-to-braze}
 
-After you configure the integration, you can set up an activation in ODP to sync your ODP customer data to Braze.
+통합을 구성한 후 ODP에서 활성화를 설정하여 ODP 고객 데이터를 Braze에 동기화할 수 있습니다.
 
-1. Go to **Activation** > **Engage** and select **Create New Campaign**.
-2. Select **Behavioral** to set up an automated, recurring sync.
-3. Select **Create From Scratch**, then enter a name for your activation that represents the data you are syncing to Braze (such as **Braze Data Sync**).
-4. In the **Enrollment** section, you can sync data for customers that match a segment or sync data for customers that trigger an event (like when ODP registers that a customer opens an email):
-   - **Customers that match a segment:** Select your desired segment, then select **Next**.<br><br>![Optimizely Select Segment]({% image_buster /assets/img/optimizely/image6_segment.png %})
-   - **Customers that trigger an event:** Expand the **Filter** drop-down list and select the ODP event to use as the trigger for this data sync to Braze. Then, expand **Automation Rules** and adjust as desired. <br><br>![Optimizely Trigger Event]({% image_buster /assets/img/optimizely/image7_trigger.png %})
-5. Expand **Touchpoints**, select to edit **Touchpoint 1**, then select **Braze**.
-6. Expand the **Targeting** section, then select the **Target Identifier**.
-7. Select one of the following options for **Add Users To** in the **Configure** section:
-    - **Campaign:** Add customers to a specific campaign in Braze. After choosing this option, you must select the Braze campaign.
-    - **Canvas:** Add customers to a specific canvas in Braze. After choosing this option, you must select the Braze canvas.
-    - **Profile Update Only:** Update only the Braze customer profile.
-8. (Optional) Select the **Number of Additional Fields** you want to sync to Braze (up to 20).  
-    Then, select the following for each additional field's drop-down list and input field that:
-    - In each **Field #** drop-down list, select the Braze field you want to populate. 
-    - In each corresponding **Field # Value**, enter the ODP field you want to send to the selected Braze field. For example, if you selected **Company Name** from the **Field #** drop-down list, enter `{{customer.company_name}}` for the corresponding **Field # Value**.
-9. Select **Save**, then select your activation name in the breadcrumb trail.
-10. Select **Select start time and schedule** in the **Touchpoints** section if you selected **Customers that match a segment** for the enrollment.
-11. Complete the following settings:
-    - **Recurring or Continuous:** Select **Recurring**.
-    - **Start Date:** Enter the date you want to send the data to Braze.
-    - **End:** Defaults to **Never**. If you want to end the Braze data sync on a specific date, set that here.
-    - **Repeats:** Set to **Daily**.
-    - **Repeat Every** – Set to **1 day**.
-    - **Timing:** Enter the time you want to send the data to Braze.
-    - **Time Zone:** Select the time zone in which you want to send this data.
-12. Select **Apply**, **Save**, then **Go Live**. Your sync starts at your designated start date and time (or when the trigger event occurs).
+1. **Activation** > **Engage**로 이동하고 **Create New Campaign**을 선택합니다.
+2. **Behavioral**을 선택하여 자동화된 반복 동기화를 설정합니다.
+3. **Create From Scratch**를 선택한 다음 Braze에 동기화하는 데이터를 나타내는 활성화 이름을 입력합니다(예: **Braze Data Sync**).
+4. **Enrollment** 섹션에서 Segment에 일치하는 고객의 데이터를 동기화하거나 이벤트를 트리거하는 고객의 데이터를 동기화할 수 있습니다(예: ODP에서 고객이 이메일을 열었음을 등록하는 경우):
+   - **Segment에 일치하는 고객:** 원하는 Segment를 선택한 다음 **Next**를 선택합니다.<br><br>![Optimizely Segment 선택]({% image_buster /assets/img/optimizely/image6_segment.png %})
+   - **이벤트를 트리거하는 고객:** **Filter** 드롭다운 목록을 확장하고 이 데이터 동기화의 트리거로 사용할 ODP 이벤트를 선택합니다. 그런 다음 **Automation Rules**를 확장하고 원하는 대로 조정합니다. <br><br>![Optimizely 트리거 이벤트]({% image_buster /assets/img/optimizely/image7_trigger.png %})
+5. **Touchpoints**를 확장하고 **Touchpoint 1**을 편집하도록 선택한 다음 **Braze**를 선택합니다.
+6. **Targeting** 섹션을 확장한 다음 **Target Identifier**를 선택합니다.
+7. **Configure** 섹션에서 **Add Users To**에 대해 다음 옵션 중 하나를 선택합니다:
+    - **Campaign:** Braze의 특정 Campaign에 고객을 추가합니다. 이 옵션을 선택한 후 Braze Campaign을 선택해야 합니다.
+    - **Canvas:** Braze의 특정 Canvas에 고객을 추가합니다. 이 옵션을 선택한 후 Braze Canvas를 선택해야 합니다.
+    - **Profile Update Only:** Braze 고객 프로필만 업데이트합니다.
+8. (선택 사항) Braze에 동기화하려는 **Number of Additional Fields**를 선택합니다(최대 20개).
+    그런 다음 각 추가 필드의 드롭다운 목록과 입력 필드에 대해 다음을 선택합니다:
+    - 각 **Field #** 드롭다운 목록에서 채우려는 Braze 필드를 선택합니다.
+    - 각 해당 **Field # Value**에 선택한 Braze 필드로 전송하려는 ODP 필드를 입력합니다. 예를 들어, **Field #** 드롭다운 목록에서 **Company Name**을 선택한 경우 해당 **Field # Value**에 `{{customer.company_name}}`을 입력합니다.
+9. **Save**를 선택한 다음 이동 경로에서 활성화 이름을 선택합니다.
+10. 등록에서 **Segment에 일치하는 고객**을 선택한 경우 **Touchpoints** 섹션에서 **Select start time and schedule**을 선택합니다.
+11. 다음 설정을 완료합니다:
+    - **Recurring or Continuous:** **Recurring**을 선택합니다.
+    - **Start Date:** Braze에 데이터를 전송하려는 날짜를 입력합니다.
+    - **End:** 기본값은 **Never**입니다. 특정 날짜에 Braze 데이터 동기화를 종료하려면 여기에서 설정합니다.
+    - **Repeats:** **Daily**로 설정합니다.
+    - **Repeat Every:** **1 day**로 설정합니다.
+    - **Timing:** Braze에 데이터를 전송하려는 시간을 입력합니다.
+    - **Time Zone:** 이 데이터를 전송하려는 시간대를 선택합니다.
+12. **Apply**, **Save**, 그런 다음 **Go Live**를 선택합니다. 동기화는 지정된 시작 날짜 및 시간에 시작됩니다(또는 트리거 이벤트가 발생할 때).
 
-## Troubleshooting
+## 문제 해결 {#troubleshooting}
 
-### Inspect events
+### 이벤트 검사 {#inspect-events}
 
-To verify that data is properly syncing from ODP to Braze, you can inspect events in ODP.
+ODP에서 Braze로 데이터가 올바르게 동기화되고 있는지 확인하려면 ODP에서 이벤트를 검사할 수 있습니다.
 
-1. In ODP, go to **Account Settings** > **Event Inspector**.
-2. Select **Start Inspector**.
-3. When data is available in the inspector, a number displays next to **Refresh**. Select to view the data.
-4. The raw data that ODP and Braze sends back and forth displays. Select **View Details** to see the formatted version of that raw data.
-5. Data fields sent from Braze back to ODP start with `_braze`.
+1. ODP에서 **Account Settings** > **Event Inspector**로 이동합니다.
+2. **Start Inspector**를 선택합니다.
+3. 인스펙터에서 데이터를 사용할 수 있으면 **Refresh** 옆에 숫자가 표시됩니다. 선택하여 데이터를 확인합니다.
+4. ODP와 Braze가 주고받는 원시 데이터가 표시됩니다. **View Details**를 선택하여 해당 원시 데이터의 포맷된 버전을 확인합니다.
+5. Braze에서 ODP로 다시 전송된 데이터 필드는 `_braze`로 시작합니다.
 
-### Check activity logs
+### 활동 로그 확인 {#check-activity-logs}
 
-Each data sync is also logged in the [ODP activity log](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/4407268804365-Use-the-Activity-Log&sa=D&source=editors&ust=1733948158385124&usg=AOvVaw2tMOxzcTKfL0-oYLT4IMpP):
+각 데이터 동기화는 [ODP 활동 로그](https://www.google.com/url?q=https://support.optimizely.com/hc/en-us/articles/4407268804365-Use-the-Activity-Log&sa=D&source=editors&ust=1733948158385124&usg=AOvVaw2tMOxzcTKfL0-oYLT4IMpP)에도 기록됩니다:
 
-1. Go to **Account Settings** > **Activity Log**.
-2. Filter the categories by **braze**.
-3. Select **View Details** for a formatted view of the log details, including the number of matches.
-
+1. **Account Settings** > **Activity Log**로 이동합니다.
+2. 카테고리를 **braze**로 필터링합니다.
+3. 일치 수를 포함한 로그 세부 정보의 포맷된 보기를 위해 **View Details**를 선택합니다.

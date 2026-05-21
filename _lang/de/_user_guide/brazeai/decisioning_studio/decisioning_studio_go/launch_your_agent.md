@@ -2,101 +2,99 @@
 nav_title: Starten Sie Ihren Agenten
 article_title: Starten Sie Ihren Agenten
 page_order: 4
-description: "Erfahren Sie, wie Sie Ihren BrazeAI Decisioning Studio Go-Agenten starten und Business as Usual (BAU)-Berichte zum Performance-Vergleich einrichten."
+description: "Erfahren Sie, wie Sie Ihren BrazeAI Decisioning Studio Go-Agenten starten und das Business-as-Usual-Reporting (BAU) für Performance-Vergleiche einrichten."
 ---
 
-# Starten Sie Ihren Agenten
+# Starten Sie Ihren Agenten {#launch-your-agent}
 
-> Sobald Sie Ihre Datenquellen verbunden, die Orchestrierung eingerichtet und Ihren Agenten entworfen haben, können Sie loslegen. Dieser Artikel behandelt die Aktivierung Ihres Agenten und die Einrichtung der optionalen BAU-Berichterstattung.
+> Nachdem Sie Ihre Datenquellen verbunden, die Orchestrierung eingerichtet und Ihren Agenten entworfen haben, können Sie mit dem Start fortfahren. Dieser Artikel behandelt die Aktivierung Ihres Agenten und die Einrichtung der optionalen BAU-Berichterstattung.
 
-## Starten Sie Ihren Agenten
+## Schritte zum Start {#launch-steps}
 
-Nachdem Sie alle Konfigurationsschritte im Portal Decisioning Studio Go abgeschlossen haben:
+Nachdem Sie alle Konfigurationsschritte im Decisioning Studio Go-Portal abgeschlossen haben:
 
-1. Überprüfen Sie Ihre Agentenkonfiguration, um sicherzustellen, dass alle Einstellungen korrekt sind.
-2. Überprüfen Sie, ob Ihre CEP Integration aktiv ist und die Orchestrierung bereit ist.
-3. Wählen Sie **Starten** (oder eine entsprechende Aktion) im Portal Decisioning Studio Go, um Ihren Agenten zu aktivieren.
+1. Überprüfen Sie Ihre Agenten-Konfiguration, um sicherzustellen, dass alle Einstellungen korrekt sind.
+2. Überprüfen Sie, ob Ihre CEP-Integration aktiv ist und die Orchestrierung bereitsteht.
+3. Wählen Sie im Decisioning Studio Go-Portal **Launch** (oder eine entsprechende Aktion), um Ihren Agenten zu aktivieren.
 
-Sobald Sie gestartet sind, wird Ihr Agent:
-- Beginnen Sie mit dem Empfang von Zielgruppen-Daten von Ihrem CEP
-- Beginnen Sie damit, für jede Kund:in personalisierte Empfehlungen auszusprechen.
-- Orchestrierung von Sendungen über Ihre konfigurierte CEP
-- Sammeln Sie Daten zum Engagement, um zu lernen und sich im Laufe der Zeit zu verbessern
+Nach dem Start wird Ihr Agent:
+- Zielgruppendaten aus Ihrem CEP empfangen
+- Personalisierte Empfehlungen für jede Kund:in erstellen
+- Sendungen über Ihr konfiguriertes CEP orchestrieren
+- Engagement-Daten sammeln, um daraus zu lernen und sich im Laufe der Zeit zu verbessern
 
-## Einrichten von BAU-Berichten
+## Einrichtung der BAU-Berichterstattung {#set-up-bau-reporting}
 
-Standardmäßig wird in der Berichterstattung des Decisioning Studio Go-Portals die Decisioning Studio Go-Gruppe mit der Zufalls-Kontrollgruppe verglichen. Wenn Sie eine bestehende Business as Usual (BAU)-Kampagne haben, mit der Sie vergleichen möchten, können Sie BAU-Berichte einrichten, um alle drei Gruppen an einem Ort zu sehen.
+Standardmäßig vergleicht das Decisioning Studio Go-Portal die Decisioning Studio Go-Gruppe mit der Random-Kontrollgruppe. Wenn Sie eine bestehende Business-as-Usual-Kampagne (BAU) haben, mit der Sie einen Vergleich durchführen möchten, können Sie die BAU-Berichterstattung einrichten, um alle drei Gruppen an einem Ort anzuzeigen.
 
-### Vorteile der BAU-Berichterstattung
+### Vorteile der BAU-Berichterstattung {#benefits-of-bau-reporting}
 
-Der Hauptvorteil bei der Erstellung von BAU-Berichten ist die Anwendung des Filters für ungültige Klicks von Decisioning Studio Go. Bei Anwendung auf alle drei Versuchsgruppen ist ein möglichst genauer und fairer ("Äpfel zu Äpfeln") Vergleich der Klick Performance zulässig, da das Rauschen entfernt wird:
-- Verdächtige Klicks der Maschine
-- Klicks auf den Link zum Abmelden
+Der Hauptvorteil der Einrichtung der BAU-Berichterstattung besteht in der Anwendung der Filterung ungültiger Klicks durch Decisioning Studio Go. Bei Anwendung auf alle drei Versuchsgruppen ermöglicht dies einen äußerst präzisen und fairen Vergleich der Klick-Performance („Äpfel mit Äpfeln“), indem Störfaktoren aus folgenden Bereichen eliminiert werden:
+- Verdächtige maschinelle Klicks
+- Klicks auf den Abmelde-Link
 
-### Anforderungen für BAU-Berichte
+### Anforderungen an die BAU-Berichterstattung {#requirements-for-bau-reporting}
 
-Bevor Sie die BAU-Berichterstattung einrichten, stellen Sie sicher, dass ein Vergleich zwischen der BAU-Behandlungsgruppe, der Decisioning Studio Go-Gruppe und der Zufalls-Kontrollgruppe möglich ist:
+Bevor Sie die BAU-Berichterstattung einrichten, stellen Sie sicher, dass ein fairer Vergleich zwischen der BAU-Behandlungsgruppe, der Decisioning Studio Go-Gruppe und der Random-Kontrollgruppe möglich ist:
 
-- **Keine Überschneidung**: Kein Empfänger:in kann während der gesamten Dauer des Experiments zu mehr als einer Gruppe gehören
-- **Zufällige Zuweisung**: Die Empfänger:innen werden nach dem Zufallsprinzip den Gruppen zugewiesen, ohne dass es zu Verzerrungen kommt.
-- **Gleiche Optionen**: Alle Optionen, die der BAU-Gruppe zur Verfügung stehen (Kreativität, Häufigkeit, Zeit, Anreiz oder Angebot), stehen auch den Gruppen Decisioning Studio Go und Random Control zur Verfügung.
+- **Keine Überschneidung:** Keine Empfänger:in darf während der gesamten Dauer des Experiments mehr als einer Gruppe angehören.
+- **Zufällige Zuweisung:** Die Empfänger:innen werden ohne Verzerrung zufällig den Gruppen zugeordnet.
+- **Gleiche Optionen:** Alle Optionen, die der BAU-Gruppe zur Verfügung stehen (Kreativmaterial, Häufigkeit, Zeitpunkt, Anreiz oder Angebot), stehen auch den Gruppen „Decisioning Studio Go“ und „Random Control“ zur Verfügung.
 
 {% alert warning %}
-Ohne ein "Äpfel mit Äpfeln"-Experiment kann die BAU-Berichterstattung verwirrend oder irreführend sein.
+Ohne ein Experimentdesign, das einen direkten Vergleich ermöglicht, kann die BAU-Berichterstattung verwirrend oder irreführend sein.
 {% endalert %}
 
-### Erforderliche Informationen
+### Erforderliche Informationen {#required-information}
 
-Nachdem Sie Ihren Versuchsplan validiert haben, sammeln Sie die folgenden Details, um die BAU-Berichterstattung einzurichten:
+Nachdem Sie Ihr Versuchsdesign validiert haben, erfassen Sie die folgenden Details, um die BAU-Berichterstattung einzurichten:
 
-**Kampagnen IDs aus Ihrer CEP:**
+**Campaign-IDs aus Ihrem CEP:**
 
 | CEP | Akzeptierte Typen |
 |-----|---------------|
-| **Braze** | Kampagnen und Canvase |
-| **Salesforce Marketing Cloud** | Nur Fahrten |
-| **Klaviyo** | Nur Ströme |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Braze** | Campaigns und Canvases |
+| **Salesforce Marketing Cloud** | Nur Journeys |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
-**Zielgruppe ID aus Ihrer CEP:**
+**Zielgruppen-ID aus Ihrem CEP:**
 
 | CEP | Akzeptierte Typen |
 |-----|---------------|
 | **Braze** | Nur Segmente |
-| **Salesforce Marketing Cloud** | Nur Daten Erweiterungen |
-| **Klaviyo** | Nur Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Salesforce Marketing Cloud** | Nur Data Extensions |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
-Wenn Sie keine bestehende Zielgruppe haben, die Ihr BAU-Publikum trackt, müssen Sie eine erstellen.
+Sollten Sie noch keine Zielgruppe haben, die Ihre BAU-Zielgruppe trackt, müssen Sie eine solche erstellen.
 
-### Überlegungen
+### Überlegungen {#considerations}
 
-- **Klicken Sie nur auf KPIs**: Ähnlich wie bei Decisioning Studio Go deckt das BAU-Reporting nur Klick-KPIs ab, nicht aber Konversions-KPIs.
-- **Canvas Einschränkungen**: Das Filtern nach bestimmten Canvas-Schritt IDs wird derzeit nicht unterstützt. Ereignisse aus allen Canvas-Schritten werden in die BAU-Daten aufgenommen. Dies kann Vergleiche mit BAU ungültig machen, wenn nur bestimmte Canvas-Schritte berücksichtigt werden sollen.
+- **Nur Klick-KPIs:** Ähnlich wie bei Decisioning Studio Go im Allgemeinen umfasst die BAU-Berichterstattung nur Klick-KPIs, nicht jedoch Conversion-KPIs.
+- **Canvas-Einschränkungen:** Derzeit unterstützen wir keine Filterung nach bestimmten Canvas-Schritt-IDs. Ereignisse aus allen Canvas-Schritten werden in die BAU-Daten aufgenommen. Dies kann Vergleiche mit BAU ungültig machen, wenn nur bestimmte Canvas-Schritte berücksichtigt werden sollen.
 
-### Einrichten von BAU-Berichten
+### Einrichtung der BAU-Berichterstattung
 
-Folgen Sie den Anweisungen in Ihrem Decisioning Studio Go Portal. Das müssen Sie haben:
-- Eine oder mehrere Kampagnen IDs, bei denen alle Mitteilungen BAU Mitteilungen sind
-- Eine Zielgruppen ID, die Empfänger:in der Zielgruppe BAU jeden Tag trackt
+Befolgen Sie die Anweisungen in Ihrem Decisioning Studio Go-Portal. Sie benötigen:
+- Eine oder mehrere Campaign-IDs, bei denen alle Kommunikationen BAU-Kommunikationen sind
+- Eine Zielgruppen-ID, die die Empfänger:innen in der BAU-Zielgruppe täglich erfasst
 
-## Überwachung Ihres Agenten
+## Überwachung Ihres Agenten {#monitor-your-agent}
 
-Nach dem Start überwachen Sie die Performance Ihres Agenten im Portal Decisioning Studio Go:
+Überwachen Sie nach dem Start die Performance Ihres Agenten im Decisioning Studio Go-Portal:
 
-- **Metriken für das Engagement**: Tracking von Klickraten in verschiedenen Experimentiergruppen
-- **Lernangebote**: Beobachten Sie, wie sich die Empfehlungen des Agenten im Laufe der Zeit entwickeln
-- **Gruppenvergleiche**: Vergleichen Sie die Performance von Decisioning Studio Go mit der von Random Control und BAU (falls konfiguriert).
+- **Engagement-Metriken:** Klickraten über Versuchsgruppen hinweg verfolgen
+- **Lernfortschritt:** Beobachten Sie, wie sich die Empfehlungen des Agenten im Laufe der Zeit weiterentwickeln
+- **Gruppenvergleiche:** Vergleichen Sie die Performance von Decisioning Studio Go mit Random Control und BAU (sofern konfiguriert)
 
 {% alert tip %}
-Lassen Sie mindestens 2-4 Wochen der Datenerfassung zu, bevor Sie Rückschlüsse auf die Performance ziehen. Der Agent braucht genügend Interaktionen, um effektiv zu lernen und zu optimieren.
+Warten Sie mindestens 2–4 Wochen mit der Datenerfassung, bevor Sie Schlussfolgerungen zur Performance ziehen. Der Agent benötigt ausreichend Interaktionen, um effektiv zu lernen und zu optimieren.
 {% endalert %}
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
-Wenn Ihr Agent nicht die erwartete Performance zeigt:
+Sollte Ihr Agent nicht die erwartete Performance erbringen:
 
-1. **Überprüfen Sie die Orchestrierung**: Vergewissern Sie sich, dass Ihre CEP Integration aktiv ist, Kampagnen und Journeys laufen und dass keine globalen Caps oder ähnliche Regeln die Orchestrierung behindern.
-2. **Prüfen Sie den Datenfluss**: Bestätigen Sie, dass die Daten der Zielgruppe und des Engagements korrekt erfasst werden.
-3. **Überprüfen Sie die Experimentiergruppen**: Stellen Sie sicher, dass die Zuweisung nach dem Zufallsprinzip erfolgt und es keine Überschneidungen zwischen den Gruppen gibt.
-4. **Kontaktieren Sie den Support**: Wenden Sie sich an den Braze-Support für weitere Unterstützung.
+1. **Orchestrierung überprüfen:** Bestätigen Sie, dass Ihre CEP-Integration aktiv ist, Campaigns und Journeys ausgeführt werden und keine globalen Obergrenzen oder ähnliche Regeln die Orchestrierung beeinträchtigen.
+2. **Datenfluss überprüfen:** Bestätigen Sie, dass Zielgruppen- und Engagement-Daten korrekt erfasst werden.
+3. **Versuchsgruppen überprüfen:** Stellen Sie eine ordnungsgemäße zufällige Zuordnung sicher und vermeiden Sie Überschneidungen zwischen den Gruppen.
+4. **Support kontaktieren:** Wenden Sie sich an den Braze-Support, um weitere Unterstützung zu erhalten.

@@ -9,6 +9,10 @@ While the `BrazeInAppMessageManager` listener can automatically handle the displ
 
 {% tab html listener %}
 The Braze SDK has a default `DefaultHtmlInAppMessageActionListener` class that is used if no custom listener is defined and takes appropriate action automatically. If you require more control over how a user interacts with different buttons inside a custom HTML in-app message, implement a custom `IHtmlInAppMessageActionListener` class.
+
+This listener applies to __both__ messages built with custom HTML and messages created using the Drag-and-Drop (DnD) editor. It does not apply to traditional IAMs. Traditional IAMs are Braze's built-in, SDK-rendered message types (for example, slideup, modal, and full) created in the original in-app message composer using predefined layouts. Unlike custom HTML and DnD IAMs, they do not run through the HTML action listener flow.
+
+If you set a custom `IHtmlInAppMessageActionListener`, its logic will override the default click behavior for _all_ DnD messages. Please ensure your marketing team is aware of this, as it may affect their campaigns in unexpected ways.
 {% endtab %}
 {% endtabs %}
 
@@ -145,7 +149,7 @@ The `InAppMessageOperation()` return value can control when the message should b
 | `DISPLAY_LATER` | The message will be returned to the stack and displayed at the next available opportunity |
 | `DISCARD` | The message will be discarded |
 | `null` | The message will be ignored. This method should **NOT** return `null` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Altering in-app messages before display" }
 
 See [`InAppMessageOperation`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/index.html) for more details.
 

@@ -52,13 +52,13 @@ pod install
 
 次のコード行を `AppDelegate.m` ファイルに追加します。
 
-```objc
+`````````objc
 {% if include.platform == 'iOS' %}#import "Appboy-iOS-SDK/AppboyKit.h"{% else %}#import <AppboyTVOSKit/AppboyKit.h>{% endif %}
 ```
 
 `AppDelegate.m` ファイル内で、`application:didFinishLaunchingWithOptions` メソッド内に次のスニペットを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
          inApplication:application
      withLaunchOptions:launchOptions];
@@ -69,7 +69,7 @@ pod install
 
 Braze SDK を CocoaPods または Carthage と統合する場合は、次のコード行を `AppDelegate.swift` ファイルに追加します。
 
-```swift
+`````````swift
 {% if include.platform == 'iOS' %}import Appboy_iOS_SDK{% else %}import AppboyTVOSKit{% endif %}
 ```
 
@@ -77,7 +77,7 @@ Swift プロジェクトでの Objective-C コードの使用方法について�
 
 `AppDelegate.swift` で、次のスニペットを `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` に追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
@@ -101,7 +101,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 なお、2019年12月現在、カスタムエンドポイントの配布は終了しているが、既存のカスタムエンドポイントを持っている場合は、引き続き使用することができる。詳細については、<a href="{{site.baseurl}}/api/basics/#endpoints">利用可能なエンドポイントのリスト</a>を参照してください。
 {% endalert %}
 
-Brazeの担当者は、すでに[正しいエンドポイント]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/) 。
+貴社のBraze担当者は既に[正しいエンドポイント]について通知]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/)しているはずだ。
 
 #### コンパイル時のエンドポイント構成 (推奨)
 既存のカスタムエンドポイントが指定されている場合...
@@ -117,7 +117,7 @@ Brazeの担当者は、すでに[正しいエンドポイント]({{ site.baseurl
 {% endalert %}
 
 {% alert important %}
-具体的なクラスタについては、カスタマーサクセスチームにお問い合わせいただくか、カスタマーサクセスマネージャーにお尋ねいただきたい。
+具体的なクラスターを確認するには、カスタマーサクセスマネージャーに問い合わせるか、サポートチームに連絡する。
 {% endalert %}
 
 ### SDK 統合の完了
@@ -140,7 +140,7 @@ pod update
 
 `AppDelegate.m` ファイルの `application:didFinishLaunchingWithOptions` メソッド内に、次の Braze メソッドを追加します。
 
-```objc
+`````````objc
 [Appboy startWithApiKey:@"YOUR-API-KEY"
           inApplication:application
       withLaunchOptions:launchOptions
@@ -152,7 +152,7 @@ pod update
 
 `AppDelegate.swift` の `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool` メソッド内に、次の Braze メソッドを追加します。
 
-```swift
+`````````swift
 Appboy.start(withApiKey: "YOUR-API-KEY",
                  in:application,
                  withLaunchOptions:launchOptions,

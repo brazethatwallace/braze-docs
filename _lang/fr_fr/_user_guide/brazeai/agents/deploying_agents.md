@@ -6,102 +6,124 @@ alias: /deploying-agents/
 page_order: 2
 ---
 
-# Déployer des agents personnalisés
+# Déployer des agents personnalisés {#deploy-custom-agents}
 
-> Découvrez comment utiliser les agents personnalisés dans les étapes du canvas ou les champs du catalogue après les avoir créés. Pour une introduction, voir [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/). 
+> Découvrez comment utiliser les agents personnalisés dans les étapes du Canvas ou les champs du catalogue après les avoir créés. Pour une introduction, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/).
 
-{% alert important %}
-Les Braze Currents sont actuellement en version bêta. Pour obtenir de l'aide, contactez votre gestionnaire satisfaction client.
-{% endalert %}
+## Agents dans Canvas {#agents-in-canvas}
 
-## Utilisation de l'agent
+Vous pouvez utiliser des agents comme étapes d'un parcours pour personnaliser les messages ou guider la prise de décision en temps réel. Pour des instructions détaillées sur la configuration, consultez [Étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-Dans la section **Utilisation de l'agent** de votre agent, vous pouvez référencer et naviguer vers les endroits où l'agent est activement utilisé dans les catalogues et les toiles.
+### Cas d'utilisation {#use-cases}
 
-![La section Utilisation des agents montre deux agents actifs et un agent inactif pour les toiles.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
-
-## Agents in Canvas  
-
-Vous pouvez utiliser les agents comme des étapes d'un parcours pour personnaliser les messages ou guider la prise de décision en temps réel. Pour les étapes détaillées de la configuration, reportez-vous à l'[étape Agent.]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/)
-
-### Cas d’utilisation
-
-| Cas d’utilisation | Description |
+| Cas d'utilisation | Description |
 | --- | --- |
-| Evaluation et qualification des prospects | Utilisez une étape Agent pour évaluer les prospects entrants sur une échelle (par exemple, de 1 à 10). Dirigez les utilisateurs dont le score est supérieur à un seuil vers des chemins de maturation, tout en disqualifiant les prospects peu adaptés. |
-| Personnalisation dynamique des messages | Demandez à un agent de générer des lignes d'objet, des recommandations de produits ou des messages en fonction des attributs de l'utilisateur ou de ses comportements récents. La réponse peut être insérée directement dans une étape du message. |
-| Traitement du retour d'information des clients | Transmettez les commentaires des clients à un agent pour analyser les sentiments et générer des messages de suivi empathiques. Pour les utilisateurs de grande valeur, l'agent peut accélérer la réponse ou offrir des avantages. |
-| Routage intelligent | Utilisez les sorties de l'agent (booléennes ou numériques) pour répartir les utilisateurs dans différents parcours Canvas. Par exemple, classez les utilisateurs comme étant "à risque" ou "en bonne santé" et adaptez la cadence d'envoi des messages en conséquence. |
-| Interprétation des enquêtes ou des réponses | Laissez un agent analyser les réponses ouvertes à une enquête ou les champs de texte libre, en renvoyant des valeurs structurées (par exemple, en catégorisant l'intention ou le besoin) qui conduisent à des chemins en aval. |
-| Raisonnement en plusieurs étapes | Configurez un agent pour qu'il combine les champs de contexte et prenne des décisions complexes, comme recommander la meilleure action suivante (e-mail, SMS ou contact humain) en fonction de plusieurs attributs de l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Évaluation et qualification des prospects | Utilisez une étape Agent pour évaluer les prospects entrants sur une échelle (par exemple, de 1 à 10). Dirigez les utilisateurs dont le score dépasse un seuil vers des parcours de fidélisation, tout en écartant les prospects peu adaptés. |
+| Personnalisation dynamique des messages | Demandez à un agent de générer des lignes d'objet, des recommandations produits ou du contenu de message en fonction des attributs utilisateur ou de leurs comportements récents. La réponse peut être insérée directement dans une étape Message. |
+| Gestion des commentaires clients | Transmettez les commentaires des clients à un agent pour analyser le sentiment et générer des messages de suivi empathiques. Pour les utilisateurs à forte valeur, l'agent peut escalader la réponse ou inclure des avantages. |
+| Routage intelligent | Utilisez les résultats de l'agent (booléens ou numériques) pour répartir les utilisateurs dans différents chemins Canvas. Par exemple, classez les utilisateurs comme « à risque » ou « en bonne santé » et ajustez la fréquence d'envoi des messages en conséquence. |
+| Interprétation des enquêtes ou des réponses | Permettez à un agent d'analyser les réponses ouvertes d'un sondage ou les champs de texte libre, en renvoyant des valeurs structurées (par exemple, en catégorisant l'intention ou le besoin) qui déterminent les chemins en aval. |
+| Raisonnement en plusieurs étapes | Configurez un agent pour combiner des champs contextuels et prendre des décisions complexes, comme recommander la meilleure action à entreprendre (e-mail, SMS ou intervention humaine) en fonction de plusieurs attributs utilisateur. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
-## Agents dans les catalogues  
+## Agents dans les catalogues {#agents-in-catalogs}
 
-Vous pouvez appliquer un agent aux champs du catalogue afin qu'il génère ou calcule automatiquement des valeurs pour chaque ligne. L'agent s'exécutera également sur les nouvelles lignes qui seront ajoutées au catalogue à l'avenir. 
+Vous pouvez appliquer un agent aux champs du catalogue afin qu'il génère ou calcule automatiquement des valeurs pour chaque ligne. L'agent s'exécutera également sur les nouvelles lignes ajoutées au catalogue à l'avenir.
 
-### Cas d’utilisation
+### Cas d'utilisation
 
-| Cas d’utilisation | Description |
+| Cas d'utilisation | Description |
 | --- | --- |
-| Générer des descriptions de produits | Créez automatiquement un texte marketing court pour les nouvelles entrées du catalogue, par exemple en générant une description accrocheuse à partir des données structurées du produit telles que le nom, la catégorie et les fonctionnalités. |
-| Enrichir les attributs du produit | Complétez les valeurs manquantes telles que la famille de couleurs, le style ou la saison en vous basant sur le nom et les détails d'un produit. Par exemple, si le nom d'un produit est "Laguna Polarized Sunglasses", l'agent peut attribuer le style "sport" et la famille de couleurs "bleu". |
-| Calculer les champs dérivés | Utilisez les champs existants pour générer de nouvelles données, telles qu'un "score d'adéquation" basé sur les attributs ou une "étiquette de popularité" à partir des ventes et du nombre d'avis. |
-| Catégoriser ou taguer des éléments | Attribuez des tags pour la logique de recommandation afin que les modèles de personnalisation puissent segmenter les produits plus efficacement. Par exemple, vous pouvez taguer les produits comme "outdoor", "festival ready" ou "premium". |
-| Localiser le contenu | Traduisez le texte du catalogue dans une autre langue pour les campagnes mondiales, ou ajustez le ton et la longueur pour les canaux spécifiques à une région. Par exemple, traduisez "Classic Clubmaster Sunglasses" en espagnol par "Gafas de sol Classic Clubmaster", ou raccourcissez les descriptions pour les campagnes SMS. |
-| Résumez les critiques ou le retour d'information | Résumez les sentiments ou les commentaires dans un nouveau champ, par exemple en attribuant des notes de sentiment comme Positif, Neutre ou Négatif, ou en créant un court résumé textuel comme "La plupart des clients mentionnent une bonne coupe, mais notent la lenteur de la livraison." |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Générer des descriptions de produits | Créez automatiquement des textes marketing courts pour les nouvelles entrées du catalogue, par exemple en générant une description accrocheuse à partir de données produit structurées comme le nom, la catégorie et les fonctionnalités. |
+| Enrichir les attributs des produits | Complétez les valeurs manquantes telles que la famille de couleurs, le style ou la saison en vous basant sur le nom et les détails du produit. Par exemple, si le nom d'un produit est « Lunettes de soleil polarisées Laguna », l'agent pourrait attribuer le style « sport » et la famille de couleurs « bleu ». |
+| Calculer les champs dérivés | Utilisez les champs existants pour générer de nouvelles données, comme un « score d'adéquation » basé sur les attributs ou une « étiquette de popularité » à partir des ventes et du nombre d'avis. |
+| Catégoriser ou étiqueter les éléments | Attribuez des étiquettes pour la logique de recommandation afin que les modèles de personnalisation puissent segmenter les produits plus efficacement. Par exemple, étiquetez les produits comme « extérieur », « festival » ou « premium ». |
+| Localiser le contenu | Traduisez le texte du catalogue dans une autre langue pour les campagnes internationales, ou ajustez le ton et la longueur pour les canaux spécifiques à chaque région. Par exemple, traduisez « Classic Clubmaster Sunglasses » en espagnol par « Gafas de sol Classic Clubmaster », ou raccourcissez les descriptions pour les campagnes SMS. |
+| Résumer les avis ou les commentaires | Résumez le sentiment ou les commentaires dans un nouveau champ, par exemple en attribuant des scores de sentiment comme Positif, Neutre ou Négatif, ou en créant un bref résumé tel que « La plupart des clients mentionnent un excellent ajustement, mais signalent une livraison lente ». |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
-### Étapes
+### Étapes {#steps}
 
-![Une étape de l'agent dans un champ du catalogue.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Une étape Agent dans un champ de catalogue.]({% image_buster /assets/img/ai_agent/agent_in_catalog.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
 Pour ajouter un agent à votre champ de catalogue :
 
-1. Dans votre catalogue, ajoutez un nouveau champ.  
-2. Sélectionnez **Appliquer l'agent d'intelligence artificielle**.
-3. Affectez un agent à ce champ.  
-4. Sélectionnez les colonnes à transmettre en entrée. Si vous n'en sélectionnez aucun, l'agent aura accès à toutes les colonnes du catalogue.  
-5. Décidez si l'agent doit recalculer les champs lorsque les lignes du catalogue sont mises à jour. Si vous ne sélectionnez pas cette option, l'agent ne s'exécutera qu'une fois par ligne.
-6. Sélectionnez **Ajouter des champs** pour déployer l'agent et examiner les estimations de coûts. La fenêtre modale/boîte de dialogue de l **'estimation des coûts** indique le nombre de fois que l'agent s'exécutera sur ce catalogue, à peu près égal au nombre total de lignes. Pour continuer, sélectionnez **Confirmer**.
+1. Dans votre catalogue, ajoutez un nouveau champ.
+2. Sélectionnez **Apply AI agent**.
+3. Affectez un agent à ce champ.
+4. Sélectionnez les colonnes à transmettre en entrée. Si aucune n'est sélectionnée, l'agent aura accès à toutes les colonnes du catalogue.
+5. Décidez si l'agent doit recalculer les champs lorsque les lignes du catalogue sont mises à jour. Si vous ne sélectionnez pas cette option, l'agent ne s'exécutera qu'une seule fois par ligne.
+6. Sélectionnez **Add fields** pour déployer l'agent et consulter les estimations de coûts. La fenêtre modale **Cost estimation** indique le nombre de fois que l'agent s'exécutera sur ce catalogue, soit approximativement le nombre total de lignes. Pour continuer, sélectionnez **Confirm**.
 
-### Comment fonctionnent les agents de catalogue  
+### Fonctionnement des agents de catalogue {#how-catalog-agents-run}
 
-Après le lancement, l'agent s'exécute et évalue chaque ligne, en prenant les colonnes sélectionnées dans son contexte pour produire un résultat. Les agents s'exécutent sur toutes les nouvelles lignes ajoutées après le déploiement de l'agent. Si vous avez sélectionné **Recalculer lorsque les lignes du catalogue sont mises à jour**, toutes les valeurs de ce champ sont mises à jour si les champs source existants sont modifiés.
+Après le lancement, l'agent s'exécute et évalue chaque ligne en intégrant les colonnes sélectionnées dans son contexte pour produire un résultat. Les agents s'exécutent sur toutes les nouvelles lignes ajoutées après le déploiement de l'agent. Si vous avez sélectionné **Recalculate when catalog rows update**, toutes les valeurs de ce champ sont mises à jour lorsque les champs source existants changent.
 
-Vous pouvez actualiser et modifier les champs de votre catalogue qui utilisent des agents. Pour supprimer un agent d'une colonne, désélectionnez **Appliquer l'agent de l'intelligence artificielle**. La colonne redevient une colonne non agencée et les champs conservent les dernières valeurs appliquées par l'agent lors de sa dernière exécution sur le catalogue.
+Vous pouvez actualiser et modifier les champs de votre catalogue qui utilisent des agents. Pour supprimer un agent d'une colonne, désélectionnez **Apply AI agent**. La colonne redevient alors une colonne non agentique, et les champs conservent les dernières valeurs appliquées par l'agent lors de sa dernière exécution sur le catalogue.
 
 Les références circulaires dans les catalogues ne sont pas prises en charge, ce qui signifie que le scénario suivant ne peut pas se produire :
 
-- La colonne agentique 1 utilise la colonne agentique 2 comme entrée.
-- La colonne agentique 2 utilise la colonne agentique 1 comme entrée.
+- La colonne agentique 1 utilise la colonne agentique 2 comme entrée
+- La colonne agentique 2 utilise la colonne agentique 1 comme entrée
 
-![L'option permettant de sélectionner "Appliquer l'agent d'intelligence artificielle" pour un champ du catalogue.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
+![L'option permettant de sélectionner « Apply AI agent » pour un champ du catalogue.]({% image_buster /assets/img/ai_agent/edit_agent_column.png %}){: style="max-width:80%;"}
 
 {% alert note %}
-Pendant la période bêta, les agents de catalogue sont limités au traitement de valeurs d'entrée jusqu'à 25 Ko par ligne.
+Les agents de catalogue sont limités au traitement de valeurs d'entrée de 25 Ko maximum par ligne.
 {% endalert %}
 
-#### Définir les champs de réponse
+#### Définir les champs de réponse {#define-response-fields}
 
-Si votre agent utilise des [champs]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#fields) comme format de sortie, vous pouvez sélectionner le champ correspondant dans l'agent pour le champ **de réponse à** utiliser dans le champ du catalogue. 
+Si votre agent utilise des [champs]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/?tab=fields#advanced-schemas) comme format de sortie, vous pouvez sélectionner le champ correspondant de l'agent pour **Response Field** afin de l'utiliser dans le champ du catalogue.
 
-Supposons que vous ayez un agent qui ajoute des descriptions de produits à un catalogue avec les champs suivants pour structurer le format de sortie :
+Supposons que vous disposiez d'un agent qui ajoute des descriptions de produits à un catalogue avec les champs suivants pour structurer le format de sortie :
 
 | Nom du champ | Valeur |
 | --- | --- |
-| **Description** | Texte |
+| **description** | Texte |
 | **confidence_score_out_of_ten** | Nombre |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définir les champs de réponse" }
 
-Vous pouvez ajouter un champ nommé **product_description** à un catalogue et sélectionner **description** comme **champ de réponse** pour remplir la colonne avec les descriptions de l'agent.
+Vous pouvez ajouter un champ nommé **product_description** à un catalogue et sélectionner **description** comme **Response Field** pour remplir la colonne avec les descriptions de l'agent.
 
-![Un champ "product_description" avec l'agent "Descriptor" appliqué. La sortie "description" est sélectionnée comme champ de réponse.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
+![Un champ « product_description » avec l'agent « Descriptor » appliqué. La sortie « description » est sélectionnée comme champ de réponse.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
 
-Vous pouvez également remplacer manuellement la cellule générée par l'agent en sélectionnant **Modifier l'élément** et en mettant à jour la description générée par l'agent avec vos modifications. Pour revenir à la description générée par l'agent, sélectionnez le symbole d'actualisation dans la cellule.
+Vous pouvez également remplacer manuellement la cellule générée par l'agent en sélectionnant **Edit Item** et en modifiant la description générée. Pour revenir à la description générée par l'agent, sélectionnez le symbole d'actualisation dans la cellule.
 
-### Gestion des erreurs dans les catalogues  
+### Gestion des erreurs dans les catalogues {#error-handling-in-catalogs}
 
-- Les invocations de catalogues qui échouent ne sont pas réessayées.
-- Si l'appel API au fournisseur du modèle de base renvoie une erreur, telle qu'une erreur de clé API non valide ou une erreur de limite de débit, la valeur du champ n'est pas mise à jour.
-- Vous pouvez consulter les journaux de l'agent pour obtenir des détails sur les échecs.
+- Les invocations de catalogue ayant échoué ne font pas l'objet d'une nouvelle tentative.
+- Si l'appel API vers le fournisseur de modèle fondamental renvoie une erreur, comme une erreur de clé API invalide ou une erreur de limite de débit, la valeur du champ n'est pas mise à jour.
+- Vous pouvez consulter les journaux de l'agent pour obtenir des détails sur les exécutions ayant échoué.
+
+## Surveiller votre agent {#monitor-your-agent}
+
+Dans la section **Usage** de votre agent, vous pouvez consulter et accéder aux endroits où l'agent est activement utilisé dans les catalogues et les Canvas.
+
+![Section Usage de l'agent affichant deux agents actifs et un agent inactif pour les Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+
+Dans la section **Logs** de votre agent, vous pouvez surveiller les appels réels de l'agent dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Export CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
+
+{% alert tip %}
+Vous pouvez également surveiller les erreurs de limite d'invocations quotidiennes dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+{% endalert %}
+
+![Journaux pour un agent AI Sentiment Score.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
+
+Sélectionnez **View** pour un appel d'agent spécifique afin de consulter l'entrée, la sortie et l'ID utilisateur.
+
+![Le panneau de détails d'un agent Random Sports Assignment affichant l'invite d'entrée, la réponse de sortie et l'ID utilisateur associé.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
+
+### Utiliser Currents {#use-currents}
+
+Vous pouvez également utiliser ces événements Currents pour accéder aux schémas d'enregistrement Kafka :
+
+- Événements d'exécution de l'agent
+- Événements d'invocation d'outils
+
+Consultez le [glossaire des événements d'engagement liés aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) pour plus de détails.
+
+## Articles connexes {#related-articles}
+
+- [Article de référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference/)
+- [Foire aux questions]({{site.baseurl}}/user_guide/brazeai/agents/faq/)

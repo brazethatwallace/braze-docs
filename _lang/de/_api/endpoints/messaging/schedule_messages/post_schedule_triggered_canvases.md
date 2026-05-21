@@ -1,36 +1,38 @@
 ---
-nav_title: "POST: Zeitplan für API-getriggerte Canvase"
-article_title: "POST: Zeitplan für API-getriggerte Canvase"
+nav_title: "POST: Zeitplan für API-getriggerte Canvases"
+article_title: "POST: Zeitplan für API-getriggerte Canvases"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des durch die Schedule API getriggerten Canvase Braze Endpunkts."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Zeitplan für API-getriggerte Canvases“."
 
 ---
 {% api %}
-# Zeitplan für API-getriggerte Canvase
+# Zeitplan für API-getriggerte Canvases {#schedule-api-triggered-canvases}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
-/canvas/trigger/zeitplan/erstellen
+/canvas/trigger/schedule/create
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Zeitpläne für Canvas Nachrichten über eine API-getriggerte Zustellung zu erstellen. Dabei können Sie entscheiden, welche Aktion den Versand der Nachricht triggern soll.
+> Verwenden Sie diesen Endpunkt, um Canvas-Nachrichten über eine API-getriggerte Zustellung zu planen. Dabei können Sie festlegen, welche Aktion den Versand der Nachricht triggern soll.
 
-Sie können `canvas_entry_properties` übergeben, das als Template in die Nachrichten eingefügt wird, die von den ersten Schritten des Canvas gesendet werden.
+Sie können `context` übergeben, das als Template in die Nachrichten eingefügt wird, die von den ersten Schritten des Canvas gesendet werden.
 
-Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine [Canvas ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) benötigen, die Sie beim Erstellen eines Canvas erstellt haben.
+{% multi_lang_include alerts/important_alerts.md alert='context variable' %}
+
+Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine [Canvas-ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) benötigen, die beim Erstellen eines Canvas generiert wird.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.trigger.schedule.create`.
 
 ## Rate-Limit
 
-{% multi_lang_include rate_limits.md endpoint='default' category='send messages endpoints' %}
+{% multi_lang_include rate_limits.md endpoint='send endpoints' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -49,7 +51,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // If 'recipients' and 'audience' are not provided and broadcast is not set to 'false',
   // the message will send to entire segment targeted by the Canvas
   "broadcast": (optional, boolean) see broadcast -- defaults to false on 8/31/17, must be set to true if "recipients" object is omitted,
-  "canvas_entry_properties": (optional, object) personalization key-value pairs for the first step for all users in this send; see trigger properties,
+  "context": (optional, object) personalization key-value pairs for the first step for all users in this send; see trigger properties,
   "schedule": {
     "time": (required, datetime as ISO 8601 string) time to send the message,
     "in_local_time": (optional, bool),
@@ -58,19 +60,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|Erforderlich|String| Siehe [Canvas Bezeichner]({{site.baseurl}}/api/identifier_types/). |
-| `recipients` | Optional | Array von Empfänger:innen-Objekten | Siehe [Empfänger:innen Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Optional | Verbundenes Objekt der Zielgruppe | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-|`broadcast`| Optional | Boolesch | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein ganzes Segment senden, auf das eine Kampagne oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31\. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann eine `recipients` Liste nicht aufgenommen werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Sie Ihre Nachricht an eine größere Zielgruppe als erwartet senden. |
-| `canvas_entry_properties` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Canvas Eingang Eigenschaften Objekt]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object). |
-| `schedule` | Erforderlich | Objekt Zeitplan | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `recipients` | Optional | Array von Empfänger:innen-Objekten | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/). |
+| `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein ganzes Segment senden, auf das eine Kampagne oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann keine `recipients`-Liste angegeben werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Ihre Nachricht an eine größere Zielgruppe als erwartet gesendet wird. |
+| `context` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Canvas-Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
+| `schedule` | Erforderlich | Zeitplan-Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/create' \
 --header 'Content-Type: application/json' \
@@ -81,7 +83,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
     {
       "user_alias": "example_alias",
       "external_user_id": "external_user_identifier",
-      "canvas_entry_properties": {}
+      "context": {}
     }
   ],
   "audience": {
@@ -132,7 +134,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
     ]
   },
   "broadcast": false,
-  "canvas_entry_properties": {},
+  "context": {},
   "schedule": {
     "time": "",
     "in_local_time": false,
@@ -141,9 +143,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/sch
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
 ```
 Content-Type: application/json

@@ -1,124 +1,105 @@
 ---
 nav_title: Referência
-article_title: Referência de agentes
-description: "Consulte os principais detalhes sobre os agentes de brasagem."
+article_title: Referência para agentes
+description: "Detalhes de referência sobre os Agentes da Braze."
 page_order: 3
 ---
 
-# Referência de agentes
+# Referência para agentes {#reference-for-agents}
 
-> Ao criar agentes personalizados, consulte este artigo para obter mais informações sobre as principais configurações, como instruções e esquemas de saída. Para obter uma introdução, consulte [Agentes Braze]({{site.baseurl}}/user_guide/brazeai/agents/).
+> Ao criar agentes personalizados, consulte este artigo para mais informações sobre configurações importantes, como instruções e esquemas de saída. Para uma introdução, veja [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) e [Perguntas frequentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
-{% alert important %}
-Os Braze Currents estão atualmente na versão beta. Para obter ajuda para começar, entre em contato com o gerente de sucesso do cliente.
-{% endalert %}
+## Modelos {#models}
 
-## Modelos
-
-Ao configurar um agente, você pode escolher o modelo que ele usa para gerar respostas. Você tem duas opções: usar um modelo alimentado pelo Braze ou trazer sua própria chave de API.
+Quando você configura um agente, pode escolher o modelo que ele usa para gerar respostas. Você tem duas opções: usar um modelo fornecido pela Braze ou trazer sua própria chave de API.
 
 {% alert important %}
-O modelo **automático** alimentado pelo Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para executar tarefas como pesquisa de catálogo e associação de segmentação de usuários. Ao usar outros modelos, recomendamos que você faça testes para confirmar se o modelo funciona bem para o seu caso de uso. Talvez seja necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhes ou etapas para modelos com diferentes velocidades e capacidades.
+O modelo **Auto** fornecido pela Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para realizar tarefas como busca em catálogo e associação a Segments. Ao usar outros modelos, recomendamos testar para confirmar se o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhe ou raciocínio passo a passo para modelos com diferentes velocidades e capacidades.
 {% endalert %}
 
-### Opção 1: Use um modelo movido a Braze
+### Opção 1: Use um modelo fornecido pela Braze {#option-1-use-a-braze-powered-model}
 
-Essa é a opção mais simples, sem necessidade de configuração adicional. O Braze fornece acesso direto a modelos de linguagem grandes (LLM). Para usar essa opção, selecione **Auto**, que usa modelos Gemini.
-
-### Opção 2: Traga sua própria chave de API
-
-Com essa opção, você pode conectar sua conta Braze a provedores como OpenAI, Anthropic, AWS Bedrock ou Google Gemini. Se você trouxer sua própria chave de API de um provedor de LLM, os custos do token serão cobrados diretamente pelo provedor, não pelo Braze.
+Esta é a opção mais simples, sem configuração extra necessária. A Braze fornece acesso a grandes modelos de linguagem (LLMs) diretamente. Para usar esta opção, selecione **Auto**, que utiliza modelos Gemini.
 
 {% alert important %}
-Recomendamos testar rotineiramente os modelos mais recentes, pois os modelos legados podem ser descontinuados ou obsoletos após alguns meses.
+Se você não vê **Braze Auto** como opção no menu suspenso **Model** ao criar um agente, entre em contato com seu gerente de sucesso do cliente para saber como se tornar elegível para usar o modelo Braze Auto.
 {% endalert %}
+
+### Opção 2: Traga sua própria chave de API {#option-2-bring-your-own-api-key}
+
+Com esta opção, você pode conectar sua conta da Braze com provedores como OpenAI, Anthropic ou Google Gemini. Se você trouxer sua própria chave de API de um provedor de LLM, os custos de token são cobrados diretamente pelo seu provedor, não pela Braze.
+
+Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Você também pode se inscrever para receber notificações do Console do agente em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para ser alertado quando a Braze detectar que um modelo não está mais disponível.
 
 Para configurar isso:
 
-1. Acesse **Partner Integrations** > **Technology Partners** e encontre seu provedor.
-2. Digite sua chave de API do provedor.
+1. Acesse **Integrações de parceiros** > **Parceiros de tecnologia** e encontre seu provedor.
+2. Insira sua chave de API do provedor.
 3. Selecione **Salvar**.
 
-Em seguida, você pode retornar ao seu agente e selecionar seu modelo.
+Em seguida, você pode voltar ao seu agente e selecionar o modelo.
+
+Quando você usa um LLM fornecido pela Braze, os provedores desse modelo atuarão como Subprocessadores da Braze, sujeitos aos termos do Aditivo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API, o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
+
+#### Níveis de raciocínio {#thinking-levels}
+
+Alguns provedores de LLM podem permitir que você ajuste o nível de raciocínio de um modelo selecionado. Os níveis de raciocínio definem a amplitude de pensamento que o modelo usa antes de responder — desde respostas rápidas e diretas até cadeias mais longas de raciocínio. Isso afeta a qualidade da resposta, a latência e o uso de tokens.
+
+| Nível | Quando usar |
+|-------|-------------|
+| **Mínimo** | Tarefas simples e bem definidas (como busca em catálogo, classificação direta). Respostas mais rápidas e menor custo. |
+| **Baixo** | Tarefas que se beneficiam de um pouco mais de raciocínio, mas não precisam de análise profunda. |
+| **Médio** | Tarefas com múltiplas etapas ou nuances (como analisar várias entradas para recomendar uma ação). |
+| **Alto** | Raciocínio complexo, casos extremos ou quando você precisa que o modelo trabalhe as etapas antes de responder. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de raciocínio" }
+
+Recomendamos começar com **Mínimo** e testar as respostas do seu agente. Depois, você pode ajustar o nível de raciocínio para **Baixo** ou **Médio** se perceber que o agente está tendo dificuldade em fornecer respostas precisas. Em casos raros, um nível de raciocínio **Alto** pode ser necessário, embora usar esse nível possa resultar em altos custos de token e tempos de resposta mais longos ou maior risco de erros de timeout. Se seu agente está tendo dificuldade em equilibrar raciocínio com múltiplas etapas e tempos de resposta razoáveis, considere dividir seu caso de uso em mais de um agente que possam trabalhar juntos em um Canvas ou catálogo.
+
+A Braze usa os mesmos intervalos de IP para chamadas de LLM de saída que para Conteúdo conectado. Os intervalos estão listados na [lista de permissão de IP de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Se seu provedor suporta lista de permissão de IP, você pode restringir a chave a esses intervalos para que apenas a Braze possa usá-la.
 
 {% alert important %}
-Quando você usar um LLM fornecido pela Braze, os fornecedores desse modelo estarão agindo como subprocessadores da Braze, sujeitos aos termos do Adendo de Processamento de Dados (DPA) entre você e a Braze. Se o usuário optar por trazer sua própria chave de API, o provedor de sua inscrição no LLM será considerado um provedor terceirizado nos termos do contrato entre o usuário e a Braze.  
+Quando você usa um LLM fornecido pela Braze, os provedores desse modelo atuarão como Subprocessadores da Braze, sujeitos aos termos do Aditivo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API, o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
 {% endalert %}
 
-## Instruções de escrita
+#### Determinar qual modelo usar {#determine-which-model-to-use}
 
-Instruções são as regras ou diretrizes que você fornece ao agente (prompt do sistema). Eles definem como o agente deve se comportar sempre que for executado. As instruções do sistema podem ter até 25 KB.
+Cada provedor de LLM tem uma combinação ligeiramente diferente de capacidades de modelo, custos e níveis de raciocínio. Aqui estão algumas diretrizes gerais e melhores práticas:
 
-Aqui estão algumas práticas recomendadas gerais para você começar a usar os avisos:
+- Para eficiência de custo, priorize testar modelos com menor custo de token antes dos modelos com custo mais alto. Ajuste para modelos de custo mais alto somente se os modelos de menor custo estiverem tendo dificuldade com o caso de uso ou gerando saídas inconsistentes ou imprecisas.
+- Para eficiência de velocidade e desempenho, priorize testar níveis de raciocínio mais baixos antes dos mais altos. Ajuste para níveis de raciocínio mais altos somente se os níveis mais baixos estiverem tendo dificuldade com o caso de uso ou gerando saídas inconsistentes ou imprecisas.
+- Se modelos de menor custo ou níveis de raciocínio mais baixos estiverem tendo dificuldade com o caso de uso ou gerando saídas inconsistentes ou imprecisas, considere ajustar para modelos de custo mais alto ou níveis de raciocínio mais altos.
+- Durante os testes, certifique-se de equilibrar a confiabilidade e a precisão com o uso de tokens e a duração da invocação.
+- Cada caso de uso pode ter um modelo e nível de raciocínio ideais diferentes. Recomendamos testar minuciosamente para verificar a qualidade consistente sem timeouts.
 
-1. Comece com o fim em mente. Primeiro, declare o objetivo.
-2. Dê ao modelo uma função ou personagem ("Você é um ...").
-3. Defina claramente o contexto e as restrições (público, duração, tom, formato).
-4. Solicite a estrutura ("Return JSON/bullet list/table...").
+### Limites de taxa {#rate-limits}
+
+Os seguintes limites de taxa se aplicam por espaço de trabalho:
+
+- **Modelo fornecido pela Braze:** 1.000 invocações por minuto
+- **Trazendo sua própria chave de API:** 2.500 invocações por minuto
+
+## Escrevendo instruções {#writing-instructions}
+
+Instruções são as regras ou diretrizes que você dá ao agente (prompt do sistema). Elas definem como o agente deve se comportar cada vez que é executado. As instruções do sistema podem ter até 25 KB.
+
+Aqui estão algumas melhores práticas gerais para você começar a criar prompts:
+
+1. Comece com o fim em mente. Declare o objetivo primeiro.
+2. Dê ao modelo um papel ou persona ("Você é um ...").
+3. Defina contexto e restrições claros (público, comprimento, tom, formato).
+4. Peça por estrutura ("Retorne JSON/lista com marcadores/tabela...").
 5. Mostre, não conte. Inclua alguns exemplos de alta qualidade.
 6. Divida tarefas complexas em etapas ordenadas ("Etapa 1... Etapa 2...").
-7. Incentive o raciocínio ("Pense nas etapas internamente e, em seguida, forneça uma resposta final concisa" ou "explique brevemente sua decisão").
-8. Pilotar, inspecionar e iterar. Pequenos ajustes podem levar a grandes ganhos de qualidade.
-9. Lide com os casos extremos, adicione proteções e instruções de recusa.
-10. Medir e documentar o que funciona internamente para reutilização e dimensionamento.
+7. Incentive o raciocínio ("Pense nas etapas internamente, depois forneça uma resposta final concisa," ou "explique brevemente sua decisão").
+8. Pilote, inspecione e itere. Pequenos ajustes podem levar a grandes ganhos de qualidade.
+9. Lide com os casos extremos, adicione barreiras de proteção e instruções de recusa.
+10. Meça e documente o que funciona internamente para reutilização e escalabilidade.
 
-Recomendamos também incluir um padrão como uma resposta genérica se o agente receber uma resposta que não possa ser analisada. Esse tratamento de erros permite que o agente o informe sobre uma variável de resultado desconhecida. Por exemplo, em vez de solicitar ao agente apenas valores de sentimento "positivo" ou "negativo", peça que ele retorne "inseguro" se não puder decidir.
+Para se inspirar em como escrever instruções de agentes, veja nossa [biblioteca de casos de uso dedicada para Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
-### Aviso simples
+### Usando Liquid {#using-liquid}
 
-Esse prompt de exemplo recebe uma entrada de pesquisa e gera uma análise de sentimento simples:
-
-```
-From the survey text, classify overall sentiment toward product quality, delivery, and price as Positive, Neutral, or Negative.
-Always output a single string with just one label.
-If any category is missing or unclear, treat it as Neutral.
-If sentiment across categories is mixed, return Neutral.
-
-Example Input: “The product works great, but shipping took forever and the cost felt too high.”
-Example Output: Neutral
-```
-
-### Prompt complexo 
-
-Esse prompt de exemplo pega uma entrada de pesquisa de um usuário e a classifica em um único rótulo de sentimento. O resultado pode ser usado para direcionar os usuários por diferentes jornadas do Canva (como feedback positivo versus negativo) ou armazenar o sentimento como um atributo personalizado em seu perfil para direcionamento futuro.
-
-{% raw %}
-```
-You are a customer research AI for a retail brand.  
-Input: one open-text survey response from a user.  
-Output: A single structured JSON object with:  
-- sentiment (Positive, Neutral, Negative)  
-- topic (Product, Delivery, Price, Other)  
-- action_recommendation (Route: High-priority follow-up | Low-priority follow-up | No action)  
-
-Rules:  
-- Always return valid JSON.  
-- If the topic is unclear, default to Other.  
-- If sentiment is mixed, default to Neutral.  
-- If sentiment is Negative and topic = Product or Delivery → action_recommendation = High-priority follow-up.  
-- Otherwise, action_recommendation = Low-priority follow-up.  
-
-Example Input:  
-"The product works great, but shipping took forever and the cost felt too high."  
-
-Example Output:  
-{  
-  "sentiment": "Neutral",  
-  "topic": "Delivery",  
-  "action_recommendation": "High-priority follow-up"  
-}  
-```
-{% endraw %}
-
-Para obter mais detalhes sobre as práticas recomendadas de solicitação, consulte os guias dos seguintes fornecedores de modelos:
-
-- [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
-- [Antrópica](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
-- [Gêmeos](https://support.google.com/a/users/answer/14200040?hl=en)
-
-### Usando Liquid
-
-Incluir o [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) nas instruções de seu agente pode adicionar uma camada extra de personalização à resposta. Você pode especificar a variável Liquid exata que o agente recebe e pode incluí-la no contexto de seu prompt. Por exemplo, em vez de escrever explicitamente "first name" (nome), você pode usar o snippet Liquid {% raw %}`{{${first_name}}}`{% endraw %}:
+Incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) nas instruções do seu agente pode adicionar uma camada extra de personalização na resposta. Você pode especificar a variável Liquid exata que o agente recebe e incluí-la no contexto do seu prompt. Por exemplo, em vez de escrever explicitamente "nome", você pode usar o trecho Liquid {% raw %}`{{${first_name}}}`{% endraw %}:
 
 {% raw %}
 ```
@@ -126,30 +107,115 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 ```
 {% endraw %}
 
-Na seção **Registros** do **Console do agente**, é possível revisar os detalhes da entrada e saída do agente para entender qual valor é renderizado a partir do Liquid.
+Na seção **Logs** do **Console do agente**, você pode revisar os detalhes da entrada e saída do agente para entender qual valor é renderizado a partir do Liquid.
 
-![Os detalhes de um agente que tenha Liquid em suas instruções.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:65%;"}
+![Detalhes de um agente que tem Liquid em suas instruções.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-## Catálogos e campos
+Para agentes de catálogo, use **Campos** na seção **Saída** em vez de JSON Schema. Você ainda pode escrever instruções que peçam ao modelo uma saída em formato chave-valor correspondente aos nomes desses campos.
 
-Escolha catálogos específicos para que um agente faça referência e forneça ao seu agente o contexto necessário para entender seus produtos e outros dados de usuários, quando relevante. Os agentes usam ferramentas para encontrar apenas os itens relevantes e enviá-los ao LLM para minimizar o uso de tokens.
+Para saber mais sobre as melhores práticas de prompting, consulte os guias dos seguintes provedores de modelos:
 
-![O catálogo "restaurants" e a coluna "Loyalty_Program" selecionados para o agente pesquisar.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:85%;"}
+- [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
+- [Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
-## Contexto de associação de segmento
+## Saídas {#outputs}
 
-É possível selecionar até três segmentos para o agente fazer referência cruzada da associação de segmento de cada usuário quando o agente for usado em uma tela. Digamos que seu agente tenha a associação de segmento selecionada para um segmento "Usuários de fidelidade" e que o agente seja usado em uma tela. Quando os usuários entram em uma etapa do agente, o agente pode fazer referência cruzada se cada usuário é membro de cada segmento especificado no console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+### Esquemas básicos {#basic-schemas}
 
-![O segmento "Usuários de fidelidade" selecionado para acesso de associação de agentes.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:85%;"}
+Esquemas básicos são uma saída simples que um agente retorna. Pode ser uma string, um número, um booleano, um array de strings ou um array de números.
 
-## Diretrizes da marca
+Por exemplo, se você quiser coletar pontuações de sentimento dos usuários a partir de uma pesquisa de feedback simples para determinar o nível de satisfação dos seus clientes após receberem um produto, você pode selecionar **Number** como esquema básico para estruturar o formato de saída.
 
-É possível selecionar [as diretrizes da marca]({{site.baseurl}}/user_guide/administrative/app_settings/brand_guidelines) que seu agente deve seguir em suas respostas. Por exemplo, se quiser que seu agente gere uma cópia de SMS para incentivar os usuários a inscreverem-se em uma academia, poderá usar esse campo para fazer referência à sua diretriz motivacional e em negrito predefinida.
-
-## Temperatura
-
-Se o seu objetivo é usar um agente para gerar uma cópia para incentivar os usuários a registrar seu app móvel, você pode definir uma temperatura mais alta para que o agente seja mais criativo e use as nuances das variáveis de contexto. Se você estiver usando um agente para gerar pontuações de sentimento, pode ser ideal definir uma temperatura mais baixa para evitar qualquer especulação do agente sobre respostas negativas à pesquisa. Recomendamos testar essa configuração e revisar a saída gerada pelo agente para adequá-la ao seu cenário.
-
-{% alert note %}
-No momento, as temperaturas não são suportadas para uso com o OpenAI.
+{% alert important %}
+Arrays estão disponíveis apenas para agentes de Canvas, não para agentes de catálogo.
 {% endalert %}
+
+![Console do agente com número selecionado como esquema básico.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
+
+### Esquemas avançados {#advanced-schemas}
+
+As opções de esquema avançado incluem estruturar campos manualmente ou usar JSON.
+
+- **Campos:** Uma forma sem código de definir uma saída de agente que você pode usar de forma consistente.
+- **JSON:** Uma abordagem com código para criar um formato de saída preciso, onde você pode aninhar variáveis e objetos dentro do esquema JSON. Disponível apenas para agentes de Canvas, não para agentes de catálogo.
+
+Recomendamos usar esquemas avançados quando você quiser que o agente retorne uma estrutura de dados com múltiplos valores definidos de forma estruturada, em vez de uma saída de valor único. Isso permite que a saída seja melhor formatada como uma variável de contexto consistente.
+
+Por exemplo, você pode usar um formato de saída dentro de um agente destinado a criar um itinerário de viagem de exemplo para um usuário com base em um formulário que ele enviou. O formato de saída permite que você defina que toda resposta do agente deve retornar com valores para `tripStartDate`, `tripEndDate` e `destination`. Cada um desses valores pode ser extraído de variáveis de contexto e inserido em uma etapa de Mensagem para personalização usando Liquid.
+
+{% tabs %}
+{% tab Campos %}
+
+Se você quiser formatar respostas de uma pesquisa de feedback simples para determinar a probabilidade de os respondentes recomendarem o novo sabor de sorvete do seu restaurante, você pode configurar os seguintes campos para estruturar o formato de saída:
+
+| Nome do campo | Valor |
+| --- | --- |
+| **likelihood_score** | Número |
+| **explanation** | String |
+| **confidence_score** | Número |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquemas avançados" }
+
+![Console do agente mostrando três campos de saída para pontuação de probabilidade, explicação e pontuação de confiança.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
+
+{% endtab %}
+{% tab Esquema JSON %}
+
+Se você quiser coletar feedback dos usuários sobre a experiência gastronômica mais recente na sua rede de restaurantes, você pode selecionar **JSON Schema** como formato de saída e inserir o seguinte JSON para retornar um objeto de dados que inclui uma variável de sentimento e uma variável de raciocínio.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "type": "string"
+    },
+    "reasoning": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sentiment",
+    "reasoning"
+  ]
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+## Catálogos e campos {#catalogs-and-fields}
+
+Escolha catálogos específicos para um agente referenciar e forneça ao seu agente o contexto necessário para entender seus produtos e outros dados não relacionados ao usuário quando relevante. Os agentes usam ferramentas para encontrar apenas os itens relevantes e enviá-los ao LLM para minimizar o uso de tokens.
+
+![O catálogo "restaurants" e a coluna "Loyalty_Program" selecionados para o agente pesquisar.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
+
+## Contexto de associação a Segments {#segment-membership-context}
+
+Você pode selecionar até cinco Segments para o agente verificar a associação de cada usuário quando o agente é usado em um Canvas. Vamos supor que seu agente tenha a associação a Segments selecionada para um Segment "Loyalty Users", e o agente é usado em um Canvas. Quando os usuários entram em uma etapa do agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no Console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+
+![O Segment "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+
+## Diretrizes da marca {#brand-guidelines}
+
+Você pode selecionar [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) para o seu agente seguir em suas respostas. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz motivacional predefinida.
+
+## Histórico de interação específico do usuário {#user-history}
+
+Os dados de interação de um usuário incluem aberturas, cliques e dados de conversão recentes de Campaigns e Canvas. Por exemplo, você pode incluir esse contexto para um agente referenciar quando ele é avaliado em um Canvas. O histórico de interação específico do usuário também pode ajudar a influenciar um agente quando sua função é escrever textos de mensagens personalizadas.
+
+## Duplicar agentes {#duplicate-agents}
+
+Para testar melhorias ou iterações de um agente, você pode duplicar um agente e aplicar alterações para comparar com o original. Você também pode tratar a duplicação de agentes como controle de versão para rastrear variações nos detalhes do agente e quaisquer impactos no seu envio de mensagens. Para duplicar um agente:
+
+1. Passe o mouse sobre a linha do agente e selecione o menu <i class="fas fa-ellipsis-vertical"></i>.
+2. Selecione **Duplicar**.
+
+## Arquivar agentes {#archive-agents}
+
+À medida que você cria mais agentes personalizados, pode organizar a página **Gerenciamento de agentes** arquivando agentes que não estão sendo usados ativamente. Para arquivar um agente:
+
+1. Passe o mouse sobre a linha do agente e selecione o menu <i class="fas fa-ellipsis-vertical"></i>.
+2. Selecione **Arquivar**.
+
+![Página de Gerenciamento de agentes com agentes arquivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

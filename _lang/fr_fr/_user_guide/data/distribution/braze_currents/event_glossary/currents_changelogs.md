@@ -1,114 +1,336 @@
 ---
-nav_title: Journal des modifications des événements actuels
-page_order: 6
-description: "Cette page comprend les modifications apportées aux événements pour chaque version de Currents."
+nav_title: Journal des modifications de Currents
+article_title: Journal des modifications de Currents
+page_order: 3
+description: "Cette page présente les modifications apportées aux événements pour chaque version de Currents."
 tool: Currents
 ---
 
-# Journal des modifications actuelles
+# Journal des modifications de Currents
 
-## Changements dans la version 5 (date de publication 2026-02-04)
+> Cette page répertorie les modifications d'événements et de schémas pour chaque version de Braze Currents.
 
-* Ajout d'un nouveau type d'événement : `agentconsole.AgentExecuted`.
+## Modifications de la version 8 (date de publication : 06/05/2026)
 
-* Ajout d'un nouveau type d'événement : `agentconsole.ToolInvocation`.
+### Modifications relatives au stockage :
 
-* Ajout d'un nouveau type d'événement : `users.messages.email.Retry`.
+* Ajout d'un nouveau type d'événement `users.messages.banner.Dismiss`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.line.Retry`.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Abort` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
 
-* Ajout d'un nouveau type d'événement : `users.messages.pushnotification.Retry`.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Delivery` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
 
-* Ajout d'un nouveau type d'événement : `users.messages.sms.Retry`.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Failure` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
 
-* Ajout d'un nouveau type d'événement : `users.messages.webhook.Retry`.
-
-* Ajout d'un nouveau type d'événement : `users.messages.whatsapp.Retry`.
-
-* Le champ change pour le type d'événement `users.behaviors.pushnotification.TokenStateChange`:
-    * Ajout d'un nouveau champ `long` `time_ms` : Heure en millisecondes à laquelle l'événement s'est produit
-
-
-## Changements dans la version 4 (date de publication 2026-01-08)
-
-* Le champ change pour le type d'événement `users.behaviors.pushnotification.TokenStateChange`:
-    * Ajout d'un nouveau champ `string` `push_token` : Jeton de l'événement
-
-* Le champ change pour le type d'événement `users.messages.pushnotification.Bounce`:
-    * Ajout d'un nouveau champ `string` `push_token` : Jeton de l'événement
-
-* Le champ change pour le type d'événement `users.messages.pushnotification.Send`:
-    * Ajout d'un nouveau champ `string` `push_token` : Jeton de l'événement
-
-* Le champ change pour le type d'événement `users.messages.rcs.Click`:
-    * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variation de canvas reçue par cet utilisateur
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.InboundReceive` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped de l'utilisateur à partir duquel le message a été reçu.
     * Le champ `user_phone_number` est désormais *facultatif*.
 
-* Le champ change pour le type d'événement `users.messages.rcs.InboundReceive`:
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Read` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
+
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Retry` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
+
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Send` :
+    * Ajout d'un nouveau champ `string` `bsuid` : ID utilisateur WhatsApp Business-Scoped du destinataire associé à cet événement.
+
+## Modifications de la version 7 (date de publication : 01/04/2026)
+
+### Modifications relatives au stockage :
+
+* Modifications de champs pour le type d'événement `users.messages.banner.Abort` :
+    * Ajout d'un nouveau champ `string` `canvas_name` : Nom du Canvas
+    * Ajout d'un nouveau champ `string` `canvas_step_name` : Nom de l'étape du Canvas
+    * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_step_id` : ID de l'API de l'étape du Canvas à laquelle cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_step_message_variation_id` : ID de l'API de la variante de message de l'étape du Canvas reçue par cet utilisateur
+    * Ajout d'un nouveau champ `string` `canvas_variation_id` : ID de l'API de la variante du Canvas à laquelle cet événement appartient
+
+* Modifications de champs pour le type d'événement `users.messages.banner.Click` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_step_id` : ID de l'API de l'étape du Canvas à laquelle cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_name` : Nom du Canvas
+    * Ajout d'un nouveau champ `string` `canvas_step_name` : Nom de l'étape du Canvas
+    * Ajout d'un nouveau champ `string` `canvas_step_message_variation_id` : ID de l'API de la variante de message de l'étape du Canvas reçue par cet utilisateur
+    * Ajout d'un nouveau champ `string` `canvas_variation_id` : ID de l'API de la variante du Canvas à laquelle cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
+
+* Modifications de champs pour le type d'événement `users.messages.banner.Impression` :
+    * Ajout d'un nouveau champ `string` `canvas_id` : ID de l'API du Canvas auquel cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_step_id` : ID de l'API de l'étape du Canvas à laquelle cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_name` : Nom du Canvas
+    * Ajout d'un nouveau champ `string` `canvas_step_name` : Nom de l'étape du Canvas
+    * Ajout d'un nouveau champ `string` `canvas_step_message_variation_id` : ID de l'API de la variante de message de l'étape du Canvas reçue par cet utilisateur
+    * Ajout d'un nouveau champ `string` `canvas_variation_id` : ID de l'API de la variante du Canvas à laquelle cet événement appartient
+    * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
+
+## Modifications de la version 6 (date de publication : 04/03/2026)
+
+### Modifications relatives au stockage :
+
+* Modifications de champs pour le type d'événement `agentconsole.AgentExecuted` :
+    * Ajout d'un nouveau champ `string` `error` : Description de l'erreur
+
+* Modifications de champs pour le type d'événement `agentconsole.ToolInvocation` :
+    * Ajout d'un nouveau champ `string` `request_id` : ID unique pour cette requête LLM globale et son exécution complète
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.InboundReceive` :
+    * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
+
+## Modifications de la version 5 (date de publication : 04/02/2026)
+
+### Modifications relatives au stockage :
+
+* Ajout d'un nouveau type d'événement `agentconsole.AgentExecuted`.
+
+* Ajout d'un nouveau type d'événement `agentconsole.ToolInvocation`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Retry`.
+
+* Ajout d'un nouveau type d'événement `users.messages.line.Retry`.
+
+* Ajout d'un nouveau type d'événement `users.messages.pushnotification.Retry`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.Retry`.
+
+* Ajout d'un nouveau type d'événement `users.messages.webhook.Retry`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Retry`.
+
+* Modifications de champs pour le type d'événement `users.behaviors.pushnotification.TokenStateChange` :
+    * Ajout d'un nouveau champ `long` `time_ms` : Horodatage en millisecondes de l'événement
+
+## Modifications de la version 4 (date de publication : 07/01/2026)
+
+### Modifications relatives au stockage :
+
+* Modifications de champs pour le type d'événement `users.behaviors.pushnotification.TokenStateChange` :
+    * Ajout d'un nouveau champ `string` `push_token` : Jeton de notification push de l'événement
+
+* Modifications de champs pour le type d'événement `users.messages.pushnotification.Bounce` :
+    * Ajout d'un nouveau champ `string` `push_token` : Jeton de notification push de l'événement
+
+* Modifications de champs pour le type d'événement `users.messages.pushnotification.Send` :
+    * Ajout d'un nouveau champ `string` `push_token` : Jeton de notification push de l'événement
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.Click` :
+    * Ajout d'un nouveau champ `string` `canvas_variation_name` : Nom de la variante du Canvas reçue par cet utilisateur
+    * Le champ `user_phone_number` est désormais *facultatif*.
+
+* Modifications de champs pour le type d'événement `users.messages.rcs.InboundReceive` :
     * Le champ `user_id` est désormais *facultatif*.
 
-* Le champ change pour le type d'événement `users.messages.rcs.Rejection`:
-    * Ajout d'un nouveau champ `string` `canvas_step_message_variation_id` : ID API de la variation de message de l'étape de Canvas que l’utilisateur a reçue
+* Modifications de champs pour le type d'événement `users.messages.rcs.Rejection` :
+    * Ajout d'un nouveau champ `string` `canvas_step_message_variation_id` : ID de l'API de la variante de message de l'étape du Canvas reçue par cet utilisateur
 
+## Modifications de la version 3 (date de publication : 08/10/2025)
 
-## Changements dans la version 3 (date de publication 2025-10-08)
+### Modifications relatives au stockage :
 
-* Ajout d'un nouveau type d'événement : `users.messages.line.Abort`.
+* Ajout d'un nouveau type d'événement `users.messages.line.Abort`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.line.Click`.
+* Ajout d'un nouveau type d'événement `users.messages.line.Click`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.line.InboundReceive`.
+* Ajout d'un nouveau type d'événement `users.messages.line.InboundReceive`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.line.Send`.
+* Ajout d'un nouveau type d'événement `users.messages.line.Send`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.Abort`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.Abort`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.Click`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.Click`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.Delivery`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.Delivery`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.InboundReceive`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.InboundReceive`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.Read`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.Read`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.Rejection`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.Rejection`.
 
-* Ajout d'un nouveau type d'événement : `users.messages.rcs.Send`.
+* Ajout d'un nouveau type d'événement `users.messages.rcs.Send`.
 
-* Le champ change pour le type d'événement `users.messages.sms.Delivery`:
-    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un message SMS de secours a été envoyé en raison d'un message RCS rejeté. Le message peut donner lieu à une réception/distribution ou à un rejet. Il peut être lié à l'événement de rejet du RCS par l'intermédiaire d'un ID d'envoi et d'un ID d'expédition.
+* Modifications de champs pour le type d'événement `users.messages.sms.Delivery` :
+    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition.
 
-* Le champ change pour le type d'événement `users.messages.sms.DeliveryFailure`:
-    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un message SMS de secours a été envoyé en raison d'un message RCS rejeté. Le message peut donner lieu à une réception/distribution ou à un rejet. Il peut être lié à l'événement de rejet du RCS par l'intermédiaire d'un ID d'envoi et d'un ID d'expédition.
+* Modifications de champs pour le type d'événement `users.messages.sms.DeliveryFailure` :
+    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition.
 
-* Le champ change pour le type d'événement `users.messages.sms.Rejection`:
-    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un message SMS de secours a été envoyé en raison d'un message RCS rejeté. Le message peut donner lieu à une réception/distribution ou à un rejet. Il peut être lié à l'événement de rejet du RCS par l'intermédiaire d'un ID d'envoi et d'un ID d'expédition Il peut être lié à l'événement de rejet du RCS par l'intermédiaire d'un ID d'envoi et d'un ID d'expédition. (propriétés d'événement)
+* Modifications de champs pour le type d'événement `users.messages.sms.Rejection` :
+    * Ajout d'un nouveau champ `boolean` `is_sms_fallback` : Indique qu'un SMS de secours a été envoyé suite au rejet d'un message RCS. Ce message peut aboutir à une distribution réussie, à un échec de distribution ou à un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID d'expédition. (Propriété d'événement)
 
-* Le champ change pour le type d'événement `users.messages.whatsapp.Delivery`:
-    * Ajout d'un nouveau champ `string` `flow_id` : L'ID unique du flux dans le gestionnaire WhatsApp. Présente si le message comprend un CTA pour répondre à un flux WhatsApp.
-    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présente en cas d'envoi d'un message de type "Template".
-    * Ajout d'un nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Delivery` :
+    * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si le message comprend un CTA pour répondre à un Flow WhatsApp.
+    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présent lors de l'envoi d'un message modèle.
+    * Ajout d'un nouveau champ `string` `message_id` : ID unique généré par Meta pour ce message
 
-* Le champ change pour le type d'événement `users.messages.whatsapp.Failure`:
-    * Ajout d'un nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
-    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présente en cas d'envoi d'un message de type "Template".
-    * Ajout d'un nouveau champ `string` `flow_id` : L'ID unique du flux dans le gestionnaire WhatsApp. Présente si le message comprend un CTA pour répondre à un flux WhatsApp.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Failure` :
+    * Ajout d'un nouveau champ `string` `message_id` : ID unique généré par Meta pour ce message
+    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présent lors de l'envoi d'un message modèle.
+    * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si le message comprend un CTA pour répondre à un Flow WhatsApp.
 
-* Le champ change pour le type d'événement `users.messages.whatsapp.InboundReceive`:
-    * Ajout d'un nouveau champ `string` `catalog_id` : ID de catalogue d'un produit si un produit est référencé dans le message entrant. Sinon, il est vide.
-    * Ajout d'un nouveau champ `string` `product_id` : Unité de gestion des stocks du produit si un produit est référencé dans le message entrant. Sinon, il est vide.
-    * Ajout d'un nouveau champ `string` `flow_id` : L'ID unique du flux dans le gestionnaire WhatsApp. Présente si l'utilisateur répond à un flux WhatsApp.
-    * Ajout d'un nouveau champ `string` `flow_response_json` : [PII] Les valeurs du formulaire auxquelles l'utilisateur a répondu. Présente si l'utilisateur répond à un flux WhatsApp.
-    * Ajout d'un nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
-    * Ajout d'un nouveau champ `string` `in_reply_to` : Le site message_id de l'envoi de messages auquel ce message répondait
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.InboundReceive` :
+    * Ajout d'un nouveau champ `string` `catalog_id` : ID du catalogue d'un produit si celui-ci est mentionné dans le message entrant. Sinon, vide.
+    * Ajout d'un nouveau champ `string` `product_id` : Unité de gestion des stocks du produit si celui-ci est mentionné dans le message entrant. Sinon, vide.
+    * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si l'utilisateur répond à un Flow WhatsApp.
+    * Ajout d'un nouveau champ `string` `flow_response_json` : [PII] Valeurs du formulaire fournies par l'utilisateur. Présent si l'utilisateur répond à un Flow WhatsApp.
+    * Ajout d'un nouveau champ `string` `message_id` : ID unique généré par Meta pour ce message
+    * Ajout d'un nouveau champ `string` `in_reply_to` : Le `message_id` du message auquel ce message répondait
 
-* Le champ change pour le type d'événement `users.messages.whatsapp.Read`:
-    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présente en cas d'envoi d'un message de type "Template".
-    * Ajout d'un nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
-    * Ajout d'un nouveau champ `string` `flow_id` : L'ID unique du flux dans le gestionnaire WhatsApp. Présente si le message comprend un CTA pour répondre à un flux WhatsApp.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Read` :
+    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présent lors de l'envoi d'un message modèle.
+    * Ajout d'un nouveau champ `string` `message_id` : ID unique généré par Meta pour ce message
+    * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si le message comprend un CTA pour répondre à un Flow WhatsApp.
 
-* Le champ change pour le type d'événement `users.messages.whatsapp.Send`:
-    * Ajout d'un nouveau champ `string` `flow_id` : L'ID unique du flux dans le gestionnaire WhatsApp. Présente si le message comprend un CTA pour répondre à un flux WhatsApp.
-    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présente en cas d'envoi d'un message de type "Template".
-    * Ajout d'un nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
+* Modifications de champs pour le type d'événement `users.messages.whatsapp.Send` :
+    * Ajout d'un nouveau champ `string` `flow_id` : ID unique du Flow dans le gestionnaire WhatsApp. Présent si le message comprend un CTA pour répondre à un Flow WhatsApp.
+    * Ajout d'un nouveau champ `string` `template_name` : [PII] Nom du modèle dans le gestionnaire WhatsApp. Présent lors de l'envoi d'un message modèle.
+    * Ajout d'un nouveau champ `string` `message_id` : ID unique généré par Meta pour ce message
 
+## Modifications de la version 2 (date de publication non disponible)
+
+### Modifications relatives au stockage :
+
+* Ajout d'un nouveau type d'événement `users.behaviors.app.FirstSession`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.app.SessionEnd`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.app.SessionStart`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.CustomEvent`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.InstallAttribution`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.liveactivity.PushToStartTokenChange`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.liveactivity.UpdateTokenChange`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.Location`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.Purchase`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.pushnotification.TokenStateChange`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.subscription.GlobalStateChange`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.subscriptiongroup.StateChange`.
+
+* Ajout d'un nouveau type d'événement `users.behaviors.Uninstall`.
+
+* Ajout d'un nouveau type d'événement `users.campaigns.Conversion`.
+
+* Ajout d'un nouveau type d'événement `users.campaigns.EnrollInControl`.
+
+* Ajout d'un nouveau type d'événement `users.canvas.Conversion`.
+
+* Ajout d'un nouveau type d'événement `users.canvas.Entry`.
+
+* Ajout d'un nouveau type d'événement `users.canvas.exit.MatchedAudience`.
+
+* Ajout d'un nouveau type d'événement `users.canvas.exit.PerformedEvent`.
+
+* Ajout d'un nouveau type d'événement `users.canvas.experimentstep.Conversion`.
+
+* Ajout d'un nouveau type d'événement `users.canvas.experimentstep.SplitEntry`.
+
+* Ajout d'un nouveau type d'événement `users.canvasstep.Progression`.
+
+* Ajout d'un nouveau type d'événement `users.messages.banner.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.banner.Click`.
+
+* Ajout d'un nouveau type d'événement `users.messages.banner.Impression`.
+
+* Ajout d'un nouveau type d'événement `users.messages.contentcard.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.contentcard.Click`.
+
+* Ajout d'un nouveau type d'événement `users.messages.contentcard.Dismiss`.
+
+* Ajout d'un nouveau type d'événement `users.messages.contentcard.Impression`.
+
+* Ajout d'un nouveau type d'événement `users.messages.contentcard.Send`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Bounce`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Click`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Deferral`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Delivery`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.MarkAsSpam`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Open`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Send`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.SoftBounce`.
+
+* Ajout d'un nouveau type d'événement `users.messages.email.Unsubscribe`.
+
+* Ajout d'un nouveau type d'événement `users.messages.featureflag.Impression`.
+
+* Ajout d'un nouveau type d'événement `users.messages.inappmessage.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.inappmessage.Click`.
+
+* Ajout d'un nouveau type d'événement `users.messages.inappmessage.Impression`.
+
+* Ajout d'un nouveau type d'événement `users.messages.liveactivity.Outcome`.
+
+* Ajout d'un nouveau type d'événement `users.messages.liveactivity.Send`.
+
+* Ajout d'un nouveau type d'événement `users.messages.pushnotification.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.pushnotification.Bounce`.
+
+* Ajout d'un nouveau type d'événement `users.messages.pushnotification.IosForeground`.
+
+* Ajout d'un nouveau type d'événement `users.messages.pushnotification.Open`.
+
+* Ajout d'un nouveau type d'événement `users.messages.pushnotification.Send`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.CarrierSend`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.Delivery`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.DeliveryFailure`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.InboundReceive`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.Rejection`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.Send`.
+
+* Ajout d'un nouveau type d'événement `users.messages.sms.ShortLinkClick`.
+
+* Ajout d'un nouveau type d'événement `users.messages.webhook.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.webhook.Failure`.
+
+* Ajout d'un nouveau type d'événement `users.messages.webhook.Send`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Abort`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Click`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Delivery`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Failure`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.InboundReceive`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Read`.
+
+* Ajout d'un nouveau type d'événement `users.messages.whatsapp.Send`.
+
+* Ajout d'un nouveau type d'événement `users.RandomBucketNumberUpdate`.

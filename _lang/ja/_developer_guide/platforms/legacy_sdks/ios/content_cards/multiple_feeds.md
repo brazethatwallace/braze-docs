@@ -1,6 +1,6 @@
 ---
 nav_title: 複数のフィード
-article_title: iOSで複数のコンテンツカードフィードを使用する
+article_title: iOS向けに複数のコンテンツカードフィードを使用する
 platform: iOS
 page_order: 6
 description: "この参考記事では、iOS アプリケーションに複数のコンテンツカードフィードを実装する方法について説明します。"
@@ -41,7 +41,7 @@ noindex: true
 {% endtab %}
 {% tab SWIFT %}
 
-```swift
+`````````swift
 NotificationCenter.default.addObserver(self, selector:
   #selector(contentCardsUpdated),
   name:NSNotification.Name.ABKContentCardsProcessed, object: nil)
@@ -57,7 +57,7 @@ NotificationCenter.default.addObserver(self, selector:
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (void)contentCardsUpdatedNotificationReceived:(NSNotification *)notification {
   BOOL updateIsSuccessful = [notification.userInfo[ABKContentCardsProcessedIsSuccessfulKey] boolValue];
   if (updateIsSuccessful) {
@@ -88,7 +88,7 @@ NotificationCenter.default.addObserver(self, selector:
 {% endtab %}
 {% tab SWIFT %}
 
-```swift
+`````````swift
 @objc private func contentCardsUpdatedNotificationReceived(notification: NSNotification) {
     guard let updateSuccessful = notification.userInfo?[ABKContentCardsProcessedIsSuccessfulKey] as? Bool else { return }
     if updateSuccessful {

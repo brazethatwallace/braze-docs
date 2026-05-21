@@ -1,38 +1,110 @@
 ## Integrating the Android SDK
 
-### Step 1: Update your `build.gradle`
+### Step 1: Update your Gradle build configuration
 
-In your `build.gradle`, add [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html) to your list of repositories.
+In your project's repository configuration (for example, `settings.gradle`, `settings.gradle.kts`, or top-level `build.gradle`), add [`mavenCentral()`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.artifacts.dsl/-repository-handler/maven-central.html) to your list of repositories. This syntax is the same for both Groovy and Kotlin DSL.
 
-```kotlin
+```groovy
 repositories {
   mavenCentral()
 }
 ```
 
-Next, add Braze to your dependencies.
+Next, add Braze to your dependencies. In the following examples, replace `SDK_VERSION` with the current version of your Android Braze SDK. For the full list of versions, see [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+
+{% alert note %}
+- For Kotlin DSL (`build.gradle.kts`), use the `implementation("...")` syntax.
+- For Groovy (`build.gradle`), use the `implementation '...'` syntax.
+- For [version catalogs](https://developer.android.com/build/migrate-to-catalogs), add entries to your `gradle/libs.versions.toml` file and reference them using the generated accessors.
+{% endalert %}
 
 {% tabs local %}
 {% tab base only %}
-If you don't plan on using Braze UI components, add the following code to your `build.gradle`. Replace `SDK_VERSION` with the current version of your Android Braze SDK. For the full list of versions, see [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+If you don't plan on using Braze UI components, add the following to your dependencies.
 
-```kotlin
+{% subtabs local %}
+{% subtab Groovy %}
+```groovy
 dependencies {
     implementation 'com.braze:android-sdk-base:SDK_VERSION' // (Required) Adds dependencies for the base Braze SDK.
     implementation 'com.braze:android-sdk-location:SDK_VERSION' // (Optional) Adds dependencies for Braze location services.
 }
 ```
+{% endsubtab %}
+{% subtab Kotlin DSL %}
+```kotlin
+dependencies {
+    implementation("com.braze:android-sdk-base:SDK_VERSION") // (Required) Adds dependencies for the base Braze SDK.
+    implementation("com.braze:android-sdk-location:SDK_VERSION") // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% subtab Version catalog %}
+In your `gradle/libs.versions.toml` file:
+
+```toml
+[versions]
+braze = "SDK_VERSION"
+
+[libraries]
+braze-android-sdk-base = { group = "com.braze", name = "android-sdk-base", version.ref = "braze" }
+braze-android-sdk-location = { group = "com.braze", name = "android-sdk-location", version.ref = "braze" }
+```
+
+Then, in your `build.gradle` or `build.gradle.kts` file, add the following dependencies. This syntax is the same for both Groovy and Kotlin DSL.
+
+```groovy
+dependencies {
+    implementation(libs.braze.android.sdk.base) // (Required) Adds dependencies for the base Braze SDK.
+    implementation(libs.braze.android.sdk.location) // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
 {% endtab %}
 
 {% tab with ui components %}
-If you plan on using Braze UI components later, add the following code to your `build.gradle`.  Replace `SDK_VERSION` with the current version of your Android Braze SDK. For the full list of versions, see [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+If you plan on using Braze UI components, add the following to your dependencies.
 
-```kotlin
+{% subtabs local %}
+{% subtab Groovy %}
+```groovy
 dependencies {
-    implementation 'com.braze:android-sdk-ui:SDK_VERSION' // (Required) Adds dependencies for the Braze SDK and Braze UI components. 
+    implementation 'com.braze:android-sdk-ui:SDK_VERSION' // (Required) Adds dependencies for the Braze SDK and Braze UI components.
     implementation 'com.braze:android-sdk-location:SDK_VERSION' // (Optional) Adds dependencies for Braze location services.
 }
 ```
+{% endsubtab %}
+{% subtab Kotlin DSL %}
+```kotlin
+dependencies {
+    implementation("com.braze:android-sdk-ui:SDK_VERSION") // (Required) Adds dependencies for the Braze SDK and Braze UI components.
+    implementation("com.braze:android-sdk-location:SDK_VERSION") // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% subtab Version catalog %}
+In your `gradle/libs.versions.toml` file:
+
+```toml
+[versions]
+braze = "SDK_VERSION"
+
+[libraries]
+braze-android-sdk-ui = { group = "com.braze", name = "android-sdk-ui", version.ref = "braze" }
+braze-android-sdk-location = { group = "com.braze", name = "android-sdk-location", version.ref = "braze" }
+```
+
+Then, in your `build.gradle` or `build.gradle.kts` file, add the following dependencies. This syntax is the same for both Groovy and Kotlin DSL.
+
+```groovy
+dependencies {
+    implementation(libs.braze.android.sdk.ui) // (Required) Adds dependencies for the Braze SDK and Braze UI components.
+    implementation(libs.braze.android.sdk.location) // (Optional) Adds dependencies for Braze location services.
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
@@ -411,7 +483,7 @@ Replace `MIN_LOG_LEVEL` with the **Constant** of the log level you'd like to set
 | `WARN`      | 5              | Logs warning messages for identifying potentially harmful situations.     |
 | `ERROR`     | 6              | Logs error messages for indicating application failure or serious issues. |
 | `ASSERT`    | 7              | Logs assertion messages when conditions are false during development.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
 
 For example, the following code will forward log levels `2`, `3`, `4`, `5`, `6`, and `7` to the `Log` method.
 
@@ -447,7 +519,7 @@ Replace `MIN_LOG_LEVEL` with the **Value** of the log level you'd like to set as
 | `WARN`      | 5              | Logs warning messages for identifying potentially harmful situations.     |
 | `ERROR`     | 6              | Logs error messages for indicating application failure or serious issues. |
 | `ASSERT`    | 7              | Logs assertion messages when conditions are false during development.     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enabling logs" }
 
 For example, the following code will forward log levels `2`, `3`, `4`, `5`, `6`, and `7` to the `Log` method.
 

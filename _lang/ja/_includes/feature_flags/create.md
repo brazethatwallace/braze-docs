@@ -1,142 +1,143 @@
-# 機能フラグを作成する
+# フィーチャーフラグを作成する {#create-feature-flags}
 
-> フィーチャーフラグを使用すると、選択したユーザーに対してリモートで機能を有効または無効にすることができます。Brazeダッシュボードで新しい機能フラグを作成する。名前と `ID`、ターゲットオーディエンス、およびこの機能を有効にするユーザーの割合を指定します。その後、アプリまたは Web サイトのコードで同じ `ID` を使用して、ビジネスロジックの特定の部分を条件付きで実行できます。機能フラグおよび Braze での使用方法の詳細については、[機能フラグについて]({{site.baseurl}}/developer_guide/feature_flags/)を参照してください。
+> フィーチャーフラグを使用すると、選択したユーザーに対してリモートで機能を有効または無効にすることができます。Brazeダッシュボードで新しいフィーチャーフラグを作成します。名前と`ID`、ターゲットオーディエンス、およびこの機能を有効にするユーザーの割合を指定します。その後、アプリまたはWebサイトのコードで同じ`ID`を使用して、ビジネスロジックの特定の部分を条件付きで実行できます。フィーチャーフラグおよびBrazeでの使用方法の詳細については、[フィーチャーフラグについて]({{site.baseurl}}/developer_guide/feature_flags/)を参照してください。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-### SDKバージョン
+### SDKバージョン {#sdk-version}
 
-フィーチャーフラグを使用するには、少なくとも以下の最小バージョン以上の最新の SDK を使用するようにしてください。
+フィーチャーフラグを使用するには、少なくとも以下の最小バージョン以上の最新のSDKを使用するようにしてください。
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
-### Braze 権限
+### Brazeの権限 {#braze-permissions}
 
-ダッシュボードでフィーチャーフラグを管理するには、管理者であるか、次の [[権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)] を持っている必要があります。
+ダッシュボードでフィーチャーフラグを管理するには、管理者であるか、次の[権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている必要があります。
 
-| 許可                                                                    | あなたにできること                           |
+| 権限                                                                    | できること                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| **フィーチャーフラグを管理する**                                                      | 機能フラグを表示、作成、編集する。     |
-| **アクセスキャンペーン、キャンバス、カード、フィーチャーフラッグ、セグメント、メディアライブラリー** | 利用可能な機能フラグのリストを見る。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **フィーチャーフラグを管理する**                                                      | フィーチャーフラグを表示、作成、編集します。     |
+| **キャンペーン、キャンバス、カード、フィーチャーフラグ、セグメント、メディアライブラリにアクセスする** | 利用可能なフィーチャーフラグのリストを表示します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeの権限" }
 
-## フィーチャー・フラッグを作成する
+## フィーチャーフラグを作成する {#creating-a-feature-flag}
 
-### ステップ 1:新しいフィーチャー・フラッグを作成する
+### ステップ1:新しいフィーチャーフラグを作成する {#step-1-create-a-new-feature-flag}
 
-[**メッセージング**] > [**フィーチャーフラグ**] に進み、[**フィーチャーフラグを作成**] を選択します。
+**メッセージング** > **フィーチャーフラグ**に進み、**フィーチャーフラグを作成**を選択します。
 
 ![既存のフィーチャーフラグと新規作成方法を示すデータテーブル。]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
-### ステップ 2:詳細を記入する
+### ステップ2:詳細を記入する {#step-2-fill-out-the-details}
 
-**フィーチャーフラグ詳細**に、フィーチャーフラグの名前、ID、および説明を入力します。
+**フィーチャーフラグの詳細**欄に、フィーチャーフラグの名前、ID、説明を入力します。
 
-![名前、ID、説明、およびプロパティーをフィーチャーフラグに追加できることを示すフォーム。]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
+![フィーチャーフラグに名前、ID、説明、プロパティを追加できることを示すフォーム。]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
 
 | フィールド        | 説明                                                                |
 |--------------|----------------------------------------------------------------------------|
-| 名前         | マーケティング担当者や管理者が読みやすいタイトル。              |
-| ID           | この機能が[ユーザーに対して有効か](#enabled)どうかをチェックするために、コード内で使用する一意のID。このIDは後で変更できないので、続ける前に[ID命名のベストプラクティスを](#naming-conventions)確認してほしい。 |
-| 説明  | フィーチャーフラグに関するいくつかのコンテキストを提供するオプションの説明。   |
-| プロパティ   | フィーチャーフラグをリモートで設定するオプションのプロパティー。これらは、キャンバスステップまたはフィーチャーフラグの試行で上書きできます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 名前         | マーケターや管理者が読みやすいタイトルです。              |
+| ID           | この機能が[ユーザーに対して有効か](#enabled)どうかをチェックするために、コード内で使用する一意のIDです。このIDは後で変更できないため、続ける前に[ID命名のベストプラクティス](#naming-conventions)を確認してください。 |
+| 説明  | フィーチャーフラグに関するコンテキストを提供するオプションの説明です。   |
+| プロパティ   | フィーチャーフラグをリモートで設定するオプションのプロパティです。キャンバスステップやフィーチャーフラグ実験で上書きできます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2:詳細を記入する" }
 
-### ステップ 2a: カスタムプロパティを作成する
+### ステップ2a:カスタムプロパティを作成する {#step-2a-create-custom-properties}
 
-**Properties**では、機能が有効になっているときに、オプションでアプリがBraze SDKを介してアクセスできるカスタムプロパティを作成できます。ストリング、ブール、"画像、タイムスタンプ、JSON、または数値をそれぞれの変数に割り当てることができ、デフォルトを設定することもできます。
+**プロパティ**では、機能が有効な場合にアプリがBraze SDKを通じてアクセスできるカスタムプロパティをオプションで作成できます。各変数には文字列、ブール値、画像、タイムスタンプ、JSON、数値を割り当てることができ、デフォルト値を設定することもできます。
 
 {% tabs local %}
 {% tab example %}
-次の例では、フィーチャーフラグに、一覧表示されているカスタムプロパティを使用して、eコマースストアの在庫切れバナーが表示されます。 
+次の例では、フィーチャーフラグが指定されたカスタムプロパティを使用して、eコマースストアに在庫切れバナーを表示します。
 
-|プロパティ名|タイプ|値|
+| プロパティ名 | タイプ | 値 |
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
+| `banner_height`|`number`|`75`|
+| `banner_color`|`string`|`blue`|
+| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
 |`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
+| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
+| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2a:カスタムプロパティを作成する" }
 
 {% alert tip %}
-追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10 KB に制限されています。プロパティ値とキーの長さはともに255文字に制限されている。
+追加できるプロパティ数に制限はありません。ただし、フィーチャーフラグのプロパティは合計10 KBに制限されています。プロパティ値とキーの長さはともに255文字に制限されています。
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-### ステップ 4:ターゲットとするセグメントを選ぶ
+### ステップ4:ターゲットとするセグメントを選ぶ {#step-4-choose-segments-to-target}
 
-フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[セグメント]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**Add Rule**を選択し、フィルターグループドロップダウンメニューとSegmentドロップダウンメニューを使用して、対象のオーディエンスからフィルター ユーザーアウトします。複数のフィルター を追加すると、オーディエンスがさらに狭くなります。
+フィーチャーフラグをロールアウトする前に、ターゲットとするユーザーの[セグメント]({{site.baseurl}}/user_guide/engagement_tools/segments/)を選択する必要があります。新しく作成したフラグで**ルールを追加**を選択し、フィルターグループとセグメントのドロップダウンメニューを使って、ターゲットオーディエンスからユーザーを絞り込みます。複数のフィルターを追加して、オーディエンスをさらに絞り込みます。
 
-![Segment s およびフィルター s を追加できるロールアウトトラフィックとラベル付けされたテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![セグメントとフィルターを追加できる「ロールアウトトラフィック」というラベルのテキストボックス。]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
-### ステップ 5: ロールアウト・トラフィックを設定する {#rollout}
+### ステップ5:ロールアウトトラフィックを設定する {#rollout}
 
-デフォルトでは、フィーチャーフラグ s は常時非アクティブになっています。これにより、機能のリリース日をユーザーの総アクティベーション日数から分離できます。ロールアウトを開始するには、**Rollout Traffic** セクションを使用して、テキストボックスにパーセンタグe を入力します。これにより、この新機能を受信するために、選択したSegment内の任意のユーザー のパーセンタグe が選択されます。
+デフォルトでは、フィーチャーフラグは常に無効になっています。これにより、機能リリースの日付と全ユーザーへの有効化を分離できます。ロールアウトを開始するには、**ロールアウトトラフィック**セクションのテキストボックスにパーセンテージを入力します。これにより、選択したセグメント内のランダムなユーザーの割合が決定され、この新機能がそのユーザーに提供されます。
 
 {% alert important %}
-新機能の本番準備が整うまでは、ロールアウトのトラフィックを0％以上に設定しないこと。ダッシュボードで最初にフィーチャーフラグを定義する際、この設定は0％のままにします。
+新機能の本番準備が整うまでは、ロールアウトトラフィックを0%以上に設定しないでください。ダッシュボードで最初にフィーチャーフラグを定義する際、この設定は0%のままにしてください。
 {% endalert %}
 
 {% alert important %}
-1 つのルールのみでフラグをロールアウトするか、単数のオーディエンスにロールアウトするには、セグメンテーションの条件で最初のルールを追加し、ロールアウトは選択されたタグを認識します。最後に、**Everyone Else**ルールがオフに切り替えられていることを確認し、フラグを保存します。
+単一のルールまたは単一のオーディエンスにフラグをロールアウトする場合は、セグメンテーション基準とロールアウト割合を選択した最初のルールを追加します。最後に、**その他のユーザー**ルールがオフになっていることを確認し、フラグを保存します。
 {% endalert %}
 
-## マルチルールフィーチャーフラグ展開
+## 複数ルールによるフィーチャーフラグのロールアウト {#multi-rule-feature-flag-rollouts}
 
-複数ルールフィーチャーフラグのロールアウトを使用して、ユーザー を評価するための一連のルールを定義します。これにより、正確なセグメンテーションとコントロール主導機能のリリースが可能になります。このメソッドは、同じ機能を多様なオーディエンスs にデプロイする場合にアイデアです。 
+複数ルールによるフィーチャーフラグのロールアウトを使用して、ユーザー評価のルールシーケンスを定義します。これにより、精密なセグメンテーションとコントロールされた機能リリースが可能になります。この方法は、同じ機能を多様なオーディエンスに展開するのに最適です。
 
-### 評価順序
+### 評価順序 {#evaluation-order}
 
-機能フラグルールは、リストされている順に上から下に評価されます。ユーザーは、最初に満たす規則に適しています。ユーザーがルールを満たさない場合、その適格性はデフォルト "Everyone Else"ルールによって決定されます。
+フィーチャーフラグのルールは、リストされている順序で上から下へ評価されます。ユーザーは最初に満たしたルールに該当します。ユーザーがどのルールにも該当しない場合、その適格性はデフォルトの「その他のユーザー」ルールによって決定されます。
 
-### ユーザー資格
+### ユーザーの適格性 {#user-qualification}
 
-- ユーザーが最初のルールの基準を満たす場合、すぐにフィーチャーフラグを受け取る資格があります。
-- ユーザーが最初のルールに適していない場合は、2 番目のルールに対して評価されます。
+- ユーザーが最初のルールの条件を満たした場合、そのユーザーは直ちにフィーチャーフラグを受け取る資格を得ます。
+- ユーザーが最初のルールに該当しない場合、2番目のルールで評価され、以下同様に続きます。
 
-順次評価は、ユーザーがルールに適格であるか、"Everyone Else"ルールが一覧の下部に表示されるまで継続されます。
+順次評価は、ユーザーがルールの条件を満たすか、リストの一番下にある「その他のユーザー」ルールに到達するまで続きます。
 
-### "Everyone Else"ルール
+### 「その他のユーザー」ルール {#everyone-else-rule}
 
-"Everyone Else"ルールはデフォルトとして機能します。ユーザーが前述のルールに適格でない場合、フィーチャーフラグの適格性は、"Everyone Else"ルールの切り替え設定によって決定されます。たとえば、"Everyone Else"ルールが"Off"に切り替えられている場合、デフォルトステートでは、他のルールの基準を満たさないユーザーは、セッションの起動時にフィーチャーフラグを受け取りません。
+「その他のユーザー」ルールはデフォルトとして機能します。ユーザーが先行するいずれのルールにも該当しない場合、そのフィーチャーフラグの適用可否は「その他のユーザー」ルールのトグル設定によって決定されます。例えば、「その他のユーザー」ルールが「オフ」に設定されている場合、デフォルト状態では、他のどのルールの条件にも該当しないユーザーは、セッション開始時にフィーチャーフラグを受け取りません。
 
-### ルールの並べ替え
+### ルールの並べ替え {#re-ordering-rules}
 
-デフォルトでは、ルールは作成された順序で並べ替えられますが、ダッシュボードでドラッグアンドドロップすることで、これらのルールを並べ替えることができます。
+デフォルトでは、ルールは作成された順序で並べられますが、ダッシュボード上でルールをドラッグ＆ドロップすることで順序を変更できます。
 
-![ユーザーがフィーチャーフラグに規則を追加できることを示す"画像。]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![ユーザーがフィーチャーフラグにルールを追加できることを示す画像。]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![複数のルールが追加され、他のすべてのルールがあるフィーチャーフラグのサマリーを示す"画像。]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![複数のルールが追加され、さらに「その他のユーザー」ルールが設定されたフィーチャーフラグの概要を示す画像。]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
-### マルチルールフィーチャーフラグ ユースケースs
+### 複数ルールによるフィーチャーフラグのユースケース {#multi-rule-feature-flag-use-cases}
 
-#### チェックアウトページを徐々にリリースする
+#### チェックアウトページを段階的にリリースする {#gradually-release-a-checkout-page}
 
-たとえば、eコマースブランドで働いていて、安定性を確保するためにさまざまな地域で展開したい新しいチェックアウトページがあるとしましょう。複数ルールフィーチャーフラグs を使用して、以下を設定できます。
+例えば、eコマースブランドで働いていて、新しいチェックアウトページを安定性を確保しながら異なる地域に展開したい場合を考えてみましょう。複数ルールのフィーチャーフラグを使用すると、以下の設定が可能です。
 
-- **ルール 1:**米国のSegmentは100%に設定されています。
-- **ルール 2:**あなたのSegmentはあなたのブラジルのユーザーの50%に設定されているので、それらのすべてが一度に流れを受け取るわけではありません。 
-- **ルール 3 (Everyone Else):**他のすべてのユーザーでは、"Everyone Else"を切り替えて、すべてのユーザーの一部が新しいフローでチェックアウトできるように15%に設定します。
+- **ルール1:** 米国セグメントを100%に設定します。
+- **ルール2:** ブラジルユーザーの50%に設定し、全員が同時にフローを受け取らないようにします。
+- **ルール3（その他のユーザー）:** その他の全ユーザーに対しては、「その他のユーザー」ルールを有効にし、15%に設定します。これにより、全ユーザーの一部が新しいフローでチェックアウトできるようになります。
 
-#### 最初に内部テスタに到達する
+#### まず内部テスターに届ける {#reach-internal-testers-first}
 
-あなたは、新商品を発売するときに、必ず内部テスターがフィーチャーフラグを受け取るようにしたい商品マネージャーだとしましょう。内部 テスタは、最初のルールにSegment追加し、100% に設定することで、各機能のロールアウト時に内部テスタを使用できます。
+例えば、プロダクトマネージャーとして、新製品をリリースする際に内部テスターが常にフィーチャーフラグを受け取れるようにしたい場合を考えてみましょう。内部テスターのセグメントを最初のルールに追加し、100%に設定すれば、内部テスターはすべての機能ロールアウト時に対象となります。
 
-## 機能フラグの"enabled"フィールドの使用 {#enabled}
+## フィーチャーフラグの「enabled」フィールドの使用 {#enabled}
 
-フィーチャーフラグを定義したら、アプリまたはサイトを設定して、特定のユーザーで有効になっているかどうかを確認します。有効になったら、ユースケースに応じて何らかのアクションを設定するか、機能フラグの変数プロパティを参照する。Braze SDKは、機能フラグのステータスとそのプロパティをアプリに取り込むためのゲッターメソッドを提供する。 
+フィーチャーフラグを定義したら、アプリやサイトを設定して、特定のユーザーに対してそのフィーチャーフラグが有効かどうかを確認するようにします。有効になったら、ユースケースに応じて何らかのアクションを設定するか、フィーチャーフラグの変数プロパティを参照します。Braze SDKは、フィーチャーフラグのステータスとそのプロパティをアプリに取り込むためのゲッターメソッドを提供します。
 
-フィーチャーフラグはセッション開始時に自動的に更新されるため、起動時に機能の最新バージョンを表示できます。SDKはこれらの値をキャッシュし、オフラインの状態でも使用できるようにする。 
+フィーチャーフラグはセッション開始時に自動的に更新されるため、起動時に機能の最新バージョンを表示できます。SDKはこれらの値をキャッシュし、オフラインの状態でも使用できるようにします。
 
 {% alert note %}
-[フィーチャーフラッグのインプレッション](#impressions)を必ず記録してください。
+[フィーチャーフラグのインプレッション](#impressions)を必ず記録してください。
 {% endalert %}
 
-たとえば、アプリに新しいタイプのユーザープロファイルをロールアウトするとします。`ID` を `expanded_user_profile` に設定することもできます。次に、この新しいユーザープロファイルを特定のユーザーに表示するかどうかをアプリで確認します。以下に例を示します。
+たとえば、アプリに新しいタイプのユーザープロファイルをロールアウトするとします。`ID`を`expanded_user_profile`に設定します。次に、この新しいユーザープロファイルを特定のユーザーに表示するかどうかをアプリで確認します。以下に例を示します。
 
 {% tabs %}
 {% tab Web %}
@@ -153,7 +154,7 @@ if (featureFlag?.enabled) {
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 let featureFlag = braze.featureFlags.featureFlag(id: "expanded_user_profile")
 if featureFlag?.enabled == true {
   print("expanded_user_profile is enabled")
@@ -165,7 +166,7 @@ if featureFlag?.enabled == true {
 {% tab Android %}
 {% subtabs local %}
 {% subtab Java %}
-```java
+`````````java
 FeatureFlag featureFlag = braze.getFeatureFlag("expanded_user_profile");
 if (featureFlag != null && featureFlag.getEnabled()) {
   Log.i(TAG, "expanded_user_profile is enabled");
@@ -177,7 +178,7 @@ if (featureFlag != null && featureFlag.getEnabled()) {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 val featureFlag = braze.getFeatureFlag("expanded_user_profile")
 if (featureFlag?.enabled == true) {
   Log.i(TAG, "expanded_user_profile is enabled.")
@@ -191,7 +192,7 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 {% tab React Native %}
 
-```javascript
+`````````javascript
 const featureFlag = await Braze.getFeatureFlag("expanded_user_profile");
 if (featureFlag?.enabled) {
   console.log(`expanded_user_profile is enabled`);
@@ -202,7 +203,7 @@ if (featureFlag?.enabled) {
 
 {% endtab %}
 {% tab Unity %}
-```csharp
+`````````csharp
 var featureFlag = Appboy.AppboyBinding.GetFeatureFlag("expanded_user_profile");
 if (featureFlag != null && featureFlag.Enabled) {
   Console.WriteLine("expanded_user_profile is enabled");
@@ -213,17 +214,17 @@ if (featureFlag != null && featureFlag.Enabled) {
 {% endtab %}
 
 {% tab Cordova %}
-```javascript
+`````````javascript
 const featureFlag = await BrazePlugin.getFeatureFlag("expanded_user_profile");
 if (featureFlag?.enabled) {
-  console.log(`expanded_user_profile is enabled`);  
+  console.log(`expanded_user_profile is enabled`);
 } else {
   console.log(`expanded_user_profile is not enabled`);
 }
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 BrazeFeatureFlag? featureFlag = await braze.getFeatureFlagByID("expanded_user_profile");
 if (featureFlag?.enabled == true) {
   print("expanded_user_profile is enabled");
@@ -234,7 +235,7 @@ if (featureFlag?.enabled == true) {
 {% endtab %}
 
 {% tab Roku %}
-```brightscript
+`````````brightscript
 featureFlag = m.braze.getFeatureFlag("expanded_user_profile")
 if featureFlag <> invalid and featureFlag.enabled
   print "expanded_user_profile is enabled"
@@ -247,21 +248,21 @@ end if
 
 ### フィーチャーフラグのインプレッションをログに記録する {#impressions}
 
-ユーザーが新しい機能を操作する機会があった場合、または機能が無効になっている場合 (AB テストのコントロールグループの場合) にユーザーが操作した__可能性がある__場合は、フィーチャーフラグのインプレッションを追跡します。フィーチャーフラグのインプレッションは、1セッションにつき1回のみ記録されます。 
+ユーザーが新しい機能を操作する機会があった場合、または機能が無効になっている場合（A/Bテストのコントロールグループの場合）にユーザーが操作した__可能性がある__場合は、フィーチャーフラグのインプレッションを追跡します。フィーチャーフラグのインプレッションは、1セッションにつき1回のみ記録されます。
 
-通常、このコード行は、アプリ内でフィーチャーフラグを参照する場所の直下に置くことができます：
+通常、このコード行は、アプリ内でフィーチャーフラグを参照する場所の直下に置くことができます。
 
 {% tabs %}
 {% tab Web %}
 
-```javascript
+`````````javascript
 braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 braze.featureFlags.logFeatureFlagImpression(id: "expanded_user_profile")
 ```
 
@@ -270,14 +271,14 @@ braze.featureFlags.logFeatureFlagImpression(id: "expanded_user_profile")
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 braze.logFeatureFlagImpression("expanded_user_profile")
 ```
 
@@ -286,30 +287,30 @@ braze.logFeatureFlagImpression("expanded_user_profile")
 {% endtab %}
 {% tab React Native %}
 
-```javascript
+`````````javascript
 Braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endtab %}
 {% tab Unity %}
 
-```csharp
+`````````csharp
 Appboy.AppboyBinding.LogFeatureFlagImpression("expanded_user_profile");
 ```
 
 {% endtab %}
 {% tab Cordova %}
-```javascript
+`````````javascript
 BrazePlugin.logFeatureFlagImpression("expanded_user_profile");
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 {% endtab %}
 {% tab Roku %}
-```brightscript
+`````````brightscript
 m.Braze.logFeatureFlagImpression("expanded_user_profile");
 ```
 {% endtab %}
@@ -319,12 +320,12 @@ m.Braze.logFeatureFlagImpression("expanded_user_profile");
 
 フィーチャーフラグのプロパティにアクセスするには、ダッシュボードで定義したタイプに応じて、以下のメソッドのいずれかを使用します。
 
-指定したキーに対応する型のプロパティがない場合、これらのメソッドは`null` を返します。
+指定したキーに対応する型のプロパティが存在しない場合、これらのメソッドは`null`を返します。
 
 {% tabs %}
 {% tab Web %}
 
-```javascript
+`````````javascript
 // Returns the Feature Flag instance
 const featureFlag = braze.getFeatureFlag("expanded_user_profile");
 
@@ -350,7 +351,7 @@ const jsonProperty = featureFlag.getJsonProperty("footer_settings");
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 // Returns the Feature Flag instance
 let featureFlag: FeatureFlag = braze.featureFlags.featureFlag(id: "expanded_user_profile")
 
@@ -378,7 +379,7 @@ let jsonObjectProperty: [String: Any]? = featureFlag.jsonObjectProperty(key: "fo
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 // Returns the Feature Flag instance
 FeatureFlag featureFlag = braze.getFeatureFlag("expanded_user_profile");
 
@@ -404,7 +405,7 @@ JSONObject jsonObjectProperty = featureFlag.getJSONProperty("footer_settings");
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 // Returns the Feature Flag instance
 val featureFlag = braze.getFeatureFlag("expanded_user_profile")
 
@@ -432,7 +433,7 @@ val jsonObjectProperty: JSONObject? = featureFlag.getJSONProperty("footer_settin
 {% endtab %}
 {% tab React Native %}
 
-```javascript
+`````````javascript
 // Returns the String property
 const stringProperty = await Braze.getFeatureFlagStringProperty("expanded_user_profile", "color");
 
@@ -455,7 +456,7 @@ const jsonObjectProperty = await Braze.getFeatureFlagJSONProperty("expanded_user
 {% endtab %}
 {% tab Unity %}
 
-```csharp
+`````````csharp
 // Returns the Feature Flag instance
 var featureFlag = Appboy.AppboyBinding.GetFeatureFlag("expanded_user_profile");
 
@@ -484,7 +485,7 @@ var jsonObjectProperty = featureFlag.GetJSONProperty("footer_settings");
 {% endtab %}
 {% tab Cordova %}
 
-```javascript
+`````````javascript
 // Returns the String property
 const stringProperty = await BrazePlugin.getFeatureFlagStringProperty("expanded_user_profile", "color");
 
@@ -507,7 +508,7 @@ const jsonObjectProperty = await BrazePlugin.getFeatureFlagJSONProperty("expande
 {% endtab %}
 {% tab Flutter %}
 
-```dart
+`````````dart
 // Returns the Feature Flag instance
 BrazeFeatureFlag featureFlag = await braze.getFeatureFlagByID("expanded_user_profile");
 
@@ -533,7 +534,7 @@ var jsonObjectProperty = featureFlag.getJSONProperty("footer_settings");
 {% endtab %}
 {% tab Roku %}
 
-```brightscript
+`````````brightscript
 ' Returns the String property
 color = featureFlag.getStringProperty("color")
 
@@ -561,7 +562,7 @@ footer_settings = featureFlag.getJSONProperty("footer_settings")
 {% tabs %}
 {% tab Web %}
 
-```javascript
+`````````javascript
 const features = getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
@@ -571,7 +572,7 @@ for(const feature of features) {
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 let features = braze.featureFlags.featureFlags
 for let feature in features {
   print("Feature: \(feature.id)", feature.enabled)
@@ -583,7 +584,7 @@ for let feature in features {
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 List<FeatureFlag> features = braze.getAllFeatureFlags();
 for (FeatureFlag feature: features) {
   Log.i(TAG, "Feature: ", feature.getId(), feature.getEnabled());
@@ -593,7 +594,7 @@ for (FeatureFlag feature: features) {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 val featureFlags = braze.getAllFeatureFlags()
 featureFlags.forEach { feature ->
   Log.i(TAG, "Feature: ${feature.id} ${feature.enabled}")
@@ -605,7 +606,7 @@ featureFlags.forEach { feature ->
 {% endtab %}
 {% tab React Native %}
 
-```javascript
+`````````javascript
 const features = await Braze.getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
@@ -615,7 +616,7 @@ for(const feature of features) {
 {% endtab %}
 {% tab Unity %}
 
-```csharp
+`````````csharp
 List<FeatureFlag> features = Appboy.AppboyBinding.GetAllFeatureFlags();
 foreach (FeatureFlag feature in features) {
   Console.WriteLine("Feature: {0} - enabled: {1}", feature.ID, feature.Enabled);
@@ -624,7 +625,7 @@ foreach (FeatureFlag feature in features) {
 
 {% endtab %}
 {% tab Cordova %}
-```javascript
+`````````javascript
 const features = await BrazePlugin.getAllFeatureFlags();
 for(const feature of features) {
   console.log(`Feature: ${feature.id}`, feature.enabled);
@@ -632,7 +633,7 @@ for(const feature of features) {
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 List<BrazeFeatureFlag> featureFlags = await braze.getAllFeatureFlags();
 featureFlags.forEach((feature) {
   print("Feature: ${feature.id} ${feature.enabled}");
@@ -640,7 +641,7 @@ featureFlags.forEach((feature) {
 ```
 {% endtab %}
 {% tab Roku %}
-```brightscript
+`````````brightscript
 features = m.braze.getAllFeatureFlags()
 for each feature in features
       print "Feature: " + feature.id + " enabled: " + feature.enabled.toStr()
@@ -651,16 +652,16 @@ end for
 
 ### フィーチャーフラグを更新する {#refreshing}
 
-セッションの途中で現在のユーザーの機能フラグを更新して、Brazeから最新の値を引き出すことができる。
+セッションの途中で現在のユーザーのフィーチャーフラグを更新して、Brazeから最新の値を取得できます。
 
 {% alert tip %}
-更新はセッション開始時に自動的に行われます。リフレッシュが必要なのは、チェックアウトページをロードする前や、機能フラグが参照されることがわかっている場合など、重要なユーザーアクションの前だけである。
+更新はセッション開始時に自動的に行われます。更新が必要なのは、チェックアウトページの読み込み前や、フィーチャーフラグが参照されることがわかっている場合など、重要なユーザーアクションの前だけです。
 {% endalert %}
 
 {% tabs %}
 {% tab Web %}
 
-```javascript
+`````````javascript
 braze.refreshFeatureFlags(() => {
   console.log(`Feature flags have been refreshed.`);
 }, () => {
@@ -671,7 +672,7 @@ braze.refreshFeatureFlags(() => {
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 braze.featureFlags.requestRefresh { result in
   switch result {
   case .success(let features):
@@ -687,14 +688,14 @@ braze.featureFlags.requestRefresh { result in
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 braze.refreshFeatureFlags();
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 braze.refreshFeatureFlags()
 ```
 
@@ -703,30 +704,30 @@ braze.refreshFeatureFlags()
 {% endtab %}
 {% tab React Native %}
 
-```javascript
+`````````javascript
 Braze.refreshFeatureFlags();
 ```
 
 {% endtab %}
 {% tab Unity %}
 
-```csharp
+`````````csharp
 Appboy.AppboyBinding.RefreshFeatureFlags();
 ```
 
 {% endtab %}
 {% tab Cordova %}
-```javascript
+`````````javascript
 BrazePlugin.refreshFeatureFlags();
 ```
 {% endtab %}
 {% tab Flutter %}
-```dart
+`````````dart
 braze.refreshFeatureFlags();
 ```
 {% endtab %}
 {% tab Roku %}
-```brightscript
+`````````brightscript
 m.Braze.refreshFeatureFlags()
 ```
 {% endtab %}
@@ -734,14 +735,14 @@ m.Braze.refreshFeatureFlags()
 
 ### 変更をリッスンする {#updates}
 
-SDK がフィーチャーフラグを更新するときにアプリをリッスンして更新するように Braze SDK を構成できます。
+SDKがフィーチャーフラグを更新するときにアプリをリッスンして更新するようにBraze SDKを構成できます。
 
-これは、ユーザーがある機能を利用できなくなった場合に、アプリを更新したい場合に便利です。たとえば、ある機能が有効になっているかどうか、またはそのプロパティ値の1つに基づいて、アプリの状態を設定する場合です。
+これは、ユーザーがある機能を利用できなくなった場合にアプリを更新したい場合に便利です。たとえば、ある機能が有効かどうか、またはそのプロパティ値の1つに基づいて、アプリの状態を設定する場合です。
 
 {% tabs %}
 {% tab Web %}
 
-```javascript
+`````````javascript
 // Register an event listener
 const subscriptionId = braze.subscribeToFeatureFlagsUpdates((features) => {
   console.log(`Features were updated`, features);
@@ -753,7 +754,7 @@ braze.removeSubscription(subscriptionId);
 {% endtab %}
 {% tab Swift %}
 
-```swift
+`````````swift
 // Create the feature flags subscription
 // - You must keep a strong reference to the subscription to keep it active
 let subscription = braze.featureFlags.subscribeToUpdates { features in
@@ -768,7 +769,7 @@ subscription.cancel()
 {% subtabs local %}
 {% subtab Java %}
 
-```java
+`````````java
 braze.subscribeToFeatureFlagsUpdates(event -> {
   Log.i(TAG, "Feature flags were updated.");
   for (FeatureFlag feature: event.getFeatureFlags()) {
@@ -780,7 +781,7 @@ braze.subscribeToFeatureFlagsUpdates(event -> {
 {% endsubtab %}
 {% subtab Kotlin %}
 
-```kotlin
+`````````kotlin
 braze.subscribeToFeatureFlagsUpdates() { event ->
   Log.i(TAG, "Feature flags were updated.")
   event.featureFlags.forEach { feature ->
@@ -794,7 +795,7 @@ braze.subscribeToFeatureFlagsUpdates() { event ->
 {% endtab %}
 {% tab React Native %}
 
-```javascript
+`````````javascript
 // Register an event listener
 Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
   console.log(`featureFlagUpdates`, JSON.stringify(featureFlags));
@@ -804,11 +805,11 @@ Braze.addListener(braze.Events.FEATURE_FLAGS_UPDATED, (featureFlags) => {
 {% endtab %}
 {% tab Unity %}
 
-変更をリッスンするには、[**Braze 構成**] > [**フィーチャーフラグ**] の [**Game オブジェクト名**] と [**Callback メソッド名**] の値を、アプリケーションの対応する値に設定します。
+変更をリッスンするには、**Braze Configuration** > **Feature Flags**の**Game Object Name**と**Callback Method Name**の値を、アプリケーションの対応する値に設定します。
 
 {% endtab %}
 {% tab Cordova %}
-```javascript
+`````````javascript
 // Register an event listener
 BrazePlugin.subscribeToFeatureFlagUpdates((featureFlags) => {
     console.log(`featureFlagUpdates`, JSON.stringify(featureFlags));
@@ -817,9 +818,9 @@ BrazePlugin.subscribeToFeatureFlagUpdates((featureFlags) => {
 {% endtab %}
 {% tab Flutter %}
 
-アプリのDartコードでは、以下のサンプル・コードを使用する：
+アプリのDartコードでは、以下のサンプルコードを使用します。
 
-```dart
+`````````dart
 // Create stream subscription
 StreamSubscription featureFlagsStreamSubscription;
 
@@ -831,24 +832,31 @@ featureFlagsStreamSubscription = braze.subscribeToFeatureFlags((featureFlags) {
 featureFlagsStreamSubscription.cancel();
 ```
 
-次に、iOSのネイティブ・レイヤーにもこれらの変更を加える。Android のレイヤーには、追加のステップは必要ないことに注意してください。
+{% subtabs %}
+{% subtab Flutter SDK 18.0.0以降 %}
 
-1. [subscribeToUpdates](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/subscribetoupdates(_:)) のドキュメントで説明されているように、`featureFlags.subscribeToUpdates` を実装してフィーチャーフラグの更新をサブスクライブします。
+フィーチャーフラグのデータは、AndroidとiOSの両方のネイティブレイヤーから自動的に転送されます。追加のセットアップは不要です。
 
-2. `featureFlags.subscribeToUpdates` コールバックの実装では `BrazePlugin.processFeatureFlags(featureFlags)` を呼び出す必要があります。
+{% endsubtab %}
+{% subtab Flutter SDK 17.1.0以前 %}
 
-例としては [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift)を参照のこと。
+Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイヤーからのフィーチャーフラグデータの転送には手動セットアップが必要です。アプリケーションには、`BrazePlugin.processFeatureFlags(featureFlags)`を呼び出す`featureFlags.subscribeToUpdates`コールバックが含まれている可能性があります。Flutter SDK 18.0.0に移行するには、`BrazePlugin.processFeatureFlags(_:)`の呼び出しを削除してください。データ転送は自動的に処理されるようになりました。
+
+例については、Braze Flutter SDKサンプルアプリケーションの[AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift)を参照してください。
+
+{% endsubtab %}
+{% endsubtabs %}
 
 {% endtab %}
 {% tab Roku %}
-```brightscript
+`````````brightscript
 ' Define a function called `onFeatureFlagChanges` to be called when feature flags are refreshed
 m.BrazeTask.ObserveField("BrazeFeatureFlags", "onFeatureFlagChanges")
 ```
 {% endtab %}
 
 {% tab React Hook %}
-```typescript
+`````````typescript
 import { useEffect, useState } from "react";
 import {
   FeatureFlag,
@@ -877,79 +885,78 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 {% endtab %}
 {% endtabs %}
 
-## ユーザー適格性の確認
+## ユーザーの適格性を確認する {#checking-user-eligibility}
 
-どのフィーチャーフラグs のユーザーがBrazeで適格であるかを確認するには、**Audience**> **検索ユーザー**に移動し、ユーザーを検索して選択します。
+Brazeでユーザーがどのフィーチャーフラグを利用できるか確認するには、**オーディエンス** > **ユーザーを検索**に移動し、ユーザーを検索して選択します。
 
-**フィーチャーフラグ s Eligibility**タブでは、対象となるフィーチャーフラグの一覧をプラットフォーム、ライセンス、または機器ごとにフィルターできます。また、フィーチャーフラグの横にある<i class="fa-solid fa-eye"></i>を選択して、ユーザーに返される給与読み込むをプレビューすることもできます。
+**フィーチャーフラグの適格性**タブでは、プラットフォーム、アプリケーション、またはデバイスごとに適格なフィーチャーフラグのリストをフィルターできます。フィーチャーフラグの横にある<i class="fa-solid fa-eye"></i>を選択することで、ユーザーに返されるペイロードをプレビューすることもできます。
 
-![ユーザーが適格であるフィーチャーフラグのテーブルを示す"画像。]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![ユーザーが利用可能なフィーチャーフラグの一覧表を示す画像。]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
-## 変更履歴を見る
+## 変更ログを表示する {#viewing-the-changelog}
 
-フィーチャーフラグの変更ログを見るには、フィーチャーフラグを開き、[**変更ログ**] を選択します。
+フィーチャーフラグの変更ログを表示するには、フィーチャーフラグを開き、**変更ログ**を選択します。
 
-![フィーチャーフラグの"Edit"ページ。"Changelog"ボタンがハイライトされています。]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![フィーチャーフラグの「編集」ページで、「変更ログ」ボタンが強調表示されている。]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
-ここでは、いつ変更されたのか、誰が変更したのか、どのカテゴリーに属するのか、などを確認できます。
+ここでは、いつ変更されたのか、誰が変更したのか、どのカテゴリーに属するのかなどを確認できます。
 
 ![選択したフィーチャーフラグの変更ログ。]({% image_buster /assets/img/feature_flags/changelog/changelog.png %}){: style="max-width:90%;"}
 
 ## フィーチャーフラグでセグメント化する {#segmentation}
 
-Braze は、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[[**フィーチャーフラグ**] フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags) を使ってセグメントまたはターゲットメッセージングを作成できます。セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
+Brazeは、現在フィーチャーフラグが有効になっているユーザーを自動的に追跡します。[**フィーチャーフラグ**フィルター]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags)を使ってセグメントまたはターゲットメッセージングを作成できます。セグメントでのフィルタリングの詳細については、[セグメントの作成]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/)を参照してください。
 
-![" フィルター s" section with " Feature Flag" をフィルター検索バーに入力します。]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
+![「フィルター」セクションで、フィルター検索バーに「フィーチャーフラグ」と入力した状態。]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-再帰的なセグメントを防ぐため、他のフィーチャーフラグを参照するセグメントを作成することはできない。
+再帰的なセグメントを防ぐため、他のフィーチャーフラグを参照するセグメントを作成することはできません。
 {% endalert %}
 
-## ベストプラクティス
+## ベストプラクティス {#best-practices}
 
-### ロールアウトをキャンバスや実験と一緒にしてはいけない
+### ロールアウトをキャンバスや実験と組み合わせない {#dont-combine-rollouts-with-canvases-or-experiments}
 
-異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウト・スライダーをゼロより大きな値に設定するか、キャンバスまたは実験で機能フラグを有効にする必要がある。ベストプラクティスとして、キャンバスや実験で機能フラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておくこと。
+異なるエントリーポイントによってユーザーが有効になったり無効になったりするのを避けるには、ロールアウトスライダーをゼロより大きな値に設定するか、キャンバスまたは実験でフィーチャーフラグを有効にするかのいずれかにしてください。ベストプラクティスとして、キャンバスや実験でフィーチャーフラグを使用する予定がある場合は、ロールアウトのパーセンテージをゼロにしておいてください。
 
-### 命名規則
+### 命名規則 {#naming-conventions}
 
-コードを明確で一貫性のあるものにするために、フィーチャー・フラグIDに名前をつけるときは、以下のフォーマットを使うことを検討しよう：
+コードを明確で一貫性のあるものにするために、フィーチャーフラグIDに名前を付けるときは、以下のフォーマットを使用することを検討してください。
 
-```plaintext
+`````````plaintext
 BEHAVIOR_PRODUCT_FEATURE
 ```
 
 次のように置き換えます。
 
-| placeholder | 説明                                                                                                               |
+| プレースホルダー | 説明                                                                                                               |
 |-------------|---------------------------------------------------------------------------------------------------------------------------|
-| `BEHAVIOR`  | 機能の動作。コードでは、その動作がデフォルトで無効になっていることを確認し、機能フラグ名に`disabled` のような表現を使わないようにする。 |
-| `PRODUCT`   | その機能が属する製品。                                                                                       |
-| `FEATURE`    | 機能の名前。                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `BEHAVIOR`  | 機能の動作です。コードでは、その動作がデフォルトで無効になっていることを確認し、フィーチャーフラグ名に`disabled`のような表現を使わないようにしてください。 |
+| `PRODUCT`   | その機能が属する製品です。                                                                                       |
+| `FEATURE`    | 機能の名前です。                                                                                                  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="命名規則" }
 
-`show` が動作、`animation_profile` が製品、`driver` が機能であるフィーチャーフラグの例を次に示します。
+`show`が動作、`animation_profile`が製品、`driver`が機能であるフィーチャーフラグの例を次に示します。
 
-```plaintext
+`````````plaintext
 show_animation_profile_driver
 ```
 
-### 計画を立てる
+### 事前に計画する {#planning-ahead}
 
-常に安全策を取る。オフスイッチを必要とする可能性のある新機能を検討する場合、新しいアプリのアップデートが必要だと気づくよりも、機能フラグ付きの新しいコードをリリースし、それを必要としない方が良い。
+常に安全策を取りましょう。オフスイッチが必要になる可能性のある新機能を検討する場合、新しいアプリのアップデートが必要だと後から気づくよりも、フィーチャーフラグ付きの新しいコードをリリースして結果的に不要だった方がはるかに良いです。
 
-### 記述的にする
+### 説明を記述する {#be-descriptive}
 
-機能フラグに説明を追加する。これはBrazeのオプションフィールドであるが、利用可能な機能フラグを参照する際に、他の人が持つかもしれない質問に答えるのに役立つ。
+フィーチャーフラグに説明を追加しましょう。これはBrazeのオプションフィールドですが、利用可能なフィーチャーフラグを参照する際に他の人が持つかもしれない疑問に答えるのに役立ちます。
 
-- このフラッグの有効化と動作の責任者の連絡先詳細
-- このフラグを無効にする必要がある場合
+- このフラグのイネーブルメントと動作の責任者の連絡先
+- このフラグを無効にすべきタイミング
 - このフラグが制御する新機能に関するドキュメントやメモへのリンク
-- 依存関係や機能の使用方法に関する注意事項がある場合
+- 依存関係や機能の使用方法に関する注意事項
 
-### 古い機能フラグを整理する
+### 古いフィーチャーフラグを整理する {#clean-up-old-feature-flags}
 
-私たちは皆、必要以上に長い間、100%のロールアウトで機能を放置してしまっています。
+必要以上に長い間、100%のロールアウトで機能を放置してしまうことは誰にでもあります。
 
-コード (および Braze ダッシュボード) をクリーンに保つために、すべてのユーザーがアップグレードを完了し、機能を無効にするオプションが不要になったら、コードベースから永久フィーチャーフラグを削除します。これは、開発環境の複雑さを軽減するだけでなく、機能フラグのリストを整理整頓するのにも役立つ。
-
+コード（およびBrazeダッシュボード）をクリーンに保つために、すべてのユーザーがアップグレードを完了し、機能を無効にするオプションが不要になったら、コードベースから永久フィーチャーフラグを削除してください。これにより、開発環境の複雑さが軽減されるだけでなく、フィーチャーフラグのリストも整理整頓されます。

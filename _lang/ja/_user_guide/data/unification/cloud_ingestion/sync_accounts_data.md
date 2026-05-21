@@ -1,49 +1,49 @@
 ---
 nav_title: アカウントデータの同期と削除
-article_title: CDIを使用してアカウントデータを同期する
-page_order: 4
+article_title: CDIを使ってアカウントデータを同期する
+page_order: 5
 page_type: reference
-description: "CDIを使用してBrazeアカウントデータを同期する方法を学習する。"
+description: "CDIを使ってBrazeアカウントデータを同期する方法を学習します。"
 
 ---
 
-# CDIを使用してアカウントデータを同期する
+# CDIを使ってアカウントデータを同期する {#sync-account-data-using-cdi}
 
-> CDIを使用してBrazeアカウントデータを同期する方法を学習する。
+> CDIを使ってBrazeアカウントデータを同期する方法を学習します。
 
 {% alert important %}
-[アカウント・オブジェクトは](https://braze.com/unlisted_docs/account_opportunity_object/)ベータ版であり、この機能を使用するために必要である。ベータ版への参加に興味がある場合は、Braze のアカウントマネージャーに連絡してください。
+[アカウントオブジェクト](https://braze.com/unlisted_docs/account_opportunity_object/)はベータ版であり、この機能を利用するには必須です。ベータ版への参加に興味がある場合は、Brazeのアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-CDIを使ってアカウントデータを同期する前に、[アカウントスキーマを設定する](https://braze.com/unlisted_docs/account_opportunity_object/)必要がある。
+CDIを使ってアカウントデータを同期する前に、[アカウントスキーマを設定](https://braze.com/unlisted_docs/account_opportunity_object/)する必要があります。
 
 {% alert note %}
-データウェアハウスのデータとBrazeのスキーマ間のコンフリクトを避けるため、シンクが一時停止されているか、スケジュールされていないときにのみ、アカウントスキーマの更新を行う。
+アカウントスキーマの更新は、同期が一時停止中かスケジュールされていないときのみ行ってください。データウェアハウスのデータとBraze内のスキーマとの間で競合が発生するのを防ぐことができます。
 {% endalert %}
 
-## 同期の仕組み
+## 同期の仕組み {#how-syncing-works}
 
-- 各同期は、`UPDATED_AT` が最後に同期されたタイムスタンプより後の行をインポートする。
-- 統合からのデータは、提供された`id` に基づいてアカウントを作成または更新する。
-- `DELETED` が`true` の場合、アカウントは削除される。
-- 同期ではデータポイントのログは記録されないが、同期されたデータはすべて、保存されたデータの合計で測定されるアカウントの使用量にカウントされる。
-- 新しいフィールドを同期する前にスキーマを更新する。
-- シンク名の上にカーソルを置き、関連するアクションを選択することで、シンクの更新、再開、一時停止ができる。
+- 各同期では、最終同期タイムスタンプより`UPDATED_AT`が後の行がインポートされます。境界タイムスタンプと完全に一致する行は、同じタイムスタンプを持つ新しい行がある場合に再同期されることがあります。詳しくは、[重複タイムスタンプを持つ行の再同期を避ける]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+- 統合からのデータは、提供された`id`に基づいてアカウントを作成または更新します。
+- `DELETED`が`true`の場合、アカウントは削除されます。
+- 同期処理ではデータポイントは記録されませんが、同期されたすべてのデータはアカウントの総使用量（保存データ総量で測定）に算入されます。変更データのみに制限する必要はありません。
+- アカウントスキーマにないフィールドは破棄されます。新しいフィールドを同期する前にスキーマを更新してください。
+- 同期名にカーソルを合わせて該当するアクションを選択することで、同期の更新、再開、または一時停止ができます。
 
-## アカウントデータを同期する
+## アカウントデータを同期する {#sync-your-account-data}
 
-CDIを使えば、データウェアハウスやファイルストレージを通じてアカウントデータを同期できる。
+CDIを使って、データウェアハウスやファイルストレージを介してアカウントデータを同期できます。
 
 {% tabs local %}
 {% tab Data Warehouse %}
-データソースとデータウェアハウスを統合する：
+データソースをデータウェアハウスと統合するには：
 
 {% subtabs %}
 {% subtab Snowflake %}
 
-1. Snowflakeでソーステーブルを作成する。例の名前を使うか、独自のデータベース名、スキーマ名、テーブル名を選択する。テーブルの代わりにビューやマテリアライズド・ビューを使うこともできる。
+1. Snowflakeにソーステーブルを作成します。例にある名前を使うか、独自のデータベース、スキーマ、テーブル名を選択してください。テーブルの代わりにビューやマテリアライズドビューを使うこともできます。
   ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -59,7 +59,7 @@ CDIを使えば、データウェアハウスやファイルストレージを�
          DELETED BOOLEAN
     );
     ```
-2. Create a role, warehouse, and user, and grant permissions. If you already have credentials from another sync, you can reuse them—make sure they have access to the accounts table.
+2. ロール、ウェアハウス、ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
     ```sql
     CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -73,19 +73,19 @@ CDIを使えば、データウェアハウスやファイルストレージを�
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. If you use network policies, allowlist the Braze IPs so the CDI service can connect. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-4. In the Braze dashboard, go to **Data Settings** > **Cloud Data Ingestion** and create a new sync.
-5. Enter connection details (or reuse existing ones), then add the source table.
-6. Select the **Accounts** sync type, then enter the integration name and schedule. 
-7. Choose the sync frequency.
-8. Add the public key from the dashboard to the user you created. This requires a user with `SECURITYADMIN` access or higher in Snowflake. 
-9. Select **Test Connection** to confirm the setup. 
-10. When you're finished, save the sync.
+3. ネットワークポリシーを使用している場合は、CDIサービスが接続できるようにBrazeのIPを許可リストに追加してください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
+4. Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み**に移動し、新しい同期を作成します。
+5. 接続の詳細を入力（または既存のものを再利用）し、ソーステーブルを追加します。
+6. **Accounts**同期タイプを選択し、統合名とスケジュールを入力します。
+7. 同期頻度を選択します。
+8. ダッシュボードから公開キーを、作成したユーザーに追加します。これにはSnowflakeで`SECURITYADMIN`以上のアクセス権を持つユーザーが必要です。
+9. **Test Connection**を選択してセットアップを確認します。
+10. 完了したら、同期を保存します。
 
 {% endsubtab %}
 {% subtab Redshift %}
 
-1. Create a source table in Redshift. Use the names in the example or choose your own database, schema, and table names. You can also use a view or materialized view instead of a table.
+1. Redshiftにソーステーブルを作成します。例にある名前を使うか、独自のデータベース、スキーマ、テーブル名を選択してください。テーブルの代わりにビューやマテリアライズドビューを使うこともできます。
     ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -101,25 +101,25 @@ CDIを使えば、データウェアハウスやファイルストレージを�
        deleted boolean
     )
     ```
-2. Create a user and grant permissions. If you already have credentials from another sync, you can reuse them—make sure they have access to the accounts table.
+2. ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
     {% raw %}
-    ```sql 
+    ```sql
     CREATE USER braze_user PASSWORD '{password}';
     GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION to braze_user;
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. If you have a firewall or network policies, allow Braze access to your Redshift instance. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. ファイアウォールやネットワークポリシーがある場合は、BrazeがRedshiftインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab BigQuery %}
 
-1. (Optional) Create a new project or dataset for your source table.  
+1. （オプション）ソーステーブル用に新しいプロジェクトまたはデータセットを作成します。
     ```sql
     CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
     ```
 
-2. Create the source table for your CDI integration:  
+2. CDI統合用のソーステーブルを作成します：
     ```sql
     CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.ACCOUNTS_SYNC`
     (
@@ -131,42 +131,42 @@ CDIを使えば、データウェアハウスやファイルストレージを�
     );
     ```
 
-    Refer to the following when creating your source table:
+    ソーステーブルを作成する際は、以下を参照してください：
 
-    | Field Name | Type | Required? |
+    | フィールド名 | 型 | 必須？ |
     | ---------- | ---- | --------- |
-    | `UPDATED_AT` | Timestamp | Yes |
-    | `PAYLOAD` | JSON | Yes |
-    | `ID` | String | Yes |
-    | `NAME` | String | Yes |
-    | `DELETED` | Boolean | Optional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    | `UPDATED_AT` | タイムスタンプ | はい |
+    | `PAYLOAD` | JSON | はい |
+    | `ID` | 文字列 | はい |
+    | `NAME` | 文字列 | はい |
+    | `DELETED` | ブール値 | オプション |
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
-3. Create a user and grant permissions. If you already have credentials from another sync, you can reuse them as long as they have access to the accounts table.
+3. ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は、アカウントテーブルへのアクセス権がある限り再利用できます。
 
-    | Permission | Purpose |
+    | 権限 | 目的 |
     |------------|---------|
-    | BigQuery Connection User | Allows Braze to connect. |
-    | BigQuery User | Allows Braze to run queries, read metadata, and list tables. |
-    | BigQuery Data Viewer | Allows Braze to view datasets and contents. |
-    | BigQuery Job User | Allows Braze to run jobs. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    | BigQuery Connection User | Brazeが接続できるようにします。 |
+    | BigQuery User | Brazeがクエリの実行、メタデータの読み取り、テーブルの一覧表示を行えるようにします。 |
+    | BigQuery Data Viewer | Brazeがデータセットとコンテンツを表示できるようにします。 |
+    | BigQuery Job User | Brazeがジョブを実行できるようにします。 |
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sync your account data" }
 
-    After granting permissions, generate a JSON key. See [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) for instructions. You’ll upload it in the Braze dashboard later.
+    権限を付与した後、JSONキーを生成します。手順については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。後でBrazeダッシュボードにアップロードします。
 
 {:start="4"}
-4. If you use network policies, allow Braze IPs to access your BigQuery instance. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. ネットワークポリシーを使用している場合は、BrazeのIPがBigQueryインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab Databricks %}
 
-1. Create a catalog or schema for your source table.  
+1. ソーステーブル用にカタログまたはスキーマを作成します。
     ```sql
     CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
     ```
 
-2. Create the source table for your CDI integration:  
+2. CDI統合用のソーステーブルを作成します：
     ```sql
     CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.ACCOUNTS_SYNC`
     (
@@ -178,34 +178,34 @@ CDIを使えば、データウェアハウスやファイルストレージを�
     );
     ```
 
-    Refer to the following when creating your source table:
+    ソーステーブルを作成する際は、以下を参照してください：
 
-    | Field Name | Type | Required? |
+    | フィールド名 | 型 | 必須？ |
     | ---------- | ---- | --------- |
-    | `UPDATED_AT` | Timestamp | Yes |
-    | `PAYLOAD` | String, Struct, or Map | Yes |
-    | `ID` | String | Yes |
-    | `NAME` | String | Yes |
-    | `DELETED` | Boolean | Optional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    | `UPDATED_AT` | タイムスタンプ | はい |
+    | `PAYLOAD` | 文字列、Struct、またはMap | はい |
+    | `ID` | 文字列 | はい |
+    | `NAME` | 文字列 | はい |
+    | `DELETED` | ブール値 | オプション |
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
-3. Create a personal access token in Databricks:
-    1. Select your username, then select **User Settings**.  
-    2. On the **Access tokens** tab, select **Generate new token**.  
-    3. Add a comment to identify the token, such as "Braze CDI".  
-    4. Leave **Lifetime (days)** blank for no expiration, then select **Generate**.  
-    5. Copy and save the token securely for use in the Braze dashboard.
+3. Databricksでパーソナルアクセストークンを作成します：
+    1. ユーザー名を選択し、**User Settings**を選択します。
+    2. **Access tokens**タブで、**Generate new token**を選択します。
+    3. トークンを識別するためのコメント（例：「Braze CDI」）を追加します。
+    4. 有効期限を設定しない場合は**Lifetime (days)**を空白のままにし、**Generate**を選択します。
+    5. トークンをコピーし、Brazeダッシュボードで使用するために安全に保存します。
 
 {:start="4"}
-4. If you use network policies, allow Braze IPs to access your Databricks instance. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+4. ネットワークポリシーを使用している場合は、BrazeのIPがDatabricksインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
 
-1. Create one or more tables for your CDI integration with these fields:
+1. CDI統合用に、以下のフィールドを持つテーブルを1つ以上作成します：
     ```sql
-    CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name] 
+    CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
     (
       UPDATED_AT DATETIME2(6) NOT NULL,
       PAYLOAD VARCHAR NOT NULL,
@@ -217,55 +217,55 @@ CDIを使えば、データウェアハウスやファイルストレージを�
     ```
 
 {:start="2"}
-2. Create a service principal and grant permissions. If you already have credentials from another sync, you can reuse them—make sure they have access to the accounts table.
+2. サービスプリンシパルを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
 
 {:start="3"}
-3. If you use network policies, allow Braze IPs to access your Microsoft Fabric instance. For the list of IPs, see [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+3. ネットワークポリシーを使用している場合は、BrazeのIPがMicrosoft Fabricインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab File Storage %}
-To sync account data from file storage, create a source file with the following fields.
+ファイルストレージからアカウントデータを同期するには、以下のフィールドを持つソースファイルを作成します。
 
-| Field | Required? | Description |  
-| --- | --- | --- |  
-| `ID` | Yes | ID of the Account to update or create |  
-| `NAME` | Yes | Name of the Account |  
-| `PAYLOAD` | Yes | JSON string of the fields to sync to the account in Braze |  
-| `DELETED` | Optional | Boolean indicating to delete the account from Braze |  
-| `UPDATED_AT` | _*Unsupported_ | File storage doesn't support `UPDATED_AT` columns |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| フィールド | 必須？ | 説明 |
+| --- | --- | --- |
+| `ID` | はい | 更新または作成するアカウントのID |
+| `NAME` | はい | アカウントの名前 |
+| `PAYLOAD` | はい | Brazeのアカウントに同期するフィールドのJSON文字列 |
+| `DELETED` | オプション | Brazeからアカウントを削除することを示すブール値 |
+| `UPDATED_AT` | *非対応* | ファイルストレージでは`UPDATED_AT`列はサポートされていません |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {% alert note %}
-Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations]({{site.baseurl}}/user_guide/data/cloud_ingestion/file_storage_integrations).
+ファイル名はAWSのルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。Amazon S3同期の詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
 {% endalert %}
 
-The following examples show valid JSON and CSV formats for syncing account data from file storage.
+以下の例は、ファイルストレージからアカウントデータを同期するための有効なJSONおよびCSV形式を示しています。
 
 {% subtabs %}
 {% subtab JSON Accounts %}
-```jsonl  
+```jsonl
 {"id":"s3-qa-0","name":"account0","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"id":"s3-qa-1","name":"account1","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}","deleted":true}
 {"id":"s3-qa-2","name":"account2","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}","deleted":false}
 {"id":"s3-qa-3","name":"account3","payload":"{\"attribute_0\": \"GT896\", \"attribute_1\": 74, \"attribute_2\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
-```  
+```
 
 {% alert important %}
-ソース・ファイルの各行には有効なJSONが含まれていなければならない。
+ソースファイルの各行には有効なJSONが含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
-```plaintext  
+`````````plaintext
 ID,NAME,PAYLOAD,DELETED
-85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}",TRUE 
+85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}",TRUE
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}",FALSE
 ```
 {% endsubtab %}
 {% subtab CSV Accounts without Delete %}
-```plaintext  
+`````````plaintext
 ID,NAME,PAYLOAD
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}"
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}"
@@ -275,16 +275,16 @@ ID,NAME,PAYLOAD
 {% endtab %}
 {% endtabs %}
 
-## シンク・ビューを作成する
+## 同期ビューを作成する {#create-a-sync-view}
 
-データウェアハウスに同期ビューを作成することで、追加のクエリを書き換えることなく、データソースが自動的に更新される。
+データウェアハウスに同期ビューを作成すると、追加のクエリを書き直す必要なく、ソースが自動的に更新されます。
 
-例えば、`account_details_1` というアカウントデータのテーブルがあり、`account_id` 、`account_name` 、さらに3つのアトリビューションがある場合、以下のようなシンク・ビューを作成することができる：
+例えば、`account_id`、`account_name`、および3つの追加属性を持つ`account_details_1`というアカウントデータテーブルがある場合、次のような同期ビューを作成できます：
 
 {% tabs %}
 {% tab Snowflake %}
-```sql
-CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS 
+`````````sql
+CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
     account_id as id,
@@ -301,7 +301,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -319,7 +319,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -330,12 +330,12 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
       attribute_2,
       attribute_3,
       )
-    ) as PAYLOAD 
+    ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.account_details_1`);
 ```
 {% endtab %}
 {% tab Databricks %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -346,14 +346,14 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
       attribute_2,
       attribute_3,
       )
-    ) as PAYLOAD 
+    ) as PAYLOAD
   FROM `BRAZE_CLOUD_PRODUCTION.INGESTION.account_details_1`);
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE VIEW [BRAZE_CLOUD_PRODUCTION].[INGESTION].[ACCOUNTS_SYNC]
-AS SELECT 
+AS SELECT
     account_id as ID,
     account_name as NAME,
     CURRENT_TIMESTAMP as UPDATED_AT,

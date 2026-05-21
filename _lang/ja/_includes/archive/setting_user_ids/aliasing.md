@@ -1,7 +1,7 @@
 [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)は、代替の一意のユーザー識別子として機能します。エイリアスを使用して、コアユーザーIDとは異なる次元でユーザーを識別することができる：
 
 * モバイルアプリやウェブサイトにログインする前と後の両方で、特定のユーザーを追跡するアナリティクス用の一貫した識別子を設定します。
-* 外部とのデータの照合をより簡単に行うためには、サードパーティベンダーが使用する識別子を Braze ユーザーに追加します。
+* サードパーティベンダーが使用する識別子を自社のユーザーに追加せよ。これにより外部とのデータ照合が容易になる。
 
 各エイリアスは、識別子そのものの名前と、エイリアスの種類を示すラベルの2つの部分で構成される。ユーザーは異なるラベルで複数のエイリアスを持つことができるが、1つのラベルにつき1つの名前しか持つことができない。 
 
@@ -19,7 +19,7 @@
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 
@@ -31,14 +31,14 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 
@@ -49,13 +49,13 @@ Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 
 {% elsif include.platform == "Web" %}
 
-```javascript
+`````````javascript
 braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 ```
 
 {% elsif include.platform == "Swift" %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.add(alias: ALIAS_NAME, label: ALIAS_LABEL)
 ```
 

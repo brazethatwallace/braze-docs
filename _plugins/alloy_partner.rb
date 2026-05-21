@@ -2,6 +2,8 @@
 # modified to allow variable url
 require 'net/http'
 require 'uri'
+require 'openssl'
+require 'ostruct'
 
 module Jekyll
 
@@ -15,32 +17,35 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       # partnerembed = context.config['partner_api']
+      # Honor _config.yml `partner_api`. Opt out of the network call with PARTNER_API=false
+      # (offline / fast builds). Previously required PARTNER_API=true, which meant plain
+      # `rake ja` / `rake ja_build` never fetched tiles and the partner hub always showed the
+      # static fallback list.
       partnerembed = site.config['partner_api']
-      if ENV["PARTNER_API"].to_s.downcase != 'true'
+      if partnerembed && ENV['PARTNER_API'].to_s.downcase == 'false'
         partnerembed = false
       end
 
       if partnerembed
-        lang = site.config['language'] || 'en'
+        # Always query Sanity with $locale=en-us. Localized Sanity titles (e.g. Japanese)
+        # rarely match `valid_partner_list` name keys in `_partners/home.md`, so the partner
+        # hub JS would match zero partners and show the static fallback list (no tiles/filters).
+        # Other locales (ko, de, …) already rely on en-us metadata for the same reason.
         url = PARTNER_URL
-        case lang
-        when 'ja'
-          url.gsub!('locale=%22en-us%22', 'locale=%22ja%22')
-        end
 
         if context['site']['data'].include?(url)
-          puts 'Using cache for: ' + url.split('?')[0]
+          Jekyll.logger.debug "AlloyPartner:", "Using cache for: #{url.split('?')[0]}"
           return context['site']['data'][url]
         else
-          puts 'Fetching content of url: ' + url.split('?')[0]
+          Jekyll.logger.info "AlloyPartner:", "Fetching content of url: #{url.split('?')[0]}"
           if url =~ URI::regexp
             @results = fetchContent(url)
           else
-            puts 'Error fetching: ' + url
+            Jekyll.logger.error "AlloyPartner:", "Error fetching: #{url}"
           end
 
           if @results.code != '200'
-            puts 'Error returning results: ' + url
+            Jekyll.logger.warn "AlloyPartner:", "Error returning results: #{url}"
             context['site']['data'][url] = '{}'
             return '{}'
           else
@@ -55,7 +60,7 @@ module Jekyll
               context['site']['data'][url] = results_hash.to_json
               return context['site']['data'][url]
             else
-              puts 'Empty content from : ' + url
+              Jekyll.logger.warn "AlloyPartner:", "Empty content from: #{url}"
               return '{}'
             end
           end
@@ -68,10 +73,22 @@ module Jekyll
     def fetchContent(url)
       link = URI.parse(url.strip)
       http = Net::HTTP.new(link.host, link.port)
+      http.use_ssl = (link.scheme == 'https')
       http.open_timeout = 60
       http.read_timeout = 120
-      res = Net::HTTP.get_response(link)
+      # Verify SSL by default. Set SKIP_PARTNER_SSL_VERIFY=true only to work around local
+      # SSL issues (e.g. CRL verification failures); never skip in production.
+      skip_verify = ENV['SKIP_PARTNER_SSL_VERIFY'].to_s.downcase == 'true' &&
+                    ENV['RACK_ENV'].to_s.downcase != 'production'
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE if skip_verify
+      res = http.get(link.request_uri)
       return res
+    rescue OpenSSL::SSL::SSLError => e
+      Jekyll.logger.warn "AlloyPartner:", "Partner API SSL verification failed (#{e.message}). Using empty partner data. For local preview only, set SKIP_PARTNER_SSL_VERIFY=true to skip verify (never used in production)."
+      return OpenStruct.new(code: '500', body: nil)
+    rescue StandardError => e
+      Jekyll.logger.warn "AlloyPartner:", "Partner API request failed (#{e.message}). Using empty partner data."
+      return OpenStruct.new(code: '500', body: nil)
     end
   end
 end

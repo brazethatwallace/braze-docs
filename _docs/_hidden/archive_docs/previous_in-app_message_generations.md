@@ -12,12 +12,12 @@ hidden : true
 # Previous in-app message generations
 
 {% alert important %}
-This page reviews previous information around our in-app messages. To see the most up-to date information on our current in-app message generation, see our current [in-app messages]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/) documentation.
+This page reviews previous information around our in-app messages. To see the most up-to date information on our current in-app message generation, see our current [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/) documentation.
 {% endalert %}
 
 ## Universal
 
-This will review previous information around our in-app messages. To see the most up-to date information on our current in-app message generation, see our [in-app message overview documentation]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/).
+This will review previous information around our in-app messages. To see the most up-to date information on our current in-app message generation, see our [in-app message overview documentation]({{site.baseurl}}/user_guide/channels/in_app_messages/).
 
 {% details Fullscreen %}
 These are the most engaging, but also the most intrusive since they cover your user's entire screen. They are great for displaying large, rich images, and can be useful in conveying very important information, such as crucial new features and expiring promotions. Since they are more disruptive of the user experience, use these sparingly for top priority content.
@@ -68,7 +68,7 @@ These are the least intrusive message type, though they can be more or less atte
 
 ## Web
 
-This will review previous information around more customized in-app messages. To see the most up-to date information on our current in-app message generation, see our [customization documentation]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/traditional/customize/).
+This will review previous information around more customized in-app messages. To see the most up-to date information on our current in-app message generation, see our [customization documentation]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
 
 {% details Email capture message %}
 Email capture messages allow you to easily prompt users of your site to submit their email address, after which it will be available within the Braze system for use in all your messaging campaigns.
@@ -121,7 +121,7 @@ We've designed a set of HTML5 in-app messages templates to help you get started.
 
 ## Specifications
 
-This will review previous information around our in-app message creative specifications. to see the most up-to date information on our current in-app message generation, see our [creative specs documentation]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/creative_details/).
+This will review previous information around our in-app message creative specifications. to see the most up-to date information on our current in-app message generation, see our [creative specs documentation]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/).
 
 ### Character and image limits
 
@@ -140,7 +140,7 @@ For all of the in-app message types listed in the following table, the following
 | Slideup                            |     1:1      |         140         |
 | Modal (Image Only)                 |     1:1      |         140         |
 | Modal (With Text)                  |    29:10     |         140         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Character and image limits" }
 
 ### Keeping in-app message file sizes small
 

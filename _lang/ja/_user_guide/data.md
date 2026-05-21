@@ -1,53 +1,53 @@
 ---
-nav_title: データ 
-article_title: データ 
+nav_title: データ
+article_title: データ
 page_order: 3
-layout: dev_guide
-
-guide_top_header: "データ"
-guide_top_text: "データは、パーソナライズされたエクスペリエンスの創造、顧客行動の理解、メッセージング戦略の最適化を可能にすることで、カスタマーエンゲージメント戦略を強化する上で重要な役割を果たす。Brazeでは、3つのことを念頭に置いてすべてのデータ機能を構築している：<br><br>**1.**<a href='/docs/user_guide/data/#making-customer-data-work-harder/'>顧客データを有効活用する。</a><br> **2.**<a href='/docs/user_guide/data/#enhancing-data-agility-to-drive-performance/'>データのアジリティを高めてパフォーマンスを向上させる。</a><br>**3.**<a href='/docs/user_guide/data/#keeping-brands-data-secure-safe-and-compliant/'>ブランドのデータを安全、安心、コンプライアンスに保つ。</a>" 
-
-guide_featured_title: "Braze データプラットフォーム"
-guide_featured_list:
-  - name: データの統一
-    link: /docs/user_guide/data/unification/
-    image: /assets/img/braze_icons/upload-cloud-01.svg
-  - name: データの有効化
-    link: /docs/user_guide/data/activation/
-    image: /assets/img/braze_icons/zap.svg
-  - name: データ分布
-    link: /docs/user_guide/data/distribution/
-    image: /assets/img/braze_icons/users-01.svg
-  - name: テクノロジーパートナー
-    link: /docs/partners/data_and_analytics/
-    image: /assets/img/braze_icons/settings-02.svg
-
-guide_menu_title2: "Data Infrastructure"
-guide_menu_list2:
-  - name: データセンター
-    link: /docs/user_guide/data/infrastructure/data_centers/
-    image: /assets/img/braze_icons/database-02.svg
-  - name: フィールドレベル暗号化
-    link: /docs/user_guide/data/infrastructure/field_level_encryption/
-    image: /assets/img/braze_icons/book-closed.svg
-  - name: データポイント
-    link: /docs/user_guide/data/infrastructure/data_points/
-    image: /assets/img/braze_icons/check-square-broken.svg
+description: "Braze データプラットフォームについて、データの統一、有効化、配信の方法を含めて説明します。"
 ---
 
-### 顧客データの活用を促進する
+# Braze データプラットフォーム {#braze-data-platform}
 
-- **柔軟でコンポーネント・ベースだ：**我々の包括的な目標は、ブランドがデータをより効果的かつ十分に活用できるよう支援することである。コンポーザブル・アーキテクチャーで構築されているため、ブランドは不要なミドルウェアを使用することなく、データをより有効に活用するために必要なテクノロジーを活用することができる。 
-- **パートナー連携：**私たちは、リアルタイムで双方向のデータ共有を容易にする、最良のエコシステム・テクノロジーとの統合を優先する（そしてAPIを提供する）。
-- **ストリーム処理アーキテクチャ：**顧客は、セグメンテーション、オーケストレーション、パーソナライゼーションのために、Brazeに取り込まれたあらゆるデータポイントに対してアクションをトリガーすることができる。
+> Braze データプラットフォームについて、データの統一、有効化、配信の方法を含めて説明します。
 
-### データのアジリティを高めてパフォーマンスを向上させる 
+Braze データプラットフォーム (BDP) は、包括的でコンポーザブルなデータ機能とパートナー連携のセットであり、顧客向けにパーソナライズされたエクスペリエンスを作成できるようにします。Brazeでは、データを3つのデータ関連ジョブの観点で考えています：[統一]({{site.baseurl}}/user_guide/data/unification/)、[有効化]({{site.baseurl}}/user_guide/data/activation/)、[配信]({{site.baseurl}}/user_guide/data/distribution/)です。
 
-- **簡単なオーディエンス・コンストラクション：**オーディエンスの作成とパーソナライズされたカスタマーエンゲージメントを大規模に提供するための技術チームへの依存を減らす。 
-- **スピードとパフォーマンス：**エンゲージメントのデータとインサイトはリアルタイムで提供され、反復的で効果的なカスタマーエンゲージメントと、より広範なビジネス上の意思決定をサポートする。
+Braze データプラットフォームの機能を組み合わせて使用することで、データを活用して、顧客のリアルタイムの行動に応じた意味のあるターゲットメッセージを作成できます。
 
-### ブランドのデータを安全、安心、コンプライアンスに保つ
+## 仕組み {#how-it-works}
 
-- **業界をリードするセキュリティ慣行：**SOC 2タイプ2およびISO 27001を含む定期的な第三者監査を実施し、業界最高水準に準拠する。潜在的な脆弱性に積極的に対処するための公開バグ報奨金プログラムを維持し、顧客データの保護に尽力する専任のセキュリティチームを有する。
-- **業界のコンプライアンス：**GDPRやCCPAを含むデータ保護規制の遵守を促進するツールを提供する。
-- **データのプライバシー**顧客がエンドユーザーの同意を管理し、リクエストを処理し、消費者の権利をアクションできるようにする。
+### データを統一する {#unify-your-data}
+
+ユーザーデータは多くのエントリポイントを通じてBrazeに流入します。[API]({{site.baseurl}}/api/home/)と[SDK]({{site.baseurl}}/developer_guide/sdk_integration/)を使用して、あらゆるソースからファーストパーティデータを収集・統合できます。また、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)などの組み込み取り込みツールを使用して、データウェアハウスやファイルストレージソリューションからBrazeへの直接統合を作成したり、[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation/)を使用してBrazeへのデータ転送用のWebhook連携を構築・管理したりすることもできます。
+
+### データを有効化する {#activate-your-data}
+
+データをクリーンアップ、整理し、使用できるように準備します。これには、ユーザープロファイルと**セグメント**を使用して、顧客の行動や好みをリアルタイムで理解することが含まれます。ターゲットメッセージを作成する際に[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)を参照し、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を使用して製品やコンテンツデータでメッセージを充実させましょう。顧客がこれらのパーソナライズされたエクスペリエンスにどのように反応しているかを特定します。
+
+### データを配信する {#distribute-your-data}
+
+データを外部システムにストリーミングおよび[エクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/)して、次のステップのインサイトや意思決定に活用します。[Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用してBrazeイベントデータをデータウェアハウスにストリーミングし、ビジネスインテリジェンスツールを強化できます。また、[テクノロジーパートナー連携]({{site.baseurl}}/partners/data_and_analytics/)でデータ機能を拡張することもできます。
+
+## データインフラ {#data-infrastructure}
+
+Brazeのデータインフラには、レイテンシー（サーバーとユーザー間のデータ転送にかかる時間）を最小限に抑える[データセンター]({{site.baseurl}}/user_guide/data/infrastructure/data_centers/)が含まれています。この地理的分散により、サービスの信頼性とスケーラビリティが確保されます。また、機密データの保護とBrazeで共有される個人を特定できる情報 (PII) の最小化を支援する[フィールドレベル暗号化]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)も提供しています。使用量と請求の詳細については、[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)を参照してください。
+
+## 基本原則 {#core-principles}
+
+データは、パーソナライズされたエクスペリエンスの作成、顧客行動の理解、メッセージング戦略の最適化を可能にすることで、カスタマーエンゲージメント戦略を強化する上で重要な役割を果たします。Brazeでは、3つの基本原則を念頭に置いてすべてのデータ機能を構築しています。
+
+{% details データをより有効に活用する %}
+- **柔軟でコンポーネントベース：** 包括的な目標は、データをより効果的かつ十分に活用できるよう支援することです。コンポーザブルアーキテクチャで構築されているため、不要なミドルウェアを使用することなく、データをより有効に活用するために必要なテクノロジーを活用できます。
+- **パートナー連携：** Brazeは、リアルタイムで双方向のデータ共有を容易にする、最良のエコシステムテクノロジーとの統合（およびAPIの提供）を優先しています。
+- **ストリーム処理アーキテクチャ：** セグメンテーション、オーケストレーション、パーソナライゼーションのために、Brazeに取り込まれたあらゆるデータポイントに対してアクションをトリガーできます。
+{% enddetails %}
+
+{% details データのアジリティを高めてパフォーマンスを向上させる %}
+- **柔軟なオーディエンス構築：** オーディエンスの作成やパーソナライズされたカスタマーエンゲージメントの大規模な提供において、技術チームへの依存を軽減します。
+- **スピードとパフォーマンス：** エンゲージメントのデータとインサイトはリアルタイムで提供され、反復的で効果的なカスタマーエンゲージメントと、より広範なビジネス上の意思決定をサポートします。
+{% enddetails %}
+
+{% details データを安全かつコンプライアンスに準拠した状態に保つ %}
+- **業界をリードするセキュリティプラクティス：** SOC 2 Type 2およびISO 27001を含む定期的な第三者監査を実施し、業界最高水準に準拠しています。潜在的な脆弱性に積極的に対処するための公開バグ報奨金プログラムを維持し、データの保護に尽力する専任のセキュリティチームを有しています。
+- **業界コンプライアンス：** GDPRやCCPAを含むデータ保護規制の遵守を促進するツールを提供しています。
+- **データプライバシー：** エンドユーザーの同意管理、リクエストの処理、消費者の権利に基づく対応を行うことができます。
+{% enddetails %}

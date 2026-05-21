@@ -1,15 +1,15 @@
 ---
-nav_title: "PUT : Mettre à jour un centre de préférences"
-article_title: "PUT : Mettre à jour un centre de préférences"
+nav_title: "PUT : Mettre à jour un centre de préférences"
+article_title: "PUT : Mettre à jour un centre de préférences"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Cet article précise des détails concernant l’endpoint de Braze Mettre à jour un centre de préférences."
+description: "Cet article détaille l'endpoint Braze Mettre à jour un centre de préférences."
 
 ---
 {% api %}
-# Mettre à jour un centre de préférences
+# Mettre à jour un centre de préférences {#update-preference-center}
 {% apimethod put %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
@@ -18,23 +18,23 @@ description: "Cet article précise des détails concernant l’endpoint de Braze
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#bf1b43db-3f1b-461f-ad9a-2fbe35b804d7 {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `preference_center.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `preference_center.update`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
-Cet endpoint a une limitation du débit de 10 requêtes par minute, par espace de travail.
+{% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Requis | Chaîne de caractères | L’ID de votre centre de préférences. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preferenceCenterExternalID` | Requis | Chaîne de caractères | L'ID de votre centre de préférences. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Path parameters" }
 
 
-## Corps de la demande
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -64,18 +64,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-|`preference_center_page_html`| Requis | Chaîne de caractères | L’HTML de la page du centre de préférences. |
-|`preference_center_title`| Facultatif | Chaîne de caractères | Le titre des pages du centre de préférences et de confirmation. Si aucun titre n’est précisé, le titre des pages passera par défaut à « Centre de préférences ». |
-|`confirmation_page_html`| Requis | Chaîne de caractères | L’HTML de la page de confirmation. |
-|`state` | Facultatif | Chaîne de caractères | Choisir `active` ou `draft`.|
-|`options` | Facultatif | Objet | Attributs : <br>`meta-viewport-content` : Le cas échéant, une étiquette méta `viewport` sera ajoutée à la page avec `content= <value of attribute>`.<br><br> `link-tags` : Définissez un favicon pour la page. Lorsque cette option est activée, une étiquette `<link>` avec un attribut rel est ajoutée à la page.  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `preference_center_page_html` | Requis | Chaîne de caractères | Le code HTML de la page du centre de préférences. |
+| `preference_center_title` | Facultatif | Chaîne de caractères | Le titre des pages du centre de préférences et de confirmation. Si aucun titre n'est spécifié, le titre des pages sera par défaut « Preference Center ». |
+| `confirmation_page_html` | Requis | Chaîne de caractères | Le code HTML de la page de confirmation. |
+| `state` | Facultatif | Chaîne de caractères | Choisissez `active` ou `draft`. |
+| `options` | Facultatif | Objet | Attributs : <br>`meta-viewport-content` : lorsque ce paramètre est présent, une balise méta `viewport` est ajoutée à la page avec `content= <value of attribute>`.<br><br> `link-tags` : permet de définir un favicon pour la page. Lorsque ce paramètre est défini, une balise `<link>` avec un attribut rel est ajoutée à la page. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 {% raw %}
 ```
@@ -93,7 +93,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/preference_center/
 ```
 {% endraw %}
 
-## Exemple de réponse
+## Exemple de réponse {#example-response}
 {% raw %}
 ```
 {

@@ -1,5 +1,5 @@
 ---
-nav_title: Katalog-Auswahlen
+nav_title: Katalogauswahl
 config_only: true
 noindex: true
 page_order: 4

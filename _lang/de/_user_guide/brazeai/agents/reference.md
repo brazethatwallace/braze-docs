@@ -1,124 +1,105 @@
 ---
-nav_title: Referenzieren
-article_title: Agenten referenzieren
-description: "Referenzieren Sie wichtige Details über Braze-Agenten."
+nav_title: Referenz
+article_title: Referenz für Agenten
+description: "Wichtige Informationen zu Braze-Agenten."
 page_order: 3
 ---
 
-# Agenten referenzieren
+# Referenz für Agenten {#reference-for-agents}
 
-> Wenn Sie angepasste Agenten erstellen, finden Sie in diesem Artikel weitere Informationen zu den wichtigsten Einstellungen, wie Anweisungen und Ausgabeschemata. Eine Einführung finden Sie unter [Braze-Agenten]({{site.baseurl}}/user_guide/brazeai/agents/).
+> Wenn Sie benutzerdefinierte Agenten erstellen, lesen Sie diesen Artikel für weitere Informationen zu wichtigen Einstellungen wie Anweisungen und Ausgabeschemata. Eine Einführung finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/) und [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
 
-{% alert important %}
-Braze-Agenten befinden sich derzeit in der Beta-Phase. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Customer-Success-Manager:in.
-{% endalert %}
+## Modelle {#models}
 
-## Modelle
-
-Wenn Sie einen Agenten einrichten, können Sie das Modell auswählen, das er zur Erzeugung von Antworten verwendet. Sie haben zwei Möglichkeiten: Sie können ein von Braze betriebenes Modell verwenden oder Ihren eigenen API-Schlüssel mitbringen.
+Wenn Sie einen Agenten einrichten, können Sie das Modell auswählen, das er zur Generierung von Antworten verwendet. Sie haben zwei Möglichkeiten: ein von Braze bereitgestelltes Modell verwenden oder Ihren eigenen API-Schlüssel einbinden.
 
 {% alert important %}
-Das von Braze betriebene **Automodell** ist für Modelle optimiert, deren Denkvermögen ausreicht, um Aufgaben wie Katalogsuche und Segmentierung der Nutzer:innen zu erfüllen. Wenn Sie andere Modelle verwenden, empfehlen wir Ihnen zu testen, ob Ihr Modell für Ihren Anwendungsfall geeignet ist. Möglicherweise müssen Sie Ihre [Anleitungen](#writing-instructions) anpassen, um Modelle mit unterschiedlichen Geschwindigkeiten und Fähigkeiten unterschiedlich detailliert oder schrittweise anzuleiten.
+Das von Braze bereitgestellte **Auto**-Modell ist für Modelle optimiert, deren Denkfähigkeiten ausreichen, um Aufgaben wie Katalogsuche und Segmentzugehörigkeit auszuführen. Bei der Verwendung anderer Modelle empfehlen wir, Tests durchzuführen, um sicherzustellen, dass Ihr Modell für Ihren Anwendungsfall geeignet ist. Möglicherweise müssen Sie Ihre [Anweisungen](#writing-instructions) anpassen, um unterschiedliche Detailstufen oder schrittweises Denken für Modelle mit unterschiedlichen Geschwindigkeiten und Fähigkeiten bereitzustellen.
 {% endalert %}
 
-### Option 1: Verwenden Sie ein Modell mit Braze-Antrieb
+### Option 1: Ein von Braze bereitgestelltes Modell verwenden {#option-1-use-a-braze-powered-model}
 
-Dies ist die einfachste Option, für die keine zusätzlichen Einstellungen erforderlich sind. Braze bietet direkten Zugriff auf große Sprachmodelle (LLM). Um diese Option zu verwenden, wählen Sie **Auto**, das Gemini-Modelle verwendet.
-
-### Option 2: Bringen Sie Ihren eigenen API-Schlüssel mit
-
-Mit dieser Option können Sie Ihr Braze-Konto mit Anbietern wie OpenAI, Anthropic, AWS Bedrock oder Google Gemini verbinden. Wenn Sie Ihren eigenen API-Schlüssel von einem LLM-Anbieter mitbringen, werden die Token-Kosten direkt über Ihren Anbieter und nicht über Braze abgerechnet.
+Dies ist die einfachste Option, die keine zusätzliche Einrichtung erfordert. Braze ermöglicht den direkten Zugriff auf große Sprachmodelle (LLMs). Um diese Option zu verwenden, wählen Sie **Auto** aus – dabei werden Gemini-Modelle verwendet.
 
 {% alert important %}
-Wir empfehlen, routinemäßig die neuesten Modelle zu testen, da ältere Modelle möglicherweise nach einigen Monaten eingestellt werden oder veraltet sind.
+Sollten Sie beim Erstellen eines Agenten die Option **Braze Auto** nicht in der Dropdown-Liste **Model** sehen, wenden Sie sich an Ihren Customer-Success-Manager, um zu erfahren, wie Sie die Berechtigung zur Nutzung des Braze Auto-Modells erhalten.
 {% endalert %}
+
+### Option 2: Eigenen API-Schlüssel einbinden {#option-2-bring-your-own-api-key}
+
+Mit dieser Option können Sie Ihr Braze-Konto mit Anbietern wie OpenAI, Anthropic oder Google Gemini verbinden. Wenn Sie Ihren eigenen API-Schlüssel von einem LLM-Anbieter verwenden, werden die Token-Kosten direkt über Ihren Anbieter und nicht über Braze abgerechnet.
+
+Wir empfehlen, regelmäßig die neuesten Modelle zu testen, da ältere Modelle nach einigen Monaten möglicherweise eingestellt oder als veraltet markiert werden. Sie können sich auch für Benachrichtigungen der Agentenkonsole unter [Präferenzen für Benachrichtigungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) anmelden, um benachrichtigt zu werden, wenn Braze erkennt, dass ein Modell nicht mehr verfügbar ist.
 
 So richten Sie dies ein:
 
-1. Gehen Sie zu **Partnerintegrationen** > **Technologiepartner** und finden Sie Ihren Anbieter.
-2. Geben Sie Ihren API-Schlüssel des Anbieters ein.
-3. Wählen Sie **Speichern**.
+1. Gehen Sie zu **Partner Integrations** > **Technology Partners** und suchen Sie Ihren Anbieter.
+2. Geben Sie Ihren API-Schlüssel vom Anbieter ein.
+3. Wählen Sie **Save**.
 
-Dann können Sie zu Ihrem Agenten zurückkehren und Ihr Modell auswählen.
+Anschließend können Sie zu Ihrem Agenten zurückkehren und Ihr Modell auswählen.
+
+Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bestimmungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. Wenn Sie sich dafür entscheiden, Ihren eigenen API-Schlüssel einzubinden, gilt der Anbieter Ihres LLM-Abos gemäß dem Vertrag zwischen Ihnen und Braze als Drittanbieter.
+
+#### Denkstufen {#thinking-levels}
+
+Einige LLM-Anbieter ermöglichen es Ihnen, die Denkstufe eines ausgewählten Modells anzupassen. Denkstufen definieren den Umfang der Überlegungen, die das Modell vor der Antwort durchführt – von schnellen, direkten Antworten bis hin zu längeren Argumentationsketten. Dies beeinflusst die Antwortqualität, Latenz und den Token-Verbrauch.
+
+| Stufe | Wann verwenden |
+|-------|-------------|
+| **Minimal** | Einfache, klar definierte Aufgaben (z. B. Katalogsuche, einfache Klassifizierung). Schnellste Antworten und niedrigste Kosten. |
+| **Niedrig** | Aufgaben, die von etwas mehr Überlegung profitieren, aber keine tiefgehende Analyse erfordern. |
+| **Mittel** | Mehrstufige oder nuancierte Aufgaben (z. B. Analyse mehrerer Eingaben, um eine Aktion zu empfehlen). |
+| **Hoch** | Komplexe Argumentation, Sonderfälle oder wenn das Modell Schritte durchdenken soll, bevor es antwortet. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Denkstufen" }
+
+Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen. Anschließend können Sie die Denkstufe auf **Niedrig** oder **Mittel** anpassen, wenn der Agent Schwierigkeiten hat, genaue Antworten zu liefern. In seltenen Fällen kann eine **hohe** Denkstufe erforderlich sein, wobei diese Stufe zu hohen Token-Kosten und längeren Antwortzeiten oder einem höheren Risiko von Timeout-Fehlern führen kann. Wenn Ihr Agent Schwierigkeiten hat, mehrstufiges Denken mit angemessenen Antwortzeiten in Einklang zu bringen, sollten Sie Ihren Anwendungsfall in mehrere Agenten aufteilen, die in einem Canvas oder Katalog zusammenarbeiten können.
+
+Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected-Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, sodass nur Braze ihn verwenden kann.
 
 {% alert important %}
-Wenn Sie ein von Braze bereitgestelltes LLM verwenden, handeln die Anbieter eines solchen Modells als Unterauftragsverarbeiter von Braze und unterliegen den Bedingungen des Zusatzes zur Datenverarbeitung (DPA) zwischen Ihnen und Braze. Wenn Sie sich dafür entscheiden, Ihren eigenen API-Schlüssel mitzubringen, wird der Anbieter Ihres LLM-Abos im Rahmen des Vertrags zwischen Ihnen und Braze als Drittanbieter betrachtet.  
+Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eines solchen Modells als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bestimmungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. Wenn Sie sich dafür entscheiden, Ihren eigenen API-Schlüssel einzubinden, gilt der Anbieter Ihres LLM-Abos gemäß dem Vertrag zwischen Ihnen und Braze als Drittanbieter.
 {% endalert %}
 
-## Anweisungen schreiben
+#### Das richtige Modell bestimmen {#determine-which-model-to-use}
 
-Anweisungen sind die Regeln oder Richtlinien, die Sie dem Agenten geben (Systemabfrage). Sie legen fest, wie sich der Agent bei jeder Ausführung verhalten soll. Systemanweisungen können bis zu 25 KB groß sein.
+Jeder LLM-Anbieter bietet eine leicht unterschiedliche Mischung aus Modellfähigkeiten, Kosten und Denkstufen. Hier sind einige allgemeine Richtlinien und Best Practices:
 
-Hier finden Sie einige allgemeine Best Practices, die Ihnen den Einstieg in das Prompting erleichtern:
+- Für Kosteneffizienz sollten Sie zuerst Modelle mit niedrigeren Token-Kosten testen, bevor Sie zu teureren Modellen wechseln. Passen Sie nur dann auf teurere Modelle an, wenn günstigere Modelle mit dem Anwendungsfall Schwierigkeiten haben oder inkonsistente bzw. ungenaue Ergebnisse liefern.
+- Für Geschwindigkeit und Performance-Effizienz sollten Sie zuerst niedrigere Denkstufen testen, bevor Sie höhere Denkstufen verwenden. Passen Sie nur dann auf höhere Denkstufen an, wenn niedrigere Denkstufen mit dem Anwendungsfall Schwierigkeiten haben oder inkonsistente bzw. ungenaue Ergebnisse liefern.
+- Wenn günstigere Modelle oder niedrigere Denkstufen mit dem Anwendungsfall Schwierigkeiten haben oder inkonsistente bzw. ungenaue Ergebnisse liefern, sollten Sie auf teurere Modelle oder höhere Denkstufen umsteigen.
+- Achten Sie beim Testen darauf, Zuverlässigkeit und Genauigkeit mit Token-Verbrauch und Aufrufdauer in Einklang zu bringen.
+- Jeder Anwendungsfall kann ein anderes optimales Modell und eine andere optimale Denkstufe haben. Wir empfehlen gründliches Testen, um konsistente Qualität ohne Timeouts sicherzustellen.
 
-1. Beginnen Sie mit dem Ziel vor Augen. Geben Sie zuerst das Ziel an.
-2. Geben Sie dem Modell eine Rolle oder Persona ("Sie sind ein ...").
-3. Legen Sie einen klaren Kontext und Einschränkungen fest (Zielgruppe, Länge, Ton, Format).
-4. Fragen Sie nach der Struktur ("Geben Sie JSON/Bullet-Liste/Tabelle...").
-5. Zeigen, nicht erzählen. Fügen Sie ein paar hochwertige Beispiele hinzu.
-6. Unterteilen Sie komplexe Aufgaben in geordnete Schritte ("Schritt 1... Schritt 2...").
-7. Ermutigen Sie zur Argumentation ("Denken Sie die Schritte intern durch und geben Sie dann eine prägnante endgültige Antwort" oder "Begründen Sie kurz Ihre Entscheidung").
-8. Pilotieren, prüfen und iterieren Sie. Kleine Optimierungen können zu großen Qualitätssteigerungen führen.
-9. Kümmern Sie sich um die Randfälle, fügen Sie Leitplanken ein und fügen Sie Anweisungen zur Ablehnung hinzu.
-10. Messen und dokumentieren Sie, was intern zur Wiederverwendung und Skalierung funktioniert.
+### Rate-Limits
 
-Wir empfehlen auch einen Standard als Auffangantwort, wenn der Agent eine Antwort erhält, die nicht geparst werden kann. Diese Fehlerbehandlung ermöglicht es dem Agenten, Sie über eine unbekannte Ergebnisvariable zu informieren. Anstatt den Agenten beispielsweise nur nach "positiven" oder "negativen" Stimmungswerten zu fragen, bitten Sie ihn, "unsicher" zurückzugeben, wenn er sich nicht entscheiden kann.
+Die folgenden Rate-Limits gelten pro Workspace:
 
-### Einfache Eingabeaufforderung
+- **Von Braze bereitgestelltes Modell:** 1.000 Aufrufe pro Minute
+- **Eigener API-Schlüssel:** 2.500 Aufrufe pro Minute
 
-Diese Beispiel-Eingabeaufforderung nimmt eine Umfrage als Input und gibt eine einfache Stimmungsanalyse aus:
+## Anweisungen verfassen {#writing-instructions}
 
-```
-From the survey text, classify overall sentiment toward product quality, delivery, and price as Positive, Neutral, or Negative.
-Always output a single string with just one label.
-If any category is missing or unclear, treat it as Neutral.
-If sentiment across categories is mixed, return Neutral.
+Anweisungen sind die Regeln oder Richtlinien, die Sie dem Agenten geben (System-Prompt). Sie legen fest, wie sich der Agent bei jeder Ausführung verhalten soll. Systemanweisungen können bis zu 25 KB groß sein.
 
-Example Input: “The product works great, but shipping took forever and the cost felt too high.”
-Example Output: Neutral
-```
+Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 
-### Komplexe Eingabeaufforderung 
+1. Beginnen Sie mit dem Ziel vor Augen. Formulieren Sie zuerst das Ziel.
+2. Weisen Sie dem Modell eine Rolle oder Persona zu („Sie sind ein ...“).
+3. Legen Sie einen klaren Kontext und klare Vorgaben fest (Zielgruppe, Länge, Tonfall, Format).
+4. Fordern Sie Struktur an („Geben Sie JSON/Aufzählungsliste/Tabelle zurück ...“).
+5. Zeigen statt erklären. Fügen Sie einige hochwertige Beispiele bei.
+6. Teilen Sie komplexe Aufgaben in geordnete Schritte auf („1. Schritt ... 2. Schritt ...“).
+7. Fördern Sie das logische Denken („Überlegen Sie die einzelnen Schritte im Kopf und geben Sie dann eine prägnante endgültige Antwort“ oder „Erläutern Sie kurz Ihre Entscheidung“).
+8. Testen, überprüfen und iterieren. Kleine Optimierungen können zu erheblichen Qualitätssteigerungen führen.
+9. Behandeln Sie Sonderfälle, fügen Sie Sicherheitsvorkehrungen hinzu und ergänzen Sie Ablehnungsanweisungen.
+10. Messen und dokumentieren Sie, was intern für die Wiederverwendung und Skalierung funktioniert.
 
-In diesem Beispiel wird eine Umfrage eines Nutzers:innen in ein einziges Sentiment-Label eingeordnet. Das Ergebnis kann dann verwendet werden, um Nutzer:innen auf verschiedene Canvas-Pfade zu leiten (z.B. positives oder negatives Feedback) oder die Stimmung als angepasstes Attribut in ihrem Profil für zukünftiges Targeting zu speichern.
+Für Inspiration zum Verfassen von Agentenanweisungen besuchen Sie unsere spezielle [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
 
-{% raw %}
-```
-You are a customer research AI for a retail brand.  
-Input: one open-text survey response from a user.  
-Output: A single structured JSON object with:  
-- sentiment (Positive, Neutral, Negative)  
-- topic (Product, Delivery, Price, Other)  
-- action_recommendation (Route: High-priority follow-up | Low-priority follow-up | No action)  
+### Liquid verwenden {#using-liquid}
 
-Rules:  
-- Always return valid JSON.  
-- If the topic is unclear, default to Other.  
-- If sentiment is mixed, default to Neutral.  
-- If sentiment is Negative and topic = Product or Delivery → action_recommendation = High-priority follow-up.  
-- Otherwise, action_recommendation = Low-priority follow-up.  
-
-Example Input:  
-"The product works great, but shipping took forever and the cost felt too high."  
-
-Example Output:  
-{  
-  "sentiment": "Neutral",  
-  "topic": "Delivery",  
-  "action_recommendation": "High-priority follow-up"  
-}  
-```
-{% endraw %}
-
-Weitere Einzelheiten zu den besten Praktiken für Prompting finden Sie in den Leitfäden der folgenden Modellanbieter:
-
-- [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
-- [Anthropisch](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
-- [Zwillinge](https://support.google.com/a/users/answer/14200040?hl=en)
-
-### Liquid verwenden
-
-Wenn Sie [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) in die Anweisungen Ihres Agenten einbeziehen, können Sie eine zusätzliche Ebene der Personalisierung seiner Antwort hinzufügen. Sie können die genaue Liquid-Variable angeben, die der Agent erhält, und sie in den Kontext Ihrer Eingabeaufforderung einbeziehen. Anstatt beispielsweise explizit "Vorname" zu schreiben, können Sie das Liquid Snippet {% raw %}`{{${first_name}}}`{% endraw %} verwenden:
+Die Einbindung von [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in die Anweisungen Ihres Agenten kann dessen Antworten eine zusätzliche Ebene der Personalisierung verleihen. Sie können die genaue Liquid-Variable angeben, die der Agent erhält, und diese in den Kontext Ihres Prompts einfügen. Anstatt beispielsweise explizit „Vorname“ zu schreiben, können Sie das Liquid-Snippet {% raw %}`{{${first_name}}}`{% endraw %} verwenden:
 
 {% raw %}
 ```
@@ -126,30 +107,115 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 ```
 {% endraw %}
 
-Im Bereich **Protokolle** der **Agentenkonsole** können Sie die Details zu den Ein- und Ausgaben des Agenten einsehen, um zu verstehen, welcher Wert vom Liquid wiedergegeben wird.
+Im Abschnitt **Logs** der **Agentenkonsole** können Sie die Details zu den Ein- und Ausgabedaten des Agenten überprüfen, um zu verstehen, welcher Wert aus Liquid gerendert wird.
 
-![Die Angaben zu einem Mittel, das Liquid in seinen Anweisungen hat.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:65%;"}
+![Die Details für einen Agenten, der Liquid in seinen Anweisungen verwendet.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-## Kataloge und Felder
+Für Katalog-Agenten verwenden Sie **Fields** im Abschnitt **Output** anstelle von JSON Schema. Sie können dennoch Anweisungen verfassen, die das Modell auffordern, eine Schlüssel-Wert-Ausgabe zu liefern, die diesen Feldnamen entspricht.
 
-Wählen Sie spezifische Kataloge aus, auf die ein Agent referenzieren kann, und geben Sie Ihrem Agenten den Kontext, den er braucht, um Ihre Produkte und andere Nutzer:innen-Daten zu verstehen, wenn diese relevant sind. Agenten verwenden Tools, um nur die relevanten Artikel zu finden und diese an den LLM zu senden, um die Verwendung von Token zu minimieren.
+Weitere Informationen zu Best Practices für Prompting finden Sie in den Leitfäden der folgenden Modellanbieter:
 
-![Der Katalog "Restaurants" und die Spalte "Loyalty_Program" wurden für die Suche des Agenten ausgewählt.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:85%;"}
+- [OpenAI](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api)
+- [Anthropic](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [Gemini](https://support.google.com/a/users/answer/14200040?hl=en)
 
-## Kontext der Segmentzugehörigkeit
+## Ausgaben {#outputs}
 
-Sie können bis zu drei Segmente auswählen, mit denen der Agent die Segmentzugehörigkeit jedes Nutzers:innen referenziert, wenn der Agent in einem Canvas verwendet wird. Nehmen wir an, Ihr Agent hat die Segmentzugehörigkeit für ein Segment "Treue Nutzer:innen" ausgewählt und der Agent wird in einem Canvas verwendet. Wenn Nutzer:innen einen Schritt des Agenten betreten, kann der Agent referenzieren, ob die einzelnen Nutzer:innen Mitglieder der einzelnen Segmente sind, die Sie in der Agentenkonsole angegeben haben, und die Mitgliedschaft (oder Nicht-Mitgliedschaft) der einzelnen Nutzer:innen als Kontext für die LLM verwenden.
+### Einfache Schemata {#basic-schemas}
 
-![Das Segment "Nutzer:innen der Treue" wurde für den Zugriff auf die Agentenmitgliedschaft ausgewählt.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:85%;"}
+Einfache Schemata sind eine einfache Ausgabe, die ein Agent zurückgibt. Dies kann ein String, eine Zahl, ein Boolescher Wert, ein String-Array oder ein Zahlen-Array sein.
 
-## Markenrichtlinien
+Wenn Sie beispielsweise Stimmungswerte von Nutzer:innen aus einer einfachen Feedback-Umfrage erfassen möchten, um die Zufriedenheit Ihrer Kund:innen nach Erhalt eines Produkts zu ermitteln, können Sie **Number** als einfaches Schema auswählen, um das Ausgabeformat zu strukturieren.
 
-Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administrative/app_settings/brand_guidelines) auswählen, an die sich Ihr Agent bei seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Registrierung für eine Mitgliedschaft im Fitnessstudio zu ermutigen, können Sie in diesem Feld Ihre vordefinierte fettgedruckte, motivierende Richtlinie referenzieren.
-
-## Temperatur
-
-Wenn Ihr Ziel darin besteht, mit Hilfe eines Agenten Texte zu erstellen, die Nutzer:innen dazu bewegen, sich in Ihre mobile App einzuloggen, können Sie eine höhere Temperatur für Ihren Agenten einstellen, um kreativer zu sein und die Nuancen der Kontextvariablen zu nutzen. Wenn Sie einen Agenten verwenden, um Stimmungswerte zu generieren, ist es vielleicht ideal, eine niedrigere Temperatur einzustellen, um zu vermeiden, dass der Agent auf negative Umfragen spekuliert. Wir empfehlen Ihnen, diese Einstellung zu testen und die vom Agenten generierte Ausgabe auf Ihr Szenario abzustimmen.
-
-{% alert note %}
-Temperaturen werden derzeit nicht für die Verwendung mit OpenAI unterstützt.
+{% alert important %}
+Arrays sind nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
 {% endalert %}
+
+![Agentenkonsole mit „Number“ als einfachem Schema ausgewählt.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
+
+### Erweiterte Schemata {#advanced-schemas}
+
+Erweiterte Schema-Optionen umfassen die manuelle Strukturierung von Feldern oder die Verwendung von JSON.
+
+- **Fields:** Eine No-Code-Methode, um eine konsistente Agentenausgabe zu erzwingen.
+- **JSON:** Ein Code-Ansatz zur Erstellung eines präzisen Ausgabeformats, bei dem Sie Variablen und Objekte innerhalb des JSON-Schemas verschachteln können. Nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
+
+Wir empfehlen die Verwendung erweiterter Schemata, wenn der Agent eine Datenstruktur mit mehreren strukturiert definierten Werten zurückgeben soll, anstatt einer einzelnen Ausgabe. Dadurch kann die Ausgabe besser als konsistente Kontextvariable formatiert werden.
+
+Beispielsweise können Sie ein Ausgabeformat innerhalb eines Agenten verwenden, der eine Beispiel-Reiseroute für Nutzer:innen basierend auf einem eingereichten Formular erstellen soll. Das Ausgabeformat ermöglicht es Ihnen festzulegen, dass jede Agentenantwort Werte für `tripStartDate`, `tripEndDate` und `destination` enthalten soll. Jeder dieser Werte kann aus Kontextvariablen extrahiert und in einem Nachrichtenschritt zur Personalisierung mit Liquid eingefügt werden.
+
+{% tabs %}
+{% tab Fields %}
+
+Wenn Sie Antworten auf eine einfache Feedback-Umfrage formatieren möchten, um zu ermitteln, wie wahrscheinlich es ist, dass Befragte die neueste Eissorte Ihres Restaurants weiterempfehlen, können Sie die folgenden Felder einrichten, um das Ausgabeformat zu strukturieren:
+
+| Feldname | Wert |
+| --- | --- |
+| **likelihood_score** | Number |
+| **explanation** | String |
+| **confidence_score** | Number |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erweiterte Schemata" }
+
+![Agentenkonsole mit drei Ausgabefeldern für Wahrscheinlichkeitswert, Erklärung und Konfidenzwert.]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
+
+{% endtab %}
+{% tab JSON Schema %}
+
+Wenn Sie Nutzerfeedback zur letzten Restauranterfahrung in Ihrer Restaurantkette erfassen möchten, können Sie **JSON Schema** als Ausgabeformat auswählen und das folgende JSON einfügen, um ein Datenobjekt zurückzugeben, das eine Stimmungsvariable und eine Begründungsvariable enthält.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "sentiment": {
+      "type": "string"
+    },
+    "reasoning": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sentiment",
+    "reasoning"
+  ]
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+## Kataloge und Felder {#catalogs-and-fields}
+
+Wählen Sie bestimmte Kataloge aus, die ein Agent referenzieren soll, und geben Sie Ihrem Agenten den Kontext, den er benötigt, um Ihre Produkte und andere nicht-nutzerbezogene Daten zu verstehen. Agenten verwenden Tools, um nur die relevanten Einträge zu finden und diese an das LLM zu senden, um den Token-Verbrauch zu minimieren.
+
+![Der Katalog „restaurants“ und die Spalte „Loyalty_Program“, die für die Suche durch den Agenten ausgewählt wurden.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
+
+## Segmentzugehörigkeitskontext {#segment-membership-context}
+
+Sie können bis zu fünf Segmente auswählen, anhand derer der Agent die Segmentzugehörigkeit jedes Nutzers bzw. jeder Nutzerin abgleichen kann, wenn der Agent in einem Canvas verwendet wird. Angenommen, Ihr Agent hat die Segmentzugehörigkeit für ein Segment „Treue-Nutzer:innen“ ausgewählt und wird in einem Canvas eingesetzt. Wenn Nutzer:innen einen Agenten-Schritt aufrufen, kann der Agent prüfen, ob jede Nutzerin bzw. jeder Nutzer Mitglied der in der Agentenkonsole angegebenen Segmente ist, und die Zugehörigkeit (oder Nicht-Zugehörigkeit) als Kontext für das LLM verwenden.
+
+![Das Segment „Loyalty Users“, das für den Zugang zur Agenten-Mitgliedschaft ausgewählt wurde.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+
+## Markenrichtlinien {#brand-guidelines}
+
+Sie können [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) auswählen, an die sich Ihr Agent bei seinen Antworten halten soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
+
+## Nutzerspezifischer Interaktionsverlauf {#user-history}
+
+Die Interaktionsdaten von Nutzer:innen umfassen ihre letzten Campaign- und Canvas-Öffnungen, Klicks und Conversion-Daten. Sie können diesen Kontext beispielsweise einbeziehen, damit ein Agent ihn bei der Auswertung in einem Canvas referenzieren kann. Der nutzerspezifische Interaktionsverlauf kann auch dazu beitragen, einen Agenten zu beeinflussen, dessen Aufgabe es ist, personalisierte Nachrichtentexte zu verfassen.
+
+## Agenten duplizieren {#duplicate-agents}
+
+Um Verbesserungen oder Iterationen eines Agenten zu testen, können Sie einen Agenten duplizieren und anschließend Änderungen vornehmen, um diese mit dem Original zu vergleichen. Sie können das Duplizieren von Agenten auch als Versionskontrolle nutzen, um Änderungen in den Agentendetails und etwaige Auswirkungen auf Ihr Messaging zu verfolgen. So duplizieren Sie einen Agenten:
+
+1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
+2. Wählen Sie **Duplicate**.
+
+## Agenten archivieren {#archive-agents}
+
+Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenmanagement** organisieren, indem Sie Agenten archivieren, die nicht aktiv verwendet werden. So archivieren Sie einen Agenten:
+
+1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
+2. Wählen Sie **Archive**.
+
+![Seite „Agentenmanagement“ mit archivierten Agenten.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

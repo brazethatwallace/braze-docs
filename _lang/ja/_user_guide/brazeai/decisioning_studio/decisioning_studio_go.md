@@ -1,27 +1,32 @@
 ---
 nav_title: Decisioning Studio Go
 article_title: BrazeAI Decisioning Studio Go
-page_order: 1
-description: "BrazeAI Decisioning<sup>StudioTM</sup>Goを設定し、Brazeに統合する方法を学ぶ。"
+page_order: 7
+description: "BrazeAI Decisioning Studio™ GoをBrazeに設定・統合する方法を学びます。"
 ---
 
 # BrazeAI Decisioning Studio™ Go
 
-## Decisioning Studio Goについて
+> BrazeAI Decisioning Studio™ GoをBrazeに設定・統合する方法を学びます。
 
-Decisioning Studio Goには、限られたアクションバンク、エンゲージメントベースのカスタマーフィーチャーのみ、クリック数の最適化など、セルフサービスによるクリエイティブ設定が含まれ、以下の3つのカスタマーエンゲージメントプラットフォーム（CEP）のみと互換性がある：
+{% alert important %}
+2026年半ばに、Decisioning Studio™ Goの新バージョンがBrazeダッシュボードからセルフサービスで起動できるようになります。以下の記事はレガシーバージョンに適用されるもので、最終的には廃止される予定です。
+{% endalert %}
+
+## Decisioning Studio Goについて {#about-decisioning-studio-go}
+
+Decisioning Studio Goには、限定されたアクションバンクによるセルフサービスのクリエイティブ設定、エンゲージメントベースの顧客機能のみ、クリック数に基づく最適化が含まれます。また、以下のカスタマーエンゲージメントプラットフォーム（CEP）とのみ互換性があります：
 
 * Braze
-* セールスフォース・マーケティングクラウド
-* クラビオ
+* Salesforce Marketing Cloud
 
-Decisioning Studio GoとDecisioning Studio Proの違いについては、[Decisioning Studio GoとDecisioning Studio Proを]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro)参照のこと。
+Decisioning Studio GoとDecisioning Studio Proの違いについて詳しくは、[Decisioning Studio GoとDecisioning Studio Proの比較]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro)を参照してください。
 
-## 次のステップ
+## 次のステップ {#next-steps}
 
-以下のステップでDecisioning Studio Goを設定する：
+Decisioning Studio Goを設定するには、以下のステップに従ってください：
 
 1. [データソースを接続する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-2. [オーケストレーションの設定]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
-3. [エージェントの設計]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
-4. [エージェントを立ち上げる]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+2. [オーケストレーションを設定する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
+3. [エージェントを設計する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+4. [エージェントを起動する]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)

@@ -1,19 +1,19 @@
 ---
 nav_title: "POST: [Name des Endpunkts]"
-article_title: "Beispiel-Layout: POST: Nutzer:innen Tracking"
+article_title: "Beispiel-Layout: POST: Nutzer:innen-Tracking"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 excerpt_separator: ""
 
-description: "Dieser Artikel beschreibt die Einzelheiten zu diesem POST [Name des Endpunkts] Braze Endpunkt und dessen Verwendung."
+description: "Dieser Artikel beschreibt die Einzelheiten zu diesem POST [Name des Endpunkts] Braze-Endpunkt und dessen Verwendung."
 
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
 {% api %}
-# [Name des Endpunkts]
+# [Name des Endpunkts] {#endpoint-name}
 
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
@@ -21,7 +21,7 @@ noindex: true
 
 <!--
 This is the description of the endpoint. API descriptions usually start with "Use this endpoint to..."-->
-Verwenden Sie diesen Endpunkt, um "ungültige" Telefonnummern aus der Ungültigkeitsliste in Braze zu entfernen. Damit können Sie Telefonnummern erneut validieren, nachdem sie als ungültig markiert wurden.
+Verwenden Sie diesen Endpunkt, um „ungültige“ Telefonnummern aus der Ungültigkeitsliste in Braze zu entfernen. Damit können Sie Telefonnummern erneut validieren, nachdem sie als ungültig markiert wurden.
 
 <!-- Your postman link. Once you have published the endpoint to postman, you will be able get a direct link to the information in the postman docs to share here-->
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1614a82f-510a-4c37-95a6-8207a125e487 {% endapiref %}
@@ -31,7 +31,7 @@ Verwenden Sie diesen Endpunkt, um "ungültige" Telefonnummern aus der Ungültigk
 <!-- The rate limit of the endpoint. This pulls from /includes/rate_limits/ and displays specific endpoint limits based on the endpoint provided -->
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 <!--This is where you can give more information about your endpoint request body. -->
 
@@ -46,16 +46,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Parameter der Anfrage
+### Anfrageparameter {#request-parameters}
 
 <!--This is a place for you to describe additional details for the parameters in the request body.-->
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Erforderlich | String-Array im Format e.164  | Eine Reihe von bis zu 50 Telefonnummern zum Ändern. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone_number` | Erforderlich | String-Array im Format e.164 | Ein Array von bis zu 50 Telefonnummern zum Ändern. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 <!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
 

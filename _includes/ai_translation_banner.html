@@ -1,0 +1,10 @@
+{%- if site.language != "en" -%}
+{%- assign i18n = site.data.i18n[site.language] -%}
+{%- if i18n.translation_banner -%}
+<div class="alert alert-note" role="alert">
+  <div class="alert-msg">
+    {{ i18n.translation_banner }}
+  </div>
+</div>
+{%- endif -%}
+{%- endif -%}

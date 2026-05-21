@@ -1,558 +1,380 @@
 ---
-nav_title: 오케스트레이션 설정하기
-article_title: 오케스트레이션 설정하기
+nav_title: 오케스트레이션 설정
+article_title: 오케스트레이션 설정
 page_order: 2
-description: "고객 참여 플랫폼으로 이동하여 개인화된 커뮤니케이션을 가능하게 하는 BrazeAI Decisioning Studio 연결 방법 알아보기."
+description: "BrazeAI Decisioning Studio Go를 고객 참여 플랫폼에 연결하여 개인화된 커뮤니케이션을 활성화하는 방법을 알아보세요."
 toc_headers: h2
 ---
 
-# 오케스트레이션 설정하기
+# 오케스트레이션 설정 {#set-up-orchestration}
 
-> 개인화된 커뮤니케이션을 오케스트레이션하려면 BrazeAI Decisioning Studio™ Go를 고객 참여 플랫폼(CEP)에 연결해야 합니다. 이 문서에서는 지원되는 각 CEP에 대해 통합을 설정하는 방법을 설명합니다.
+> BrazeAI Decisioning Studio™ Go는 개인화된 커뮤니케이션을 오케스트레이션하기 위해 고객 참여 플랫폼(CEP)에 연결해야 합니다. 이 문서에서는 지원되는 각 CEP에 대한 통합 설정 방법을 설명합니다.
 
-## 지원되는 CEP
+## 지원되는 CEP {#supported-ceps}
 
-디시전킹 스튜디오 고는 다음과 같은 고객 참여 플랫폼을 지원합니다:
+Decisioning Studio Go는 다음 고객 참여 플랫폼을 지원합니다:
 
 | CEP | 통합 유형 | 주요 기능 |
 |-----|-----------------|--------------|
-| **Braze** | API로 시작된 캠페인 | 네이티브 통합, 실시간 트리거링 |
-| **Salesforce 마케팅 클라우드** | API 이벤트가 포함된 여정 빌더 | SQL 쿼리 자동화, 데이터 확장 |
-| **클라비요** | 측정기준 트리거가 있는 흐름 | 템플릿 기반, 트리거 분할 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+| **Braze** | API 트리거 캠페인 | 네이티브 통합, 실시간 트리거링 |
+| **Salesforce Marketing Cloud** | API 이벤트를 지원하는 Journey Builder | SQL 쿼리 자동화, 데이터 확장 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="지원되는 CEP" }
 
-통합 설정을 시작하려면 아래에서 해당 CEP를 선택하세요.
+아래에서 CEP를 선택하여 통합 설정을 시작하세요.
 
 {% tabs %}
 {% tab Braze %}
 
-## Braze 통합 설정하기
+## Braze 통합 설정 {#set-up-braze-integration}
 
-Decisioning Studio Go를 Braze와 통합하려면 API 키를 만들고, API 트리거 캠페인을 구성하고, 필요한 식별자를 Decisioning Studio Go 포털에 제공해야 합니다.
+Decisioning Studio Go를 Braze와 통합하려면 API 키를 생성하고, API 트리거 캠페인을 구성한 후, 필요한 식별자를 Decisioning Studio Go 포털에 제공해야 합니다.
 
-### 1단계: Create a REST API key
+### 1단계: REST API 키 생성 {#step-1-create-a-rest-api-key}
 
-1. Braze 대시보드에서 **설정** > **API 및 식별자** > **API 키로** 이동합니다.
-2. **API 키 생성을** 선택합니다.
-3. API 키의 이름을 입력합니다. 예를 들어 "DecisioningStudioGoEmail"이 있습니다.
-4. 다음 카테고리를 기준으로 권한을 선택합니다:
-    - **사용자 데이터:** `users.track`, `users.delete`, `users.export.ids` 을 선택합니다, `users.export.segment`
-    - **메시지:** 선택 `messages.send`
-    - **캠페인:** 나열된 모든 권한을 선택합니다.
-    - **캔버스:** 나열된 모든 권한을 선택합니다.
-    - **세그먼트:** 나열된 모든 권한을 선택합니다.
+1. Braze 대시보드에서 **설정** > **API 및 식별자** > **API 키**로 이동하세요.
+2. **API 키 생성**을 선택합니다.
+3. API 키의 이름을 입력하세요. 예를 들어 "DecisioningStudioGoEmail"과 같이 입력할 수 있습니다.
+4. 다음 카테고리에 따라 권한을 선택하세요:
+    - **사용자 데이터:** `users.track`, `users.delete`, `users.export.ids`, `users.export.segment` 선택
+    - **메시지:** `messages.send` 선택
+    - **Campaigns:** 나열된 모든 권한 선택
+    - **Canvas:** 나열된 모든 권한 선택
+    - **Segments:** 나열된 모든 권한 선택
     - **템플릿:** 나열된 모든 권한 선택
 
 {: start="5"}
-5\. **API 키 생성을** 선택합니다.
-6\. API 키를 복사하여 BrazeAI Decisioning Studio™ Go 포털에 붙여넣으세요.
+5. **API 키 생성**을 선택합니다.
+6. API 키를 복사하여 BrazeAI Decisioning Studio™ Go 포털에 붙여넣으세요.
 
-### 2단계: 이메일 표시 이름 찾기
+### 2단계: 이메일 표시 이름 찾기 {#step-2-locate-your-email-display-name}
 
-1. Braze 대시보드에서 **설정** > **이메일 환경설정으로** 이동합니다.
-2. BrazeAI Decisioning Studio™ Go에 사용할 표시 이름을 찾습니다.
-3. 보낸 사람 **표시 이름을** 복사하여 BrazeAI Decisioning Studio™ Go 포털에 **이메일 표시 이름으로** 붙여넣습니다.
-4. 연결된 이메일 주소를 복사하여 지역 부분과 도메인을 결합한 **발신자 이메일 주소로** BrazeAI Decisioning Studio™ Go 포털에 붙여넣습니다.
+1. Braze 대시보드에서 **설정** > **이메일 환경설정**으로 이동하세요.
+2. BrazeAI Decisioning Studio™ Go와 함께 사용할 표시 이름을 찾으세요.
+3. **From Display Name**을 복사하여 BrazeAI Decisioning Studio™ Go 포털의 **Email Display Name**에 붙여넣으세요.
+4. 관련 이메일 주소를 BrazeAI Decisioning Studio™ Go 포털의 **From email address**에 복사하여 붙여넣으세요. 이 주소는 로컬 부분과 도메인을 결합한 것입니다.
 
-### 3단계: Braze URL 및 앱 ID 찾기
+### 3단계: Braze URL과 앱 ID 찾기 {#step-3-find-your-braze-url-and-app-id}
 
 **Braze URL을 찾으려면:**
-1. Braze 대시보드로 이동합니다.
-2. 브라우저 창에서 Braze URL은 `https://` 으로 시작하고 `braze.com` 으로 끝납니다. Braze URL의 예는 `https://dashboard-01.braze.com` 입니다.
+1. Braze 대시보드로 이동하세요.
+2. 브라우저 창에서 Braze URL은 `https://`로 시작하고 `braze.com`으로 끝납니다. Braze URL의 예시는 `https://dashboard-01.braze.com`입니다.
 
 **앱 ID(API 키)를 찾으려면:**
 
 {% alert note %}
-Braze는 활동을 워크스페이스의 특정 앱과 연결하는 등 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서 API 키라고 함)를 제공합니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험자에게 앱 ID를 연결할 수 있도록 지원합니다.<br><br>앱 ID를 사용하지 않는 경우 입력 안내 문자로 임의의 문자열을 입력할 수 있습니다.
+Braze는 추적 목적으로 사용할 수 있는 앱 ID(Braze 대시보드에서는 API 키로 지칭됨)를 제공합니다. 예를 들어, 워크스페이스 내 특정 앱과 활동을 연결하는 데 활용할 수 있습니다. 앱 ID를 사용하는 경우, BrazeAI Decisioning Studio™ Go는 각 실험 담당자와 앱 ID를 연결하는 기능을 지원합니다.<br><br>앱 ID를 사용하지 않는 경우, 임의의 문자열을 플레이스홀더로 입력할 수 있습니다.
 {% endalert %}
 
-1. Braze 대시보드에서 **설정** > **앱 설정으로** 이동합니다.
-2. 추적하려는 앱으로 이동합니다.
-3. **API 키를** 복사하여 BrazeAI Decisioning Studio™ Go 포털에 붙여넣으세요.
+1. Braze 대시보드에서 **설정** > **앱 설정**으로 이동하세요.
+2. 추적하려는 앱으로 이동하세요.
+3. **API 키**를 복사하여 BrazeAI Decisioning Studio™ Go 포털에 붙여넣으세요.
 
-### 4단계: API 트리거 캠페인 만들기
+### 4단계: API 트리거 캠페인 생성 {#step-4-create-an-api-triggered-campaign}
 
-1. Braze 대시보드에서 **메시징** > 캠페인으로 이동합니다.
-2. **캠페인 만들기를** 선택합니다.
-3. 캠페인 유형은 **API 캠페인을** 선택합니다.
-4. 캠페인 이름을 입력합니다. 예를 들어 "Decisioning Studio Go 이메일"이 있습니다.
+1. Braze 대시보드에서 **메시징** > **Campaigns**로 이동하세요.
+2. **캠페인 생성**을 선택하세요.
+3. 캠페인 유형으로 **API campaign**을 선택하세요.
+4. 캠페인 이름을 입력하세요. 예를 들어 "Decisioning Studio Go Email"과 같이 입력할 수 있습니다.
 
-!["Decisioning Studio Go 이메일"이라는 이름의 API 캠페인.]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
+!["Decisioning Studio Go Email"이라는 이름의 API 캠페인.]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
 
 {: start="5"}
-5\. 메시징 채널의 경우 **이메일을** 선택합니다.
+5. 메시징 채널로 **이메일**을 선택하세요.
 
-![API 캠페인에 사용할 메시징 채널을 선택하는 옵션입니다.]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
+![API 캠페인용 메시징 채널 선택 옵션.]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6\. **추가 옵션에서** **사용자가 캠페인을 다시 받을 수 있도록 허용** 확인란을 선택합니다.
-7\. 다시 자격을 얻으려면 **1을** 입력하고 드롭다운에서 **시간을** 선택합니다.
+6. **추가 옵션**에서 **사용자가 캠페인 수신 자격을 다시 획득할 수 있도록 허용** 확인란을 선택하세요.
+7. 재자격 획득 시간으로 **1**을 입력하고 드롭다운에서 **시간**을 선택하세요.
 
-![선택한 API 캠페인에 대한 자격이 다시 부여됩니다.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
+![선택된 API 캠페인의 재자격 설정.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8\. **캠페인 저장을** 선택합니다.
+8. **캠페인 저장**을 선택하세요.
 
-### 5단계: 캠페인 및 메시지 ID 복사하기
+### 5단계: 캠페인 및 메시지 ID 복사 {#step-5-copy-your-campaign-and-message-ids}
 
-1. API 캠페인에서 **캠페인 ID를** 복사합니다. 그런 다음 BrazeAI Decisioning Studio™ Go 포털로 이동하여 **캠페인 ID를** 붙여넣습니다.
+1. API 캠페인에서 **Campaign ID**를 복사하세요. 그런 다음 BrazeAI Decisioning Studio™ Go 포털로 이동하여 **Campaign ID**를 붙여넣으세요.
 
-![복사하여 붙여넣을 메시지 변형 ID 예시입니다.]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
+![복사하여 붙여넣을 예시 메시지 변형 ID.]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 
 {: start="2"}
-2\. **메시지 변형 ID를** 복사합니다. 그런 다음 BrazeAI Decisioning Studio™ Go 포털로 이동하여 **메시지 변형 ID를** 붙여넣습니다.
+2. **Message Variation ID**를 복사하세요. 그런 다음 BrazeAI Decisioning Studio™ Go 포털로 이동하여 **Message Variation ID**를 붙여넣으세요.
 
-### 6단계: 테스트 사용자 ID 찾기
+### 6단계: 테스트 사용자 ID 찾기 {#step-6-locate-a-test-user-id}
 
 통합을 테스트하려면 사용자 ID가 필요합니다:
 
-1. Braze 대시보드에서 **오디언스** > **사용자 검색으로** 이동합니다.
-2. 외부 사용자 ID, 사용자 별칭, 이메일, 전화번호 또는 푸시 토큰으로 사용자를 검색합니다.
-3. 설정에서 참조할 사용자 ID를 복사합니다.
+워크스페이스에서 [식별자 필드 수준 암호화]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/)를 사용하는 경우, `/users/track` 엔드포인트로 생성하는 새 테스트 사용자는 암호화된 워크스페이스의 이메일 요구 사항을 따라야 합니다. `email` 필드는 소문자로 변환된 이메일 값의 Base64 인코딩 HMAC-SHA256 해시로 전송하고, `email_encrypted`는 구성된 PII 암호화 키로 생성된 암호화된 이메일 값으로 전송하세요.
 
-![ID로 사용자를 찾은 고객 프로필 예시.]({% image_buster /assets/img/decisioning_studio_go/user_id.png %})
+1. Braze 대시보드에서 **오디언스** > **사용자 검색**으로 이동하세요.
+2. 외부 사용자 ID, 사용자 별칭, 이메일, 전화번호 또는 푸시 토큰으로 사용자를 검색하세요.
+3. 설정 시 참조할 수 있도록 사용자 ID를 복사하세요.
+
+![ID로 사용자를 찾은 예시 고객 프로필.]({% image_buster /assets/img/decisioning_studio_go/user_id.png %})
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
-## SFMC 통합 설정하기
+## SFMC 통합 설정 {#set-up-sfmc-integration}
 
-Decisioning Studio Go를 Salesforce Marketing Cloud와 통합하려면 앱 패키지를 설정하고, 데이터 쿼리 자동화를 만들고, 트리거된 전송을 처리하는 여정을 구축해야 합니다.
+Decisioning Studio Go를 Salesforce Marketing Cloud와 통합하려면 앱 패키지를 설정하고, 데이터 쿼리 자동화를 생성하며, 트리거된 발송을 처리하기 위한 여정을 구축해야 합니다.
 
-### 1부: SFMC 앱 패키지 설정하기
+### 1부: SFMC 앱 패키지 설정 {#part-1-set-up-an-sfmc-app-package}
 
-1. 마케팅 클라우드 홈페이지로 이동합니다.
-2. 글로벌 헤더에서 메뉴를 열고 **설정을** 선택합니다.
-3. 사이드 패널 탐색의 **플랫폼 도구** 아래에서 **앱으로** 이동한 다음 **설치된 패키지를** 선택합니다.
-4. **새로** 만들기를 선택하여 앱 패키지를 만듭니다.
-5. 앱 패키지에 이름과 설명을 입력합니다.
+1. Marketing Cloud 홈페이지로 이동하세요.
+2. 글로벌 헤더에서 메뉴를 열고 **Setup**을 선택하세요.
+3. 사이드 패널 탐색에서 **Platform Tools** 아래의 **Apps**로 이동한 후 **Installed Packages**를 선택하세요.
+4. **New**를 선택하여 앱 패키지를 생성합니다.
+5. 앱 패키지에 이름과 설명을 지정하세요.
 
-!["실험자 1 - 테스트 5"라는 이름의 앱 패키지입니다.]({% image_buster /assets/img/decisioning_studio_go/sfmc_app_package1.png %})
+!["Experimenter 1 - Test 5"라는 이름의 앱 패키지.]({% image_buster /assets/img/decisioning_studio_go/sfmc_app_package1.png %})
 
 {: start="6"}
-6\. **구성 요소 추가를** 선택합니다.
-7\. **컴포넌트 유형에서** **API 통합을** 선택합니다. 그런 다음 **다음을** 선택합니다.
-8\. **통합 유형에서** **서버 간을** 선택합니다. 그런 다음 **다음을** 선택합니다.
-9\. 앱 패키지에 대해서만 다음 권장 범위를 선택하세요:
-    \- 채널 > 이메일 > 읽기, 쓰기, 보내기
-    \- 채널 > OTT > 읽기
-    \- 채널 > 푸시 > 읽기
-    \- 채널 > SMS > 읽기
-    \- 채널 > 소셜 > 읽기
-    \- 채널 > 웹 > 읽기
-    \- 자산 > 설명서 및 이미지 > 읽기, 쓰기
-    \- 자산 > 저장된 콘텐츠 > 읽기, 쓰기
-    \- 자동화 > 자동화 > 읽기, 쓰기, 실행
-    \- 자동화 > 여정 > 읽기, 쓰기, 실행, 활성화/중지/일시 중지/전송/예약
-    \- 연락처 > 오디언스 > 읽기
-    \- 연락처 > 목록 및 가입자 > 읽기, 쓰기
-    \- 크로스 클라우드 플랫폼 > 마켓 오디언스 > 보기
-    \- 크로스 클라우드 플랫폼 > 마켓 오디언스 회원 > 보기
-    \- 교차 클라우드 플랫폼 > 마케팅 클라우드 연결 > 읽기
-    \- 데이터 > 데이터 확장 > 읽기, 쓰기
-    \- 데이터 > 파일 위치 > 읽기
-    \- 데이터 > 이벤트 추적 > 읽기, 쓰기
-    \- 이벤트 알림 > 콜백 > 읽기
-    \- 이벤트 알림 > 구독 > 읽기
+6. **Add Component**를 선택하세요.
+7. **Component Type**에서 **API Integration**을 선택하세요. 그런 다음 **Next**를 선택하세요.
+8. **Integration Type**에서 **Server-to-server**를 선택하세요. 그런 다음 **Next**를 선택하세요.
+9. 앱 패키지에 대해 다음 권장 범위만 선택하세요:
+    - Channels > Email > Read, Write, Send
+    - Channels > OTT > Read
+    - Channels > Push > Read
+    - Channels > SMS > Read
+    - Channels > Social > Read
+    - Channels > Web > Read
+    - Assets > Documents and Images > Read, Write
+    - Assets > Saved Content > Read, Write
+    - Automation > Automations > Read, Write, Execute
+    - Automation > Journeys > Read, Write, Execute, Activate/Stop/Pause/Send/Schedule
+    - Contacts > Audiences > Read
+    - Contacts > List and Subscribers > Read, Write
+    - Cross Cloud Platform > Market Audience > View
+    - Cross Cloud Platform > Market Audience Member > View
+    - Cross Cloud Platform > Marketing Cloud Connect > Read
+    - Data > Data Extensions > Read, Write
+    - Data > File Locations > Read
+    - Data > Tracking Events > Read, Write
+    - Event notifications > Callbacks > Read
+    - Event notifications > Subscriptions > Read
 
-{% details Show image of recommended scopes %}
+{% details 권장 범위 이미지 보기 %}
 
-![Salesforce 마케팅 클라우드 앱 패키지의 권장 범위입니다.]({% image_buster /assets/img/decisioning_studio_go/app_package_scopes.png %})
+![Salesforce Marketing Cloud 앱 패키지에 권장되는 범위.]({% image_buster /assets/img/decisioning_studio_go/app_package_scopes.png %})
 
 {% enddetails %}
 
 {: start="10"}
-10\. Select **Save**.
-11\. 다음 필드를 복사하여 BrazeAI Decisioning Studio™ Go 포털에 붙여넣습니다: **클라이언트 ID**, **클라이언트 비밀**, **인증 기본 URI**, **REST 기본 URI**, **SOAP 기본 URI**.
+10. **Save**를 선택하세요.
+11. 다음 필드를 BrazeAI Decisioning Studio™ Go 포털에 복사하여 붙여넣으세요: **Client Id**, **Client Secret**, **Authentication Base URI**, **REST Base URI**, **SOAP Base URI**.
 
-### 2부: 데이터 쿼리 자동화 설정하기
+### 2부: 데이터 쿼리 자동화 설정 {#part-2-set-up-a-data-query-automation}
 
-#### 1단계: 새로운 자동화 만들기
+#### 1단계: 새 자동화 생성 {#step-1-create-a-new-automation}
 
-1. Salesforce 마케팅 클라우드 홈에서 **여정 빌더로** 이동하여 **자동화 스튜디오를** 선택합니다.
+1. Salesforce Marketing Cloud 홈에서 **Journey Builder**로 이동한 후 **Automation Studio**를 선택하세요.
 
-![여정 빌더 탐색의 자동화 스튜디오 옵션.]({% image_buster /assets/img/decisioning_studio_go/query13.png %})
+![Journey Builder 탐색 메뉴의 Automation Studio 옵션.]({% image_buster /assets/img/decisioning_studio_go/query13.png %})
 
 {: start="2"}
-2\. **새 자동화를** 선택합니다.
-3\. **스케줄** 노드를 **시작 소스로** 드래그 앤 드롭합니다.
+2. **New Automation**을 선택하세요.
+3. **Starting Source**로 **Schedule** 노드를 드래그 앤 드롭하세요.
 
-!["여정의 시작 소스로 '일정'을 선택합니다.]({% image_buster /assets/img/decisioning_studio_go/query14.png %})
+!["Schedule"을 여정의 시작 소스로 설정합니다.]({% image_buster /assets/img/decisioning_studio_go/query14.png %})
 
 {: start="4"}
-4\. **스케줄** 노드에서 **구성을** 선택합니다.
-5\. 일정에 대해 다음을 설정합니다:
-    - **시작 날짜:** 내일의 캘린더 날짜
-    - **시간:** **12:00 AM**
-    - **시간대:** **(GMT-05:00) 동부 표준시(미국 & 캐나다)**
-6\. **반복에서** **매일을** 선택합니다.
-7\. 이 일정을 종료하지 않도록 설정하세요.
-8\. **완료를** 선택하여 일정을 저장합니다.
+4. **Schedule** 노드에서 **Configure**를 선택하세요.
+5. 스케줄에 대해 다음을 설정하세요:
+    - **Start Date:** 내일 날짜
+    - **Time:** **12:00 AM**
+    - **Time Zone:** **(GMT-05:00) Eastern (US & Canada)**
+6. **Repeat**에서 **Daily**를 선택하세요.
+7. 이 스케줄을 종료 없이 계속 실행되도록 설정하세요.
+8. **Done**을 선택하여 스케줄을 저장하세요.
 
-![2024년 1월 25일 오전 12시에 매일 반복되도록 정의된 일정의 예입니다.]({% image_buster /assets/img/decisioning_studio_go/query12.png %})
+![2024년 1월 25일 오전 12시(미국 동부 시간)에 정의된 예시 스케줄로, 매일 반복됩니다.]({% image_buster /assets/img/decisioning_studio_go/query12.png %})
 
-#### 2단계: SQL 쿼리 만들기
+#### 2단계: SQL 쿼리 생성 {#step-2-create-your-sql-queries}
 
-다음으로 가입자 쿼리와 참여 쿼리 등 2개의 SQL 쿼리를 만듭니다. 이러한 쿼리를 통해 BrazeAI Decisioning Studio™ Go는 데이터를 검색하여 오디언스를 채우고 참여 이벤트를 수집할 수 있습니다.
+다음으로, 가입자 쿼리와 참여 쿼리라는 2개의 SQL 쿼리를 생성하세요. 이 쿼리를 통해 BrazeAI Decisioning Studio™ Go는 오디언스를 구성하고 참여 이벤트를 수집하기 위한 데이터를 가져올 수 있습니다.
 
-**가입한 가입자가 쿼리합니다:**
+**가입자 쿼리:**
 
-1. **SQL 쿼리를** 캔버스에 드래그 앤 드롭합니다.
-2. **선택을** 선택합니다.
-3. **새 쿼리 활동 만들기를** 선택합니다.
-4. 쿼리에 이름과 외부 키를 입력합니다. BrazeAI Decisioning Studio™ Go 포털에 제공된 가입자 쿼리에 제안된 이름과 외부 키를 사용하는 것이 좋습니다.
+1. **SQL Query**를 캔버스로 드래그 앤 드롭하세요.
+2. **Choose**를 선택하세요.
+3. **Create New Query Activity**를 선택하세요.
+4. 쿼리에 이름과 외부 키를 지정하세요. BrazeAI Decisioning Studio™ Go 포털에서 제공된 가입자 쿼리의 권장 이름과 외부 키를 사용하는 것을 권장합니다.
 
-![예: "OFE_Subscribers_query_Test5" 및 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query11.png %})
+![예시 "OFE_Subscribers_query_Test5"와 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query11.png %})
 
 {: start="5"}
-5\. **다음**을 선택합니다.
-6\. BrazeAI Decisioning Studio™ Go 포털에서 **가입자 쿼리 리소스** 아래에서 시스템 데이터 SQL 쿼리를 찾습니다.
-7\. 쿼리를 복사하여 텍스트 상자에 붙여넣고 **다음을** 선택합니다.
+5. **Next**를 선택하세요.
+6. BrazeAI Decisioning Studio™ Go 포털에서 **Subscriber Query Resources** 아래에 있는 시스템 데이터 SQL 쿼리를 찾으세요.
+7. 쿼리를 텍스트 상자에 복사하여 붙여넣고 **Next**를 선택하세요.
 
-![SQL 쿼리 섹션의 쿼리 예제입니다.]({% image_buster /assets/img/decisioning_studio_go/query10.png %})
+![SQL Query 섹션의 예시 쿼리.]({% image_buster /assets/img/decisioning_studio_go/query10.png %})
 
 {: start="8"}
-8\. BrazeAI Decisioning Studio™ Go 포털의 **리소스 사용** 섹션에서 타겟팅 데이터 확장의 외부 키를 찾습니다. 그런 다음 검색창에 붙여넣어 검색합니다.
+8. BrazeAI Decisioning Studio™ Go 포털의 **Resources to use** 섹션에서 대상 데이터 확장의 외부 키를 찾으세요. 그런 다음 검색창에 붙여넣어 검색하세요.
 
-![검색창에 붙여넣은 외부 키]({% image_buster /assets/img/decisioning_studio_go/query9.png %})
+![검색창에 붙여넣은 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query9.png %})
 
 {: start="9"}
-9\. 검색한 외부 키와 일치하는 데이터 확장자를 선택합니다. 타겟팅 데이터 확장자 이름은 상호 참조할 수 있도록 BrazeAI Decisioning Studio™ Go 포털에도 제공됩니다. 가입자 쿼리의 **데이터 확장자는** `BASE_AUDIENCE_DATA` 접미사로 끝나야 합니다.
+9. 검색한 외부 키와 일치하는 데이터 확장을 선택하세요. 대상 데이터 확장 이름은 교차 참조를 위해 BrazeAI Decisioning Studio™ Go 포털에도 제공됩니다. 가입자 쿼리의 **Data Extension**은 `BASE_AUDIENCE_DATA` 접미사로 끝나야 합니다.
 
-![예제 외부 키와 일치하는 데이터 확장자 이름입니다.]({% image_buster /assets/img/decisioning_studio_go/query8.png %})
+![예시 외부 키와 일치하는 데이터 확장 이름.]({% image_buster /assets/img/decisioning_studio_go/query8.png %})
 
 {: start="10"}
-10\. **덮어쓰기를** 선택한 후 **다음을** 선택합니다.
+10. **Overwrite**를 선택한 다음 **Next**를 선택하세요.
 
 **참여 쿼리:**
 
-1. **SQL 쿼리를** 캔버스에 드래그 앤 드롭합니다.
+1. **SQL Query**를 캔버스로 드래그 앤 드롭하세요.
 
-!["SQL 쿼리"가 여정의 활동으로 추가되었습니다.]({% image_buster /assets/img/decisioning_studio_go/query7.png %})
+!["SQL Query"가 여정에 활동으로 추가되었습니다.]({% image_buster /assets/img/decisioning_studio_go/query7.png %})
 
 {: start="2"}
-2\. **선택을** 선택합니다.
-3\. **새 쿼리 활동 만들기를** 선택합니다.
-4\. 쿼리에 이름과 외부 키를 입력합니다. BrazeAI Decisioning Studio™ Go 포털에 제공된 참여 쿼리에 제안된 이름과 외부 키를 사용하는 것이 좋습니다.
+2. **Choose**를 선택하세요.
+3. **Create New Query Activity**를 선택하세요.
+4. 쿼리에 이름과 외부 키를 지정하세요. BrazeAI Decisioning Studio™ Go 포털에서 제공된 참여 쿼리의 권장 이름과 외부 키를 사용하는 것을 권장합니다.
 
-![예: "OFE_Engagement_query" 및 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query6.png %})
+![예시 "OFE_Engagement_query"와 외부 키.]({% image_buster /assets/img/decisioning_studio_go/query6.png %})
 
 {: start="5"}
-5\. **다음**을 선택합니다.
-6\. BrazeAI Decisioning Studio™ Go 포털에서 **참여 쿼리 리소스** 아래에서 시스템 데이터 SQL 쿼리를 찾습니다.
-7\. 쿼리를 복사하여 텍스트 상자에 붙여넣고 **다음을** 선택합니다.
+5. **Next**를 선택하세요.
+6. BrazeAI Decisioning Studio™ Go 포털에서 **Engagement Query Resources** 아래에 있는 시스템 데이터 SQL 쿼리를 찾으세요.
+7. 쿼리를 텍스트 상자에 복사하여 붙여넣고 **Next**를 선택하세요.
 
-![SQL 쿼리 섹션의 쿼리 예제입니다.]({% image_buster /assets/img/decisioning_studio_go/query5.png %})
+![SQL Query 섹션의 예시 쿼리.]({% image_buster /assets/img/decisioning_studio_go/query5.png %})
 
 {: start="8"}
-8\. BrazeAI Decisioning Studio™ Go 포털에서 지정된 참여 쿼리에 대한 타겟팅 데이터 확장을 찾아 선택합니다.
+8. BrazeAI Decisioning Studio™ Go 포털에서 지정된 참여 쿼리의 대상 데이터 확장을 찾아 선택하세요.
 
 {% alert tip %}
-타겟팅 데이터 확장자 이름은 상호 참조할 수 있도록 BrazeAI Decisioning Studio™ Go 포털에도 제공됩니다. 참여 쿼리에 대한 타겟팅 데이터 확장을 보고 있는지 확인하세요. 참여 쿼리의 **데이터 확장자는** ENGAGEMENT_DATA 접미사로 끝나야 합니다.
+대상 데이터 확장 이름은 교차 참조를 위해 BrazeAI Decisioning Studio™ Go 포털에도 제공됩니다. 참여 쿼리의 대상 Data Extension을 확인하고 있는지 반드시 확인하세요. 참여 쿼리의 **Data Extension**은 ENGAGEMENT_DATA 접미사로 끝나야 합니다.
 {% endalert %}
 
 {: start="9"}
-9\. **덮어쓰기를** 선택한 후 **다음을** 선택합니다.
+9. **Overwrite**를 선택한 다음 **Next**를 선택하세요.
 
-![예제 외부 키와 일치하는 데이터 확장자 이름입니다.]({% image_buster /assets/img/decisioning_studio_go/query4.png %})
+![예시 외부 키와 일치하는 데이터 확장 이름.]({% image_buster /assets/img/decisioning_studio_go/query4.png %})
 
-#### 3단계: 자동화 실행하기
+#### 3단계: 자동화 실행 {#step-3-run-the-automation}
 
-1. 자동화에 이름을 지정하고 **저장을** 선택합니다.
+1. 자동화에 이름을 지정한 후 **Save**를 선택하세요.
 
-![자동화 예시 "OFE_Experimenter_Test5_Automation".]({% image_buster /assets/img/decisioning_studio_go/query3.png %})
+![예시 자동화 "OFE_Experimenter_Test5_Automation".]({% image_buster /assets/img/decisioning_studio_go/query3.png %})
 
 {: start="2"}
-2\. 그런 다음 **한 번 실행을** 선택하여 모든 것이 예상대로 작동하는지 확인합니다.
-3\. 두 쿼리를 모두 선택하고 **실행을** 선택합니다.
+2. 다음으로, **Run Once**를 선택하여 모든 것이 예상대로 작동하는지 확인하세요.
+3. 두 쿼리를 모두 선택하고 **Run**을 선택하세요.
 
-![실행할 선택된 SQL 쿼리 활동 목록이 있는 자동화 "OFE_Experimenter_Test5_Automation".]({% image_buster /assets/img/decisioning_studio_go/query2.png %})
+![선택된 SQL 쿼리 활동 목록을 실행하는 "OFE_Experimenter_Test5_Automation" 자동화.]({% image_buster /assets/img/decisioning_studio_go/query2.png %})
 
 {: start="4"}
-4\. **지금 실행을** 선택합니다.
+4. **Run Now**를 선택하세요.
 
-![선택한 SQL 쿼리 활동입니다.]({% image_buster /assets/img/decisioning_studio_go/query1.png %})
+![선택된 SQL Query 활동.]({% image_buster /assets/img/decisioning_studio_go/query1.png %})
 
-이제 자동화가 성공적으로 실행되고 있는지 확인할 수 있습니다. 자동화가 예상대로 실행되지 않는 경우 추가 지원이 필요한 경우 Braze 지원팀에 문의하세요.
+이제 자동화가 성공적으로 실행되고 있는지 확인할 수 있습니다. 자동화가 예상대로 실행되지 않는 경우 Braze 고객지원팀에 문의하여 추가 지원을 받으세요.
 
-### 3부: SFMC 여정 만들기
+### 3부: SFMC 여정 생성 {#part-3-create-your-sfmc-journey}
 
-#### 1단계: 여정 설정
+#### 1단계: 여정 설정 {#step-1-set-up-the-journey}
 
-1. Salesforce 마케팅 클라우드에서 **여정 빌더** > **여정 빌더로** 이동합니다.
-2. **새 여정 생성을** 선택합니다.
-3. 여정 유형에 대해 **다단계 여정을** 선택한 다음 **생성을** 선택합니다.
+1. Salesforce Marketing Cloud에서 **Journey Builder** > **Journey Builder**로 이동하세요.
+2. **Create New Journey**를 선택하세요.
+3. 여정 유형으로 **Multi-Step Journey**를 선택한 후 **Create**를 선택하세요.
 
-![결정 분할 노드 및 여러 이메일 노드에 연결된 API 이벤트 입력 소스입니다.]({% image_buster /assets/img/decisioning_studio_go/journey1.png %})
+![결정 분할 노드와 여러 이메일 노드에 연결된 API 이벤트 진입 소스.]({% image_buster /assets/img/decisioning_studio_go/journey1.png %})
 
-#### 2단계: 여정 구축
+#### 2단계: 여정 구축 {#step-2-build-the-journey}
 
-**항목 소스를 만듭니다:**
+**진입 소스 생성:**
 
-1. 엔트리 소스의 경우 **API 이벤트를** 여정 빌더로 드래그합니다.
+1. 진입 소스로 **API Event**를 Journey Builder로 드래그하세요.
 
-![입력 소스로 "API 이벤트"를 선택합니다.]({% image_buster /assets/img/decisioning_studio_go/journey2.png %})
+![진입 소스로 "API Event"가 선택되었습니다.]({% image_buster /assets/img/decisioning_studio_go/journey2.png %})
 
 {: start="2"}
-2\. **API 이벤트**에서 **이벤트 생성을** 선택합니다.
+2. **API Event**에서 **Create an event**를 선택하세요.
 
-![API 이벤트의 '이벤트 만들기' 옵션을 클릭합니다.]({% image_buster /assets/img/decisioning_studio_go/journey3.png %})
+![API Event의 "이벤트 생성" 옵션.]({% image_buster /assets/img/decisioning_studio_go/journey3.png %})
 
 {: start="3"}
-3\. **데이터 확장자 선택을** 선택합니다. BrazeAI Decisioning Studio™ Go에서 권장 사항을 작성할 데이터 확장을 찾아 선택합니다.
-4\. **요약을** 선택하여 변경 내용을 저장합니다.
-5\. **완료를** 선택하여 API 이벤트를 저장합니다.
+3. **Select Data Extension**을 선택하세요. BrazeAI Decisioning Studio™ Go가 추천을 기록할 데이터 확장을 찾아 선택하세요.
+4. 변경 사항을 저장하려면 **Summary**를 선택하세요.
+5. **Done**을 선택하여 API 이벤트를 저장하세요.
 
 ![API 이벤트 요약.]({% image_buster /assets/img/decisioning_studio_go/journey4.png %}){: style="max-width:80%;"}
 
-**결정 분할을 추가합니다:**
+**결정 분할 추가:**
 
-1. **API 입력 이벤트** 후 **결정 분할을** 드래그 앤 드롭합니다.
-2. **결정 분할** 세부 정보에서 첫 번째 경로에 대해 **편집을** 선택합니다.
+1. **API Entry Event** 뒤에 **Decision Split**을 드래그 앤 드롭하세요.
+2. **Decision Split** 세부 정보에서 첫 번째 경로에 대해 **Edit**를 선택하세요.
 
-!["편집" 버튼으로 결정 분할 세부 정보를 수정합니다.]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
+!["Edit" 버튼이 있는 결정 분할 세부 정보.]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
 
 {: start="3"}
-3\. 권장 사항 데이터 확장에서 전달된 템플릿 ID를 사용하도록 **결정 분할을** 업데이트합니다. **여정 데이터에서** 해당 필드를 찾습니다.
+3. 추천 데이터 확장에서 전달된 템플릿 ID를 사용하도록 **Decision Split**을 업데이트하세요. **Journey Data** 아래에서 적절한 필드를 찾으세요.
 
-![결정 분할의 경로 1에 있는 여정 데이터 섹션입니다.]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
+![결정 분할의 경로 1에 있는 Journey Data 섹션.]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
 
 {: start="4"}
-4\. 입력 이벤트를 선택하고 원하는 템플릿 ID 필드를 찾은 다음 작업 영역으로 드래그합니다.
+4. 진입 이벤트를 선택하고 원하는 템플릿 ID 필드를 찾은 후 워크스페이스로 드래그하세요.
 
-![포함할 이메일 템플릿 ID입니다.]({% image_buster /assets/img/decisioning_studio_go/journey7.png %})
+![포함할 이메일 템플릿 ID.]({% image_buster /assets/img/decisioning_studio_go/journey7.png %})
 
 {: start="5"}
-5\. 첫 번째 이메일 템플릿의 템플릿 ID를 입력한 다음 **완료를** 선택합니다.
-6\. **요약을** 선택하여 이 경로를 저장합니다.
-7\. 각 이메일 템플릿에 대한 경로를 추가한 다음 위의 4~6단계를 반복하여 템플릿 ID가 각 템플릿의 ID 값과 일치하도록 필터 기준을 설정합니다.
-8\. **완료를** 선택하여 **결정 분할** 노드를 저장합니다.
+5. 첫 번째 이메일 템플릿의 템플릿 ID를 입력한 후 **Done**을 선택하세요.
+6. **Summary**를 선택하여 이 경로를 저장하세요.
+7. 각 이메일 템플릿에 대한 경로를 추가한 후, 위의 4~6단계를 반복하여 템플릿 ID가 각 템플릿의 ID 값과 일치하도록 필터 기준을 설정하세요.
+8. **Done**을 선택하여 **Decision Split** 노드를 저장하세요.
 
 ![각 이메일 템플릿 ID에 대한 결정 분할의 두 가지 경로.]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
 
-**각 결정 분할에 대해 이메일을 추가합니다:**
+**각 결정 분할에 이메일 추가:**
 
-1. **이메일** 노드를 **결정 분할의** 각 경로로 드래그합니다.
-2. **이메일을** 선택한 다음 각 경로에 들어갈 적절한 템플릿을 선택합니다(즉, ID 값이 있는 템플릿이 결정 분할의 로직과 일치해야 함).
+1. **Email** 노드를 **Decision Split**의 각 경로로 드래그하세요.
+2. **Email**을 선택한 후, 각 경로에 적용될 적절한 템플릿을 선택하세요(즉, ID 값이 있는 템플릿이 Decision Split의 로직과 일치해야 합니다).
 
-![여정에 추가된 이메일 노드입니다.]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
+![여정에 이메일 노드가 추가되었습니다.]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
 
-#### 3단계: 여정 활성화
+#### 3단계: 여정 활성화 {#step-3-activate-the-journey}
 
 여정을 설정한 후 활성화하고 다음 세부 정보를 BrazeAI Decisioning Studio™ Go 팀과 공유하세요:
 
-* 여정 ID
-* 여정 이름
-* API 이벤트 정의 키
-* 권장 사항 데이터 확장 외부 키
+* Journey ID
+* Journey name
+* API event definition key
+* Recommendations data extension external key
 
 {% alert note %}
-BrazeAI Decisioning Studio™ Go 포털은 가입자와 참여 데이터를 매일 한 번 내보내기 위해 프로비저닝한 SFMC 자동화를 보여줍니다. SFMC에서 이 자동화를 열면 일시 중지했다가 다시 라이브로 전환해야 합니다.
+BrazeAI Decisioning Studio™ Go 포털은 가입자 및 참여 데이터를 하루에 한 번 내보내기 위해 프로비저닝한 SFMC 자동화를 보여줍니다. 이 자동화를 SFMC에서 열 경우, 일시 중지를 해제하고 다시 활성 상태로 전환해야 합니다.
 {% endalert %}
 
-1. BrazeAI Decisioning Studio™ Go 포털에서 **여정 이름을** 복사합니다.
-2. 다음으로 Salesforce 마케팅 클라우드 여정 빌더에서 여정 이름을 검색창에 붙여넣습니다.
-3. 여정 이름을 선택합니다. 여정은 현재 초안 상태입니다.
-4. **유효성 검사를** 선택합니다.
+1. BrazeAI Decisioning Studio™ Go 포털에서 **Journey name**을 복사하세요.
+2. 다음으로 Salesforce Marketing Cloud Journey Builder에서 검색창에 여정 이름을 붙여넣으세요.
+3. 여정 이름을 선택하세요. 여정은 현재 초안 상태입니다.
+4. **Validate**를 선택하세요.
 
-![완료된 여정을 활성화합니다.]({% image_buster /assets/img/decisioning_studio_go/activate3.png %})
+![활성화할 완료된 여정.]({% image_buster /assets/img/decisioning_studio_go/activate3.png %})
 
 {: start="5"}
-5\. 그런 다음 유효성 검사 결과를 검토하고 **활성화를** 선택합니다.
+5. 검증 결과를 검토하고 **Activate**를 선택하세요.
 
-![유효성 검사 규칙 섹션에 나열된 권장 사항입니다.]({% image_buster /assets/img/decisioning_studio_go/activate1.png %}){: style="max-width:60%;"}
-
-{: start="6"}
-6\. **여정 활성화** 요약에서 **활성화를** 다시 선택합니다.
-
-![여정을 위한 요약.]({% image_buster /assets/img/decisioning_studio_go/activate2.png %}){: style="max-width:85%;"}
-
-You're all set! 이제 BrazeAI Decisioning Studio™ Go를 통해 전송 트리거를 시작할 수 있습니다.
-
-{% endtab %}
-{% tab Klaviyo %}
-
-## 클라비요 통합 설정하기
-
-Decisioning Studio Go와 Klaviyo를 통합하려면 API 키를 설정하고, 입력 안내 템플릿 플로우를 만들고, 트리거된 전송을 처리하는 플로우를 구축해야 합니다.
-
-### 1부: 클라비요 API 키 설정하기
-
-1. 클라비요에서 **설정** > **API 키로** 이동합니다.
-2. **비공개 API 키 생성을** 선택합니다.
-3. Enter a name for the API key. 예를 들어 '의사 결정 스튜디오 실험자'가 있습니다.
-4. API 키에 대해 다음 권한을 선택합니다:
-    - Campaigns: 읽기 액세스
-    - 데이터 프라이버시: 전체 액세스
-    - 이벤트: 전체 액세스
-    - 흐름: 전체 액세스
-    - 이미지: 읽기 액세스
-    - 목록: 전체 액세스
-    - 측정기준: 전체 액세스
-    - 프로필: 전체 액세스
-    - 세그먼트: 읽기 액세스
-    - 템플릿: 전체 액세스
-    - 웹훅: 읽기 액세스
-
-![선택한 권한이 있는 클라비요 API 키입니다.]({% image_buster /assets/img/decisioning_studio_go/klaviyo_api_key.png %})
-
-{: start="5"}
-5\. Select **Create**.
-6\. 이 API 키를 복사하여 메시지가 표시되는 곳에 BrazeAI Decisioning Studio™ Go 포털에 붙여넣으세요.
-
-### 2부: 클라비요에서 입력 안내 템플릿 만들기
-
-BrazeAI Decisioning Studio™ Go는 Klaviyo 계정의 기존 흐름과 연결된 템플릿을 가져옵니다. 어떤 플로우와도 연결되지 않은 템플릿을 사용하려면 사용하려는 템플릿이 포함된 입력 안내 플로우를 만들면 됩니다. 흐름은 초안으로 남겨둘 수 있으며 라이브 상태일 필요는 없습니다.
-
-{% alert note %}
-이 입력 안내자 흐름의 목적은 원하는 콘텐츠를 BrazeAI Decisioning Studio™ Go로 가져오기 위한 것입니다. 이후 단계에서 별도의 플로우를 생성해야 하며, 이 플로우는 실험자가 라이브 상태가 되면 활성화를 트리거하는 데 BrazeAI Decisioning Studio™ Go가 사용합니다.
-{% endalert %}
-
-**1단계: 흐름 설정**
-
-1. 클라비요에서 **플로우를** 선택합니다.
-2. **흐름 만들기** > **처음부터 만들기를** 선택합니다.
-3. 입력 안내자 흐름에 알아볼 수 있는 이름을 지정한 다음 **흐름 만들기를** 선택합니다.
-
-!["OFE 입력 안내서 플로우"라는 이름의 플로우입니다.]({% image_buster /assets/img/decisioning_studio_go/create_flow.png %})
-
-{: start="4"}
-4\. 트리거를 선택한 다음 플로우를 저장합니다.
-5\. **확인을** 선택하고 **저장합니다**.
-
-**2단계: 입력 안내 템플릿 만들기**
-
-1. **트리거** 뒤에 **이메일** 노드를 드래그 앤 드롭합니다.
-
-![트리거 노드와 이메일 노드가 있는 플로우입니다.]({% image_buster /assets/img/decisioning_studio_go/set_up_email_node.png %})
-
-{: start="2"}
-2\. **이메일** 노드에서 **템플릿 선택을** 선택합니다.
-3\. 그런 다음 사용할 템플릿을 선택하고 **템플릿 사용을** 선택합니다.
-4\. **저장** > **완료를** 선택합니다.
-5\. (선택 사항) BrazeAI Decisioning Studio™ Go에서 사용할 템플릿을 더 추가하려면 다른 **이메일** 노드를 추가하고 2~4단계를 반복합니다.
-6\. 모든 이메일을 **초안** 모드로 두고 플로우를 종료합니다.
-
-BrazeAI Decisioning Studio™ Go 포털의 입력 안내 흐름에서 템플릿을 선택할 수 있어야 합니다.
-
-![의사 결정 스튜디오 Go 포털의 입력 안내 클라비요 템플릿의 예입니다.]({% image_buster /assets/img/decisioning_studio_go/placeholder_flow.png %})
-
-### 3부: 클라비요에서 플로우 만들기
-
-{% alert important %}
-설정하는 모든 새 실험자에 대해 클라비요에서 새 플로우를 만들어야 합니다. 이전에 템플릿을 가져오기 위해 입력 안내자 플로우를 만든 경우에는 새 플로우를 만들어야 하며 이전 입력 안내자 플로우는 재사용할 수 없습니다.
-{% endalert %}
-
-Klaviyo에서 플로우를 만들기 전에 참조할 수 있는 BrazeAI Decisioning Studio™ Go 포털의 다음 세부 정보가 있어야 합니다:
-
-- 흐름 이름
-- 트리거 이벤트 이름
-
-#### 1단계: 흐름 설정
-
-1. 클라비요에서 **플로우** > **플로우 만들기를** 선택합니다.
-2. **나만의 구축하기를** 선택합니다.
-3. **이름에** BrazeAI Decisioning Studio™ Go 포털의 흐름 이름을 입력합니다. 그런 다음 **수동 생성을** 선택합니다.
-
-![예제 플로우에 대해 '수동으로 만들기' 옵션을 선택했습니다.]({% image_buster /assets/img/decisioning_studio_go/flow1.png %}){: style="max-width:50%;"}
-
-{: start="4"}
-4\. 트리거를 선택합니다.
-5\. 측정기준 이름을 BrazeAI Decisioning Studio™ Go 포털의 트리거 이벤트 이름과 일치시킵니다.
-
-![트리거 이벤트 이름과 일치하는 측정기준 이름 예시 "OFE_TEST_CASE_API_EVENT_TRIGGER".]({% image_buster /assets/img/decisioning_studio_go/flow2.png %})
+![검증 규칙 섹션에 나열된 추천 항목.]({% image_buster /assets/img/decisioning_studio_go/activate1.png %}){: style="max-width:60%;"}
 
 {: start="6"}
-6\. Select **Save**.
+6. **Activate Journey** 요약에서 다시 **Activate**를 선택하세요.
 
-{% alert note %}
-실험자에게 기본 템플릿이 하나만 있는 경우 2단계로 진행합니다. 실험자에게 기본 템플릿이 두 개 이상인 경우 [3단계로 건너뜁니다: 흐름에 트리거 분할 추가](#step-3-add-a-trigger-split-to-your-flow).
-{% endalert %}
+![여정 요약.]({% image_buster /assets/img/decisioning_studio_go/activate2.png %}){: style="max-width:85%;"}
 
-#### 2단계: 흐름에 이메일 추가(단일 템플릿)
-
-1. **트리거** 노드 뒤에 **이메일** 노드를 드래그 앤 드롭합니다.
-2. **이메일 세부 정보에서** **템플릿 선택을** 선택합니다.
-
-!['이메일 세부정보' 섹션에서 '템플릿 선택' 옵션을 선택합니다.]({% image_buster /assets/img/decisioning_studio_go/flow3.png %})
-
-{: start="3"}
-3\. 기본 템플릿을 찾아 선택합니다. BrazeAI Decisioning Studio™ Go 포털의 **사용할 리소스** 섹션에서 템플릿 이름으로 템플릿을 검색할 수 있습니다.
-
-![클라비요의 기본 템플릿 예시입니다.]({% image_buster /assets/img/decisioning_studio_go/flow4.png %})
-
-{: start="4"}
-4\. **템플릿 사용** > **저장을** 선택합니다.
-5\. **제목란에** {% raw %}`{{event.SubjectLine}}`{% endraw %} 을 입력합니다.
-6\. **발신자 이름과** **발신자 이메일 주소에** 사용하려는 세부 정보를 입력합니다.
-
-!["이메일 1"의 제목란, 발신자 이름 및 발신자 이메일 주소 예시입니다.]({% image_buster /assets/img/decisioning_studio_go/flow5.png %})
-
-{: start="7"}
-7\. **완료를** 선택합니다.
-8\. **최근에 이메일로 받은 프로필 건너뛰기** 확인란을 선택 취소한 다음 **저장을** 선택합니다.
-9\. 이메일 노드에서 모드를 **임시** 보관에서 **실시간** 보관으로 업데이트합니다.
-
-![이메일 노드에 연결된 트리거 노드를 보여주는 클라비요 플로우 에디터.]({% image_buster /assets/img/decisioning_studio_go/flow6.png %})
-
-You're all set! 이제 BrazeAI Decisioning Studio™ Go를 통해 활성화를 트리거할 수 있습니다.
-
-#### 3단계: 흐름에 트리거 분할 추가(여러 템플릿)
-
-1. **트리거 노드** 뒤에 트리거 **분할** 노드를 드래그 앤 드롭합니다.
-2. **트리거 분할** 노드를 선택하고 **차원을** **EmailTemplateID로** 설정합니다.
-
-![차원 이메일 템플릿ID로 구성된 트리거 분할을 공급하는 트리거 노드를 보여주는 클라비요 플로우 다이어그램.]({% image_buster /assets/img/decisioning_studio_go/flow7.png %})
-
-**이메일 템플릿을 추가합니다:**
-
-1. BrazeAI Decisioning Studio™ Go 포털의 **리소스 사용** 섹션에서 첫 번째 템플릿의 **이메일 템플릿 ID를** 찾습니다. **차원** 필드에 **이메일 템플릿 ID를** 입력한 다음 **저장을** 선택합니다.
-2. **이메일** 노드를 **트리거 분할의** **예** 분기로 드래그 앤 드롭합니다.
-
-![이메일 노드로 연결되는 Yes 브랜치와 다른 트리거 분할에 연결되는 No 브랜치가 있는 트리거 분할 노드가 있는 클라비요 플로우입니다.]({% image_buster /assets/img/decisioning_studio_go/flow8.png %})
-
-{: start="3"}
-3\. **이메일 세부 정보에서** **템플릿 선택을** 선택합니다.
-4\. 기본 템플릿을 찾아 선택합니다. BrazeAI Decisioning Studio™ Go 포털의 **리소스 사용** 섹션에서 기본 템플릿 이름으로 템플릿을 검색할 수 있습니다.
-5\. **템플릿 사용** > **저장을** 선택합니다.
-6\. **제목란에** {% raw %}`{{event.SubjectLine}}`{% endraw %} 을 입력합니다.
-7\. **발신자 이름과** **발신자 이메일 주소에** 사용하려는 세부 정보를 입력합니다.
-
-![선택한 이메일 템플릿과 제목란, 발신자 이름, 발신자 이메일 주소에 대한 필드입니다.]({% image_buster /assets/img/decisioning_studio_go/flow5.png %})
-
-{: start="8"}
-8\. **완료를** 선택합니다.
-9\. **최근에 이메일로 받은 프로필 건너뛰기** 확인란을 선택 취소한 다음 **저장을** 선택합니다.
-10\. 이메일 노드에서 모드를 **임시** 보관에서 **실시간** 보관으로 업데이트합니다.
-
-**각 추가 템플릿에 대해 새로운 트리거 분할을 추가합니다:**
-
-1. 다른 **트리거 분할** 노드를 이전 **트리거 분할** 노드의 분기 **없음으로** 드래그 앤 드롭합니다.
-2. **차원을** **이메일** **템플릿 ID로** 설정하고 설정 중인 기본 템플릿의 **이메일 템플릿 ID로** **차원** 값을 입력합니다.
-3. Select **Save**.
-
-![트리거 분할로 이어지는 트리거 노드를 보여주는 Klaviyo 흐름 편집기의 다이어그램. 트리거 분할에는 이메일 노드로 연결되는 예 분기와 추가 이메일 노드로 연결되는 다른 트리거 분할에 연결되는 아니요 분기가 있습니다.]({% image_buster /assets/img/decisioning_studio_go/flow9.png %})
-
-{: start="4"}
-4\. 새 트리거 분할의 **예** 브랜치에 **이메일** 노드를 드래그 앤 드롭합니다.
-5\. 위의 이메일 템플릿 설정 단계를 반복하여 해당 템플릿을 선택합니다.
-6\. **제목란을** {% raw %}`{{event.SubjectLine}}`{% endraw %} 으로 설정하고 **최근 이메일로 받은 프로필 건너뛰기** 확인란을 선택 취소합니다.
-7\. 실험자가 사용 중인 각 기본 템플릿에 대해 **트리거 분할** 노드와 **이메일** 노드가 하나씩 생길 때까지 이 과정을 반복합니다. 마지막 트리거 분할은 "아니요" 브랜치에 아무것도 없어야 합니다.
-
-![여러 이메일 노드로 분기되는 여러 트리거 분할 노드가 있는 클라비요 플로우입니다.]({% image_buster /assets/img/decisioning_studio_go/flow10.png %})
-
-{: start="8"}
-8\. 각 **이메일** 노드에서 모드를 **임시** 보관에서 **실시간** 보관으로 업데이트합니다.
-
-![노드 상태를 '라이브'로 업데이트하는 옵션입니다.]({% image_buster /assets/img/decisioning_studio_go/flow11.png %})
-
-You're all set! 이제 BrazeAI Decisioning Studio™ Go를 통해 활성화를 트리거할 수 있습니다.
+모든 설정이 완료되었습니다! 이제 BrazeAI Decisioning Studio™ Go를 통해 발송을 트리거할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
 
-## 다음 단계
+## 다음 단계 {#next-steps}
 
-오케스트레이션을 설정했으니 이제 상담원 디자인을 진행하세요:
+오케스트레이션 설정을 완료했으니, 이제 에이전트 설계를 진행하세요:
 
 - [에이전트 설계]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)

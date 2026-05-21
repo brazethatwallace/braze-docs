@@ -1,7 +1,7 @@
 ---
 title: Ketch
 nav_title: Ketch
-description: "This reference article covers the Braze and Ketch integration. Ketch provides simplified privacy operations and complete, dynamic data control, and intelligence."
+description: "이 참조 문서에서는 Braze와 Ketch 통합에 대해 다룹니다. Ketch는 간소화된 개인정보 보호 운영과 완전하고 동적인 데이터 제어 및 인텔리전스를 제공합니다."
 alias: /partners/ketch
 page_type: partner
 search_tag: Ketch
@@ -9,56 +9,54 @@ search_tag: Ketch
 
 # Ketch
 
-> [Ketch](https://www.ketch.com) enables businesses to be responsible stewards of their data. Ketch provides simplified privacy operations and complete, dynamic data control and intelligence. 
+> [Ketch](https://www.ketch.com)는 기업이 데이터의 책임 있는 관리자가 될 수 있도록 지원합니다. Ketch는 간소화된 개인정보 보호 운영과 완전하고 동적인 데이터 제어 및 인텔리전스를 제공합니다.
 
-_This integration is maintained by Ketch._
+_이 통합은 Ketch에서 유지 관리합니다._
 
-## About the integration
+## 통합 소개 {#about-the-integration}
 
-The Braze and Ketch integration allows you to control customer communication preferences within the Ketch preference center and automatically propagate these changes to Braze. 
+Braze와 Ketch 통합을 사용하면 Ketch 환경설정 센터 내에서 고객 커뮤니케이션 환경설정을 제어하고 이러한 변경 사항을 Braze에 자동으로 전파할 수 있습니다.
 
 {% alert note %}
-Looking for guidance on creating subscription groups? Check out our articles for <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>SMS subscription groups</a> and <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>email subscription groups</a>.
+구독 그룹 생성에 대한 안내가 필요하신가요? <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>SMS 구독 그룹</a> 및 <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>이메일 구독 그룹</a> 문서를 확인하세요.
 {% endalert %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirements | Description |
+| 요구 사항 | 설명 |
 |---|---|
-| Ketch Account | A [Ketch](https://www.ketch.com) account with admin privileges is required activate this integration. |
-| Braze API key | A Braze REST API key with `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe`, and `email.blacklist` permissions. <br><br> This can be created in the Braze dashboard (**Developer Console** > **REST API Key** > **Create New API Key**). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Ketch 계정 | 이 통합을 활성화하려면 관리자 권한이 있는 [Ketch](https://www.ketch.com) 계정이 필요합니다. |
+| Braze API 키 | `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe`, `email.blacklist` 권한이 있는 Braze REST API 키입니다. <br><br> 이 키는 Braze 대시보드(**Developer Console** > **REST API Key** > **Create New API Key**)에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Set up the Braze connection
+### 1단계: Braze 연결 설정 {#step-1-set-up-the-braze-connection}
 
-1. In your [Ketch instance](https://app.ketch.com), navigate to **Data Systems**, and select **Braze**. Then, click **New Connection**.
-2. Give your Braze connection an identifiable name, which will be used to refer to this connection in API-based processes. Note that a code will also be created for that connection. This code should be unique across all connections.
-3. Confirm the identity mapping of your users. By default, Ketch will map user identities by a user's email address, or by the `external_id` in Braze.
-4. Add the Braze API key and provide the API endpoint. Note this [API endpoint]({{site.baseurl}}/api/basics/#endpoints) is based on which Braze instance your organization is using.
+1. [Ketch 인스턴스](https://app.ketch.com)에서 **Data Systems**로 이동하여 **Braze**를 선택합니다. 그런 다음 **New Connection**을 클릭합니다.
+2. Braze 연결에 식별 가능한 이름을 지정합니다. 이 이름은 API 기반 프로세스에서 이 연결을 참조하는 데 사용됩니다. 해당 연결에 대한 코드도 생성됩니다. 이 코드는 모든 연결에서 고유해야 합니다.
+3. 사용자의 ID 매핑을 확인합니다. 기본적으로 Ketch는 사용자의 이메일 주소 또는 Braze의 `external_id`를 기준으로 사용자 ID를 매핑합니다.
+4. Braze API 키를 추가하고 API 엔드포인트를 입력합니다. 이 [API 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)는 조직에서 사용하는 Braze 인스턴스에 따라 달라집니다.
 
-### Step 2: Configure subscription preferences
+### 2단계: 구독 환경설정 구성 {#step-2-configure-subscription-preferences}
 
-1. Go to **Policy Center > Subscriptions**. If you do not see the subscriptions tab under **Policy Center**, make sure you have access to the marketing preference center, and verify that you have the correct account permissions to access this portion of the product.
-2. Click **Create New Subscription** to create a new topic. Each subscription will have a name and a code.
-3. Add the channels for sending your subscription topics. Each channel will show in the marketing preference center for your users. You can also add the details of how you want the Ketch preference center to orchestrate a particular opt-in or opt-out signal.
-4. Select the Braze connection you would like to use to orchestrate the opt-in and opt-out signals.
+1. **Policy Center** > **Subscriptions**로 이동합니다. **Policy Center** 아래에 구독 탭이 보이지 않는 경우, 마케팅 환경설정 센터에 대한 접근 권한이 있는지 확인하고, 제품의 해당 부분에 접근할 수 있는 올바른 계정 권한이 있는지 확인하세요.
+2. **Create New Subscription**을 클릭하여 새 주제를 생성합니다. 각 구독에는 이름과 코드가 있습니다.
+3. 구독 주제를 발송할 채널을 추가합니다. 각 채널은 사용자의 마케팅 환경설정 센터에 표시됩니다. 또한 Ketch 환경설정 센터가 특정 옵트인 또는 옵트아웃 신호를 오케스트레이션하는 방법에 대한 세부 정보를 추가할 수 있습니다.
+4. 옵트인 및 옵트아웃 신호를 오케스트레이션하는 데 사용할 Braze 연결을 선택합니다.
 5. Ketch 사용자 환경설정을 보낼 구독 그룹에 대한 Braze `subscription_group_id`를 입력합니다.
 
-![Braze 정기구독 그룹 ID.]({% image_buster /assets/img/ketch/ketch1.png %})
+![Braze 구독 그룹 ID.]({% image_buster /assets/img/ketch/ketch1.png %})
 
 {% alert note %}
-In order to collect and orchestrate user opt-in and opt-out signals, identities must be properly configured. Ketch recommends configuring email as the identifier to orchestrate user preference signals for this integration.
+사용자 옵트인 및 옵트아웃 신호를 수집하고 오케스트레이션하려면 ID가 올바르게 구성되어 있어야 합니다. Ketch는 이 통합에서 사용자 환경설정 신호를 오케스트레이션하기 위한 식별자로 이메일을 구성할 것을 권장합니다.
 {% endalert %}
 
 
-### Step 3: Configure identities
+### 3단계: ID 구성 {#step-3-configure-identities}
 
-사용자는 Ketch가 해당 사용자의 마케팅 선호도를 확인할 수 있는 경우에만 마케팅 선호도 센터를 볼 수 있습니다. Ketch가 사용자의 신원을 제대로 파악할 수 없는 경우 Ketch가 사용자 환경설정을 관리할 수 없기 때문에 해당 사용자에게 마케팅 환경설정 페이지가 표시되지 않습니다.
+사용자는 Ketch가 해당 사용자의 마케팅 환경설정 ID를 확인할 수 있는 경우에만 마케팅 환경설정 센터를 볼 수 있습니다. Ketch가 사용자의 ID를 제대로 파악할 수 없는 경우, Ketch가 사용자 환경설정을 관리할 수 없기 때문에 해당 사용자에게 마케팅 환경설정 페이지가 표시되지 않습니다.
 
-1. To configure the marketing preference identity, go to the **Settings** page in Ketch, and click  **Identity space**. You will need to either create a new identity space or edit an existing identity space to assign that identity space as the marketing preference identity. Check that the Ketch tag deployed on the property properly captures that identity space.
-2. Go to **Experience Server** > **Properties**, and edit the desired property. Under the data layer for that property, make sure to enable the custom identity space. Then, configure how the marketing preference identity is captured on this site.
-3. After you have the identity space configured, test to see if the preference center appears by opening the preference center on the website where the Ketch tag has been deployed.
-
-
+1. 마케팅 환경설정 ID를 구성하려면 Ketch의 **Settings** 페이지로 이동하여 **Identity space**를 클릭합니다. 새 ID 공간을 생성하거나 기존 ID 공간을 편집하여 해당 ID 공간을 마케팅 환경설정 ID로 할당해야 합니다. 속성에 배포된 Ketch 태그가 해당 ID 공간을 올바르게 캡처하는지 확인하세요.
+2. **Experience Server** > **Properties**로 이동하여 원하는 속성을 편집합니다. 해당 속성의 데이터 레이어에서 커스텀 ID 공간을 활성화해야 합니다. 그런 다음 이 사이트에서 마케팅 환경설정 ID가 캡처되는 방식을 구성합니다.
+3. ID 공간을 구성한 후, Ketch 태그가 배포된 웹사이트에서 환경설정 센터를 열어 환경설정 센터가 표시되는지 테스트합니다.

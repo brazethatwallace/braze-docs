@@ -1,14 +1,14 @@
 ---
-nav_title: "追加チャネルとエクステンション"
-article_title: 追加チャネル &amp; エクステンション
+nav_title: "追加チャンネルとエクステンション"
+article_title: 追加チャンネルとエクステンション
 page_order: 11
 
 page_type: landing
-description: "このページには、チャネルおよびエクステンションに関するサービスを提供する Braze パートナー (Alloys) がリストされています。"
+description: "このページには、チャンネルおよびエクステンションに関するサービスを提供するBrazeパートナー（Alloys）がリストされています。"
 layout: partner_page
 search_tag: Partner
 
-partner_top_header: "Additional Channels & Extensions"
+partner_top_header: "追加チャンネルとエクステンション"
 
 valid_partner_list:
 - name: LiveRamp
@@ -28,9 +28,11 @@ valid_partner_list:
 - name: Pypestream
   url: /docs/partners/pypestream/
 - name: Regal
-  url: /docs/partners/pypestream/
+  url: /docs/partners/regal/
 - name: Sendbird
   url: /docs/partners/sendbird/
+- name: Shopgate
+  url: /docs/partners/shopgate/
 - name: Zendesk
   url: /docs/partners/zendesk/
 - name: PassKit
@@ -41,6 +43,8 @@ valid_partner_list:
   url: /docs/partners/komo/
 - name: Odicci
   url: /docs/partners/odicci/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Digioh
   url: /docs/partners/digioh/
 - name: Knak
@@ -51,7 +55,7 @@ valid_partner_list:
   url: /docs/partners/nift/
 - name: Punchh
   url: /docs/partners/punchh/
-- name: 繰り返す
+- name: Iterate
   url: /docs/partners/iterate/
 - name: Jebbit
   url: /docs/partners/jebbit/
@@ -59,8 +63,8 @@ valid_partner_list:
   url: /docs/partners/survicate/
 - name: Typeform
   url: /docs/partners/typeform/
-- name: オッピジー
+- name: Oppizi
   url: /docs/partners/oppizi/
-- name: スタックアダプト
+- name: StackAdapt
   url: /docs/partners/stackadapt/
 ---
