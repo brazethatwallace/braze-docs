@@ -824,11 +824,11 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 
 Shopifyカスタム属性にLiquidパーソナライゼーションを追加するには、**+ パーソナライゼーション**を選択します。次に、パーソナライゼーションタイプとして**カスタム属性**を選択します。
 
-![「パーソナライゼーションの追加」セクションで「属性」ドロップダウンが展開されている画面]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![「パーソナライゼーションの追加」セクションで「属性」ドロップダウンが展開されている画面]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 カスタム属性を選択したら、デフォルト値を入力してLiquidスニペットをメッセージにコピーします。
 
-![Liquidスニペットをメッセージに貼り付ける画面]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Liquidスニペットをメッセージに貼り付ける画面]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -869,13 +869,13 @@ BrazeがShopifyの顧客をインポートする際、設定で選択した`exte
 
 1. **Shopifyデータの追跡**ステップで、履歴バックフィルをオンにします。
 
-![履歴バックフィルが選択されたShopifyインテグレーションの「Shopifyデータの追跡」ステップ]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![履歴バックフィルが選択されたShopifyインテグレーションの「Shopifyデータの追跡」ステップ]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. インテグレーション設定が完了すると、Brazeは初期データ同期を開始します。進捗状況は、インテグレーション設定の**Shopifyデータ**タブで確認できます。
 
-![イベントがアクティブに同期中であることを示すスピナーが表示されたShopifyインテグレーション設定ページ]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![イベントがアクティブに同期中であることを示すスピナーが表示されたShopifyインテグレーション設定ページ]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
 ### 同期データ {#synced-data}
 

@@ -44,4 +44,4 @@ Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케�
 4. 추적하려는 이벤트를 선택합니다. 사용 가능한 이벤트 목록이 제공됩니다.
 5. **Launch Current**을 선택합니다.
 
-![Braze Shopify Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일 및 Shopify 스토어 필드가 포함되어 있습니다.]({% image_buster /assets/img/Shopify/shopify_currents.png %})
+![Braze Shopify Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일 및 Shopify 스토어 필드가 포함되어 있습니다.]({% image_buster /assets/img/shopify/shopify_currents.png %})

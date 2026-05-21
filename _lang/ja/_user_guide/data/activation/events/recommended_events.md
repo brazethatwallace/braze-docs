@@ -47,7 +47,7 @@ eコマースイベントは、他のカスタムイベントが機能するす�
 
 6つのeコマース推奨イベントは、購入ジャーニーのステージに対応しています。ユーザーが対応するアクションを完了した時点で各イベントを発火させてください。
 
-![6つのeコマース推奨イベント (product_viewed、cart_updated、checkout_started、order_placed、order_cancelled、order_refunded) を通じたユーザージャーニーの図]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![6つのeコマース推奨イベント (product_viewed、cart_updated、checkout_started、order_placed、order_cancelled、order_refunded) を通じたユーザージャーニーの図]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}

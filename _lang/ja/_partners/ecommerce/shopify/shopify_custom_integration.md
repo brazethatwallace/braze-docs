@@ -576,7 +576,7 @@ function CartLineUpdateButton({children, lines}) {
 
 Shopifyパートナーページに移動して設定を開始します。まず、**Begin Setup** を選択し、Shopify App StoreからBrazeアプリケーションをインストールします。ガイドの手順に従って、インストールプロセスを完了します。
 
-![Brazeダッシュボードの Shopify 統合設定ページ。]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Brazeダッシュボードの Shopify 統合設定ページ。]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### ステップ2: Braze SDKを有効にする {#step-2-enable-braze-sdks}
 
@@ -584,13 +584,13 @@ Shopify Hydrogenまたはヘッドレスストアの場合は、**Custom setup**
 
 オンボーディングプロセスを続行する前に、Shopify WebサイトでBraze SDKが有効になっていることを確認してください。
 
-![Braze SDKを有効にする設定ステップ。]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Braze SDKを有効にする設定ステップ。]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
 ### ステップ3: Shopifyデータを追跡する {#step-3-track-shopify-data}
 
 Shopify Webhookを利用するShopifyイベントと属性をさらに追加することで、統合を強化します。この統合で追跡されるデータの詳細については、[Shopifyデータ機能]({{site.baseurl}}/shopify_data_features/)を参照してください。
 
-![Shopifyデータ追跡の設定ステップ。]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Shopifyデータ追跡の設定ステップ。]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### ステップ4: 履歴バックフィル（オプション） {#step-4-historical-backfill-optional}
 
@@ -598,7 +598,7 @@ Shopify Webhookを利用するShopifyイベントと属性をさらに追加す�
 
 後でバックフィルを実行する場合は、ここで初期セットアップを完了し、後からこのステップに戻ることができます。
 
-![履歴データのバックフィルを設定するセクション。]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![履歴データのバックフィルを設定するセクション。]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
 初期読み込みのデータ一覧、収益レポートの動作、同期の監視については、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
 
@@ -646,7 +646,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 
 ドロップダウンから `external_id` タイプを選択します。
 
-![「サブスクライバーの収集」セクション。]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![「サブスクライバーの収集」セクション。]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 メールアドレスまたはハッシュ化されたメールアドレスをBraze external IDとして使用することで、データソース全体でのID管理を簡素化できます。ただし、ユーザーのプライバシーとデータセキュリティに対する潜在的なリスクを考慮することが重要です。<br><br>
@@ -734,7 +734,7 @@ Shopifyからメールまたは SMSマーケティングのオプトインを収
 
 メールやSMSチャネルを使用している場合、メールやSMSマーケティングのオプトイン状態をBrazeに同期できます。ShopifyからメールマーケティングオプトインをBrazeに同期すると、Brazeはその特定のストアに関連付けられたすべてのユーザーのメールサブスクリプショングループを自動的に作成します。このサブスクリプショングループに一意の名前を作成する必要があります。
 
-![「サブスクライバーの収集」セクションで、メールまたはSMSマーケティングのオプトインを収集するオプションがあります。]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![「サブスクライバーの収集」セクションで、メールまたはSMSマーケティングのオプトインを収集するオプションがあります。]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 [Shopify概要]({{site.baseurl}}/shopify_overview/)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメールサブスクリプションステータスをキャプチャできます。具体的には、`theme.liquid` ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
@@ -746,7 +746,7 @@ Shopifyからメールまたは SMSマーケティングのオプトインを収
 
 Shopifyストアの全商品をBrazeカタログに同期し、より詳細なメッセージングのパーソナライゼーションを実現できます。自動更新はほぼリアルタイムで行われるため、カタログには常に最新の商品詳細が反映されます。詳細については、[Shopify製品同期]({{site.baseurl}}/shopify_catalogs/)を参照してください。
 
-![商品データをBrazeに同期する設定ステップ。]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![商品データをBrazeに同期する設定ステップ。]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
 ### ステップ8: チャネルを有効にする {#step-8-activate-channels}
 
@@ -760,7 +760,7 @@ Shopify直接統合を使用してIn-App Messages、Content Cards、およびフ
 
 すべてのステップを終えたら、**Finish Setup** を選択してパートナーページに戻ります。次に、表示されるバナーの指示に従って、Shopify管理ページでBrazeアプリの埋め込みを有効にします。
 
-![統合の設定を完了するために、ShopifyでBrazeアプリの埋め込みを有効にするよう促すバナー。]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![統合の設定を完了するために、ShopifyでBrazeアプリの埋め込みを有効にするよう促すバナー。]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### サンプルコード {#example-code}
 
