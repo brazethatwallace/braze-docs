@@ -10,11 +10,19 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details スキーマの範囲と関連リソース %}
+
+ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルのイベントデータに適用されます。ここにリストされているイベントと送信先の組み合わせの一部は、まだ一般提供されていません。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。
+
 {% alert tip %}
 これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)のSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。
 {% endalert %}
 
 追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。このページで必要なものが見つからない場合は、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)や[Currentsのサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
+
+{% enddetails %}
 
 {% details 顧客行動とユーザーイベントの構造およびプラットフォーム値の説明 %}
 
@@ -44,14 +52,16 @@ search_rank: 7
 
 {% enddetails %}
 
-{% alert important %}
-ストレージスキーマは、データウェアハウスのストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storageなど）に送信するフラットファイルのイベントデータに適用されます。ここにリストされているいくつかのイベントと送信先の組み合わせは、まだ一般提供されていません。さまざまなパートナーがサポートするイベントの情報については、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/)のリストを参照し、それぞれのページを確認してください。<br><br>さらに、Currentsは900&nbsp;KB超の過度に大きいペイロードを持つイベントをドロップすることに注意してください。
-{% endalert %}
+{% details 顧客行動とユーザーイベントに関する注意事項 %}
 
-{% alert note %}
-この用語集に含まれるイベントの多くはSDKによって開始されます。`token_state_change` などの一部のイベントは、SDKまたはバックエンドのいずれかによって開始される場合があります（例えば、プッシュバウンスへの応答として）。`sdk_version`、`gender`、`language`、および `country` フィールドはSDKによって開始されたイベントに対してのみ設定されます。バックエンドによって開始されたイベント、またはその情報が利用できないかユーザーに設定されていない場合、これらのフィールドは `null` になることがあります。
-{% endalert %}
+- Currentsは900&nbsp;KB超の過度に大きいペイロードを持つイベントをドロップします。
+- この用語集に含まれるイベントの多くはSDKによって開始されます。`token_state_change` などの一部のイベントは、SDKまたはバックエンドのいずれかによって開始される場合があります（例えば、プッシュバウンスへの応答として）。`sdk_version`、`gender`、`language`、および `country` フィールドはSDKによって開始されたイベントに対してのみ設定されます。バックエンドによって開始されたイベント、またはその情報が利用できないかユーザーに設定されていない場合、これらのフィールドは `null` になることがあります。
 
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## ランダムバケット番号更新イベント {#random-bucket-number-update-events}
@@ -60,7 +70,7 @@ search_rank: 7
 Random Bucket Number
 {% endapitags %}
 
-このユーザーイベントは、ワークスペース内で新規ユーザーが作成されるたびに発生します。このイベントでは、各新規ユーザーにランダムバケット番号が割り当てられ、これを使用してランダムユーザーの均一に分散されたセグメントを作成できます。これを使用して、ランダムバケット番号の値の範囲をグループ化し、キャンペーンとキャンペーンバリアント間でパフォーマンスを比較します。
+このユーザーイベントは、ワークスペース内で新規ユーザーが作成されるたびに発生します。このイベントでは、各新規ユーザーにランダムバケット番号が割り当てられ、これを使用してランダムユーザーの均一に分散されたSegmentを作成できます。これを使用して、ランダムバケット番号の値の範囲をグループ化し、Campaignsとキャンペーンバリアント間でパフォーマンスを比較します。
 
 {% alert important %}
 このCurrentsイベントは「すべてのイベントコネクター」を購入した顧客にのみ利用でき、ストレージイベントコネクター（Amazon S3、Microsoft Azure、Google Cloud Storageなど）でのみ利用できます。
@@ -1618,7 +1628,7 @@ Brazeがトークンを削除すると、独立した「remove」イベントが
 
 以下のSQLクエリは、Snowflake内のユーザーごとに最新のアクティブトークン状態を返します：
 
-`````````sql
+```sql
 WITH latest_token_state AS (
   SELECT *,
     ROW_NUMBER() OVER (

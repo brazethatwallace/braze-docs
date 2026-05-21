@@ -159,7 +159,7 @@ Pour contourner ce problème :
 
 ### L'indicateur *Ouvertures uniques* inclut-il les *Ouvertures automatiques* ? {#does-the-unique-opens-metric-include-machine-opens}
 
-Non. Les *Ouvertures uniques* ne comptent que les [Autres ouvertures]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), ce qui exclut les e-mails identifiés comme des ouvertures automatiques. Les *Ouvertures automatiques* sont suivies séparément. Dans la vue **Campaign Analytics** et le **Générateur de rapports**, vous pouvez consulter les deux indicateurs indépendamment.
+Oui. Les *Ouvertures uniques* incluent les *Ouvertures automatiques*. Vous pouvez consulter les deux indicateurs dans la vue **Campaign Analytics** et le **Générateur de rapports**.
 
 ### Pourquoi mon volume de distribution d'e-mails ne correspond-il pas à mon volume d'envoi ? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 

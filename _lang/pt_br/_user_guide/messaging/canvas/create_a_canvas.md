@@ -187,7 +187,7 @@ Para ver estatísticas adicionais, como a receita média de tempo de vida dos us
 
 ### Etapa 1.4: Selecione suas configurações de envio {#step-14-select-your-send-settings}
 
-Selecione **Send Settings** para editar suas configurações de inscrição, ativar o limite de taxa e ativar o horário de silêncio. Ao ativar o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) ou o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), você pode aliviar a pressão de marketing sobre seus usuários e garantir que não está enviando mensagens em excesso.
+Selecione **Send Settings** para editar suas configurações de inscrição, ativar o limite de taxa e ativar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/). Ao ativar o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) ou o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), você pode aliviar a pressão de marketing sobre seus usuários e garantir que não está enviando mensagens em excesso.
 
 Para Canvas direcionados a canais de e-mail e push, você pode querer limitar seu Canvas para que apenas os usuários que fizeram opt-in explicitamente recebam a mensagem (excluindo usuários inscritos ou que cancelaram a inscrição). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
@@ -203,7 +203,7 @@ Essas configurações de inscrição são aplicadas por etapa, ou seja, não há
 Com essa configuração, não inclua nenhum filtro na etapa **Target Audience** que limite o público a um único canal (por exemplo, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-Se desejar, especifique o horário de silêncio (o período durante o qual suas mensagens não serão enviadas) para o Canvas. Marque **Enable Quiet Hours** nas **Send Settings**. Em seguida, selecione o horário de silêncio no fuso horário local do usuário e qual ação será tomada se a mensagem for disparada durante esse período.
+Se desejar, especifique o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) (o período durante o qual suas mensagens não serão enviadas) para o Canvas. Marque **Enable Quiet Hours** nas **Send Settings**. Em seguida, selecione o horário de silêncio no fuso horário local do usuário e qual ação será tomada se a mensagem for disparada durante esse período.
 
 ![A página "Horário de silêncio" exibindo uma caixa de seleção para ativar o horário de silêncio. Se ativado, o horário de início, horário de término e comportamento de fallback podem ser definidos.]({% image_buster /assets/img/quiet_hours.png %})
 

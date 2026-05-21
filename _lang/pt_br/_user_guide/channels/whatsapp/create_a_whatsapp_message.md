@@ -153,7 +153,7 @@ Em seguida, crie o restante da sua campanha. Consulte as seções a seguir para 
 
 Mensagens de WhatsApp podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a campanha, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
@@ -233,4 +233,4 @@ Os seguintes tipos de chamada para ação são suportados para mensagens de What
 | Modelos de mensagem com código de cupom | Disponível apenas para modelos de mensagem. <br>Eles podem ser abertos e editados como outros modelos de mensagem e são compatíveis com Liquid e códigos de promoção da Braze. |
 | Mensagens de resposta com CTA | Crie uma mensagem de resposta que inclua um botão de chamada para ação. |
 | [Mensagens de resposta com lista]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | Crie uma mensagem de resposta que inclua uma lista de até 10 opções para os usuários escolherem. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de chamada para ação" }

@@ -88,7 +88,7 @@ valid_partner_list:
   url: /docs/partners/looker/
 - name: Kubit
   url: /docs/partners/kubit/
-- name: セグメント
+- name: Segment
   url: /docs/partners/segment/
 - name: mParticle
   url: /docs/partners/mparticle_overview/
@@ -284,6 +284,8 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
 - name: GRAVTY by Loyalty Juggernaut

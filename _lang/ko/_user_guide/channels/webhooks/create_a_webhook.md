@@ -20,7 +20,7 @@ search_rank: 2
 
 ## 1단계: 메시지 작성 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징에 적합하고, Canvas는 다단계 사용자 여정에 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟 메시징 캠페인에 적합하고, Canvas는 다단계 사용자 여정에 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
@@ -176,7 +176,7 @@ Content-Type 사양은 `Content-Type` 키를 사용해야 합니다. 일반적�
 
 웹훅은 예약된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [캠페인 예약]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)을 참조하세요.
 
-실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 설정할 수도 있습니다.
+실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 설정할 수도 있습니다.
 
 이 단계에서는 사용자가 캠페인을 [재수신]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)할 수 있도록 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 

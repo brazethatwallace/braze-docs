@@ -72,7 +72,7 @@ Por exemplo, digamos que você notou uma disparidade entre o número de mensagen
 
 #### Público de entrada {#entry-audience}
 
-Se você estiver usando uma campanha de envio agendado, verifique novamente seu público-alvo revisando o público-alvo. Como estão os números entre os canais, e como isso se relaciona com os canais que você usou no Canvas? Se os números mais baixos correspondem aos canais usados no Canvas, você pode ter encontrado o problema.
+Se você estiver usando uma Campaign de envio agendado, verifique novamente seu público-alvo revisando o público-alvo. Como estão os números entre os canais, e como isso se relaciona com os canais que você usou no Canvas? Se os números mais baixos correspondem aos canais usados no Canvas, você pode ter encontrado o problema.
 
 #### Primeiro componente do Canvas {#first-component-of-the-canvas}
 
@@ -96,10 +96,10 @@ Outra forma evidente de identificar áreas de ajuste no Canvas é quando há uma
 
 Em seguida, é importante identificar estas configurações que podem afetar quando e se as mensagens são enviadas aos seus usuários:
 - [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- Horário de silêncio
+- [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
 - Validações de entrega
 
-Em geral, escolha Intelligent Timing ou horário de silêncio para o seu Canvas, não ambos. A mesma sugestão se aplica ao uso de Intelligent Timing ou [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), não ambos. Para saber mais sobre como usar melhor o Intelligence Suite, leia nossos [casos de uso do Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
+Em geral, escolha Intelligent Timing ou [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) para o seu Canvas, não ambos. A mesma sugestão se aplica ao uso de Intelligent Timing ou [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), não ambos. Para saber mais sobre como usar melhor o Intelligence Suite, leia nossos [casos de uso do Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
 
 ### Volumes de envio suspeitos entre jornadas {#suspicious-send-volumes-between-paths}
 

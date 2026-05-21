@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 ---
+
 {% api %}
 # 사용자의 구독 그룹 상태 업데이트 {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 {% alert note %}
 이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)에 사용하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## 사용량 제한 {#rate-limit}
 

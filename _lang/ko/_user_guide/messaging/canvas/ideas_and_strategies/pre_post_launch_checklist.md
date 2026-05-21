@@ -96,10 +96,10 @@ Canvas를 조정할 영역을 식별하는 또 다른 명확한 방법은 한 �
 
 다음으로, 메시지가 사용자에게 발송되는 시기와 여부에 영향을 줄 수 있는 다음 설정을 식별하는 것이 중요합니다:
 - [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- 방해금지 시간
+- [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
 - 전달 유효성 검사
 
-일반적으로 Canvas에는 Intelligent Timing 또는 방해금지 시간 중 하나를 선택하세요. 둘 다 사용하지 마세요. Intelligent Timing 또는 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 중 하나를 사용하는 것도 마찬가지입니다. Intelligence Suite를 가장 잘 활용하는 방법에 대한 자세한 내용은 [Intelligence Suite 활용 사례]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases)를 참조하세요.
+일반적으로 Canvas에는 Intelligent Timing 또는 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) 중 하나를 선택하세요. 둘 다 사용하지 마세요. Intelligent Timing 또는 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 중 하나를 사용하는 것도 마찬가지입니다. Intelligence Suite를 가장 잘 활용하는 방법에 대한 자세한 내용은 [Intelligence Suite 활용 사례]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases)를 참조하세요.
 
 ### 경로 간 의심스러운 발송량 {#suspicious-send-volumes-between-paths}
 

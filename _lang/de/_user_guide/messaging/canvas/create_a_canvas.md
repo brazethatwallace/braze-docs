@@ -187,7 +187,7 @@ Um zusätzliche Statistiken anzuzeigen, wie z. B. den durchschnittlichen Lifetim
 
 ### Schritt 1.4: Wählen Sie Ihre Sendeeinstellungen {#step-14-select-your-send-settings}
 
-Wählen Sie **Send Settings**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und Ruhezeiten einzuschalten. Durch Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
+Wählen Sie **Send Settings**, um Ihre Abo-Einstellungen zu bearbeiten, Rate-Limiting zu aktivieren und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) einzuschalten. Durch Aktivierung von [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) können Sie den Marketing-Druck auf Ihre Nutzer:innen verringern und sicherstellen, dass Sie sie nicht mit zu vielen Nachrichten überhäufen.
 
 Für Canvases, die auf E-Mail- und Push-Kanäle abzielen, möchten Sie Ihr Canvas möglicherweise so einschränken, dass nur Nutzer:innen, die ausdrücklich zugestimmt haben, die Nachricht erhalten (ausgenommen abonnierte oder abgemeldete Nutzer:innen). Angenommen, Sie haben drei Nutzer:innen mit unterschiedlichem Opt-in-Status:
 
@@ -203,7 +203,7 @@ Diese Abo-Einstellungen werden pro Schritt angewendet, was bedeutet, dass sie ke
 Mit dieser Konfiguration sollten Sie im Schritt **Target Audience** keine Filter einschließen, die die Zielgruppe auf einen einzelnen Kanal beschränken (z. B. `Foreground Push Enabled = True` oder `Email Subscription = Opted-In`).
 {% endalert %}
 
-Falls gewünscht, legen Sie Ruhezeiten fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Send Settings**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
+Falls gewünscht, legen Sie [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) fest (die Zeit, in der Ihre Nachrichten nicht gesendet werden) für Ihr Canvas. Aktivieren Sie **Enable Quiet Hours** in Ihren **Send Settings**. Wählen Sie dann Ihre Ruhezeiten in der Ortszeit Ihrer Nutzer:innen und welche Aktion folgen soll, wenn die Nachricht innerhalb dieser Ruhezeiten getriggert wird.
 
 ![Die Seite „Ruhezeiten“ mit einem Kontrollkästchen zum Aktivieren der Ruhezeiten. Wenn aktiviert, können Startzeit, Endzeit und Fallback-Verhalten festgelegt werden.]({% image_buster /assets/img/quiet_hours.png %})
 

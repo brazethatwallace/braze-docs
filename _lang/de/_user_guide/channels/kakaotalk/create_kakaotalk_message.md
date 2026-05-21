@@ -204,7 +204,7 @@ In den folgenden Abschnitten finden Sie Details dazu, wie Sie unsere Tools am be
 
 KakaoTalk-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen zu Zeitplan- und Trigger-Optionen finden Sie unter [Ihre Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) oder [Entry-Zeitplan-Typen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (für Ihren Canvas).
 
-Sie können Zustellungs-Kontrollgruppen festlegen, z. B. Nutzer:innen erlauben, erneut für den Empfang der Kampagne berechtigt zu werden, oder Frequency-Capping-Regeln aktivieren. Für die aktionsbasierte Zustellung können Sie auch die Dauer der Kampagne und Ruhezeiten festlegen.
+Sie können Zustellungs-Kontrollgruppen festlegen, z. B. Nutzer:innen erlauben, erneut für den Empfang der Kampagne berechtigt zu werden, oder Frequency-Capping-Regeln aktivieren. Für die aktionsbasierte Zustellung können Sie auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 

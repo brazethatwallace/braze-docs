@@ -52,6 +52,8 @@ Der V2-Endpunkt unterscheidet sich vom [V1-Endpunkt]({{site.baseurl}}/api/endpoi
 **Telefonnummernformat**: Telefonnummern müssen im [E.164-Format](https://en.wikipedia.org/wiki/E.164) angegeben werden (zum Beispiel `+12223334444`). Telefonnummern, die nicht im E.164-Format vorliegen, werden abgelehnt.
 {% endalert %}
 
+{% multi_lang_include api/orphaned_subscription_states.md %}
+
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='subscription status set' %}

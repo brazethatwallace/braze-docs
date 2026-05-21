@@ -1,5 +1,6 @@
 ---
 nav_title: 고객 행동 및 사용자 이벤트
+article_title: 고객 행동 및 사용자 이벤트
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
@@ -9,11 +10,19 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details 스키마 범위 및 관련 리소스 %}
+
+저장 스키마는 데이터 웨어하우스 저장 파트너(Google Cloud Storage, Amazon S3 및 Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트와 대상 조합은 아직 일반적으로 사용할 수 없습니다. 다양한 파트너가 지원하는 이벤트에 대한 자세한 내용은 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하여 각 페이지를 확인하세요.
+
 {% alert tip %}
 이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부 정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요.
 {% endalert %}
 
 추가 이벤트 자격에 대한 액세스가 필요한 경우 Braze 담당자에게 문의하거나 [고객지원 티켓]({{site.baseurl}}/braze_support/)을 개설하세요. 이 페이지에서 필요한 정보를 찾을 수 없다면 [메시지 참여 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
+
+{% enddetails %}
 
 {% details 고객 행동 및 사용자 이벤트 구조와 플랫폼 값 설명 %}
 
@@ -43,14 +52,16 @@ search_rank: 7
 
 {% enddetails %}
 
-{% alert important %}
-저장 스키마는 데이터 웨어하우스 저장 파트너(예: Google Cloud Storage, Amazon S3 및 Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 여기에 나열된 일부 이벤트와 대상 조합은 아직 일반적으로 사용할 수 없습니다. 다양한 파트너가 지원하는 이벤트에 대한 자세한 내용은 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 목록을 참조하여 각 페이지를 확인하세요.<br><br>또한, Currents는 페이로드가 900&nbsp;KB를 초과하는 지나치게 큰 이벤트는 삭제한다는 점에 유의하세요.
-{% endalert %}
+{% details 고객 행동 및 사용자 이벤트에 대한 고려 사항 %}
 
-{% alert note %}
-이 용어집의 많은 이벤트는 SDK에서 시작됩니다. `token_state_change`와 같은 일부 이벤트는 SDK 또는 백엔드에서 시작될 수 있습니다(예: 푸시 반송에 대한 응답으로). `sdk_version`, `gender`, `language`, `country` 필드는 SDK에서 시작된 이벤트에만 설정됩니다. 백엔드에서 시작된 이벤트이거나 해당 정보를 사용할 수 없거나 사용자에 대해 설정되지 않은 경우, 이러한 필드는 `null`일 수 있습니다.
-{% endalert %}
+- Currents는 페이로드가 900&nbsp;KB를 초과하는 지나치게 큰 이벤트는 삭제합니다.
+- 이 용어집의 많은 이벤트는 SDK에서 시작됩니다. `token_state_change`와 같은 일부 이벤트는 SDK 또는 백엔드에서 시작될 수 있습니다(예: 푸시 반송에 대한 응답으로). `sdk_version`, `gender`, `language`, `country` 필드는 SDK에서 시작된 이벤트에만 설정됩니다. 백엔드에서 시작된 이벤트이거나 해당 정보를 사용할 수 없거나 사용자에 대해 설정되지 않은 경우, 이러한 필드는 `null`일 수 있습니다.
 
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## 무작위 버킷 번호 업데이트 이벤트 {#random-bucket-number-update-events}
@@ -1582,7 +1593,7 @@ Push, Token State Change
 기존 토큰의 등록정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`.
 
 {% alert note %}
-대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 캠페인 전송을 통해 나중에 정리됩니다.<br><br>
+대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 Campaign 전송을 통해 나중에 정리됩니다.<br><br>
 
 `push_token`은 변경되지 않고 `device_id`만 변경되는 경우는 극히 드뭅니다(이 경우 OS가 재설치 후 동일한 토큰 문자열을 반환해야 합니다).
 {% endalert %}

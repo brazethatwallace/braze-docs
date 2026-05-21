@@ -19,15 +19,15 @@ A <i>estimativa de aberturas reais</i> é uma estimativa de quantas aberturas ú
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Ajuda</i> é quando um usuário responde à sua mensagem com a <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave HELP</a> e recebe uma resposta automática de HELP.
+<i>Ajuda</i> é quando um usuário respondeu à sua mensagem com a <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">palavra-chave HELP</a> e recebeu uma resposta automática de HELP.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
-Um <i>Hard Bounce</i> é quando um e-mail não é entregue ao destinatário devido a um erro de entrega permanente. Um hard bounce pode ocorrer porque o nome de domínio não existe ou porque o destinatário é desconhecido.
+Um <i>hard bounce</i> é quando um e-mail não é entregue ao destinatário devido a um erro de entrega permanente. Um hard bounce pode ocorrer porque o nome de domínio não existe ou porque o destinatário é desconhecido.
 {% endif %}
 
 {% if include.metric == "Soft Bounce" %}
-Um <i>Soft Bounce</i> é quando um e-mail não é entregue ao destinatário devido a um erro de entrega temporário, mesmo que o endereço de e-mail do destinatário seja válido. Um soft bounce pode ocorrer porque a caixa de entrada do destinatário está cheia, o servidor estava fora do ar ou a mensagem era muito grande para a caixa de entrada do destinatário.
+Um <i>soft bounce</i> é quando um e-mail não é entregue ao destinatário devido a um erro de entrega temporário, mesmo que o endereço de e-mail do destinatário seja válido. Um soft bounce pode ocorrer porque a caixa de entrada do destinatário está cheia, o servidor estava fora do ar ou a mensagem era muito grande para a caixa de entrada do destinatário.
 {% endif %}
 
 {% if include.metric == "Deferral" %}
@@ -35,7 +35,7 @@ Um <i>adiamento</i> é quando um e-mail não foi entregue imediatamente, mas a B
 {% endif %}
 
 {% if include.metric == "Body Click" %}
-As notificações de Push Stories registram um <i>clique no corpo da mensagem</i> quando a notificação é clicada. Ele não será registrado quando uma mensagem for expandida ou para cliques em botões de ação.
+As notificações de push stories registram um <i>clique no corpo da mensagem</i> quando a notificação é clicada. Ele não será registrado quando uma mensagem for expandida ou para cliques em botões de ação.
 {% endif %}
 
 {% if include.metric == "Body Clicks" %}
@@ -95,7 +95,7 @@ As <i>conversões (B, C, D)</i> são eventos de conversão adicionais adicionado
 {% endif %}
 
 {% if include.metric == "Deliveries" %}
-<i>Entregas</i> é o número total de solicitações de mensagens que são aceitas pelo servidor receptor. Isso não significa que a mensagem foi entregue a um dispositivo, apenas que ela foi aceita pelo servidor.
+<i>Entregas</i> é o número total (ou porcentagem) de solicitações de mensagens que são aceitas pelo servidor receptor. Isso não significa que a mensagem foi entregue a um dispositivo, apenas que ela foi aceita pelo servidor.
 {% endif %}
 
 {% if include.metric == "Deliveries %" %}
@@ -115,7 +115,7 @@ A <i>taxa de falha na entrega</i> é a porcentagem de envios que falharam porque
 {% endif %}
 
 {% if include.metric == "Direct Opens" %}
-<i>Aberturas diretas</i> é o número total de usuários que abriram seu app ou site pressionando diretamente a notificação.
+<i>Aberturas diretas</i> é o número total (ou porcentagem) de usuários que abriram seu app ou site pressionando diretamente a notificação.
 {% endif %}
 
 {% if include.metric == "Emailable" %}
@@ -131,7 +131,7 @@ As <i>falhas</i> ocorrem quando a mensagem do WhatsApp não pode ser enviada por
 {% endif %}
 
 {% if include.metric == "Influenced Opens" %}
-<i>Aberturas por influência</i> é o número total (e a porcentagem) de usuários que abriram o app depois que a notificação por push foi enviada, sem abrir diretamente o push.
+<i>Aberturas por influência</i> é o número total (ou porcentagem) de usuários que abriram o app depois que a notificação por push foi enviada, sem abrir diretamente o push.
 {% endif %}
 
 {% if include.metric == "Lifetime Revenue" %}
@@ -223,7 +223,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>Dispensas de página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
+<i>Dispensas da página de questionário</i> é o total de cliques no botão fechar (x) na página de perguntas de um <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>questionário simples</a>.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
@@ -231,7 +231,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
-<i>Total de cliques</i> é o número de destinatários únicos que clicaram em um link na mensagem entregue.
+<i>Total de cliques</i> é o número (ou porcentagem) de destinatários únicos que clicaram em um link na mensagem entregue.
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
@@ -269,7 +269,7 @@ A <i>taxa de envios para a operadora</i> é a porcentagem do total de mensagens 
 {% endif %}
 
 {% if include.metric == "Unique Opens" %}
-<i>Aberturas únicas</i> é o número total de mensagens entregues que foram abertas por um único usuário pelo menos uma vez e são rastreadas durante um período de sete dias.
+<i>Aberturas únicas</i> é o número total (ou porcentagem) de mensagens entregues que foram abertas por um único usuário pelo menos uma vez e são rastreadas durante um período de sete dias.
 {% endif %}
 
 {% if include.metric == "Unsubscribers or Unsub" %}

@@ -204,7 +204,7 @@ Consulte as seções a seguir para detalhes sobre como usar melhor nossas ferram
 
 Mensagens KakaoTalk podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais sobre opções de agendamento e gatilhos, consulte [Agendar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) ou [Tipos de cronograma de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (para seu Canvas).
 
-Você pode especificar controles de entrega, como permitir que os usuários se tornem elegíveis novamente para receber a campanha, ou ativar regras do limite de frequência. Para entrega baseada em ação, você também pode definir a duração da campanha e o horário de silêncio.
+Você pode especificar controles de entrega, como permitir que os usuários se tornem elegíveis novamente para receber a campanha, ou ativar regras do limite de frequência. Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Escolha os usuários a direcionar {#choose-users-to-target}
 

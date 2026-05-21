@@ -187,7 +187,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 
 ### 1.4단계: 발송 설정 선택 {#step-14-select-your-send-settings}
 
-**발송 설정**을 선택하여 구독 설정을 편집하고, 사용량 제한을 활성화하고, 방해금지 시간을 활성화합니다. [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) 또는 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)을 활성화하면 사용자에게 가해지는 마케팅 압력을 완화하고 과도한 메시지 발송을 방지할 수 있습니다.
+**발송 설정**을 선택하여 구독 설정을 편집하고, 사용량 제한을 활성화하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 활성화합니다. [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) 또는 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)을 활성화하면 사용자에게 가해지는 마케팅 압력을 완화하고 과도한 메시지 발송을 방지할 수 있습니다.
 
 이메일 및 푸시 채널을 타겟팅하는 Canvases의 경우, 명시적으로 옵트인한 사용자만 메시지를 받도록 Canvas를 제한할 수 있습니다(가입됨 또는 가입 취소된 사용자 제외). 예를 들어 옵트인 상태가 다른 세 명의 사용자가 있다고 가정해 보겠습니다:
 
@@ -203,7 +203,7 @@ Braze는 IP 워밍에서는 **Canvas가 스케줄될 때마다** 옵션을 선�
 이 구성에서는 **타겟 오디언스** 단계에 오디언스를 단일 채널로 제한하는 필터(예: `Foreground Push Enabled = True` 또는 `Email Subscription = Opted-In`)를 포함하지 마세요.
 {% endalert %}
 
-원하는 경우 Canvas에 대한 방해금지 시간(메시지가 발송되지 않는 시간)을 지정합니다. **발송 설정**에서 **방해금지 시간 활성화**를 체크합니다. 그런 다음 사용자의 현지 시간으로 방해금지 시간을 선택하고 해당 방해금지 시간 내에 메시지가 트리거되면 어떤 동작을 수행할지 선택합니다.
+원하는 경우 Canvas에 대한 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)(메시지가 발송되지 않는 시간)을 지정합니다. **발송 설정**에서 **방해금지 시간 활성화**를 체크합니다. 그런 다음 사용자의 현지 시간으로 방해금지 시간을 선택하고 해당 방해금지 시간 내에 메시지가 트리거되면 어떤 동작을 수행할지 선택합니다.
 
 ![방해금지 시간 활성화 체크박스가 표시된 "방해금지 시간" 페이지. 활성화하면 시작 시간, 종료 시간 및 대체 동작을 설정할 수 있습니다.]({% image_buster /assets/img/quiet_hours.png %})
 

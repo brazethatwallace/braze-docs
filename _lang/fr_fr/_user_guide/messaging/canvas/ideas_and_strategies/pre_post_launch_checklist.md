@@ -96,10 +96,10 @@ Un autre moyen évident d'identifier des zones d'ajustement pour votre Canvas es
 
 Ensuite, il est important d'identifier les paramètres qui peuvent affecter le moment et la possibilité d'envoi des messages à vos utilisateurs :
 - [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- Heures calmes
+- [Heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
 - Validations de réception
 
-En général, choisissez soit le timing intelligent, soit les heures calmes pour votre Canvas, mais pas les deux. La même recommandation s'applique : utilisez soit le timing intelligent, soit la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), mais pas les deux. Pour en savoir plus sur la meilleure façon d'utiliser l'Intelligence Suite, consultez nos [cas d'utilisation de l'Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
+En général, choisissez soit le timing intelligent, soit les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) pour votre Canvas, mais pas les deux. La même recommandation s'applique : utilisez soit le timing intelligent, soit la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), mais pas les deux. Pour en savoir plus sur la meilleure façon d'utiliser l'Intelligence Suite, consultez nos [cas d'utilisation de l'Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
 
 ### Volumes d'envoi suspects entre les parcours {#suspicious-send-volumes-between-paths}
 
