@@ -43,7 +43,7 @@ Si tous les messages de votre Campaign sont similaires ou ont le même contenu, 
 4. Choisissez quand Braze évalue l'éligibilité de l'audience et la personnalisation de la Content Card. Cela peut se faire à l'entrée de l'étape ou à la première impression (recommandé). Les étapes contenant des Content Cards peuvent être planifiées ou déclenchées par un événement.
 5. Choisissez si les Content Cards doivent être supprimées lorsque les utilisateurs effectuent un achat ou réalisent un événement personnalisé.
 6. Définissez une expiration pour la Content Card (durée dans le flux). Cela peut être après une certaine durée ou à un moment précis.
-7. Filtrez votre audience, c'est-à-dire les destinataires, pour cette étape si nécessaire dans les **Delivery Settings**. Vous pouvez affiner davantage votre audience en spécifiant des Segments et en ajoutant des filtres supplémentaires. Les options d'audience sont vérifiées après le délai, au moment de l'envoi des messages.
+7. Filtrez votre audience, c'est-à-dire les destinataires, pour cette étape si nécessaire dans les **Delivery Settings**. Vous pouvez affiner davantage votre audience en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience sont vérifiées après le délai, au moment de l'envoi des messages.
 8. Choisissez les autres canaux de communication que vous souhaitez associer à votre message.
 
 {% endtab %}
@@ -60,7 +60,7 @@ Pour en savoir plus sur le comportement attendu et l'apparence de chaque type, c
 | [Classique]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Une Content Card classique avec une petite icône et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La carte classique a une disposition simple avec un titre en gras, un texte de message et une image optionnelle placée à gauche du titre et du texte. Il est préférable d'utiliser une image carrée ou une icône avec la carte classique. |
 | [Image légendée]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Une Content Card avec image légendée montrant un haltérophile et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La carte avec image légendée met en valeur votre contenu avec du texte et une image accrocheuse. |
 | [Image uniquement]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Une Content Card Image uniquement avec du texte seulement.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La carte Image uniquement attire l'attention avec un espace dédié aux images, GIF et autres contenus créatifs non textuels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Spécifier vos types de messages" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
 
 ## Étape 3 : Rédiger une Content Card {#step-3-compose-a-content-card}
 
@@ -86,7 +86,7 @@ L'apparence finale des messages de droite à gauche dépend en grande partie de 
 
 #### Image {#image}
 
-Pour ajouter une image à votre Content Card, vous pouvez sélectionner **Add Image** ou fournir une URL d'image. Sélectionner **Add Image** ouvre la **Bibliothèque multimédia**, où vous pouvez choisir une image déjà téléchargée ou en ajouter une nouvelle.
+Pour ajouter une image à votre Content Card, vous pouvez sélectionner **Add Image** ou fournir une URL d'image. Sélectionner **Add Image** ouvre la **bibliothèque multimédia**, où vous pouvez choisir une image déjà téléchargée ou en ajouter une nouvelle.
 
 Chaque type de message et chaque plateforme peut avoir ses propres proportions et exigences recommandées. Vérifiez-les avant de commander ou de créer une image. Gardez à l'esprit que les champs de message des Content Cards sont limités à 2&nbsp;Ko au total.
 
@@ -110,7 +110,7 @@ Les actions suivantes sont disponibles pour les liens des Content Cards :
 | [Lien profond vers l'application]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Créer un lien profond vers un écran existant de votre application. |
 | Enregistrer un événement personnalisé | Choisir un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) à déclencher. Peut être utilisé pour afficher une autre Content Card ou déclencher des messages supplémentaires. |
 | Enregistrer un attribut personnalisé | Choisir un [attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) à définir pour l'utilisateur actuel. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement au clic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 Les options **Enregistrer un événement personnalisé** et **Enregistrer un attribut personnalisé** nécessitent la compatibilité avec les versions de SDK suivantes :
 
@@ -133,7 +133,7 @@ Construisez le reste de votre Campaign. Poursuivez avec les sections suivantes p
 
 Les Content Cards peuvent être distribuées selon une planification, une action ou un déclencheur API. Pour en savoir plus, consultez [Planifier votre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Vous pouvez également définir la durée de la Campaign et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), ainsi que l'expiration de la Content Card. Définissez une date d'expiration spécifique ou le nombre de jours avant l'expiration d'une carte, jusqu'à 30 jours. Toutes les variantes ont des dates d'expiration identiques.
+Vous pouvez également définir la durée de la Campaign et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), ainsi que l'expiration de la Content Card. Définissez une date d'expiration spécifique ou le nombre de jours avant l'expiration d'une carte, jusqu'à 30 jours. Toutes les variantes ont des dates d'expiration identiques.
 
 Si vous choisissez de faire expirer une carte après une durée définie (par exemple, après deux semaines), l'expiration est calculée à partir du moment de l'envoi de la carte. Pour les Campaigns planifiées, il s'agit de l'heure de lancement planifiée. Pour les Campaigns déclenchées par un événement, il s'agit du moment où l'utilisateur effectue l'action déclencheuse. Par exemple, si une carte déclenchée par un événement est envoyée à 14 h aujourd'hui avec une expiration d'un jour, elle expire à 14 h le lendemain.
 
@@ -147,7 +147,7 @@ Pour les Campaigns de Content Cards avec distribution planifiée, vous pouvez ch
 
 #### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des Segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative de ce Segment. Gardez à l'esprit que l'appartenance exacte au Segment est toujours calculée avant l'envoi du message.
+Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) en choisissant des segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative de ce segment. Gardez à l'esprit que l'appartenance exacte au segment est toujours calculée avant l'envoi du message.
 
 {% multi_lang_include target_audiences.md %}
 

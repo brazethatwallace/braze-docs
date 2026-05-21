@@ -55,8 +55,8 @@ Após reunir sua documentação, siga estas etapas:
 
 ### Etapa 1: Conectar o canal KakaoTalk à Braze {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. Acesse **Partner Integrations** > **Technology Partners** e selecione seu provedor KakaoTalk.
-2. Reúna as credenciais necessárias para seu provedor (veja abaixo), insira-as na página **Technology Partners** e salve.
+1. Acesse **Integrações de parceiros** > **Parceiros de tecnologia** e selecione seu provedor KakaoTalk.
+2. Reúna as credenciais necessárias para seu provedor (veja abaixo), insira-as na página **Parceiros de tecnologia** e salve.
 3. Use as credenciais recém-salvas para envio.
 
 #### CJ OliveNetworks
@@ -82,6 +82,12 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 
 ![Dashboard Comm.One mostrando um Sender Key censurado.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar o mesmo Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
+{% endalert %}
+
+![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
@@ -95,13 +101,11 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 {% endtab %}
 {% endtabs %}
 
-![Campos na página Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Somente os canais mapeados para um único ID comum podem ser registrados.
 {% endalert %}
+
+![Campos na página Parceiros de tecnologia para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

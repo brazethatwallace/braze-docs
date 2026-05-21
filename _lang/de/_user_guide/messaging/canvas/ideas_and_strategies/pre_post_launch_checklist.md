@@ -96,10 +96,10 @@ Eine weitere offensichtliche Möglichkeit, Anpassungsbereiche für Ihren Canvas 
 
 Als Nächstes ist es wichtig, diese Einstellungen zu identifizieren, die beeinflussen können, wann und ob Nachrichten an Ihre Nutzer:innen gesendet werden:
 - [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- Ruhezeiten
+- [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
 - Zustellungsvalidierungen
 
-Wählen Sie im Allgemeinen entweder intelligentes Timing oder Ruhezeiten für Ihren Canvas, nicht beides. Die gleiche Empfehlung gilt für die Verwendung von entweder intelligentem Timing oder [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), nicht beides. Weitere Informationen zur optimalen Nutzung der Intelligence Suite finden Sie in unseren [Intelligence Suite-Anwendungsfällen]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
+Wählen Sie im Allgemeinen entweder intelligentes Timing oder [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) für Ihren Canvas, nicht beides. Die gleiche Empfehlung gilt für die Verwendung von entweder intelligentem Timing oder [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), nicht beides. Weitere Informationen zur optimalen Nutzung der Intelligence Suite finden Sie in unseren [Intelligence Suite-Anwendungsfällen]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
 
 ### Verdächtige Sendevolumen zwischen Pfaden {#suspicious-send-volumes-between-paths}
 

@@ -113,7 +113,7 @@ Nutzer:innen wählen mehrere Optionen aus; die Werte werden in einem definierten
 
 ### Langer Text {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Customer-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

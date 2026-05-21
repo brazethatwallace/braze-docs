@@ -204,7 +204,7 @@ Consulta las siguientes secciones para obtener detalles sobre cómo usar mejor n
 
 Los mensajes de KakaoTalk se pueden entregar según un horario planificado, una acción o un desencadenador de API. Para más información sobre las opciones de planificación y desencadenadores, consulta [Planifica tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) o [Tipos de horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (para tu Canvas).
 
-Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las horas tranquilas.
+Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 

@@ -96,10 +96,10 @@ Otra forma evidente de identificar áreas de ajuste para tu Canvas puede ocurrir
 
 A continuación, es importante identificar estas configuraciones que pueden afectar cuándo y si los mensajes se envían a tus usuarios:
 - [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- Horas tranquilas
+- [Horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
 - Validaciones de entrega
 
-En general, elige Intelligent Timing o horas tranquilas para tu Canvas, no ambos. La misma sugerencia aplica para usar Intelligent Timing o [límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), no ambos. Para más información sobre cómo usar mejor Intelligence Suite, lee nuestros [casos de uso de Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
+En general, elige Intelligent Timing o [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) para tu Canvas, no ambos. La misma sugerencia aplica para usar Intelligent Timing o [límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), no ambos. Para más información sobre cómo usar mejor Intelligence Suite, lee nuestros [casos de uso de Intelligence Suite]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
 
 ### Volúmenes de envío sospechosos entre rutas {#suspicious-send-volumes-between-paths}
 

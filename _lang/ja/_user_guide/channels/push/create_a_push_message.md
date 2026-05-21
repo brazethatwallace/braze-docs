@@ -6,7 +6,7 @@ page_type: tutorial
 description: "このチュートリアルページでは、設定、送信、ターゲティングなど、プッシュメッセージの作成に関わるさまざまなコンポーネントについて説明します。"
 channel: push
 tool:
-  - キャンペーン
+  - Campaigns
 
 ---
 
@@ -17,13 +17,13 @@ tool:
 ## ステップ 1: メッセージの作成場所を選択する {#create-new-campaign-push}
 
 {% alert tip %}
-キャンペーンを使うべきか、キャンバスを使うべきか迷っていますか？キャンペーンは単一のターゲットメッセージングに適しており、キャンバスは複数ステップのユーザージャーニーに適しています。
+Campaignを使うべきか、Canvasを使うべきか迷っていますか？Campaignsは単一のターゲットメッセージングに適しており、Canvasesは複数ステップのユーザージャーニーに適しています。
 {% endalert %}
 
 {% tabs %}
 {% tab Campaign %}
-1. **Messaging** > **キャンペーン** に移動し、**Create campaign**を選択します。
-2. 複数チャネルをターゲットとするキャンペーンの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。まだ迷っている場合は、以下の**通常のプッシュキャンペーンとマルチチャネルプッシュキャンペーンの選択**を参照してください。
+1. **Messaging** > **Campaigns** に移動し、**Create campaign**を選択します。
+2. 複数チャネルをターゲットとするCampaignsの場合は、**Multichannel**を選択します。それ以外の場合は、**Push notification**を選択します。まだ迷っている場合は、以下の**通常のプッシュキャンペーンとマルチチャネルプッシュキャンペーンの選択**を参照してください。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
 
@@ -60,10 +60,10 @@ tool:
 
 {% endtab %}
 {% tab Canvas %}
-1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
-2. キャンバスの設定が完了したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+2. Canvasの設定が完了したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)を選択し、必要に応じて遅延を指定します。
-4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージ送信時に遅延後にチェックされます。
+4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージ送信時に遅延後にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
@@ -80,7 +80,7 @@ tool:
 | --- | --- |
 | プッシュ通知キャンペーン | 1つ以上のプラットフォームとデバイスを選択します。複数のデバイスとプラットフォームをターゲットにすることを選んだ場合、自動的にクイックプッシュキャンペーンが作成されます。これにより、選択したすべてのプラットフォーム向けに1つのメッセージを単一のエディターで作成するために最適化された編集体験が提供されます。この編集体験の違いについては、[クイックプッシュキャンペーン]({{site.baseurl}}/quick_push/)を参照してください。 |
 | マルチチャネルキャンペーン | **Add Messaging Channel**を選択して、追加のプッシュプラットフォームを追加します。プラットフォームの選択は各バリアントに固有であるため、プラットフォームごとのメッセージエンゲージメントをテストできます。 |
-| キャンバス | メッセージステップで、**+ Add more**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルキャンペーンと同様に、プラットフォームの選択は各バリアントに固有です。 |
+| Canvas | メッセージステップで、**+ Add more**を選択して、追加のプッシュプラットフォームを追加します。マルチチャネルキャンペーンと同様に、プラットフォームの選択は各バリアントに固有です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## ステップ 3: 通知タイプを選択する（iOSおよびAndroid） {#step-3-select-notification-type-ios-and-android}
@@ -193,7 +193,7 @@ iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイス
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=push)を参照してください。
 
-## ステップ 6: キャンペーンまたはキャンバスの残りを構築する {#step-6-build-the-remainder-of-your-campaign-or-canvas}
+## ステップ 6: キャンペーンまたはCanvasの残りを構築する {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -204,29 +204,29 @@ iOSの場合、iPadデバイスのみ、またはiPhoneおよびiPodデバイス
 
 プッシュメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信の場合、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)も設定できます。
+アクションベースの配信の場合、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)も設定できます。
 
 このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなど、配信コントロールを指定することもできます。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのセグメント人口のプレビューが自動的に表示されます。キャンペーンがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのセグメントのライフタイムバリューを確認するには、**Show Additional Stats**を選択します。
+次に、Segmentsやフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。おおよそのセグメント人口のプレビューが自動的に表示されます。キャンペーンがターゲットとするチャネルの詳細なオーディエンス統計は、フッターで確認できます。ユーザー群のうちターゲットされている割合とこのSegmentのライフタイムバリューを確認するには、**Show Additional Stats**を選択します。
 
 {% multi_lang_include target_audiences.md %}
 
 {% details 到達可能なユーザーの合計指標がすべてのチャネルの合計と一致しないのはなぜですか？ %}
 
-フィルタリングされたオーディエンスの到達可能なユーザーの合計を表示すると、個々の列の合計が到達可能なユーザーの合計よりも小さいことに気づく場合があります。このギャップは通常、キャンペーンのセグメントまたはフィルターの条件を満たしているが、プッシュ経由では到達できないユーザー（例えば、有効またはアクティブな[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#push-tokens)を持っていないため）が多数いることが原因です。
+フィルタリングされたオーディエンスの到達可能なユーザーの合計を表示すると、個々の列の合計が到達可能なユーザーの合計よりも小さいことに気づく場合があります。このギャップは通常、キャンペーンのSegmentまたはフィルターの条件を満たしているが、プッシュ経由では到達できないユーザー（例えば、有効またはアクティブな[プッシュトークン]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/#push-tokens)を持っていないため）が多数いることが原因です。
 
 {% enddetails %}
 
 ![到達可能なユーザーの詳細なオーディエンス統計テーブル。]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 
-正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
+正確なSegmentメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
 また、購読中やプッシュにオプトインしているユーザーなど、特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)を持つユーザーにのみキャンペーンを送信することもできます。
 
-オプションとして、セグメント内の指定された数のユーザーに配信を制限したり、キャンペーンの繰り返し時にユーザーが同じメッセージを2回受信できるようにすることもできます。
+オプションとして、Segment内の指定された数のユーザーに配信を制限したり、キャンペーンの繰り返し時にユーザーが同じメッセージを2回受信できるようにすることもできます。
 
 ##### メールとプッシュのマルチチャネルキャンペーン {#multichannel-campaigns-with-email-and-push}
 
@@ -250,14 +250,14 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 {% tab Canvas %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、Canvasドキュメントの[Canvasを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}
 
 ## ステップ 7: 確認してデプロイする {#review-and-deploy-push}
 
-キャンペーンまたはキャンバスの最後の構築が完了したら、その詳細を確認します。キャンペーンの場合、最終ページにはデザインしたキャンペーンの概要が表示されます。関連するすべての詳細を確認し、メッセージをテストしたことを確認してから送信し、データが届くのを見守りましょう！
+キャンペーンまたはCanvasの最後の構築が完了したら、その詳細を確認します。キャンペーンの場合、最終ページにはデザインしたキャンペーンの概要が表示されます。関連するすべての詳細を確認し、メッセージをテストしたことを確認してから送信し、データが届くのを見守りましょう！
 
 次に、[プッシュレポート]({{site.baseurl}}/user_guide/channels/push/reporting/)を確認して、プッシュキャンペーンの結果にアクセスする方法を学びましょう。プッシュ通知では、送信数、配信数、バウンス数、開封数、直接開封数の統計を確認できます。
 

@@ -5,7 +5,7 @@ page_order: 1
 description: "このリファレンス記事では、WhatsApp メッセージの構築と作成に関するステップについて説明します。"
 page_type: reference
 tool:
-  - キャンペーン
+  - Campaigns
 channel:
   - WhatsApp
 search_rank: 1
@@ -13,7 +13,7 @@ search_rank: 1
 
 # WhatsApp メッセージの作成 {#create-a-whatsapp-message}
 
-> WhatsApp キャンペーンは、顧客に直接リーチし、プログラムによって会話するのに最適です。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> WhatsApp Campaignsは、顧客に直接リーチし、プログラムによって会話するのに最適です。Liquidやその他のダイナミックなコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -27,25 +27,25 @@ WhatsAppメッセージを作成する前に、[WhatsAppの概要]({{site.baseur
 ### ステップ 1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
 {% alert note %}
-WhatsAppは言語ごとに異なる[メッセージテンプレート](#template-messages)を作成します。セグメンテーションを使用して適切なテンプレートをユーザーに配信する言語ごとのキャンペーンを作成するか、キャンバスを使用してください。
+WhatsAppは言語ごとに異なる[メッセージテンプレート](#template-messages)を作成します。セグメンテーションを使用して適切なテンプレートをユーザーに配信する言語ごとのCampaignを作成するか、Canvasを使用してください。
 {% endalert %}
 
-メッセージをキャンペーンで送信すべきか、キャンバスで送信すべきかわからない場合は、キャンペーンは単一のターゲットメッセージングに適しており、キャンバスは複数ステップのユーザージャーニーに適しています。
+メッセージをCampaignで送信すべきか、Canvasで送信すべきかわからない場合は、Campaignsは単一のターゲットメッセージングに適しており、Canvasesは複数ステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab Campaign %}
 
 **ステップ:**
 
-1. **キャンペーン**ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成**をクリックします。
-2. **WhatsApp**を選択するか、複数チャネルをターゲットとするキャンペーンの場合は**マルチチャネルキャンペーン**を選択します。
-3. キャンペーンにわかりやすく意味のある名前を付けます。
+1. **Campaigns**ページに移動し、<i class="fas fa-plus"></i> **キャンペーンを作成**をクリックします。
+2. **WhatsApp**を選択するか、複数チャネルをターゲットとするCampaignの場合は**マルチチャネルCampaign**を選択します。
+3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
-   * タグを使用すると、キャンペーンの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
-5. キャンペーンに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
+   * タグを使用すると、Campaignsの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)を使用する際に、特定のタグでフィルタリングできます。
+5. Campaignに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing/)を参照してください。
 
 {% alert tip %}
-キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
+Campaign内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -53,15 +53,15 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 
 **ステップ:**
 
-1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
-2. キャンバスの設定が完了したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
+1. Canvasコンポーザーを使用して[Canvasを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)します。
+2. Canvasの設定が完了したら、Canvasビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)を選択し、必要に応じて遅延を指定します。
-4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージ送信時に遅延後にチェックされます。
+4. 必要に応じて、このステップのオーディエンスをフィルタリングします。Segmentsを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージ送信時に遅延後にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
 
 {% alert tip %}
-アクションベースのキャンバスが受信WhatsAppメッセージによってトリガーされた場合、次のアクションパスまで、任意のキャンバスステップでWhatsAppプロパティを参照できます。
+アクションベースのCanvasが受信WhatsAppメッセージによってトリガーされた場合、次のアクションパスまで、任意のキャンバスステップでWhatsAppプロパティを参照できます。
 {% endalert %}
 
 {% endtab %}
@@ -83,7 +83,7 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 
 #### 言語 {#languages}
 
-各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにキャンペーンまたはキャンバスステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するキャンバスを構築する場合、インドネシア語テンプレート用のキャンバスステップと英語テンプレート用のキャンバスステップを作成する必要があります。
+各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにCampaignまたはキャンバスステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するCanvasを構築する場合、インドネシア語テンプレート用のキャンバスステップと英語テンプレート用のキャンバスステップを作成する必要があります。
 
 ![テンプレートのリスト。メッセージのプレビュー、割り当てられた言語、承認ステータスが表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
@@ -142,38 +142,38 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=whatsapp)を参照してください。
 
-### ステップ 4:キャンペーンまたはキャンバスの残りの部分を構築する {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### ステップ 4:CampaignまたはCanvasの残りの部分を構築する {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-次に、キャンペーンの残りの部分を構築します。WhatsAppメッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
+次に、Campaignの残りの部分を構築します。WhatsAppメッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
 
 #### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
 
-WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
+WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-アクションベースの配信では、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)を設定することもできます。
+アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)を設定することもできます。
 
-このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
+このステップでは、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にするなどの配信コントロールを指定することもできます。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
-次に、セグメントまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、セグメントからより大きなオーディエンスを選択し、フィルターを使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のスナップショットが自動的に表示されます。正確なセグメントメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
+次に、Segmentsまたはフィルターを選択してオーディエンスを絞り込み、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)する必要があります。サブスクリプショングループはすでに選択されているはずで、これによりユーザーが希望するコミュニケーションのレベルやカテゴリで絞り込まれます。このステップでは、Segmentsからより大きなオーディエンスを選択し、フィルターを使用してそのSegmentをさらに絞り込みます。おおよそのSegment人口のスナップショットが自動的に表示されます。正確なSegmentメンバーシップは、メッセージ送信前に常に計算されることに注意してください。
 
 {% multi_lang_include target_audiences.md %}
 
 #### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、キャンペーンを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定できます。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンがカウントされる最大30日間の時間枠を設定できます。
 
-特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。クリエイティブに考え、このキャンペーンの成功をどのように測定したいかを検討してください。
+特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。クリエイティブに考え、このCampaignの成功をどのように測定したいかを検討してください。
 
 {% endtab %}
 
 {% tab Canvas %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、キャンバスドキュメントの[キャンバスの構築]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)ステップを参照してください。
+まだ完了していない場合は、Canvasコンポーネントの残りのセクションを完了してください。Canvasの残りの構築方法、多変量テストとインテリジェントセレクションの実装方法などの詳細については、Canvasドキュメントの[Canvasの構築]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)ステップを参照してください。
 
 会話ウィンドウは受信メッセージごとに24時間しか持続しないため、Brazeは受信メッセージと応答メッセージの間に24時間を超える遅延がないことを確認します。
 
@@ -182,9 +182,9 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 ### ステップ 5:確認とデプロイ {#step-5-review-and-deploy}
 
-キャンペーンまたはキャンバスの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
+CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
 
-次に、[WhatsAppレポート]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/)を確認して、WhatsApp キャンペーンの結果にアクセスする方法を学びましょう。
+次に、[WhatsAppレポート]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/)を確認して、WhatsApp Campaignsの結果にアクセスする方法を学びましょう。
 
 ## サポートされているWhatsApp機能 {#supported-whatsapp-features}
 
@@ -202,7 +202,7 @@ Brazeを通じて送信するWhatsApp送信メッセージでは、以下の機�
 | ドキュメント | ドキュメントは本文テキスト内に埋め込むことができます。ファイルはURL経由でホストされている必要があります。 | < 100 MB | `.txt`、`.xls`、`.xlsx`、`.doc`、`.docx`、`.ppt`、`.pttx`、`.pdf` |
 | 動画 | 動画は本文テキスト内に埋め込むことができます。ファイルはURL経由または[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)でホストされている必要があります。 | < 16 MB | `.3gp`、`.mp4` |
 | オーディオ | オーディオは応答メッセージングでのみサポートされています。ファイルはURL経由でホストされている必要があります。 | < 16 MB | `.aac`、`.amr`、`.mp3`、`.mp4`、`.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Outbound messages" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
@@ -218,7 +218,7 @@ Brazeを通じて受信するWhatsApp受信メッセージでは、以下の機�
 | ドキュメント | ドキュメントはメッセージ添付ファイルを通じてサポートされています。 | `.txt`、`.pdf`、`.ppt`、`.doc`、`.xls`、`.docx`、`.pptx`、`.xlsx` |
 | 動画 | H.264ビデオコーデックとAACオーディオコーデックのみがサポートされています。動画は単一のオーディオストリームを持つか、オーディオストリームを持たない必要があります。 | `.mp4`、`.3gp` |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Inbound messages" }
 
 ### コールトゥアクションタイプ {#ctas}
 
@@ -233,4 +233,4 @@ Brazeを通じて送信するWhatsAppメッセージでは、以下のコール�
 | クーポンコードメッセージテンプレート | メッセージテンプレートでのみ利用可能。<br>他のメッセージテンプレートと同様に開いて編集でき、LiquidおよびBrazeプロモーションコードと互換性があります。 |
 | CTA応答メッセージ | コールトゥアクションボタンを含む応答メッセージを作成します。 |
 | [リスト応答メッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users/#list-messages) | ユーザーが選択できる最大10個のオプションのリストを含む応答メッセージを作成します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Call-to-action types" }

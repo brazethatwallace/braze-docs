@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del punto de conexión Actualizar el estado del grupo de suscripción del usuario de Braze."
 ---
+
 {% api %}
 # Actualizar el estado del grupo de suscripción del usuario {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 {% alert note %}
 Si te interesa utilizar este punto de conexión con [grupos de suscripción de LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), ponte en contacto con tu administrador del éxito del cliente.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## Límite de velocidad {#rate-limit}
 
