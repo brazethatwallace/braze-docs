@@ -88,6 +88,10 @@ def gh_paginate(url, token):
     while True:
         sep = "&" if "?" in url else "?"
         data = gh_request(f"{url}{sep}per_page=100&page={page}", token)
+        if not isinstance(data, list):
+            if page == 1:
+                raise ValueError(f"Unexpected GitHub API response (expected list): {url}")
+            break
         if not data:
             break
         results.extend(data)
@@ -127,9 +131,13 @@ def get_pr_requested_reviewers(repo, pr_number, token):
 def main():
     # Handle save-thread subcommand
     if len(sys.argv) >= 5 and sys.argv[1] == "save-thread":
-        scenario = sys.argv[2]  # s1 or s2
+        scenario = sys.argv[2]
         pr_number = int(sys.argv[3])
         thread_ts = sys.argv[4]
+        allowed = {"s1", "s2", "s2_early", "s3", "s4"}
+        if scenario not in allowed:
+            print(json.dumps({"error": f"scenario must be one of {sorted(allowed)}"}))
+            return
         state = load_json(STATE_PATH)
         if "thread_ts" not in state:
             state["thread_ts"] = {}
@@ -159,6 +167,12 @@ def main():
 
     if not token or not repo:
         print(json.dumps({"error": "Missing github_token or repo in config.json"}))
+        return
+
+    if early_stale_days >= stale_days:
+        print(json.dumps({
+            "error": f"early_stale_days ({early_stale_days}) must be less than stale_days ({stale_days})"
+        }))
         return
 
     # Load state
