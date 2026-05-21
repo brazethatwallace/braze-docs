@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### Etapa 2a: Criar uma variável privada de assinante {#step-2a-create-a-private-subscriber-variable}
+#### Etapa 2a: Criar uma variável privada de assinante
 
 Para se inscrever nas atualizações do cartão, primeiro declare uma variável privada na sua classe personalizada para armazenar seu assinante:
 
@@ -133,7 +133,7 @@ Para se inscrever nas atualizações do cartão, primeiro declare uma variável 
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### Etapa 2b: Inscrever-se nas atualizações {#step-2b-subscribe-to-updates}
+#### Etapa 2b: Inscrever-se nas atualizações
 
 Adicione o seguinte código para se inscrever nas atualizações de Content Cards da Braze, normalmente dentro do `Activity.onCreate()` da sua atividade personalizada de Content Cards:
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### Etapa 2c: Cancelar inscrição {#step-2c-unsubscribe}
+#### Etapa 2c: Cancelar inscrição
 
 Cancele a inscrição quando sua atividade personalizada sair da visualização. Adicione o seguinte código ao método de ciclo de vida `onDestroy()` da sua atividade:
 
@@ -176,7 +176,7 @@ Além disso, você pode manter uma inscrição para observar alterações nos se
 1. Mantendo um cancellable; ou
 2. Mantendo um `AsyncStream`.
 
-##### Cancellable
+##### Cancellable {#cancellable}
 
 ```swift
 // This subscription is maintained through a Braze cancellable, which will observe for changes until the subscription is cancelled.
@@ -246,7 +246,7 @@ Por exemplo, você pode querer criar dois cartões de mensagem: um chamado à a�
 Chaves como `body`, `title` e `buttonText` podem ter valores simples de string que seus profissionais de marketing podem definir. Chaves como `terms` podem ter valores que fornecem uma pequena coleção de frases aprovadas pelo seu departamento jurídico. Chaves como `style` e `class_type` têm valores de string que você pode definir para determinar como seu cartão é exibido no seu app ou site.
 
 {% tabs local %}
-{% tab Reading recommendations %}
+{% tab Recomendações de leitura %}
 Pares de valores-chave para o cartão de recomendação de leitura:
 
 | Chave         | Valor                                                                |
@@ -255,10 +255,10 @@ Pares de valores-chave para o cartão de recomendação de leitura:
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 
-{% tab New subscriber coupon %}
+{% tab Cupom para novo assinante %}
 Pares de valores-chave para um novo cupom de assinante:
 
 | Chave         | Valor                                                            |
@@ -270,7 +270,7 @@ Pares de valores-chave para um novo cupom de assinante:
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
 

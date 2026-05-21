@@ -157,7 +157,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 
 ### Atributo personalizado com um valor de array {#custom-attribute-with-an-array-value}
 
-O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Configurações de dados** > **Atributos personalizados**. Arrays que excedem o número máximo de elementos são truncados para conter o número máximo de elementos.
+O número máximo de elementos padrão em um array é 500. Você pode atualizar o número máximo de arrays no dashboard da Braze, em **Data Settings** > **Custom Attributes**. Arrays que excedem o número máximo de elementos são truncados para conter o número máximo de elementos.
 
 
 {% tabs %}

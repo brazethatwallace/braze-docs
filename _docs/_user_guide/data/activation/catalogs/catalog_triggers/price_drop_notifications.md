@@ -41,7 +41,7 @@ Follow these steps to set up price drop notifications in a specific catalog.
 | **Custom event for subscribing** | The custom event used to subscribe a user for catalog notifications. When this event occurs, the user who performed the event will be subscribed. |
 | **Custom event for unsubscribing** | The custom event used to unsubscribe a user from notifications. This event is optional. If the user doesn't perform this event, they'll be unsubscribed after 90 days or when the price drop event triggers, whichever occurs first. |
 | **Item ID event property** | The property on the above custom event used to determine the item for a subscription or unsubscription. This property on the custom event should contain an item ID that exists in a catalog. The custom event must contain a `catalog_name` property to specify which catalog this item is in. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting up price drop notifications" }
 
 Here's an example custom event:
 

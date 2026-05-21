@@ -14,7 +14,7 @@ page_type: reference
 A Braze usa o token de dispositivo da Apple para iOS.
 
 | **Perspectiva da Braze:**<br>Asseguramos que os clientes possam se comunicar continuamente com seus usuários (como notificações por push) durante o processo de migração do Airship para a Braze (seja uma transição direta para 100% Braze ou uma transição granular, como 50% Airship 50% Braze, etc.). |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Token management" }
 
 #### Migração de token por push {#push-token-migration}
 
@@ -44,7 +44,7 @@ De maneira geral, a Braze é uma ferramenta verdadeiramente única no espaço de
 A Braze requer canais separados para push (um para iOS e outro para Android).
 
 | **Perspectiva da Braze:**<br>Capacitamos nossos clientes para que obtenham os benefícios de ambos, em vez de terem que fazer concessões. A possibilidade de usar o canal individual em sua capacidade total oferece mais flexibilidade para o profissional de marketing e uma experiência de usuário aprimorada. Isso nos permite adotar os recursos mais recentes de cada sistema operacional; por exemplo, o Android suportava notificações Rich antes do iOS. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Push notifications" }
 
 A Braze pode enviar notificações por push aos usuários que não atualizam seus apps com o SDK da Braze instalado. Como a Braze possui um token por push válido, ela pode enviar a notificação por push sem o SDK da Braze, pois o APNs cuidará do resto. É fundamental notar que a **análise de dados de mensagens push não estará disponível para compilações sem o SDK da Braze**.
 
@@ -59,7 +59,7 @@ Para substituir a funcionalidade de Campaign do centro de mensagens do Airship, 
 A Braze oferece vários filtros de [segmentação]({{site.baseurl}}/user_guide/audience/segments/) para proporcionar uma experiência de usuário rica para seus clientes.
 
 | **Perspectiva da Braze:**<br>Os Segments na Braze são totalmente dinâmicos, portanto, os usuários entrarão e sairão do Segment à medida que as condições definidas mudarem. |
-{: .reset-td-br-1 role="presentation" }
+{: .reset-td-br-1 aria-label="Segmentation" }
 
 #### Migração de Segment de usuários {#user-segment-migration}
 

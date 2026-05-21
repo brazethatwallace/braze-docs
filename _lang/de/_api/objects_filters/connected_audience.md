@@ -48,7 +48,7 @@ Verwenden Sie verbundene Zielgruppen für Szenarien, in denen Ihre Backend-Syste
 | E-Commerce | Ein Online-Händler sendet Preissenkungen- oder Wieder-verfügbar-Benachrichtigungen an Nutzer:innen, deren Array `wishlisted_products` die entsprechende Produkt-ID enthält. |
 | Reisen | Eine Reise-App sendet Flugverspätungs-Benachrichtigungen an Nutzer:innen, deren Attribut `booked_flight` mit der betroffenen Flugnummer übereinstimmt. |
 | Finanzdienstleistungen | Eine Handelsplattform benachrichtigt Nutzer:innen, deren Array `watchlist` ein Aktiensymbol enthält, das eine Preisschwelle überschritten hat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 In jedem Fall verarbeitet eine einzelne Campaign oder reine API-Nachrichtendefinition alle Varianten. Ihr Backend bestimmt die Filterwerte und übergibt sie in der API-Anfrage, sodass Sie kein separates Segment oder keine separate Campaign für jedes Produkt, jede Sendung, jedes Team oder jeden Standort erstellen müssen.
 
@@ -138,7 +138,7 @@ Der Datentyp des angepassten Attributs bestimmt die Vergleiche, die für einen b
 | Numerisch | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Boolescher Wert | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Zeit | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zulässige Vergleiche nach Datentyp" }
 
 #### Hinweise zum Attributvergleich {#attribute-comparison-caveats}
 
@@ -146,7 +146,7 @@ Der Datentyp des angepassten Attributs bestimmt die Vergleiche, die für einen b
 | --- | --- |
 | `value` | Die Angabe `value` ist nicht erforderlich, wenn Sie die Vergleiche `exists` oder `does_not_exist` verwenden. `value` muss ein ISO 8601 Datetime-String sein, wenn Sie die Vergleiche `before` und `after` verwenden. |
 | `matches_regex` | Wenn Sie den Vergleich `matches_regex` verwenden, muss der übergebene Wert ein String sein. Weitere Informationen über die Verwendung regulärer Ausdrücke mit Braze finden Sie unter [Reguläre Ausdrücke]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/#regex-with-braze) und [Angepasste Attribut-Datentypen]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-data-types). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Hinweise zum Attributvergleich" }
 
 #### Beispiel für ein angepasstes Attribut {#custom-attribute-example}
 
@@ -205,7 +205,7 @@ Dieser Filter ermöglicht es Ihnen, auf der Grundlage des Push-Abo-Status einer:
 
 Dieser Filter ermöglicht es Ihnen, auf der Grundlage des E-Mail-Abo-Status einer:eines Nutzer:in zu segmentieren.
 
-#### Filterstruktur {#filter-body}
+#### Filterstruktur
 
 ```json
 {
@@ -224,7 +224,7 @@ Dieser Filter ermöglicht es Ihnen, auf der Grundlage des E-Mail-Abo-Status eine
 
 Dieser Filter ermöglicht es Ihnen, basierend darauf zu segmentieren, wann die:der Nutzer:in die App zuletzt verwendet hat. Diese Filter enthalten zwei Felder:
 
-#### Filterstruktur {#filter-body}
+#### Filterstruktur
 
 ```json
 {

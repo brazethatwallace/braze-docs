@@ -36,7 +36,7 @@ Você pode personalizar suas mensagens de e-mail de várias formas, incluindo:
 | Conteúdo multimídia | Facilidade na inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
 | Boletins informativos | Envie boletins informativos mensais ou semanais de forma prática para manter o engajamento dos usuários. |
 | Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envios com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Serviços de e-mail {#email-services}
 

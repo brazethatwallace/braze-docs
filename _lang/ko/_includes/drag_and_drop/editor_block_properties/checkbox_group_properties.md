@@ -15,4 +15,4 @@
 | 정렬 | 그룹의 가로 정렬입니다(시작 또는 가운데). |
 | 강조 색상 | 체크박스 컨트롤의 색상입니다. |
 | 패딩 | 블록 주변의 간격입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

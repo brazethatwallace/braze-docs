@@ -214,7 +214,7 @@ Permite el acceso desde las siguientes IP correspondientes a la región de tu da
 
 #### Paso 1.1: Preparar la tabla
 
-Si lo deseas, puedes crear un nuevo proyecto o conjunto de datos que contenga la tabla de origen.
+Opcionalmente, configura un nuevo proyecto o conjunto de datos para contener tu tabla de origen.
 
 ```sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Puedes nombrar el proyecto, el conjunto de datos y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Puedes nombrar el esquema y la tabla como desees, pero los nombres de las columnas deben coincidir con la definición anterior.
 
@@ -469,9 +471,16 @@ En el dashboard de Braze, ve a **Data Settings** > **Cloud Data Ingestion** > **
 
 Elige un nombre para tu fuente e introduce tus credenciales y configuración de Snowflake, y luego pasa al siguiente paso.
 
-{% alert note %}
-En el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake, que suele seguir un formato como `xy12345.us-east-1.aws`. No es lo mismo que el nombre de una base de datos o el nombre de un almacén.
-{% endalert %}
+Antes de continuar, confirma el valor que introduces en **Snowflake Account Locator**.
+
+En el campo **Snowflake Account Locator**, introduce tu [identificador de cuenta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) de Snowflake. Introduce solo el valor del identificador de cuenta, como `myorganization-myaccount`. No incluyas `https://`, `.snowflakecomputing.com` ni ninguna ruta.
+
+Para encontrar tu identificador de cuenta de Snowflake:
+
+1. En Snowsight, selecciona el menú de tu cuenta.
+2. Selecciona **View account details**.
+3. Copia el valor de **Account identifier**.
+4. Si copias desde una URL de Snowflake, utiliza solo el valor antes de `.snowflakecomputing.com`.
 
 #### Paso 2.2: Añadir una clave pública al usuario de Braze {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -718,7 +727,7 @@ Las sincronizaciones recurrentes pueden tener una frecuencia desde cada 15 minut
 {% endtabs %}
 
 {% alert note %}
-Debes probar con éxito una integración antes de que pueda pasar del estado Borrador al Activo. Si cierras la página de creación, tu integración se guarda y puedes volver a visitar la página de detalles para realizar cambios y pruebas.
+Debes probar con éxito una integración antes de que pueda pasar del estado borrador al activo. Si cierras la página de creación, tu integración se guarda y puedes volver a visitar la página de detalles para realizar cambios y pruebas.
 {% endalert %}
 
 ## Configurar integraciones o usuarios adicionales (opcional) {#set-up-additional-integrations-or-users-optional}
@@ -761,26 +770,26 @@ Si reutilizas el mismo usuario en varias integraciones, no podrás eliminar el u
 
 {% tabs %}
 {% tab Snowflake %}
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Redshift %}
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab BigQuery %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Databricks %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Una vez activada, la sincronización se ejecuta según la planificación configurada durante la instalación. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
+Una vez activada, la sincronización se ejecuta según la planificación configurada durante la configuración. Si deseas ejecutar la sincronización fuera de la planificación normal de pruebas o recuperar los datos más recientes, selecciona **Sync Now**. Esta ejecución no afecta a las futuras sincronizaciones programadas regularmente.
 
 {% endtab %}
 

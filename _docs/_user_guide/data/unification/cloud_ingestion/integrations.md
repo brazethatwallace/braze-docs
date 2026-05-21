@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 You can name the project, dataset, and table as you'd like, but the column names should match the preceding definition.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 You can name the schema and table as you'd like, but the column names should match the preceding definition.
 
@@ -469,9 +471,16 @@ In the Braze Dashboard, go to **Data Settings** > **Cloud Data Ingestion** > **S
 
 Choose a name for your source and input your Snowflake credentials and configuration, then proceed to the next step.
 
-{% alert note %}
-For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier), which typically follows a format like `xy12345.us-east-1.aws`. This is not the same as a database name or warehouse name.
-{% endalert %} 
+Before you continue, confirm the value you enter in **Snowflake Account Locator**.
+
+For the **Snowflake Account Locator** field, enter your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier). Enter only the account identifier value, such as `myorganization-myaccount`. Do not include `https://`, `.snowflakecomputing.com`, or any path.
+
+To find your Snowflake account identifier:
+
+1. In Snowsight, select your account menu.
+2. Select **View account details**.
+3. Copy the **Account identifier** value.
+4. If you copy from a Snowflake URL, use only the value before `.snowflakecomputing.com`.
 
 #### Step 2.2: Add a public key to the Braze user
 

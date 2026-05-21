@@ -20,7 +20,7 @@ channel:
 | Canal Business do KakaoTalk | Sua conta KakaoTalk deve ser um canal Business do KakaoTalk para enviar mensagens KakaoTalk pela Braze. Quando você cria uma conta, o status padrão é básico. Para tornar sua conta um canal Business, você precisará verificar sua empresa e fornecer a documentação relevante. |
 | Sender Key do KakaoTalk | Um Sender Key válido do KakaoTalk. |
 | Número de telefone de contato | Um número de telefone de contato para o administrador do seu canal KakaoTalk. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Tipos de contas KakaoTalk {#types-of-kakaotalk-accounts}
 
@@ -28,7 +28,7 @@ channel:
 | --- | --- |
 | Canal básico | Um canal KakaoTalk padrão que qualquer organização pode configurar. Ele permite envio de mensagens em massa e chat 1:1 pelo KakaoTalk. |
 | [Canal Business](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Um canal KakaoTalk aprimorado e verificado para empresas que requer um processo de solicitação e verificação. Ele oferece recursos avançados, como {::nomarkdown}<ul><li>Selo de verificação</li><li>Aparição como canal recomendado</li><li>Suporte para mensagens empresariais</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### Solicitar um canal Business {#apply-for-a-business-channel}
 
@@ -70,7 +70,7 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 | **Channel name (카카오톡 채널 프로필명)** | No seu dashboard Comm.One, acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Acesse <b>Account Management (계정 관리)</b>, selecione o ícone de menu e depois selecione <b>View Details (자세히보기)</b>.</li><li>Acesse <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
 | **Credential (ID) e Password (비밀번호)** | Acesse o mesmo local do **Sender number (사업자 등록번호)** e depois acesse **API** > **Brand Message (브랜드 메시지)**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -81,6 +81,12 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 {% tab Sender Key (발신프로필 키) %}
 
 ![Dashboard Comm.One mostrando um Sender Key censurado.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
+
+{% alert important %}
+Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar o mesmo Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
+{% endalert %}
+
+![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
@@ -95,13 +101,11 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 {% endtab %}
 {% endtabs %}
 
-![Campos na página Parceiros de tecnologia para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Somente os canais mapeados para um único ID comum podem ser registrados.
 {% endalert %}
+
+![Campos na página Parceiros de tecnologia para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -114,7 +118,7 @@ Acesse seu dashboard Infobip e reúna as seguintes informações.
 | **Sender name / Sender key** | Selecione **Channels and Numbers** > **Channels** e depois selecione a guia **Senders**. |
 | **Sender profile UUID** | Fornecido diretamente pela Infobip. Entre em contato com a Infobip se você não tiver essa informação. |
 | **Channel name** | Fornecido diretamente pela Infobip. Entre em contato com a Infobip se você não tiver essa informação. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## Configurar perfis de usuário {#set-user-profiles}
 

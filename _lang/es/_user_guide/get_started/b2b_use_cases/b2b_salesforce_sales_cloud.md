@@ -63,7 +63,7 @@ Utiliza plantillas para reutilizar rápidamente este webhook en toda la platafor
 | URL del webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | Método HTTP | `POST` |
 | Cuerpo de la solicitud | Pares clave-valor de JSON |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redactar webhook" }
 
 #### Valores clave de la propiedad del cuerpo {#body-property-key-values}
 
@@ -75,7 +75,7 @@ Selecciona **+ Add New Body Property** para cada uno de los pares clave-valor qu
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores clave de la propiedad del cuerpo" }
 
 #### Encabezados de solicitud {#request-headers}
 
@@ -85,7 +85,7 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de solicitud" }
 
 {: start="4" }
 4. Selecciona **Save Template**.
@@ -119,7 +119,7 @@ Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente po
 | URL del webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | Método HTTP | `PATCH` |
 | Cuerpo de la solicitud | Pares clave-valor de JSON |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redactar webhook" }
 
 #### Valores clave de la propiedad del cuerpo
 
@@ -128,7 +128,7 @@ Selecciona **+ Add New Body Property** para el siguiente par clave-valor. Ten en
 | Clave | Valor |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores clave de la propiedad del cuerpo" }
 
 #### Encabezados de solicitud
 
@@ -138,7 +138,7 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de solicitud" }
 
 {: start="4"}
 4. Selecciona **Save Template**.

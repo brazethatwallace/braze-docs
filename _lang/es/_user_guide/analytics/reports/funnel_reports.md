@@ -59,7 +59,7 @@ Para cada informe de embudo, el primer evento es cuando el usuario recibe tu men
 
 | Campaign | Inició sesión, Realizó compra, Realizó evento personalizado, Evento de interacción con mensaje |
 | Canvas | Inició sesión, Realizó compra, Realizó evento personalizado, Recibió paso en Canvas, Interactuó con paso |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available funnel report events" }
 
 {% alert note %}
 El evento de informe **Interactuó con paso** solo se puede usar con pasos en Canvas que utilicen los canales de mensajería de correo electrónico o push.

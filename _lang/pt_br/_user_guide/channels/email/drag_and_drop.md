@@ -18,7 +18,8 @@ tool:
 
 O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como os dois componentes principais para simplificar seu fluxo de trabalho, sem uso adicional de HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="Sobre o editor" style="width: 100%; table-layout: fixed;">
+    <caption>Componentes do editor: Conteúdo e Linhas</caption>
     <tr>
         <th style="width: 50%;">Conteúdo</th>
         <th style="width: 50%;">Linhas</th>
@@ -32,7 +33,7 @@ O editor de arrastar e soltar usa [Conteúdo](#content) e [Linhas](#rows) como o
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Sobre o editor" }
 
 ### Conteúdo {#content}
 
@@ -140,6 +141,16 @@ Em **Configurações de envio**, você pode adicionar personalização para cabe
 {% alert note %}
 A funcionalidade avançada aparecerá no criador de Campaign ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
 {% endalert %}
+
+#### Adicionando anexos de e-mail {#adding-email-attachments}
+
+Em **Configurações de envio** > **Avançado**, você pode adicionar anexos de e-mail pelos seguintes métodos:
+
+- **Fazer upload de um arquivo:** Arraste e solte ou navegue para fazer upload de um arquivo diretamente do seu computador para o e-mail. A Braze valida o tipo e o tamanho do arquivo (até 2&nbsp;MB por padrão) antes do upload, e esses arquivos são enviados para a biblioteca de mídia. Arquivos maiores que o limite de 2&nbsp;MB não podem ser enviados.
+- **Usar a biblioteca de mídia:** Navegue e selecione entre os ativos já armazenados na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). PDFs, documentos Word, arquivos Excel e apresentações PowerPoint são todos suportados.
+- **Adicionar a partir de URL:** Insira uma URL apontando para o arquivo e forneça um nome de exibição para o arquivo. Como a Braze não pode verificar URLs arbitrárias quanto ao tamanho durante a composição do e-mail, o tamanho do arquivo é verificado no momento do envio. Observe que Liquid não é suportado neste campo.
+
+Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para práticas recomendadas específicas a serem consideradas.
 
 ### Etapa 4: Teste seu e-mail {#step-4-test-your-email}
 
@@ -301,7 +312,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `meta` | Fornece metadados como descrição da página ou palavras-chave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Define o título do documento exibido nas abas do navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tags e atributos permitidos por tag" }
 
 | Tag | Atributo | Descrição | Exemplo |
 | --- | --- | --- | --- |
@@ -319,7 +330,7 @@ Qualquer coisa adicionada fora das tags `<head>` será adicionada após a tag `<
 | `style` | `type` | Tipo MIME do conteúdo de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sem atributos | A tag `title` não aceita nenhum atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tags e atributos permitidos por tag" }
 
 {% alert note %}
 Os nomes dos links podem ter até 63 bytes e são automaticamente truncados se excederem o limite.

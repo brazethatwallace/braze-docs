@@ -29,7 +29,7 @@ Brazeは以下のキーワードを自動的に処理し、すべての受信リ
 | オプトイン | `START`<br> `YES`<br> `UNSTOP` | これらの`Opt-In`キーワードのいずれかを含む受信リクエストにより、サブスクリプショングループの状態が`subscribed`に変更されます。さらに、そのサブスクリプショングループに関連付けられた送信者プールは、その顧客にSMS、MMS、またはRCSメッセージを送信できるようになります（送信者がサポートするメッセージングの種類に応じます）。<br><br>ユーザーには、定義済みのオプトイン自動応答が送信されます。 |
 | オプトアウト | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | これらの`Opt-Out`キーワードのいずれかを含む受信リクエストにより、サブスクリプショングループの状態が`unsubscribed`に変更されます。さらに、そのサブスクリプショングループに関連付けられた番号プールは、その顧客にメッセージを送信できなくなります。<br><br>ユーザーには、定義済みのオプトアウト自動応答が送信されます。 |
 | ヘルプ | `HELP`<br> `INFO` | ユーザーには、定義済みのヘルプ自動応答が送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default keywords" }
 
 **完全一致の単一単語メッセージ**のみが処理されます（大文字小文字は区別されません）。`STOP PLEASE`のようなキーワードは、[あいまいオプトアウト]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/)が有効になっていない限り無視されます。
 
@@ -41,4 +41,4 @@ Brazeは以下のキーワードを自動的に処理し、すべての受信リ
 
 ## 自然言語によるオプトアウトの処理 {#handle-natural-language-opt-outs}
 
-[Braze Agent]({{site.baseurl}}/user_guide/brazeai/agents/)を作成して、標準キーワードやカスタムキーワードに該当しないオプトアウトの意図（「もうテキストを送らないでください」など）を感情分析によってキャプチャすることができます。手順については、[エージェントコンソールで自然言語によるオプトアウトを処理する]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console)を参照してください。
+[Braze エージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を作成して、標準キーワードやカスタムキーワードに該当しないオプトアウトの意図（「もうテキストを送らないでください」など）を感情分析によってキャプチャすることができます。手順については、[エージェントコンソールで自然言語によるオプトアウトを処理する]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console)を参照してください。

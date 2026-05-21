@@ -23,6 +23,10 @@ In a segment's page **Segment Details** section, turn on **Analytics Tracking**.
 
 An app can have tracking turned on for up to 25 segments. Braze recommends tracking segments that are important for you to analyze when understanding your campaigns' effects on sessions, revenue, and purchases.
 
+{% alert note %}
+After enabling analytics tracking, there may be a delay until the segment data populates. If the data does not populate within 24 hours, [contact Support]({{site.baseurl}}/braze_support/).
+{% endalert %}
+
 ## Viewing revenue and purchases over time
 
 Go to **Analytics** > **Revenue Report** to view data on [revenue and purchases over time for this segment]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/).

@@ -3,7 +3,7 @@ nav_title: データモデル
 article_title: B2Bデータモデルを作成する
 page_order: 0
 page_type: reference
-description: "Braze データツールを使用して B2B モデルを作成する方法について説明します。"
+description: "Brazeデータツールを使用してB2Bモデルを作成する方法について説明します。"
 ---
 
 # B2Bデータモデルを作成する {#create-a-b2b-data-model}
@@ -16,15 +16,15 @@ description: "Braze データツールを使用して B2B モデルを作成す�
 
 B2Bデータモデルの設定方法を説明する前に、知っておくべきいくつかの概念と用語について確認しましょう。
 
-B2B Campaignを実行するために必要な主要なB2Bオブジェクトは4つあります。
+B2B キャンペーンを実行するために必要な主要なB2Bオブジェクトは4つあります。
 
 | オブジェクト | 説明 |
 | --- | --- |
 | リード | 製品やサービスに興味を示したが、まだ案件として認定されていない潜在顧客の記録です。 |
 | 連絡先 | 通常、リードから連絡先に適格と判断されて変換され、営業案件を追求する個人です。 |
-| 案件 | 潜在的な販売や進行中の取引の詳細を追跡する記録です。
+| 案件 | 潜在的な販売や進行中の取引の詳細を追跡する記録です。 |
 | アカウント | 適格な見込み顧客、既存の顧客、パートナー、または同様に重要な関係を持つ競合他社である組織の記録です。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
 
 Braze内では、この4つのオブジェクトが結合され、ユーザープロファイルとビジネスオブジェクトという2つのオブジェクトに集約されます。
 
@@ -32,7 +32,7 @@ Braze内では、この4つのオブジェクトが結合され、ユーザー�
 | --- | --- | --- |
 | ユーザープロファイル | 営業用CRMシステムのリードおよび連絡先に直接マッピングされます。リードはBrazeによってキャプチャされるため、営業用CRMシステムでは自動的にリードとして作成されます。連絡先に変換されると、連絡先IDと詳細がBrazeに同期されます。 |リード<br> 連絡先 |
 | ビジネスオブジェクト | 営業用CRMシステム内のすべての非ユーザーオブジェクトにマッピングされます。これには、アカウントオブジェクトや案件オブジェクトなど、営業固有のオブジェクトが含まれます。 | アカウント<br> 案件 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## ステップ1: Brazeでビジネスオブジェクトを作成する {#step-1-create-your-business-objects-in-braze}
 
@@ -44,7 +44,7 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 | --- | --- |
 | [カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Brazeのプライマリユーザープロファイル上の独立したデータオブジェクト（補足データオブジェクト）です。B2Bのコンテキストでは、アカウントと案件のカタログを作成することが多いでしょう。 |
 | [接続されたソース]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Brazeがデータウェアハウスに直接クエリを実行できるようにします。すでにリード、連絡先、案件、アカウントの各オブジェクトをデータウェアハウスと定期的に同期している場合、Brazeのセグメンテーションをそのウェアハウスに直接向けて、ゼロコピー環境で有効化できます。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -64,7 +64,8 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 
 このユースケースでは、SalesforceをCRMシステムの例として使用しています。CRMのオブジェクトに含まれる任意のフィールドをマッピングできます。
 
-<table border="1">
+<table aria-label="Map over your CRM fields" border="1">
+  <caption>CRMフィールドのマッピング</caption>
   <tr>
     <th><b>Brazeオブジェクト</b></th>
     <th><b>Brazeフィールド</b></th>
@@ -103,7 +104,8 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 
 このユースケースでは、SalesforceをCRMシステムの例として使用しています。CRMのオブジェクトに含まれる任意のフィールドをマッピングできます。
 
-<table border="1">
+<table aria-label="Example table of mapped account fields" border="1">
+  <caption>マッピングされたアカウントフィールドのテーブル例</caption>
   <tr>
     <th><b>Brazeオブジェクト</b></th>
     <th><b>Brazeフィールド</b></th>
@@ -167,7 +169,7 @@ Brazeでビジネスオブジェクトを作成および管理するには、カ
 | `Aliases.salesforce_contact_id` | 連絡先 | `id` | - ユーザー別名ラベル: `salesforce_contact_id` <br>- ユーザー別名: `contact_id` |
 | `AccountId` | 連絡先 | `AccountId` |
 | `OpportunityId` (オプション、スカラー) <br>または<br> `Opportunities` (オプション、配列) | 案件 | `id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
 
 {% alert note %}
 Salesforceのリードと連絡先の識別子をBrazeにマッピングするには、`external_id`ではなく[エイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases)を使用することをお勧めします。これにより、プロダクトレッドグロース型のイニシアチブを特定して実行する際に必要なルックアップの量を削減できます。

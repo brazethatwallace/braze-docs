@@ -100,7 +100,7 @@ CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 
 次のフィールドを持つ、CDI 連携に使用するテーブルを 1 つ以上作成します。
 
-```sql
+`````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp,
@@ -116,15 +116,16 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | REQUIRED |
 | ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | OPTIONAL |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
 2. ユーザーを設定し、適切な権限を付与します。既存の同期の認証情報をすでに持っている場合はそれらを再利用できますが、必ずカタログソーステーブルへのアクセスを拡張してください。
 サービスアカウントには次の権限が必要です。
-- BigQuery Connection User: Braze に接続を許可します。
-- BigQuery User: クエリの実行、データセットメタデータの読み取り、およびテーブルの一覧表示を行うためのアクセスを Braze に提供します。
-- BigQuery Data Viewer: データセットとその内容を表示するためのアクセスを Braze に提供します。
-- BigQuery Job User: ジョブを実行するためのアクセスを Braze に提供します。<br><br>サービスアカウントを作成して権限を付与したら、JSON キーを生成します。詳細については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) を参照してください。後で Braze ダッシュボードにアップロードします。
+- BigQuery Connection User: Brazeに接続を許可します。
+- BigQuery User: クエリの実行、データセットメタデータの読み取り、およびテーブルの一覧表示を行うためのアクセスをBrazeに提供します。
+- BigQuery Data Viewer: データセットとその内容を表示するためのアクセスをBrazeに提供します。
+- BigQuery Job User: ジョブを実行するためのアクセスをBrazeに提供します。<br><br>サービスアカウントを作成して権限を付与したら、JSON キーを生成します。詳細については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) を参照してください。後で Braze ダッシュボードにアップロードします。
 
 {:start="3"}
 3. ネットワークポリシーを設定している場合は、Braze に BigQuery インスタンスへのネットワークアクセスを許可する必要があります。IP のリストについては、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
@@ -134,11 +135,11 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 1. Databricks でソーステーブルを設定します。以下の例の名前を使用することも、独自のカタログ名、スキーマ名、テーブル名を選択することもできます。テーブルの代わりにビューやマテリアライズドビューを使用することもできます。
 
-```sql
+`````````sql
 CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
 ```
 
-```sql
+`````````sql
 CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 (
   updated_at TIMESTAMP DEFAULT current_timestamp(),
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING、STRUCT、または MAP | REQUIRED |
 | ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -174,7 +176,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 次のフィールドを持つ、CDI 連携に使用するテーブルを 1 つ以上作成します。
 
-```sql
+`````````sql
 CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,
@@ -199,16 +201,16 @@ JSON または CSV 形式を使用して S3 にソースファイルを作成し
 | フィールド | 必須？ | 説明 |
 | --- | --- | --- |
 | `ID` | はい | 作成または更新するカタログアイテムの ID。 |
-| `PAYLOAD` | はい | Braze のカタログアイテムに同期するフィールドの JSON 文字列。 |
+| `PAYLOAD` | はい | Brazeのカタログアイテムに同期するフィールドの JSON 文字列。 |
 | `DELETED` | オプション | `true` に設定すると、対応するカタログアイテムがカタログから削除されます。 |
 | `UPDATED_AT` | *非対応* | ファイルストレージでは `UPDATED_AT` 列はサポートされていません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 ファイル名は AWS のルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。
 {% endalert %}
 
-完全な S3 セットアップには、S3 バケット、Amazon SQS キュー、および AWS IAM ロールとポリシーが必要です。Braze は同期が作成された後にアップロードされたファイルのみを処理するため、取り込みたい既存のファイルは再アップロードしてください。
+完全な S3 セットアップには、S3 バケット、Amazon SQS キュー、および AWS IAM ロールとポリシーが必要です。Brazeは同期が作成された後にアップロードされたファイルのみを処理するため、取り込みたい既存のファイルは再アップロードしてください。
 
 完全な S3 セットアップフローについては、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。特に以下をご覧ください。
 
@@ -222,7 +224,7 @@ AWS 側の通知や権限に関する一般的な問題については、[Granti
 
 {% subtabs %}
 {% subtab JSON カタログ %}
-```jsonl
+`````````jsonl
 {"id":"85","payload":"{\"product_name\":\"Product 85\",\"price\":85.85}"}
 {"id":"86","payload":"{\"product_name\":\"Product 86\",\"price\":86.86}"}
 {"id":"1","payload":"{\"product_name\":\"Product 1\",\"price\":1.01}","deleted":true}
@@ -233,7 +235,7 @@ AWS 側の通知や権限に関する一般的な問題については、[Granti
 {% endalert %}
 {% endsubtab %}
 {% subtab 削除ありの CSV カタログ %}
-```plaintext
+`````````plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 86,"{""product_name"": ""Product 86"", ""price"": 86.86}",false
@@ -241,7 +243,7 @@ ID,PAYLOAD,DELETED
 ```
 {% endsubtab %}
 {% subtab 削除なしの CSV カタログ %}
-```plaintext
+`````````plaintext
 ID,PAYLOAD
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}"
 86,"{""product_name"": ""Product 86"", ""price"": 86.86}"
@@ -257,16 +259,16 @@ ID,PAYLOAD
 ## 連携の仕組み {#how-the-integration-works}
 
 {% alert note %}
-このセクションの同期ビューは、データウェアハウス連携にのみ適用されます。S3 ファイルストレージの場合、Braze はバケットにアップロードされた新しいファイルを処理します。詳細については、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
+このセクションの同期ビューは、データウェアハウス連携にのみ適用されます。S3 ファイルストレージの場合、Brazeはバケットにアップロードされた新しいファイルを処理します。詳細については、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
 {% endalert %}
 
-同期が実行されるたびに、Braze は `UPDATED_AT` が最後に同期された値より後のすべての行を取り込みます。境界のタイムスタンプと同じ値を持つ新しい行がある場合、そのタイムスタンプの行が再同期されることがあります。カタログデータからデータウェアハウスにビューを作成し、同期が実行されるたびに完全にリフレッシュされるソーステーブルを設定することをお勧めします。ビューを使用すれば、クエリを毎回書き直す必要はありません。
+同期が実行されるたびに、Brazeは `UPDATED_AT` が最後に同期された値より後のすべての行を取り込みます。境界のタイムスタンプと同じ値を持つ新しい行がある場合、そのタイムスタンプの行が再同期されることがあります。カタログデータからデータウェアハウスにビューを作成し、同期が実行されるたびに完全にリフレッシュされるソーステーブルを設定することをお勧めします。ビューを使用すれば、クエリを毎回書き直す必要はありません。
 
 例えば、`product_id` と 3 つの追加属性を含む製品データテーブル (`product_catalog_1`) がある場合、以下のビューを同期できます。
 
 {% tabs %}
 {% tab Snowflake %}
-```sql
+`````````sql
 CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -283,7 +285,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -300,7 +302,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     product_id as ID,
@@ -315,7 +317,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Databricks %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     product_id as ID,
@@ -330,7 +332,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.CATALOGS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE VIEW [braze].[user_update_example]
 AS SELECT
     id as ID,

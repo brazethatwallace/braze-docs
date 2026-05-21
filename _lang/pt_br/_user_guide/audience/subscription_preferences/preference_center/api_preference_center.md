@@ -33,7 +33,7 @@ O uso de Liquid permite recuperar os nomes dos seus grupos de inscrições e o s
 | Espaço de trabalho válido com um grupo de inscrições de e-mail, SMS ou WhatsApp | Um espaço de trabalho funcional com usuários válidos e um grupo de inscrições de e-mail, SMS ou WhatsApp. |
 | Usuário válido | Um usuário com um endereço de e-mail e um ID externo. |
 | Chave de API gerada com permissões da Central de Preferências | No dashboard da Braze, acesse **Settings** > **API Keys** para confirmar que você tem acesso a uma chave de API com permissões da Central de Preferências. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ### Etapa 1: Use o endpoint Criar Central de Preferências {#step-1-use-the-create-preference-center-endpoint}
 

@@ -14,7 +14,7 @@ guide_featured_list:
 - name: Créer un catalogue
   link: /docs/user_guide/data/activation/catalogs/create
   image: /assets/img/braze_icons/users-01.svg
-- name: Utiliser les catalogues
+- name: Utilisation des catalogues
   link: /docs/user_guide/data/activation/catalogs/use
   image: /assets/img/braze_icons/users-01.svg
 - name: Notifications de retour en stock
@@ -32,7 +32,7 @@ guide_menu_list:
 - name: Endpoints API des catalogues
   link: /docs/api/endpoints/catalogs/
   image: /assets/img/braze_icons/server-01.svg
-- name: Blocs de produits à glisser-déposer
+- name: Blocs de produits par glisser-déposer
   link: /docs/dnd_product_blocks/
   image: /assets/img/braze_icons/columns-01.svg
 ---
@@ -68,10 +68,12 @@ Les catalogues sont une fonctionnalité de stockage de données. Ils contiennent
 
 Pour des exemples d'utilisation de Liquid pour extraire des informations de catalogue, consultez les cas d'utilisation supplémentaires dans [Créer un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
 
-#### Limites de stockage des données {#data-storage-limitations}
+## Limites de stockage des données {#data-storage-limitations}
 
 Le stockage des données pour les catalogues est limité en fonction de la taille des éléments du catalogue, qui peut différer de la taille des fichiers CSV importés.
 
 Pour la version gratuite des catalogues, l'espace de stockage autorisé est de 100&nbsp;Mo. Vous pouvez avoir un nombre illimité d'éléments tant que l'espace de stockage ne dépasse pas 100&nbsp;Mo.
 
 Pour Catalogues Pro, les options de taille de stockage sont : 5&nbsp;Go, 10&nbsp;Go, 15&nbsp;Go ou 50&nbsp;Go. Notez que l'espace de stockage de la version gratuite (100&nbsp;Mo) est inclus dans chacune de ces formules.
+
+Si vous devez augmenter votre espace de stockage de catalogue, contactez votre gestionnaire de compte Braze. Pour plus de détails sur les formules et les droits associés, consultez [Stockage des catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers).

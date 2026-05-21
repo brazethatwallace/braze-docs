@@ -24,15 +24,15 @@ Es gibt vier primäre B2B-Objekte, die Sie für die Durchführung von B2B-Campai
 | Kontakte | In der Regel Personen, die qualifiziert und von einem Lead in einen Kontakt umgewandelt wurden, um eine Opportunity zu verfolgen. |
 | Opportunities | Ein Datensatz, der die Details eines potenziellen Verkaufs oder eines laufenden Geschäfts verfolgt.
 | Konten | Ein Datensatz über eine Organisation, die eine qualifizierte Interessent:in, eine bestehende Kund:in, ein Partner oder ein Wettbewerber mit einer Beziehung von ähnlicher Bedeutung ist. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Create a B2B data model" }
 
 In Braze werden diese vier Objekte kombiniert und auf zwei Objekte reduziert: Nutzerprofile und Geschäftsobjekte.
 
 | Braze-B2B-Objekt | Beschreibung | Ursprüngliche B2B-Objekte  |
 | --- | --- | --- |
-| Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM-System zugeordnet. Da Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details zurück zu Braze synchronisiert. |Leads<br> Kontakte |
+| Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM-System zugeordnet. Da Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details zurück zu Braze synchronisiert. | Leads<br> Kontakte |
 | Geschäftsobjekte | Diese lassen sich auf alle Nicht-Nutzer-Objekte in Ihrem Vertriebs-CRM-System abbilden. Dazu gehören Ihre vertriebsspezifischen Objekte, wie z. B. Kontoobjekte und Opportunity-Objekte. | Konten<br> Opportunities |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Create a B2B data model" }
 
 ## 1. Schritt: Erstellen Sie Ihre Geschäftsobjekte in Braze {#step-1-create-your-business-objects-in-braze}
 
@@ -44,7 +44,7 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 | --- | --- |
 | [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Nutzerprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
 | [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) | Diese ermöglichen es Braze, Ihr Data Warehouse direkt abzufragen. Wahrscheinlich synchronisieren Sie Ihre Lead-, Kontakt-, Opportunity- und Konto-Objekte bereits regelmäßig mit Ihrem Data Warehouse, sodass Sie die Braze-Segmentierung direkt auf dieses Warehouse verweisen und es in einer Zero-Copy-Umgebung aktivieren können. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your business objects in Braze" }
 
 {% tabs %}
 {% tab Catalogs %}
@@ -53,7 +53,7 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 
 Kataloge sind Datentabellen, die in Braze gehostet und verwaltet werden. Während Konto- und Opportunity-Daten aus dem CRM-System Ihrer Wahl stammen, würden Sie diese in Braze duplizieren, um sie für Marketingzwecke zu verwenden: kontobasierte Segmentierung, kontobasiertes Marketing, Lead-Management und mehr.
 
-Bei dieser Option empfehlen wir, einen Katalog für Ihre Konten und einen für Ihre Opportunities zu erstellen und beide regelmäßig zu aktualisieren, indem Sie Braze-Updates über unsere [Katalog-API]({{site.baseurl}}/api/endpoints/catalogs/) oder [Cloud-Datenaufnahme (CDI) für Kataloge]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) senden. Stellen Sie bei der Erstellung dieser Kataloge sicher, dass die `id` (erste Spalte) Ihres Katalogs mit der `id` in Ihrem CRM-System übereinstimmt.
+Bei dieser Option empfehlen wir, einen Katalog für Ihre Konten und einen für Ihre Opportunities zu erstellen und beide regelmäßig zu aktualisieren, indem Sie Braze-Updates über unsere [Katalog-API]({{site.baseurl}}/api/endpoints/catalogs/) oder [Cloud-Datenaufnahme (CDI) für Kataloge]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) senden. Stellen Sie bei der Erstellung dieser Kataloge sicher, dass die `id` (erste Spalte) Ihres Katalogs mit der `id` in Ihrem Vertriebs-CRM-System übereinstimmt.
 
 #### Übertragen Sie Ihre CRM-Felder {#map-over-your-crm-fields}
 
@@ -64,7 +64,8 @@ In den nachstehenden Tabellen finden Sie einige Beispiele für Felder, die Sie a
 
 In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld übertragen, das in den Objekten Ihres CRM enthalten ist.
 
-<table border="1">
+<table aria-label="Übertragen Sie Ihre CRM-Felder" border="1">
+  <caption>Übertragen Sie Ihre CRM-Felder</caption>
   <tr>
     <th><b>Braze-Objekt</b></th>
     <th><b>Braze-Feld</b></th>
@@ -103,7 +104,8 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
 
 In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld übertragen, das in den Objekten Ihres CRM enthalten ist.
 
-<table border="1">
+<table aria-label="Beispieltabelle der zugeordneten Kontofelder" border="1">
+  <caption>Beispieltabelle der zugeordneten Kontofelder</caption>
   <tr>
     <th><b>Braze-Objekt</b></th>
     <th><b>Braze-Feld</b></th>
@@ -163,11 +165,11 @@ Stellen Sie zunächst sicher, dass Braze und das CRM Ihrer Wahl über einen geme
 
 | Braze-Feld | CRM-Objekt (Salesforce) | CRM-Feld (Salesforce) | Zusätzliche Informationen |
 | --- | --- | --- | --- |
-| `Aliases.salesforce_lead_id` | Lead | `id` |  - Alias-Label: `salesforce_lead_id` <br>- Alias-Name: `lead_id`|
+| `Aliases.salesforce_lead_id` | Lead | `id` | - Alias-Label: `salesforce_lead_id` <br>- Alias-Name: `lead_id` |
 | `Aliases.salesforce_contact_id` | Kontakt | `id` | - Alias-Label: `salesforce_contact_id` <br>- Alias-Name: `contact_id` |
 | `AccountId` | Kontakt | `AccountId` |
 | `OpportunityId` (optional, skalar) <br>oder<br> `Opportunities` (optional, Array) | Opportunity | `id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze object: User" }
 
 {% alert note %}
 Wir empfehlen die Verwendung von [Aliasen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#user-aliases) anstelle von `external_id`, um Salesforce-Lead- und Kontakt-Bezeichner auf Braze abzubilden. Dies reduziert die Anzahl der erforderlichen Suchvorgänge beim Identifizieren und Umsetzen Ihrer produktgesteuerten Wachstumsinitiativen.

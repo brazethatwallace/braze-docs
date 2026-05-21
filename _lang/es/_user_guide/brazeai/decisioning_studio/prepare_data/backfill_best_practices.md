@@ -19,7 +19,7 @@ El backfill es el proceso de poblar retroactivamente un conjunto de datos con da
 | **Nuevas características** | Has identificado una nueva métrica que es importante para tu modelo y tienes los registros históricos sin procesar para calcularla. | Agregas "tasa de click-through" como una característica y necesitas tres meses de historial para que el modelo tenga suficientes datos de los cuales aprender. |
 | **Recuperación de datos** | Tu pipeline de datos falló en días específicos, creando vacíos en los datos entregados a Decisioning Studio. | Una interrupción del pipeline el martes dejó un vacío. Después de implementar la corrección, realizas el backfill de esos registros faltantes desde el sistema de origen. |
 | **Cambios de lógica** | Has actualizado la fórmula para el cálculo de una característica o cambiado la definición de un evento. | Redefiniste "usuario activo" y necesitas reexportar los datos históricos para que el modelo se entrene con la definición actualizada. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cuándo se necesita un backfill" }
 
 ## Requisitos {#requirements}
 

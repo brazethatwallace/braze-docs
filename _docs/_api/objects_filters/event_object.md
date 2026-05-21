@@ -72,7 +72,7 @@ Property values can be any of the following data types:
 | Strings | 255 characters or fewer. |
 | Arrays | Arrays cannot include datetimes. |
 | Objects | Objects will be ingested as strings. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Event properties object" }
 
 Event property objects that contain array or object values can have an event property payload of up to 100&nbsp;KB.
 

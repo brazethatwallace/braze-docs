@@ -19,6 +19,7 @@ description: "이 참조 문서에서는 Braze REST API를 사용하여 프로�
 | **Campaign ID** | 선택 사항. 대시보드 Campaign 추적 없이 발송하려면 생략하거나, 대시보드에서 추적하려면 API Campaign ID와 각 메시지에 `message_variation_id`를 함께 제공합니다. | 필수. |
 | **메시지 내용** | 요청에 `messages` 오브젝트를 포함해야 합니다(예: `messages.whats_app`, `messages.email`). | 허용되지 않음. 메시지 내용은 Braze 대시보드의 Campaign에서 정의됩니다. |
 | **사용 사례** | API 요청에 완전히 명시된 내용으로 메시지를 전송합니다. | API를 통해 사전 구축된 Campaign(대시보드 내 콘텐츠)을 특정 수신자에게 트리거합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Two ways to send" }
 
 전체 요청 및 응답 세부 정보는 [즉시 메시지 보내기(API 전용)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) 및 [API 트리거 전달을 사용한 Campaign 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 엔드포인트 참조 문서를 확인하세요.
 

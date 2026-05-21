@@ -112,7 +112,8 @@ For example, to keep a white background on a cell, use this:
 Replace `#ffffff` with your intended color.
 
 {% alert note %}
-This approach does not apply reliably to `<table>` elements alone, so set the gradient on the cell instead of only on the table.
+This approach does not apply reliably to `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` elements alone, so set the gradient on the cell instead of only on the table.
+  <caption>Gmail mobile app and dark mode</caption>
 {% endalert %}
 
 For more information about gradient syntax, see [CSS gradients on W3Schools](https://www.w3schools.com/css/css3_gradients.asp).
@@ -151,7 +152,8 @@ Avoid using the following keys:
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
+  <caption>Email headers</caption>
 <thead>
   <tr>
     <th>Reserved Fields</th>
@@ -260,7 +262,7 @@ Deliver emails based on a scheduled time, an action, or an API trigger. For more
 For API-triggered campaigns, when the trigger action is set to **Interact With Campaign**, selecting a **Receive** option as the interaction will cause your new campaign to trigger as soon as Braze marks the selected campaign as sent, even if that message bounces or fails to be delivered.
 {% endalert %}
 
-You can also set the campaign's duration, specify [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
+You can also set the campaign's duration, specify [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), and set [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
 #### Choose users to target
 

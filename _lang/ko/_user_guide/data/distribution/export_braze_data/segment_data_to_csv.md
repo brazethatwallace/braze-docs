@@ -19,7 +19,7 @@ Segment 데이터를 CSV로 내보내려면 Segment를 편집하는 동안 **사
 
 ![내보내기 옵션이 표시된 사용자 데이터 드롭다운이 있는 Segment 세부 정보 섹션.]({% image_buster /assets/img_archive/csvexport.png %})
 
-메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
+메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear" aria-label="설정"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
 
 ![메인 Segments 페이지의 설정 드롭다운.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -91,7 +91,7 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 | windows_ad_ids | Windows 광고 ID |
 | Custom events | 내보내기 시 선택에 따라 다름 |
 | Custom attributes | 내보내기 시 선택에 따라 다름 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
 캔버스 단계에서 사용자 데이터를 내보내면 CSV에는 해당 캔버스 단계의 전체 수명 동안 해당 단계에 있었던 모든 사용자가 포함됩니다. 내보내기를 날짜 범위나 다른 기간으로 제한할 수 없습니다. 이러한 내보내기를 실행하는 방법은 [Canvas 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)를 참조하세요.
@@ -108,7 +108,7 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 | unsubscribed_from_emails_at | 이메일 구독 취소 날짜 |
 | opted_in_to_emails_at | 이메일 옵트인 날짜 |
 | user_aliases | 사용자 별칭(있는 경우) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) 문서를 참조하세요.

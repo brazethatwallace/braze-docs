@@ -15,4 +15,4 @@
 | Ausrichtung | Horizontale Ausrichtung der Gruppe (Anfang oder Zentriert). |
 | Akzentfarbe | Farbe der Checkbox-Steuerelemente. |
 | Padding | Abstand um den Block herum. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

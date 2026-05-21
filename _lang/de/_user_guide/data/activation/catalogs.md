@@ -17,7 +17,7 @@ guide_featured_list:
 - name: Verwendung von Katalogen
   link: /docs/user_guide/data/activation/catalogs/use
   image: /assets/img/braze_icons/users-01.svg
-- name: Wieder-verfügbar-Benachrichtigungen
+- name: „Wieder verfügbar“-Benachrichtigungen
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: Preissenkungsbenachrichtigungen
@@ -46,7 +46,7 @@ Sie können jede Art von Daten in einen Katalog einbringen. In der Regel handelt
 
 - **Saisonale Aktionen:** Importieren Sie saisonale Produktkollektionen und personalisieren Sie Nachrichten, um aktuelle Trends widerzuspiegeln.
 - **Lokalisierte Nachrichten:** Importieren Sie die Adressen, Öffnungszeiten und Dienste Ihrer Standorte und personalisieren Sie Benachrichtigungen basierend auf den Standorten der Nutzer:innen.
-- **Wieder-verfügbar-Benachrichtigungen:** Importieren Sie Produktinformationen einschließlich der Bestandsmenge und nutzen Sie dann [Wieder-verfügbar-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) sowie angepasste Braze-Events, um eine Campaign oder ein Canvas auszulösen, das Nutzer:innen darüber informiert, dass ein Produkt wieder auf Lager ist.
+- **„Wieder verfügbar“-Benachrichtigungen:** Importieren Sie Produktinformationen einschließlich der Bestandsmenge und nutzen Sie dann [„Wieder verfügbar“-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) sowie angepasste Braze-Events, um eine Campaign oder ein Canvas auszulösen, das Nutzer:innen darüber informiert, dass ein Produkt wieder auf Lager ist.
 - **Preissenkungsbenachrichtigungen:** Importieren Sie Produktinformationen mit Produktpreisen und nutzen Sie dann [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) sowie angepasste Braze-Events, um ein Canvas auszulösen, das Nutzer:innen über die Preissenkung eines Produkts informiert.
 
 ### Unterhaltung {#entertainment}
@@ -68,10 +68,12 @@ Kataloge sind ein Feature zur Datenspeicherung. Sie enthalten große Datenmengen
 
 Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden können, finden Sie in den zusätzlichen Anwendungsfällen unter [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/).
 
-#### Einschränkungen beim Datenspeicher {#data-storage-limitations}
+## Einschränkungen beim Datenspeicher {#data-storage-limitations}
 
 Der Datenspeicher für Kataloge ist durch die Größe der Katalogartikel begrenzt, die sich von der Größe der hochgeladenen CSV-Dateien unterscheiden kann.
 
 Bei der kostenlosen Version der Kataloge sind bis zu 100&nbsp;MB Speicherplatz zulässig. Sie können unbegrenzt viele Artikel anlegen, solange der Speicherplatz 100&nbsp;MB nicht überschreitet.
 
 Für Catalogs Pro stehen folgende Speichergrößen zur Verfügung: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB oder 50&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
+
+Wenn Sie Ihren Katalogspeicher upgraden möchten, kontaktieren Sie Ihren Braze Account Manager. Einzelheiten zu den Tarifen und Berechtigungshinweise finden Sie unter [Katalogspeicher]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers).

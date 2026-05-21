@@ -36,7 +36,8 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime akt
     }
 </style>
 
-<table>
+<table aria-label="Segment-Statistiken">
+  <caption>Segment-Statistiken</caption>
     <thead>
         <tr>
             <th>Statistik</th>
@@ -67,7 +68,7 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime akt
     </tbody>
 </table>
 
-### Segment-Insights
+### Segment-Insights {#segment-insights}
 
 Sie können sehen, wie ein Segment im Vergleich zu einem anderen anhand einer Reihe vorausgewählter KPIs abschneidet, indem Sie die Seite [Segment-Insights]({{site.baseurl}}/user_guide/audience/segments/segment_insights/) in Ihrem Dashboard aufrufen.
 

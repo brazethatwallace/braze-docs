@@ -14,7 +14,7 @@ platform:
 
 # Content Cards erstellen {#create-content-cards}
 
-> Dieser Artikel beschreibt den grundlegenden Ansatz, den Sie bei der Implementierung angepasster Content Cards verwenden, sowie drei häufige Anwendungsfälle. Es wird davon ausgegangen, dass Sie bereits die anderen Artikel der Anleitung zur Anpassung von Content Cards gelesen haben, um zu verstehen, was standardmäßig möglich ist und was angepassten Code erfordert. Es ist besonders hilfreich zu verstehen, wie Sie [Analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) für Ihre angepassten Content Cards [protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) können.
+> Dieser Artikel beschreibt den grundlegenden Ansatz, den Sie bei der Implementierung angepasster Content Cards verwenden, sowie drei häufige Anwendungsfälle. Es wird davon ausgegangen, dass Sie bereits die anderen Artikel der Anleitung zur Anpassung von Content Cards gelesen haben, um zu verstehen, was standardmäßig möglich ist und was angepassten Code erfordert. Es ist besonders hilfreich zu verstehen, wie Sie [Analytics protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) für Ihre angepassten Content Cards.
 
 {% multi_lang_include banners/content_card_alert.md %}
 
@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### Schritt 2a: Erstellen Sie eine private Subscriber-Variable {#step-2a-create-a-private-subscriber-variable}
+#### Schritt 2a: Erstellen Sie eine private Subscriber-Variable
 
 Um Karten-Updates zu abonnieren, deklarieren Sie zunächst eine private Variable in Ihrer angepassten Klasse, die Ihren Subscriber hält:
 
@@ -133,7 +133,7 @@ Um Karten-Updates zu abonnieren, deklarieren Sie zunächst eine private Variable
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### Schritt 2b: Updates abonnieren {#step-2b-subscribe-to-updates}
+#### Schritt 2b: Updates abonnieren
 
 Fügen Sie den folgenden Code hinzu, um Content-Card-Updates von Braze zu abonnieren, typischerweise innerhalb der `Activity.onCreate()` Ihrer angepassten Content-Cards-Activity:
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### Schritt 2c: Abo kündigen {#step-2c-unsubscribe}
+#### Schritt 2c: Abo kündigen
 
 Kündigen Sie das Abo, wenn Ihre angepasste Activity nicht mehr sichtbar ist. Fügen Sie den folgenden Code zur `onDestroy()`-Lifecycle-Methode Ihrer Activity hinzu:
 
@@ -176,7 +176,7 @@ Zusätzlich können Sie ein Abo aufrechterhalten, um Änderungen an Ihren Conten
 1. Über ein Cancellable; oder
 2. Über einen `AsyncStream`.
 
-##### Cancellable
+##### Cancellable {#cancellable}
 
 ```swift
 // This subscription is maintained through a Braze cancellable, which will observe for changes until the subscription is cancelled.
@@ -217,7 +217,7 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 ### 3. Schritt: Analytics implementieren {#step-3-implement-analytics}
 
-Impressionen, Klicks und Schließungen von Content Cards werden in Ihrer angepassten Ansicht nicht automatisch protokolliert. Sie müssen [die jeweilige Methode implementieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/), um alle Metriken ordnungsgemäß in die Braze-Dashboard-Analytics zu protokollieren.
+Impressionen, Klicks und Schließungen von Content Cards werden in Ihrer angepassten Ansicht nicht automatisch protokolliert. Sie müssen [die jeweilige Methode implementieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/), um alle Metriken ordnungsgemäß in die Analytics des Braze-Dashboards zu protokollieren.
 
 ### 4. Schritt: Testen Sie Ihre Karte (optional) {#step-4-test-your-card-optional}
 
@@ -227,7 +227,7 @@ So testen Sie Ihre Content Card:
 2. Gehen Sie in Braze zu **Campaigns** und [erstellen Sie eine neue Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/).
 3. Wählen Sie in Ihrer Kampagne **Test** aus und geben Sie die `user-id` der Testnutzer:in ein. Wenn Sie bereit sind, wählen Sie **Send Test**. Sie können dann in Kürze eine Content Card auf Ihrem Gerät starten.
 
-![Eine Braze Content-Card-Kampagne, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Content Card zu testen.]({% image_buster /assets/img/react-native/content-card-test.png %} "Content-Card-Kampagnentest")
+![Eine Braze Content-Card-Kampagne, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Content Card zu testen.]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
 
 ## Platzierung von Content Cards {#content-card-placements}
 
@@ -255,7 +255,7 @@ Schlüssel-Wert-Paare für die Leseempfehlungskarte:
 | `style` | info |
 | `class_type` | notification_center |
 | `card_priority` | 1 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 {% endtab %}
 
 {% tab New subscriber coupon %}
@@ -270,7 +270,7 @@ Schlüssel-Wert-Paare für einen neuen Abonnent:innen-Gutschein:
 | `class_type` | notification_center |
 | `card_priority` | 2 |
 | `terms` | new_subscribers_only |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 {% endtab %}
 {% endtabs %}
 

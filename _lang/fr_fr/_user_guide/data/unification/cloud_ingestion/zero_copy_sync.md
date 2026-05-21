@@ -10,8 +10,6 @@ description: "Cette page fournit un aperçu de la manière de déclencher des Ca
 
 > Découvrez comment synchroniser les déclencheurs Canvas à l'aide de CDI pour une personnalisation sans copie. Cette fonctionnalité accède aux informations spécifiques à l'utilisateur depuis votre solution de stockage de données et les transmet à un Canvas de destination. Les étapes du Canvas peuvent éventuellement inclure des champs de personnalisation qui ne sont pas conservés dans les profils utilisateurs Braze.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Synchronisation des déclencheurs Canvas {#syncing-canvas-triggers}
 
 ### Étapes de démarrage rapide {#quick-start-steps}
@@ -151,7 +149,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1.2 : Configurer votre table source dans BigQuery" }
 
 {% alert note %}
 Les propriétés ne sont pas obligatoires pour chaque ligne ou utilisateur. Cependant, les valeurs des propriétés doivent être une chaîne de caractères JSON valide. Saisissez une chaîne `{}` vide s'il n'y a aucune propriété pour la ligne.
@@ -180,7 +178,7 @@ Créez un utilisateur et accordez-lui les autorisations nécessaires. Si vous di
 | BigQuery User | Permet à Braze d'exécuter des requêtes, de lire des métadonnées et de lister des tables. |
 | BigQuery Data Viewer | Permet à Braze de consulter les ensembles de données et leur contenu. |
 | BigQuery Job User | Permet à Braze d'exécuter des tâches. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1.3 : Configurer les informations d'identification" }
 
 Après avoir accordé les autorisations, générez une clé JSON. Consultez [Création et suppression de clés](https://cloud.google.com/iam/docs/keys-create-delete) pour les instructions. Vous la téléchargerez ultérieurement dans le tableau de bord de Braze.
 
@@ -207,7 +205,7 @@ Référez-vous aux informations suivantes lors de la création de votre table so
 | `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.2 : Configurer votre table source dans Databricks" }
 
 Vous pouvez nommer le schéma et la table comme vous le souhaitez, mais les noms de colonnes doivent correspondre à la définition précédente.
 
@@ -285,7 +283,7 @@ Pour synchroniser les déclencheurs Canvas à partir du stockage de fichiers, cr
 | `EXTERNAL_ID` | Oui, `external_id` ou `alias_name` et `alias_label` | Identifie l'utilisateur que vous souhaitez mettre à jour. Cette valeur doit correspondre à la valeur `external_id` utilisée dans Braze. |
 | `ALIAS_NAME` et `ALIAS_LABEL` | Oui, `external_id` ou `alias_name` et `alias_label` | Ces deux colonnes créent un objet d'alias d'utilisateur. `alias_name` doit être un identifiant unique et `alias_label` spécifie le type d'alias. Les utilisateurs peuvent avoir plusieurs alias avec des libellés différents, mais un seul `alias_name` par `alias_label`. |
 | `PROPERTIES` | Oui | Chaîne de caractères JSON des champs à rendre disponibles en tant que propriétés de personnalisation dans votre Canvas. Elle doit contenir des informations spécifiques à l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 1.3 : Configurer les politiques réseau" }
 
 {% alert tip %}
 Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité. Pour en savoir plus sur la synchronisation Amazon S3, consultez [Intégrations de stockage de fichiers](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
@@ -306,7 +304,7 @@ Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez
 
 Une fois la configuration de la source terminée et le Canvas de destination lancé, créez une nouvelle synchronisation de données :
 
-1. Dans Braze, accédez à **Data Settings** > **Cloud Data Ingestion**.
+1. Dans Braze, accédez à **Paramètres des données** > **Ingestion de données cloud**.
 1. Configurez la connexion en saisissant les informations de connexion (ou en réutilisant les identifiants existants) et la table source de [l'étape 1](#step-1-set-up-data-source-for-canvas-triggers).
 2. Attribuez un nom à l'intégration.
 3. Sélectionnez le type de données **Canvas triggers**.
@@ -316,7 +314,7 @@ Une fois la configuration de la source terminée et le Canvas de destination lan
 7. Sélectionnez **Test Connection** pour vérifier que tout fonctionne correctement. Si vous vous connectez à Snowflake, ajoutez d'abord la clé publique affichée sur le tableau de bord à l'utilisateur créé pour permettre à Braze de se connecter à Snowflake. Pour cette étape, vous devez disposer d'un accès **SECURITYADMIN** ou supérieur dans Snowflake.
 8. Enregistrez la synchronisation pour commencer à synchroniser les déclencheurs Canvas.
 
-Lorsque la synchronisation s'exécute, les utilisateurs de votre table source commencent à entrer dans le Canvas. Utilisez les analyses Canvas et la page des journaux de synchronisation de l'ingestion de données cloud pour surveiller les performances.
+Lorsque la synchronisation s'exécute, les utilisateurs de votre table source commencent à entrer dans le Canvas. Utilisez les analyses Canvas et la page des journaux de synchronisation de l'Ingestion de données cloud pour surveiller les performances.
 
 {% alert tip %}
 Vérifiez l'ensemble de votre configuration (du comportement de synchronisation à la configuration du Canvas) afin d'éviter tout envoi inattendu. Les paramètres Canvas tels que la limite de débit, la limite de fréquence et les filtres de segmentation permettent d'affiner davantage la distribution des messages.<br><br>Nous vous recommandons d'effectuer un essai avec une audience restreinte ou de test avant de mettre en œuvre des cas d'utilisation en production.
@@ -326,13 +324,10 @@ Vérifiez l'ensemble de votre configuration (du comportement de synchronisation 
 
 Les déclencheurs CDI Canvas utilisent votre limite de débit de la REST API pour `/canvas/trigger/send`. Si vous utilisez cet endpoint simultanément avec les déclencheurs CDI Canvas et votre intégration REST API, l'utilisation combinée sera comptabilisée dans votre limite de débit.
 
-Les déclencheurs CDI Canvas étant en accès anticipé, prenez en compte les détails suivants :
+Chaque exécution de synchronisation fait entrer les utilisateurs dans leur Canvas de destination respectif à un rythme maximal d'environ 3,75 millions d'utilisateurs par heure. Préparez-vous à des délais plus longs entre la source et l'entrée dans le Canvas lorsque :
 
-* Jusqu'à 5 synchronisations de déclencheurs Canvas actives par espace de travail
-* Chaque exécution de synchronisation fait entrer les utilisateurs dans leur Canvas de destination respectif à un rythme maximal d'environ 3,75 millions d'utilisateurs par heure.
-  * Préparez-vous à des délais plus longs entre la source et l'entrée dans le Canvas lorsque :
-    * Vous synchronisez plus de 3,75 millions d'utilisateurs par cycle de synchronisation.
-    * Vous utilisez les déclencheurs CDI Canvas alors que la [limite de débit de votre REST API pour `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) est déjà saturée.
+* Vous synchronisez plus de 3,75 millions d'utilisateurs par cycle de synchronisation.
+* Vous utilisez les déclencheurs CDI Canvas alors que la [limite de débit de votre REST API pour `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) est déjà saturée.
 
 Prenez en compte les éléments suivants concernant le CDI sans copie lorsque l'archivage des messages est activé :
 

@@ -165,6 +165,10 @@ Após a validação:
 
 Quando a validação for bem-sucedida, continue para **Next: Notifications** e crie sua sincronização.
 
+{% alert important %}
+Uma configuração SQL incorreta pode levar a resultados indesejados, incluindo o consumo excessivo de data points e riscos operacionais mais amplos. Você é responsável por garantir que a lógica da sua consulta esteja correta e deve pré-visualizar cuidadosamente todos os resultados antes de ativar uma sincronização.
+{% endalert %}
+
 ## Restrições de SQL {#sql-constraints}
 
 Sua consulta deve atender aos seguintes requisitos.
@@ -276,7 +280,7 @@ Se sua consulta retornar zero linhas:
 - Você ainda pode criar a sincronização
 - Nenhum usuário é atualizado até que linhas sejam retornadas
 
-## Suporte a PAYLOAD (legado) {#payload-support-legacy}
+## Suporte a `PAYLOAD` (legado) {#payload-support-legacy}
 
 O Editor SQL suporta [tabelas CDI legadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) onde uma coluna `PAYLOAD` está presente.
 
@@ -306,7 +310,7 @@ Se uma execução de sincronização já estiver em andamento, suas alterações
 
 Esta seção inclui erros comuns e orientações sobre como solucioná-los.
 
-### Sem visualização disponível {#no-preview-available}
+### Sem pré-visualização disponível {#no-preview-available}
 
 Quando você vê "No preview available", um dos seguintes tipos de erro pode estar causando isso.
 
@@ -316,12 +320,13 @@ Quando você vê "No preview available", um dos seguintes tipos de erro pode est
 | "Unable to connect to the source" | Verifique o nome de usuário configurado, o localizador de conta e a configuração de autenticação por par de chaves RSA.<br>Verifique se o warehouse está em execução.<br>Confirme o acesso à rede. |
 | "SQL syntax error" | Verifique a sintaxe do seu SQL. |
 | "Object does not exist or not authorized" | Verifique se a role tem acesso `SELECT` à tabela.<br>Confirme as permissões de banco de dados e schema.<br>Verifique erros de digitação no nome da tabela. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sem pré-visualização disponível" }
 
 ### Coluna de identidade obrigatória {#identity-column-required}
 
 Verifique se sua consulta inclui um identificador válido, como `external_id`.
 
-### "`UPDATED_AT` column is missing"
+### Coluna `UPDATED_AT` ausente {#updatedat-column-is-missing}
 
 Adicione uma coluna de timestamp para sincronização incremental.
 

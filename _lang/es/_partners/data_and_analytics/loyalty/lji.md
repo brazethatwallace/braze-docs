@@ -30,7 +30,7 @@ Antes de empezar, necesitas lo siguiente:
 | Clave de API REST de Braze | Una clave de API REST con permisos `campaigns.trigger.send`, `canvas.trigger.send` y `users.track`.<br><br> Crea esta clave en el dashboard de Braze desde **Settings** > **API Keys**. |
 | Punto de conexión de la API de Braze | Tu punto de conexión REST de Braze (por ejemplo, `https://rest.fra-01.braze.eu`). Para más información, consulta [Instancias y puntos de conexión de Braze]({{site.baseurl}}/api/basics/#endpoints). |
 | IDs de Campaign o Canvas | IDs de los flujos de trabajo de **Campaigns** o **Canvas** que desencadenas desde GRAVTY®. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Casos de uso {#use-cases}
 

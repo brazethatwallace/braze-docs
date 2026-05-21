@@ -19,9 +19,9 @@ Die Braze- und Nexla-Integration erlaubt es Kund:innen, die [Currents]({{site.ba
 | Anforderung | Beschreibung |
 |---|---|
 | Nexla-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Nexla-Konto](https://www.nexla.com/get-demo). |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -53,7 +53,7 @@ Wenn Sie angepasste [Transformationen](https://nexla.zendesk.com/hc/en-us/sectio
 
 ### 4. Schritt: An Ziel senden {#step-4-send-to-destination}
 
-Um Daten an ein Ziel zu senden, klicken Sie auf den Pfeil **Send to Destination** im Datensatz und wählen Sie einen der Ziel-Konnektoren von Nexla oder Braze, wenn Sie eine andere Quelle hatten. Geben Sie Ihre Zugangsdaten ein, konfigurieren Sie die Zieloptionen und klicken Sie auf **Save**. Die Daten werden sofort in dem von Ihnen angegebenen Format an das Ziel Ihrer Wahl übertragen.
+Um Daten an ein Ziel zu senden, klicken Sie auf den Pfeil **Send to Destination** im Datensatz und wählen Sie einen der Ziel-Konnektoren von Nexla oder Braze aus, wenn Sie eine andere Quelle verwendet haben. Geben Sie Ihre Zugangsdaten ein, konfigurieren Sie die Zieloptionen und klicken Sie auf **Save**. Die Daten werden sofort in dem von Ihnen angegebenen Format an das Ziel Ihrer Wahl übertragen.
 
 ## Verwendung dieser Integration {#using-this-integration}
 

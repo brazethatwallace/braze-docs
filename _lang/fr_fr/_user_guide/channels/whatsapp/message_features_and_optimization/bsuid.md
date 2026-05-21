@@ -13,7 +13,7 @@ noindex: true
 
 # Noms d'utilisateur WhatsApp et identifiants utilisateur à portée commerciale {#whatsapp-usernames-and-business-scoped-user-ids}
 
-> En juin 2026, WhatsApp prévoit d'introduire les noms d'utilisateur : une fonctionnalité de confidentialité optionnelle qui masque les numéros de téléphone des utilisateurs lorsqu'ils communiquent avec des entreprises. Braze est entièrement préparé à gérer ce changement ; pour la plupart des clients, rien dans vos campagnes ou Canvas n'a besoin de changer.
+> En juin 2026, WhatsApp prévoit d'introduire les noms d'utilisateur : une fonctionnalité de confidentialité optionnelle qui masque les numéros de téléphone des utilisateurs lorsqu'ils communiquent avec des entreprises. Braze est entièrement préparé à gérer ce changement ; pour la plupart des clients, rien dans vos Campaigns ou Canvas n'a besoin de changer.
 
 {% alert important %}
 Les noms d'utilisateur WhatsApp et les identifiants utilisateur à portée commerciale (BSUID) devraient être lancés en juin 2026, avec des mises à jour de Braze synchronisées sur cette version. Les mises à jour de Braze décrites dans cet article **n'ont pas encore** été lancées.
@@ -34,7 +34,7 @@ Les BSUID ont trois caractéristiques clés :
 | Unique | Deux utilisateurs ne partagent jamais le même BSUID au sein de votre portefeuille commercial. |
 | À portée commerciale | Le même utilisateur aura un BSUID différent avec chaque entreprise à laquelle il envoie des messages. Les BSUID ne peuvent pas être partagés ou comparés entre différents portefeuilles commerciaux. |
 | Disponible dans les webhooks | Les BSUID sont inclus dans tous les mêmes payloads de webhook qui contiennent actuellement le numéro de téléphone de l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
 
 ## Changements des types d'utilisateurs WhatsApp {#changes-to-whatsapp-user-types}
 
@@ -44,7 +44,7 @@ Après le lancement des noms d'utilisateur WhatsApp, il y aura deux types d'util
 | ----- | ----- | ----- |
 | Utilisateurs sans nom d'utilisateur | Numéro de téléphone (aucun changement) | Numéro de téléphone (aucun changement) |
 | Utilisateurs avec un nom d'utilisateur | Nom d'utilisateur (affiché), BSUID (backend) | BSUID, numéro de téléphone pour les utilisateurs ayant une conversation existante avec votre entreprise |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
 
 La différence clé est qu'un utilisateur qui adopte un nom d'utilisateur ne partage son numéro de téléphone avec votre entreprise que si vous aviez une conversation préalable avec lui ou s'il apparaît dans votre carnet de contacts WhatsApp.
 
@@ -54,7 +54,7 @@ Braze stockera les BSUID en tant qu'[alias d'utilisateur]({{site.baseurl}}/user_
 
 ### Envoi de messages {#send-messages}
 
-Lorsque Braze envoie un message WhatsApp, il utilisera le numéro de téléphone s'il est disponible. Si l'utilisateur ne possède qu'un BSUID (par exemple, un utilisateur qui vous envoie un message pour la première fois après avoir adopté un nom d'utilisateur), Braze enverra le message en utilisant le BSUID à la place. Aucune modification de vos modèles de messages, campagnes ou étapes Canvas n'est nécessaire.
+Lorsque Braze envoie un message WhatsApp, il utilisera le numéro de téléphone s'il est disponible. Si l'utilisateur ne possède qu'un BSUID (par exemple, un utilisateur qui vous envoie un message pour la première fois après avoir adopté un nom d'utilisateur), Braze enverra le message en utilisant le BSUID à la place. Aucune modification de vos modèles de messages, Campaigns ou étapes Canvas n'est nécessaire.
 
 ### Messages entrants et déclencheurs Canvas {#inbound-messages-and-canvas-triggers}
 
@@ -62,7 +62,7 @@ Lorsqu'un utilisateur avec un nom d'utilisateur vous envoie un message WhatsApp 
 
 1. Recherchera l'utilisateur par BSUID ou numéro de téléphone (selon ce qui est disponible dans le webhook).
 2. Si aucun utilisateur correspondant n'est trouvé, créera un nouveau profil utilisateur anonyme avec le BSUID stocké en tant qu'alias d'utilisateur.
-3. Déclenchera tout Canvas ou toute campagne configuré(e) pour démarrer à la réception d'un message WhatsApp entrant.
+3. Déclenchera tout Canvas ou toute Campaign configuré(e) pour démarrer à la réception d'un message WhatsApp entrant.
 
 ### Profil utilisateur {#user-profile}
 
@@ -144,13 +144,13 @@ Meta gère le processus de liaison des portefeuilles commerciaux. Pour commencer
 | Portefeuille commercial unique | BSUID standard |
 | Plusieurs portefeuilles liés | BSUID parent (préféré). Si aucun BSUID parent n'existe, utilise le BSUID standard |
 | Plusieurs portefeuilles non liés | BSUID standard (peut entraîner des profils utilisateur en double par portefeuille) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
-### Mes campagnes et Canvas existants cesseront-ils de fonctionner au lancement des noms d'utilisateur WhatsApp ? {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
+### Mes Campaigns et Canvas existants cesseront-ils de fonctionner au lancement des noms d'utilisateur WhatsApp ? {#will-my-existing-campaigns-and-canvases-break-when-whatsapp-usernames-launch}
 
-Non. Les campagnes et Canvas existants continueront de fonctionner. Les utilisateurs qui n'adoptent pas de nom d'utilisateur ne sont absolument pas affectés. Pour les utilisateurs qui adoptent un nom d'utilisateur et qui ont un historique de conversation existant avec votre entreprise, Braze continue d'utiliser leur numéro de téléphone comme identifiant principal.
+Non. Les Campaigns et Canvas existants continueront de fonctionner. Les utilisateurs qui n'adoptent pas de nom d'utilisateur ne sont absolument pas affectés. Pour les utilisateurs qui adoptent un nom d'utilisateur et qui ont un historique de conversation existant avec votre entreprise, Braze continue d'utiliser leur numéro de téléphone comme identifiant principal.
 
 ### Que se passe-t-il pour un utilisateur qui adopte un nom d'utilisateur mais qui a déjà envoyé des messages à mon entreprise ? {#what-happens-to-a-user-who-adopts-a-username-but-has-already-messaged-my-business}
 
@@ -160,7 +160,7 @@ Si votre carnet de contacts WhatsApp est activé et que vous avez eu une convers
 
 Braze recevra le BSUID de l'utilisateur dans le webhook entrant et l'associera à un profil utilisateur existant (si vous avez précédemment stocké son BSUID) ou créera un nouveau profil utilisateur anonyme avec le BSUID stocké en tant qu'alias d'utilisateur. Cet utilisateur pourra alors entrer dans des Canvas, recevoir des messages sortants et être identifié ou fusionné avec d'autres profils à l'aide des outils standard de résolution d'identité de Braze.
 
-### Puis-je cibler les utilisateurs BSUID dans des segments ? {#can-i-target-bsuid-users-in-segments}
+### Puis-je cibler les utilisateurs BSUID dans des Segments ? {#can-i-target-bsuid-users-in-segments}
 
 Les utilisateurs BSUID sont des profils utilisateur Braze complets, vous pouvez donc les cibler via les filtres d'audience standard (tels que « a reçu un message WhatsApp » ou l'appartenance à un groupe d'abonnement). Cependant, la segmentation spécifiquement sur les valeurs BSUID (comme « le BSUID existe » ou « le BSUID est égal à X ») n'est pas prise en charge.
 

@@ -22,7 +22,7 @@ Um loszulegen, müssen Sie Ihr Braze-Konto in Ihrem Simon AI-Konto authentifizie
 | Simon AI | Sie benötigen ein bestehendes Simon AI-Konto, um die Braze-Integration innerhalb von Simon AI nutzen zu können. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track`, `campaigns.trigger.schedule.create` und `campaigns.trigger.send`. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Braze-Dashboard-URL | [Ihre REST-Endpunkt-URL][3]. Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 

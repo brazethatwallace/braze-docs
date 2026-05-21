@@ -5,4 +5,4 @@
 | 플랫폼별 개별 동작 설정 | 각 플랫폼에 대해 이미지의 동작을 개별적으로 커스터마이즈합니다. |
 | 클릭 시 동작 | 사용자가 이미지를 클릭할 때 수행되는 동작을 결정합니다. 메시지 닫기, 웹 URL 열기, 앱의 특정 페이지로 딥링킹, 다른 페이지로 이동 또는 [푸시 권한 요청]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) 등이 있습니다. |
 | 커스텀 속성 또는 이벤트 기록 | 이미지를 클릭할 때 사용자 프로필을 커스텀 데이터로 업데이트할지 여부를 결정합니다. 보고서용 식별자를 선택할 수도 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

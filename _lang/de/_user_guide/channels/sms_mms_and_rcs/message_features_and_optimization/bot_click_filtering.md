@@ -43,7 +43,7 @@ Braze enthält die folgenden Currents-Felder für SMS-Klick-Ereignisse:
 | --- | --- | --- |
 | `is_suspected_bot_click` | Boolescher Wert | Gibt an, ob der Klick ein vermuteter Bot-Klick ist. Gibt `null` für alle Nutzer:innen zurück, bis die Bot-Klick-Filterung für Ihr Unternehmen aktiviert wird. Nach der Aktivierung wird das Feld für alle neuen Klicks mit `true` oder `false` befüllt. |
 | `suspected_bot_click_reason` | String, Array | Gibt den Grund für einen vermuteten Bot-Klick an (z. B. `user_agent`). Wird auch befüllt, wenn die Filterung deaktiviert ist, und bietet Einblicke in potenzielle Bot-Aktivitäten. Dieses Feld ist global verfügbar und wird für alle Nutzer:innen mit einem Grund befüllt, auch wenn die Bot-Klick-Filterung noch nicht aktiviert ist. Dies bietet Einblicke in potenzielle Bot-Aktivitäten, bevor Sie die Bot-Klick-Filterung aktivieren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Currents-Felder in SMS-Klick-Ereignissen" }
 
 ## Abfrage-Builder-Template {#query-builder-template}
 

@@ -68,6 +68,10 @@ In den Einstellungen **Ablauf (Verweildauer im Feed)** können Sie **Dauer perso
 
 ![Ablaufeinstellungen mit „Dauer personalisieren“, konfiguriert mit einer Kontextvariable für den Content-Card-Ablauf.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cards haben eine maximale Ablaufzeit von 30 Tagen, auch bei Verwendung personalisierter Dauer mit Kontextvariablen. Jeder Wert über 30 Tage wird auf 30 Tage begrenzt. Weitere Informationen finden Sie unter [Kartenablauf]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -85,7 +89,8 @@ Dieser Abschnitt beschreibt die wesentlichen Unterschiede zwischen der Karteners
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Unterschiede zwischen der Kartenerstellung beim Start oder Eintritt und bei der ersten Impression" class="tg">
+  <caption>Unterschiede zwischen der Kartenerstellung beim Start oder Eintritt und bei der ersten Impression</caption>
 <thead>
   <tr>
     <th class="tg-0pky"></th>
@@ -97,12 +102,12 @@ Dieser Abschnitt beschreibt die wesentlichen Unterschiede zwischen der Karteners
   <tr>
     <td class="leftHeader">Wann verwenden</td>
     <td class="tg-0pky">Wenn der Inhalt zu einem bestimmten Zeitpunkt (dem Startzeitpunkt) festgehalten werden soll.</td>
-    <td class="tg-0pky"><ul><li>Wenn Sie Karten neuen oder anonymen Nutzer:innen anzeigen möchten, die dem Segment nach dem Start beitreten könnten (<a href="#campaign_note">nur Kampagnen*</a>).</li><li>Wenn Sie Personalisierung verwenden und die aktuellsten Inhalte auf der Karte verfügbar sein sollen.</li></ul></td>
+    <td class="tg-0pky"><ul><li>Wenn Sie Karten neuen oder anonymen Nutzer:innen anzeigen möchten, die dem Segment nach dem Start beitreten könnten (<a href="#campaign_note">nur Campaigns*</a>).</li><li>Wenn Sie Personalisierung verwenden und die aktuellsten Inhalte auf der Karte verfügbar sein sollen.</li></ul></td>
   </tr>
   <tr>
     <td class="leftHeader">Zielgruppe</td>
     <td class="tg-0pky">Braze wertet die Zielgruppenzugehörigkeit aus, wenn die Kampagne gesendet wird.<br><br>Neue oder anonyme Nutzer:innen werden nicht auf Berechtigung geprüft, wenn sie versuchen, die Karte nach dem Kampagnenversand anzuzeigen. Bei wiederkehrenden Kampagnen erfolgt dies beim nächsten Wiederholungsintervall.</td>
-    <td class="tg-0pky">Braze wertet die Zugehörigkeit aus, wenn die Nutzer:innen das nächste Mal Ihre App öffnen (eine Sitzung starten, <a href="#campaign_note">nur Kampagnen*</a>).<br><br>Diese Einstellung erreicht eine größere Zielgruppe, da neue oder anonyme Nutzer:innen immer auf Berechtigung geprüft werden, wenn sie versuchen, die Karte anzuzeigen.<br><br>Zusätzlich gilt: Rate-Limiting (Begrenzung der Anzahl der Personen, die die Karte erhalten) ist bei der Einstellung „Bei der ersten Impression“ nicht anwendbar.</td>
+    <td class="tg-0pky">Braze wertet die Zugehörigkeit aus, wenn die Nutzer:innen das nächste Mal Ihre App öffnen (eine Sitzung starten, <a href="#campaign_note">nur Campaigns*</a>).<br><br>Diese Einstellung erreicht eine größere Zielgruppe, da neue oder anonyme Nutzer:innen immer auf Berechtigung geprüft werden, wenn sie versuchen, die Karte anzuzeigen.<br><br>Zusätzlich gilt: Rate-Limiting (Begrenzung der Anzahl der Personen, die die Karte erhalten) ist bei der Einstellung „Bei der ersten Impression“ nicht anwendbar.</td>
   </tr>
   <tr>
     <td class="leftHeader">Personalisierung</td>
@@ -122,7 +127,7 @@ Dieser Abschnitt beschreibt die wesentlichen Unterschiede zwischen der Karteners
 </tbody>
 </table>
 
-<p id="campaign_note"><sup>* Dieses Szenario gilt nur für Kampagnen, da die Canvas-Zielgruppe beim Canvas-Eintritt ausgewertet wird, nicht auf Schrittebene.</sup></p>
+<p id="campaign_note"><sup>* Dieses Szenario gilt nur für Campaigns, da die Canvas-Zielgruppe beim Canvas-Eintritt ausgewertet wird, nicht auf Schrittebene.</sup></p>
 
 ## Hinweise {#considerations}
 

@@ -65,7 +65,7 @@ Insere HTML, CSS ou JavaScript personalizados para customização avançada, com
 | Propriedade | Descrição |
 | --- | --- |
 | Código personalizado | Permite adicionar, editar ou excluir HTML, CSS e JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Código personalizado" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
@@ -113,7 +113,7 @@ Os usuários escolhem múltiplas opções; os valores definem ou são adicionado
 
 ### Texto longo {#long-text}
 
-Campo de texto com múltiplas linhas para fluxos no estilo de pesquisa. Se você não vir esse bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou com o seu gerente de sucesso do cliente.
+Campo de texto com múltiplas linhas para fluxos no estilo de pesquisa. Se você não vir esse bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/) ou com o seu gerente de sucesso do cliente. Esse bloco não está disponível para landing pages padrão.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

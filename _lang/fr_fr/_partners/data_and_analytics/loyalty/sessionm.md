@@ -227,7 +227,7 @@ Créez dans Braze une campagne ou un Canvas déclenché par API qui sera déclen
 
 ![Propriétés du déclencheur API.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-Dans l'onglet **Schedule Delivery**, notez l'ID de la campagne ou du Canvas car il sera ajouté aux **paramètres avancés** de la campagne SessionM.
+Dans l'onglet **Schedule Delivery**, notez l'ID de la campagne ou du Canvas car il sera ajouté aux **Advanced Settings** de la campagne SessionM.
 
 ![Campagne déclenchée par API.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 

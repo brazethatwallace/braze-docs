@@ -22,7 +22,7 @@ Braze에서 ThoughtSpot을 사용하려면 ThoughtSpot이 실시간 쿼리를 �
 | ----------- | ----------- |
 | ThoughtSpot 계정 | 이 파트너십을 활용하려면 ThoughtSpot 계정이 필요합니다. |
 | 클라우드 데이터 웨어하우스 | Braze 데이터는 Braze Currents를 사용하여 클라우드 데이터 웨어하우스에 저장됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## TML 블록 {#tml-blocks}
 

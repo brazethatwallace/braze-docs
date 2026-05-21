@@ -19,7 +19,7 @@ search_tag: Partner
 Seen은 다음을 포함하여 고객 생애주기 전반에 걸쳐 자동화된 개인화 비디오 전달을 지원합니다:
 
 - **온보딩**: 프로필 또는 가입 상황에 맞게 개인화된 동영상으로 신규 사용자를 환영합니다
-- **전환 및 활성화**: 상황별 비디오 메시징으로 주요 행동을 강화합니다
+- **전환 및 활성화**: 상황별 비디오 메시징으로 주요 동작을 강화합니다
 - **로열티 및 업셀**: 개인화된 오퍼 또는 사용 마일스톤을 강조합니다
 - **윈백 및 고객이탈 방지**: 맞춤형 동영상 콘텐츠로 비활성 사용자의 재참여를 유도합니다
 
@@ -33,7 +33,7 @@ Seen은 다음을 포함하여 고객 생애주기 전반에 걸쳐 자동화된
 | Seen 플랫폼 액세스 | Seen 플랫폼 구독 또는 활성 Seen Campaign이 필요합니다. 워크스페이스 ID를 확인하고 API 토큰을 생성하려면 워크스페이스 설정에 액세스해야 합니다. |
 | Braze 데이터 변환 웹훅 URL | Braze 데이터 변환은 Seen에서 수신되는 데이터를 Braze의 /users/track 엔드포인트에서 수락할 수 있는 형식으로 변환합니다. |
 | Braze 사용자 데이터 | 비디오 개인화를 위해서는 사용자 수준의 데이터가 필요합니다. 관련 속성이 Braze에서 사용 가능한지 확인하고, 고유 식별자로 **braze_id**를 전달해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 
@@ -128,7 +128,7 @@ Seen은 [여정](https://docs.seen.io/journey)을 사용하여 수신 데이터�
 | `id` | Braze에서 전송한 `braze_id`와 일치해야 합니다 |
 | `player_url` | 개인화된 동영상 플레이어를 위한 고유 URL |
 | `email_thumbnail_url` | 생성된 동영상 썸네일의 URL |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
 
 사용 사례에 추가 속성이 필요한 경우 해당 속성을 응답에 포함시키고 Braze에서 매핑하세요.
 

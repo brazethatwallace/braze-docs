@@ -21,9 +21,9 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 | Prérequis          | Description                                                                                                                              |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Un compte Friendbuy   | Un [compte Friendbuy](https://retailer.friendbuy.io/) est nécessaire pour profiter de ce partenariat.                                                              |
-| Une clé REST API de Braze  | Une clé REST API de Braze avec les autorisations `users.track`. Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**.        |
+| Une clé REST API de Braze  | Une clé REST API de Braze avec les autorisations `users.track`. Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**.        |
 | Un endpoint REST de Braze | L'[URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), qui dépend de l'URL de votre instance Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de Friendbuy {#integrating-friendbuy}
 
@@ -47,14 +47,14 @@ Retournez à votre [compte Friendbuy](https://retailer.friendbuy.io/) et actuali
 | **Friendbuy Customer Name**      | Le nom que le client a saisi lorsqu'il a soumis ses informations via un widget de recommandation.                                                                 | Chaîne de caractères    |
 | **Friendbuy Referral Link**      | Un lien de recommandation personnel (PURL) généré pour un référent. Par exemple, https://fbuy.io/EzcW                                                       | Chaîne de caractères    |
 | **Friendbuy Date of Last Share** | La date et l'heure du dernier partage du référent avec un ami via un canal de partage. Si le référent n'a pas encore partagé, la propriété ne sera pas visible. | Heure      |
-| **Friendbuy Campaign ID**        | L'ID de Campaign associé au lien de recommandation personnel généré pour un référent.                                                               | Chaîne de caractères    |
-| **Friendbuy Campaign Name**      | Le nom de Campaign associé au lien de recommandation personnel généré pour un référent.                                                             | Chaîne de caractères    |
+| **Friendbuy Campaign ID**        | L'ID de campagne associé au lien de recommandation personnel généré pour un référent.                                                               | Chaîne de caractères    |
+| **Friendbuy Campaign Name**      | Le nom de campagne associé au lien de recommandation personnel généré pour un référent.                                                             | Chaîne de caractères    |
 | **Friendbuy Coupon Code**        | Le code de réduction de recommandation le plus récent distribué au client. Remarque : un seul code sera affiché.                                            | Chaîne de caractères    |
 | **Friendbuy Coupon Value**       | La valeur monétaire du dernier code de réduction distribué au client.                                                                     | Nombre    |
 | **Friendbuy Coupon Status**      | L'état du dernier code de réduction distribué au client. Remarque : l'état sera « distributed » ou « redeemed ».                            | Chaîne de caractères    |
 | **Friendbuy Coupon Currency**    | Code de devise (USD, CAD, etc.) ou pourcentage (%) associé au code de réduction le plus récent distribué au client.                             | Chaîne de caractères    |
-| **Friendbuy Coupon Campaign ID** | L'ID de Campaign associé au code de réduction généré pour un client.                                                                          | Chaîne de caractères    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| **Friendbuy Coupon Campaign ID** | L'ID de campagne associé au code de réduction généré pour un client.                                                                          | Chaîne de caractères    |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Attributs personnalisés" }
 
 ## Comportement par défaut {#default-behavior}
 
@@ -74,3 +74,4 @@ Friendbuy utilise la norme internationale (E.164) pour vérifier les numéros de
 | Téléphone uniquement        | Seul le numéro de téléphone du client est envoyé à Braze.              |
 | Aucune des deux           | Aucune donnée client n'est envoyée à Braze.                              |
 | Les deux              | L'adresse e-mail et le numéro de téléphone du client sont envoyés à Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportement des cases à cocher" }

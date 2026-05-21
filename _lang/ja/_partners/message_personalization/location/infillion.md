@@ -31,9 +31,9 @@ search_tag: Partner
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-## SDKの統合 {#sdk-integration}
+## SDK統合 {#sdk-integration}
 
-BrazeとInfillionを統合するには、Infillion Location SDKを実装し、Infillionマネージャーアカウントを作成する必要があります。Android、FireOS、iOS向けの以下の統合では、ユーザーが入る新しい場所ごとに固有のカスタムイベントが作成されます。これらのイベントをCampaignsやCanvasesでのトリガーやリターゲティングに使用できます。
+BrazeとInfillionを統合するには、Infillion Location SDKを実装し、Infillionマネージャーアカウントを作成する必要があります。Android、FireOS、iOS向けの以下の統合では、ユーザーが入る新しい場所ごとに固有のカスタムイベントが作成されます。これらのイベントをキャンペーンやキャンバスでのトリガーやリターゲティングに使用できます。
 
 50以上の場所を作成することが予想される場合は、汎用的な`Places Entered`カスタムイベントを作成し、イベントプロパティとして場所名を追加することをお勧めします。
 
@@ -42,4 +42,4 @@ BrazeとInfillionを統合するには、Infillion Location SDKを実装し、In
 3. Braze [REST APIキー](https://manager.gimbal.com/apps)を入力して、InfillionアカウントをBrazeにリンクします。
 4. Braze SDKで[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を設定します。Infillionは[AndroidおよびFireOS]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/beacon_integration/#gimbal-beacons)と[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/beacon_integration/#gimbal-beacons)でBrazeと統合できます。
 5. これらのイベントのプロパティ（場所名、滞留時間）をログに記録します。
-6. これらのプロパティとイベントを使用して、BrazeでCampaignsやCanvasesをトリガーします。
+6. これらのプロパティとイベントを使用して、Brazeでキャンペーンやキャンバスをトリガーします。

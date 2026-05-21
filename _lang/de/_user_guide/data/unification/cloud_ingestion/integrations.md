@@ -20,7 +20,7 @@ Cloud-Datenaufnahme-Integrationen erfordern einige Einstellungen auf der Seite v
 {% tab Snowflake %}
 1. Richten Sie in Ihrer Snowflake-Instanz die Tabellen oder Ansichten ein, die Sie mit Braze synchronisieren möchten.
 2. Erstellen Sie eine neue Snowflake-Quelle im Braze-Dashboard.
-3. Rufen Sie den im Braze-Dashboard bereitgestellten Public Key ab und [fügen Sie ihn zur Authentifizierung an die Snowflake-Nutzer:innen](https://docs.snowflake.com/en/user-guide/key-pair-auth.html) an.
+3. Rufen Sie den im Braze-Dashboard bereitgestellten Public Key ab und [fügen Sie ihn zur Authentifizierung an die Snowflake-Nutzer:innen an](https://docs.snowflake.com/en/user-guide/key-pair-auth.html).
 4. Erstellen Sie eine Synchronisierung im Braze-Dashboard, testen Sie die Integration und starten Sie die Synchronisierung.
 
 {% alert tip %}
@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Sie können das Projekt, den Datensatz und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Sie können das Schema und die Tabelle nach Belieben benennen, aber die Spaltennamen sollten mit der vorherigen Definition übereinstimmen.
 
@@ -469,9 +471,16 @@ Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud Data Ingestion*
 
 Wählen Sie einen Namen für Ihre Quelle und geben Sie Ihre Snowflake-Zugangsdaten und -Konfiguration ein. Fahren Sie dann mit dem nächsten Schritt fort.
 
-{% alert note %}
-Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein, der in der Regel einem Format wie `xy12345.us-east-1.aws` entspricht. Dies ist nicht dasselbe wie ein Datenbankname oder Warehouse-Name.
-{% endalert %}
+Bevor Sie fortfahren, überprüfen Sie den Wert, den Sie im Feld **Snowflake Account Locator** eingeben.
+
+Geben Sie im Feld **Snowflake Account Locator** Ihren Snowflake-[Kontobezeichner](https://docs.snowflake.com/en/user-guide/admin-account-identifier) ein. Geben Sie nur den Wert des Kontobezeichners ein, z. B. `myorganization-myaccount`. Fügen Sie weder `https://`, `.snowflakecomputing.com` noch einen Pfad hinzu.
+
+So finden Sie Ihren Snowflake-Kontobezeichner:
+
+1. Wählen Sie in Snowsight Ihr Kontomenü aus.
+2. Wählen Sie **View account details**.
+3. Kopieren Sie den Wert des **Account identifier**.
+4. Wenn Sie aus einer Snowflake-URL kopieren, verwenden Sie nur den Wert vor `.snowflakecomputing.com`.
 
 #### Schritt 2.2: Public Key zur Braze-Nutzerin oder zum Braze-Nutzer hinzufügen {#step-22-add-a-public-key-to-the-braze-user}
 

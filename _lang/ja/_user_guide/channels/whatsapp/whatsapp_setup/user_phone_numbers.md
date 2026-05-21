@@ -40,7 +40,7 @@ channel:
 | 米国 | `4155552671` | 1 | `+14155552671` |
 | 英国 | `02071838750` | 44 | `+442071838750` |
 | ブラジル | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formatting" }
 
 ### WhatsAppサブスクリプショングループへのユーザーの追加 {#adding-users-to-whatsapp-a-subscription-group}
 
@@ -49,4 +49,4 @@ channel:
 
 ### 同じ電話番号を持つ複数のユーザー {#multiple-users-with-the-same-phone-number}
 
-単一のCampaignまたはキャンバスステップのSegment内で複数のユーザーが同じ電話番号を持っている場合、Brazeは送信の重複を排除し、その電話番号に1通のメッセージのみを送信します。
+単一のキャンペーンまたはキャンバスステップのセグメント内で複数のユーザーが同じ電話番号を持っている場合、Brazeは送信の重複を排除し、その電話番号に1通のメッセージのみを送信します。

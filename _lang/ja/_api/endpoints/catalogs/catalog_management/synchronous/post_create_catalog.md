@@ -32,7 +32,7 @@ description: "この記事では、「カタログを作成」Brazeエンドポ�
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalogs` | 必須 | 配列 | カタログオブジェクトを含む配列。このリクエストでは、カタログオブジェクトは1つのみ許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### カタログオブジェクトのパラメーター {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ description: "この記事では、「カタログを作成」Brazeエンドポ�
 | `name` | 必須 | 文字列 | 作成するカタログの名前。 |
 | `description` | 必須 | 文字列 | 作成するカタログの説明。 |
 | `fields` | 必須 | 配列 | キー `name` と `type` を含むオブジェクトの配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+`geo` データタイプは、地理座標を `[longitude, latitude]` の形式の配列として格納します。
+{% endalert %}
 
 ## 応答 {#response}
 
@@ -136,6 +144,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -197,6 +209,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 | `invalid-fields` | `fields` が正しくフォーマットされていません。 |
 | `too-many-catalog-atoms` | 1つのリクエストにつき1つのカタログしか作成できません。 |
 | `too-many-fields` | フィールド数の上限は500です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

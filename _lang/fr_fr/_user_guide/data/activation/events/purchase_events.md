@@ -15,7 +15,7 @@ search_rank: 3
 
 Les événements d'achat sont des actions d'achat effectuées par vos utilisateurs. Ils servent à enregistrer les achats in-app et à établir la valeur vie client (LTV) pour chaque profil utilisateur. Ces événements doivent être mis en place par votre équipe. L'enregistrement des événements d'achat vous permet d'ajouter des propriétés telles que la quantité et le type, ce qui vous aide à mieux cibler vos utilisateurs en fonction de ces propriétés.
 
-## Enregistrement des événements d'achat {#log-purchase-events}
+## Enregistrer les événements d'achat {#log-purchase-events}
 
 Vous pouvez enregistrer vos achats en transmettant un [objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/) via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), ou en utilisant l'une de nos bibliothèques SDK répertoriées ci-dessous.
 
@@ -123,7 +123,8 @@ Vous pouvez trouver ces données sur la page [Rapport sur les revenus]({{site.ba
     }
 </style>
 
-<table>
+<table aria-label="Calculs du chiffre d'affaires">
+  <caption>Calculs du chiffre d'affaires</caption>
     <thead>
         <tr>
             <th>Indicateur</th>

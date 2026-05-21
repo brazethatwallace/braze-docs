@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Ver todas las traducciones y configuraciones regionales para la plantilla de correo electrónico"
 article_title: "GET: Ver todas las traducciones y configuraciones regionales para la plantilla de correo electrónico"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 3
 
 layout: api_page

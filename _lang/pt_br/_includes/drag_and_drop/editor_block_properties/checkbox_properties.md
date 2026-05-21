@@ -4,4 +4,4 @@
 | Nome do atributo personalizado | Seleciona qual atributo personalizado booleano recebe `true` quando marcado ou `false` quando desmarcado. |
 | Cor de destaque | Cor usada para a estilização do controle da caixa de seleção. |
 | Preenchimento | Espaçamento ao redor do bloco. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

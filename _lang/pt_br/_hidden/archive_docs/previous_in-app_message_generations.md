@@ -140,7 +140,7 @@ Para todos os tipos de mensagens no app listados na tabela a seguir, aplicam-se 
 | Slideup                            |     1:1      |         140         |
 | Modal (apenas imagem)                 |     1:1      |         140         |
 | Modal (com texto)                  |    29:10     |         140         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limites de caracteres e imagens" }
 
 ### Manter os tamanhos dos arquivos de mensagens no app pequenos {#keeping-in-app-message-file-sizes-small}
 

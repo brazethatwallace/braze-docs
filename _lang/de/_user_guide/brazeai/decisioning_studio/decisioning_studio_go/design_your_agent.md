@@ -23,7 +23,7 @@ Decisioning Studio Go ist eine Self-Service-Plattform mit im Vergleich zu Decisi
 | **Kundendaten** | Nur Engagement | Alle 1P-Daten |
 | **Einrichtung** | Self-Service | Unterstützung durch KI-Entscheidungsdienste |
 | **Versuchsgruppen** | Go + zufällige Kontrollgruppe + optionales BAU | Vollständig anpassbar |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Funktionen von Go im Vergleich zu Pro" }
 
 ## Ihren Go-Agenten konzipieren {#design-your-go-agent}
 
@@ -82,7 +82,7 @@ Decisioning Studio Go erstellt automatisch Versuchsgruppen, um die Performance z
 | **Decisioning Studio Go** | Kund:innen, die KI-optimierte Empfehlungen erhalten |
 | **Zufällige Kontrollgruppe** | Kund:innen, die zufällig ausgewählte Optionen erhalten (Basisvergleich) |
 | **Business as Usual (optional)** | Kund:innen, die Ihre bestehende Campaign erhalten (zum Vergleich mit der aktuellen Performance) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="4. Schritt: Versuchsgruppen einrichten" }
 
 {% alert important %}
 Um einen genauen Vergleich zu gewährleisten, stellen Sie sicher, dass keine Kund:in mehr als einer Versuchsgruppe angehören kann und dass die Kund:innen ohne Verzerrung zufällig den Gruppen zugeordnet werden.

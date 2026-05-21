@@ -45,9 +45,9 @@ Le filtre **Désinstallé** sélectionne les utilisateurs qui ont désinstallé 
 
 Les statistiques quotidiennes sur les désinstallations sont disponibles sur la page **d'accueil**.
 
-![Segmentation de la désinstallation.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
+![Segment de désinstallation.]({% image_buster /assets/img_archive/Uninstall_Segment.png %} "Uninstall Segment")
 
-Le graphique peut être décomposé par application et par segment, à l'instar d'autres statistiques fournies par Braze. Dans la section **Aperçu des performances**, sélectionnez votre plage de dates et, si vous le souhaitez, une application. Ensuite, faites défiler la page jusqu'au graphique des **performances dans le temps** et procédez comme suit :
+Le graphique peut être décomposé par application et par segment, à l'instar d'autres statistiques fournies par Braze. Dans la section **Performance overview**, sélectionnez votre plage de dates et, si vous le souhaitez, une application. Ensuite, faites défiler la page jusqu'au graphique **Performance Over Time** et procédez comme suit :
 
 1. Dans le menu déroulant **Statistics For**, sélectionnez **Uninstalls**.
 2. Dans le menu déroulant **Breakdown**, sélectionnez **By Segment**.
@@ -74,6 +74,10 @@ Braze suit les désinstallations en observant lorsque les messages push envoyés
 * Si un utilisateur reçoit trois Campaigns au cours d'une période de 24 heures puis désinstalle l'application, nous incrémentons le nombre de « désinstallations » pour les trois Campaigns.
 
 FCM et APNs imposent des restrictions sur le suivi des désinstallations. Braze incrémente uniquement le nombre de désinstallations lorsque FCM ou APNs nous informe qu'un utilisateur a désinstallé l'application. Cependant, ces systèmes tiers peuvent nous notifier les désinstallations à tout moment. Utilisez le suivi des désinstallations pour identifier les tendances générales plutôt que pour obtenir des statistiques précises.
+
+Braze traite les réponses FCM suivantes comme des réponses de suppression de jeton (désinstallation) : `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` et `SENDER_ID_MISMATCH`.
+
+Pour en savoir plus sur l'utilisation du suivi des désinstallations, consultez notre article de blog [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
 
 ## Résolution des problèmes {#troubleshooting}
 

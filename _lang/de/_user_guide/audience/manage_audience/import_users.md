@@ -13,7 +13,7 @@ description: "Erfahren Sie mehr über die verschiedenen Nutzerimport-Optionen vo
 
 Sie können Nutzerattribute und Events über einen CSV-Import in Braze, ein serverloses S3-Lambda-CSV-Importskript, direkte API-Aufrufe oder Cloud-Datenaufnahme aus Ihrem Data Warehouse hochladen.
 
-### Braze-CSV-Import
+### Braze-CSV-Import {#braze-csv-import}
 
 Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angepassten Events zu erfassen und zu aktualisieren. Informationen zum Einstieg finden Sie unter [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
 
@@ -22,13 +22,13 @@ Sie können den CSV-Import verwenden, um die folgenden Nutzerattribute und angep
 | Standardattribute | Reservierte Nutzerattribute, die von Braze erkannt werden. | `first_name`, `email` | 500 MB |
 | Angepasste Attribute | Nutzerattribute, die speziell für Ihr Unternehmen sind. | `last_destination_searched` | 500 MB |
 | Angepasste Events | Events, die speziell für Ihr Unternehmen sind und Nutzeraktionen darstellen. | `trip_booked` | 50 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
 
 #### Ihre CSV erstellen {#constructing-your-csv}
 
 Braze akzeptiert Nutzerdaten im Standard-CSV-Format. Importe von Standard- und angepassten Attributen unterstützen Dateien bis zu 500 MB; Importe von angepassten Events unterstützen Dateien bis zu 50 MB. Informationen zu Bezeichnern, Spaltenüberschriften, Validierungsregeln und Beispielen finden Sie unter [CSV-Import]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import/).
 
-Wenn Sie eine große CSV-Datei über **Nutzer:innen importieren** im Dashboard hochladen, kann die Seite nicht reagieren oder langsam antworten, während Braze die Datei empfängt und den Berechnungsschritt ausführt. Lassen Sie den Upload und die Berechnung abschließen – die Gesamtdauer reicht von wenigen Minuten bis zu einigen Stunden, abhängig von der Dateigröße, und größere Dateien benötigen mehr Zeit für die Berechnung.
+Wenn Sie eine große CSV-Datei über **Import Users** im Dashboard hochladen, kann die Seite nicht reagieren oder langsam antworten, während Braze die Datei empfängt und den Berechnungsschritt ausführt. Lassen Sie den Upload und die Berechnung abschließen – die Gesamtdauer reicht von wenigen Minuten bis zu einigen Stunden, abhängig von der Dateigröße, und größere Dateien benötigen mehr Zeit für die Berechnung.
 
 {% alert note %}
 Beim Import von angepassten Events mit Eigenschaften müssen Sie die Punktnotation in Ihren CSV-Spaltenüberschriften verwenden. Weitere Informationen zur Formatierung von angepassten Events finden Sie unter [Formatierung von angepassten Events verstehen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/?tab=custom%20events#understanding-custom-event-formatting).

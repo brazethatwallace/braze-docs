@@ -25,8 +25,9 @@ L'intégration de Braze et Segment vous permet d'utiliser [Engage](https://segme
 | Compte Segment | Un [compte Segment](https://app.segment.com/login) est nécessaire pour bénéficier de ce partenariat. |
 | Destination cloud Braze | Vous devez avoir déjà [configuré Braze comme destination]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) dans votre intégration Segment.<br><br>Vous devez notamment fournir le centre de données et la clé API REST corrects de Braze dans vos [paramètres de connexion]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
 | Clé d'importation des données Braze | Pour synchroniser les audiences Engage avec Braze sous forme de cohortes, vous devez générer une clé d'importation des données.<br><br>L'importation de cohortes est en accès anticipé ; contactez votre gestionnaire de la satisfaction client Braze pour obtenir l'accès à cette fonctionnalité. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de la destination Cohortes {#cohorts-destination-integration}
 
@@ -78,6 +79,7 @@ Par exemple, si vous avez un trait calculé Engage pour « Dernier article de pr
 | Trait calculé | Audiences |
 | -------------- | --------- |
 | ![La section des attributs personnalisés dans un profil utilisateur indique « last_product_viewed_item » comme « Sweater ».]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![La section des attributs personnalisés dans un profil utilisateur indique « dormant_shopper » comme « true ».]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Traits et audiences calculés" }
 
 {% endtab %}
 {% tab Track %}
@@ -89,6 +91,7 @@ En reprenant l'exemple précédent, si un utilisateur dispose d'un trait calcul�
 | Trait calculé | Audiences |
 | -------------- | --------- |
 | ![La section des événements personnalisés dans un profil utilisateur indique « Trait Computed » « 1 » fois, la dernière occurrence étant « il y a 20 heures ».]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![La section des attributs personnalisés dans un profil utilisateur indique « Audience Entered » « 1 » fois, la dernière occurrence étant le « 9 mars à 1 h 45 ».]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Traits et audiences calculés" }
 
 {% endtab %}
 {% endtabs %}

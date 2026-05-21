@@ -42,7 +42,7 @@ Não há parâmetros de caminho para este endpoint.
 | `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id` | Obrigatória | String | O ID (UUID) do local. |
 | `translation_map` | Obrigatória | Objeto | Objeto contendo as novas traduções. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

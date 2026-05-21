@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 프로젝트, 데이터셋 및 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID`| STRING | NULLABLE |
 | `EMAIL`| STRING | NULLABLE |
 | `PHONE`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 스키마와 테이블의 이름은 원하는 대로 지정할 수 있지만, 열 이름은 위의 정의와 일치해야 합니다.
 
@@ -469,9 +471,16 @@ Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집*
 
 소스의 이름을 선택하고 Snowflake 자격 증명 및 구성을 입력한 다음 다음 단계로 진행합니다.
 
-{% alert note %}
-**Snowflake Account Locator** 필드에 Snowflake [계정 식별자](https://docs.snowflake.com/en/user-guide/admin-account-identifier)를 입력하세요. 일반적으로 `xy12345.us-east-1.aws`와 같은 형식입니다. 이는 데이터베이스 이름이나 웨어하우스 이름과 다릅니다.
-{% endalert %}
+계속하기 전에 **Snowflake Account Locator**에 입력하는 값을 확인하세요.
+
+**Snowflake Account Locator** 필드에 Snowflake [계정 식별자](https://docs.snowflake.com/en/user-guide/admin-account-identifier)를 입력하세요. `myorganization-myaccount`와 같은 계정 식별자 값만 입력합니다. `https://`, `.snowflakecomputing.com` 또는 경로를 포함하지 마세요.
+
+Snowflake 계정 식별자를 찾으려면:
+
+1. Snowsight에서 계정 메뉴를 선택합니다.
+2. **View account details**를 선택합니다.
+3. **Account identifier** 값을 복사합니다.
+4. Snowflake URL에서 복사하는 경우 `.snowflakecomputing.com` 앞의 값만 사용합니다.
 
 #### 2.2단계: Braze 사용자에게 공개 키 추가 {#step-22-add-a-public-key-to-the-braze-user}
 
@@ -531,7 +540,7 @@ Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집*
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-Braze 대시보드에서 **데이터 설정** > **클라우드 데이터 수집** > **소스**로 이동하여 **데이터 소스 추가**를 선택한 다음 **Microsoft Fabric**을 선택합니다.
+Braze 대시보드에서 데이터 설정 > 클라우드 데이터 수집 > 소스로 이동하여 **데이터 소스 추가**를 선택한 다음 **Microsoft Fabric**을 선택합니다.
 
 #### 2.1단계: 클라우드 데이터 수집 동기화 설정 {#step-21-set-up-a-cloud-data-ingestion-sync}
 

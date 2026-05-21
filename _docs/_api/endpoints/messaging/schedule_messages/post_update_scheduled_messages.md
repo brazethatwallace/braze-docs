@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `schedule_id` | Required | String | The `schedule_id` to update (obtained from the response to create schedule). |
 |`schedule` | Optional | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object/). |
 |`messages` | Optional | Object | See [available messaging objects]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

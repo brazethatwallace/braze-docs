@@ -9,7 +9,7 @@ The following table describes the differences between the free and pro version o
 | User update frequency<sup>1</sup>   | Weekly                                | Daily                                    |
 | Model retraining frequency  | Monthly                               | Weekly                                   |
 | Maximum recommendation models | 1 model per type<sup>2</sup> | 100 models per type<sup>2</sup> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan-specific AI features" }
 
 <sup>1. This is the frequency at which user-specific item recommendations are updated (AI Personalized and Most Recent only). Most Popular and Trending are global recommendations that update when the model retrains. For example, if a user purchases an item recommended based on AI item recommendations, their recommended items are updated according to this frequency.</sup><br>
 <sup>2. Available recommendation types are AI Personalized, Most Recent, Most Popular, and Trending.</sup>

@@ -31,7 +31,7 @@ Confira os itens a seguir antes de prosseguir com a integração:
 | Conta do Meta Business Manager | Uma conta Meta Business é necessária para utilizar este canal de envio de mensagens. |
 | Conta do WhatsApp Business | Uma conta do WhatsApp Business é necessária para utilizar este canal de envio de mensagens. |
 | Número de telefone do WhatsApp | Você precisa adquirir um número de telefone que atenda aos requisitos do WhatsApp para a [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou a [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) para uso do canal de envio de mensagens. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -49,7 +49,7 @@ Na janela aberta, selecione **Next** até que o botão **Begin Integration** apa
 
 ### Etapa 2: Configuração do WhatsApp {#step-2-whatsapp-setup}
 
-Em seguida, você será guiado pelo fluxo de configuração da Braze. Para um passo a passo detalhado, consulte [Cadastro incorporado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
+Em seguida, você será guiado pelo fluxo de configuração da Braze. Para um passo a passo detalhado, consulte [Cadastro integrado do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/).
 
 Nesse fluxo, você irá:
 1. Criar ou selecionar suas contas Meta e WhatsApp Business. Certifique-se de revisar as [diretrizes de nome de exibição do WhatsApp](https://www.facebook.com/business/help/757569725593362). <br><br>É provável que você já tenha pelo menos uma conta Meta Business existente na sua empresa. Se for o caso, selecione aquela na qual você deseja que sua conta do WhatsApp Business esteja vinculada. As permissões de usuário e a verificação de negócios para o WhatsApp serão controladas centralmente na sua conta Meta Business.<br><br>

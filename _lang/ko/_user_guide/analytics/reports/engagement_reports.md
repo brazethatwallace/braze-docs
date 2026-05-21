@@ -77,7 +77,7 @@ tool:
 | 인앱 메시지 | 노출 횟수, 클릭 수, 첫 번째 버튼 클릭 수, 두 번째 버튼 클릭 수 |
 | 웹훅  |  발송 수, 오류 수 |
 | SMS | 발송 수, 통신사 전송 수, 전달 확인 수, 전달 실패 수, 거부 수 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### 4단계: 보고서 설정 완료 {#step-4-complete-report-setup}
 

@@ -27,7 +27,7 @@ How you add a template depends on your goal:
 | Save a drag-and-drop layout for reuse | In the [drag-and-drop in-app message composer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), select **Save as template** after you exit the editor (you must first launch the campaign OR save it as a draft). The template appears on **Templates** > **In-App Message Templates** for your next message. |
 | Create a color profile or CSS template (traditional editor) | On the **In-App Message Templates** page, select **+ Create**, then choose **Color Profile** or **CSS Template**. For details, see [Color profiles and CSS templates](#reusable-color-profiles). |
 | Customize a Braze template | [Create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) in the drag-and-drop editor, pick a Braze template, make your customizations, and select **Save as template**. For descriptions of each Braze template, see [In-app message templates]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose how to create a template" }
 
 {% alert note %}
 Color profiles and CSS templates apply to the traditional editor. If you use the drag-and-drop editor, use [Style settings]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) for message-level styling.
@@ -37,7 +37,7 @@ Color profiles and CSS templates apply to the traditional editor. If you use the
 
 On **Templates** > **In-App Message Templates**, filter, search, or open a template to edit. You can [duplicate]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) and [archive]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) templates like other template types. For an overview of template and media workflows, see [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
 
-You need permission to access templates. For example, grant "Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers" or the equivalent granular permission to view or edit in-app message templates. For details, see [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+To access in-app message templates, you need [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to view or edit in-app message templates.
 
 ### Create color profiles and CSS templates {#reusable-color-profiles}
 

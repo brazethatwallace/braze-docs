@@ -40,7 +40,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```json
 {
   "canvas_id": (required, string) see Canvas identifier,
-  "context": (optional, object) personalization key-value pairs that apply to all users in this request,
+  "context": (optional, object) Canvas context properties that apply to all users in this request,
   "broadcast": (optional, boolean) see Broadcast -- defaults to false on 8/31/17, must be set to true if `recipients` is omitted,
   "audience": (optional, connected audience object) see connected audience,
   // Including 'audience' will only send to users in the audience
@@ -51,8 +51,8 @@ Authorization: Bearer YOUR-REST-API-KEY
       "external_user_id": (optional, string) external identifier of user to receive message,
       "email": (optional, string) email address of user to receive message,
       "prioritization": (optional, array) prioritization array; required when using email,
-      "context": (optional, object) personalization key-value pairs that apply to this user (these key-value pairs override any keys that conflict with the parent `context`)
-      "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases
+      "context": (optional, object) Canvas context properties for this user; key-value pairs override any keys that conflict with the parent `context`,
+      "send_to_existing_only": (optional, boolean) defaults to true, can't be used with user aliases; if set to `false`, an `attributes` object must also be included,
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }],
     ...
@@ -63,12 +63,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id`| Obrigatória | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types/). |
-|`context`| Opcional | Objeto | Inclui as propriedades de entrada do Canvas. Os pares de chave-valor de personalização se aplicam a todos os usuários nesta solicitação. O objeto de contexto pode ter até 50 KB. |
-|`broadcast`| Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para todo o segmento configurado como o público-alvo do Canvas no dashboard da Braze. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
-|`audience`| Opcional| Objeto de público conectado | Consulte [Público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). Quando você inclui `audience`, a mensagem é enviada apenas para usuários que correspondem aos filtros definidos, como atributos personalizados e status de inscrição. |
-|`recipients`| Opcional | Vetor | Consulte o [objeto Recipients]({{site.baseurl}}/api/objects_filters/recipient_object/). <br><br>Se não fornecido e `broadcast` estiver definido como `true`, a mensagem é enviada para todo o segmento configurado como o público-alvo do Canvas no dashboard da Braze.<br><br> O vetor `recipients` pode conter até 50 objetos, com cada objeto contendo uma única string `external_user_id` e um objeto `canvas_entry_properties`. Esta chamada requer um `external_user_id`, `user_alias` ou `email`. As solicitações devem especificar apenas um. <br><br>Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) no objeto de destinatários. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | Obrigatória | String | Consulte [Identificador do Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `context` | Opcional | Objeto | Propriedades de contexto do Canvas para todos os destinatários nesta solicitação. Os pares de chave-valor de personalização se aplicam a todos os usuários, a menos que um `context` por destinatário substitua uma chave. O objeto `context` pode ter até 50 KB. |
+| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para todo o segmento configurado como o público-alvo do Canvas no dashboard da Braze. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
+| `audience` | Opcional | Objeto de público conectado | Consulte [Público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). Quando você inclui `audience`, a mensagem é enviada apenas para usuários que correspondem aos filtros definidos, como atributos personalizados e status de inscrição. |
+| `recipients` | Opcional | Vetor | Consulte o [objeto Recipients]({{site.baseurl}}/api/objects_filters/recipient_object/). <br><br> Se `send_to_existing_only` for `false`, um objeto `attributes` deve ser incluído no destinatário. <br><br> Se não fornecido e `broadcast` estiver definido como `true`, a mensagem é enviada para todo o segmento configurado como o público-alvo do Canvas no dashboard da Braze.<br><br> O vetor `recipients` pode conter até 50 objetos. Cada objeto deve incluir exatamente um entre `external_user_id`, `user_alias` ou `email`, e pode incluir um objeto `context` por destinatário para propriedades de contexto do Canvas (as chaves por destinatário substituem o `context` de nível superior quando há conflito). <br><br> Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/#identifying-users-by-email) no objeto de destinatários. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 ```
@@ -168,6 +168,9 @@ Considere o seguinte ao fazer chamadas de API para enviar mensagens do Canvas us
 
 - **Envio para usuários existentes**: Quando `send_to_existing_only` está definido como `true` (o padrão), a mensagem é enviada apenas para usuários existentes na Braze.
 - **Criação de novos usuários**: Quando `send_to_existing_only` está definido como `false`, você deve incluir um objeto `attributes`. Se um usuário com o ID especificado não existir, a Braze cria um usuário com esse ID e atributos antes de enviar a mensagem.
+- **Perfis novos precisam de `attributes` com `send_to_existing_only: false`.** A Braze executa a criação ou atualização pré-envio a partir do objeto `attributes` no mesmo destinatário. Se você definir `send_to_existing_only` como `false`, mas omitir `attributes` (ou enviar um objeto vazio), a Braze não hidrata os dados do perfil da mesma forma, então você não obtém o comportamento combinado de "criar ou atualizar usuário e depois enviar" para o qual esse padrão foi projetado.
+- **Endereçamento de e-mail e SMS.** Para a maioria dos envios de e-mail ou SMS acionados por API para alguém que ainda não está na Braze, inclua os campos de entrega necessários dentro de `attributes` (por exemplo, `email` ou os atributos de telefone que seu espaço de trabalho usa para SMS). Você também pode definir a associação ao grupo de inscrições ou o status de inscrição quando o estado de opt-in precisa mudar na mesma chamada.
+- **Elegibilidade do Canvas.** Depois que o perfil existe ou é atualizado, esse usuário ainda deve corresponder ao público-alvo do Canvas no dashboard e às regras de envio do canal (por exemplo, ter opt-in para e-mail) para que a Braze envie a mensagem.
 - **Limitação de alias de usuário**: A flag `send_to_existing_only` não pode ser usada com aliases de usuário. Para enviar para um usuário que possui apenas um alias, o usuário já deve existir na Braze.
 - **Direcionamento de segmento**: O parâmetro `segment_id` não é suportado para este endpoint. Para direcionar um segmento, configure o segmento nas configurações de público-alvo do Canvas no dashboard da Braze e use `broadcast: true`, ou use o parâmetro `audience` com filtros de [Público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/).
 - **Direcionamento combinado**: Quando você inclui tanto o parâmetro `recipients` quanto configura um segmento alvo no dashboard, a mensagem é enviada apenas para os perfis de usuário que estão especificados na chamada da API e que também correspondem aos filtros do segmento.

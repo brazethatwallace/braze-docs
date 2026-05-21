@@ -93,7 +93,7 @@ Braze supports the following metafield objects some of their respective types.
 | `number_integer`                                 | Integer                                                |
 | `single_line_text_field`, `list.single_line_text_field` | String, Array of Strings                        |
 | `url`, `list.url`                                | String (URL), Array of Strings (URLs)                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
 
 {% endsubtab %}
 {% subtab Unsupported metafields %}
@@ -189,7 +189,7 @@ Changing your synced selections may affect active campaigns, Canvases, or catalo
 | `product_tags`       | array          | `["Summer", "Sale", "New"]`<br><br>Requires product tag syncing.                 |
 | `collection_ids`     | array          | `[123456789012, 987654321098]` (Shopify collection IDs)<br><br>Requires Shopify collection syncing. |
 | `Metafield columns`  | Varies by type | Each synced metafield appears as a separate column named by its key. See [Supported metafields](#step-3) in the "Product metafields" tab of step 3 for information. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
 
 {% alert warning %}
 Your Shopify catalog is managed by Shopify. To update your catalog, make changes directly in your Shopify store, and they will automatically sync to Braze. To delete your Shopify catalog, go to the Shopify partner page in Braze and [deactivate the sync](#deactivate).
@@ -717,5 +717,5 @@ If your Shopify product sync runs into an error, it could be a result of the fol
 | Server Error | This occurs if there is a server error on Shopify’s side when we attempt to sync your products. | [Deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
 | Duplicate SKU | This occurs if you use a SKU as your catalog item ID and have products with the same SKU. Because the catalog item ID must be unique, all your products must have unique SKUs. | Audit your full list of products and variants in Shopify to make sure that there are no duplicate SKUs. If there are duplicate SKUs, update these to be unique SKUs only in your Shopify store account. After this is corrected, [deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
 | Catalog Limit Exceeded | This occurs if you exceed your catalog limit. Braze will be unable to finish the sync or keep the syncing active due to no more storage availability. | There are two solutions to this issue:<br><br>1. Contact your account manager to upgrade your tier to increase your catalog limit. <br><br>2. Free up storage space by deleting any of the following:<br>- Catalog items from other catalogs<br>- Other catalogs<br>- Selections created<br><br> After using either of the solutions, the sync must be deactivated and then re-synced. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Troubleshooting" }
 

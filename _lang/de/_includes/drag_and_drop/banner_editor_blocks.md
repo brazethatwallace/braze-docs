@@ -63,13 +63,13 @@ Fügt benutzerdefiniertes HTML für erweiterte Layouts oder eingebettete Inhalte
 
 ### Telefonnummernerfassung {#phone-capture}
 
-Erfasst eine Telefonnummer. Beim Absenden wird die Nutzer:in in Ihre ausgewählte [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)- oder [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)-Abo-Gruppe eingetragen. Nur eine pro Banner.
+Erfasst eine Telefonnummer. Beim Absenden werden die Nutzer:innen in Ihre ausgewählte [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)- oder [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)-Abo-Gruppe eingetragen. Nur eine pro Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
 ### E-Mail-Erfassung {#email-capture}
 
-Erfasst eine E-Mail-Adresse und fügt sie beim Absenden dem Braze-Profil der Nutzer:in hinzu. Nur eine pro Banner.
+Erfasst eine E-Mail-Adresse und fügt sie beim Absenden dem Braze-Profil der Nutzer:innen hinzu. Nur eine pro Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/email_capture.md %}
 

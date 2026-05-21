@@ -22,7 +22,7 @@ A integração entre a Braze e o Treasure Data permite que você controle perfei
 | Treasure Data | É necessário ter uma [conta do Treasure Data](https://console.treasuredata.com/users/sign_in) para aproveitar essa parceria. |
 | Currents | Para exportar dados de volta para o Treasure Data, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado na sua conta. |
 | URL do Treasure Data | Pode ser obtido navegando até o dashboard do Treasure Data e copiando o URL de ingestão.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert note %}
 O Treasure Data registra cada evento em lotes. Para saber mais sobre como consultar o Treasure Data para obter contagens de eventos, consulte [Consulta de dados](https://docs.treasuredata.com/articles/int/braze-currents-import-integration/a/h2__592056238).<br><br>Se você deseja integrar com o novo conector de streaming do Treasure Data para a Braze, consulte as etapas de configuração detalhadas em [Integração de importação de streaming do Braze Currents](https://docs.treasuredata.com/articles/#!int/braze-currents-import-integration/q/braze/qid/72364/qp/4). Em caso de dúvidas sobre a integração ou a configuração na Braze, entre em contato com a equipe da sua conta Braze.

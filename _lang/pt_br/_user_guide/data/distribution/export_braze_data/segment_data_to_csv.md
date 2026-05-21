@@ -19,9 +19,9 @@ Para exportar dados de segmento para um CSV, selecione o menu suspenso **User Da
 
 ![Seção de informações do segmento com o menu suspenso User Data mostrando opções de exportação.]({% image_buster /assets/img_archive/csvexport.png %})
 
-Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear" aria-label="Configurações"></i> **Configurações** de um segmento:
+Você também pode solicitar uma exportação CSV na página principal de **Segments**, selecionando o menu suspenso <i class="fas fa-gear"></i> **Settings** de um segmento:
 
-![Menu suspenso Configurações na página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
+![Menu suspenso Settings na página principal de Segments.]({% image_buster /assets/img_archive/csvexport2.png %})
 
 {% alert tip %}
 Para exportar dados de todos os seus perfis de usuários, crie um segmento sem filtros e solicite uma exportação CSV.
@@ -91,7 +91,7 @@ Os itens a seguir estão incluídos na sua exportação, dependendo da sua sele�
 | windows_ad_ids              | IDs de publicidade do Windows                       |
 | Eventos personalizados               | Com base na seleção na exportação                             |
 | Atributos personalizados           | Com base na seleção na exportação                             |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV export user data" }
 
 {% alert note %}
 Quando você exporta dados de usuários de uma etapa do Canvas, o CSV inclui todos os usuários que passaram por essa etapa ao longo de toda a vida útil da etapa do Canvas. Não é possível limitar a exportação a um intervalo de datas ou outro período. Para saber como executar essas exportações, consulte [Exportar dados do Canvas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/).
@@ -108,7 +108,7 @@ Quando você exporta dados de usuários de uma etapa do Canvas, o CSV inclui tod
 | unsubscribed_from_emails_at | Data de cancelamento da inscrição do e-mail |
 | opted_in_to_emails_at       | Data de opt-in do e-mail      |
 | user_aliases                | Aliases de usuário, se houver   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV Export Email Addresses" }
 
 {% alert tip %}
 Para obter ajuda com exportações CSV e API, visite nosso artigo de [solução de problemas]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).

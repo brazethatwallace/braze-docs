@@ -57,7 +57,7 @@ Sigue estas prácticas recomendadas para evitar problemas relacionados con los l
 | Actualiza el contenido solo cuando sea necesario | Actualizar el contenido con cada acción del usuario (como los eventos de desplazamiento) |
 | Deja que el SDK se encargue automáticamente del procesamiento por lotes | Forzar la transmisión inmediata de datos (a menos que sea absolutamente necesario) |
 | Céntrate en los eventos que aportan valor a los análisis | Llamar a los métodos del SDK en rápida sucesión sin tener en cuenta la frecuencia |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Buenas prácticas" }
 
 ## Obtener ayuda {#getting-help}
 

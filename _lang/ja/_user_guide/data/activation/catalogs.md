@@ -7,7 +7,7 @@ layout: dev_guide
 guide_top_header: "カタログ"
 guide_top_text: "カタログは、Liquidを通してカスタム属性やカスタムイベントプロパティにアクセスするのと同様に、インポートしたCSVファイルやAPIエンドポイントからデータにアクセスしてメッセージを充実させます。"
 
-description: "このランディングページはカタログのホームです。カタログとフィルターセットを使用して、Braze Campaignで非ユーザーデータを活用し、パーソナライズ済みメッセージを送信できます。"
+description: "このランディングページはカタログのホームです。カタログとフィルターセットを使用して、Braze キャンペーンで非ユーザーデータを活用し、パーソナライズ済みメッセージを送信できます。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -32,7 +32,7 @@ guide_menu_list:
 - name: カタログAPIエンドポイント
   link: /docs/api/endpoints/catalogs/
   image: /assets/img/braze_icons/server-01.svg
-- name: ドラッグアンドドロップ製品ブロック
+- name: ドラッグ＆ドロップ製品ブロック
   link: /docs/dnd_product_blocks/
   image: /assets/img/braze_icons/columns-01.svg
 ---
@@ -46,8 +46,8 @@ guide_menu_list:
 
 - **季節のプロモーション:** 季節の商品コレクションをインポートし、現在のトレンドを反映したメッセージをパーソナライズします。
 - **ローカライズされたメッセージ:** 実店舗の住所、営業時間、サービスをインポートし、ユーザーの所在地に基づいて通知をパーソナライズします。
-- **再入荷通知:** 在庫数量を含む製品情報をインポートし、[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)とBrazeのカスタムイベントを使用して、製品が再入荷したことをユーザーに通知するCampaignまたはCanvasをトリガーします。
-- **価格低下通知:** 商品価格を含む製品情報をインポートし、[価格低下通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するCanvasをトリガーします。
+- **再入荷通知:** 在庫数量を含む製品情報をインポートし、[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)とBrazeのカスタムイベントを使用して、製品が再入荷したことをユーザーに通知するキャンペーンまたはキャンバスをトリガーします。
+- **価格低下通知:** 商品価格を含む製品情報をインポートし、[価格低下通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するキャンバスをトリガーします。
 
 ### エンターテイメント {#entertainment}
 
@@ -68,10 +68,12 @@ guide_menu_list:
 
 Liquidを使用してカタログ情報を取得する方法の例については、[カタログを作成する]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases/)の追加のユースケースを参照してください。
 
-#### データ保存の制限 {#data-storage-limitations}
+## データ保存の制限 {#data-storage-limitations}
 
 カタログのデータストレージは、カタログアイテムのサイズに基づいて制限されます。これは、アップロードしたCSVファイルのサイズとは異なる場合があります。
 
 カタログの無料バージョンの場合、許可されるストレージ容量は最大100&nbsp;MBです。ストレージが100&nbsp;MBを超えない限り、アイテム数は無制限です。
 
 Catalogs Proの場合、ストレージサイズのオプションは5&nbsp;GB、10&nbsp;GB、15&nbsp;GB、または50&nbsp;GBです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
+
+カタログストレージのアップグレードが必要な場合は、Brazeアカウントマネージャーにお問い合わせください。プランの詳細と利用資格については、[カタログストレージ]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#tiers)を参照してください。

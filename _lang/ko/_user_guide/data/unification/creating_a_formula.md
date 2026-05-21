@@ -19,9 +19,9 @@ tool: Reports
 
 다음은 수식을 사용하여 감지할 수 있는 행동 패턴의 몇 가지 예입니다:
 
-- **차량 공유 앱:** 사용자가 차량 서비스를 취소하는 시점에 대한 커스텀 이벤트가 있는 경우, 취소된 차량 서비스 / DAU에 대한 함수를 구성하여 특정 사용자 **Segments**가 다른 사용자보다 차량 서비스를 더 많이 취소하는 경향이 있는지 확인할 수 있습니다.
-- **이커머스 앱:** 특정 상품 ID / MAU의 구매에 대한 함수를 설정하면, Braze를 사용하여 모든 프로모션을 추적할 수 없더라도 최근 프로모션한 상품의 **Segments** 간 인기도를 비교할 수 있습니다.
-- **광고를 사용하는 미디어 앱:** 동영상 또는 오디오 클립 사이에 광고로 인해 사용자 경험이 중단되는 경우, 광고 중간 이탈을 커스텀 이벤트로 기록하고 광고 중간 이탈 / DAU 비율을 계산하면 광고 없는 프리미엄 구독 **Campaign**으로 타겟팅할 최적의 **Segments**를 찾는 데 도움이 될 수 있습니다.
+- **차량 공유 앱:** 사용자가 차량 서비스를 취소하는 시점에 대한 커스텀 이벤트가 있는 경우, 취소된 차량 서비스 / DAU에 대한 함수를 구성하여 특정 사용자 Segments가 다른 사용자보다 차량 서비스를 더 많이 취소하는 경향이 있는지 확인할 수 있습니다.
+- **이커머스 앱:** 특정 상품 ID / MAU의 구매에 대한 함수를 설정하면, Braze를 사용하여 모든 프로모션을 추적할 수 없더라도 최근 프로모션한 상품의 Segments 간 인기도를 비교할 수 있습니다.
+- **광고를 사용하는 미디어 앱:** 동영상 또는 오디오 클립 사이에 광고로 인해 사용자 경험이 중단되는 경우, 광고 중간 이탈을 커스텀 이벤트로 기록하고 광고 중간 이탈 / DAU 비율을 계산하면 광고 없는 프리미엄 구독 Campaign으로 타겟팅할 최적의 Segments를 찾는 데 도움이 될 수 있습니다.
 
 ## 수식 만들기 {#creating-formulas}
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | 세션 | DAU |
 | | Segment 크기 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
 
 ### 매출 대시보드 {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | 구매(전체) | DAU |
 | 선택 구매(예: 기프트 카드 또는 제품 ID) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
 
 ### 커스텀 이벤트 대시보드 {#custom-event-dashboard}
 
@@ -85,4 +85,4 @@ table td {
 | 커스텀 이벤트 수 | MAU |
 |  | DAU |
 |  | Segment 크기([분석 추적]({{site.baseurl}}/viewing_and_understanding_segment_data/)이 활성화된 Segments만 사용할 수 있습니다) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }

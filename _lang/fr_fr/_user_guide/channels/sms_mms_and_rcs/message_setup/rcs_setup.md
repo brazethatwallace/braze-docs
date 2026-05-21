@@ -19,7 +19,7 @@ La configuration du RCS est aussi simple que celle du SMS. Poursuivez votre lect
 
 Pour être éligible à l'envoi de RCS avec Braze, votre entreprise doit remplir trois critères au préalable :
 
-1. Votre contrat Braze actuel doit inclure des crédits de messages.
+1. Votre contrat Braze actuel doit inclure des crédits de messages ou d'actions.
 2. Vous devez envoyer vos messages RCS vers l'un des pays pris en charge par Braze :
 - États-Unis
 - Royaume-Uni
@@ -32,7 +32,7 @@ Pour être éligible à l'envoi de RCS avec Braze, votre entreprise doit remplir
 - France
 - Italie
 - Colombie
-3. Vous devez obtenir une ou plusieurs unités de gestion des stocks RCS à 0 $ dans votre contrat.
+3. Vous devez obtenir une ou plusieurs unités de gestion des stocks RCS dans votre contrat.
 
 ## Étape 2 : Enregistrer un expéditeur vérifié RCS {#step-2-register-an-rcs-verified-sender}
 
@@ -72,13 +72,13 @@ Créez un Canvas et donnez-lui un nom facilement identifiable (par exemple « Tr
 
 ### Étape 2 : Définir votre audience {#step-2-define-your-audience}
 
-Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Utilisateurs abonnés ou ayant donné leur consentement**.
+Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Users who are subscribed or opted-in**.
 
 | Méthode | Description |
 |---------|-------------|
-| **Créer un segment** | Créez un Segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les Segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
+| **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
 | **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience à l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Étape 3 : Configurer une étape de mise à jour utilisateur {#step-3-configure-a-user-update-step}
 
@@ -103,7 +103,7 @@ Ajoutez une étape de mise à jour utilisateur à votre Canvas. Dans cette étap
 ```
 {% endraw %}
 
-![« Objet de mise à jour utilisateur » contenant le code JSON mentionné précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objet de mise à jour utilisateur contenant le code JSON mentionné précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Étape 4 : Tester le Canvas {#step-4-test-the-canvas}
 
@@ -113,4 +113,4 @@ Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_g
 
 Après avoir testé votre Canvas avec succès, lancez-le pour votre sous-ensemble d'utilisateurs !
 
-Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Paramètres de contact** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton bascule du groupe d'abonnement RCS devrait maintenant être activé.
+Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Contact Settings** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton bascule du groupe d'abonnement RCS devrait maintenant être activé.

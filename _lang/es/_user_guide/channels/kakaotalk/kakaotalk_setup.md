@@ -20,7 +20,7 @@ channel:
 | Canal de negocios de KakaoTalk | Tu cuenta de KakaoTalk debe ser un canal de negocios de KakaoTalk para enviar mensajes de KakaoTalk a través de Braze. Cuando creas una cuenta, su estado predeterminado es básico. Para convertir tu cuenta en un canal de negocios, necesitarás verificar tu empresa y proporcionar la documentación pertinente. |
 | Clave de remitente de KakaoTalk | Una clave de remitente de KakaoTalk válida. |
 | Número de teléfono de contacto | Un número de teléfono de contacto para el administrador de tu canal de KakaoTalk. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ### Tipos de cuentas de KakaoTalk {#types-of-kakaotalk-accounts}
 
@@ -28,7 +28,7 @@ channel:
 | --- | --- |
 | Canal básico | Un canal estándar de KakaoTalk que cualquier organización puede configurar. Permite mensajería de difusión y chat 1:1 a través de KakaoTalk. |
 | [Canal de negocios](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Un canal de KakaoTalk mejorado y verificado para empresas que requiere un proceso de solicitud y verificación. Ofrece características mejoradas, como {::nomarkdown}<ul><li>Señal de verificación</li><li>Aparición como canal recomendado</li><li>Soporte para mensajería empresarial</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de cuentas de KakaoTalk" }
 
 #### Solicitar un canal de negocios {#apply-for-a-business-channel}
 
@@ -68,9 +68,9 @@ Ve a tu [dashboard de Comm.One](https://ums.cjmplace.com/) y reúne la siguiente
 | **Comm.One Login ID (로그인 아이디)** | Selecciona tu perfil. |
 | **Sender Key (발신프로필 키)** | Ve a **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Channel name (카카오톡 채널 프로필명)** | En tu dashboard de Comm.One, ve a **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
-| **Sender number (연락처)** | {::nomarkdown}<ol><li>Ve a <b>Account Management (계정 관리)</b>, selecciona el ícono de menú y luego selecciona <b>View Details (자세히보기)</b>.</li><li>Ve a <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
-| **Credential (ID) & Password (비밀번호)** | Ve a la misma ubicación del **Sender number (사업자 등록번호)**, luego ve a **API** > **Brand Message (브랜드 메시지)**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Sender number (연락처)** | {::nomarkdown}<ol><li>Ve a <b>Account Management (계정 관리)</b>, selecciona el ícono de menú y luego selecciona <b>View Details (자세히보기)</b>.</li><li>Ve a <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ol>{:/} |
+| **Credential (ID) y Password (비밀번호)** | Ve a la misma ubicación del **Sender number (사업자 등록번호)**, luego ve a **API** > **Brand Message (브랜드 메시지)**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -82,26 +82,30 @@ Ve a tu [dashboard de Comm.One](https://ums.cjmplace.com/) y reúne la siguiente
 
 ![Dashboard de Comm.One mostrando una clave de remitente censurada.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+Solo puedes integrar una clave de remitente de KakaoTalk en un espacio de trabajo a la vez. Para usar la misma clave de remitente en un espacio de trabajo diferente, primero debes archivar el grupo de suscripción de KakaoTalk en el espacio de trabajo original y luego ponerte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/) para eliminar la integración. Después de que Braze elimine la integración, puedes configurar la integración en el nuevo espacio de trabajo.
+{% endalert %}
+
+![Credenciales para un canal de KakaoTalk en Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
 ![Dashboard de Comm.One mostrando un nombre de canal censurado.]({% image_buster /assets/img/kakaotalk/channel_profile_name.png %})
 
 {% endtab %}
-{% tab Credential (ID) & Password (비밀번호) %}
+{% tab Credential (ID) y Password (비밀번호) %}
 
 ![Dashboard de Comm.One mostrando un ID de credencial y contraseña censurados.]({% image_buster /assets/img/kakaotalk/id_and_password.png %})
 
 {% endtab %}
 {% endtabs %}
 
-![Campos en la página de Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Credenciales para un canal de KakaoTalk en Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Solo se pueden registrar los canales asignados a un único ID común.
 {% endalert %}
+
+![Campos en la página de Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -114,7 +118,7 @@ Ve a tu dashboard de Infobip y reúne la siguiente información.
 | **Sender name / Sender key** | Selecciona **Channels and Numbers** > **Channels**, luego selecciona la pestaña **Senders**. |
 | **Sender profile UUID** | Proporcionado directamente por Infobip. Ponte en contacto con Infobip si no tienes esta información. |
 | **Channel name** | Proporcionado directamente por Infobip. Ponte en contacto con Infobip si no tienes esta información. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## Configurar perfiles de usuario {#set-user-profiles}
 

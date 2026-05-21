@@ -19,7 +19,7 @@
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 
@@ -31,14 +31,14 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 Braze.getInstance(context).getCurrentUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 ```
 
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 
@@ -49,13 +49,13 @@ Braze.getInstance(context).currentUser?.addAlias(ALIAS_NAME, ALIAS_LABEL)
 
 {% elsif include.platform == "Web" %}
 
-```javascript
+`````````javascript
 braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 ```
 
 {% elsif include.platform == "Swift" %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.add(alias: ALIAS_NAME, label: ALIAS_LABEL)
 ```
 

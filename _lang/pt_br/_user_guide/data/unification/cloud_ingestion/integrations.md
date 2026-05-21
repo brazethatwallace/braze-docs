@@ -250,6 +250,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Você pode nomear o projeto, o conjunto de dados e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -334,6 +335,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.1: Set up the table" }
 
 Você pode nomear o esquema e a tabela como quiser, mas os nomes das colunas devem corresponder à definição anterior.
 
@@ -469,9 +471,16 @@ No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** > **S
 
 Escolha um nome para sua origem e insira suas credenciais e configuração do Snowflake, depois prossiga para a próxima etapa.
 
-{% alert note %}
-Para o campo **Snowflake Account Locator**, insira seu [identificador de conta do Snowflake](https://docs.snowflake.com/en/user-guide/admin-account-identifier), que normalmente segue um formato como `xy12345.us-east-1.aws`. Isso não é o mesmo que um nome de banco de dados ou nome de warehouse.
-{% endalert %}
+Antes de continuar, confirme o valor inserido em **Snowflake Account Locator**.
+
+Para o campo **Snowflake Account Locator**, insira seu [identificador de conta](https://docs.snowflake.com/en/user-guide/admin-account-identifier) do Snowflake. Insira apenas o valor do identificador de conta, como `myorganization-myaccount`. Não inclua `https://`, `.snowflakecomputing.com` ou qualquer caminho.
+
+Para encontrar o identificador de conta do Snowflake:
+
+1. No Snowsight, selecione o menu da sua conta.
+2. Selecione **View account details**.
+3. Copie o valor de **Account identifier**.
+4. Se você copiar de uma URL do Snowflake, use apenas o valor antes de `.snowflakecomputing.com`.
 
 #### Etapa 2.2: Adicionar uma chave pública ao usuário da Braze {#step-22-add-a-public-key-to-the-braze-user}
 

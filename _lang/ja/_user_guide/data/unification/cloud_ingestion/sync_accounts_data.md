@@ -140,7 +140,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     | `ID` | 文字列 | はい |
     | `NAME` | 文字列 | はい |
     | `DELETED` | ブール値 | オプション |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
 3. ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は、アカウントテーブルへのアクセス権がある限り再利用できます。
@@ -151,7 +151,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     | BigQuery User | Brazeがクエリの実行、メタデータの読み取り、テーブルの一覧表示を行えるようにします。 |
     | BigQuery Data Viewer | Brazeがデータセットとコンテンツを表示できるようにします。 |
     | BigQuery Job User | Brazeがジョブを実行できるようにします。 |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sync your account data" }
 
     権限を付与した後、JSONキーを生成します。手順については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。後でBrazeダッシュボードにアップロードします。
 
@@ -187,7 +187,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     | `ID` | 文字列 | はい |
     | `NAME` | 文字列 | はい |
     | `DELETED` | ブール値 | オプション |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
 3. Databricksでパーソナルアクセストークンを作成します：
@@ -236,7 +236,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
 | `PAYLOAD` | はい | Brazeのアカウントに同期するフィールドのJSON文字列 |
 | `DELETED` | オプション | Brazeからアカウントを削除することを示すブール値 |
 | `UPDATED_AT` | *非対応* | ファイルストレージでは`UPDATED_AT`列はサポートされていません |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {% alert note %}
 ファイル名はAWSのルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。Amazon S3同期の詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
@@ -258,14 +258,14 @@ CDIを使って、データウェアハウスやファイルストレージを�
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
-```plaintext
+`````````plaintext
 ID,NAME,PAYLOAD,DELETED
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}",TRUE
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}",FALSE
 ```
 {% endsubtab %}
 {% subtab CSV Accounts without Delete %}
-```plaintext
+`````````plaintext
 ID,NAME,PAYLOAD
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}"
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}"
@@ -283,7 +283,7 @@ ID,NAME,PAYLOAD
 
 {% tabs %}
 {% tab Snowflake %}
-```sql
+`````````sql
 CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -301,7 +301,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -319,7 +319,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -335,7 +335,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Databricks %}
-```sql
+`````````sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -351,7 +351,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE VIEW [BRAZE_CLOUD_PRODUCTION].[INGESTION].[ACCOUNTS_SYNC]
 AS SELECT
     account_id as ID,

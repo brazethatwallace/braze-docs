@@ -18,7 +18,7 @@ You can use CSV import to record and update the following user attributes and cu
 |Default Attributes|Reserved user attributes recognized by Braze.|`first_name`, `email`|500 MB|
 |Custom Attributes|User attributes unique to your business.|`last_destination_searched`|500 MB|
 |Custom Events|Events unique to your business that represent user actions.|`trip_booked`|50 MB|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="About CSV import" }
 
 ## Using CSV import
 
@@ -60,7 +60,7 @@ If you are uploading or updating user profiles that are alias only, you must hav
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@user.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@user.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 2: Choose an identifier #choose-an-identifier" }
 
 When you provide both a `user_alias_name` and `user_alias_label` in your import, Braze updates any existing user with the same `user_alias_name` and `user_alias_label`. If a user isn’t found, Braze creates a newly identified user with that `user_alias_name` set.
 
@@ -136,7 +136,7 @@ The following data types can be used as custom attributes for CSV import. Column
 | Number | Must be an integer or float with no spaces or commas. Floats must use a period (`.`) as the decimal separator. |
 | String | Can contain commas if the value is wrapped in double quotation marks (`""`). |
 | Blank | Blank values won’t overwrite existing values on the user profile, and you don’t need to include all existing user attributes in your CSV file. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
 
 {% alert important %}
 Arrays, push tokens, and custom event data types aren’t supported in user import, as commas in your CSV file will be interpreted as a column separator and cause errors while parsing your file.<br><br>To upload these kinds of values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) instead.
@@ -146,6 +146,10 @@ Arrays, push tokens, and custom event data types aren’t supported in user impo
 
 {% alert important %}
 When importing default attributes, the column headers you use must exactly match the spelling and capitalization of default user attributes. Otherwise, Braze detects these as [custom attributes](#custom-attributes) instead.
+{% endalert %}
+
+{% alert tip %}
+For the complete list of standard attributes Braze recognizes (across SDK, API, CSV, and Cloud Data Ingestion), see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). The following table covers only the subset that can be set through CSV import.
 {% endalert %}
 
 The following default attributes are available for user import.
@@ -172,7 +176,7 @@ The following default attributes are available for user import.
 | `date_of_first_session`  `date_of_last_session` | String | May be passed in one of the following ISO 8601 formats: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (for example, 2019-11-20T18:38:57) | No |
 | `subscription_group_id` | String | The `id` of your subscription group. This identifier can be found on the subscription group page of your dashboard. | No |
 | `subscription_state` | String | The subscription state for the subscription group specified by `subscription_group_id`. Allowed values are `unsubscribed` (not in subscription group) or `subscribed` (in subscription group). | No, but strongly recommended if `subscription_group_id` is used |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Default attributes" }
 
 #### Updating subscription group status (optional)
 
@@ -187,7 +191,7 @@ If you are updating subscription group statuses, you must have the following two
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Updating subscription group status (optional)" }
 
 {% alert note %}
 Only a single `subscription_group_id` can be set per row in the user import. Different rows can have different `subscription_group_id` values. However, if you need to enroll the same users into multiple subscription groups, you’ll need to do multiple imports.
@@ -223,7 +227,7 @@ For example, the custom event `trip_booked` may have the properties `destination
 | `name` | String | A custom event of your users. | Yes |
 | `time` | String | The time of the event. May be passed in one of the following ISO-8601 formats: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (for example, 2019-11-20T18:38:57) | Yes |
 | `<event name>.properties.<property name>` | Multiple | An event property associated with a custom event. An example is `trip_booked.properties.destination` | No |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
 
 #### Format requirements for custom events
 
@@ -270,7 +274,7 @@ The following table demonstrates the correct formatting for importing custom eve
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | 123 | rented_movie | 2024-06-10T12:00:00Z | Ghostbusters | Action | | |
 | 456 | bought_movie | 2024-06-12T12:00:00Z | | | Ghostbusters | Action |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Example CSV structure" }
 
 In this example:
 
@@ -314,7 +318,7 @@ The mapping status column indicates the action that occurs when your CSV file is
 | **Data type mismatch** | The detected data type of the CSV column does not match the data type of the existing attribute or identifier. Braze attempts to convert the data type on import to match the existing attribute. The value is dropped if this is not possible. |
 | **Blocklist attribute** | The CSV field matches the name of a blocklisted attribute. Select a different attribute to map to or the column is not imported. |
 | **Duplicate attribute** | There are one or more fields with the same name in your CSV file. Map the same-name columns to different attributes or only the first column is imported. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapping statuses" }
 
 
 #### Editing new attributes
@@ -336,7 +340,7 @@ After mapping, you can choose from the following targeting preferences on the Im
 |---|---|
 | Targeting filter | To convert your CSV file into a retargeting option when building user segments, choose your file from the **Updated/Imported from CSV** dropdown, then select **Create targeting filter**. |
 | New segments | To also create a new segment from your new targeting filter, select **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Choose targeting preferences #targeting-preferences" }
 
 ![A filter group with the "Updated/Imported from CSV" filter including a CSV file titled "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
@@ -356,7 +360,7 @@ When validation completes, one of the following results appears.
 | **Issues found** | Some rows have errors or warnings. | Download the error report to review them, then select **Import anyway** to proceed or **Cancel** to fix your file first. |
 | **Validation timed out** | Validation ran out of time. The rows that were checked had no issues. | Select **Import data**. A full report will be available in a few minutes. |
 | **Validation timed out with issues** | Validation ran out of time and found errors in some of the rows it checked. | Download the partial report to review what was found, then select **Import anyway** or **Cancel**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation results" }
 
 ![The summary page showing issues found section, showing a count of rows with errors and warnings, with options to go back, download the error report, or start import.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
@@ -368,7 +372,7 @@ The error report is a CSV file that contains every flagged row along with its or
 |---|---|
 | **Error** | The row will be skipped entirely during import. |
 | **Warning** | The row will be imported, but some values will be dropped. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding the error report" }
 
 After reviewing the report, you can correct the issues in your original file and re-upload, or proceed with the import and accept the partial results.
 
@@ -392,7 +396,7 @@ After starting your import, you can check its status on the **Import Users** pag
 | **Complete** | All rows imported successfully. |
 | **Partial success** | Some rows failed. Select the three-dot menu next to the import to download an error report or the original uploaded CSV. |
 | **In progress** | The import is currently running. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Import statuses" }
 
 ![The Import Users page showing a Partial success status with the context menu open, displaying Download error report and Download uploaded CSV options.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
@@ -411,7 +415,7 @@ Each piece of customer data imported from a CSV file overwrites the existing val
 | External IDs | Uploading a CSV with only `external_id` doesn't log data points. This allows you to segment existing Braze users without impacting data limits. However, including fields like `email` or `phone` overwrites existing user data and **does** log data points. <br><br>CSV imports used only for segmentation do not log data points, such as those containing just `external_id`, `braze_id`, or `user_alias_name`. |
 | Blank values | Blank values in your CSV won't overwrite existing user profile data. You don't need to include all user attributes or custom events when importing. |
 | Subscription states | Updating `email_subscribe`, `push_subscribe`, `subscription_group_id`, or `subscription_state` does **not** count toward data point usage. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data point considerations" }
 
 {% alert important %}
 Setting `language` or `country` on a user through CSV import or API prevents Braze from automatically capturing this information through the SDK.
@@ -461,7 +465,7 @@ There are a few reasons why the number of users imported might not match the tot
 | Unescaped or unbalanced double quotation marks (`"`) | Double quotation marks wrap string values that contain commas. If a value itself contains a double quotation mark, escape it by doubling it (`""`). Unescaped or unbalanced double quotation marks cause a malformed row. |
 | Inconsistent line breaks | Mixed line breaks (e.g., `\n` and `\r\n`) may cause the first row of data to be treated as part of the header. Use a hex or advanced text editor to inspect and fix. |
 | Incorrectly encoded file | Even if accents are allowed, the file must be UTF-8 encoded. Other encodings may work partially but are not fully supported. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Missing row" }
 
 #### String quotation
 
@@ -515,4 +519,4 @@ There are several reasons the **Select CSV File** button may not work:
 | Pop-up blocker | This may prevent the page from displaying. Confirm that your browser is allowing pop-ups on the Braze dashboard website. |
 | Outdated browser | Make sure your browser is up to date; if not, update it to the latest version. |
 | Background processes | Close every browser instance, then restart your computer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label=""Select CSV File" is not working" }

@@ -59,7 +59,7 @@
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | バナー用のHTML（および関連アセット）を追加または編集します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 電話番号キャプチャ {#phone-capture}
 

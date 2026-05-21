@@ -42,7 +42,7 @@ description: "この参考記事では、Braze WhatsApp オブジェクトのさ
 ```
 
 {% alert important %}
-**メディア送信の制限:**メディア送信(ドキュメント、動画、および他のメディアタイプ) は、`messages/send` API ではサポートされていません。API を介して送信されるテンプレート メッセージでは、TEXT およびIMAGE ヘッダータイプのみがサポートされます。WhatsApp テンプレートがドキュメント、ビデオ、または他のメディアタイプのヘッダーを使用している場合、`messages/send` API を使用して送信することはできません。[Campaigns Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)またはBraze ダッシュボードを使用して、メディアヘッダーsでテンプレートsを送信します。
+**メディア送信の制限:**メディア送信(ドキュメント、動画、および他のメディアタイプ) は、`messages/send` API ではサポートされていません。API を介して送信されるテンプレート メッセージでは、TEXT およびIMAGE ヘッダータイプのみがサポートされます。WhatsApp テンプレートがドキュメント、ビデオ、または他のメディアタイプのヘッダーを使用している場合、`messages/send` API を使用して送信することはできません。[キャンペーン Triggered API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)またはBraze ダッシュボードを使用して、メディアヘッダーsでテンプレートsを送信します。
 {% endalert %}
 
 ##### ヘッダー変数オブジェクト

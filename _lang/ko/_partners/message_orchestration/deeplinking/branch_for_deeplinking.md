@@ -142,6 +142,6 @@ Braze Campaign에서 Branch 링크가 예상대로 작동하지 않는 경우 �
 | 푸시에서는 작동하지만 이메일에서는 작동하지 않음 | 클릭 추적 도메인에 AASA가 누락됨 | 이메일 서비스 공급자의 클릭 추적 도메인에 AASA를 호스팅하세요. [이메일 설정](#deep-linking-in-email) 참조 |
 | Branch 링크에 대해 `shouldOpenURL`이 실행되지 않음 | `forwardUniversalLinks`가 활성화되지 않음 | `configuration.forwardUniversalLinks = true`로 설정하세요 |
 | 메모에서는 작동하지만 Braze에서는 작동하지 않음 | `BrazeDelegate`가 Branch URL에 대해 `true`를 반환함 | `shouldOpenURL`의 도메인 확인이 Branch 도메인과 일치하는지 확인하세요 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="일반적인 문제" }
 
 더 많은 딥링킹 문제 해결 시나리오는 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/)을 참조하세요.

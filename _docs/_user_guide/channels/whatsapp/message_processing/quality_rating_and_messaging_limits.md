@@ -19,7 +19,7 @@ channel:
 | --- | --- |
 | Quality rating | A rating based on the recent messages that your customers have received over the last seven days. This rating is determined by the feedback from your customers, such as the reason to block your phone number and other reporting issues. View Meta's documentation to learn more [about your quality rating](https://www.facebook.com/business/help/896873687365001).|
 | Messaging limit | The maximum number of business-initiated conversations you can begin with each of your phone numbers in a rolling 24-hour period. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definitions" }
 
 ## Onboarding  
 

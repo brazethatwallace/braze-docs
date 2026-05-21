@@ -93,7 +93,7 @@ Use the following fields to record metadata that helps your team find and manage
 | Team | Optional. Assign [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) so the right groups can edit or report on this send. |
 | Tags | Optional. Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) to filter in lists and tools such as [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | Campaign ID | Where shown in the composer or summary, copy this identifier for API calls, reporting, and integrations that reference a specific campaign. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
 
 ### Channels and editors
 
@@ -116,13 +116,13 @@ Choose when users become eligible to receive the campaign:
 | [Scheduled delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | Send at a specified time or cadence. |
 | [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | Send when users perform behaviors or meet conditions you define. |
 | [API-triggered delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | Send when your systems call Braze to trigger the campaign for eligible users. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Schedule delivery #step-2-schedule-delivery" }
 
 For scheduling concepts across Braze, see [Schedule your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
 ### Delivery controls
 
-Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) so messages don't send during restricted windows.
+Depending on delivery type, you can adjust [re-eligibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (whether users may enter the campaign again) and respect workspace [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) rules. You may also configure [quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) so messages don't send during restricted windows.
 
 ## Step 3: Target audiences {#step-3-target-audiences}
 

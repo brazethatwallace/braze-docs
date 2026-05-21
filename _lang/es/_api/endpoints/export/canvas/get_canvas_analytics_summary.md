@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Exportar análisis de resumen de datos de Canvas"
 article_title: "GET: Exportar análisis de resumen de datos de Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -28,16 +28,16 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatoria | Cadena | Ver [identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `ending_at` | Obligatoria | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de finalización de la exportación de datos. Se predetermina a la hora de la solicitud. |
+| `canvas_id` | Obligatorio | Cadena | Ver [identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `ending_at` | Obligatorio | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de finalización de la exportación de datos. Se predetermina a la hora de la solicitud. |
 | `starting_at` | Opcional* | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha de inicio de la exportación de datos. <br><br>* Se requiere `length` o `starting_at`. |
 | `length` | Opcional* | Cadena | Número máximo de días antes de `ending_at` incluidos en la serie devuelta. Debe estar comprendido entre 1 y 14 (ambos inclusive). <br><br>* Se requiere `length` o `starting_at`. |
 | `include_variant_breakdown` | Opcional | Booleano | Si se deben incluir estadísticas de variantes (el valor predeterminado es `false`).  |
 | `include_step_breakdown` | Opcional | Booleano | Si se deben incluir estadísticas de pasos (el valor predeterminado es `false`). |
 | `include_deleted_step_data` | Opcional | Booleano | Si se deben incluir estadísticas de pasos para los pasos eliminados (el valor predeterminado es `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert important %}
 **Alineación de zonas horarias:** Los análisis del panel de Braze se agregan diariamente en la zona horaria configurada por tu empresa en el dashboard. Asegúrate de que tus marcas de tiempo coincidan con la zona horaria de tu empresa para que tus estadísticas coincidan con las del dashboard. Por ejemplo, si la hora de tu empresa es UTC+2, la marca de tiempo debería ser 12:00 a. m. UTC+2.

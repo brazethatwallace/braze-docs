@@ -30,10 +30,10 @@ Antes de empezar, necesitas lo siguiente:
 
 | Requisito | Descripción |
 |--------------|-------------|
-| Acceso a la plataforma Seen | Necesitas una suscripción a la plataforma Seen o una campaña de Seen activa. Necesitas acceder a la configuración de tu espacio de trabajo para recuperar tu ID de espacio de trabajo y generar un token de API. |
+| Acceso a la plataforma Seen | Necesitas una suscripción a la plataforma Seen o una Campaign de Seen activa. Necesitas acceder a la configuración de tu espacio de trabajo para recuperar tu ID de espacio de trabajo y generar un token de API. |
 | URL de webhook de Transformación de datos de Braze | La Transformación de datos de Braze reformatea los datos entrantes de Seen para que puedan ser aceptados por el punto de conexión /users/track de Braze. |
 | Datos de usuario de Braze | La personalización del video requiere datos a nivel de usuario. Asegúrate de que los atributos pertinentes están disponibles en Braze y de que pasas **braze_id** como identificador único. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 
@@ -128,7 +128,7 @@ Como la carga útil de la respuesta es configurable, asegúrate de que se devuel
 | `id` | Debe coincidir con el `braze_id` enviado desde Braze |
 | `player_url` | URL única para el reproductor de video personalizado |
 | `email_thumbnail_url` | URL de la miniatura de video generada |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook node response requirements" }
 
 Si tu caso de uso requiere atributos adicionales, inclúyelos en la respuesta y mapéalos en Braze.
 

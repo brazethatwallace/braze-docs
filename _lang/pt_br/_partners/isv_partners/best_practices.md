@@ -126,14 +126,14 @@ Essa funcionalidade está em acesso antecipado.
 ### Currents
 
 Currents é uma ferramenta de streaming de análise de dados de engajamento com mensagens quase em tempo real na Braze. Ela transmite dados em nível de usuário sobre todos os envios, entregas, aberturas, cliques, etc., para Campaigns e Canvas enviados a partir do espaço de trabalho do cliente. Algumas observações: o preço do Currents é por conector para o cliente, então todos os novos parceiros do Currents devem passar por um processo de acesso antecipado (EA). Solicitamos que nossos parceiros tenham cinco clientes como parte do EA antes de criarmos a interface com marca personalizada e disponibilizarmos publicamente o conector.
-- [Documentação do parceiro]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Documentação do parceiro]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [Eventos de engajamento com mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) — todos os clientes que comprarem um conector Currents terão acesso a esses eventos.
 - [Eventos de comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) — nem todos os clientes que comprarem um conector Currents comprarão um conector "todos os eventos" que incluirá esses eventos.
 
 ### Snowflake Data Share
 
 Os clientes que comprarem um conector Snowflake Data Share terão acesso automático aos eventos de engajamento com mensagens e de comportamento do usuário. Quando o Snowflake Data Share é usado como uma integração com parceiros, a Braze provisionará um compartilhamento para a instância do Snowflake do parceiro em nome do cliente. Como observação, o compartilhamento de dados entre regiões tem um custo mais alto para nossos clientes, então pedimos que os parceiros que desejam se integrar ao Snowflake tenham uma conta em `US-EAST-1` e/ou `EU-CENTRAL-1`
-- [Documentação do parceiro]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Documentação do parceiro]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
 ## Criação e disparo de Campaigns e Canvas {#building-and-triggering-campaigns-and-canvases}
 

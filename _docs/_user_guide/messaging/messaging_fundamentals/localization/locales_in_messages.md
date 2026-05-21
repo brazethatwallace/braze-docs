@@ -27,16 +27,16 @@ Watch the following video for an optional overview of setting up and using multi
 
 | Feature | Required user permissions |
 | --- | --- |
-| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> {::nomarkdown}Granular permissions: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> Legacy permissions: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites"}
 
 {% endtab %}
 {% tab Templates %}
 
 | Feature | Required user permissions |
 | --- | --- |
-| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown}Granular permissions: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> Legacy permissions: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ Static URLs are entered manually in the editor (for example, `https://example.co
 | --- | --- |
 | Keep the protocol (`https://`) outside of translation tags. Wrap only the domain and path (for example, `example.com/en`). | Translators may accidentally alter or remove special characters, causing broken links. |
 | Do not include query parameters inside translation tags (for example, `?utm_source=promo`). | Translators may accidentally alter or remove special characters, resulting in broken links. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard (static) URLs" }
 
 A standard URL that follows both recommendations is:
 
@@ -87,7 +87,7 @@ If your URL is generated with Liquid (for example, {% raw %}`{% landing_page_url
 | --- | --- |
 | Wrap the Liquid-generated URL in translation tags only if it must be localized. | Liquid syntax must be carefully preserved to render correctly. |
 | Do not include query parameters (for example, `?utm_source=promo`) inside translation tags.  | Translators may accidentally alter or remove special characters, resulting in broken links. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-generated URLs" }
 
 A Liquid-generated URL that follows both recommendations is:
 
@@ -227,7 +227,7 @@ URLs use two special characters to control how this works:
 | Standard URL | Yes | Use `&` at the end of the URL (after the closing translation tag) if it already contains `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid generated | No | Use `?` after the closing translation tags if the generated URL does not already contain one. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid generated | Yes | Use `&` after the closing translation tag if the generated URL already contains a `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Email link tracking" }
 
 ### Language settings and accessibility {#language-settings-and-accessibility}
 
@@ -296,4 +296,4 @@ Yes. If using a CSV, first make the edit in the file, then upload it again to ma
 | Translation tags contain full URLs or Liquid-generated URLs. | Translation tags containing URLs are identified in case issues with broken links or link tracking occur. |
 | Translation tags include query parameters. | Translation tags containing query parameters are identified in case issues with broken links or link tracking occur. |
 | Translation tags contain HTML attributes or structures. | Translation tags containing HTML attributes or structures are identified in case issues with styles and formatting occur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What validations or extra checks does Braze do?" }

@@ -10,8 +10,6 @@ description: "Diese Seite bietet eine Übersicht darüber, wie Sie Braze-Canvase
 
 > Erfahren Sie, wie Sie Canvas-Trigger mithilfe von CDI für eine Zero-Copy-Personalisierung synchronisieren können. Dieses Feature greift auf nutzerspezifische Informationen aus Ihrer Datenspeicher-Lösung zu und überträgt diese an einen Ziel-Canvas. Canvas-Schritte können optional Personalisierungsfelder enthalten, die nicht in Braze-Nutzerprofilen persistent gespeichert werden.
 
-{% multi_lang_include early_access_beta_alert.md feature='CDI Canvas triggers' %}
-
 ## Canvas-Trigger synchronisieren {#syncing-canvas-triggers}
 
 ### Schnellstart-Schritte {#quick-start-steps}
@@ -146,12 +144,12 @@ Beachten Sie beim Erstellen Ihrer Quelltabelle Folgendes:
 
 | Feldname | Typ | Erforderlich? |
 | :---- | :---- | :---- |
-| **`UPDATED_AT`** | Zeitstempel | Ja |
+| **`UPDATED_AT`** | Timestamp | Ja |
 | **`PROPERTIES`** | JSON | Ja |
 | **`EXTERNAL_ID`** | STRING | NULLABLE |
 | **`ALIAS_NAME`** | STRING | NULLABLE |
 | **`ALIAS_LABEL`** | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1.2: Quelltabelle in BigQuery einrichten" }
 
 {% alert note %}
 Eigenschaften sind nicht für jede Zeile oder jede Nutzer:in erforderlich. Die Eigenschaftswerte müssen jedoch ein gültiger JSON-String sein. Geben Sie einen leeren `{}`-String ein, wenn für die Zeile keine Eigenschaften vorhanden sind.
@@ -180,7 +178,7 @@ Erstellen Sie eine Nutzer:in und erteilen Sie Berechtigungen. Sollten Sie bereit
 | BigQuery User | Ermöglicht Braze, Abfragen auszuführen, Metadaten zu lesen und Tabellen aufzulisten. |
 | BigQuery Data Viewer | Ermöglicht Braze, Datensätze und Inhalte einzusehen. |
 | BigQuery Job User | Ermöglicht Braze, Jobs auszuführen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1.3: Zugangsdaten einrichten" }
 
 Generieren Sie nach der Erteilung der Berechtigungen einen JSON-Schlüssel. Anweisungen finden Sie unter [Schlüssel erstellen und löschen](https://cloud.google.com/iam/docs/keys-create-delete). Sie laden ihn später im Braze-Dashboard hoch.
 
@@ -202,12 +200,12 @@ Beachten Sie beim Erstellen Ihrer Quelltabelle Folgendes:
 
 | Feldname | Typ | Erforderlich |
 | :---- | :---- | :---- |
-| `UPDATED_AT` | Zeitstempel | Ja |
+| `UPDATED_AT` | Timestamp | Ja |
 | `PROPERTIES` | JSON | Ja |
 | `EXTERNAL_ID` | STRING | NULLABLE |
 | `ALIAS_NAME` | STRING | NULLABLE |
 | `ALIAS_LABEL` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: Quelltabelle in Databricks einrichten" }
 
 Sie können das Schema und die Tabelle nach Belieben benennen, jedoch sollten die Spaltennamen mit der vorangegangenen Definition übereinstimmen.
 
@@ -285,7 +283,7 @@ Um Canvas-Trigger aus dem Dateispeicher zu synchronisieren, erstellen Sie eine Q
 | `EXTERNAL_ID` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Diese beiden Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
 | `PROPERTIES` | Ja | JSON-String von Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.3: Netzwerkrichtlinien konfigurieren" }
 
 {% alert tip %}
 Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Synchronisierung mit Amazon S3 finden Sie unter [Dateispeicher-Integrationen](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
@@ -326,13 +324,10 @@ Wenn die Synchronisierung ausgeführt wird, beginnen die Nutzer:innen in Ihrer Q
 
 CDI Canvas-Trigger nutzen Ihr REST API-Rate-Limit für `/canvas/trigger/send`. Wenn Sie diesen Endpunkt gleichzeitig mit CDI Canvas-Triggern und Ihrer REST API-Integration verwenden, wird die kombinierte Nutzung auf Ihr Rate-Limit angerechnet.
 
-Da sich CDI Canvas-Trigger noch in der Early-Access-Phase befinden, beachten Sie bitte die folgenden Details:
+Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen. Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
 
-* Bis zu 5 aktive Canvas-Trigger-Synchronisierungen pro Workspace
-* Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen.
-  * Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
-    * Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
-    * CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) bereits ausgeschöpft ist.
+* Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
+* CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#rate-limit) bereits ausgeschöpft ist.
 
 Beachten Sie Folgendes zur Zero-Copy-CDI, wenn die Nachrichtenarchivierung aktiviert ist:
 

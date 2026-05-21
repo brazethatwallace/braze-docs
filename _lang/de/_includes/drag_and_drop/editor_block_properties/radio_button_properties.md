@@ -11,4 +11,4 @@
 | Ausrichtung | Horizontale Ausrichtung der Auswahlmöglichkeiten innerhalb des Blocks. |
 | Akzentfarbe | Farbe der Optionsfeld-Steuerelemente (z. B. der Indikator für den ausgewählten Zustand). |
 | Padding | Abstand um den Block herum. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

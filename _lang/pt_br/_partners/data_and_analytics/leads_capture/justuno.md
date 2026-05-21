@@ -20,21 +20,21 @@ A integração do Justuno com a Braze oferece o melhor dos dois mundos. Você po
 
 ## Pré-requisitos {#prerequisites}
 
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `custom_attributes.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `custom_attributes.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint REST da Braze | Seu URL do endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração do Justuno com a Braze {#integrating-justuno-with-braze}
 
 ### Etapa 1: Criar atributos personalizados na Braze {#step-1-create-custom-attributes-in-braze}
 
-Para sincronizar atributos de usuário do Justuno para a Braze, será necessário criar esses atributos na Braze, caso ainda não o tenha feito. Você pode fazer isso acessando **Configurações de dados** > **Atributos personalizados** e, em seguida, criando seus atributos personalizados. Para obter um passo a passo completo, consulte [Gerenciando atributos personalizados na Braze]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Para sincronizar atributos de usuário do Justuno para a Braze, será necessário criar esses atributos na Braze, caso ainda não o tenha feito. Você pode fazer isso acessando **Data Settings** > **Custom Attributes** e, em seguida, criando seus atributos personalizados. Para obter um passo a passo completo, consulte [Gerenciando atributos personalizados na Braze]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
 
 ### Etapa 2: Adicionar o app da Braze ao Justuno {#step-2-add-the-braze-app-to-justuno}
 
 #### Etapa 2.1: Adicione-o à sua conta {#step-21-add-it-to-your-account}
 
-Para adicionar o app da Braze à sua conta Justuno, acesse **Configurações da conta** > **Apps** e, em seguida, procure e selecione o app da Braze.
+Para adicionar o app da Braze à sua conta Justuno, acesse **Account Settings** > **Apps** e, em seguida, procure e selecione o app da Braze.
 
 ![A página "Connect Apps" no Justuno com o app da Braze mostrado na lista de resultados de pesquisa.]({% image_buster /assets/img/justuno/search-for-braze.png %})
 
@@ -52,17 +52,17 @@ Para adicionar o app da Braze ao seu [fluxo de trabalho Justuno](https://hub.jus
 
 Para enviar dados de perfil do Justuno para um grupo de inscrições de e-mail ou SMS específico da Braze, você precisará adicionar o ID deles ao app da Braze em seu fluxo de trabalho do Justuno.
 
-| Tipo de ID                          | Obrigatório? | Descrição                                                                                                   |
+| Tipo de ID                          | Obrigatória? | Descrição                                                                                                   |
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
 | ID do grupo de inscrições SMS da Braze  | Sim       | Esse ID é usado para coletar o consentimento de SMS dos perfis de usuário. Se nenhum ID for inserido no Justuno, os perfis não terão consentimento quando o Justuno enviar esse perfil para a Braze. |
 | ID do grupo de inscrições para e-mail da Braze | Não        | Se esse ID não for inserido no Justuno, o Justuno enviará os dados do perfil para a Braze como um usuário sem grupos de inscrições associados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 3: Conecte seus grupos de inscrições da Braze" }
 
 #### Etapa 3.1: Localize os IDs na Braze {#step-31-locate-the-ids-in-braze}
 
 Para localizar esses IDs no dashboard da Braze:
 
-1. Acesse **Público** > **Inscrições**.
+1. Acesse **Audience** > **Subscriptions**.
 2. Para cada grupo de inscrições, anote o ID localizado na coluna ID.
 
 #### Etapa 3.2: Adicione os IDs ao app da Braze {#step-32-add-the-ids-to-the-braze-app}
@@ -95,6 +95,6 @@ Para sincronizar atributos adicionais:
 ## Informações importantes {#things-to-know}
 
 - Você deve inserir manualmente o ID do grupo de inscrições nas configurações do app.
-- Os seguintes tipos de dados da Braze **não** são suportados: Objeto, vetor de objeto.
+- Os seguintes tipos de dados da Braze **não são** suportados: Objeto, vetor de objeto.
 - O consentimento implícito de SMS é fornecido quando o campo de consentimento de SMS do Justuno não é usado.
 - O consentimento explícito por SMS será respeitado se o design do Justuno incluir o campo de consentimento.

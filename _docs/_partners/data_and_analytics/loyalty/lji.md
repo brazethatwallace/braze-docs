@@ -30,7 +30,7 @@ Before you start, you need the following:
 | Braze REST API key | A REST API key with `campaigns.trigger.send`, `canvas.trigger.send`, and `users.track` permissions.<br><br> Create this key in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze API endpoint | Your Braze REST endpoint (for example, `https://rest.fra-01.braze.eu`). For more information, see [Braze instances and endpoints]({{site.baseurl}}/api/basics/#endpoints). |
 | Campaign or Canvas IDs | IDs for the **Campaigns** or **Canvas** workflows you trigger from GRAVTY®. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

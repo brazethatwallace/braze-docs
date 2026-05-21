@@ -33,7 +33,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
 | `item_id` | Requis | Chaîne de caractères | L'ID du produit du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Paramètres de requête {#request-parameters}
 
@@ -92,6 +92,6 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `arbitrary-error` | Une erreur arbitraire est survenue. Veuillez réessayer ou contacter l'[assistance]({{site.baseurl}}/support_contact/). |
 | `catalog-not-found` | Vérifiez que le nom du catalogue est valide. |
 | `item-not-found` | Vérifiez que le produit à supprimer existe dans votre catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

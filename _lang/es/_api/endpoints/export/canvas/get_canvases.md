@@ -32,13 +32,13 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
 | `page` | Opcional | Entero | La página de Canvas a devolver, predeterminada a `0` (devuelve el primer conjunto de hasta 100). |
 | `include_archived` | Opcional | Booleano | Incluir o no los Canvas archivados, de forma predeterminada es `false`. |
 | `sort_direction` | Opcional | Cadena | - Ordenar la hora de creación de más reciente a más antigua: introduce el valor `desc`.<br> - Ordenar la hora de creación de más antigua a más reciente: introduce el valor `asc`. <br><br>Si no se incluye `sort_direction`, el orden predeterminado es de más antiguo a más reciente. |
 | `last_edit.time[gt]` | Opcional | Tiempo | Filtra los resultados y solo devuelve los Canvas que se hayan editado después del tiempo indicado hasta ahora. El formato es `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

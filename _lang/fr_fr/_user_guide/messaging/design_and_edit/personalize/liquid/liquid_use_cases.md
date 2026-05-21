@@ -1796,3 +1796,5 @@ Ce cas d'utilisation annule le message lorsque Liquid s'exécute un jour de la s
 {% endraw %}
 
 {% endapi %}
+
+De nombreux exemples de cette bibliothèque utilisent la balise `abort_message` pour ignorer un envoi lorsque les conditions ne sont pas remplies. Pour une référence complète sur l'annulation d'envois avec Liquid, y compris les modèles basés sur la date et l'heure, consultez [Annuler les messages Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).

@@ -26,7 +26,7 @@ Des méthodes d'intégration plus avancées, notamment l'utilisation du [contenu
 | Exigences     | Description |
 |-----------------------|-----------------|
 | Compte Cloudinary  | Un [compte Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) est nécessaire pour profiter de ce partenariat.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Méthodes d'intégration {#integration-methods}
 
@@ -117,7 +117,7 @@ Si aucune correspondance exacte n'est trouvée, la fonction sélectionne automat
 Consultez le [dépôt GitHub `braze-personalization`](https://github.com/cloudinary-devs/braze-personalization) de Cloudinary pour obtenir des instructions sur la création et l'application de fonctions personnalisées, ainsi qu'un exemple de fonction personnalisée pour la sélection des ressources et les options de repli pour une campagne donnée. Pour plus de conseils, contactez votre équipe d'assistance Cloudinary.
 {% endalert %}
 
-### Conditions préalables {#prerequisites}
+### Conditions préalables
 
 Pour permettre une sélection dynamique des ressources, Cloudinary doit pouvoir renvoyer un ensemble de ressources en fonction des tags et des métadonnées. Si le type de distribution de la liste est restreint, Cloudinary ne peut pas fournir la liste dynamique nécessaire à la sélection personnalisée des ressources dans les Campaigns Braze.
 - Libérez le type de distribution de la liste : ouvrez les paramètres de sécurité dans votre console Cloudinary, et décochez l'élément de la liste des ressources sous Types d'images restreints.

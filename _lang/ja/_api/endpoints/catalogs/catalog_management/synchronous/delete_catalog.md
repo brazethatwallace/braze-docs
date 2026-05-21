@@ -32,7 +32,7 @@ description: "この記事では、「カタログの削除」Brazeエンドポ�
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログ名。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -85,6 +85,6 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 | エラー | トラブルシューティング |
 | --- | --- |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

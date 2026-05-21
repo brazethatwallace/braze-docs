@@ -1,7 +1,7 @@
 ---
 nav_title: LiveRamp
 article_title: LiveRamp
-description: "LiveRamp、Snowflake、およびBrazeを接続する方法について説明します。この方法を理解することで、高度にパーソナライズされた関連性のあるマーケティングCampaignsを作成できます。"
+description: "LiveRamp、Snowflake、およびBrazeを接続する方法について説明します。この方法を理解することで、高度にパーソナライズされた関連性のあるマーケティングキャンペーンを作成できます。"
 alias: /partners/liveramp/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # LiveRamp、Snowflake、Brazeを接続する {#connect-liveramp-snowflake-and-braze}
 
-> LiveRamp、Snowflake、Brazeを接続する方法を学ぶことで、インサイトまでの時間を短縮し、データのサイロ化を解消し、カスタマーエンゲージメントを最適化することで、高度にパーソナライズされた関連性の高いマーケティングCampaignsを作成できます。この統合により、実用的な個人ベースのインサイトが提供され、消費者のタッチポイントが集約されることで、より適切なオーディエンスセグメンテーションとタイムリーなCampaignsが可能になり、データドリブン型のマーケティングが強化されます。また、Snowflakeが提供するベンチマークを活用し、業界標準に照らし合わせてマーケティング戦略を洗練させることもできます。
+> LiveRamp、Snowflake、Brazeを接続する方法を学ぶことで、インサイトまでの時間を短縮し、データのサイロ化を解消し、カスタマーエンゲージメントを最適化することで、高度にパーソナライズされた関連性の高いマーケティングキャンペーンを作成できます。この統合により、実用的な個人ベースのインサイトが提供され、消費者のタッチポイントが集約されることで、より適切なオーディエンスセグメンテーションとタイムリーなキャンペーンが可能になり、データドリブン型のマーケティングが強化されます。また、Snowflakeが提供するベンチマークを活用し、業界標準に照らし合わせてマーケティング戦略を洗練させることもできます。
 
 {% alert important %}
 Snowflakeの[セキュアデータシェアリング](https://docs.snowflake.com/en/user-guide/data-sharing-intro)では、LiveRamp、Snowflake、およびBraze間でデータが転送されません。データは、Snowflakeのサービスおよびメタデータストアでのみ共有されます。つまり、データはコピーされず、追加のストレージ料金は発生しません。共有データへのアクセスは、Snowflakeアカウントのアクセスコントロールを使用して制御および管理されます。
@@ -19,7 +19,7 @@ Snowflakeの[セキュアデータシェアリング](https://docs.snowflake.com
 
 - **データの最小化:** LiveRampのアクティベーションアプリでは、Snowflakeのセキュアデータシェア機能を使用して、インスタンスから直接テーブルを効率的に読み取ります。ダウンストリームパートナーに配信する時点まで、Snowflakeからデータは移動されません。
 - **安全なファーストパーティのアクティベーション:** 前述のID解決アプリケーションを使用することで、LiveRampのアクティベーションアプリケーションはSnowflakeインスタンスのRampIDベースのテーブルのみを使用します。このため、PIIが外部へ流出することがありません。
-- **ライブまでの時間を短縮:** お客様の環境でデータを直接RampIDに解決することで、最終宛先への配信が数時間以内に行われます。これに対し、LiveRampの従来のファイルベースの方法では数日間かかっていました。これにより、Campaignのパフォーマンスをタイムリーに最適化する能力が大幅に向上します。
+- **ライブまでの時間を短縮:** お客様の環境でデータを直接RampIDに解決することで、最終宛先への配信が数時間以内に行われます。これに対し、LiveRampの従来のファイルベースの方法では数日間かかっていました。これにより、キャンペーンのパフォーマンスをタイムリーに最適化する能力が大幅に向上します。
 - **運用コストの節約:** 上記と同様に、Snowflakeのセキュアデータシェアリング機能を使用することで、ファイルをLiveRampやその他の最終宛先に直接出力する調整と比較して、お客様の時間と費用を節約できます。
 
 ## 前提条件 {#prerequisites}
@@ -28,7 +28,7 @@ Snowflakeの[セキュアデータシェアリング](https://docs.snowflake.com
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Snowflakeアカウント | 管理者レベルの権限を持つSnowflakeアカウントが必要です。 |
 | LiveRampアカウント | Snowflake内で必要なLiveRampアプリケーションについては、LiveRampアカウントチームまたは[snowflake@liveramp.com](mailto:snowflake@liveramp.com)までお問い合わせください。 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合をセットアップする {#setting-up-the-integration}
 
@@ -58,7 +58,7 @@ PIIベースのテーブルを準備する前に、ジョブで実行される[L
 | メールのみ | ユーザーのメールアドレス（`alex-lee@email.com` など）。 |
 | デバイス | これには、サードパーティCookie、モバイル広告ID（MAID）、コネクテッドTV ID（CTV ID）、およびRampID（Household RampIDに解決される）が含まれます。 |
 | CID | これらは、プラットフォームパートナーまたはLiveRampとのID同期からの識別子です（内部顧客IDなど）。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Create a data table" }
 
 #### Brazeの識別子 {#braze-identifiers}
 
@@ -70,7 +70,7 @@ Brazeのイベントログには、LiveRampネイティブアプリ内で使用�
 | `EMAIL_ADDRESS` | LiveRampのメール専用解決サービスと併用できるメールアドレスです。 |
 | `TO_PHONE_NUMBER` | LiveRampのPII解決サービスと併用できる電話番号です。 |
 | `EXTERNAL_USER_ID` | ユーザーに関連付けられたexternal IDです。LiveRampのDevice Resolutionサービス（CID）と併用できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze identifiers" }
 
 {% alert important %}
 LiveRampのアプリケーション内でクライアントまたはブランド固有のカスタム識別子を使用するには、[LiveRampとのID同期](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html)が必要です。
@@ -102,7 +102,7 @@ $customer_metrics_table_name
 {% endtab %}
 
 {% tab example output %}
-```sql
+`````````sql
 call check_for_output(
 $output_table_name
 );

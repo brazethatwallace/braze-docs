@@ -218,6 +218,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+drawables
 Dreamhost
 drilldown
 drilldowns
@@ -412,6 +413,7 @@ Kubit's
 Lemnisk
 Leste
 LGBTQ
+libphonenumber
 Lifecycles
 Lifesum
 LiftIgniter
@@ -561,6 +563,7 @@ OROMO
 otherlevels
 OTT
 ouibounce's
+overconsumption
 oversaturating
 Pangle
 Pandoc
@@ -720,6 +723,7 @@ snapshottable
 SNCM
 SNDS
 Snowflake
+Snowsight
 Snowpipe
 Snowpipes
 sobjects
@@ -824,6 +828,7 @@ Typeform's
 Türkiye
 Unarchived
 Unarchiving
+undercounted
 Unfavorited
 unfavorites
 unfavoriting

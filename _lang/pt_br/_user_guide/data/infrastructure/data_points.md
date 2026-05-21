@@ -17,7 +17,7 @@ Os pontos de dados são baseados em informações registradas em perfis de usuá
 
 "Pontos de dados" referem-se a uma unidade faturável de uso dos Serviços da Braze, medida por um início de sessão, fim de sessão, evento personalizado ou compra registrada, bem como qualquer atributo definido em um perfil de usuário final. Para fins de clareza, cada um dos dados mencionados acima (como início da sessão, fim da sessão, evento personalizado ou compra registrada, bem como qualquer atributo) definidos para o perfil de um usuário final em um determinado momento deve contar como um único ponto de dados.
 
-Os dados e eventos coletados por padrão pelos Serviços da Braze, incluindo, por exemplo, tokens por push, informações do dispositivo e todos os eventos de rastreamento de engajamento de campanha, como aberturas de e-mail e cliques em notificações por push, *não* são contados como pontos de dados.
+Os dados e eventos coletados por padrão pelos Serviços da Braze, incluindo, por exemplo, tokens por push, informações do dispositivo e todos os eventos de rastreamento de engajamento de Campaign, como aberturas de e-mail e cliques em notificações por push, *não* são contados como pontos de dados.
 
 Consulte a seção [Contagem de consumo](#consumption-count) deste artigo para entender quais dados contam para sua alocação de pontos de dados.
 
@@ -113,7 +113,7 @@ As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exa
 | Twitter | Seguindo |
 | Twitter | Número de tweets |
 | Facebook | Curtidas |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Non-billable data points (default)" }
 
 {% endtab %}
 {% tab Billable %}
@@ -167,7 +167,7 @@ table td {
 | Atribuição de coorte do Appsflyer | Todas as atribuições | |
 | Local mais recente | Todos os locais mais recentes | Entrar ou sair de geofences não registra pontos de dados porque os dados de geofences não são armazenados no perfil do usuário. As geofences são monitoradas pelos serviços de localização da Apple e do Google; a Braze só é notificada quando um usuário dispara uma geofence. |
 | Twitter | Nome de usuário | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Billable data points" }
 
 {% endtab %}
 {% endtabs %}

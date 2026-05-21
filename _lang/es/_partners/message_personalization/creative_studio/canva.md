@@ -20,7 +20,7 @@ La integración de Braze y Canva admite dos rutas de exportación:
 | --- | --- |
 | **Imagen o diseño a la biblioteca de medios** | Envía tu diseño como un activo a la biblioteca de medios de Braze. |
 | **Diseño de correo electrónico a Braze** | Publica un documento de **correo electrónico** de Canva como una plantilla de correo electrónico de Braze, incluyendo los metadatos de la línea del asunto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About the integration" }
 
 ## Integrar Braze con Canva {#integrate-braze-with-canva}
 

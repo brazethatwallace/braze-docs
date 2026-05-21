@@ -39,7 +39,7 @@ Primeiro, vamos definir os termos usados durante esta tarefa.
 | Nome do Recurso da Amazon (ARN) | O ARN é um identificador exclusivo dos recursos da AWS. |
 | Gerenciamento de Identidade e Acesso (IAM) | IAM é um serviço da web que permite controlar com segurança o acesso aos recursos da AWS. Neste tutorial, você criará uma política de IAM e a atribuirá a uma função de IAM para integrar seu bucket S3 à Ingestão de Dados na Nuvem da Braze. |
 | Serviço de Fila Simples da Amazon (SQS) | O SQS é uma fila hospedada que permite integrar sistemas e componentes de software distribuídos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
 
 ## Configuração da Ingestão de Dados na Nuvem na AWS {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -73,7 +73,7 @@ Anote o ARN e o URL da fila SQS — você precisará deles com frequência duran
 
 ### Etapa 3: Configurar a política de acesso {#step-3-set-up-access-policy}
 
-Para configurar a política de acesso, selecione **Opções avançadas**.
+Para configurar a política de acesso, selecione **Advanced options**.
 
 Anexe a seguinte declaração à política de acesso da fila, tomando cuidado para substituir `YOUR-BUCKET-NAME-HERE` pelo nome do bucket, `YOUR-SQS-ARN` pelo ARN da fila SQS e `YOUR-AWS-ACCOUNT-ID` pelo ID da conta da AWS:
 
@@ -243,7 +243,7 @@ Para sincronizações de dados de usuários (atributos, eventos personalizados, 
 | `BRAZE_ID` | O identificador de usuário da Braze. Isso é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID externo ou um alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se houver vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade nas atualizações. Se você incluir e-mail e telefone, a Braze usará o e-mail como identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se houver vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade nas atualizações. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
 
 Além de um identificador, cada linha deve incluir uma coluna `PAYLOAD` contendo uma string JSON dos campos que você deseja sincronizar com o usuário na Braze.
 
@@ -260,7 +260,7 @@ Para sincronizações de catálogo, seu arquivo de origem deve conter as seguint
 | `ID` | Sim | O identificador único do item do catálogo. Usado para criar, atualizar ou excluir o item na Braze. |
 | `PAYLOAD` | Sim | Uma string JSON dos campos e valores do catálogo a serem sincronizados. Deve corresponder ao esquema do seu catálogo na Braze. |
 | `DELETED` | Não | Quando `true`, o item do catálogo com o `ID` correspondente é removido do catálogo na Braze. Omita esta coluna ou defina como `false` para operações de criação ou atualização. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
 
 ### Exemplos {#examples}
 
@@ -339,6 +339,7 @@ Cada linha no arquivo deve identificar exatamente um usuário usando um dos segu
 | `EXTERNAL_ID` | Corresponde ao `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Ambas as colunas juntas identificam o usuário por alias. |
 | `BRAZE_ID` | ID de usuário gerado pela Braze (apenas usuários existentes). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
 
 {% alert important %}
 A exclusão de usuários é permanente e não pode ser desfeita. Inclua apenas usuários que você realmente pretende remover. Para mais detalhes, consulte [Excluir usuários com Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).

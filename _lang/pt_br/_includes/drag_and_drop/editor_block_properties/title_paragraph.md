@@ -7,4 +7,4 @@
 | Espaçamento entre letras | Modifica a distância entre cada caractere. |
 | Alinhamento do texto | Move o texto para ficar alinhado à esquerda, ao centro, à direita ou justificado. |
 | Cor do texto | Modifica a cor do texto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

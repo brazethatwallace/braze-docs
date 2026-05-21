@@ -47,7 +47,7 @@ Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigenc
 | Types de données | Les types de données pris en charge pour les téléchargements CSV comprennent les chaînes de caractères, les nombres, les booléens et les dates. Pour obtenir la liste complète des types de données, y compris ceux disponibles uniquement via l'API et le CDI, consultez la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formatage | Formatez tout le texte en minuscules afin de garantir la cohérence. |
 | Encodage | Enregistrez et téléchargez le fichier CSV en utilisant l'encodage UTF-8. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 Vous avez besoin de plus d'espace pour vos fichiers CSV ? Contactez votre gestionnaire de compte Braze pour en savoir plus sur la mise à niveau de vos catalogues.
@@ -94,7 +94,8 @@ Pour ce tutoriel, nous utilisons un catalogue qui répertorie deux jeux, leur pr
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
+  <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -125,7 +126,7 @@ Nous allons créer le catalogue en téléchargeant un fichier CSV. Les types de 
 Ce type de données ne peut pas être modifié après la configuration de votre catalogue.
 {% endalert %}
 
-![Quatre noms de colonnes du catalogue : « id », « title », « price », « image_link ».]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
+![Quatre noms de colonnes de catalogue : « id », « title », « price », « image_link ».]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
 Ensuite, nous nommerons ce catalogue « games_catalog » et sélectionnerons le bouton **Process Catalog**. Braze vérifie alors que le catalogue ne contient pas d'erreurs avant de le créer.
 
@@ -136,7 +137,7 @@ Notez que vous ne pourrez pas modifier ce nom après la création du catalogue. 
 Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Créer dans le navigateur %}
 ### Conditions préalables {#prerequisites}
 
 Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes pour votre espace de travail :
@@ -145,8 +146,6 @@ Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous deve
 - Modifier les catalogues
 - Exporter les catalogues
 - Supprimer les catalogues
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ### Étape 1 : Saisissez les détails du catalogue {#step-1-enter-catalog-details}
 
@@ -166,11 +165,11 @@ Vous pouvez également [utiliser des modèles dans un nom de catalogue](#templat
 
 Sélectionnez votre catalogue dans la liste, puis choisissez **Update Catalog** > **Add fields**. Saisissez le **Field name** et utilisez le menu déroulant pour sélectionner le type de données. Répétez l'opération autant de fois que nécessaire.
 
-![Deux exemples de champs : « rating » et « name ».]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
+![Deux exemples de champs « rating » et « name ».]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
 Sélectionnez **Update Catalog** > **Add items** pour ajouter un élément à votre catalogue en saisissant les informations dans les champs que vous avez précédemment ajoutés. Ensuite, sélectionnez **Save Item** ou **Save and Add Another** pour continuer à ajouter vos éléments.
 
-![Ajouter un élément au catalogue.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![Ajout d'un élément de catalogue.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 Braze traite les valeurs temporelles sur la base de l'horodatage du tableau de bord. Par exemple, si une colonne a pour valeur « 03/13/2024 » et que votre fuseau horaire est celui du Pacifique, cette heure sera importée dans Braze sous la forme « 12 mars 2024, 17 h 00 ».
@@ -217,6 +216,8 @@ Par exemple, si vous souhaitez modifier un élément de catalogue spécifique, v
 
 ## Stockage des catalogues {#tiers}
 
+Pour un aperçu rapide des limites de stockage par plan, consultez la section [Limites de stockage des données]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+
 La version gratuite des catalogues prend en charge des fichiers CSV d'une taille totale combinée de 100 Mo pour l'ensemble de votre entreprise, tandis que la version Catalogues Pro prend en charge des fichiers CSV d'une taille maximale de 2 Go par fichier.
 
 {% alert important %}
@@ -240,7 +241,7 @@ Le tableau suivant résume les spécifications relatives au contenu des catalogu
 | Caractères par valeur d'élément | Jusqu'à 5 000 caractères dans une seule valeur. Par exemple, si vous avez un champ intitulé `description`, le nombre maximum de caractères dans ce champ est de 5 000. |
 | Caractères par nom de colonne d'élément | Jusqu'à 250 caractères |
 | Sélections par catalogue | Jusqu'à 30 sélections par catalogue |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
 {% alert important %}
 Les étiquettes Liquid de catalogue ne peuvent pas être utilisées de manière récursive : vous ne pouvez pas référencer un élément de catalogue qui appelle ensuite un second élément de catalogue au sein de la même évaluation Liquid.

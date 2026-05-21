@@ -34,7 +34,7 @@ Leverage Snowplow's rich behavioral data to drive powerful customer-centric inte
 | Snowplow Console access | You must have access to Snowplow Console to configure event forwarders.                                                                                                                                                                                                                                |
 | Braze REST API key      | A Braze REST API key with the following permissions: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename`, and `users.alias.update`. <br><br> You can create this in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint     | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

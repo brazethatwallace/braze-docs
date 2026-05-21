@@ -12,4 +12,4 @@
 | 文字間隔 | 文字間の水平方向のスペースです。 |
 | 配置 | ドロップダウンの水平方向の配置（左揃えまたは中央揃え）です。 |
 | パディング | ブロック周囲のスペースです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

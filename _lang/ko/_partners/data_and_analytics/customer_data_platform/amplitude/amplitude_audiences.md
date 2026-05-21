@@ -10,11 +10,11 @@ search_tag: Partner
 
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/)는 제품 분석 및 비즈니스 인텔리전스 플랫폼입니다.
 
-Braze와 Amplitude의 양방향 통합을 통해 [Amplitude 코호트를 가져오고]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/), 사용자 특성 및 이벤트를 Braze로 가져올 수 있으며, 향후 Campaign 또는 Canvases에서 사용자를 타겟팅할 수 있는 Segment를 생성할 수 있습니다. 또한 Braze 커런츠를 활용하여 [Braze 이벤트를 Amplitude로 내보내]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration) 제품 및 마케팅 데이터에 대한 심층 분석을 수행할 수 있습니다.
+Braze와 Amplitude의 양방향 통합을 통해 [Amplitude 코호트를 가져오고]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/), 사용자 특성 및 이벤트를 Braze로 가져올 수 있으며, 향후 Campaign 또는 Canvases에서 사용자를 타겟팅할 수 있는 세그먼트를 생성할 수 있습니다. 또한 Braze 커런츠를 활용하여 [Braze 이벤트를 Amplitude로 내보내]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration) 제품 및 마케팅 데이터에 대한 심층 분석을 수행할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -22,7 +22,7 @@ Braze와 Amplitude의 양방향 통합을 통해 [Amplitude 코호트를 가져�
 |---|---|
 | Amplitude 계정 | 이 파트너십을 활용하려면 [Amplitude 계정](https://amplitude.com/)이 필요합니다. |
 | Currents | 데이터를 Amplitude로 다시 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 선택 {#choose-an-integration}
 
@@ -40,6 +40,7 @@ Amplitude와 Braze는 두 가지 통합 방법을 제공합니다. 다음 설명
 | Braze REST API 키 | 모든 권한이 있는 Braze REST API 키.<br><br> 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL][1]. 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 | Braze 앱 식별자 | Amplitude 이벤트를 수신할 앱의 식별자입니다. **Braze 대시보드 > 개발자 콘솔 > 설정**에서 확인할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitude 설정 {#amplitude-setup}
 

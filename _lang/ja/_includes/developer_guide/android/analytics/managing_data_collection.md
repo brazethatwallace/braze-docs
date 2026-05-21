@@ -1,39 +1,40 @@
-## Google Playプライバシー・アンケート {#privacy-questionnaire}
+## Google Playプライバシーアンケート {#privacy-questionnaire}
 
-2022年4月から、Android開発者はGoogle Playの[データ安全フォームに](https://support.google.com/googleplay/android-developer/answer/10787469)記入し、プライバシーとセキュリティの慣行を開示しなければならない。このガイドでは、Braze によるアプリデータの処理方法に関する情報をこの新しいフォームに記入する方法について説明します。 
+2022年4月から、Android開発者はGoogle Playの[データ安全フォーム](https://support.google.com/googleplay/android-developer/answer/10787469)に記入し、プライバシーとセキュリティの慣行を開示する必要があります。このガイドでは、Brazeによるアプリデータの処理方法に関する情報をこの新しいフォームに記入する方法について説明します。
 
-アプリ開発者は、どのデータを Braze に送信するかを制御しています。Braze が受け取ったデータは、指示に従って処理されます。これは、Google が[サービスプロバイダー](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cwhat-kinds-of-activities-can-service-providers-perform)として分類したものです。 
+アプリ開発者は、どのデータをBrazeに送信するかを制御しています。Brazeが受け取ったデータは、指示に従って処理されます。これは、Googleが[サービスプロバイダー](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cwhat-kinds-of-activities-can-service-providers-perform)として分類したものです。
 
 {% alert important %}
-この記事では、Google のセーフティセクションのアンケートについて、Braze SDK により処理されるデータに関連する情報を提供します。この記事は法律上のアドバイスを提供していないため、Google に情報を提出する前に、法務チームに相談することをお勧めします。
+この記事では、Googleのセーフティセクションのアンケートについて、Braze SDKにより処理されるデータに関連する情報を提供します。この記事は法律上のアドバイスを提供するものではないため、Googleに情報を提出する前に法務チームに相談することをお勧めします。
 {% endalert %}
 
-### 質問
+### 質問 {#questions}
 
-|質問|Braze SDKの回答|
+| 質問 | Braze SDKの回答 |
 |---|---|
-|お使いのアプリは、必要なユーザーデータの種類を収集または共有しますか？|はい、Braze Android SDK はアプリ開発者によって設定されたデータを収集します。 |
-|あなたのアプリが収集するすべてのユーザーデータは転送中に暗号化されていますか？|そうです。|
-|ユーザーがデータの削除を要求する方法を提供していますか？|そうです。|
+| お使いのアプリは、必要なユーザーデータの種類を収集または共有しますか？ | はい、Braze Android SDKはアプリ開発者によって設定されたデータを収集します。 |
+| あなたのアプリが収集するすべてのユーザーデータは転送中に暗号化されていますか？ | はい。 |
+| ユーザーがデータの削除を要求する方法を提供していますか？ | はい。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Questions" }
 
-データおよび削除に対するユーザー要求の処理の詳細については、[Braze データのリテンション情報]({{site.baseurl}}/api/data_retention/)を参照してください。
+データおよび削除に対するユーザーリクエストの処理の詳細については、[Brazeデータリテンション情報]({{site.baseurl}}/api/data_retention/)を参照してください。
 
-### データ収集
+### データ収集 {#data-collection}
 
-Braze によって収集されるデータは、特定の統合と収集するユーザーデータによって決まります。デフォルトで収集されるデータの詳細、および特定の属性を無効にする方法については、[SDK データ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration)を参照してください。
+Brazeによって収集されるデータは、特定の統合と収集するユーザーデータによって決まります。デフォルトで収集されるデータの詳細、および特定の属性を無効にする方法については、[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration)を参照してください。
 
-<table id="datatypes">
+<table aria-label="Data collection" id="datatypes">
     <thead>
         <tr>
             <th width="25%">カテゴリー</th>
             <th width="25%">データタイプ</th>
-            <th width="50%">Braze 使用状況</th>
+            <th width="50%">Brazeの使用状況</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td rowspan="2">位置情報</td>
-            <td>だいたいの位置情報</td>
+            <td rowspan="2">ロケーション</td>
+            <td>おおよその位置情報</td>
             <td rowspan="15">デフォルトでは収集されません。</td>
         </tr>
         <tr>
@@ -78,7 +79,7 @@ Braze によって収集されるデータは、特定の統合と収集する�
             <td>クレジットスコア</td>
         </tr>
         <tr>
-            <td>その他財務情報</td>      
+            <td>その他の財務情報</td>
         </tr>
         <tr>
             <td rowspan="2">ヘルスとフィットネス</td>
@@ -86,7 +87,7 @@ Braze によって収集されるデータは、特定の統合と収集する�
             <td rowspan="2">デフォルトでは収集されません。</td>
         </tr>
         <tr>
-            <td>フィットネス情報</td>     
+            <td>フィットネス情報</td>
         </tr>
         <tr>
             <td rowspan="3">メッセージ</td>
@@ -94,11 +95,11 @@ Braze によって収集されるデータは、特定の統合と収集する�
             <td rowspan="2">デフォルトでは収集されません。</td>
         </tr>
         <tr>
-            <td>SMS または MMS</td>          
+            <td>SMSまたはMMS</td>
         </tr>
         <tr>
             <td>その他のアプリ内メッセージ</td>
-            <td>Braze を通じてアプリ内メッセージを送信したり、プッシュ通知を送信する場合、ユーザがこれらのメッセージをいつ開いたか、またはいつ読んだかに関する情報を収集します。</td>
+            <td>Brazeを通じてアプリ内メッセージやプッシュ通知を送信する場合、ユーザーがこれらのメッセージをいつ開封したか、またはいつ読んだかに関する情報を収集します。</td>
         </tr>
         <tr>
             <td rowspan="2">写真と動画</td>
@@ -106,12 +107,12 @@ Braze によって収集されるデータは、特定の統合と収集する�
             <td rowspan="8">収集されません。</td>
         </tr>
         <tr>
-            <td>ビデオ</td>
+            <td>動画</td>
         </tr>
         <tr>
             <td rowspan="3">オーディオファイル</td>
             <td>音声やサウンドの録音</td>
-        </tr>        
+        </tr>
         <tr>
             <td>音楽ファイル</td>
         </tr>
@@ -133,59 +134,59 @@ Braze によって収集されるデータは、特定の統合と収集する�
         <tr>
             <td rowspan="5">アプリアクティビティ</td>
             <td>アプリのインタラクション</td>
-            <td>Braze は、デフォルトでセッションアクティビティデータを収集します。他のすべてのインタラクションとアクティビティは、アプリのカスタム統合によって決定されます。</td>
+            <td>Brazeは、デフォルトでセッションアクティビティデータを収集します。その他すべてのインタラクションとアクティビティは、アプリのカスタム統合によって決定されます。</td>
         </tr>
         <tr>
             <td>アプリ内検索履歴</td>
-            <td>収集されません。</td>            
+            <td>収集されません。</td>
         </tr>
         <tr>
             <td>インストール済みアプリ</td>
-            <td>収集されません。</td>            
+            <td>収集されません。</td>
         </tr>
         <tr>
             <td>その他のユーザー生成コンテンツ</td>
-            <td rowspan="2">デフォルトでは収集されません。</td>            
+            <td rowspan="2">デフォルトでは収集されません。</td>
         </tr>
         <tr>
             <td>その他のアクション</td>
         </tr>
         <tr>
-            <td>Web ブラウジング</td>
-            <td>Web 閲覧履歴</td>
+            <td>Webブラウジング</td>
+            <td>Web閲覧履歴</td>
             <td>収集されません。</td>
         </tr>
         <tr>
             <td rowspan="3">アプリの情報とパフォーマンス</td>
             <td>クラッシュログ</td>
-            <td>Braze は、SDK 内で発生したエラーのクラッシュログを収集します。これには、ユーザの電話機モデルと OS レベル、および Braze 固有のユーザ ID が含まれます。</td>
+            <td>Brazeは、SDK内で発生したエラーのクラッシュログを収集します。これには、ユーザーの電話機モデルとOSレベル、およびBraze固有のユーザーIDが含まれます。</td>
         </tr>
         <tr>
             <td>診断</td>
-            <td>収集されません。</td>            
+            <td>収集されません。</td>
         </tr>
         <tr>
             <td>その他のアプリパフォーマンスデータ</td>
             <td>収集されません。</td>
         </tr>
         <tr>
-            <td>デバイスまたはその他の ID</td>
-            <td>デバイスまたはその他の ID</td>
-            <td>Braze は、ユーザーのデバイスを区別するためにデバイス ID を生成し、メッセージが意図したデバイスに送信されるかどうかをチェックします。</td>
+            <td>デバイスまたはその他のID</td>
+            <td>デバイスまたはその他のID</td>
+            <td>Brazeは、ユーザーのデバイスを区別するためにデバイスIDを生成し、メッセージが意図した正しいデバイスに送信されるかどうかをチェックします。</td>
         </tr>
     </tbody>
 </table>
 
-Google Play のデータセーフティガイドラインの対象外となる可能性がある Braze が収集するその他のデバイスデータの詳細については、[Android ストレージの概要]({{site.baseurl}}/developer_guide/storage/?tab=android)および [SDK データ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration)を参照してください。
+Google Playのデータセーフティガイドラインの対象外となる可能性がある、Brazeが収集するその他のデバイスデータの詳細については、[Androidストレージの概要]({{site.baseurl}}/developer_guide/storage/?tab=android)および[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration)を参照してください。
 
-## トラッキングを無効にする
+## トラッキングを無効にする {#disabling-data-tracking}
 
-Android SDKのデータ追跡アクティビティを無効にするには、以下のメソッドを使用する。 [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html).これにより、すべてのネットワーク接続がキャンセルされ、Braze SDKはBrazeサーバーにデータを渡さなくなる。
+Android SDKのデータトラッキングアクティビティを無効にするには、[`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html)メソッドを使用します。これにより、すべてのネットワーク接続がキャンセルされ、Braze SDKはBrazeサーバーにデータを渡さなくなります。
 
-## 過去に保存したデータを消去する
+## 過去に保存したデータを消去する {#wiping-previously-stored-data}
 
-メソッドを使用することができる。 [`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html)を使えば、デバイスに保存されているクライアント側のデータをすべて消去できる。
+[`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html)メソッドを使用すると、デバイスに保存されているクライアント側のデータをすべて消去できます。
 
-## データトラッキングを再開する
+## データトラッキングを再開する {#resuming-data-tracking}
 
-データ収集を再開するには [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html)メソッドを使う。これは、以前に消去したデータを復元するものではないことに留意してほしい。
+データ収集を再開するには、[`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html)メソッドを使用します。これは、以前に消去したデータを復元するものではないことに留意してください。

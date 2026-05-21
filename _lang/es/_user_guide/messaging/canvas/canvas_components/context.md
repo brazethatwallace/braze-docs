@@ -202,7 +202,7 @@ Aquí tienes un ejemplo de cómo hacerlo:
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | No |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | No |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | Sí |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="¿Este cambio afecta a las propiedades de entrada del Canvas?" }
 
 #### ¿Cuál es un ejemplo práctico de cómo el nuevo comportamiento de marcas de tiempo podría afectar mis mensajes? {#faq-example}
 
@@ -257,10 +257,10 @@ Sí. Todas las variables en un paso de Contexto se evalúan en secuencia, lo que
 
 | Variable de contexto | Valor | Descripción |
 |---|---|---|
-| `favorite_cuisine`| {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | El tipo de cocina favorita de un usuario. |
-| `promo_code`| {% raw %}`EATFRESH`{% endraw %} | El código de descuento disponible para un usuario. |
-| `personalized_message`|  {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Un mensaje personalizado que combina las variables anteriores. En un paso de Mensaje, podrías usar el fragmento de código Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para hacer referencia a la variable de contexto y entregar un mensaje personalizado a cada usuario. También podrías usar un paso de Contexto para guardar el valor del [código de promoción]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list) y usarlo como plantilla en otros pasos a lo largo de un Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | El tipo de cocina favorita de un usuario. |
+| `promo_code` | {% raw %}`EATFRESH`{% endraw %} | El código de descuento disponible para un usuario. |
+| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Un mensaje personalizado que combina las variables anteriores. En un paso de Mensaje, podrías usar el fragmento de código Liquid {% raw %}`{{context.${personalized_message}}}`{% endraw %} para hacer referencia a la variable de contexto y entregar un mensaje personalizado a cada usuario. También podrías usar un paso de Contexto para guardar el valor del [código de promoción]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list) y usarlo como plantilla en otros pasos a lo largo de un Canvas. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="¿Pueden las variables hacer referencia entre sí en un mismo paso de Contexto?" }
 
 Esto también aplica entre múltiples pasos de Contexto. Por ejemplo, imagina esta secuencia:
 

@@ -93,7 +93,7 @@ Utiliza los siguientes campos para registrar metadatos que ayuden a tu equipo a 
 | Equipo | Opcional. Asigna [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) para que los grupos adecuados puedan editar o generar informes sobre este envío. |
 | Etiquetas | Opcional. Añade [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) para filtrar en listas y herramientas como el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). |
 | ID de campaña | Donde se muestre en el compositor o resumen, copia este identificador para llamadas a la API, informes e integraciones que hagan referencia a una campaña específica. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign details" }
 
 ### Canales y editores {#channels-and-editors}
 
@@ -116,13 +116,13 @@ Elige cuándo los usuarios se vuelven elegibles para recibir la campaña:
 | [Entrega planificada]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/) | Envía en un momento o cadencia especificados. |
 | [Entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) | Envía cuando los usuarios realizan comportamientos o cumplen condiciones que tú defines. |
 | [Entrega activada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) | Envía cuando tus sistemas llaman a Braze para activar la campaña para los usuarios elegibles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Planificar la entrega" }
 
 Para conceptos de planificación en Braze, consulta [Planifica tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
 ### Controles de entrega {#delivery-controls}
 
-Dependiendo del tipo de entrega, puedes ajustar la [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (si los usuarios pueden volver a entrar en la campaña) y respetar las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) del espacio de trabajo. También puedes configurar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) para que los mensajes no se envíen durante ventanas restringidas.
+Dependiendo del tipo de entrega, puedes ajustar la [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/) (si los usuarios pueden volver a entrar en la campaña) y respetar las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) del espacio de trabajo. También puedes configurar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) para que los mensajes no se envíen durante ventanas restringidas.
 
 ## Paso 3: Segmentar audiencias {#step-3-target-audiences}
 

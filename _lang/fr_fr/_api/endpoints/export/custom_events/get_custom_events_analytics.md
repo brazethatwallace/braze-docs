@@ -36,7 +36,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `ending_at` | Facultatif | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle la série de données doit se terminer. Par défaut, l'heure de la demande. |
 | `app_id` | Facultatif | Chaîne de caractères | Identifiant API de l'application récupéré à partir de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) pour limiter l'analyse à une application spécifique. |
 | `segment_id` | Facultatif | Chaîne de caractères | Voir [Identifiant API de segment]({{site.baseurl}}/api/identifier_types/). ID de segment indiquant le segment avec l'analyse activée pour lequel l'analyse d'événements doit être renvoyée. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
 ## Exemple de demande {#example-request}

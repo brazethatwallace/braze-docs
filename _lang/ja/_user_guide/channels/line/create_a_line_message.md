@@ -21,9 +21,9 @@ LINE メッセージを作成する前に、以下を行ってください。
 
 1. LINEの概要を確認します。
 2. ポリシー、制限、コンテンツルールを確認します。
-3. [LINE 接続を設定します]({{site.baseurl}}/user_guide/channels/line/line_setup/)。
+3. [LINE接続を設定します]({{site.baseurl}}/user_guide/channels/line/line_setup/)。
 
-Brazeから LINE メッセージを送信すると、アカウントのメッセージクレジットが消費されます。
+BrazeからLINEメッセージを送信すると、アカウントのメッセージクレジットまたはアクションクレジットが消費されます。
 
 ## ステップ 1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
@@ -35,7 +35,7 @@ Brazeから LINE メッセージを送信すると、アカウントのメッセ
 **手順:**
 
 1. **Messaging** > **Campaigns** に移動し、**Create Campaign** を選択します。
-2. **LINE** を選択するか、複数チャネルをターゲットとするCampaignsの場合は **Multichannel Campaign** を選択します。
+2. **LINE** を選択するか、複数チャネルをターゲットとするCampaignの場合は **Multichannel Campaign** を選択します。
 3. Campaignにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
    * タグを使用すると、Campaignsを見つけやすくなり、レポートを作成しやすくなります。
@@ -60,11 +60,11 @@ Campaign内のすべてのメッセージが類似している、または同じ
 {% endtab %}
 {% endtabs %}
 
-## ステップ 2:LINE メッセージを作成する {#step-2-compose-your-line-message}
+## ステップ 2:LINEメッセージを作成する {#step-2-compose-your-line-message}
 
 必要に応じてパーソナライゼーション（Liquidやコネクテッドコンテンツなど）を使用してメッセージを作成します。LINEでは、各メッセージに最大5つのメッセージバブルを含めることができ、テキスト、画像、リッチ、カードベースなど、利用可能なメッセージレイアウトのいずれかを使用できます。
 
-![プレビューにメッセージが表示された LINE コンポーザー。]({% image_buster /assets/img/line/line_composer.png %})
+![プレビューにメッセージが表示されたLINEコンポーザー。]({% image_buster /assets/img/line/line_composer.png %})
 
 ### ヒント {#tips}
 
@@ -80,7 +80,7 @@ Liquidを使用する予定がある場合は、パーソナライゼーショ�
 
 ## ステップ 3:メッセージをプレビューしてテストする {#step-3-preview-and-test-your-message}
 
-**Test** タブに切り替えて、コンテンツテストグループまたは個々のユーザーにテスト LINE メッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
+**Test** タブに切り替えて、コンテンツテストグループまたは個々のユーザーにテストLINEメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
 
 ![テストメッセージのプレビューが表示された「Tests」タブ。]({% image_buster /assets/img/line/test_preview.png %})
 
@@ -91,13 +91,13 @@ Liquidを使用する予定がある場合は、パーソナライゼーショ�
 {% tabs %}
 {% tab Campaign %}
 
-Campaignの残りの部分を構築します。LINE メッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
+Campaignの残りの部分を構築します。LINEメッセージを構築するためのツールの最適な使用方法の詳細については、以下のセクションを参照してください。
 
 ### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
-LINE メッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
+LINEメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[Campaignのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を参照してください。
 
-配信コントロールを指定できます。たとえば、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にすることができます。アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)も設定できます。
+配信コントロールを指定できます。たとえば、ユーザーがCampaignを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)ルールを有効にすることができます。アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)も設定できます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -111,8 +111,8 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 コンバージョンイベントは、Campaignの成功を測定するのに役立ちます。例:
 
-- ジオターゲティングを使用して、ユーザーが購入するという最終目標を持つ LINE メッセージをトリガーする場合は、コンバージョンイベントを `Purchase` に設定します。
-- ユーザーをアプリに誘導しようとしている場合は、コンバージョンイベントを `Starts Session` に設定します。
+- ジオターゲティングを使用して、ユーザーが購入するという最終目標を持つLINEメッセージをトリガーする場合は、コンバージョンイベントを`Purchase`に設定します。
+- ユーザーをアプリに誘導しようとしている場合は、コンバージョンイベントを`Starts Session`に設定します。
 
 特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。創造的に考えて、このCampaignの成功をどのように測定したいかを検討してください。
 
@@ -128,4 +128,4 @@ Brazeでは、Campaignを受信した後にユーザーが特定のアクショ�
 
 CampaignまたはCanvasの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
 
-次に、[LINE レポート]({{site.baseurl}}/line/reporting/)を確認して、LINE Campaignsの結果にアクセスする方法を学びましょう。
+次に、[LINEレポート]({{site.baseurl}}/line/reporting/)を確認して、LINE Campaignsの結果にアクセスする方法を学びましょう。

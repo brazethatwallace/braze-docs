@@ -14,7 +14,7 @@ channel: push
 
 ![Mensaje dentro de la aplicación de push primer para una aplicación de streaming. La notificación dice "¿Recibir notificaciones push de Movie Cannon? Las notificaciones pueden incluir nuevas películas, programas de TV u otros avisos y se pueden desactivar en cualquier momento."]({% image_buster /assets/img_archive/push_primer_iam.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
-Para crear un mensaje dentro de la aplicación de push primer en Braze, puedes usar el comportamiento de clic en botón "Solicitar permiso de push" al crear un mensaje dentro de la aplicación para iOS, Android o Web.
+Para crear un mensaje dentro de la aplicación de push primer en Braze, puedes usar el comportamiento de clic en botón "Request Push Permission" al crear un mensaje dentro de la aplicación para iOS, Android o Web.
 
 ## Requisitos previos {#prerequisites}
 

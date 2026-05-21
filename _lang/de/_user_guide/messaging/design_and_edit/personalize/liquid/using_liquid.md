@@ -6,7 +6,7 @@ description: "Dieser Referenzartikel bietet einen Überblick über gängige Liqu
 search_rank: 2
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquid verwenden {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquid verwenden {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > Dieser Artikel zeigt Ihnen, wie Sie verschiedene Nutzerattribute verwenden können, um persönliche Informationen dynamisch in Ihr Messaging einzufügen.
 
@@ -82,7 +82,7 @@ Operatoren (wie `==`, `!=`, `>`, `and`, `or`) und Filter (wie `| size`, `| plus`
 | `case`, `when` | Nur Gleichheitsvergleich[^case_when_ops] | Nicht unterstützt |
 | `for` | Nicht unterstützt | Nicht unterstützt |
 | Array-Zugriff (`[ ]`) | Nicht unterstützt | Nicht unterstützt |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wo Operatoren und Filter verwendet werden können" }
 
 [^case_when_ops]: In `case`- und `when`-Tags vergleicht Liquid den `case`-Ausdruck mit jedem `when`-Wert mittels Gleichheit (ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können innerhalb einer `when`-Klausel keine beliebigen Vergleichs- oder logischen Operatoren verwenden, wie es bei `if` und `elsif` möglich ist. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
 
@@ -210,10 +210,10 @@ Wenn Sie Liquid in Ihren E-Mail-Nachrichten verwenden, achten Sie darauf:
 
 ### Vorformatierte Variablen einfügen {#inserting-pre-formatted-variables}
 
-Sie können vorformatierte Variablen mit Standardwerten über das Modal **Personalisierung hinzufügen** einfügen, das sich neben jedem Template-Textfeld befindet.
+Sie können vorformatierte Variablen mit Standardwerten über das Modal **Add Personalization** einfügen, das sich neben jedem Template-Textfeld befindet.
 
-![Das Modal „Personalisierung hinzufügen“, das nach dem Klick auf „Personalisierung einfügen“ erscheint. Das Modal enthält Felder für den Personalisierungstyp, das Attribut, einen optionalen Standardwert und zeigt eine Vorschau der Liquid-Syntax an.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![Das Modal „Add Personalization“, das nach dem Klick auf „Insert Personalization“ erscheint. Das Modal enthält Felder für den Personalisierungstyp, das Attribut, einen optionalen Standardwert und zeigt eine Vorschau der Liquid-Syntax an.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
 Das Modal fügt Liquid mit Ihrem angegebenen Standardwert an der Stelle ein, an der sich Ihr Cursor befand. Die Einfügestelle wird auch durch das Vorschaufeld angezeigt, das den Text davor und danach enthält. Wenn ein Textblock markiert ist, wird der markierte Text ersetzt.
 
-![Ein GIF des Modals „Personalisierung hinzufügen“, das zeigt, wie die Nutzerin oder der Nutzer „fellow traveler“ als Standardwert eingibt und das Modal den markierten Text „name“ im Composer durch das Liquid-Snippet ersetzt.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Ein GIF des Modals „Add Personalization“, das zeigt, wie die Nutzerin oder der Nutzer „fellow traveler“ als Standardwert eingibt und das Modal den markierten Text „name“ im Composer durch das Liquid-Snippet ersetzt.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

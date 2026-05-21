@@ -65,7 +65,7 @@ Inserts custom HTML, CSS, or JavaScript for advanced customization, such as [Goo
 | Property | Description |
 | --- | --- |
 | Custom code | Allows you to add, edit, or delete HTML, CSS, and JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
@@ -113,7 +113,7 @@ Users pick multiple options; values set or append to a defined [array custom att
 
 ### Long text
 
-Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager.
+Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. This block is not available for standard landing pages.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

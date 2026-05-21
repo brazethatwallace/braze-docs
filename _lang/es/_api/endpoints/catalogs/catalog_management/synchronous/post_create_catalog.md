@@ -32,7 +32,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `catalogs` | Obligatorio | Matriz | Una matriz que contiene objetos de catálogo. Solo se permite un objeto de catálogo para esta solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Parámetros del objeto del catálogo {#catalog-object-parameters}
 
@@ -41,7 +41,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | `name` | Obligatorio | Cadena | El nombre del catálogo que quieres crear. |
 | `description` | Obligatorio | Cadena | La descripción del catálogo que quieres crear. |
 | `fields` | Obligatorio | Matriz | Una matriz de objetos en la que el objeto contiene las claves `name` y `type`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog object parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 ```
@@ -80,6 +80,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -95,6 +99,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
   ]
 }'
 ```
+
+{% alert note %}
+El tipo de datos `geo` almacena una coordenada geográfica como una matriz con el formato `[longitude, latitude]`.
+{% endalert %}
 
 ## Respuesta {#response}
 
@@ -136,6 +144,10 @@ El código de estado `201` podría devolver el siguiente cuerpo de respuesta.
         },
         {
           "name": "Location",
+          "type": "geo"
+        },
+        {
+          "name": "Preferences",
           "type": "object"
         },
         {
@@ -197,6 +209,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `invalid-fields` | `fields` no tiene el formato correcto. |
 | `too-many-catalog-atoms` | Solo puedes crear un catálogo por solicitud. |
 | `too-many-fields` | El límite de campos es de 500. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

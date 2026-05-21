@@ -161,7 +161,7 @@ Use this table to compare channels. Defaults can differ, so spot-check what your
 | Banners | Same behavior as in-app messages. |
 | Landing pages | You can set language on the live page. Choose one language, or use Liquid if your account allows Liquid on landing pages. Defaults also differ from in-app messages and Banners—check the published page. |
 | Content Cards | Cards use a **Language** field for apps instead of an explicit accessibility language. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and editor support" }
 
 When you write HTML yourself, you can still add a language tag on part of the message (for example one phrase in another language). For more patterns, see [Custom HTML](#custom-html).
 
@@ -240,7 +240,7 @@ For example, consider how you might write a link to view a weather report.
 | Bad  | Better | Best |
 | --- | --- | --- | 
 | Click here | Click here to access today's weather | Today's weather |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Write descriptive link text" }
 
 As with all content, keep it straightforward with as few extra words as possible.
 

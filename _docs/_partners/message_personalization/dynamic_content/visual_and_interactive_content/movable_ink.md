@@ -24,7 +24,7 @@ Expand our creative capabilities by leveraging Movable Ink's Intelligent Creativ
 |---|---|
 | Movable Ink account | A Movable Ink account is required to take advantage of this partnership. |
 | Data source | You'll need to connect a data source to Movable Ink. This can be done through CSV, website import, or API. Make sure that you pass data with a unifying identifier between Braze and Movable Ink (for example, `external_id`).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -52,7 +52,7 @@ Intelligent Creative has many offerings that company users can take advantage of
 || Polling | ✗ | ✔* | * After voting, will leave the app to be a mobile landing page |
 || Scratch Off | ✔* | ✔* | * On click, will leave the app for the Scratch Off experience |
 || Video | ✔* | ✔* | * Animated GIFs only, <br>For Android, Braze requires [GIF support]({{site.baseurl}}/developer_guide/in_app_messages/gifs/?sdktab=android) in implementation |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Supported Movable Ink capabilities" }
 
 ## Integration
 

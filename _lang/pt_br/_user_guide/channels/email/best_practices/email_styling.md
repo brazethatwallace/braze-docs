@@ -8,19 +8,19 @@ channel: email
 
 ---
 
-# Estilo de e-mail
+# Estilo de e-mail {#email-styling}
 
 > Este artigo descreve as práticas recomendadas de estilo de e-mail, incluindo linhas de assunto, pré-cabeçalho, tamanho do e-mail e recomendações de imagens.
 
-## Estilo de endereço
+## Estilo de endereço {#address-styling}
 
-A **Linha de Assunto** é uma das primeiras coisas que os destinatários verão ao receber sua mensagem. O uso de 6 a 10 palavras produzirá as taxas de abertura mais altas.
+A linha de assunto é uma das primeiras coisas que os destinatários veem ao receber sua mensagem. O uso de 6 a 10 palavras produz as taxas de abertura mais altas.
 
-Há também diferentes abordagens para criar uma boa linha de assunto, desde fazer uma pergunta para despertar o interesse do leitor ou ser mais direto, até personalizá-la para engajar sua clientela. Não se limite a uma única linha de assunto, aproveite os [Testes A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) para experimentar novas linhas e avaliar sua eficácia. As linhas de assunto não devem ter mais de 35 caracteres para serem exibidas adequadamente no celular.
+Há também diferentes abordagens para criar uma boa linha de assunto, desde fazer uma pergunta para despertar o interesse do leitor ou ser mais direto, até personalizá-la para engajar sua clientela. Não se limite a uma única linha de assunto, aproveite os [testes A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) para experimentar novas linhas e avaliar sua eficácia. As linhas de assunto não devem ter mais de 35 caracteres para serem exibidas adequadamente no celular.
 
 O campo "De" deve mostrar claramente quem é o remetente. Tente não usar o nome de uma pessoa ou uma abreviação incomum. Em vez disso, use um nome reconhecível, como o nome da sua marca. Se o uso do nome de uma pessoa for adequado aos métodos de personalização de e-mail da sua marca, mantenha a consistência para desenvolver um relacionamento com o destinatário. O nome "De" não deve ter mais de 25 caracteres para ser exibido adequadamente no celular.
 
-### Endereços sem resposta
+### Endereços sem resposta {#no-reply-addresses}
 
 Endereços de e-mail sem resposta geralmente não são recomendados por vários motivos, pois eles desengajam seus leitores. Muitos destinatários respondem ao e-mail para cancelar inscrição. Se não puderem fazer isso, a próxima ação mais comum é marcar o e-mail como spam.
 
@@ -63,7 +63,7 @@ Aqui estão algumas práticas recomendadas para ter em mente ao escrever seus pr
   | Android Gmail          | 24      |
   | iOS Nativo             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres do pré-cabeçalho" }
 
   |  Cliente de e-mail desktop  |  Limite  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ Aqui estão algumas práticas recomendadas para ter em mente ao escrever seus pr
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres do pré-cabeçalho" }
 
 
   |  Cliente de e-mail webmail  |  Limite  |
@@ -81,7 +81,7 @@ Aqui estão algumas práticas recomendadas para ter em mente ao escrever seus pr
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres do pré-cabeçalho" }
 
 ## Tamanho do e-mail {#email-size}
 
@@ -93,7 +93,7 @@ O tamanho do e-mail refere-se ao tamanho do HTML da sua mensagem na Braze (o cor
 |   Somente texto   | Texto com imagens |     Largura do e-mail    |
 |:-------------:|:----------------:|:------------------:|
 | 25&nbsp;KB máximo |   60&nbsp;KB máximo   | 600 pixels máximo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tamanho do e-mail" }
 
 Para reduzir o risco de corte:
 
@@ -126,7 +126,7 @@ Consulte a tabela a seguir para os comprimentos de texto recomendados.
 | Comprimento da linha de assunto | 35 caracteres máximo (para exibição ideal em dispositivos móveis) (6 a 10 palavras) |
 | Comprimento do nome do remetente | 25 caracteres máximo (para exibição ideal em dispositivos móveis) |
 | Comprimento do pré-cabeçalho | 85 caracteres máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprimento do texto" }
 
 ## Tamanho da imagem {#image-size}
 
@@ -135,7 +135,7 @@ Consulte a tabela a seguir para os tamanhos de imagem recomendados. Imagens meno
 |     Tamanho    | Largura da imagem do cabeçalho |  Largura da imagem do corpo  |   Tipos de arquivo  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 5&nbsp;MB máximo | 600 pixels máximo | 480 pixels máximo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tamanho da imagem" }
 
 ## Deep linking {#deep-linking}
 

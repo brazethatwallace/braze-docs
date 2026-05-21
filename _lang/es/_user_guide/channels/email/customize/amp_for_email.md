@@ -23,7 +23,7 @@ Braze no es responsable de que los usuarios se registren en Google ni de que cum
 | Habilitación de cuenta de Gmail | Consulta [Habilitar cuenta de Gmail](#enabling-gmail-account). |
 | Autenticación de remitente de Google | Gmail [autentica al remitente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de los correos electrónicos AMP con DKIM, SPF y DMARC. Estos deben estar configurados para tu cuenta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
 | Elementos de correo electrónico AMP | Un correo electrónico AMP atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components) a continuación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ### Clientes de correo electrónico compatibles {#supported-email-clients}
 
@@ -35,6 +35,7 @@ Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrart
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported email clients" }
 
 Para obtener una lista completa de clientes de correo electrónico compatibles, consulta la [documentación de AMP](https://amp.dev/support/faq/email-support).
 
@@ -42,7 +43,7 @@ Para obtener una lista completa de clientes de correo electrónico compatibles, 
 
 Ve a la configuración de Gmail y selecciona **Enable dynamic email** en la pestaña **General**.
 
-![Un ejemplo de la configuración de Gmail con la casilla «Enable dynamic email» seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
+![Un ejemplo de la configuración de Gmail con la casilla "Enable dynamic email" seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## Uso de la API {#api-usage}
 
@@ -99,7 +100,7 @@ Cada uno de estos elementos es obligatorio en el cuerpo de tu correo electrónic
 | Identificación <br><br> `⚡4email` o `amp4email`| Identifica tu correo electrónico como un correo electrónico AMP HTML. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
 | Cargar el runtime de AMP <br><br> `<script>` | Permite que AMP se ejecute en tu correo electrónico usando JavaScript. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
 | Plantilla CSS | Oculta el contenido hasta que AMP se haya cargado. <br> Los proveedores de correo electrónico que admiten correos electrónicos AMP aplican comprobaciones de seguridad que solo permiten la ejecución de scripts AMP verificados en sus clientes. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
   {% endtab %}
   {% tab Dinámicos %}
@@ -110,7 +111,7 @@ Usa estos componentes para crear diseños y comportamientos dinámicos en tus co
 |---------|--------------|---------|
 | [Acordeón](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| Permite a los usuarios ver el esquema del contenido y saltar a cualquier sección. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
 | [Formularios](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| Crea formularios para enviar campos de entrada en un documento AMP. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 Cualquier componente que requiera autenticar al usuario debe usar [tokens de acceso de Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) o [tokens de aserción proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -125,7 +126,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 | [Imagen animada](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-anim`| Muestra una imagen animada (generalmente un GIF) gestionada a través del runtime. | `<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>` |
 | [Carrusel](https://amp.dev/documentation/components/amp-carousel?format=email) <br><br> `amp-carousel`| Muestra múltiples piezas de contenido similares a lo largo de un eje horizontal. | `<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>` |
 | [Imagen](https://amp.dev/documentation/components/amp-img?format=email) | Un reemplazo gestionado por el runtime para la etiqueta HTML `img`. <br>  También puedes crear un [lightbox para tu imagen](https://amp.dev/documentation/components/amp-image-lightbox?format=email). | `<amp-img alt="A view of the sea"` <br> `src="images/sea.jpg"` <br> `width="900"` <br>  `height="675"` <br>  `layout="responsive">`  <br> `</amp-img>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Components" }
 
 {% alert note %}
 Cualquier componente que requiera autenticar al usuario debe usar [tokens de acceso de Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) o [tokens de aserción proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -137,7 +138,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 | Componente | Descripción |
 |---------|--------------|
 | [Enlace de datos y expresiones](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Añade interactividad personalizada con estado a tus páginas AMP mediante enlace de datos y expresiones similares a JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Components" }
 
 {% alert note %}
 Cualquier componente que requiera autenticar al usuario debe usar [tokens de acceso de Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) o [tokens de aserción proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -203,7 +204,8 @@ Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Bra
     }
 </style>
 
-<table>
+<table aria-label="Metrics and analytics">
+  <caption>Métricas y análisis</caption>
     <thead>
         <tr>
             <th>Métrica</th>

@@ -15,27 +15,27 @@ description: "このページでは、クラウドデータ取り込みを使用
 
 ## 統合の設定 {#configuring-the-integration}
 
-標準のプロセスに従って、接続するデータウェアハウスのBrazeダッシュボードで[新しい統合を作成]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)します。削除テーブルにアクセスできるロールが含まれていることを確認してください。**Create import sync** ページで、**データタイプ**を **Delete Users** に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。
+標準のプロセスに従って、接続するデータウェアハウスのBrazeダッシュボードで[新しい統合を作成]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)します。削除テーブルにアクセスできるロールが含まれていることを確認してください。**Create import sync** ページで、**データタイプ**を**Delete Users**に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。
 
 ![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
 ## ソースデータの設定 {#configuring-source-data}
 
-ユーザー削除のソーステーブルには、1つ以上のユーザー識別子タイプと `UPDATED_AT` タイムスタンプを含める必要があります。ペイロード列は、ユーザー削除データではサポートされていません。
+ユーザー削除のソーステーブルには、1つ以上のユーザー識別子タイプと`UPDATED_AT`タイムスタンプを含める必要があります。ペイロード列は、ユーザー削除データではサポートされていません。
 
 ### `UPDATED_AT`
 
-ソーステーブルに `UPDATED_AT` タイムスタンプを追加します。このタイムスタンプは、この行が更新されたか、テーブルに追加された時点を示します。Brazeは、`UPDATED_AT` が最後に同期された値より後の行を同期します。同じタイムスタンプを持つ新しい行がある場合、境界のタイムスタンプにある行は再同期される可能性があります。
+ソーステーブルに`UPDATED_AT`タイムスタンプを追加します。このタイムスタンプは、この行が更新されたか、テーブルに追加された時点を示します。Brazeは、`UPDATED_AT`が最後に同期された値より後の行を同期します。同じタイムスタンプを持つ新しい行がある場合、境界のタイムスタンプにある行は再同期される可能性があります。
 
 ### ユーザー識別子列 {#user-identifier-columns}
 
-テーブルには、ユーザー識別子列を1列以上含めることができます。各行には、識別子（`external_id` 単独か、`alias_name` と `alias_label` の組み合わせ、または `braze_id`）を1つのみ含める必要があります。ソーステーブルには、1つ、2つ、または3つすべての識別子タイプの列を含めることができます。
-- `EXTERNAL_ID` - 更新対象のユーザーを特定します。これはBrazeで使用されている `external_id` 値と一致する必要があります。
-- `ALIAS_NAME` および `ALIAS_LABEL` - この2列はユーザーエイリアスオブジェクトを作成します。`alias_name` はユニークな識別子である必要があり、`alias_label` はエイリアスのタイプを指定します。ユーザーは、異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つしか持てません。
+テーブルには、ユーザー識別子列を1列以上含めることができます。各行には、識別子（`external_id`単独か、`alias_name`と`alias_label`の組み合わせ、または`braze_id`）を1つのみ含める必要があります。ソーステーブルには、1つ、2つ、または3つすべての識別子タイプの列を含めることができます。
+- `EXTERNAL_ID` - 更新対象のユーザーを特定します。これはBrazeで使用されている`external_id`値と一致する必要があります。
+- `ALIAS_NAME`および`ALIAS_LABEL` - この2列はユーザーエイリアスオブジェクトを作成します。`alias_name`はユニークな識別子である必要があり、`alias_label`はエイリアスのタイプを指定します。ユーザーは、異なるラベルを持つ複数のエイリアスを持つことができますが、`alias_label`ごとに`alias_name`は1つしか持てません。
 - `BRAZE_ID` - Brazeのユーザー識別子です。これはBraze SDKによって生成されます。クラウドデータ取り込み経由でBraze IDを使用して新規ユーザーを作成することはできません。新規ユーザーを作成するには、外部ユーザーIDまたはユーザーエイリアスを指定してください。
 
 {% alert important %}
-ユーザーを削除する目的で、テーブルに `PAYLOAD` 列を含めないでください。ユーザーの偶発的かつ永久的な削除を防ぐため、ソーステーブルにペイロード列がある場合、同期は失敗します。その他の列は許可されますが、Brazeでは無視されます。
+ユーザーを削除する目的で、テーブルに`PAYLOAD`列を含めないでください。ユーザーの偶発的かつ永久的な削除を防ぐため、ソーステーブルにペイロード列がある場合、同期は失敗します。その他の列は許可されますが、Brazeでは無視されます。
 {% endalert %}
 
 {% tabs %}
@@ -54,7 +54,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 ```
 {% endtab %}
 {% tab Redshift %}
-```sql
+`````````sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
    updated_at timestamptz default sysdate,
    --at least one of external_id, alias_name and alias_label, or braze_id is required
@@ -78,6 +78,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -90,9 +91,10 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
 {% endtab %}
 {% tab Microsoft Fabric %}
-```sql
+`````````sql
 CREATE OR ALTER TABLE [warehouse].[schema].[users_deletes]
 (
   UPDATED_AT DATETIME2(6) NOT NULL,

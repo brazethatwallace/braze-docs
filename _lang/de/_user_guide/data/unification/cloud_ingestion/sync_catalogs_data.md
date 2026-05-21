@@ -55,7 +55,7 @@ Die Einrichtung einer Katalogsynchronisierung folgt weitgehend dem Prozess für 
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
 3. Wenn Ihr Snowflake-Konto Netzwerkrichtlinien hat, setzen Sie die Braze-IPs auf die Allowlist, damit der CDI-Dienst eine Verbindung herstellen kann. Eine Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-4. Navigieren Sie im Braze-Dashboard zu **Technology Partners** > **Snowflake** und erstellen Sie eine neue Synchronisierung.
+4. Navigieren Sie im Braze-Dashboard zu **Technologie-Partner** > **Snowflake** und erstellen Sie eine neue Synchronisierung.
 5. Geben Sie die Verbindungsdetails (oder vorhandene Zugangsdaten) und die Quelltabelle ein.
 6. Fahren Sie mit Schritt 2 des Einrichtungsablaufs fort, wählen Sie den Synchronisierungstyp „Catalogs“ und geben Sie den Integrationsnamen und den Zeitplan ein. Beachten Sie, dass der Name der Integration **exakt übereinstimmen** muss mit dem Namen des zuvor erstellten Katalogs.
 7. Wählen Sie eine Synchronisierungshäufigkeit und fahren Sie mit dem nächsten Schritt fort.
@@ -116,6 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | ERFORDERLICH |
 | ID | STRING | ERFORDERLICH |
 | DELETED | BOOLEAN | OPTIONAL |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -154,6 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT oder MAP | ERFORDERLICH |
 | ID | STRING | ERFORDERLICH |
 | DELETED | BOOLEAN | NULLABLE |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {:start="2"}
 
@@ -202,7 +204,7 @@ Erstellen Sie Quelldateien in S3 im JSON- oder CSV-Format. Jede Datei muss die f
 | `PAYLOAD` | Ja | Ein JSON-String der Felder, die mit dem Katalogartikel in Braze synchronisiert werden sollen. |
 | `DELETED` | Optional | Wenn auf `true` gesetzt, wird der entsprechende Katalogartikel aus dem Katalog entfernt. |
 | `UPDATED_AT` | *Nicht unterstützt* | Dateispeicher unterstützt keine `UPDATED_AT`-Spalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen.

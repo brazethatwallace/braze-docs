@@ -11,14 +11,14 @@ search_tag: partner
 
 > [Recurly](https://recurly.com/)はサブスクリプション管理および請求プラットフォームです。Recurly統合プラットフォームは、サブスクリプションライフサイクルのオートメーションを大規模に簡素化し、チームがサブスクライバーの体験（新しいプラン、オファー、プロモーションのテストから、決済方法、統合、インサイトの管理まで）を管理および最適化できるようにします。
 
-_この統合はRecurlyによって管理されます。_
+_この統合はRecurlyによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
 RecurlyとBrazeの統合により、サブスクリプションデータをBrazeと共有するプロセスが簡素化され、顧客とのターゲットを絞ったコミュニケーションが可能になります。
 
-- Brazeで Recurlyのサブスクリプションライフサイクルイベント（サブスクリプションの更新、一時停止、キャンセルなど）を活用して、パーソナライズされたCampaignsやコミュニケーションをトリガーします。
-- Recurlyのサブスクリプションデータ（サブスクリプションプラン、アドオン、ステータスなど）を活用して、会社ユーザー、Segments、Canvasesを作成・管理し、コホート固有のCampaignsやコミュニケーションを実施します。
+- BrazeでRecurlyのサブスクリプションライフサイクルイベント（サブスクリプションの更新、一時停止、キャンセルなど）を活用して、パーソナライズされたキャンペーンやコミュニケーションをトリガーします。
+- Recurlyのサブスクリプションデータ（サブスクリプションプラン、アドオン、ステータスなど）を活用して、会社ユーザー、セグメント、キャンバスを作成・管理し、コホート固有のキャンペーンやコミュニケーションを実施します。
 - RecurlyデータをBrazeに直接送信することで、追加のメッセージングユースケースを可能にし、開発のオーバーヘッドコストを削減します。
 
 BrazeでのRecurlyの使用に関する詳細については、[Recurlyドキュメント](https://docs.recurly.com/docs/braze-integration)をご覧ください。
@@ -30,6 +30,7 @@ BrazeでのRecurlyの使用に関する詳細については、[Recurlyドキュ
 | Recurlyアカウント | このパートナーシップを活用するには、Brazeフィーチャーフラグが有効になっているエリート[Recurly](https://recurly.com/)サブスクリプションプランが必要です。Recurlyプラットフォームでクレジット請求書の有効化も必要です。|
 | Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**で作成できます。Recurlyは`users.track`エンドポイントのみを使用するため、この権限のみを持つRecurly専用のキーをプロビジョニングすることを推奨します。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
@@ -63,7 +64,7 @@ Recurlyはアカウントの`account_code`をBrazeの`external_id`として使�
 
 効果的なカスタマーエンゲージメントのために、Recurlyによってトリガーされるイベントを受信するためにBrazeで[カスタムイベントを設定]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)する必要があります。データ統合を徹底するために、Recurlyの各イベントを含めるようにしてください。これらのイベントは[Braze分析]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#analytics)内でも追跡できます。設定後、これらのカスタムイベントを使用してユーザーをセグメント化したり、メッセージングをパーソナライズしたりできます。
 
-| Brazeカスタムイベント| Recurlyイベント |
+| Brazeカスタムイベント | Recurlyイベント |
 | ----------- | ----------- |
 | Recurly New Subscription              | サブスクリプションが作成されたときにトリガーされます                            |
 | Recurly Renewed Subscription          | サブスクリプションが更新されたときにトリガーされます                                |
@@ -77,6 +78,7 @@ Recurlyはアカウントの`account_code`をBrazeの`external_id`として使�
 | Recurly Successful Payment            | 請求書が正常に回収されたときにトリガーされます                 |
 | Recurly Refund Issued                 | 返金が行われたときにトリガーされます                                   |
 | Recurly Failed Recurring Payment      | サブスクリプション更新の請求書が失敗したときにトリガーされます          |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom events" }
 
 ### バッチ処理とレート制限 {#batching-and-rate-limiting}
 

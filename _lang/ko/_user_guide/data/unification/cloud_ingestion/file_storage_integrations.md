@@ -39,7 +39,7 @@ S3용 클라우드 데이터 수집(CDI)을 사용하여 AWS 계정에 있는 �
 | Amazon 리소스 이름(ARN) | ARN은 AWS 리소스에 대한 고유 식별자입니다. |
 | ID 및 액세스 관리(IAM) | IAM은 AWS 리소스에 대한 액세스를 안전하게 제어할 수 있는 웹 서비스입니다. 이 튜토리얼에서는 IAM 정책을 만들고 이를 IAM 역할에 할당하여 S3 버킷을 Braze 클라우드 데이터 수집과 통합합니다. |
 | Amazon Simple Queue Service(SQS) | SQS는 분산된 소프트웨어 시스템과 구성요소를 통합할 수 있는 호스팅 대기열입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS 정의" }
 
 ## AWS에서 클라우드 데이터 수집 설정하기 {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -243,7 +243,7 @@ Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사
 | `BRAZE_ID` | Braze 사용자 식별자입니다. Braze SDK에 의해 생성되며, 클라우드 데이터 수집을 통해 Braze ID로 새 사용자를 생성할 수는 없습니다. 새 사용자를 만들려면 외부 사용자 ID 또는 사용자 별칭을 지정하세요. |
 | `EMAIL` | 사용자의 이메일 주소입니다. 동일한 이메일 주소를 가진 프로필이 여러 개 존재하는 경우, 가장 최근에 업데이트된 프로필이 우선적으로 업데이트됩니다. 이메일과 전화번호를 모두 포함하면 Braze는 이메일을 기본 식별자로 사용합니다. |
 | `PHONE` | 사용자의 전화번호입니다. 동일한 전화번호를 가진 프로필이 여러 개 존재하는 경우, 가장 최근에 업데이트된 프로필이 우선적으로 업데이트됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 식별자" }
 
 식별자 외에도 각 행에는 Braze에서 사용자에게 동기화하려는 필드의 JSON 문자열이 포함된 `PAYLOAD` 열이 있어야 합니다.
 
@@ -260,12 +260,12 @@ Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사
 | `ID` | 예 | 카탈로그 항목의 고유 식별자입니다. Braze에서 항목을 생성, 업데이트 또는 삭제하는 데 사용됩니다. |
 | `PAYLOAD` | 예 | 동기화할 카탈로그 필드와 값의 JSON 문자열입니다. Braze의 카탈로그 스키마와 일치해야 합니다. |
 | `DELETED` | 아니요 | `true`일 때 일치하는 `ID`의 카탈로그 항목이 Braze의 카탈로그에서 제거됩니다. 생성 또는 업데이트 작업의 경우 이 열을 생략하거나 `false`로 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="카탈로그 식별자" }
 
 ### 예제 {#examples}
 
 {% tabs %}
-{% tab JSON Attributes %}
+{% tab JSON 속성 %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"name\": \"GT896\", \"age\": 74, \"subscriber\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"external_id":"s3-qa-1","payload":"{\"name\": \"HSCJC\", \"age\": 86, \"subscriber\": false, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600824\"}"}
@@ -279,7 +279,7 @@ Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사
 소스 파일의 모든 줄에 유효한 JSON이 포함되어야 하며, 그렇지 않으면 파일이 건너뛰어집니다.
 {% endalert %}
 {% endtab %}
-{% tab JSON Custom Events %}
+{% tab JSON 커스텀 이벤트 %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
@@ -288,7 +288,7 @@ Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사
 소스 파일의 모든 줄에 유효한 JSON이 포함되어야 하며, 그렇지 않으면 파일이 건너뛰어집니다.
 {% endalert %}
 {% endtab %}
-{% tab JSON Purchase Events %}
+{% tab JSON 구매 이벤트 %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
@@ -298,7 +298,7 @@ Braze는 AWS에서 적용하는 것 외에 추가적인 파일 이름 요구 사
 {% endalert %}
 
 {% endtab %}
-{% tab CSV Attributes %}
+{% tab CSV 속성 %}
 ```plaintext
 external_id,payload
 s3-qa-load-0-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""SNXIM"", ""age"": 54, ""subscriber"": true, ""retention"": {""previous_purchases"": 19, ""vip"": true}, ""last_visit"": ""2023-08-08T16:03:26.598806""}"
@@ -306,13 +306,13 @@ s3-qa-load-1-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""0J747"", ""age""
 s3-qa-load-2-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""EP1U0"", ""age"": 99, ""subscriber"": false, ""retention"": {""previous_purchases"": 23, ""vip"": false}, ""last_visit"": ""2023-08-08T16:03:26.598822""}"
 ```
 {% endtab %}
-{% tab CSV Catalogs  %}
+{% tab CSV 카탈로그 %}
 ```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-선택적 `DELETED` 열을 포함합니다. `DELETED`가 `true`일 때 해당 카탈로그 항목은 Braze의 카탈로그에서 제거됩니다. 필수 열의 전체 목록은 [카탈로그 식별자](#catalog-identifiers)를 참조하세요. 삭제 동작에 대해서는 [카탈로그 항목 삭제](#deleting-catalog-items)를 참조하세요. 카탈로그 생성 및 동기화 동작을 포함한 전체 카탈로그 설정 흐름에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)를 참조하세요.
+선택적 `DELETED` 열을 포함합니다. `DELETED`가 `true`일 때 해당 카탈로그 항목은 Braze의 카탈로그에서 제거됩니다. 필수 열의 전체 목록은 [카탈로그 식별자](#catalog-identifiers)를 참조하세요. 삭제 동작에 대해서는 [카탈로그 항목 삭제](#deleting-catalog-items)를 참조하세요. 대상 카탈로그 생성 및 동기화 동작을 포함한 전체 카탈로그 설정 흐름에 대해서는 [카탈로그 데이터 동기화 및 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)를 참조하세요.
 {% endtab %}
 
 {% endtabs %}
@@ -339,6 +339,7 @@ S3의 파일을 사용하여 Braze에서 고객 프로필을 삭제하려면:
 | `EXTERNAL_ID` | Braze에서 사용되는 `external_id`와 일치합니다. |
 | `ALIAS_NAME` 및 `ALIAS_LABEL` | 두 열이 함께 별칭으로 사용자를 식별합니다. |
 | `BRAZE_ID` | Braze에서 생성된 사용자 ID(기존 사용자만 해당). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 삭제" }
 
 {% alert important %}
 사용자 삭제는 영구적이며 되돌릴 수 없습니다. 제거하려는 사용자만 포함하세요. 자세한 내용은 [클라우드 데이터 수집으로 사용자 삭제]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/)를 참조하세요.

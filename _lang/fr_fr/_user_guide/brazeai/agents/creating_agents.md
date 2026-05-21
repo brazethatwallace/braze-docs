@@ -32,7 +32,7 @@ Les cas d'utilisation suivants illustrent quelques façons de tirer parti des ag
 | Gestion des commentaires clients | Transmettez les commentaires des utilisateurs à un agent afin qu'il analyse le sentiment et génère des messages de suivi empathiques. Pour les utilisateurs à forte valeur, l'agent peut escalader la réponse ou inclure des avantages. |
 | Localisation du contenu | Traduisez le texte du catalogue dans une autre langue pour les campagnes internationales, ou ajustez le ton et la longueur pour les canaux spécifiques à chaque région. Par exemple, traduisez « Classic Clubmaster Sunglasses » en espagnol par « Gafas de sol Classic Clubmaster », ou raccourcissez les descriptions pour les campagnes SMS. |
 | Résumé des avis ou commentaires | Résumez le sentiment ou les commentaires dans un nouveau champ, par exemple en attribuant des scores de sentiment tels que Positif, Neutre ou Négatif, ou en rédigeant un bref résumé tel que « La plupart des clients mentionnent une excellente coupe, mais soulignent la lenteur de la livraison. » |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fonctionnement" }
 
 ## Créer un agent {#create-an-agent}
 
@@ -66,18 +66,15 @@ Consultez la section [Rédaction des instructions]({{site.baseurl}}/user_guide/b
 Pour les agents Canvas, vous pouvez utiliser Liquid dans vos instructions afin de faire référence aux attributs utilisateur, tels que le prénom et le nom, ou à des attributs personnalisés. Toute variable Liquid présente dans les instructions de l'agent est automatiquement transmise à l'étape Agent lorsqu'un utilisateur y accède.
 {% endalert %}
 
-#### Étape 3.1 : Ajouter des ressources {#add-resources}
+#### Ajouter du contexte {#add-resources}
 
-Sélectionnez **Ajouter des ressources** pour choisir les éléments auxquels votre agent peut se référer. Cela inclut :
+Sélectionnez **+ Contexte de l'agent** pour choisir les éléments auxquels votre agent peut se référer. Cela inclut :
 
 - [Champs du catalogue]({{site.baseurl}}/user_guide/brazeai/agents/reference/#catalogs-and-fields) : Donnez à l'agent accès aux données de votre catalogue pour des réponses plus précises.
-- [Appartenance au segment]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq segments.
+- [Appartenance à un segment]({{site.baseurl}}/user_guide/brazeai/agents/reference/#segment-membership-context) : Permettez à l'agent de personnaliser les réponses en fonction des segments auxquels appartient l'utilisateur. Vous pouvez sélectionner jusqu'à cinq segments.
 - [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) : Référencez les directives relatives au ton et au style de la marque que l'agent doit respecter. Par exemple, si vous souhaitez que votre agent génère un SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre directive prédéfinie, audacieuse et motivante.
 - [Contexte Canvas complet]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) : Analysez toutes les données de contexte Canvas pour un utilisateur lorsque cet agent est invoqué, y compris les variables qui ne sont pas référencées dans la section **Instructions**.
-
-#### Étape 3.2 : Ajouter des paramètres facultatifs {#step-32-add-optional-settings}
-
-Dans les **Paramètres facultatifs**, vous pouvez ajuster la [température]({{site.baseurl}}/user_guide/brazeai/agents/reference/#temperature) du texte généré par l'agent. Une température plus élevée permet à l'agent d'exploiter les informations fournies de manière plus créative.
+- [Données d'interaction utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/reference/#user-history) : Fournissez à l'agent les données récentes d'ouvertures, de clics et de conversions des Campaigns et Canvas de chaque utilisateur.
 
 ### Étape 4 : Sélectionner la sortie {#select-output}
 

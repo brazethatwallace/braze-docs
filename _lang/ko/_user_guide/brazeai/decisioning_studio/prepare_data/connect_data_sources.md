@@ -23,7 +23,7 @@ Decisioning Studio는 고객 데이터를 연결하기 위한 다양한 통합 �
 | **Braze 클라우드 데이터 수집(CDI)** | 외부 데이터 웨어하우스 연결 | 중간 |
 | **클라우드 스토리지(GCS, AWS, Azure)** | 다른 플랫폼에서의 직접 데이터 내보내기 | 중간 |
 | **CEP 통합** | SFMC, Klaviyo 데이터 확장 | 중간 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## 고객 데이터 유형 {#customer-data-types}
 
@@ -35,7 +35,7 @@ Decisioning Studio는 고객 데이터를 연결하기 위한 다양한 통합 �
 | **고객 행동** | 활동 및 참여 패턴 | 계정 로그인, 기기 유형, 고객 서비스 상호작용, 제품 사용 |
 | **거래 내역** | 구매 및 전환 데이터 | 구매한 제품, 거래 금액, 결제 방법, 구매 채널 |
 | **마케팅 참여** | 커뮤니케이션에 대한 반응 | 이메일 열람/클릭, SMS 참여, 웹 및 모바일 활동, 설문조사 응답 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
 
 {% alert tip %}
 에이전트가 고객에 대해 더 많은 정보를 가질수록 더 나은 성과를 냅니다. 비즈니스에 특히 중요한 인사이트에 대한 데이터를 포함하는 것을 고려하세요(예: AI가 로열티 고객을 어떻게 다르게 대우하는지 확인하고 싶으신가요? 고객 데이터에 로열티 상태가 포함되어 있는지 확인하세요).
@@ -101,7 +101,7 @@ Klaviyo 통합의 경우:
 API 키 설정에 대한 자세한 내용은 [Klaviyo 설명서](https://help.klaviyo.com/hc/en-us/articles/115005237908)를 참조하세요.
 
 {% endtab %}
-{% tab Cloud Storage %}
+{% tab 클라우드 스토리지 %}
 
 ### 기타 클라우드 솔루션(Google Cloud Storage, Azure, AWS) {#other-cloud-solutions-google-cloud-storage-azure-aws}
 

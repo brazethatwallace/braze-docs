@@ -28,10 +28,10 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro| Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | -------- | -------- | --------- | ----------- |
 | `page` | Opcional | Inteiro | A página de nomes de eventos a ser retornada; o padrão é 0 (retorna o primeiro conjunto de até 250). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

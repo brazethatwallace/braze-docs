@@ -29,7 +29,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 | 최소 SDK 버전                                                          | 권장 SDK 버전                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK 요구 사항" }
 
 {% details 최소 SDK에 대한 추가 정보 %}
 
@@ -45,7 +45,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 | 텍스트 링크*                                                         | 푸시 프라이머 요청                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK 요구 사항" }
 
 *인앱 메시지에 URL로 리디렉션하는 링크를 포함하고 최종 사용자가 지정된 최소 SDK 버전을 사용하지 않는 경우, 링크를 선택하면 메시지가 닫히고 사용자는 양식을 제출하기 위해 메시지로 돌아갈 수 없습니다.
 

@@ -432,7 +432,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -443,10 +443,10 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 **データソース**: Braze SDK<br>
 **ユースケース**: カート放棄
 
-放棄カートCanvasでは、まず最初のショッピングカートのLiquidタグを追加し、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
+放棄カートキャンバスでは、まず最初のショッピングカートのLiquidタグを追加し、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
 
 {% raw %}
-```liquid
+`````````liquid
 {% shopping_cart {{context.${cart_id}}} %}
 ```
 {% endraw %}
@@ -469,7 +469,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -488,10 +488,10 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 顧客がShop Payを高速チェックアウトオプションとして使用した場合、Shopifyは特定の標準チェックアウトイベント（Shopifyチェックアウト開始Webhookなど）をスキップすることがあります。これにより、Brazeがチェックアウトトークンエイリアスの追加に必要なデータを受信できず、チェックアウト放棄のトラッキングやユーザープロファイルの照合に影響を与える可能性があります。
 {% endalert %}
 
-放棄チェックアウトCanvasでは、まず次のLiquidタグを使用する必要があります。
+放棄チェックアウトキャンバスでは、まず次のLiquidタグを使用する必要があります。
 
 {% raw %}
-```liquid
+`````````liquid
 {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
 {{context.${cart_id}}}
 ```
@@ -515,7 +515,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,7 +544,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -562,44 +562,44 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% raw %}
 | 変数 | Liquidテンプレート |
 | --- | --- |
-| オーダーID | `{{event_properties.${order_id}}}` |
-| 合計金額 | `{{event_properties.${total_price}}}` |
-| 割引総額 | `{{event_properties.${total_discounts}}}` |
-| 確認ステータス | `{{event_properties.${confirmed}}}` |
-| 注文状況URL | `{{event_properties.${order_status_url}}}` |
-| 注文番号 | `{{event_properties.${order_number}}}` |
-| キャンセルタイムスタンプ | `{{event_properties.${cancelled_at}}}` |
-| クローズタイムスタンプ | `{{event_properties.${closed_at}}}` |
-| アイテムID | `{{event_properties.${line_items}[0].product_id}}` |
-| アイテム数量 | `{{event_properties.${line_items}[0].quantity}}` |
-| アイテムSKU | `{{event_properties.${line_items}[0].sku}}` |
-| アイテムタイトル | `{{event_properties.${line_items}[0].title}}` |
-| アイテムベンダー | `{{event_properties.${line_items}[0].vendor}}` |
-| アイテム名 | `{{event_properties.${line_items}[0].name}}` |
-| アイテムプロパティ | `{{event_properties.${line_items}[0].properties}}` |
-| アイテム価格 | `{{event_properties.${line_items}[0].price}}` |
-| 配送タイトル | `{{event_properties.${shipping}[0].title}}` |
-| 配送料金 | `{{event_properties.${shipping}[0].price}}` |
-| フルフィルメントステータス | `{{event_properties.${fulfillment_status}}}` |
-| フルフィルメント出荷ステータス | `{{event_properties.${fulfillments}[0].shipment_status}}` |
-| ステータス | `{{event_properties.${fulfillments}[0].status}}` |
-| フルフィルメント追跡会社 | `{{event_properties.${fulfillments}[0].Fulfillment tracking_company}}` |
-| フルフィルメント追跡番号 | `{{event_properties.${fulfillments}[0].Fulfillment tracking_number}}` |
-| フルフィルメント追跡番号（複数） | `{{event_properties.${fulfillments}[0].Fulfillment tracking_numbers}}` |
-| フルフィルメント追跡URL | `{{event_properties.${fulfillments}[0].Fulfillment tracking_url}}` |
-| フルフィルメント追跡URL（複数） | `{{event_properties.${fulfillments}[0].Fulfillment tracking_urls}}` |
-| フルフィルメントステータス | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
-| フルフィルメント名 | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
-| フルフィルメント価格 | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
-| フルフィルメント製品ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
-| フルフィルメント数量 | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
-| フルフィルメント配送 | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
-| フルフィルメントSKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
-| フルフィルメントタイトル | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
-| フルフィルメントベンダー | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
-| バリアントID | `{{event_properties.${line_items}[0].variant_id}}` |
-| バリアントタイトル | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Confirmed Status | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Closed Timestamp | `{{event_properties.${closed_at}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
+| Fulfillment Shipment Status | `{{event_properties.${fulfillments}[0].shipment_status}}` |
+| Status | `{{event_properties.${fulfillments}[0].status}}` |
+| Fulfillment Tracking Company | `{{event_properties.${fulfillments}[0].Fulfillment tracking_company}}` |
+| Fulfillment Tracking Number | `{{event_properties.${fulfillments}[0].Fulfillment tracking_number}}` |
+| Fulfillment Tracking Numbers | `{{event_properties.${fulfillments}[0].Fulfillment tracking_numbers}}` |
+| Fulfillment Tracking URL | `{{event_properties.${fulfillments}[0].Fulfillment tracking_url}}` |
+| Fulfillment Tracking URLs | `{{event_properties.${fulfillments}[0].Fulfillment tracking_urls}}` |
+| Fulfillment Status | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
+| Fulfillment Name | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
+| Fulfillment Price | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
+| Fulfillment Product ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
+| Fulfillment Quantity | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
+| Fulfillment Shipping | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
+| Fulfillment SKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
+| Fulfillment Title | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
+| Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -613,44 +613,44 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% raw %}
 | 変数 | Liquidテンプレート |
 | --- | --- |
-| オーダーID | `{{event_properties.${order_id}}}` |
-| 合計金額 | `{{event_properties.${total_price}}}` |
-| 割引総額 | `{{event_properties.${total_discounts}}}` |
-| 確認ステータス | `{{event_properties.${confirmed}}}` |
-| 注文状況URL | `{{event_properties.${order_status_url}}}` |
-| 注文番号 | `{{event_properties.${order_number}}}` |
-| キャンセルタイムスタンプ | `{{event_properties.${cancelled_at}}}` |
-| クローズタイムスタンプ | `{{event_properties.${closed_at}}}` |
-| アイテムID | `{{event_properties.${line_items}[0].product_id}}` |
-| アイテム数量 | `{{event_properties.${line_items}[0].quantity}}` |
-| アイテムSKU | `{{event_properties.${line_items}[0].sku}}` |
-| アイテムタイトル | `{{event_properties.${line_items}[0].title}}` |
-| アイテムベンダー | `{{event_properties.${line_items}[0].vendor}}` |
-| アイテム名 | `{{event_properties.${line_items}[0].name}}` |
-| アイテムプロパティ | `{{event_properties.${line_items}[0].properties}}` |
-| アイテム価格 | `{{event_properties.${line_items}[0].price}}` |
-| 配送タイトル | `{{event_properties.${shipping}[0].title}}` |
-| 配送料金 | `{{event_properties.${shipping}[0].price}}` |
-| フルフィルメントステータス | `{{event_properties.${fulfillment_status}}}` |
-| フルフィルメント出荷ステータス | `{{event_properties.${fulfillments}[0].shipment_status}}` |
-| フルフィルメントステータス | `{{event_properties.${fulfillments}[0].status}}` |
-| フルフィルメント追跡会社 | `{{event_properties.${fulfillments}[0].tracking_company}}` |
-| フルフィルメント追跡番号 | `{{event_properties.${fulfillments}[0].tracking_number}}` |
-| フルフィルメント追跡番号（複数） | `{{event_properties.${fulfillments}[0].tracking_numbers}}` |
-| フルフィルメント追跡URL | `{{event_properties.${fulfillments}[0].tracking_url}}` |
-| フルフィルメント追跡URL（複数） | `{{event_properties.${fulfillments}[0].tracking_urls}}` |
-| フルフィルメントステータス | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
-| フルフィルメント名 | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
-| フルフィルメント価格 | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
-| フルフィルメント製品ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
-| フルフィルメント数量 | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
-| フルフィルメント配送 | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
-| フルフィルメントSKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
-| フルフィルメントタイトル | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
-| フルフィルメントベンダー | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
-| バリアントID | `{{event_properties.${line_items}[0].variant_id}}` |
-| バリアントタイトル | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Confirmed Status | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Closed Timestamp | `{{event_properties.${closed_at}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
+| Fulfillment Shipment Status | `{{event_properties.${fulfillments}[0].shipment_status}}` |
+| Fulfillment Status | `{{event_properties.${fulfillments}[0].status}}` |
+| Fulfillment Tracking Company | `{{event_properties.${fulfillments}[0].tracking_company}}` |
+| Fulfillment Tracking Number | `{{event_properties.${fulfillments}[0].tracking_number}}` |
+| Fulfillment Tracking Numbers | `{{event_properties.${fulfillments}[0].tracking_numbers}}` |
+| Fulfillment Tracking URL | `{{event_properties.${fulfillments}[0].tracking_url}}` |
+| Fulfillment Tracking URLs | `{{event_properties.${fulfillments}[0].tracking_urls}}` |
+| Fulfillment Status | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
+| Fulfillment Name | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
+| Fulfillment Price | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
+| Fulfillment Product ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
+| Fulfillment Quantity | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
+| Fulfillment Shipping | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
+| Fulfillment SKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
+| Fulfillment Title | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
+| Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -664,27 +664,27 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% raw %}
 | 変数 | Liquidテンプレート |
 | --- | --- |
-| オーダーID | `{{event_properties.${order_id}}}` |
-| 確認ステータス | `{{event_properties.${confirmed}}}` |
-| 注文状況URL | `{{event_properties.${order_status_url}}}` |
-| 注文番号 | `{{event_properties.${order_number}}}` |
-| キャンセルタイムスタンプ | `{{event_properties.${cancelled_at}}}` |
-| 割引総額 | `{{event_properties.${total_discounts}}}` |
-| 合計金額 | `{{event_properties.${total_price}}}` |
-| タグ | `{{event_properties.${tags}}}` |
-| 割引コード | `{{event_properties.${discount_codes}}}` |
-| アイテムID | `{{event_properties.${line_items}[0].product_id}}` |
-| アイテム数量 | `{{event_properties.${line_items}[0].quantity}}` |
-| アイテムSKU | `{{event_properties.${line_items}[0].sku}}` |
-| アイテムタイトル | `{{event_properties.${line_items}[0].title}}` |
-| アイテムベンダー | `{{event_properties.${line_items}[0].vendor}}` |
-| アイテムプロパティ | `{{event_properties.${line_items}[0].properties}}` |
-| アイテム価格 | `{{event_properties.${line_items}[0].price}}` |
-| 配送タイトル | `{{event_properties.${shipping}[0].title}}` |
-| 配送料金 | `{{event_properties.${shipping}[0].price}}` |
-| バリアントID | `{{event_properties.${line_items}[0].variant_id}}` |
-| バリアントタイトル | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Confirmed Status | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Tags | `{{event_properties.${tags}}}` |
+| Discount Codes | `{{event_properties.${discount_codes}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -698,30 +698,30 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% raw %}
 | 変数 | Liquidテンプレート |
 | --- | --- |
-| オーダーID | `{{event_properties.${order_id}}}` |
-| 合計金額 | `{{event_properties.${total_price}}}` |
-| 割引総額 | `{{event_properties.${total_discounts}}}` |
-| 確認済み | `{{event_properties.${confirmed}}}` |
-| 注文状況URL | `{{event_properties.${order_status_url}}}` |
-| 注文番号 | `{{event_properties.${order_number}}}` |
-| キャンセルタイムスタンプ | `{{event_properties.${cancelled_at}}}` |
-| タグ | `{{event_properties.${tags}}}` |
-| 割引コード | `{{event_properties.${discount_codes}}}` |
-| フルフィルメントステータス | `{{event_properties.${fulfillment_status}}}` |
-| フルフィルメント | `{{event_properties.${fulfillments}}}` |
-| アイテムID | `{{event_properties.${line_items}[0].product_id}}` |
-| アイテム数量 | `{{event_properties.${line_items}[0].quantity}}` |
-| アイテムSKU | `{{event_properties.${line_items}[0].sku}}` |
-| アイテムタイトル | `{{event_properties.${line_items}[0].title}}` |
-| アイテムベンダー | `{{event_properties.${line_items}[0].vendor}}` |
-| アイテム名 | `{{event_properties.${line_items}[0].name}}` |
-| アイテムプロパティ | `{{event_properties.${line_items}[0].properties}}` |
-| フルフィルメントステータス | `{{event_properties.${line_items}[0].fulfillment_status}}` |
-| 配送タイトル | `{{event_properties.${shipping}[0].title}}` |
-| 配送料金 | `{{event_properties.${shipping}[0].price}}` |
-| バリアントID | `{{event_properties.${line_items}[0].variant_id}}` |
-| バリアントタイトル | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Confirmed | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Tags | `{{event_properties.${tags}}}` |
+| Discount Codes | `{{event_properties.${discount_codes}}}` |
+| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
+| Fulfillments | `{{event_properties.${fulfillments}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Fulfillment Status | `{{event_properties.${line_items}[0].fulfillment_status}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
@@ -734,19 +734,19 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% raw %}
 | 変数 | Liquidテンプレート |
 | --- | --- |
-| オーダーID | `{{event_properties.${order_id}}}` |
-| 注文メモ | `{event_properties.${note}}}` |
-| アイテムID | `{{event_properties.${line_items}[0].product_id}}` |
-| アイテム数量 | `{{event_properties.${line_items}[0].quantity}}` |
-| アイテムSKU | `{{event_properties.${line_items}[0].sku}}` |
-| アイテムタイトル | `{{event_properties.${line_items}[0].title}}` |
-| アイテムベンダー | `{{event_properties.${line_items}[0].vendor}}` |
-| アイテム名 | `{{event_properties.${line_items}[0].name}}` |
-| アイテムプロパティ | `{{event_properties.${line_items}[0].properties}}` |
-| アイテム価格 | `{{event_properties.${line_items}[0].price}}` |
-| バリアントID | `{{event_properties.${line_items}[0].variant_id}}` |
-| バリアントタイトル | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Order Note | `{event_properties.${note}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | 変数 | Liquidテンプレート |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert note %}
@@ -803,13 +803,13 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 {% tab Shopifyカスタム属性 %}
 | 属性名 | 説明 |
 | --- | --- |
-| `shopify_total_spent` | 注文履歴全体で顧客が支払った総額。 |
-| `shopify_order_count` | この顧客に関連する注文数。テストオーダーとアーカイブオーダーはカウントされません。 |
-| `shopify_last_order_id` | 顧客の最後の注文のID。 |
-| `shopify_last_order_name` | 顧客の最後の注文の名前。これは、注文リソースの`name`フィールドに直接関係しています。 |
-| `shopify_zipcode` | 顧客のデフォルト住所の郵便番号。 |
-| `shopify_province` | 顧客のデフォルト住所の都道府県。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `shopify_total_spent` | 注文履歴全体で顧客が支払った総額です。 |
+| `shopify_order_count` | この顧客に関連する注文数です。テストオーダーとアーカイブオーダーはカウントされません。 |
+| `shopify_last_order_id` | 顧客の最後の注文のIDです。 |
+| `shopify_last_order_name` | 顧客の最後の注文の名前です。これは、注文リソースの`name`フィールドに直接関係しています。 |
+| `shopify_zipcode` | 顧客のデフォルト住所の郵便番号です。 |
+| `shopify_province` | 顧客のデフォルト住所の都道府県です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
 
 {% alert important %}
 現行のShopify APIバージョンに既知の問題があり、`shopify_last_order_name`ユーザー属性が正しく入力されません。ユーザーへの影響は以下のとおりです。<br><br>
@@ -860,7 +860,7 @@ Braze SDKが収集するデータの詳細については、[SDKデータ収集]
 BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
 
 {% alert note %}
-アクティブなCampaignsやCanvasesを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがSegmentsやジャーニーにどのように影響するかを確認してください。
+アクティブなキャンペーンやキャンバスを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがセグメントやジャーニーにどのように影響するかを確認してください。
 {% endalert %}
 
 {% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
@@ -886,4 +886,4 @@ BrazeがShopifyの顧客をインポートする際、設定で選択した`exte
 | Braze推奨イベント | Shopifyカスタムイベント | Braze標準属性 | Brazeサブスクリプションステータス |
 | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li>注文確定</li><li>注文キャンセル</li><li>注文返金</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>メール</li><li>名</li><li>姓</li><li>電話</li><li>市区町村</li><li>国</li><li>合計収益</li><li>合計返金</li><li>合計注文数</li></ul>{:/} | {::nomarkdown}<ul><li>このShopifyストアに関連するメールマーケティングサブスクリプション</li><li>このShopifyストアに関連するSMSマーケティングサブスクリプション</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Synced data" }

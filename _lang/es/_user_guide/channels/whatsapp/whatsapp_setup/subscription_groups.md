@@ -24,7 +24,7 @@ Existen dos estados de suscripción para los usuarios de WhatsApp: `subscribed` 
 | --- | --- |
 | Suscrito | El usuario ha confirmado explícitamente que desea recibir mensajes de WhatsApp de una empresa específica. Los usuarios pueden suscribirse actualizando su estado de suscripción a través de la API de suscripción de Braze o implementando una estrategia de adhesión voluntaria, según las directrices de WhatsApp. |
 | Dado de baja | El usuario no ha dado su consentimiento explícito para la adhesión voluntaria o su estado de adhesión ha sido eliminado explícitamente. <br><br> Los usuarios dados de baja de un grupo de suscripción de WhatsApp dejarán de recibir cualquier mensaje de WhatsApp de los números de teléfono de envío que pertenezcan al grupo de suscripción. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
 
 ### Configurar los grupos de suscripción de WhatsApp de los usuarios {#setting-users-whatsapp-subscription-groups}
 

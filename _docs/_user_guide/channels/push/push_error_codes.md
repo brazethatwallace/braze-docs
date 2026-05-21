@@ -29,23 +29,32 @@ Common failures may include:
 - People are registering with multiple services. We currently expect push registration intents to arrive old-style, so if folks are registering in multiple places and we catch intents from other services we can get malformed push tokens.
 
 ### Push bounced: NotRegistered {#notregistered}
+
 `NotRegistered` usually means that the app has been deleted from the device (such as our signal for Uninstall). This can also occur if multiple registration is happening and a second registration is invalidating the push token that Braze receives.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
-This error appears in the Message Activity Log as:
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+This error appears in the Message Activity Log as: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 This typically occurs for one of the following reasons:
 
 - The user uninstalled the app. This is the most common cause. When the app is removed from a device, the push token becomes invalid.
 - Push credentials were updated in the app. If your team changed the FCM credentials or certificates bundled with the app, users who registered with the previous credentials have invalid tokens until the app re-registers them.
-- Custom logic is unregistering users from push. This is rare, but it's technically possible to programmatically unregister a device from push using the Firebase/Android SDK.
+- Custom logic is unregistering users from push. This is rare, but it's technically possible to programmatically unregister a device from push using the [Firebase/Android SDK](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 This error does not mean the user is push disabled—only that a specific token was removed from their profile. This is common for users who are testing functionality and frequently installing and uninstalling the app. To check if the user still has valid tokens, go to **User Search** and review the **Contact Settings** section on the **Engagement** tab.
 {% endalert %}
+
+### Requested entity was not found
+
+This error can occur because of the following reasons:
+
+- The end user has uninstalled the app. You can check their user profile to confirm if this is the case.
+- There's an invalid notification channel. Depending on your integration, devices can have push tokens that are only valid for certain notification channels. When sending to an invalid channel, the message bounces.
+- The payload size is too large.
+
+For more information, refer to [Google's documentation](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) on stale and expired registration tokens.
 
 {% endtab %}
 {% tab iOS %}

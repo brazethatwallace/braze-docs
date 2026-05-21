@@ -29,7 +29,7 @@ Braze procesa automáticamente las siguientes palabras clave y actualiza el esta
 | Adhesión voluntaria | `START`<br> `YES`<br> `UNSTOP` | Cualquier solicitud de entrada con una de estas palabras clave de `Opt-In` resultará en un cambio de estado del grupo de suscripción a `subscribed`. Además, el conjunto de remitentes asociados con ese grupo de suscripción podrá enviar un mensaje SMS, MMS o RCS a ese cliente (dependiendo del tipo de mensajería que admitan los remitentes). <br><br>El usuario recibirá tu respuesta automática de adhesión voluntaria definida.  |
 | Cancelación de suscripción | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | Cualquier solicitud de entrada con una de estas palabras clave de `Opt-Out` resultará en un cambio de estado del grupo de suscripción a `unsubscribed`. Además, el conjunto de números asociados con ese grupo de suscripción ya no podrá enviar mensajes a ese cliente.<br><br>El usuario recibirá tu respuesta automática de cancelación de suscripción definida. |
 | Ayuda | `HELP`<br> `INFO` | El usuario recibirá tu respuesta automática de ayuda definida. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default keywords" }
 
 Solo se procesará el **mensaje exacto de una sola palabra** (sin distinción de mayúsculas y minúsculas). Palabras clave como `STOP PLEASE` se ignorarán a menos que la [cancelación aproximada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/) esté activada.
 

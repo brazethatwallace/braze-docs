@@ -62,7 +62,7 @@ Braze Web SDKバージョンは5.4.0である必要があります。
 
 次に、最上位キーとして[この設定]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を `vite.config.js` ファイルに含めます。
 
-```java
+`````````java
 optimizeDeps: {
     exclude: ['@braze/web-sdk']
 }
@@ -70,7 +70,7 @@ optimizeDeps: {
 
 NPMパッケージをインストールした後、`Layout` コンポーネント内部の `useEffect` フック内でSDKを初期化する必要があります。Hydrogenのバージョンに応じて、このコンポーネントは `root.jsx` または `layout.jsx` のいずれかのファイルにあります。
 
-```java
+`````````java
 // Add these imports
 import * as braze from "@braze/web-sdk";
 import { useEffect } from 'react';
@@ -96,7 +96,7 @@ export function Layout({children}) {
 
 [ステップ2](#step-2)で作成した環境変数を使用して、値 `data.brazeApiKey` と `data.brazeApiUrl` をコンポーネントローダーに含める必要があります。
 
-```java
+`````````java
 export async function loader(args) {
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
@@ -145,7 +145,7 @@ export async function loader(args) {
 
 1. コールバックURIを設定した後、Braze SDKを呼び出す関数を定義します。新しいファイル（`Tracking.jsx` など）を作成し、コンポーネントからインポートします。
 
-```java
+`````````java
 import * as braze from "@braze/web-sdk";
 
 export function trackCustomerLogin(customerData, storefrontUrl) {
@@ -186,7 +186,7 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
 {: start="2"}
 2. Braze SDKを初期化するのと同じ `useEffect` フックで、この関数の呼び出しを追加します。
 
-```java
+`````````java
 import { trackCustomerLogin } from './Tracking';
 
 export function Layout({children}) {
@@ -216,7 +216,7 @@ export function Layout({children}) {
 {: start="3"}
 3. ファイル `app/graphql/customer-account/CustomerDetailsQuery.js` にあるCustomer API GraphQLクエリで、顧客のメールアドレスと電話番号を取得します。
 
-```java
+`````````java
 export const CUSTOMER_FRAGMENT = `#graphql
   fragment Customer on Customer {
     id
@@ -257,7 +257,7 @@ export const CUSTOMER_FRAGMENT = `#graphql
 {: start="4"}
 4. 最後に、ローダー関数で顧客データを読み込みます。
 
-```java
+`````````java
 // Add import for GraphQL Query
 import { CUSTOMER_DETAILS_QUERY } from './graphql/customer-account/CustomerDetailsQuery';
 
@@ -312,7 +312,7 @@ export async function loader(args) {
 
 1. この関数を `Tracking.jsx` ファイルに追加します。
 
-```java
+`````````java
 export function trackProductViewed(product, storefrontUrl) {
   const eventData = {
     product_id: product.id.substring(product.id.lastIndexOf('/') + 1),
@@ -339,7 +339,7 @@ export function trackProductViewed(product, storefrontUrl) {
 {: start="2"}
 2. ユーザーが製品ページにアクセスするたびにこの関数を呼び出すには、ファイル `app/routes/products.$handle.jsx` 内のProductコンポーネントに `useEffect` フックを追加します。
 
-```java
+`````````java
 import { trackProductViewed } from '~/tracking';
 import { useEffect } from 'react';
 
@@ -360,7 +360,7 @@ export default function Product() {
 {: start="3"}
 3. 「storefrontUrl」の値を追加します（デフォルトではコンポーネントローダーに含まれていないため）。
 
-```java
+`````````java
 async function loadCriticalData({context, params, request}) {
   const {handle} = params;
   const {storefront} = context;
@@ -394,7 +394,7 @@ async function loadCriticalData({context, params, request}) {
 
 1. `cart_updated` イベントを追跡し、カートトークンを設定する関数を定義します。
 
-```java
+`````````java
 export function trackCartUpdated(cart, storefrontUrl) {
   const eventData = {
     cart_id: cart.id,
@@ -441,7 +441,7 @@ export function setCartToken(cart) {
 {: start="2"}
 2. フェッチャーアクションから `cart` オブジェクトを返し、Brazeがそのプロパティにアクセスできるようにします。`app/routes/cart.jsx` ファイルに移動して、`action` 関数に以下を追加します。
 
-```java
+`````````java
 export async function action({request, context}) {
   const {cart} = context;
 
@@ -486,7 +486,7 @@ Remixフェッチャーの詳細については、[useFetcher](https://remix.run
 {: start="3"}
 3. Hydrogenストアは通常、カートオブジェクトの状態を管理する `CartForm` コンポーネントを定義します。このコンポーネントは、カート内のアイテムの追加、削除、数量の変更時に使用されます。フォームフェッチャーの状態が変わるたびに（ユーザーカートが更新されるたびに）`trackCartUpdated` 関数を呼び出す `useEffect` フックを `AddToCartButton` コンポーネントに追加します。
 
-```java
+`````````java
 // Add imports
 import { trackCartUpdated, setCartToken } from '~/tracking';
 import { useEffect } from 'react';
@@ -538,7 +538,7 @@ export function AddToCartButton({
 {: start="4"}
 4. カートから既存の製品を更新するアクションには、同じ `fetcherKey` を使用します。`CartLineRemoveButton` と `CartLineUpdateButton` コンポーネント（デフォルトではファイル `app/components/CartLineItem.jsx` にある）に以下を追加します。
 
-```java
+`````````java
 function CartLineRemoveButton({lineIds, disabled}) {
   // Add the fetcherKey prop to the CartForm component
   return (
@@ -613,7 +613,8 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">カスタムイベント</th>
@@ -662,7 +663,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 - **Shopify顧客ID、メール、またはハッシュメールを選択した場合:** ステップ6.1〜6.3をスキップし、ステップ6.4に直接進みます。
 {% endalert %}
 
-#### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternalid-metafield}
+#### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Shopifyの管理パネルで、**Settings** > **Metafields** に移動します。
 2. **Customers** > **Add definition** を選択します。
@@ -693,7 +694,7 @@ Brazeは、次のパラメーターをエンドポイントに送信します。
 
 ##### サンプルエンドポイント {#example-endpoint}
 
-```http
+`````````http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
 ```
 

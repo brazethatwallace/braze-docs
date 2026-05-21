@@ -33,7 +33,6 @@ When building an email using the drag-and-drop editor, if you create a horizonta
 
 To retain the same format across device sizes, we recommend creating a separate row with CTA buttons that have padding optimized for mobile and are set to hide the row on a desktop device. Having two separate rows means that you can set the desired padding for the best text rendering on desktop and mobile devices.
 
-
 ### Can I adjust the row height in the drag-and-drop editor?
 
 The row height auto-adjusts to the content. As an alternative, we recommend that you:
@@ -47,8 +46,12 @@ The drag-and-drop editor currently supports two layers. You can set a row backgr
 
 ### Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?
 
-No, you must recreate the email in **Email Templates** to save it.
+No. You can't save a drag-and-drop email from a campaign or Canvas as a drag-and-drop **Email Template** in **Templates** > **Email Templates**. Recreate the layout under **Templates** > **Email Templates**, or start from a saved template next time. For instructions, see [Create an email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+If you need a reusable HTML template instead, select **Download file** while editing the drag-and-drop body, open the HTML from the ZIP, and paste the markup into an [HTML email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) using the HTML code editor. Recheck Liquid, links, and hosted assets afterward.
+
+For more information about where templates live, see [Templates and Media]({{site.baseurl}}/user_guide/messaging/templates/).
 
 ### Can I add email attachments to the drag-and-drop editor?
 
-No, the drag-and-drop editor does not support adding attachments to your emails.
+Yes. You can add attachments to your email message by going to **Sending Settings** > **Advanced**.

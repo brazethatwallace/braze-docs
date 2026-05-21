@@ -16,12 +16,18 @@ Because eCommerce events follow a predictable schema, Braze can build reliable f
 Braze eCommerce events and their segmentable event properties don't count toward [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Transactions tab
+<a id="transactions-tab" aria-hidden="true"></a>
 
-The **Transactions** tab on each user profile provides a live view of a user's commercial activity by surfacing three calculated metrics that update in real time as events are processed. The order-level model of these calculations cleanly separates product prices from total order value.
+## Commerce tab {#commerce-tab}
+
+The **Commerce** tab on each user profile combines two modules: **Order activity** (calculated revenue and order metrics) and **Active cart** (the latest cart from `ecommerce.cart_updated` events).
+
+### Order activity
+
+The **Order activity** module surfaces three calculated metrics that update in real time as events are processed. The order-level model of these calculations cleanly separates product prices from total order value.
 
 {% alert note %}
-eCommerce recommended events do not populate within the **Purchase history** section of the **Transactions** tab. Purchase history is populated by legacy purchase events. Use the metrics in the following table for revenue, and order activity from recommended events. 
+eCommerce recommended events do not populate within the **Purchase history** section of the **Commerce** tab. Purchase history is populated by legacy purchase events. Use the metrics in the following table for revenue, and order activity from recommended events.
 {% endalert %}
 
 | Metric | Formula |
@@ -29,9 +35,18 @@ eCommerce recommended events do not populate within the **Purchase history** sec
 | Total Revenue | sum (`order_placed.total_value`) − sum (`order_refunded.total_value`) |
 | Total Orders | count (distinct `order_placed`) − count (distinct `order_cancelled`) |
 | Total Refund Value | sum (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Order Activity section with Total Revenue, Total Orders, and Total Refund Value.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Active cart
+
+The **Active cart** module shows the latest cart on the user profile. That view is especially helpful while you test. You can use it to confirm cart contents, validate cart-based journeys, or verify that `ecommerce.cart_updated` events are updating the profile as you expect.
+
+**Active cart** includes the following:
+
+- **Cart ID** — Identifier for the cart that last received an `ecommerce.cart_updated` event.
+- **Last updated** — Timestamp of the most recent cart update.
+- **Total cart value** — Total value of the line items in the current cart.
+- **View products** — A link to open the list of products in the cart (up to 50 products).
 
 ## eCommerce orchestration
 
@@ -77,7 +92,7 @@ Use this template when you want to bring browsers back to consider products they
 | Entry event | `ecommerce.product_viewed` |
 | Exit events | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Conversion event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Abandoned cart %}
@@ -91,10 +106,10 @@ Use this template when you want to remind users about items in their cart and dr
 | Entry event | `ecommerce.cart_updated` |
 | Exit events | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Conversion event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-The `ecommerce.cart_updated` event uses a replace model. Every event sent overwrites the user's cart state. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
+The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +124,7 @@ Use this template when you want to recover purchases at the highest-intent stage
 | Entry event | `ecommerce.checkout_started` |
 | Exit event | Placed Order |
 | Conversion event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% tab Order confirmation and survey %}
@@ -122,7 +137,7 @@ Use this template when you want to streamline post-purchase communication and ga
 | --- | --- |
 | Entry event | `ecommerce.order_placed` |
 | Conversion event | Start Session or `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -151,7 +166,7 @@ eCommerce recommended events power the same revenue surfaces customers already u
 | Segment Insights                            | Revenue comparisons across segments in the segment insights dashboard.                                                               |
 | Report Builder                              | Revenue metrics in custom reports built in Report Builder.                                                                                  |
 | Dashboard Builder                           | Revenue metrics in custom dashboards built in Dashboard Builder.                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce reporting" }
 
 For non-user calculated fields (for example, campaign or Canvas revenue), revenue is calculated the same way across all reports: `price` multiplied by `quantity` per product in the order, summed across the products in each `order_placed` event.
 
@@ -174,7 +189,7 @@ Braze offers several ways to export eCommerce event data for use in your data wa
 | [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)               | eCommerce events are shared as custom events; search the `ecommerce.*` namespace to find them. Products from each order are available in the purchases table.                                   |
 | [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv)           | CSV export of segment members. To include eCommerce events, select them by name from the custom events dropdown.                                                                                |
 | [Export user profile by Segment (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | User profile data for segment members, returned via API. eCommerce events are included as custom events.                                                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Export data" }
 ### How do I segment users by a specific product?
 
 The segmenter allows you to filter by the number of times a user performed an eCommerce event. To filter by specific product properties (such as `product_id` or `product_name`), use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), which support nested event property filtering. For example, you can find all users who purchased product "SKU-123" in the last 90 days.

@@ -69,6 +69,20 @@ These segmentation filters check for different conditions:
 |--------|---------------|----------|
 | **Foreground Push Enabled** | The user has a valid foreground push token **and** their push subscription state is `Opted-In` or `Subscribed`. | Target users who can receive visible push notifications. |
 | **Background or Foreground Push Enabled** | The user has any push token (foreground or background) **and** their push subscription state is `Opted-In` or `Subscribed`. This includes users who have disabled visible push notifications but still have a background push token. | Used for [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/), [silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/), and geofencing. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What is the difference between the "Foreground Push Enabled" and "Background or Foreground Push Enabled" filters?" }
 
 A user can be `Background or Foreground Push Enabled` without being `Foreground Push Enabled`. This happens when the user has disabled visible push notifications in their device settings but the app still holds a background push token. For more details, see [Push users and subscriptions]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#foreground-push-enabled).
+
+### How does Braze determine when a push message is sent successfully?
+
+A message is logged as sent as soon as the message is received by the push service provider. This does not necessarily mean the user has received or viewed the message.
+
+For iOS, the push service provider is Apple Push Notification Service (APNs), and for Android, it is typically Firebase Cloud Messaging (FCM). The push service provider immediately responds with success or failure. A failure could include a bounce or a retry for network failure.
+
+If a success message is returned, the send is logged by Braze, then the push service attempts to deliver to the device. If the device cannot immediately be reached, the service retries up to its expiration option set in Braze (**TTL** for Android, **Expiry** for iOS). If the message times out, the push service discards the push, but it is not be considered a bounce.
+
+- For action-based delivery push campaigns, the message send is logged as soon as the user has performed the action that triggers the campaign.
+- For scheduled campaigns, the send time is the time the message was enqueued and passed to the push service provider.
+- For both delivery types, the message is marked as "sent" in Braze and in the user profile under **Campaigns Received**, even though the user may not have seen or received the push yet.
+
+The "deliveries" metric for push in the dashboard is calculated on page load as the number of sends minus bounces.

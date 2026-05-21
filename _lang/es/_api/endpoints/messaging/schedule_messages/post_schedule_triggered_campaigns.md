@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Programar campañas desencadenadas por la API"
-article_title: "POST: Programar campañas desencadenadas por API"
-search_tag: Punto de conexión
+article_title: "POST: Programar campañas desencadenadas por la API"
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference

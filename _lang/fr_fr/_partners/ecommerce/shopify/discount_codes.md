@@ -20,7 +20,7 @@ Il s'agit d'une intégration proposée par la communauté et qui n'est pas direc
 | --- | --- |
 | Configurer une boutique Shopify | Confirmez que vous avez déjà [configuré une boutique Shopify avec Braze]({{site.baseurl}}/shopify_overview/). |
 | Installer l'application Bulk Discount Code Bot | Téléchargez l'application [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) dans la boutique d'applications Shopify. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Générer des codes de réduction uniques {#generating-unique-discount-codes}
 
@@ -42,7 +42,7 @@ Dans le fichier CSV, supprimez la ligne 1 pour retirer l'en-tête de colonne « 
 
 ### Étape 3 : Ajouter vos codes de réduction à Braze {#step-3-add-your-discount-codes-to-braze}
 
-Dans Braze, accédez à **Paramètres des données** > **Codes de promotion** > **Créer une liste de codes de promotion** et [configurez votre liste de codes de réduction]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Veillez à respecter la date d'expiration configurée par le Bulk Discounts Code Bot.
+Dans Braze, accédez à **Paramètres des données** > **Codes de promotion** > **Create Promotion Code List** et [configurez votre liste de codes de réduction]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Veillez à respecter la date d'expiration configurée par le Bulk Discounts Code Bot.
 
 Téléchargez ensuite votre fichier CSV et sélectionnez **Save List**.
 

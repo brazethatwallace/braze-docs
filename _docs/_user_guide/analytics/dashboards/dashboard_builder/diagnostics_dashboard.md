@@ -35,7 +35,7 @@ When Braze "sends" a message, the final delivery may depend on external services
 | SMS/MMS/RCS | Braze hands the message to an SMS gateway (like Twilio). That gateway is responsible for the final delivery to the mobile carrier. |
 | Webhooks | The webhook request was made successfully, returning a `2xx` response. |
 | WhatsApp | The message was successfully handed off to a sending partner. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
 
 ### Data freshness
 
@@ -99,7 +99,7 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | Liquid abort | The [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) Liquid tag was called, so the send was canceled. |
 | Liquid rendering timeout | It took too long to render the Liquid template. Most likely to occur for Banners, in-app messages, and email. |
 | Liquid syntax error | The Liquid template had a parsing error, so the message was canceled. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
 
 #### Campaign and Canvas state
 
@@ -111,7 +111,7 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | Inactive Canvas | The Canvas was stopped before the user entered the journey. |
 | Inactive Canvas step | This can occur in the Canvas if: {::nomarkdown}<ul><li> The Canvas step was deleted </li> <li>The Canvas was stopped, which causes all the steps to become inactive </li></ul>{:/} |
 | Volume limited | The campaign met the set volume limit, so the send was canceled. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
 
 #### Rate limiting and timing
 
@@ -120,7 +120,7 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | Frequency capped | The user already received the maximum number of messages allowed per your workspace's [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping) rules, so the send was canceled. |
 | Quiet Hours abort | Quiet Hours was enabled for the campaign or Canvas step with the fallback set to **Abort message**. The user triggered the campaign or entered the Canvas Message step during Quiet Hours, so the message was aborted. However, this doesn't exit the user from the Canvas. |
 | Rate limited over 72 hours | The message was throttled for longer than 72 hours due to [delivery speed rate limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting), so the send was aborted. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
 
 #### User eligibility and profile
 
@@ -130,10 +130,10 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | User failed pre-check for Message step | This pre-check runs before delivery validations. When this occurs, the user did not meet the basic pre-check for this Message step (user not found or ineligible for the Message step's channel). **Note:** For a multi-channel Message step, this means the user was not found; channel eligibility is only checked here for single-channel Message steps. |
 | User failed pre-check for triggered message | For a triggered message, Braze runs a first-pass set of basic pre-checks for audience eligibility, re-eligibility, and channel eligibility before creating a message to send from this trigger. |
 | User no longer eligible | The user was initially in the target audience, but no longer matched the audience criteria before Braze sent the message or entered the user into the Canvas. The time between the user initially meeting the audience criteria and falling out of audience could be due to delays from: {::nomarkdown}<ul><li>Intelligent timing</li><li>Quiet Hours</li><li>Local time</li><li>Delivery speed rate limits (not applicable for Canvas entry)</li><li>Messaging pipeline delays</li></ul>{:/} |
-| User not eligible for step | The user exited the Canvas because they didn't meet the set [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) for the Message step or because they were part of a [suppression list]({{site.baseurl}}/user_guide/audience/suppression_lists/). |
+| User not eligible for step | The user didn't meet the set [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) for the Message step or was part of a [suppression list]({{site.baseurl}}/user_guide/audience/suppression_lists/). Depending on the **Delivery validations** settings, the user may have exited the Canvas or proceeded to the next step. |
 | User not re-eligible | The user was eligible to receive the message or enter the Canvas, but the send was canceled because of re-eligibility or re-entry settings. This can happen if the user has already received the campaign or entered the Canvas too recently, if another send for the same campaign is already in progress for this user, or if re-eligibility or re-entry is turned off. |
 | User profile not found | The user either never existed or no longer exists in Braze. Some common cases include: {::nomarkdown}<ul><li> The user was targeted using API messaging, but never existed in Braze. </li><li>The user was deleted before the message was sent or the Canvas step was executed. </li><li>The user was merged with another profile before the message was sent.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
 
 #### Channel and delivery
 
@@ -151,7 +151,7 @@ The following definitions explain the abort outcomes shown on the dashboard. Out
 | User not enabled for SMS/MMS/RCS | SMS messages cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have a phone number on their user profile. </li><li> The user's phone number has been marked invalid due to delivery failures. </li><li> The user's phone number is not in a valid E.164 format, and attempts to automatically format the number failed. </li><li> The user's subscription state excludes them from receiving the SMS message.</li><li>The user's phone number is in a blocked country.</li></ul>{:/} |
 | User not enabled for WhatsApp | WhatsApp messages cannot be sent to this user. Some common reasons: {::nomarkdown}<ul><li> The user doesn't have a phone number on their user profile. </li><li> The user's phone number has been marked invalid due to delivery failures. </li><li> The user's subscription state excludes them from receiving this message. </li><li> The user doesn't have a WhatsApp account.</li></ul>{:/} |
 | Webhook failed | The webhook received an unsuccessful response code (non-`2xx`). See the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting) for more details. Logs that are more than 60 hours old are cleaned and no longer accessible; webhook errors are sampled up to 20 logs per hour. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
 
 ## Frequently asked questions
 

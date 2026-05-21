@@ -4,29 +4,29 @@ article_title: チャネルパフォーマンスダッシュボード
 page_order: 2
 page_type: reference
 description: "このリファレンス記事では、キャンペーンとキャンバスの両方にわたるチャネル全体のパフォーマンス指標を表示できるチャネルパフォーマンスダッシュボードについて説明します。"
-tool: 
+tool:
   - Reports
 toc_headers: h2
 ---
 
-# チャネルパフォーマンスダッシュボード
+# チャネルパフォーマンスダッシュボード {#channel-performance-dashboards}
 
 > チャネルパフォーマンスダッシュボードは、キャンペーンとキャンバスの両方から、チャネル全体の集計パフォーマンス指標を表示します。これらのダッシュボードは現在、メールとSMSで利用できます。
 
-## ダッシュボード
+## ダッシュボード {#dashboards}
 
 タブを選択して、利用可能なチャネルパフォーマンスダッシュボードの詳細を確認してください。
 
 {% tabs %}
-{% tab Email performance %}
+{% tab メールのパフォーマンス %}
 
-### メールのパフォーマンスダッシュボード
+### メールのパフォーマンスダッシュボード {#email-performance-dashboard}
 
-メールのパフォーマンスダッシュボードを表示するには、**分析** > **メールのパフォーマンス**に移動し、データを表示する期間の日付範囲を選択します。日付範囲は最大1年前まで設定できます。
+メールのパフォーマンスダッシュボードを表示するには、**Analytics** > **Email Performance** に移動し、データを表示する期間の日付範囲を選択します。日付範囲は最大1年前まで設定できます。
 
 ![過去30日間のメールチャネルエンゲージメントを表示するメールのパフォーマンスダッシュボード。]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
-#### 指標の計算方法
+#### 指標の計算方法 {#how-metrics-are-calculated}
 
 ![335,630件の送信があり、1日あたり平均11,187.667件のメールキャンペーンの例。]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
@@ -44,21 +44,21 @@ toc_headers: h2
 | その他の開封率 | 率 | （日付範囲内の各日のその他の開封数の合計）/（日付範囲の配信数の合計）<br><br>その他の開封には、マシン開封として識別されていないメール（ユーザーがメールを開封した場合など）が含まれます。この指標はユニークではなく、合計開封数のサブ指標です。 |
 | ユニーククリック率 | 率 | （日付範囲内の各日のユニーククリック数の合計）/（日付範囲の配信数の合計） |
 | ユニーク開封後クリック率 | 率 | （日付範囲内の各日のユニーククリック数の合計）/（日付範囲内の各日のユニーク開封数の合計） |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
 
 {% endtab %}
-{% tab Email insights %}
+{% tab メールインサイト %}
 
-### メールインサイトダッシュボード
+### メールインサイトダッシュボード {#email-insights-dashboard}
 
-メールインサイトダッシュボードは、顧客がメールとどこで、いつやり取りしているかを表示します。これらのレポートは、メールを最適化してエンゲージメントを高めるための詳細なデータを提供します。メールインサイトダッシュボードには、最大過去6か月分のデータが含まれます。ダッシュボードにアクセスするには、**分析** > **メールのパフォーマンス** > **メールインサイト**に移動します。
+メールインサイトダッシュボードは、顧客がメールとどこで、いつやり取りしているかを追跡します。これらのレポートは、メールを最適化してエンゲージメントを高めるための詳細なデータを提供します。メールインサイトダッシュボードには、最大過去6か月分のデータが含まれます。ダッシュボードにアクセスするには、**Analytics** > **Email Performance** > **Email Insights** に移動します。
 
-#### デバイス別エンゲージメント
+#### デバイス別エンゲージメント {#engagement-by-device}
 
 **デバイス別エンゲージメント**レポートは、ユーザーがメールとのやり取りに使用しているデバイスの内訳を提供します。このデータは、モバイル、デスクトップ、タブレット、その他のデバイスタイプにわたるメールエンゲージメントを追跡します。このデータは、ユーザーのデバイスから渡されるユーザーエージェント文字列に基づいています。
 
 {% alert note %}
-CDNとしてCloudFrontを使用している場合は、ユーザーのユーザーエージェントがメールサービスプロバイダー (ESP)に渡されていることを確認してください。そうしないと、すべてのユーザーエージェントが「Amazon Cloudfront」になります。
+CDNとしてCloudFrontを使用している場合は、ユーザーのユーザーエージェントがメールサービスプロバイダー (ESP) に渡されていることを確認してください。そうしないと、すべてのユーザーエージェントが「Amazon Cloudfront」になります。
 {% endalert %}
 
 「その他」カテゴリには、デスクトップ、モバイル、またはタブレットとして識別できないユーザーエージェント文字列が含まれます。たとえば、テレビ、車、ゲーム機、OTT（オーバー・ザ・トップまたはストリーミング）などが該当します。null値や空の値が含まれる場合もあります。
@@ -66,7 +66,7 @@ CDNとしてCloudFrontを使用している場合は、ユーザーのユーザ�
 この「その他」カテゴリの内容をより詳しく理解するには、以下のいずれかのオプションを使用してユーザーエージェントを抽出できます。
 
 1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、ユーザーのデバイスから取得された正確なユーザーエージェント文字列が送信されます。
-2. [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)を活用してSQLを使用するか、[AIクエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder)を使用してユーザーエージェントを表示します。
+2. [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)を活用してSQLを使用するか、[AIクエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder)を使用してユーザーエージェントを表示します。
 
 ![モバイル、デスクトップ、タブレット、その他のデバイスのクリック数を表示するデバイス別エンゲージメントレポート。最も多くのクリック数はモバイルデバイスで発生しています。]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -74,13 +74,13 @@ CDNとしてCloudFrontを使用している場合は、ユーザーのユーザ�
 
 ![モバイル、デスクトップ、タブレット、Apple Privacy Proxy、Google Image Proxy、Yahoo Mail Proxy、その他のクリック数を表示するデバイス別エンゲージメントレポート。最も多くの開封数はモバイルデバイスで発生しています。]({% image_buster /assets/img/engagement_by_device_type_proxy.png %}){: style="max-width:70%;"}
 
-#### メールボックスプロバイダー別エンゲージメント
+#### メールボックスプロバイダー別エンゲージメント {#engagement-by-mailbox-provider}
 
 **メールボックスプロバイダー別エンゲージメント**レポートは、クリック数または開封数に貢献している上位のメールボックスプロバイダーを表示します。特定の主要メールボックスプロバイダーをクリックして、特定の受信ドメインの詳細を確認できます。たとえば、このレポートでMicrosoftが上位のメールボックスプロバイダー指標の1つとして表示されている場合、「outlook.com」、「hotmail.com」、「live.com」などの受信ドメインの詳細をさらに表示できます。
 
 ![Google、Apple iCloud、Yahoo、Microsoft、Mail.Ru Groupとそれぞれのクリック数を表示するメールボックスプロバイダー別エンゲージメントレポートの例。]({% image_buster /assets/img_archive/mailbox_provider_time_engagement.png %}){: style="max-width:70%;"}
 
-#### エンゲージメントの時間帯
+#### エンゲージメントの時間帯 {#time-of-engagement}
 
 **エンゲージメントの時間帯**レポートは、ユーザーがいつメールとやり取りしているかのデータを表示します。これにより、どの曜日や時間帯に顧客からのエンゲージメントが最も高いかなどの疑問に答えることができます。これらのインサイトを活用して、メッセージを送信する最適な日や時間を試し、より高いエンゲージメントを促進できます。これらの時間は会社のタイムゾーンに基づいています。
 
@@ -95,15 +95,15 @@ CDNとしてCloudFrontを使用している場合は、ユーザーのユーザ�
 メールの分析の詳細については、[メールレポート]({{site.baseurl}}/user_guide/channels/email/reporting/)をご確認ください。
 
 {% endtab %}
-{% tab SMS performance %}
+{% tab SMSパフォーマンス %}
 
-### SMSパフォーマンスダッシュボード
+### SMSパフォーマンスダッシュボード {#sms-performance-dashboard}
 
-SMSパフォーマンスダッシュボードを使用するには、**分析** > **SMSパフォーマンス**に移動し、データを表示する期間の日付範囲を選択します。日付範囲は最大1年前まで設定できます。
+SMSパフォーマンスダッシュボードを使用するには、**Analytics** > **SMS Performance** に移動し、データを表示する期間の日付範囲を選択します。日付範囲は最大1年前まで設定できます。
 
 #### 指標の計算方法
 
-![335,630件の送信があり、1日あたり平均11,187.667件のSMSキャンペーンの例。]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
+![335,630件の送信があり、1日あたり平均11,187.667件のSMS キャンペーンの例。]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
 SMSパフォーマンスダッシュボードにおける各指標の計算方法は、個別のメッセージレベル（キャンペーン分析など）と同じです。このダッシュボードでは、選択した日付範囲のすべてのキャンペーンとキャンバスにわたって指標が集計されます。これらの定義の詳細については、[SMS指標]({{site.baseurl}}/sms_mms_rcs_reporting/)を参照してください。
 
@@ -118,12 +118,12 @@ SMSパフォーマンスダッシュボードにおける各指標の計算方�
 | クリック率 | 率 | （日付範囲内の各日のクリック数の合計）/（日付範囲内の各日の配信数の合計） |
 | 合計オプトイン数 | 率 | 日付範囲内の各日の受信メッセージオプトイン数の合計 |
 | 合計オプトアウト数 | 率 | 日付範囲内の各日の受信メッセージオプトアウト数の合計 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
 
 {% endtab %}
 {% endtabs %}
 
-## ダッシュボードフィルター
+## ダッシュボードフィルター {#dashboard-filters}
 
 以下のフィルターオプションを使用して、ダッシュボードのデータをフィルタリングできます。
 
@@ -139,15 +139,15 @@ SMSパフォーマンスダッシュボードにおける各指標の計算方�
 
 比較は、前期間と現在の期間の変化率であり、2つの期間の差を前期間の指標で割って計算されます。
 
-### 合計数と率の変化を表示する
+### 合計数と率の変化を表示する {#viewing-changes-in-total-counts-and-rates}
 
 **合計の変化を表示**（2つの期間間の合計数（配信されたメール数など）を比較）と**率の変化を表示**（率（配信率など）を比較）を切り替えることができます。
 
 ![チャネルパフォーマンスダッシュボードの合計の変化または率の変化の表示を切り替えるラジオボタン。]({% image_buster /assets/img_archive/email_performance_dashboard_3.png %}){: style="max-width:60%"}
 
-## よくある質問
+## よくある質問 {#frequently-asked-questions}
 
-### ダッシュボードに空の値が表示されるのはなぜですか？
+### ダッシュボードに空の値が表示されるのはなぜですか？ {#why-is-my-dashboard-displaying-empty-values}
 
 指標に空の値が表示されるシナリオはいくつかあります。
 
@@ -157,7 +157,7 @@ SMSパフォーマンスダッシュボードにおける各指標の計算方�
 
 より多くの指標を表示するには、日付範囲を拡大してみてください。
 
-### メールダッシュボードでその他の開封数がユニーク開封数より多いのはなぜですか？
+### メールダッシュボードでその他の開封数がユニーク開封数より多いのはなぜですか？ {#why-does-my-email-dashboard-display-more-other-opens-than-unique-opens}
 
 *ユニーク開封数*の指標では、Brazeは特定のユーザーによる重複開封（*マシン開封*または*その他の開封*を含む）を重複排除し、ユーザーが複数回開封しても1つの*ユニーク開封*のみがカウントされます。*その他の開封*では、Brazeは重複排除を行いません。
 

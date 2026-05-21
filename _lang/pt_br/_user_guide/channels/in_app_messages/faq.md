@@ -69,7 +69,7 @@ Sim, mas apenas uma mensagem no app pode ser exibida por ocorrência de um [even
 
 Quando várias mensagens compartilham o mesmo nível de prioridade, a mensagem criada mais recentemente é exibida primeiro. Para gatilhos de início de sessão, a próxima mensagem mais recente é exibida em uma sessão subsequente; para outros tipos de gatilho, a próxima mensagem mais recente é exibida na próxima vez que o evento de gatilho ocorrer, o que pode ser dentro da mesma sessão ou em uma sessão posterior.
 
-Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Definir prioridade exata**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Para controlar a ordem de exibição dentro de um grupo de prioridade, acesse as configurações de entrega de qualquer uma das Campaigns e selecione **Set Exact Priority**, depois arraste e solte as Campaigns na ordem desejada. Para mais detalhes, consulte [Escolher uma prioridade]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
 ### Como a Braze calcula a expiração de uma mensagem no app definida como "após 1 dia(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
