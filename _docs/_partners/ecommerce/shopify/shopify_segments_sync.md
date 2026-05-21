@@ -26,7 +26,7 @@ The Shopify segments sync is currently in beta. To request access, contact your 
 The Shopify segments sync works in two phases.
 
 1. When you first sync a segment, Braze backfills all current members and creates a corresponding cohort in Braze. The backfill runs asynchronously and may take a few moments to complete.
-2. After the backfill, Braze subscribes to Shopify webhooks so cohort membership stays synced in near real-time as users enter or exit the Shopify segment.
+2. During the initial sync, Braze backfills current members and subscribes to Shopify webhooks so membership stays synced in near real-time.
 
 | Webhook topic | Effect in Braze |
 | --- | --- |
@@ -76,5 +76,4 @@ For details on how the Shopify integration identifies and aliases users, see [Sh
 
 - **One-way sync.** Segment membership flows from Shopify to Braze only. Changes to cohort membership made directly in Braze are not pushed back to Shopify.
 - **No profile creation.** Only Shopify customers who already have a Braze user profile are added to the cohort.
-- **Per-segment opt-in.** Each Shopify segment must be explicitly synced from Shopify's action extension; segments are not synced automatically in bulk.
 - **No unsync.** When a Shopify segment is synced, it cannot be unsynced.
