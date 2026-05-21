@@ -59,9 +59,11 @@ jobs:
 
       - name: Generate URL list
         id: urls
+        env:
+          URLS_OVERRIDE: ${{ github.event.inputs.urls_override }}
         run: |
-          if [ -n "${{ github.event.inputs.urls_override }}" ]; then
-            printf '%s\n' "${{ github.event.inputs.urls_override }}" > lhci-urls.txt
+          if [ -n "$URLS_OVERRIDE" ]; then
+            printf '%s\n' "$URLS_OVERRIDE" > lhci-urls.txt
             echo "Using manually provided URLs."
           else
             node scripts/generate-lhci-urls.js --output lhci-urls.txt

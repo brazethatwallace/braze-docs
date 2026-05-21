@@ -28,16 +28,20 @@ const BASE_URL = 'https://www.braze.com/docs';
 
 // Always include these regardless of random sampling — high-traffic pages,
 // pages we know have had performance issues, and one per major template type.
+//
+// IMPORTANT: These must be valid keys in _data/sitemap_en.json. Run
+// `node scripts/generate-lhci-urls.js` locally after updating paths here —
+// the script logs a warning for any pinned key not found in the sitemap.
 const PINNED_KEYS = [
   // Home
   '_home/home.md',
   // Currents glossary (our known worst performer — always measure it)
   '_user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events.md',
-  // High-traffic user guide pages
-  '_user_guide/getting_started/overview.md',
-  '_user_guide/message_building_by_channel/email/drag_and_drop/overview.md',
-  '_user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas.md',
-  '_user_guide/engagement_tools/segments/creating_a_segment.md',
+  // High-traffic user guide pages (paths reflect the 2026 IA revamp)
+  '_user_guide/get_started/sdk_overview.md',
+  '_user_guide/channels/email/drag_and_drop/overview.md',
+  '_user_guide/messaging/canvas/create_a_canvas.md',
+  '_user_guide/audience/segments/creating_a_segment.md',
   // API reference (api_page layout)
   '_api/api_campaigns/transactional_api_campaign.md',
   // Developer guide
@@ -108,6 +112,11 @@ for (const key of allKeys) {
 }
 
 // Build the URL set: pinned first, then random samples
+const missingPinned = PINNED_KEYS.filter(k => sitemap[k] === undefined);
+if (missingPinned.length > 0) {
+  console.warn(`WARNING: ${missingPinned.length} pinned key(s) not found in sitemap and will be skipped:`);
+  missingPinned.forEach(k => console.warn(`  - ${k}`));
+}
 const selectedKeys = new Set(PINNED_KEYS.filter(k => sitemap[k] !== undefined));
 
 for (const [coll, count] of Object.entries(SAMPLE_PER_COLLECTION)) {
