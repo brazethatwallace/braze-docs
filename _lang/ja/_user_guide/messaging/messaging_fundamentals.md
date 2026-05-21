@@ -4,12 +4,12 @@ article_title: メッセージングの基本
 layout: dev_guide
 page_order: 1
 guide_top_header: "基本"
-guide_top_text: "メッセージの受信者、送信タイミング、成功の測定方法を設定します。これらの概念は、<a href='/docs/user_guide/get_started/campaigns_and_canvases'>CampaignまたはCanvas</a> のどちらを使用する場合にも適用されます。"
+guide_top_text: "メッセージの受信者、送信タイミング、成功の測定方法を設定します。これらの概念は、<a href='/docs/user_guide/get_started/campaigns_and_canvases'>キャンペーンまたはキャンバス</a> のどちらを使用する場合にも適用されます。"
 page_type: landing
 tool:
-  - Campaigns
-  - Canvas
-description: "CampaignsとCanvasesに共通する概念：ターゲティング、配信、コンバージョンイベント、起動前のワークフロー。"
+  - キャンペーン
+  - キャンバス
+description: "キャンペーンとキャンバスに共通する概念：ターゲティング、配信、コンバージョンイベント、起動前のワークフロー。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:

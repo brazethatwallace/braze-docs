@@ -26,7 +26,7 @@ iOSのプレビュー通知でリッチ通知が表示されるようになり�
 
 ## プッシュ統計に「Influenced Opens」を追加 {#added-influenced-opens-to-push-statistics}
 
-Brazeで提供されている標準的なCampaignおよびCanvasの統計一覧に「Influenced Opens」を追加しました。これにより、Influenced、Direct、Total Opensの内訳がわかりやすくなります。[Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)について詳しくはこちらをご覧ください。
+Brazeで提供されている標準的なキャンペーンおよびキャンバスの統計一覧に「Influenced Opens」を追加しました。これにより、Influenced、Direct、Total Opensの内訳がわかりやすくなります。[Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)について詳しくはこちらをご覧ください。
 
 ## 内部グループへのアップグレード {#upgrade-to-internal-groups}
 
@@ -38,6 +38,6 @@ Brazeで提供されている標準的なCampaignおよびCanvasの統計一覧�
 
 プッシュメッセージ、アプリ内メッセージ、ブラウザ内メッセージ、News FeedカードについてWeb URLを外部Webブラウザで開くオプションが追加されました。「アプリにディープリンクする」アクションもHTTP/HTTPSディープリンクと互換性を持つようになりました。BranchやAppleのユニバーサルリンクなどのパートナーを使用する場合は、SDKのカスタマイズが必要になります。[ディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)について詳しくはこちらをご覧ください。
 
-## 新しい「コンバージョンを実行」イベントCanvas {#new-performed-conversion-event-canvas}
+## 新しい「コンバージョンを実行」イベントキャンバス {#new-performed-conversion-event-canvas}
 
-新しい「コンバージョンを実行」イベントと「Canvasコントロール内」フィルターを追加し、リターゲティングオプションを改善しました。[リターゲティングフィルター]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns)の使用について詳しくはこちらをご覧ください。
+新しい「コンバージョンを実行」イベントと「キャンバスコントロール内」フィルターを追加し、リターゲティングオプションを改善しました。[リターゲティングフィルター]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns)の使用について詳しくはこちらをご覧ください。

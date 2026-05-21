@@ -10,7 +10,7 @@ description: "この記事には、2020年9月のリリースノートが含ま�
 
 ## ファネルレポート {#funnel-reporting}
 
-ファネルレポートは、[Campaign]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)または[Canvas]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)を受信した後に顧客がたどるジャーニーを分析できるビジュアルレポートを提供します。
+ファネルレポートは、[キャンペーン]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)または[キャンバス]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)を受信した後に顧客がたどるジャーニーを分析できるビジュアルレポートを提供します。
 
 ## iOS 14 アップグレードガイド {#ios-14-upgrade-guide}
 
@@ -26,13 +26,13 @@ iOS 14では、ユーザーがアプリにアクセスしたときに広告ト�
 
 ## Currentsにおけるランダムバケットユーザーイベント {#random-bucket-user-event-in-currents}
 
-ランダムバケット番号（RBNなど）は、ワークスペース内で新しいユーザーが作成されるたびに生成されます。このイベントの間、新規ユーザーのそれぞれにランダムなバケット番号が割り当てられます。このバケット番号を使用して、ランダムなユーザーの一様分布Segmentsを作成できます。これを使用して、ランダムバケット番号値の範囲をグループ化し、Campaignsとバリアント間でパフォーマンスを比較できます。このイベントが使用可能かどうかを確認するには、Currentsの[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を参照してください。
+ランダムバケット番号（RBNなど）は、ワークスペース内で新しいユーザーが作成されるたびに生成されます。このイベントの間、新規ユーザーのそれぞれにランダムなバケット番号が割り当てられます。このバケット番号を使用して、ランダムなユーザーの一様分布セグメントを作成できます。これを使用して、ランダムバケット番号値の範囲をグループ化し、キャンペーンとバリアント間でパフォーマンスを比較できます。このイベントが使用可能かどうかを確認するには、Currentsの[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を参照してください。
 
-## Canvasコンポーネント - 近日提供開始！ {#canvas-components-coming-soon}
+## キャンバスコンポーネント - 近日提供開始！ {#canvas-components-coming-soon}
 
-Brazeは、Canvasesの柔軟性と機能性を向上させるために、4つの新しいCanvasコンポーネントを追加しました。これらの新しいコンポーネントには[条件分岐ステップ]({{site.baseurl}}/decision_split/)、[遅延ステップ]({{site.baseurl}}/delay_step/)、[メッセージングステップ]({{site.baseurl}}/message_step/)、[Facebookへのオーディエンス同期]({{site.baseurl}}/audience_sync_facebook/)が含まれます。
-- **Canvasの条件分岐、遅延、およびメッセージングステップ**<br>条件分岐を使用して、ユーザーが定義済みのクエリと一致するかどうかに基づいてCanvas Branchを作成できます。遅延ステップでは、対応するメッセージを必要とせずに、Canvasにスタンドアロンの遅延を追加できます。メッセージステップでは、キャンバスフロー内の目的の場所にスタンドアロンのメッセージを追加できます。
-- **Facebookへのオーディエンス同期**<br>Braze Facebookへのオーディエンス同期を使用すると、ブランドは独自のBraze統合からのユーザーデータをFacebookのカスタムオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいてBraze Canvasでメッセージをトリガーするために通常使用する基準（プッシュ、メール、SMS、Webhookなど）を、カスタムオーディエンスを介してFacebook内の該当ユーザーに対して広告をトリガーするために使用できるようになりました。
+Brazeは、キャンバスの柔軟性と機能性を向上させるために、4つの新しいキャンバスコンポーネントを追加しました。これらの新しいコンポーネントには[条件分岐ステップ]({{site.baseurl}}/decision_split/)、[遅延ステップ]({{site.baseurl}}/delay_step/)、[メッセージングステップ]({{site.baseurl}}/message_step/)、[Facebookへのオーディエンス同期]({{site.baseurl}}/audience_sync_facebook/)が含まれます。
+- **キャンバスの条件分岐、遅延、およびメッセージングステップ**<br>条件分岐を使用して、ユーザーが定義済みのクエリと一致するかどうかに基づいてキャンバス Branchを作成できます。遅延ステップでは、対応するメッセージを必要とせずに、キャンバスにスタンドアロンの遅延を追加できます。メッセージステップでは、キャンバスフロー内の目的の場所にスタンドアロンのメッセージを追加できます。
+- **Facebookへのオーディエンス同期**<br>Braze Facebookへのオーディエンス同期を使用すると、ブランドは独自のBraze統合からのユーザーデータをFacebookのカスタムオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいてBraze キャンバスでメッセージをトリガーするために通常使用する基準（プッシュ、メール、SMS、Webhookなど）を、カスタムオーディエンスを介してFacebook内の該当ユーザーに対して広告をトリガーするために使用できるようになりました。
 
 ## SMSインバウンド受信イベント {#sms-inbound-received-events}
 

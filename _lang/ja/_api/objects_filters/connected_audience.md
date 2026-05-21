@@ -11,11 +11,11 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 > 接続オーディエンスは、APIリクエスト内でインラインに定義するダイナミックなオーディエンスフィルターです。Brazeダッシュボードでセグメントを作成・管理することなく、送信時に適切なユーザーをターゲットにできます。
 
-あらゆるオーディエンスの組み合わせに対してSegmentを事前に構築する代わりに、APIコールの`audience`パラメーターにフィルター条件を直接渡します。Brazeはリアルタイムで各ユーザーをその条件に照らして評価し、条件に一致するユーザーにのみメッセージを配信します。つまり、1つのCampaign、Canvas、またはAPIのみのメッセージ定義で、ビジネスロジックに完全に基づいた無制限のオーディエンスバリエーションに対応できます。
+あらゆるオーディエンスの組み合わせに対してセグメントを事前に構築する代わりに、APIコールの`audience`パラメーターにフィルター条件を直接渡します。Brazeはリアルタイムで各ユーザーをその条件に照らして評価し、条件に一致するユーザーにのみメッセージを配信します。つまり、1つのキャンペーン、キャンバス、またはAPIのみのメッセージ定義で、ビジネスロジックに完全に基づいた無制限のオーディエンスバリエーションに対応できます。
 
 ## 仕組み {#how-it-works}
 
-1. BrazeダッシュボードでAPIトリガーのCampaignまたはCanvasを作成してメッセージを定義するか、APIリクエストの[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)または[Canvasコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)を使用します。
+1. BrazeダッシュボードでAPIトリガーのキャンペーンまたはキャンバスを作成してメッセージを定義するか、APIリクエストの[メッセージングオブジェクト]({{site.baseurl}}/api/objects_filters/#messaging-objects)を使用してメッセージコンテンツを完全にインラインで定義します。ダイナミックなパーソナライゼーションには[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)または[キャンバスコンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)を使用します。
 2. 対応するエンドポイントを呼び出し、フィルター条件を含む`audience`パラメーターを指定します。カスタム属性、プッシュ通知のサブスクリプションステータス、メールのサブスクリプションステータス、最後にアプリを使用した時間でフィルターできます。
 3. Brazeは送信時にフィルターを評価し、条件に一致するユーザーにのみメッセージを配信します。
 
@@ -50,7 +50,7 @@ description: "この記事では、接続オーディエンスオブジェクト
 | 金融サービス | 取引プラットフォームが、`watchlist`配列に価格閾値を超えた銘柄コードを含むユーザーにアラートを送信します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
-いずれの場合も、1つのCampaignまたはAPIのみのメッセージ定義ですべてのバリエーションに対応します。バックエンドがフィルター値を決定してAPIリクエストに渡すため、商品、番組、チーム、ロケーションごとに個別のSegmentやCampaignを作成する必要はありません。
+いずれの場合も、1つのキャンペーンまたはAPIのみのメッセージ定義ですべてのバリエーションに対応します。バックエンドがフィルター値を決定してAPIリクエストに渡すため、商品、番組、チーム、ロケーションごとに個別のセグメントやキャンペーンを作成する必要はありません。
 
 ## リクエスト例 {#example-request}
 
@@ -241,4 +241,4 @@ description: "この記事では、接続オーディエンスオブジェクト
 
 ### 考慮事項 {#considerations}
 
-接続オーディエンスでは、デフォルト属性、カスタムイベント、Segments、またはメッセージエンゲージメントイベントによるユーザーのフィルタリングはできません。これらのフィルターを使用するには、オーディエンスSegmentに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)の`segment_id`パラメーターでそのSegmentを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのCampaignまたはCanvasにSegmentを追加する必要があります。
+接続オーディエンスでは、デフォルト属性、カスタムイベント、セグメント、またはメッセージエンゲージメントイベントによるユーザーのフィルタリングはできません。これらのフィルターを使用するには、オーディエンスセグメントに組み込んだうえで、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)の`segment_id`パラメーターでそのセグメントを指定することをお勧めします。他のエンドポイントを使用する場合は、まずBrazeダッシュボードでAPIトリガーのキャンペーンまたはキャンバスにセグメントを追加する必要があります。

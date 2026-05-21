@@ -17,7 +17,7 @@ description: "この記事では、「ライブアクティビティを開始」
 
 > このエンドポイントを使用して、iOS アプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)をリモートで開始します。このエンドポイントには追加のセットアップが必要です。
 
-ライブアクティビティを作成した後、任意のSegmentのアクティビティをリモートで開始するために POST リクエストを送信できます。Apple のライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
+ライブアクティビティを作成した後、任意のセグメントのアクティビティをリモートで開始するために POST リクエストを送信できます。Apple のライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
 
 `content-available` が設定されていない場合、Apple プッシュ通知サービス（APNs）のデフォルトの優先度は 10 です。`content-available` が設定されている場合、この優先度は 5 です。詳細については、[Apple プッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)を参照してください。
 
@@ -86,7 +86,7 @@ description: "この記事では、「ライブアクティビティを開始」
 
 ## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {YOUR-REST-API-KEY}' \

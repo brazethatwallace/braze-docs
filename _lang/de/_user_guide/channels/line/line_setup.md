@@ -101,6 +101,10 @@ Nach Abschluss des Integrationsprozesses ruft Braze automatisch die LINE-Followe
 | Kanalzugriffstoken | Wählen Sie Ihren Provider und gehen Sie dann zu **Channels** > Ihr Kanal > **Messaging API**. Wenn kein Kanalzugriffstoken vorhanden ist, wählen Sie **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
+{% alert note %}
+Wenn Sie das Kanalgeheimnis für einen bereits integrierten LINE-Kanal aktualisieren oder rotieren müssen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support/), um eine Aktualisierung anzufordern.
+{% endalert %}
+
 {: start="3"}
 3. Gehen Sie zu Ihrer Seite **Settings** > **Response settings** und führen Sie Folgendes aus:
    - Deaktivieren Sie **Greeting message**. Dies kann in Braze über einen Trigger bei Follow gehandhabt werden.
@@ -373,7 +377,7 @@ if (user && isLoggedIn && lineUserId) {
 }
 ```
 
-#### Abläufe bei der Nutzerkontoverknüpfung {#user-account-linking-workflows}
+#### Abläufe bei der Nutzerkontoverknüpfung
 
 ##### Bestehende Nutzer:innen folgen Ihrem LINE-Kanal {#existing-user-follows-your-line-channel}
 

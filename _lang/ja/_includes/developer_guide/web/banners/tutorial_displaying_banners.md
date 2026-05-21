@@ -38,7 +38,7 @@ braze.subscribeToBannersUpdates((banners) => {
 braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 ```
 
-```html file=main.html
+`````````html file=main.html
 <!-- your html -->
 
 <div id="global-banner-container" style="width: 100%; height: 450px;"></div>

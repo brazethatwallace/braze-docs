@@ -5,7 +5,7 @@ layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "この用語集には、起動後のメールCampaignまたはCanvasの分析セクションに表示される用語が含まれています。この用語集には、Currentsの指標は含まれていません。"
+description: "この用語集には、起動後のメールキャンペーンまたはキャンバスの分析セクションに表示される用語が含まれています。この用語集には、Currentsの指標は含まれていません。"
 channel:
   - email
 ---
@@ -181,7 +181,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} メールがソフトバウンスした場合、通常72時間以内に再試行しますが、再試行回数は受信者によって異なります。
 
-ソフトバウンスはCampaignの分析では追跡されませんが、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)で監視したり、[ソフトバウンスSegmentフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced)を使用してこれらのユーザーを送信対象から除外したりできます。メッセージアクティビティログでは、ソフトバウンスの理由を確認し、メールCampaignの「送信数」と「配信数」の間の差異を把握することもできます。
+ソフトバウンスはキャンペーンの分析では追跡されませんが、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)で監視したり、[ソフトバウンスセグメントフィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#soft-bounced)を使用してこれらのユーザーを送信対象から除外したりできます。メッセージアクティビティログでは、ソフトバウンスの理由を確認し、メールキャンペーンの「送信数」と「配信数」の間の差異を把握することもできます。
 
 <span class="calculation-line">計算式: カウント </span>
 
@@ -277,7 +277,7 @@ Count, Percentage
 
 #### *配信停止*と配信停止リンクのクリック数が異なる理由 {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
 
-メールCampaignまたはCanvasの**Analytics**ページで、*配信停止*数と、**Total Clicks**または**Unique Clicks**を展開した際のリンク別内訳に表示されるBraze配信停止URLのクリック数を比較してください。この2つは一致することが多いですが、異なる場合もあります。
+メールキャンペーンまたはキャンバスの**Analytics**ページで、*配信停止*数と、**Total Clicks**または**Unique Clicks**を展開した際のリンク別内訳に表示されるBraze配信停止URLのクリック数を比較してください。この2つは一致することが多いですが、異なる場合もあります。
 
 - ***配信停止*が本文の配信停止URLのクリック数より多い場合:** [リスト配信停止]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)は、メールヘッダーに含まれる追加の配信停止パスです（メッセージ本文のリンクではありません）。ユーザーがこの方法で配信停止した場合、*配信停止*にはカウントされますが、本文内のトラッキング対象の配信停止URLのクリックとしてはカウントされません。
 - **本文の配信停止URLのクリック数が*配信停止*より多い場合:** ユーザーがそのリンクを複数回選択する場合があります。配信停止後に再度サブスクライブし、再び配信停止した場合、メール分析ではクリック内訳に複数のクリック（例: 2回）が記録されることがあります。

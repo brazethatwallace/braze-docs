@@ -6,8 +6,8 @@ channel: email
 page_order: 5
 description: "この記事では、ドラッグ＆ドロップエディターに関するさまざまなFAQを取り上げます。"
 tool:
-  - Campaigns
-  - Canvas
+  - キャンペーン
+  - キャンバス
 
 ---
 
@@ -44,7 +44,7 @@ tool:
 
 ドラッグ＆ドロップエディターは現在2つのレイヤーをサポートしています。行のバックグラウンド画像を設定し、バックグラウンドカラーをカスタマイズできます。
 
-### CampaignまたはCanvas内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### キャンペーンまたはキャンバス内で作成したドラッグ＆ドロップメールをテンプレートとして保存できますか？ {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 いいえ、保存するには**メールテンプレート**でメールを再作成する必要があります。
 

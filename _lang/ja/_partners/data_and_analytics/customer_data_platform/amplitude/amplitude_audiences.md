@@ -14,7 +14,7 @@ search_tag: Partner
 
 > [Amplitude](https://amplitude.com/) は製品分析およびビジネスインテリジェンスプラットフォームです。
 
-BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/)、ユーザー特性、およびイベントをBrazeにインポートし、将来のCampaignsやCanvasesでユーザーをターゲティングできるSegmentsを作成できます。また、Braze Currentsを利用して[BrazeイベントをAmplitudeにエクスポートし]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration)、製品データやマーケティングデータの詳細な分析を行うこともできます。
+BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/)、ユーザー特性、およびイベントをBrazeにインポートし、将来のキャンペーンやキャンバスでユーザーをターゲティングできるセグメントを作成できます。また、Braze Currentsを利用して[BrazeイベントをAmplitudeにエクスポートし]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration)、製品データやマーケティングデータの詳細な分析を行うこともできます。
 
 ## 前提条件 {#prerequisites}
 

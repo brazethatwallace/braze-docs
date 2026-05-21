@@ -73,7 +73,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 {% raw %}
 IDで特定の製品を参照するには、`catalog_items` Liquidタグを使用します。たとえば、`retail_products` という名前のカタログから製品 `1001` をおすすめするには：
 
-```liquid
+`````````liquid
 {% catalog_items retail_products 1001 %}
 
 We have a new item we think you'll like:
@@ -88,7 +88,7 @@ Price: ${{ items[0].price }}
 {% raw %}
 1つのタグで複数のアイテムを参照することもできます。たとえば、3つの製品を紹介するには：
 
-```liquid
+`````````liquid
 {% catalog_items retail_products 1001 1003 1005 %}
 
 New items added in:
@@ -105,7 +105,7 @@ Visit our store to learn more!
 {% raw %}
 [ステップ 1](#step-1-store-recommendations-on-user-profiles)のカスタム属性とカタログルックアップを組み合わせて、各ユーザーに合わせたおすすめをパーソナライズします。
 
-```liquid
+`````````liquid
 {% catalog_items retail_products {{custom_attribute.${recommended_product_id}}} %}
 
 Hi {{${first_name}}}, check out our pick for you:
@@ -120,7 +120,7 @@ Hi {{${first_name}}}, check out our pick for you:
 {% raw %}
 たとえば、内部APIがIDで製品詳細を返す場合：
 
-```liquid
+`````````liquid
 {% connected_content https://api.yourcompany.com/products/{{custom_attribute.${recommended_product_id}}} :save product %}
 
 Hi {{${first_name}}}, we think you'll love:
@@ -141,7 +141,7 @@ Hi {{${first_name}}}, we think you'll love:
 1. [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを使用して、自分のユーザープロファイルにテストおすすめを書き込みます。
 2. カタログまたはコネクテッドコンテンツを使用しておすすめ製品を参照するテストメッセージを送信します。
 3. 配信されたメッセージで製品詳細が正しく表示されることを確認します。
-4. Brazeダッシュボードで、CampaignまたはCanvasの結果ページに移動し、送信が記録されていることを確認します。
+4. Brazeダッシュボードで、キャンペーンまたはキャンバスの結果ページに移動し、送信が記録されていることを確認します。
 
 ## 考慮事項 {#considerations}
 

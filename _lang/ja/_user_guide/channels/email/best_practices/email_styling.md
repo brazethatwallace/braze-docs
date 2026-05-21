@@ -102,7 +102,7 @@ channel: email
 - 画像とHTMLアセットを圧縮します。
 
 {% alert note %}
-メールCampaignまたはテンプレートを保存するには、メール本文が400&nbsp;KBを超えないようにしてください。
+メールキャンペーンまたはテンプレートを保存するには、メール本文が400&nbsp;KBを超えないようにしてください。
 {% endalert %}
 
 ### 最終的なメールサイズに影響するもの {#what-can-add-to-the-final-email-size}

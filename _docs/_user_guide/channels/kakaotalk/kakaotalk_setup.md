@@ -82,6 +82,12 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 
 ![Comm.One dashboard showing a censored Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+You can integrate a KakaoTalk Sender Key into only one workspace at a time. To use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact [Braze Support]({{site.baseurl}}/braze_support/) to remove the integration. After Braze removes the integration, you can set up the integration in the new workspace.
+{% endalert %}
+
+![Credentials for a Braze KakaoTalk channel.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
@@ -95,13 +101,11 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 {% endtab %}
 {% endtabs %}
 
-![Fields on the Technology Partners page for CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Credentials for a Braze KakaoTalk channel.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Only the channels mapped to a single common ID can be registered.
 {% endalert %}
+
+![Fields on the Technology Partners page for CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

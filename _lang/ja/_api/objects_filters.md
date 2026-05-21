@@ -12,7 +12,7 @@ description: "このランディングページには、Braze APIコールで使
 
 ## オブジェクトとフィルター
 
-- [Canvasコンテキストオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
+- [キャンバスコンテキストオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)
 - [接続オーディエンスフィルターとオブジェクト]({{site.baseurl}}/api/objects_filters/connected_audience/)
 - [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)
 - [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)

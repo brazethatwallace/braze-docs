@@ -26,7 +26,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMessageDisplayChoice
 ```
 
@@ -38,14 +38,14 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMess
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (ABKInAppMessageDisplayChoice) beforeInAppMessageDisplayed:(ABKInAppMessage *)inAppMessage withKeyboardIsUp:(BOOL)keyboardIsUp;
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsUp keyboardIsUp: Bool) -> ABKInAppMessageDisplayChoice
 ```
 
@@ -69,7 +69,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsU
 
 アプリ内メッセージの表示動作を変更したい場合は、必要な表示ロジックを`beforeInAppMessageDisplayed:`デリゲートメソッドに追加する必要があります。たとえば、キーボードが現在表示されている場合は画面の上部からアプリ内メッセージを表示したり、アプリ内メッセージデータモデルを取得してアプリ内メッセージを自分で表示したりできます。
 
-セッションの開始時にアプリ内メッセージCampaignが表示されない場合は、必要な表示ロジックが`beforeInAppMessageDisplayed:`デリゲートメソッドに追加されていることを確認してください。これにより、キーボードが表示されている場合でも、アプリ内メッセージCampaignを画面の上部から表示できます。
+セッションの開始時にアプリ内メッセージキャンペーンが表示されない場合は、必要な表示ロジックが`beforeInAppMessageDisplayed:`デリゲートメソッドに追加されていることを確認してください。これにより、キーボードが表示されている場合でも、アプリ内メッセージキャンペーンを画面の上部から表示できます。
 
 ## ダークモードを無効にする {#disabling-dark-mode}
 
@@ -78,7 +78,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsU
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // ABKInAppMessageControllerDelegate
 - (ABKInAppMessageDisplayChoice)beforeInAppMessageDisplayed:(ABKInAppMessage *)inAppMessage {
   ...
@@ -100,7 +100,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsU
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // ABKInAppMessageControllerDelegate
 func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage) -> ABKInAppMessageDisplayChoice {
   ...
@@ -132,7 +132,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // Registers that a user has viewed an in-app message with the Braze server.
 - (void) logInAppMessageImpression;
 // Registers that a user has clicked on an in-app message with the Braze server.
@@ -142,7 +142,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Registers that a user has viewed an in-app message with the Braze server.
 func logInAppMessageImpression()
 // Registers that a user has clicked on an in-app message with the Braze server.
@@ -157,7 +157,7 @@ func logInAppMessageClicked()
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // Logs button click analytics
 - (void)logInAppMessageClickedWithButtonID:(NSInteger)buttonID;
 ```
@@ -165,7 +165,7 @@ func logInAppMessageClicked()
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Logs button click analytics
 func logInAppMessageClickedWithButtonID(buttonId: NSInteger)
 ```

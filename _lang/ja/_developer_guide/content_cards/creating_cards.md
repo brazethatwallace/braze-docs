@@ -89,7 +89,7 @@ Content Cardsは、`openSession()` の前に `subscribeToContentCardsUpdates()` 
 
 カードの更新を購読するには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
 
-```java
+`````````java
 // subscriber variable
 private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscriber;
 ```
@@ -98,7 +98,7 @@ private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscribe
 
 以下のコードを追加して、Brazeからのコンテンツカードの更新を購読します。通常、カスタムコンテンツカードアクティビティの `Activity.onCreate()` 内に配置します。
 
-```java
+`````````java
 // Remove the previous subscriber before rebuilding a new one with our new activity.
 Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscriber, ContentCardsUpdatedEvent.class);
 mContentCardsUpdatedSubscriber = new IEventSubscriber<ContentCardsUpdatedEvent>() {
@@ -118,7 +118,7 @@ Braze.getInstance(context).requestContentCardsRefresh();
 
 カスタムアクティビティが画面外に移動したときに購読を解除します。以下のコードをアクティビティの `onDestroy()` ライフサイクルメソッドに追加します。
 
-```java
+`````````java
 Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscriber, ContentCardsUpdatedEvent.class);
 ```
 
@@ -129,7 +129,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 
 カードの更新を購読するには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
 
-```kotlin
+`````````kotlin
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
@@ -137,7 +137,7 @@ private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedE
 
 以下のコードを追加して、Brazeからのコンテンツカードの更新を購読します。通常、カスタムコンテンツカードアクティビティの `Activity.onCreate()` 内に配置します。
 
-```kotlin
+`````````kotlin
 // Remove the previous subscriber before rebuilding a new one with our new activity.
 Braze.getInstance(context).subscribeToContentCardsUpdates(contentCardsUpdatedSubscriber)
 Braze.getInstance(context).requestContentCardsRefresh()
@@ -154,7 +154,7 @@ Braze.getInstance(context).requestContentCardsRefresh(true)
 
 カスタムアクティビティが画面外に移動したときに購読を解除します。以下のコードをアクティビティの `onDestroy()` ライフサイクルメソッドに追加します。
 
-```kotlin
+`````````kotlin
 Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscriber, ContentCardsUpdatedEvent::class.java)
 ```
 
@@ -168,7 +168,7 @@ Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscribe
 {% subtabs local %}
 {% subtab Swift %}
 
-```swift
+`````````swift
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
@@ -178,7 +178,7 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 
 ##### キャンセル可能オブジェクト {#cancellable}
 
-```swift
+`````````swift
 // This subscription is maintained through a Braze cancellable, which will observe for changes until the subscription is cancelled.
 // You must keep a strong reference to the cancellable to keep the subscription active.
 // The subscription is canceled either when the cancellable is deinitialized or when you call its `.cancel()` method.
@@ -189,20 +189,20 @@ let cancellable = AppDelegate.braze?.contentCards.subscribeToUpdates { [weak sel
 
 ##### AsyncStream
 
-```swift
+`````````swift
 let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.cardsStream
 ```
 
 {% endsubtab %}
 {% subtab Objective-C %}
 
-```objc
+`````````objc
 NSArray<BRZContentCardRaw *> *contentCards = AppDelegate.braze.contentCards.cards;
 ```
 
 さらに、コンテンツカードのサブスクリプションを維持したい場合は、[`subscribeToUpdates`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/subscribetoupdates(_:)) を呼び出すことができます。
 
-```objc
+`````````objc
 // This subscription is maintained through Braze cancellable, which will continue to observe for changes until the subscription is cancelled.
 BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSArray<BRZContentCardRaw *> *contentCards) {
   // Implement your completion handler to respond to updates in `contentCards`.
@@ -224,10 +224,10 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 コンテンツカードをテストするには:
 
 1. [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) メソッドを呼び出して、アプリケーションでアクティブユーザーを設定します。
-2. Brazeで**Campaigns**に移動し、[新しいContent Cards Campaignを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)。
-3. Campaignで**Test**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**Send Test**を選択します。すぐにデバイスでコンテンツカードを起動できます。
+2. Brazeで**キャンペーン**に移動し、[新しいContent Cards キャンペーンを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)。
+3. キャンペーンで**Test**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**Send Test**を選択します。すぐにデバイスでコンテンツカードを起動できます。
 
-![BrazeのContent Cards Campaignでは、自分のユーザー ID をテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
+![BrazeのContent Cards キャンペーンでは、自分のユーザー ID をテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card キャンペーン Test")
 
 ## コンテンツカードの配置 {#content-card-placements}
 
@@ -241,7 +241,7 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 
 #### 例 {#example}
 
-たとえば、ユーザーにおすすめの読書の有効化を促すコールトゥアクションと、新しいサブスクライバーSegmentに付与されるクーポンコードという2つのメッセージカードを作成できます。
+たとえば、ユーザーにおすすめの読書の有効化を促すコールトゥアクションと、新しいサブスクライバーセグメントに付与されるクーポンコードという2つのメッセージカードを作成できます。
 
 `body`、`title`、`buttonText` などのキーは、マーケターが設定できるシンプルな文字列値を持つ場合があります。`terms` のようなキーは、法務部門が承認したフレーズの小さなコレクションを提供する値を持つ場合があります。`style` や `class_type` などのキーには、アプリやサイトでのカードのレンダリング方法を決定するために設定できる文字列値があります。
 
@@ -283,7 +283,7 @@ AndroidとFireOS SDKでは、メッセージセンターのロジックはBraze�
 **クリック時の動作に `class_type` を使用する**<br>
 コンテンツカードのデータをカスタムクラスにインフレートするときに、データの `ContentCardClass` プロパティを使用して、データの格納に使用する具象サブクラスを決定します。
 
-```kotlin
+`````````kotlin
  private fun createContentCardable(metadata: Map<String, Any>, type: ContentCardClass?): ContentCardable?{
         return when(type){
             ContentCardClass.AD -> Ad(metadata)
@@ -299,7 +299,7 @@ AndroidとFireOS SDKでは、メッセージセンターのロジックはBraze�
 
 次に、メッセージリストに対するユーザーの操作を処理するときに、メッセージのタイプを使用して、ユーザーに表示するビューを決定できます。
 
-```kotlin
+`````````kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //...
@@ -331,7 +331,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 **クリック時の動作に `class_type` を使用する**<br>
 コンテンツカードのデータをカスタムクラスにインフレートするときに、データの `ContentCardClass` プロパティを使用して、データの格納に使用する具象サブクラスを決定します。
 
-```java
+`````````java
 private ContentCardable createContentCardable(Map<String, ?> metadata,  ContentCardClass type){
     switch(type){
         case ContentCardClass.AD:{
@@ -362,7 +362,7 @@ private ContentCardable createContentCardable(Map<String, ?> metadata,  ContentC
 
 次に、メッセージリストに対するユーザーの操作を処理するときに、メッセージのタイプを使用して、ユーザーに表示するビューを決定できます。
 
-```java
+`````````java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState)
@@ -414,4 +414,4 @@ Content Cardsカルーセルを実装するには:
 
 Content Cardsは「カード」のように見せる必要はありません。たとえば、Content Cardsは、ホームページや指定されたページの上部に永続的に表示されるダイナミックな画像として表示できます。
 
-これを実現するには、マーケターが**Image Only**タイプのContent CardsでCampaignまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。
+これを実現するには、マーケターが**Image Only**タイプのContent Cardsでキャンペーンまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。

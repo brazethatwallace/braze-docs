@@ -37,7 +37,7 @@ Apple ユニバーサルリンクと Android App Linksは、Webコンテンツ�
 
 ## ユースケース {#use-cases}
 
-ユニバーサルリンクとApp Linksは、メールCampaignで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
+ユニバーサルリンクとApp Linksは、メールキャンペーンで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
 
 一部のチャネルはこれらのリンクとうまく連携しません。たとえば、プッシュ通知、アプリ内メッセージ、Content Cardsでは、スキームベースのディープリンク（`mydomain://`）を使用する必要があります。
 
@@ -246,7 +246,7 @@ AMPメールの場合、この属性はdata-universal="true"にする必要が�
 
 例：
 
-```html
+`````````html
 <a href=”https://www.example.com” universal="true">
 ```
 
@@ -263,7 +263,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 例：
 
-```html
+`````````html
 <a href=”https://www.example.com” data-msys-sublink="open-in-app">
 ```
 
@@ -277,7 +277,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がSendGridの場合、次のようにHTMLコード`clicktracking=off`を使用します。
 
-```HTML
+`````````HTML
 <a clicktracking=off href="[INSERT https LINK HERE]">click here</a>
 ```
 
@@ -285,7 +285,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がSparkPostの場合、次のようにHTMLコード`data-msys-clicktrack="0"`を使用します。
 
-```HTML
+`````````HTML
 <a data-msys-clicktrack="0" href="[INSERT https LINK HERE]">click here</a>
 ```
 
@@ -293,7 +293,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 メールサービスプロバイダー（ESP）がAmazon SESの場合、次のようにHTMLコード`ses:no-track`を使用します。
 
-```HTML
+`````````HTML
 <a ses:no-track href="[INSERT https LINK HERE]">click here</a>
 ```
 

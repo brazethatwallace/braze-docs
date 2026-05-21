@@ -101,6 +101,10 @@ Brazeがサポートする任意の方法を使用してユーザーをインポ
 | チャネルアクセストークン | プロバイダーを選択し、**チャネル** > 対象のチャネル > **Messaging API** に移動します。チャネルアクセストークンがない場合は、**発行**を選択します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Edit webhook settings" }
 
+{% alert note %}
+すでに統合済みの LINE チャネルのチャネルシークレットを更新またはローテーションする必要がある場合は、[Brazeサポート]({{site.baseurl}}/braze_support/)に連絡して更新をリクエストしてください。
+{% endalert %}
+
 {: start="3"}
 3. **設定**ページ > **応答設定**に移動し、以下を行います：
    - **あいさつメッセージ**をオフにします。これはBrazeでフォロー時のトリガーで処理できます。
@@ -237,13 +241,13 @@ LINE はユーザーのサブスクリプション状態の信頼できるソー
 
 1. Brazeユーザープロファイルが `native_line_id` 属性で更新されます。デフォルトのサブスクリプションステータスは `unsubscribed` です。
 2. サブスクリプション同期ツールが実行され、ユーザーが LINE チャネルをフォローしていることを検出し、ユーザープロファイルをサブスクリプションステータス `subscribed` で更新します。
-3. サブスクリプションステータスの変更が発生した場合（ユーザーがブロック、友だち解除、または再フォローした場合など）、BrazeはLINE から更新を受信し、`native_line_id` に応じてユーザープロファイルを更新します。
+3. サブスクリプションステータスの変更が発生した場合（ユーザーがブロック、友だち解除、または再フォローした場合など）、Brazeは LINE から更新を受信し、`native_line_id` に応じてユーザープロファイルを更新します。
 
 ##### 既存のユーザープロファイルが LINE チャネルをブロック、友だち解除、またはフォロー解除している場合 {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. Brazeユーザープロファイルが `native_line_id` 属性で更新されます。デフォルトのサブスクリプションステータスは `unsubscribed` です。
 2. サブスクリプション同期ツールはユーザーが LINE チャネルをフォローしていることを検出せず、ユーザーのサブスクリプションステータスは `unsubscribed` のままです。
-3. ユーザーが後でチャネルをフォローした場合、BrazeはLINE から更新を受信し、ユーザープロファイルをサブスクリプションステータス `subscribed` で更新します。
+3. ユーザーが後でチャネルをフォローした場合、Brazeは LINE から更新を受信し、ユーザープロファイルをサブスクリプションステータス `subscribed` で更新します。
 
 ##### LINE フォロー後にユーザープロファイルが作成される場合 {#user-profile-creation-occurs-after-line-follow}
 
@@ -334,7 +338,7 @@ LINE ID を既存のBrazeユーザープロファイルと結合するには、2
 
 この方法では、ユーザーが LINE アカウントをアプリのユーザーアカウントにリンクできます。Brazeで {% raw %}`{{line_id}}`{% endraw %} などのLiquidを使用して、ユーザーの LINE ID をWebサイトやアプリに渡すパーソナライズされた URL を作成し、既知のユーザーに関連付けることができます。
 
-1. サブスクリプション状態の変更に基づくアクションベースのCanvasを作成し、ユーザーが LINE チャネルを購読した際にトリガーされるようにします。<br>![ユーザーが LINE チャネルを購読した際にトリガーされるCanvas。]({% image_buster /assets/img/line/account_link_1.png %})
+1. サブスクリプション状態の変更に基づくアクションベースのキャンバスを作成し、ユーザーが LINE チャネルを購読した際にトリガーされるようにします。<br>![ユーザーが LINE チャネルを購読した際にトリガーされるキャンバス。]({% image_buster /assets/img/line/account_link_1.png %})
 2. ユーザーにWebサイトやアプリへのログインを促すメッセージを作成し、ユーザーの LINE ID をクエリパラメーターとして（Liquidを通じて）渡します。例：
 
 ```
@@ -343,13 +347,13 @@ Thanks for following Flash n' Thread on LINE! For personalized offers and 20% of
 
 {: start="3"}
 3. クーポンコードを配信するフォローアップメッセージを作成します。
-4. （オプション）LINE ユーザーが識別された際にトリガーされるアクションベースのCampaignまたはCanvasを作成し、ユーザーにクーポンコードを送信します。<br>![LINE ユーザーが識別された際にトリガーされるアクションベースのCampaign。]({% image_buster /assets/img/line/account_link_2.png %})
+4. （オプション）LINE ユーザーが識別された際にトリガーされるアクションベースのキャンペーンまたはキャンバスを作成し、ユーザーにクーポンコードを送信します。<br>![LINE ユーザーが識別された際にトリガーされるアクションベースのキャンペーン。]({% image_buster /assets/img/line/account_link_2.png %})
 
 #### 仕組み {#how-it-works}
 
 ユーザーがログインすると、Webサイトまたはアプリで変更が行われ、URL の一部として渡された LINE ID と関連付けるためにユーザー ID がBrazeに送信されます。コード例は以下のとおりです：
 
-```javascript
+`````````javascript
 const currentUrl = new URL(window.location.href)
 const queryParams = new URLSearchParams(currentUrl.search);
 const lineUserId = queryParams.get("line_user_id")
@@ -387,12 +391,12 @@ if (user && isLoggedIn && lineUserId) {
 
 ## Brazeでの LINE テストユーザーの作成 {#creating-line-test-users-in-braze}
 
-[ユーザー照合](#user-id-reconciliation)をセットアップする前に、「Who am I」CanvasまたはCampaignを作成して LINE チャネルをテストできます。
+[ユーザー照合](#user-id-reconciliation)をセットアップする前に、「Who am I」キャンバスまたはキャンペーンを作成して LINE チャネルをテストできます。
 
-1. 特定のトリガーワードでユーザーのBrazeユーザー ID を返すCanvasをセットアップします。<br><br>トリガーの例<br><br>![特定のサブスクリプショングループにインバウンド LINE を送信したユーザーにCampaignを送信するトリガー。]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>メッセージの例<br><br>![Brazeユーザー ID を表示する LINE メッセージ。]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
+1. 特定のトリガーワードでユーザーのBrazeユーザー ID を返すキャンバスをセットアップします。<br><br>トリガーの例<br><br>![特定のサブスクリプショングループにインバウンド LINE を送信したユーザーにキャンペーンを送信するトリガー。]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>メッセージの例<br><br>![Brazeユーザー ID を表示する LINE メッセージ。]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 
 2. Brazeで、Braze ID を使用して特定のユーザーを検索し、必要に応じて変更できます。
 
 {% alert important %}
-Canvasにグローバルコントロールやコントロールグループが送信を妨げていないことを確認してください。
+キャンバスにグローバルコントロールやコントロールグループが送信を妨げていないことを確認してください。
 {% endalert %}

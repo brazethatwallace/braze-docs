@@ -16,14 +16,14 @@ _この統合は Certona によって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-Braze と Certona の統合では、コネクテッドコンテンツを通じて Braze のCampaignsやCanvasesで Certona の機械学習による製品おすすめを利用できます。
+Braze と Certona の統合では、コネクテッドコンテンツを通じて Braze のキャンペーンやキャンバスで Certona の機械学習による製品おすすめを利用できます。
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
 | [Certona アカウント](https://manage.certona.com/) | このパートナーシップを活用するには、Certona アカウントが必要です。 |
-| [Certona REST API エンドポイント](https://manage.certona.com/) | このエンドポイントは、Braze のCampaignメッセージで直接使用され、ユーザー IDに基づいておすすめコンテンツを取得します。 |
+| [Certona REST API エンドポイント](https://manage.certona.com/) | このエンドポイントは、Braze のキャンペーンメッセージで直接使用され、ユーザー IDに基づいておすすめコンテンツを取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}

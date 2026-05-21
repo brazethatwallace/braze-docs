@@ -1,7 +1,7 @@
 ---
 nav_title: Sageflo
 article_title: Sageflo Radiate
-description: "この参考記事では、BrazeとSagefloのパートナーシップについて概説しています。Sagefloは分散型マーケティングツールで、BrazeとのAPI統合により、マーケティングで承認されたテンプレート、画像、オーディエンスSegmentsを使用して、チームが独自のメールを簡単に送信できるようにします。"
+description: "この参考記事では、BrazeとSagefloのパートナーシップについて概説しています。Sagefloは分散型マーケティングツールで、BrazeとのAPI統合により、マーケティングで承認されたテンプレート、画像、オーディエンスセグメントを使用して、チームが独自のメールを簡単に送信できるようにします。"
 alias: /partners/sageflo/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Sageflo Radiate
 
-> [Sageflo Radiate](https://sageflo.com/radiate)は分散型マーケティングツールであり、BrazeとのAPI統合により、ローカルチームがマーケティングで承認されたテンプレート、画像、およびオーディエンスSegmentsを使用して独自のメールを簡単に送信できるようになります。
+> [Sageflo Radiate](https://sageflo.com/radiate)は分散型マーケティングツールであり、BrazeとのAPI統合により、ローカルチームがマーケティングで承認されたテンプレート、画像、およびオーディエンスセグメントを使用して独自のメールを簡単に送信できるようになります。
 
 _この統合はSagefloによって管理されています。_
 
@@ -38,12 +38,12 @@ Radiateは、Brazeを通じてローカルオーディエンスにメールを�
 
 ## 統合 {#integration}
 
-Sagefloアカウントチームが統合の設定作業を主導します。Braze APIの認証情報を提供するよう求められ、Sagefloはマーケティングチームと協力して、特定のロケーションとBranchのオーディエンスSegmentsを設定します。
+Sagefloアカウントチームが統合の設定作業を主導します。Braze APIの認証情報を提供するよう求められ、Sagefloはマーケティングチームと協力して、特定のロケーションとBranchのオーディエンスセグメントを設定します。
 
 接続が完了すると、Sagefloは次の作業を行います。
 
 * Radiate環境とBrazeへの接続をセットアップする
-* BrazeでロケーションベースのオーディエンスSegmentsを設定する
-* Campaign、ロケーション、ユーザーグループの設定を定義する
-* RadiateのCampaignsで使用できるようBrazeのテンプレートをマッピングする
+* Brazeでロケーションベースのオーディエンスセグメントを設定する
+* キャンペーン、ロケーション、ユーザーグループの設定を定義する
+* Radiateのキャンペーンで使用できるようBrazeのテンプレートをマッピングする
 * ユーザートレーニングのスケジュールと実施

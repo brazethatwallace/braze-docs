@@ -50,3 +50,11 @@ Sí. El Canvas de destino puede tener un estado de borrador o inactivo.
 ### ¿Se conservan las variables de contexto? {#are-context-variables-preserved}
 
 Sí. El [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) del Canvas de origen siempre se pasa al Canvas de destino.
+
+### ¿Los usuarios entran al inicio del Canvas de destino? {#do-users-enter-at-the-start-of-the-destination-canvas}
+
+Los usuarios entran al inicio del Canvas de destino. En este momento, no puedes vincular a un paso en Canvas específico dentro del Canvas de destino.
+
+### ¿Cómo funciona el comportamiento de avance en los pasos Enviar a destino? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+
+Los usuarios que entran en el paso Enviar a destino continúan su recorrido si hay pasos adicionales en el Canvas de origen. Si los usuarios también cumplen las reglas de entrada del Canvas de destino, pueden entrar en ese Canvas y comenzar ese recorrido.

@@ -36,7 +36,7 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 `list_functions`関数の詳細については、[利用可能なAPI関数]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#general-functions){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#general-functions){% endif %}を参照してください。
 
-### Canvas IDの詳細を取得する {#get-details-about-a-canvas-id}
+### キャンバス IDの詳細を取得する {#get-details-about-a-canvas-id}
 
 {% tabs %}
 {% tab Claude %}
@@ -50,15 +50,15 @@ ClaudeやCursorのような自然言語ツールを通じてBraze MCPサーバ�
 
 `get_canvas_details`関数の詳細については、[利用可能なAPI関数]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#canvases){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#canvases){% endif %}を参照してください。
 
-### 最近のCanvasesを表示する {#show-me-my-recent-canvases}
+### 最近のキャンバスを表示する {#show-me-my-recent-canvases}
 
 {% tabs %}
 {% tab Claude %}
-![「最近のCanvasesを表示して」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
+![「最近のキャンバスを表示して」という質問がClaudeで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/claude/show_my_recent_canvases.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-![「最近のCanvasesを表示して」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
+![「最近のキャンバスを表示して」という質問がCursorで尋ねられ、回答されている様子]({% image_buster /assets/img/mcp_server/cursor/show_me_my_recent_canvases.png %})
 {% endtab %}
 {% endtabs %}
 

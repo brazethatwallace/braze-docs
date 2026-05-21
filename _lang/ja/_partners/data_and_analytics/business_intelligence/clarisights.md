@@ -1,7 +1,7 @@
 ---
 nav_title: Clarisights
 article_title: Clarisights
-description: "このリファレンス記事では、Brazeとセルフサービス型パフォーマンスマーケティングレポートプラットフォームであるClarisightsとのパートナーシップについて説明します。BrazeのCampaignsやCanvasesからデータをインポートし、パフォーマンスおよびCRM/リテンションマーケティングの統合レポートインターフェイスを実現できます。"
+description: "このリファレンス記事では、Brazeとセルフサービス型パフォーマンスマーケティングレポートプラットフォームであるClarisightsとのパートナーシップについて説明します。Brazeのキャンペーンやキャンバスからデータをインポートし、パフォーマンスおよびCRM/リテンションマーケティングの統合レポートインターフェイスを実現できます。"
 alias: /partners/clarisights/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ _この統合はClarisightsによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとClarisightsの統合により、BrazeのCampaignsやCanvasesからデータをインポートし、パフォーマンスおよびCRM/リテンションマーケティングの統合レポートインターフェイスを実現できます。
+BrazeとClarisightsの統合により、Brazeのキャンペーンやキャンバスからデータをインポートし、パフォーマンスおよびCRM/リテンションマーケティングの統合レポートインターフェイスを実現できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -30,16 +30,16 @@ BrazeとClarisightsの統合により、BrazeのCampaignsやCanvasesからデー
 
 ## ユースケース {#use-cases}
 
-BrazeとClarisightsの統合により、ユーザーはさまざまなビジュアライゼーションやテーブルを作成し、作成したCampaignsからインサイトを得ることができます。一般的なユースケースには以下が含まれます。
+BrazeとClarisightsの統合により、ユーザーはさまざまなビジュアライゼーションやテーブルを作成し、作成したキャンペーンからインサイトを得ることができます。一般的なユースケースには以下が含まれます。
 
 {% tabs %}
 {% tab 可視性の向上 %}
-CampaignsおよびCanvases全体のパフォーマンスの可視性を向上させます。
+キャンペーンおよびキャンバス全体のパフォーマンスの可視性を向上させます。
 
-![Clarisightsプラットフォームでの可視性向上の例を示すグラフィック。CampaignおよびCanvasの開封数、クリック数、送信数、コンバージョン数などの統計が含まれています。]({{site.baseurl}}/assets/img/clarisights/overall_view.png)
+![Clarisightsプラットフォームでの可視性向上の例を示すグラフィック。キャンペーンおよびキャンバスの開封数、クリック数、送信数、コンバージョン数などの統計が含まれています。]({{site.baseurl}}/assets/img/clarisights/overall_view.png)
 {% endtab %}
 {% tab 詳細レポート %}
-CampaignsおよびCanvasesの詳細なレポート。
+キャンペーンおよびキャンバスの詳細なレポート。
 
 ![「送信チャネル別の送信全体」や「コンバージョン率」などの詳細レポートを示すグラフィック。]({{site.baseurl}}/assets/img/clarisights/unified_dashboard.png)
 {% endtab %}

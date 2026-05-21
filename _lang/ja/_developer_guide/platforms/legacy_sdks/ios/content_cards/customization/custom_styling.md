@@ -58,7 +58,7 @@ Braze では、クライアントが既存のデフォルト画像を独自の�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Accessing enableDarkTheme via ABKContentCardsViewController.contentCardsViewController.
 @IBAction func presentModalContentCards(_ sender: Any) {
   let contentCardsVC = ABKContentCardsViewController()

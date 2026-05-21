@@ -45,7 +45,7 @@ Xcode を使用して `Info.plist` ファイルを編集します。
 
 以下は許可リストの例です。
 
-```html
+`````````html
 <key>LSApplicationQueriesSchemes</key>
 <array>
     <string>myapp</string>
@@ -63,7 +63,7 @@ Xcode を使用して `Info.plist` ファイルを編集します。
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   let query = url.query
@@ -75,7 +75,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   NSString *path  = [url path];
   NSString *query = [url query];
@@ -97,14 +97,14 @@ ATS はデフォルトで適用されます。すべての接続が HTTPS を使
 
 **例エラー１：**
 
-```bash
+`````````bash
 CFNetwork SSLHandshake failed (-9801)
 Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secure connection to the server cannot be made."
 ```
 
 **例エラー2：**
 
-```bash
+`````````bash
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
@@ -124,7 +124,7 @@ ATSは次のいずれかの方法で処理できるが、**ATSの要件に準拠
 
 ATS の例外としてドメインを追加するには、アプリの `Info.plist` ファイルに以下を追加します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -148,7 +148,7 @@ ATS の例外としてドメインを追加するには、アプリの `Info.pli
 {% tab Fully disable %}
 ATS を完全に無効にできます。ただし、セキュリティ保護が失われることと、将来の iOS との互換性の両方を考慮して、この処理は推奨されないことに注意してください。ATS を無効にするには、アプリの `Info.plist` ファイルに以下を挿入します。
 
-```html
+`````````html
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -167,7 +167,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
@@ -178,7 +178,7 @@ SDK では、有効な `URL` を作成するためにリンクをパーセント
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
@@ -201,7 +201,7 @@ Brazeのプッシュ通知やアプリ内メッセージから`UIApplicationOpen
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
   let path = url.path
   if (path == "settings") {
@@ -214,7 +214,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -268,7 +268,7 @@ SDK では、ドメインの `apple-app-site-association` ファイルに対し�
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   if context.url.host == "MY-DOMAIN.com" {
     // Custom handle link here
@@ -282,7 +282,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 - (BOOL)braze:(Braze *)braze shouldOpenURL:(BRZURLContext *)context {
   if ([[context.url.host lowercaseString] isEqualToString:@"MY-DOMAIN.com"]) {
     // Custom handle link here

@@ -50,3 +50,11 @@ tool: Canvas
 ### 컨텍스트 변수가 유지되나요? {#are-context-variables-preserved}
 
 네. 소스 Canvas의 [컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)는 항상 대상 Canvas로 전달됩니다.
+
+### 사용자는 대상 Canvas의 처음부터 진입하나요? {#do-users-enter-at-the-start-of-the-destination-canvas}
+
+사용자는 대상 Canvas의 처음부터 진입합니다. 현재로서는 대상 Canvas 내의 특정 캔버스 단계로 연결할 수 없습니다.
+
+### 대상으로 보내기 단계에서 진행 동작은 어떻게 작동하나요? {#how-does-advancement-behavior-work-for-send-to-destination-steps}
+
+대상으로 보내기 단계에 진입한 사용자는 소스 Canvas에 추가 단계가 있는 경우 사용자 여정을 계속 진행합니다. 사용자가 대상 Canvas의 진입 규칙도 충족하면 해당 Canvas에 진입하여 새로운 여정을 시작할 수 있습니다.

@@ -2,7 +2,7 @@
 nav_title: Currentsの Adobe
 article_title: Currentsの Adobe
 alias: /partners/adobe_for_currents/
-description: "このリファレンス記事では、Braze Currentsと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とSegments）をBrazeに接続してマッピングできます。"
+description: "このリファレンス記事では、Braze Currentsと Adobe のパートナーシップについて説明します。Adobe は顧客データプラットフォームであり、ブランドはリアルタイムで Adobe データ（カスタム属性とセグメント）をBrazeに接続してマッピングできます。"
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Currentsの Adobe {#adobe-for-currents}
 
-> [Adobe](https://www.adobe.com/) は、ブランドが自身の Adobe データ（カスタム属性とSegments）をリアルタイムでBrazeに接続してマッピングできる顧客データプラットフォームです。
+> [Adobe](https://www.adobe.com/) は、ブランドが自身の Adobe データ（カスタム属性とセグメント）をリアルタイムでBrazeに接続してマッピングできる顧客データプラットフォームです。
 
 BrazeとAdobe の統合により、2つのシステム間の情報の流れをシームレスにコントロールできます。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、データをAdobe に接続し、グローススタック全体で実用的なデータにすることもできます。
 
