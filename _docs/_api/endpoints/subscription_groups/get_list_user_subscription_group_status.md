@@ -46,8 +46,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `external_id`  |  Required* | String | The `external_id` of the user (must include at least one and at most 50 `external_ids`). <br><br>When both an `external_id` and `email`/`phone` are submitted, only the `external_id`(s) provided will be applied to the result query. |
 | `email` | Required* | String | The email address of the user. It can be passed as an array of strings with a maximum of 50.<br><br> Submitting both an email address and phone number (with no `external_id`) will result in an error. |
 | `phone` | Required* | String in [E.164](https://en.wikipedia.org/wiki/E.164) format | The phone number of the user. If email is not included, you must include at least one phone number (with a maximum of 50).<br><br> Submitting both an email address and phone number (with no `external_id`) will result in an error. |
-
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 *One of `external_id` or `email` or `phone` is required for each user.
 

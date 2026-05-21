@@ -28,7 +28,7 @@ description: "Este artigo de referência aborda o uso de atributos personalizado
 ## Exemplo de API {#api-example}
 
 {% tabs local %}
-{% tab Create %}
+{% tab Criar %}
 A seguir, um exemplo de `/users/track` com um objeto "Most Played Song". Para capturar as propriedades da música, enviaremos uma solicitação de API que lista `most_played_song` como um objeto, junto com um conjunto de propriedades do objeto.
 
 ```json
@@ -52,7 +52,7 @@ A seguir, um exemplo de `/users/track` com um objeto "Most Played Song". Para ca
 ```
 
 {% endtab %}
-{% tab Update %}
+{% tab Atualizar %}
 Para atualizar um objeto existente, envie um POST para `users/track` com o parâmetro `_merge_objects` na solicitação. Isso fará um deep merge da sua atualização com os dados existentes do objeto. O deep merge garante que todos os níveis de um objeto sejam mesclados em outro objeto, em vez de apenas o primeiro nível. Neste exemplo, já temos um objeto `most_played_song` na Braze e agora estamos adicionando um novo campo, `year_released`, ao objeto `most_played_song`.
 
 ```json
@@ -90,7 +90,7 @@ Você deve definir `_merge_objects` como `true`, caso contrário seus objetos se
 {% endalert %}
 
 {% endtab %}
-{% tab Delete %}
+{% tab Excluir %}
 Para excluir um objeto de atributo personalizado, envie um POST para `users/track` com o objeto de atributo personalizado definido como `null`.
 
 ```json
@@ -230,7 +230,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 Para capturar datas como propriedades de objetos, você deve usar a chave `$time`. No exemplo a seguir, um objeto "Important Dates" é usado para capturar o conjunto de propriedades do objeto, `birthday` e `wedding_anniversary`. Os valores dessas datas são objetos com uma chave `$time`, que não pode ser um valor nulo.
 
 {% alert note %}
-Se você não capturou datas como propriedades de objetos inicialmente, recomendamos reenviar esses dados usando a chave `$time` para todos os usuários. Caso contrário, isso pode resultar em Segments incompletos ao usar o atributo `$time`. No entanto, se o valor de `$time` em um atributo personalizado aninhado não estiver formatado corretamente, o atributo personalizado aninhado inteiro não será atualizado.
+Se você não capturou datas como propriedades de objetos inicialmente, recomendamos reenviar esses dados usando a chave `$time` para todos os usuários. Caso contrário, isso pode resultar em segmentos incompletos ao usar o atributo `$time`. No entanto, se o valor de `$time` em um atributo personalizado aninhado não estiver formatado corretamente, o atributo personalizado aninhado inteiro não será atualizado.
 {% endalert %}
 
 ```json
@@ -285,8 +285,8 @@ Para regenerar o esquema do seu atributo personalizado aninhado:
 
 1. Acesse **Configurações de dados** > **Atributos personalizados**.
 2. Pesquise seu atributo personalizado aninhado.
-3. Na coluna **Nome do atributo** do seu atributo, selecione <i class="fas fa-plus"></i> para gerenciar o esquema.
-4. Um modal será exibido. Selecione **Regenerar esquema**.
+3. Na coluna **Attribute Name** do seu atributo, selecione <i class="fas fa-plus" aria-label="Gerenciar esquema"></i> para gerenciar o esquema.
+4. Um modal será exibido. Selecione **Regenerate Schema**.
 
 A opção de regenerar esquema ficará desabilitada se tiverem se passado menos de 24 horas desde a última regeneração do esquema. Regenerar o esquema detectará apenas novos objetos e não excluirá objetos que já existem no esquema.
 
@@ -300,13 +300,13 @@ Se os dados não aparecerem como esperado após regenerar o esquema, o atributo 
 
 Você pode disparar ações quando um objeto de atributo personalizado aninhado é alterado. Essa opção não está disponível para alterações em vetores de objetos. Se você não vir a opção de visualizar o explorador de jornadas, verifique se você gerou um esquema.
 
-Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova ação-gatilho para **Alterar valor do atributo personalizado** para direcionar usuários que alteraram suas preferências de escritório de bairro.
+Por exemplo, em uma Campaign baseada em ação, você pode adicionar uma nova ação-gatilho para **Change Custom Attribute Value** para direcionar usuários que alteraram suas preferências de escritório de bairro.
 
-![Configurações de entrega de Campaign baseada em ação com um gatilho de Alterar valor do atributo personalizado para preferências aninhadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
+![Configurações de entrega de Campaign baseada em ação com um gatilho de Change Custom Attribute Value para preferências aninhadas.]({% image_buster /assets/img_archive/nca_triggered_changes.png %})
 
 ## Comportamento de segmentação com vetores de objetos {#segmentation-behavior-with-arrays-of-objects}
 
-Quando você usa múltiplos filtros de `Atributo personalizado aninhado` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se *qualquer* item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao *mesmo* item.
+Quando você usa múltiplos filtros de `Nested Custom Attribute` com lógica AND para segmentar em um vetor de objetos, cada filtro é avaliado independentemente em todos os itens do vetor. Um usuário se qualifica para o Segment se *qualquer* item no vetor satisfizer cada filtro individual — os filtros não precisam corresponder ao *mesmo* item.
 
 Por exemplo, suponha que um usuário tenha o seguinte vetor:
 
@@ -326,7 +326,7 @@ Um Segment com os seguintes filtros AND:
 
 Esse usuário se qualificaria porque o primeiro filtro corresponde ao item "Shoes" (80 > 50) e o segundo filtro corresponde ao item "Hat" (25 < 30). Mesmo que nenhum item individual satisfaça ambas as condições, o usuário ainda entra no Segment.
 
-Se você precisar que todas as condições correspondam ao mesmo item dentro de um vetor, use [segmentação multicritério](#multi-criteria-segmentation) na mesma jornada, ou reestruture seus dados para evitar correspondência entre itens diferentes.
+Se você precisar que todas as condições correspondam ao mesmo item dentro de um vetor, use [segmentação multicritério]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes/#use-multi-criteria-segmentation) na mesma jornada, ou reestruture seus dados para evitar correspondência entre itens diferentes.
 
 ## Pontos de dados {#data-points}
 

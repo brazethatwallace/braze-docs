@@ -140,12 +140,12 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 | 선택지 | 속성 | 값 |
 |---------------------------------------|------------------------|-------|
-| 😡 매우 불만족 | `customer_satisfaction` | 1 |
-| 😟 불만족 | `customer_satisfaction` | 2 |
-| 🙂 보통 | `customer_satisfaction` | 3 |
-| 😊 만족 | `customer_satisfaction` | 4 |
-| 😍 매우 만족 | `customer_satisfaction` | 5 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 😡 매우 불만족 | `customer_satisfaction` | 1     |
+| 😟 불만족 | `customer_satisfaction` | 2     |
+| 🙂 보통 | `customer_satisfaction` | 3     |
+| 😊 만족 | `customer_satisfaction` | 4     |
+| 😍 매우 만족 | `customer_satisfaction` | 5     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User satisfaction" }
 
 사용자가 설문조사를 제출하면 선택한 값이 커스텀 속성으로 기록됩니다. 그런 다음 오디언스 필터를 사용하여 후속 Campaign을 구축할 수 있습니다. 예를 들어, `customer_satisfaction` 속성이 "1" 또는 "2"인 사용자에게 윈백 메시지를 타겟팅할 수 있습니다.
 
@@ -161,11 +161,11 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 | 선택지 | 속성 | 값 |
 |--------------------|------------------------|--------|
 | 제품 업데이트 | `wants_product_updates`| `true` |
-| 프로모션 | `wants_promotions` | `true` |
-| 이벤트 초대 | `wants_event_invites` | `true` |
-| 설문조사 및 피드백 | `wants_surveys` | `true` |
-| 팁 및 튜토리얼 | `wants_tips` | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 프로모션 | `wants_promotions`     | `true` |
+| 이벤트 초대 | `wants_event_invites`  | `true` |
+| 설문조사 및 피드백 | `wants_surveys`        | `true` |
+| 팁 및 튜토리얼 | `wants_tips`           | `true` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification preferences" }
 
 {% endtab %}
 {% tab 고객 목표 파악 %}
@@ -178,12 +178,12 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 | 선택지 | 속성 | 값 |
 |----------------------------|------------------|-----------|
-| 상태 확인 | `product_goal` | `status` |
-| 계정 업그레이드 | `product_goal` | `upgrade` |
-| 예약 잡기 | `product_goal` | `schedule`|
-| 고객지원 | `product_goal` | `support` |
-| 둘러보기 | `product_goal` | `browse` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 상태 확인 | `product_goal`   | `status`  |
+| 계정 업그레이드 | `product_goal`   | `upgrade` |
+| 예약 잡기 | `product_goal`   | `schedule`|
+| 고객지원 | `product_goal`   | `support` |
+| 둘러보기 | `product_goal`   | `browse`  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identify customer goals" }
 
 사용자가 설문조사를 제출하면 선택한 값이 프로필에 커스텀 속성으로 기록됩니다. 그런 다음 이 데이터를 사용하여 향후 경험을 개인화하거나 주요 목표에 따라 사용자를 세분화할 수 있습니다.
 
@@ -199,11 +199,11 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 | 선택지 | 속성 | 값 |
 |---------------------|------------------|-------------|
 | 너무 비쌈 | `upgrade_reason` | `expensive` |
-| 가치가 없음 | `upgrade_reason` | `value` |
+| 가치가 없음 | `upgrade_reason` | `value`     |
 | 사용하기 어려움 | `upgrade_reason` | `difficult` |
 | 경쟁사 사용 중 | `upgrade_reason` | `competitor`|
-| 기타 이유 | `upgrade_reason` | `other` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 기타 이유 | `upgrade_reason` | `other`     |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Improve conversion rates" }
 
 사용자가 설문조사를 제출하면 선택한 값이 프로필에 저장됩니다. 그런 다음 할인 혜택이나 사용성 개선 등 특정 이의에 맞춘 Campaign으로 이러한 사용자를 타겟팅할 수 있습니다.
 
@@ -218,14 +218,14 @@ Campaign 측정기준의 분석은 [인앱 메시지 보고]({{site.baseurl}}/us
 
 | 선택지 | 속성 | 값 |
 |-------------------|--------------------|--------------|
-| 북마크 | `favorite_features`| `bookmarks` |
-| 모바일 앱 | `favorite_features`| `mobile` |
-| 게시물 공유 | `favorite_features`| `sharing` |
-| 고객지원 | `favorite_features`| `support` |
-| 커스터마이즈 | `favorite_features`| `custom` |
-| 가격/가치 | `favorite_features`| `value` |
-| 커뮤니티 | `favorite_features`| `community` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 북마크 | `favorite_features`| `bookmarks`  |
+| 모바일 앱 | `favorite_features`| `mobile`     |
+| 게시물 공유 | `favorite_features`| `sharing`    |
+| 고객지원 | `favorite_features`| `support`    |
+| 커스터마이즈 | `favorite_features`| `custom`     |
+| 가격/가치 | `favorite_features`| `value`      |
+| 커뮤니티 | `favorite_features`| `community`  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Favorite features" }
 
 이 설문조사는 다중 선택을 사용하므로 사용자의 프로필은 선택한 모든 기능 값의 목록으로 업데이트됩니다.
 

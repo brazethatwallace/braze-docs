@@ -63,7 +63,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 1. Canvas 작성기를 사용하여 [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)합니다.
 2. Canvas를 설정한 후 Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
 3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
-4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segment를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 메시지가 발송되는 시점에 지연 후 확인됩니다.
+4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 메시지가 발송되는 시점에 지연 후 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases/)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
 
@@ -81,7 +81,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 | 푸시 알림 캠페인 | 하나 이상의 플랫폼과 기기를 선택합니다. 여러 기기와 플랫폼을 타겟팅하도록 선택하면 자동으로 빠른 푸시 캠페인이 생성됩니다. 이는 단일 편집기에서 선택한 모든 플랫폼에 대해 하나의 메시지를 작성하는 데 최적화된 편집 환경을 제공합니다. 이 편집 환경에서 달라지는 점을 이해하려면 [빠른 푸시 캠페인]({{site.baseurl}}/quick_push/)을 참조하세요. |
 | 멀티채널 캠페인 | **메시징 채널 추가**를 선택하여 추가 푸시 플랫폼을 추가합니다. 플랫폼 선택은 각 배리언트에 고유하므로 플랫폼별 메시지 참여를 테스트할 수 있습니다. |
 | Canvas | 메시지 단계에서 **+ 더 추가**를 선택하여 추가 푸시 플랫폼을 추가합니다. 멀티채널 캠페인과 마찬가지로 플랫폼 선택은 각 배리언트에 고유합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select push platforms" }
 
 ## 3단계: 알림 유형 선택 (iOS 및 Android) {#step-3-select-notification-type-ios-and-android}
 
@@ -154,14 +154,14 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 #### 클릭 시 동작 {#on-click-behavior}
 
-**클릭 시 동작**으로 사용자가 푸시 알림의 본문을 선택할 때 어떤 일이 발생하는지 지정합니다. 예를 들어, 고객에게 애플리케이션을 열도록 유도하거나, 지정된 웹 URL로 리디렉션하거나, [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)를 사용하여 애플리케이션의 특정 페이지를 열 수도 있습니다.
+**On-Click Behavior**로 사용자가 푸시 알림의 본문을 선택할 때 어떤 일이 발생하는지 지정합니다. 예를 들어, 고객에게 애플리케이션을 열도록 유도하거나, 지정된 웹 URL로 리디렉션하거나, [딥링크]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/)를 사용하여 애플리케이션의 특정 페이지를 열 수도 있습니다.
 
 여기에서 푸시 알림 내에 버튼 프롬프트를 설정할 수도 있습니다. 예를 들면:
 
-- 수락/거절
-- 예/아니오
-- 확인/취소
-- 더 보기
+- Accept/Decline
+- Yes/No
+- Confirm/Cancel
+- More
 
 #### 발송 옵션 {#sending-options}
 
@@ -210,7 +210,7 @@ iOS의 경우 iPad 기기에만 푸시 알림을 보내거나 iPhone 및 iPod �
 
 #### 타겟 사용자 선택 {#choose-users-to-target}
 
-다음으로, Segment 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 해당 대략적인 Segment 인구가 어떻게 보이는지 자동으로 미리보기가 제공됩니다. Campaign이 타겟팅하는 채널에 대한 상세한 오디언스 통계는 하단에서 확인할 수 있습니다. 사용자 기반의 몇 퍼센트가 타겟팅되고 있는지와 이 Segment의 생애주기 가치를 확인하려면 **추가 통계 표시**를 선택하세요.
+다음으로, Segments 또는 필터를 선택하여 오디언스를 좁혀 [사용자를 타겟팅]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/)해야 합니다. 해당 대략적인 Segment 인구가 어떻게 보이는지 자동으로 미리보기가 제공됩니다. Campaign이 타겟팅하는 채널에 대한 상세한 오디언스 통계는 하단에서 확인할 수 있습니다. 사용자 기반의 몇 퍼센트가 타겟팅되고 있는지와 이 Segment의 생애주기 가치를 확인하려면 **추가 통계 표시**를 선택하세요.
 
 {% multi_lang_include target_audiences.md %}
 
@@ -260,3 +260,16 @@ Braze를 사용하면 사용자가 Campaign을 받은 후 특정 행동인 [전�
 Campaign 또는 Canvas의 마지막 부분을 완성한 후 세부 정보를 검토합니다. Campaign의 경우 마지막 페이지에서 설계한 Campaign의 요약을 제공합니다. 모든 관련 세부 정보를 확인하고, 메시지를 테스트한 다음 발송하고 데이터가 들어오는 것을 확인하세요!
 
 다음으로, 푸시 캠페인의 결과에 액세스하는 방법을 알아보려면 [푸시 보고]({{site.baseurl}}/user_guide/channels/push/reporting/)를 확인하세요. 푸시 알림의 경우 발송, 전달, 반송, 열람 및 직접 열람된 메시지 수에 대한 통계를 확인할 수 있습니다.
+
+### 문제 해결 {#troubleshooting}
+
+#### 클릭 시 동작
+
+SDK 버전의 기본 클릭 시 동작을 사용하고 있으며 웹 URL이 포함된 푸시 알림을 선택했을 때 웹 브라우저가 아닌 앱 내에서 열리는 경우, 다음 통합 가이드를 확인하여 푸시 알림 처리를 확인하세요:
+
+- [Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)
+- [Android]({{site.baseurl}}/developer_guide/push_notifications/#android_step-1-register-braze-firebase-messaging-service)
+
+{% alert important %}
+앱이 실행을 완료하기 전에, 가급적 `application:didFinishLaunchingWithOptions:`에서 `center.delegate = self`를 사용하여 델리게이트 오브젝트를 동기적으로 할당해야 합니다. 그렇지 않으면 앱이 수신되는 푸시 알림을 놓칠 수 있습니다. 자세한 내용은 Apple의 [`UNUserNotificationCenterDelegate` 설명서](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate)를 참조하세요.
+{% endalert %}

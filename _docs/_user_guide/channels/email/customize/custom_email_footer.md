@@ -18,7 +18,7 @@ By using custom email footers, you no longer have to create a new footer for eve
 It is your responsibility to make sure that your custom footer meets the aforementioned requirements.
 {% endalert %}
 
-## Creating your custom footer
+## Create your custom footer
 
 To create or edit your custom footer, do the following:
 
@@ -76,7 +76,7 @@ When creating a custom footer, Braze suggests using [attributes for personalizat
 | User's Custom Opt-In URL | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | User's Custom Subscribe URL | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | User's Custom Braze Preference Center URL | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizing with attributes" }
 
 ### Including an unsubscribe link and opt-in link
 
@@ -92,3 +92,6 @@ If you don't include a plaintext footer, Braze will automatically build one from
 
 ![Email with Set Custom Plaintext Footer option selected.]({% image_buster /assets/img_archive/custom_footer_save_changes.png %}){: style="max-width:70%" }
 
+## Considerations
+
+If you're using [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), note that {% raw %}`{{${email_footer}}}`{% endraw %} is not a standard Liquid tag. It's pre-processed before Liquid runs, so using {% raw %}`{{${email_footer}}}`{% endraw %} as a context variable value and calling the `:rerender` flag silently fails. Instead, use a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) for an email footer.

@@ -12,6 +12,10 @@ search_tag: Partner
 
 ## 데이터 가져오기 통합 {#data-import-integration}
 
+Mixpanel에서 Braze로 코호트를 동기화하면, Braze는 Mixpanel이 기존 Braze 프로필과 매칭할 수 있는 사용자에 대해 코호트 멤버십 업데이트를 수신합니다. 동기화 후 **Mixpanel 코호트** Segment 필터를 사용하여 해당 사용자를 타겟팅할 수 있습니다.
+
+코호트 동기화는 Mixpanel 이벤트, Mixpanel 사용자 속성 또는 커스텀 속성을 Braze로 가져오지 않습니다. 동기화 주기를 포함한 커넥터 동작은 Mixpanel에서 제어됩니다. 설정 세부 사항은 [Mixpanel의 Braze 코호트 동기화 설명서](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze)를 참조하세요. 사용자 매칭 요구 사항은 [사용자 매칭](#user-matching)을 참조하세요.
+
 설정한 모든 통합은 데이터 포인트를 기록합니다. Braze 데이터 포인트의 세부 사항에 대해 궁금한 점이 있으면 Braze 계정 매니저에게 문의하세요.
 
 {% alert important %}
@@ -45,11 +49,11 @@ Braze에 이미 존재하는 사용자만 코호트에 추가되거나 제거됩
 
 ### 4단계: Braze에서 사용자 세그먼트 만들기 {#step-4-segment-users-in-braze}
 
-Braze에서 이러한 사용자의 Segments를 만들려면 **오디언스** > **Segments**로 이동하여 Segments 이름을 지정하고 필터로 **Mixpanel_Cohorts**를 선택합니다. 그런 다음 "포함" 옵션을 사용하여 Mixpanel에서 생성한 코호트를 선택합니다.
+Braze에서 이러한 사용자의 Segment를 만들려면 **오디언스** > **Segments**로 이동하여 Segment 이름을 지정하고 필터로 **Mixpanel_Cohorts**를 선택합니다. 그런 다음 "포함" 옵션을 사용하여 Mixpanel에서 생성한 코호트를 선택합니다.
 
-![Braze Segments 빌더에서 사용자 속성 필터 "Mixpanel 코호트"가 "포함" 및 "Braze 코호트"로 설정되어 있습니다.]({% image_buster /assets/img_archive/mixpanel1.png %})
+![Braze Segment 빌더에서 사용자 속성 필터 "Mixpanel 코호트"가 "포함" 및 "Braze 코호트"로 설정되어 있습니다.]({% image_buster /assets/img_archive/mixpanel1.png %})
 
-저장한 후 사용자 타겟팅 단계에서 Canvas 또는 Campaign 생성 시 이 Segments를 참조할 수 있습니다.
+저장한 후 사용자 타겟팅 단계에서 Canvas 또는 Campaign 생성 시 이 Segment를 참조할 수 있습니다.
 
 ## 사용자 매칭 {#user-matching}
 

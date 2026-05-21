@@ -2,7 +2,7 @@
 nav_title: 배경 이미지가 있는 시즌 프로모션
 article_title: 배경 이미지가 있는 시즌 프로모션
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편집기를 사용하여 시즌 할인 또는 특가를 홍보하고 사용자 참여를 유도하는 방법을 다룹니다."
 ---
 

@@ -43,6 +43,8 @@ description: "이 문서에서는 대량 사용자 추적 엔드포인트에 대
 
 ## 사용량 제한 {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 대부분의 고객에게 이 엔드포인트의 기본 속도 제한은 초당 50건의 요청입니다.
 
 최신 계약을 사용하는 고객은 계약된 월간 활성 사용자 수에 따라 버스트(초당) 및 정상(시간당) 제한이 적용될 수 있습니다.
@@ -77,7 +79,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/)를 참조하세요 |
 | `events` | 선택 사항 | 이벤트 오브젝트 배열 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/)를 참조하세요 |
 | `purchases` | 선택 사항 | 구매 오브젝트 배열 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/)를 참조하세요 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-requests}
 

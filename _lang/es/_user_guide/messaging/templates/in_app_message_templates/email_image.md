@@ -2,7 +2,7 @@
 nav_title: Registro de correo electrónico con imagen
 article_title: Registro de correo electrónico con imagen de fondo
 alias: "/email_image/"
-page_order: 4
+page_order: 5
 description: "Esta página explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para mostrar el estilo de tu marca con un mensaje sencillo y crear tu lista de correo electrónico."
 ---
 

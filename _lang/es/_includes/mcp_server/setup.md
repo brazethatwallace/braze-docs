@@ -1,25 +1,25 @@
-# Configuración del servidor Braze MCP
+# Configurar el servidor Braze MCP {#setting-up-the-braze-mcp-server}
 
-> Aprende a configurar el servidor MCP de Braze para poder interactuar con tus datos de Braze mediante lenguaje natural utilizando herramientas como Claude y Cursor. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> Aprende a configurar el servidor MCP de Braze para poder interactuar con tus datos de Braze utilizando herramientas de lenguaje natural como Claude y Cursor. Para obtener información más general, consulta [Servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Antes de empezar, necesitarás lo siguiente:
 
 | Requisito previo | Descripción |
 |--------------|-------------|
 | Clave de API de Braze | Una clave de API de Braze con los permisos necesarios. Crearás una nueva clave cuando [configures tu servidor Braze MCP](#create-api-key). |
-| Cliente MCP | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) y [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) son oficialmente compatibles. Debes tener una cuenta para uno de estos clientes para poder utilizar el servidor MCP de Braze. |
+| Cliente MCP | [Claude](https://claude.ai/), [Cursor](https://cursor.com/) y [Google Gemini CLI](https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli) son oficialmente compatibles. Debes tener una cuenta en uno de estos clientes para poder utilizar el servidor Braze MCP. |
 | Terminal | Una aplicación de terminal para que puedas ejecutar comandos e instalar herramientas. Utiliza tu aplicación de terminal preferida o la que venga preinstalada en tu computadora. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Configuración del servidor Braze MCP
 
-### Paso 1: Instalar `uv`
+### Paso 1: Instalar `uv` {#step-1-install-uv}
 
-En primer lugar, instala `uv`—una [herramienta de línea de comandos de Astral](https://docs.astral.sh/uv/getting-started/installation/) para la administración de dependencias y el manejo de paquetes Python.
+En primer lugar, instala `uv`&#8212;una [herramienta de línea de comandos de Astral](https://docs.astral.sh/uv/getting-started/installation/) para la administración de dependencias y el manejo de paquetes Python.
 
 {% tabs local %}
 {% tab MacOS and Linux %}
@@ -65,162 +65,189 @@ everything's installed!
 {% endtab %}
 {% endtabs %}
 
-### Paso 2: Crear una clave de API {#create-api-key}
+### Paso 2: Crear una clave de API {#create-api-key}
 
-El servidor MCP de Braze admite 38 puntos finales de solo lectura que no devuelven datos de los perfiles de usuario de Braze. Ve a **Configuración** > **API e identificadores** > **Claves de API** y crea una nueva clave de API con algunos o todos los permisos siguientes.
+El servidor Braze MCP incluye puntos de conexión de solo lectura y de escritura. No devuelven datos de los perfiles de usuario de Braze. Los puntos de conexión de escritura permiten a los agentes crear o actualizar contenido en tu espacio de trabajo.
 
-{% details List of read-only, non-PII permissions %}
-#### Campañas
+Para crear tu clave de API:
+
+1. Ve a **Configuración** > **API e identificadores** > **Claves de API**.
+2. Crea una nueva clave.
+3. Asigna algunos o todos los permisos siguientes a tu clave.
+
+{% alert important %}
+Asigna únicamente los permisos que quieras que tu agente utilice. Para evitar que tu agente realice cambios en Braze, no incluyas ningún permiso de escritura al crear tu clave de API.
+{% endalert %}
+
+{% details Lista de permisos compatibles %}
+#### Campaigns
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | `campaigns.data_series` |
-| [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | `campaigns.details` |
-| [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | `campaigns.list` |
-| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/) | `campaigns.data_series` |
+| [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) | `campaigns.details` |
+| [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/) | `campaigns.list` |
+| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 #### Canvas
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | `canvas.data_series` |
-| [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | `canvas.data_summary` |
-| [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | `canvas.details` |
-| [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | `canvas.list` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics/) | `canvas.data_series` |
+| [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary/) | `canvas.data_summary` |
+| [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) | `canvas.details` |
+| [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) | `canvas.list` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas" }
 
-#### Catálogos
-
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | `catalogs.get` |
-| [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | `catalogs.get_items` |
-| [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details) | `catalogs.get_item` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
-
-#### Ingesta de datos de Cloud
+#### Catálogos {#catalogs}
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | `cdi.integration_list` |
-| [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | `cdi.integration_job_status` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) | `catalogs.get` |
+| [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk/) | `catalogs.get_items` |
+| [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details/) | `catalogs.get_item` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Catalogs" }
 
-#### Bloques de contenido
-
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | `content_blocks.list` |
-| [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | `content_blocks.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
-
-#### Atributos personalizados
+#### Ingesta de datos de Cloud {#cloud-data-ingestion}
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) | `custom_attributes.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/) | `cdi.integration_list` |
+| [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/) | `cdi.integration_job_status` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cloud Data Ingestion" }
 
-#### Eventos
+#### Content Blocks
 
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | `events.list` |
-| [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | `events.data_series` |
-| [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) | `events.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
-
-#### KPI
+Los permisos `content_blocks.create` y `content_blocks.update` son permisos de escritura. Añádelos solo si quieres que tu agente cree o actualice Content Blocks en tu espacio de trabajo.
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) | `kpi.new_users.data_series` |
-| [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) | `kpi.dau.data_series` |
-| [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | `kpi.mau.data_series` |
-| [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | `kpi.uninstalls.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) | `content_blocks.list` |
+| [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information/) | `content_blocks.info` |
+| [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block/) | `content_blocks.create` |
+| [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/) | `content_blocks.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
-#### Mensajes
-
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | `messages.schedule_broadcasts` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
-
-#### Centro de preferencias
+#### Atributos personalizados {#custom-attributes}
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center) | `preference_center.list` |
-| [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center) | `preference_center.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/custom_attributes`]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) | `custom_attributes.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Attributes" }
 
-#### Compras
-
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | `purchases.product_list` |
-| [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | `purchases.revenue_series` |
-| [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | `purchases.quantity_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
-
-#### Segmentos
+#### Eventos {#events}
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | `segments.list` |
-| [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | `segments.data_series` |
-| [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | `segments.details` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events/) | `events.list` |
+| [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics/) | `events.data_series` |
+| [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) | `events.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Events" }
 
-#### Envíos
-
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | `sends.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
-
-#### Sesiones
+#### KPI {#kpis}
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | `sessions.data_series` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date/) | `kpi.new_users.data_series` |
+| [`/kpi/dau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date/) | `kpi.dau.data_series` |
+| [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days/) | `kpi.mau.data_series` |
+| [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date/) | `kpi.uninstalls.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KPIs" }
 
-#### Claves de autenticación SDK
+#### Biblioteca de medios {#media-library}
 
-| Punto de conexión | Permiso necesario |
-|----------|---------------------|
-| [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys) | `sdk_authentication.keys` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
-
-#### Suscripción
+El permiso `media_library.create` es un permiso de escritura. Añádelo solo si quieres que tu agente cargue activos a tu biblioteca de medios.
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | `subscription.status.get` |
-| [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | `subscription.groups.get` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) | `media_library.create` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Media Library" }
 
-#### Plantillas
+#### Mensajes {#messages}
 
 | Punto de conexión | Permiso necesario |
 |----------|---------------------|
-| [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | `templates.email.list` |
-| [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | `templates.email.info` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled/) | `messages.schedule_broadcasts` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messages" }
+
+#### Centro de preferencias {#preference-center}
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/preference_center/v1/list`]({{site.baseurl}}/api/endpoints/preference_center/get_list_preference_center/) | `preference_center.list` |
+| [`/preference_center/v1/{preferenceCenterExternalID}`]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center/) | `preference_center.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Preference Center" }
+
+#### Compras {#purchases}
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id/) | `purchases.product_list` |
+| [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) | `purchases.revenue_series` |
+| [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases/) | `purchases.quantity_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Purchases" }
+
+#### Segments
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) | `segments.list` |
+| [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics/) | `segments.data_series` |
+| [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details/) | `segments.details` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segments" }
+
+#### Envíos {#sends}
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics/) | `sends.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sends" }
+
+#### Sesiones {#sessions}
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics/) | `sessions.data_series` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sessions" }
+
+#### Claves de Autenticación SDK {#sdk-authentication-keys}
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys/) | `sdk_authentication.keys` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK Authentication Keys" }
+
+#### Suscripción {#subscription}
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) | `subscription.status.get` |
+| [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) | `subscription.groups.get` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription" }
+
+#### Plantillas {#templates}
+
+Los permisos `templates.email.create` y `templates.email.update` son permisos de escritura. Añádelos solo si quieres que tu agente cree o actualice plantillas de correo electrónico en tu espacio de trabajo.
+
+| Punto de conexión | Permiso necesario |
+|----------|---------------------|
+| [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) | `templates.email.list` |
+| [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information/) | `templates.email.info` |
+| [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) | `templates.email.create` |
+| [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template/) | `templates.email.update` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Templates" }
 {% enddetails %}
 
 {% alert warning %}
-No reutilices una clave de API existente: crea una específicamente para tu cliente MCP. Además, asigna únicamente permisos de solo lectura y no relacionados con la PII, ya que los agentes podrían intentar escribir o eliminar datos en Braze.
+No reutilices una clave de API existente. Crea una específicamente para tu cliente MCP. Asigna únicamente los permisos que tu agente necesite. Los agentes pueden intentar utilizar cualquier permiso que les concedas, así que deja desactivados los permisos de escritura si no quieres que tu agente realice cambios en Braze.
 {% endalert %}
 
-### Paso 3: Obtén tu identificador y punto final
+### Paso 3: Obtén tu identificador y punto de conexión {#step-3-get-your-identifier-and-endpoint}
 
-Cuando configures tu cliente MCP, necesitarás el identificador de tu clave de API y el punto final REST de tu espacio de trabajo. Para obtener estos datos, vuelve a la página **Claves de API** del panel. Mantén esta página abierta para poder consultarla durante [el siguiente paso](#configure-client).
+Cuando configures tu cliente MCP, necesitarás el identificador de tu clave de API y el punto de conexión REST de tu espacio de trabajo. Para obtener estos datos, vuelve a la página **Claves de API** en el dashboard&#8212;mantén esta página abierta para poder consultarla durante [el siguiente paso](#configure-client).
 
-![Las «claves de API» en Braze muestran una clave de API recién creada y el punto final REST del usuario.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
+![La página «Claves de API» en Braze mostrando una clave de API recién creada y el punto de conexión REST del usuario.]({% image_buster /assets/img/mcp_server/get_indentifer_and_endpoint.png %}){: style="max-width:85%;"}
 
 ### Paso 4: Configura tu cliente MCP {#configure-client}
 
@@ -228,16 +255,16 @@ Configura tu cliente MCP utilizando el archivo de configuración proporcionado p
 
 {% tabs %}
 {% tab Claude %}
-Configura tu servidor MCP utilizando el directorio del conector [Claude Desktop](https://claude.ai/download). 
+Configura tu servidor MCP utilizando el directorio de conectores de [Claude Desktop](https://claude.ai/download).
 
-1. En Claude Desktop, ve a **Configuración** > **Conectores** > **Examinar conectores** > **Extensiones de escritorio** > **Servidor Braze MCP** > **Instalar**.
+1. En Claude Desktop, ve a **Settings** > **Connectors** > **Browse Connectors** > **Desktop Extensions** > **Braze MCP Server** > **Install**.
 2. Introduce tu clave de API y la URL base.
 3. Guarda la configuración y reinicia Claude Desktop.
 
 {% endtab %}
 
 {% tab Cursor %}
-En [Cursor](https://cursor.com/), ve a **Configuración** > **Herramientas e integraciones** > **Herramientas MCP** > **Añadir MCP personalizado** y, a continuación, añade el siguiente fragmento de código:
+En [Cursor](https://cursor.com/), ve a **Settings** > **Tools and Integrations** > **MCP Tools** > **Add Custom MCP** y, a continuación, añade el siguiente fragmento de código:
 
 ```json
 {
@@ -254,7 +281,7 @@ En [Cursor](https://cursor.com/), ve a **Configuración** > **Herramientas e int
 }
 ```
 
-Reemplaza`key-identifier`  y`rest-endpoint`  con los valores correspondientes de la página **Claves de API** en Braze. Tu configuración debería ser similar a la siguiente:
+Reemplaza `key-identifier` y `rest-endpoint` con los valores correspondientes de la página **Claves de API** en Braze. Tu configuración debería ser similar a la siguiente:
 
 ```json
 {
@@ -281,7 +308,7 @@ mkdir -p ~/.gemini
 nano ~/.gemini/settings.json
 ```
 
-A continuación, sustituye`yourname`  por la cadena exacta que aparece antes de`@BZXXXXXXXX`  en el indicador de tu terminal. A continuación, sustituye`key-identifier`  y`rest-endpoint`  por los valores correspondientes de la página **Claves de API** de Braze. 
+A continuación, sustituye `yourname` por la cadena exacta que aparece antes de `@BZXXXXXXXX` en el indicador de tu terminal. Luego, sustituye `key-identifier` y `rest-endpoint` por los valores correspondientes de la página **Claves de API** en Braze.
 
 Tu configuración debería ser similar a la siguiente:
 
@@ -309,44 +336,44 @@ gemini
 /mcp schema
 ```
 
-Deberías ver el`braze`servidor en la lista con las herramientas y el esquema disponibles para su uso.
+Deberías ver el servidor `braze` en la lista con las herramientas y el esquema disponibles para su uso.
 
 {% endtab %}
 {% endtabs %}
 
-### Paso 5: Enviar una solicitud de prueba
+### Paso 5: Enviar una solicitud de prueba {#step-5-send-a-test-prompt}
 
-Después de configurar el servidor Braze MCP, intenta enviar una solicitud de prueba a tu cliente MCP. Para ver otros ejemplos y prácticas recomendadas, consulta [Uso del servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
+Después de configurar el servidor Braze MCP, intenta enviar una solicitud de prueba a tu cliente MCP. Para ver otros ejemplos y prácticas recomendadas, consulta [Uso del servidor Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/usage/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/usage/){% endif %}.
 
 {% tabs %}
 {% tab Claude %}
-![«¿Cuáles son las funciones de Braze que tengo disponibles?», pregunta y respuesta en Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
 {% endtab %}
 
 {% tab Cursor %}
-![«¿Cuáles son las funciones disponibles de Braze?» Pregunta y respuesta en Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
 {% endtab %}
 
 {% tab Gemini CLI %}
-![¿Cuáles son las funciones disponibles de Braze? Pregunta y respuesta en Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
+![Pregunta «¿Cuáles son las funciones de Braze que tengo disponibles?» y su respuesta en Gemini CLI.]({% image_buster /assets/img/mcp_server/gemini_cli/what_are_my_available_braze_functions.png %})
 {% endtab %}
 {% endtabs %}
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
-### Errores terminales
+### Errores de terminal {#terminal-errors}
 
-#### `uvx` comando no encontrado
+#### Comando `uvx` no encontrado {#uvx-command-not-found}
 
-Si recibes un error que indica que  no`uvx` se encuentra el comando, vuelve a instalar`uv`  y reinicia tu terminal.
+Si recibes un error que indica que no se encuentra el comando `uvx`, vuelve a instalar `uv` y reinicia tu terminal.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### `spawn uvx ENOENT` error
+#### Error `spawn uvx ENOENT` {#spawn-uvx-enoent-error}
 
-Si recibes un`spawn uvx ENOENT`error, es posible que tengas que actualizar la ruta del archivo en el archivo de configuración de tu cliente. En primer lugar, abre tu terminal y ejecuta el siguiente comando:
+Si recibes un error `spawn uvx ENOENT`, es posible que necesites actualizar la ruta del archivo en el archivo de configuración de tu cliente. Primero, abre tu terminal y ejecuta el siguiente comando:
 
 ```bash
 which uvx
@@ -358,13 +385,13 @@ El comando debería devolver un mensaje similar al siguiente:
 /Users/alex-lee/.local/bin/uvx
 ```
 
-Copia el mensaje en el portapapeles y abre [el archivo de configuración de tu cliente](#configure-client). Reemplaza`"command": "uvx"`  con la ruta que copiaste y, a continuación, reinicia tu cliente. Por ejemplo:
+Copia el mensaje en el portapapeles y abre [el archivo de configuración de tu cliente](#configure-client). Reemplaza `"command": "uvx"` con la ruta que copiaste y, a continuación, reinicia tu cliente. Por ejemplo:
 
 ```json
 "command": "/Users/alex-lee/.local/bin/uvx"
 ```
 
-#### Error en la instalación del paquete
+#### Error en la instalación del paquete {#package-installation-fails}
 
 Si la instalación del paquete falla, intenta instalar una versión específica de Python.
 
@@ -372,23 +399,23 @@ Si la instalación del paquete falla, intenta instalar una versión específica 
 uvx --python 3.12 braze-mcp-server@latest
 ```
 
-### Configuración del cliente
+### Configuración del cliente {#client-configuration}
 
-#### El cliente MCP no puede encontrar el servidor Braze.
+#### El cliente MCP no puede encontrar el servidor Braze {#mcp-client-cant-find-the-braze-server}
 
 1. Verifica que la sintaxis de configuración de tu cliente MCP sea correcta.
 2. Reinicia tu cliente MCP después de realizar cambios en la configuración.
-3. Comprueba que`uvx`  está en tu sistema `PATH`.
+3. Comprueba que `uvx` está en el `PATH` de tu sistema.
 
-#### Errores de autenticación
+#### Errores de autenticación {#authentication-errors}
 
-1. Verifica que tu`BRAZE_API_KEY`  sea correcto y esté activo.
-2. Asegúrate de que`BRAZE_BASE_URL`  coincida con tu instancia de Braze.
+1. Verifica que tu `BRAZE_API_KEY` sea correcto y esté activo.
+2. Asegúrate de que `BRAZE_BASE_URL` coincida con tu instancia de Braze.
 3. Comprueba que tu clave de API tiene los [permisos correctos](#create-api-key).
 
-#### Tiempo de espera de conexión agotado o errores de red
+#### Tiempo de espera de conexión agotado o errores de red {#connection-timeouts-or-network-errors}
 
-1. Verifica que tu`BRAZE_BASE_URL`  sea correcto para tu instancia.
+1. Verifica que tu `BRAZE_BASE_URL` sea correcto para tu instancia.
 2. Comprueba tu conexión de red y la configuración del cortafuegos.
 3. Asegúrate de utilizar HTTPS en tu URL base.
 

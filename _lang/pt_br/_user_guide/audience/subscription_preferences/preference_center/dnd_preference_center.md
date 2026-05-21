@@ -88,7 +88,7 @@ Blocos representam diferentes tipos de conteúdo que você pode usar na sua mens
 
 ![Opção para selecionar blocos, incluindo título, parágrafo, botão, imagem e espaçador.]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilo do elemento de conteúdo selecionado. Para saber mais, consulte [Propriedades dos blocos do editor]({{site.baseurl}}/dnd/editor_blocks/).
+Cada bloco tem suas próprias configurações, como controle granular de preenchimento. O painel do lado direito alterna automaticamente para um painel de estilo do elemento de conteúdo selecionado. Para saber mais, consulte [Blocos do editor (Central de Preferências)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=preference%20center).
 
 Se você estiver usando o bloco de código personalizado na sua Central de Preferências, os iframes podem não ser gerados no código personalizado quando entregues aos seus usuários.
 

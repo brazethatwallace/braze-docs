@@ -68,6 +68,10 @@ In the **Expiration (Time in Feed)** settings, you can select **Personalize dura
 
 ![Expiration settings showing Personalize duration configured with a context variable for Content Card expiration.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cards have a maximum expiration of 30 days, even when using personalized duration with context variables. Any value set beyond 30 days is capped at 30 days. For more details, refer to [Card expiration]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -85,7 +89,8 @@ This section describes the main differences between card creation at campaign la
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">
+  <caption>Differences between creating cards at launch or entry versus at first impression</caption>
 <thead>
   <tr>
     <th class="tg-0pky"></th>

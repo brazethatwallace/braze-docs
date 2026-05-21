@@ -21,7 +21,7 @@ The Braze and Looker integration allows company users to leverage first-party [L
 |Looker account | A [Looker account](https://looker.com/) is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 #### Considerations
 
@@ -56,7 +56,7 @@ Be aware of different naming conventions! Custom names can cause incongruities i
 |---|---|
 | Message engagement analytics block | This block includes data around push, email, in-app messages, webhook, conversion, Canvas entry, and campaign control group enrollment events. <br><br>Learn more about this [Looker Block](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), or check out the [GitHub code](https://github.com/llooker/braze_message_engagement_block). |
 | User behavior analytics block | This block includes data around custom events, purchases, sessions, location events, and uninstalls.<br><br>Learn more about this [Looker Block](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), or check out the [GitHub code](https://github.com/llooker/braze_retention_block). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available Blocks" }
 
 ### Looker Actions
 

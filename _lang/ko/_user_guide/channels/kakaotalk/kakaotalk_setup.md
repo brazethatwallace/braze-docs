@@ -20,7 +20,7 @@ channel:
 | KakaoTalk 비즈니스 채널 | Braze를 통해 KakaoTalk 메시지를 발송하려면 KakaoTalk 계정이 KakaoTalk 비즈니스 채널이어야 합니다. 계정을 생성하면 기본 상태는 일반입니다. 비즈니스 채널로 전환하려면 사업자 인증을 완료하고 관련 서류를 제출해야 합니다. |
 | KakaoTalk 발신프로필 키 | 유효한 KakaoTalk 발신프로필 키가 필요합니다. |
 | 연락처 전화번호 | KakaoTalk 채널 관리자의 연락처 전화번호가 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### KakaoTalk 계정 유형 {#types-of-kakaotalk-accounts}
 
@@ -28,7 +28,7 @@ channel:
 | --- | --- |
 | 일반 채널 | 모든 조직이 설정할 수 있는 표준 KakaoTalk 채널입니다. KakaoTalk을 통한 대량 메시지 발송 및 1:1 채팅이 가능합니다. |
 | [비즈니스 채널](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | 신청 및 인증 절차가 필요한 사업자 인증 KakaoTalk 채널입니다. 다음과 같은 향상된 기능을 제공합니다. {::nomarkdown}<ul><li>인증 배지</li><li>추천 채널로 노출</li><li>비즈니스 메시징 지원</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### 비즈니스 채널 신청 {#apply-for-a-business-channel}
 
@@ -46,8 +46,8 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 
 1. [카카오톡 채널 관리자센터](https://center-pf.kakao.com/)에 로그인합니다.
 2. 업그레이드하려는 기존 KakaoTalk 채널을 선택합니다.
-3. **관리(Management)** 섹션에서 **비즈니스 채널 신청(Business Channel Application)** 옵션을 선택합니다.
-4. **신청(Apply)** 버튼을 선택하여 절차를 시작합니다.
+3. **Management (관리)** 섹션에서 **Business Channel Application (비즈니스 채널 신청)** 옵션을 선택합니다.
+4. **Apply** 또는 **Request button (신청)** 을 선택하여 절차를 시작합니다.
 5. 필요한 정보를 입력합니다.
 6. 심사 결과 알림을 기다립니다.
 
@@ -55,8 +55,8 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 
 ### 1단계: KakaoTalk 채널을 Braze에 연결 {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. **파트너 통합** > **기술 파트너**로 이동하여 KakaoTalk 제공업체를 선택합니다.
-2. 제공업체에 필요한 자격 증명을 수집한 후(아래 참조) **기술 파트너** 페이지에 입력하고 저장합니다.
+1. **Partner Integrations** > **Technology Partners**로 이동하여 KakaoTalk 제공업체를 선택합니다.
+2. 제공업체에 필요한 자격 증명을 수집한 후(아래 참조) **Technology Partners** 페이지에 입력하고 저장합니다.
 3. 새로 저장한 자격 증명을 사용하여 발송합니다.
 
 #### CJ OliveNetworks
@@ -70,7 +70,7 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 | **Channel name (카카오톡 채널 프로필명)** | Comm.One 대시보드에서 **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**로 이동합니다. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li><b>Account Management (계정 관리)</b>로 이동하여 메뉴 아이콘을 선택한 후 <b>View Details (자세히보기)</b>를 선택합니다.</li><li><b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b>로 이동합니다.</li></ol>{:/} |
 | **Credential (ID) & Password (비밀번호)** | **Sender number (사업자 등록번호)**와 동일한 위치로 이동한 후 **API** > **Brand Message (브랜드 메시지)**로 이동합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -95,7 +95,7 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 {% endtab %}
 {% endtabs %}
 
-![CJ OliveNetworks의 기술 파트너 페이지 필드.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
+![CJ OliveNetworks의 Technology Partners 페이지 필드.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 ![Braze KakaoTalk 채널의 자격 증명.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
@@ -114,7 +114,7 @@ Infobip 대시보드로 이동하여 다음 정보를 수집합니다.
 | **Sender name / Sender key** | **Channels and Numbers** > **Channels**를 선택한 후 **Senders** 탭을 선택합니다. |
 | **Sender profile UUID** | Infobip에서 직접 제공합니다. 이 정보가 없는 경우 Infobip에 문의하세요. |
 | **Channel name** | Infobip에서 직접 제공합니다. 이 정보가 없는 경우 Infobip에 문의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## 고객 프로필 설정 {#set-user-profiles}
 

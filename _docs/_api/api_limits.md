@@ -46,7 +46,7 @@ Refer to the following for the default API rate limits of different request type
 | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list/)                                                                                                                                                                                                                              | 50 requests per minute.                                                                                                                                                                                                                                                                                                                                                                   |
 | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status/)                                                                                                                                                                                                        | 20 requests per minute.                                                                                                                                                                                                                                                                                                                                                                   |
 | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/)                                                                                                                                                                                             | 100 requests per minute.                                                                                                                                                                                                                                                                                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requests with different rate limits" }
 
 ### Requests with shared rate limits
 
@@ -186,7 +186,7 @@ Every single API request sent to Braze returns the following information in the 
 | `X-RateLimit-Limit`     | The maximum number of requests that you can make in a specified interval (your rate limit). |
 | `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window.                          |
 | `X-RateLimit-Reset`     | The time at which the current rate limit window resets in UTC epoch seconds.                |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Monitoring your rate limits" }
 
 This information is intentionally included in the header of the response to the API request rather than the Braze dashboard. This allows your system to better react in real time as you're interacting with our API. For example, if the `X-RateLimit-Remaining` value drops below a certain threshold, you might want to slow sending to make sure all transactional emails go out. Or, if it reaches zero, you might want to pause all sending until the time specified in `X-RateLimit-Reset` elapses.
 

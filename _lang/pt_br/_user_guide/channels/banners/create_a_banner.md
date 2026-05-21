@@ -65,7 +65,7 @@ Para redigir seu Banner, você pode escolher:
 
 #### Etapa 3.1: Estilizar o Banner {#step-31-style-the-banner}
 
-Você pode arrastar e soltar blocos e linhas na área do canvas para começar a construir sua mensagem.
+Você pode arrastar e soltar blocos e linhas na área do canvas para começar a construir sua mensagem. Para uma referência dos blocos do editor de Banner e links para detalhes de propriedades compartilhadas, consulte [Blocos do editor (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -110,7 +110,7 @@ Para cada propriedade que deseja adicionar, preencha o seguinte:
 | Tipo de propriedade | O tipo de dado da propriedade. Os tipos suportados incluem string, booleano, número, timestamp, URL de imagem e objeto JSON. | String |
 | Chave da propriedade | O identificador único da propriedade. Essa chave é usada no SDK para acessar a propriedade. | `color` |
 | Valor | O valor atribuído à propriedade. Deve corresponder ao tipo de propriedade selecionado. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 Quando terminar, selecione **Done**.
 

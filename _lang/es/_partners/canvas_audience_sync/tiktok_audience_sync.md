@@ -79,7 +79,7 @@ A continuación, selecciona la cuenta de anuncios de TikTok deseada. En el despl
 ![]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Crear una nueva audiencia %}
 
 **Crear una nueva audiencia**<br>
 Introduce un nombre para la nueva audiencia, selecciona **Add Users to Audience** y selecciona los campos que deseas sincronizar con TikTok. A continuación, guarda tu audiencia haciendo clic en el botón **Create Audience** en la parte inferior del editor de pasos.
@@ -93,7 +93,7 @@ Braze muestra una notificación en la parte superior del editor de pasos si la a
 Cuando lanzas un Canvas con una nueva audiencia, Braze sincroniza a los usuarios casi en tiempo real a medida que entran en el paso de audiencia.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar con una audiencia existente %}
 
 **Sincronizar con una audiencia existente**<br>
 Braze también ofrece la posibilidad de añadir usuarios a las audiencias de TikTok existentes para garantizar que estas audiencias estén actualizadas. Para sincronizar con una audiencia existente, escribe el nombre de la audiencia existente en el desplegable y selecciona **Add to the Audience**. A continuación, Braze añadirá usuarios casi en tiempo real a medida que entren en el paso de TikTok Audience.

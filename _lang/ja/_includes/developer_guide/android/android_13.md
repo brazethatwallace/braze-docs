@@ -10,7 +10,7 @@ Android 13に備えるには、Braze SDK を[最新バージョン (v21.0.0以�
 
 ## Android 13での変更点
 
-### プッシュアクセス許可{#push-permission}
+### プッシュアクセス許可 {#push-permission}
 
 Android 13では、ユーザーがプッシュ通知を送信するアプリを管理する方法に[大きな変更](https://developer.android.com/about/versions/13/changes/notification-permission)が導入されています。Android 13では、アプリはプッシュ通知を表示する前にアクセス許可を取得する必要があります。 
 
@@ -38,7 +38,7 @@ Android 13をターゲットとするアプリは、アクセス許可をリク�
 Braze SDK v23.0.0は、プッシュ通知を受信したときにデフォルトの通知チャネルが存在しない場合、自動的にデフォルトの通知チャネルを作成します。Android 13をターゲットにしていない場合、通知を表示するために必要なプッシュアクセス許可プロンプトが表示されます。
 {% endalert %}
 
-## Android 13の準備{#next-steps}
+## Android 13の準備 {#next-steps}
 
 ユーザーにプッシュアクセス許可を求めるプロンプトをいつ表示するかを制御するために、アプリが Android 13をターゲットにすることを強くお勧めします。
 

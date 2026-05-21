@@ -41,15 +41,23 @@ Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects
-  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
-  // Removing from an array of objects
-  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
+  // Removing from an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
 - [Externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [Nutzer-Aliasse]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+
+{% alert note %}
+Bei REST-API-Anfragen an [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) verwenden Sie die Schlüssel `add`, `remove` und `update` für Array-Operationen. Schlüssel mit dem Präfix `$` (wie `$add`) sind für SDK-Methoden-Payloads vorgesehen.
+
+Wenn eine REST-API-Anfrage `$add`, `$remove` oder `$update` verwendet, kann Braze `success` zurückgeben, ohne das Array-Update tatsächlich anzuwenden.
+
+Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) und [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+{% endalert %}
 
 Um ein Profilattribut zu entfernen, setzen Sie es auf `null`. Einige Felder, wie `external_id` und `user_alias`, können nicht mehr entfernt werden, nachdem sie einem Nutzerprofil hinzugefügt wurden.
 
@@ -74,7 +82,7 @@ Wenn Sie nur bestehende Nutzerprofile in Braze aktualisieren möchten, sollten S
 Wenn Sie ein Nutzerprofil nur mit Alias über den `/users/track`-Endpunkt erstellen, müssen Sie `_update_existing_only` auf `false` setzen. Wenn Sie diesen Wert weglassen, erstellt Braze kein Profil, das nur aus einem Alias besteht.
 {% endalert %}
 
-#### Push-Token importieren {#push-token-import}
+#### Push-Token-Import {#push-token-import}
 
 Bevor Sie Push-Tokens nach Braze importieren, überprüfen Sie, ob dies wirklich erforderlich ist. Wenn die Braze SDKs eingerichtet sind, verarbeiten sie Push-Tokens automatisch, ohne dass sie über die API hochgeladen werden müssen.
 
@@ -105,12 +113,12 @@ Die folgenden Datentypen können als angepasstes Attribut gespeichert werden:
 | Arrays | Angepasste Attribut-Arrays werden unterstützt. Wenn Sie ein Element hinzufügen, wird es an das Ende des Arrays angehängt. Wenn das Element bereits vorhanden ist, wird es von seiner aktuellen Position an das Ende verschoben.<br><br>Es werden nur eindeutige Werte gespeichert. Beispielsweise führt der Import von `['hotdog','hotdog','hotdog','pizza']` zu `['hotdog', 'pizza']`.<br><br>Sie können ein Array direkt festlegen (zum Beispiel `"my_array_custom_attribute":[ "Value1", "Value2" ]`), einem bestehenden Array mit `"my_array_custom_attribute" : { "add" : ["Value3"] }` etwas hinzufügen oder Werte mit `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}` entfernen.<br><br>Die Standard- und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Weitere Informationen finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics/#arrays). |
 | Array von Objekten | Verwenden Sie ein Objekt-Array, um eine Liste von Objekten zu definieren, wobei jedes Objekt eine Reihe von Attributen enthält. Verwenden Sie diesen Typ, um mehrere Sätze verwandter Daten für eine Nutzer:in zu speichern, wie beispielsweise Hotelaufenthalte oder Präferenzen.<br><br>Definieren Sie beispielsweise ein angepasstes Attribut mit dem Namen `hotel_stays` in einem Nutzerprofil als Array, wobei jedes Objekt einen separaten Aufenthalt darstellt, mit Attributen wie `hotel_name`, `check_in_date` und `nights_stayed`.<br><br>Objekt-Arrays haben keine Begrenzung der Elementanzahl, aber eine maximale Größe von 100&nbsp;KB. Wenn ein Update dazu führt, dass das Array dieses Limit überschreitet, verwirft Braze das Update und das Attribut bleibt unverändert.<br><br>Fügen Sie Elemente mit `$add` hinzu, entfernen Sie Elemente mit `$remove` und aktualisieren Sie Elemente mit `$update`. Weitere Informationen finden Sie unter [Objekt-Array – API-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example), [Objekt-Array – SDK-Beispiel]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example) und [Beispiel für ein Objekt-Array](#array-of-objects-example). |
 | Boolesche Werte | `true` oder `false` |
-| Daten | Müssen im [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)-Format oder in einem der folgenden Formate gespeichert werden: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Beachten Sie, dass „T“ ein Zeitbezeichner und kein Platzhalter ist und nicht geändert oder entfernt werden sollte. <br><br>Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und im Dashboard als Entsprechung von Mitternacht UTC in der Zeitzone des Unternehmens formatiert). Um eine Zeitzone anzugeben, fügen Sie dem Zeitstempel einen UTC-Offset hinzu (zum Beispiel `2024-11-10T18:00:00-05:00` für EST). Wenn der Zeitzonen-Offset fehlt oder falsch formatiert ist, wird der Wert standardmäßig auf UTC gesetzt. <br><br>Zeiten werden im Dashboard in der Zeitzone Ihres Unternehmens angezeigt. Beispielsweise würde `2024-11-10T18:00:00-05:00` (18:00 Uhr EST) als die entsprechende Zeit in der konfigurierten Zeitzone Ihres Unternehmens angezeigt. <br><br>Events mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt. <br><br>Bei regulären angepassten Attributen speichert Braze den Wert als String im Nutzerprofil, wenn das Jahr kleiner als 0 oder größer als 3000 ist. |
+| Daten | Müssen im [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)-Format oder in einem der folgenden Formate gespeichert werden: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Beachten Sie, dass „T“ ein Zeitbezeichner und kein Platzhalter ist und nicht geändert oder entfernt werden sollte. <br><br>Zeitattribute ohne Zeitzone werden standardmäßig auf Mitternacht UTC gesetzt (und im Dashboard als Entsprechung von Mitternacht UTC in der Zeitzone des Unternehmens formatiert). Um eine Zeitzone anzugeben, fügen Sie dem Zeitstempel einen UTC-Offset hinzu (zum Beispiel `2024-11-10T18:00:00-05:00` für EST). Wenn der Zeitzonen-Offset fehlt oder falsch formatiert ist, wird der Wert standardmäßig auf UTC gesetzt. <br><br>Zeiten werden im Dashboard in der Zeitzone Ihres Unternehmens angezeigt. Beispielsweise würde `2024-11-10T18:00:00-05:00` (18:00 Uhr EST) als die entsprechende Zeit in der konfigurierten Zeitzone Ihres Unternehmens angezeigt. <br><br>Ereignisse mit Zeitstempeln in der Zukunft werden standardmäßig auf die aktuelle Zeit gesetzt. <br><br>Bei regulären angepassten Attributen speichert Braze den Wert als String im Nutzerprofil, wenn das Jahr kleiner als 0 oder größer als 3000 ist. |
 | Gleitkommazahlen | Gleitkommazahlen für angepasste Attribute sind positive oder negative Zahlen mit einem Dezimalpunkt. Sie können beispielsweise Gleitkommazahlen verwenden, um Kontostände oder Nutzer:innen-Bewertungen für Produkte oder Dienste zu speichern. |
 | Ganzzahlen | Sie können ganzzahlige angepasste Attribute erhöhen, indem Sie ein Objekt mit dem Feld „inc“ und dem hinzuzufügenden Wert zuweisen. <br><br>Beispiel: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Verschachtelte angepasste Attribute | Verschachtelte angepasste Attribute definieren eine Gruppe von Attributen als Eigenschaft eines anderen Attributs. Wenn Sie ein angepasstes Attributobjekt definieren, fügen Sie diesem Objekt eine Reihe von Attributen hinzu. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Strings | Angepasste String-Attribute sind Zeichenfolgen, die zum Speichern von Textdaten verwendet werden. Sie können zum Beispiel Strings verwenden, um Vor- und Nachnamen, E-Mail-Adressen oder Präferenzen zu speichern. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribut-Datentypen" }
 
 {% alert tip %}
 Informationen dazu, wann ein angepasstes Event und wann ein angepasstes Attribut verwendet werden sollte, finden Sie unter [Angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) und [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -133,6 +141,10 @@ Für API-Beispiele, die `add`, `remove` und `update` verwenden, siehe [Objekt-Ar
 
 {% alert important %}
 Bei den folgenden Nutzerprofilfeldern wird zwischen Groß- und Kleinschreibung unterschieden. Achten Sie daher darauf, diese Felder in Kleinbuchstaben zu referenzieren.
+{% endalert %}
+
+{% alert tip %}
+Eine kund:innenorientierte Referenz der Standardattribute, die nach Kategorien geordnet ist und Hinweise für SDK, API, CSV und Cloud-Datenaufnahme enthält, finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
 {% endalert %}
 
 | Nutzerprofilfeld | Datentyp-Spezifikation |
@@ -163,7 +175,7 @@ Bei den folgenden Nutzerprofilfeldern wird zwischen Groß- und Kleinschreibung u
 | subscription_groups| Array von Objekten mit `subscription_group_id` und `subscription_state` String, zum Beispiel `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Verfügbare Werte für `subscription_state` sind „subscribed“ und „unsubscribed“.|
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte festgelegt. |
 | twitter | Hash mit einem der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
 
 Sprachwerte, die explizit über diese API festgelegt werden, haben Vorrang vor den Gebietsschemainformationen, die Braze automatisch vom Gerät erhält.
 
@@ -218,11 +230,11 @@ Alternativ können Sie [Ihre Push-Tokens auch manuell migrieren](#manual-migrati
 
 Aufgrund der Natur von Web-Push-Tokens sollten Sie bei der Implementierung von Push für das Web Folgendes beachten:
 
-|Überlegung|Details|
+| Überlegung | Details |
 |----------------------|------------|
 | **Service Worker**  | Standardmäßig sucht das Web SDK nach einem Service Worker unter `./service-worker`, sofern keine andere Option angegeben ist, wie beispielsweise `manageServiceWorkerExternally` oder `serviceWorkerLocation`. Wenn Ihr Service Worker nicht richtig eingerichtet ist, kann dies dazu führen, dass Push-Tokens für Ihre Nutzer:innen ablaufen. |
 | **Abgelaufene Tokens**   | Wenn eine Nutzer:in innerhalb von 60 Tagen keine Web-Sitzung gestartet hat, verfällt ihr Push-Token. Da Braze abgelaufene Push-Tokens nicht migrieren kann, müssen Sie einen [Push-Primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) senden, um erneut mit ihnen in Interaktion zu treten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Überlegungen zu Web-Tokens" }
 
 ### Manuelle Migration über API {#manual-migration-through-api}
 
@@ -230,7 +242,7 @@ Bei der manuellen Push-Token-Migration werden diese zuvor erstellten Schlüssel 
 
 Migrieren Sie iOS- (APNs) und Android- (FCM) Tokens programmatisch auf Ihre Plattform mithilfe des [`users/track`-Endpunkts]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Sie können sowohl identifizierte Nutzer:innen (Nutzer:innen mit einer zugehörigen externen ID) als auch anonyme Nutzer:innen (Nutzer:innen ohne externe ID) migrieren.
 
-Geben Sie während der Push-Token-Migration die `app_id` Ihrer App an, um das entsprechende Push-Token mit der entsprechenden App zu verknüpfen. Jede App (iOS, Android usw.) hat ihre eigene `app_id`, die Sie im Abschnitt **Identifikation** auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) finden. Achten Sie darauf, dass Sie die richtige `app_id` der jeweiligen Plattform verwenden.
+Geben Sie während der Push-Token-Migration die `app_id` Ihrer App an, um das entsprechende Push-Token mit der entsprechenden App zu verknüpfen. Jede App (iOS, Android usw.) hat ihre eigene `app_id`, die Sie im Abschnitt **Identification** auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) finden. Achten Sie darauf, dass Sie die richtige `app_id` der jeweiligen Plattform verwenden.
 
 {% alert important %}
 Es ist nicht möglich, Web-Push-Tokens über die API zu migrieren. Das liegt daran, dass Web-Push-Tokens nicht demselben Schema entsprechen wie andere Plattformen.
@@ -242,7 +254,7 @@ Als Alternative zur API-Migration empfehlen wir Ihnen, das SDK zu integrieren un
 {% endalert %}
 
 {% tabs local %}
-{% tab External ID present %}
+{% tab Externe ID vorhanden %}
 Für identifizierte Nutzer:innen setzen Sie das Kennzeichen `push_token_import` auf `false` (oder lassen den Parameter weg) und geben die Werte `external_id`, `app_id` und `token` im `attributes`-Objekt der Nutzer:in an.
 
 Zum Beispiel:
@@ -268,7 +280,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 {% endtab %}
 
-{% tab External ID missing %}
+{% tab Externe ID nicht vorhanden %}
 Beim Importieren von Push-Tokens aus anderen Systemen ist nicht immer eine `external_id` verfügbar. In diesem Fall setzen Sie das Kennzeichen `push_token_import` auf `true` und geben die Werte `app_id` und `token` an. Braze erstellt für jedes Token ein temporäres, anonymes Nutzerprofil, damit Sie weiterhin Nachrichten an diese Personen senden können. Wenn das Token bereits in Braze existiert, wird die Anfrage ignoriert.
 
 Zum Beispiel:

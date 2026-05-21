@@ -10,6 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para expor
 ---
 {% api %}
 # Exportar lista de Canvas {#export-canvas-list}
+
 {% apimethod get %}
 /canvas/list
 {% endapimethod %}
@@ -38,7 +39,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `include_archived` | Opcional | booleano | Se deve ou não incluir Canvas arquivados; o padrão é `false`. |
 | `sort_direction` | Opcional | String | - Classifique a data de criação do mais novo para o mais antigo: passe o valor `desc`.<br> - Classifique a data de criação do mais antigo para o mais recente: passe o valor `asc`. <br><br>Se `sort_direction` não estiver incluído, a ordem padrão será do mais antigo para o mais recente. |
 | `last_edit.time[gt]` | Opcional | Horário | Filtra os resultados e retorna apenas Canvas que foram editados após o horário fornecido até agora. O formato é `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

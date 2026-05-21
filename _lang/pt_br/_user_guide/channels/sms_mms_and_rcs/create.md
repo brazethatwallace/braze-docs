@@ -16,11 +16,11 @@ search_rank: 1
 
 # Criar uma mensagem SMS, MMS ou RCS {#create-an-sms-mms-or-rcs-message}
 
-> Campaigns de SMS, MMS e RCS são ótimas para alcançar diretamente e conversar de forma programática com seus clientes. Você pode usar Liquid e outros conteúdos dinâmicos para criar uma experiência pessoal com seus usuários e criar um ambiente que promova e aprimore uma experiência de usuário discreta com sua marca.
+> Campanhas de SMS, MMS e RCS são ótimas para alcançar diretamente e conversar de forma programática com seus clientes. Você pode usar Liquid e outros conteúdos dinâmicos para criar uma experiência pessoal com seus usuários e criar um ambiente que promova e aprimore uma experiência de usuário discreta com sua marca.
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canvas? Campanhas são melhores para envios de mensagens únicos e direcionados, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -62,7 +62,7 @@ O grupo de inscrições selecionado determina quais tipos de mensagem estão dis
 | Somente SMS | SMS |
 | SMS com números habilitados para MMS | SMS e MMS |
 | Habilitado para RCS (com remetente verificado para RCS) | SMS, MMS (se habilitado) e RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 A Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS para fallback. Isso garante que, se uma mensagem RCS não for entregue (por exemplo, devido a incompatibilidade de dispositivo ou cobertura incompleta da operadora), a mensagem ainda chegue ao seu usuário via SMS.
@@ -96,7 +96,7 @@ Você pode adicionar um cartão de contato à sua mensagem SMS para que os clien
 
 Para enviar uma mensagem MMS, seu grupo de inscrições deve ter pelo menos um número de telefone habilitado para MMS. Isso é indicado por uma tag **MMS** ao lado do grupo de inscrições no criador.
 
-Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
+Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -108,7 +108,7 @@ Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JP
 | --- | --- |
 | Tamanho | Até 600&nbsp;KB |
 | Tipos de arquivo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### Cartões de contato {#contact-cards}
 
@@ -163,7 +163,7 @@ Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não s�
 **Recursos:**
 
 - Suporta tudo disponível nos tipos de mensagem de texto, incluindo texto, respostas sugeridas e ações sugeridas.
-- Arquivos de imagem (JPEG, PNG) enviados da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+- Arquivos de imagem (JPEG, PNG) enviados da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 - Arquivos de vídeo (MP4, MPEG, MV4) adicionados por URL no criador de mensagens.
 - Arquivos de documento (PDF) adicionados por URL no criador de mensagens.
 
@@ -177,7 +177,7 @@ Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não s�
 | Imagem | Formatos suportados: JPG, JPEG, GIF |
 | Vídeo | Formatos suportados: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Documento | Formato suportado: PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **Considerações:**
 
@@ -240,18 +240,18 @@ Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuári
 
 A Braze sempre recomenda pré-visualizar e testar sua mensagem antes de enviá-la. Alterne para a guia **Teste** para enviar um SMS, MMS ou RCS de teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
 
-![Pré-visualização do texto SMS na guia Teste do criador. Na seção de perfil, o campo Nome está definido como "James". Na seção de pré-visualização, o SMS agora diz "Olá James, agradecemos seu apoio!"]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 Se você quiser testar em quantos segmentos seu SMS pode ser dividido, teste o comprimento do seu texto com a [calculadora de segmentos SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Pré-visualização do texto SMS na guia Teste do criador. Na seção de perfil, o campo Nome está definido como "James". Na seção de pré-visualização, o SMS agora diz "Olá James, agradecemos seu apoio!"]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 Para MMS, a ordenação dos ativos (imagem e corpo da mensagem) não pode ser personalizada. A ordenação depende do telefone que recebe a mensagem.
 {% endalert %}
 
 {% alert note %}
-Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível.
+Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível. Para saber mais sobre a renderização do RCS em dispositivos iOS, consulte [Por que minha mensagem RCS não é renderizada corretamente em dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).

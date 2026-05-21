@@ -186,9 +186,9 @@ Se pueden añadir filtros de propiedades para filtrar aún más el evento desenc
 
 #### Segmentación {#segmentation}
 
-En muchos casos, las Campaigns y Canvas de Braze desencadenados por eventos de Punchh pueden configurarse para una audiencia de "Todos los usuarios", porque la segmentación de los usuarios que desencadenan estos eventos se determina dentro de Punchh. Sin embargo, los clientes que deseen refinar aún más la audiencia de usuarios que recibirán la mensajería de Braze activada por el evento pueden hacerlo añadiendo filtros y segmentos adicionales en la sección **Target Audiences** del compositor de Campaign o en **Entry Audience** del compositor de Canvas.
+En muchos casos, las Campaigns y Canvas de Braze desencadenados por eventos de Punchh pueden configurarse para una audiencia de "Todos los usuarios", porque la segmentación de los usuarios que desencadenan estos eventos se determina dentro de Punchh. Sin embargo, los clientes que deseen refinar aún más la audiencia de usuarios que recibirán la mensajería de Braze activada por el evento pueden hacerlo añadiendo filtros y segmentos adicionales en la sección **Target Audiences** del compositor de Campaign o en la **Audiencia de entrada** del compositor de Canvas.
 
-### Ejemplos {#use-cases}
+### Casos de uso {#use-cases}
 
 {% tabs local %}
 {% tab Signup %}

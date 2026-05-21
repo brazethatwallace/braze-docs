@@ -8,8 +8,8 @@ tool: Location
 hidden: true
 ---
 
-# 위치 추적
+# 위치 추적 {#location-tracking}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-1. `Package.appxmanifest` 파일 내에서 `location`이 확인되었는지 확인하세요.
+1. `Package.appxmanifest` 파일 내에서 `location`이 체크되어 있는지 확인하세요.
 2. 자동 위치 추적을 끄려면 `AppboyConfiguration.xml`에서 `<DisableLocationCollection>false</DisableLocationCollection>`를 `true`로 설정하세요.

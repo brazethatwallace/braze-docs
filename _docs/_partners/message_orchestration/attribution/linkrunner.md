@@ -28,7 +28,7 @@ The following is required before you begin:
 | iOS or Android app | This integration supports iOS and Android apps. Depending on your platform, code snippets may be required in your application. |
 | Linkrunner SDK | You must install the [Linkrunner SDK](https://docs.linkrunner.io/introduction). |
 | Braze SDK | You must integrate the [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

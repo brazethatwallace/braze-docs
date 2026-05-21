@@ -21,7 +21,7 @@ A integração entre a Braze e o RudderStack permite usar o Braze Currents para 
 | Conta do RudderStack | É necessário ter uma [conta RudderStack](https://app.rudderstack.com/login) para usar essa parceria. |
 | Destino da Braze | Sugerimos que você tenha [configurado a Braze como destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/rudderstack/rudderstack/#integration) no RudderStack. |
 | Currents | Para exportar dados de volta para o RudderStack, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) configurado para sua conta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -29,7 +29,7 @@ A integração entre a Braze e o RudderStack permite usar o Braze Currents para 
 
 Primeiro, crie uma fonte da Braze no app web do RudderStack. As instruções para criar uma fonte de dados podem ser encontradas no site do [RudderStack](https://www.rudderstack.com/docs/sources/event-streams/cloud-apps/braze-currents/).
 
-Depois de concluído, o RudderStack fornecerá um URL de webhook, incluindo a chave de gravação, que você precisará usar na próxima etapa. Você pode encontrar o URL do webhook na guia **Settings** da sua fonte Braze.
+Depois de concluído, o RudderStack fornecerá uma URL de webhook, incluindo a chave de gravação, que você precisará usar na próxima etapa. Você pode encontrar a URL do webhook na guia **Settings** da sua fonte Braze.
 
 ### Etapa 2: Criar Current {#step-2-create-current}
 

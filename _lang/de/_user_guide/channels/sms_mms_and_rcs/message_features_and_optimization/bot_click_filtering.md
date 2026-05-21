@@ -18,7 +18,7 @@ channel:
 
 Braze verfügt über ein proprietäres Erkennungssystem, das mehrere Eingaben nutzt, um vermutete Bot-Klicks zu identifizieren, auch bekannt als nicht-menschliche Interaktionen (NHI). Bot-Klicks können Klickraten aufblähen und Engagement-Metriken verzerren. Durch deren Filterung ermöglicht Braze die Erfassung zuverlässiger Daten für die Entscheidungsfindung.
 
-Unser System analysiert User Agents, die mit Web-Crawlern, Android- und iOS-Linkvorschauen oder CPaaS-Sicherheitssoftware verknüpft sind. Einige Beispiele für gefilterte User Agents sind `GoogleBot`, `python-requests/2.32.3` und `Barracuda Sentinel (EE)`.
+Unser System analysiert User Agents, die mit Web-Crawlern, Android- und iOS-Linkvorschauen oder CPaaS-Sicherheitssoftware verknüpft sind. Einige Beispiele für gefilterte User Agents sind `GoogleBot`, `GoogleMessages/20`, `python-requests/2.32.3` und `Barracuda Sentinel (EE)`.
 
 ## Betroffene Metriken und Workflows {#affected-metrics-and-workflows}
 
@@ -43,7 +43,7 @@ Braze enthält die folgenden Currents-Felder für SMS-Klick-Ereignisse:
 | --- | --- | --- |
 | `is_suspected_bot_click` | Boolescher Wert | Gibt an, ob der Klick ein vermuteter Bot-Klick ist. Gibt `null` für alle Nutzer:innen zurück, bis die Bot-Klick-Filterung für Ihr Unternehmen aktiviert wird. Nach der Aktivierung wird das Feld für alle neuen Klicks mit `true` oder `false` befüllt. |
 | `suspected_bot_click_reason` | String, Array | Gibt den Grund für einen vermuteten Bot-Klick an (z. B. `user_agent`). Wird auch befüllt, wenn die Filterung deaktiviert ist, und bietet Einblicke in potenzielle Bot-Aktivitäten. Dieses Feld ist global verfügbar und wird für alle Nutzer:innen mit einem Grund befüllt, auch wenn die Bot-Klick-Filterung noch nicht aktiviert ist. Dies bietet Einblicke in potenzielle Bot-Aktivitäten, bevor Sie die Bot-Klick-Filterung aktivieren. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Currents-Felder in SMS-Klick-Ereignissen" }
 
 ## Abfrage-Builder-Template {#query-builder-template}
 
@@ -67,7 +67,7 @@ Ja. Linkvorschauen (z. B. Android- und iOS-Linkvorschauen) werden als Bot-Klicks
 
 Sie müssen Ihr Braze-Konto-Team kontaktieren, um die Bot-Klick-Filterung während des Early Access zu aktivieren. Wenn die Bot-Klick-Filterung allgemein verfügbar ist, wird das Feature standardmäßig für alle SMS- und RCS-Nutzer:innen aktiviert sein.
 
-Stellen Sie außerdem sicher, dass Sie das erweiterte Klick-Tracking für [Link-Kürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) aktiviert haben. Dadurch erhalten Sie die Bot-Klick-Analytics, da wir diese Daten auf individueller Nutzer:innen-Ebene erfassen.
+Stellen Sie außerdem sicher, dass Sie das erweiterte Klick-Tracking für die [Link-Kürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) aktiviert haben. Dadurch erhalten Sie die Bot-Klick-Analytics, da wir diese Daten auf individueller Nutzer:innen-Ebene erfassen.
 
 {% alert note %}
 Für weitere Unterstützung [kontaktieren Sie den Support]({{site.baseurl}}/braze_support/).

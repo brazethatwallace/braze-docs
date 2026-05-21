@@ -34,7 +34,7 @@ atPrice:[[[NSDecimalNumber alloc] initWithString:@"0.99"] autorelease]];
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPrice: NSDecimalNumber(string: "0.99"))
 ```
 
@@ -64,7 +64,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] logPurchase:@"your product ID"
 inCurrency:@"USD"
 atPrice:[[[NSDecimalNumber alloc] initWithString:@"0.99"] autorelease]
@@ -74,7 +74,7 @@ withProperties:@{@"key1":"value1"}];
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPrice: NSDecimalNumber(string: "0.99"), withProperties: ["key1":"value1"])
 ```
 

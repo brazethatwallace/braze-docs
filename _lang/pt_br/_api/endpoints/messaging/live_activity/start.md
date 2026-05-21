@@ -82,7 +82,7 @@ Para usar este endpoint, você precisará concluir o seguinte:
 | `external_user_ids` | Opcional se `segment_id` ou `audience` for fornecido | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Máximo de 50 IDs de usuário externos.  |
 | `segment_id `  | Opcional se `external_user_ids` ou `audience` for fornecido | String    | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Opcional se `external_user_ids` ou `segment_id` for fornecido | Objeto de público conectado  | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

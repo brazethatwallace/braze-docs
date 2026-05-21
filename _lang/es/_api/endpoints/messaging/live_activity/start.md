@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Iniciar actividad en vivo"
 article_title: "POST: Iniciar actividad en vivo"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -82,7 +82,7 @@ Para utilizar este punto de conexión, tendrás que completar lo siguiente:
 | `external_user_ids` | Opcional si se proporciona `segment_id` o `audience` | Matriz de cadenas | Ver [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Máximo 50 ID de usuario externos. |
 | `segment_id ` | Opcional si se proporciona `external_user_ids` o `audience` | Cadena | Ver [identificador de segmento]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Opcional si se proporciona `external_user_ids` o `segment_id` | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

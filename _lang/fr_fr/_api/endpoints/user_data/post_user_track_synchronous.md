@@ -38,6 +38,8 @@ Les clients utilisant l'API pour les appels de serveur à serveur devront peut-�
 
 ## Limite de débit {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
 Nous appliquons une limite de débit de base de 500 requêtes par minute à cet endpoint pour tous les clients. Chaque requête `/users/track/sync` peut contenir jusqu'à un objet d'événement, un objet d'attribut ou un objet d'achat. Chaque objet (tableaux d'événements, d'attributs et d'achats) peut mettre à jour un utilisateur chacun.
 
 ## Corps de la requête {#request-body}
@@ -66,7 +68,7 @@ Pour chaque composant de requête répertorié dans le tableau suivant, vous dev
 | `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Réponses {#responses}
 
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Mise à jour d'un événement personnalisé par e-mail {#update-a-custom-event-by-email}
 
-#### Requête {#request}
+#### Requête
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -183,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Réponse {#response}
+#### Réponse
 
 ```
 {
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Mise à jour d'un événement d'achat par alias d'utilisateur {#update-a-purchase-event-by-user-alias}
 
-#### Requête {#request}
+#### Requête
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Réponse {#response}
+#### Réponse
 
 ```
 {

@@ -37,7 +37,7 @@ Canvas에서 Snapchat 오디언스 단계를 설정하기 전에 다음 항목�
 | Snapchat Business Manager | Snapchat | 브랜드의 Snapchat 자산(광고 계정, 페이지, 앱 등)을 관리하는 중앙 집중식 도구입니다. |
 | Snapchat 광고 계정 | Snapchat | 브랜드의 Snapchat Business Manager에 연결된 활성 Snapchat 광고 계정입니다.<br><br>Snapchat Business Manager 관리자가 Braze와 함께 사용할 Snapchat 광고 계정에 대한 관리자 권한을 부여했는지 확인하세요. |
 | Snapchat 약관 및 정책 | [Snapchat](https://www.snap.com/en-US/policies) | Snapchat Audience Sync 사용과 관련된 Snapchat의 필수 약관, 정책, 가이드라인 및 문서(여기에 참조로 포함된 약관, 정책, 가이드라인 및 문서 포함)를 준수하는 데 동의합니다. 여기에는 서비스 약관, 비즈니스 서비스 약관, 개발자 약관, Audience Match, 광고 정책, 상업 콘텐츠 정책, 커뮤니티 가이드라인 및 공급업체 책임이 포함될 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -73,7 +73,7 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
 **Custom Audience** 버튼을 클릭하여 구성요소 편집기를 엽니다.
 
-원하는 Audience Sync 파트너로 **TikTok**을 선택합니다.
+원하는 Audience Sync 파트너로 **Snapchat**을 선택합니다.
 
 ![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
@@ -130,7 +130,7 @@ Snapchat의 API 사용량 제한은 초당 쿼리 10건, 요청당 사용자 수
 | 대기 중인 사용자 | 현재 Braze에서 Snapchat으로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | 오류가 발생한 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Snapchat에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Snapchat 토큰 또는 Snapchat에서 오디언스가 삭제된 경우가 포함될 수 있습니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수입니다. 이는 Canvas의 마지막 단계가 Audience Sync 구성요소인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 대량 플러셔와 13시간 재시도로 인해 동기화된 사용자 및 오류 측정기준에 대한 보고가 각각 지연될 수 있습니다.

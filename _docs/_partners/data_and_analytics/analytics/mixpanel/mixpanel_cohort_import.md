@@ -12,6 +12,10 @@ search_tag: Partner
 
 ## Data import integration
 
+When you sync a cohort from Mixpanel to Braze, Braze receives cohort membership updates for users that Mixpanel can match to existing Braze profiles. After a sync, you can target those users with the **Mixpanel cohorts** segment filter.
+
+The cohort sync does not import Mixpanel events, Mixpanel user properties, or custom attributes into Braze. Connector behavior, including sync cadence, is controlled in Mixpanel. For setup details, see [Mixpanel's Braze cohort sync documentation](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). For user matching requirements, see [User matching](#user-matching).
+
 Any integration you set up will log data points. If you have any questions about the nuances of Braze data points, your Braze account manager can answer them.
 
 {% alert important %}

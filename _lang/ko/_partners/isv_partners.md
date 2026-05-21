@@ -9,13 +9,13 @@ guide_top_text: "다음 문서는 Braze 플랫폼과의 시장 통합을 개발�
 
 guide_featured_title: "파트너 설명서"
 guide_featured_list:
-- name: API 통합
+- name: API 파트너 통합
   link: /docs/partners/isv_partners/api_partner
   image: /assets/img/braze_icons/user-circle.svg
 - name: 코호트 가져오기 통합
   link: /docs/partners/isv_partners/cohort_import
   image: /assets/img/braze_icons/users-01.svg
-- name: 전류 통합
+- name: 커스텀 커런츠 커넥터
   link: /docs/partners/isv_partners/currents_integration
   image: /assets/img/braze_icons/waves.svg
 - name: Snowflake 데이터 공유

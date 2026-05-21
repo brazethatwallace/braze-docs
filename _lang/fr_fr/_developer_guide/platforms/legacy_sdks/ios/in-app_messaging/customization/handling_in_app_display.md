@@ -1,9 +1,9 @@
 ---
-nav_title: "Gestion personnalisée de l'affichage"
-article_title: "Personnaliser la gestion de l'affichage des messages in-app pour iOS"
+nav_title: Gestion personnalisée de l'affichage
+article_title: Personnaliser la gestion de l'affichage des messages in-app pour iOS
 platform: iOS
 page_order: 4
-description: "Cet article de référence couvre la gestion de l’affichage personnalisé de la messagerie dans l’application pour votre application iOS."
+description: "Cet article de référence couvre la gestion personnalisée de l'affichage des messages in-app pour votre application iOS."
 channel:
   - in-app messages
 
@@ -12,9 +12,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Gestion personnalisée de l’affichage des messages in-app
+# Gestion personnalisée de l'affichage des messages in-app {#custom-handling-in-app-message-display}
 
-Lorsque l'option [`ABKInAppMessageControllerDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h) est définie, la méthode de délégation suivante sera appelée avant l'affichage des messages in-app :
+Lorsque le [`ABKInAppMessageControllerDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h) est défini, la méthode de délégation suivante sera appelée avant l'affichage des messages in-app :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -33,7 +33,7 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!) -> ABKInAppMess
 {% endtab %}
 {% endtabs %}
 
-Si vous n'avez implémenté que [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h)la méthode suivante du délégué de l'interface utilisateur sera appelée à la place :
+Si vous n'avez implémenté que [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h), la méthode suivante du délégué d'interface utilisateur sera appelée à la place :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -52,26 +52,26 @@ func beforeInAppMessageDisplayed(inAppMessage: ABKInAppMessage!, withKeyboardIsU
 {% endtab %}
 {% endtabs %}
 
-Vous pouvez personnaliser la gestion des messages in-app en implémentant cette méthode de délégation et en renvoyant l’une des valeurs suivantes pour `ABKInAppMessageDisplayChoice` :
+Vous pouvez personnaliser la gestion des messages in-app en implémentant cette méthode de délégation et en renvoyant l'une des valeurs suivantes pour `ABKInAppMessageDisplayChoice` :
 
 | `ABKInAppMessageDisplayChoice` | Comportement |
 | -------------------------- | -------- |
-| Objectif-C : `ABKDisplayInAppMessageNow`<br>Swift : `displayInAppMessageNow` | Le message s’affichera immédiatement |
-| Objectif-C : `ABKDisplayInAppMessageLater`<br>Swift : `displayInAppMessageLater` | Le message ne s’affichera pas et sera replacé sur le dessus de la pile. |
-| Objectif-C : `ABKDiscardInAppMessage`<br>Swift : `discardInAppMessage`| Le message sera supprimé et ne sera pas affiché. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Objective-C : `ABKDisplayInAppMessageNow`<br>Swift : `displayInAppMessageNow` | Le message sera affiché immédiatement. |
+| Objective-C : `ABKDisplayInAppMessageLater`<br>Swift : `displayInAppMessageLater` | Le message ne sera pas affiché et sera replacé en haut de la pile. |
+| Objective-C : `ABKDiscardInAppMessage`<br>Swift : `discardInAppMessage`| Le message sera supprimé et ne sera pas affiché. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestion personnalisée de l'affichage des messages in-app" }
 
-Vous pouvez utiliser la méthode de délégation `beforeInAppMessageDisplayed:` pour ajouter une logique d'affichage des messages in-app, personnaliser les messages in-app avant qu'ils ne soient affichés par Braze, ou vous désengager complètement de la logique d'affichage des messages in-app et de l'interface utilisateur de Braze.
+Vous pouvez utiliser la méthode de délégation `beforeInAppMessageDisplayed:` pour ajouter une logique d'affichage des messages in-app, personnaliser les messages in-app avant que Braze ne les affiche, ou vous désengager complètement de la logique d'affichage et de l'interface utilisateur de Braze pour les messages in-app.
 
 Consultez notre [exemple d'application](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m) pour un exemple de mise en œuvre.
 
-## Remplacer les messages in-app avant l’affichage
+## Remplacer les messages in-app avant l'affichage {#overriding-in-app-messages-before-display}
 
-Si vous souhaitez modifier le comportement d'affichage des messages in-app, vous devez ajouter toute logique d'affichage nécessaire à votre méthode de délégation `beforeInAppMessageDisplayed:`. Par exemple, vous pouvez afficher le message in-app en haut de l’écran si le clavier est actuellement affiché, ou prendre le modèle de données de message in-app et afficher vous-même le message in-app.
+Si vous souhaitez modifier le comportement d'affichage des messages in-app, vous devez ajouter toute logique d'affichage nécessaire à votre méthode de délégation `beforeInAppMessageDisplayed:`. Par exemple, vous pouvez souhaiter afficher le message in-app depuis le haut de l'écran si le clavier est actuellement affiché, ou récupérer le modèle de données du message in-app et afficher le message in-app vous-même.
 
-Si la campagne de messages in-app ne s’affiche pas lorsque la session a été lancée, assurez-vous que la logique d’affichage nécessaire soit ajoutée à votre méthode de délégation `beforeInAppMessageDisplayed:`. Cela permet à la campagne de messages in-app d’afficher en haut de l’écran même si le clavier est affiché.
+Si la campagne de messages in-app ne s'affiche pas lorsque la session a été lancée, assurez-vous que la logique d'affichage nécessaire a été ajoutée à votre méthode de délégation `beforeInAppMessageDisplayed:`. Cela permet à la campagne de messages in-app de s'afficher depuis le haut de l'écran même si le clavier est affiché.
 
-## Désactivation du mode sombre
+## Désactivation du mode sombre {#disabling-dark-mode}
 
 Pour empêcher les messages in-app d'adopter le style du mode sombre lorsque l'appareil de l'utilisateur a activé le mode sombre, utilisez la propriété [`ABKInAppMessage.enableDarkTheme`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message.html#ae89df6090bed623099ab0ecc0a74ad5d). Depuis la méthode `ABKInAppMessageControllerDelegate.beforeInAppMessageDisplayed:` ou la méthode `ABKInAppMessageUIDelegate.beforeInAppMessageDisplayed:`, définissez la propriété `enableDarkTheme` du paramètre `inAppMessage` de la méthode sur `NO`.
 
@@ -121,13 +121,13 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 {% endtab %}
 {% endtabs %}
 
-## Masquer la barre d’état pendant l’affichage
+## Masquer la barre d'état pendant l'affichage {#hiding-the-status-bar-during-display}
 
-Pour les messages `Full` et `HTML` dans l’application, le SDK tentera par défaut de placer le message sur la barre d’état. Cependant, dans certains cas, la barre d’état peut toujours apparaître en haut du message in-app. À partir de la version [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) du SDK iOS, vous pouvez forcer le masquage de la barre d'état lors de l'affichage des messages in-app `Full` et `HTML` en définissant `ABKInAppMessageHideStatusBarKey` sur `YES` dans les `appboyOptions` transmises à `startWithApiKey:`.
+Pour les messages in-app `Full` et `HTML`, le SDK tentera par défaut de placer le message par-dessus la barre d'état. Cependant, dans certains cas, la barre d'état peut toujours apparaître au-dessus du message in-app. À partir de la version [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) du SDK iOS, vous pouvez forcer le masquage de la barre d'état lors de l'affichage des messages in-app `Full` et `HTML` en définissant `ABKInAppMessageHideStatusBarKey` sur `YES` dans les `appboyOptions` transmises à `startWithApiKey:`.
 
-## Enregistrement des impressions et des clics
+## Enregistrement des impressions et des clics {#logging-impressions-and-clicks}
 
-L’enregistrement des impressions et des clics de messages in-app n’est pas automatique lorsque vous implémentez une gestion entièrement personnalisée (c.-à-d. que vous contournez l’affichage des messages in-app de Braze en renvoyant `ABKDiscardInAppMessage` dans votre `beforeInAppMessageDisplayed:`). Si vous choisissez de déployer votre propre interface utilisateur à l’aide de nos modèles de messages in-app, vous devez enregistrer les analyses à l'aide des méthodes suivantes sur la classe `ABKInAppMessage` :
+L'enregistrement des impressions et des clics de messages in-app n'est pas automatique lorsque vous implémentez une gestion entièrement personnalisée (c.-à-d. que vous contournez l'affichage des messages in-app de Braze en renvoyant `ABKDiscardInAppMessage` dans votre `beforeInAppMessageDisplayed:`). Si vous choisissez de déployer votre propre interface utilisateur à l'aide de nos modèles de messages in-app, vous devez enregistrer les données analytiques à l'aide des méthodes suivantes sur la classe `ABKInAppMessage` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -152,7 +152,7 @@ func logInAppMessageClicked()
 {% endtab %}
 {% endtabs %}
 
-De plus, vous devriez enregistrer les clics sur les boutons des sous-classes de `ABKInAppMessageImmersive` (*i.e*., messages in-app `Modal` et `Full`) :
+De plus, vous devriez enregistrer les clics sur les boutons des sous-classes de `ABKInAppMessageImmersive` (*c.-à-d.*, messages in-app `Modal` et `Full`) :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -173,16 +173,13 @@ func logInAppMessageClickedWithButtonID(buttonId: NSInteger)
 {% endtab %}
 {% endtabs %}
 
-## Déclarations de méthode
+## Déclarations de méthode {#method-declarations}
 
-Pour plus d’informations, voir les fichiers d’en-tête suivants :
+Pour plus d'informations, consultez les fichiers d'en-tête suivants :
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
 - [`ABKInAppMessageControllerDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h)
 
-## Exemples d’implémentation
+## Exemples d'implémentation {#implementation-samples}
 
-Voir l’exemple d’application de messages in-app [`AppDelegate.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m).
-
-
-
+Voir l'exemple d'application de messages in-app [`AppDelegate.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/AppDelegate.m).

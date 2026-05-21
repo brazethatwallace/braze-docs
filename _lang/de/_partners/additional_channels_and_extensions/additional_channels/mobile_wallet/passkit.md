@@ -26,7 +26,7 @@ Die Integration von Braze und PassKit ermöglicht es Ihnen, das Engagement Ihrer
 | `userDefinedID` | Um angepasste Events und angepasste Attribute für Ihre Nutzer:innen zwischen PassKit und Braze angemessen zu aktualisieren, müssen Sie die externe ID von Braze als `userDefinedID` festlegen. Diese `userDefinedID` wird verwendet, wenn Sie API-Aufrufe zu den PassKit-Endpunkten tätigen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -44,7 +44,7 @@ Sobald die Daten an Braze übergeben wurden, können Sie Zielgruppen aufbauen, I
 
 Um Daten von PassKit zu übergeben, stellen Sie sicher, dass Sie Ihre externe ID von Braze als PassKits `externalId` eingestellt haben.
 
-1. Klicken Sie in den **Einstellungen** unter **Integrationen** in Ihrem PassKit-Pass-Projekt oder -Programm auf **Verbinden** unter dem Tab **Braze**.<br>![Die Braze-Integrationskachel in der PassKit-Plattform.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
+1. Klicken Sie in den **Settings** unter **Integrations** in Ihrem PassKit-Pass-Projekt oder -Programm auf **Connect** unter dem Tab **Braze**.<br>![Die Braze-Integrationskachel in der PassKit-Plattform.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
 2. Geben Sie Ihren Braze-API-Schlüssel und die Endpunkt-URL ein und vergeben Sie einen Namen für Ihren Konnektor.<br><br>
 3. Schalten Sie **Enable Integration** und die gewünschten Events um, die Sie in Braze zum Triggern oder Personalisieren Ihrer Nachrichten verwenden möchten.<br>![Die PassKit-Braze-Integrationskachel wurde erweitert, um den API-Schlüssel, die Endpunkt-URL, den Integrationsnamen, die Aktivierungseinstellungen, die Mitgliedschaftseinstellungen und die Pass-Einstellungen zu akzeptieren.]({% image_buster /assets/img/passkit/passkit4.png %}){: style="max-width:70%"}
 
@@ -66,9 +66,9 @@ Es gibt viele verschiedene Komponenten, die Sie in Ihre Nutzlast aufnehmen könn
 
 | Komponente | Erforderlich | Typ | Beschreibung |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | Erforderlich | String | Als externe ID von Braze festgelegt, ist dies entscheidend dafür, dass die Callbacks von PassKit zurück zu Braze funktionieren. So können Unternehmensnutzer:innen Coupons für mehrere Angebote in einer Kampagne haben. Nicht als eindeutig erzwungen. |
-| `members.member.externalId` | Optional | String | Als externe ID von Braze festgelegt, können Sie Ihre externe ID zum Update des Mitgliedsausweises verwenden. Wenn Sie dieses Feld setzen, wird die Nutzer:in innerhalb des Mitgliedschaftsprogramms als eindeutig eingestuft.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `person.externalId` | Erforderlich | String | Als externe ID von Braze festgelegt, ist dies entscheidend dafür, dass die Callbacks von PassKit zurück zu Braze funktionieren. So können Unternehmensnutzer:innen Coupons für mehrere Angebote in einer Kampagne haben. Nicht als eindeutig erzwungen. |
+| `members.member.externalId` | Optional | String | Als externe ID von Braze festgelegt, können Sie Ihre externe ID zum Update des Mitgliedsausweises verwenden. Wenn Sie dieses Feld setzen, wird die Nutzer:in innerhalb des Mitgliedschaftsprogramms als eindeutig eingestuft. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="1. Schritt: Definieren Sie die Nutzdaten Ihres Passes" }
 
 Eine vollständige Liste der verfügbaren Felder, ihrer Typen und hilfreichen Beschreibungen finden Sie in der [PassKit-GitHub-Dokumentation](https://github.com/PassKit/smart-pass-link-from-csv-generator).
 
@@ -220,7 +220,7 @@ Bevor Sie beginnen, finden Sie hier die üblichen JSON-Payload-Parameter, die Si
 | `campaignId` (Coupon) <br><br> `programId` (Mitgliedschaft) | String | Die ID für die Kampagne oder die Programmvorlage, die Sie in PassKit erstellt haben. Gehen Sie dazu auf den Tab **Settings** in Ihrem PassKit-Pass-Projekt. |
 | `expiryDate` | IO8601 datetime | Das Ablaufdatum des Passes. Nach Ablauf des Datums wird der Pass automatisch entwertet (siehe `isVoided`). Dieser Wert überschreibt den Wert des Templates und des Enddatums der Kampagne. |
 | `status` | String | Der aktuelle Status eines Coupons, wie `REDEEMED` oder `UNREDEEMED`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parameter der Nutzlast" }
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 

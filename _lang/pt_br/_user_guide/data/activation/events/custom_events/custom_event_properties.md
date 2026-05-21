@@ -31,18 +31,18 @@ Você não pode usar chaves reservadas como nomes de propriedades de eventos. Us
 | Propriedade | Chave reservada |
 | --- | --- |
 | Eventos personalizados | `time` e `event_name` |
-| Eventos de compra |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Eventos de compra | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaves reservadas" }
 
 ## Usando propriedades de eventos personalizados {#using-custom-event-properties}
 
-As propriedades de eventos personalizados podem ser usadas para qualificar gatilhos de campaigns, rastrear conversões e personalizar mensagens.
+As propriedades de eventos personalizados podem ser usadas para qualificar gatilhos de Campaigns, rastrear conversões e personalizar mensagens.
 
 ### Disparar mensagens {#trigger-messages}
 
-Use propriedades de eventos personalizados para refinar ainda mais o público de uma campaign ou Canvas específico. Por exemplo, se você tem um aplicativo de e-commerce e deseja enviar uma mensagem a um usuário quando ele abandona o carrinho, pode adicionar uma propriedade de evento personalizado de `price` para melhorar o público-alvo e permitir maior personalização da campaign.
+Use propriedades de eventos personalizados para refinar ainda mais o público de uma Campaign ou Canvas específico. Por exemplo, se você tem um aplicativo de e-commerce e deseja enviar uma mensagem a um usuário quando ele abandona o carrinho, pode adicionar uma propriedade de evento personalizado de `price` para melhorar o público-alvo e permitir maior personalização da Campaign.
 
-![Filtros de propriedades de eventos personalizados para um carrinho abandonado. Dois filtros são combinados com um operador AND para enviar esta campaign a usuários que abandonaram o carrinho com um preço entre 100 e 200 dólares]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
+![Filtros de propriedades de eventos personalizados para um carrinho abandonado. Dois filtros são combinados com um operador AND para enviar esta Campaign a usuários que abandonaram o carrinho com um preço entre 100 e 200 dólares]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
 Propriedades de eventos personalizados aninhadas também são compatíveis com a [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/).
 
@@ -50,7 +50,7 @@ Propriedades de eventos personalizados aninhadas também são compatíveis com a
 
 ### Personalizar mensagens {#personalize-messages}
 
-Você também pode usar propriedades de eventos personalizados para personalização dentro do modelo de mensagem. Qualquer campaign que use [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) com um evento de gatilho pode usar propriedades de eventos personalizados desse evento para personalização de mensagens.
+Você também pode usar propriedades de eventos personalizados para personalização dentro do modelo de mensagem. Qualquer Campaign que use [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) com um evento de gatilho pode usar propriedades de eventos personalizados desse evento para personalização de mensagens.
 
 Por exemplo, se você tem um app de jogos e deseja enviar uma mensagem a usuários que completaram uma fase, pode personalizar ainda mais sua mensagem com uma propriedade para o tempo que os usuários levaram para completar essa fase. Neste exemplo, a mensagem é personalizada para três segmentos diferentes usando [lógica condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/). A propriedade de evento personalizado chamada `time_spent` pode ser incluída na mensagem chamando ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
@@ -86,8 +86,6 @@ As propriedades de eventos para eventos personalizados são atualizadas em tempo
 #### Adicionando propriedades de eventos para segmentação {#adding-event-properties-for-segmentation}
 
 Você precisa da [permissão de usuário]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para criar segmentos com base na recência e frequência de propriedades de eventos.
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 Por padrão, você pode ter 20 propriedades de eventos segmentáveis por espaço de trabalho. Entre em contato com o gerente da sua conta na Braze para aumentar esse limite.
 
@@ -129,7 +127,7 @@ As propriedades de eventos personalizados são projetadas para ajudar você a au
 
 Você pode segmentar com base nos valores das propriedades de eventos de duas maneiras:
 
-1. **Dentro de 30 dias:** Você pode usar a segmentação por propriedades de eventos com base na frequência e recência de valores específicos de propriedades de eventos dentro dos segmentos da Braze. Essa opção impacta o uso de dados.<br><br>
+1. **Dentro de 30 dias:** Você pode usar a segmentação por propriedades de eventos com base na frequência e recência de valores específicos de propriedades de eventos dentro dos Segments da Braze. Essa opção impacta o uso de dados.<br><br>
 2. **Dentro e além de 30 dias:** Para cobrir tanto a segmentação de propriedades de eventos de curto quanto de longo prazo, você pode usar [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/). Esse recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
 
 Entre em contato com o gerente de sucesso do cliente da Braze para recomendações sobre a melhor abordagem, dependendo das suas necessidades específicas.

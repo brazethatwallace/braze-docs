@@ -23,7 +23,7 @@ O Decisioning Studio suporta múltiplos padrões de integração para conectar d
 | **Ingestão de dados na nuvem (CDI) da Braze** | Conectar data warehouses externos | Média |
 | **Armazenamento em nuvem (GCS, AWS, Azure)** | Exportações diretas de dados de outras plataformas | Média |
 | **Integrações com CEP** | Extensões de dados do SFMC e Klaviyo | Média |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## Tipos de dados de cliente {#customer-data-types}
 
@@ -35,7 +35,7 @@ Os seguintes ativos de dados de cliente ajudam os agentes a personalizar de form
 | **Comportamento do cliente** | Padrões de atividade e engajamento | Logins na conta, tipo de dispositivo, interações com atendimento ao cliente, uso do produto |
 | **Histórico de transações** | Dados de compra e conversão | Produtos comprados, valores de transação, métodos de pagamento, canais de compra |
 | **Engajamento de marketing** | Respostas a comunicações | Aberturas/cliques de e-mail, engajamento por SMS, atividade web e mobile, respostas a pesquisas |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
 
 {% alert tip %}
 Quanto mais informações os agentes tiverem sobre seus clientes, melhor será o desempenho deles. Considere incluir dados sobre quaisquer insights que sejam particularmente importantes para o seu negócio (por exemplo, você quer ver como a IA trata seus clientes de fidelidade de forma diferente? Certifique-se de que o status de fidelidade esteja nos dados de cliente).
@@ -123,9 +123,9 @@ Se isso for viável, podemos fornecer um bucket GCS para exportar dados de clien
 ## Práticas recomendadas {#best-practices}
 
 - **Nomes de colunas descritivos:** Os dados de cliente devem ter nomes de colunas claros e descritivos. Idealmente, um dicionário de dados deve ser fornecido.
-- **Atualizações incrementais:** Arquivos incrementais são preferíveis em vez de snapshots de todo o histórico do cliente todos os dias.
-- **Identificadores consistentes:** Cada registro deve conter um identificador único de cliente que seja consistente em todos os ativos de dados.
-- **Inclua timestamps:** Os registros devem ter timestamps associados para atribuição precisa e treinamento do agente.
+- **Atualizações incrementais:** Arquivos incrementais são preferíveis em vez de snapshots de todo o histórico do cliente todos os dias
+- **Identificadores consistentes:** Cada registro deve conter um identificador único de cliente que seja consistente em todos os ativos de dados
+- **Inclua timestamps:** Os registros devem ter timestamps associados para atribuição precisa e treinamento do agente
 
 ## Integrações personalizadas {#custom-integrations}
 

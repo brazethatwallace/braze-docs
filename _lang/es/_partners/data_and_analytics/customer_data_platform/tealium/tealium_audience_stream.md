@@ -24,7 +24,7 @@ Tealium AudienceStreams y EventStreams ofrecen acciones de conector por lotes y 
 | Nombre | Descripción |
 | ---- | ----------- |
 | Cuenta Tealium | Se necesita una [cuenta Tealium](https://my.tealiumiq.com/) con acceso del lado del servidor. Recomendamos utilizar también las integraciones del lado del cliente para aprovechar esta asociación. |
-| Clave de API REST | Una clave de API REST de Braze con permisos `users.track`, `users.delete` y `subscription.status.set`.<br><br>Se puede crear en **panel de Braze > Consola para desarrolladores > Clave de API REST > Crear nueva clave de API**|
+| Clave de API REST | Una clave de API REST de Braze con permisos `users.track`, `users.delete` y `subscription.status.set`.<br><br>Se puede crear en **panel de Braze > Consola para desarrolladores > Clave de API REST > Crear nueva clave de API** |
 | [Punto de conexión REST de Braze]({{site.baseurl}}/api/basics/#endpoints) | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -68,7 +68,7 @@ Las señales son atributos especiales de los visitantes que representan patrones
 #### Ejemplo de atributo y señal {#attribute-and-badge-example}
 
 {% tabs local %}
-{% tab Attribute %}
+{% tab Atributo %}
 
 Crea un atributo de visitante "Lifetime Order Value" que calcule el importe acumulado gastado (`order_total`) por el cliente para todos los pedidos completados (evento de compra). Para configurar el valor de pedido de por vida en tu cuenta de Tealium, sigue las siguientes instrucciones:
 
@@ -85,7 +85,7 @@ Crea un atributo de visitante "Lifetime Order Value" que calcule el importe acum
 Ahora, todos los clientes tendrán un atributo de valor de pedido de por vida vinculado a ellos.
 
 {% endtab %}
-{% tab Badge %}
+{% tab Señal %}
 
 Puedes crear señales que te ayuden a clasificar y dirigirte a tus usuarios por determinados atributos que comparten. En el siguiente ejemplo, creamos una señal VIP para usuarios con un "Lifetime Order Value" superior a 500 $.
 
@@ -156,8 +156,8 @@ Esta acción te permite realizar un seguimiento de los atributos de usuario, eve
 | Evento | Un evento representa una ocurrencia única de un evento personalizado por un usuario particular en una marca de tiempo. Utiliza este campo para rastrear y mapear atributos de evento como los del [objeto de evento]({{site.baseurl}}/api/objects_filters/event_object/) de Braze. <br><br>- El atributo de evento `Name` es obligatorio para cada evento mapeado.<br>- El atributo de evento `Time` se establece automáticamente en now a menos que se mapee explícitamente. <br>- Por defecto, se crearán nuevos eventos si no existe ninguno. Si configuras `Update Existing Only` en `true`, solo se actualizarán los eventos existentes y no se creará ningún evento nuevo.<br>- Mapea atributos de tipo array para añadir múltiples eventos. Los atributos de tipo array deben tener la misma longitud.<br>- Se pueden utilizar atributos de valor único y aplicarlos a cada evento. |
 | Plantilla de eventos | Proporciona plantillas de eventos a las que hacer referencia en los datos del cuerpo. Las plantillas pueden utilizarse para transformar los datos antes de enviarlos a Braze. Consulta la [guía de plantillas](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) de Tealium para obtener más información. |
 | Variable de plantilla de evento | Proporciona variables de plantilla de eventos como entrada de datos. Consulta la [guía de variables de plantilla](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) de Tealium para obtener más información. |
-| Compra | Utiliza este campo para rastrear y mapear atributos de compra del usuario como los del [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) de Braze.<br><br>- Los atributos de compra `Product ID`, `Currency` y `Price` son obligatorios para cada compra mapeada.<br>- El atributo de compra `Time` se establece automáticamente en now a menos que se mapee explícitamente.<br>- Por defecto, se crearán nuevas compras si no existe ninguna. Si configuras `Update Existing Only` en `true`, solo se actualizarán las compras existentes y no se creará ninguna compra nueva.<br>- Mapea atributos de tipo array para añadir múltiples artículos de compra. Los atributos de tipo array deben tener la misma longitud.<br>- Se pueden utilizar atributos de valor único y se aplicarán a cada artículo.|
-| Plantilla de compra | Las plantillas pueden utilizarse para transformar los datos antes de enviarlos a Braze.<br>- Define una plantilla de compra si necesitas compatibilidad con objetos anidados.<br>- Cuando se define una plantilla de compra, la configuración establecida en la sección de compras de tu acción será ignorada.<br>- Consulta la [guía de plantillas](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) de Tealium para obtener más información.|
+| Compra | Utiliza este campo para rastrear y mapear atributos de compra del usuario como los del [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object/) de Braze.<br><br>- Los atributos de compra `Product ID`, `Currency` y `Price` son obligatorios para cada compra mapeada.<br>- El atributo de compra `Time` se establece automáticamente en now a menos que se mapee explícitamente.<br>- Por defecto, se crearán nuevas compras si no existe ninguna. Si configuras `Update Existing Only` en `true`, solo se actualizarán las compras existentes y no se creará ninguna compra nueva.<br>- Mapea atributos de tipo array para añadir múltiples artículos de compra. Los atributos de tipo array deben tener la misma longitud.<br>- Se pueden utilizar atributos de valor único y se aplicarán a cada artículo. |
+| Plantilla de compra | Las plantillas pueden utilizarse para transformar los datos antes de enviarlos a Braze.<br>- Define una plantilla de compra si necesitas compatibilidad con objetos anidados.<br>- Cuando se define una plantilla de compra, la configuración establecida en la sección de compras de tu acción será ignorada.<br>- Consulta la [guía de plantillas](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) de Tealium para obtener más información. |
 | Variable de plantilla de compra | Proporciona variables de plantilla de productos como entrada de datos. Consulta la [guía de variables de plantilla](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) de Tealium para obtener más información. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -216,7 +216,7 @@ Consulta la [documentación de Trace](https://docs.tealium.com/server-side/conne
 ## Demostración de integración {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Demostración de integración de Tealium AudienceStream" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Posibles excedentes de puntos de datos {#potential-data-point-overages}

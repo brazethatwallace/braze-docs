@@ -25,8 +25,9 @@ Die Integration von Braze und Segment ermöglicht es Ihnen, mit [Engage](https:/
 | Segment-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
 | Braze-Cloud-Ziel | Sie müssen in Ihrer Segment-Integration bereits [Braze als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
 | Braze-Datenimport-Schlüssel | Um Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren, müssen Sie einen Datenimport-Schlüssel generieren.<br><br>Der Kohortenimport befindet sich im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu diesem Feature zu erhalten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Kohorten-Ziel-Integration {#cohorts-destination-integration}
 
@@ -46,7 +47,7 @@ Hier finden Sie Ihren REST-Endpunkt und können Ihren Braze-Datenimport-Schlüss
 Folgen Sie den [Anweisungen von Segment](https://segment.com/docs/connections/destinations/catalog/actions-braze-cohorts/#getting-started) zur Einrichtung des Kohorten-Ziels, um Ihre Engage-Zielgruppen als Kohorten mit Braze zu synchronisieren.
 
 ### 4. Schritt: Erstellen Sie ein Braze-Segment aus der Engage-Zielgruppe {#step-4-create-a-braze-segment-from-the-engage-audience}
-Navigieren Sie in Braze zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **Segment Cohorts** als Filter. Von hier aus können Sie auswählen, welche Segment-Kohorte Sie einbeziehen möchten. Nachdem das Segment-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter bei der Erstellung einer Kampagne oder eines Canvas auswählen.
+Navigieren Sie in Braze zu **Segments**, erstellen Sie ein neues Segment und wählen Sie **Segment Cohorts** als Filter. Von hier aus können Sie auswählen, welche Segment-Kohorte Sie einbeziehen möchten. Nachdem das Segment-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter bei der Erstellung einer Campaign oder eines Canvas auswählen.
 
 ![]({% image_buster /assets/img/segment/segment3.png %})
 
@@ -73,22 +74,24 @@ Sie können wählen, welche Methode Sie verwenden möchten (oder beide verwenden
 
 Sie können berechnete Merkmale und Zielgruppen als `identify`-Aufrufe an Braze senden, um angepasste Attribute in Braze zu erstellen.
 
-Wenn Sie beispielsweise ein von Engage berechnetes Merkmal für „Zuletzt angesehener Artikel“ haben, finden Sie `last_product_viewed_item` im Braze-Profil der Nutzer:in unter **Angepasste Attribute**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe unter **Angepasste Attribute** als `true` aufgeführt finden.
+Wenn Sie beispielsweise ein von Engage berechnetes Merkmal für „Zuletzt angesehener Artikel“ haben, finden Sie `last_product_viewed_item` im Braze-Profil der Nutzer:in unter **Custom Attributes**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe unter **Custom Attributes** als `true` aufgeführt finden.
 
 | Berechnetes Merkmal | Zielgruppen |
 | -------------- | --------- |
 | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil listet „last_product_viewed_item“ als „Sweater“ auf.]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil führt „dormant_shopper“ als „true“ auf.]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Berechnete Merkmale und Zielgruppen" }
 
 {% endtab %}
 {% tab Track %}
 
 Sie können berechnete Merkmale und Zielgruppen als `track`-Aufrufe an Braze senden, um angepasste Events in Braze zu erstellen.
 
-Um das vorherige Beispiel fortzusetzen: Wenn eine Nutzer:in ein berechnetes Merkmal für „Zuletzt angesehener Artikel“ hat, erscheint dieses in den Braze-Profilen der Nutzer:innen als `Trait Computed` mit der entsprechenden Anzahl und dem letzten Zeitstempel unter **Angepasste Events**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe, die Anzahl und den letzten Zeitstempel unter **Angepasste Attribute** als `true` finden.
+Um das vorherige Beispiel fortzusetzen: Wenn eine Nutzer:in ein berechnetes Merkmal für „Zuletzt angesehener Artikel“ hat, erscheint dieses in den Braze-Profilen der Nutzer:innen als `Trait Computed` mit der entsprechenden Anzahl und dem letzten Zeitstempel unter **Custom Events**. Wäre dies stattdessen eine Engage-Zielgruppe, würden Sie Ihre Zielgruppe, die Anzahl und den letzten Zeitstempel unter **Custom Attributes** als `true` finden.
 
 | Berechnetes Merkmal | Zielgruppen |
 | -------------- | --------- |
 | ![Der Abschnitt für angepasste Events in einem Nutzerprofil listet „Trait Computed“ „1“ Mal auf, wobei der letzte Zeitpunkt „vor 20 Stunden“ ist.]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![Der Abschnitt für angepasste Attribute in einem Nutzerprofil listet „Audience Entered“ „1“ Mal auf, wobei der letzte Zeitpunkt „9. März um 1:45 Uhr“ ist.]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Berechnete Merkmale und Zielgruppen" }
 
 {% endtab %}
 {% endtabs %}

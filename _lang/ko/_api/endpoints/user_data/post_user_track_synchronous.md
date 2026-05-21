@@ -38,6 +38,8 @@ description: "이 문서에서는 동기식 사용자 추적 Braze 엔드포인�
 
 ## 사용량 제한 {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
 모든 고객에 대해 이 엔드포인트에 분당 500건의 기본 속도 제한을 적용합니다. 각 `/users/track/sync` 요청에는 최대 하나의 이벤트 오브젝트, 하나의 속성 오브젝트 또는 하나의 구매 오브젝트가 포함될 수 있습니다. 각 오브젝트(이벤트, 속성 및 구매 배열)는 각각 한 명의 사용자를 업데이트할 수 있습니다.
 
 ## 요청 본문 {#request-body}
@@ -66,7 +68,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | 선택 사항 | 하나의 속성 오브젝트 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) 보기 |
 | `events` | 선택 사항 | 하나의 이벤트 오브젝트 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) 보기 |
 | `purchases` | 선택 사항 | 하나의 구매 오브젝트 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 응답 {#responses}
 
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### 이메일로 커스텀 이벤트 업데이트 {#update-a-custom-event-by-email}
 
-#### 요청 {#request}
+#### 요청
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -183,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### 응답 {#response}
+#### 응답
 
 ```
 {
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### 사용자 별칭으로 구매 이벤트 업데이트 {#update-a-purchase-event-by-user-alias}
 
-#### 요청 {#request}
+#### 요청
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### 응답 {#response}
+#### 응답
 
 ```
 {

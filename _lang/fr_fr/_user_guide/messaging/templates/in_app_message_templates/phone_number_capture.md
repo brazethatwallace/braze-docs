@@ -2,13 +2,13 @@
 nav_title: Formulaire d'inscription SMS, RCS et WhatsApp
 article_title: Formulaire d'inscription SMS, RCS et WhatsApp
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "Cette page explique comment créer un formulaire d'inscription SMS, RCS et WhatsApp avec l'éditeur par glisser-déposer pour les messages in-app."
 ---
 
 # Formulaire d'inscription SMS, RCS et WhatsApp {#sms-rcs-and-whatsapp-sign-up-form}
 
-> Les formulaires d'inscription SMS, RCS et WhatsApp sont des modèles disponibles dans l'éditeur par glisser-déposer pour les In-App Messages. Utilisez ces modèles pour collecter les numéros de téléphone des utilisateurs et développer vos groupes d'abonnement SMS, MMS, RCS et WhatsApp.
+> Les formulaires d'inscription SMS, RCS et WhatsApp sont des modèles disponibles dans l'éditeur par glisser-déposer pour les messages in-app. Utilisez ces modèles pour collecter les numéros de téléphone des utilisateurs et développer vos groupes d'abonnement SMS, MMS, RCS et WhatsApp.
 
 ![Trois exemples de messages in-app créés à l'aide du modèle de formulaire d'inscription par téléphone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_example2.png %})
 
@@ -34,7 +34,7 @@ Pour commencer à créer votre formulaire d'inscription, sélectionnez le compos
 
 ![Zone de prévisualisation lors de la création d'un formulaire d'inscription avec le composant de saisie du numéro de téléphone sélectionné.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%"}
 
-Depuis le menu latéral, spécifiez le groupe d'abonnement pour lequel ce modèle collectera les numéros de téléphone. Pour respecter les bonnes pratiques de conformité, vous ne pouvez collecter le consentement que pour un seul groupe d'abonnement par formulaire d'inscription par numéro de téléphone. Cependant, si vous le souhaitez, vous pouvez utiliser plusieurs formulaires pour collecter le consentement pour d'autres groupes d'abonnement.
+Depuis le menu latéral, spécifiez le groupe d'abonnement pour lequel ce modèle collectera les numéros de téléphone. Pour respecter les bonnes pratiques de conformité, vous ne pouvez collecter le consentement que pour un seul groupe d'abonnement par formulaire d'inscription. Cependant, si vous le souhaitez, vous pouvez utiliser plusieurs formulaires pour collecter le consentement pour d'autres groupes d'abonnement.
 
 ![Menu déroulant des groupes d'abonnement avec un groupe d'abonnement sélectionné.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_subscription.png %}){: style="max-width:40%"}
 

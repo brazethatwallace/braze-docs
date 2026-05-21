@@ -3,6 +3,8 @@ layout: default
 hide_toc: true
 hide_bottom_nav: false
 hide_breadcrumb: false
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -31,201 +33,27 @@ hide_breadcrumb: false
 {%- unless hide_feedback -%}
 {%- assign hide_feedback = layout.hide_feedback -%}
 {%- endunless -%}
+{%- assign glossary_loc = site.data.i18n[site.language] -%}
+{%- assign i18n_en = site.data.i18n.en -%}
 
 {% unless hide_nav %}
 <!-- button id="sidebar_toggle" class="btn btn-info d-print-none" data-toggle="collapse" aria-expanded="true" href="#nav_bar" >
    <i class="fas"></i>
 </button -->
 
-<script type="text/javascript">
-
-$(document).ready(function() {
-  function string_to_slug(str) {
-    str = str.replace(/^\s+|\s+$/g, ''); // trim
-    str = str.toLowerCase();
-
-    // remove accents, swap ñ for n, etc
-    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-    var to   = "aaaaeeeeiiiioooouuuunc------";
-    for (var i=0, l=from.length ; i<l ; i++) {
-        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-    }
-
-  str = str.replace(/[\(\)]/g, '') // remove parenthesis
-        .replace(/[^a-z0-9 -]/g, '-') // remove invalid chars
-        .replace(/\s+/g, '-') // collapse whitespace and replace by -
-        .replace(/-+/g, '-');  // collapse dashes
-
-    return str;
-  }
-  function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  };
-
-
-  var alltags = {}
-
-  function matchterms(searchterm, items) {
-    var found = false;
-    if (Array.isArray(items)) {
-      for (var i = 0; i < items.length; i++ ) {
-        if (Array.isArray(searchterm)) {
-          for (var j = 0; j < searchterm.length; j++ ) {
-            if (items[i].trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
-              found = true
-            }
-          }
-        }
-        else {
-          if (items[i].trim().toLowerCase() == searchterm.trim().toLowerCase()) {
-            found = true
-          }
-        }
-      }
-    }
-    else {
-      if (Array.isArray(searchterm)) {
-        for (var j = 0; j < searchterm.length; j++ ) {
-          if (items.trim().toLowerCase() == searchterm[j].trim().toLowerCase()) {
-            found = true
-          }
-        }
-      }
-      else {
-        if (items.trim().toLowerCase().indexOf(searchterm.trim().toLowerCase()) > -1) {
-          found = true
-        }
-      }
-    }
-    return found;
-  }
-
-  function find_tags(){
-    var api_tags = $('.api_tags');
-    var alltags = {};
-    api_tags.each(function(k,v){
-      var curtag = $(this);
-      var tag_list = curtag.attr('data-tags').split(',');
-      for (var i = 0; i < tag_list.length; i++) {
-        var trimtag = tag_list[i].trim();
-        if (trimtag.toLowerCase() != 'all') {
-          alltags[trimtag.toLowerCase()] = trimtag;
-        }
-      }
-    });
-    return alltags;
-  }
-  function set_tags(alltags) {
-    var tag_div = $('#api_filter_list');
-    var sorted_tags = []
-    $.each(alltags, function(k,v){
-      sorted_tags.push(k)
-    });
-    sorted_tags.sort();
-    $.each(sorted_tags,function(k,v){
-      var filter_slug = string_to_slug(v);
-      var filter_div = $('<div>').addClass('api_filter_div');
-      var filter_label = $('<label>').attr('for','api_' + filter_slug);
-      var filter_cb = $('<input>').attr('id','api_' + filter_slug).attr('type','checkbox').attr('name','filter_' + filter_slug).val(v)
-      filter_label.append(filter_cb).append(' ' + alltags[v]);
-      filter_div.append(filter_label);
-      tag_div.append(filter_div);
-    })
-  }
-
-
-    function search_apis(api_hash) {
-      var result_cnt = 0;
-      $('#results_msg').hide();
-      var api_div = $('#api_list .api_div');
-      var search_str = $('#api_search').val().toLowerCase();
-      var selected_vals = [];
-      $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
-       selected_vals.push($(this).val());
-      })
-      var showall = true;
-      if (selected_vals.length || search_str) {
-        showall = false;
-      }
-      api_div.each(function(k,v){
-        var filtered = false;
-        var curdiv = $(this);
-        curdiv.show();
-        if (!showall) {
-          var curtag = curdiv.find('.api_tags').first();
-          var apitags = []
-          if (curtag) {
-            apitags = curtag.attr('data-tags-lower').split(',');
-          }
-
-          if (selected_vals.length) {
-            // api doesn't have an all tag filter explicitly
-            if (apitags.indexOf('all') == -1) {
-              // check if tag
-
-              if (!matchterms(selected_vals, apitags) && !filtered) {
-                filtered = true;
-              }
-            }
-          }
-          if (!filtered && search_str) {
-            var curcontent = curdiv.text().replace(/(\n|\r\n|\r)\d+/g,"").toLowerCase().replace(/\s\s+/g, ' ');
-            if (curcontent.indexOf(search_str) < 0) {
-              filtered = true
-            }
-          }
-          if (filtered) {
-            curdiv.hide();
-          }
-          else {
-            curdiv.show();
-            result_cnt++;
-          }
-        }
-      })
-      if (!result_cnt && !showall) {
-        $('#results_msg').html('<p>No APIs matching these filters</p>');
-        $('#results_msg').show();
-      }
-    };
-
-
-  function initialize() {
-    alltags = find_tags();
-    set_tags(alltags);
-    var query_str = getUrlParameter('tags').toLowerCase().split(',');
-    $('.api_filter_div input[type="checkbox"]').each(function(e){
-      $(this).on('click', function(e){
-        search_apis();
-      });
-      if (matchterms($(this).val(), query_str)) {
-        $(this).prop('checked',true);
-      }
-    });
-
-    if (query_str.length) {
-      search_apis();
-    }
-
-    $('#api_search').on('keyup',function(e){
-      search_apis();
-    });
-
-    var location_hash = (location.hash || "").replace('%20','-').replace('+','-').replace(/[^a-zA-Z0-9_-]+/g, '');
-    if (location_hash && $(location_hash).offset()) {
-      // Scroll to generated hash
-      $('html, body').animate({
-        scrollTop: $(location_hash).offset().top
-      });
-    }
-  };
-  initialize();
-});
+{%- comment -%} i18n data blobs — read by message_engagement_glossary.js {%- endcomment -%}
+<script type="application/json" id="glossary-currents-events-i18n-json">
+{
+  "noResults": {{ glossary_loc.glossary_currents_events_no_results | default: i18n_en.glossary_currents_events_no_results | jsonify }},
+  "showing": {{ glossary_loc.glossary_currents_events_showing | default: i18n_en.glossary_currents_events_showing | jsonify }},
+  "loading": {{ glossary_loc.glossary_currents_events_loading | default: i18n_en.glossary_currents_events_loading | jsonify }},
+  "loadError": {{ glossary_loc.glossary_currents_events_load_error | default: i18n_en.glossary_currents_events_load_error | jsonify }}
+}
 </script>
 
+{% javascript_asset_tag message_engagement_glossary %}
+- /assets/js/message_engagement_glossary.js
+{% endjavascript_asset_tag %}
 
 <div class="col-sm-12 col-md-3 col-lg-3 col-xl-2 d-print-none collapse d-md-block" id="nav_bar"  >
   <div id="nav_col" class="  ">
@@ -237,8 +65,11 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="api-main">
-
-    <div id="content_start"></div>
+    <div class="sr-only">
+      <div id="results_count_live" role="status" aria-atomic="true"></div>
+      <div id="results_msg_live" role="alert" aria-atomic="true"></div>
+    </div>
+    <div id="content_start" tabindex="-1"></div>
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
     </div>
@@ -247,12 +78,19 @@ $(document).ready(function() {
     {% multi_lang_include layouts/message_engagement_events_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="Search" aria-label="Search glossary" />
-        <div id="api_filter_list"></div>
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.glossary_currents_events_search_placeholder }}" aria-label="{{ glossary_loc.glossary_currents_events_search_aria }}" aria-describedby="search-hint" />
+        <span id="search-hint" class="sr-only">{{ glossary_loc.glossary_currents_events_search_hint }}</span>
+    </div>
+
+    <div id="results_count"></div>
+
+    {%- assign content_parts = content | split: '<!--overview-end-->' -%}
+    <div id="glossary-preamble" aria-label="Overview">
+      {{ content_parts[0] }}
     </div>
 
     <div id="api_list" class="flex mx-auto api_div">
-      {{content}}
+      {{ content_parts[1] }}
     </div>
     <div id="results_msg"></div>
 
@@ -274,11 +112,53 @@ $(document).ready(function() {
 
     {% include footer.html class="footer_api" %}
 </div>
-{%- unless hide_toc -%}
-<!-- button id="toc_toggle" class="btn btn-info collapsed notoc d-print-none" data-toggle="collapse" aria-expanded="false" href="#toc_col" >
-   <i class="fas"></i>
-</button -->
+
+{%- comment -%}
+  Right sidebar: filter panel replaces the TOC on this layout.
+  Checkboxes rendered at build time from i18n data (no JS DOM build cost).
+{%- endcomment -%}
+{%- assign tag_labels   = glossary_loc.currents_message_engagement_tag_labels | default: i18n_en.currents_message_engagement_tag_labels -%}
+{%- assign tag_groups   = glossary_loc.currents_message_engagement_tag_groups | default: i18n_en.currents_message_engagement_tag_groups -%}
+{%- assign group_labels = glossary_loc.currents_message_engagement_tag_group_labels | default: i18n_en.currents_message_engagement_tag_group_labels -%}
+{%- assign group_order  = "channel,action,journey" | split: "," -%}
 <div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
-  <div id="toc" ></div>
+  <aside id="glossary-filter-sidebar" aria-label="Filter by category">
+    <div id="api_filter_list">
+      {%- for group_id in group_order -%}
+        {%- assign group_label = group_labels[group_id] | default: group_id -%}
+        <fieldset class="api_filter_group">
+          <legend>{{ group_label }}</legend>
+          <div class="api_filter_group_list">
+            {%- assign group_index = 0 -%}
+            {%- for tag_entry in tag_groups -%}
+              {%- if tag_entry[1] == group_id -%}
+                {%- assign tag_key   = tag_entry[0] -%}
+                {%- assign tag_label = tag_labels[tag_key] | default: tag_key -%}
+                {%- assign filter_id = tag_key | downcase | replace: ' ', '-' -%}
+                {%- if group_index >= 4 -%}
+                  {%- assign overflow_class = " filter-overflow filter-overflow--hidden" -%}
+                {%- else -%}
+                  {%- assign overflow_class = "" -%}
+                {%- endif -%}
+                <div class="api_filter_div{{ overflow_class }}">
+                  <label for="api_{{ filter_id }}">
+                    <input id="api_{{ filter_id }}" type="checkbox" name="filter_{{ filter_id }}" value="{{ tag_key }}">
+                    {{ tag_label }}
+                  </label>
+                </div>
+                {%- assign group_index = group_index | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </fieldset>
+      {%- endfor -%}
+    </div>
+    <button id="glossary-filter-toggle" aria-expanded="false">
+      <span class="show-more-text">Show all filters</span>
+      <span class="show-less-text" aria-hidden="true">Show fewer filters</span>
+    </button>
+  </aside>
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>
-{%- endunless -%}

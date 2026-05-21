@@ -19,15 +19,15 @@ _この統合はAccuWeatherによって管理されています。_
 | 必要条件 | 説明 |
 |---|---|
 | AccuWeather APIキー | リクエストURLで使用する互換性のあるAPIキーについては、AccuWeatherアカウントマネージャーにお問い合わせください。<br><br>詳細な手順は、[AccuWeather Enterprise API](https://apidev.accuweather.com/developers/) ページに記載されています。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 利用可能なAccuWeather API {#available-accuweather-apis}
 
-以下は、BrazeのCampaignsやCanvasesで参照できるAccuWeather APIです。
+以下は、Brazeのキャンペーンやキャンバスで参照できるAccuWeather APIです。
 
 | API | 説明 |
 |---|---|
-|[Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | 希望のロケーションのロケーションキーを取得します。ロケーションキーを使用して、Forecast APIまたはCurrent Conditions APIから気象データを取得します。 |
+| [Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | 希望のロケーションのロケーションキーを取得します。ロケーションキーを使用して、Forecast APIまたはCurrent Conditions APIから気象データを取得します。 |
 | [Forecast](https://apidev.accuweather.com/developers/forecastsAPIguide) | 特定のロケーションの予報情報を取得します。 |
 | [Current Conditions](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) | 特定のロケーションのCurrent Conditionsデータを取得します。 |
 | [Indices](https://apidev.accuweather.com/developers/indicesApiGuide) | 特定のロケーションの日次指数値を取得します。インデックスの利用可能性はロケーションによって異なります。 |
@@ -36,7 +36,7 @@ _この統合はAccuWeatherによって管理されています。_
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | レーダーおよび衛星画像を取得します。 |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | 世界中の熱帯低気圧の現在位置、過去の位置、予報を取得します。 |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | 利用可能な言語のリストを取得します。特定のフレーズグループの翻訳を取得します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available AccuWeather APIs" }
 
 ## コネクテッドコンテンツの例 {#connected-content-example}
 

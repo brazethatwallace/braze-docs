@@ -2,7 +2,7 @@
 nav_title: SMS-, RCS- und WhatsApp-Registrierungsformular
 article_title: SMS-, RCS- und WhatsApp-Registrierungsformular
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "Diese Seite beschreibt, wie Sie ein SMS-, RCS- und WhatsApp-Registrierungsformular mit dem Drag-and-Drop-Editor für In-App-Nachrichten erstellen."
 ---
 

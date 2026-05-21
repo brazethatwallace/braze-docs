@@ -41,6 +41,8 @@ Pour utiliser les boutons d'action dans vos messages push iOS, procédez comme s
 {% alert note %}
 En raison de la gestion des boutons par iOS, vous devez effectuer des étapes d'intégration supplémentaires lors de la configuration des boutons d'action push, qui sont décrites dans notre [documentation développeur]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). En particulier, vous devez soit configurer les catégories iOS, soit sélectionner certaines options de boutons par défaut. Pour les intégrations Android, ces boutons fonctionnent automatiquement.
 {% endalert %}
+
+Les paires prédéfinies telles que **Yes** / **No** associent le deuxième bouton à une action de fermeture (**CLOSE**) par défaut, de sorte qu'il n'ouvre pas l'application de la même manière que le premier bouton. Les **_Ouvertures directes_** n'incluent pas ce type d'appui, mais les données **Push Notification Open** dans Currents ou Snowflake peuvent tout de même l'enregistrer avec `button_action_type` et `button_string`. Pour en savoir plus, consultez [Boutons d'action push et reporting]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -70,6 +72,6 @@ Le tableau suivant indique le nombre de caractères que vous pouvez ajouter avan
 | 1 | 46 caractères |
 | 2 | 20 caractères |
 | 3 | 11 caractères |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}

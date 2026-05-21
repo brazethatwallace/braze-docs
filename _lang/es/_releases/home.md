@@ -14,11 +14,146 @@ page_type: reference
 Para obtener más información sobre cualquiera de las actualizaciones enumeradas en esta página, ponte en contacto con tu director de cuentas o [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support/). También puedes consultar nuestros [registros de cambios del SDK]({{site.baseurl}}/developer_guide/changelogs/) para obtener más información sobre nuestras versiones mensuales del SDK, mejoras y cambios de última hora.
 {% endalert %}
 
+{% details 30 de abril de 2026 %}
+
+## Lanzamiento del 30 de abril de 2026 {#april-30-2026-release}
+
+### Datos e informes {#data-reporting}
+
+#### Adición rápida de usuario para la creación de perfiles individuales {#quick-user-add-for-individual-profile-creation}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Ahora puedes crear un perfil de usuario individual desde **Import Users** seleccionando **Quick User Add** e introduciendo un correo electrónico o un ID externo.
+
+Anteriormente, la creación de usuarios desde este flujo de trabajo requería la carga de un CSV o un método de ingesta automatizado.
+
+Para más información, consulta [Importación de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+
+#### Sincronizaciones CDI sin copia para desencadenantes de Canvas {#zero-copy-cdi-syncs-for-canvas-triggers}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+CDI ahora admite el tipo de datos `Canvas triggers` para la personalización sin copia. Puedes desencadenar Canvas desde datos del almacén o de S3 y pasar campos de contexto sin persistir esos campos en los perfiles de usuario de Braze.
+
+Anteriormente, las sincronizaciones CDI requerían que los datos se escribieran en los perfiles de Braze para este tipo de flujo de trabajo de personalización.
+
+Para más información, consulta [Personalización sin copia usando CDI]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/zero_copy_sync/).
+
+#### Eventos recomendados de comercio electrónico {#ecommerce-recommended-events}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Los [eventos recomendados de comercio electrónico]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/) cubren seis pasos en el recorrido de compra: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` y `order_refunded`. Cuando envías estos eventos correctamente, Braze valida los datos y los pone a disposición de un conjunto creciente de características de la plataforma.
+
+### Currents y Datashare {#currents-and-datashare}
+
+#### Nuevas actualizaciones de Currents para Banner y WhatsApp {#new-banner-and-whatsapp-currents-updates}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Currents y Datashare ahora incluyen un nuevo evento `Banner.Dismiss` y campos adicionales para los eventos existentes de WhatsApp.
+
+Anteriormente, estos eventos de descarte de Banner y los campos de WhatsApp no estaban disponibles en los datos de exportación.
+
+Para más información, consulta el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+
+### Orquestación {#orchestration}
+
+#### Traducciones multilingües {#multi-language-translations}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Compón [mensajes multilingües]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) con una configuración rápida y única de locales que no requiere código complejo y te permite enviar a todos tus mercados con confianza.
+
+#### Migración de permisos granulares {#granular-permissions-migration}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Gestionar quién puede acceder a tu cuenta y realizar acciones específicas es fundamental tanto para la seguridad como para la eficiencia operativa. Para darte más control, Braze está introduciendo [permisos granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration/), una forma más flexible y precisa de gestionar el acceso de los usuarios en toda tu cuenta.
+
+#### Componente de Canvas Enviar a destino {#send-to-destination-canvas-component}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+El [paso Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination/) te permite enviar usuarios de un Canvas a otro. Por ejemplo, si tienes dos Canvas que comparten mensajería para ofertas promocionales, puedes usar Enviar a destino para conectar estos Canvas.
+
+#### Mejoras en el contexto de Canvas {#canvas-context-enhancements}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+En Canvas, ahora puedes hacer referencia a variables de contexto para configurar:
+
+- Un evento de eliminación para Content Cards
+- La expiración de Content Cards
+
+Para más detalles, consulta [Creación de tarjetas]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/?tab=canvas).
+
+#### Comportamiento de avance de validación de entrega para pasos de mensaje {#delivery-validation-advancement-behavior-for-message-steps}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Las [validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) proporcionan una comprobación adicional para confirmar que tu audiencia cumple los criterios de entrega en el momento del envío del mensaje. Si un usuario no cumple las validaciones de entrega establecidas para un paso de mensaje, puedes usar la configuración **Delivery validations advancement behavior** para determinar si el usuario debe avanzar al siguiente paso o salir del Canvas.
+
+#### Límites de velocidad de mensajería del espacio de trabajo {#workspace-messaging-rate-limits}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Usa los [límites de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/) para regular la velocidad de entrega de tus mensajes salientes desde tu plataforma y asegurarte de que tus usuarios reciben los mensajes que necesitan. Los límites de velocidad de mensajería del espacio de trabajo se están implementando gradualmente, por lo que es posible que aún no veas estas configuraciones en tu dashboard.
+
+### Canales y puntos de intervención {#channels-touchpoints}
+
+#### Constructor de plantillas de WhatsApp {#whatsapp-template-builder}
+
+{% multi_lang_include release_type.md release="Early access" %}
+
+El [constructor de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/) te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y el Meta Business Manager. Después de que Meta apruebe tu plantilla, úsala en tantas campañas y Canvas como desees.
+
+#### Etiquetas de producto, metacampos y colecciones de Shopify {#shopify-product-tags-metafields-and-collections}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Ahora puedes [sincronizar etiquetas de producto, colecciones y metacampos de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/) desde tu tienda Shopify a tu catálogo de Braze. Esto proporciona datos de producto más ricos para la personalización, segmentación y mensajería basada en catálogos sin soluciones personalizadas.
+
+### Asociaciones {#partnerships}
+
+#### GRAVITY - Datos y análisis - Fidelización {#gravity-data-and-analytics-loyalty}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[GRAVTY®](https://www.lji.io/) es una plataforma de fidelización de nivel empresarial de Loyalty Juggernaut Inc. (LJI) que permite a las marcas de retail, viajes, restaurantes (incluidos los de servicio rápido) y servicios financieros diseñar, gestionar y escalar programas de nueva generación, impulsando un crecimiento medible en la interacción, la retención y el valor de duración del ciclo de vida del cliente a través de experiencias personalizadas y basadas en datos.
+
+<!-- Use this section to list any new SDKs or SDK updates that are already released. -->
+### SDK
+
+Se han publicado las siguientes actualizaciones del SDK. Para más detalles, consulta los [registros de cambios del SDK]({{site.baseurl}}/releases/sdk_changelogs/).
+
+#### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
+
+- [React Native SDK 19.2.0](https://github.com/braze-inc/braze-react-native-sdk/releases/tag/19.2.0)
+    - Compatibilidad con la inicialización diferida.
+- [Android SDK 42.0.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.0.0)
+    - Correcciones de errores para In-App Messages y Banners.
+- [Swift SDK 14.1.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/14.1.0)
+    - Compatibilidad con descartes de Banner.
+- [Web SDK 6.7.0](https://github.com/braze-inc/braze-web-sdk/releases/tag/v6.7.0)
+    - Compatibilidad con descartes de Banner.
+- [Android SDK 42.1.0](https://github.com/braze-inc/braze-android-sdk/releases/tag/v42.1.0)
+    - Compatibilidad con descartes de Banner.
+- [Braze Segment Android 17.0.0](https://github.com/braze-inc/braze-segment-android/releases/tag/v17.0.0)
+    - Esta es la versión final del plugin Braze Segment Android porque utiliza Analytics-Android, que llegó al fin de soporte en marzo de 2026. Migra al [plugin Braze Segment Kotlin](https://github.com/braze-inc/braze-segment-kotlin), que utiliza [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin).
+    - Actualiza las versiones del SDK nativo.
+
+{% enddetails %}
 {% details 2 de abril de 2026 %}
 
 ## Lanzamiento del 2 de abril de 2026 {#april-2-2026-release}
 
-### Datos e informes {#data-reporting}
+### Datos e informes
 
 #### Nuevos campos del canal Banner en eventos de Currents y Datashare {#new-banner-channel-fields-in-currents-and-datashare-events}
 
@@ -42,28 +177,28 @@ La Ingesta de datos en la nube (CDI) tiene un nuevo diseño que separa las fuent
 
 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) ahora incluye un flujo para enviar tickets de soporte de Braze sin salir del dashboard. Para conocer los pasos, el contexto incluido automáticamente y los consejos para una resolución más rápida, consulta [Enviar tickets de soporte con BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/).
 
-### Orquestación {#orchestration}
+### Orquestación
 
-#### Traducciones multilingües {#multi-language-translations}
+#### Traducciones multilingües
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Después de añadir locales a tu espacio de trabajo, usa las [traducciones multilingües]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para dirigirte a usuarios en diferentes idiomas, todo dentro de un solo push, correo electrónico, Banner, mensaje dentro de la aplicación o Content Block.
+Después de añadir locales a tu espacio de trabajo, usa las [traducciones multilingües]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) para dirigirte a usuarios en diferentes idiomas, todo dentro de un solo push, correo electrónico, Banner, mensaje dentro de la aplicación o Content Block.
 
 ![Vistas previas de locales]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
-#### Mejoras en el contexto de Canvas {#canvas-context-enhancements}
+#### Mejoras en el contexto de Canvas
 
 {% multi_lang_include release_type.md release="General availability" %}
 
 En Canvas, ahora puedes hacer referencia a variables de contexto para configurar:
 
-- Una [expiración]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/#set-an-expiration) para Banners y mensajes dentro de la aplicación en un paso de mensaje
-- [Retrasos personalizados]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/#action-path-delays) para los pasos de rutas de acción
+- Una [expiración]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#set-an-expiration) para Banners y mensajes dentro de la aplicación en un paso de mensaje
+- [Retrasos personalizados]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#action-path-delays) para los pasos de Rutas de acción
 
-En el campo de nombre de variable de contexto, también puedes escribir el nombre de la variable de contexto o seleccionarlo del menú desplegable en el editor de pasos. Para más detalles, consulta [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) y [Variables de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/).
+En el campo de nombre de variable de contexto, también puedes escribir el nombre de la variable de contexto o seleccionarlo del menú desplegable en el editor de pasos. Para más detalles, consulta [Contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/) y [Variables de contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/).
 
-### Canales y puntos de intervención {#channels-touchpoints}
+### Canales y puntos de intervención
 
 #### KakaoTalk
 
@@ -77,9 +212,9 @@ En el campo de nombre de variable de contexto, también puedes escribir el nombr
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Puedes usar [Banners]({{site.baseurl}}/user_guide/channels/banners/) como canal de mensajería en los [pasos de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) de Canvas. Los Banners te permiten personalizar el contenido de la aplicación o el sitio web de forma dinámica, reflejando la elegibilidad y el comportamiento del usuario en tiempo real.
+Puedes usar [Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/) como canal de mensajería en los [pasos de mensaje]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step/) de Canvas. Los Banners te permiten personalizar el contenido de la aplicación o el sitio web de forma dinámica, reflejando la elegibilidad y el comportamiento del usuario en tiempo real.
 
-### Asociaciones {#partnerships}
+### Asociaciones
 
 #### CataBoom - Personalización de mensajes - Contenido visual e interactivo {#cataboom-message-personalization-visual-and-interactive-content}
 
@@ -103,7 +238,7 @@ Con la [Sincronización de audiencias de Braze con The Trade Desk]({{site.baseur
 
 Usa asistentes de codificación con IA para acelerar tu flujo de trabajo de integración con Braze conectando tu entorno de desarrollo integrado (IDE) al MCP de Braze Docs a través de Context7. Esto le da a tu asistente acceso directo a la documentación actual de Braze, para que pueda generar orientación más precisa sobre el SDK, ejemplos de código y ayuda para la solución de problemas en tu entorno de desarrollo. Para los pasos de configuración en Cursor, Claude Desktop y VS Code, consulta [Construir con un LLM]({{site.baseurl}}/developer_guide/getting_started/build_with_llm/#connecting-to-the-braze-docs-mcp).
 
-#### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
+#### Actualizaciones de última hora del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
@@ -133,7 +268,7 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 ## Lanzamiento del 5 de marzo de 2026 {#march-5-2026-release}
 
-### Datos e informes {#data-reporting}
+### Datos e informes
 
 #### Nuevo centro de datos {#new-data-center}
 
@@ -163,11 +298,11 @@ Los [eventos de Currents y Data Share]({{site.baseurl}}/user_guide/data/distribu
 - `agentconsole.ToolInvocation`: Se añadió `request_id` (string) — un ID único para la solicitud general del LLM y la ejecución completa.
 - `users.messages.rcs.InboundReceive`: Se añadió `canvas_variation_name` (string) — el nombre de la variación de Canvas que recibió el usuario.
 
-#### Campos de Campaigns y Canvas para Snowflake Data Share {#campaign-and-canvas-fields-for-snowflake-data-share}
+#### Campos de campañas y Canvas para Snowflake Data Share {#campaign-and-canvas-fields-for-snowflake-data-share}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-for-data-sharing-3) ahora incluye campos adicionales que reflejan información de Campaigns y Canvas en 66 tablas existentes, incluyendo:
+[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/#changes-for-data-sharing-3) ahora incluye campos adicionales que reflejan información de campañas y Canvas en 66 tablas existentes, incluyendo:
 
 - `campaign_name`
 - `canvas_name`
@@ -197,7 +332,7 @@ El [dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analyt
 
 Los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/) son ayudantes impulsados por IA que puedes crear dentro de Braze. Los agentes pueden generar contenido, tomar decisiones inteligentes y enriquecer tus datos para que puedas ofrecer experiencias del cliente más personalizadas. Cuando creas un agente, defines su propósito y estableces las directrices sobre cómo debe comportarse. Una vez activo, el agente puede [desplegarse]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/) en Braze para generar textos personalizados, tomar decisiones en tiempo real o actualizar campos de catálogo.
 
-### Orquestación {#orchestration}
+### Orquestación
 
 #### Permisos granulares de usuario {#granular-user-permissions}
 
@@ -217,7 +352,7 @@ Al configurar un límite de velocidad de entrega para una campaña multicanal o 
 
 Los [pasos de contexto en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) te permiten crear y actualizar una o más variables para un usuario a medida que avanza por un Canvas. Por ejemplo, si tienes un Canvas que gestiona descuentos de temporada, puedes usar una variable de contexto para almacenar un código de descuento diferente cada vez que un usuario entra en el Canvas.
 
-### Canales y puntos de intervención {#channels-touchpoints}
+### Canales y puntos de intervención
 
 #### Traducir locales en Content Blocks {#translate-locales-in-content-blocks}
 
@@ -225,7 +360,7 @@ Los [pasos de contexto en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/c
 
 Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuarios en diferentes idiomas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) todo dentro de un Content Block.
 
-### Asociaciones {#partnerships}
+### Asociaciones
 
 #### Algolia - Búsqueda y recomendaciones {#algolia-search-recommendations}
 
@@ -285,7 +420,7 @@ Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuario
 
 ### SDK
 
-#### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
+#### Actualizaciones de última hora del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
@@ -327,15 +462,15 @@ El [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optim
 
 Basado en un optimizador bandido de brazos múltiples no contextual, el Optimizador de contenidos envía un único mensaje por usuario, determinando qué combinación de variantes de componentes entregar basándose en recomendaciones predictivas. A medida que el paso recopila datos con el tiempo, las variantes de alto rendimiento aumentan de forma natural la asignación de envíos, mientras que las variantes de bajo rendimiento disminuyen. El Optimizador de contenidos funciona mejor con Canvas de envío repetido que tengan un volumen de usuarios diario constante (al menos unos miles de usuarios al día) para habilitar la optimización continua.
 
-### Datos e informes {#data-reporting}
+### Datos e informes
 
-#### Eventos recomendados de comercio electrónico {#ecommerce-recommended-events}
+#### Eventos recomendados de comercio electrónico
 
 {% multi_lang_include release_type.md release="Early access" %}
 
 Para hacer coincidir los eventos recomendados de comercio electrónico con el evento de compra existente, añadimos el [evento de conversión "Realiza pedido"]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/#conversions-report), que es similar a "Realiza compra".
 
-### Canales y puntos de intervención {#channels-touchpoints}
+### Canales y puntos de intervención
 
 #### Traducir locales en banners {#translate-locales-in-banners}
 
@@ -355,7 +490,7 @@ Después de añadir locales a tu espacio de trabajo, puedes [dirigirte a usuario
 
 Usa el [calentamiento de IP automatizado]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#automated-ip-warming) para aumentar gradualmente tu volumen de envíos diarios, permitiendo que los proveedores de buzones de entrada aprendan y confíen en tus patrones de envío. Braze envía primero a tus suscriptores más comprometidos, lo que permite que el volumen diario crezca a un ritmo acorde con las mejores prácticas.
 
-### Asociaciones {#partnerships}
+### Asociaciones
 
 #### LinkedIn – Sincronización de audiencias en Canvas {#linkedin-canvas-audience-sync}
 
@@ -389,7 +524,7 @@ La plataforma de datos de comportamiento de [Fullstory]({{site.baseurl}}/partner
 
 Ahora se pueden añadir activos de la biblioteca multimedia a través de la API, lo que permite a los clientes, socios y agencias automatizar más sus flujos de trabajo de creación de mensajes. Usa la [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create/) para subir un archivo de activos directamente o copiar un archivo de una URL existente. Esta característica desbloquea las capacidades de integración y automatización.
 
-### Currents y Datashare {#currents-and-datashare}
+### Currents y Datashare
 
 #### Eventos de la Consola de Agente para destinos de almacenamiento y Datashare {#agent-console-events-for-storage-destinations-and-datashare}
 
@@ -429,7 +564,7 @@ El [evento de apertura de correo electrónico]({{site.baseurl}}/user_guide/data/
 
 Se han publicado las siguientes actualizaciones del SDK. Swift SDK v14.0.1 corrige un problema con el manejo de los enlaces universales. Android SDK v40.2.0 corrige una posible fuga de memoria y resuelve un problema con la apertura de varias sesiones cuando hay actividades transparentes. Expo SDK v3.2.0 añade la opción `forwardUniversalLinks` (predeterminada: false) para configurar el manejo nativo del SDK Swift de los enlaces universales.
 
-#### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
+#### Actualizaciones de última hora del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
@@ -446,7 +581,7 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 {% details 8 de enero de 2026 %}
 ## Lanzamiento del 8 de enero de 2026 {#january-8-2026-release}
 
-### Datos e informes {#data-reporting}
+### Datos e informes
 
 #### Actualizaciones de los eventos de Currents {#updates-to-currents-events}
 
@@ -476,16 +611,16 @@ Consulta el [registro de cambios de Currents]({{site.baseurl}}/user_guide/data/d
 
 En el [panel **Sync Log** de la Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_logs/#exporting-sync-logs), puedes elegir exportar los registros a nivel de fila de una ejecución de sincronización por:
 
-* **Rows with errors:** Descarga un archivo que contiene solo las filas que tenían un estado de **Error**.
-* **All rows:** Descarga un archivo que contiene todas las filas procesadas en la ejecución.
+* **Filas con errores:** Descarga un archivo que contiene solo las filas que tenían un estado de **Error**.
+* **Todas las filas:** Descarga un archivo que contiene todas las filas procesadas en la ejecución.
 
-### Canales y puntos de intervención {#channels-touchpoints}
+### Canales y puntos de intervención
 
 #### Conector WhatsApp "Trae tu propio" (BYO) {#bring-your-own-byo-whatsapp-connector}
 
 El [conector Bring Your Own (BYO) WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/byo_connector/) ofrece una asociación entre Braze e Infobip, en la que das acceso a Braze a tu administrador de negocios WhatsApp de Infobip (WABA). Esto te permite gestionar y pagar los costes de mensajería directamente con Infobip mientras utilizas Braze para la segmentación, personalización y orquestación de campañas.
 
-#### Banners en Canvas {#banners-in-canvas}
+#### Banners en Canvas
 
 {% multi_lang_include release_type.md release="Early access" %}
 
@@ -501,13 +636,13 @@ Con el [CCO dinámico]({{site.baseurl}}/user_guide/administer/global/workspace_s
 
 Como alternativa a un límite de velocidad que se comparte en toda una campaña multicanal o Canvas, puedes seleccionar un límite de velocidad específico por canal. En este caso, el límite de velocidad se aplicará a cada uno de tus canales seleccionados. Por ejemplo, puedes configurar tu campaña o Canvas para que envíe un máximo de 5.000 webhooks y 2.500 mensajes SMS por minuto en toda la campaña o Canvas. Para más detalles, consulta [Limitación de velocidad y limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
 
-### Asociaciones {#partnerships}
+### Asociaciones
 
 #### LILT - Localización {#lilt-localization}
 
 [LILT]({{site.baseurl}}/partners/lilt/) es la solución completa de IA para la traducción y la creación de contenidos empresariales. LILT permite a las organizaciones globales escalar y optimizar sus contenidos, productos, comunicaciones y operaciones de soporte, con agentes de IA y flujos de trabajo totalmente automatizados.
 
-### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
+### Actualizaciones de última hora del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
@@ -524,13 +659,13 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 ## 9 de diciembre de 2025 {#december-9-2025}
 
-### Datos e informes {#data-reporting}
+### Datos e informes
 
 #### Añadir Google Tag Manager a una página de destino {#adding-google-tag-manager-to-a-landing-page}
 
 Para añadir Google Tag Manager a tus páginas de destino, añade un bloque de código personalizado a tu página de destino en el editor de arrastrar y soltar, y luego [inserta el código de Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages/#adding-google-tag-manager-to-a-landing-page) en el bloque.
 
-### Orquestación {#orchestration}
+### Orquestación
 
 #### Caso de uso de SMS con Liquid {#sms-liquid-use-case}
 
@@ -540,7 +675,7 @@ El caso de uso [Responder con mensajes diferentes en función de la palabra clav
 
 Puedes añadir a la lista de permitidos URL específicas para usarlas con [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/). Para acceder a esta característica, ponte en contacto con tu administrador del éxito del cliente.
 
-### Canales y puntos de intervención {#channels-touchpoints}
+### Canales y puntos de intervención
 
 #### Codificación de caracteres SMS {#sms-character-encoding}
 
@@ -554,7 +689,7 @@ Dado que la API de MM para WhatsApp no ofrece una capacidad de entrega del 100%,
 
 Para reorientar a los usuarios, recomendamos crear un segmento de usuarios que no recibieron un mensaje específico. Para ello, filtra por el código de error `131049`, que indica que no se ha enviado un mensaje de plantilla de marketing debido a la aplicación del límite de plantillas de marketing por usuario de WhatsApp. Puedes hacerlo [utilizando Braze Currents o extensiones de segmento SQL]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery/#retargeting-users-on-other-braze-channels).
 
-### Asociaciones {#partnerships}
+### Asociaciones
 
 #### OtherLevels - Contenido dinámico {#otherlevels-dynamic-content}
 
@@ -562,7 +697,7 @@ Para reorientar a los usuarios, recomendamos crear un segmento de usuarios que n
 
 ### SDK
 
-#### Actualizaciones de última hora del SDK {#sdk-breaking-updates}
+#### Actualizaciones de última hora del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
@@ -728,7 +863,7 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 [BrazeAI Decisioning Studio™](https://www.braze.com/product/brazeai-decisioning-studio/) sustituye las pruebas A/B por la toma de decisiones con IA que lo personaliza todo y maximiza cualquier métrica: impulsa los ingresos, no los clics. Con BrazeAI Decisioning Studio™, puedes optimizar cualquier KPI empresarial. Consulta nuestra sección dedicada [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/) para ver ejemplos de casos de uso y características clave.
 
-### Flexibilidad de los datos {#data-flexibility}
+### Flexibilidad de los datos
 
 #### Nuevos eventos de Currents {#new-currents-events}
 
@@ -773,11 +908,11 @@ Las [listas de supresión]({{site.baseurl}}/user_guide/audience/suppression_list
 
 Sincroniza los desencadenantes de Canvas utilizando la Ingesta de datos en la nube para una [personalización sin copia]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/zero_copy_sync/). Esta característica accede a información específica del usuario desde tu solución de almacenamiento de datos y la pasa a un Canvas de destino. Los pasos en Canvas pueden incluir opcionalmente campos de personalización que no persisten en los perfiles de usuario de Braze.
 
-#### Variables de contexto de Canvas para rutas de audiencia y pasos de división de decisiones {#canvas-context-variables-for-audience-paths-and-decision-split-steps}
+#### Variables de contexto de Canvas para Rutas de audiencia y pasos de División de decisiones {#canvas-context-variables-for-audience-paths-and-decision-split-steps}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Puedes [crear filtros de variables de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters) que utilicen variables de contexto previamente declaradas en las [rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) y en los pasos de [división de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/).
+Puedes [crear filtros de variables de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters) que utilicen variables de contexto previamente declaradas en las [Rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) y en los pasos de [División de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/).
 
 ### Desbloquear la creatividad {#unlocking-creativity}
 
@@ -789,9 +924,9 @@ Usa las [tarjetas de ofertas]({{site.baseurl}}/user_guide/channels/email/html_ed
 
 Cuando [compongas tu Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/), ahora puedes empezar con una plantilla en blanco, usar una plantilla de Braze o seleccionar una plantilla de Banner guardada.
 
-### Canales robustos {#robust-channels}
+### Canales robustos
 
-#### Listas de supresión {#suppression-lists}
+#### Listas de supresión
 
 {% multi_lang_include release_type.md release="General availability" %}
 
@@ -823,9 +958,9 @@ Los [mensajes de producto]({{site.baseurl}}/user_guide/channels/whatsapp/message
 
 #### Integración de Braze y WhatsApp con un sistema externo {#integrating-braze-and-whatsapp-with-an-external-system}
 
-[Aprovecha el poder de los chatbots de IA y las entregas de agentes en vivo]({{site.baseurl}}/user_guide/channels/whatsapp/use_cases/whatsapp_and_external_systems/) en el canal de WhatsApp para agilizar tus operaciones de atención al cliente. Automatizando las consultas rutinarias y pasando fácilmente a agentes humanos cuando sea necesario, puedes mejorar significativamente los tiempos de respuesta y mejorar la experiencia general del cliente.
+[Aprovecha el poder de los chatbots de IA y las entregas a agentes en vivo]({{site.baseurl}}/user_guide/channels/whatsapp/use_cases/whatsapp_and_external_systems/) en el canal de WhatsApp para agilizar tus operaciones de atención al cliente. Automatizando las consultas rutinarias y pasando fácilmente a agentes humanos cuando sea necesario, puedes mejorar significativamente los tiempos de respuesta y mejorar la experiencia general del cliente.
 
-### Automatización de IA y ML {#ai-and-ml-automation}
+### Automatización de IA y ML
 
 #### Agentes de Braze {#braze-agents}
 
@@ -833,7 +968,7 @@ Los [mensajes de producto]({{site.baseurl}}/user_guide/channels/whatsapp/message
 
 Los [agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/) son ayudantes impulsados por IA que puedes crear dentro de Braze. Los agentes pueden generar contenido, tomar decisiones inteligentes y enriquecer tus datos para que puedas ofrecer experiencias del cliente más personalizadas.
 
-### Nuevas asociaciones de Braze {#new-braze-partnerships}
+### Nuevas asociaciones de Braze
 
 #### Jasper - Plantillas {#jasper-templates}
 
@@ -843,7 +978,7 @@ La integración de [Jasper]({{site.baseurl}}/partners/jasper/) con Braze te perm
 
 [Swym]({{site.baseurl}}/partners/swym/) ayuda a las marcas de comercio electrónico a captar la intención de compra con listas de deseos, guardar para más tarde, registro de regalos y alertas de existencias. Utilizando datos ricos y basados en permisos, puedes crear campañas hiperdirigidas y entregar experiencias de compra personalizadas que impulsen la interacción, aumenten las conversiones e incrementen la fidelización.
 
-### Actualizaciones del SDK {#sdk-updates}
+### Actualizaciones del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; puedes encontrar el resto de actualizaciones consultando los correspondientes registros de cambios del SDK.
 
@@ -880,7 +1015,7 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 ## Lanzamiento del 16 de septiembre de 2025 {#september-16-2025-release}
 
-### Flexibilidad de los datos {#data-flexibility}
+### Flexibilidad de los datos
 
 #### Plataforma de datos de Braze {#braze-data-platform}
 
@@ -906,13 +1041,13 @@ Al utilizar contenido conectado de Braze, es posible que determinadas API requie
 
 Puedes guardar códigos promocionales en el perfil de un usuario mediante un paso de actualización de usuario. Para más información, consulta [Guardar códigos promocionales en perfiles de usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#save-to-profile).
 
-### Desbloquear la creatividad {#unlocking-creativity}
+### Desbloquear la creatividad
 
 #### Braze Pilot
 
 [Braze Pilot]({{site.baseurl}}/user_guide/get_started/braze_pilot/) es una aplicación disponible públicamente para Android e iOS que te permite lanzar mensajes desde tu dashboard de Braze a tu teléfono. Consulta [Introducción a Braze Pilot]({{site.baseurl}}/user_guide/get_started/braze_pilot/getting_started/) para ver cómo descargar la aplicación, iniciar la conexión a tu dashboard de Braze y completar la configuración.
 
-### Nuevas asociaciones de Braze {#new-braze-partnerships}
+### Nuevas asociaciones de Braze
 
 #### Blings - Contenido visual e interactivo {#blings-visual-and-interactive-content}
 
@@ -924,7 +1059,7 @@ Para las tiendas en línea de Shopify, recomendamos usar el método de integraci
 
 Sin embargo, entendemos que tal vez prefieras usar una herramienta de terceros, como Google Tag Manager, por lo que hemos elaborado una guía sobre cómo hacerlo. Para empezar, consulta [Shopify: etiquetado de terceros]({{site.baseurl}}/shopify_standard_integration_third_party_tagging/).
 
-### Actualizaciones del SDK {#sdk-updates}
+### Actualizaciones del SDK
 
 Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
 
@@ -934,115 +1069,5 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 - [Braze Swift SDK 7.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md#1300)
   - Actualiza los enlaces del SDK Swift de Braze para que requieran versiones de la denominación `13.0.0+` SemVer. Esto permite la compatibilidad con cualquier versión del SDK de Braze desde `13.0.0` hasta, pero sin incluir, `14.0.0`.
-
-{% enddetails %}
-{% details 19 de agosto de 2025 %}
-
-## Lanzamiento del 19 de agosto de 2025 {#august-19-2025-release}
-
-### Normalización de la coherencia horaria con el contexto de Canvas {#time-zone-consistency-standardization-to-canvas-context}
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-Si participas en el [acceso anticipado al paso de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/), todas las marcas de tiempo con un tipo de fecha/hora de las propiedades del evento desencadenante en los Canvas basados en acciones se normalizarán siempre a [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). Para saber más sobre esto, consulta [Normalización de la coherencia horaria]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#time-zone-consistency-standardization).
-
-### Flexibilidad de los datos {#data-flexibility}
-
-#### Dominios personalizados en autogestión {#self-serve-custom-domains}
-
-{% multi_lang_include release_type.md release="General access" %}
-
-Los [dominios personalizados en autogestión]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/) te permiten configurar y gestionar tus propios dominios personalizados para SMS, RCS y WhatsApp, directamente desde tu dashboard de Braze. Puedes añadir, supervisar y gestionar fácilmente hasta 10 dominios personalizados en un solo lugar.
-
-#### Estadísticas del embudo del segmento {#segment-funnel-statistics}
-
-Selecciona [Ver estadísticas del embudo]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#viewing-funnel-statistics) para mostrar las estadísticas de ese grupo de filtros y ver cómo afecta cada filtro añadido a tus estadísticas de segmento. Verás un recuento estimado y el porcentaje de usuarios a los que se dirigen todos los filtros hasta ese momento. Una vez mostradas las estadísticas de un grupo de filtros, se actualizarán automáticamente cada vez que cambies los filtros.
-
-#### Nuevos campos de respuesta para el endpoint `/campaigns/details` para notificaciones push {#new-response-fields-for-campaignsdetails-endpoint-for-push-notifications}
-
-La respuesta `messages` para notificaciones push incluye ahora dos nuevos campos:
-
-- `image_url`: Una URL de imagen para una imagen de notificación de Android, una imagen de notificación de iOS o una imagen de icono push web.
-- `large_image_url`: Una URL de imagen de notificación web para las acciones push web de Android Chrome y Windows.
-
-#### Definición de los campos PII {#defining-pii-fields}
-
-Seleccionar y [definir determinados campos como campos PII]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#view-pii) solo afecta a lo que los usuarios pueden ver en el dashboard de Braze y no afecta a cómo se gestionan los datos del usuario final en dichos campos PII.
-
-Consulta a tu equipo jurídico para alinear la configuración de tu dashboard con las normativas y políticas de privacidad aplicables a tu empresa, incluidas las relacionadas con la [retención de datos]({{site.baseurl}}/api/data_retention/).
-
-#### Compartir un enlace de descarga del Generador de informes {#sharing-a-report-builder-download-link}
-
-Puedes [compartir un enlace del dashboard]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/#sharing-a-report) al informe seleccionando **Share** y luego **Share a link** o **Send or schedule an email**.
-
-### Desbloquear la creatividad {#unlocking-creativity}
-
-#### Etiquetas de encabezado personalizadas para correos electrónicos de arrastrar y soltar {#custom-head-tags-for-drag-and-drop-emails}
-
-Usa las etiquetas `<head>` para añadir CSS y metadatos en tu mensaje de correo electrónico. Por ejemplo, puedes usar estas etiquetas para añadir una hoja de estilos o un favicon. Liquid es compatible con las etiquetas `<head>`.
-
-### Canales robustos {#robust-channels}
-
-#### Mejores prácticas de exclusión difusa {#fuzzy-out-out-best-practices}
-
-Hemos añadido una [sección de mejores prácticas]({{site.baseurl}}) para ayudarte a configurar cuidadosamente tu mensaje de exclusión difusa y crear una experiencia clara, conforme y positiva para tus suscriptores.
-
-#### WhatsApp Flows
-
-{% multi_lang_include release_type.md release="Early access" %}
-
-[WhatsApp Flows]({{site.baseurl}}/whatsapp_flows/) es una mejora del canal de WhatsApp existente, que te permite crear experiencias de mensajería interactivas y dinámicas.
-
-#### Preguntas sobre productos entrantes de WhatsApp {#whatsapp-inbound-product-questions}
-
-Los usuarios pueden responder a tu mensaje de producto o catálogo con [preguntas sobre el producto]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/product_messages/#receiving-inbound-product-questions). Estas llegan como mensajes entrantes, que pueden clasificarse con una ruta de acción.
-
-Además, Braze extrae el ID de producto y el ID de catálogo de estas preguntas, por lo que si deseas automatizar las respuestas o enviar preguntas a otro equipo (como el de atención al cliente), puedes incluir esos datos.
-
-### Automatización de IA y ML {#ai-and-ml-automation}
-
-#### Nuevos artículos sobre casos de uso de BrazeAI<sup>TM</sup> {#new-brazeai-use-case-articles}
-
-Hemos añadido nuevos artículos sobre casos de uso para ayudarte a sacar el máximo partido de BrazeAI<sup>TM</sup>. Estas guías destacan formas prácticas de aplicar la IA a tus estrategias de interacción, entre ellas:
-
-- [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/use_case/): Identifica a los clientes en riesgo de abandono y actúa con prontitud.
-- [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/use_case/): Anticipa las acciones clave de los usuarios y da forma a las experiencias en tiempo real.
-- [Recomendaciones]({{site.baseurl}}/user_guide/brazeai/recommendations/use_case /): Entrega contenidos y productos más relevantes en función del comportamiento del cliente.
-
-#### Servidor MCP {#mcp-server}
-
-{% multi_lang_include release_type.md release="Beta" %}
-
-El [servidor Braze MCP]({{site.baseurl}}/user_guide/brazeai/mcp_server/), una conexión segura y de solo lectura, permite a herramientas de IA como Claude y Cursor acceder a datos de Braze no PII para responder preguntas, analizar tendencias y proporcionar información sin alterar los datos.
-
-### Actualizaciones del SDK {#sdk-updates}
-
-Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de última hora se enumeran a continuación; todas las demás actualizaciones se pueden encontrar consultando los correspondientes registros de cambios del SDK.
-
-- [Swift SDK 13.0.0](https://github.com/braze-inc/braze-swift-sdk/blob/main/CHANGELOG.md)
-    - Amplía la funcionalidad de `BrazeSDKAuthDelegate.braze(_:sdkAuthenticationFailedWithError:)` para que se desencadene en caso de errores de autenticación "Opcional".
-        - El método delegado `BrazeSDKAuthDelegate.braze(_:sdkAuthenticationFailedWithError:)` se desencadenará ahora para los errores de autenticación "Obligatorio" y "Opcional".
-        - Si solo quieres gestionar errores de autenticación SDK "requeridos", añade una comprobación que asegure que `BrazeSDKAuthError.optional` es falso dentro de tu implementación de este método delegado.
-    - Corrige el uso de `Braze.Configuration.sdkAuthentication` para que surta efecto cuando esté habilitado.
-        - Antes, el SDK no consumía el valor de esta configuración y el token siempre se adjuntaba a las solicitudes si estaba presente.
-        - Ahora, el SDK solo adjuntará el token de autenticación SDK a las solicitudes de red salientes cuando esta configuración esté habilitada.
-    - Los definidores de todas las propiedades de `Braze.FeatureFlag` y de todas las propiedades de `Braze.Banner` se han convertido en `private`. Las propiedades de estas clases son ahora de solo lectura.
-    - Elimina la propiedad `Braze.Banner.id`, que quedó obsoleta en la versión `11.4.0`.
-        - En su lugar, usa `Braze.Banner.trackingId` para leer el ID de seguimiento de campaña de un banner.
-- [React Native SDK 16.0.0](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md)
-    - Actualiza los enlaces de la versión nativa del SDK de Android de [Braze Android SDK 36.0.0 a 37.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Actualiza los enlaces de la versión nativa del SDK Swift de [Braze Swift SDK 12.0.0 a 13.0.0](https://github.com/braze-inc/braze-swift-sdk/compare/12.0.0...13.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-        - El evento `sdkAuthenticationError` se desencadenará ahora para los errores de autenticación "Obligatorio" y "Opcional".
-- [Xamarin SDK 7.0.0](https://github.com/braze-inc/braze-xamarin-sdk/blob/7.0.0/CHANGELOG.md)
-    - Se ha añadido compatibilidad con .NET 9.0 para los enlaces de iOS y Android.
-        - Esto elimina la compatibilidad con .NET 8.0.
-        - Esto requiere una [versión mínima de iOS 12.2](https://learn.microsoft.com/en-us/dotnet/maui/whats-new/dotnet-9?view=net-maui-9.0).
-    - Actualizado el enlace de Android de [Braze Android 32.0.0 a 37.0.0](https://github.com/braze-inc/braze-android-sdk/compare/v32.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Actualizado el enlace de iOS de [Braze Swift SDK 10.0.0 a 12.1.0](https://github.com/braze-inc/braze-swift-sdk/compare/10.0.0...12.1.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
-    - Esta versión contiene API para la característica Banners, pero actualmente no es totalmente compatible con este SDK. Si deseas usar Banners en tu aplicación .NET MAUI, ponte en contacto con tu administrador de atención al cliente antes de integrarlos en tu aplicación.
-- [Cordova SDK 13.0.0](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md#1300)
-    - Se ha actualizado la implementación interna de iOS del método `enableSdk` para usar `setEnabled`: en lugar de `_requestEnableSDKOnNextAppRun`, que estaba obsoleto en el SDK Swift.
-    - Llamar a este método ya no requiere relanzar la aplicación para que surta efecto. El SDK quedará habilitado en cuanto se ejecute este método.
-    - Actualizado el puente nativo de Android de [Braze Android SDK `36.0.0` a `37.0.0`](https://github.com/braze-inc/braze-android-sdk/compare/v36.0.0...v37.0.0#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
 
 {% enddetails %}

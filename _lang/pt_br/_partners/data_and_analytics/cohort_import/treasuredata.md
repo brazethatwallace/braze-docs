@@ -7,63 +7,63 @@ page_type: partner
 search_tag: Partner
 
 ---
-# Importação de coortes do Treasure Data
+# Importação de coortes do Treasure Data {#treasure-data-cohort-import}
 
-> Este artigo descreve como fazer a importação de coortes de usuários do Treasure Data para o Braze para que você possa enviar campanhas direcionadas com base em dados que podem existir apenas em seu data warehouse.
+> Este artigo descreve como importar coortes de usuários do Treasure Data para a Braze para que você possa enviar campanhas direcionadas com base em dados que podem existir apenas no seu data warehouse.
 
 {% alert important %}
 Esse recurso está em beta. Para saber mais, entre em contato com os representantes do Treasure Data e da Braze.
 {% endalert %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Conta do Treasure Data | É necessário ter uma conta do [Treasure Data](https://www.treasuredata.com/) para usar a parceria. |
-| Chave de importação de dados do Braze | Isso pode ser capturado no dashboard do Braze em **Partner Integrations** > **Technology Partners** e, em seguida, selecione **Treasure Data**. |
-| Endpoint REST  do Braze | [Sua URL de endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) Seu endpoint dependerá do URL do Braze para sua instância. |
-| Endereço IP estático dos dados do Treasure | O endereço IP estático do Treasure Data é o ponto de acesso e a fonte da vinculação para essa integração. Para determinar o endereço IP estático, fale com o representante de sucesso do cliente do Treasure Data ou com o suporte técnico do Treasure Data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Conta do Treasure Data | É necessário ter uma conta do [Treasure Data](https://www.treasuredata.com/) para aproveitar essa parceria. |
+| Chave de importação de dados da Braze | Isso pode ser obtido no dashboard da Braze em **Integrações de parceiros** > **Parceiros de tecnologia** e, em seguida, selecione **Treasure Data**. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Endereço IP estático do Treasure Data | O endereço IP estático do Treasure Data é o ponto de acesso e a origem da vinculação para essa integração. Para determinar o endereço IP estático, entre em contato com o representante de sucesso do cliente do Treasure Data ou com o suporte técnico do Treasure Data. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integração de importação de dados
+## Integração de importação de dados {#data-import-integration}
 
-### Etapa 1: Obtenha sua chave de importação de dados do Braze
+### Etapa 1: Obtenha sua chave de importação de dados da Braze {#step-1-get-your-braze-data-import-key}
 
-Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Treasure Data**. Aqui você encontra o endpoint REST e gera sua chave de importação de dados da Braze. Depois que a chave é gerada, você pode criar outra ou invalidar uma existente.
+Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Treasure Data**. Aqui você encontrará o endpoint REST e poderá gerar sua chave de importação de dados da Braze. Depois que a chave for gerada, você pode criar uma nova ou invalidar uma existente.
 
-### Etapa 2: Criar uma conexão de dados
+### Etapa 2: Criar uma conexão de dados {#step-2-create-a-data-connection}
 
-Antes de criar sua conexão de dados no Treasure Data, você precisará se autenticar. Primeiro, selecione **Integrations Hub** (Hub de integrações) e, em seguida, **Catalog** (Catálogo).
+Antes de criar sua conexão de dados no Treasure Data, você precisará se autenticar. Primeiro, selecione **Integrations Hub** e, em seguida, **Catalog**.
 
-![Catálogo do hub de integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort1.png %}) 
+![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort1.png %})
 
-Procure a integração do Braze no **catálogo**, passe o mouse sobre o ícone e selecione **Create Authentication (Criar autenticação**). Digite suas credenciais, dê um nome à sua autenticação e selecione **Done** (Concluído).
+Procure a integração da Braze no **Catalog**, passe o mouse sobre o ícone e selecione **Create Authentication**. Insira suas credenciais, dê um nome à sua autenticação e selecione **Done**.
 
-![Catálogo do hub de integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort2.png %}) 
+![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort2.png %})
 
-### Etapa 3: Defina o público de seu coorte
+### Etapa 3: Defina o público da sua coorte {#step-3-define-your-cohort-audience}
 
-Sincronize seus coortes com o Braze por meio de uma ativação no **Audience Studio** ou da execução de uma consulta no **Data Workbench**.
+Sincronize suas coortes com a Braze por meio de uma ativação no **Audience Studio** ou executando uma consulta no **Data Workbench**.
 
 {% alert important %}
-Somente os usuários que já existem no Braze são adicionados ou removidos de um coorte. A importação de coorte não criará novos usuários no Braze.
+Somente os usuários que já existem na Braze são adicionados ou removidos de uma coorte. A importação de coorte não criará novos usuários na Braze.
 {% endalert %}
 
 {% tabs local %}
 {% tab Data Workbench %}
-#### Etapa 3.1: defina sua consulta
+#### Etapa 3.1: Defina sua consulta {#step-31-define-your-query}
 
 {% alert note %}
-As colunas da consulta devem ser especificadas com os nomes exatos das colunas e o tipo de dados. As colunas da consulta devem incluir pelo menos uma das colunas `user_ids` e `device_ids`, ou a coluna do alias da Braze deve corresponder à configuração na interface do usuário. Somente os perfis de usuário existentes no Braze serão adicionados a um coorte. A importação de coorte não criará novos perfis de usuário.
+As colunas da consulta devem ser especificadas com os nomes exatos das colunas e o tipo de dados. As colunas da consulta devem incluir pelo menos uma das colunas: `user_ids`, `device_ids` ou a coluna de alias da Braze correspondente à configuração na interface. Somente os perfis de usuário existentes na Braze serão adicionados a uma coorte. A importação de coorte não criará novos perfis de usuário.
 {% endalert %}
 
-1. Navegue até **Data Workbench** (Workbench de dados) > **Queries** (Consultas).
-2. Selecione **New Query (Nova consulta**).
+1. Navegue até **Data Workbench** > **Queries**.
+2. Selecione **New Query**.
 3. Execute a consulta para validar o conjunto de resultados.
 
-![Catálogo do hub de integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort3.png %})
+![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort3.png %})
 
-##### Caso de uso: Sincronização de coortes por identificador
+##### Caso de uso: sincronização de coortes por identificador {#use-case-syncing-cohorts-by-identifier}
 
 {% subtabs local %}
 {% subtab Syncing External IDs %}
@@ -75,6 +75,7 @@ Aqui está um exemplo de tabela no Treasure Data:
 | `TDCohort2`	| `TDCohort2@gmail.com`	| `4d5f6g` |
 | `TDCohort3`	| `TDCohort3@gmail.com`	| `7h8j9k` |
 | `TDCohort4`	| `TDCohort4@gmail.com`	| `1ab2cd` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case: Syncing cohorts by identifier" }
 
 {% alert warning %}
 O nome da coluna deve ser `user_ids` ou a sincronização falhará.
@@ -106,6 +107,7 @@ Aqui está um exemplo de tabela no Treasure Data:
 | `TDCohort2`	| `TDCohort2@gmail.com`	| `4d5f6g` |
 | `TDCohort3`	| `TDCohort3@gmail.com`	| `7h8j9k` |
 | `TDCohort4`	| `TDCohort4@gmail.com`	| `1ab2cd` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case: Syncing cohorts by identifier" }
 
 Para sincronizar coortes usando o alias de usuário, execute a seguinte consulta:
 
@@ -133,6 +135,7 @@ Aqui está um exemplo de tabela no Treasure Data:
 | `TDCohort2`	| `TDCohort2@gmail.com`	| `4d5f6g` |
 | `TDCohort3`	| `TDCohort3@gmail.com`	| `7h8j9k` |
 | `TDCohort4`	| `TDCohort4@gmail.com`	| `1ab2cd` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Use case: Syncing cohorts by identifier" }
 
 {% alert warning %}
 O nome da coluna deve ser `device_ids` ou a sincronização falhará.
@@ -156,79 +159,82 @@ Depois de executar a consulta, estes IDs de dispositivo serão adicionados à co
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Etapa 3.2: Especifique o direcionamento da exportação de resultados
+#### Etapa 3.2: Especifique o destino da exportação de resultados {#step-32-specify-the-result-export-target}
 
-Depois que a consulta tiver sido criada, selecione **Export Results** (Exportar resultados). Você pode selecionar uma autenticação existente, como a criada nas últimas etapas, ou criar uma nova autenticação a ser usada na saída. 
+Depois que a consulta tiver sido criada, selecione **Export Results**. Você pode selecionar uma autenticação existente, como a criada nas etapas anteriores, ou criar uma nova autenticação para ser usada na saída.
 
-![Catálogo do hub de integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort5.png %}) 
+![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort5.png %})
 
 
-| Mapeamento de resultados de exportação |	Descrição	| 
+| Mapeamento de resultados de exportação | Descrição |
 | ----------- | ----------- |
-| ID do coorte	| Esse é o identificador de coorte de backend que será enviado ao Braze. 	|
-| Nome do coorte (opcional)	| Esse é o nome que aparecerá no Filtro de coorte na ferramenta de segmentação do Braze. Se isso não for definido, o `Cohort ID` será usado como `Cohort Name`.	|
-| Operação	| Usado para determinar se a consulta deve adicionar ou remover perfis do coorte no Braze.	| 
-| Aliases (opcional) | Quando definido, o nome da coluna correspondente em sua consulta será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`.	| 
-| Contagem de fios | Número de chamadas simultâneas à API. |
+| ID da coorte | Esse é o identificador de coorte de backend que será enviado à Braze. |
+| Nome da coorte (opcional) | Esse é o nome que aparecerá no filtro de coorte na ferramenta de segmentação da Braze. Se não for definido, o `Cohort ID` será usado como `Cohort Name`. |
+| Operação | Usado para determinar se a consulta deve adicionar ou remover perfis da coorte na Braze. |
+| Aliases (opcional) | Quando definido, o nome da coluna correspondente na sua consulta será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`. |
+| Contagem de threads | Número de chamadas simultâneas à API. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Specify the result export target" }
 
-Siga [as etapas do Treasure Data](https://docs.treasuredata.com/articles/#!int/braze-cohort-export-integration/a/ExportIntegrationTemplate-SpecifytheResultExportTarget) para configurar sua exportação para atender ao seu caso de uso.
+Siga [as etapas do Treasure Data](https://docs.treasuredata.com/articles/#!int/braze-cohort-export-integration/a/ExportIntegrationTemplate-SpecifytheResultExportTarget) para configurar sua exportação de acordo com o seu caso de uso.
 
-#### Etapa 3.3: Executar a consulta
+#### Etapa 3.3: Execute a consulta {#step-33-execute-the-query}
 
 Salve a consulta com um nome e execute, ou simplesmente execute a consulta. Após a conclusão bem-sucedida da consulta, o resultado é automaticamente exportado para a Braze.
 
 {% endtab %}
 {% tab Audience Studio %}
-#### Etapa 3.1: Criar uma ativação
+#### Etapa 3.1: Crie uma ativação {#step-31-create-an-activation}
 
-Crie um novo segmento ou escolha um segmento existente para sincronizar com o Braze como um coorte. No segmento, selecione **Criar ativação**.
+Crie um novo segmento ou escolha um segmento existente para sincronizar com a Braze como uma coorte. Dentro do segmento, selecione **Create activation**.
 
-#### Etapa 3.2: preencha seus dados de ativação
+#### Etapa 3.2: Preencha os detalhes da ativação {#step-32-fill-out-your-activation-details}
 
-![Detalhes de ativação das integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort7.png %}) 
+![Detalhes de ativação das integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort7.png %})
 
-| Configuração de detalhes de ativação |	Descrição	| 
+| Configuração de detalhes da ativação | Descrição |
 | ----------- | ----------- |
-| Nome da ativação	| O nome de sua ativação.	|
-| Descrição da ativação| Uma breve descrição da ativação.	|
-| Autenticação	| Selecione a autenticação de coorte da Braze criada na etapa 2.	| 
-| ID do coorte	| Esse é o identificador de coorte de backend que será enviado ao Braze. 	|
-| Nome do coorte (opcional)	| Esse é o nome que aparecerá no Filtro de coorte na ferramenta de segmentação do Braze. Se isso não for definido, o `Cohort ID` será usado como `Cohort Name`.	|
-| Operação	| Usado para determinar se a consulta deve adicionar ou remover perfis do coorte no Braze.	| 
-| Aliases (opcional) | Quando definido, o nome da coluna correspondente em sua consulta será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`.	| 
-| Contagem de fios | Número de chamadas simultâneas à API. |
+| Nome da ativação | O nome da sua ativação. |
+| Descrição da ativação | Uma breve descrição da ativação. |
+| Autenticação | Selecione a autenticação de coorte da Braze criada na etapa 2. |
+| ID da coorte | Esse é o identificador de coorte de backend que será enviado à Braze. |
+| Nome da coorte (opcional) | Esse é o nome que aparecerá no filtro de coorte na ferramenta de segmentação da Braze. Se não for definido, o `Cohort ID` será usado como `Cohort Name`. |
+| Operação | Usado para determinar se a consulta deve adicionar ou remover perfis da coorte na Braze. |
+| Aliases (opcional) | Quando definido, o nome da coluna correspondente na sua consulta será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`. |
+| Contagem de threads | Número de chamadas simultâneas à API. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.2: Fill out your activation details" }
 
-#### Etapa 3.3: Configurar o mapeamento de saída
+#### Etapa 3.3: Configure o mapeamento de saída {#step-33-set-up-output-mapping}
 
-![Integrações de dados do Tesouro Mapeamento de saída de ativação]({% image_buster /assets/img/treasure_data/cohort/cohort6.png %}) 
+![Mapeamento de saída de ativação das integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort6.png %})
 
-| Mapeamento de saída de ativação |	Descrição	| 
+| Mapeamento de saída da ativação | Descrição |
 | ----------- | ----------- |
-| Colunas de atribuição	| Determine as colunas de seu banco de dados de segmentos que serão mapeadas como identificadores ao sincronizar perfis com um coorte Braze.	|
-| Criador de strings| O construtor de string não é necessário para a integração com o Braze.	|
+| Colunas de atributo | Determine as colunas do seu banco de dados de segmentos que serão mapeadas como identificadores ao sincronizar perfis com uma coorte da Braze. |
+| Construtor de strings | O construtor de strings não é necessário para a integração com a Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3.3: Set up output mapping" }
 
 {% alert important %}
  - Ao usar `device_id` como identificador, o **nome da coluna de saída** deve ser `device_ids`.
- - Ao usar aliases como identificador, o **Nome da coluna de saída** deve ser o nome da coluna correspondente em sua consulta, que será enviada como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`.
+ - Ao usar aliases como identificador, o **nome da coluna de saída** deve ser o nome da coluna correspondente na sua consulta, que será enviado como `alias_label`, e os valores de cada linha na coluna serão enviados como `alias_name`.
  - Ao usar `external_id` como identificador, o **nome da coluna de saída** deve ser `user_ids`.
 {% endalert %}
 
-Todos os nomes de colunas não relevantes ou com nomes incorretos serão ignorados. Você pode optar por usar mais de um identificador em suas sincronizações.
+Todos os nomes de colunas não relevantes ou com nomes incorretos serão ignorados. Você pode optar por usar mais de um identificador nas suas sincronizações.
 
-#### Etapa 3.4: defina seu cronograma de ativação
+#### Etapa 3.4: Defina o cronograma de ativação {#step-34-define-your-activation-schedule}
 
 Defina o cronograma de sincronização desejado e salve a ativação.
 
-![Cronograma de ativação das integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort8.png %})
+![Cronograma de ativação das integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort8.png %})
 {% endtab %}
 {% endtabs %}
 
-### Etapa 4: crie um segmento da Braze a partir da exportação do Treasure Data
+### Etapa 4: Crie um segmento da Braze a partir da Exportação do Treasure Data {#step-4-create-a-braze-segment-from-the-treasure-data-export}
 
-No Braze, navegue até **Segments (Segmentos**), crie um novo segmento e selecione **Treasure Data Cohorts (Coortes de dados do Tesouro** ) como seu filtro. Nessa tela, você pode escolher qual coorte do Treasure Data deseja incluir. Depois que o segmento de coorte da Treasure Data for criado, você poderá selecioná-lo como um filtro de público ao criar uma campanha ou canva.
+Na Braze, navegue até **Segments**, crie um novo segmento e selecione **Treasure Data Cohorts** como seu filtro. A partir daqui, você pode escolher qual coorte do Treasure Data deseja incluir. Depois que o segmento de coorte do Treasure Data for criado, você poderá selecioná-lo como um filtro de público ao criar uma Campaign ou um Canvas.
 
-![Catálogo do hub de integrações de dados do Treasure]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %}) 
+![Catálogo do hub de integrações do Treasure Data]({% image_buster /assets/img/treasure_data/cohort/cohort4.png %})
 
-## Correspondência de usuários
+## Correspondência de usuários {#user-matching}
 
-Os usuários identificados podem ser combinados pelo endereço `external_id` ou `alias`. Os usuários anônimos podem ser combinados pelo site `device_id`. Os usuários identificados que foram originalmente criados como usuários anônimos não podem ser identificados pelo endereço `device_id` e devem ser identificados pelo endereço `external_id` ou `alias`.
+Os usuários identificados podem ser correspondidos pelo `external_id` ou `alias`. Os usuários anônimos podem ser correspondidos pelo `device_id`. Usuários identificados que foram originalmente criados como usuários anônimos não podem ser identificados pelo `device_id` e devem ser identificados pelo `external_id` ou `alias`.

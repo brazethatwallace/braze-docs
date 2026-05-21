@@ -26,7 +26,7 @@ Grâce à cette intégration, vous pouvez :
 | Condition | Description |
 | --- | --- |
 | Compte Lob | Un compte Lob est nécessaire pour bénéficier de ce partenariat. |
-| Clé API de Lob | Votre clé API de Lob se trouve dans la section des paramètres, sous votre nom, dans le tableau de bord de Lob. |
+| Clé API Lob | Votre clé API Lob se trouve dans la section des paramètres, sous votre nom, dans le tableau de bord de Lob. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Envoi de courrier à l'aide des webhooks de Braze {#sending-mail-using-braze-webhooks}
@@ -37,7 +37,7 @@ En fonction de ce que vous souhaitez faire dans Lob, vous devrez utiliser l'endp
 
 | URL de base | Endpoints disponibles |
 | ------------ | ------------------- |
-| `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
+| `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states` |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Étape 2 : Créer votre modèle de webhook Braze {#step-2-create-your-braze-webhook-template}
@@ -159,5 +159,5 @@ return brazecall;
 
 ### Étape 3 : Créer un webhook dans Lob {#step-3-create-a-webhook-in-lob}
 
-1. Lorsque vous avez fini de créer votre modèle, sélectionnez **Activate**, puis copiez l'**Webhook URL** dans votre presse-papiers.
+1. Lorsque vous avez fini de créer votre modèle, sélectionnez **Activate**, puis copiez l'**URL du webhook** dans votre presse-papiers.
 2. Dans Lob, [créez un nouveau webhook](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1), puis utilisez votre URL de webhook Braze pour recevoir le webhook.

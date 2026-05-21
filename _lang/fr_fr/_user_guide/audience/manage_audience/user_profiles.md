@@ -61,7 +61,7 @@ L'onglet **Aperçu** contient les informations de base sur un utilisateur et ses
 | Appareils récents | Nombre d'appareils sur lesquels l'utilisateur s'est connecté, détails de chaque appareil et identifiants publicitaires associés (le cas échéant). |
 | Événements personnalisés | Quels événements personnalisés cet utilisateur a effectués, combien de fois, et quand il a effectué chaque événement pour la dernière fois. |
 | Achats | Chiffre d'affaires total attribué à cet utilisateur, son dernier achat, le nombre total d'achats et une liste de chaque achat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview tab #overview-tab" }
 
 Pour plus d'informations sur ces données, consultez [Collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 
@@ -74,14 +74,28 @@ L'onglet **Engagement** contient des informations sur les interactions d'un util
 | Catégorie d'engagement | Contient |
 | --- | --- |
 | Paramètres de contact | État d'abonnement pour les e-mails, les SMS et les notifications push, ainsi que les groupes d'abonnement auxquels cet utilisateur est associé pour ces trois canaux. Cette section inclut également les informations du journal des modifications pour les jetons de notification push. Consultez [e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/) et [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/) pour en savoir plus sur la configuration des abonnements et des opt-ins. |
-| Campaigns reçues | Les Campaigns reçues sont marquées lorsque l'utilisateur reçoit la campagne, ou lorsque nous détectons pour la première fois des données d'interaction pour un utilisateur.<br><br> Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br> Sélectionnez une campagne dans la liste pour la consulter. |
+| Campaigns reçues | **Campaigns reçues** reflète le moment d'envoi et de consultation spécifique à chaque canal. La plupart des canaux enregistrent un envoi lorsque Braze transmet le message au fournisseur de distribution, même si le message n'est finalement pas distribué. Les **Content Cards** fonctionnent différemment : les campagnes n'apparaissent ici qu'après que l'utilisateur a consulté la carte dans l'application. Pour un détail par canal, consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received). Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez une campagne dans la liste pour la consulter. |
 | Segments | Segments auxquels cet utilisateur appartient. Sélectionnez un segment dans la liste pour le consulter. |
 | Statistiques de communication | Date à laquelle cet utilisateur a reçu pour la dernière fois des messages de votre part pour chaque canal. |
 | Attribution d'installation | Informations sur la manière et le moment où un utilisateur a installé votre application. En savoir plus sur la [compréhension des installations utilisateur]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution/). |
 | Divers | Le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) de l'utilisateur. |
-| Messages Canvas reçus | Messages Canvas que cet utilisateur a reçus et quand.<br><br> Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br> Sélectionnez un message dans la liste pour le consulter. |
+| Messages Canvas reçus | Messages Canvas que cet utilisateur a reçus et quand. Le moment d'envoi suit les mêmes règles par canal que **Campaigns reçues** ; consultez [Quand les campagnes apparaissent dans Campaigns reçues](#when-campaigns-appear-in-campaigns-received). Lorsqu'un message est reçu, ouvert ou cliqué, Braze met à jour les données de tous les profils partageant le même identifiant de canal que le profil ayant enregistré l'interaction (par exemple, la même adresse e-mail pour les e-mails, ou le même numéro de téléphone pour les SMS ou WhatsApp). Les utilisateurs partageant un identifiant avec quelqu'un qui a reçu, ouvert ou cliqué le message peuvent correspondre à ce filtre même s'ils ne faisaient pas partie de la campagne à l'origine ou n'ont pas reçu directement le message.<br><br>Sélectionnez un message dans la liste pour le consulter. |
 | Prédictions | Scores de [prédiction d'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) et de [prédiction des événements]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/) pour cet utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Engagement tab #engagement-tab" }
+
+### Quand les campagnes apparaissent dans Campaigns reçues {#when-campaigns-appear-in-campaigns-received}
+
+De manière générale, Braze affiche une campagne sous **Campaigns reçues** après avoir tenté d'envoyer le message. Une distribution effective sur l'appareil ou dans la boîte de réception de l'utilisateur n'est pas requise pour qu'un envoi soit enregistré. **Messages Canvas reçus** suit les mêmes règles spécifiques à chaque canal pour chaque type de message Canvas.
+
+- **E-mail :** Braze enregistre un envoi lorsque le message est transmis à votre fournisseur de services d'e-mailing (ESP). Après cette transmission, le message n'est pas abandonné en raison de la logique Liquid, de la limite de débit ou du fait que l'utilisateur est marqué comme injoignable. Les événements suivants sont généralement une distribution ou un rebond.
+- **Push :** Braze enregistre un envoi lorsque le message est transmis au fournisseur de notifications push (par exemple, Apple Push Notification service (APNs) ou Firebase Cloud Messaging (FCM)). Le fournisseur tente généralement de distribuer immédiatement ; si l'appareil est indisponible (par exemple, hors ligne), le fournisseur peut réessayer jusqu'à l'expiration du message.
+- **Messages in-app :** Braze enregistre un envoi lorsque la campagne est lancée.
+- **Content Cards :** Le moment où Braze enregistre un événement _Envoyé_ dépend du type de distribution et de votre paramètre **Création de carte**. Une campagne Content Cards apparaît sous **Campaigns reçues** dans le profil utilisateur uniquement après que l'utilisateur a consulté la carte dans l'application. Pour le détail complet, consultez [Quand les envois sont enregistrés]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#when-sends-are-logged) et [Campaigns reçues et filtres de reciblage]({{site.baseurl}}/user_guide/channels/content_cards/reporting/#campaigns-received-and-retargeting-filters) dans l'article sur les rapports Content Cards.
+- **SMS, WhatsApp et webhooks :** Braze enregistre un envoi lorsque le message entre dans le chemin de distribution pour ce canal (par exemple, le fournisseur SMS ou WhatsApp, ou votre endpoint webhook).
+
+{% alert note %}
+Ces descriptions couvrent le moment où un envoi est enregistré pour **Campaigns reçues**. Elles sont distinctes des [abandons de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) qui peuvent arrêter un message avant qu'il n'atteigne un fournisseur.
+{% endalert %}
 
 ![L'onglet Engagement d'un profil utilisateur affichant les paramètres de contact et les statistiques de communication.]({% image_buster /assets/img_archive/profiles_engagement_tab.png %})
 
@@ -105,14 +119,14 @@ Les événements d'engagement liés aux messages suivants sont disponibles pour 
 
 | Canal | Événements d'engagement disponibles |
 | --- | --- |
-| E-mail | Rebond<br>Clic<br>Événements de report<br>Réception<br>Signalement comme spam<br>Ouverture (voir [note sur l'événement d'ouverture d'e-mail](#note-on-email-open-event))<br>Envoi<br>Échec provisoire d'envoi<br>Désabonnement |
-| SMS | Envoi par l'opérateur<br>Réception<br>Échec de réception<br>Réception entrante<br>Rejet<br>Envoi |
+| E-mail | Rebond<br>Clic<br>Événements de report<br>Distribution<br>Signalement comme spam<br>Ouverture (voir [note sur l'événement d'ouverture d'e-mail](#note-on-email-open-event))<br>Envoi<br>Échec provisoire d'envoi<br>Désabonnement |
+| SMS | Envoi par l'opérateur<br>Distribution<br>Échec de distribution<br>Réception entrante<br>Rejet<br>Envoi |
 | Push | Rebond<br>Ouverture influencée<br>iOS premier plan<br>Ouverture<br>Envoi |
 | Message in-app | Clic<br>Impression |
 | Content Cards | Clic<br>Rejet<br>Impression<br>Envoi |
 | Webhooks | Envoi |
-| WhatsApp | Abandon<br>Réception<br>Échec<br>Limite de fréquence atteinte<br>Réception entrante<br>Lecture<br>Envoi |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| WhatsApp | Abandon<br>Distribution<br>Échec<br>Limite de fréquence atteinte<br>Réception entrante<br>Lecture<br>Envoi |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message engagement events" }
 
 ##### Événements d'abandon de message {#message-abort-events}
 

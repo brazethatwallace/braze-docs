@@ -26,7 +26,7 @@ Braze와 Optimizely 통합은 양방향 통합으로, 다음을 수행할 수 �
 | Braze REST API 키               | 다음 권한이 있는 Braze REST API 키: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send`, `canvas.trigger.send`. |
 | Currents                         | 데이터를 Optimizely로 다시 내보내려면 계정에 Braze 커런츠가 설정되어 있어야 합니다. |
 | Optimizely URL 및 토큰         | Optimizely 대시보드로 이동하여 수집 URL과 토큰을 복사하면 얻을 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

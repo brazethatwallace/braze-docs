@@ -32,7 +32,7 @@ channel:
 | WhatsApp 비즈니스 계정 | WhatsApp 제품 메시지를 사용하려면 Braze에 연결된 WhatsApp 비즈니스 계정이 있어야 합니다. |
 | Meta 카탈로그 | Commerce Manager에서 Meta 카탈로그를 설정해야 합니다. |
 | 약관 준수 | [Meta Commerce 약관 및 정책](https://www.facebook.com/policies_center/commerce)을 준수해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 제품 메시지 유형 {#product-message-types}
 

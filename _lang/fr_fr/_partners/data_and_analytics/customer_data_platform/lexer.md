@@ -22,7 +22,7 @@ L'intégration de Braze et Lexer vous permet de synchroniser les données entre 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte partenaire | Un compte Lexer est nécessaire pour bénéficier de ce partenariat. |
-| Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations `user` (à l'exception de `user.delete`) et les autorisations `segment.list`. Le jeu d'autorisations peut changer au fur et à mesure que Lexer ajoute la prise en charge de nouveaux objets Braze, de sorte que vous pouvez soit accorder davantage d'autorisations dès maintenant, soit prévoir de les mettre à jour ultérieurement.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Clé API REST Braze | Une clé API REST Braze avec toutes les autorisations `user` (à l'exception de `user.delete`) et les autorisations `segment.list`. Le jeu d'autorisations peut changer au fur et à mesure que Lexer ajoute la prise en charge de nouveaux objets Braze, de sorte que vous pouvez soit accorder davantage d'autorisations dès maintenant, soit prévoir de les mettre à jour ultérieurement.<br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
 | Endpoint REST Braze | Votre [URL d'endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Compartiment Amazon AWS S3 et identifiants | Avant de commencer l'intégration, vous devez disposer des identifiants d'accès à un compartiment AWS S3 connecté à votre hub Lexer (il peut s'agir d'un compartiment que vous créez ou d'un compartiment que Lexer crée et gère pour vous). Consultez [Lexer](https://learn.lexer.io/docs/amazon-s3) pour obtenir des conseils sur cette exigence. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
@@ -37,7 +37,7 @@ Dans Lexer, accédez à **Manage > Integration**, sélectionnez la tuile **Braze
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
   - **AWS S3 bucket path** : ce chemin doit correspondre à celui que vous avez spécifié lors de la [connexion de votre compartiment S3 à Braze]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/). Ce champ doit être vide si vous n'avez rien spécifié à Braze.
   - **AWS S3 secret access key** : consultez Amazon pour obtenir des informations sur la [création d'une clé d'accès](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/).
-- **Braze export segment ID** : l'ID du segment que vous avez créé dans Braze et qui contient tous les utilisateurs que vous souhaitez exporter vers Lexer. S'il y a des utilisateurs que vous ne voulez pas exporter vers Lexer, vous pouvez les exclure du segment que vous avez créé dans Braze. Pour trouver votre identifiant de segment, cliquez sur le segment de votre choix dans Braze et localisez l'**Identifiant API de segment**.
+- **Braze export segment ID** : l'ID du segment que vous avez créé dans Braze et qui contient tous les utilisateurs que vous souhaitez exporter vers Lexer. S'il y a des utilisateurs que vous ne voulez pas exporter vers Lexer, vous pouvez les exclure du segment que vous avez créé dans Braze. Pour trouver votre identifiant de segment, cliquez sur le segment de votre choix dans Braze et localisez l'**Segment API Identifier**.
 
 ![]({% image_buster /assets/img/lexer/braze_integrate_screen.png %})
 
@@ -74,4 +74,4 @@ Dans Braze, vous verrez que le nom de votre audience dans Lexer est maintenant u
 
 Pour créer votre segment, accédez à **Segment > + Create Segment** et sélectionnez **Custom Attribute** comme filtre. Ensuite, sélectionnez `lexer_audience` comme attribut et le nom de l'audience Lexer souhaitée. Une fois terminé, **enregistrez** votre audience.
 
-Vous pouvez désormais ajouter ce segment nouvellement créé aux futures Campaigns Braze et Canvas pour cibler ces utilisateurs finaux.
+Vous pouvez désormais ajouter ce segment nouvellement créé aux futures Campaigns et Canvas Braze pour cibler ces utilisateurs finaux.

@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: Criar e atualizar usuários (síncrono)"
-article_title: "POST: Criar e atualizar usuários (Síncrono)"
+article_title: "POST: Criar e atualizar usuários (síncrono)"
 alias: /post_user_track_synchronous/
 layout: api_page
 page_order: 4.5
@@ -38,6 +38,8 @@ Os clientes que usam a API para chamadas de servidor para servidor podem precisa
 
 ## Limite de taxa {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+
 Aplicamos um limite de velocidade base de 500 solicitações por minuto para esse endpoint para todos os clientes. Cada solicitação `/users/track/sync` pode conter até um objeto de evento, um objeto de atributo ou um objeto de compra. Cada objeto (evento, atributo e arrays de compra) pode atualizar um usuário cada.
 
 ## Corpo da solicitação {#request-body}
@@ -66,7 +68,7 @@ Para cada componente de solicitação listado na tabela a seguir, você deve inc
 | `attributes` | Opcional | Um objeto de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Opcional | Um objeto de evento | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Opcional | Um objeto de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Respostas {#responses}
 
@@ -151,7 +153,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Atualizar um evento personalizado por e-mail {#update-a-custom-event-by-email}
 
-#### Solicitação {#request}
+#### Solicitação
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -183,7 +185,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Resposta {#response}
+#### Resposta
 
 ```
 {
@@ -206,7 +208,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 
 ### Atualizar um evento de compra por alias de usuário {#update-a-purchase-event-by-user-alias}
 
-#### Solicitação {#request}
+#### Solicitação
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' \
@@ -243,7 +245,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 }'
 ```
 
-#### Resposta {#response}
+#### Resposta
 
 ```
 {

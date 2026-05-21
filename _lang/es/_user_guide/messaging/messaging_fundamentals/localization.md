@@ -28,12 +28,13 @@ Considera los siguientes enfoques para gestionar tus traducciones.
 {% tab campaign %}
 ### Una plantilla para todos {#one-template-for-all}
 
-En este enfoque, la localización se aplica a una única plantilla en Braze utilizando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Después del envío, el dashboard proporciona análisis agregados de la Campaign. La interacción a nivel de usuario se puede medir mediante embudos de Segment personalizados, por ejemplo, combinando los filtros **País** y **Campaign recibida**.
+En este enfoque, la localización se aplica a una única plantilla en Braze utilizando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). Después del envío, el dashboard proporciona análisis agregados de la Campaign. La interacción a nivel de usuario se puede medir mediante embudos de Segments personalizados, por ejemplo, combinando los filtros **País** y **Campaign recibida**.
 
 | Ventajas | Consideraciones |
 | --- | --- |
 | - Enfoque centralizado<br>- Tiempo de creación de correo electrónico reducido, sin necesidad de crear un correo electrónico varias veces | - Creación manual de informes<br>- El informe de Campaign muestra métricas agregadas en lugar de métricas por país<br>- Es necesario probar exhaustivamente Liquid para asegurarse de que se rellena como se espera<br>- Dependiendo de cómo obtengas el valor del país o cuántos países tengas configurados, puede ser complicado probar cada país<br>- Más difícil programar envíos para horarios específicos en diferentes zonas horarias<br>- Más difícil de usar si quieres enviar contenido diferente por país. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| --- | --- | --- |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template for all" }
 
 ### Una plantilla por país {#one-template-per-country}
 
@@ -46,7 +47,7 @@ Este enfoque separa las plantillas en diferentes configuraciones regionales de e
 | Ventajas | Consideraciones |
 | --- | --- |
 | - Escalable a múltiples ubicaciones<br>- Informes de ingresos por país dentro de Braze (como por Campaign)<br>- Flexibilidad si hay contenido drásticamente diferente por país | - Requiere una estructuración estratégica<br>- Se requiere más esfuerzo de creación (como Campaigns separadas para cada país) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template per country" }
 {% endtab %}
 
 {% tab canvas %}
@@ -54,12 +55,12 @@ Este enfoque separa las plantillas en diferentes configuraciones regionales de e
 
 En este enfoque, la localización se gestiona dentro de los [conceptos básicos de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics/#building-the-customer-journey) y Liquid para definir la mensajería para cada usuario.
 
-Después de enviar un Canvas, el dashboard proporciona [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) agregados, mientras que la interacción a nivel de usuario se puede medir mediante [embudos de Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/) personalizados, como la combinación de los filtros [**País**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#country) y [**Paso de Canvas recibido**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-canvas-step).
+Después de enviar un Canvas, el dashboard proporciona [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) agregados, mientras que la interacción a nivel de usuario se puede medir mediante [embudos de Segments]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/) personalizados, como la combinación de los filtros [**País**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#country) y [**Paso de Canvas recibido**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#received-canvas-step).
 
 | Ventajas | Consideraciones |
 | --- | --- |
 | - Enfoque centralizado<br>- Tiempo de creación de correo electrónico reducido: no es necesario crear un correo electrónico varias veces. | - Creación manual de informes<br>- El informe de Canvas muestra métricas agregadas en lugar de métricas por país<br>- Es necesario probar exhaustivamente Liquid para asegurarse de que se rellena como se espera<br>- Dependiendo de cómo obtengas el valor del país o cuántos países tengas configurados, puede ser complicado probar cada país<br>- Más difícil programar envíos para horarios específicos en diferentes zonas horarias<br>- Más difícil de usar si quieres enviar contenido diferente por país. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey for all" }
 
 ### Un recorrido por país {#one-journey-per-country}
 
@@ -75,7 +76,7 @@ Una vez enviado, el dashboard proporciona análisis dinámicos por país y dentr
 | Ventajas | Consideraciones |
 | --- | --- |
 | - Informes de ingresos por país dentro de Braze (como por Canvas, variante o paso)<br>- Flexibilidad si hay contenido drásticamente diferente por país<br>- Se pueden añadir otros canales como parte del recorrido en el futuro | - Requiere una estructuración estratégica<br>- Se requiere más esfuerzo de creación (como pasos de mensaje separados para cada país)<br>- El Canvas puede volverse grande y difícil de leer si tienes recorridos personalizados y complejos para cada país en un solo Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey per country" }
 {% endtab %}
 {% endtabs %}
 
@@ -225,7 +226,7 @@ Crea un CSV en el siguiente formato:
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Alternative approaches" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -293,7 +294,7 @@ Primero, construye la hoja de Google de modo que los idiomas sean objetos difere
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 1: Format the Google sheet" }
 
 #### Paso 2: Usa la etiqueta de Liquid de idioma en una llamada de contenido conectado {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 

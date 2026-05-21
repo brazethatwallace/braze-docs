@@ -1,6 +1,6 @@
 ---
 nav_title: Fonctionnalités des données de Shopify
-article_title: "Fonctionnalités des données de Shopify"
+article_title: Fonctionnalités des données de Shopify
 description: "Cet article de référence couvre les fonctionnalités des données de Shopify."
 page_type: partner
 search_tag: Partner
@@ -432,7 +432,7 @@ L'intégration Shopify utilise les [événements recommandés pour l'eCommerce](
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,7 +469,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid de panier d'achat suivantes d
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -515,7 +515,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,7 +544,7 @@ Vous pouvez ensuite ajouter les étiquettes Liquid suivantes dans votre message 
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -562,44 +562,44 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% raw %}
 | Variable | Liquid templating |
 | --- | --- |
-| ID de commande | `{{event_properties.${order_id}}}` |
-| Prix total | `{{event_properties.${total_price}}}` |
-| Réductions totales | `{{event_properties.${total_discounts}}}` |
-| Statut confirmé | `{{event_properties.${confirmed}}}` |
-| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
-| Numéro de commande | `{{event_properties.${order_number}}}` |
-| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
-| Horodatage de clôture | `{{event_properties.${closed_at}}}` |
-| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
-| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
-| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
-| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
-| Vendeur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
-| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
-| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
-| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
-| Titre d'expédition | `{{event_properties.${shipping}[0].title}}` |
-| Prix d'expédition | `{{event_properties.${shipping}[0].price}}` |
-| État d'exécution | `{{event_properties.${fulfillment_status}}}` |
-| État de l'expédition | `{{event_properties.${fulfillments}[0].shipment_status}}` |
-| État | `{{event_properties.${fulfillments}[0].status}}` |
-| Société de suivi | `{{event_properties.${fulfillments}[0].Fulfillment tracking_company}}` |
-| Numéro de suivi | `{{event_properties.${fulfillments}[0].Fulfillment tracking_number}}` |
-| Numéros de suivi | `{{event_properties.${fulfillments}[0].Fulfillment tracking_numbers}}` |
-| URL de suivi | `{{event_properties.${fulfillments}[0].Fulfillment tracking_url}}` |
-| URLs de suivi | `{{event_properties.${fulfillments}[0].Fulfillment tracking_urls}}` |
-| État d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
-| Nom d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
-| Prix d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
-| ID produit d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
-| Quantité d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
-| Expédition d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
-| UGS d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
-| Titre d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
-| Fournisseur d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
-| ID de la variante | `{{event_properties.${line_items}[0].variant_id}}` |
-| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Confirmed Status | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Closed Timestamp | `{{event_properties.${closed_at}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
+| Fulfillment Shipment Status | `{{event_properties.${fulfillments}[0].shipment_status}}` |
+| Status | `{{event_properties.${fulfillments}[0].status}}` |
+| Fulfillment Tracking Company | `{{event_properties.${fulfillments}[0].Fulfillment tracking_company}}` |
+| Fulfillment Tracking Number | `{{event_properties.${fulfillments}[0].Fulfillment tracking_number}}` |
+| Fulfillment Tracking Numbers | `{{event_properties.${fulfillments}[0].Fulfillment tracking_numbers}}` |
+| Fulfillment Tracking URL | `{{event_properties.${fulfillments}[0].Fulfillment tracking_url}}` |
+| Fulfillment Tracking URLs | `{{event_properties.${fulfillments}[0].Fulfillment tracking_urls}}` |
+| Fulfillment Status | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
+| Fulfillment Name | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
+| Fulfillment Price | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
+| Fulfillment Product ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
+| Fulfillment Quantity | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
+| Fulfillment Shipping | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
+| Fulfillment SKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
+| Fulfillment Title | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
+| Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -613,44 +613,44 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% raw %}
 | Variable | Liquid templating |
 | --- | --- |
-| ID de commande | `{{event_properties.${order_id}}}` |
-| Prix total | `{{event_properties.${total_price}}}` |
-| Réductions totales | `{{event_properties.${total_discounts}}}` |
-| Statut confirmé | `{{event_properties.${confirmed}}}` |
-| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
-| Numéro de commande | `{{event_properties.${order_number}}}` |
-| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
-| Horodatage de clôture | `{{event_properties.${closed_at}}}` |
-| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
-| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
-| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
-| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
-| Vendeur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
-| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
-| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
-| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
-| Titre d'expédition | `{{event_properties.${shipping}[0].title}}` |
-| Prix d'expédition | `{{event_properties.${shipping}[0].price}}` |
-| État d'exécution | `{{event_properties.${fulfillment_status}}}` |
-| État de l'expédition | `{{event_properties.${fulfillments}[0].shipment_status}}` |
-| État d'exécution | `{{event_properties.${fulfillments}[0].status}}` |
-| Société de suivi | `{{event_properties.${fulfillments}[0].tracking_company}}` |
-| Numéro de suivi | `{{event_properties.${fulfillments}[0].tracking_number}}` |
-| Numéros de suivi | `{{event_properties.${fulfillments}[0].tracking_numbers}}` |
-| URL de suivi | `{{event_properties.${fulfillments}[0].tracking_url}}` |
-| URLs de suivi | `{{event_properties.${fulfillments}[0].tracking_urls}}` |
-| État d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
-| Nom d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
-| Prix d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
-| ID produit d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
-| Quantité d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
-| Expédition d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
-| UGS d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
-| Titre d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
-| Fournisseur d'exécution | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
-| ID de la variante | `{{event_properties.${line_items}[0].variant_id}}` |
-| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Confirmed Status | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Closed Timestamp | `{{event_properties.${closed_at}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
+| Fulfillment Shipment Status | `{{event_properties.${fulfillments}[0].shipment_status}}` |
+| Fulfillment Status | `{{event_properties.${fulfillments}[0].status}}` |
+| Fulfillment Tracking Company | `{{event_properties.${fulfillments}[0].tracking_company}}` |
+| Fulfillment Tracking Number | `{{event_properties.${fulfillments}[0].tracking_number}}` |
+| Fulfillment Tracking Numbers | `{{event_properties.${fulfillments}[0].tracking_numbers}}` |
+| Fulfillment Tracking URL | `{{event_properties.${fulfillments}[0].tracking_url}}` |
+| Fulfillment Tracking URLs | `{{event_properties.${fulfillments}[0].tracking_urls}}` |
+| Fulfillment Status | `{{event_properties.${fulfillments}[0].line_items[0].fulfillment_status}}` |
+| Fulfillment Name | `{{event_properties.${fulfillments}[0].line_items[0].name}}` |
+| Fulfillment Price | `{{event_properties.${fulfillments}[0].line_items[0].price}}` |
+| Fulfillment Product ID | `{{event_properties.${fulfillments}[0].line_items[0].product_id}}` |
+| Fulfillment Quantity | `{{event_properties.${fulfillments}[0].line_items[0].quantity}}`|
+| Fulfillment Shipping | `{{event_properties.${fulfillments}[0].line_items[0].requires_shipping}}` |
+| Fulfillment SKU | `{{event_properties.${fulfillments}[0].line_items[0].sku}}` |
+| Fulfillment Title | `{{event_properties.${fulfillments}[0].line_items[0].title}}` |
+| Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -664,27 +664,27 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% raw %}
 | Variable | Liquid templating |
 | --- | --- |
-| ID de commande | `{{event_properties.${order_id}}}` |
-| Statut confirmé | `{{event_properties.${confirmed}}}` |
-| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
-| Numéro de commande | `{{event_properties.${order_number}}}` |
-| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
-| Réductions totales | `{{event_properties.${total_discounts}}}` |
-| Prix total | `{{event_properties.${total_price}}}` |
-| Étiquettes | `{{event_properties.${tags}}}` |
-| Codes de réduction | `{{event_properties.${discount_codes}}}` |
-| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
-| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
-| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
-| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
-| Vendeur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
-| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
-| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
-| Titre d'expédition | `{{event_properties.${shipping}[0].title}}` |
-| Prix d'expédition | `{{event_properties.${shipping}[0].price}}` |
-| ID de la variante | `{{event_properties.${line_items}[0].variant_id}}` |
-| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Confirmed Status | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Tags | `{{event_properties.${tags}}}` |
+| Discount Codes | `{{event_properties.${discount_codes}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -698,30 +698,30 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% raw %}
 | Variable | Liquid templating |
 | --- | --- |
-| ID de commande | `{{event_properties.${order_id}}}` |
-| Prix total | `{{event_properties.${total_price}}}` |
-| Réductions totales | `{{event_properties.${total_discounts}}}` |
-| Confirmé | `{{event_properties.${confirmed}}}` |
-| URL du statut de la commande | `{{event_properties.${order_status_url}}}` |
-| Numéro de commande | `{{event_properties.${order_number}}}` |
-| Horodatage d'annulation | `{{event_properties.${cancelled_at}}}` |
-| Étiquettes | `{{event_properties.${tags}}}` |
-| Codes de réduction | `{{event_properties.${discount_codes}}}` |
-| État d'exécution | `{{event_properties.${fulfillment_status}}}` |
-| Exécutions | `{{event_properties.${fulfillments}}}` |
-| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
-| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
-| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
-| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
-| Vendeur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
-| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
-| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
-| État d'exécution | `{{event_properties.${line_items}[0].fulfillment_status}}` |
-| Titre d'expédition | `{{event_properties.${shipping}[0].title}}` |
-| Prix d'expédition | `{{event_properties.${shipping}[0].price}}` |
-| ID de la variante | `{{event_properties.${line_items}[0].variant_id}}` |
-| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Total Price | `{{event_properties.${total_price}}}` |
+| Total Discounts | `{{event_properties.${total_discounts}}}` |
+| Confirmed | `{{event_properties.${confirmed}}}` |
+| Order Status URL | `{{event_properties.${order_status_url}}}` |
+| Order Number | `{{event_properties.${order_number}}}` |
+| Cancelled Timestamp | `{{event_properties.${cancelled_at}}}` |
+| Tags | `{{event_properties.${tags}}}` |
+| Discount Codes | `{{event_properties.${discount_codes}}}` |
+| Fulfillment Status | `{{event_properties.${fulfillment_status}}}` |
+| Fulfillments | `{{event_properties.${fulfillments}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Fulfillment Status | `{{event_properties.${line_items}[0].fulfillment_status}}` |
+| Shipping Title | `{{event_properties.${shipping}[0].title}}` |
+| Shipping Price | `{{event_properties.${shipping}[0].price}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
@@ -734,19 +734,19 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 {% raw %}
 | Variable | Liquid templating |
 | --- | --- |
-| ID de commande | `{{event_properties.${order_id}}}` |
-| Note de commande | `{event_properties.${note}}}` |
-| ID de l'article | `{{event_properties.${line_items}[0].product_id}}` |
-| Quantité de l'article | `{{event_properties.${line_items}[0].quantity}}` |
-| UGS de l'article | `{{event_properties.${line_items}[0].sku}}` |
-| Titre de l'article | `{{event_properties.${line_items}[0].title}}` |
-| Vendeur de l'article | `{{event_properties.${line_items}[0].vendor}}` |
-| Nom de l'article | `{{event_properties.${line_items}[0].name}}` |
-| Propriétés de l'article | `{{event_properties.${line_items}[0].properties}}` |
-| Prix de l'article | `{{event_properties.${line_items}[0].price}}` |
-| ID de la variante | `{{event_properties.${line_items}[0].variant_id}}` |
-| Titre de la variante | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+| Order ID | `{{event_properties.${order_id}}}` |
+| Order Note | `{event_properties.${note}}}` |
+| Item ID | `{{event_properties.${line_items}[0].product_id}}` |
+| Item Quantity | `{{event_properties.${line_items}[0].quantity}}` |
+| Item SKU | `{{event_properties.${line_items}[0].sku}}` |
+| Item Title | `{{event_properties.${line_items}[0].title}}` |
+| Item Vendor | `{{event_properties.${line_items}[0].vendor}}` |
+| Item Name | `{{event_properties.${line_items}[0].name}}` |
+| Item Properties | `{{event_properties.${line_items}[0].properties}}` |
+| Item Price | `{{event_properties.${line_items}[0].price}}` |
+| Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
+| Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Le webhook checkout completed de Shopify ne contient pas d'URL de produits ni d'
 | Variable | Liquid templating |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert note %}
@@ -809,7 +809,7 @@ L'intégration Shopify ne prend actuellement pas en charge le remplissage de l'[
 | `shopify_last_order_name` | Le nom de la dernière commande du client. Correspond directement au champ `name` de la ressource de commande. |
 | `shopify_zipcode` | Le code postal du client issu de son adresse par défaut. |
 | `shopify_province` | La province du client issue de son adresse par défaut. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
 
 {% alert important %}
 Un problème connu avec la version actuelle de l'API Shopify empêche l'attribut utilisateur `shopify_last_order_name` de se remplir correctement. Voici l'impact sur les utilisateurs :<br><br>
@@ -853,13 +853,17 @@ Pour plus d'informations sur les données collectées par les SDK Braze, consult
 
 ## Backfill historique {#historical-backfill}
 
-Lors de l'onboarding de votre boutique Shopify, vous pouvez lancer une synchronisation initiale des données via un backfill historique afin d'engager immédiatement vos clients. Dans le cadre de ce backfill, Braze effectue une synchronisation initiale de l'ensemble des clients et des événements de commande passée au cours des 90 derniers jours précédant la connexion de votre intégration Shopify. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+> Les données historiques Shopify sont importées avant la connexion de Braze : les événements de commande des 90 derniers jours et les données clients de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
+
+Via la [configuration de l'intégration standard Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) ou la [configuration de l'intégration personnalisée Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), vous pouvez activer le backfill historique pour cibler vos anciens clients. Cette fonctionnalité importe vos commandes Shopify (événements liés aux commandes) des 90 derniers jours et les profils utilisateurs de l'année écoulée. Les deux périodes sont calculées à partir de la date à laquelle vous finalisez votre intégration.
+
+Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
 
 {% alert note %}
-Si vous prévoyez d'utiliser un ID externe personnalisé (pour l'[intégration standard]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) ou l'[intégration personnalisée]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), vous devrez ajouter votre ID externe personnalisé en tant que méta-champ client Shopify à tous les profils clients Shopify existants, puis effectuer le backfill historique.
+Si vous êtes déjà client Braze avec des Campaigns ou des Canvas actifs, vérifiez l'impact des clients et événements de commande importés sur vos Segments et parcours avant d'activer le backfill historique.
 {% endalert %}
 
-Les données d'événements de commande synchronisées sont disponibles pour la segmentation, mais les données de chiffre d'affaires elles-mêmes ne sont pas renseignées dans le profil utilisateur ni dans le [tableau de bord Chiffre d'affaires – Attribution au dernier contact]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution).
+{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
 
 ### Mise en place du backfill historique Shopify {#setting-up-shopify-historical-backfill}
 
@@ -875,4 +879,11 @@ Les données d'événements de commande synchronisées sont disponibles pour la 
 
 ### Données synchronisées {#synced-data}
 
-Lors de la synchronisation initiale, Braze importe les clients et les commandes passées au cours des 90 derniers jours précédant la connexion de votre intégration Shopify. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+Lors de la synchronisation initiale, Braze importe les événements de commande des 90 derniers jours et les profils utilisateurs de l'année écoulée, chaque période étant calculée à partir de la date à laquelle vous finalisez votre intégration. Lorsque Braze importe vos clients Shopify, le type `external_id` que vous avez choisi dans vos paramètres de configuration leur est attribué.
+
+Le tableau suivant résume les données incluses dans ce chargement initial.
+
+| Événements recommandés Braze | Événements personnalisés Shopify | Attributs standard Braze | Statuts d'abonnement Braze |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-mail</li><li>Prénom</li><li>Nom de famille</li><li>Téléphone</li><li>Ville</li><li>Pays</li><li>Chiffre d'affaires total</li><li>Remboursements totaux</li><li>Total des commandes</li></ul>{:/} | {::nomarkdown}<ul><li>Abonnements marketing par e-mail associés à cette boutique Shopify</li><li>Abonnements marketing par SMS associés à cette boutique Shopify</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Données synchronisées" }

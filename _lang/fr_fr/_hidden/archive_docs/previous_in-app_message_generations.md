@@ -97,7 +97,7 @@ Les messages in-app HTML prennent en charge une interface de pont JavaScript ver
 
 {% multi_lang_include archive/appboyBridge.md platform="web" %}
 
-De plus, à des fins de suivi analytique, tous les éléments `<a>` ou `<button>` dans votre HTML enregistrent automatiquement une action de « clic » sur la campagne associée au message in-app. Pour enregistrer un « clic de bouton » au lieu d'un « clic de corps », fournissez soit une valeur de chaîne de requête abButtonId dans le href de votre lien (par exemple, `<a href="http://mysite.com?abButtonId=0">click me</a>`), soit un identifiant sur l'élément HTML (par exemple, `<a id="0" href="http://mysite.com">click me</a>`). Notez que les seuls identifiants de bouton actuellement acceptés sont « 0 » et « 1 ». Un lien avec un identifiant de bouton 0 sera représenté comme « Button 1 » sur le tableau de bord, tandis qu'un lien avec un identifiant de bouton 1 sera représenté comme « Button 2 ».
+De plus, à des fins de suivi analytique, tous les éléments `<a>` ou `<button>` dans votre HTML enregistrent automatiquement une action de « clic » sur la Campaign associée au message in-app. Pour enregistrer un « clic de bouton » au lieu d'un « clic de corps », fournissez soit une valeur de chaîne de requête abButtonId dans le href de votre lien (par exemple, `<a href="http://mysite.com?abButtonId=0">click me</a>`), soit un identifiant sur l'élément HTML (par exemple, `<a id="0" href="http://mysite.com">click me</a>`). Notez que les seuls identifiants de bouton actuellement acceptés sont « 0 » et « 1 ». Un lien avec un identifiant de bouton 0 sera représenté comme « Button 1 » sur le tableau de bord, tandis qu'un lien avec un identifiant de bouton 1 sera représenté comme « Button 2 ».
 
 >  Pour activer les messages in-app HTML via le SDK Web, vous devez fournir l'option d'initialisation `allowUserSuppliedJavascript` à Braze, par exemple `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Pour des raisons de sécurité, les messages in-app HTML peuvent exécuter du JavaScript, d'où la nécessité qu'un responsable du site les active.
 
@@ -140,7 +140,7 @@ Pour tous les types de messages in-app répertoriés dans le tableau suivant, le
 | Contextuel                            |     1:1      |         140         |
 | Modal (image uniquement)                 |     1:1      |         140         |
 | Modal (avec texte)                  |    29:10     |         140         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Character and image limits" }
 
 ### Conserver des tailles de fichiers réduites pour les messages in-app {#keeping-in-app-message-file-sizes-small}
 

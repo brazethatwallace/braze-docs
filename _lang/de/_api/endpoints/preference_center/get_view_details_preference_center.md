@@ -9,7 +9,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt „Details für Präf
 
 ---
 {% api %}
-# Details für Präferenzzentrum anzeigen
+# Details für Präferenzzentrum anzeigen {#view-details-for-preference-center}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
@@ -18,33 +18,33 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt „Details für Präf
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6a47fd7c-2997-4832-aedb-d101a2dd03a5 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `preference_center.get`.
 
-## Rate-Limits
+## Rate-Limits {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
-{: role="presentation" }
+| `preferenceCenterExternalID` | Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
+{: aria-label="Path parameters" }
 
-## Anfrage-Parameter
+## Anfrage-Parameter {#request-parameters}
 
 Für diesen Endpunkt gibt es keine Anfrage-Parameter.
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/preference_center_external_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 ```json
 {
   "name": "My Preference Center",

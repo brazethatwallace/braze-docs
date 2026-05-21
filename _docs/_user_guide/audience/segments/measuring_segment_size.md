@@ -84,7 +84,7 @@ The following filters are applied for each channel when determining reachable us
 | Email | **Email Available** is true. |
 | Push | **Foreground Push Enabled** is true. |
 | SMS | **Subscription Group** is any SMS subscription group. **Invalid Phone Number** is false. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Applied filters for channel-specific reachable users" }
 
 ## Calculating exact statistics 
 
@@ -138,4 +138,4 @@ The membership count may significantly change for a number of reasons, such as t
 | Users are deleted | A significant number of users were deleted. |
 | A partner integration synced with Braze | A third party sent data to Braze that significantly influenced segment membership. |
 | Dormant users are archived | A significant number of inactive profiles were archived. For example, a large number of CSV-imported users never log activity and get archived at the same time. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reasons for significant changes" }

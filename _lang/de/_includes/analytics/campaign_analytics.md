@@ -1,13 +1,13 @@
-## Analytik anzeigen {#viewing-analytics}
+## Analytics anzeigen {#viewing-analytics}
 
 Sobald Sie Ihre Kampagne gestartet haben, können Sie zur Detailseite dieser Kampagne zurückkehren, um die wichtigsten Kennzahlen einzusehen. Navigieren Sie zur Seite **Campaigns** und wählen Sie Ihre Kampagne aus, um die Detailseite zu öffnen.{% if include.channel != "banner" %} Für {% if include.channel == "Content Card" %}Content Cards {% elsif include.channel == "banner" %}Banner {% elsif include.channel == "email" %}E-Mails {% elsif include.channel == "in-app message" %}In-App-Nachrichten {% elsif include.channel == "KakaoTalk" %}KakaoTalk-Nachrichten {% elsif include.channel == "push" %}Push-Nachrichten {% elsif include.channel == "SMS" %}SMS-Nachrichten {% elsif include.channel == "whatsapp" %}WhatsApp-Nachrichten {% elsif include.channel == "webhook" %}Webhooks {% endif %}, die in Canvas gesendet werden, lesen Sie den Abschnitt [Canvas-Analytics]({{site.baseurl}}/user_guide/engagement_tools/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).{% endif %}
 
 {% alert tip %}
 Suchen Sie nach Definitionen für die in Ihrem Bericht aufgeführten Begriffe und Metriken? Sehen Sie sich unser
   {% if include.channel == "email" %}[E-Mail-Analytics-Glossar]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/) an.
-  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Bannern.
+  {% elsif include.channel == "banner" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Banner.
   {% elsif include.channel == "Content Card" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Content Cards.
-  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachricht.
+  {% elsif include.channel == "in-app message" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach In-App-Nachrichten.
   {% elsif include.channel == "push" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach Push.
   {% elsif include.channel == "SMS" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach SMS/MMS und RCS.
   {% elsif include.channel == "whatsapp" %}[Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics/) an und filtern Sie nach WhatsApp.
@@ -22,7 +22,7 @@ Standardmäßig zeigt **Kampagnen-Analytics** die letzten 90 Tage ab dem aktuell
 
 ### Kampagnendetails {#campaign-details}
 
-Das Panel **Kampagnendetails** zeigt einen Überblick über die gesamte Performance Ihrer
+Das Panel **Campaign Details** zeigt einen Überblick über die gesamte Performance Ihrer
   {% if include.channel == "banner" %}Banner.
   {% elsif include.channel == "Content Card" %}Content-Card.
   {% elsif include.channel == "email" %}E-Mail.
@@ -72,49 +72,49 @@ In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen er
 
 {% endif %}
 
-#### Geschätzte Zielgruppe und aktuelle Zielgruppe {#estimated-audience-and-current-audience}
+#### Estimated Audience und Current Audience {#estimated-audience-and-current-audience}
 
-Je nach Größe Ihres Workspace kann das Panel **Kampagnendetails** die Zielgruppenstatistiken als **Geschätzte Zielgruppe** oder **Aktuelle Zielgruppe** bezeichnen.
+Je nach Größe Ihres Workspace kann das Panel **Campaign Details** die Zielgruppenstatistiken als **Estimated Audience** oder **Current Audience** bezeichnen.
 
-Die folgende Tabelle erklärt, wann welche Bezeichnung verwendet wird und was sie bedeutet.
+Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 
 | Bezeichnung in der Fußzeile | Wann sie verwendet wird |
 | --- | --- |
-| **Geschätzte Zielgruppe** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
-| **Aktuelle Zielgruppe** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Estimated Audience** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
+| **Current Audience** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience und Current Audience" }
 
-Weitere Informationen zum Stichprobenverhalten, zu **Exakte Statistiken berechnen** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
 #### Kontrollgruppen {#cc-control-group}
 
-Um die Wirkung einer einzelnen Content-Card zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen Content-Card zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "SMS" %}
 
 #### Kontrollgruppen {#sms-control-group}
 
-Um die Wirkung einer einzelnen SMS-, MMS- oder RCS-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen SMS-, MMS- oder RCS-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "whatsapp" %}
 
 #### Kontrollgruppen {#whatsapp-control-group}
 
-Um die Wirkung einer einzelnen WhatsApp-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen WhatsApp-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% elsif include.channel == "webhook" %}
 
 #### Kontrollgruppen {#webhook-control-group}
 
-Um die Wirkung einer einzelnen Webhook-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Kampagnendetails** enthält keine Metriken aus der Kontrollgruppen-Variante.
+Um die Wirkung einer einzelnen Webhook-Nachricht zu messen, können Sie einem A/B-Test eine [Kontrollgruppe]({{site.baseurl}}/user_guide/intelligence/multivariate_testing/#step-4-choose-a-segment-and-distribute-your-users-across-variants) hinzufügen. Das übergeordnete Panel **Campaign Details** enthält keine Metriken aus der Kontrollgruppen-Variante.
 
 {% endif %}
 
-#### Änderungen seit letztem Aufruf {#changes-since-last-viewed}
+#### Changes Since Last Viewed
 
-Die Anzahl der Aktualisierungen der Kampagne durch andere Mitglieder Ihres Teams wird durch die Metrik *Änderungen seit letztem Aufruf* auf der Kampagnenübersichtsseite erfasst. Wählen Sie **Änderungen seit letztem Aufruf**, um ein Changelog der Aktualisierungen an Name, Zeitplan, Tags, Nachricht, Zielgruppe, Genehmigungsstatus oder Teamzugriffskonfiguration der Kampagne anzuzeigen. Bei jeder Aktualisierung können Sie sehen, wer die Änderung vorgenommen hat und wann. Sie können dieses Changelog verwenden, um Änderungen an Ihrer Kampagne nachzuvollziehen.
+Die Anzahl der Aktualisierungen der Kampagne durch andere Mitglieder Ihres Teams wird durch die Metrik *Changes Since Last Viewed* auf der Kampagnenübersichtsseite erfasst. Wählen Sie **Changes Since Last Viewed**, um ein Changelog der Aktualisierungen an Name, Zeitplan, Tags, Nachricht, Zielgruppe, Genehmigungsstatus oder Teamzugriffskonfiguration der Kampagne anzuzeigen. Bei jeder Aktualisierung können Sie sehen, wer die Änderung vorgenommen hat und wann. Sie können dieses Changelog verwenden, um Änderungen an Ihrer Kampagne nachzuvollziehen.
 
 <!--
 ### Message Performance
@@ -124,77 +124,81 @@ The **Message Performance** panel outlines how well your message has performed a
 {% if include.channel == "Content Card" %}
 ### Content-Card-Performance
 
-Das Panel **Content-Card-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **Content Card Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![Content-Card-Nachrichten-Performance-Analytics]({% image_buster /assets/img/cc-message-performance.png %})
 
 {% elsif include.channel == "email" %}
 ### E-Mail-Performance {#email-performance}
 
-Das Panel **E-Mail-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **Email Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![E-Mail-Nachrichten-Performance-Analytics]({% image_buster /assets/img_archive/email_message_performance.png %})
 
 {% elsif include.channel == "in-app message" %}
 ### In-App-Nachrichten-Performance {#in-app-message-performance}
 
-Das Panel **In-App-Nachrichten-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **In-App Message Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![In-App-Nachrichten-Performance-Analytics]({% image_buster /assets/img_archive/iam_message_performance.png %})
 
 {% elsif include.channel == "push" %}
-### Push-Performance
+### Push-Performance {#push-performance}
 
-Das Panel **Push-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **Push Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![Push-Nachrichten-Performance-Analytics]({% image_buster /assets/img_archive/push_message_performance.png %})
 
 {% elsif include.channel == "SMS" %}
 ### SMS/MMS/RCS-Performance
 
-Das Panel **SMS/MMS/RCS-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **SMS/MMS/RCS Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![SMS/MMS/RCS-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Banner-Performance
 
-Das Panel **Banner-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Diese Metriken variieren je nach Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen.
+Das Panel **Banner Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Diese Metriken variieren je nach Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen.
 
 ![Banner-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe, Variante 1 und Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### KakaoTalk-Performance
 
-Das Panel **KakaoTalk-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **KakaoTalk Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 {% elsif include.channel == "webhook" %}
 ### Webhook-Performance
 
-Das Panel **Webhook-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **Webhook Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![Webhook-Performance-Panel mit einer Tabelle mit Metriken für eine Kontrollgruppe und Variante 1.]({% image_buster /assets/img/webhook_message_performance.png %})
 
 {% elsif include.channel == "whatsapp" %}
 ### WhatsApp-Performance
 
-Das Panel **WhatsApp-Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Vorschau**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
+Das Panel **WhatsApp Performance** zeigt Ihnen, wie gut Ihre Nachricht in verschiedenen Dimensionen abgeschnitten hat. Die Metriken in diesem Panel variieren je nach gewähltem Messaging-Kanal und je nachdem, ob Sie einen multivariaten Test durchführen. Klicken Sie auf das Symbol <i class="fa fa-eye preview-icon"></i> **Preview**, um Ihre Nachricht für jede Variante oder jeden Kanal anzuzeigen.
 
 ![WhatsApp-Performance-Panel mit einer Tabelle mit Metriken für Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
 {% endif %}
 
-Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-plus"></i> **Spalten hinzufügen/entfernen** und deaktivieren Sie die gewünschten Metriken. Standardmäßig werden alle Metriken angezeigt.
+Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-plus"></i> **Add/Remove Columns** und deaktivieren Sie die gewünschten Metriken. Standardmäßig werden alle Metriken angezeigt.
 
 {% if include.channel == "email" %}
 
 #### Heatmaps
 
-Mit Heatmaps können Sie sehen, wie erfolgreich verschiedene Links in einer einzelnen E-Mail-Kampagne sind. Gehen Sie im Abschnitt **Nachrichtenanalyse** zum Panel **E-Mail-Performance**. Wählen Sie **Vorschau & Heatmap**, um eine Vorschau Ihrer E-Mail-Kampagne und der Heatmap anzuzeigen. Alternativ können Sie den Hyperlink im Variantennamen auswählen, um die Heatmap aufzurufen.
+Mit Heatmaps können Sie sehen, wie erfolgreich verschiedene Links in einer einzelnen E-Mail-Kampagne sind. Gehen Sie im Abschnitt **Message Analytics** zum Panel **Email Performance**. Wählen Sie **Preview & Heatmap**, um eine Vorschau Ihrer E-Mail-Kampagne und der Heatmap anzuzeigen. Alternativ können Sie den Hyperlink im Variantennamen auswählen, um die Heatmap aufzurufen.
 
-In dieser Ansicht können Sie mit dem Schalter **Heatmap anzeigen** eine visuelle Darstellung Ihrer E-Mail aufrufen, die die Gesamthäufigkeit und den Ort der Klicks innerhalb der Laufzeit der Kampagne anzeigt. Im Panel **Link-Tabelle nach Gesamtklicks** können Sie alle Links in Ihrer E-Mail-Kampagne anzeigen und nach Gesamtklicks sortieren. Dies kann zusätzliche Insights darüber liefern, wohin Ihre Nutzer:innen navigieren. Um eine Kopie der Heatmap als Referenz zu speichern, klicken Sie auf den Download-Button.
+In dieser Ansicht können Sie mit dem Schalter **Show Heatmap** eine visuelle Darstellung Ihrer E-Mail aufrufen, die die Gesamthäufigkeit und den Ort der Klicks innerhalb der Laufzeit der Kampagne anzeigt. Im Panel **Link Table by Total Clicks** können Sie alle Links in Ihrer E-Mail-Kampagne anzeigen und nach Gesamtklicks sortieren. Dies kann zusätzliche Insights darüber liefern, wohin Ihre Nutzer:innen navigieren. Um eine Kopie der Heatmap als Referenz zu speichern, klicken Sie auf den Download-Button.
 
-![Beispiel für die Vorschau- und Heatmap-Seite mit einer E-Mail-Kampagne und einem Panel mit Beispielen für Link-Aliase und deren Gesamtklicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+{% alert note %}
+Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs möglicherweise nicht genau genug mit dem gerenderten Link in der Nachricht überein, sodass die Heatmap die Klicks nicht mit diesem Link verknüpfen kann – diese Links werden dann möglicherweise nicht auf der Heatmap angezeigt. Verwenden Sie die Klickdaten im Panel **Link Table by Total Clicks** für ein vollständiges Bild.
+{% endalert %}
+
+![Beispiel für die Seite „Preview & Heatmap“ mit einer E-Mail-Kampagne und einem Panel mit Beispielen für Link-Aliase und deren Gesamtklicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 #### Bilder {#images}
 
@@ -216,7 +220,8 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="Content-Card-Metriken">
+    <caption class="sr-only">Content-Card-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -282,7 +287,7 @@ _Messages Sent_ bezieht sich auf Content Cards, die zum Ansehen verfügbar sind,
 
 Dies sind die wichtigsten Metriken, die Sie bei der Überprüfung der Performance Ihrer Banner-Kampagne im Blick behalten sollten. Klicks und Impressionen für Banner werden automatisch über das SDK getrackt.
 
-Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Bannern.
+Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data_and_analytics/report_metrics/). Filtern Sie dort nach Banner.
 
 <style>
     .no-split {
@@ -290,7 +295,8 @@ Die vollständigen Definitionen aller Banner-Metriken finden Sie im [Glossar der
     }
 </style>
 
-<table>
+<table aria-label="Banner-Metriken">
+    <caption class="sr-only">Banner-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -359,7 +365,8 @@ Im Folgenden finden Sie einige wichtige E-Mail-spezifische Metriken, die in ande
     }
 </style>
 
-<table>
+<table aria-label="E-Mail-Metriken">
+    <caption class="sr-only">E-Mail-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -438,6 +445,30 @@ Ein Klick kann ohne eine Öffnung protokolliert werden, wenn das Öffnungs-Pixel
 
 Ein Klick und eine Öffnung können auch an verschiedenen Tagen stattfinden: Eine Nutzer:in könnte am 16. Mai mit deaktivierten Bildern klicken (keine Öffnung) und dann am 17. Mai im Webmail öffnen (Öffnung wird dann protokolliert).
 
+##### Höhere _Unique Clicks_ als _Unique Opens_ {#higher-unique-clicks-than-unique-opens}
+
+Es kann vorkommen, dass _Unique Clicks_ die _Unique Opens_ deutlich übersteigen (z. B. mehrere eindeutige Klicks pro eindeutiger Öffnung), selbst wenn Sie von Ihrer Zielgruppe ein niedrigeres Verhältnis erwarten. Dieses Muster bedeutet in der Regel, dass Öffnungen zu niedrig gezählt, Klicks überhöht oder beides der Fall ist. Das bedeutet jedoch nicht, dass Braze Klicks isoliert falsch zählt.
+
+Braze protokolliert eine E-Mail-Öffnung, wenn das Öffnungs-Tracking-Pixel geladen wird. Dieses Pixel ist ein kleines transparentes Bild (oft als 1 x 1&nbsp;px beschrieben), das Braze dem Nachrichten-HTML hinzufügt. Wenn das Pixel nie geladen wird, wird für diese Ansicht keine Öffnung protokolliert, aber Link-Klicks können dennoch registriert werden – sodass Ihre Click-to-Open-Rate und das Verhältnis zwischen diesen beiden Metriken verzerrt aussehen können.
+
+**Das Postfach hat das Öffnungs-Tracking-Pixel nie geladen**
+
+Das Pixel wird möglicherweise nicht geladen, wenn:
+
+- **Die Nachricht abgeschnitten wird.** Langes HTML schiebt Inhalte – einschließlich des Pixels am Ende – hinter einen „Gesamte Nachricht anzeigen“-Abschnitt. In Gmail werden Nachrichten, die größer als etwa [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) sind, häufig abgeschnitten, was das Laden des Pixels verhindern kann, bis die vollständige Nachricht geöffnet wird (und manchmal auch dann nicht, je nach Client).
+- **Bilder blockiert oder eingeschränkt sind.** Strengere Posteingangs-Sicherheit (häufig bei Unternehmenskonten) kann Remote-Bilder blockieren, bis die Empfänger:in sich entscheidet, sie zu laden, sodass das Öffnungs-Pixel nicht ausgelöst wird, obwohl getrackte Links angeklickt werden.
+- **Die Nachricht sich im Spam- oder Massenordner befindet.** Viele Anbieter laden Remote-Bilder (einschließlich des Öffnungs-Pixels) in diesen Ordnern standardmäßig nicht.
+
+**Was Sie tun können**
+
+- **Abschneiden:** Kürzen und vereinfachen Sie das HTML, entfernen Sie ungenutzte Styles oder Assets und halten Sie die Gesamtgröße der Nachricht innerhalb der Client-Limits. Für Gmail sollten Sie unter etwa 102&nbsp;KB bleiben, wie unter [E-Mail-Größe]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) beschrieben.
+- **Posteingangs-Sicherheit und Bildladen:** Nur die Empfänger:in (oder deren IT-Richtlinie) kann ändern, ob Bilder standardmäßig geladen werden.
+- **Spam-Platzierung:** Konzentrieren Sie sich auf die [Verbesserung der E-Mail-Zustellbarkeit]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) und Listenhygiene. Wenn E-Mails regelmäßig im Spam landen und die Metriken falsch aussehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+
+**Sicherheits- oder Bot-Aktivität bei Links**
+
+Einige E-Mail-Sicherheitsprodukte folgen Links, um nach Bedrohungen zu scannen. Diese Anfragen können einen Klick protokollieren, ohne Bilder zu laden, sodass Sie Klickaktivität ohne eine entsprechende Öffnung sehen können.
+
 ##### Deferrals
 
 Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte. Braze versucht jedoch, die E-Mail bis zu 72 Stunden nach diesem vorübergehenden Zustellungsfehler erneut zuzustellen, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezielle Kampagne eingestellt werden. Typische Gründe für Deferrals sind reputationsbasiertes Rate-Limiting des Posteingangs-Anbieters für das E-Mail-Volumen, vorübergehende Verbindungsprobleme oder DNS-Fehler.
@@ -450,7 +481,7 @@ Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-F
 
 Diese Statistik verwendet ein proprietäres, von Braze entwickeltes Analysemodell, um eine Schätzung der individuellen Öffnungsrate der Kampagne zu rekonstruieren – so, als ob es keine automatischen Öffnungen gäbe. Obwohl wir bei einigen Öffnungs-Events von E-Mail-Absendern die Kennzeichnung *Machine Opens* erhalten (siehe oben), können diese Kennzeichnungen häufig tatsächliche Öffnungen fälschlicherweise als automatische Öffnungen markieren. Mit anderen Worten: Die *Other Opens* sind wahrscheinlich eine Unterschätzung der tatsächlichen Öffnungen (durch echte Nutzer:innen). Stattdessen verwendet Braze die Klickdaten der einzelnen Kampagnen, um auf die Rate zu schließen, mit der Menschen die Nachricht tatsächlich geöffnet haben. Dies kompensiert verschiedene Mechanismen zum automatischen Öffnen, einschließlich Apples MPP.
 
-Die _Estimated Real Open Rate_ wird 36 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 24 Stunden neu berechnet. Bei wiederkehrenden Kampagnen wird die Schätzung 36 Stunden nach einem weiteren Versand neu berechnet.
+Die _Estimated Real Open Rate_ wird 24 Stunden nach Beginn des E-Mail-Versands berechnet und danach alle 72 Stunden neu berechnet.
 
 Da diese Metrik kontinuierlich neu berechnet wird, kann sich der Wert der _Estimated Real Open Rate_ im Laufe der Zeit ändern, wenn neue Engagement-Signale (wie Öffnungen und Klicks) empfangen und in das Modell integriert werden. In der Praxis kann die _Estimated Real Open Rate_ täglich aktualisiert werden, solange eine Kampagne aktiv ist.
 
@@ -493,7 +524,8 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     }
 </style>
 
-<table>
+<table aria-label="Metriken für In-App-Nachrichten">
+    <caption class="sr-only">In-App-Nachrichten-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -561,7 +593,7 @@ Im Folgenden finden Sie einige wichtige KakaoTalk-Metriken, die Sie in Ihren Ana
 | Fehler | _Fehler_ ist die Anzahl der vom KakaoTalk-Anbieter zurückgegebenen Fehler (wird während des Sendevorgangs erhöht). |
 | Umsatz | _Umsatz_ ist der Umsatz in Dollar von Kampagnenempfänger:innen innerhalb des festgelegten primären Konversionsfensters. |
 | Primäre Konversionen | _Primäre Konversionen_ ist die Anzahl der Male, die ein definiertes Event nach der Interaktion mit oder dem Anzeigen einer empfangenen Nachricht aus einer Braze-Kampagne aufgetreten ist. Dieses definierte Event wird von Ihnen beim Erstellen der Kampagne festgelegt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk-Metriken" }
 
 {% elsif include.channel == "push" %}
 
@@ -575,7 +607,8 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="Push-Metriken">
+    <caption class="sr-only">Push-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -614,7 +647,7 @@ Sie können ein Segment erstellen, um Nutzer:innen zu identifizieren, die keine 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
 
-![Der Abschnitt „Segment Builder“ mit dem Filter „Hintergrund- oder Vordergrund-Push für App aktiviert“ für eine App ist deaktiviert, und der Filter „Hat deinstalliert“ ist ausgewählt.]({% image_buster /assets/img/push_unsub_segment_example.png %})
+![Der Abschnitt „Segment Builder“ mit dem Filter „Background or Foreground Push Enabled for App“ für eine App ist „false“, und der Filter „Has Uninstalled“ ist ausgewählt.]({% image_buster /assets/img/push_unsub_segment_example.png %})
 
 Bitte beachten Sie, dass die Segmentierungsfilter nur Näherungswerte liefern und nicht konkret mit einem Datum und einer Kampagne verknüpft werden können.
 
@@ -633,6 +666,18 @@ Als weitere Möglichkeit empfehlen wir, ein angepasstes Event für Push-Abmeldun
 ##### Öffnungen verstehen {#understanding-opens}
 
 Auch wenn _Direct Opens_ und _Influenced Opens_ das Wort „Opens“ enthalten, handelt es sich um unterschiedliche Metriken. _Direct Opens_ bezieht sich auf das direkte Öffnen einer Push-Benachrichtigung, wie in der Tabelle oben beschrieben. _Influenced Opens_ bezieht sich auf das Öffnen einer App, ohne dass eine Push-Benachrichtigung innerhalb eines bestimmten Zeitraums nach Erhalt geöffnet wurde. _Influenced Opens_ bezieht sich also auf App-Öffnungen, nicht auf das Öffnen von Push-Benachrichtigungen.
+
+##### Push-Action-Buttons und Berichterstattung {#push-action-buttons-and-reporting}
+
+Wenn Sie [Push-Action-Buttons]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/) hinzufügen, kann das Panel **Push Performance** neben Metriken wie **Direct Opens** auch **Body Clicks**, **Button 1 Clicks** und **Button 2 Clicks** enthalten. Diese Spalten messen unterschiedliche Interaktionen – vergleichen Sie sie daher bei der Interpretation des Engagements.
+
+_Direct Opens_ spiegelt die Dashboard-Metriken für Interaktionen wider, die als direkte Öffnung Ihrer Nachricht gezählt werden. **Push Notification Open**-Events in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) oder Snowflake beschreiben Push-Interaktionen umfassender und können optionale Felder wie `button_action_type` (z. B. `close`) und `button_string` enthalten. Felddefinitionen finden Sie unter [Push Notification Open-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Für **iOS** verwenden die Standard-Benachrichtigungskategorien von Braze (wie **Yes** / **No**, **Accept** / **Decline** oder **Confirm** / **Cancel**) eine feste Zuordnung: Die erste Aktion unterstützt `OPEN_APP`, eine URI oder einen Deeplink (entsprechend dem **On-Click Behavior** im Composer). Die Begleitaktion verwendet standardmäßig `CLOSE` – sie schließt die Benachrichtigung und öffnet die App nicht. Siehe die Standardzuordnung unter [Apple Push-Action-Button-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+Aus diesem Grund werden Taps auf den abweisenden voreingestellten Button (z. B. **No** oder **Decline**) in der Regel **nicht** als _Direct Opens_ gezählt. Diese Taps können dennoch in **Push Notification Open**-Exporten erscheinen, wenn sie protokolliert werden, wobei `button_action_type` auf `close` und `button_string` die getippte Aktion identifiziert. Wenn Sie Kampagnen-Analytics mit Warehouse-Daten vergleichen, verwenden Sie diese Payload-Felder, damit Sie abweisende Taps nicht mit Taps auf den Nachrichtentext oder die primäre Aktion gleichsetzen.
+
+Für **Android** legen Sie das **On-Click Behavior** pro Button fest (**Open App**, **Redirect to Web URL** oder **Deep Link**), sodass die Berichterstattung den von Ihnen konfigurierten Aktionen folgt und nicht der iOS-Standard-Aufteilung `OPEN_APP` / `CLOSE`.
 
 ##### Warum Push-Sendungen die Zahl der eindeutigen Empfänger:innen übersteigen können {#why-push-sends-can-exceed-unique-recipients}
 
@@ -663,7 +708,7 @@ Firebase Cloud Messaging (FCM) Bounces können in drei Fällen auftreten:
 | Deinstallierte Anwendungen | Wenn eine Nachricht versucht, an ein Gerät zugestellt zu werden, und die vorgesehene App auf diesem Gerät deinstalliert ist, wird die Nachricht verworfen und die Registrierungs-ID des Geräts wird ungültig. Alle weiteren Versuche, das Gerät zu benachrichtigen, geben den Fehler NotRegistered zurück. |
 | Gesicherte Anwendung | Wenn eine Anwendung gesichert wird, kann ihre Registrierungs-ID ungültig werden, bevor die Anwendung wiederhergestellt wird. In diesem Fall speichert FCM die Registrierungs-ID der Anwendung nicht mehr und die Anwendung empfängt keine Nachrichten mehr. Registrierungs-IDs sollten daher **nicht** gespeichert werden, wenn eine Anwendung gesichert wird. |
 | Aktualisierte Anwendung | Wenn eine Anwendung aktualisiert wird, funktioniert die Registrierungs-ID der vorherigen Version möglicherweise nicht mehr. Daher sollte eine aktualisierte Anwendung ihre bestehende Registrierungs-ID ersetzen. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Warum Bounces auftreten" }
 
 {% endtab %}
 {% endtabs %}
@@ -681,7 +726,8 @@ Im Folgenden finden Sie eine Aufschlüsselung einiger wichtiger Metriken, die Si
     }
 </style>
 
-<table>
+<table aria-label="SMS-, MMS- und RCS-Metriken">
+    <caption class="sr-only">SMS-, MMS- und RCS-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -732,7 +778,8 @@ Hier sind einige wichtige Webhook-Metriken, die Sie in Ihren Analytics sehen kö
     }
 </style>
 
-<table>
+<table aria-label="Webhook-Metriken">
+    <caption class="sr-only">Webhook-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -767,7 +814,8 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp-Metriken">
+    <caption class="sr-only">WhatsApp-Performance-Metriken</caption>
     <thead>
         <tr>
             <th>Metrik</th>
@@ -802,11 +850,11 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
 
 ### Historische Performance {#historical-performance}
 
-Im Panel **Historische Performance** können Sie die Metriken aus dem Panel **Nachrichten-Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
+Im Panel **Historical Performance** können Sie die Metriken aus dem Panel **Message Performance** als Diagramm im Zeitverlauf betrachten. Verwenden Sie die Filter am oberen Rand des Panels, um die angezeigten Statistiken und Kanäle zu ändern. Der Zeitraum dieses Diagramms entspricht immer dem oben auf der Seite angegebenen Zeitraum.
 
-Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das Hamburger-Menü <i class="fas fa-bars"></i> und wählen Sie **CSV herunterladen**, um einen CSV-Export des Berichts zu erhalten.
+Um eine tagesgenaue Aufschlüsselung zu erhalten, klicken Sie auf das <i class="fas fa-bars"></i> Hamburger-Menü und wählen Sie **Download CSV**, um einen CSV-Export des Berichts zu erhalten.
 
-![Ein Diagramm des Panels „Historische Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
+![Ein Diagramm des Panels „Historical Performance“ mit Beispielstatistiken für eine E-Mail von Februar 2021 bis Mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 
 {% if include.channel == "in-app message" %}
 
@@ -820,33 +868,33 @@ Wenn Sie sich dafür entscheiden, nur an Nutzer:innen zu senden, die die neueste
 
 ### Schlüsselwort-Antworten {#keyword-responses}
 
-Das Panel **Schlüsselwort-Antworten** zeigt Ihnen eine Zeitleiste der eingehenden Schlüsselwörter, mit denen Nutzer:innen nach Erhalt Ihrer Nachricht geantwortet haben.
+Das Panel **Keyword Responses** zeigt Ihnen eine Zeitleiste der eingehenden Schlüsselwörter, mit denen Nutzer:innen nach Erhalt Ihrer Nachricht geantwortet haben.
 
-![Das Panel „Kampagnenebene – SMS/MMS/RCS-Schlüsselwort-Antworten“ mit einem Liniendiagramm zur Verteilung der Schlüsselwörter im Zeitverlauf und einem Abschnitt „Schlüsselwort-Kategorien“ mit ausgewählten Kontrollkästchen für „Opt-in“, „Opt-out“, „Hilfe“, „Sonstiges“, „Mehr“ und „Coaching“.]({% image_buster /assets/img/sms/keyword_responses.png %})
+![Das Panel „Kampagnenebene – SMS/MMS/RCS Keyword Responses“ mit einem Liniendiagramm zur Verteilung der Schlüsselwörter im Zeitverlauf und einem Abschnitt „Keyword Categories“ mit ausgewählten Kontrollkästchen für Opt-In, Opt-Out, Help, Other, More und Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
 Hier können Sie auch die Antwortverteilung für jede Schlüsselwort-Kategorie einsehen, um die nächsten Schritte für das [Retargeting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns/) festzulegen und bequem [ein Segment zu erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
 
-![Die Tabelle unterhalb des Liniendiagramms mit Spalten für Schlüsselwort-Kategorie, Antwortverteilung und Retargeting, wobei Sie die Möglichkeit haben, ein Segment mit der Schlüsselwort-Kategorie zu erstellen.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![Die Tabelle unterhalb des Liniendiagramms mit Spalten für Keyword Category, Response Distribution und Retargeting, wobei Sie die Möglichkeit haben, ein Segment mit der Schlüsselwort-Kategorie zu erstellen.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 
 ### Details zum Konversions-Event {#conversion-event-details}
 
-Das Panel **Details zum Konversions-Event** zeigt Ihnen die Performance Ihrer Konversions-Events für Ihre Kampagne. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results).
+Das Panel **Conversion Event Details** zeigt Ihnen die Performance Ihrer Konversions-Events für Ihre Kampagne. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events/#step-3-view-results).
 
-![Das Panel „Details zum Konversions-Event“.]({% image_buster /assets/img/cc-conversion.png %})
+![Das Panel „Conversion Event Details“.]({% image_buster /assets/img/cc-conversion.png %})
 
 ### Konversionskorrelation {#conversion-correlation}
 
-Das Panel **Konversionskorrelation** gibt Ihnen Aufschluss darüber, welche Nutzerattribute und Verhaltensweisen die von Ihnen für Campaigns festgelegten Ergebnisse fördern oder beeinträchtigen. Weitere Informationen finden Sie unter [Konversionskorrelation]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
+Das Panel **Conversion Correlation** gibt Ihnen Aufschluss darüber, welche Nutzerattribute und Verhaltensweisen die von Ihnen für Kampagnen festgelegten Ergebnisse fördern oder beeinträchtigen. Weitere Informationen finden Sie unter [Konversionskorrelation]({{site.baseurl}}/user_guide/engagement_tools/testing/conversion_correlation/).
 
-![Das Panel „Konversionskorrelation“ mit einer Analyse der Nutzerattribute und des Verhaltens aus dem primären Konversions-Event – A.]({% image_buster /assets/img/convcorr.png %})
+![Das Panel „Conversion Correlation“ mit einer Analyse der Nutzerattribute und des Verhaltens aus dem primären Konversions-Event – A.]({% image_buster /assets/img/convcorr.png %})
 
 {% if include.channel == "KakaoTalk" %}
 
 ## Berichts-Builder {#report-builder}
 
-Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) verwenden, um benutzerdefinierte Berichte für Ihre KakaoTalk-Kampagnen zu erstellen. Beim Erstellen eines Berichts können Sie filtern, um nur KakaoTalk-Kampagnen einzubeziehen, indem Sie unter **Kanäle** die Option **KakaoTalk** auswählen oder nach Tags filtern, die Sie Ihren KakaoTalk-Kampagnen zugewiesen haben.
+Sie können auch den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) verwenden, um benutzerdefinierte Berichte für Ihre KakaoTalk-Kampagnen zu erstellen. Beim Erstellen eines Berichts können Sie filtern, um nur KakaoTalk-Kampagnen einzubeziehen, indem Sie unter **Channels** die Option **KakaoTalk** auswählen oder nach Tags filtern, die Sie Ihren KakaoTalk-Kampagnen zugewiesen haben.
 
 {% endif %}
 

@@ -18,7 +18,7 @@ local_redirect: #optimizations
 ## 1. Schritt: Erstellen Sie Ihre Campaign {#step-1-create-your-campaign}
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Kampagne erstellen** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
+2. Wählen Sie **Create Campaign** und einen Kanal für die Campaign aus dem Bereich, der multivariate und A/B-Tests ermöglicht. Eine ausführliche Dokumentation zu jedem Messaging-Kanal finden Sie unter [Kampagne erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/).
 
 ## 2. Schritt: Verfassen Sie Ihre Varianten {#step-2-compose-your-variants}
 
@@ -68,7 +68,7 @@ Die Größe der Kontrollgruppe für eine Campaign mit [Intelligenter Auswahl]({{
 
 Das Festlegen eines Konversions-Events für eine Campaign ermöglicht es Ihnen zu sehen, wie viele Empfänger:innen dieser Campaign nach dem Erhalt eine bestimmte Aktion durchgeführt haben.
 
-Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primäre Konversionsrate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Dies wirkt sich nur auf den Test aus, wenn Sie in den vorherigen Schritten **Primary Conversion Rate** gewählt haben. Weitere Informationen finden Sie unter [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
 
 ## 6. Schritt: Überprüfen und starten {#step-6-review-and-launch}
 

@@ -1,6 +1,6 @@
 ---
 nav_title: Configuración de la integración personalizada de Shopify
-article_title: "Configuración de la integración personalizada de Shopify"
+article_title: Configuración de la integración personalizada de Shopify
 description: "Este artículo de referencia explica cómo conectar con una tienda Shopify Hydrogen o cualquier tienda Shopify headless utilizando un escaparate personalizado."
 page_type: partner
 search_tag: Partner
@@ -594,18 +594,13 @@ Mejora tu integración añadiendo más eventos y atributos de Shopify, que se ac
 
 ### Paso 4: Relleno histórico (opcional) {#step-4-historical-backfill-optional}
 
-A través de la configuración personalizada, tienes la opción de cargar tus clientes y pedidos de Shopify de los últimos 90 días antes de conectar tu integración con Shopify. Para incluir esta carga inicial de datos, marca la casilla de la opción de carga inicial de datos.
+A través de la configuración personalizada, puedes incluir opcionalmente la misma carga de datos históricos de Shopify que la [integración estándar]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup): eventos de pedidos de los últimos 90 días y perfiles de usuario del último año, contados a partir de la fecha en que completes tu integración. Para incluir esta carga inicial de datos, marca la casilla de la opción de carga inicial de datos.
 
 Si prefieres realizar el relleno más tarde, puedes completar la configuración inicial ahora y volver a este paso más adelante.
 
 ![Sección para configurar el relleno de datos históricos.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-Esta tabla contiene los datos que se cargarán inicialmente a través del relleno.
-
-| Eventos recomendados por Braze | Eventos personalizados de Shopify | Atributos estándar de Braze | Estados de suscripción de Braze |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Pedido realizado</li><li>Pedido cancelado</li><li>Pedido reembolsado</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Correo electrónico</li><li>Nombre</li><li>Apellido</li><li>Teléfono</li><li>Ciudad</li><li>País</li><li>Ingresos totales</li><li>Reembolsos totales</li><li>Pedidos totales</li></ul>{:/} | {::nomarkdown}<ul><li>Suscripciones de marketing por correo electrónico asociadas a esta tienda Shopify</li><li>Suscripciones de marketing por SMS asociadas a esta tienda Shopify</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+Para consultar la lista completa de datos en la carga inicial, el comportamiento de los informes de ingresos y la monitorización de la sincronización, consulta [Relleno histórico]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill).
 
 ### Paso 5: Configuración personalizada de seguimiento de datos (avanzada) {#step-5-custom-data-tracking-setup-advanced}
 
@@ -618,7 +613,8 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Paso 5: Configuración personalizada de seguimiento de datos (avanzada)" style="width: 100%;">
+  <caption>Paso 5: Configuración personalizada de seguimiento de datos (avanzada)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Eventos personalizados</th>
@@ -650,7 +646,7 @@ El SDK debe estar inicializado (a la escucha de la actividad) en el dispositivo 
 
 Selecciona tu tipo de `external_id` en el desplegable.
 
-![Sección "Collect subscribers".]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![Sección "Recopilar suscriptores".]({% image_buster /assets/img/Shopify/external_id_standard.png %})
 
 {% alert important %}
 Utilizar una dirección de correo electrónico o una dirección de correo electrónico con hash como tu ID externo de Braze puede ayudarte a simplificar la gestión de identidades en todos tus orígenes de datos. Sin embargo, es importante tener en cuenta los riesgos potenciales para la privacidad de los usuarios y la seguridad de los datos.<br><br>
@@ -667,7 +663,7 @@ Los siguientes pasos dependen de tu selección de ID externo:<br><br>
 - **Si seleccionaste ID de cliente de Shopify, correo electrónico o correo electrónico con hash:** Sáltate los pasos 6.1—6.3 y continúa directamente con el paso 6.4.
 {% endalert %}
 
-#### Paso 6.1: Crear el metacampo `braze.external_id` {#step-61-create-the-brazeexternalid-metafield}
+#### Paso 6.1: Crear el metacampo `braze.external_id` {#step-61-create-the-brazeexternal_id-metafield}
 
 1. En tu panel de administración de Shopify, ve a **Settings** > **Metafields**.
 2. Selecciona **Customers** > **Add definition**.
@@ -689,12 +685,12 @@ Debes crear un punto de conexión público al que Braze pueda llamar para recupe
 
 Braze envía los siguientes parámetros a tu punto de conexión:
 
-| Parámetro            | Obligatorio | Tipo de datos | Descripción                                                      |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |----------------------|----------|-----------|------------------------------------------------------------------|
 | shopify_customer_id  | Sí      | Cadena    | El ID de cliente de Shopify.                                         |
 | shopify_storefront   | Sí      | Cadena    | El nombre del escaparate para la solicitud. Ej.: `<storefront_name>.myshopify.com` |
 | email_address        | No       | Cadena    | La dirección de correo electrónico del usuario conectado. <br><br>Este campo puede faltar en algunos escenarios de webhook. La lógica de tu punto de conexión debe tener en cuenta los valores nulos aquí (por ejemplo, obtener el correo electrónico utilizando shopify_customer_id si tu lógica interna lo requiere). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Especificaciones del punto de conexión" }
 
 ##### Ejemplo de punto de conexión {#example-endpoint}
 
@@ -738,7 +734,7 @@ Tienes la opción de recopilar tus adhesiones voluntarias de marketing por corre
 
 Si utilizas los canales de correo electrónico o SMS, puedes sincronizar tus estados de adhesión voluntaria de marketing por correo electrónico y SMS en Braze. Si sincronizas las adhesiones voluntarias de marketing por correo electrónico desde Shopify, Braze creará automáticamente un grupo de suscripción por correo electrónico para todos los usuarios asociados a esa tienda específica. Tienes que crear un nombre único para este grupo de suscripción.
 
-![Sección "Collect subscribers" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![Sección "Recopilar suscriptores" con opción de recoger las adhesiones voluntarias de marketing por correo electrónico o SMS.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview/), si quieres utilizar un formulario de captura de terceros, tus desarrolladores necesitan integrar el código del SDK de Braze. Esto te permitirá capturar la dirección de correo electrónico y el estado global de suscripción por correo electrónico de los envíos de formularios. Concretamente, necesitas implementar y probar estos métodos en tu archivo `theme.liquid`:<br><br>

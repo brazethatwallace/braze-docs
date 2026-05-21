@@ -14,7 +14,7 @@ page_order: 2
 
 Vous pouvez utiliser des agents comme étapes d'un parcours pour personnaliser les messages ou guider la prise de décision en temps réel. Pour des instructions détaillées sur la configuration, consultez [Étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/).
 
-### Cas d'utilisation {#canvas-use-cases}
+### Cas d'utilisation {#use-cases}
 
 | Cas d'utilisation | Description |
 | --- | --- |
@@ -24,13 +24,13 @@ Vous pouvez utiliser des agents comme étapes d'un parcours pour personnaliser l
 | Routage intelligent | Utilisez les résultats de l'agent (booléens ou numériques) pour répartir les utilisateurs dans différents chemins Canvas. Par exemple, classez les utilisateurs comme « à risque » ou « en bonne santé » et ajustez la fréquence d'envoi des messages en conséquence. |
 | Interprétation des enquêtes ou des réponses | Permettez à un agent d'analyser les réponses ouvertes d'un sondage ou les champs de texte libre, en renvoyant des valeurs structurées (par exemple, en catégorisant l'intention ou le besoin) qui déterminent les chemins en aval. |
 | Raisonnement en plusieurs étapes | Configurez un agent pour combiner des champs contextuels et prendre des décisions complexes, comme recommander la meilleure action à entreprendre (e-mail, SMS ou intervention humaine) en fonction de plusieurs attributs utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 ## Agents dans les catalogues {#agents-in-catalogs}
 
 Vous pouvez appliquer un agent aux champs du catalogue afin qu'il génère ou calcule automatiquement des valeurs pour chaque ligne. L'agent s'exécutera également sur les nouvelles lignes ajoutées au catalogue à l'avenir.
 
-### Cas d'utilisation {#catalog-use-cases}
+### Cas d'utilisation
 
 | Cas d'utilisation | Description |
 | --- | --- |
@@ -40,7 +40,7 @@ Vous pouvez appliquer un agent aux champs du catalogue afin qu'il génère ou ca
 | Catégoriser ou étiqueter les éléments | Attribuez des étiquettes pour la logique de recommandation afin que les modèles de personnalisation puissent segmenter les produits plus efficacement. Par exemple, étiquetez les produits comme « extérieur », « festival » ou « premium ». |
 | Localiser le contenu | Traduisez le texte du catalogue dans une autre langue pour les campagnes internationales, ou ajustez le ton et la longueur pour les canaux spécifiques à chaque région. Par exemple, traduisez « Classic Clubmaster Sunglasses » en espagnol par « Gafas de sol Classic Clubmaster », ou raccourcissez les descriptions pour les campagnes SMS. |
 | Résumer les avis ou les commentaires | Résumez le sentiment ou les commentaires dans un nouveau champ, par exemple en attribuant des scores de sentiment comme Positif, Neutre ou Négatif, ou en créant un bref résumé tel que « La plupart des clients mentionnent un excellent ajustement, mais signalent une livraison lente ». |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 ### Étapes {#steps}
 
@@ -82,7 +82,7 @@ Supposons que vous disposiez d'un agent qui ajoute des descriptions de produits 
 | --- | --- |
 | **description** | Texte |
 | **confidence_score_out_of_ten** | Nombre |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définir les champs de réponse" }
 
 Vous pouvez ajouter un champ nommé **product_description** à un catalogue et sélectionner **description** comme **Response Field** pour remplir la colonne avec les descriptions de l'agent.
 

@@ -76,15 +76,15 @@ Dans Canvas, les performances des messages in-app sont cartographiées sur le Ca
 
 Selon la taille de votre espace de travail, le panneau **Campaign Details** peut afficher les statistiques d'audience sous le libellé **Estimated Audience** ou **Current Audience**.
 
-Le tableau suivant explique quand chaque libellé est utilisé et ce qu'il signifie.
+Le tableau suivant résume la signification de chaque libellé.
 
 | Libellé | Quand il est utilisé |
 | --- | --- |
 | **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
-Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size/).
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
 
 {% if include.channel == "Content Card" %}
 
@@ -194,6 +194,10 @@ Grâce aux cartes thermiques, vous pouvez visualiser le succès des différents 
 
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
 
+{% alert note %}
+Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Utilisez les données de clics dans le panneau **Link Table by Total Clicks** pour obtenir une vue complète.
+{% endalert %}
+
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 #### Images
@@ -216,7 +220,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table>
+<table aria-label="Content Card metrics">
+    <caption class="sr-only">Indicateurs de performance des Content Cards</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -290,7 +295,8 @@ Pour obtenir les définitions complètes de tous les indicateurs relatifs aux ba
     }
 </style>
 
-<table>
+<table aria-label="Banner metrics">
+    <caption class="sr-only">Indicateurs de performance des bannières</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -359,7 +365,8 @@ Voici quelques indicateurs clés spécifiques aux e-mails que vous ne retrouvere
     }
 </style>
 
-<table>
+<table aria-label="Email metrics">
+    <caption class="sr-only">Indicateurs de performance des e-mails</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -438,6 +445,30 @@ Un clic peut être enregistré sans ouverture lorsque le pixel d'ouverture ne se
 
 Un clic et une ouverture peuvent également se produire à des jours différents : un utilisateur peut cliquer le 16 mai avec les images désactivées (pas d'ouverture), puis ouvrir dans le webmail le 17 mai (ouverture enregistrée à ce moment-là).
 
+##### _Clics uniques_ supérieurs aux _ouvertures uniques_ {#higher-unique-clicks-than-unique-opens}
+
+Il peut arriver que les _clics uniques_ dépassent largement les _ouvertures uniques_ (par exemple, plusieurs clics uniques pour chaque ouverture unique), même lorsque vous attendez un ratio plus faible de la part de votre audience. Ce phénomène signifie généralement que les ouvertures sont sous-comptabilisées, que les clics sont gonflés, ou les deux. Cela ne signifie toutefois pas que Braze comptabilise mal les clics de manière isolée.
+
+Braze enregistre une ouverture d'e-mail lorsque le pixel de suivi d'ouverture se charge. Ce pixel est une petite image transparente (souvent décrite comme 1 x 1&nbsp;px) que Braze ajoute au HTML du message. Si le pixel ne se charge jamais, aucune ouverture n'est enregistrée pour cette consultation, mais les clics sur les liens peuvent tout de même être comptabilisés — de sorte que votre taux de clic par ouverture et l'équilibre entre ces deux indicateurs peuvent sembler faussés.
+
+**La boîte de réception n'a jamais chargé le pixel de suivi d'ouverture**
+
+Le pixel peut ne pas se charger lorsque :
+
+- **Le message est tronqué.** Un HTML long repousse le contenu — y compris le pixel en bas de page — derrière une coupure de type « Afficher le message en entier ». Dans Gmail, les messages de plus d'environ [102 Ko]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size) sont souvent tronqués, ce qui peut empêcher le chargement du pixel jusqu'à ce que le message complet soit ouvert (et parfois même pas, selon le client).
+- **Les images sont bloquées ou restreintes.** Une sécurité de boîte de réception plus stricte (courante sur les comptes d'entreprise) peut bloquer les images distantes jusqu'à ce que le destinataire choisisse de les charger, de sorte que le pixel d'ouverture ne se déclenche pas même s'il clique sur les liens suivis.
+- **Le message se trouve dans les dossiers spam ou courrier indésirable.** De nombreux fournisseurs ne chargent pas les images distantes (y compris le pixel d'ouverture) dans ces dossiers par défaut.
+
+**Ce que vous pouvez faire**
+
+- **Troncature :** Raccourcissez et simplifiez le HTML, supprimez les styles ou ressources inutilisés et maintenez la taille globale du message dans les limites du client. Pour Gmail, visez moins d'environ 102 Ko comme décrit dans [Taille des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/#email-size).
+- **Sécurité de la boîte de réception et chargement des images :** Seul le destinataire (ou sa politique informatique) peut modifier le chargement des images par défaut.
+- **Placement en spam :** Concentrez-vous sur l'[amélioration de la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability/) et l'hygiène de vos listes. Si les e-mails atterrissent systématiquement dans le spam et que les indicateurs semblent erronés, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+
+**Activité de sécurité ou de bots sur les liens**
+
+Certains produits de sécurité des e-mails suivent les liens pour détecter les menaces. Ces requêtes peuvent enregistrer un clic sans charger les images, de sorte que vous pouvez voir une activité de clics sans ouverture correspondante.
+
 ##### Reports {#deferrals}
 
 On parle de report ou d'ajournement lorsqu'un e-mail n'a pas été livré immédiatement, mais que Braze relance l'e-mail jusqu'à 72 heures après cet échec temporaire de distribution afin de maximiser les chances de réussite avant l'arrêt des tentatives pour cette campagne spécifique. Les raisons habituelles de ces reports sont la limitation du débit du volume d'e-mails basée sur la réputation par le fournisseur de la boîte de réception, des problèmes temporaires de connectivité ou des erreurs DNS.
@@ -450,7 +481,7 @@ Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fon
 
 Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Ouvertures automatiques* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails (voir ci-dessus), ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *autres ouvertures* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
 
-Le _taux d'ouverture réel estimé_ est calculé 36 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 24 heures. Si une campagne se répète, l'estimation est recalculée 36 heures après un nouvel envoi.
+Le _taux d'ouverture réel estimé_ est calculé 24 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 72 heures.
 
 Étant donné que cet indicateur est recalculé de manière continue, la valeur du _taux d'ouverture réel estimé_ peut évoluer au fil du temps à mesure que de nouveaux signaux d'engagement (tels que les ouvertures et les clics) sont reçus et intégrés au modèle. En pratique, le _taux d'ouverture réel estimé_ peut continuer à être mis à jour quotidiennement tant qu'une campagne reste active.
 
@@ -493,7 +524,8 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     }
 </style>
 
-<table>
+<table aria-label="In-app message metrics">
+    <caption class="sr-only">Indicateurs de performance des messages in-app</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -561,7 +593,7 @@ Voici quelques indicateurs clés de KakaoTalk que vous pouvez voir dans vos anal
 | Erreurs | Les _erreurs_ correspondent au nombre d'erreurs renvoyées par le fournisseur KakaoTalk (incrémenté pendant le processus d'envoi). |
 | Chiffre d'affaires | Le _chiffre d'affaires_ est le revenu en dollars provenant des destinataires de la campagne dans la fenêtre de conversion principale définie. |
 | Conversions principales | Les _conversions principales_ correspondent au nombre de fois qu'un événement défini s'est produit après l'interaction avec ou la consultation d'un message reçu d'une campagne Braze. Cet événement défini est déterminé par vous lors de la création de la campagne. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="KakaoTalk metrics" }
 
 {% elsif include.channel == "push" %}
 
@@ -575,7 +607,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table>
+<table aria-label="Push metrics">
+    <caption class="sr-only">Indicateurs de performance des notifications push</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -607,7 +640,7 @@ Les désabonnements push ne sont pas inclus dans les indicateurs analytiques des
 Cependant, le suivi manuel des désabonnements push peut fournir des informations précieuses sur les réponses des utilisateurs à votre fréquence de notification et à la pertinence du contenu. Voici deux options pour suivre les désabonnements push : les filtres de segment ou les filtres personnalisés.
 
 {% tabs local %}
-{% tab Segment filters %}
+{% tab Filtres de segment %}
 
 Vous pouvez créer un segment pour identifier les utilisateurs qui ne sont pas activés pour les notifications push, c'est-à-dire qui ne sont pas abonnés ou en situation d'abonnement et qui ne disposent pas d'un [jeton push au premier plan]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration/#push-tokens). Par exemple, pour visualiser le nombre de désabonnements dans votre application, vous pouvez utiliser une combinaison « OU » des segments suivants :
 
@@ -619,7 +652,7 @@ Vous pouvez créer un segment pour identifier les utilisateurs qui ne sont pas a
 Notez que les filtres de segmentation sont approximatifs et ne peuvent pas être spécifiquement liés à une date et à une campagne.
 
 {% endtab %}
-{% tab Custom filters %}
+{% tab Filtres personnalisés %}
 
 {% alert important %}
 L'enregistrement d'un événement personnalisé pour un changement d'abonnement consommera des [points de donnée]({{site.baseurl}}/user_guide/data_and_analytics/data_points/#consumption-count). Vous pouvez également utiliser des filtres de segmentation pour identifier et cibler les utilisateurs qui ne sont pas activés pour les notifications push.
@@ -633,6 +666,18 @@ Autre solution possible : nous vous recommandons de créer un événement person
 ##### Comprendre les ouvertures {#understanding-opens}
 
 Bien que les termes _ouvertures directes_ et _ouvertures influencées_ contiennent le mot « ouvertures », il s'agit en fait d'indicateurs différents. Les _ouvertures directes_ font référence à l'ouverture directe d'une notification push, comme indiqué dans le tableau ci-dessus. Les _ouvertures influencées_ font référence à l'ouverture d'une application sans ouverture d'une notification push dans un délai spécifique après sa réception. Les _ouvertures influencées_ concernent donc les ouvertures de l'application, et non les ouvertures des notifications push.
+
+##### Boutons d'action push et rapports {#push-action-buttons-and-reporting}
+
+Lorsque vous ajoutez des [boutons d'action push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/), le panneau **Push Performance** peut inclure les **clics sur le corps du message**, les **clics bouton 1** et les **clics bouton 2** aux côtés d'indicateurs tels que les **ouvertures directes**. Ces colonnes mesurent des interactions différentes, comparez-les donc lorsque vous interprétez l'engagement.
+
+Les _ouvertures directes_ reflètent les indicateurs du tableau de bord pour les interactions comptabilisées comme une ouverture directe de votre message. Les événements **Push Notification Open** dans [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou Snowflake décrivent les interactions push de manière plus large et peuvent inclure des champs facultatifs tels que `button_action_type` (par exemple, `close`) et `button_string`. Pour les définitions des champs, consultez les [événements Push Notification Open]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#push-notification-open-events).
+
+Pour **iOS**, les catégories de notification par défaut de Braze (telles que **Yes** / **No**, **Accept** / **Decline**, ou **Confirm** / **Cancel**) utilisent un appariement fixe : la première action prend en charge `OPEN_APP`, un URI ou un lien profond (aligné avec le **comportement au clic** dans le compositeur). L'action complémentaire utilise `CLOSE` par défaut — elle ferme la notification et n'ouvre pas l'application. Consultez le mappage par défaut dans l'[objet bouton d'action push Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object/#apple-push-action-button-object-for-braze-default-buttons).
+
+De ce fait, les appuis sur le bouton prédéfini de rejet (par exemple, **No** ou **Decline**) ne comptent généralement **pas** dans les _ouvertures directes_. Ces appuis peuvent toutefois apparaître dans les exports **Push Notification Open** lorsqu'ils sont enregistrés, avec `button_action_type` défini sur `close` et `button_string` identifiant l'action appuyée. Lorsque vous comparez l'analytique de campagne aux données de l'entrepôt, utilisez ces champs de payload pour ne pas traiter les appuis de rejet de la même manière que les appuis sur le corps de la notification ou l'action principale.
+
+Pour **Android**, vous définissez le **comportement au clic** par bouton (**Ouvrir l'application**, **Rediriger vers une URL web** ou **Lien profond**), de sorte que les rapports suivent les actions que vous configurez plutôt que la répartition par défaut `OPEN_APP` / `CLOSE` d'iOS.
 
 ##### Pourquoi les envois push peuvent dépasser le nombre de destinataires uniques {#why-push-sends-can-exceed-unique-recipients}
 
@@ -663,7 +708,7 @@ Les rebonds Firebase Cloud Messaging (FCM) peuvent se produire dans trois cas :
 | Applications désinstallées | Lorsqu'un message tente une livraison à un appareil et que l'application prévue est désinstallée sur cet appareil, le message est supprimé et l'ID d'enregistrement de l'appareil est invalidé. Toute future tentative d'envoi de message à l'appareil renverra une erreur NotRegistered. |
 | Application sauvegardée | Lorsqu'une application est sauvegardée, son ID d'enregistrement peut cesser d'être valide avant la restauration de l'application. Dans ce cas, FCM ne conservera plus l'ID d'enregistrement de l'application et l'application ne recevra plus de messages. Ainsi, les ID d'enregistrement ne doivent **pas** être enregistrés lors de la sauvegarde d'une application. |
 | Application mise à jour | Lorsqu'une application est mise à jour, l'ID d'enregistrement de la version précédente peut ne plus fonctionner. Une application mise à jour doit donc remplacer son ID d'enregistrement existant. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why bounces occur #bounced-push" }
 
 {% endtab %}
 {% endtabs %}
@@ -681,7 +726,8 @@ Voici une description de certains indicateurs clés que vous pouvez voir lors de
     }
 </style>
 
-<table>
+<table aria-label="SMS, MMS, and RCS metrics">
+    <caption class="sr-only">Indicateurs de performance SMS, MMS et RCS</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -732,7 +778,8 @@ Voici quelques indicateurs clés des webhooks qui peuvent apparaître dans vos a
     }
 </style>
 
-<table>
+<table aria-label="Webhook metrics">
+    <caption class="sr-only">Indicateurs de performance des webhooks</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -767,7 +814,8 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
     }
 </style>
 
-<table>
+<table aria-label="WhatsApp metrics">
+    <caption class="sr-only">Indicateurs de performance WhatsApp</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -804,7 +852,7 @@ D'autres indicateurs peuvent être consultés via le [tableau de bord du gestion
 
 Le panneau **Historical Performance** vous permet de visualiser les indicateurs du panneau **Message Performance** sous la forme d'un graphique dans le temps. Utilisez les filtres en haut du panneau pour modifier les statistiques et les canaux affichés dans le graphique. La plage temporelle de ce graphique reflète toujours la plage de temps spécifiée en haut de la page.
 
-Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
+Pour obtenir une ventilation jour par jour, cliquez sur le menu hamburger <i class="fas fa-bars" aria-label="Ouvrir le menu de navigation"></i> et sélectionnez **Download CSV** pour recevoir une exportation CSV du rapport.
 
 ![Graphique du panneau Performances historiques avec des exemples de statistiques pour un e-mail envoyé entre février 2021 et mai 2022.]({% image_buster /assets/img/cc-historical-performance.png %})
 

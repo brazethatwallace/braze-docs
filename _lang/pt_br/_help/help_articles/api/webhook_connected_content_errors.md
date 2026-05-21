@@ -23,7 +23,8 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Erros 4XX">
+  <caption>Erros 4XX</caption>
   <thead>
     <tr>
       <th>Código de erro</th>
@@ -120,16 +121,16 @@ table td {
 
 Os erros `5XX` indicam que há um problema com o endpoint. Esses erros geralmente são causados por problemas no lado do servidor.
 
-| Código de erro                | O que significa                                                                                                                                         |
+| Código de erro | O que significa |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | O endpoint encontrou uma condição inesperada que o impediu de concluir a solicitação.                                                       |
-| **502 Bad Gateway**           | O endpoint recebeu uma resposta inválida do servidor upstream.                                                                                   |
-| **503 Service Unavailable**   | O endpoint não está conseguindo processar a solicitação devido a uma sobrecarga temporária ou manutenção.                                                    |
-| **504 Gateway Timeout**       | O endpoint não recebeu uma resposta oportuna do servidor upstream.                                                                               |
-| **529 Host Overloaded**       | O host do endpoint está sobrecarregado e não pôde responder. |
-| **598 Host Unhealthy**        | A Braze simulou a resposta porque o host do endpoint está temporariamente marcado como não íntegro. Consulte [Detecção de host não íntegro](#unhealthy-host-detection) para saber mais. |
-| **599 Connection Error**      | A Braze apresentou um erro de tempo limite de conexão de rede ao tentar estabelecer uma conexão com o endpoint, o que significa que o endpoint pode estar instável ou fora do ar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **500 Internal Server Error** | O endpoint encontrou uma condição inesperada que o impediu de concluir a solicitação. |
+| **502 Bad Gateway** | O endpoint recebeu uma resposta inválida do servidor upstream. |
+| **503 Service Unavailable** | O endpoint não está conseguindo processar a solicitação devido a uma sobrecarga temporária ou manutenção. |
+| **504 Gateway Timeout** | O endpoint não recebeu uma resposta oportuna do servidor upstream. |
+| **529 Host Overloaded** | O host do endpoint está sobrecarregado e não pôde responder. |
+| **598 Host Unhealthy** | A Braze simulou a resposta porque o host do endpoint está temporariamente marcado como não íntegro. Consulte [Detecção de host não íntegro](#unhealthy-host-detection) para saber mais. |
+| **599 Connection Error** | A Braze apresentou um erro de tempo limite de conexão de rede ao tentar estabelecer uma conexão com o endpoint, o que significa que o endpoint pode estar instável ou fora do ar. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erros 5XX" }
 
 ### Resolução de erros 5XX {#resolving-5xx-errors}
 
@@ -182,7 +183,7 @@ Esses e-mails são enviados apenas uma vez por dia no nível do espaço de traba
 
 Para se inscrever para receber esses e-mails, faça o seguinte:
 
-1. Acesse **Configurações** > **Configurações de administrador** > **Preferências de notificação**.
+1. Acesse **Settings** > **Admin Settings** > **Notification Preferences**.
 2. Selecione **Connected Content Errors** e **Webhook Errors** na seção **Canvas & Campaigns**.
 
 ### Entradas do registro de atividade de mensagens {#message-activity-log-entries}

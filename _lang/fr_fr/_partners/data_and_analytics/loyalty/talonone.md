@@ -10,22 +10,22 @@ search_tag: Partner
 
 # Talon.One
 
-> [Talon.One](https://talon.one/) fournit des incitations personnalisées pour votre CRM marketing mobile et vous permet de lancer rapidement et efficacement des campagnes contextuelles de coupons, de recommandations, de remises et de fidélisation.
+> [Talon.One](https://talon.one/) fournit des incitations personnalisées pour votre CRM de marketing mobile et vous permet de lancer rapidement et efficacement des campagnes contextuelles de coupons, de recommandations, de remises et de fidélisation.
 
 _Cette intégration est maintenue par Talon.One._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et de Talon.One peut vous aider à faire passer votre programme de fidélité ou de coupons à la vitesse supérieure en envoyant des codes générés par Talon.One à votre audience par le biais de Braze Connected Content.
+L'intégration de Braze et de Talon.One peut vous aider à faire passer votre programme de fidélité ou de coupons à la vitesse supérieure en envoyant des codes générés par Talon.One à votre audience par le biais du Contenu connecté de Braze.
 
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
-|Talon.One compte | Un compte Talon.One est nécessaire pour bénéficier de ce partenariat. |
-|Talon.One clé API | Sur Talon.One, sous **Paramètres** > **Paramètres du développeur**, créez une clé API tierce de Braze pour l'intégration. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Compte Talon.One | Un compte Talon.One est nécessaire pour bénéficier de ce partenariat. |
+| Clé API Talon.One | Dans Talon.One, sous **Settings** > **Developer Settings**, créez une clé API tierce Braze pour l'intégration. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 {% alert warning %}
 Talon.One **_exige_** une limite de débit maximale de 2 500 messages par minute. Cette limite de débit peut être [modifiée]({{site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/rate-limiting/#delivery-speed-rate-limiting) dans le tableau de bord de Braze.

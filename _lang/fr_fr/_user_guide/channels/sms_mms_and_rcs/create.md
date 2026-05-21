@@ -25,8 +25,8 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 {% tabs %}
 {% tab Campaign %}
 
-1. Accédez à **Envoi de messages** > **Campaigns** et sélectionnez **Créer une campagne**.
-2. Sélectionnez **SMS/MMS/RCS** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multicanal**.
+1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
+2. Sélectionnez **SMS/MMS/RCS** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel**.
 3. Donnez à votre campagne un nom clair et significatif.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) si nécessaire.
    * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/), vous pouvez filtrer par étiquettes spécifiques.
@@ -34,7 +34,7 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
    * Braze vous permet d'inclure des variantes SMS et RCS au sein d'une même campagne, afin de comparer les performances de chacune.
 
 {% alert tip %}
-Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ Le groupe d'abonnement que vous sélectionnez détermine les types de messages d
 | SMS uniquement | SMS |
 | SMS avec numéros compatibles MMS | SMS et MMS |
 | Compatible RCS (avec expéditeur vérifié RCS) | SMS, MMS (si activé) et RCS |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Select a subscription group" }
 
 {% alert tip %}
 Braze recommande vivement que chaque groupe d'abonnement contenant un expéditeur RCS inclue également au moins un code SMS de secours. Cela garantit que si un message RCS ne parvient pas à être livré (par exemple, en raison d'une incompatibilité d'appareil ou d'une couverture opérateur incomplète), le message atteindra tout de même votre utilisateur via SMS.
@@ -108,7 +108,7 @@ Saisissez le corps de votre message, puis téléchargez une image PNG, JPEG ou G
 | --- | --- |
 | Taille | Jusqu'à 600&nbsp;Ko |
 | Types de fichiers | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image specifications" }
 
 ### Cartes de contact {#contact-cards}
 
@@ -134,7 +134,7 @@ Choisissez entre un type de message **Texte** ou **Média**.
 ![Options pour sélectionner un type de message Texte ou Média.]({% image_buster /assets/img/rcs/rcs_text_media.png %}){: style="max-width:65%;"}
 
 {% subtabs %}
-{% subtab Text %}
+{% subtab Texte %}
 
 Les messages texte RCS se concentrent sur le texte comme support. Si votre message fait jusqu'à 160 caractères sans éléments enrichis, il est facturé comme un message RCS basique. Si vous dépassez 160 caractères ou utilisez un élément enrichi, il est facturé comme un message RCS enrichi (unique) avec une limite de 3 072 caractères.
 
@@ -154,7 +154,7 @@ Les messages texte RCS se concentrent sur le texte comme support. Si votre messa
 - Dans certains cas, il peut être plus rentable d'envoyer des messages texte longs via RCS plutôt que par SMS, car les messages SMS longs sont découpés en plusieurs segments facturables, tandis que les messages RCS sont facturés par message.
 
 {% endsubtab %}
-{% subtab Media %}
+{% subtab Média %}
 
 Les messages média RCS vous permettent d'utiliser des formats média attrayants qui ne sont pas possibles avec les SMS, notamment les fichiers image, vidéo et document.
 
@@ -177,7 +177,7 @@ Les messages média RCS vous permettent d'utiliser des formats média attrayants
 | Image | Formats pris en charge : JPG, JPEG, GIF |
 | Vidéo | Formats pris en charge : H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Document | Format pris en charge : PDF |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inbound MMS and personalization" }
 
 **Considérations :**
 
@@ -224,7 +224,7 @@ Les flux de messages conversationnels vous permettent de répondre dynamiquement
 {: start="2"}
 2. Connectez ce message à un parcours d'action avec un groupe d'actions pour chaque réponse suggérée.
 3. Pour chaque groupe d'actions :
-   - Sélectionnez le déclencheur **Envoyer un message SMS entrant**.
+   - Sélectionnez le déclencheur **Send an SMS inbound message**.
    - Définissez le corps du message pour qu'il soit identique à la réponse suggérée correspondante.
 
 ![Étape de parcours d'action configurée avec trois groupes d'actions, un pour chaque réponse suggérée.]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -240,18 +240,18 @@ Les flux de messages conversationnels vous permettent de répondre dynamiquement
 
 Braze recommande toujours de prévisualiser et de tester votre message avant de l'envoyer. Passez à l'onglet **Test** pour envoyer un SMS, MMS ou RCS de test à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou à des utilisateurs individuels, ou prévisualisez le message en tant qu'utilisateur directement dans Braze.
 
-![Prévisualisation du texte SMS depuis l'onglet Test du compositeur. Dans la section profil, le champ Prénom est défini sur « James ». Dans la section de prévisualisation, le SMS affiche désormais « Bonjour James, nous apprécions votre soutien ! »]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 Si vous souhaitez tester en combien de segments votre SMS pourrait être découpé, testez la longueur de votre texte avec le [calculateur de segments SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Prévisualisation du texte SMS depuis l'onglet Test du compositeur. Dans la section profil, le champ Prénom est défini sur « James ». Dans la section de prévisualisation, le SMS affiche désormais « Bonjour James, nous apprécions votre soutien ! »]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 Pour les MMS, l'ordre des ressources (image et corps du message) ne peut pas être personnalisé. L'ordre dépend du téléphone qui reçoit le message.
 {% endalert %}
 
 {% alert note %}
-Étant donné que le rendu RCS est contrôlé par le système d'exploitation de l'utilisateur, le fabricant de l'appareil, l'opérateur et l'application de messagerie (par exemple, Google Messages vs. Apple Messages), l'apparence du message peut varier. La prévisualisation affichée dans Braze peut ne pas correspondre exactement à ce que l'utilisateur final reçoit. Validez le rendu final sur de vrais appareils dans la mesure du possible.
+Étant donné que le rendu RCS est contrôlé par le système d'exploitation de l'utilisateur, le fabricant de l'appareil, l'opérateur et l'application de messagerie (par exemple, Google Messages vs. Apple Messages), l'apparence du message peut varier. La prévisualisation affichée dans Braze peut ne pas correspondre exactement à ce que l'utilisateur final reçoit. Validez le rendu final sur de vrais appareils dans la mesure du possible. Pour plus de détails sur le rendu RCS sur les appareils iOS, consultez [Pourquoi mon message RCS ne s'affiche-t-il pas correctement sur les appareils iOS ?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 Pour plus d'informations, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).

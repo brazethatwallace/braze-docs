@@ -69,7 +69,7 @@ Sí, pero solo se puede mostrar un mensaje dentro de la aplicación por cada ocu
 
 Cuando varios mensajes comparten el mismo nivel de prioridad, se muestra primero el mensaje creado más recientemente. Para los desencadenantes de inicio de sesión, el siguiente mensaje más reciente se muestra en una sesión posterior; para otros tipos de desencadenantes, el siguiente mensaje más reciente se muestra la próxima vez que ocurra ese evento desencadenante, lo cual puede ser dentro de la misma sesión o en una sesión posterior.
 
-Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Establece la prioridad exacta**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
+Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las campañas y selecciona **Set Exact Priority**, luego arrastra y suelta las campañas en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority).
 
 ### ¿Cómo calcula Braze la expiración de un mensaje dentro de la aplicación configurada como "después de 1 día(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 

@@ -2,7 +2,7 @@
 nav_title: メールサインアップフォーム
 article_title: メールサインアップフォーム
 alias: "/email_capture/"
-page_order: 2
+page_order: 3
 description: "このページでは、アプリ内メッセージのドラッグ＆ドロップエディターを使用してメールサインアップフォームを作成する方法について説明します。"
 ---
 
@@ -26,7 +26,7 @@ description: "このページでは、アプリ内メッセージのドラッグ
 
 ### ステップ 3:メールサインアップコンポーネントをカスタマイズする {#step-3-customize-your-email-sign-up-component}
 
-メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループの**購読中**が設定されます。特定のサブスクリプショングループにユーザーをオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)を参照してください。
+メールサインアップフォームの作成を開始するには、エディターでメールキャプチャ要素を選択します。デフォルトでは、収集されたメールアドレスにはグローバルサブスクリプショングループの**Subscribed**が設定されます。特定のサブスクリプショングループにユーザーをオプトインさせるには、[メールサブスクリプション状態の更新]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)を参照してください。
 
 メールキャプチャ要素のプレースホルダーテキストとラベルテキストをカスタマイズできます。
 

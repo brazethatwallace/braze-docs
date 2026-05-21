@@ -18,7 +18,7 @@ search_tag: Partner
 
 BrazeとAmazon S3の統合には、2つの統合戦略があります。
 
-- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を利用すると、他のプラットフォーム、ツール、ロケーションに接続するまでデータを保存できます。
+- [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を活用すると、他のプラットフォーム、ツール、ロケーションに接続するまでデータを保存できます。
 - ダッシュボードのデータエクスポート（CSVエクスポートやエンゲージメントレポートなど）を使用します。
 
 ## 前提条件 {#prerequisites}
@@ -26,7 +26,7 @@ BrazeとAmazon S3の統合には、2つの統合戦略があります。
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Amazon S3アカウント | この連携を利用するには、Amazon S3アカウントが必要です。 |
-| 専用S3バケット | Amazon S3と統合する前に、アプリ用のS3バケットを作成する必要があります。<br><br>すでにS3バケットがある場合でも、Braze専用の新しいバケットを作成することをお勧めします。これにより、権限を制限できます。新しいバケットの作成方法については、以下の手順を参照してください。 |
+| 専用S3バケット | Amazon S3と統合する前に、アプリ用のS3バケットを作成する必要があります。<br><br>すでにS3バケットがある場合でも、Braze専用の新しいバケットを作成して権限を制限することをお勧めします。新しいバケットの作成方法については、以下の手順を参照してください。 |
 | Currents | Amazon S3にデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。メッセージアーカイブの設定のみの場合、Currentsは必要ありません。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
@@ -259,8 +259,9 @@ CurrentsとDashboard Data Exportには異なるポリシーが必要です。Bra
 ![]({{site.baseurl}}/assets/img/create_role_1_list.png)
 
 BrazeアカウントからBrazeアカウントIDとexternal IDを取得します。
-- **Currents:**Brazeで、**パートナー連携** > **Currents**に移動します。次に、**Create New Current**を選択し、**Amazon S3 Data Export**を選択します。ここで、ロールの作成に必要な識別子を確認します。
-- **ダッシュボードデータエクスポート:**Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Amazon S3**を選択します。ここで、ロールの作成に必要な識別子を確認します。（メッセージアーカイブの設定のみを行う場合は、ここでロールを作成してください。）
+
+- **Currents:**Brazeで、**パートナー連携** > **Currents**に移動します。次に、**Create New Current**を選択し、**Amazon S3 Data Export**を選択します。ここで、ロールの作成に必要な識別子を確認できます。
+- **ダッシュボードデータエクスポート:**Brazeで、**パートナー連携** > **テクノロジーパートナー**に移動し、**Amazon S3**を選択します。ここで、ロールの作成に必要な識別子を確認できます。（メッセージアーカイブの設定のみを行う場合は、ここでロールを作成してください。）
 
 AWSコンソールに戻り、信頼できるエンティティセレクターのタイプとして**Another AWS Account**を選択します。BrazeアカウントIDを入力し、**Require external ID**チェックボックスをオンにして、Brazeのexternal IDを入力します。完了したら**Next**を選択します。
 
@@ -270,11 +271,11 @@ AWSコンソールに戻り、信頼できるエンティティセレクター�
 
 次に、以前に作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横にチェックマークを付けてアタッチします。完了したら**Next**を選択します。
 
-![ロールARN]({{site.baseurl}}/assets/img/create_role_3_attach.png)
+![Role ARN]({{site.baseurl}}/assets/img/create_role_3_attach.png)
 
 ロールに名前と説明を指定し、**Create Role**を選択します。
 
-![ロールARN]({{site.baseurl}}/assets/img/create_role_4_name.png)
+![Role ARN]({{site.baseurl}}/assets/img/create_role_4_name.png)
 
 新しく作成したロールがリストに表示されます。
 
@@ -332,12 +333,26 @@ Brazeで、**統合**の**テクノロジーパートナー**ページに移動�
 {% endtab %}
 {% endtabs %}
 
+## Currents用のAmazon S3認証情報の更新 {#updating-currents-credentials}
+
+既存のBraze Currentsコネクタで、統合を停止したり、すでにバケットにエクスポートされたデータを失ったりすることなく、Amazon S3認証情報を更新できます。
+
+認証情報を更新する場合、または**AWS Secret Access Key**と**AWS Role ARN**を切り替える場合は、この記事の前半で説明した選択した方式のIAMおよびAWS側のステップ（ポリシー、ユーザーまたはロール、必要に応じて識別子）を完了してください。
+
+AWSで認証情報の準備が完了したら、Brazeで**パートナー連携** > **Currents**に移動し、リストからAmazon S3コネクタを見つけて**Edit**を選択し、**Credentials**を更新して**Update Current**を選択します。Brazeは入力された認証情報を検証します。コネクタは引き続き実行され、バケット内のデータは引き続き利用可能です。詳細については、[Currentsの設定でのCurrentsの更新]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents)を参照してください。
+
 ## エクスポートの動作 {#export-behavior}
 
-クラウドデータストレージソリューションを統合し、API、ダッシュボードレポート、またはCSVレポートをエクスポートしているユーザーは、以下のような動作を経験します。
+クラウドデータストレージソリューションを統合し、API、ダッシュボードレポート、またはCSVレポートをエクスポートしているユーザーは、以下のような動作になります。
 
 - すべてのAPIエクスポートは、レスポンスボディにダウンロードURLを返さず、データストレージを通じて取得する必要があります。
 - すべてのダッシュボードレポートとCSVレポートは、ユーザーのメールに送信されてダウンロードされ（ストレージ権限不要）、データストレージにバックアップされます。
+
+### `Unable to connect to S3, please validate that your credentials are correct`エラー {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
+
+CSVエクスポートのダウンロード時にこのエラーが表示された場合は、**テクノロジーパートナー**ページで[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/)統合を開き、**Test Credentials**を選択してください。結果には検証に失敗した内容が表示されます。例えば、キーに`GetObject`権限がないため、Brazeがダウンロードリンクを生成できない場合があります。
+
+IAMポリシーを更新して、統合ユーザーまたはロールがBraze統合で設定されたS3バケットとオブジェクトパスに対して`s3:GetObject`を呼び出せるようにしてください。エクスポートに関するその他の問題については、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
 
 {% alert important %}
 **JSONフォーマットの要件：**JSONエクスポートでは、BrazeはJSONL（改行区切りのJSON）フォーマットを使用し、各行に個別のJSONオブジェクトが含まれます。このフォーマットは、単一のJSON配列またはオブジェクトである標準的なJSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体としては1つの有効なJSONドキュメントではありません。これらのファイルを処理する際は、ファイル全体を1つのJSONドキュメントとしてパースするのではなく、各行を個別のJSONオブジェクトとしてパースしてください。

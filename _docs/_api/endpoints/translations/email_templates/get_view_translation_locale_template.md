@@ -33,7 +33,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Required | String    | The ID for your email template. |
 | `locale_id`   | Optional | String    | The ID (UUID) of the locale.           |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 All translation IDs are considered universal unique identifiers (UUIDs), which can be found in the GET endpoint's response.

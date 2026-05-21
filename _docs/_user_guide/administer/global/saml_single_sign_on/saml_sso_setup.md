@@ -21,7 +21,7 @@ Upon setup, you will be asked to provide a sign-on URL and an Assertion Consumer
 | Assertion Consumer Service (ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> For European Union domains, the ASC URL is `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> For some IdPs, this can also be referred to as the Reply URL, Sign-On URL, Audience URL, or Audience URI. |
 | Entity ID | `braze_dashboard` |
 | RelayState API key | Go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions, and then input the generated API key as the `RelayState` parameter within your IdP. For detailed steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Setting up SAML SSO
 
@@ -38,6 +38,7 @@ If you plan on using Okta as your identity provider, make sure to use the pre-bu
 |`email` | Required | `email` <br> `mail` <br> `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` |
 | `first_name` | Optional | `first_name` <br> `firstname` <br> `firstName`<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/first_name` |
 | `last_name` | Optional | `last_name` <br> `lastname` <br> `lastName` <br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/last_name` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1: Configure your identity provider" }
 
 {% alert note %}
 Braze only requires `email` in the SAML Assertion.
@@ -56,7 +57,7 @@ On the same page, input the following:
 | SAML Name | This will appear as the button text on the login screen.<br>This is typically your identity provider's name, like "Okta." |
 | Target URL | This is provided after setting up Braze within your IdP.<br> Some IdPs reference this as the SSO URL or SAML 2.0 Endpoint. |
 | Certificate | The `x.509` certificate that is provided by your identity provider.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure Braze" }
 
 Make sure that your `x.509` certificate follows this format when adding it to the dashboard:
 
@@ -165,6 +166,12 @@ Have the affected user [clear their browser's cache and cookies](https://its.uio
 ### Did you set your RelayState?
 
 If you're getting the error `ERROR_CODE_SSO_INVALID_RELAY_STATE`, your RelayState could be misconfigured or nonexistent. If you haven't already, you need to set your RelayState in your IdP management system. For steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). 
+
+### Does successful SSO sign-in return you to the Braze login page?
+
+This can occur when RelayState isn't configured correctly. Confirm you created an API key (in **Settings** > **API Keys**) for IdP sign-in and set that API key as the `RelayState` parameter in your IdP. RelayState identifies which company account you're signing into. For step-by-step instructions, see [Setting up your RelayState](#setting-up-your-relaystate).
+
+If you still can't sign in, [contact Braze Support]({{site.baseurl}}/braze_support/) with a SAML trace if possible. For help capturing a trace, see [Obtaining a SAML trace](#obtaining-a-saml-trace).
 
 ### Is the user stuck in a sign-in loop between Okta and Braze?
 

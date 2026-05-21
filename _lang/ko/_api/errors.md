@@ -42,7 +42,7 @@ POST 페이로드가 서버에서 수락된 경우, 성공 메시지는 다음�
 
 ## 추적된 전송 ID에 대한 응답 {#responses-for-tracked-send-ids}
 
-Campaign(캠페인)에 대한 분석은 항상 사용할 수 있습니다. 또한 Campaign이 브로드캐스트로 전송될 때 특정 Campaign 전송 인스턴스에 대한 분석도 사용할 수 있습니다. 특정 Campaign 전송 인스턴스에 대한 추적이 가능한 경우, 다음과 같은 응답을 받습니다:
+Campaign에 대한 분석은 항상 사용할 수 있습니다. 또한 Campaign이 브로드캐스트로 전송될 때 특정 Campaign 전송 인스턴스에 대한 분석도 사용할 수 있습니다. 특정 Campaign 전송 인스턴스에 대한 추적이 가능한 경우, 다음과 같은 응답을 받습니다:
 
 ```json
 {
@@ -96,4 +96,4 @@ Campaign(캠페인)에 대한 분석은 항상 사용할 수 있습니다. 또�
 | `404 Not Found` | 잘못된 URL입니다. |
 | `415 Unsupported Media Type` | `Content-Type` 요청 헤더가 누락되었거나 올바르지 않습니다. **설정** 페이지에서 `Content-Type`을 `application/json` 값으로 추가하세요. |
 | `429 Rate Limited` | 사용량 제한을 초과했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }

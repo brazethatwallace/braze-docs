@@ -38,7 +38,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `include_archived` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les Canvas archivés, par défaut `false`. |
 | `sort_direction` | Facultatif | Chaîne de caractères | - Trier par date de création de la plus récente à la plus ancienne : indiquer la valeur `desc`.<br> - Trier par date de création de la plus ancienne à la plus récente : indiquer la valeur `asc`. <br><br>Si `sort_direction` n'est pas inclus, l'ordre par défaut est du plus ancien au plus récent. |
 | `last_edit.time[gt]` | Facultatif | Date | Filtre les résultats et renvoie uniquement les Canvas modifiés après l'heure indiquée. Le format est `yyyy-MM-DDTHH:mm:ss`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemple de requête {#example-request}
 

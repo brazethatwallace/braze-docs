@@ -4,7 +4,7 @@ article_title: メッセージパーソナライゼーションパートナー
 page_order: 1
 
 page_type: landing
-description: "このランディングページには、BrazeのCampaignsやCanvasesに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
+description: "このランディングページには、Brazeのキャンペーンやキャンバスに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
 layout: partner_page
 search_tag: Partner
 
@@ -49,8 +49,6 @@ valid_partner_list:
   url: /docs/partners/seen/
 - name: Storyly
   url: /docs/partners/storyly/
-- name: Stylitics
-  url: /docs/partners/stylistics/
 - name: Worthy
   url: /docs/partners/worthy/
 - name: WSC Sports
@@ -73,10 +71,6 @@ valid_partner_list:
   url: /docs/partners/stylitics/
 - name: NiftyImages
   url: /docs/partners/niftyimages/
-- name: Future Anthem
-  url: /docs/partners/future_anthem
-- name: SEEN
-  url: /docs/partners/seen
 - name: JustAI
   url: /docs/partners/just_ai/
 - name: Transifex

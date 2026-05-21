@@ -17,10 +17,10 @@ channel:
 | 요구 사항 | 설명 |
 | --- | --- |
 | Infobip 계정 | BYO WhatsApp 커넥터를 사용하려면 Infobip 계정이 필요합니다. |
-| 메시징 크레딧 | WhatsApp 메시지를 보낼 때 Braze 메시징 크레딧이 소비됩니다. |
+| 메시지 또는 액션 크레딧 | WhatsApp 메시지를 보낼 때 Braze 액션 크레딧이 소비됩니다. |
 | WhatsApp 요구 사항 | 모든 [WhatsApp 요구 사항]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites)을 완료하세요. |
 | 전화번호 | 편의를 위해 [Infobip을 통해 전화번호를 취득](https://www.infobip.com/docs/numbers/getting-started)하는 것을 권장합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## 설정 {#set-up}
 
@@ -117,4 +117,4 @@ Braze의 모든 기존 기능이 지원되지만, 다음 사용 사례는 현재
 | --- | --- |
 | Braze와 Infobip에서 인바운드 메시지 처리 | 이는 두 시스템 중 하나에 의해 트리거되는 로직 체인을 방지하여, 중복되고 잠재적으로 모순되는 메시지 스레드가 생성되는 것을 막기 위함입니다. |
 | Braze와 Infobip에서 메시지 발송 | Braze에 연결된 WhatsApp Business 계정의 경우, 모든 발송은 Braze에서 시작됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }

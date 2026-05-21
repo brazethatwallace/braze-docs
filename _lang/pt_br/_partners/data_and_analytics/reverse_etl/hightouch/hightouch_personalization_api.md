@@ -29,7 +29,7 @@ A API de Personalização da Hightouch fornece um endpoint REST para usar na sua
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% tabs %}
-{% tab Use Cases %}
+{% tab Casos de uso %}
 
 ### Casos de uso {#use-cases}
 
@@ -42,7 +42,7 @@ Casos de uso comuns incluem:
 - **Recomendações baseadas em dados financeiros ou médicos** — dados financeiros têm requisitos rigorosos que a Hightouch atende por meio de suas [políticas rigorosas de segurança de dados](https://hightouch.com/docs/security/overview#compliance). Com a Hightouch, você pode criar segmentos de clientes com base em dados financeiros ou médicos sem expor os atributos subjacentes usados em seus critérios de segmentação.
 
 {% endtab %}
-{% tab Datasets %}
+{% tab Conjuntos de dados %}
 
 ### Conjuntos de dados {#datasets}
 
@@ -167,9 +167,9 @@ As seguintes referências Liquid retornariam estes dados de exemplo:
 
 | Modelo Liquid | Exemplo retornado |
 | --- | --- |
-| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
-| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
-| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
+| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
+| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
+| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Solução de problemas {#troubleshooting}

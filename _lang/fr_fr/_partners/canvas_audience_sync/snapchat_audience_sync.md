@@ -80,7 +80,7 @@ Sélectionnez **Snapchat** comme partenaire de synchronisation d'audience souhai
 Sélectionnez ensuite le compte publicitaire Snapchat de votre choix. Dans la liste déroulante **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 
 **Créer une nouvelle audience**<br>
 Saisissez un nom pour la nouvelle audience, sélectionnez **Add Users to Audience** et sélectionnez les champs que vous souhaitez synchroniser avec Snapchat. Ensuite, enregistrez votre audience en cliquant sur le bouton **Create Audience** en bas de l'éditeur d'étape.
@@ -94,8 +94,8 @@ Braze affiche une notification en haut de l'éditeur d'étape si l'audience est 
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les utilisateurs quasiment en temps réel lorsqu'ils entrent dans le composant Audience Sync.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
-**Synchronisation avec une audience existante**<br>
+{% tab Synchroniser avec une audience existante %}
+**Synchroniser avec une audience existante**<br>
 Braze offre également la possibilité d'ajouter des utilisateurs aux audiences Snapchat existantes afin de s'assurer que ces audiences sont à jour. Pour effectuer une synchronisation avec une audience existante, saisissez le nom de l'audience dans le menu déroulant et sélectionnez **Add to the Audience**. Braze ajoutera ensuite des utilisateurs en temps quasi réel au fur et à mesure qu'ils entreront dans le composant Audience Sync.
 
 ![Vue élargie de l'étape Custom Audience du Canvas. Le compte publicitaire souhaité et l'audience existante sont sélectionnés ici.]({% image_buster /assets/img/audience_sync/snapchat.png %})

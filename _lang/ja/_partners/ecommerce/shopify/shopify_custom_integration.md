@@ -1,6 +1,6 @@
 ---
 nav_title: Shopify カスタム統合設定
-article_title: "Shopify カスタム統合設定"
+article_title: Shopify カスタム統合設定
 description: "この参考記事では、カスタムストアフロントを使用して Shopify Hydrogen ストアやヘッドレス Shopify ストアに接続する方法を説明します。"
 page_type: partner
 search_tag: Partner
@@ -37,7 +37,7 @@ Brazeで、**設定** > **アプリ設定**に移動し、**アプリの追加**
 ショップ名は「Shopify」にする必要があります。そうしないと、統合が適切に機能しない場合があります。
 {% endalert %}
 
-### ステップ2: サブドメインおよび環境変数の追加 {#step-2}
+### ステップ2: サブドメインと環境変数を追加する {#step-2}
 
 1. Shopify サブドメインを[オンラインストアから Hydrogen にトラフィックをリダイレクト](https://shopify.dev/docs/storefronts/headless/hydrogen/migrate/redirect-traffic)するように設定します。
 2. ログイン用の[コールバック URI](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment) を追加します。（ドメインが追加されると、URIは自動的に追加されます。）
@@ -62,7 +62,7 @@ Braze Web SDKバージョンは5.4.0である必要があります。
 
 次に、最上位キーとして[この設定]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)を `vite.config.js` ファイルに含めます。
 
-```java
+`````````java
 optimizeDeps: {
     exclude: ['@braze/web-sdk']
 }
@@ -70,7 +70,7 @@ optimizeDeps: {
 
 NPMパッケージをインストールした後、`Layout` コンポーネント内部の `useEffect` フック内でSDKを初期化する必要があります。Hydrogenのバージョンに応じて、このコンポーネントは `root.jsx` または `layout.jsx` のいずれかのファイルにあります。
 
-```java
+`````````java
 // Add these imports
 import * as braze from "@braze/web-sdk";
 import { useEffect } from 'react';
@@ -96,7 +96,7 @@ export function Layout({children}) {
 
 [ステップ2](#step-2)で作成した環境変数を使用して、値 `data.brazeApiKey` と `data.brazeApiUrl` をコンポーネントローダーに含める必要があります。
 
-```java
+`````````java
 export async function loader(args) {
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
@@ -133,7 +133,7 @@ export async function loader(args) {
 コンテンツセキュリティポリシー（通常は `entry.server.jsx` Hydrogen ファイルにある）は、ローカル環境でも本番環境でも、Brazeスクリプトの機能に影響を与える可能性があります。OxygenまたはカスタムデプロイメントでShopifyに送信されるプレビュービルドでテストすることをお勧めします。問題が発生した場合は、CSPを設定してJavaScriptが機能するようにする必要があります。
 {% endalert %}
 
-### ステップ4: Shopifyアカウントログインイベントの追加 {#step-4-add-a-shopify-account-login-event}
+### ステップ4: Shopifyアカウントログインイベントを追加する {#step-4-add-a-shopify-account-login-event}
 
 買い物客がアカウントにサインインし、ユーザー情報をBrazeに同期したタイミングを追跡します。これには、`changeUser` メソッドを呼び出して、Braze external IDで顧客を識別することが含まれます。
 
@@ -145,7 +145,7 @@ export async function loader(args) {
 
 1. コールバックURIを設定した後、Braze SDKを呼び出す関数を定義します。新しいファイル（`Tracking.jsx` など）を作成し、コンポーネントからインポートします。
 
-```java
+`````````java
 import * as braze from "@braze/web-sdk";
 
 export function trackCustomerLogin(customerData, storefrontUrl) {
@@ -186,7 +186,7 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
 {: start="2"}
 2. Braze SDKを初期化するのと同じ `useEffect` フックで、この関数の呼び出しを追加します。
 
-```java
+`````````java
 import { trackCustomerLogin } from './Tracking';
 
 export function Layout({children}) {
@@ -216,7 +216,7 @@ export function Layout({children}) {
 {: start="3"}
 3. ファイル `app/graphql/customer-account/CustomerDetailsQuery.js` にあるCustomer API GraphQLクエリで、顧客のメールアドレスと電話番号を取得します。
 
-```java
+`````````java
 export const CUSTOMER_FRAGMENT = `#graphql
   fragment Customer on Customer {
     id
@@ -257,7 +257,7 @@ export const CUSTOMER_FRAGMENT = `#graphql
 {: start="4"}
 4. 最後に、ローダー関数で顧客データを読み込みます。
 
-```java
+`````````java
 // Add import for GraphQL Query
 import { CUSTOMER_DETAILS_QUERY } from './graphql/customer-account/CustomerDetailsQuery';
 
@@ -312,7 +312,7 @@ export async function loader(args) {
 
 1. この関数を `Tracking.jsx` ファイルに追加します。
 
-```java
+`````````java
 export function trackProductViewed(product, storefrontUrl) {
   const eventData = {
     product_id: product.id.substring(product.id.lastIndexOf('/') + 1),
@@ -339,7 +339,7 @@ export function trackProductViewed(product, storefrontUrl) {
 {: start="2"}
 2. ユーザーが製品ページにアクセスするたびにこの関数を呼び出すには、ファイル `app/routes/products.$handle.jsx` 内のProductコンポーネントに `useEffect` フックを追加します。
 
-```java
+`````````java
 import { trackProductViewed } from '~/tracking';
 import { useEffect } from 'react';
 
@@ -360,7 +360,7 @@ export default function Product() {
 {: start="3"}
 3. 「storefrontUrl」の値を追加します（デフォルトではコンポーネントローダーに含まれていないため）。
 
-```java
+`````````java
 async function loadCriticalData({context, params, request}) {
   const {handle} = params;
   const {storefront} = context;
@@ -394,7 +394,7 @@ async function loadCriticalData({context, params, request}) {
 
 1. `cart_updated` イベントを追跡し、カートトークンを設定する関数を定義します。
 
-```java
+`````````java
 export function trackCartUpdated(cart, storefrontUrl) {
   const eventData = {
     cart_id: cart.id,
@@ -441,7 +441,7 @@ export function setCartToken(cart) {
 {: start="2"}
 2. フェッチャーアクションから `cart` オブジェクトを返し、Brazeがそのプロパティにアクセスできるようにします。`app/routes/cart.jsx` ファイルに移動して、`action` 関数に以下を追加します。
 
-```java
+`````````java
 export async function action({request, context}) {
   const {cart} = context;
 
@@ -486,7 +486,7 @@ Remixフェッチャーの詳細については、[useFetcher](https://remix.run
 {: start="3"}
 3. Hydrogenストアは通常、カートオブジェクトの状態を管理する `CartForm` コンポーネントを定義します。このコンポーネントは、カート内のアイテムの追加、削除、数量の変更時に使用されます。フォームフェッチャーの状態が変わるたびに（ユーザーカートが更新されるたびに）`trackCartUpdated` 関数を呼び出す `useEffect` フックを `AddToCartButton` コンポーネントに追加します。
 
-```java
+`````````java
 // Add imports
 import { trackCartUpdated, setCartToken } from '~/tracking';
 import { useEffect } from 'react';
@@ -538,7 +538,7 @@ export function AddToCartButton({
 {: start="4"}
 4. カートから既存の製品を更新するアクションには、同じ `fetcherKey` を使用します。`CartLineRemoveButton` と `CartLineUpdateButton` コンポーネント（デフォルトではファイル `app/components/CartLineItem.jsx` にある）に以下を追加します。
 
-```java
+`````````java
 function CartLineRemoveButton({lineIds, disabled}) {
   // Add the fetcherKey prop to the CartForm component
   return (
@@ -594,18 +594,13 @@ Shopify Webhookを利用するShopifyイベントと属性をさらに追加す�
 
 ### ステップ4: 履歴バックフィル（オプション） {#step-4-historical-backfill-optional}
 
-カスタム設定を通じて、Shopify統合を接続する前の過去90日間のShopify顧客と注文を読み込むオプションがあります。この初期データ読み込みを含めるには、初期データ読み込みオプションのチェックボックスをオンにします。
+カスタム設定を通じて、[標準統合]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#historical-backfill-setup)と同じ履歴Shopifyデータの読み込みをオプションで含めることができます。統合完了日から遡って、過去90日間の注文イベントと過去1年間のユーザープロファイルが対象です。この初期データ読み込みを含めるには、初期データ読み込みオプションのチェックボックスをオンにします。
 
 後でバックフィルを実行する場合は、ここで初期セットアップを完了し、後からこのステップに戻ることができます。
 
 ![履歴データのバックフィルを設定するセクション。]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
 
-この表には、バックフィルによって最初に読み込まれるデータが掲載されています。
-
-| Braze推奨イベント | Shopifyカスタムイベント | Brazeの標準属性項目 | Brazeサブスクリプションステータス |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>行われた注文</li><li>キャンセルされた注文</li><li>返金された注文</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>メール</li><li>名</li><li>姓</li><li>電話</li><li>市区町村</li><li>国</li><li>合計収益</li><li>合計返金</li><li>合計注文数</li></ul>{:/} | {::nomarkdown}<ul><li>このShopifyストアに関連付けられたメールマーケティングサブスクリプション</li><li>このShopifyストアに関連付けられたSMSマーケティングサブスクリプション</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+初期読み込みのデータ一覧、収益レポートの動作、同期の監視については、[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)を参照してください。
 
 ### ステップ5: カスタムデータトラッキングの設定（上級） {#step-5-custom-data-tracking-setup-advanced}
 
@@ -618,7 +613,8 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Step 5: Custom data tracking setup (advanced)" style="width: 100%;">
+  <caption>Step 5: Custom data tracking setup (advanced)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">カスタムイベント</th>
@@ -646,7 +642,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 
 イベントやカスタム属性をログに記録するには、SDKがユーザーのデバイス上で初期化（アクティビティをリッスン）されている必要があります。カスタムデータのロギングについては、[User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) と [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) を参照してください。
 
-### ステップ6: ユーザーの管理方法の設定（オプション） {#step-6}
+### ステップ6: ユーザーの管理方法を設定する（オプション） {#step-6}
 
 ドロップダウンから `external_id` タイプを選択します。
 
@@ -667,7 +663,7 @@ Braze SDKを使用すると、この統合でサポートされているデー�
 - **Shopify顧客ID、メール、またはハッシュメールを選択した場合:** ステップ6.1〜6.3をスキップし、ステップ6.4に直接進みます。
 {% endalert %}
 
-#### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternalid-metafield}
+#### ステップ6.1: `braze.external_id` メタフィールドを作成する {#step-61-create-the-brazeexternal_id-metafield}
 
 1. Shopifyの管理パネルで、**Settings** > **Metafields** に移動します。
 2. **Customers** > **Add definition** を選択します。
@@ -689,16 +685,16 @@ Brazeがexternal IDを取得するために呼び出せる公開エンドポイ�
 
 Brazeは、次のパラメーターをエンドポイントに送信します。
 
-| パラメーター            | 必須 | データタイプ | 説明                                                      |
+| パラメーター | 必須 | データタイプ | 説明 |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | はい      | 文字列    | Shopify顧客ID。                                         |
-| shopify_storefront   | はい      | 文字列    | リクエストのストアフロント名。例: `<storefront_name>.myshopify.com` |
-| email_address        | いいえ       | 文字列    | ログインユーザーのメールアドレス。<br><br>このフィールドは、特定のWebhookシナリオでは欠落している場合があります。エンドポイントロジックでは、ここでnull値を考慮する必要があります（たとえば、内部ロジックで必要な場合はshopify_customer_idを使用してメールを取得します）。 |
+| shopify_customer_id | はい | 文字列 | Shopify顧客ID。 |
+| shopify_storefront | はい | 文字列 | リクエストのストアフロント名。例: `<storefront_name>.myshopify.com` |
+| email_address | いいえ | 文字列 | ログインユーザーのメールアドレス。<br><br>このフィールドは、特定のWebhookシナリオでは欠落している場合があります。エンドポイントロジックでは、ここでnull値を考慮する必要があります（たとえば、内部ロジックで必要な場合はshopify_customer_idを使用してメールを取得します）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ##### サンプルエンドポイント {#example-endpoint}
 
-```http
+`````````http
 GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
 ```
 

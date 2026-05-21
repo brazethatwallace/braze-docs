@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Canvas-Details exportieren"
 article_title: "GET: Canvas-Details exportieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `canvas_id` | Erforderlich | String | Siehe [Canvas-API-Bezeichner]({{site.baseurl}}/api/identifier_types/) |
 | `post_launch_draft_version` | Optional | Boolescher Wert | Für Canvases mit einem Entwurf nach dem Start werden bei der Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardwert ist `false`. |
 | `include_has_translatable_content` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, enthält die API-Antwort ein `has_translatable_content`-Feld für jede Nachricht. Standardwert ist `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 

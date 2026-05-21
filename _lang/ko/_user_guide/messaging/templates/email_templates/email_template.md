@@ -83,13 +83,13 @@ Braze 대시보드에서 **템플릿** > **이메일 템플릿**으로 이동합
 
 ### 템플릿 관리하기 {#manage-your-templates}
 
-**템플릿** > **이메일 템플릿**에서 이메일 템플릿을 확인할 수 있으며, 상태, 유형, 태그, 만든 사용자별로 필터링하거나 템플릿 이름으로 검색할 수 있습니다. 이 템플릿을 보려면 **Campaigns, Canvases, Cards, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터 액세스** 권한(또는 **이메일 템플릿 보기**와 같은 동등한 세분화된 권한)이 필요합니다. 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
+**템플릿** > **이메일 템플릿**에서 이메일 템플릿을 확인할 수 있으며, 상태, 유형, 태그, 만든 사용자별로 필터링하거나 템플릿 이름으로 검색할 수 있습니다. 이 템플릿을 보려면 **View Email Templates**와 같은 관련 사용자 권한이 필요합니다. 자세한 내용은 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)을 참조하세요.
 
 이메일 템플릿을 더 많이 만들면 이메일 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)하고 [아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)할 수 있습니다. 템플릿 및 크리에이티브 콘텐츠 라이브러리를 만들고 관리하는 방법에 대해 [템플릿 및 미디어]({{site.baseurl}}/user_guide/messaging/templates/)에서 자세히 알아보세요.
 
-### API 캠페인에서 템플릿 사용하기 {#use-your-templates-in-api-campaigns}
+### API Campaign에서 템플릿 사용하기 {#use-your-templates-in-api-campaigns}
 
-API 캠페인에 이메일을 사용하려면 `email_template_id`가 필요하며, 이는 Braze에서 만든 모든 이메일 템플릿 하단에서 찾을 수 있습니다.
+API Campaign에 이메일을 사용하려면 `email_template_id`가 필요하며, 이는 Braze에서 만든 모든 이메일 템플릿 하단에서 찾을 수 있습니다.
 
 ![이메일 템플릿 하단에 있는 API 식별자.]({% image_buster /assets/img/email_templates/template5.png %})
 
@@ -97,7 +97,7 @@ API 캠페인에 이메일을 사용하려면 `email_template_id`가 필요하�
 
 드래그 앤 드롭 편집기에서 이메일 템플릿에 대해 협업하고 댓글을 달 수 있습니다.
 
-1. 댓글을 달고 싶은 이메일 본문의 Content Block 또는 행을 선택합니다.
+1. 댓글을 달고 싶은 이메일 본문의 콘텐츠 블록 또는 행을 선택합니다.
 2. <i class="fas fa-comment"></i> 댓글 아이콘을 선택합니다.
 3. 사이드바에 댓글을 입력한 다음 **Submit**을 선택합니다.
 4. 댓글을 입력한 후 **Done**을 선택합니다.

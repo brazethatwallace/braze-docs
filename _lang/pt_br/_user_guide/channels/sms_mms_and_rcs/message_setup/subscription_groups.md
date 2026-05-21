@@ -25,8 +25,8 @@ Existem dois estados de inscrição para usuários de SMS e RCS: `subscribed` e 
 | Estado | Definição |
 | --------- | ---------- |
 | Inscrito | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico. Um usuário pode ser inscrito ao ter seu estado de inscrição atualizado pela API de inscrições da Braze ou ao enviar uma resposta com palavra-chave de opt-in. Um usuário deve estar inscrito em um grupo de inscrições de SMS ou RCS para receber SMS, RCS ou ambos. Quando o [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) está ativado, os usuários devem confirmar sua intenção de opt-in antes que o status de inscrição seja atualizado para `Subscribed`. |
-| Desinscrito | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta com palavra-chave de descadastramento, ou você pode cancelar a inscrição dos usuários pela [API de inscrições da Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Usuários desinscritos de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Cancelou inscrição | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta com palavra-chave de descadastramento, ou você pode cancelar a inscrição dos usuários pela [API de inscrições da Braze]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/). Usuários que cancelaram a inscrição de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Definir o estado de um usuário {#set-a-users-state}
 
@@ -92,6 +92,28 @@ Dependendo da sua integração, a Braze pode adicionar remetentes verificados po
 {% endtab %}
 {% endtabs %}
 
+## Gerenciar descadastramentos em linguagem natural no Console do agente {#handle-natural-language-opt-outs-in-the-agent-console}
+
+Para um gerenciamento abrangente de inscrições, você pode capturar intenções de descadastramento que fogem das palavras-chave padrão ou personalizadas (como "Por favor, não me mande mais mensagens"). Ao criar um agente de IA, você pode usar análise de sentimento para ajudar a identificar e agir sobre essas solicitações automaticamente.
+
+### Configuração {#setup}
+
+1. No [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents/), crie um "Agente de Análise de Sentimento de SMS".
+
+{% alert tip %}
+Use o [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples) para auxiliar na configuração inicial do agente.
+{% endalert %}
+
+{: start="2"}
+2. Crie um Canvas baseado em ação disparado por **Send an SMS inbound message**, dentro da categoria de palavra-chave **Other**.
+3. Adicione a [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/) ao Canvas para identificar a intenção de descadastramento.
+4. Adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) de SMS subsequente para confirmar a solicitação: "Parece que você está tentando cancelar a inscrição de SMS, então vamos cancelar sua inscrição. Se isso foi um engano, envie START para se inscrever novamente."
+5. Adicione uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update) para alterar o status do usuário no grupo de inscrições de SMS específico para "Cancelou inscrição".
+
+{% alert note %}
+O uso do Console do agente consome créditos de mensagem ou de ação.
+{% endalert %}
+
 ## Migrar tráfego de SMS para RCS {#migrate-sms-traffic-to-rcs}
 
 Se você tiver grupos de inscrições de SMS e RCS separados, poderá migrar usuários de SMS para RCS usando um Canvas de uma única etapa.
@@ -100,17 +122,17 @@ A Braze recomenda que você teste o envio de RCS para volumes menores de usuári
 
 ### Etapa 1: Criar um Canvas e preencher o cronograma de entrada {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, programe o Canvas para quando for conveniente para você.
+Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, programe a campanha para quando for conveniente para você.
 
 ### Etapa 2: Definir seu público {#step-2-define-your-audience}
 
 Defina seu público usando um dos seguintes métodos. Em seguida, vá para a etapa **Configurações de envio** e selecione **Usuários que estão inscritos ou optaram por receber**.
 
-| Método                          | Descrição                                                                                                                                                                                                 |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Criar um segmento**         | Crie um segmento que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os segmentos são atualizados antes de cada envio para refletir sua base de usuários atual.        |
-| **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade.                                         |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Método | Descrição |
+|---|---|
+| **Criar um segmento** | Crie um segmento que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os segmentos são atualizados antes de cada envio para refletir sua base de usuários atual. |
+| **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### Etapa 3: Configurar uma etapa de Atualização de usuário {#step-3-configure-a-user-update-step}
 
@@ -135,7 +157,7 @@ Adicione uma etapa de Atualização de usuário ao seu Canvas. Na etapa, abra o 
 ```
 {% endraw %}
 
-!["Objeto de Atualização de Usuário" que contém o código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objeto de Atualização de Usuário que contém o código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Etapa 4: Testar o Canvas {#step-4-test-the-canvas}
 

@@ -43,7 +43,7 @@ Añade las campañas y los mensajes de Canvas que deseas compilar en tu informe.
 - Seleccionar manualmente campañas y Canvas
 - Seleccionar automáticamente campañas y Canvas en función de reglas específicas
 
-![Selección de mensajes del informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
+![engagement_reports_message_selection]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
 #### Seleccionar manualmente campañas o Canvas {#manually-select-campaigns-or-canvases}
 
@@ -61,7 +61,13 @@ Las etiquetas deben coincidir con al menos una campaña o Canvas para que se gen
 
 El paso **Add Stats** te muestra las estadísticas para los tipos de campañas o Canvas que hayas seleccionado. Por ejemplo, si seleccionaste mensajes de correo electrónico, solo podrás ver las estadísticas relevantes de correo electrónico. Si elegiste una combinación de correo electrónico y push, podrás ver las estadísticas de esos dos canales.
 
-![Añadir estadísticas al informe de interacción]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
+
+Los informes de interacción agregan datos por campaña o Canvas, no a nivel de espacio de trabajo. Para monitorear el volumen total de envíos o impresiones en todas las campañas y Canvas activos, como los envíos e impresiones por canal en todo un espacio de trabajo, usa el [Generador de informes]({{site.baseurl}}/report_builder/).
+
+{% alert note %}
+*Envíos al operador* está obsoleto, pero seguirá siendo compatible para los usuarios que ya lo tienen.
+{% endalert %}
 
 | Canal | Estadísticas disponibles |
 | ------| --------------|
@@ -71,11 +77,7 @@ El paso **Add Stats** te muestra las estadísticas para los tipos de campañas o
 | Mensaje dentro de la aplicación | Impresiones, Clics, Clics en el primer botón, Clics en el segundo botón |
 | Webhook  |  Envíos, Errores |
 | SMS | Envíos, Envíos al operador, Entregas confirmadas, Fallos de entrega, Rechazos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-{% alert note %}
-*Envíos al operador* está obsoleto, pero seguirá siendo compatible para los usuarios que ya lo tienen.
-{% endalert %}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Add statistics #add-statistics-to-your-reports" }
 
 ### Paso 4: Completar la configuración del informe {#step-4-complete-report-setup}
 
@@ -98,7 +100,15 @@ De forma predeterminada, el rango de datos mostrado se basa en la zona horaria d
 
 De forma predeterminada, los datos mostrados en los informes de interacción son diarios (un día). Para ver estos datos en diferentes intervalos, elige un número explícito de días o semanas para agregar los datos del informe. Así, en lugar de ver métricas diarias, puedes ver tu interacción por semana, mes, trimestre o similar. Si una agregación centrada en el tiempo no es suficiente, también puedes optar por exportar datos a nivel de campaña o Canvas.
 
-![Cobertura de datos del informe de interacción]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+![engagement_reports_data_coverage]({% image_buster /assets/img_archive/engagement_report_datacoverage.png %})
+
+##### Mostrar datos por campaña o Canvas completo {#show-data-by-entire-campaign-or-canvas}
+
+Cuando seleccionas **Show Data by Entire Campaign or Canvas**, Braze agrega las métricas en bloques de 1825 días (cinco años) a lo largo del rango de tiempo del informe.
+
+Si el rango de tiempo abarca más de un bloque, es posible que veas varias filas para la misma campaña o Canvas con diferentes fechas en la columna de fecha. Algunas filas pueden incluir solo métricas registradas más adelante en el rango (por ejemplo, cancelaciones de suscripción). Las fechas también pueden ser anteriores a cuando comenzaste a enviar en el espacio de trabajo, porque reflejan los límites de los bloques en la exportación, no solo tu primer envío.
+
+Para alinear la columna de fecha con el momento en que tus campañas y Canvas seleccionados realmente enviaron, establece la [fecha de inicio del informe en **Seleccionar periodo de tiempo**](#select-time-frame) a la fecha más temprana que deseas en el archivo, generalmente cuando esos mensajes comenzaron a enviarse, en lugar de dejar el rango predeterminado que se remonta al mensaje seleccionado más antiguo.
 
 #### Planificar tu informe {#schedule-your-report}
 
@@ -107,7 +117,7 @@ Hay dos opciones al planificar tu informe:
 - **Enviar inmediatamente:** Después de lanzar el informe, Braze lo enviará de inmediato.
 - **Enviar en un horario designado:** Esta opción te da la flexibilidad de elegir con qué frecuencia recibes este informe. Puedes elegir enviar este informe cada cierto número de días, semanas o meses. También puedes definir cuándo dejar de enviar el informe.
 
-![Planificación del informe de interacción]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
+![engagement_reports_schedule_report]({% image_buster /assets/img_archive/engagement_report_reportschedule.png %}){: style="max-width:65%;" }
 
 ### Paso 5: Revisar y lanzar {#step-5-review-and-launch}
 
@@ -130,7 +140,7 @@ Asegúrate de que las fechas en el informe de interacción coincidan con las fec
 Si los totales parecen incorrectos en una hoja de cálculo, limpia los filtros adicionales en la exportación. Puedes sumar las filas diarias para conciliarlas con los totales de Canvas o campaña para el mismo rango de tiempo.
 
 {% alert note %}
-Si deseas una fila agregada para el rango completo en lugar de contenedores diarios, semanales u otros recurrentes, configura **Data Display** en **Show Data by Entire Campaign or Canvas**.
+Si deseas filas agregadas por campaña o Canvas completo en lugar de contenedores diarios, semanales u otros recurrentes, configura **Data Display** en **Show Data by Entire Campaign or Canvas**. Si los recuentos de filas o las fechas parecen incorrectos en el CSV, consulta [Mostrar datos por campaña o Canvas completo](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Clics de botón duplicados en mensajes dentro de la aplicación HTML {#duplicate-button-clicks-in-html-in-app-messages}

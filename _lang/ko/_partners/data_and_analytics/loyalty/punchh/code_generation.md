@@ -4,7 +4,7 @@ article_title: Punchh 동적 코드 생성
 page_order: 2
 description: "이 참조 문서에서는 Braze에서 Punchh 동적 코드 생성을 사용하는 방법을 설명합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 ---
 
 # Punchh를 활용한 동적 코드 생성 {#dynamic-code-generation-with-punchh}
@@ -81,6 +81,7 @@ Punchh 동적 쿠폰 코드 API를 사용하려면 JWT 토큰을 구성해야 �
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | 동적 쿠폰 생성 토큰입니다. |
 | `CAMPAIGN_ID`                     | Campaign ID입니다.                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
 ### 3단계: 메시지 본문에 쿠폰 코드 추가 {#step-3-append-coupon-code-to-message-body}
 
@@ -96,7 +97,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 
 사용자가 쿠폰 URL을 클릭하면 Punchh에서 호스팅하는 웹 페이지로 리디렉션되며, 생성된 쿠폰이 표시됩니다.
 
-![사용자가 쿠폰 코드를 성공적으로 생성한 후의 예시 확인 메시지입니다.]({% image_buster /assets/img/punchh/punchh7.png %})
+![사용자가 쿠폰 코드를 성공적으로 생성한 후의 확인 메시지 예시입니다.]({% image_buster /assets/img/punchh/punchh7.png %})
 
 #### JSON을 통해 일반 텍스트로 코드 추출 {#extracting-code-via-json-as-plain-text}
 
@@ -150,4 +151,4 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 | `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | 코드 사용량이 허용된 사용자 수를 초과했습니다. 예를 들어, 대시보드 구성에서 코드를 3,000명의 사용자가 사용할 수 있도록 허용했는데 사용자 수가 3,000명을 초과하면 이 오류가 발생합니다. |
 | `usage_exceeded_by_guest` | This promo code has already been processed. | 사용자의 코드 사용량이 해당 사용자가 사용할 수 있는 횟수를 초과했습니다. 예를 들어, 대시보드 구성에서 단일 코드를 사용자당 3회 사용할 수 있도록 허용한 경우, 그 이상 사용하면 이 오류가 발생합니다. |
 | `already_used_by_other_guest` | This promo code has already been used by some other guest. | 다른 사용자가 이미 해당 코드를 사용했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error messages" }

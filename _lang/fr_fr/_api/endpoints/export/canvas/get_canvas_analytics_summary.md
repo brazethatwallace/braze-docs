@@ -37,7 +37,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `include_variant_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure les statistiques des variantes (par défaut `false`). |
 | `include_step_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure les statistiques par étape (par défaut `false`). |
 | `include_deleted_step_data` | Facultatif | Valeur booléenne | Indique s'il faut inclure les statistiques des étapes supprimées (par défaut `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert important %}
 **Alignement des fuseaux horaires :** les analyses du tableau de bord de Braze sont agrégées quotidiennement dans le fuseau horaire configuré pour votre société dans le tableau de bord. Assurez-vous que vos horodatages correspondent au fuseau horaire de votre société afin que vos statistiques concordent avec le tableau de bord. Par exemple, si le fuseau horaire de votre société est UTC+2, l'horodatage devrait être 00 h 00 UTC+2.

@@ -50,7 +50,7 @@ Braze 내비게이션은 다양한 기기에서 기능과 콘텐츠에 효율적
 
 사이드 내비게이션 상단에 위치한 워크스페이스 전환기를 사용하면 Braze 인스턴스 내의 다른 워크스페이스로 이동할 수 있습니다. 활성 워크스페이스가 강조 표시됩니다.
 
-[워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces/)는 브랜드, 지역, 제품 라인 또는 팀별로 콘텐츠를 정리하는 데 도움이 됩니다. 각 워크스페이스에는 자체 데이터, Campaigns, 설정이 포함됩니다. 워크스페이스마다 접근 권한이 다를 수 있습니다. 예를 들어, 한 워크스페이스에서는 편집 권한이 있고 다른 워크스페이스에서는 보기 전용 권한만 있을 수 있습니다.
+[워크스페이스]({{site.baseurl}}/user_guide/get_started/workspaces/)는 브랜드, 지역, 제품 라인 또는 팀별로 콘텐츠를 정리하는 데 도움이 됩니다. 각 워크스페이스에는 자체 데이터, Campaign, 설정이 포함됩니다. 워크스페이스마다 접근 권한이 다를 수 있습니다. 예를 들어, 한 워크스페이스에서는 편집 권한이 있고 다른 워크스페이스에서는 보기 전용 권한만 있을 수 있습니다.
 
 워크스페이스를 전환하려면 사이드 내비게이션 상단의 워크스페이스 드롭다운을 선택하고 접근하려는 워크스페이스를 선택합니다. 자주 사용하는 워크스페이스에 더 빠르게 접근하려면 [워크스페이스 즐겨찾기](#favorite-workspaces)를 추가할 수도 있습니다.
 
@@ -126,7 +126,7 @@ table td {
 | 검색 결과 간 이동 | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | 검색 결과 선택      | <kbd>Enter</kbd>    |
 | 검색 메뉴 닫기       | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="키보드 단축키" }
 
 ## 생산성 기능 {#productivity-features}
 
@@ -138,9 +138,9 @@ BrazeAI Operator™는 대시보드에 내장된 AI 기반 어시스턴트입니
 
 ### 이전 작업 이어하기 {#pick-up-where-you-left-off}
 
-**Home** 페이지에서 대시보드는 최근 편집하거나 생성한 Campaigns, Canvases, Segments를 표시합니다. 이를 통해 검색 없이도 진행 중인 작업으로 쉽게 돌아갈 수 있습니다. 각 항목에는 콘텐츠 유형과 상태(초안, 활성, 중지됨 등)를 나타내는 태그가 포함되어 있습니다.
+**Home** 페이지에서 대시보드는 최근 편집하거나 생성한 Campaign, Canvas, Segment를 표시합니다. 이를 통해 검색 없이도 진행 중인 작업으로 쉽게 돌아갈 수 있습니다. 각 항목에는 콘텐츠 유형과 상태(초안, 활성, 중지됨 등)를 나타내는 태그가 포함되어 있습니다.
 
-![Canvas 초안, 활성 Segment, Campaign 초안이 "Pick up where you left off" 섹션에 표시됩니다.]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
+![Canvas 초안, 활성 Segment, Campaign 초안이 "이전 작업 이어하기" 섹션에 표시됩니다.]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
 자세한 내용은 [홈 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/home/#pick-up-where-you-left-off)를 참조하세요.
 
@@ -151,7 +151,7 @@ BrazeAI Operator™는 대시보드에 내장된 AI 기반 어시스턴트입니
 워크스페이스 즐겨찾기를 추가하려면:
 
 1. [프로필 설정에 접근합니다](#access-your-profile-settings).
-2. **Account Profile** 섹션에서 **Favorite workspaces** 필드를 찾습니다.
+2. **계정 프로필** 섹션에서 **워크스페이스 즐겨찾기** 필드를 찾습니다.
 3. 즐겨찾기로 설정할 워크스페이스를 선택합니다.
 
 ### 프로필 설정에 접근하기 {#access-your-profile-settings}
@@ -159,7 +159,7 @@ BrazeAI Operator™는 대시보드에 내장된 AI 기반 어시스턴트입니
 계정 설정, 알림 환경설정, 개인 정보를 관리하려면:
 
 1. 글로벌 헤더에서 프로필 아이콘을 선택합니다.
-2. **Manage your account**를 선택하여 프로필 페이지에 접근합니다.
+2. **내 계정 관리**를 선택하여 프로필 페이지에 접근합니다.
 
 프로필 페이지에서 이메일 설정을 업데이트하고, 2단계 인증을 구성하고, API 키를 확인하고, 기타 계정 세부 정보를 관리할 수 있습니다.
 

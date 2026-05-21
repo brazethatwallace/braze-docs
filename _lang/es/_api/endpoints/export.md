@@ -9,7 +9,7 @@ page_type: reference
 
 # Puntos finales de exportación {#export-endpoints}
 
-Con los puntos finales de exportación, puedes acceder y exportar diversos detalles sobre tus KPI, sesiones de aplicación, usuarios, Segments, Campaigns y Canvas. Asegúrate de conocer tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [clave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) al crear tus parámetros y cuerpos de solicitud.
+Con esta colección de puntos finales, puedes acceder y exportar diversos niveles de detalle sobre tus KPI, sesiones de aplicación, usuarios, Segments, Campaigns y Canvas. Asegúrate de conocer tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/), [clave de API]({{site.baseurl}}/api/api_key/) e [identificador de API]({{site.baseurl}}/api/identifier_types/) al crear tus parámetros y cuerpos de solicitud.
 
 ## Requisitos previos {#prerequisites}
 
@@ -20,7 +20,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 | Clave de API REST de Braze | Una clave de API REST con los permisos de exportación adecuados para los puntos finales que planeas llamar. Las claves de API tienen un alcance limitado a puntos finales específicos, y los permisos no se pueden cambiar después de la creación. Para más detalles, consulta [Clave de API REST]({{site.baseurl}}/api/basics/#about-rest-api-keys). |
 | Identificadores relevantes | Los identificadores de los datos que deseas exportar, como un ID de Campaign, un ID de Segment o un ID de Canvas. Puedes encontrarlos en el dashboard de Braze. Para una lista completa, consulta [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types/). |
 | Credenciales de almacenamiento en la nube (opcional) | Si estás exportando conjuntos de datos grandes, conecta un contenedor de [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/), [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents/) o [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents/) para que los archivos de exportación se escriban directamente en tu almacenamiento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert note %}
 Si eres un especialista en marketing o miembro de un equipo sin acceso a la API, coordínate con un desarrollador o administrador de tu organización para configurar las claves de API y las integraciones.
@@ -41,7 +41,7 @@ La siguiente tabla resume las categorías de datos disponibles a través de las 
 | Eventos personalizados | Nombres de eventos, listas de eventos y análisis de eventos a lo largo del tiempo | [Puntos finales de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data/) |
 | Atributos personalizados | Nombres de atributos | [Punto final de atributos personalizados]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes/) |
 | Compras | Datos de ingresos por tiempo, listas de ID de productos y recuentos de compras | [Puntos finales de compras]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="What you can export" }
 
 ## Cómo se entregan los datos de exportación {#how-export-data-is-delivered}
 
@@ -56,7 +56,7 @@ Las exportaciones de API devuelven datos en formato JSON, a diferencia de los ar
 
 Para más detalles sobre la entrega de exportaciones y la solución de problemas, consulta [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 
-## Puntos finales de exportación {#export-endpoints}
+## Puntos finales de exportación
 
 La siguiente tabla enumera todas las API de exportación disponibles.
 
@@ -88,7 +88,7 @@ La siguiente tabla enumera todas las API de exportación disponibles.
 | Datos de usuario | POST | [User Data by Identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) |
 | Datos de usuario | POST | [User Data by Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) |
 | Datos de usuario | POST | [User Data by Global Control Group]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Export endpoints" }
 
 ## Artículos relacionados {#related-articles}
 

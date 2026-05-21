@@ -55,7 +55,7 @@ CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
 
 同期するテーブルへのアクセスを付与します。
 
-```sql
+`````````sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
 
 GRANT USAGE ON DATABASE BRAZE_CLOUD_PRODUCTION TO ROLE BRAZE_INGESTION_ROLE;
@@ -65,7 +65,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.MY_USER_TABLE TO ROLE BRA
 
 ユースケースに応じて、複数のテーブルや将来のテーブルへのアクセスを付与することもできます。たとえば、スキーマ内のすべての将来のテーブルへのアクセスを付与するには、以下のようにします。
 
-```sql
+`````````sql
 GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
@@ -73,7 +73,7 @@ GRANT SELECT ON FUTURE TABLES IN SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE
 
 Brazeがクエリを実行するためのウェアハウスを作成します。
 
-```sql
+`````````sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
 GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
@@ -86,7 +86,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 
 Braze用のユーザーを作成し、ロールを割り当てます。
 
-```sql
+`````````sql
 CREATE USER BRAZE_INGESTION_USER;
 GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 ```
@@ -117,7 +117,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 
 詳細については、[Snowflakeキーペア認証](https://docs.snowflake.com/en/user-guide/key-pair-auth)を参照してください。キーをローテーションしたい場合、Brazeは新しいキーペアを生成し、新しい公開キーを提供できます。
 
-```sql
+`````````sql
 ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 ```
 
@@ -164,6 +164,10 @@ SQLクエリは以下を返す必要があります。
 - Brazeはその他すべてのカラムを属性として同期します
 
 検証が成功したら、**次へ: 通知**に進み、同期を作成します。
+
+{% alert important %}
+不正確なSQL設定は、データポイントの過剰消費やより広範な運用リスクを含む、意図しない結果につながる可能性があります。クエリロジックが正しいことを確認する責任はお客様にあり、同期を有効化する前にすべての結果を慎重にプレビューしてください。
+{% endalert %}
 
 ## SQLの制約 {#sql-constraints}
 
@@ -276,7 +280,7 @@ Brazeがデータウェアハウスに接続できない場合:
 - 同期を作成できます
 - 行が返されるまでユーザーは更新されません
 
-## PAYLOADサポート（レガシー） {#payload-support-legacy}
+## `PAYLOAD`サポート（レガシー） {#payload-support-legacy}
 
 SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテーブル]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views)をサポートしています。
 
@@ -316,6 +320,7 @@ SQLエディターは、`PAYLOAD`カラムが存在する[レガシーCDIテー�
 | 「ソースに接続できません」 | 設定されたユーザー名、アカウントロケーター、RSAキーペア認証の設定を確認してください。<br>ウェアハウスが実行中であることを確認してください。<br>ネットワークアクセスを確認してください。 |
 | 「SQL構文エラー」 | SQL構文を確認してください。 |
 | 「オブジェクトが存在しないか、権限がありません」 | ロールがテーブルに対する`SELECT`アクセス権を持っていることを確認してください。<br>データベースとスキーマの権限を確認してください。<br>テーブル名のタイプミスを確認してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="「プレビューを利用できません」" }
 
 ### 「識別子カラムが必要です」 {#identity-column-required}
 

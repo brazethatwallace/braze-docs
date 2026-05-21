@@ -46,6 +46,7 @@ Braze는 Segment 크기에 대해 다음과 같은 통계를 제공합니다.
 
 **Reachable users** 사이드 패널에서 전체 Segment의 추정 도달 가능 사용자와 각 채널별 추정 사용자 수를 확인할 수 있습니다. 이 **추정치**는 Segment 크기의 대략적인 범위와 전체 사용자 기반 중 이 Segment에 해당하는 비율의 추정치를 보여줍니다. 추정 통계는 Segment를 편집하지 않는 한 15분 동안 캐시되며, 편집하면 추정 통계가 자동으로 업데이트됩니다. **Calculate exact statistics**를 선택하여 도달 가능 사용자의 정확한 수(Segment 전체 및 채널별 모두)를 확인할 수도 있습니다.
 
+
 ![추정 사용자가 230만~240만 명이라고 표시하는 "Reachable users" 패널.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 
 ### 추정 수에 대한 고려 사항 {#considerations-for-estimate-counts}
@@ -83,7 +84,7 @@ _Total_이 채널 합계보다 높은 경우, 그 차이는 Segment에 해당하
 | 이메일 | **Email Available**이 true입니다. |
 | 푸시 | **Foreground Push Enabled**가 true입니다. |
 | SMS | **Subscription Group**이 SMS 구독 그룹 중 하나입니다. **Invalid Phone Number**가 false입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Applied filters for channel-specific reachable users" }
 
 ## 정확한 통계 계산 {#calculating-exact-statistics}
 
@@ -137,4 +138,4 @@ Braze는 사용자의 하위 집합을 쿼리한 다음 그 결과를 전체 오
 | 사용자 삭제 | 상당수의 사용자가 삭제되었습니다. |
 | 파트너 통합이 Braze와 동기화 | 서드파티가 Braze에 데이터를 전송하여 Segment 멤버십에 큰 영향을 미쳤습니다. |
 | 휴면 사용자 아카이브 | 상당수의 비활성 프로필이 아카이브되었습니다. 예를 들어, CSV로 가져온 많은 사용자가 활동을 기록하지 않아 동시에 아카이브됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reasons for significant changes" }

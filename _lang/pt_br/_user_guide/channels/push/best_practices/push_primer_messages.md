@@ -30,7 +30,7 @@ Além disso, observe os seguintes detalhes específicos de cada plataforma:
 |----------|----------------------|
 | **Android 12 e anteriores** | A implementação de push primers não é recomendada porque o push é aceito por padrão. |
 | **Android 13+** | Se um usuário negar o prompt de permissão de push duas vezes, o Android bloqueia prompts adicionais — incluindo mensagens de push primer da Braze. Para conceder permissão após isso, os usuários devem ativar manualmente o push para o seu app nas configurações do dispositivo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 {% endtab %}
 
 {% tab swift %}

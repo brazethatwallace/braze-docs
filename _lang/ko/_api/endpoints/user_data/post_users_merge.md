@@ -46,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `merge_updates` | 필수 | 배열 | 오브젝트 배열입니다. 각 오브젝트에는 `identifier_to_merge` 오브젝트와 `identifier_to_keep` 오브젝트가 포함되어야 하며, 각각 `external_id`, `user_alias`, `phone` 또는 `email`로 사용자를 참조해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### 병합 동작 {#merge-behavior}
 
@@ -94,6 +94,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 사용자를 병합할 때 `/users/merge` 엔드포인트를 사용하는 것은 [`changeUser()` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 사용하는 것과 동일한 방식으로 작동합니다.
 {% endalert %}
 
+Braze는 병합 시 삭제 표시된 사용자, 테스트 사용자, 글로벌 컨트롤 그룹 사용자의 세 가지 사용자 유형을 다르게 처리합니다. 자세한 내용은 [사용자 병합 동작]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior/)을 참조하세요.
+
 #### 커스텀 이벤트 날짜 및 구매 이벤트 날짜 동작 {#custom-event-date-and-purchase-event-date-behavior}
 
 이 병합된 필드는 "Y일 동안 X회 이벤트" 필터를 업데이트합니다. 구매 이벤트의 경우 이러한 필터에는 "Y일 내 구매 횟수" 및 "지난 Y일 동안 지출한 금액"이 포함됩니다.
@@ -114,6 +116,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 - `identified`는 `external_id`가 있는 사용자에게 우선순위를 지정하는 것을 의미합니다
 - `unidentified`는 `external_id`가 없는 사용자에게 우선순위를 지정하는 것을 의미합니다
 
+{% alert important %}
+두 프로필 모두 유효하지 않은 전화번호를 가지고 있는 경우, Braze는 이를 병합하지 않습니다. 유효하지 않은 번호는 E.164 형식으로 저장되지 않으며, 병합 작업은 해당 프로필을 결합하지 않습니다. 엔드포인트는 여전히 성공 메시지와 함께 `202 Accepted`를 반환하므로, HTTP 응답은 병합이 건너뛰어졌음을 나타내지 않습니다. 병합하기 전에 하나 또는 두 프로필의 전화번호를 수정하세요.
+{% endalert %}
+
 ## 요청 예시 {#example-requests}
 
 ### 기본 요청 {#basic-request}
@@ -125,7 +131,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -172,7 +177,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -198,7 +202,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -214,7 +217,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 }'
 ```
 
-### most_recently_updated 우선순위를 포함하지 않고 식별되지 않은 사용자 병합하기 {#merging-an-unidentified-user-without-including-the-mostrecentlyupdated-prioritization}
+### most_recently_updated 우선순위를 포함하지 않고 식별되지 않은 사용자 병합하기 {#merging-an-unidentified-user-without-including-the-most_recently_updated-prioritization}
 
 이메일 주소 `john.smith@braze.com`을 가진 식별되지 않은 사용자가 두 명인 경우, 이 예시 요청은 해당 이메일 주소를 가진 식별되지 않은 사용자가 두 명이므로 사용자를 병합하지 않습니다. 이 요청은 이메일 주소 `john.smith@braze.com`을 가진 식별되지 않은 사용자가 단 한 명일 때만 작동합니다.
 
@@ -223,7 +226,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --data-raw '{
-{
   "merge_updates": [
     {
       "identifier_to_merge": {
@@ -272,6 +274,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/merge' \
 | `a single request may not contain more than 50 merge updates` | 한 요청에 병합 업데이트는 최대 50개까지만 지정할 수 있습니다. |
 | `identifiers must be objects with an 'external_id' property that is a string, 'user_alias' property that is an object, 'email' property that is a string, or 'phone' property that is a string` | 요청에 포함된 식별자를 확인하세요. |
 | `'merge_updates' must only have 'identifier_to_merge' and 'identifier_to_keep'` | `merge_updates`에 `identifier_to_merge`와 `identifier_to_keep` 두 개의 오브젝트만 포함되어 있는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

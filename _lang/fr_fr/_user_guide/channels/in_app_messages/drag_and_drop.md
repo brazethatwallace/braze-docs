@@ -29,7 +29,7 @@ Vous ne savez pas si votre message in-app doit être envoyé via une Campaign ou
 | Version minimale du SDK                                                          | Version recommandée du SDK                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
 
 {% details Plus d'informations sur les SDK minimaux %}
 
@@ -45,7 +45,7 @@ Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
 | Liens texte*                                                         | Demande d'amorce push                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK requirements" }
 
 *Si vous incluez un lien dans votre message in-app qui redirige vers une URL et que l'utilisateur final ne dispose pas des versions minimales du SDK spécifiées, la sélection du lien fermera le message et l'utilisateur ne pourra pas revenir au message pour soumettre le formulaire.
 

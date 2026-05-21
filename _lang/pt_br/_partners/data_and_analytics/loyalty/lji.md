@@ -30,7 +30,7 @@ Antes de começar, você precisa do seguinte:
 | Chave da API REST da Braze | Uma chave da API REST com as permissões `campaigns.trigger.send`, `canvas.trigger.send` e `users.track`.<br><br> Crie essa chave no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint da API da Braze | Seu endpoint REST da Braze (por exemplo, `https://rest.fra-01.braze.eu`). Para saber mais, consulte [Instâncias e endpoints da Braze]({{site.baseurl}}/api/basics/#endpoints). |
 | IDs de Campaign ou Canvas | IDs dos fluxos de trabalho de **Campaigns** ou **Canvas** que você aciona a partir da GRAVTY®. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -43,9 +43,7 @@ Esta integração oferece suporte às seguintes funcionalidades da Braze:
 
 ## Integração {#integration}
 
-A integração entre a GRAVTY® e a Braze é baseada em API. Ela oferece suporte à sincronização de dados em tempo real e ao acionamento de comunicações.
-
-![Diagrama de fluxo mostrando a GRAVTY® enviando dados e gatilhos para as APIs da Braze, que então envia mensagens para SMS, e-mail, push e WhatsApp.]({% image_buster /assets/img/lji/braze-gravty-integration.png %})
+A integração entre a GRAVTY® e a Braze é baseada em API, permitindo sincronização de dados em tempo real e acionamento de comunicações entre a GRAVTY® e a Braze.
 
 ### Etapa 1: Conectar a Braze com a GRAVTY® {#step-1-connect-braze-with-gravty}
 
@@ -59,33 +57,61 @@ A integração entre a GRAVTY® e a Braze é baseada em API. Ela oferece suporte
 
 ![Formulário Add Subscriber da GRAVTY® com Braze selecionado, campos de API URL e API key, e um botão de ativação do subscriber.]({% image_buster /assets/img/lji/braze-subscriber-setup.png %}){: style="max-width:70%;"}
 
-### Etapa 2: Configurar o mapeamento de atributos do modelo {#step-2-configure-template-attribute-mapping}
+### Etapa 2: Configurar o gatilho de evento {#step-2-configure-event-trigger}
 
-Depois de salvar o subscriber da Braze, a GRAVTY® abre a página **Template Attribute Mapping**. Use-a para mapear campos para a Braze.
+Crie um evento na GRAVTY® que é executado quando a atividade de um membro atende às condições que você definir (por exemplo, uma transação, pontos acumulados, mudança de nível ou inscrição no programa).
 
-1. Selecione **Add New Field**.
-2. Selecione um **atributo da GRAVTY®** na lista.
-3. Insira o **nome do atributo na Braze** (atributo personalizado) onde o valor deve aparecer na Braze.
+1. Navegue até a seção **Events** na GRAVTY®.
+2. Clique em **Create Event**.
+3. Defina as condições do evento (por exemplo, transação criada, pontos acumulados ou upgrade de nível).
+4. Configure as regras que determinam quando o evento deve ser acionado.
+5. Vincule o subscriber da Braze ao evento para ativar os gatilhos de comunicação.
+6. Salve a configuração do evento.
+
+A seguir, um exemplo de evento configurado para ser acionado quando um membro é inscrito no programa:
+
+![Configuração de evento na GRAVTY® para inscrição de membro no programa, com a Braze vinculada como subscriber.]({% image_buster /assets/img/lji/event-configuration.png %})
+
+### Etapa 3: Configurar o mapeamento de atributos do modelo {#step-3-configure-template-attribute-mapping}
+
+Após configurar o evento, conclua a configuração do subscriber para ativar a sincronização de dados e os gatilhos de comunicação:
+
+1. Selecione o **subscriber da Braze** criado na Etapa 1 no menu suspenso de subscribers.
+2. Escolha o **canal** apropriado (**Campaign** ou **Canvas**) com base no seu caso de uso. Para cenários apenas de sincronização de dados, o canal pode ser deixado sem seleção.
+3. Insira o **Campaign ID** ou **Canvas ID** correspondente no campo **Template Name**, conforme aplicável.
+4. Configure o tipo de comunicação para suportar sincronização e/ou envio de mensagens baseado em gatilhos.
+
+Para configurar o mapeamento de campos na GRAVTY®:
+
+1. Clique em **Add New Field**.
+2. Selecione o **atributo da GRAVTY®** no menu suspenso.
+3. Insira o **nome do atributo na Braze** correspondente onde os dados devem ser mapeados.
 
 {% alert important %}
-Você não precisa mapear o `external_id`. A GRAVTY® o gera internamente aplicando hash no ID do membro, e a Braze recebe esse valor com hash como `external_id` no perfil de usuário.<br><br> Antes de ativar a integração, confirme que isso corresponde à forma como você define o `external_id` na Braze atualmente. Se a Braze já usa um `external_id` diferente para as mesmas pessoas, trabalhe com a LJI para alinhar os identificadores antes de sincronizar os dados.
+Você não precisa mapear o `external_id`. A GRAVTY® o gera internamente aplicando hash no ID do membro (o identificador único do membro na GRAVTY®), e a Braze recebe esse valor com hash como `external_id` no perfil de usuário.<br><br> Antes de ativar a integração, confirme que isso corresponde à forma como você define o `external_id` na Braze atualmente. Se a Braze já usa um `external_id` diferente para as mesmas pessoas, trabalhe com a LJI para alinhar os identificadores antes de sincronizar os dados.
 {% endalert %}
 
 {: start="4"}
-4. Repita as etapas 1 a 3 para adicionar mais mapeamentos.
-5. Selecione **Save**.
+4. Repita as etapas **1 a 3** para adicionar mapeamentos adicionais conforme necessário.
+5. Clique em **Save** para aplicar a configuração.
 
-![Página Subscription Setup da GRAVTY® com configuração de modelo, configuração de sincronização e uma tabela mapeando entidade, atributo da GRAVTY® e campos de atributo do modelo para a Braze.]({% image_buster /assets/img/lji/gravty-attribute-mapping.png %})
+![Configuração de mapeamento de atributos para sincronização de membros com a Braze.]({% image_buster /assets/img/lji/gravty-attribute-mapping.png %})
 
 {% alert note %}
-A integração oferece suporte aos tipos de dados de atributos personalizados da Braze, incluindo números (inteiro, float), strings, arrays, booleanos, objetos, arrays de objetos e datas.
+A integração oferece suporte a todos os tipos de dados de atributos personalizados da Braze, incluindo números (inteiro, float), strings, arrays, booleanos, objetos, arrays de objetos e datas.
 {% endalert %}
 
-### Etapa 3: Testar a integração {#step-3-test-the-integration}
+### Etapa 4: Testar a integração {#step-4-test-the-integration}
 
-Acione um evento de teste na GRAVTY® para confirmar a sincronização, os gatilhos de comunicação e o fluxo de ponta a ponta.
+Acione um evento de teste na GRAVTY® para verificar se a sincronização, os gatilhos de comunicação e a integração como um todo estão funcionando conforme esperado.
 
-![Visão geral do perfil de usuário na Braze mostrando Perfil, Atributos personalizados (nível, datas, país, cidade) e Eventos personalizados preenchidos a partir do mapeamento da GRAVTY®.]({% image_buster /assets/img/lji/braze-member-profile.png %})
+* Os dados do membro são sincronizados com a Braze e refletidos no perfil do membro.
+
+![Os campos de dados são preenchidos com base no mapeamento de campos configurado.]({% image_buster /assets/img/lji/braze-member-profile.png %})
+
+* A comunicação é acionada com base na Campaign ou no Canvas configurado.
+
+![Exemplo de e-mail acionado a partir da Braze.]({% image_buster /assets/img/lji/braze-email-example.png %})
 
 ## Suporte {#support}
 

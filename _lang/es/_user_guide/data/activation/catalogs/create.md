@@ -3,7 +3,7 @@ nav_title: Crear un catálogo
 article_title: Crear un catálogo
 alias: "/catalogs/"
 page_order: 1
-description: "En este artículo de referencia se explica cómo crear catálogos que hagan referencia a datos de no usuarios en tus Campaigns de Braze a través de Liquid."
+description: "En este artículo de referencia se explica cómo crear catálogos que hagan referencia a datos de no usuarios en tus campañas de Braze a través de Liquid."
 ---
 
 # Crear un catálogo {#create-a-catalog}
@@ -47,7 +47,7 @@ Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisit
 | Tipos de datos | Los tipos de datos compatibles para las cargas CSV incluyen cadenas, números, valores booleanos y horas. Para obtener la lista completa de tipos de datos, incluidos los que solo están disponibles a través de la API y CDI, consulta [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
 | Formato | Formatea todo el texto en minúsculas para mantener la coherencia. |
 | Codificación | Guarda y carga el archivo CSV utilizando la codificación UTF-8. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Review your CSV file" }
 
 {% alert note %}
 ¿Necesitas más espacio para tus archivos CSV? Ponte en contacto con tu director de cuentas de Braze para obtener más información sobre la actualización de tus catálogos.
@@ -77,7 +77,7 @@ Introduce un nombre y una descripción opcional para tu catálogo. Ten en cuenta
 También puedes [utilizar plantillas en el nombre del catálogo](#template-catalog-names), lo que te permite generar dinámicamente nombres de catálogo basados en variables como el idioma o la campaña.
 {% endalert %}
 
-![Un catálogo llamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![A catalog named "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 Selecciona **Process Catalog** para crear el catálogo.
 
@@ -94,7 +94,8 @@ Para este tutorial, vamos a utilizar un catálogo que enumera dos juegos, su cos
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
+  <caption>Tutorial: Creating a catalog from a CSV file</caption>
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -125,18 +126,18 @@ Crearemos el catálogo cargando un archivo CSV. Los tipos de datos de `id`, `tit
 Este tipo de datos no se puede editar una vez configurado el catálogo.
 {% endalert %}
 
-![Cuatro nombres de columnas del catálogo: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
+![Four catalog column names: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
 A continuación, daremos a este catálogo el nombre "games_catalog" y seleccionaremos el botón **Process Catalog**. Braze comprobará si hay errores en el catálogo antes de crearlo.
 
-![Un catálogo llamado "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
+![A catalog named "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Puedes eliminar un catálogo y volver a cargar una versión actualizada utilizando el mismo nombre de catálogo.
 
 Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Crear en el navegador %}
 ### Requisitos previos {#prerequisites}
 
 Antes de poder editar o crear catálogos en el navegador, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para tu espacio de trabajo:
@@ -145,8 +146,6 @@ Antes de poder editar o crear catálogos en el navegador, necesitas los siguient
 - Edit Catalogs
 - Export Catalogs
 - Delete Catalogs
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ### Paso 1: Introduce los detalles del catálogo {#step-1-enter-catalog-details}
 
@@ -160,17 +159,17 @@ Introduce un nombre y una descripción opcional para tu catálogo. Ten en cuenta
 También puedes [utilizar plantillas en el nombre del catálogo](#template-catalog-names), lo que te permite generar dinámicamente nombres de catálogo basados en variables como el idioma o la campaña.
 {% endalert %}
 
-![Un catálogo llamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![A catalog named "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 ### Paso 2: Crea tu catálogo {#step-2-create-your-catalog}
 
 Selecciona tu catálogo de la lista y, a continuación, selecciona **Update Catalog** > **Add fields**. Introduce el **Field name** y utiliza el menú desplegable para seleccionar el tipo de datos. Repite la operación según sea necesario.
 
-![Dos campos de ejemplo "rating" y "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
+![Two example fields "rating" and "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
 Selecciona **Update Catalog** > **Add items** para añadir un elemento a tu catálogo introduciendo la información en función de los campos que hayas añadido previamente. A continuación, selecciona **Save Item** o **Save and Add Another** para seguir añadiendo tus elementos.
 
-![Añade un elemento del catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![Add a catalog item.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 Braze procesa los valores de tiempo basándose en la marca de tiempo del dashboard. Por ejemplo, si una columna tiene el valor "03/13/2024" y tu zona horaria es la zona horaria del Pacífico, esta hora se importaría a Braze como "Mar 12, 2024, 5:00 PM".
@@ -217,6 +216,8 @@ Por ejemplo, si quieres editar un elemento individual del catálogo, puedes util
 
 ## Almacenamiento de catálogos {#tiers}
 
+Para un resumen rápido de los límites de almacenamiento por plan, consulta [Limitaciones de almacenamiento de datos]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
+
 La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 100 MB para todos los archivos CSV combinados de tu empresa, mientras que la versión Catalogs Pro admite tamaños de archivo CSV de hasta 2 GB para un único archivo CSV.
 
 {% alert important %}
@@ -227,7 +228,7 @@ El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad
 
 El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 100&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 100&nbsp;MB.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
 A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (100&nbsp;MB) está incluido en cada uno de estos planes.
 
@@ -240,7 +241,7 @@ La siguiente tabla resume las especificaciones de lo que puedes incluir en los c
 | Caracteres del valor de un elemento | Hasta 5000 caracteres en un solo valor. Por ejemplo, si tienes un campo llamado `description`, el número máximo de caracteres dentro del campo es 5000. |
 | Caracteres del nombre de columna de un elemento | Hasta 250 caracteres |
 | Selecciones por catálogo | Hasta 30 selecciones por catálogo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
 {% alert important %}
 Las etiquetas de Liquid de catálogos no se pueden utilizar de forma recursiva, lo que significa que no puedes hacer referencia a un elemento del catálogo que a su vez llame a un segundo elemento del catálogo dentro de la misma evaluación de Liquid.

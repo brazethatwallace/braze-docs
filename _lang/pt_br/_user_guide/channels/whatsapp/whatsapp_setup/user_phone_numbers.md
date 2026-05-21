@@ -29,7 +29,7 @@ Todos os números dos EUA devem ser números de telefone válidos de 10 dígitos
 
 Todos os números internacionais devem começar com `+`, seguido do código do país e do número de telefone. (ex.: `+442071838750`)
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Exemplo de um número de telefone internacional válido no formato E.164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 No entanto, para garantir a precisão caso você esteja enviando para várias regiões com diferentes códigos de país ou área, é recomendável usar o formato `E.164`, mesmo para números de telefone dos EUA.
 
@@ -40,7 +40,7 @@ Você pode ver as diferenças entre a formatação de número local e a formata�
 | EUA | `4155552671` | 1 | `+14155552671` |
 | Reino Unido | `02071838750` | 44 | `+442071838750` |
 | Brasil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formatação" }
 
 ### Adicionando usuários a um grupo de inscrições do WhatsApp {#adding-users-to-whatsapp-a-subscription-group}
 

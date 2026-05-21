@@ -33,7 +33,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `canvas_id` | Obrigatória | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types/) |
 | `post_launch_draft_version` | Opcional | Booleano | Para Canvas que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. O padrão é `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. O padrão é `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

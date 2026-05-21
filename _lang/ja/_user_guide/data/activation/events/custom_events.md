@@ -3,11 +3,11 @@ nav_title: カスタムイベント
 article_title: カスタムイベント
 page_order: 1
 page_type: reference
-description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、キャンバスエントリのプロパティ、関連する分析が表示される場所などについて説明します。"
+description: "この記事では、カスタムイベントとプロパティ、セグメンテーション、使用法、キャンバスエントリプロパティ、関連する分析が表示される場所などについて説明します。"
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタムイベント {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、キャンバスエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、「[イベント]({{site.baseurl}}/user_guide/data/activation/events/)」を参照してください。
 
@@ -17,13 +17,13 @@ search_rank: 2
 
 一般的なカスタムイベントのユースケースをいくつか示します。
 
-- [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を使用したカスタムイベントに基づくCampaignまたはCanvasのトリガー
+- [アクションベースの配信]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)を使用したカスタムイベントに基づくキャンペーンまたはキャンバスのトリガー
 - ユーザーがカスタムイベントを実行した回数、イベントが最後に発生した時刻などに基づくユーザーのセグメント化
 - ダッシュボードの[カスタムイベント分析](#analytics)を使用した、各イベントの発生頻度の集計表示
 - [ファネル]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/#step-2-select-events-for-funnel-steps)および[リテンション]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)レポートを使用した追加の分析
 - [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/)を活用し、キャンバスステップで顧客イベントのメタデータをパーソナライゼーションに使用
 - [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用したより高度な分析の生成
-- [離脱条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)を設定して、ユーザーがCanvasから離脱するタイミングを定義
+- [離脱条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)を設定して、ユーザーがキャンバスから離脱するタイミングを定義
 
 ## カスタムイベントの管理 {#managing-custom-events}
 
@@ -63,7 +63,7 @@ search_rank: 2
 
 ## 使用状況レポートの表示 {#viewing-usage-reports}
 
-使用状況レポートには、特定のカスタムイベントを使用しているすべてのCanvases、Campaigns、Segmentsが一覧表示されます。このリストにはLiquidの使用は含まれません。
+使用状況レポートには、特定のカスタムイベントを使用しているすべてのキャンバス、キャンペーン、セグメントが一覧表示されます。このリストにはLiquidの使用は含まれません。
 
 対象のカスタムイベントの横にあるチェックボックスを選択し、**使用状況レポートを表示**を選択すると、一度に最大100件の使用状況レポートを表示できます。
 
@@ -103,17 +103,17 @@ search_rank: 2
 | カスタムイベントが**X回（最大50回）を超えて**発生したかどうかを確認する | **MORE THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
 | カスタムイベントが**X回（最大50回）未満**発生したかどうかを確認する | **LESS THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
 | カスタムイベントが**正確にX回（最大50回）**発生したかどうかを確認する | **EXACTLY** | 過去**Y日間（Y = 1,3,7,14,21,30）** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="セグメンテーションフィルター" }
 
 ## 分析 {#analytics}
 
-Brazeは、各ユーザーについてカスタムイベントの発生回数と最終実行日時を記録し、セグメンテーションに活用します。これらの分析は、**分析** > **カスタムイベントレポート**に移動して確認できます。
+Brazeは、各ユーザーについてカスタムイベントの発生回数と最終実行日時を記録し、セグメンテーションに活用します。これらの分析は、**Analytics** > **カスタムイベントレポート**に移動して確認できます。
 
-ダッシュボードの**カスタムイベントレポート**ページでは、各カスタムイベントの発生頻度を集計で表示できます。時系列に重ねて表示されるグレーの線は、Campaignが最後に送信された日時を示しており、Campaignがカスタムイベントのアクティビティにどのような影響を与えたかを確認するのに役立ちます。
+ダッシュボードの**カスタムイベントレポート**ページでは、各カスタムイベントの発生頻度を集計で表示できます。時系列に重ねて表示されるグレーの線は、キャンペーンが最後に送信された日時を示しており、キャンペーンがカスタムイベントのアクティビティにどのような影響を与えたかを確認するのに役立ちます。
 
 ![ダッシュボードのカスタムイベントページにあるカスタムイベント数グラフ。カスタムイベントのトレンドを表示しています]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-**フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー数（MAU）別、Segment別、またはKPI計算式別に分類することもできます。
+**フィルター**を使用して、カスタムイベントを時間別、月間アクティブユーザー数（MAU）別、セグメント別、またはKPI計算式別に分類することもできます。
 
 ![カスタムイベントグラフのフィルター]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -123,7 +123,7 @@ Brazeは、各ユーザーについてカスタムイベントの発生回数と
 
 ### カスタムイベント分析が表示されない理由 {#why-custom-events-analytics-arent-showing}
 
-カスタムイベントデータで作成されたSegmentsは、作成前の過去の履歴データを表示できません。
+カスタムイベントデータで作成されたセグメントは、作成前の過去の履歴データを表示できません。
 
 ## カスタムイベントプロパティ {#custom-event-properties}
 

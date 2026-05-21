@@ -10,7 +10,7 @@ toc_headers: h2
 
 ---
 
-# Preferências de e-mail
+# Preferências de e-mail {#email-preferences}
 
 > Preferências de e-mail é onde você pode definir configurações específicas de e-mail de saída, como rodapés personalizados, páginas personalizadas de opt-in e descadastramento, e mais. Incluir essas opções nos seus e-mails de saída proporciona uma experiência fluida e coesa para seus usuários.
 
@@ -20,7 +20,7 @@ toc_headers: h2
 
 As configurações de e-mail na seção **Configuração de envio** determinam quais detalhes são incluídos nas suas Campaigns de e-mail. Em particular, essas configurações estão principalmente relacionadas ao que seu usuário vê quando recebe um e-mail da Braze.
 
-### Configurações de e-mail de saída
+### Configurações de e-mail de saída {#outbound-email-settings}
 
 Ao configurar suas definições de e-mail, as configurações de e-mail de saída identificam quais nomes e endereços de e-mail são usados quando a Braze envia e-mails para seus usuários.
 
@@ -31,7 +31,7 @@ Nesta seção, você pode adicionar os nomes e endereços de e-mail que podem se
 
 ![Seção "Outbound Email Settings" com campos para diferentes nomes de exibição e domínios.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
-#### Personalizar com Liquid
+#### Personalizar com Liquid {#personalize-with-liquid}
 
 Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) nos campos **From Display Name**, **Local Part** e **Domain** para criar dinamicamente o nome do remetente e o endereço de e-mail com base em atributos personalizados. Para usar Liquid no campo **Domain**, você deve acessar as opções de **Sending Info** de uma Campaign de e-mail e marcar a caixa de seleção **Customize from display name + address**.
 
@@ -88,7 +88,7 @@ Depois de adicionar um endereço, ele estará disponível para seleção ao redi
 
 Se você exigir que todas as mensagens de e-mail enviadas pela Braze incluam um endereço BCC, pode ativar a opção **Require a BCC address for all your email campaigns**. Isso exigirá que você selecione um endereço padrão, que será automaticamente selecionado em novas Campaigns de e-mail ou etapas do Canvas. O endereço padrão também será adicionado automaticamente a todas as mensagens disparadas pela nossa REST API. Não é necessário alterar a solicitação de API existente para incluir o endereço.
 
-#### BCC dinâmico
+#### BCC dinâmico {#dynamic-bcc}
 
 Com o BCC dinâmico, você pode usar Liquid no seu endereço BCC. Observe que esse recurso está disponível apenas em **Preferências de e-mail** e não pode ser definido na própria Campaign. Apenas um endereço BCC por destinatário de e-mail é permitido.
 
@@ -105,7 +105,7 @@ Por exemplo, você pode adicionar {% raw %}`{{custom_attribute.${support_agent}}
 
 O pixel de rastreamento de abertura de e-mail é uma imagem invisível de 1 x 1&nbsp;px que é automaticamente inserida no HTML do seu e-mail. Esse pixel ajuda a Braze a detectar se seus usuários abriram seu e-mail. Quando o cliente de e-mail de um usuário faz uma solicitação ao nosso pixel de rastreamento, a solicitação pode conter informações como endereço IP, user agent e timestamp. As informações de abertura de e-mail podem ser muito úteis, ajudando você a determinar estratégias de marketing eficazes ao entender as taxas de abertura correspondentes.
 
-### Posicionamento
+### Posicionamento {#placement}
 
 O comportamento padrão na Braze é adicionar o pixel de rastreamento na parte inferior do seu e-mail, geralmente em uma tag `<body>`. Para a maioria dos usuários, esse é o local ideal para colocar o pixel.
 
@@ -113,7 +113,7 @@ Embora o pixel já esteja estilizado para causar o mínimo de alterações visua
 
 Para reduzir comportamentos inesperados, mantenha o Liquid dentro de tags `<html>`. Tags de nível de documento aninhadas ou duplicadas podem alterar como o e-mail é analisado e onde o pixel é posicionado, o que pode afetar o rastreamento de abertura e o layout. Para saber mais, consulte [Usando Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid/).
 
-### Atualizar o posicionamento
+### Atualizar o posicionamento {#update-the-placement}
 
 A Braze atualmente suporta a substituição do local padrão do pixel de rastreamento de abertura do ESP (a última tag no `<body>` de um e-mail) para movê-lo para a primeira tag no `<body>`.
 
@@ -153,7 +153,7 @@ Ativar o list-unsubscribe é uma prática recomendada de entregabilidade e um re
 
 Ao [gerenciar suas inscrições no Gmail](https://support.google.com/mail/answer/15621070?sjid=2292320204527911296-NC), o Gmail também pode usar o link de cancelamento de inscrição do corpo da mensagem, mas prioriza o list-unsubscribe se estiver presente no cabeçalho.
 
-### Suporte de provedores de caixa de e-mail
+### Suporte de provedores de caixa de e-mail {#mailbox-provider-support}
 
 A tabela a seguir resume o suporte dos provedores de caixa de e-mail para cabeçalho "mailto:", URL de list-unsubscribe e cancelamento de inscrição com um clique ([RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058)).
 
@@ -164,7 +164,7 @@ A tabela a seguir resume o suporte dos provedores de caixa de e-mail para cabeç
 | Apple Mail | Suportado | Não suportado | Não suportado |
 | Outlook.com | Suportado | Não suportado | Não suportado |
 | Yahoo! Mail | Suportado* | Não suportado | Suportado |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Suporte de provedores de caixa de e-mail" }
 
 _*Yahoo e Gmail estão descontinuando gradualmente o cabeçalho "mailto:" e suportarão apenas o cancelamento com um clique._
 
@@ -200,7 +200,7 @@ A Braze suporta as seguintes versões do cabeçalho list-unsubscribe:
 | Um clique (RFC 8058) | Oferece uma maneira direta para os destinatários cancelarem a inscrição de e-mails com um único clique. Este é um requisito do Yahoo e Gmail para remetentes em massa. |
 | URL de list-unsubscribe ou HTTPS | Fornece aos destinatários um link que os direciona a uma página web onde podem cancelar a inscrição. |
 | Mailto | Especifica um endereço de e-mail como destino para a mensagem de solicitação de cancelamento de inscrição a ser enviada do destinatário para a marca. <br><br> _Para processar solicitações de cancelamento de inscrição via mailto list-unsubscribe, essas solicitações precisam incluir o endereço de e-mail conforme armazenado na Braze para o usuário final que está cancelando a inscrição. Isso pode ser fornecido pelo "from-address" do e-mail de onde o usuário final está cancelando a inscrição, pelo assunto codificado ou pelo corpo codificado do e-mail recebido pelo usuário final do qual está cancelando a inscrição. Em casos muito limitados, alguns provedores de caixa de entrada não aderem ao protocolo [RFC 2368](https://datatracker.ietf.org/doc/html/rfc2368), resultando no endereço de e-mail não sendo passado corretamente. Isso pode fazer com que uma solicitação de cancelamento de inscrição não possa ser processada na Braze._ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalho list-unsubscribe padrão" }
 
 Quando a Braze recebe uma solicitação de list-unsubscribe de um usuário por qualquer um dos métodos acima, o estado global de inscrição de e-mail desse usuário é definido como cancelado. Se não houver correspondência, a Braze não processa essa solicitação.
 
@@ -243,7 +243,7 @@ Ajustar essa configuração substitui o comportamento padrão para list-unsubscr
 
 ![]({% image_buster /assets/img/email_settings/one_click_list_unsubscribe_message_level.png %}){: style="max-width:70%;"}
 
-#### Requisitos
+#### Requisitos {#requirements}
 
 Se você está enviando e-mails usando sua própria funcionalidade personalizada de cancelamento de inscrição, deve atender aos seguintes requisitos para garantir que a URL de cancelamento de inscrição com um clique que você configurou esteja em conformidade com a RFC 8058:
 
@@ -277,7 +277,7 @@ Você pode reinscrever automaticamente os usuários quando eles alteram seu ende
 ## Páginas e rodapés da inscrição {#subscription-pages-and-footers}
 
 {% tabs local %}
-{% tab Custom Footer %}
+{% tab Rodapé personalizado %}
 
 Para e-mails comerciais, a [Lei CAN-SPAM](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que todos os e-mails comerciais incluam uma opção de cancelamento de inscrição. Com as configurações de rodapé personalizado, você pode permanecer em conformidade com a CAN-SPAM enquanto também personaliza seu rodapé de descadastramento de e-mail. Para permanecer em conformidade, você deve adicionar seu rodapé personalizado a todos os e-mails enviados como parte de Campaigns para este espaço de trabalho.
 
@@ -290,7 +290,7 @@ Observe os seguintes requisitos ao criar um rodapé personalizado para suas mens
 Para saber mais sobre a modelagem Liquid de rodapé personalizado, confira nossa documentação sobre [Rodapés personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
 
 {% endtab %}
-{% tab Custom Unsubscribe Page %}
+{% tab Página de cancelamento de inscrição personalizada %}
 
 A Braze permite que você defina uma **Página de cancelamento de inscrição personalizada** com seu próprio HTML. Esta página aparece depois que um usuário seleciona cancelar a inscrição na parte inferior de um e-mail. Observe que esta página deve ter menos de 750 KB.
 
@@ -299,7 +299,7 @@ A Braze permite que você defina uma **Página de cancelamento de inscrição pe
 Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mail em [Gerenciando inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/faq/#unsubscribed-email-addresses).
 
 {% endtab %}
-{% tab Custom Opt-In Page %}
+{% tab Página de opt-in personalizada %}
 
 Você pode criar uma página personalizada de opt-in usando seu próprio HTML. Incluir isso nos seus e-mails pode ser especialmente benéfico se você quiser que sua marca e mensagem permaneçam consistentes ao longo do ciclo de vida do usuário. Observe que esta página deve ter menos de 750 KB.
 
@@ -314,7 +314,7 @@ Saiba mais sobre as práticas recomendadas para gerenciamento de listas de e-mai
 Quando estiver na seção **Pré-visualização** de uma página de inscrição ou rodapé, selecione **Copy preview link** para gerar e copiar um link de pré-visualização compartilhável que mostra como o rodapé do e-mail, a página de cancelamento de inscrição ou a página de opt-in aparece para um usuário aleatório. O link dura sete dias antes de precisar ser regenerado.
 {% endalert %}
 
-## Perguntas frequentes
+## Perguntas frequentes {#frequently-asked-questions}
 
 ### Cancelamento de inscrição com um clique
 

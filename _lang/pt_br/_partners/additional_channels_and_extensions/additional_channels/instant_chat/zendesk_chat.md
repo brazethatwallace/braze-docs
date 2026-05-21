@@ -20,6 +20,7 @@ search_tag: Partner
 | Uma conta do Zendesk | É necessário ter uma conta do Zendesk para aproveitar essa parceria.|
 | Um token de autorização básica do Zendesk | Um token de autorização básica do Zendesk é usado para fazer uma solicitação de webhook de saída da Braze para o Zendesk.|
 | Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões `campaigns.trigger.send`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -165,7 +166,7 @@ Em seguida, você criará duas novas Campaigns de webhook na Braze para encaminh
 |--------------------|--------------------------------------------------------------------------------------|
 | Campaign de webhook 1 | Cria um novo ticket no Zendesk.                                                     |
 | Campaign de webhook 2 | Encaminha todas as respostas de SMS de conversação enviadas pelo cliente ao Zendesk. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 6: Configurar o encaminhamento de SMS de entrada" }
 
 #### Etapa 6.1: Criar uma categoria de palavra-chave SMS {#step-61-create-an-sms-keyword-category}
 
@@ -176,7 +177,7 @@ No dashboard da Braze, acesse **Público**, escolha seu **grupo de inscrições 
 | Categoria da palavra-chave | O nome da categoria da palavra-chave, como `ZendeskSMS1`.                                                                 |
 | Palavras-chave         | Suas palavras-chave personalizadas, como `SUPPORT`.                                                                                  |
 | Mensagem de resposta    | A mensagem enviada quando uma palavra-chave é detectada, como "Um representante de atendimento ao cliente entrará em contato com você em breve." |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 6.1: Criar uma categoria de palavra-chave SMS" }
 
 ![Um exemplo de categoria de palavra-chave SMS na Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 

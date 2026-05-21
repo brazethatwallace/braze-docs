@@ -56,12 +56,12 @@ Weitere Canvas-spezifische Informationen finden Sie unter [In-App-Nachrichten in
 
 Wählen Sie zunächst aus, welche Plattformen die Nachricht erhalten sollen. Verwenden Sie diese Auswahl, um die Zustellung einer Campaign auf eine bestimmte Gruppe von Apps zu beschränken. Sie könnten beispielsweise **Webbrowser** für eine In-Browser-Nachricht wählen, die Nutzer:innen dazu ermutigt, Ihre mobile App herunterzuladen, um sicherzustellen, dass sie die Nachricht nicht erhalten, nachdem sie Ihre App bereits installiert haben. Da die Plattformauswahl für jede Variante spezifisch ist, können Sie das Nachrichten-Engagement pro Plattform testen.
 
-| Plattform                        | Nachrichtenzustellung             |
+| Plattform | Nachrichtenzustellung |
 |---------------------------------|------------------------------|
-| Mobile Apps                     | iOS-, Android- und Vega-SDKs |
-| Webbrowser                    | Web-SDK                      |
+| Mobile Apps | iOS-, Android- und Vega-SDKs |
+| Webbrowser | Web-SDK |
 | Sowohl Mobile Apps als auch Webbrowser | iOS-, Android-, Vega- und Web-SDKs |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## Schritt 3: Nachrichtentypen festlegen {#step-3-specify-your-message-types}
 
@@ -84,7 +84,8 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -133,7 +134,8 @@ Diese In-App-Nachrichten werden sowohl von mobilen Apps als auch von Webanwendun
 
 Diese In-App-Nachrichten sind an Ihre Bedürfnisse anpassbar.
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>Erweiterte Nachrichtentypen</caption>
 <thead>
   <tr>
     <th>Nachrichtentyp</th>
@@ -239,7 +241,7 @@ Wenn Ihre Kund:innen auf einen Button in Ihrer In-App-Nachricht klicken, stehen 
 | Angepasstes Event protokollieren | Wählen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) zum Auslösen. Kann verwendet werden, um eine weitere In-App-Nachricht anzuzeigen oder zusätzliches Messaging auszulösen. |
 | Angepasstes Attribut protokollieren | Wählen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
 | Push-Berechtigung anfordern | Zeigt die native Push-Berechtigungsabfrage an. Lesen Sie mehr über [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) sowie [Best Practices]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) zur Vorbereitung von Nutzer:innen auf Push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 Hinweis: Die Optionen __Push-Berechtigung anfordern__, __Angepasstes Event protokollieren__ und __Angepasstes Attribut protokollieren__ erfordern die folgenden SDK-Mindestversionen:
 
@@ -276,7 +278,7 @@ Der Inhalt des Tabs **Stil** variiert je nach den im vorherigen Schritt gewählt
 
 | Formatierung | Eingabe | Beschreibung |
 |---|---|---|
-| [Farbprofil]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates/) | Aus der In-App-Nachrichten-Vorlagengalerie anwenden. | Wählen Sie **Vorlage anwenden** und wählen Sie aus der Galerie. Wählen Sie dann **Speichern**. |
+| [Farbprofil]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Aus der In-App-Nachrichten-Vorlagengalerie anwenden. | Wählen Sie **Vorlage anwenden** und wählen Sie aus der Galerie. Wählen Sie dann **Speichern**. |
 | Textausrichtung | Links, Zentriert oder Rechts. | Nur für neuere Braze-SDK-Versionen verfügbar. |
 | Überschrift | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
 | Text | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
@@ -285,7 +287,7 @@ Der Inhalt des Tabs **Stil** variiert je nach den im vorherigen Schritt gewählt
 | Hintergrundfarbe | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. Dies ist der Hintergrund der gesamten Nachricht und wird deutlich hinter Ihrem Textkörper angezeigt. |
 | Bildschirm-Overlay | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. Nur für neuere Braze-SDK-Versionen verfügbar. Dies ist der Rahmen um die gesamte Nachricht. |
 | Chevron oder andere Nachricht-schließen-Option | HEX-Farbcode. | Ihre gewünschte HEX-Farbe wird angezeigt. Sie können auch die Deckkraft der Farbe wählen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 [Zeigen Sie immer eine Vorschau an und testen Sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) Ihre Nachricht, bevor Sie sie senden.
 
@@ -329,7 +331,7 @@ Ein Startdatum und eine Startzeit müssen ausgewählt werden; ein Enddatum ist j
 
 Weitere Informationen finden Sie in unserer Entwicklerdokumentation zu [serverseitigem Event-Triggering]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web) und [lokaler In-App-Nachrichtenzustellung]({{site.baseurl}}/developer_guide/platform_integration_guides/web/in-app_messaging/in-app_message_delivery/#local-in-app-messages).
 
-##### Online- versus Offline-Triggering
+##### Online- versus Offline-Triggering {#online-versus-offline-triggering}
 
 In-App-Nachrichten funktionieren, indem die Nachricht und die Trigger an das Gerät der Nutzerin oder des Nutzers gesendet werden. Sobald die In-App-Nachrichten auf einem Gerät sind, wartet es mit der Anzeige, bis die Trigger-Bedingung erfüllt ist. Wenn die In-App-Nachrichten bereits auf dem Gerät der Nutzerin oder des Nutzers zwischengespeichert sind, können Sie In-App-Nachrichten sogar offline ohne Verbindung zu Braze auslösen (z. B. im Flugmodus).
 

@@ -9,7 +9,7 @@ tool:
 description: "Este artículo te guiará sobre cómo usar, interpretar y compartir la información del segmento."
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Información del segmento {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}Información del segmento {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > Aprende a usar, interpretar y compartir la información del segmento.
 
@@ -31,7 +31,7 @@ El segmento de línea base puede ser un segmento específico que selecciones o u
 | Ingresos de por vida en dólares | Ingresos promedio de por vida en dólares para los usuarios del segmento | gasto de por vida del usuario |
 | Días desde la primera compra | Número promedio de días entre la primera sesión y la primera compra de los usuarios del segmento | fecha de la primera compra – fecha de la primera sesión |
 | Días desde la última compra | Número promedio de días entre la última compra de los usuarios del segmento y ahora | hoy – fecha de la última compra |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Viewing Segment Insights" }
 
 Puedes compartir fácilmente comparaciones específicas con tus compañeros de equipo usando la URL única de la página, y también puedes seleccionar el icono del ojo junto a cada segmento para ver más información sobre ese segmento. Estas comparaciones se restablecerán cuando cambies entre espacios de trabajo.
 

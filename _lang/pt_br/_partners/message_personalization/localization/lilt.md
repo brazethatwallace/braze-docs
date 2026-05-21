@@ -44,7 +44,7 @@ Use a IA da LILT para obter traduções imediatas e alinhadas à marca para comu
 | Uma conta LILT   | É necessário ter uma conta LILT para aproveitar essa parceria.  |
 | Uma chave da API REST da Braze  | Uma chave da API REST da Braze com as seguintes permissões:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Crie essa chave no dashboard da Braze em **Settings** > **API Keys**. |
 | Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 
 ## Integração {#integration}

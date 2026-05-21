@@ -20,47 +20,45 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 
 {% details 커스텀 데이터 차단 목록에 필요한 사용자 권한 %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- View Frequency Capping Rules
-- Edit Frequency Capping Rules
-- View Message Prioritization
-- Edit Message Prioritization
-- View Content Blocks
-- View Feature Flags
-- Edit Feature Flags
-- Archive Feature Flags
-- View Segments
-- Edit Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- View Link Templates
-- Edit Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- View Locations
-- Edit Locations
-- Archive Locations
-- View Promotion Codes
-- Edit Promotion Codes
-- Export Promotion Codes
-- View Preference Centers
-- Edit Preference Centers
-- View Reports
-- Edit Reports
+- Campaigns 보기
+- Campaigns 편집
+- Campaigns 아카이브
+- Canvases 보기
+- Canvases 편집
+- Canvases 아카이브
+- 최대 게재빈도 설정 규칙 보기
+- 최대 게재빈도 설정 규칙 편집
+- 메시지 우선순위 보기
+- 메시지 우선순위 편집
+- Content Blocks 보기
+- 기능 플래그 보기
+- 기능 플래그 편집
+- 기능 플래그 아카이브
+- Segments 보기
+- Segments 편집
+- IAM 템플릿 보기
+- IAM 템플릿 편집
+- IAM 템플릿 아카이브
+- 이메일 템플릿 보기
+- 이메일 템플릿 편집
+- 이메일 템플릿 아카이브
+- 웹훅 템플릿 보기
+- 웹훅 템플릿 편집
+- 링크 템플릿 보기
+- 링크 템플릿 편집
+- 미디어 라이브러리 자산 보기
+- 미디어 라이브러리 자산 편집
+- 미디어 라이브러리 자산 삭제
+- 위치 보기
+- 위치 편집
+- 위치 아카이브
+- 프로모션 코드 보기
+- 프로모션 코드 편집
+- 프로모션 코드 내보내기
+- 환경설정 센터 보기
+- 환경설정 센터 편집
+- 보고서 보기
+- 보고서 편집
 
 {% enddetails %}
 
@@ -76,14 +74,14 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 
 1. **커스텀 속성**, **커스텀 이벤트** 또는 **제품** 페이지에서 검색합니다.
 2. 커스텀 속성, 이벤트 또는 제품을 선택합니다. 커스텀 속성과 이벤트의 경우 한 번에 최대 100개까지 선택하여 차단 목록에 추가할 수 있습니다.
-3. **차단 목록**을 선택합니다.
+3. **Blocklist**를 선택합니다.
 
 ![커스텀 속성 페이지에서 차단 목록에 추가된 여러 커스텀 속성이 선택된 모습.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
 최대 300개의 커스텀 속성과 300개의 커스텀 이벤트를 차단 목록에 추가할 수 있습니다. 특정 기기 속성의 수집을 방지하려면 [SDK 가이드]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection)를 참조하세요.
 
 {% alert important %}
-**휴지통** 상태의 커스텀 속성 또는 커스텀 이벤트는 삭제될 때까지 차단 목록 한도에 포함됩니다.
+**Trashed** 상태의 커스텀 속성 또는 커스텀 이벤트는 삭제될 때까지 차단 목록 한도에 포함됩니다.
 {% endalert %}
 
 커스텀 이벤트 또는 속성이 차단 목록에 추가되면 다음이 적용됩니다:
@@ -112,9 +110,9 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 
 커스텀 이벤트 또는 커스텀 속성을 삭제하려면 다음을 수행하세요:
 
-1. 삭제하려는 데이터 유형에 따라 **데이터 설정** > **커스텀 속성** 또는 **커스텀 이벤트**로 이동합니다.
-2. 커스텀 데이터로 이동하여 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**동작** > **차단 목록**을 선택합니다.
-3. 커스텀 데이터가 7일 동안 차단 목록에 추가된 후 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**동작** > **삭제**를 선택합니다.
+1. 삭제하려는 데이터 유형에 따라 **Data Settings** > **Custom Attributes** 또는 **Custom Events**로 이동합니다.
+2. 커스텀 데이터로 이동하여 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Blocklist**를 선택합니다.
+3. 커스텀 데이터가 7일 동안 차단 목록에 추가된 후 <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Delete**를 선택합니다.
 
 ### 삭제 작동 방식 {#how-deletion-works}
 
@@ -123,7 +121,7 @@ description: "이 참조 문서에서는 Braze에서 커스텀 이벤트와 속�
 - **커스텀 속성의 경우:** 모든 사용자의 프로필에서 속성 데이터가 영구적으로 제거됩니다.
 - **커스텀 이벤트의 경우:** 모든 사용자의 프로필에서 이벤트 메타데이터가 영구적으로 제거됩니다.
 
-속성 또는 이벤트가 삭제 대상으로 선택되면 상태가 **휴지통**으로 변경됩니다. 이후 7일 동안 속성 또는 이벤트를 복원할 수 있습니다. 7일 후에도 복원하지 않으면 데이터가 영구적으로 삭제됩니다. 속성 또는 이벤트를 복원하면 차단 목록 상태로 되돌아갑니다.
+속성 또는 이벤트가 삭제 대상으로 선택되면 상태가 **Trashed**로 변경됩니다. 이후 7일 동안 속성 또는 이벤트를 복원할 수 있습니다. 7일 후에도 복원하지 않으면 데이터가 영구적으로 삭제됩니다. 속성 또는 이벤트를 복원하면 차단 목록 상태로 되돌아갑니다.
 
 삭제해도 고객 프로필에 커스텀 데이터 오브젝트가 추가로 기록되는 것을 방지하지 않으므로, 이벤트 또는 속성을 삭제하기 전에 커스텀 데이터가 더 이상 기록되지 않는지 확인하세요.
 

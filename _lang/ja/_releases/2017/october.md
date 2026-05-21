@@ -14,7 +14,7 @@ iOSとAndroidで、複数のページを持つ[通知を作成]({{site.baseurl}}
 
 ## Currents
 
-[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)は、データウェアハウス、ビジネスインテリジェンスツール、データ管理プラットフォームなどのテクノロジーへの事前構築済みの直接接続を使用して、顧客データに関するリアルタイムの大容量データ接続のセットを表示します。Amazon Redshift、Amplitude、およびデータ管理プラットフォームのSegmentとmParticleとの統合を利用して起動します。この新しい製品にアクセスするには、カスタマーサクセスマネージャーまたはアカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を登録してください。
+[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)は、データウェアハウス、ビジネスインテリジェンスツール、データ管理プラットフォームなどのテクノロジーへの事前構築済みの直接接続を使用して、顧客データに関するリアルタイムの大容量データ接続のセットを表示します。Amazon Redshift、Amplitude、およびデータ管理プラットフォームのセグメントとmParticleとの統合を利用して起動します。この新しい製品にアクセスするには、カスタマーサクセスマネージャーまたはアカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support/)を登録してください。
 
 ## Oktaシングルサインオン（2017年10月） {#okta-single-sign-on-october-2017}
 

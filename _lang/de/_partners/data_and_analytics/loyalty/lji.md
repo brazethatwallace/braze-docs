@@ -30,7 +30,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Braze-REST-API-Schlüssel | Ein REST-API-Schlüssel mit den Berechtigungen `campaigns.trigger.send`, `canvas.trigger.send` und `users.track`.<br><br> Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Settings** > **API Keys**. |
 | Braze-API-Endpunkt | Ihr Braze-REST-Endpunkt (zum Beispiel `https://rest.fra-01.braze.eu`). Weitere Informationen finden Sie unter [Braze-Instanzen und Endpunkte]({{site.baseurl}}/api/basics/#endpoints). |
 | Campaign- oder Canvas-IDs | IDs für die **Campaigns**- oder **Canvas**-Workflows, die Sie von GRAVTY® aus triggern. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -43,9 +43,7 @@ Diese Integration unterstützt die folgenden Braze-Funktionen:
 
 ## Integration
 
-Die Integration von GRAVTY® und Braze ist API-basiert. Sie unterstützt Echtzeit-Datensynchronisierung und Kommunikations-Triggering.
-
-![Flussdiagramm, das zeigt, wie GRAVTY® Daten und Trigger an Braze-APIs sendet, die dann Nachrichten über SMS, E-Mail, Push und WhatsApp zustellen.]({% image_buster /assets/img/lji/braze-gravty-integration.png %})
+Die Integration von GRAVTY® und Braze ist API-basiert und ermöglicht Echtzeit-Datensynchronisierung und Kommunikations-Triggering zwischen GRAVTY® und Braze.
 
 ### 1. Schritt: Braze mit GRAVTY® verbinden {#step-1-connect-braze-with-gravty}
 
@@ -59,33 +57,61 @@ Die Integration von GRAVTY® und Braze ist API-basiert. Sie unterstützt Echtzei
 
 ![GRAVTY®-Formular „Add Subscriber“ mit ausgewähltem Braze, Feldern für API-URL und API-Schlüssel sowie einem aktiven Subscriber-Toggle.]({% image_buster /assets/img/lji/braze-subscriber-setup.png %}){: style="max-width:70%;"}
 
-### 2. Schritt: Template-Attribut-Mapping konfigurieren {#step-2-configure-template-attribute-mapping}
+### 2. Schritt: Event-Trigger konfigurieren {#step-2-configure-event-trigger}
 
-Nachdem Sie den Braze-Subscriber gespeichert haben, öffnet GRAVTY® die Seite **Template Attribute Mapping**. Verwenden Sie diese, um Felder auf Braze abzubilden.
+Erstellen Sie ein Event in GRAVTY®, das ausgelöst wird, wenn eine Mitgliederaktivität die von Ihnen definierten Bedingungen erfüllt (zum Beispiel eine Transaktion, gesammelte Punkte, eine Stufenänderung oder eine Programmanmeldung).
 
-1. Wählen Sie **Add New Field** aus.
-2. Wählen Sie ein **GRAVTY®-Attribut** aus der Liste aus.
-3. Geben Sie den **Braze-Attributnamen** (angepasstes Attribut) ein, unter dem der Wert in Braze erscheinen soll.
+1. Navigieren Sie in GRAVTY® zum Abschnitt **Events**.
+2. Klicken Sie auf **Create Event**.
+3. Definieren Sie die Event-Bedingungen (zum Beispiel Transaktion erstellt, Punkte gesammelt oder Stufen-Upgrade).
+4. Konfigurieren Sie die Regeln, die bestimmen, wann das Event getriggert werden soll.
+5. Verknüpfen Sie den Braze-Subscriber mit dem Event, um Kommunikations-Trigger zu aktivieren.
+6. Speichern Sie die Event-Konfiguration.
+
+Das folgende Beispiel zeigt ein Event, das getriggert wird, wenn ein Mitglied in das Programm aufgenommen wird:
+
+![GRAVTY®-Event-Konfiguration für die Programmanmeldung eines Mitglieds, mit Braze als verknüpftem Subscriber.]({% image_buster /assets/img/lji/event-configuration.png %})
+
+### 3. Schritt: Template-Attribut-Mapping konfigurieren {#step-3-configure-template-attribute-mapping}
+
+Nachdem Sie das Event konfiguriert haben, vervollständigen Sie die Subscriber-Konfiguration, um Datensynchronisierung und Kommunikations-Trigger zu aktivieren:
+
+1. Wählen Sie den in [Schritt 1](#step-1-connect-braze-with-gravty) erstellten **Braze-Subscriber** aus der Subscriber-Dropdown-Liste aus.
+2. Wählen Sie den passenden **Kanal** (**Campaign** oder **Canvas**) basierend auf Ihrem Anwendungsfall. Für reine Datensynchronisierungs-Szenarien kann der Kanal leer gelassen werden.
+3. Geben Sie die entsprechende **Campaign-ID** oder **Canvas-ID** im Feld **Template Name** ein, sofern zutreffend.
+4. Konfigurieren Sie den Kommunikationstyp, um Synchronisierung und/oder triggerbasiertes Messaging zu unterstützen.
+
+So konfigurieren Sie das Feld-Mapping in GRAVTY®:
+
+1. Klicken Sie auf **Add New Field**.
+2. Wählen Sie das **GRAVTY®-Attribut** aus der Dropdown-Liste aus.
+3. Geben Sie den entsprechenden **Braze-Attributnamen** ein, auf den die Daten abgebildet werden sollen.
 
 {% alert important %}
-Sie müssen `external_id` nicht mappen. GRAVTY® generiert diesen Wert intern durch Hashing der Mitglieds-ID, und Braze empfängt diesen gehashten Wert als `external_id` im Nutzerprofil.<br><br> Bevor Sie die Integration aktivieren, stellen Sie sicher, dass dies mit der Art übereinstimmt, wie Sie `external_id` heute in Braze setzen. Wenn Braze bereits eine andere `external_id` für dieselben Personen verwendet, arbeiten Sie mit LJI zusammen, um die Bezeichner abzugleichen, bevor Sie Daten synchronisieren.
+Sie müssen `external_id` nicht mappen. GRAVTY® generiert diesen Wert intern durch Hashing der Mitglieds-ID (dem eindeutigen Mitglieds-Bezeichner in GRAVTY®), und Braze empfängt diesen gehashten Wert als `external_id` im Nutzerprofil.<br><br> Bevor Sie die Integration aktivieren, stellen Sie sicher, dass dies mit der Art übereinstimmt, wie Sie `external_id` heute in Braze setzen. Wenn Braze bereits eine andere `external_id` für dieselben Personen verwendet, arbeiten Sie mit LJI zusammen, um die Bezeichner abzugleichen, bevor Sie Daten synchronisieren.
 {% endalert %}
 
 {: start="4"}
-4. Wiederholen Sie die Schritte 1–3, um weitere Mappings hinzuzufügen.
-5. Wählen Sie **Save** aus.
+4. Wiederholen Sie die Schritte **1–3**, um weitere Mappings hinzuzufügen.
+5. Klicken Sie auf **Save**, um die Konfiguration zu übernehmen.
 
-![GRAVTY®-Seite „Subscription Setup“ mit Template-Konfiguration, Sync-Konfiguration und einer Tabelle, die Entity, GRAVTY®-Attribut und Template-Attribut-Felder für Braze abbildet.]({% image_buster /assets/img/lji/gravty-attribute-mapping.png %})
+![Attribut-Mapping-Konfiguration für die Braze-Mitglieder-Synchronisierung.]({% image_buster /assets/img/lji/gravty-attribute-mapping.png %})
 
 {% alert note %}
-Die Integration unterstützt Braze-Datentypen für angepasste Attribute, einschließlich Zahlen (Integer, Gleitkommazahl), Strings, Arrays, Boolesche Werte, Objekte, Arrays von Objekten und Datumsangaben.
+Die Integration unterstützt alle Braze-Datentypen für angepasste Attribute, einschließlich Zahlen (Integer, Gleitkommazahl), Strings, Arrays, Boolesche Werte, Objekte, Arrays von Objekten und Datumsangaben.
 {% endalert %}
 
-### 3. Schritt: Integration testen {#step-3-test-the-integration}
+### 4. Schritt: Integration testen {#step-4-test-the-integration}
 
-Triggern Sie ein Beispiel-Event in GRAVTY®, um die Synchronisierung, Kommunikations-Trigger und den End-to-End-Ablauf zu bestätigen.
+Triggern Sie ein Beispiel-Event in GRAVTY®, um zu überprüfen, ob Synchronisierung, Kommunikations-Trigger und die gesamte Integration wie erwartet funktionieren.
 
-![Braze-Nutzerprofil-Übersicht mit Profil, angepassten Attributen (Stufe, Daten, Land, Ort) und angepassten Events, die aus dem GRAVTY®-Mapping befüllt wurden.]({% image_buster /assets/img/lji/braze-member-profile.png %})
+* Mitgliederdaten werden mit Braze synchronisiert und im Mitgliederprofil angezeigt.
+
+![Die Datenfelder werden basierend auf dem konfigurierten Feld-Mapping befüllt.]({% image_buster /assets/img/lji/braze-member-profile.png %})
+
+* Kommunikation wird basierend auf der konfigurierten Campaign oder dem Canvas getriggert.
+
+![Beispiel einer von Braze getriggerten E-Mail.]({% image_buster /assets/img/lji/braze-email-example.png %})
 
 ## Support
 

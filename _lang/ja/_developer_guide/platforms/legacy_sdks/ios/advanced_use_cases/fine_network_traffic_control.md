@@ -40,7 +40,7 @@ Braze では、ユーザーに対し、以下のプロトコルを使用して�
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
 ```
 
@@ -60,14 +60,14 @@ Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] flushDataAndProcessRequestQueue];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
 ```
 
@@ -83,7 +83,7 @@ Appboy.sharedInstance()?.flushDataAndProcessRequestQueue()
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 NSDictionary *appboyOptions = @{
   // Other entries
   ABKRequestProcessingPolicyOptionKey : @(ABKAutomaticRequestProcessing)
@@ -93,7 +93,7 @@ NSDictionary *appboyOptions = @{
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 let appboyOptions: [AnyHashable: Any] = [
   // Other entries
   ABKRequestProcessingPolicyOptionKey: ABKRequestProcessingPolicy.automaticRequestProcessing.rawValue
@@ -110,7 +110,7 @@ let appboyOptions: [AnyHashable: Any] = [
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 // Sets the request processing policy to automatic (the default value)
 [Appboy sharedInstance].requestProcessingPolicy = ABKAutomaticRequestProcessing;
 ```
@@ -118,7 +118,7 @@ let appboyOptions: [AnyHashable: Any] = [
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 // Sets the request processing policy to automatic (the default value)
 Appboy.sharedInstance()?.requestProcessingPolicy = ABKRequestProcessingPolicy.automaticRequestProcessing
 ```
@@ -133,14 +133,14 @@ Appboy.sharedInstance()?.requestProcessingPolicy = ABKRequestProcessingPolicy.au
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 [[Appboy sharedInstance] shutdownServerCommunication];
 ```
 
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 Appboy.sharedInstance()?.shutdownServerCommunication();
 ```
 

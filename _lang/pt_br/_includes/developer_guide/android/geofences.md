@@ -1,14 +1,14 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} Além disso, você precisará [configurar notificações por push silenciosas]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android).
+{% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Configuração de geofences {#setting-up-geofences}
+## Configurando geofences {#setting-up-geofences}
 
-### Etapa 1: Capacitação em Braze
+### Etapa 1: Ativar na Braze {#step-1-enable-in-braze}
 
 {% multi_lang_include developer_guide/_shared/enable_geofences_in_braze.md %}
 
-### Etapa 2: Atualize `build.gradle`
+### Etapa 2: Atualize `build.gradle` {#step-2-update-buildgradle}
 
-Adicione `android-sdk-location` ao seu nível de app `build.gradle`. Além disso, adicione o [pacote local do](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) Google Play Services usando o [guia de configuração](https://developers.google.com/android/guides/setup) do Google Play Services:
+Adicione `android-sdk-location` ao `build.gradle` do nível do app. Além disso, adicione o [pacote de localização](https://developers.google.com/android/reference/com/google/android/gms/location/package-summary) do Google Play Services usando o [guia de configuração](https://developers.google.com/android/guides/setup) do Google Play Services:
 
 ```
 dependencies {
@@ -17,9 +17,9 @@ dependencies {
 }
 ```
 
-### Etapa 3: Atualizar o manifesto
+### Etapa 3: Atualizar o manifesto {#step-3-update-the-manifest}
 
-Adicione permissões de inicialização, de local de trabalho e de local de fundo ao seu site `AndroidManifest.xml`:
+Adicione permissões de inicialização, localização precisa e localização em segundo plano ao seu `AndroidManifest.xml`:
 
 ```xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -28,10 +28,10 @@ Adicione permissões de inicialização, de local de trabalho e de local de fund
 ```
 
 {% alert important %}
-A permissão de acesso ao local em segundo plano foi adicionada no Android 10 e é necessária para que o Geofences funcione enquanto o app estiver em segundo plano em todos os dispositivos Android 10+.
+A permissão de acesso à localização em segundo plano foi adicionada no Android 10 e é necessária para que os geofences funcionem enquanto o app estiver em segundo plano em todos os dispositivos Android 10+.
 {% endalert %}
 
-Adicione o receptor de inicialização da Braze ao elemento `application` de seu `AndroidManifest.xml`:
+Adicione o receptor de inicialização da Braze ao elemento `application` do seu `AndroidManifest.xml`:
 
 ```xml
 <receiver android:name="com.braze.BrazeBootReceiver">
@@ -41,29 +41,29 @@ Adicione o receptor de inicialização da Braze ao elemento `application` de seu
 </receiver>
 ```
 
-### Etapa 4: Ativar a coleta de locais do Braze
+### Etapa 4: Ativar a coleta de localização da Braze {#step-4-enable-braze-location-collection}
 
-Se ainda não tiver ativado a coleta de locais do Braze, atualize seu arquivo `braze.xml` para incluir `com_braze_enable_location_collection` e confirme que seu valor está definido como `true`:
+Se ainda não tiver ativado a coleta de localização da Braze, atualize seu arquivo `braze.xml` para incluir `com_braze_enable_location_collection` e confirme que seu valor está definido como `true`:
 
 ```xml
 <bool name="com_braze_enable_location_collection">true</bool>
 ```
 
 {% alert important %}
-A partir da versão 3.6.0 do Braze Android SDK, a coleta de locais da Braze é desativada por padrão.
+A partir da versão 3.6.0 do SDK da Braze para Android, a coleta de localização da Braze é desativada por padrão.
 {% endalert %}
 
-As geofences do Braze são ativadas se a coleta de locais do Braze estiver ativada. Se desejar optar por não participar da nossa coleta de locais padrão, mas ainda quiser usar geofences, isso pode ser ativado seletivamente definindo o valor da chave `com_braze_geofences_enabled` como `true` em `braze.xml`, independentemente do valor de `com_braze_enable_location_collection`:
+Os geofences da Braze são ativados se a coleta de localização da Braze estiver ativada. Se você quiser fazer o descadastramento da nossa coleta de localização padrão, mas ainda quiser usar geofences, isso pode ser ativado seletivamente definindo o valor da chave `com_braze_geofences_enabled` como `true` em `braze.xml`, independentemente do valor de `com_braze_enable_location_collection`:
 
 ```xml
 <bool name="com_braze_geofences_enabled">true</bool>
 ```
 
-### Etapa 5: Obter permissões de local do usuário final
+### Etapa 5: Obter permissões de localização do usuário final {#step-5-obtain-location-permissions-from-the-end-user}
 
-Para Android M e versões superiores, é necessário solicitar permissões de localização ao usuário final antes de coletar informações de local ou registrar geofences.
+Para Android M e versões superiores, é necessário solicitar permissões de localização ao usuário final antes de coletar informações de localização ou registrar geofences.
 
-Adicione a seguinte chamada para notificar o Braze quando um usuário conceder a permissão de local ao seu app:
+Adicione a seguinte chamada para notificar a Braze quando um usuário conceder a permissão de localização ao seu app:
 
 {% tabs %}
 {% tab JAVA %}
@@ -84,7 +84,7 @@ Braze.getInstance(context).requestLocationInitialization()
 
 Isso fará com que o SDK solicite geofences dos servidores da Braze e inicialize o rastreamento de geofences.
 
-Veja [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) em nosso aplicativo de amostra para ver um exemplo de implementação.
+Veja [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) no nosso aplicativo de exemplo para ver uma implementação de referência.
 
 {% tabs %}
 {% tab JAVA %}
@@ -164,7 +164,7 @@ object RuntimePermissionUtils {
 {% endtab %}
 {% endtabs %}
 
-O uso do código de exemplo anterior é feito por meio de:
+O uso do código de exemplo anterior é feito da seguinte forma:
 
 {% tabs %}
 {% tab JAVA %}
@@ -215,19 +215,19 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 {% endtab %}
 {% endtabs %}
 
-### Etapa 6: Solicitar manualmente atualizações de geofence (opcional)
+### Etapa 6: Solicitar manualmente atualizações de geofence (opcional) {#step-6-manually-request-geofence-updates-optional}
 
-Por padrão, a Braze recupera automaticamente o local do dispositivo e solicita geofences com base nesse local coletado. No entanto, você pode fornecer manualmente uma coordenada GPS que será usada para recuperar geofences Braze próximas. Para solicitar geofences do Braze manualmente, você deve desativar as solicitações automáticas de geofences do Braze e fornecer uma coordenada de GPS para as solicitações.
+Por padrão, a Braze recupera automaticamente a localização do dispositivo e solicita geofences com base nessa localização coletada. No entanto, você pode fornecer manualmente uma coordenada GPS que será usada para recuperar geofences da Braze próximos. Para solicitar geofences da Braze manualmente, você deve desativar as solicitações automáticas de geofence e fornecer uma coordenada GPS para as solicitações.
 
-#### Etapa 6.1: Desativar solicitações automáticas de geofence
+#### Etapa 6.1: Desativar solicitações automáticas de geofence {#step-61-disable-automatic-geofence-requests}
 
-As solicitações automáticas de geofence da Braze podem ser desativadas em seu arquivo `braze.xml`, definindo `com_braze_automatic_geofence_requests_enabled` como `false`:
+As solicitações automáticas de geofence da Braze podem ser desativadas no seu arquivo `braze.xml`, definindo `com_braze_automatic_geofence_requests_enabled` como `false`:
 
 ```xml
 <bool name="com_braze_automatic_geofence_requests_enabled">false</bool>
 ```
 
-Além disso, isso pode ser feito em tempo de execução por meio de:
+Isso também pode ser feito em tempo de execução por meio de:
 
 {% tabs %}
 {% tab JAVA %}
@@ -250,9 +250,9 @@ Braze.configure(applicationContext, brazeConfigBuilder.build())
 {% endtab %}
 {% endtabs %}
 
-#### Etapa 6.2: Solicitar manualmente a geofence do Braze com coordenadas de GPS
+#### Etapa 6.2: Solicitar manualmente geofence da Braze com coordenada GPS {#step-62-manually-request-braze-geofence-with-gps-coordinate}
 
-As geofences da Braze são solicitadas manualmente por meio do método [`requestGeofences()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-geofences.html) método:
+Os geofences da Braze são solicitados manualmente por meio do método [`requestGeofences()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-geofences.html):
 
 {% tabs %}
 {% tab JAVA %}
@@ -272,11 +272,5 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% endtabs %}
 
 {% alert important %}
-As geofences só podem ser solicitadas uma vez por sessão, seja automaticamente pelo SDK ou manualmente com esse método.
+Os geofences só podem ser solicitados uma vez por sessão, seja automaticamente pelo SDK ou manualmente com esse método.
 {% endalert %}
-
-### Capacitação de push-to-sync
-
-Note que o Braze sincroniza geofences com dispositivos usando o push em segundo plano. Na maioria dos casos, isso não envolverá alterações de código, pois esse recurso não requer integração adicional por parte do app.
-
-No entanto, note que, se seu aplicativo estiver interrompido, o recebimento de um push em segundo plano o iniciará em segundo plano e seu método `Application.onCreate()` será chamado. Se você tiver uma implementação personalizada do `Application.onCreate()`, deverá adiar as chamadas automáticas ao servidor e quaisquer outras ações que não queira que sejam disparadas pelo push em segundo plano.

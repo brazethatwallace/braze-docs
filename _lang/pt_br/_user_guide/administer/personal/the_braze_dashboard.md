@@ -126,7 +126,7 @@ table td {
 | Mover entre resultados da pesquisa | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Selecionar um resultado da pesquisa | <kbd>Enter</kbd>    |
 | Fechar o menu de pesquisa         | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atalhos de teclado" }
 
 ## Recursos de produtividade {#productivity-features}
 

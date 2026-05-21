@@ -23,12 +23,12 @@ _이 통합은 Amazon Personalize에서 유지 관리합니다._
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항| 설명|
-| ---| ---|
+| 요구 사항 | 설명 |
+| --- | --- |
 | Amazon Web Service 계정 | 이 파트너십을 활용하려면 AWS 계정이 필요합니다. AWS 계정이 있으면 Amazon Personalize 콘솔, AWS 명령줄 인터페이스(AWS CLI) 또는 AWS SDK를 통해 Amazon Personalize에 액세스할 수 있습니다. |
 | 정의된 사용 사례 | 모델을 생성하기 전에 이 통합의 사용 사례를 결정해야 합니다. 일반적인 사용 사례는 다음 목록을 참조하세요. |
 | 데이터셋 | Amazon Personalize 추천 모델에는 상호작용, 사용자, 항목의 세 가지 유형의 데이터셋이 필요합니다. 각 데이터셋의 요구 사항은 다음 세부 정보를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
 {% tab 사용 사례 %}

@@ -45,7 +45,7 @@ BrazeLogger.setLogLevel(Log.VERBOSE);
 ```
 {% endsubtab %}
 {% subtab KOTLIN %}
-```kotlin
+`````````kotlin
 BrazeLogger.logLevel = Log.VERBOSE
 ```
 {% endsubtab %}
@@ -53,7 +53,7 @@ BrazeLogger.logLevel = Log.VERBOSE
 
 **In `braze.xml`:**
 
-```xml
+`````````xml
 <integer name="com_braze_logger_initial_log_level">2</integer>
 ```
 
@@ -72,7 +72,7 @@ BrazeLogger.logLevel = Log.VERBOSE
 
 {% subtabs %}
 {% subtab SWIFT %}
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
   endpoint: "<BRAZE_ENDPOINT>"
@@ -82,7 +82,7 @@ let braze = Braze(configuration: configuration)
 ```
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"<BRAZE_API_KEY>"
                                                                   endpoint:@"<BRAZE_ENDPOINT>"];
 [configuration.logger setLevel:BRZLoggerLevelDebug];
@@ -98,7 +98,7 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 
 URLパラメータとして\`add`?brazeLogging=true``を追加するか、SDK初期化時にロギングのイネーブルメントを行う。
 
-```javascript
+`````````javascript
 braze.initialize('YOUR-API-KEY', {
     baseUrl: 'YOUR-SDK-ENDPOINT',
     enableLogging: true
@@ -107,7 +107,7 @@ braze.initialize('YOUR-API-KEY', {
 
 初期化後にログ記録のオンオフを切り替えることもできる。
 
-```javascript
+`````````javascript
 braze.toggleLogging();
 ```
 
@@ -125,7 +125,7 @@ braze.toggleLogging();
 
 SDK設定時にログレベルを設定する：
 
-```javascript
+`````````javascript
 const configuration = new Braze.BrazeConfiguration('YOUR-API-KEY', 'YOUR-SDK-ENDPOINT');
 configuration.logLevel = Braze.LogLevel.Verbose;
 ```

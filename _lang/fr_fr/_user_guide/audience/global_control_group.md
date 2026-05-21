@@ -50,7 +50,7 @@ Vous ne pouvez pas retirer des utilisateurs spécifiques du Groupe de contrôle 
 
 ### Étape 1 : Accéder aux paramètres du Groupe de contrôle global {#step-1-navigate-to-the-global-control-group-settings}
 
-Depuis le tableau de bord, accédez à **Audience** > **Groupe de contrôle global**.
+Depuis le tableau de bord, accédez à **Audience** > **Global Control Group**.
 
 ### Étape 2 : Affecter un pourcentage de tous les utilisateurs à ce groupe de contrôle {#step-2-assign-a-percentage-of-all-users-to-this-control-group}
 
@@ -92,7 +92,7 @@ Après avoir désactivé votre groupe de contrôle, vous pouvez en enregistrer u
 
 Si vous souhaitez voir quels utilisateurs font partie de votre Groupe de contrôle global, vous pouvez exporter les membres de votre groupe par CSV ou API.
 
-Pour effectuer une exportation CSV, accédez à l'onglet **Global Control Group Settings** et cliquez sur <i class="fas fa-download"></i>&nbsp;**Export**. Pour exporter par API, utilisez l'[endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
+Pour effectuer une exportation CSV, accédez à l'onglet **Global Control Group Settings** et cliquez sur <i class="fas fa-download" aria-label="Télécharger"></i>&nbsp;**Export**. Pour exporter par API, utilisez l'[endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
 
 {% alert important %}
 Les groupes de contrôle historiques ne sont pas conservés, vous ne pouvez donc exporter que les membres de votre groupe actuel. Assurez-vous d'exporter toutes les informations nécessaires avant de désactiver un groupe de contrôle.
@@ -152,7 +152,7 @@ Lors de la configuration de vos groupes de contrôle globaux et de la consultati
 | Problème | Résolution |
 | --- | --- |
 | Impossible d'enregistrer le pourcentage saisi lors de la désignation d'un Groupe de contrôle global. | Ce problème survient si vous saisissez un nombre non entier ou un entier qui n'est pas compris entre 1 et 15 (inclus). |
-| Erreur « Braze n'est pas en mesure de mettre à jour votre Groupe de contrôle global » sur la page des paramètres du contrôle global. | Cela indique généralement qu'un composant de cette page a changé, probablement en raison d'actions effectuées par un autre utilisateur de votre compte Braze. Dans ce cas, actualisez la page et réessayez. |
+| Erreur « Braze is not able to update your Global Control Group » sur la page des paramètres du contrôle global. | Cela indique généralement qu'un composant de cette page a changé, probablement en raison d'actions effectuées par un autre utilisateur de votre compte Braze. Dans ce cas, actualisez la page et réessayez. |
 | Le rapport du Groupe de contrôle global ne contient aucune donnée. | Si vous accédez au rapport du Groupe de contrôle global sans avoir enregistré de Groupe de contrôle global, vous ne verrez aucune donnée dans le rapport. Créez et enregistrez un Groupe de contrôle global, puis réessayez. |
 | Mon taux de conversion est de 0 % ou je ne vois pas le graphique s'afficher, même s'il y a plus de zéro événements. | Si le nombre de conversions est très faible et que vos groupes de contrôle ou de traitement sont très grands, le taux de conversion peut être arrondi à 0 % et donc ne pas apparaître dans le graphique. Vous pouvez le vérifier en consultant l'indicateur Nombre total d'événements. Vous pouvez comparer l'efficacité de vos deux groupes en utilisant l'indicateur de pourcentage d'uplift incrémental. |
 | Mon taux de conversion (ou d'autres indicateurs) change drastiquement en fonction de la période pour laquelle je consulte les données. | Si vous consultez les données sur de courtes périodes, il est possible que vos indicateurs fluctuent d'un jour à l'autre ou d'une semaine à l'autre. Consultez les indicateurs sur une période d'au moins un mois. |
@@ -162,7 +162,7 @@ Lors de la configuration de vos groupes de contrôle globaux et de la consultati
 
 #### Chevauchement des numéros de compartiment aléatoires {#overlapping-random-bucket-numbers}
 
-Votre Groupe de contrôle global est formé à l'aide de numéros de compartiment aléatoires. Par conséquent, si vous exécutez d'autres tests utilisant des filtres de Segment basés sur les numéros de compartiment aléatoires, gardez à l'esprit qu'il pourrait y avoir un chevauchement entre les Segments que vous créez et les utilisateurs de votre Groupe de contrôle global.
+Votre Groupe de contrôle global est formé à l'aide de numéros de compartiment aléatoires. Par conséquent, si vous exécutez d'autres tests utilisant des filtres de Segment basés sur les numéros de compartiment aléatoires, gardez à l'esprit qu'il pourrait y avoir un chevauchement entre les segments que vous créez et les utilisateurs de votre Groupe de contrôle global.
 
 #### Adresses e-mail en double {#duplicate-email-addresses}
 
@@ -174,13 +174,15 @@ Il est possible d'avoir à la fois un Groupe de contrôle global et d'utiliser u
 
 Les utilisateurs de votre Groupe de contrôle global ne reçoivent aucun message autre que ceux avec des exceptions d'étiquettes, et si vous ajoutez un contrôle à une campagne ou un Canvas, Braze retient une partie de votre groupe de traitement global de recevoir cette campagne ou ce Canvas particulier. Cela signifie que si un membre du Groupe de contrôle global n'est pas éligible pour recevoir une campagne ou un Canvas particulier, il n'est pas présent dans le groupe de contrôle de cette campagne ou de ce Canvas.
 
-> En résumé, les utilisateurs du Groupe de contrôle global sont filtrés hors de l'audience de la campagne ou du Canvas avant l'entrée. Parmi les utilisateurs qui entrent dans la campagne ou le Canvas, un pourcentage de ceux-ci est ensuite affecté à la variante de contrôle.
+{% alert note %}
+En résumé, les utilisateurs du Groupe de contrôle global sont filtrés hors de l'audience de la campagne ou du Canvas avant l'entrée. Parmi les utilisateurs qui entrent dans la campagne ou le Canvas, un pourcentage de ceux-ci est ensuite affecté à la variante de contrôle.
+{% endalert %}
 
 #### Segments du Groupe de contrôle global dans la console de développement {#global-control-group-segments-on-the-developer-console}
 
-Vous pouvez voir plusieurs Segments **Global Control** dans la section **Additional API Identifiers** de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Cela est dû au fait que chaque fois que le Groupe de contrôle global est activé ou désactivé, un nouveau Groupe de contrôle global est formé. Cela entraîne plusieurs Segments étiquetés « Global Control Group ».
+Vous pouvez voir plusieurs segments **Global Control** dans la section **Additional API Identifiers** de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Cela est dû au fait que chaque fois que le Groupe de contrôle global est activé ou désactivé, un nouveau Groupe de contrôle global est formé. Cela entraîne plusieurs segments étiquetés « Global Control Group ».
 
-Un seul de ces Segments est actif et peut être interrogé à l'aide de l'[endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/), ou exporté depuis le tableau de bord. L'exportation depuis le tableau de bord indique spécifiquement quels sous-segments composent ce Groupe de contrôle global.
+Un seul de ces segments est actif et peut être interrogé à l'aide de l'[endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/), ou exporté depuis le tableau de bord. L'exportation depuis le tableau de bord indique spécifiquement quels sous-segments composent ce Groupe de contrôle global.
 
 ## Bonnes pratiques de test {#testing-best-practices}
 

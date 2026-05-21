@@ -6,7 +6,7 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Dieser Artikel zeigt Ihnen, wie Sie CDI-Segmenterweiterungen einrichten, um Nutzer:innen anhand von Daten aus Ihrem Data Warehouse zu segmentieren."
+description: "Dieser Artikel erklärt, wie CDI-Segmenterweiterungen die Cloud-Datenaufnahme nutzen, um Ihr Data Warehouse abzufragen und Zielgruppen in Braze zu definieren."
 
 ---
 

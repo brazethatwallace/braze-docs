@@ -65,7 +65,7 @@ channel:
 
 #### 3.1단계: 배너 스타일 지정 {#step-31-style-the-banner}
 
-블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다.
+블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다. 배너 편집기 블록 및 공유 속성 세부 정보에 대한 참조는 [편집기 블록(배너)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)을 확인하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -110,7 +110,7 @@ channel:
 | 등록정보 유형 | 등록정보의 데이터 유형입니다. 지원되는 유형에는 문자열, 부울, 숫자, 타임스탬프, 이미지 URL 및 JSON 오브젝트가 포함됩니다. | 문자열 |
 | 등록정보 키 | 등록정보의 고유 식별자입니다. 이 키는 SDK에서 등록정보에 액세스하는 데 사용됩니다. | `color` |
 | 값 | 등록정보에 할당된 값입니다. 선택한 등록정보 유형과 일치해야 합니다. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 완료되면 **Done**을 선택합니다.
 

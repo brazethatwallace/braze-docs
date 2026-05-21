@@ -7,8 +7,7 @@ description: "Este artigo de referência aborda as opções de notificação do 
 
 platform: iOS
 channel:
-  - push
-
+  - Push
 ---
 
 # Opções de notificação {#notification-options}
@@ -19,7 +18,7 @@ channel:
 
 Se você deseja categorizar suas mensagens e agrupá-las na bandeja de notificações do usuário, pode utilizar o recurso de grupos de notificação do iOS por meio da Braze.
 
-Crie sua Campaign de push para iOS e acesse a guia **Configurações**. Em seguida, abra o menu suspenso **Notification group**.
+Crie sua Campaign de push para iOS e acesse a guia **Settings**. Em seguida, abra o menu suspenso **Notification group**.
 
 ![A guia "Settings" com um menu suspenso "Notification group" que selecionou o valor "Coupons".]({% image_buster /assets/img_archive/notification_group_dropdown.png %}){: style="max-width:50%;" }
 
@@ -148,13 +147,13 @@ Tenha em mente que os usuários são, em última instância, os que controlam se
 
 Consulte a tabela a seguir para os níveis de interrupção e suas descrições.
 
-|Nível de interrupção|Descrição|Quando usar|Interrompe o Modo de Foco|
+| Nível de interrupção | Descrição | Quando usar | Interrompe o Modo de Foco |
 |--|--|--|--|
-|[Passive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive)|Envia uma notificação sem som, vibração ou ativação da tela.|Notificações que não exigem atenção imediata.|Não|
-|[Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (padrão)|Só emitirá som, vibração e ativará a tela se o usuário não estiver no Modo de Foco.|Notificações que exigem atenção imediata, a menos que o usuário tenha o Modo de Foco ativado.|Não|
-|[Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive)|Emitirá som, vibrará e ativará a tela mesmo durante o Modo de Foco. Isso requer que a capacidade **Time Sensitive Notifications** seja adicionada ao seu app no Xcode.|Notificações oportunas que devem interromper os usuários independentemente do Modo de Foco, como uma notificação de carona ou entrega.|Sim|
-|[Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical)|Emitirá som, vibrará e ativará a tela mesmo se o botão **Não Perturbe** do telefone estiver ativado. Isso [requer aprovação explícita da Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/).|Emergências como alertas de clima severo ou segurança.|Sim|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| [Passive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive) | Envia uma notificação sem som, vibração ou ativação da tela. | Notificações que não exigem atenção imediata. | Não |
+| [Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (padrão) | Só emitirá som, vibração e ativará a tela se o usuário não estiver no Modo de Foco. | Notificações que exigem atenção imediata, a menos que o usuário tenha o Modo de Foco ativado. | Não |
+| [Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | Emitirá som, vibrará e ativará a tela mesmo durante o Modo de Foco. Isso requer que a capacidade **Time Sensitive Notifications** seja adicionada ao seu app no Xcode. | Notificações oportunas que devem interromper os usuários independentemente do Modo de Foco, como uma notificação de carona ou entrega. | Sim |
+| [Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | Emitirá som, vibrará e ativará a tela mesmo se o botão **Não Perturbe** do telefone estiver ativado. Isso [requer aprovação explícita da Apple](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/). | Emergências como alertas de clima severo ou segurança. | Sim |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Interruption level (iOS 15+) #interruption-level" }
 
 ### Pontuação de relevância (iOS 15+) {#relevance-score}
 

@@ -17,19 +17,36 @@ tool:
 
 Für eine personalisierte Feiertagskampagne, die sich an aktive Nutzer:innen richtet, kann ein Konversions-Event **Sitzung starten** innerhalb von zwei oder drei Tagen angemessen sein, da es Ihnen ermöglicht, ein Gefühl für das Nutzer:innen-Engagement nach Erhalt Ihrer Nachricht zu bekommen. Sie können auch zusätzliche Events wie **Bestellung aufgeben**, **App upgraden** oder eines Ihrer angepassten Events als Konversions-Events auswählen.
 
+### Wann beginnt das Conversion-Tracking? {#when-does-conversion-tracking-begin}
+
+{% tabs %}
+{% tab Campaign %}
+
+Das Conversion-Tracking beginnt, wenn ein:e Nutzer:in die Campaign erhält oder der Kontrollgruppe der Campaign zugewiesen wird. Der Empfang einer Nachricht und die Zuweisung zu einer Variante erfolgen in der Regel gleichzeitig. Bei In-App-Nachricht-Campaigns beginnt das Conversion-Tracking, wenn Braze eine Impression erfasst.
+
+{% endtab %}
+{% tab Canvas %}
+
+Das Conversion-Tracking beginnt, wenn ein:e Nutzer:in den Canvas betritt. Bei Canvas-Schritten werden Conversions zugeordnet, solange der/die Nutzer:in in diesem Schritt aktiv ist. Wenn der/die Nutzer:in zu einem anderen Schritt übergeht, stoppt das Conversion-Tracking für den vorherigen Schritt und beginnt für den nächsten Schritt.
+
+{% endtab %}
+{% endtabs %}
+
 {% alert tip %}
 Weitere Informationen zu Conversions finden Sie in unserem [Braze-Lernkurs](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) zur Campaign-Einrichtung.
 {% endalert %}
 
 ### Regeln für das Conversion-Tracking {#conversion-tracking-rules}
 
-Konversions-Events ordnen Nutzer:innen-Aktionen einem Engagement-Punkt zu. Beachten Sie Folgendes dazu, wie Braze mit mehreren Conversions umgeht:
+Konversions-Events ordnen Nutzer:innen-Aktionen einem Engagement-Punkt zu. Im Allgemeinen konvertiert ein:e Nutzer:in, solange ein Konversionsfenster offen ist, höchstens einmal pro Konversions-Event für diese Campaign oder diesen Canvas. Wenn er/sie dieselbe Konversions-Aktion vor Ablauf der Frist mehr als einmal ausführt (z. B. zwei Käufe), zählt Braze dennoch nur eine Conversion für dieses Event. Mehrkanal-Campaigns können eine separate Konversions-Möglichkeit für jeden Messaging-Kanal erfassen, was Konversionsraten über 100 % ergeben kann, wenn Sie die Conversion-Anzahl mit den eindeutigen Empfänger:innen vergleichen (siehe unten).
+
+Beachten Sie Folgendes dazu, wie Braze mit mehreren Conversions umgeht:
 
 - **Einzelkanal-Campaigns:** Conversions erfolgen pro Nutzer:in, nicht pro Gerät. Innerhalb eines einzelnen Kanals konvertiert ein:e Nutzer:in nur einmal pro Konversions-Event, selbst wenn eine Nachricht an mehrere Geräte gesendet wird. Wenn eine Campaign beispielsweise nur ein Konversions-Event hat, das auf „Tätigt einen Kauf“ eingestellt ist, und ein:e Nutzer:in zwei separate Käufe innerhalb der Konversionsfrist tätigt, zählt Braze nur eine Conversion.
 - **Mehrkanal-Campaigns:** Bei Mehrkanal-Campaigns hat jeder Kanal seine eigene Konversions-Möglichkeit. Ein:e Nutzer:in kann einmal pro Kanal konvertieren, nachdem er/sie eine Nachricht auf diesem Kanal erhalten hat. Das bedeutet: Wenn ein:e Nutzer:in Nachrichten auf mehreren Kanälen erhält (z. B. sowohl E-Mail als auch Push) und die Konversions-Aktion ausführt, zählt Braze eine Conversion für jeden Kanal, was dazu führen kann, dass die Konversionsraten 100 % übersteigen.
+- **Canvas-Nachrichtenschritte:** Braze ordnet Conversions, die innerhalb der Konversionsfrist auftreten, dem letzten Canvas-Nachrichtenschritt zu, den der/die Nutzer:in erhalten hat. Nachdem er/sie den nächsten Nachrichtenschritt erhalten hat, wird die Zuordnung auf diesen Schritt verschoben. Braze misst dieses Zeitfenster ab dem Zeitpunkt, an dem der/die Nutzer:in den Canvas betritt, nicht ab jeder einzelnen Nachricht. Braze zählt Conversions auch während Verzögerungszeiträumen zwischen Schritten.
 - Wenn ein:e Nutzer:in ein Konversions-Event innerhalb der Konversionsfristen von zwei separaten Campaigns oder Canvases ausführt, die er/sie erhalten hat, wird die Conversion bei beiden registriert.
 - Ein:e Nutzer:in gilt als konvertiert, wenn er/sie das spezifische Konversions-Event innerhalb des Zeitfensters ausgeführt hat, auch wenn er/sie die Nachricht nicht geöffnet oder angeklickt hat.
-- Bei Canvases basiert das Conversion-Tracking auf der endgültigen Konversionsfrist, die beginnt, wenn ein:e Nutzer:in den Canvas betritt, nicht auf dem Timing einzelner Nachrichten. Braze zählt Conversions auch während Verzögerungszeiträumen zwischen Nachrichten im Canvas.
 
 ### Primäres Konversions-Event {#primary-conversion-event}
 
@@ -57,16 +74,16 @@ Verwenden Sie so viele Konversions-Events wie nötig. Das Hinzufügen eines zwei
 
 Wählen Sie zunächst den allgemeinen Event-Typ aus, den Sie verwenden möchten:
 
-| Konversions-Event-Typ   | Beschreibung                |
+| Konversions-Event-Typ | Beschreibung |
 |-------------------------|----------------------------|
-| **Sitzung starten**      | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie eine der von Ihnen angegebenen Apps öffnet (standardmäßig alle Apps im Workspace).|
-| **Kauf tätigen**      | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie ein [Kauf-Event]({{site.baseurl}}/api/objects_filters/purchase_object/) aufzeichnet. Dies erfasst standardmäßig jeden Kauf, oder Sie können ein bestimmtes Produkt angeben.|
-| **Bestellung aufgeben**        | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie das [empfohlene E-Commerce-Event „Bestellung aufgegeben“]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed) auslöst. Dies erfasst standardmäßig jede Bestellung, oder Sie können nach einem bestimmten Produkt filtern.<br><br>Das Event „Bestellung aufgeben“ befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind. |
-| **Angepasstes Event ausführen**| Ein:e Nutzer:in gilt als konvertiert, wenn er/sie eines Ihrer vorhandenen angepassten Events ausführt (kein Standard, Sie müssen das Event angeben).|
-| **App upgraden**         | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die App-Version einer der von Ihnen angegebenen Apps aktualisiert (standardmäßig alle Apps im Workspace). Braze führt einen Best-Effort-Zahlenvergleich durch, um festzustellen, ob die Änderung ein Upgrade war. Nicht-numerische Versionen werden als Conversions gezählt, wenn sich die Version ändert.|
-| **E-Mail öffnen**         | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die E-Mail öffnet (nur für E-Mail-Campaigns).|
-| **E-Mail-Link klicken**        | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie auf einen Link in der E-Mail klickt (nur für E-Mail-Campaigns).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Sitzung starten** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie eine der von Ihnen angegebenen Apps öffnet (standardmäßig alle Apps im Workspace). |
+| **Kauf tätigen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie ein [Kauf-Event]({{site.baseurl}}/api/objects_filters/purchase_object/) aufzeichnet. Dies erfasst standardmäßig jeden Kauf, oder Sie können ein bestimmtes Produkt angeben. |
+| **Bestellung aufgeben** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie das [empfohlene E-Commerce-Event „Bestellung aufgegeben“]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#ecommerce-recommended-events?tab=ecommerce.order_placed) auslöst. Dies erfasst standardmäßig jede Bestellung, oder Sie können nach einem bestimmten Produkt filtern.<br><br>Das Event „Bestellung aufgeben“ befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind. |
+| **Angepasstes Event ausführen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie eines Ihrer vorhandenen angepassten Events ausführt (kein Standard, Sie müssen das Event angeben). |
+| **App upgraden** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die App-Version einer der von Ihnen angegebenen Apps aktualisiert (standardmäßig alle Apps im Workspace). Braze führt einen Best-Effort-Zahlenvergleich durch, um festzustellen, ob die Änderung ein Upgrade war. Nicht-numerische Versionen werden als Conversions gezählt, wenn sich die Version ändert. |
+| **E-Mail öffnen** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie die E-Mail öffnet (nur für E-Mail-Campaigns). |
+| **E-Mail-Link klicken** | Ein:e Nutzer:in gilt als konvertiert, wenn er/sie auf einen Link in der E-Mail klickt (nur für E-Mail-Campaigns). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Konversions-Events hinzufügen" }
 
 {% alert important %}
 **Verschachtelte Eigenschaften werden in Konversions-Events nicht unterstützt**. Sie können keine verschachtelten Eigenschaften in Konversions-Events verwenden. Wenn beispielsweise `product_code` oder `product_name` verschachtelte Eigenschaften innerhalb eines `products`-Arrays sind (wie `products[].product_code`), können Sie diese nicht verwenden, um zu prüfen, ob ein bestimmter Produktkauf in einem Konversions-Event getätigt wurde.

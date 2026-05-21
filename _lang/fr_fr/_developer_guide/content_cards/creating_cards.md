@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### Étape 2a : Créer une variable d'abonné privée {#step-2a-create-a-private-subscriber-variable}
+#### Étape 2a : Créer une variable d'abonné privée
 
 Pour vous abonner aux mises à jour des cartes, déclarez d'abord une variable privée dans votre classe personnalisée pour contenir votre abonné :
 
@@ -133,7 +133,7 @@ Pour vous abonner aux mises à jour des cartes, déclarez d'abord une variable p
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### Étape 2b : S'abonner aux mises à jour {#step-2b-subscribe-to-updates}
+#### Étape 2b : S'abonner aux mises à jour
 
 Ajoutez le code suivant pour vous abonner aux mises à jour des Content Cards de Braze, généralement dans la méthode `Activity.onCreate()` de votre activité Content Cards personnalisée :
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### Étape 2c : Se désabonner {#step-2c-unsubscribe}
+#### Étape 2c : Se désabonner
 
 Désabonnez-vous lorsque votre activité personnalisée n'est plus visible. Ajoutez le code suivant à la méthode de cycle de vie `onDestroy()` de votre activité :
 
@@ -176,7 +176,7 @@ Vous pouvez également maintenir un abonnement pour observer les changements dan
 1. Maintenir un cancellable ; ou
 2. Maintenir un `AsyncStream`.
 
-##### Cancellable
+##### Cancellable {#cancellable}
 
 ```swift
 // This subscription is maintained through a Braze cancellable, which will observe for changes until the subscription is cancelled.
@@ -255,7 +255,7 @@ Paires clé-valeur pour la carte de recommandation de lecture :
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 
 {% tab New subscriber coupon %}
@@ -270,7 +270,7 @@ Paires clé-valeur pour un coupon destiné aux nouveaux utilisateurs abonnés :
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 {% endtab %}
 {% endtabs %}
 

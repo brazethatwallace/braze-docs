@@ -23,7 +23,7 @@ To delete users, you must be an admin or have the **Delete Users** permission. T
 |------------|-------------|
 | Delete Users | Permanently delete users individually or in bulk. |
 | View User Deletion Records | View user deletion records. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## About user deletion
 
@@ -34,7 +34,7 @@ User deletion lets you manage your database by removing profiles that are no lon
 | Maximum size | You can delete up to 100 million user profiles when deleting a segment. |
 | Waiting period | All segment deletions require a 7-day waiting period plus the time it takes to process deletions. |
 | Job limits | Only one segment can be deleted at a single time, which includes the 7-day waiting period. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About user deletion" }
 
 ## Deleting users
 
@@ -132,7 +132,7 @@ On this page, you can find the following general information for all current and
 | Requester | The user who initiated the deletion request. |
 | Segment Name | The name of the segment used to select the users pending deletion. |
 | Status | Shows whether the deletion request is pending, in progress, or complete. |  
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage audience" }
 
 For more details about a specific request, select <i class="fa-solid fa-eye"></i> to show the deletion record details. Here you can also [cancel pending segment deletions](#cancel).
 

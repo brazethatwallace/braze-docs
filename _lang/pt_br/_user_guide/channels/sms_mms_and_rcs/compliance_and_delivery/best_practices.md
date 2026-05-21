@@ -38,6 +38,18 @@ Quando SMS e MMS foram configurados em várias instâncias e, devido a uma confi
 
 A Braze gerencia as inscrições de SMS/MMS tanto no nível do perfil de usuário (`user_id`) quanto no nível do número de telefone (`channel_id`). Quando um número de telefone é inscrito ou descadastrado, a atualização se aplica a todos os perfis que compartilham esse número. No caso em que um usuário final fez opt-in com um determinado número de telefone, mas depois muda de número, o novo número herdará o status do grupo de inscrições do usuário. Dessa forma, se um usuário final fez descadastramento, mas depois retorna ao app ou site com um novo número de telefone, ele não receberá mensagens indesejadas.
 
+## Recomendações de higiene da lista de números de telefone {#phone-number-list-hygiene-recommendations}
+
+Manter a higiene da lista de números de telefone ajuda a preservar dados válidos de consentimento e alcançabilidade ao longo do tempo. A Braze marca alguns números de telefone como inválidos para ajudar a reduzir riscos de conformidade, apoiar práticas de envio de mensagens baseadas em consentimento e evitar o envio para números que podem não pertencer mais ao usuário original.
+
+Para saber por que números de telefone são normalmente marcados como inválidos, consulte [Tratamento de números de telefone inválidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#handling-invalid-phone-numbers).
+
+Recomendamos o seguinte fluxo de trabalho para remover números de telefone inválidos:
+
+1. Identifique os números de telefone afetados por meio do [endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers/).
+2. Diferencie entre números de telefone desativados e números de telefone que receberam erros de provedor.
+3. Para números de telefone desativados, verifique novamente o número com o usuário. Após o usuário confirmar seu número de telefone, remova o número da lista de inválidos por meio do [endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers/).
+
 ## Recomendações sobre bombeamento de tráfego {#traffic-pumping-recommendations}
 
 ### O que é bombeamento de tráfego? {#what-is-traffic-pumping}
@@ -78,3 +90,37 @@ Planeja fazer envios em alto volume? Temos algumas melhores práticas para garan
 
 - Ajuste o limite de taxa de velocidade de entrega da sua Campaign ou Canvas conforme necessário, com base no tamanho do público-alvo. Isso garante que você alcance o volume de envio necessário e que a Braze envie as mensagens na taxa que a Twilio espera e pode processar.
 - Certifique-se de respeitar o limite de 160 caracteres e esteja ciente de que caracteres especiais contam em dobro (por exemplo, barras invertidas `\`, acentos circunflexos `^` e tis `~`).
+
+## Recomendações de horário de silêncio {#quiet-hours-recommendations}
+
+{% alert warning %}
+**O horário de silêncio nativo da Braze não garante horários de entrega no nível do dispositivo.** Quando uma mensagem é enviada, ela é repassada a uma operadora. Depois que a operadora aceita a mensagem, a Braze não tem mais controle sobre o momento exato em que ela é entregue ao dispositivo do usuário.<br><br> Por exemplo, se uma mensagem é repassada a uma operadora às 20h59, ela pode chegar ao dispositivo somente às 21h02. Para reduzir esse risco, recomendamos usar o método de horário de silêncio baseado em Liquid a seguir. Isso suprime a mensagem no nível do motor da Braze antes do repasse.
+{% endalert %}
+
+### Horário de silêncio nativo da Braze {#braze-native-quiet-hours}
+
+Recomendamos fortemente ativar o [horário de silêncio]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/#quiet-hours) em todas as Campaigns e Canvas de SMS para ajudar a cumprir regulamentações regionais e melhores práticas.
+
+### Proteção adicional por meio de Content Blocks {#additional-safeguard-through-content-blocks}
+
+Você pode adicionar uma verificação baseada em Liquid dentro de um Content Block. Isso oferece uma proteção confiável e escalável que funciona em conjunto com as configurações nativas.
+
+#### Configuração {#setup}
+
+Inclua o trecho a seguir no topo do corpo da sua mensagem SMS. Este exemplo cancela o envio se ele estiver fora de uma janela das 9h às 21h no [fuso horário local]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer) do usuário.
+
+{% raw %}
+```liquid
+{% assign time = 'now' | time_zone: ${time_zone} %}
+{% assign hour = time | date: '%H' | plus: 0 %}
+{% if hour >= 21 or hour < 9 %}
+  {% abort_message("Outside allowed time window") %}
+{% endif %}
+```
+{% endraw %}
+
+#### Considerações
+
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que a janela seja avaliada com base no horário local de cada usuário, e não em um horário global fixo, conforme explicado [neste FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#what-does-local-time-zone-delivery-offer).
+- Mensagens suprimidas por {% raw %}`abort_message()`{% endraw %} não são reagendadas para o dia seguinte; elas são canceladas.
+- {% raw %} Por padrão, mensagens canceladas não são visíveis nos relatórios padrão de Campaign. No entanto, quando o Liquid cancela um envio com `{% abort_message %}`, a Braze registra isso no Registro de atividades de envio de mensagem como um erro de mensagem (por padrão, exibe `{% abort_message %}` chamado). Se você passar uma string, esse motivo é o que aparece no registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para ter visibilidade dessas supressões no dashboard, entre em contato com seu gerente de sucesso do cliente para obter acesso ao [Dashboard de diagnóstico de envio de mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard/).

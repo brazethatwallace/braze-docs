@@ -41,15 +41,23 @@ Use os nomes de campo do perfil de usuário da Braze (listados a seguir ou qualq
   "my_array_custom_attribute" : { "remove" : [ "Value1" ]},
   // Array of objects custom attribute
   "my_array_of_objects_attribute": [{"key": "value"}, {"key": "value"}],
-  // Adding to an array of objects
-  "my_array_of_objects_attribute": { "$add": [{"key": "value"}] },
-  // Removing from an array of objects
-  "my_array_of_objects_attribute": { "$remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
+  // Adding to an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "add": [{"key": "value"}] },
+  // Removing from an array of objects (REST API syntax)
+  "my_array_of_objects_attribute": { "remove": [{"$identifier_key": "key", "$identifier_value": "value"}] },
 }
 ```
 
 - [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)
 - [Alias do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)
+
+{% alert note %}
+Para solicitações da REST API para [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), use as chaves `add`, `remove` e `update` para operações de array. Chaves prefixadas com `$` (como `$add`) são para cargas úteis de métodos do SDK.
+
+Quando uma solicitação da REST API usa `$add`, `$remove` ou `$update`, a Braze pode retornar `success` sem aplicar a atualização do array.
+
+Para mais detalhes, veja [Exemplo de API de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#api-example) e [Exemplo de SDK de array de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/#sdk-example).
+{% endalert %}
 
 Para remover uma atribuição de perfil, defina-a como `null`. Alguns campos, como `external_id` e `user_alias`, não podem ser removidos depois de serem adicionados a um perfil de usuário.
 
@@ -110,7 +118,7 @@ Os seguintes tipos de dados podem ser armazenados como um atributo personalizado
 | Inteiros | Você pode incrementar atributos personalizados inteiros atribuindo um objeto com o campo "inc" e a quantidade a ser adicionada. <br><br>Exemplo: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Atributos personalizados aninhados | Os atributos personalizados aninhados definem um conjunto de atributos como uma propriedade de outro atributo. Quando você define um objeto de atributo personalizado, você adiciona um conjunto de atributos a esse objeto. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Strings | Os atributos personalizados de string são sequências de caracteres usadas para armazenar dados de texto. Por exemplo, é possível usar strings para armazenar nomes e sobrenomes, endereços de e-mail ou preferências. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de dados de atributos personalizados" }
 
 {% alert tip %}
 Para orientações sobre quando usar um evento personalizado versus um atributo personalizado, veja [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) e [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -135,6 +143,10 @@ Para exemplos de API que usam `add`, `remove` e `update`, veja [Exemplo de API d
 Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas, portanto, certifique-se de referenciar esses campos em minúsculas.
 {% endalert %}
 
+{% alert tip %}
+Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e Ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
+{% endalert %}
+
 | Campo de perfil do usuário | Especificação do tipo de dados |
 | ---| --- |
 | alias_name | (string) |
@@ -147,8 +159,8 @@ Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas
 | dob | (data de nascimento) String no formato "AAAA-MM-DD", por exemplo, 1980-12-21. |
 | email | (string) |
 | email_subscribe | (string) Os valores disponíveis são "opted_in" (registrado explicitamente para receber mensagens de e-mail), "unsubscribed" (optou explicitamente por não receber mensagens de e-mail) e "subscribed" (nem optou por receber nem por não receber).  |
-| email_open_tracking_disabled |(booleano) `true` ou `false` aceito. Defina como `true` para desativar a adição do pixel de rastreamento de abertura a todos os futuros e-mails enviados a esse usuário. Disponível apenas para SparkPost e SendGrid.|
-| email_click_tracking_disabled |(booleano) `true` ou `false` aceito. Defina como `true` para desativar o rastreamento de cliques para todos os links em um e-mail futuro enviado a esse usuário. Disponível apenas para SparkPost e SendGrid.|
+| email_open_tracking_disabled | (booleano) `true` ou `false` aceito. Defina como `true` para desativar a adição do pixel de rastreamento de abertura a todos os futuros e-mails enviados a esse usuário. Disponível apenas para SparkPost e SendGrid.|
+| email_click_tracking_disabled | (booleano) `true` ou `false` aceito. Defina como `true` para desativar o rastreamento de cliques para todos os links em um e-mail futuro enviado a esse usuário. Disponível apenas para SparkPost e SendGrid.|
 | external_id | (string) Um identificador exclusivo para um perfil de usuário. Após atribuir um `external_id`, a Braze identifica o perfil do usuário em todos os dispositivos do usuário. Na primeira instância de atribuir um external_id a um perfil de usuário desconhecido, a Braze migra todos os dados existentes do perfil de usuário para o novo perfil de usuário. |
 | facebook | hash contendo qualquer um dos seguintes itens: `id` (string), `likes` (vetor de strings), `num_friends` (inteiro). |
 | first_name | (string) |
@@ -160,10 +172,10 @@ Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas
 | phone | (string) Recomendamos fornecer números de telefone no formato [E.164](https://en.wikipedia.org/wiki/E.164). Para obter detalhes, consulte [Números de telefone do usuário]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format).|
 | push_subscribe | (string) Os valores disponíveis são "opted_in" (registrado explicitamente para receber mensagens push), "unsubscribed" (optou explicitamente por não receber mensagens push) e "subscribed" (nem optou por receber nem por não receber).  |
 | push_tokens | Vetor de objetos com `app_id` e `token` string. Como opção, você pode fornecer um `device_id` para o dispositivo ao qual esse token está associado, por exemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Se um `device_id` não for fornecido, um é gerado aleatoriamente. |
-| subscription_groups| Vetor de objetos com as strings `subscription_group_id` e `subscription_state`, por exemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Os valores disponíveis para `subscription_state` são "subscribed" e "unsubscribed".|
+| subscription_groups | Vetor de objetos com as strings `subscription_group_id` e `subscription_state`, por exemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Os valores disponíveis para `subscription_state` são "subscribed" e "unsubscribed".|
 | time_zone | (string) Do nome do fuso horário do [Banco de Dados de Fuso Horário IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por exemplo, "America/New_York" ou "Eastern Time (US & Canada)"). Apenas valores de fuso horário válidos são definidos. |
 | twitter | Hash contendo qualquer um dos seguintes itens: `id` (inteiro), `screen_name` (string, identificador do X (antigo Twitter)), `followers_count` (inteiro), `friends_count` (inteiro), `statuses_count` (inteiro). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de perfil de usuário da Braze" }
 
 Os valores de idioma que são definidos explicitamente através desta API têm precedência sobre as informações de localidade que a Braze recebe automaticamente do dispositivo.
 
@@ -222,7 +234,7 @@ Devido à natureza dos tokens por push da web, certifique-se de considerar o seg
 |----------------------|------------|
 | **Service workers**  | Por padrão, o SDK da Web procura um service worker em `./service-worker` a menos que outra opção seja especificada, como `manageServiceWorkerExternally` ou `serviceWorkerLocation`. Se o seu service worker não estiver configurado corretamente, isso pode levar a tokens por push expirados para seus usuários. |
 | **Tokens expirados**   | Se um usuário não iniciou uma sessão na web dentro de 60 dias, seu token por push expira. Como a Braze não pode migrar tokens por push expirados, você deve enviar um [primer de push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para reengajá-los. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações sobre tokens da web" }
 
 ### Migração manual através da API {#manual-migration-through-api}
 
@@ -242,7 +254,7 @@ Como alternativa à migração da API, recomendamos que você integre o SDK e pe
 {% endalert %}
 
 {% tabs local %}
-{% tab External ID present %}
+{% tab ID externo presente %}
 Para usuários identificados, defina o sinalizador `push_token_import` como `false` (ou omita o parâmetro) e especifique os valores `external_id`, `app_id` e `token` no objeto do usuário `attributes`.
 
 Por exemplo:
@@ -268,7 +280,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 {% endtab %}
 
-{% tab External ID missing %}
+{% tab ID externo ausente %}
 Ao importar tokens por push de outros sistemas, um `external_id` nem sempre está disponível. Nessa circunstância, defina o sinalizador `push_token_import` como `true` e especifique os valores `app_id` e `token`. A Braze cria um perfil de usuário temporário e anônimo para cada token para permitir que você continue a enviar mensagens a esses indivíduos. Se o token já existir na Braze, a solicitação será ignorada.
 
 Por exemplo:

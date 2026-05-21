@@ -60,7 +60,7 @@ To learn more about the expected behavior and look of each type, refer to [Creat
 |[Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic)| ![A Classic Content Card with a small icon and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |The Classic Card has a straightforward layout with a bolded title, message text, and an optional image that sits to the left of the title and text. It's best to use a square image or icon with the Classic Card. |
 |[Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image)| ![A Captioned Content Card with a image of a weightlifter and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | The Captioned Image Card showcases your content with copy and an attention-grabbing image. |
 |[Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner)| ![An Image Only Content Card with text only.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | The Image Only Card commands attention with space for images, GIFs, and other creative non-text content. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
 
 ## Step 3: Compose a Content Card
 
@@ -110,7 +110,7 @@ The following actions are available for Content Card links:
 | [Deep Link into App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deep link into an existing screen in your app. |
 | Log Custom Event | Choose a [custom event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) to trigger. Can be used to display another Content Card or trigger additional messaging. |
 | Log Custom Attribute | Choose a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) to set for the current user. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 The **Log Custom Event** and **Log Custom Attribute** options require the following SDK version compatibility:
 
@@ -133,7 +133,7 @@ Build the remainder of your campaign. Continue to the next sections for addition
 
 Content Cards can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-You can also set the campaign's duration and [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
+You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
 
 If you choose to expire a card after a set duration (for example, after two weeks), the expiration is calculated from the card's send time. For scheduled campaigns, this is the scheduled launch time. For action-based campaigns, this is the time the user performs the triggering action. For example, if an action-based card is sent at 2 pm today with a 1-day expiration, it expires at 2 pm the following day.
 

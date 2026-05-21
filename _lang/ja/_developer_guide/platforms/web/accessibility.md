@@ -29,7 +29,7 @@ WCAG 2.1を満たす最小のSDKバージョンはv3.4.0に近いです。ただ
 | **3.1.2** | マイナー | 画像のデフォルト代替テキスト |
 | **2.4.1** | **メジャー** | セマンティックHTML（`h1`または`button`）、ARIA属性、キーボードナビゲーション、フォーカス管理 |
 | **2.0.5** | マイナー | フォーカス管理、キーボードナビゲーション、ラベル |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
 
 ## サポートされているアクセシビリティ機能 {#supported-accessibility-features}
 
@@ -72,7 +72,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
 インラインで表示されるContent Cardsについては、以下の例のようにビューポートの制約を考慮してください。
 
 {% raw %}
-```css
+`````````css
 /* Limit feed height on mobile to prevent covering too much screen */
 @media (max-width: 768px) {
   body > .ab-feed {
@@ -95,7 +95,7 @@ Content Cardsが縦方向のスペースを過剰に占めるのを防ぎ、ア�
 SDKにはレスポンシブブレークポイントが含まれています。カスタマイズがさまざまな画面サイズで正しく機能することを確認してください。以下はその例です。
 
 {% raw %}
-```css
+`````````css
 /* Mobile-specific accessibility considerations */
 @media (max-width: 768px) {
   /* Ensure readable font sizes */

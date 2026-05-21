@@ -47,9 +47,9 @@ Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie eine Campaign aus. W�
 
 Braze generiert automatisch einen Liquid-Tag unter Verwendung Ihrer [Landing-Page-URL](#page-url). Verwenden Sie die folgende Tabelle, um Ihren Tag zu generieren:
 
-| **Personalisierungstyp** | Wählen Sie **Landing Page** aus.|
-| **Landing-Page** | Wählen Sie die Landing-Page aus, die Sie [zuvor erstellt haben](#prerequisites).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Personalisierungstyp** | Wählen Sie **Landing Page** aus. |
+| **Landing-Page** | Wählen Sie die Landing-Page aus, die Sie [zuvor erstellt haben](#prerequisites). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Liquid-Tag generieren" }
 
 Um den Liquid-Tag zu Ihrer Nachricht hinzuzufügen, können Sie entweder **Einfügen** auswählen oder das Snippet in Ihre Zwischenablage kopieren und manuell hinzufügen.
 

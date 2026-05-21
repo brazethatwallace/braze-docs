@@ -20,7 +20,7 @@ LINE-Klick-Tracking kann für Text-, Rich- und kartenbasierte Nachrichten verwen
 
 ## Funktionsweise {#how-it-works}
 
-Sie können die Einstellungen für das LINE-Klick-Tracking im Tab **Einstellungen** verwalten, während Sie eine Nachricht verfassen. Wenn es aktiviert ist, werden URLs mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
+Sie können die Einstellungen für das LINE-Klick-Tracking im Tab **Settings** verwalten, während Sie eine Nachricht verfassen. Wenn es aktiviert ist, werden URLs mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
 
 Alle URLs, die mit `http://` oder `https://` beginnen, werden gekürzt. Sie können bis zu 25 URLs in einer Nachricht verwenden. Gekürzte URLs, die Liquid-Personalisierung enthalten (wie nutzerspezifisches Tracking oder UTM-Parameter), sind zwei Monate lang gültig.
 
@@ -110,7 +110,7 @@ Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL a
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine gekürzte URL generiert. Die tatsächliche gekürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
 {% endalert %}
 
-## Reporting
+## Berichte und Auswertung {#reporting}
 
 Die LINE-Performance-Tabelle enthält die Spalte **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu LINE-Metriken finden Sie unter [LINE-Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/line/reporting/).
 

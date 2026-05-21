@@ -1,6 +1,6 @@
 ---
 permalink: /support_contact/
-nav_title: ヘルプ | Braze
+nav_title: Help | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
@@ -1053,7 +1053,7 @@ a:hover {
               <strong>BrazeAI Operator&#8482;でトラブルシューティングを迅速に</strong>
               <span class="operator-callout-badge">New</span>
             </div>
-            <p class="operator-callout-body">Operatorは多くの問題をリアルタイムでトラブルシューティングできます。解決できない場合は、チケットの作成をサポートします。<a href="https://dashboard.braze.com/?openOperator=true" target="_blank" rel="noopener noreferrer">Operatorでサポートを受ける<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only">（新しいタブで開きます）</span></a></p>
+            <p class="operator-callout-body">Operatorは多くの問題をリアルタイムでトラブルシューティングできます。解決できない場合は、チケットの作成をサポートします。<a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Operatorでサポートを受ける<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only">（新しいタブで開きます）</span></a></p>
           </div>
         </aside>
         <div class="main-border">
@@ -1237,7 +1237,7 @@ a:hover {
               <label for="ticket_priority" class="required">問題の重大度 </label>
               <select id="ticket_priority" name="priority" class="form-control">
                 <option value="Critical">Critical: システムがダウンしている、または深刻なデータ整合性の問題</option>
-                <option value="High">High: 機能の重大な喪失、またはCampaignが送信されない</option>
+                <option value="High">High: 機能の重大な喪失、またはキャンペーンが送信されない</option>
                 <option value="Medium">Medium: パフォーマンスの低下、またはビジネスに大きな影響を与える問題</option>
                 <option value="Low" selected>Low: Brazeの機能や分析に関する質問</option>
               </select>
@@ -1506,9 +1506,9 @@ var ticket_lookuptable = {
               'LinksTitle': ['Exporting Braze Data','REST API: Export Endpoints', 'Export Frequently Asked Questions'],
               'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/api/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
             },
-            'API Campaigns' : {
+            'API キャンペーン' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API Campaign Overview','REST API: Send API-Triggered Campaign Endpoint','REST API: Schedule API-Triggered Campaign Endpoint'],
+              'LinksTitle': ['API キャンペーン Overview','REST API: Send API-Triggered キャンペーン Endpoint','REST API: Schedule API-Triggered キャンペーン Endpoint'],
               'Links' : ['{{site.baseurl}}/api/api_campaigns/','{{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
             },
             'Rate Limits' : {
@@ -1617,10 +1617,10 @@ var ticket_lookuptable = {
             }
           }
         },
-        'Campaigns and Canvas' :{
+        'キャンペーン and キャンバス' :{
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
-          'LinksTitle': ['Campaign Frequently Asked Questions','Canvas Frequently Asked Questions'],
+          'LinksTitle': ['キャンペーン Frequently Asked Questions','キャンバス Frequently Asked Questions'],
           'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/canvas/faqs/'],
           'SelectOption': {
             'Messaging Personalization' : {
@@ -1628,9 +1628,9 @@ var ticket_lookuptable = {
               'LinksTitle': ['Personalization and Dynamic Content','Personalization Using Liquid Tags','Liquid Use Case Library','Connected Content'],
               'Links' : ['{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content']
             },
-            'Targeting and Segmentation' : {
+            'Targeting and セグメントation' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Segmentation','Segment Insights','Braze Learning Course: Segmentation',''],
+              'LinksTitle': ['セグメントation','セグメント Insights','Braze Learning Course: セグメントation',''],
               'Links' : ['{{site.baseurl}}/user_guide/audience/segments','{{site.baseurl}}/user_guide/audience/segments/segment_insights/','https://learning.braze.com/segmentation-course']
             },
             'Message Composition by Channel' : {
@@ -1641,27 +1641,27 @@ var ticket_lookuptable = {
               'SelectOption' : {
                 'Email' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create an Email Campaign with the Drag-And-Drop Editor','Create an Email Campaign with the HTML Editor'],
+                  'LinksTitle': ['Create an Email キャンペーン with the Drag-And-Drop Editor','Create an Email キャンペーン with the HTML Editor'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/email/drag_and_drop/','{{site.baseurl}}/user_guide/channels/email/html_editor/']
                 },
                 'Push' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Push Campaign','Braze Learning Course: Push'],
+                  'LinksTitle': ['Create a Push キャンペーン','Braze Learning Course: Push'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/push/creating_a_push_message#creating-a-push-message','https://learning.braze.com/messaging-channels-push']
                 },
                 'In-App Messages' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze Learning Course: In-App and In-Browser Messages'],
+                  'LinksTitle': ['In-App Message Drag-And-Drop Editor キャンペーン','In-App Message Traditional Editor キャンペーン','Braze Learning Course: In-App and In-Browser Messages'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/in-app_messages/drag_and_drop/create/','{{site.baseurl}}/user_guide/channels/in-app_messages/traditional/create/','https://learning.braze.com/messaging-channels-in-app-in-browser']
                 },
                 'Content Cards' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Content Card Campaign','Braze Learning Course: Content Cards'],
+                  'LinksTitle': ['Create a Content Card キャンペーン','Braze Learning Course: Content Cards'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
                 },
                 'Webhooks' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Webhook Campaign'],
+                  'LinksTitle': ['Create a Webhook キャンペーン'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/webhooks/creating_a_webhook/']
                 },
                 'SMS and MMS' : {
@@ -1671,7 +1671,7 @@ var ticket_lookuptable = {
                 },
                 'WhatsApp' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a WhatsApp Campaign'],
+                  'LinksTitle': ['Create a WhatsApp キャンペーン'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_campaign/create/']
                 }
               }
@@ -1753,12 +1753,12 @@ var ticket_lookuptable = {
     'Strategy Assistance' : {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
-      'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
+      'LinksTitle': ['キャンペーン Ideas and Strategies','キャンバス Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with キャンバス Flow'],
       'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
-          'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
+          'LinksTitle': ['キャンペーン Ideas and Strategies', 'キャンバス Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
           'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
         },
         'Best Practices and Frequently Asked Questions' :{
@@ -2656,9 +2656,9 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
         if (fullResponse === '' && articles.length > 0) {
-            suggestionsBox.innerHTML = "<p>Here are some articles that might help:</p>";
+            suggestionsBox.innerHTML = "<p>お役に立てそうな記事をご紹介します:</p>";
         } else if (fullResponse === '') {
-            suggestionsBox.innerHTML = "<p>No suggestions found.</p>";
+            suggestionsBox.innerHTML = "<p>提案が見つかりませんでした。</p>";
         }
 
         // --- Citation hover tooltip ---
@@ -2692,6 +2692,14 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
             button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
+                const citation_text = this.textContent;
+                const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
+                const parsedCitationRank = Number(citation_num);
+                let citation_rank = 1;
+                if (Number.isInteger(parsedCitationRank) && parsedCitationRank >= 1) {
+                  citation_rank = parsedCitationRank;
+                }
+
                 citationClicked = true;
                 // Conversion analytics (once per citation)
                 if (!trackedCitations.has(url)) {
@@ -2707,7 +2715,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                         type: "doc",
                         relevance_score: "7.0017533",
                         searchString: subject,
-                        rank: 53510,
+                        rank: citation_rank,
                         analyticsId: window._gza_analytics_id || crypto.randomUUID(),
                         url: window.location.href,
                         referrer: document.referrer,
@@ -2765,7 +2773,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 // Optional: Add a back button to return to the 3-step form
 function addBackButton() {
     const backButton = document.createElement('button');
-    backButton.textContent = 'Back to Suggestions';
+    backButton.textContent = '推奨コンテンツに戻る';
     backButton.className = 'submit-btn';
     backButton.style.backgroundColor = 'grey';
     backButton.style.marginTop = '20px';

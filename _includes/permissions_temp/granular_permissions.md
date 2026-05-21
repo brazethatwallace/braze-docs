@@ -1,5 +1,7 @@
 {% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
 
+{% multi_lang_include video.html id="nv699nw706" source="wistia" %}
+
 ## Creating a permission set
 
 Use permission sets to bundle permissions related to specific subject areas or actions. You can apply permissions sets to dashboard users who need the same access across different workspaces. To create a permission set, go to **Settings** > **Permission Settings**, then select **Create permission set**. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#granularpermissions_list-of-permissions).
@@ -11,7 +13,7 @@ Use permission sets to bundle permissions related to specific subject areas or a
 |Developers|"View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger".|
 |Marketers|"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents".|
 |User Management|"Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams".|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a permission set" }
 {% endtab %}
 {% endtabs %}
 
@@ -26,7 +28,7 @@ Roles allow for more structure by bundling together your individual custom permi
 | Marketer - Fashion Brands | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand {:/} | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers". |
 | Marketer - Skincare Brands | {::nomarkdown}[DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} |"View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Content Blocks", "Edit Content Blocks", "Archive Content Blocks", "Launch Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "View Banner Templates", "Edit Banner Templates", "View Email Templates", "Edit Email Templates", "View Media Library Assets", "Edit Media Library Assets", "Delete Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers".|
 | User Management - All Brands | {::nomarkdown}[DEV] Fashion Brand, [QA] Fashion Brand, [PROD] Fashion Brand, [DEV] Skincare Brand, [QA] Skincare Brand, [PROD] Skincare Brand {:/} | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams"|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating a role" }
 {% endtab %}
 {% endtabs %}
 
@@ -49,7 +51,7 @@ Limited users have specific permissions that allow them to manage certain aspect
 | Permissions | Limited users can edit the permissions of other limited users if they have the "Edit Dashboard Users" permission. They can also create new limited users and modify their permission sets. However, they can't create or manage company admin accounts. |
 | Role limitations | If a limited user has all permissions except "Workspace Admin", they will still have access to all other permissions typically granted to a workspace admin. |
 | Visibility of permissions | If a limited user has the "Edit Dashboard Users" permission for one workspace (such as Dev) but not for another (such as Prod), they won't see the Prod workspace permissions in their dashboard users detail page. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limited users" }
 
 ### Comparing limited users
 
@@ -58,7 +60,7 @@ Limited users have specific permissions that allow them to manage certain aspect
 | Workspace Admin | Workspace Admins have permissions specific to managing Workspaces but do not have the same authority as Company Admins. Limited Users can inherit permissions similar to those of Workspace Admins if they have the necessary permissions checked. |
 | Admin (Company Admin) | Company Admins have broader permissions, including the ability to delete dashboard users. However, they cannot delete their own accounts and must contact another Company Admin for that action. |
 | View-only access | To access parts of the dashboard, such as the Campaigns page, users must have view permissions assigned to them.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comparing limited users" }
 
 ### Limited access error
 
@@ -104,7 +106,7 @@ To manage the following company-level permissions for a user, check or uncheck t
 |----------|-----------|
 |Manage company settings|Allows users to modify permission settings and sender verification. .|
 |Create and delete workspaces|Allows users to create and delete workspaces.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company" }
 
 {% endtab %}
 {% tab Workspace %}
@@ -180,7 +182,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Message Prioritization | View Message Prioritization | View message prioritization settings without making changes |
 | Message Prioritization | Edit Message Prioritization | Create and update message prioritization settings |
 | WhatsApp Flows | View WhatsApp Flows | View all WhatsApp Flows |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messaging" }
 
 ### Audience
 
@@ -202,7 +204,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Users | Delete Users | Permanently delete users from the dashboard individually or in bulk |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Audience" }
 
 ### Template
 
@@ -215,9 +217,9 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Canvas Templates | Archive Canvas Templates | Move Canvas templates to archive |
 | Canvas Templates | Create and Edit Canvas Templates | Create and update Canvas templates |
 | Content Blocks | View Content Blocks | View Content Blocks |
-| Content Blocks | Launch Content Blocks | Launch Content Blocks |
+| Content Blocks | Launch Content Blocks | Publish draft Content Blocks, and edit, archive, and unarchive launched Content Blocks |
 | Content Blocks | Archive Content Blocks | Move Content Blocks to archive |
-| Content Blocks | Edit Content Blocks | Create and update Content Blocks |
+| Content Blocks | Edit Content Blocks | Create Content Blocks and edit draft Content Blocks |
 | Email Link Templates | View Email Link Templates | View link templates without making changes |
 | Email Link Templates | Edit Email Link Templates | Create and update link templates |
 | Email Templates | View Email Templates | View email templates |
@@ -235,7 +237,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Whatsapp Message Templates | View WhatsApp Message Templates | Allows users to view [WhatsApp message templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
 | Whatsapp Message Templates | Edit WhatsApp Message Templates | Allows users to create WhatsApp message templates in the template builder. This feature is currently in early access. |
 | WhatsApp Message Templates From Meta | View WhatsApp Message Templates From Meta | View All WhatsApp Templates |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Template" }
 
 ### Partner integrations
 
@@ -244,7 +246,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Currents Integrations | View Currents Integration | View Currents integrations |
 | Currents Integrations | Edit Currents Integrations | Create, update, and delete Currents integrations |
 | Technology Partners | Edit Technology Partners | Create and update technology partners |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Partner integrations" }
 
 ### Data settings
 
@@ -271,7 +273,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Products | Blocklist Products | Add products to a blocklist that restricts use in the dashboard |
 | Products | Edit Products | Create and update products |
 | Purchase Property Segmentation | Edit Purchase Property Segmentation | Enable and disable segmentation for purchase event properties |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data settings" }
 
 ### Settings
 
@@ -312,7 +314,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Teams | Archive Teams | Move teams to archive |
 | Teams | Edit Teams | Create and update teams |
 | WhatsApp Settings | View WhatsApp Settings | View all WhatsApp channel settings |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Settings" }
 
 ### Decisioning Studio
 
@@ -320,7 +322,7 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | --- | --- | --- |
 | Decisioning Studio Agents | View Decisioning Studio Agent | View Decisioning Studio Agents configuration without making changes |
 | Decisioning Studio Audience | View Decisioning Studio Audience | See audience details on Decisioning Studio Agent configuration summaries |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Decisioning Studio" }
 
 ### Other
 
@@ -354,4 +356,4 @@ To download a list of your users and their permissions, go to **Settings** > **C
 | Transformations | View Data Transformation | View data transformations |
 | User Deletion Records | View User Deletion Records | View user deletion records |
 | Support Tickets | Create Support Ticket | Create and update Support tickets |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Other" }

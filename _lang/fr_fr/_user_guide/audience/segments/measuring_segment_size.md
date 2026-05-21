@@ -46,6 +46,7 @@ Pour chaque groupe de filtres, vous pouvez voir les utilisateurs pouvant être a
 
 Vous pouvez consulter l'estimation des utilisateurs pouvant être atteints pour l'ensemble d'un segment, y compris les estimations du nombre d'utilisateurs pour chaque canal, dans le panneau latéral **Reachable users**. Cette **estimation** vous montre une plage approximative pour la taille de votre segment, ainsi qu'une estimation du pourcentage de votre base d'utilisateurs globale qui fait partie de ce segment. Notez que les statistiques estimées sont mises en cache pendant 15 minutes, sauf si vous apportez des modifications à votre segment, auquel cas les statistiques estimées seront automatiquement mises à jour. Vous pouvez également consulter un décompte exact des utilisateurs pouvant être atteints (pour le segment dans son ensemble et par canal) en sélectionnant **Calculate exact statistics**.
 
+
 ![Le panneau « Reachable users » indiquant qu'il y a entre 2,3 M et 2,4 M d'utilisateurs estimés.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 
 ### Considérations relatives aux estimations {#considerations-for-estimate-counts}
@@ -83,7 +84,7 @@ Les filtres suivants sont appliqués pour chaque canal lors de la détermination
 | E-mail | **Email Available** est vrai. |
 | Push | **Foreground Push Enabled** est vrai. |
 | SMS | **Subscription Group** est n'importe quel groupe d'abonnement SMS. **Invalid Phone Number** est faux. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filtres appliqués pour les utilisateurs pouvant être atteints par canal" }
 
 ## Calcul des statistiques exactes {#calculating-exact-statistics}
 
@@ -137,4 +138,4 @@ Le décompte d'appartenance peut changer de manière significative pour plusieur
 | Des utilisateurs sont supprimés | Un nombre significatif d'utilisateurs a été supprimé. |
 | Une intégration partenaire s'est synchronisée avec Braze | Un tiers a envoyé des données à Braze qui ont significativement influencé l'appartenance au segment. |
 | Des utilisateurs dormants sont archivés | Un nombre significatif de profils inactifs a été archivé. Par exemple, un grand nombre d'utilisateurs importés par CSV n'enregistrent jamais d'activité et sont archivés en même temps. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Raisons des changements significatifs" }

@@ -118,7 +118,7 @@ The following data types can be stored as a custom attribute:
 | Integers | You can increment integer custom attributes by assigning an object with the "inc" field and the amount to add. <br><br>Example: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Nested custom attributes | Nested custom attributes define a set of attributes as a property of another attribute. When you define a custom attribute object, you add a set of attributes to that object. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Strings | String custom attributes are sequences of characters used to store text data. For example, you can use strings to store first and last names, email addresses, or preferences. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attribute data types" }
 
 {% alert tip %}
 For guidance on when to use a custom event versus a custom attribute, see [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) and [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -141,6 +141,10 @@ For API examples that use `add`, `remove`, and `update`, see [Array of objects A
 
 {% alert important %}
 The following user profile fields are case sensitive, so be sure to reference these fields in lower case.
+{% endalert %}
+
+{% alert tip %}
+For a customer-facing reference of standard attributes that's organized by category and includes guidance for SDK, API, CSV, and Cloud Data Ingestion, see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
 {% endalert %}
 
 | User Profile Field | Data Type Specification |
@@ -171,7 +175,7 @@ The following user profile fields are case sensitive, so be sure to reference th
 | subscription_groups| Array of objects with `subscription_group_id` and `subscription_state` string, for example, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Available values for `subscription_state` are "subscribed" and "unsubscribed".|
 | time_zone | (string) Of time zone name from [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (for example, "America/New_York" or "Eastern Time (US & Canada)"). Only valid time zone values are set. |
 | twitter | Hash containing any of `id` (integer), `screen_name` (string, X (formerly Twitter) handle), `followers_count` (integer), `friends_count` (integer), `statuses_count` (integer). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze user profile fields #braze-user-profile-fields" }
 
 Language values that are explicitly set through this API take precedence over the locale information Braze automatically receives from the device.
 
@@ -230,7 +234,7 @@ Due to the nature of web push tokens, be sure you consider the following when im
 |----------------------|------------|
 | **Service workers**  | By default, the Web SDK looks for a service worker at `./service-worker` unless another option is specified, such as `manageServiceWorkerExternally` or `serviceWorkerLocation`. If your service worker isn't set up properly, it may lead to expired push tokens for your users. |
 | **Expired tokens**   | If a user hasn't started a web session within 60 days, their push token expires. Because Braze can't migrate expired push tokens, you must send a [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) to re-engage them. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web token considerations" }
 
 ### Manual migration through API
 

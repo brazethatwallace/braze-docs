@@ -40,7 +40,7 @@ Puedes ver las diferencias entre el formato de número local y el formato univer
 | EE. UU. | `4155552671` | 1 | `+14155552671` |
 | Reino Unido | `02071838750` | 44 | `+442071838750` |
 | Brasil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formato" }
 
 ### Añadir usuarios a un grupo de suscripción de WhatsApp {#adding-users-to-whatsapp-a-subscription-group}
 

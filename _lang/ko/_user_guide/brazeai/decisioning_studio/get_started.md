@@ -50,7 +50,7 @@ AI Decisioning Services 팀과 협력하여 다음 사항을 결정하세요:
 | **차원** | 에이전트가 어떤 결정을 개인화해야 하는가? | 시간대, 제목란, 빈도, 오퍼, 채널 |
 | **옵션** | 에이전트가 활용할 수 있는 옵션은 무엇인가? | 특정 템플릿, 오퍼, 시간 기간 |
 | **제약 조건** | 에이전트가 절대 내려서는 안 되는 결정은 무엇인가? | 지역 제한, 예산 한도, 자격 규칙 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Key design decisions" }
 
 이러한 각 결정 사항은 에이전트가 생성할 수 있는 점진적 향상의 크기와 속도에 영향을 미칩니다. AI Decisioning Services 팀이 모든 비즈니스 규칙을 준수하면서 최대 가치를 창출하는 에이전트를 설계할 수 있도록 함께 협력합니다.
 
@@ -65,7 +65,7 @@ AI Decisioning Services 팀과 협력하여 다음 사항을 결정하세요:
 | **모든 CEP** | Braze, Salesforce Marketing Cloud와의 네이티브 통합 또는 모든 플랫폼에 대한 커스텀 통합 |
 | **AI Decisioning Services** | Braze 데이터 사이언스 팀의 전담 지원 |
 | **고급 실험 설계** | 완전히 커스텀 가능한 처리 그룹 및 홀드아웃 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Decisioning Studio capabilities" }
 
 ## 모범 사례 {#best-practices}
 

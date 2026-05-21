@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Ver información sobre Content Blocks"
 article_title: "GET: Ver información sobre Content Blocks"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -27,11 +27,11 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `content_block_id`  | Obligatoria | Cadena | El identificador del bloque de contenido. <br><br>Puedes encontrarlo listando la información de Content Blocks a través de una llamada a la API o yendo a la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/), desplazándote hasta el final y buscando tu identificador de API de Content Blocks.|
+| `content_block_id`  | Obligatorio | Cadena | El identificador del bloque de contenido. <br><br>Puedes encontrarlo listando la información de Content Blocks a través de una llamada a la API o yendo a la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/), desplazándote hasta el final y buscando tu identificador de API de Content Blocks.|
 | `include_inclusion_data`  | Opcional | Booleano | Cuando se establece en `true`, la API devuelve el identificador de API de variación de mensajes de las Campaigns y los Canvas en los que se incluye este bloque de contenido, para utilizarlo en llamadas posteriores.  Los resultados excluyen las Campaigns o los Canvas archivados o eliminados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 {% raw %}
@@ -61,15 +61,15 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
 
 ## Solución de problemas {#troubleshooting}
 
-La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
+La siguiente tabla enumera los posibles errores devueltos y los pasos asociados para solucionarlos.
 
 | Error | Solución de problemas |
 | --- | --- |
 | `Content Block ID cannot be blank` | Asegúrate de que en tu solicitud aparece un bloque de contenido y de que está encapsulado entre comillas (`""`). |
 | `Content Block ID is invalid for this workspace` | Este bloque de contenido no existe o está en una cuenta de empresa o espacio de trabajo diferente. |
 | `Content Block has been deleted—content not available` | Este bloque de contenido, aunque puede haber existido antes, ha sido eliminado. |
-| `Include Inclusion Data—error` | Este parámetro solo acepta valores booleanos (verdadero o falso). Asegúrate de que el valor de `include_inclusion_data` no está encapsulado entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. Consulta los [parámetros de la solicitud](#request-parameters) para más detalles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Include Inclusion Data—error` | Este parámetro solo acepta valores booleanos (true o false). Asegúrate de que el valor de `include_inclusion_data` no está encapsulado entre comillas (`""`), lo que hace que el valor se envíe como una cadena en lugar de un booleano. Consulta los [parámetros de la solicitud](#request-parameters) para más detalles. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

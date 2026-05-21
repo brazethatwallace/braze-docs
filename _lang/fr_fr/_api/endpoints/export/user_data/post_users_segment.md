@@ -58,7 +58,7 @@ Si vous avez ajouté vos identifiants [S3][1], [Azure][2] ou [Google Cloud Stora
 | `RANDOM_UUID`                   | UUID aléatoire généré par Braze au moment de la demande.                             | `d9696570-dfb7-45ae-baa2-25e302r2da27` |
 | `TIMESTAMP_WHEN_EXPORT_STARTED` | Heure Unix (secondes depuis 2017-01-01:00:00:00Z) à laquelle l'exportation a été demandée en UTC. | `1556044807`                           |
 | `filename`                      | Aléatoire par fichier.                                                               | `114f0226319130e1a4770f2602b5639a`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Informations relatives à la réponse basée sur les identifiants" }
 
 {% enddetails %}
 
@@ -70,7 +70,7 @@ Dans les deux cas, vous pouvez éventuellement fournir un `callback_endpoint` po
 
 Une base d'utilisateurs plus importante entraîne des délais d'exportation plus longs. Par exemple, une application avec 20 millions d'utilisateurs peut prendre une heure ou plus.
 
-## Corps de la demande {#request-body}
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -86,7 +86,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Paramètres de demande {#request-parameters}
+## Paramètres de requête {#request-parameters}
 
 | Paramètre                     | Requis    | Type de données        | Description                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------- | --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -95,13 +95,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `fields_to_export`            | Requis* | Tableau de chaînes de caractères | Nom des champs de données utilisateur à exporter. Vous pouvez également exporter tous les attributs personnalisés en incluant `custom_attributes` dans ce paramètre. Consultez [Champs à exporter](#fields-to-export) pour la liste complète des champs exportables.                                                                                                                                                                                        |
 | `custom_attributes_to_export` | Facultatif  | Tableau de chaînes de caractères | Nom de l'attribut personnalisé spécifique à exporter. Il est possible d'exporter jusqu'à 500 attributs personnalisés. Pour créer et gérer des attributs personnalisés dans le tableau de bord, allez dans **Paramètres des données** > **Attributs personnalisés**.                                                                                                                                                                                                          |
 | `output_format`               | Facultatif  | Chaîne de caractères           | Le format de sortie de votre fichier. Format de fichier `zip` par défaut. Si vous utilisez votre propre compartiment S3, vous pouvez spécifier `zip` ou `gzip`.                                                                                                                                                                                                                                                                         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Si `custom_attributes` est inclus dans le paramètre `fields_to_export`, tous les attributs personnalisés sont exportés, quel que soit le contenu de `custom_attributes_to_export`. Si votre objectif est d'exporter des attributs spécifiques, `custom_attributes` ne doit pas être inclus dans le paramètre `fields_to_export`. Utilisez plutôt le paramètre `custom_attributes_to_export`.
 {% endalert %}
 
-## Exemple de demande d'exportation de tous les attributs personnalisés {#example-request-to-export-all-custom-attributes}
+## Exemple de requête pour exporter tous les attributs personnalisés {#example-request-to-export-all-custom-attributes}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segment' \
 --header 'Content-Type: application/json' \
@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 }'
 ```
 
-## Exemple de demande d'exportation d'attributs personnalisés spécifiques {#example-request-to-export-specific-custom-attributes}
+## Exemple de requête pour exporter des attributs personnalisés spécifiques {#example-request-to-export-specific-custom-attributes}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segment' \
 --header 'Content-Type: application/json' \
@@ -160,12 +160,12 @@ Voici la liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to_
 | `phone`               | Chaîne de caractères          | Numéro de téléphone de l'utilisateur dans le format importé dans Braze. Par exemple, si une demande d'ajout de numéro de téléphone est reçue sous la forme `1234567890`, il sera exporté dans le même format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `purchases`           | Tableau           | Achats réalisés par cet utilisateur au cours des 90 derniers jours.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `push_tokens`         | Tableau           | Informations sur les jetons de notification push de l'utilisateur.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `random_bucket`       | Entier         | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `random_bucket`       | Entier         | [Numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) de l'utilisateur, utilisé pour créer des segments uniformément distribués d'utilisateurs aléatoires.                                                                                                                                                                                                                                                                                                                                  |
 | `time_zone`           | Chaîne de caractères          | Fuseau horaire de l'utilisateur, au même format que la base de données de fuseaux horaires IANA.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `total_revenue`       | Float           | Chiffre d'affaires total attribué à cet utilisateur. Le chiffre d'affaires total est calculé à partir des achats réalisés par l'utilisateur pendant les fenêtres de conversion des Campaigns et Canvas qu'il a reçus.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `uninstalled_at`      | Horodatage       | Date et heure de désinstallation de l'application par l'utilisateur. Absent si l'application n'a pas été désinstallée.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `user_aliases`        | Objet          | [Objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) contenant les champs `alias_name` et `alias_label`, s'ils existent.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs à exporter" }
 
 ## Rappels importants {#important-reminders}
 
@@ -173,6 +173,7 @@ Voici la liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to_
 - `custom_events` et `purchases` contiennent tous les deux des champs `first` et `count`. Ces deux champs reflètent les informations de toutes les périodes et ne se limitent pas aux données des 90 derniers jours. Par exemple, si un utilisateur a déclenché l'événement pour la première fois il y a plus de 90 jours, cela est reflété avec précision dans le champ `first`, et le champ `count` prend également en compte les événements survenus avant les 90 derniers jours.
 - Le nombre d'exportations de segments simultanées qu'une entreprise peut exécuter au niveau de l'endpoint est plafonné à 100. Toute tentative dépassant cette limite entraîne une erreur.
 - Tenter d'exporter un segment une seconde fois alors que la première tâche d'exportation est toujours en cours entraîne une erreur 429.
+- Une [réponse `403 Forbidden`]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/?sdktab=cloud%20storage%20connected#segment-export-api-downloads) signifie souvent que le fichier d'exportation n'est pas encore prêt.
 
 ## Réponse {#response}
 
@@ -184,7 +185,11 @@ Voici la liste des valeurs valides pour `fields_to_export`. Utiliser `fields_to_
 }
 ```
 
-Une fois l'URL disponible, elle n'est valide que pendant quelques heures. Nous vous recommandons donc fortement d'ajouter vos propres identifiants S3 à Braze.
+### URL `null` {#null-url}
+
+Si la réponse inclut `"url": null` (ou omet une URL de téléchargement) et que vous avez configuré une [intégration de stockage cloud]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) telle qu'un compartiment Amazon S3 ou un conteneur Azure Blob Storage, Braze enregistre l'exportation dans votre compartiment ou conteneur connecté au lieu de renvoyer une URL de téléchargement temporaire dans la réponse API. Récupérez les fichiers depuis votre compartiment ou conteneur de stockage cloud connecté.
+
+Si une URL de téléchargement est renvoyée, elle n'est valide que pendant quelques heures. Nous vous recommandons donc fortement d'ajouter vos propres identifiants S3 à Braze.
 
 Si vous observez `object_prefix` dans votre réponse API sans URL de téléchargement, cela signifie qu'un compartiment Amazon S3 est déjà configuré pour cet endpoint. Toutes les données exportées via cet endpoint sont directement transférées vers votre compartiment S3.
 

@@ -11,7 +11,7 @@ description: "カスタム属性、イベント、カタログを使ってデー
 guide_featured_title: "カスタムデータ"
 guide_featured_list:
   - name: カスタムデータ
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: データタイプ
     link: /docs/user_guide/data/activation/custom_data/data_types

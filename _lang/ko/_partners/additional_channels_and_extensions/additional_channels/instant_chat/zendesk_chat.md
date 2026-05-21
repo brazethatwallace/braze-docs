@@ -20,6 +20,7 @@ search_tag: Partner
 | Zendesk 계정 | 이 파트너십을 활용하려면 Zendesk 계정이 필요합니다.|
 | Zendesk 기본 승인 토큰 | Zendesk 기본 승인 토큰은 Braze에서 Zendesk로 아웃바운드 웹훅 요청을 보내는 데 사용됩니다.|
 | Braze REST API 키 | `campaigns.trigger.send` 권한이 있는 Braze REST API 키. Braze 대시보드에서 **설정** > **API 키**로 이동하여 생성할 수 있습니다.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -165,7 +166,7 @@ Feel free to respond directly to this number!
 |--------------------|--------------------------------------------------------------------------------------|
 | 웹훅 Campaign 1 | Zendesk에 새 티켓을 생성합니다. |
 | 웹훅 Campaign 2 | 고객이 인바운드로 보낸 모든 대화형 SMS 응답을 Zendesk로 전달합니다. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6: Set up inbound-SMS forwarding" }
 
 #### 6.1단계: SMS 키워드 카테고리 생성하기 {#step-61-create-an-sms-keyword-category}
 
@@ -176,7 +177,7 @@ Braze 대시보드에서 **Audience**로 이동하여 **SMS 구독 그룹**을 �
 | 키워드 카테고리 | 키워드 카테고리의 이름입니다(예: `ZendeskSMS1`). |
 | 키워드 | 커스텀 키워드입니다(예: `SUPPORT`). |
 | 답장 메시지 | 키워드가 감지될 때 전송되는 메시지입니다(예: "고객 서비스 담당자가 곧 연락드리겠습니다."). |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 6.1: Create an SMS keyword category" }
 
 ![Braze의 SMS 키워드 카테고리 예시.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 

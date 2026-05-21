@@ -23,6 +23,10 @@ As mensagens bidirecionais permitem que você envie mensagens e processe as resp
 
 SMS, MMS e RCS com a Braze oferecem a opção de criar gatilhos de palavras-chave, respostas personalizadas, definir conjuntos de palavras-chave para vários idiomas e estabelecer categorias de palavras-chave personalizadas.
 
+{% alert note %}
+A Braze usa seu conjunto completo de palavras-chave de descadastramento ([palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) e [palavras-chave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) para tratamento exato de descadastramento e [descadastramento aproximado]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+{% endalert %}
+
 {% tabs %}
 {% tab Adicionar gatilhos de palavras-chave %}
 
@@ -41,7 +45,7 @@ As seguintes regras se aplicam a palavras-chave e respostas de palavras-chave:
 | Palavras-chave | Respostas de palavras-chave |
 | -------- | ----------------- |
 | - Caracteres válidos codificados em UTF-8<br>- Máximo de 20 palavras-chave por categoria no total<br>- Comprimento máximo de 34 caracteres<br>- Comprimento mínimo de 1 caractere <br>- Não podem conter espaços<br>- Devem ser insensíveis a maiúsculas/minúsculas e únicas no grupo de inscrições | - Não podem estar em branco<br>- Comprimento máximo de 300 caracteres<br>- Caracteres válidos em UTF-8 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Adicionar gatilhos de palavras-chave" }
 
 {% alert tip %}
 Quer saber como essas palavras-chave podem ser usadas em suas Campaigns e Canvas para redirecionar e acionar mensagens? Acesse [Redirecionamento de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para saber mais.
@@ -64,7 +68,7 @@ Você pode gerenciar suas próprias respostas que são enviadas aos usuários de
 | Palavras-chave | Respostas de palavras-chave |
 | -------- | ----------------- |
 | - Caracteres válidos codificados em UTF-8<br>- Máximo de 20 palavras-chave por categoria no total<br>- Comprimento máximo de 34 caracteres<br>- Comprimento mínimo de 1 caractere <br>- Não podem conter espaços<br>- Devem ser insensíveis a maiúsculas/minúsculas e únicas no grupo de inscrições | - Não podem estar em branco<br>- Comprimento máximo de 300 caracteres<br>- Caracteres válidos em UTF-8 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações" }
 
 {% endtab %}
 {% endtabs %}
@@ -131,8 +135,8 @@ Recomendamos fortemente configurar uma resposta automática quando usuários ins
 Para enviar uma resposta padrão — por exemplo, "Desculpe! Não reconhecemos essa palavra-chave." — faça o seguinte:
 
 1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Target Audience**, escolha **All Users** (o gatilho ainda limita quem recebe a mensagem).
-3. Para **Schedule**, escolha **Action-Based delivery**.
+2. Para **Target audience**, escolha **All users** (o gatilho ainda limita quem recebe a mensagem).
+3. Para **Schedule**, escolha **Action-based delivery**.
 4. Defina o gatilho como **Send inbound SMS** para o grupo de inscrições apropriado **within keyword category OTHER**.
 5. Na etapa **Messaging**, insira o corpo da resposta que deseja que os usuários recebam.
 

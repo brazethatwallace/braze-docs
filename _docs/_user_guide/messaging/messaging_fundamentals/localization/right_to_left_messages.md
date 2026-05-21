@@ -24,7 +24,7 @@ Additionally, check punctuation and emojis to determine if your message is rende
 |------------------|------------------------|
 | Displays the exclamation point and emoji at the **end** of the sentences. | Displays the exclamation point and emoji at the **beginning** of the sentence. |
 | ![An example of a standard right-to-left messages.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![An example of a left-to-right messages.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Message appearance" }
 
 ## Creating a right-to-left message
 

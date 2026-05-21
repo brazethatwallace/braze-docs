@@ -59,29 +59,29 @@ Braze에 유효하지 않은 채널 ID가 제공된 경우(예: 개발자가 SDK
 
 채널의 예상 동작을 더 잘 이해하려면 다음 표를 참조하세요:
 
-| 시나리오 | 결과  |
-| ---|-------------
-| **회사 ABC**가 Android O를 지원하는 SDK로 업데이트<br>**회사 ABC**가 Braze 대시보드에 채널을 추가하지 않음<br>**회사 ABC**가 SDK 기본 채널의 이름을 변경하지 않음 | Android O 기기로 발송된 푸시 알림은 "General"이라는 채널을 생성하고 알림은 "General" 채널을 통해 발송됩니다
-| **회사 XYZ**가 Android O를 지원하는 SDK로 업데이트<br>**회사 XYZ**가 Braze 대시보드에 채널을 추가하지 않음<br>**회사 XYZ**가 SDK 기본 채널의 이름을 "Marketing"으로 변경 | Android O 기기로 발송된 푸시 알림은 "Marketing"이라는 채널을 생성하고 알림은 "Marketing" 채널을 통해 발송됩니다
-| **회사 LMN**이 Android O를 지원하는 SDK로 업데이트<br>**회사 LMN**이 애플리케이션 코드에서 "Promotions"와 "Order Updates" 두 개의 채널을 정의<br>**회사 LMN**이 "Promotions"와 "Order Updates"의 채널 ID를 Braze 대시보드에 추가<br>**회사 LMN**이 "Promotions"를 대시보드 대체 채널로 지정<br>**회사 LMN**이 SDK 기본 채널의 이름을 "Marketing"으로 변경 | Android O 기기로 발송된 푸시 알림은 채널을 생성하지 않습니다<br><br>마케터가 알림을 "Order Updates" 또는 "Marketing" 채널을 통해 발송하도록 명시적으로 지정하지 않는 한, 채널이 대시보드에 추가되기 전에 생성된 모든 알림은 "Promotions" 채널을 통해 발송됩니다<br><br>SDK 기본 채널인 "Marketing"은 회사가 유효하지 않은 채널 ID로 알림을 발송하려고 하거나 명시적으로 선택한 경우에만 생성되어 사용됩니다
+| 시나리오 | 결과 |
+| --- | --- |
+| **회사 ABC**가 Android O를 지원하는 SDK로 업데이트<br>**회사 ABC**가 Braze 대시보드에 채널을 추가하지 않음<br>**회사 ABC**가 SDK 기본 채널의 이름을 변경하지 않음 | Android O 기기로 발송된 푸시 알림은 "General"이라는 채널을 생성하고 알림은 "General" 채널을 통해 발송됩니다 |
+| **회사 XYZ**가 Android O를 지원하는 SDK로 업데이트<br>**회사 XYZ**가 Braze 대시보드에 채널을 추가하지 않음<br>**회사 XYZ**가 SDK 기본 채널의 이름을 "Marketing"으로 변경 | Android O 기기로 발송된 푸시 알림은 "Marketing"이라는 채널을 생성하고 알림은 "Marketing" 채널을 통해 발송됩니다 |
+| **회사 LMN**이 Android O를 지원하는 SDK로 업데이트<br>**회사 LMN**이 애플리케이션 코드에서 "Promotions"와 "Order Updates" 두 개의 채널을 정의<br>**회사 LMN**이 "Promotions"와 "Order Updates"의 채널 ID를 Braze 대시보드에 추가<br>**회사 LMN**이 "Promotions"를 대시보드 대체 채널로 지정<br>**회사 LMN**이 SDK 기본 채널의 이름을 "Marketing"으로 변경 | Android O 기기로 발송된 푸시 알림은 채널을 생성하지 않습니다<br><br>마케터가 알림을 "Order Updates" 또는 "Marketing" 채널을 통해 발송하도록 명시적으로 지정하지 않는 한, 채널이 대시보드에 추가되기 전에 생성된 모든 알림은 "Promotions" 채널을 통해 발송됩니다<br><br>SDK 기본 채널인 "Marketing"은 회사가 유효하지 않은 채널 ID로 알림을 발송하려고 하거나 명시적으로 선택한 경우에만 생성되어 사용됩니다 |
 | **회사 HIJ**가 Android O로 업데이트했지만 Braze Android SDK를 2.1.0 이상으로 업데이트하지 않음 | Android O 이상을 실행하는 사용자에게 발송된 알림이 표시되지 않습니다 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard fallback channel" }
 
 ## Braze 대시보드에 채널 추가 {#adding-channels-to-the-braze-dashboard}
 
-1. Android 푸시를 포함하는 Campaign 또는 Canvas를 열고 **캠페인 편집**을 클릭합니다.
+1. Android 푸시를 포함하는 Campaign 또는 Canvas를 열고 **Edit Campaign**을 클릭합니다.
 2. Android 푸시 메시지 작성기로 이동합니다.
-3. **알림 채널 관리**를 클릭합니다. 여기에 추가된 채널은 모든 Campaigns 및 Canvases에서 전역적으로 사용할 수 있습니다. 채널을 관리하려면 워크스페이스에 대한 "앱 관리" [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions)이 있어야 합니다.
+3. **Manage Notification Channels**를 클릭합니다. 여기에 추가된 채널은 모든 Campaigns 및 Canvases에서 전역적으로 사용할 수 있습니다. 채널을 관리하려면 워크스페이스에 대한 "Manage Apps" [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#limited-and-team-role-permissions)이 있어야 합니다.
 
 특정 Campaign 또는 캔버스 단계에 알림 채널을 적용하면 **도달 가능 사용자** 수(타겟 오디언스 단계에 위치)가 Android 푸시에 대해 변경되지 않는 것처럼 보입니다. 그러나 선택한 알림 채널에 가입한 사용자만 메시지를 볼 수 있으며, Campaign 분석(예: 클릭 수)은 이 오디언스를 기반으로 측정됩니다.
 
 ![]({% image_buster /assets/img_archive/Click_Here.png %})
 
 {:start="4"}
-4. **알림 채널 추가**를 클릭합니다.
+4. **Add Notification Channel**을 클릭합니다.
 5. 추가하려는 알림 채널의 이름과 ID를 입력합니다.<br><br>![]({% image_buster /assets/img_archive/Enter_Channel.png %})<br><br>
 6. 추가하려는 각 알림 채널에 대해 4단계와 5단계를 반복합니다.
-7. **저장**을 눌러 변경 사항을 저장합니다.
+7. **Save**를 눌러 변경 사항을 저장합니다.
 
 ## 대체 채널 지정 {#specifying-your-fallback-channel}
 
@@ -89,7 +89,7 @@ Braze에 유효하지 않은 채널 ID가 제공된 경우(예: 개발자가 SDK
 
 1. 기존 Campaign 또는 Canvas를 엽니다.
 2. Android 푸시 작성기로 이동합니다.
-3. 알림 채널 옵션을 확장한 후 **알림 채널 관리**를 선택합니다. <br><br>![]({% image_buster /assets/img_archive/Change_Fallback.png %}){: style="max-width:80%;"}<br><br>
+3. 알림 채널 옵션을 확장한 후 **Manage Notification Channels**를 선택합니다. <br><br>![]({% image_buster /assets/img_archive/Change_Fallback.png %}){: style="max-width:80%;"}<br><br>
 4. 대시보드에 채널을 추가합니다(아직 추가되지 않은 경우).
 5. 대체 채널로 지정하려는 채널 옆의 라디오 버튼을 선택합니다.
 6. 변경 사항을 저장합니다. 변경 사항은 전역적으로 적용됩니다.

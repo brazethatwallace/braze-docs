@@ -23,6 +23,10 @@ La mensajería bidireccional te permite enviar mensajes y procesar las respuesta
 
 SMS, MMS y RCS con Braze te ofrecen la opción de crear activadores de palabras clave, respuestas personalizadas, definir conjuntos de palabras clave para varios idiomas y establecer categorías de palabras clave personalizadas.
 
+{% alert note %}
+Braze utiliza tu conjunto completo de palabras clave de cancelación de suscripción ([palabras clave predeterminadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) y [palabras clave personalizadas]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) para la gestión exacta de cancelación de suscripción y la [cancelación de suscripción aproximada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+{% endalert %}
+
 {% tabs %}
 {% tab Añadir activadores de palabras clave %}
 
@@ -41,7 +45,7 @@ Las siguientes reglas se aplican a las palabras clave y las respuestas de palabr
 | Palabras clave | Respuestas de palabras clave |
 | -------- | ----------------- |
 | - Caracteres válidos codificados en UTF-8<br>- Máximo de 20 palabras clave por categoría en total<br>- Longitud máxima de 34 caracteres<br>- Longitud mínima de 1 carácter<br>- No pueden contener espacios<br>- Deben ser insensibles a mayúsculas y únicas en todo el grupo de suscripción | - No pueden estar en blanco<br>- Longitud máxima de 300 caracteres<br>- Caracteres válidos UTF-8 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Añadir activadores de palabras clave" }
 
 {% alert tip %}
 ¿Te interesa ver cómo se pueden usar estas palabras clave en tus Campaigns y Canvas para reorientar y activar mensajes? Visita [Reorientación de usuarios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) para más información.
@@ -64,7 +68,7 @@ Puedes administrar tus propias respuestas que se envían a los usuarios después
 | Palabras clave | Respuestas de palabras clave |
 | -------- | ----------------- |
 | - Caracteres válidos codificados en UTF-8<br>- Máximo de 20 palabras clave por categoría en total<br>- Longitud máxima de 34 caracteres<br>- Longitud mínima de 1 carácter<br>- No pueden contener espacios<br>- Deben ser insensibles a mayúsculas y únicas en todo el grupo de suscripción | - No pueden estar en blanco<br>- Longitud máxima de 300 caracteres<br>- Caracteres válidos UTF-8 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consideraciones" }
 
 {% endtab %}
 {% endtabs %}
@@ -130,11 +134,11 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
-1. Crea una [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
-2. Para **Target Audience**, elige **All Users** (el activador aún limita quién recibe el mensaje).
-3. Para **Schedule**, elige **Action-Based delivery**.
+1. Crea una [campaña de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+2. Para **Público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
+3. Para **Planificación**, elige **Entrega basada en acciones**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.
-5. En el paso de **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
+5. En el paso **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
 
 Para saber cómo Braze gestiona los mensajes entrantes de números de teléfono **desconocidos** (antes de que exista un perfil), consulta [Gestión de números de teléfono desconocidos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
 

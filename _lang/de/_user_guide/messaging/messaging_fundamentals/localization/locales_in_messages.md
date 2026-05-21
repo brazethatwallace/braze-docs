@@ -11,8 +11,6 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 
 > Nachdem Sie Locales zu Ihrem Workspace hinzugefügt haben, können Sie Nutzer:innen in verschiedenen Sprachen innerhalb einer einzigen Push-Nachricht, E-Mail, eines Banners, einer In-App-Nachricht oder eines Content-Blocks ansprechen.
 
-{% multi_lang_include alerts/important_alerts.md alert='multi-language ea' %}
-
 ## Voraussetzungen {#prerequisites}
 
 Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die Einrichtung und Verwendung mehrsprachiger Nachrichten zu erhalten.
@@ -29,16 +27,16 @@ Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die E
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> {::nomarkdown}Granulare Berechtigungen: <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul> Legacy-Berechtigungen: <ul><li>Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen"}
 
 {% endtab %}
 {% tab Templates %}
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> {::nomarkdown}Granulare Berechtigungen: <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul> Legacy-Berechtigungen: <ul><li>Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
 {% endtabs %}
@@ -71,7 +69,7 @@ Statische URLs werden manuell im Editor eingegeben (z. B. `https://example.com`)
 | --- | --- |
 | Belassen Sie das Protokoll (`https://`) außerhalb der Übersetzungs-Tags. Umschließen Sie nur die Domain und den Pfad (z. B. `example.com/en`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
 | Fügen Sie keine Query-Parameter in Übersetzungs-Tags ein (z. B. `?utm_source=promo`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-URLs (statisch)" }
 
 Eine Standard-URL, die beide Empfehlungen befolgt, sieht so aus:
 
@@ -89,7 +87,7 @@ Wenn Ihre URL mit Liquid generiert wird (z. B. {% raw %}`{% landing_page_url %}`
 | --- | --- |
 | Umschließen Sie die Liquid-generierte URL nur dann mit Übersetzungs-Tags, wenn sie lokalisiert werden muss. | Die Liquid-Syntax muss sorgfältig beibehalten werden, damit sie korrekt gerendert wird. |
 | Fügen Sie keine Query-Parameter (z. B. `?utm_source=promo`) in Übersetzungs-Tags ein. | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-generierte URLs" }
 
 Eine Liquid-generierte URL, die beide Empfehlungen befolgt, sieht so aus:
 
@@ -229,13 +227,13 @@ URLs verwenden zwei Sonderzeichen, um dies zu steuern:
 | Standard-URL | Ja | Verwenden Sie `&` am Ende der URL (nach dem schließenden Übersetzungs-Tag), wenn sie bereits `?` enthält. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid-generiert | Nein | Verwenden Sie `?` nach den schließenden Übersetzungs-Tags, wenn die generierte URL noch keines enthält. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid-generiert | Ja | Verwenden Sie `&` nach dem schließenden Übersetzungs-Tag, wenn die generierte URL bereits ein `?` enthält. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="E-Mail-Link-Tracking" }
 
 ### Spracheinstellungen und Barrierefreiheit {#language-settings-and-accessibility}
 
-Für HTML-basierte Kanäle (E-Mail, In-App-Nachricht, Banner, Landing-Pages und Content Cards) fügt Braze ein Barrierefreiheits-Sprachattribut (`lang`) zur gerenderten Nachricht hinzu. Dieses Attribut hilft assistiven Technologien wie Screenreadern, Text korrekt zu interpretieren und auszusprechen.
+Beginnen Sie mit [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language) unter [Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) für den WCAG-Kontext, das Verhalten von Kanälen und Editoren (einschließlich Landing-Pages) sowie die **Accessibility**-Einstellungen auf Nachrichtenebene.
 
-Ohne dieses Attribut geht ein Screenreader davon aus, dass der Inhalt in der Standardsprache verfasst ist, die die Nutzer:innen bei der Einrichtung auf ihrem Gerät festgelegt haben. Wenn die Nachricht in einer anderen Sprache verfasst ist, spricht der Screenreader möglicherweise nicht alles korrekt aus.
+Wenn Sie **mehrsprachige Nachrichten** verwenden, stimmen Sie die Barrierefreiheitssprache mit jedem Locale ab, damit lokalisierte Sendungen die entsprechende Sprache deklarieren.
 
 #### Barrierefreiheitssprache konfigurieren {#configuring-the-accessibility-language}
 
@@ -243,15 +241,13 @@ Sie können die Barrierefreiheitssprache auf zwei Ebenen festlegen:
 
 ##### Nachrichtenebene {#message-level}
 
-Gehen Sie in Ihren Nachrichteneinstellungen zum Abschnitt **Accessibility** und wählen Sie eine Sprache aus dem Dropdown aus oder verwenden Sie Liquid, um die Barrierefreiheitssprache dynamisch festzulegen. Dies gilt für alle Inhalte in der Nachricht.
+Auf Nachrichtenebene legen Sie die Barrierefreiheitssprache im Abschnitt **Accessibility** Ihrer Nachrichteneinstellungen fest. Informationen zur Sprachauswahl, zur Verwendung von Liquid und zu Einschränkungen nach Kanal finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ##### Locale-Ebene {#locale-level}
 
-Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Wenn neue Nachrichten erstellt werden, ist {% raw %}`{{accessibility_language}}`{% endraw %} standardmäßig im Abschnitt **Accessibility** ausgewählt. Dies ordnet die Barrierefreiheitssprache Ihren Locale-Einstellungen zu.
+Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Einstellungen für die Lokalisierung** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Accessibility** verwenden, damit die Dokument- oder Card-Sprache diesen Locale-Werten zugeordnet wird.
 
-#### Standards
-
-Die Barrierefreiheitssprache wird dem HTML-Attribut `lang` zugeordnet, einer [WCAG 2.1 Level A-Anforderung](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Erfolgskriterium 3.1.1). Für mehrsprachige Inhalte können Sie die Sprache auch für einzelne Content-Blöcke festlegen, indem Sie das `lang`-Attribut direkt in Ihrem HTML verwenden.
+Ob dieses Token bei neuen Nachrichten standardmäßig angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App Messages und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Weitere Informationen finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/#accessibility-language).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -300,4 +296,4 @@ Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Änderung in der Da
 | Übersetzungs-Tags enthalten vollständige URLs oder Liquid-generierte URLs. | Übersetzungs-Tags mit URLs werden identifiziert, falls Probleme mit fehlerhaften Links oder Link-Tracking auftreten. |
 | Übersetzungs-Tags enthalten Query-Parameter. | Übersetzungs-Tags mit Query-Parametern werden identifiziert, falls Probleme mit fehlerhaften Links oder Link-Tracking auftreten. |
 | Übersetzungs-Tags enthalten HTML-Attribute oder -Strukturen. | Übersetzungs-Tags mit HTML-Attributen oder -Strukturen werden identifiziert, falls Probleme mit Styles und Formatierung auftreten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch?" }

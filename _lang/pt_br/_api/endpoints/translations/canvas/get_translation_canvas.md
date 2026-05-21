@@ -15,7 +15,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Ver tra
 /canvas/translations
 {% endapimethod %}
 
-> Use este endpoint para pré-visualizar uma mensagem traduzida para um Canvas. Consulte [Localizações em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
+> Use este endpoint para pré-visualizar uma mensagem traduzida para um Canvas. Consulte [Locais em mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para saber mais sobre os recursos de tradução.
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
@@ -35,7 +35,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `step_id`              | Obrigatória | String    | O ID da sua etapa do Canvas.        |
 | `message_variation_id` | Obrigatória | String | O ID da sua variação de mensagem. |
 | `locale_id`            | Opcional | String    | O ID (UUID) da localização.       |
-| `post_launch_draft_version` | Opcional | booleano | Quando `true`, retorna a versão mais recente do rascunho em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
+| `post_launch_draft_version` | Opcional | Booleano | Quando `true`, retorna a versão mais recente do rascunho em vez da versão publicada mais recente. O padrão é `false`, retornando a versão publicada mais recente.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}

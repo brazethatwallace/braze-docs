@@ -17,9 +17,9 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 | Exigence | Description |
 | --- | --- |
-| Compte Kameleoon | Un compte Kameleoon est nécessaire pour bénéficier de ce partenariat.|
-| Compte Braze | Un compte Braze actif avec le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) intégré sur votre page web. Vous devrez également activer la segmentation des propriétés d'événement. Pour en faire la demande, consultez la section [Considérations](#considerations).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Compte Kameleoon | Un compte Kameleoon est nécessaire pour bénéficier de ce partenariat. |
+| Compte Braze | Un compte Braze actif avec le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) intégré sur votre page web. Vous devrez également activer la segmentation des propriétés d'événement. Pour en faire la demande, consultez la section [Considérations](#considerations). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -31,7 +31,7 @@ Cette intégration fonctionne comme un tracker JavaScript via le fichier engine.
 
 ### Étape 1 : Accéder à la page Intégrations de Kameleoon {#step-1-go-to-the-kameleoon-integrations-page}
 
-Dans votre application Kameleoon, sélectionnez **Admin** puis **Intégrations** dans la barre latérale.
+Dans votre application Kameleoon, sélectionnez **Admin** puis **Integrations** dans la barre latérale.
 
 ![Le panneau d'administration de la plateforme Kameleoon.]({% image_buster /assets/img/kameleoon/img_1.png %}){: style="max-width:70%;"}
 
@@ -101,7 +101,8 @@ En outre, ces événements seront accessibles via les [objets d'événements per
 
 Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous devez l'activer dans Braze. Utilisez le modèle suivant pour contacter votre CSM Braze ou l'équipe d'assistance afin d'obtenir l'accès.
 
-   <table>
+   <table aria-label="Demander la segmentation des propriétés d'événement">
+     <caption>Demander la segmentation des propriétés d'événement</caption>
    <thead>
       <tr>
          <th>Champ</th>
@@ -126,7 +127,7 @@ Avant de pouvoir utiliser la segmentation des propriétés d'événement, vous d
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Demander la segmentation des propriétés d'événement" }
 
 ### Points de données Braze {#braze-data-points}
 

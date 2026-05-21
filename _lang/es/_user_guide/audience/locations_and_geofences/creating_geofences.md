@@ -38,7 +38,7 @@ La siguiente tabla describe los términos comunes de geovallas:
 | Latitud y longitud | El centro geográfico de la geovalla. |
 | Radio | El radio de la geovalla en metros, medido desde el centro geográfico. Establece un radio mínimo de 100 metros a 150 metros para todas las geovallas. |
 | Periodo de enfriamiento | Los usuarios reciben notificaciones desencadenadas por geovallas después de realizar transiciones de entrada o salida en geovallas individuales. Después de que ocurre una transición, hay un periodo predefinido durante el cual ese usuario no puede realizar la misma transición en esa geovalla individual de nuevo. Este "periodo de enfriamiento" está predefinido por Braze y su propósito principal es evitar solicitudes de red innecesarias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## Requisitos previos {#prerequisites}
 
@@ -46,7 +46,6 @@ La siguiente tabla describe los términos comunes de geovallas:
 
 Las campañas desencadenadas por geovallas están disponibles en iOS y Android. Para admitir geovallas, se requiere lo siguiente:
 
-* Tu integración debe admitir notificaciones push en segundo plano.
 * Las geovallas de Braze o la recopilación de ubicación deben estar habilitadas.
 * El usuario debe conceder acceso de ubicación "Permitir siempre".
 
@@ -75,7 +74,7 @@ Tanto iOS como Android ofrecen múltiples niveles de acceso a la ubicación. El 
 | **Permitir mientras se usa la aplicación** | Concede acceso a la ubicación siempre que la aplicación esté en primer plano. Después de conceder esto, iOS puede presentar un aviso de seguimiento preguntando al usuario si desea actualizar a "Permitir siempre". | Sí. iOS habilita la monitorización de ubicación en segundo plano, incluidas las transiciones de geovallas, para aplicaciones con este permiso. |
 | **Permitir siempre** | Concede acceso continuo a la ubicación, incluso en segundo plano y cuando la aplicación está cerrada. | Sí. Esto proporciona la monitorización de geovallas más fiable. |
 | **No permitir** | Deniega todo acceso a la ubicación. | No. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% tab Android %}
@@ -85,7 +84,7 @@ Tanto iOS como Android ofrecen múltiples niveles de acceso a la ubicación. El 
 | **Mientras se usa la aplicación** | Concede acceso a la ubicación mientras la aplicación está en primer plano. | No. En Android, se requiere acceso a la ubicación en segundo plano para la monitorización de geovallas. |
 | **Permitir siempre** | Concede acceso continuo a la ubicación, incluso en segundo plano. En Android 10 y versiones posteriores, esto requiere un aviso separado después de que se conceda el permiso inicial "Mientras se usa la aplicación". | Sí. Esto es obligatorio para el geovallado en Android. |
 | **No permitir** | Deniega todo acceso a la ubicación. En Android 13 y versiones posteriores, si un usuario deniega el aviso de ubicación dos veces, el sistema operativo bloquea los avisos posteriores dentro de la aplicación. | No. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% endtabs %}
@@ -98,7 +97,7 @@ En iOS 14+ y Android 12+, los usuarios pueden elegir entre ubicación precisa y 
 |---|---|---|
 | **Ubicación precisa (activada)** | Precisión en el rango de 5 metros a 50 metros, usando GPS, Wi-Fi y triangulación celular. | Las geovallas funcionan como se espera. Recomendado para todos los casos de uso basados en geovallas. |
 | **Ubicación aproximada (desactivada)** | Precisión de aproximadamente 3 kilómetros cuadrados (aproximadamente 1 milla cuadrada). El dispositivo devuelve un área general en lugar de coordenadas exactas. | Las geovallas no se desencadenan de forma fiable. El dispositivo no puede determinar con precisión si un usuario está dentro o fuera del límite de una geovalla. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
 
 {% alert important %}
 Para que el geovallado funcione de forma fiable, los usuarios deben habilitar la ubicación precisa. Incluye esta orientación en tu mensaje previo de permisos de ubicación para que los usuarios comprendan por qué la ubicación precisa es importante.
@@ -121,7 +120,7 @@ Para más información sobre vínculos profundos, consulta [Vinculación en prof
 
 Crea una campaña de mensaje dentro de la aplicación que explique el valor del acceso a la ubicación. Todos los tipos de mensajes dentro de la aplicación admiten esta adhesión voluntaria, incluido el de arrastrar y soltar.
 
-1. Ve a **Messaging** > **Campaigns**, luego selecciona **Crear campaña** > **In-App Message**.
+1. Ve a **Messaging** > **Campaigns**, luego selecciona **Create Campaign** > **In-App Message**.
 2. Elige un tipo de mensaje y diseño. Un diseño **Modal** o **Full** te da más espacio para articular los beneficios.
 3. Escribe un mensaje que explique claramente por qué el acceso a la ubicación beneficia al usuario. Por ejemplo:
     - "Habilita la ubicación para recibir notificaciones sobre ofertas cerca de ti."
@@ -129,7 +128,7 @@ Crea una campaña de mensaje dentro de la aplicación que explique el valor del 
 4. Añade un botón de llamada a la acción principal (como **Activar ubicación**) y configura su comportamiento al hacer clic como **Deep Link into App**, usando el vínculo profundo que tu equipo de desarrollo creó para desencadenar el aviso nativo de ubicación.
 5. Añade un botón secundario (como **Ahora no**) que cierre el mensaje.
 
-### Paso 3: Dirige al público adecuado {#step-3-target-the-right-audience}
+### Paso 3: Dirige a la audiencia adecuada {#step-3-target-the-right-audience}
 
 Para obtener los mejores resultados, muestra el mensaje previo de ubicación cuando los usuarios estén comprometidos y sea probable que vean valor en compartir su ubicación.
 
@@ -284,8 +283,6 @@ Para usar datos de geovallas para personalizar un mensaje, puedes usar la siguie
 
 El SDK de Braze solicita geovallas solo una vez al día al inicio de la sesión. Si realizas cambios en los conjuntos de geovallas después del inicio de la sesión, necesitas esperar 24 horas desde el momento en que los conjuntos se descargaron por primera vez para recibir el conjunto actualizado.
 
-Si el usuario tiene push en segundo plano habilitado, Braze envía un push silencioso cada 24 horas cuando se actualizan los conjuntos de geovallas para descargar las ubicaciones más recientes al dispositivo.
-
 {% alert note %}
 Si las geovallas no se cargan en el dispositivo localmente, el usuario no puede desencadenar la geovalla incluso si entra en el área.
 {% endalert %}
@@ -297,13 +294,12 @@ Si las geovallas no se cargan en el dispositivo localmente, el usuario no puede 
 - Usa un radio de 200 metros o más para un desencadenamiento fiable.
 - Evita configurar geovallas que se superpongan o estén anidadas unas dentro de otras, ya que esto puede causar problemas con el desencadenamiento.
 - Una geovalla puede desencadenar un evento de entrada solo una vez cada seis horas. Este periodo de enfriamiento se aplica localmente. Si un usuario desinstala la aplicación o borra los datos de la aplicación, todos los periodos de enfriamiento se restablecen.
-- No se pueden almacenar más de 20 geovallas en total en un dispositivo. Si el usuario es elegible para más de 20, Braze descarga las ubicaciones más cercanas basándose en la proximidad al inicio de la sesión o en la actualización por push silencioso.
+- No se pueden almacenar más de 20 geovallas en total en un dispositivo. Si el usuario es elegible para más de 20, Braze descarga las ubicaciones más cercanas basándose en la proximidad al inicio de la sesión.
 - Braze solo envía geovallas dentro de un radio de 2.000 kilómetros del usuario al dispositivo.
 
 ### Requisitos del dispositivo {#device-requirements}
 
-- Los permisos de push y los permisos de ubicación deben estar habilitados para la aplicación.
-- Se requiere un token de push en primer plano válido.
+- Los usuarios de tu aplicación deben conceder permisos de ubicación; consulta la sección [Permisos de ubicación](#location-permissions) para más información.
 
 {% alert note %}
 La integración básica del SDK habilita solo el seguimiento de ubicación. El geovallado requiere pasos de configuración adicionales tanto para iOS como para Android. Para más detalles, consulta [Geovallas]({{site.baseurl}}/developer_guide/geofences/) en la guía del desarrollador.

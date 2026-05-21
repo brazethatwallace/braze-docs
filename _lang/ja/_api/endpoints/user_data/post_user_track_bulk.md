@@ -43,6 +43,8 @@ description: "この記事では、一括ユーザートラッキングエンド
 
 ## レート制限 {#rate-limit}
 
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/bulk" %}
+
 ほとんどの顧客の場合、このエンドポイントの基本速度制限は1秒あたり50リクエストです。
 
 新しい契約の顧客は、契約された月間アクティブユーザー数に基づくバースト（秒単位）およびステディ（時間単位）の制限が適用される場合があります。
@@ -77,7 +79,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | オプション | 属性オブジェクトの配列 | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)を参照 |
 | `events` | オプション | イベントオブジェクトの配列 | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照 |
 | `purchases` | オプション | 購入オブジェクトの配列 | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-requests}
 

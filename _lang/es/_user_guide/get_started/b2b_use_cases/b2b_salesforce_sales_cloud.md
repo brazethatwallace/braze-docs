@@ -63,7 +63,7 @@ Utiliza plantillas para reutilizar rápidamente este webhook en toda la platafor
 | URL del webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/`{% endraw %} |
 | Método HTTP | `POST` |
 | Cuerpo de la solicitud | Pares clave-valor de JSON |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redactar webhook" }
 
 #### Valores clave de la propiedad del cuerpo {#body-property-key-values}
 
@@ -75,7 +75,7 @@ Selecciona **+ Add New Body Property** para cada uno de los pares clave-valor qu
 | lastName | {% raw %}`{{${last_name}}}`{% endraw %} |
 | email | {% raw %}`{{${email_address}}}`{% endraw %} |
 | company | {% raw %}`{{custom_attribute.${company}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores clave de la propiedad del cuerpo" }
 
 #### Encabezados de solicitud {#request-headers}
 
@@ -85,7 +85,7 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de solicitud" }
 
 {: start="4" }
 4. Selecciona **Save Template**.
@@ -98,7 +98,7 @@ Para configurar un webhook de Braze para Salesforce Sales Cloud que actualice cl
 
 Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente potencial a "MQL" (Marketing Qualified Lead) después de que un cliente potencial supere un determinado umbral. Esta es una parte fundamental de nuestro caso de uso del [flujo de trabajo de puntuación de clientes potenciales B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
 
-### Paso 1: Recopila tu `client_id` y `client_secret` {#step-1-collect-your-clientid-and-clientsecret}
+### Paso 1: Recopila tu `client_id` y `client_secret`
 
 1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Manager**.
 2. Busca tu aplicación Braze recién creada y selecciona **View**.
@@ -106,31 +106,31 @@ Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente po
 4. En la página resultante, toma nota de tu **Consumer Key** y tu **Consumer Secret**.
     - La **Consumer Key** es tu `client_id`, y el **Consumer Secret** es tu `client_secret`.
 
-### Paso 2: Configura tu plantilla de webhook {#step-2-set-up-your-webhook-template}
+### Paso 2: Configura tu plantilla de webhook
 
 1. En Braze, ve a **Plantillas**, selecciona **Plantillas de Webhook** y luego selecciona **+ Crear plantilla de webhook**.
 2. Proporciona un nombre para la plantilla, como "Salesforce Sales Cloud > Actualizar cliente potencial a MQL".
 3. En la pestaña **Redactar**, introduce los siguientes datos:
 
-#### Redactar webhook {#compose-webhook}
+#### Redactar webhook
 
 | Campo | Detalles |
 | --- | --- |
 | URL del webhook | {% raw %}`https://[insert_instance_name].my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} |
 | Método HTTP | `PATCH` |
 | Cuerpo de la solicitud | Pares clave-valor de JSON |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redactar webhook" }
 
-#### Valores clave de la propiedad del cuerpo {#body-property-key-values}
+#### Valores clave de la propiedad del cuerpo
 
 Selecciona **+ Add New Body Property** para el siguiente par clave-valor. Ten en cuenta que `Lead_Stage__c` es un nombre de ejemplo. El campo personalizado que utilizas para hacer seguimiento de los MQL en Salesforce puede tener un nombre diferente, así que asegúrate de que coincidan.
 
 | Clave | Valor |
 | --- | --- |
 | `Lead_Stage__c` | `MQL` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Valores clave de la propiedad del cuerpo" }
 
-#### Encabezados de solicitud {#request-headers}
+#### Encabezados de solicitud
 
 Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de solicitud.
 
@@ -138,7 +138,7 @@ Selecciona **+ Add New Header** para cada uno de los siguientes encabezados de s
 | --- | --- |
 | Authorization | {% raw %}`{% connected_content https://[insert_instance_name].my.salesforce.com/services/oauth2/token     :method post     :body client_id=[insert_client_id]&client_secret=[insert_client_secret]&grant_type=client_credentials     :save result %}Bearer {{result.access_token}}`{% endraw %} |
 | Content-Type | `application/json` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de solicitud" }
 
 {: start="4"}
 4. Selecciona **Save Template**.

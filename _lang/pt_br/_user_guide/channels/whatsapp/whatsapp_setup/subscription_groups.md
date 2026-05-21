@@ -24,7 +24,7 @@ Existem dois estados de inscrição para usuários do WhatsApp: `subscribed` e `
 | --- | --- |
 | Inscrito | O usuário confirmou explicitamente que deseja receber mensagens do WhatsApp de uma empresa específica. Os usuários podem ser inscritos tendo seu estado de inscrição atualizado por meio da API de inscrição da Braze ou implantando uma estratégia de opt-in, conforme as diretrizes do WhatsApp. |
 | Cancelou inscrição | O usuário não deu consentimento explícito para opt-in ou seu status de opt-in foi explicitamente removido. <br><br> Usuários que cancelaram a inscrição de um grupo de inscrições do WhatsApp não receberão mais nenhuma mensagem do WhatsApp dos números de telefone de envio que pertencem ao grupo de inscrições. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
 
 ### Configurando os grupos de inscrições do WhatsApp dos usuários {#setting-users-whatsapp-subscription-groups}
 

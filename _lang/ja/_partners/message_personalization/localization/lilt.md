@@ -44,7 +44,7 @@ LILTのAIを使用して、一刻を争うコミュニケーションのため�
 | LILTアカウント | このパートナーシップを利用するには、LILTアカウントが必要です。 |
 | Braze REST APIキー | 以下の権限を持つBraze REST APIキー：<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`<br><br> このキーはBrazeダッシュボードの**設定** > **APIキー**から作成します。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントはインスタンスのBraze URLに応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 
 ## 統合 {#integration}

@@ -16,9 +16,9 @@ toc_headers: h2
 
 > 이 엔드포인트를 사용하여 커스텀 이벤트 및 구매를 기록하고 고객 프로필 속성을 업데이트하세요.
 
-{% alert note %}
-Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 고객은 불필요한 데이터 포인트 로깅을 최소화하기 위해 델타(변경된 데이터)만 전달해야 합니다. 자세한 내용은 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)를 참조하세요.
-{% endalert %}
+{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+
+Braze는 API를 통해 전달된 데이터를 액면 그대로 처리하며, 불필요한 데이터 포인트 로깅을 최소화하기 위해 델타(변경된 데이터)만 전달해야 합니다.
 
 ## 대량으로 사용자를 업데이트해야 하나요? {#need-to-update-users-in-bulk}
 
@@ -62,7 +62,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | 선택 사항 | 속성 오브젝트 배열 | [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) 보기 |
 | `events` | 선택 사항 | 이벤트 오브젝트 배열 | [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) 보기 |
 | `purchases` | 선택 사항 | 구매 오브젝트 배열 | [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) 보기 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### 식별자 확인 {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | --------------- | ----------- | -------- |
 | 기본 | `external_id`, `user_alias`, `braze_id` | 고객 프로필 조회에 사용됩니다. 요청 오브젝트당 하나의 기본 식별자만 허용되며, 둘 이상을 포함하면 해당 오브젝트가 거부됩니다. |
 | 보조 | `email`, `phone` | 기본 식별자가 없는 경우에**만** 고객 프로필 조회에 사용됩니다. 기본 식별자 없이 `email`과 `phone`이 모두 포함된 경우 `email`이 우선합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 기본 식별자가 있는 경우 동일한 요청 오브젝트의 `email` 또는 `phone` 값은 사용자 조회를 위한 식별자가 아닌 프로필 속성으로 처리됩니다. 예를 들어, 요청에 `external_id`와 `email`이 모두 포함된 경우:
 
@@ -325,7 +325,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 | `EMAIL_BAD_FORMAT` | `email`에 제공된 값이 유효한 이메일 주소가 아닙니다. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | `external_id`가 최대 허용 길이인 987바이트를 초과합니다. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info`는 유효한 속성이 아닙니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -379,7 +379,7 @@ Braze는 이메일 주소로 고객 프로필 업데이트 요청 예시에 나�
 | `X-RateLimit-Limit`     | 기간당 허용되는 요청 수 |
 | `X-RateLimit-Remaining` | 기간 내에 남아 있는 대략적인 요청 수 |
 | `X-RateLimit-Reset`     | 현재 기간이 재설정되기까지 남은 시간(초) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 HTTP `429` 오류가 발생하면 `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` 헤더는 반환되지 않습니다. 오류가 발생하면 해당 헤더는 요청을 다시 시작할 수 있는 시간(초)을 나타내는 정수를 반환하는 `X-Ratelimit-Retry-After` 헤더로 대체됩니다.
 

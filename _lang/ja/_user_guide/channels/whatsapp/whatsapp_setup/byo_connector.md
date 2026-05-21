@@ -10,17 +10,17 @@ channel:
 
 # Bring Your Own WhatsAppコネクター {#bring-your-own-whatsapp-connector}
 
-> Bring Your Own（BYO）WhatsAppコネクターは、BrazeとInfobipのパートナーシップを提供するもので、BrazeにInfobip WhatsApp Business Manager（WABA）へのアクセスを許可します。これにより、Brazeでセグメンテーション、パーソナライゼーション、Campaignオーケストレーションを活用しながら、メッセージングコストをInfobipと直接管理・支払いできます。Brazeは、送信メッセージ、受信メッセージ処理、WhatsAppフロー、分析など、WhatsAppチャネルが提供する既存の機能をすべて維持します。
+> Bring Your Own（BYO）WhatsAppコネクターは、BrazeとInfobipのパートナーシップを提供するもので、BrazeにInfobip WhatsApp Business Manager（WABA）へのアクセスを許可します。これにより、Brazeでセグメンテーション、パーソナライゼーション、キャンペーンオーケストレーションを活用しながら、メッセージングコストをInfobipと直接管理・支払いできます。Brazeは、送信メッセージ、受信メッセージ処理、WhatsAppフロー、分析など、WhatsAppチャネルが提供する既存の機能をすべて維持します。
 
 ## 要件 {#requirements}
 
 | 要件 | 説明 |
 | --- | --- |
 | Infobipアカウント | BYO WhatsAppコネクターを使用するには、Infobipアカウントが必要です。 |
-| メッセージングクレジット | WhatsAppメッセージを送信する際に、Brazeメッセージングクレジットを消費します。 |
+| メッセージまたはアクションクレジット | WhatsAppメッセージを送信する際に、Brazeアクションクレジットを消費します。 |
 | WhatsApp要件 | すべての[WhatsApp要件]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites)を完了してください。 |
 | 電話番号 | 利便性のため、[Infobipを通じて電話番号を取得する](https://www.infobip.com/docs/numbers/getting-started)ことをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## セットアップ {#set-up}
 
@@ -104,7 +104,7 @@ WhatsApp Business Accountが別のBrazeワークスペースに接続されて�
 ### WhatsApp Business Account IDをInfobipと共有できない {#couldnt-share-whatsapp-business-account-id-with-infobip}
 
 1. WhatsApp Business AccountがBrazeまたは別のパートナーに接続されていないことを確認してください。
-2. WhatsApp Business Account内の電話番号が別のInfobipアカウントに接続されていないことを確認してください。インポートされた番号の場合は、Infobipで番号を見つけて **Cancel number** を選択できます。
+2. WhatsApp Business Account内の電話番号が別のInfobipアカウントに接続されていないことを確認してください。インポートされた番号の場合は、Infobipで番号を見つけて**Cancel number**を選択できます。
 
 ![Infobip番号の「Cancel number」ボタン。]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
 
@@ -117,4 +117,4 @@ Brazeの既存機能はすべてサポートされていますが、以下のユ
 | --- | --- |
 | BrazeとInfobipの両方で受信メッセージを処理する | いずれかのシステムによってトリガーされるロジックチェーンが発生し、重複した、場合によっては矛盾するメッセージスレッドが生成される可能性があるためです。 |
 | BrazeとInfobipの両方からメッセージを送信する | Brazeに接続されたWhatsApp Business Accountの場合、すべての送信はBrazeから行われます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }

@@ -97,7 +97,7 @@ The HTTP method you should use varies depending on the endpoint to which you are
 | GET | Retrieves existing information, as opposed to writing new information. By definition, a GET request does not support a request body. |
 | PUT | Updates information on the endpoint, replacing any existing information with what's in the request body. |
 | DELETE | Deletes the resource in the HTTP URL. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP method" }
 
 #### Request body
 
@@ -176,7 +176,7 @@ Next, build the remainder of your campaign. See the following sections for furth
 
 Webhooks can be delivered based on a scheduled time, an action, or based on an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-For action-based delivery, you can also set the campaign's duration and [Quiet Hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) rules.
 
@@ -230,7 +230,7 @@ When the webhook request is sent, the receiving server will return a response co
 | `429` (rate limited)  | No | Yes |
 | `Other 4XX` (client error)  | No | No |
 | `5XX` (server error)   | No | Yes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
 Braze retries the above status codes up to five times within 30 minutes using exponential backoff. If we can't reach your endpoint, retries may be spread over a 24-hour period.<br><br>Each webhook is allowed 90 seconds before it times out.

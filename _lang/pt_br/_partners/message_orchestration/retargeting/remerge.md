@@ -27,7 +27,7 @@ A integração da Braze com a Remerge ajuda você a desenvolver campanhas robust
 | ID do app para Android | Seu identificador exclusivo do aplicativo Braze para Android (como "com.example"). |
 | ID do app para iOS | Seu identificador exclusivo do aplicativo Braze para iOS (como "012345678"). |
 | Ativar a coleta de IDFA no SDK da Braze | A coleta de IDFA é opcional no SDK da Braze e fica desativada por padrão. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 

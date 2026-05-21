@@ -1,6 +1,6 @@
 ---
 nav_title: "Attribute des Nutzerprofils"
-article_title: Nutzer:innen-Attributansichten in Snowflake
+article_title: Attributansichten für Nutzer:innen in Snowflake
 page_order: 10
 page_type: partner
 search_tag: Partner
@@ -25,7 +25,8 @@ Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren Cust
 
 ## Verfügbare Ansichten {#available-views}
 
-<table>
+<table aria-label="Verfügbare Ansichten">
+  <caption>Verfügbare Ansichten</caption>
   <thead>
     <tr>
       <th>Typ</th>
@@ -62,7 +63,7 @@ Wenn Sie weitverbreitete Abweichungen feststellen, wenden Sie sich an Ihren Cust
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Ansichten" }
 
 ## Schnappschüsse von Nutzerprofilen {#user-profile-snapshots}
 
@@ -103,7 +104,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 
 ### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`-Schema
@@ -117,7 +118,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED-Schema" }
 
 ## Realtime-Ansichten des Nutzerprofils {#real-time-user-profile-views}
 
@@ -126,7 +127,7 @@ Diese Ansichten bieten nahezu Realtime-Updates der Attribute des Nutzerprofils, 
   - `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED`
   - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-### Verwendung {#usage}
+### Verwendung
 
 * Liefert aktuelle Attribute der Nutzer:innen mit minimaler Verzögerung (~10 Minuten).
 * Nützlich für Realtime-Analysen und Szenarien, in denen aktuelle Daten benötigt werden.
@@ -160,7 +161,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED-Schema" }
 
 ### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`-Schema
 
@@ -173,18 +174,18 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED-Schema" }
 
 ## Historische Änderungsprotokolle {#historical-change-logs}
 
-Diese Ansichten speichern historische Änderungsprotokolle von Nutzer:innen-Attributen, wobei Änderungen mit einer Granularität von 12 Stunden erfasst werden.
+Diese Ansichten speichern historische Änderungsprotokolle von Nutzerattributen, wobei Änderungen mit einer Granularität von 12 Stunden erfasst werden.
 
 - `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 
-### Verwendung {#usage}
+### Verwendung
 
-* Bietet eine Aufzeichnung historischer Änderungen an Nutzer:innen-Attributen.
+* Bietet eine Aufzeichnung historischer Änderungen an Nutzerattributen für einen rollierenden Zeitraum von 6 Monaten.
 * Die Daten werden alle 12 Stunden in einem Snapshot festgehalten, d. h. mehrere Updates in diesem Fenster werden zu einem einzigen Datensatz zusammengefasst. Einzelne Änderungen innerhalb dieses Zeitraums werden nicht separat gespeichert.
 * `EFF_DT` und `END_DT` markieren den Beginn und das Ende des Attribut-Status einer:eines Nutzer:in.
 
@@ -215,7 +216,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED-Schema" }
 
 ### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`-Schema
 
@@ -230,7 +231,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED-Schema" }
 
 ## Best Practices
 
@@ -241,7 +242,7 @@ Das Feld `TIME` gibt den Zeitpunkt des Nutzerprofil-Updates an. Bei nachträglic
 | **Allgemeine Abfragen**, die keine aktuellen Updates erfordern | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` und `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | Schnelle Ausführung, mit Daten, die bis zu 12 Stunden alt sind.                          |
 | Abfragen, die die **neuesten Attribute der Nutzer:innen** erfordern       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` und `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | Bietet Updates nahezu in Realtime, kann aber bei großen Datenmengen langsamer sein. |
 | **Historisches Tracking** von Attributänderungen           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` und `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | Speichert Attributänderungen mit einer Granularität von 12 Stunden.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Empfohlene Abfrageverwendung" }
 
 ### Performance-Überlegungen {#performance-considerations}
 

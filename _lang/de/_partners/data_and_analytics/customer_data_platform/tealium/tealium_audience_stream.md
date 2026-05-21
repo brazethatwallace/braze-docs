@@ -68,7 +68,7 @@ Badges sind spezielle Visitor-Attribute, die wertvolle Verhaltensmuster darstell
 #### Attribut- und Badge-Beispiel {#attribute-and-badge-example}
 
 {% tabs local %}
-{% tab Attribute %}
+{% tab Attribut %}
 
 Erstellen Sie ein Visitor-Attribut „Lifetime Order Value“, das den kumulativen Betrag berechnet, den die Kund:innen für alle abgeschlossenen Bestellungen (Kauf-Event) ausgegeben haben (`order_total`). Um den Lifetime-Bestellwert in Ihrem Tealium-Konto einzurichten, befolgen Sie die folgenden Anweisungen:
 
@@ -144,7 +144,7 @@ Nicht alle angebotenen Felder sind erforderlich.
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab Track User – Batch und Non-Batch %}
 
 Mit dieser Aktion können Sie Nutzer:innen-, Event- und Kauf-Attribute in einer einzigen Aktion tracken. Obwohl die Aktion „Track User“ sowohl für AudienceStream als auch für EventStream gleich ist, empfiehlt Tealium, die Abbildungen der Nutzerattribute mit AudienceStream-Aktionen und die Event- und Kauf-Abbildungen mit EventStream-Aktionen einzurichten.
 
@@ -164,7 +164,7 @@ Mit dieser Aktion können Sie Nutzer:innen-, Event- und Kauf-Attribute in einer 
 ![]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab Delete User – Non-Batch %}
 
 Diese Aktion erlaubt es Ihnen, Nutzer:innen aus dem Braze-Dashboard zu löschen.
 
@@ -176,7 +176,7 @@ Diese Aktion erlaubt es Ihnen, Nutzer:innen aus dem Braze-Dashboard zu löschen.
 ![]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Update User Subscription Group Status - Non-Batch %}
+{% tab Update User Subscription Group Status – Non-Batch %}
 Mit dieser Aktion können Sie Nutzer:innen zu Braze-SMS- oder E-Mail-Abo-Gruppen hinzufügen oder daraus entfernen.
 
 | Parameter | Beschreibung |
@@ -216,7 +216,7 @@ Ausführlichere Anweisungen zur Implementierung des Trace-Tools von Tealium find
 ## Demo zur Integration {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Demo zur Tealium-AudienceStream-Integration" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Mögliche Mehrkosten für Datenpunkte {#potential-data-point-overages}

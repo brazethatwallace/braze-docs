@@ -68,11 +68,15 @@ Um ein bestimmtes Segment zu verwalten, bewegen Sie den Mauszeiger darüber und 
 
 Sie können auch Massenaktionen durchführen – insbesondere Massenarchivierung und Massen-Tagging – indem Sie die Kontrollkästchen neben mehreren Segment-Namen aktivieren.
 
+{% alert tip %}
+Wenn Sie einen maschinenlesbaren Export der vorhandenen Segments im Workspace benötigen (nicht nur die aktuelle Tabellenansicht), verwenden Sie den [Endpunkt „Segment-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) und blättern Sie durch die Ergebnisse. Um archivierte Segments zu überprüfen, sehen Sie diese separat im **Segments**-Dashboard mithilfe des Statusfilters ein.
+{% endalert %}
+
 ![Mehrere ausgewählte Segments mit „CRM“ als ausgewähltem Wert im Dropdown-Feld „Tag As“.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### Änderungen seit der letzten Ansicht {#changes-since-last-viewed}
 
-Die Anzahl der Aktualisierungen an den Segments durch andere Mitglieder Ihres Teams wird durch die Metrik *Änderungen seit der letzten Ansicht* auf der Segment-Übersichtsseite erfasst. Wählen Sie **Changes Since Last Viewed**, um ein Changelog der Aktualisierungen an Name, Beschreibung und Zielgruppe des Segments anzuzeigen. Für jede Aktualisierung können Sie sehen, wer sie durchgeführt hat und wann. Sie können dieses Changelog verwenden, um Änderungen an Ihrem Segment zu überprüfen.
+Die Anzahl der Aktualisierungen an den Segments durch andere Mitglieder Ihres Teams wird durch die Metrik *Changes Since Last Viewed* auf der Segment-Übersichtsseite erfasst. Wählen Sie **Changes Since Last Viewed**, um ein Changelog der Aktualisierungen an Name, Beschreibung und Zielgruppe des Segments anzuzeigen. Für jede Aktualisierung können Sie sehen, wer sie durchgeführt hat und wann. Sie können dieses Changelog verwenden, um Änderungen an Ihrem Segment zu überprüfen.
 
 ## Nach Segments suchen {#searching-for-segments}
 
@@ -82,7 +86,7 @@ Alle in dieses Feld eingegebenen Begriffe und Zeichenfolgen werden durchsucht. W
 
 ![Die Suchergebnisse für die Eingabe von „all users“ in das Suchfeld umfassen „All Users (Test)“, „All Users“, „All Users 15“.]({% image_buster /assets/img/segment/segments_search.png %})
 
-### Segments in Canvases
+### Segments in Canvases {#segments-in-canvases}
 
 Um alle Segment-Referenzen zu durchsuchen, einschließlich derer in anderen Segments, Campaigns oder Canvases, gehen Sie zum Abschnitt [Messaging-Nutzung](#messaging-use) eines Segments. Der Filter **Target segment** auf der **Canvas**-Seite durchsucht nur Canvas-Zielgruppen-Segments.
 
