@@ -4,18 +4,19 @@ Welcome to Braze Docs!
 ===
 
 
+[Releases](https://github.com/braze-inc/braze-docs/releases) · [Deployments](https://github.com/braze-inc/braze-docs/deployments)
+
 This repository contains the source files for [Braze Docs](http://www.braze.com/docs), which hosts all user, developer, partner, and API documentation for the Braze customer engagement platform.
 
 If you'd like to help improve the docs, you can:
 
-- [Report an issue](https://github.com/braze-inc/braze-docs/issues/new?assignees=&labels=issue&projects=&template=report_an_issue.md&title=)
-- [Request a feature](https://github.com/braze-inc/braze-docs/issues/new?assignees=&labels=enhancement&projects=&template=request_a_feature.md&title=)
-- [Contribute](https://www.braze.com/docs/contributing/home)
+- [Submit a request](https://www.braze.com/docs/request) or ask in [#ask-docs](https://braze.enterprise.slack.com/archives/C0D10FTGQ) on Slack
+- [Contribute](.github/CONTRIBUTING.md) (see [docs/contributing/README.md](docs/contributing/README.md) for the full handbook)
 
 ## Quick start
 
 > [!TIP]
-> For a full walkthrough, see [Contributing to Braze Docs](https://www.braze.com/docs/contributing/home/).
+> For a full walkthrough, see [Contributing to Braze Docs](docs/contributing/README.md).
 
 To build the docs locally, you'll need Ruby version `3.3.0` installed. In the terminal, open `braze-docs` and check for Ruby version `3.3.0`.
 
@@ -56,22 +57,26 @@ rake ja
 rake ko
 rake pt_br
 
-# to render content in '{% markdown_embed %}' tags:
+# Partner hub tiles (Sanity) fetch automatically when `partner_api: true` in `_config.yml`.
+# To skip that network call (offline / faster builds): PARTNER_API=false rake
+
+# to render content in '{% markdown_embed %}' tags (e.g. Developer Guide changelogs):
 MARKDOWN_API=true rake
-
-# to render tiles on partner landing pages:
-PARTNER_API=true rake
-
-# to render both APIs:
-MARKDOWN_API=true PARTNER_API=true rake
 ```
 
 > [!NOTE]
-> Prepending `MARKDOWN_API=true` to your rake command lets you preview content within a `{% markdown_embed %}` tag, such as the content on the [Developer Guide: Changelogs](https://www.braze.com/docs/developer_guide/changelogs/) page. Prepending `PARTNER_API=true` lets you render the tiles on a partner landing page, such as [Technology Partners](https://www.braze.com/docs/partners/home/).
+> Prepending `MARKDOWN_API=true` to your rake command lets you preview content within a `{% markdown_embed %}` tag, such as the content on the [Developer Guide: Changelogs](https://www.braze.com/docs/developer_guide/changelogs/) page. Technology [Partners](https://www.braze.com/docs/partners/home/) hub tiles load from Sanity whenever `partner_api` is enabled in `_config.yml` (the default). Use `PARTNER_API=false` if you need to skip that network request locally.
+
+### Faster local builds
+
+Jekyll spends a lot of I/O copying static assets (for example images under `assets/`). For day-to-day work you can:
+
+- **Serve:** `rake` already uses `--incremental` and `_incremental_config.yml` (`keep_files` for `assets`). Restarting the server no longer deletes `.jekyll-metadata` by default, so incremental state is preserved. Run `JEKYLL_CLEAN=1 rake` when you need a full clean rebuild.
+- **One-off build:** `bundle exec rake docs_en:build_fast` (English) or `bundle exec rake "lang:build_fast[fr]"` (other locales). Alternatively, `JEKYLL_FAST=1 bundle exec rake docs_en:build` enables the same merged config and `--incremental` for the standard build task.
 
 ## About `bdocs` wrapper
 
-[`bdocs`](https://github.com/braze-inc/braze-docs/blob/develop/bdocs) is a wrapper script located in the root of this repository that helps you replace links, generate redirect URLs, create deployment descriptions, and more. For an in-depth walkthrough, see [`bdocs` wrapper](https://www.braze.com/docs/contributing/bdocs/). To get started quickly, run the following command to see a list of available commands:
+[`bdocs`](https://github.com/braze-inc/braze-docs/blob/develop/bdocs) is a wrapper script located in the root of this repository that helps you replace links, generate redirect URLs, create deployment descriptions, and more. For an in-depth walkthrough, see [`bdocs` wrapper](docs/contributing/bdocs.md). To get started quickly, run the following command to see a list of available commands:
 
 ```terminal
 ./bdocs

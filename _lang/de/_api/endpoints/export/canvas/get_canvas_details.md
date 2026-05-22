@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Canvas-Details exportieren"
 article_title: "GET: Canvas-Details exportieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -9,7 +9,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 
 ---
 {% api %}
-# Canvas-Details exportieren
+# Canvas-Details exportieren {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
@@ -18,24 +18,24 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.details`.
 
-## Rate-Limits
+## Rate-Limits {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfrageparameter
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
 | `canvas_id` | Erforderlich | String | Siehe [Canvas-API-Bezeichner]({{site.baseurl}}/api/identifier_types/) |
-| `post_launch_draft_version` | Optional | Boolescher Wert | Für Canvase mit einem Entwurf nach dem Start werden bei der Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardwert ist `false`. |
+| `post_launch_draft_version` | Optional | Boolescher Wert | Für Canvases mit einem Entwurf nach dem Start werden bei der Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardwert ist `false`. |
 | `include_has_translatable_content` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, enthält die API-Antwort ein `has_translatable_content`-Feld für jede Nachricht. Standardwert ist `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 
 {% raw %}
 ```
@@ -44,7 +44,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## Antworten
+## Antworten {#responses}
 
 {% alert note %}
 Alle Canvas-Schritte verfügen über ein `next_paths`-Feld, bei dem es sich um ein Array von `{name, next_step_id}`-Daten handelt. Bei Nachrichtenschritten ist das `next_step_ids`-Feld vorhanden, enthält jedoch keine Daten für andere Canvas-Schritte.
@@ -104,7 +104,7 @@ Alle Canvas-Schritte verfügen über ein `next_paths`-Feld, bei dem es sich um e
 }
 ```
 
-### Nachrichten nach Kanal
+### Nachrichten nach Kanal {#messages-by-channel}
 
 Im Folgenden finden Sie eine Beispielantwort mit Canvas-Nachrichten, die über verschiedene Kanäle (E-Mail, Push, SMS und In-App-Nachrichten) gesendet wurden:
 
@@ -220,7 +220,7 @@ Im Folgenden finden Sie eine Beispielantwort mit Canvas-Nachrichten, die über v
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung beim Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

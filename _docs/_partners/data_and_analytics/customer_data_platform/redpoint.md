@@ -33,7 +33,7 @@ You'll configure an export template and outbound channel for each mode.
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Redpoint Data Management artifacts | The Braze integration is supported by a set of Redpoint Data Management artifacts. Contact [Redpoint Support](https://support.redpointglobal.com/hc/en-us/restricted?return_to=https%3A%2F%2Fsupport.redpointglobal.com%2Fhc%2Fen-us) to request the artifacts for your version of Redpoint Data Management. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Redpoint CDP custom attributes
 
@@ -46,7 +46,7 @@ The following Redpoint custom attributes can be added to a Braze user profile.
 | `rpi_offers`         | Array of offer tags where the user is targeted in a Redpoint Outbound Delivery Braze channel execution                   |
 | `rpi_contact_ids`    | Array of offer history contact IDs where the user is targeted in a Redpoint Outbound Delivery Braze channel execution     |
 | `rpi_channel_exec_ids`| Array of channel execution IDs where the user is targeted in a Redpoint Outbound Delivery Braze channel execution       |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Redpoint CDP custom attributes" }
 
 ![]({% image_buster /assets/img/redpoint/rpi_to_braze_custom_attributes.png %}){: style="max-width:75%;"}
 
@@ -73,7 +73,7 @@ The following table lists Redpoint CDP attributes and their corresponding Braze 
 | Gender             | `gender`         |
 | Primary City       | `home_city`      |
 | Primary Phone      | `phone`          |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1a: Create the Braze Onboarding and Upsert template" }
 
 Add the **Output Name** attribute from the **Offer History** table. Lastly, add any additional custom Redpoint attributes you want to merge into Braze. For example, the following is an onboarding and upsert template with education, income, and marital status as additional attributes.
 

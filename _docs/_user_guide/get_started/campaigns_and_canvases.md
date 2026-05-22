@@ -9,7 +9,7 @@ description: "This article provides an overview of the different ways you can se
 
 # Get started: Campaigns and Canvases
 
-In Braze, you can send messages either through a [campaign](#campaigns) or a [Canvas](#canvas).
+> This article provides an overview of the different ways you can send messages with Braze. In Braze, you can send messages either through a [campaign](#campaigns) or a [Canvas](#canvas).
 
 - For sending a single targeted message to a group of users, choose a campaign. A campaign is a single message step to connect with your users on various messaging channels.
 - For sending a series of ongoing messages in an overarching customer journey, choose Canvas, our journey orchestration tool. While campaigns are good for sending simple, targeted messages, Canvases are where you take your relationships with customers to the next level.
@@ -24,7 +24,7 @@ While campaigns can be built uniquely depending on the channel, there are four m
 | A/B testing          | For campaigns targeting a single channel, you can send more than one version of the same campaign and see which one comes out on top. You can test copy, personalization, and more for up to eight different versions with a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/). |
 | API                  | [API campaigns]({{site.baseurl}}/api/api_campaigns/) let you send timely messages as quickly as possible. Unlike other campaign types, you don't specify the message, recipients, or schedule in the Braze dashboard. Instead, you pass these identifiers into your API calls. These are typically used for real-time transactional messaging or breaking news.  |
 | Transactional Emails | Braze [Transactional Emails]({{site.baseurl}}/user_guide/channels/email/) are purpose-built for sending automated, non-promotional email messages to facilitate an agreed-upon transaction between you and your customers. They send business-critical notifications to a single user where speed is of the utmost importance. *Available for select packages.* |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 {% alert note %}
 Regular and A/B test campaigns can be scheduled (such as informing a list of users about an upcoming event) or automated to send in response to a user's action (such as sending an email when someone subscribes to your newsletter). Learn more about [scheduling campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
@@ -77,7 +77,7 @@ The following table outlines our supported channels.
 | [Connected TV]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/)                           | Engage with users on connected television platforms.                                                                                                   |
 | [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) | Enable real-time communication and integration with external systems through custom HTTP callbacks.                                                    |
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | Engage with users on LINE, the most popular messaging app in Japan.                                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging channels" }
 
 <sup>**Available as an add-on feature.*</sup>
 

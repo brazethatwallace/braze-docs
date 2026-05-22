@@ -6,7 +6,7 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "Parceiros de tecnologia"
-partner_top_text: "Bem-vindo à nossa lista de Alloys — nossos parceiros de tecnologia da Braze. Use esta página para implementar parceiros de tecnologia com o SDK da Braze. Na Braze, acesse <b>Integrações com parceiros</b> > <b>Parceiros de tecnologia</b> para se conectar com qualquer um dos parceiros listados nesta página. <br> <br> Se você está procurando informações sobre como participar da nossa comunidade Firebrands de clientes que usam a Braze para modernizar a experiência do cliente e o marketing, confira nosso <a href='https://brazefirebrands.splashthat.com/'>Programa Customer Champions</a>."
+partner_top_text: "Bem-vindo à nossa lista de Alloys — nossos parceiros de tecnologia da Braze. Use esta página para implementar parceiros de tecnologia com o SDK da Braze. Na Braze, acesse <b>Integrações de parceiros</b> > <b>Parceiros de tecnologia</b> para se conectar com qualquer um dos parceiros listados nesta página. <br> <br> Se você vir <b>Credenciais inválidas</b> para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro. <br> <br> Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de Parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão que a Braze utiliza para sincronização e envio. <br> <br> Se você está procurando informações sobre como participar da nossa comunidade Firebrands de clientes que usam a Braze para modernizar a experiência do cliente e o marketing, confira nosso <a href='https://brazefirebrands.splashthat.com/'>Programa Customer Champions</a>."
 description: "Essa landing page inclui todos os parceiros da Braze. Use-a para explorar a documentação técnica que ajudará a implementar parceiros de tecnologia no SDK da Braze."
 
 valid_partner_list:
@@ -104,6 +104,8 @@ valid_partner_list:
   url: /docs/partners/amazon_personalize/
 - name: Certona
   url: /docs/partners/certona/
+- name: CataBoom
+  url: /docs/partners/cataboom/
 - name: Playable
   url: /docs/partners/playable/
 - name: Movable Ink
@@ -282,8 +284,12 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
+- name: GRAVTY by Loyalty Juggernaut
+  url: /docs/partners/lji/
 - name: Alpaco
   url: /docs/partners/alpaco/
 - name: NiftyImages
@@ -346,8 +352,8 @@ valid_partner_list:
   url: /docs/partners/tapcart/
 - name: Mention Me
   url: /docs/partners/mention_me/
-- name: Just Words
-  url: /docs/partners/just_words/
+- name: JustAI
+  url: /docs/partners/just_ai/
 - name: Eagle Eye
   url: /docs/partners/eagle_eye/
 - name: Eppo
@@ -410,6 +416,8 @@ valid_partner_list:
   url: /docs/partners/figma/
 - name: Poq
   url: /docs/partners/poq/
+- name: The Trade Desk
+  url: /docs/partners/trade_desk_audience_sync/
 - name: VideoSmart
   url: /docs/partners/videosmart/
 ---

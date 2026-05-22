@@ -2,7 +2,7 @@
 nav_title: Email sign-up with discount
 article_title: Email Sign-up with Discount
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "This reference page covers how to use the in-app message drag-and-drop editor to build an email sign-up form that offers a discount for new subscribers."
 ---
 

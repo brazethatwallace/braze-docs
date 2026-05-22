@@ -31,7 +31,7 @@ Wenn Sie von den angegebenen Schritten abweichen, kann dies zu unerwarteten Prob
 
 1. Befolgen Sie die vorgegebenen Schritte zur [Einrichtung der Shopify Standard-Integration]({{site.baseurl}}/shopify_standard_integration/). Markieren Sie beim [Enablement von Braze Web SDKs]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-2-enable-braze-web-sdks) das Kästchen, das angibt, dass Sie ein Tool eines Drittanbieters verwenden, um das Braze Web SDK zu Ihrer Shopify-Website hinzuzufügen.
 
-!["Braze SDK-Einstellungen" mit einem Kontrollkästchen, um anzugeben, dass Sie ein Tool eines Drittanbieters verwenden werden, um das Braze Web SDK hinzuzufügen.]({% image_buster /assets/img/Shopify/third_party_enable.png %}){: style="max-width:80%;"}
+!["Braze SDK-Einstellungen" mit einem Kontrollkästchen, um anzugeben, dass Sie ein Tool eines Drittanbieters verwenden werden, um das Braze Web SDK hinzuzufügen.]({% image_buster /assets/img/shopify/third_party_enable.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2\. Gehen Sie zu **Einstellungen** > **App-Einstellungen**, wählen Sie die **Shopify** Web-App aus und kopieren Sie dann den **API-Schlüssel für Shopify im Internet**.

@@ -1,25 +1,32 @@
 ---
-nav_title: API d’exportation
-article_title: API d’exportation
-page_order: 8
+nav_title: API d'exportation
+article_title: API d'exportation
+page_order: 5
 page_type: reference
-description: "Cet article de référence explique pourquoi il est parfois préférable d’exporter programmatiquement les données du tableau de bord dans un fichier JSON plutôt que directement dans un fichier CSV."
+description: "Cet article de référence vous aide à déterminer quand utiliser les API d'exportation plutôt que les téléchargements CSV depuis le tableau de bord."
 platform: API
 
 ---
 
-# API d’exportation
+# API d'exportation {#export-apis}
 
-> Cette page couvre les API d'exportation de Braze, qui vous permettent d'exporter par programme un fichier JSON de données de tableau de bord. Reportez-vous à [Export endpoints]({{site.baseurl}}/api/endpoints/export/) pour obtenir une liste des données auxquelles vous pouvez accéder, ainsi que des instructions et un exemple de code pour l'exportation.
+> Cette page vous aide à déterminer quand utiliser les API d'exportation plutôt que les téléchargements CSV depuis le tableau de bord.
 
-## Quand utiliser les API d'exportation au lieu des téléchargements CSV ?
+Les API d'exportation de Braze vous permettent d'exporter par programme des données Braze au format JSON. Pour en savoir plus sur ce que vous pouvez exporter, les conditions préalables et le fonctionnement de la distribution, consultez les [endpoints d'exportation]({{site.baseurl}}/api/endpoints/export/).
 
-Voici certaines des raisons qui justifient d’utiliser cette méthode plutôt qu’une exportation directe du tableau de bord vers un fichier CSV :
+## Quand utiliser les API d'exportation plutôt que les téléchargements CSV {#when-to-use-export-apis-instead-of-csv-downloads}
 
- - Votre fichier est très volumineux. À partir de notre tableau de bord, vous pouvez exporter un CSV de 500 000 lignes maximum. Si vous exportez des données sur un segment comptant plus de 500 000 utilisateurs, vous devrez utiliser notre API d'exportation, qui n'impose aucune limite à la quantité de données que vous pouvez exporter.
- -  Vous souhaitez interagir avec les données de manière programmatique.
+Le tableau suivant décrit les scénarios courants dans lesquels l'utilisation de l'API d'exportation est préférable à un téléchargement CSV depuis le tableau de bord.
+
+| Scénario | Détails |
+| --- | --- |
+| Votre exportation est trop volumineuse pour le tableau de bord | Les exportations CSV du tableau de bord sont limitées à 500 000 lignes. Si vous exportez des données sur un segment comptant plus de 500 000 utilisateurs, utilisez l'API d'exportation, qui n'impose aucune limite sur la quantité de données exportables. |
+| Vous souhaitez automatiser des rapports récurrents | Planifiez des exportations API via une intégration pour récupérer des données à intervalles réguliers sans interaction manuelle avec le tableau de bord. |
+| Vous devez alimenter des outils externes en données | Transmettez les données exportées directement vers des outils de BI, des entrepôts de données ou d'autres plateformes d'analyse. |
+| Vous avez besoin de données non disponibles en téléchargement CSV depuis le tableau de bord | Certaines catégories de données, notamment les indicateurs clés de performance, les séries de chiffre d'affaires, l'analyse des événements personnalisés et les données de session, ne sont disponibles que via l'API. |
+| Vous souhaitez interagir avec les données de manière programmatique | Utilisez la sortie JSON pour des traitements personnalisés, des transformations ou des intégrations. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quand utiliser les API d'exportation plutôt que les téléchargements CSV" }
 
 {% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, reportez-vous à la [résolution des problèmes d'exportation.]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la [résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
-

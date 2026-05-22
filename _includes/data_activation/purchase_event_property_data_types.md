@@ -10,6 +10,6 @@ Property values can be any of the following data types:
 | String | 255 characters or fewer |
 | Array | Supported; datetimes are not supported within arrays. |
 | Object | Ingested as strings (not nested objects). For nested data, use a string value (for example, JSON serialized). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 The following keys are reserved and cannot be used as property names: `time`, `product_id`, `quantity`, `event_name`, `price`, and `currency`. Using a reserved key in the `properties` object returns the error "Invalid 'properties' field".

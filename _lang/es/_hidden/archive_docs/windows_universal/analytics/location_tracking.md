@@ -8,8 +8,8 @@ tool: Location
 hidden: true
 ---
 
-# Seguimiento de la ubicación
+# Seguimiento de la ubicación {#location-tracking}
 {% multi_lang_include archive/windows_deprecation.md %}
 
 1. Asegúrate de que en tu archivo `Package.appxmanifest` está marcada la casilla `location`.
-2. Si quieres desactivar el seguimiento de ubicación automático, configura `<DisableLocationCollection>false</DisableLocationCollection>` en `true` en tu `AppboyConfiguration.xml`.
+2. Si quieres desactivar el seguimiento de ubicación automático, cambia `<DisableLocationCollection>false</DisableLocationCollection>` a `true` en tu `AppboyConfiguration.xml`.

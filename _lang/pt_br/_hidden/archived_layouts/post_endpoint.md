@@ -13,7 +13,7 @@ noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
 {% api %}
-# [Nome do Endpoint]
+# [Nome do endpoint] {#endpoint-name}
 
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
@@ -21,17 +21,17 @@ noindex: true
 
 <!--
 This is the description of the endpoint. API descriptions usually start with "Use this endpoint to..."-->
-Use esse endpoint para remover números telefônicos "inválidos" da lista de inválidos no Braze. Isso pode ser usado para revalidar números de telefone depois de terem sido marcados como inválidos.
+Use esse endpoint para remover números de telefone "inválidos" da lista de inválidos na Braze. Isso pode ser usado para revalidar números de telefone depois de terem sido marcados como inválidos.
 
 <!-- Your postman link. Once you have published the endpoint to postman, you will be able get a direct link to the information in the postman docs to share here-->
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1614a82f-510a-4c37-95a6-8207a125e487 {% endapiref %}
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 <!-- The rate limit of the endpoint. This pulls from /includes/rate_limits/ and displays specific endpoint limits based on the endpoint provided -->
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 <!--This is where you can give more information about your endpoint request body. -->
 
@@ -46,16 +46,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Parâmetros de solicitação
+### Parâmetros de solicitação {#request-parameters}
 
 <!--This is a place for you to describe additional details for the parameters in the request body.-->
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Obrigatória | Matriz de strings no formato e.164  | Uma matriz de até 50 números telefônicos para modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone_number` | Obrigatório | Matriz de strings no formato e.164 | Uma matriz de até 50 números de telefone para modificar. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 <!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
 

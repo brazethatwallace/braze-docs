@@ -1,6 +1,6 @@
-{% multi_lang_include developer_guide/prerequisites/android.md %} Außerdem müssen Sie [In-App-Nachrichten einrichten]({{site.baseurl}}/developer_guide/in_app_messages).
+{% multi_lang_include developer_guide/prerequisites/android.md %} Außerdem müssen Sie [In-App-Nachrichten einrichten]({{site.baseurl}}/developer_guide/in_app_messages/).
 
-## Angepasste Manager-Listener einstellen
+## Angepasste Manager-Listener einstellen {#setting-custom-manager-listeners}
 
 {% tabs %}
 {% tab global listener %}
@@ -12,15 +12,15 @@ Das Braze SDK verfügt über die Standardklasse `DefaultHtmlInAppMessageActionLi
 
 Dieser Listener gilt für __beide__ Nachrichtentypen – sowohl für Nachrichten, die mit angepasstem HTML erstellt wurden, als auch für Nachrichten, die mit dem Drag-and-Drop-Editor (DnD) erstellt wurden. Er gilt nicht für traditionelle IAMs. Traditionelle IAMs sind die integrierten, vom SDK gerenderten Nachrichtentypen von Braze (z. B. Slideup, Modal und Full), die im ursprünglichen Nachrichten-Editor für In-App-Nachrichten mit vordefinierten Layouts erstellt werden. Im Gegensatz zu angepassten HTML- und DnD-IAMs durchlaufen sie nicht den HTML-Aktions-Listener-Flow.
 
-Wenn Sie einen angepassten `IHtmlInAppMessageActionListener` festlegen, überschreibt dessen Logik das Standard-Klickverhalten für _alle_ DnD-Nachrichten. Bitte stellen Sie sicher, dass Ihr Marketing-Team darüber informiert ist, da dies deren Kampagnen auf unerwartete Weise beeinflussen kann.
+Wenn Sie einen angepassten `IHtmlInAppMessageActionListener` festlegen, überschreibt dessen Logik das Standard-Klickverhalten für _alle_ DnD-Nachrichten. Bitte stellen Sie sicher, dass Ihr Marketing-Team darüber informiert ist, da dies deren Campaigns auf unerwartete Weise beeinflussen kann.
 {% endtab %}
 {% endtabs %}
 
-### 1. Schritt: Implementieren Sie den angepassten Manager-Listener
+### 1. Schritt: Implementieren Sie den angepassten Manager-Listener {#step-1-implement-the-custom-manager-listener}
 
 {% tabs %}
 {% tab global listener %}
-#### Schritt 1.1: Implementieren Sie `IInAppMessageManagerListener` 
+#### Schritt 1.1: Implementieren Sie `IInAppMessageManagerListener` {#step-11-implement-iinappmessagemanagerlistener}
 
 Erstellen Sie eine Klasse, die [`IInAppMessageManagerListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/index.html) implementiert.
 
@@ -28,7 +28,7 @@ Die Callbacks in Ihrem `IInAppMessageManagerListener` werden ebenfalls an versch
 
 `IInAppMessageManagerListener` enthält auch Delegate-Methoden für Klicks auf Nachrichten und Buttons, die z. B. dazu verwendet werden können, eine Nachricht abzufangen, wenn ein Button oder eine Nachricht angeklickt wird, um sie weiter zu verarbeiten.
 
-#### Schritt 1.2: Einbindung in IAM-View-Lebenszyklusmethoden (optional)
+#### Schritt 1.2: Einbindung in IAM-View-Lebenszyklusmethoden (optional) {#step-12-hook-into-iam-view-lifecycle-methods-optional}
 
 Die Schnittstelle [`IInAppMessageManagerListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/index.html) verfügt über View-Methoden für In-App-Nachrichten, die an verschiedenen Punkten im Lebenszyklus der In-App-Nachrichten-View aufgerufen werden. Diese Methoden werden in der folgenden Reihenfolge aufgerufen:
 
@@ -110,13 +110,13 @@ class CustomHtmlInAppMessageActionListener(private val mContext: Context) : IHtm
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Weisen Sie Braze an, den angepassten Manager-Listener zu verwenden
+### 2. Schritt: Weisen Sie Braze an, den angepassten Manager-Listener zu verwenden {#step-2-instruct-braze-to-use-the-custom-manager-listener}
 
 {% tabs %}
 {% tab global listener %}
 Nachdem Sie `IInAppMessageManagerListener` erstellt haben, rufen Sie `BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener()` auf, um `BrazeInAppMessageManager` anzuweisen, Ihren angepassten `IInAppMessageManagerListener` anstelle des Standard-Listeners zu verwenden. Tun Sie dies in Ihrem [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) vor allen anderen Aufrufen von Braze, damit der angepasste Listener gesetzt wird, bevor In-App-Nachrichten angezeigt werden.
 
-#### Ändern von In-App-Nachrichten vor der Anzeige
+#### Ändern von In-App-Nachrichten vor der Anzeige {#altering-in-app-messages-before-display}
 
 Wenn eine neue In-App-Nachricht eingeht und bereits eine In-App-Nachricht angezeigt wird, wird die neue Nachricht oben auf dem Stack abgelegt und kann zu einem späteren Zeitpunkt angezeigt werden.
 
@@ -148,7 +148,7 @@ Mit dem Rückgabewert von `InAppMessageOperation()` kann gesteuert werden, wann 
 | `DISPLAY_LATER` | Die Nachricht wird an den Stack zurückgegeben und bei der nächsten Gelegenheit angezeigt |
 | `DISCARD` | Die Nachricht wird verworfen |
 | `null` | Die Nachricht wird ignoriert. Diese Methode sollte **NICHT** `null` zurückgeben |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Altering in-app messages before display" }
 
 Weitere Informationen finden Sie unter [`InAppMessageOperation`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/index.html).
 
@@ -183,7 +183,7 @@ BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(C
 {% endtab %}
 {% endtabs %}
 
-## Angepasste Factories einrichten
+## Angepasste Factories einrichten {#setting-custom-factories}
 
 Sie können eine Reihe von Standardeinstellungen durch angepasste Factory-Objekte überschreiben. Diese können nach Bedarf beim Braze SDK registriert werden, um die gewünschten Ergebnisse zu erzielen. Wenn Sie sich jedoch entscheiden, eine Factory zu überschreiben, müssen Sie wahrscheinlich explizit auf den Standard zurückgreifen oder die vom Braze-Standard bereitgestellte Funktionalität neu implementieren. Das folgende Code-Snippet veranschaulicht, wie Sie angepasste Implementierungen der Schnittstellen `IInAppMessageViewFactory` und `IInAppMessageViewWrapperFactory` bereitstellen können.
 
@@ -203,7 +203,7 @@ class BrazeDemoApplication : Application(){
 ```
 {% endtab %}
 {% tab Java %}
-**Arten von In-App-Nachrichten**<br> 
+**Arten von In-App-Nachrichten**<br>
 
 ```java
 public class BrazeDemoApplication extends Application {
@@ -233,7 +233,7 @@ In-App-Nachrichten haben ein voreingestelltes Animationsverhalten. `Slideup`-Nac
 {% endtab %}
 {% endtabs %}
 
-### 1. Schritt: Implementieren Sie die Factory
+### 1. Schritt: Implementieren Sie die Factory {#step-1-implement-the-factory}
 
 {% tabs %}
 {% tab view %}
@@ -330,13 +330,13 @@ class CustomInAppMessageViewWrapper(inAppMessageView: View,
                                     inAppMessageViewLifecycleListener: IInAppMessageViewLifecycleListener,
                                     brazeConfigurationProvider: BrazeConfigurationProvider,
                                     openingAnimation: Animation,
-                                    closingAnimation: Animation, clickableInAppMessageView: View) : 
-    DefaultInAppMessageViewWrapper(inAppMessageView, 
-        inAppMessage, 
-        inAppMessageViewLifecycleListener, 
-        brazeConfigurationProvider, 
-        openingAnimation, 
-        closingAnimation, 
+                                    closingAnimation: Animation, clickableInAppMessageView: View) :
+    DefaultInAppMessageViewWrapper(inAppMessageView,
+        inAppMessage,
+        inAppMessageViewLifecycleListener,
+        brazeConfigurationProvider,
+        openingAnimation,
+        closingAnimation,
         clickableInAppMessageView) {
 
   override fun open(activity: Activity) {
@@ -403,7 +403,7 @@ class CustomInAppMessageAnimationFactory : IInAppMessageAnimationFactory {
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Weisen Sie Braze an, die Factory zu verwenden
+### 2. Schritt: Weisen Sie Braze an, die Factory zu verwenden {#step-2-instruct-braze-to-use-the-factory}
 
 {% tabs %}
 {% tab view %}
@@ -413,7 +413,7 @@ Nachdem Ihre `IInAppMessageViewFactory` erstellt wurde, rufen Sie `BrazeInAppMes
 Wir empfehlen, Ihre `IInAppMessageViewFactory` in Ihrem `Application.onCreate()` vor allen anderen Aufrufen von Braze zu setzen. Dadurch wird die angepasste View-Factory festgelegt, bevor eine In-App-Nachricht angezeigt wird.
 {% endalert %}
 
-#### Funktionsweise
+#### Funktionsweise {#how-it-works}
 
 Die Slideup-In-App-Nachrichten-View implementiert [`IInAppMessageView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.views/-i-in-app-message-view/index.html). Die Nachrichten-Views vom Typ `full` und `modal` implementieren [`IInAppMessageImmersiveView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.views/-i-in-app-message-immersive-view/index.html). Wenn Sie eine dieser Klassen implementieren, kann Braze Ihrer angepassten View bei Bedarf Klick-Listener hinzufügen. Alle Braze-View-Klassen erweitern die Android-Klasse [`View`](http://developer.android.com/reference/android/view/View.html).
 
@@ -445,11 +445,11 @@ Wir empfehlen, Ihre `IInAppMessageAnimationFactory` in Ihrem [`Application.onCre
 {% endtab %}
 {% endtabs %}
 
-## Angepasste Stile
+## Angepasste Stile {#custom-styles}
 
 Die UI-Elemente von Braze sind standardmäßig so gestaltet, dass sie den Standard-UI-Richtlinien von Android entsprechen und ein nahtloses Erlebnis bieten. Dieser Referenzartikel behandelt angepasste Stile für In-App-Nachrichten in Ihrer Android- oder FireOS-Anwendung.
 
-### Einstellen eines Standard-Stils
+### Einstellen eines Standard-Stils {#setting-a-default-style}
 
 Sie können die Standardstile in der [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml)-Datei des Braze SDK einsehen:
 
@@ -475,10 +475,10 @@ Wenn Sie möchten, können Sie diese Stile überschreiben, um ein Erscheinungsbi
 Um einen Stil zu überschreiben, kopieren Sie ihn vollständig in die Datei `styles.xml` Ihres Projekts und nehmen Sie die gewünschten Änderungen vor. Der gesamte Stil muss in Ihre lokale `styles.xml`-Datei kopiert werden, damit alle Attribute korrekt gesetzt werden. Beachten Sie, dass diese angepassten Stile für Änderungen an einzelnen UI-Elementen gedacht sind, nicht für umfassende Änderungen an Layouts. Änderungen auf Layout-Ebene müssen mit angepassten Views gehandhabt werden.
 
 {% alert note %}
-Sie können einige Farben direkt in Ihrer Braze-Kampagne anpassen, ohne die XML-Datei zu ändern. Beachten Sie, dass die im Braze-Dashboard eingestellten Farben die an anderer Stelle festgelegten Farben überschreiben.
+Sie können einige Farben direkt in Ihrer Braze-Campaign anpassen, ohne die XML-Datei zu ändern. Beachten Sie, dass die im Braze-Dashboard eingestellten Farben die an anderer Stelle festgelegten Farben überschreiben.
 {% endalert %}
 
-### Anpassen der Schriftart
+### Anpassen der Schriftart {#customizing-the-font}
 
 Sie können eine angepasste Schriftart festlegen, indem Sie die Schriftart im Verzeichnis `res/font` ablegen. Um sie zu verwenden, überschreiben Sie den Stil für Nachrichtentext, Überschriften und Button-Text und verwenden Sie das Attribut `fontFamily`, um Braze anzuweisen, Ihre angepasste Schriftfamilie zu verwenden.
 
@@ -502,9 +502,9 @@ Neben dem Stil `Braze.InAppMessage.Button` für den Button-Text ist der Stil fü
 Wie bei anderen angepassten Stilen muss der gesamte Stil in Ihre lokale `styles.xml`-Datei kopiert werden, damit alle Attribute korrekt gesetzt werden.
 {% endalert %}
 
-## Schließen von Nachrichten
+## Schließen von Nachrichten {#message-dismissals}
 
-### Durch Wischen Slideup-Nachrichten schließen
+### Durch Wischen Slideup-Nachrichten schließen {#swiping-to-dismiss-slideup-messages}
 
 Standardmäßig können Slideup-In-App-Nachrichten durch eine Wischgeste geschlossen werden. Die Richtung des Wischens hängt von der Position des Slideups ab:
 
@@ -518,9 +518,9 @@ Dieses Wischverhalten ist standardmäßig in [`DefaultInAppMessageViewWrapper`](
 Durch Antippen außerhalb einer Slideup-Nachricht wird diese standardmäßig nicht geschlossen. Dieses Verhalten unterscheidet sich von modalen Nachrichten, die für das Schließen durch Tippen außerhalb konfiguriert werden können. Bei Slideups können Sie die Nachricht durch Wischen oder über den Schließen-Button ausblenden.
 {% endalert %}
 
-### Deaktivieren des Schließens über die Zurück-Taste
+### Deaktivieren des Schließens über die Zurück-Taste {#disabling-back-button-dismissals}
 
-Standardmäßig werden In-App-Nachrichten von Braze mit der Hardware-Zurück-Taste geschlossen. Dieses Verhalten kann für jede einzelne Nachricht über [`BrazeInAppMessageManager.setBackButtonDismissesInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-manager-base/set-back-button-dismisses-in-app-message-view.html) deaktiviert werden. 
+Standardmäßig werden In-App-Nachrichten von Braze mit der Hardware-Zurück-Taste geschlossen. Dieses Verhalten kann für jede einzelne Nachricht über [`BrazeInAppMessageManager.setBackButtonDismissesInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-manager-base/set-back-button-dismisses-in-app-message-view.html) deaktiviert werden.
 
 Im folgenden Beispiel ist `disable_back_button` ein angepasstes Schlüssel-Wert-Paar, das in der In-App-Nachricht festgelegt ist und angibt, ob die Nachricht über die Zurück-Taste geschlossen werden kann:
 
@@ -569,7 +569,7 @@ BrazeInAppMessageManager.getInstance().setCustomInAppMessageManagerListener(obje
 Wenn diese Funktion deaktiviert ist, wird stattdessen das Standardverhalten der Zurück-Taste der Host-Activity verwendet. Dies kann dazu führen, dass die Zurück-Taste die Anwendung statt der angezeigten In-App-Nachricht schließt.
 {% endalert %}
 
-### Aktivieren des Schließens durch Tippen außerhalb
+### Aktivieren des Schließens durch Tippen außerhalb {#enabling-outside-tap-dismissals}
 
 Standardmäßig ist das Schließen des Modals durch Antippen außerhalb auf `false` eingestellt. Wenn Sie diesen Wert auf `true` setzen, wird die modale In-App-Nachricht geschlossen, wenn Nutzer:innen auf eine Stelle außerhalb der In-App-Nachricht tippen. Dieses Verhalten kann durch folgenden Aufruf aktiviert werden:
 
@@ -577,7 +577,7 @@ Standardmäßig ist das Schließen des Modals durch Antippen außerhalb auf `fal
 BrazeInAppMessageManager.getInstance().setClickOutsideModalViewDismissInAppMessageView(true)
 ```
 
-## Anpassen der Ausrichtung
+## Anpassen der Ausrichtung {#customizing-the-orientation}
 
 Um eine feste Ausrichtung für eine In-App-Nachricht festzulegen, [richten Sie zunächst einen angepassten In-App-Nachrichten-Manager-Listener ein]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Aktualisieren Sie anschließend die Ausrichtung des `IInAppMessage`-Objekts in der Delegate-Methode `beforeInAppMessageDisplayed()`:
 
@@ -634,6 +634,6 @@ override fun beforeInAppMessageDisplayed(inAppMessage: IInAppMessage): InAppMess
 
 Um dies zu ändern, können Sie [`enableDarkTheme`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-i-in-app-message-themeable/enable-dark-theme.html) in jedem Schritt des Voranzeigeprozesses aufrufen, um Ihre eigene bedingte Logik zu implementieren.
 
-## Anpassen der Google Play-Bewertungsaufforderung
+## Anpassen der Google Play-Bewertungsaufforderung {#customizing-the-google-play-review-prompt}
 
 Aufgrund der von Google festgelegten Beschränkungen und Einschränkungen werden angepasste Google Play-Bewertungsaufforderungen derzeit nicht von Braze unterstützt. Während einige Nutzer:innen diese Aufforderungen erfolgreich integrieren konnten, waren die Erfolgsquoten bei anderen aufgrund der [Google Play-Quoten](https://developer.android.com/guide/playcore/in-app-review#quotas) gering. Die Integration erfolgt auf Ihr eigenes Risiko. Weitere Informationen finden Sie in der Dokumentation zu den [In-App-Bewertungsaufforderungen von Google Play](https://developer.android.com/guide/playcore/in-app-review).

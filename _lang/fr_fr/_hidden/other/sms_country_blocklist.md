@@ -2,16 +2,16 @@
 nav_title: Liste de blocage des pays pour les SMS
 article_title: Liste de blocage des pays pour les SMS
 hidden: true
-permalink: /sms_country_blocklist/ 
+permalink: /sms_country_blocklist/
 ---
 
-# Liste de blocage des pays pour les SMS
+# Liste de blocage des pays pour les SMS {#sms-country-blocklist}
 
-Afin de protéger nos clients contre le pompage de trafic par SMS, Braze tient actuellement à jour une liste de blocage des pays soumis à l'embargo des États-Unis, ainsi que des pays connus pour présenter un risque élevé de pompage de trafic. Par défaut, Braze n'enverra pas de SMS vers ces pays : 
+Afin de protéger ses clients contre le pompage de trafic par SMS, Braze tient actuellement à jour une liste de blocage couvrant les pays sous embargo des États-Unis ainsi que les pays présentant un risque fort de pompage de trafic. Par défaut, Braze n'envoie pas de SMS vers ces pays :
 
 - "AF" # Afghanistan
-- "AO # Angola
-- "AZ # Azerbaïdjan
+- "AO" # Angola
+- "AZ" # Azerbaïdjan
 - "BD" # Bangladesh
 - "BI" # Burundi
 - "CF" # République centrafricaine
@@ -20,47 +20,47 @@ Afin de protéger nos clients contre le pompage de trafic par SMS, Braze tient a
 - "CV" # Cap-Vert
 - "DZ" # Algérie
 - "GM" # Gambie
-- "GT # Guatemala
+- "GT" # Guatemala
 - "ID" # Indonésie
 - "IR" # Iran
 - "IQ" # Irak
 - "JE" # Jersey
-- "LY # Libye
+- "LY" # Libye
 - "KE" # Kenya
-- "KG # Kirghizistan
+- "KG" # Kirghizistan
 - "KH" # Cambodge
 - "KI" # Kiribati
-- "KP # Corée du Nord
-- "LK # Sri Lanka
+- "KP" # Corée du Nord
+- "LK" # Sri Lanka
 - "MA" # Maroc
 - "ML" # Mali
 - "MM" # Myanmar
-- "MN # Mongolie
+- "MN" # Mongolie
 - "MR" # Mauritanie
-- "MW # Malawi
+- "MW" # Malawi
 - "NE" # Niger
 - "NF" # Île Norfolk
-- "NG" # Nigera
+- "NG" # Nigéria
 - "NU" # Niue
 - "OM" # Oman
 - "PK" # Pakistan
 - "PS" # Palestine
-- "SA" # Arabie Saoudite
+- "SA" # Arabie saoudite
 - "SD" # Soudan
 - "SI" # Slovénie
 - "SN" # Sénégal
 - "SO" # Somalie
-- "SS" # Sud-Soudan
+- "SS" # Soudan du Sud
 - "SY" # Syrie
-- "TG # Togo
+- "TG" # Togo
 - "TJ" # Tadjikistan
 - "TL" # Timor-Leste
 - "TN" # Tunisie
 - "TZ" # Tanzanie
 - "UA" # Ukraine
 - "UZ" # Ouzbékistan
-- "VN" # Vietnam
-- "WF" # Wallis et Fortuna
+- "VN" # Viêt Nam
+- "WF" # Wallis-et-Futuna
 - "YE" # Yémen
 - "ZB" # Zimbabwe
 - "ZM" # Zambie

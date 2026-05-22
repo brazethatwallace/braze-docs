@@ -1,7 +1,7 @@
 ---
 nav_title: "Email Love"
-article_title: Email Love
-description: "Learn how to integrate Braze with Email Love, a Figma plugin that enables you to design and export responsive and accessible HTML emails directly from Figma."
+article_title: "Email Love"
+description: "Figma에서 직접 반응형 및 접근성 높은 HTML 이메일을 디자인하고 내보낼 수 있는 Figma 플러그인인 Email Love를 Braze와 통합하는 방법을 알아보세요."
 alias: /partners/email_love/
 page_type: partner
 search_tag: Partner
@@ -10,52 +10,52 @@ search_tag: Partner
 
 # Email Love
 
-> [Email Love](https://emaillove.com/) is a Figma plugin that empowers you to design and export responsive and accessible HTML emails directly from Figma. Email Love’s Export to Braze feature uses the Braze API to seamlessly upload your email templates to Braze.
+> [Email Love](https://emaillove.com/)는 Figma에서 직접 반응형 및 접근성 높은 HTML 이메일을 디자인하고 내보낼 수 있는 Figma 플러그인입니다. Email Love의 Braze로 내보내기 기능은 Braze API를 사용하여 이메일 템플릿을 Braze에 원활하게 업로드합니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement            | Description                                                      |
+| 요구 사항 | 설명 |
 |------------------------|------------------------------------------------------------------|
-| **Email Love account** | An Email Love account is required to take advantage of this partnership. |
-| **Braze REST API key** | A Braze REST API key with full `Templates` permission enabled. This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+| **Email Love 계정** | 이 파트너십을 활용하려면 Email Love 계정이 필요합니다. |
+| **Braze REST API 키** | 전체 `Templates` 권한이 활성화된 Braze REST API 키가 필요합니다. Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Using Email Love with Braze
+## Braze에서 Email Love 사용하기 {#using-email-love-with-braze}
 
-### Step 1: Run the plugin
+### 1단계: 플러그인 실행 {#step-1-run-the-plugin}
 
-To design your email template, you'll first need to load the plugin. For more detailed instructions, refer to Email Love’s documentation for [uploading your email to Braze](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm).
+이메일 템플릿을 디자인하려면 먼저 플러그인을 로드해야 합니다. 자세한 안내는 Email Love의 [Braze에 이메일 업로드하기](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm) 설명서를 참조하세요.
 
-### Step 2: Create your first frame
+### 2단계: 첫 번째 프레임 만들기 {#step-2-create-your-first-frame}
 
-플러그인에서 **[+ 템플릿 선택 안 함]** 버튼을 선택하여 이메일 디자인에 사용할 새 프레임을 만듭니다.
+플러그인에서 **[+ No Template Selected]** 버튼을 선택하여 이메일 디자인에 사용할 새 프레임을 만듭니다.
 
-### 3단계: Design the template with Email Love's pre-built components
+### 3단계: Email Love의 사전 구축된 구성요소로 템플릿 디자인하기 {#step-3-design-the-template-with-email-loves-pre-built-components}
 
-Select the frame you created and begin adding components (headers, content blocks, CTAs, and footers) from the plugin’s **Assets** library to structure your email.
+생성한 프레임을 선택하고 플러그인의 **Assets** 라이브러리에서 구성요소(헤더, 콘텐츠 블록, CTA, 푸터)를 추가하여 이메일 구조를 만듭니다.
 
-![이메일 러브의 사전 구축된 구성 요소.]({% image_buster /assets/img/email_love/emaillove1_content.png %})
+![Email Love의 사전 구축된 구성요소.]({% image_buster /assets/img/email_love/emaillove1_content.png %})
 
-### 4단계: Customize the Components
+### 4단계: 구성요소 커스터마이즈 {#step-4-customize-the-components}
 
-Modify components using Figma's tools to adjust your text, images, colors, and layout elements to align the template's design with your brand. If you add a footer component, a Braze unsubscribe link will automatically be included when you export.
+Figma의 도구를 사용하여 텍스트, 이미지, 색상, 레이아웃 요소를 조정하고 템플릿 디자인을 브랜드에 맞게 수정합니다. 푸터 구성요소를 추가하면 내보내기 시 Braze 수신 거부 링크가 자동으로 포함됩니다.
 
-![Figma에서 댓글을 커스텀하세요.]({% image_buster /assets/img/email_love/emaillove2_components.png %})
+![Figma에서 구성요소를 커스터마이즈합니다.]({% image_buster /assets/img/email_love/emaillove2_components.png %})
 
-### 5단계: Export your email template to Braze
+### 5단계: 이메일 템플릿을 Braze로 내보내기 {#step-5-export-your-email-template-to-braze}
 
-1. When you're finished, select the frame you want to export. Note that you'll need to use an Email Love footer that contains an unsubscribe link for the export to work.
-2. Select the **Export** button in the plugin and select **Braze** from the dropdown menu.
-3. Copy and paste your API key into the **Braze API Key** box within the Email Love Figma plugin.
-4. Select the **Set API Key** button.
-5. Select **Change Instance ID**, then select your Braze instance ID.
+1. 완료되면 내보낼 프레임을 선택합니다. 내보내기가 작동하려면 수신 거부 링크가 포함된 Email Love 푸터를 사용해야 합니다.
+2. 플러그인에서 **Export** 버튼을 선택하고 드롭다운 메뉴에서 **Braze**를 선택합니다.
+3. Email Love Figma 플러그인 내의 **Braze API Key** 상자에 API 키를 복사하여 붙여넣습니다.
+4. **Set API Key** 버튼을 선택합니다.
+5. **Change Instance ID**를 선택한 다음 Braze 인스턴스 ID를 선택합니다.
 
-![이메일 사랑 플러그인에서 Braze로 템플릿 내보내기.]({% image_buster /assets/img/email_love/emaillove3_exportbraze.png %}){: style="max-width:50%;"}
+![Email Love 플러그인에서 Braze로 템플릿 내보내기.]({% image_buster /assets/img/email_love/emaillove3_exportbraze.png %}){: style="max-width:50%;"}
 
-### 6단계: Edit your email in Braze
+### 6단계: Braze에서 이메일 편집하기 {#step-6-edit-your-email-in-braze}
 
-In Braze, go to **Templates** > **Edit Templates** > **Edit Message**. Inside the template editor, you can either edit your email HTML or use the **Rich Text editor** in the **Classic** tab.
+Braze에서 **Templates** > **Edit Templates** > **Edit Message**로 이동합니다. 템플릿 편집기에서 이메일 HTML을 직접 편집하거나 **Classic** 탭의 **Rich Text editor**를 사용할 수 있습니다.
 
-## Support and troubleshooting
+## 고객지원 및 문제 해결 {#support-and-troubleshooting}
 
-For more detailed instructions, refer to Email Love’s documentation on [exporting an email design](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm). For additional support, contact the Email Love support team.
+자세한 안내는 Email Love의 [이메일 디자인 내보내기](https://help.emaillove.com/exporting-an-email-design/6rcR6LPWq6BoYseKZf41nS/uploading-your-email-to-braze-/3ZcmGaGz6a8azeZQxWgKzm) 설명서를 참조하세요. 추가 지원이 필요하면 Email Love 고객지원 팀에 문의하세요.

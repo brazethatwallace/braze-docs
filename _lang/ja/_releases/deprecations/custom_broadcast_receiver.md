@@ -42,7 +42,7 @@ description: "この参考記事では、Android プッシュ通知用のカス�
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 public class CustomBroadcastReceiver extends BroadcastReceiver {
   private static final String TAG = CustomBroadcastReceiver.class.getName();
 
@@ -71,7 +71,7 @@ public class CustomBroadcastReceiver extends BroadcastReceiver {
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 class CustomBroadcastReceiver : BroadcastReceiver() {
   override fun onReceive(context: Context, intent: Intent) {
     val pushReceivedAction = Constants.BRAZE_PUSH_INTENT_NOTIFICATION_RECEIVED
@@ -117,7 +117,7 @@ class CustomBroadcastReceiver : BroadcastReceiver() {
 {% tabs %}
 {% tab JAVA %}
 
-```java
+`````````java
 // intent is the Braze push intent received by your custom broadcast receiver.
 String deepLink = intent.getStringExtra(Constants.BRAZE_PUSH_DEEP_LINK_KEY);
 
@@ -131,7 +131,7 @@ String myExtra = extras.getString("my_key");
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 // intent is the Braze push intent received by your custom broadcast receiver.
 val deepLink = intent.getStringExtra(Constants.BRAZE_PUSH_DEEP_LINK_KEY)
 

@@ -326,7 +326,7 @@ A segment with the following AND filters:
 
 This user would qualify because the first filter matches the "Shoes" item (80 > 50) and the second filter matches the "Hat" item (25 < 30). Even though no single item satisfies both conditions, the user still enters the segment.
 
-If you need all conditions to match the same item within an array, use [multi-criteria segmentation](#multi-criteria-segmentation) on the same path, or restructure your data to avoid cross-item matching.
+If you need all conditions to match the same item within an array, use [multi-criteria segmentation]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) on the same path, or restructure your data to avoid cross-item matching.
 
 ## Data points
 

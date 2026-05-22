@@ -5,37 +5,37 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar eventos personalizados de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar eventos personalizados de Braze."
 
 ---
 {% api %}
-# Exportar eventos personalizados
+# Exportar eventos personalizados {#export-custom-events}
 {% apimethod get %}
-/eventos
+/events
 {% endapimethod %}
 
-> Utiliza este punto final para exportar una lista de eventos personalizados registrados para tu aplicación. Los eventos se devuelven en grupos de 50, ordenados alfabéticamente.
+> Utiliza este punto de conexión para exportar una lista de eventos personalizados registrados para tu aplicación. Los eventos se devuelven en grupos de 50, ordenados alfabéticamente.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `events.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `events.get`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='events' %}
 
-## Parámetros de consulta
+## Parámetros de consulta {#query-parameters}
 
-Ten en cuenta que cada llamada a este punto final devolverá 50 eventos. Para más de 50 eventos, utiliza la cabecera `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
+Ten en cuenta que cada llamada a este punto de conexión devolverá 50 eventos. Para más de 50 eventos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de los eventos personalizados. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
-## Ejemplos de solicitudes
+## Ejemplos de solicitudes {#example-requests}
 
-### Sin cursor
+### Sin cursor {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/events' \
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Con cursor
+### Con cursor {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpcDow' \
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -74,7 +74,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 Para conocer los códigos de estado y los mensajes de error asociados que se devolverán si tu solicitud encuentra un error fatal, consulta [Errores fatales]({{site.baseurl}}/api/errors/#fatal-errors).
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

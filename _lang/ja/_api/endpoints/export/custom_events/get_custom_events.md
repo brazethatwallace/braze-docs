@@ -1,45 +1,45 @@
 ---
-nav_title: "取得:カスタム・イベントのリストをエクスポートする"
-article_title: "取得:カスタムイベントリストのエクスポート"
+nav_title: "GET: カスタムイベントリストのエクスポート"
+article_title: "GET: カスタムイベントリストのエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、カスタムイベントリストBrazeエンドポイントのエクスポートに関する詳細を概説する。"
+description: "この記事では、カスタムイベントリストのエクスポートBrazeエンドポイントについて詳しく説明します。"
 
 ---
 {% api %}
-# カスタム・イベントのリストをエクスポートする
+# カスタムイベントリストのエクスポート {#export-custom-events-list}
 {% apimethod get %}
 /events/list
 {% endapimethod %}
 
-> アプリに記録されたカスタム・イベントのリストをエクスポートするには、このエンドポイントを使用する。イベント名はアルファベット順に並べられ、250のグループで返される。
+> このエンドポイントを使用して、アプリに記録されたカスタムイベントのリストをエクスポートします。イベント名はアルファベット順にソートされ、250件ずつのグループで返されます。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#93ecd8a5-305d-4b72-ae33-2d74983255c1 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`events.list`の権限が必要です。
+このエンドポイントを使用するには、`events.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='events list' %}
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター| required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | -------- | -------- | --------- | ----------- |
-| `page` | オプション | 整数 | 返されるイベント名のページ。デフォルトは0です (最大250の最初のセットを返す)。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `page` | オプション | 整数 | 返されるイベント名のページ。デフォルトは0です（最大250件の最初のセットを返します）。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答
+## 応答 {#response}
 
 ```json
 {
@@ -55,10 +55,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ### 致命的なエラーの応答コード {#fatal-export}
 
-リクエストが致命的なエラーに遭遇した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラー& レスポンスを]({{site.baseurl}}/api/errors/#fatal-errors)参照のこと。
+リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)を参照してください。
 {% endalert %}
 
 {% endapi %}

@@ -32,7 +32,7 @@ You cannot use reserved keys as event property names. Using a reserved key in th
 | --- | --- |
 | Custom events | `time` and `event_name` | 
 | Purchase events |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reserved keys" }
 
 ## Using custom event properties
 
@@ -86,8 +86,6 @@ Event properties for custom events are updated in real-time for any segment that
 #### Adding event properties for segmentation
 
 You need the "Edit Custom Event Property Segmentation" [user permission]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage) to create segments based on event property recency and frequency.
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 By default, you can have 20 segmentable event properties per workspace. Contact your Braze account manager to increase this limit.
 

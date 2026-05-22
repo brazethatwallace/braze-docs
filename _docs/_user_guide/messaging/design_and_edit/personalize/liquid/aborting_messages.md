@@ -14,6 +14,12 @@ description: "This reference article covers aborting Liquid messages and some ex
 If a message step is aborted in a Canvas, the user **will not** exit the Canvas and **will** proceed to the next step.
 {% endalert %}
 
+## Test sends with `abort_message()`
+
+`abort_message()` stops the send for users who don't meet your condition. The message won't appear on their profile and won't count toward deliveries or frequency capping.
+
+If test sends never arrive, preview as a user who satisfies the abort condition, then on **Test Send** enable **Override recipients' attributes with current preview user's attributes** (or add a Content Test Group member who qualifies).
+
 ## Abort message if "Number Games Attended" = 0
 
 For example, let's say that you did not want to send a message to customers who have not attended a game:
@@ -75,7 +81,7 @@ Abort logic is evaluated at send time, when Braze processes the message for deli
 
 ### In-app messages
 
-Abort logic is evaluated at the time the in-app message is triggered (for example, when the user performs the trigger event or starts a session), not when the message is initially sent to the device. In-app messages are delivered to the SDK on session start and cached locally; the Liquid—including any `abort_message()` calls—is executed when the trigger condition is met.
+Abort logic is evaluated for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated) only at the time the in-app message is triggered (for example, when the user performs the trigger event or starts a session), not when the message is initially sent to the device. In-app messages are delivered to the SDK on session start and cached locally; the Liquid—including any `abort_message()` calls—is executed when the trigger condition is met.
 
 ## Considerations
 

@@ -8,10 +8,11 @@ on:
 
 jobs:
   add-deploy-label:
-    # Only run if the PR is merged, and the base branch == 'main' and head branch == 'develop'
+    # Merged deploy PRs into main: classic develop deploys or snapshot auto-deploy-* branches.
     if: github.event.pull_request.merged == true &&
         github.event.pull_request.base.ref == 'main' &&
-        github.event.pull_request.head.ref == 'develop'
+        (github.event.pull_request.head.ref == 'develop' ||
+         startsWith(github.event.pull_request.head.ref, 'auto-deploy-'))
     runs-on: ubuntu-latest
     steps:
       - name: "Adding 'Deploy' label"

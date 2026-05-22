@@ -1,41 +1,41 @@
 ---
-nav_title: "GET: 캔버스 세부 정보 내보내기"
-article_title: "GET: 캔버스 세부 정보 내보내기"
+nav_title: "GET: Canvas 세부 정보 내보내기"
+article_title: "GET: Canvas 세부 정보 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "이 문서에서는 캔버스 세부 정보 내보내기 Braze 엔드포인트에 대해 설명합니다."
+description: "이 문서에서는 Canvas 세부 정보 내보내기 Braze 엔드포인트에 대해 설명합니다."
 
 ---
 {% api %}
-# 캔버스 세부 정보 내보내기
+# Canvas 세부 정보 내보내기 {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 이름, 생성 시간, 현재 상태 등과 같은 캔버스에 대한 메타데이터를 내보낼 수 있습니다.
+> 이 엔드포인트를 사용하여 이름, 생성 시간, 현재 상태 등과 같은 Canvas에 대한 메타데이터를 내보낼 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
-## 필수 조건
+## 필수 조건 {#prerequisites}
 
 이 엔드포인트를 사용하려면 `canvas.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [캔버스 API 식별자]({{site.baseurl}}/api/identifier_types/) 참조 |
-| `post_launch_draft_version` | 선택 사항 | 부울 | 출시 후 초안이 있는 캔버스의 경우, 이를 `true`로 설정하면 사용 가능한 초안 변경 사항이 표시됩니다. 기본값은 `false`입니다. |
+| `canvas_id` | 필수 | 문자열 | [Canvas API 식별자]({{site.baseurl}}/api/identifier_types/) 참조 |
+| `post_launch_draft_version` | 선택 사항 | 부울 | 출시 후 초안이 있는 Canvases의 경우, 이를 `true`로 설정하면 사용 가능한 초안 변경 사항이 표시됩니다. 기본값은 `false`입니다. |
 | `include_has_translatable_content` | 선택 사항 | 부울 | `true`로 설정하면 API 응답에 각 메시지에 대한 `has_translatable_content` 필드가 포함됩니다. 기본값은 `false`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 요청 예시
+## 요청 예시 {#example-request}
 
 {% raw %}
 ```
@@ -44,7 +44,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 {% endraw %}
 
-## 응답
+## 응답 {#responses}
 
 {% alert note %}
 모든 캔버스 단계에는 `next_paths` 필드가 있으며, 이는 `{name, next_step_id}` 데이터의 배열입니다. 메시지 단계에서는 `next_step_ids` 필드가 존재하지만 다른 캔버스 단계에 대한 데이터는 포함되지 않습니다.
@@ -104,9 +104,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 }
 ```
 
-### 채널별 메시지
+### 채널별 메시지 {#messages-by-channel}
 
-다음은 다양한 채널(이메일, 푸시, SMS, 인앱 메시지)을 통해 전송된 캔버스 메시지가 포함된 응답 예시입니다:
+다음은 다양한 채널(이메일, 푸시, SMS, 인앱 메시지)을 통해 전송된 Canvas 메시지가 포함된 응답 예시입니다:
 
 ```json
 {
@@ -220,7 +220,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/details?c
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

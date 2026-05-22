@@ -2,7 +2,7 @@
 nav_title: Apteligent
 article_title: Apteligent
 alias: /partners/apteligent/
-description: "Dieser referenzierte Artikel beschreibt die Partnerschaft zwischen Braze und Apteligent, einer mobilen Anwendung, die Details zu Absturzberichten enthält und es Ihnen erlaubt, kritische Daten in Ihrer bestehenden Braze Lösung zu protokollieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Apteligent, einer mobilen Anwendung, die detaillierte Absturzberichte liefert und es Ihnen ermöglicht, kritische Daten in Ihrer bestehenden Braze-Lösung zu protokollieren."
 page_type: partner
 search_tag: Partner
 
@@ -10,20 +10,20 @@ search_tag: Partner
 
 # Apteligent
 
-> [Apteligent](https://www.vmware.com/products/workspace-one/intelligence-consumer-apps.html) ist eine Plattform für die Performance von mobilen Anwendungen, die Entwicklern:in und Produktmanagern Insights bietet. 
+> [Apteligent](https://www.vmware.com/products/workspace-one/intelligence-consumer-apps.html) ist eine Plattform für die Performance von mobilen Anwendungen, die Entwickler:innen und Produktmanager:innen Tools und Insights bietet.
 
 _Diese Integration wird von Apteligent gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Apteligent bietet detaillierte iOS-Absturzberichte, die es Ihnen erlauben, kritische Daten in Ihrer bestehenden Braze-Lösung zu protokollieren sowie Nutzer:innen, bei denen es zu Anwendungsabstürzen gekommen ist, zu segmentieren, zu verstehen und mit ihnen in Kontakt zu treten.
+Die Integration von Braze und Apteligent bietet detaillierte iOS-Absturzberichte, die es Ihnen ermöglichen, kritische Daten in Ihrer bestehenden Braze-Lösung zu protokollieren sowie Nutzer:innen, bei denen es zu Anwendungsabstürzen gekommen ist, zu segmentieren, zu verstehen und mit ihnen in Kontakt zu treten.
 
-## Voraussetzungen 
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
-| TestDrive Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein TestDrive-Konto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| TestDrive-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein TestDrive-Konto. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert warning %}
 Diese Integration wird derzeit nur auf iOS unterstützt.
@@ -31,9 +31,9 @@ Diese Integration wird derzeit nur auf iOS unterstützt.
 
 ## Integration {#apteligent-ios-integration}
 
-### Schritt 1: Einen Beobachter registrieren
+### 1. Schritt: Einen Observer registrieren {#step-1-register-an-observer}
 
-Zunächst müssen Sie einen Beobachter registrieren. Stellen Sie sicher, dass dies geschieht, bevor Sie Apteligent initialisieren.
+Zunächst müssen Sie einen Observer registrieren. Stellen Sie sicher, dass dies geschieht, bevor Sie Apteligent initialisieren.
 
 ```objc
 [[NSNotificationCenter defaultCenter] addObserver:self
@@ -42,11 +42,11 @@ Zunächst müssen Sie einen Beobachter registrieren. Stellen Sie sicher, dass di
                                            object:nil];
 ```
 
-### Schritt 2: Angepasste Analytics für Abstürze protokollieren
+### 2. Schritt: Angepasste Absturz-Analytics protokollieren {#step-2-log-custom-crash-analytics}
 
-Das Apteligent SDK löst eine Benachrichtigung aus, wenn der Nutzer:innen die Anwendung nach einem Absturz lädt. Die Benachrichtigung enthält den Namen des Absturzes, den Grund und das Datum des Vorkommens.
+Das Apteligent SDK löst eine Benachrichtigung aus, wenn Nutzer:innen die Anwendung nach einem Absturz laden. Die Benachrichtigung enthält den Namen des Absturzes, den Grund und das Datum des Vorkommens.
 
-Nach Erhalt der Benachrichtigung protokollieren Sie ein angepasstes Event und aktualisieren die Attribute der Nutzer:innen mit Apteligent's Crash Reporting Analytics:
+Nach Erhalt der Benachrichtigung protokollieren Sie ein angepasstes Absturz-Event und aktualisieren die Nutzerattribute mit den Absturzberichten von Apteligent:
 
 ```objc
 - (void)crashDidOccur:(NSNotification*)notification {
@@ -58,5 +58,4 @@ Nach Erhalt der Benachrichtigung protokollieren Sie ein angepasstes Event und ak
 }
 ```
 
-Nach Abschluss des Projekts können Sie die leistungsstarken Segmentierungs- und Engagement-Analysen von Braze nutzen, indem Sie die Absturzinformationen der Apteligent-Plattform verwenden.
-
+Nach Abschluss können Sie die leistungsstarken Segmentierungs- und Engagement-Analytics von Braze nutzen, indem Sie die Absturzinformationen der Apteligent-Plattform verwenden.

@@ -33,7 +33,7 @@ The Notification Display Priority setting is no longer used on devices running A
 {% if include.alert == "Email via SMS" %}
 
 {% alert important %}
-Do not send legally required transactional emails to SMS gateways as there's a strong likelihood that those emails will not be delivered.
+Do not send legally required transactional emails to SMS gateways, as there's a strong likelihood that those emails will not be delivered.
 <br><br>
 Although emails you send using a phone number and the provider’s gateway domain (known as an MM3) can result in the email being received as an SMS (text) message, some of our email providers do not support this behavior. For example, if you send an email to a T-Mobile phone number (such as "9999999999@tmomail.net"), your SMS message would be sent to whoever owns that phone number on the T-Mobile network.
 <br><br>
@@ -61,7 +61,7 @@ There are certain browsers, such as the Naver Android and iOS apps, that don’t
 {% if include.alert == 'Purchase event deprecation' %}
 
 {% alert important %}
-The legacy purchase event will enter a deprecated state (maintenance mode). Purchase events will continue to work as expected, but no new functionality will be built on top of them, in favor of [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/). If you're currently using purchase events, you will receive advance notice regarding the phase-out plans. For now, you can continue using purchase events until the official deprecation date. For more information, see the [recommended events overview]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/).
+The legacy purchase event is entering maintenance mode. Existing Braze customers can continue using legacy purchase events. They'll keep working as expected, but new functionality will be built on eCommerce recommended events going forward. Braze will provide advance notice well before any end-of-life date is set. New Braze customers should use [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/custom_data/recommended_events/ecommerce_events/), as legacy purchase events will not be available.
 {% endalert %}
 
 {% endif %}
@@ -129,20 +129,28 @@ Granular permissions are in early access. When migration is planned for your com
 
 {% endif %}
 
+{% if include.alert == 'WhatsApp audio and documents' %}
+
+{% alert note %}
+The [Braze media library]({{site.baseurl}}/media_library/) supports images and video only. Audio files and documents must be referenced through a hosted URL.
+{% endalert %}
+
+{% endif %}
+
+{% if include.alert == 'Meta MP4 video issue' %}
+
+{% alert important %}
+Meta has a known issue that can prevent some MP4 videos from playing on Android devices due to specific encoding or container settings. Until a permanent fix is available, reformatting the MP4 file resolves the issue for most senders. Test all videos on Android devices to confirm correct deliverability. <br><br>You can reformat the MP4 file by MP4 using a web tool, such as [CloudConvert](https://cloudconvert.com/mp4-converter). Upload your MP4 file into the tool, convert it to MP4 again, and then download the converted file.
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == 'Shopify cart token alias' %}
 
 {% alert important %}
 For this integration, the user alias must use the following format so that Braze can match webhooks to the correct user profile:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
-{% endalert %}
-
-{% endif %}
-
-{% if include.alert == 'multi-language ea' %}
-
-{% alert important %}
-Multi-language messages and locale translations are currently in early access. Contact your customer success manager if you’re interested in participating in this early access.
 {% endalert %}
 
 {% endif %}

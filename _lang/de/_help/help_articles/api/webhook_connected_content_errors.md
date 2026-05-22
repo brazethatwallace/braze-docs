@@ -7,13 +7,13 @@ channel:
 description: "In diesem Artikel erfahren Sie, wie Sie Fehlercodes von Webhooks und Connected-Content beheben können. Sie erfahren, um welche Fehler es sich handelt und wie Sie sie beheben können."
 ---
 
-# Fehlerbehebung bei Webhook- und Connected-Content-Anfragen
+# Fehlerbehebung bei Webhook- und Connected-Content-Anfragen {#troubleshoot-webhook-and-connected-content-requests}
 
 > In diesem Artikel erfahren Sie, wie Sie häufige Fehlercodes für Webhooks und Connected-Content beheben können, und erhalten weitere Erklärungen, wie diese Fehler in Ihren Anfragen auftreten können.
 
-## 4XX-Fehler
+## 4XX-Fehler {#4xx-errors}
 
-`4XX`-Fehler zeigen an, dass es ein Problem mit der an den Endpunkt gesendeten Anfrage gibt. Diese Fehler werden in der Regel durch fehlerhafte Anfragen verursacht, z. B. durch fehlerhafte Parameter, fehlende Authentifizierungs-Header oder falsche URLs. Beachten Sie, dass diese Fehler auch für den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) gelten.
+`4XX`-Fehler zeigen an, dass es ein Problem mit der an den Endpunkt gesendeten Anfrage gibt. Diese Fehler werden in der Regel durch fehlerhafte Anfragen verursacht, z. B. durch fehlerhafte Parameter, fehlende Authentifizierungs-Header oder falsche URLs. Beachten Sie, dass diese Fehler auch für den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) gelten.
 
 In der folgenden Tabelle finden Sie Details zu den Fehlercodes und Schritte zur Behebung:
 
@@ -23,7 +23,8 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="4XX-Fehler">
+  <caption>4XX-Fehler</caption>
   <thead>
     <tr>
       <th>Fehlercode</th>
@@ -116,29 +117,29 @@ table td {
   </tbody>
 </table>
 
-## 5XX-Fehler
+## 5XX-Fehler {#5xx-errors}
 
 `5XX`-Fehler zeigen an, dass es ein Problem mit dem Endpunkt gibt. Diese Fehler werden in der Regel durch serverseitige Probleme verursacht.
 
-| Fehlercode                    | Was es bedeutet                                                                                                                                         |
+| Fehlercode | Was es bedeutet |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | Der Endpunkt ist auf eine unerwartete Bedingung gestoßen, die ihn daran gehindert hat, die Anfrage abzuschließen.                                                       |
-| **502 Bad Gateway**           | Der Endpunkt hat eine ungültige Antwort vom Upstream-Server erhalten.                                                                                   |
-| **503 Service Unavailable**   | Der Endpunkt kann die Anfrage wegen einer vorübergehenden Überlastung oder wegen Wartungsarbeiten derzeit nicht bearbeiten.                                                    |
-| **504 Gateway Timeout**       | Der Endpunkt hat keine rechtzeitige Antwort vom Upstream-Server erhalten.                                                                               |
-| **529 Host Overloaded**       | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
-| **598 Host Unhealthy**        | Braze hat die Antwort simuliert, weil der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
-| **599 Connection Error**      | Braze hat beim Versuch, eine Verbindung zum Endpunkt herzustellen, einen Timeout-Fehler bei der Netzwerkverbindung festgestellt. Das bedeutet, dass der Endpunkt möglicherweise instabil oder ausgefallen ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **500 Internal Server Error** | Der Endpunkt ist auf eine unerwartete Bedingung gestoßen, die ihn daran gehindert hat, die Anfrage abzuschließen. |
+| **502 Bad Gateway** | Der Endpunkt hat eine ungültige Antwort vom Upstream-Server erhalten. |
+| **503 Service Unavailable** | Der Endpunkt kann die Anfrage wegen einer vorübergehenden Überlastung oder wegen Wartungsarbeiten derzeit nicht bearbeiten. |
+| **504 Gateway Timeout** | Der Endpunkt hat keine rechtzeitige Antwort vom Upstream-Server erhalten. |
+| **529 Host Overloaded** | Der Endpunkt-Host ist überlastet und konnte nicht antworten. |
+| **598 Host Unhealthy** | Braze hat die Antwort simuliert, weil der Endpunkt-Host vorübergehend als fehlerhaft markiert ist. Weitere Informationen finden Sie unter [Erkennung fehlerhafter Hosts](#unhealthy-host-detection). |
+| **599 Connection Error** | Braze hat beim Versuch, eine Verbindung zum Endpunkt herzustellen, einen Timeout-Fehler bei der Netzwerkverbindung festgestellt. Das bedeutet, dass der Endpunkt möglicherweise instabil oder ausgefallen ist. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="5XX-Fehler" }
 
-### Behebung von 5XX-Fehlern
+### Behebung von 5XX-Fehlern {#resolving-5xx-errors}
 
 Hier finden Sie Tipps für die Fehlerbehebung bei häufigen `5XX`-Fehlern:
 
-- Überprüfen Sie die Fehlermeldung auf spezifische Details, die im **Nachrichten-Aktivitätsprotokoll** verfügbar sind. Für Webhooks gehen Sie auf der Braze-Homepage zum Abschnitt **Performance im Zeitverlauf** und wählen Sie die Statistiken für Webhooks aus. Hier können Sie den Zeitstempel finden, der angibt, wann die Fehler aufgetreten sind.
+- Überprüfen Sie die Fehlermeldung auf spezifische Details, die im **Nachrichten-Aktivitätsprotokoll** verfügbar sind. Für Webhooks gehen Sie auf der Braze-Homepage zum Abschnitt **Performance Over Time** und wählen Sie die Statistiken für Webhooks aus. Hier können Sie den Zeitstempel finden, der angibt, wann die Fehler aufgetreten sind.
 - Stellen Sie sicher, dass Sie nicht zu viele Anfragen senden, die den Endpunkt überlasten. Sie können in Stapeln senden oder die Rate-Limits anpassen, um zu prüfen, ob dadurch Fehler reduziert werden.
 
-## Erkennung fehlerhafter Hosts
+## Erkennung fehlerhafter Hosts {#unhealthy-host-detection}
 
 Braze-Webhooks und Connected-Content verwenden einen Mechanismus zur Erkennung fehlerhafter Hosts, um festzustellen, wenn der Zielhost eine hohe Rate an signifikanter Verlangsamung oder Überlastung aufweist, die zu Timeouts, zu vielen Anfragen oder anderen Ergebnissen führt, die Braze daran hindern, erfolgreich mit dem Ziel-Endpunkt zu kommunizieren. Diese Funktion dient als Schutzmaßnahme, um unnötige Belastungen zu reduzieren, die dem Zielhost Probleme bereiten könnten. Sie dient auch der Stabilisierung der Braze-Infrastruktur und der Aufrechterhaltung schneller Messaging-Geschwindigkeiten.
 
@@ -146,19 +147,19 @@ Die Schwellenwerte für die Erkennung unterscheiden sich zwischen Webhooks und C
 - **Für Webhooks**: Wenn die Anzahl der **Fehlschläge 3.000 in einem beliebigen einminütigen gleitenden Zeitfenster überschreitet** (pro eindeutiger Kombination von Hostname und App-Gruppe&#8212;**nicht** pro Endpunktpfad), hält Braze Anfragen an den Zielhost vorübergehend für eine Minute an.
 - **Für Connected-Content**: Wenn die Anzahl der **Fehlschläge 3.000 übersteigt UND die Fehlerrate 90 % in einem beliebigen einminütigen gleitenden Zeitfenster übersteigt** (pro eindeutiger Kombination von Hostname und App-Gruppe&#8212;**nicht** pro Endpunktpfad), hält Braze Anfragen an den Zielhost vorübergehend für eine Minute an.
 
-Wenn Anfragen angehalten werden, simuliert Braze Antworten mit einem `598`-Fehlercode, um den fehlerhaften Zustand anzuzeigen. Nach einer Minute nimmt Braze die Anfragen mit voller Geschwindigkeit wieder auf, wenn sich der Host als fehlerfrei erweist. Wenn der Host immer noch fehlerhaft ist, wartet Braze eine weitere Minute, bevor es erneut versucht wird.
+Wenn Anfragen angehalten werden, simuliert Braze Antworten mit einem `598`-Fehlercode, um den fehlerhaften Zustand anzuzeigen. Nach einer Minute nimmt Braze die Anfragen mit voller Geschwindigkeit wieder auf, wenn sich der Host als fehlerfrei erweist. Wenn der Host immer noch fehlerhaft ist, wartet Braze eine weitere Minute, bevor ein erneuter Versuch unternommen wird.
 
 Die folgenden Fehlercodes tragen zur Fehleranzahl des Detektors für fehlerhafte Hosts bei: `408`, `429`, `502`, `503`, `504`, `529`.
 
-Bei Webhooks wird Braze HTTP-Anfragen, die durch den Detektor für fehlerhafte Hosts angehalten wurden, automatisch wiederholen. Dieser automatische Wiederholungsversuch verwendet exponentielles Backoff und wird nur wenige Male wiederholt, bevor er fehlschlägt. Weitere Informationen zu Webhook-Fehlern finden Sie unter [Fehler, Wiederholungslogik und Timeouts]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#errors-retry-logic-and-timeouts).
+Bei Webhooks wiederholt Braze HTTP-Anfragen, die durch den Detektor für fehlerhafte Hosts angehalten wurden, automatisch. Dieser automatische Wiederholungsversuch verwendet exponentielles Backoff und wird nur wenige Male wiederholt, bevor er fehlschlägt. Weitere Informationen zu Webhook-Fehlern finden Sie unter [Fehler, Wiederholungslogik und Timeouts]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#errors-retry-logic-and-timeouts).
 
-Wenn bei Connected-Content Anfragen an den Zielhost durch den Detektor für fehlerhafte Hosts angehalten werden, rendert Braze weiterhin Nachrichten und folgt Ihrer Liquid-Logik, als ob ein Fehlerantwortcode empfangen worden wäre. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen erneut versucht werden, wenn sie vom Detektor für fehlerhafte Hosts angehalten werden, verwenden Sie die Option `:retry`. Weitere Informationen über die Option `:retry` finden Sie unter [Wiederholungsversuche für Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/connected_content_retries).
+Wenn bei Connected-Content Anfragen an den Zielhost durch den Detektor für fehlerhafte Hosts angehalten werden, rendert Braze weiterhin Nachrichten und folgt Ihrer Liquid-Logik, als ob ein Fehlerantwortcode empfangen worden wäre. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen erneut versucht werden, wenn sie vom Detektor für fehlerhafte Hosts angehalten werden, verwenden Sie die Option `:retry`. Weitere Informationen über die Option `:retry` finden Sie unter [Wiederholungsversuche für Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
 
-Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze Support]({{site.baseurl}}/support_contact/).
+Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
 
-## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll
+## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll {#automated-emails-and-message-activity-log-entries}
 
-### Einrichten von automatisierten E-Mails
+### Einrichten von automatisierten E-Mails {#setting-up-automated-emails}
 
 Wenn in einem Workspace innerhalb von 24 Stunden mehr als 100.000 Webhook- oder Connected-Content-Endpunkt-Fehler (einschließlich Wiederholungen) auftreten, erhalten Sie eine E-Mail mit den folgenden Informationen zur Behebung der Fehler.
 
@@ -170,7 +171,7 @@ Wenn in einem Workspace innerhalb von 24 Stunden mehr als 100.000 Webhook- oder 
 - Links zum Nachrichten-Aktivitätsprotokoll und zur zugehörigen Dokumentation
 
 {% alert note %}
-Sie können den Fehlerschwellenwert pro Workspace konfigurieren. Um diesen Schwellenwert anzupassen, kontaktieren Sie den [Braze Support]({{site.baseurl}}/support_contact/).
+Sie können den Fehlerschwellenwert pro Workspace konfigurieren. Um diesen Schwellenwert anzupassen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
 {% endalert %}
 
 Die Endpunkt-Fehler sind:
@@ -182,14 +183,14 @@ Diese E-Mails werden nur einmal pro Tag auf Workspace-Ebene gesendet. Wenn sich 
 
 Um sich für den Erhalt dieser E-Mails zu registrieren, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Benachrichtigungspräferenzen**.
-2. Wählen Sie **Connected-Content-Fehler** und **Webhook-Fehler** im Abschnitt **Canvas & Kampagnen** aus.
+1. Gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Präferenzen für Benachrichtigungen**.
+2. Wählen Sie **Connected Content Errors** und **Webhook Errors** im Abschnitt **Canvas & Campaigns** aus.
 
-### Einträge im Nachrichten-Aktivitätsprotokoll
+### Einträge im Nachrichten-Aktivitätsprotokoll {#message-activity-log-entries}
 
-Wenn ein Fehler auftritt, gibt es mindestens einen Eintrag im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab), der sich darauf bezieht. Wenn die Anfrage erneut versucht wird und schließlich erfolgreich ist, sind diese Details in Currents und Snowflake Data Share verfügbar. Beachten Sie, dass die Fehler auch dann die automatisierte E-Mail auslösen können, wenn eine Anfrage nach einem Wiederholungsversuch letztendlich erfolgreich ist.
+Wenn ein Fehler auftritt, gibt es mindestens einen Eintrag im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/), der sich darauf bezieht. Wenn die Anfrage erneut versucht wird und schließlich erfolgreich ist, sind diese Details in Currents und der Snowflake-Datenfreigabe verfügbar. Beachten Sie, dass die Fehler auch dann die automatisierte E-Mail auslösen können, wenn eine Anfrage nach einem Wiederholungsversuch letztendlich erfolgreich ist.
 
-### Zusätzliche Insights zu Fehlern in Braze-Currents
+### Zusätzliche Insights zu Fehlern in Braze-Currents {#additional-failure-insights-in-braze-currents}
 
 Um die Transparenz bei Webhook-Problemen zu erhöhen, streamt Braze detaillierte Webhook-Fehlerereignisse an Currents und Snowflake Data Sharing. Zu diesen Ereignissen gehören auch fehlgeschlagene Webhook-Anfragen (z. B. HTTP-`4xx`- oder `5xx`-Antworten), sodass Sie besser beobachten können, wie sich Webhook-Probleme auf die Zustellung von Nachrichten auswirken können. Beachten Sie, dass Fehlerereignisse sowohl endgültige Fehler als auch Fehler umfassen, bei denen ein Wiederholungsversuch stattfindet.
 
@@ -197,4 +198,4 @@ Um die Transparenz bei Webhook-Problemen zu erhöhen, streamt Braze detaillierte
 Connected-Content-Anfragen sind in diesen Webhook-Fehlerereignissen nicht enthalten.
 {% endalert %}
 
-Weitere Informationen finden Sie im [Glossar der Messaging-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/).
+Weitere Informationen finden Sie im [Glossar der Messaging-Engagement-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).

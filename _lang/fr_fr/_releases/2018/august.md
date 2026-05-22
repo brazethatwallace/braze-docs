@@ -3,23 +3,22 @@ nav_title: août
 page_order: 6
 noindex: true
 page_type: update
-description: "Cet article contient les notes de version d’août 2018."
+description: "Cet article contient les notes de version d'août 2018."
 ---
-# Août 2018
+# Août 2018 {#august-2018}
 
-## Groupes de notification iOS 12
+## Groupes de notification iOS 12 {#ios-12-notification-groups}
 
-La version iOS 12 récente prend en charge les notifications en groupes (similaires aux canaux de notification Android) pour les applications. [Braze vous permet d'utiliser cette fonctionnalité de regroupement dans iOS ceci à l'aide de notre compositeur de messages.]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message/#notification-groups)
+La version récente d'iOS 12 prend en charge le regroupement des notifications (similaire aux canaux de notification Android) pour les applications. [Braze vous permet d'utiliser cette fonctionnalité de regroupement dans iOS à l'aide de notre compositeur de messages.]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message/#notification-groups)
 
-## Déclenchement de push story
+## Déclenchement de Push Story {#push-story-triggering}
 
-Vous pouvez maintenant recibler les utilisateurs en fonction de leurs clics sur une diapo spécifique d’une Push Story. Utilisez le filtre supplémentaire pour la **campagne Interacted with.**
+Vous pouvez désormais recibler les utilisateurs en fonction de clics sur des pages spécifiques des diapositives Push Story. Utilisez le filtre supplémentaire **Interacted with Campaign**.
 
-## Événements de données S3 et Azure pour les utilisateurs anonymes
+## Événements de données S3 et Azure pour les utilisateurs anonymes {#s3-and-azure-data-events-from-anonymous-users}
 
- Les clients qui exportent des données vers Amazon S3 et Microsoft Azure peuvent désormais inclure des événements d’utilisateurs anonymes. Cette fonctionnalité sera activée par défaut pour toutes les intégrations nouvellement créées, mais restera désactivée sur toutes les intégrations existantes. Si vous avez des questions, contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance.]({{site.baseurl}}/braze_support/)
+ Les clients qui exportent des données vers Amazon S3 et Microsoft Azure peuvent désormais inclure des événements d'utilisateurs anonymes. Cette fonctionnalité sera activée par défaut pour toutes les intégrations nouvellement créées, mais restera désactivée pour toutes les intégrations existantes. Si vous avez des questions, contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/).
 
-## Intégration des cohortes Mixpanel
+## Intégration des cohortes Mixpanel {#mixpanel-cohorts-integration}
 
-Les clients de Braze et de Mixpanel peuvent désormais intégrer et [envoyer les cohortes de Mixpanel vers Braze en tant que filtres de segmentation]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents/#mixpanel-cohort-import). Vous pouvez configurer une exportation manuelle unique ou une exportation dynamique toutes les deux heures. Chaque utilisateur mis à jour comptera comme un point de données, mais Mixpanel envoie uniquement les modifications depuis la dernière synchronisation.
-
+Les clients de Braze et de Mixpanel peuvent désormais intégrer et [envoyer les cohortes Mixpanel vers Braze en tant que filtres de segment]({{site.baseurl}}/partners/insights/behavioral_analytics/mixpanel_for_currents/#mixpanel-cohort-import). Vous pouvez configurer une exportation manuelle unique ou une exportation dynamique toutes les deux heures. Chaque utilisateur mis à jour comptera comme un point de donnée, mais Mixpanel n'envoie que les modifications depuis la dernière synchronisation.

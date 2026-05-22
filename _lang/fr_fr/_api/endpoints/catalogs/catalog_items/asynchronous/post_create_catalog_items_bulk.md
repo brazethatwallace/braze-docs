@@ -1,49 +1,49 @@
 ---
-nav_title: "POST : Créer plusieurs produits du catalogue"
-article_title: "POST : Créer plusieurs produits du catalogue"
+nav_title: "POST : Créer plusieurs produits du catalogue"
+article_title: "POST : Créer plusieurs produits du catalogue"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Créer plusieurs produits du catalogue."
+description: "Cet article présente en détail l'endpoint Braze Créer plusieurs produits du catalogue."
 
 ---
 {% api %}
-# Créer plusieurs produits du catalogue
+# Créer plusieurs produits du catalogue {#create-multiple-catalog-items}
 {% apimethod post %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
 > Utilisez cet endpoint pour créer plusieurs produits dans votre catalogue.
 
-Chaque requête peut prendre en charge jusqu’à 50 objets. Cet endpoint est asynchrone.
+Chaque requête peut prendre en charge jusqu'à 50 produits. Cet endpoint est asynchrone.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cea18bb3-b83a-4160-81fe-8cd42aa6e7cc {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `catalogs.add_items`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `catalogs.add_items`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## Paramètres de chemin
+## Paramètres de chemin {#path-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `catalog_name` | Requis | Chaîne de caractères | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `items` | Requis | Tableau | Un tableau qui contient certains objets Produit. Les objets Produits devraient contenir tous les champs qui existent dans le catalogue. Jusqu’à 50 objets sont autorisés par requête. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | Requis | Tableau | Un tableau qui contient des objets produit. Les objets produit doivent contenir tous les champs existants dans le catalogue. Jusqu'à 50 objets produit sont autorisés par requête. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -58,9 +58,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 5,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -75,9 +76,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 10,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 40.7413,
-        "Longitude": -73.9764
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hot Dog",
@@ -92,9 +94,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 3,
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 40.7489,
-        "Longitude": -73.9972
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Buffalo Wings",
@@ -106,11 +109,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-## Réponse
+{% alert note %}
+Le champ `Location` utilise le type de données `geo`, qui attend un tableau au format `[longitude, latitude]`.
+{% endalert %}
 
-Trois réponses de code de statut existent pour cet endpoint : `202`, `400` et `404`.
+## Réponse {#response}
 
-### Exemple de réponse réussie
+Trois codes de statut sont possibles pour cet endpoint : `202`, `400` et `404`.
+
+### Exemple de réponse réussie {#example-success-response}
 
 Le code de statut `202` pourrait renvoyer le corps de réponse suivant.
 
@@ -120,9 +127,9 @@ Le code de statut `202` pourrait renvoyer le corps de réponse suivant.
 }
 ```
 
-### Exemple de réponse échouée
+### Exemple de réponse échouée {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la [résolution des problèmes](#troubleshooting) pour plus d’informations concernant les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations concernant les erreurs que vous pourriez rencontrer.
 
 ```json
 {
@@ -142,7 +149,7 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 }
 ```
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
 Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes de résolution des problèmes associées.
 
@@ -151,16 +158,16 @@ Le tableau suivant répertorie les erreurs renvoyées possibles et les étapes d
 | `catalog-not-found` | Vérifiez que le nom du catalogue est valide. |
 | `ids-not-strings` | Les ID de produit doivent être de type chaîne de caractères. |
 | `ids-not-unique` | Les ID de produit doivent être uniques au sein de la requête. |
-| `ids-too-large` | Les ID de produit ne peuvent pas contenir plus de 250 caractères. |
-| `invalid-ids` | Ces ID de produit peuvent uniquement inclure des lettres, des chiffres, des traits d’union et des traits de soulignement. |
-| `invalid-fields` | Confirmez que tous les champs que vous envoyez dans la requête API existent déjà dans le catalogue. Cela n'a rien à voir avec le champ ID mentionné dans l'erreur. |
-| `invalid-keys-in-value-object` | Les clés d’objet de produit ne peuvent pas inclure `.` ou `$`. |
-| `item-array-invalid` | `items` doit être un tableau d’objets. |
-| `items-missing-ids` | Certains articles n'ont pas d'ID. Vérifiez que chaque produit possède un ID de produit. |
-| `items-too-large` | Les valeurs de produits ne peuvent pas dépasser 5 000 caractères. |
-| `request-includes-too-many-items` | Votre requête contient trop de produits. La limite de produit par requête est de 50. |
-| `too-deep-nesting-in-value-object` | Les objets de produit ne peuvent pas avoir plus de 50 niveaux d’imbrication. |
-| `unable-to-coerce-value` | Les types de produits ne peuvent pas être convertis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ids-too-large` | Les ID de produit ne peuvent pas contenir plus de 250 caractères. |
+| `invalid-ids` | Les ID de produit peuvent uniquement inclure des lettres, des chiffres, des traits d'union et des traits de soulignement. |
+| `invalid-fields` | Confirmez que tous les champs que vous envoyez dans la requête API existent déjà dans le catalogue. Cela n'est pas lié au champ ID mentionné dans l'erreur. |
+| `invalid-keys-in-value-object` | Les clés d'objet de produit ne peuvent pas inclure `.` ou `$`. |
+| `item-array-invalid` | `items` doit être un tableau d'objets. |
+| `items-missing-ids` | Certains produits n'ont pas d'ID. Vérifiez que chaque produit possède un ID de produit. |
+| `items-too-large` | Les valeurs de produit ne peuvent pas dépasser 5 000 caractères. |
+| `request-includes-too-many-items` | Votre requête contient trop de produits. La limite de produits par requête est de 50. |
+| `too-deep-nesting-in-value-object` | Les objets de produit ne peuvent pas avoir plus de 50 niveaux d'imbrication. |
+| `unable-to-coerce-value` | Les types de produit ne peuvent pas être convertis. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

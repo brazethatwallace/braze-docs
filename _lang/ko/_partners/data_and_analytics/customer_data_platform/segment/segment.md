@@ -3,250 +3,258 @@ nav_title: Segment
 article_title: Segment
 page_order: 1
 alias: /partners/segment/
-description: "This reference article outlines the partnership between Braze and Segment, a customer data platform that collects and routes information between sources in your marketing stack."
+description: "이 참조 문서에서는 마케팅 스택의 소스 간에 정보를 수집하고 라우팅하는 고객 데이터 플랫폼인 Segment와 Braze 간의 파트너십에 대해 설명합니다."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# 세그먼트
+# Segment
 
 {% multi_lang_include video.html id="RfOHfZ34hYM" align="right" %}
 
-> [Segment](https://segment.com) is a customer data platform that helps you collect, clean, and activate your customer data. 
+> [Segment](https://segment.com)는 고객 데이터를 수집, 정리 및 활성화하는 데 도움이 되는 고객 데이터 플랫폼입니다.
 
-The Braze and Segment integration allows you to track your users and route data to various user analytics providers. Segment allows you to:
+Braze와 Segment 통합을 통해 사용자를 추적하고 다양한 사용자 분석 제공업체로 데이터를 라우팅할 수 있습니다. Segment를 사용하면 다음을 수행할 수 있습니다:
 
-- Sync [Segment Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage/) to Braze for use in Braze campaign and Canvas segmentation.
-- [Import data across the two platforms](#integration-options). We offer a side-by-side SDK integration for your Android, iOS, and web applications and a server-to-server integration for syncing your data to the Braze REST APIs
-- [Connect data to Segment through Currents]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/). 
+- [Segment Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage/)를 Braze에 동기화하여 Braze Campaign 및 Canvas 세분화에 활용합니다.
+- [두 플랫폼 간에 데이터를 가져옵니다](#integration-options). Android, iOS 및 웹 애플리케이션을 위한 병렬 SDK 통합과 Braze REST API로 데이터를 동기화하는 서버 간 통합을 제공합니다.
+- [Currents를 통해 Segment에 데이터를 연결합니다]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents/).
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Segment account | A [Segment account](https://app.segment.com/login) is required to take advantage of this partnership. |
-| Installed source and Segment source [libraries](https://segment.com/docs/sources/) | The origin of any data sent into Segment, such as mobile apps, websites, or backend servers.<br><br>You must install the libraries into your app, site, or server before being able to set up a successful `Source > Destination` flow. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Segment 계정 | 이 파트너십을 활용하려면 [Segment 계정](https://app.segment.com/login)이 필요합니다. |
+| 설치된 소스 및 Segment 소스 [라이브러리](https://segment.com/docs/sources/) | 모바일 앱, 웹사이트 또는 백엔드 서버 등 Segment로 전송되는 모든 데이터의 출처입니다.<br><br>성공적인 `Source > Destination` 흐름을 설정하려면 먼저 앱, 사이트 또는 서버에 라이브러리를 설치해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Integration
+## 통합 {#integration}
 
-To integrate Braze and Segment, you must set [Braze as a destination](#connection-settings) in accordance with [your chosen integration type](#integration-options) (connection mode). If you're a new-to-Braze customer, you can relay historical data to Braze using [Segment replays](#segment-replays). Next, you must set up [mappings](#methods) and [test your integration](#step-4-test-your-integration) to ensure smooth data flow between Braze and Segment.
+Braze와 Segment를 통합하려면 [선택한 통합 유형](#integration-options)(연결 모드)에 따라 [Braze를 대상으로 설정](#connection-settings)해야 합니다. Braze를 처음 사용하는 고객이라면 [Segment 리플레이](#segment-replays)를 사용하여 과거 데이터를 Braze로 전달할 수 있습니다. 다음으로 [매핑](#methods)을 설정하고 [통합을 테스트](#step-4-test-your-integration)하여 Braze와 Segment 간의 원활한 데이터 흐름을 보장해야 합니다.
 
-### Step 1: Create a Braze destination {#connection-settings}
+### 1단계: Braze 대상 생성 {#connection-settings}
 
-After successfully setting up your sources, you'll need to configure Braze as a [destination](https://segment.com/docs/destinations/) for each source (iOS, Android, web, etc.). You'll have many options to customize the data flow between Braze and Segment using the connection settings.
+소스를 성공적으로 설정한 후에는 각 소스(iOS, Android, 웹 등)에 대해 Braze를 [대상](https://segment.com/docs/destinations/)으로 구성해야 합니다. 연결 설정을 사용하여 Braze와 Segment 간의 데이터 흐름을 커스터마이즈할 수 있는 다양한 옵션이 있습니다.
 
-### Step 2: Choose destination framework and connection type {#integration-options}
+### 2단계: 대상 프레임워크 및 연결 유형 선택 {#integration-options}
 
-In Segment, navigate to **Destinations** > **Braze** > **Configure Braze** > **Select your Source** > **Setup**.
+Segment에서 **Destinations** > **Braze** > **Configure Braze** > **Select your Source** > **Setup**으로 이동합니다.
 
-![The source setup page. 이 페이지에는 대상 프레임워크를 '작업' 또는 '클래식'으로 설정하고 연결 모드를 '클라우드 모드' 또는 '기기 모드'로 설정하는 설정이 포함되어 있습니다.]({% image_buster /assets/img/segment/setup.png %})
+![소스 설정 페이지. 이 페이지에는 대상 프레임워크를 'actions' 또는 'classic'으로 설정하고 연결 모드를 'cloud mode' 또는 'device mode'로 설정하는 설정이 포함되어 있습니다.]({% image_buster /assets/img/segment/setup.png %})
 
-Segment의 웹 소스(Analytics.js)와 기본 클라이언트 측 라이브러리를 나란히(디바이스 모드) 통합하거나 서버 대 서버(클라우드 모드) 통합을 사용하여 Braze와 통합할 수 있습니다.
+Segment의 웹 소스(Analytics.js)와 네이티브 클라이언트 측 라이브러리를 병렬(디바이스 모드) 통합 또는 서버 간(클라우드 모드) 통합을 사용하여 Braze와 통합할 수 있습니다.
 
-Your choice of connection mode will be determined by the type of Source the destination is configured for.
+연결 모드 선택은 대상이 구성된 소스 유형에 따라 결정됩니다.
 
-| Integration | Details |
+| 통합 | 세부 정보 |
 | ----------- | ------- |
-| [Side-by-side<br>(device-mode)](#side-by-side-sdk-integration) |Uses Segment's SDK to translate events into Braze native calls, allowing access to deeper features and more comprehensive usage of Braze than the server-to-server integration.<br><br>Note that Segment does not support all Braze methods (for example, Content Cards). To use a Braze method that isn't mapped through a corresponding mapping, you will have to invoke the method by adding native Braze code to your codebase. |
-| [Server-to-server<br>(cloud-mode)](#server-to-server-integration) | Forwards data from Segment to Braze REST API endpoints.<br><br>Does not support Braze UI features such as in-app messaging, Content Cards, or push notifications. There also exists automatically captured data, such as device-level fields, that are unavailable through this method.<br><br>Consider a side-by-side integration if you wish to use these features.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [병렬<br>(디바이스 모드)](#side-by-side-sdk-integration) | Segment의 SDK를 사용하여 이벤트를 Braze 네이티브 호출로 변환하여 서버 간 통합보다 더 깊은 기능과 더 포괄적인 Braze 사용을 가능하게 합니다.<br><br>Segment가 모든 Braze 메서드를 지원하지는 않습니다(예: Content Cards). 해당 매핑을 통해 매핑되지 않은 Braze 메서드를 사용하려면 코드베이스에 네이티브 Braze 코드를 추가하여 메서드를 호출해야 합니다. |
+| [서버 간<br>(클라우드 모드)](#server-to-server-integration) | Segment에서 Braze REST API 엔드포인트로 데이터를 전달합니다.<br><br>인앱 메시징, Content Cards 또는 푸시 알림과 같은 Braze UI 기능을 지원하지 않습니다. 또한 이 방법으로는 사용할 수 없는 기기 수준 필드와 같은 자동 수집 데이터도 있습니다.<br><br>이러한 기능을 사용하려면 병렬 통합을 고려하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose destination framework and connection type #integration-options" }
 
 {% alert note %}
-Visit [Segment](https://segment.com/docs/destinations/#connection-modes) to learn more about the two integration options (connection modes), including the benefits of each.
+두 가지 통합 옵션(연결 모드)과 각각의 이점에 대해 자세히 알아보려면 [Segment](https://segment.com/docs/destinations/#connection-modes)를 방문하세요.
 {% endalert %}
 
-#### Side-by-side SDK integration
+#### 병렬 SDK 통합 {#side-by-side-sdk-integration}
 
-Also called device-mode, this integration maps Segment's SDK and [methods](#methods) to the Braze SDK, allowing access to all the features our SDK provides, such as push, in-app messaging, and other methods native to Braze. 
+디바이스 모드라고도 하며, 이 통합은 Segment의 SDK와 [메서드](#methods)를 Braze SDK에 매핑하여 푸시, 인앱 메시징 및 Braze 네이티브 메서드 등 SDK가 제공하는 모든 기능에 접근할 수 있게 합니다.
 
 {% alert note %}
-When using Segment's device-mode, you do not need to integrate the Braze SDK directly. When adding Braze as a device-mode destination for Segment, the Segment SDK will initialize the Braze SDK and call the relevant mapped Braze methods.
+Segment의 디바이스 모드를 사용할 때는 Braze SDK를 직접 통합할 필요가 없습니다. Segment의 디바이스 모드 대상으로 Braze를 추가하면 Segment SDK가 Braze SDK를 초기화하고 관련 매핑된 Braze 메서드를 호출합니다.
 {% endalert %}
 
-When using a device-mode connection, similar to integrating the Braze SDK natively, the Braze SDK will assign a `device_id` and a backend identifier, `braze_id`, to every user. This allows Braze to capture anonymous activity from the device by matching those identifiers instead of `userId`. 
+{% alert important %}
+모바일 디바이스 모드 통합의 경우, Segment 대시보드에서 대상을 구성하는 것 외에도 앱에 Braze 대상 플러그인을 추가해야 합니다. Segment SDK에는 기본적으로 Braze 플러그인이 포함되어 있지 않으며, 이 플러그인이 없으면 Segment SDK가 Braze로 데이터나 매핑된 메서드 호출을 전달할 수 없고 푸시, 인앱 메시지, Content Cards와 같은 기능이 작동하지 않습니다. 설치 지침은 아래 플랫폼별 탭을 참조하세요.
+{% endalert %}
+
+디바이스 모드 연결을 사용할 때, Braze SDK를 네이티브로 통합하는 것과 유사하게 Braze SDK는 모든 사용자에게 `device_id`와 백엔드 식별자인 `braze_id`를 할당합니다. 이를 통해 Braze는 `userId` 대신 해당 식별자를 매칭하여 기기에서의 익명 활동을 캡처할 수 있습니다.
+
+{% alert note %}
+[대상 필터](https://segment.com/docs/connections/destinations/destination-filters/)를 디바이스 모드(Kotlin 또는 Swift) 대상과 함께 사용하는 경우, 필터 지원이 활성화된 상태로 대상 플러그인을 구성해야 합니다. 지원되는 플러그인 버전에 대한 자세한 내용은 Segment의 [대상 필터 문서](https://segment.com/docs/connections/destinations/destination-filters/)를 참조하세요.
+{% endalert %}
 
 {% tabs local %}
 {% tab Android %}
 
 {% alert important %}
-The source code for the Android device mode integration is maintained by Braze and is updated regularly to reflect new Braze SDK releases.
+Android 디바이스 모드 통합의 소스 코드는 Braze에서 유지 관리하며 새로운 Braze SDK 릴리스를 반영하여 정기적으로 업데이트됩니다.
 
 <br>
-The Braze SDK you use will depend on which Segment SDK you use:
+사용하는 Braze SDK는 사용하는 Segment SDK에 따라 달라집니다:
 
-| | 세그먼트 소프트웨어 개발 키트 | Braze SDK |
+| | Segment SDK | Braze SDK |
 | - | ----------- | --------- |
-| 선호 | [분석-Kotlin](https://github.com/segmentio/analytics-kotlin) | [Braze 세그먼트 Kotlin](https://github.com/braze-inc/braze-segment-kotlin) |
-| 레거시 | [분석-Android](https://github.com/segmentio/analytics-android) | [Braze 세그먼트 Android](https://github.com/braze-inc/braze-segment-android) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 선호 | [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin) | [Braze Segment Kotlin](https://github.com/braze-inc/braze-segment-kotlin) |
+| 레거시 | [Analytics-Android](https://github.com/segmentio/analytics-android) | [Braze Segment Android](https://github.com/braze-inc/braze-segment-android) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side SDK integration" }
 
 
 {% endalert %}
 
-To set up Braze as a device-mode destination for your Android source, choose **Actions** as the **Destination framework**, then select **Save**. 
+Android 소스의 디바이스 모드 대상으로 Braze를 설정하려면 **Destination framework**로 **Actions**를 선택한 다음 **Save**를 선택합니다.
 
-To complete the side-by-side integration, refer to Segment's detailed instructions for adding the Braze destination dependency to your [Android](https://segment.com/docs/connections/sources/catalog/libraries/mobile/kotlin-android/destination-plugins/braze-kotlin-android/) app.
+병렬 통합을 완료하려면 Android 앱에 [Braze Kotlin 대상 플러그인](https://segment.com/docs/connections/sources/catalog/libraries/mobile/kotlin-android/destination-plugins/braze-kotlin-android/)을 추가해야 합니다. 이 플러그인은 Segment SDK와 Braze SDK를 연결하여 디바이스 모드 데이터가 Braze로 흐를 수 있게 합니다. Segment 설치 지침에 따라 플러그인 종속성을 추가하고 Segment 분석 인스턴스로 초기화하세요.
 
-The source code for the [Android device mode](https://github.com/braze-inc/braze-segment-kotlin) integration is maintained by Braze and is updated regularly to reflect new Braze SDK releases.
+[Android 디바이스 모드](https://github.com/braze-inc/braze-segment-kotlin) 통합의 소스 코드는 Braze에서 유지 관리하며 새로운 Braze SDK 릴리스를 반영하여 정기적으로 업데이트됩니다.
 
 {% endtab %}
 {% tab iOS %}
 
 {% alert important %}
-The source code for the iOS device mode integration is maintained by Braze and is updated regularly to reflect new Braze SDK releases.
+iOS 디바이스 모드 통합의 소스 코드는 Braze에서 유지 관리하며 새로운 Braze SDK 릴리스를 반영하여 정기적으로 업데이트됩니다.
 
 <br>
-The Braze SDK you use will depend on which Segment SDK you use:
+사용하는 Braze SDK는 사용하는 Segment SDK에 따라 달라집니다:
 
-| | 세그먼트 소프트웨어 개발 키트 | Braze SDK |
+| | Segment SDK | Braze SDK |
 | - | ----------- | --------- |
-| 선호 | [분석-스위프트](https://github.com/segmentio/analytics-swift) | [Braze 세그먼트 스위프트](https://github.com/braze-inc/braze-segment-swift) |
-| 레거시 | [분석-iOS](https://github.com/segmentio/analytics-ios) | [Braze 세그먼트 iOS](https://github.com/Appboy/appboy-segment-ios) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 선호 | [Analytics-Swift](https://github.com/segmentio/analytics-swift) | [Braze Segment Swift](https://github.com/braze-inc/braze-segment-swift) |
+| 레거시 | [Analytics-iOS](https://github.com/segmentio/analytics-ios) | [Braze Segment iOS](https://github.com/Appboy/appboy-segment-ios) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side SDK integration" }
 {% endalert %}
 
-To set up Braze as a device-mode destination for your iOS source, choose **Actions** as the **Destination framework**, then select **Save**. 
+iOS 소스의 디바이스 모드 대상으로 Braze를 설정하려면 **Destination framework**로 **Actions**를 선택한 다음 **Save**를 선택합니다.
 
-To complete the side-by-side integration, refer to Segment's detailed instructions for adding the Braze Segment pod to your [iOS](https://segment.com/docs/connections/sources/catalog/libraries/mobile/apple/destination-plugins/braze-swift/) app.
+병렬 통합을 완료하려면 iOS 앱에 [Braze Swift 대상 플러그인](https://segment.com/docs/connections/sources/catalog/libraries/mobile/apple/destination-plugins/braze-swift/)을 추가해야 합니다. 이 플러그인은 Segment SDK와 Braze SDK를 연결하여 디바이스 모드 데이터가 Braze로 흐를 수 있게 합니다. Segment 설치 지침에 따라 플러그인 종속성(스위프트 패키지 매니저 또는 CocoaPods를 통해)을 추가하고 Segment 분석 인스턴스로 초기화하세요.
 
-The source code for the [iOS device mode](https://github.com/braze-inc/braze-segment-swift) integration is maintained by Braze and is updated regularly to reflect new Braze SDK releases.
+[iOS 디바이스 모드](https://github.com/braze-inc/braze-segment-swift) 통합의 소스 코드는 Braze에서 유지 관리하며 새로운 Braze SDK 릴리스를 반영하여 정기적으로 업데이트됩니다.
 
 {% endtab %}
-{% tab Web or JavaScript %}
+{% tab 웹 또는 JavaScript %}
 
-Segment's Braze Web Mode (Actions) framework is recommended for setting up Braze as a device-mode destination for your web source. 
+Segment의 Braze Web Mode (Actions) 프레임워크는 웹 소스의 디바이스 모드 대상으로 Braze를 설정하는 데 권장됩니다.
 
-In Segment, select **Actions** as your destination framework and **Device Mode** as your connection mode.
+Segment에서 대상 프레임워크로 **Actions**를, 연결 모드로 **Device Mode**를 선택합니다.
 
 ![]({% image_buster /assets/img/segment/website.png %})
 
 {% endtab %}
 {% tab React Native %}
-The source code for the [React Native Braze plugin](https://github.com/segmentio/analytics-react-native/tree/master/packages/plugins/plugin-braze) is maintained by Segment and is updated regularly to reflect new Braze SDK releases.
+[React Native Braze 플러그인](https://github.com/segmentio/analytics-react-native/tree/master/packages/plugins/plugin-braze)의 소스 코드는 Segment에서 유지 관리하며 새로운 Braze SDK 릴리스를 반영하여 정기적으로 업데이트됩니다.
 
-When connecting a React Native Segment Source to Braze, you must set up a source and destination per operating system. For example, setting up an iOS destination and an Android destination. 
+React Native Segment 소스를 Braze에 연결할 때는 운영체제별로 소스와 대상을 설정해야 합니다. 예를 들어, iOS 대상과 Android 대상을 설정합니다.
 
-Within your app codebase, conditionally initialize the Segment SDK by device type, using the respective source write key associated with each app.
+앱 코드베이스 내에서 각 앱에 연결된 해당 소스 쓰기 키를 사용하여 기기 유형별로 Segment SDK를 조건부로 초기화합니다.
 
-When a push token is registered from a device and sent to Braze, it is associated with the app identifier used when initializing the SDK. The device-type conditional initialization helps confirm that any push tokens sent to Braze are associated with the relevant app.
+기기에서 푸시 토큰이 등록되어 Braze로 전송되면 SDK 초기화 시 사용된 앱 식별자와 연결됩니다. 기기 유형 조건부 초기화는 Braze로 전송된 모든 푸시 토큰이 관련 앱과 연결되도록 확인하는 데 도움이 됩니다.
 
 {% alert important %}
-If the React Native app initializes Braze with the same Braze app identifier for all devices, then all React Native users will be considered Android or iOS users in Braze, and all push tokens will be associated with that operating system.
+React Native 앱이 모든 기기에 대해 동일한 Braze 앱 식별자로 Braze를 초기화하면 모든 React Native 사용자가 Braze에서 Android 또는 iOS 사용자로 간주되며 모든 푸시 토큰이 해당 운영체제와 연결됩니다.
 {% endalert %}
 
-To set up Braze as a device-mode destination for each source, choose **Actions** as the **Destination framework**, then select **Save**.
+각 소스의 디바이스 모드 대상으로 Braze를 설정하려면 **Destination framework**로 **Actions**를 선택한 다음 **Save**를 선택합니다.
 
 {% endtab %}
 {% endtabs %}
 
-#### Server-to-server integration
+#### 서버 간 통합 {#server-to-server-integration}
 
-Also called cloud-mode, this integration forwards data from Segment to the Braze REST APIs. Use Segment's [Braze Cloud Mode (Actions)](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/) framework to set up a cloud-mode destination for any of your sources. 
+클라우드 모드라고도 하며, 이 통합은 Segment에서 Braze REST API로 데이터를 전달합니다. Segment의 [Braze Cloud Mode (Actions)](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/) 프레임워크를 사용하여 모든 소스에 대한 클라우드 모드 대상을 설정합니다.
 
-Unlike the side-by-side integration, the server-to-server integration does not support Braze UI features, such as in-app messaging, Content Cards, or automatic push token registration. There also exists [automatically captured]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/#user-data-collection) data (such as anonymous users and device-level fields) that are not available through cloud-mode.
+병렬 통합과 달리 서버 간 통합은 인앱 메시징, Content Cards 또는 자동 푸시 토큰 등록과 같은 Braze UI 기능을 지원하지 않습니다. 또한 클라우드 모드를 통해서는 사용할 수 없는 [자동 수집]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/#user-data-collection) 데이터(익명 사용자 및 기기 수준 필드 등)도 있습니다.
 
-If you wish to use this data and these features, consider using the side-by-side (device-mode) SDK integration.
+이 데이터와 기능을 사용하려면 병렬(디바이스 모드) SDK 통합을 사용하는 것을 고려하세요.
 
-The source code for the [Braze Cloud Mode (Actions) destination](https://github.com/segmentio/action-destinations/tree/main/packages/destination-actions/src/destinations/braze) is maintained by Segment.
+[Braze Cloud Mode (Actions) 대상](https://github.com/segmentio/action-destinations/tree/main/packages/destination-actions/src/destinations/braze)의 소스 코드는 Segment에서 유지 관리합니다.
 
-### Step 3: Settings
+### 3단계: 설정 {#step-3-settings}
 
-Define the settings for your destination. Not at all settings will apply to all destination types.
+대상에 대한 설정을 정의합니다. 모든 설정이 모든 대상 유형에 적용되는 것은 아닙니다.
 
 {% tabs local %}
-{% tab Mobile Device-Mode %}
+{% tab 모바일 디바이스 모드 %}
 
-| Setting | Description |
+| 설정 | 설명 |
 | ------- | ----------- |
-| App identifier | The app identifier used to reference the specific app. This can be found in the Braze dashboard under **Manage Settings** | 
-| Custom API endpoint<br>(SDK endpoint) | Your Braze SDK endpoint that corresponds to your instance (such as `sdk.iad-01.braze.com`) | 
-| Endpoint region | Your Braze instance (such as US 01, US 02, EU 01, etc.) | 
-| Enable automatic in-app message registration | Disable this if you want to manually register in-app messages. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 앱 식별자 | 특정 앱을 참조하는 데 사용되는 앱 식별자입니다. Braze 대시보드의 **설정 관리**에서 찾을 수 있습니다. |
+| 커스텀 API 엔드포인트<br>(SDK 엔드포인트) | 인스턴스에 해당하는 Braze SDK 엔드포인트입니다(예: `sdk.iad-01.braze.com`). |
+| 엔드포인트 리전 | Braze 인스턴스입니다(예: US 01, US 02, EU 01 등). |
+| 자동 인앱 메시지 등록 활성화 | 인앱 메시지를 수동으로 등록하려면 이 옵션을 비활성화하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Settings" }
 
 {% endtab %}
-{% tab Web Device-Mode %}
+{% tab 웹 디바이스 모드 %}
 
-| Setting | Description |
+| 설정 | 설명 |
 | ------- | ----------- |
-| App identifier | The app identifier used to reference the specific app. This can be found in the Braze dashboard under **Manage Settings** | 
-| Custom API endpoint<br>(SDK endpoint) | Your Braze SDK endpoint that corresponds to your instance (such as `sdk.iad-01.braze.com`) | 
-| Safari website push ID | If you support Safari push, you must specify this option with the website push ID that you provided to Apple when creating your Safari push certificate (starts with `web`, for example, `web.com.example.domain`). |
-| Braze Web SDK version | The version of the Braze Web SDK you would like to use |
-| Automatically send in-app messages | By default, all in-app messages a user is eligible for are automatically delivered to the user. Disable this if you would like to manually display in-app messages. |
-| Do not load font awesome | Braze uses Font Awesome for in-app message icons. By default, Braze will automatically load FontAwesome from the FontAwesome CDN. To disable this behavior (for example, because your site uses a customized version of FontAwesome), set this option to `TRUE`. Note that if you do this, you are responsible for ensuring that FontAwesome is loaded on your site - otherwise, in-app messages may not render correctly. |
-| Enable HTML in-app messages | Enabling this option will allow Braze dashboard users to use HTML in-app messages. | 
-| Open in-app messages in a new tab | By default, links from in-app message clicks load in the current tab or a new tab as specified in the dashboard on a message-by-message basis. Set this option to `TRUE` to force all links from in-app message clicks open in a new tab or window. |
-| In-app message z index | Provide a value for this option to override the Braze default z-indexes. | 
-| Require explicit in-app message dismissal | By default, when an in-app message is showing, pressing the escape button or a click on the grayed-out background of the page will dismiss the message. Set this option to true to prevent this behavior and require an explicit button click to dismiss messages. |
-| Minimum interval between trigger actions in seconds | Defaults to 30.<br>By default, a trigger action will only fire if at least 30 seconds have elapsed since the last trigger action. Provide a value for this configuration option to override that default with a value of your own. We do not recommend making this value any smaller than 10 to avoid spamming the user with notifications.|
-| Service worker location | By default, when registering users for web push notifications, Braze will look for the required service worker file in the root directory of your web server at `/service-worker.js`. If you want to host your service worker at a different path on that server, provide a value for this option that is the absolute path to the file. (for example, `/mycustompath/my-worker.js`). Note that setting a value here limits the scope of push notifications on your site. For instance, in the above example, because the service worker file is located within the `/mycustompath/` directory, `requestPushPermission` may only be called from web pages that start with `http://yoursite.com/mycustompath/`. |
-| Disable push token maintenance | By default, users who have already granted web push permission will sync their push token with the Braze backend automatically on new sessions to ensure deliverability. To disable this behavior, set this option to `FALSE`. |
-| Manage service worker externally | If you have your own service worker that you register and control the lifecycle of, set this option to `TRUE`, and the Braze SDK will not register or unregister a service worker. If you set this option to `TRUE`, for push to function correctly, you must register the service worker yourself before calling `requestPushPermission` and ensure that it contains the Braze service worker code, either with `self.importScripts('https://js.appboycdn.com/web-sdk-develop/4.1/service-worker.js');` or by including the content of that file directly. When this option is `TRUE`, the `serviceWorkerLocation` option is irrelevant and is ignored. |
-| Content security nonce | If you provide a value for this option, the Braze SDK will add the nonce to any `<script>` and `<style>` elements created by the SDK. This permits the Braze SDK to work with your website's content security policy. In addition to setting this nonce, you may also need to allow FontAwesome to load, which you can do by adding `use.fontawesome.com` to your Content Security Policy allowlist or by using the `doNotLoadFontAwesome` option and loading it manually. |
-| Allow crawler activity | By default, the Braze Web SDK ignores activity from known spiders or web crawlers, such as Google, based on the user agent string. This saves data points, makes analytics more accurate, and may improve page rank. However, if you want Braze to log activity from these crawlers instead, you may set this option to `TRUE`. |
-| Enable logging | Set to `TRUE` to enable logging by default. Note that this will cause Braze to log to the JavaScript console, which is visible to all users. Before you release your page to production, you should remove this or provide an alternate logger with `setLogger`. |
-| Allow user-supplied JavaScript | By default, the Braze Web SDK does not allow user-supplied JavaScript click actions, as it allows Braze dashboard users to run JavaScript on your site. To indicate that you trust the Braze dashboard users to write non-malicious JavaScript click actions, set this property to `TRUE`. If `enableHtmlInAppMessages` is `TRUE`, this option will also be set to `TRUE`. |
-| App version| If you provide a value for this option, user events sent to Braze will be associated with the given version, which can be used for user segmentation. |
-| Session timeout in seconds | Defaults to 30.<br>By default, sessions time out after 30 minutes of inactivity. Provide a value for this configuration option to override that default with a value of your own. | 
-| Device property allowlist | By default, the Braze SDK automatically detects and collects all device properties in `DeviceProperties`. To override this behavior, provide an array of `DeviceProperties`. Note that without some properties, not all features will function properly. For instance, local time zone delivery will not function without the time zone. |
-| Localization | By default, any SDK-generated user-visible messages will be displayed in the user's browser language. Provide a value for this option to override that behavior and force a specific language. The value for this option should be an ISO 639-1 language code. |
-| No cookies | By default, the Braze SDK will store small amounts of data (user ids, session ids) in cookies. This is done to allow Braze to recognize users and sessions across different subdomains of your site. If this presents a problem for you, pass `TRUE` for this option to disable cookie storage and rely entirely on HTML 5 localStorage to identify users and sessions. |
-| Track all pages | **Classic Destination Web Device-Mode (maintenance) Only**<br><br>Segment recommends migrating to the Web Actions framework destination where this setting can be [enabled through mappings](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>This will send all [page calls](https://segment.com/docs/spec/page/) to Braze as a "Loaded/Viewed a Page" event. |
-| Track only named pages | **Classic Destination Web Device-Mode (maintenance) Only**<br><br>Segment recommends migrating to the Web Actions framework destination where this setting can be [enabled through mappings](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>This will send only page calls to Braze with a name associated with them. |
-| Log purchase when revenue is present | **Classic Destination Web Device-Mode (maintenance) Only**<br><br>Segment recommends migrating to the Web Actions framework destination where this setting can be [enabled through mappings](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>When this option is enabled, all Track calls with the revenue property will trigger a purchase event. | 
-| Only track known users | **Classic Destination Web Device-Mode (maintenance) Only**<br><br>Segment recommends migrating to the Web Actions Framework destination where this setting can be enabled through mappings.<br><br>If enabled, this new setting delays calling of `window.braze.initialize` until there is a valid `userId`. | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 앱 식별자 | 특정 앱을 참조하는 데 사용되는 앱 식별자입니다. Braze 대시보드의 **설정 관리**에서 찾을 수 있습니다. |
+| 커스텀 API 엔드포인트<br>(SDK 엔드포인트) | 인스턴스에 해당하는 Braze SDK 엔드포인트입니다(예: `sdk.iad-01.braze.com`). |
+| Safari 웹사이트 푸시 ID | Safari 푸시를 지원하는 경우, Safari 푸시 인증서를 생성할 때 Apple에 제공한 웹사이트 푸시 ID로 이 옵션을 지정해야 합니다(`web`으로 시작, 예: `web.com.example.domain`). |
+| Braze Web SDK 버전 | 사용하려는 Braze Web SDK 버전입니다. |
+| 자동으로 인앱 메시지 전송 | 기본적으로 사용자가 수신 자격이 있는 모든 인앱 메시지가 자동으로 전달됩니다. 인앱 메시지를 수동으로 표시하려면 이 옵션을 비활성화하세요. |
+| Font Awesome 로드 안 함 | Braze는 인앱 메시지 아이콘에 Font Awesome을 사용합니다. 기본적으로 Braze는 FontAwesome CDN에서 FontAwesome을 자동으로 로드합니다. 이 동작을 비활성화하려면(예: 사이트에서 커스터마이즈된 FontAwesome 버전을 사용하는 경우) 이 옵션을 `TRUE`로 설정하세요. 이 경우 사이트에 FontAwesome이 로드되어 있는지 확인해야 합니다. 그렇지 않으면 인앱 메시지가 올바르게 렌더링되지 않을 수 있습니다. |
+| HTML 인앱 메시지 활성화 | 이 옵션을 활성화하면 Braze 대시보드 사용자가 HTML 인앱 메시지를 사용할 수 있습니다. |
+| 새 탭에서 인앱 메시지 열기 | 기본적으로 인앱 메시지 클릭의 링크는 대시보드에서 메시지별로 지정된 대로 현재 탭 또는 새 탭에서 로드됩니다. 모든 인앱 메시지 클릭 링크를 새 탭 또는 창에서 강제로 열려면 이 옵션을 `TRUE`로 설정하세요. |
+| 인앱 메시지 z-index | 이 옵션에 값을 제공하여 Braze 기본 z-index를 재정의합니다. |
+| 명시적 인앱 메시지 닫기 필요 | 기본적으로 인앱 메시지가 표시될 때 Esc 버튼을 누르거나 페이지의 회색 배경을 클릭하면 메시지가 닫힙니다. 이 동작을 방지하고 명시적인 버튼 클릭으로만 메시지를 닫도록 하려면 이 옵션을 true로 설정하세요. |
+| 트리거 동작 간 최소 간격(초) | 기본값은 30입니다.<br>기본적으로 트리거 동작은 마지막 트리거 동작 이후 최소 30초가 경과한 경우에만 실행됩니다. 이 구성 옵션에 값을 제공하여 기본값을 자체 값으로 재정의할 수 있습니다. 사용자에게 알림 스팸을 방지하기 위해 이 값을 10보다 작게 설정하지 않는 것이 좋습니다. |
+| 서비스 워커 위치 | 기본적으로 웹 푸시 알림에 사용자를 등록할 때 Braze는 웹 서버의 루트 디렉토리에서 `/service-worker.js`에 있는 필수 서비스 워커 파일을 찾습니다. 해당 서버의 다른 경로에서 서비스 워커를 호스팅하려면 파일의 절대 경로 값을 이 옵션에 제공하세요(예: `/mycustompath/my-worker.js`). 여기에 값을 설정하면 사이트의 푸시 알림 범위가 제한됩니다. 예를 들어, 위의 예에서 서비스 워커 파일이 `/mycustompath/` 디렉토리 내에 있으므로 `requestPushPermission`은 `http://yoursite.com/mycustompath/`로 시작하는 웹 페이지에서만 호출할 수 있습니다. |
+| 푸시 토큰 유지 관리 비활성화 | 기본적으로 이미 웹 푸시 권한을 부여한 사용자는 전달 가능성을 보장하기 위해 새 세션에서 자동으로 Braze 백엔드와 푸시 토큰을 동기화합니다. 이 동작을 비활성화하려면 이 옵션을 `FALSE`로 설정하세요. |
+| 외부에서 서비스 워커 관리 | 자체 서비스 워커를 등록하고 수명 주기를 제어하는 경우 이 옵션을 `TRUE`로 설정하면 Braze SDK가 서비스 워커를 등록하거나 등록 해제하지 않습니다. 이 옵션을 `TRUE`로 설정하면 푸시가 올바르게 작동하려면 `requestPushPermission`을 호출하기 전에 직접 서비스 워커를 등록하고 `self.importScripts('https://js.appboycdn.com/web-sdk-develop/4.1/service-worker.js');`를 사용하거나 해당 파일의 콘텐츠를 직접 포함하여 Braze 서비스 워커 코드가 포함되어 있는지 확인해야 합니다. 이 옵션이 `TRUE`이면 `serviceWorkerLocation` 옵션은 무관하며 무시됩니다. |
+| 콘텐츠 보안 논스 | 이 옵션에 값을 제공하면 Braze SDK가 SDK에서 생성한 모든 `<script>` 및 `<style>` 요소에 논스를 추가합니다. 이를 통해 Braze SDK가 웹사이트의 콘텐츠 보안 정책과 함께 작동할 수 있습니다. 이 논스를 설정하는 것 외에도 FontAwesome 로드를 허용해야 할 수 있으며, 이는 콘텐츠 보안 정책 허용 목록에 `use.fontawesome.com`을 추가하거나 `doNotLoadFontAwesome` 옵션을 사용하고 수동으로 로드하여 수행할 수 있습니다. |
+| 크롤러 활동 허용 | 기본적으로 Braze Web SDK는 사용자 에이전트 문자열을 기반으로 Google과 같은 알려진 스파이더 또는 웹 크롤러의 활동을 무시합니다. 이를 통해 데이터 포인트를 절약하고 분석을 더 정확하게 만들며 페이지 순위를 향상시킬 수 있습니다. 그러나 Braze가 이러한 크롤러의 활동을 대신 기록하도록 하려면 이 옵션을 `TRUE`로 설정할 수 있습니다. |
+| 로깅 활성화 | 기본적으로 로깅을 활성화하려면 `TRUE`로 설정합니다. 이렇게 하면 Braze가 모든 사용자에게 표시되는 JavaScript 콘솔에 로그를 기록합니다. 페이지를 프로덕션에 릴리스하기 전에 이를 제거하거나 `setLogger`로 대체 로거를 제공해야 합니다. |
+| 사용자 제공 JavaScript 허용 | 기본적으로 Braze Web SDK는 사용자 제공 JavaScript 클릭 동작을 허용하지 않습니다. 이는 Braze 대시보드 사용자가 사이트에서 JavaScript를 실행할 수 있기 때문입니다. Braze 대시보드 사용자가 악의적이지 않은 JavaScript 클릭 동작을 작성한다고 신뢰하는 경우 이 속성을 `TRUE`로 설정하세요. `enableHtmlInAppMessages`가 `TRUE`이면 이 옵션도 `TRUE`로 설정됩니다. |
+| 앱 버전 | 이 옵션에 값을 제공하면 Braze로 전송된 사용자 이벤트가 지정된 버전과 연결되며, 이를 사용자 세분화에 사용할 수 있습니다. |
+| 세션 타임아웃(초) | 기본값은 30입니다.<br>기본적으로 세션은 30분의 비활성 후 타임아웃됩니다. 이 구성 옵션에 값을 제공하여 기본값을 자체 값으로 재정의할 수 있습니다. |
+| 기기 속성 허용 목록 | 기본적으로 Braze SDK는 `DeviceProperties`의 모든 기기 속성을 자동으로 감지하고 수집합니다. 이 동작을 재정의하려면 `DeviceProperties` 배열을 제공하세요. 일부 속성이 없으면 모든 기능이 제대로 작동하지 않을 수 있습니다. 예를 들어, 시간대 없이는 로컬 시간대 전달이 작동하지 않습니다. |
+| 현지화 | 기본적으로 SDK에서 생성된 사용자에게 표시되는 메시지는 사용자의 브라우저 언어로 표시됩니다. 이 동작을 재정의하고 특정 언어를 강제하려면 이 옵션에 값을 제공하세요. 이 옵션의 값은 ISO 639-1 언어 코드여야 합니다. |
+| 쿠키 없음 | 기본적으로 Braze SDK는 소량의 데이터(사용자 ID, 세션 ID)를 쿠키에 저장합니다. 이는 Braze가 사이트의 다른 하위 도메인에서 사용자와 세션을 인식할 수 있도록 하기 위한 것입니다. 이것이 문제가 되는 경우 이 옵션에 `TRUE`를 전달하여 쿠키 저장을 비활성화하고 HTML 5 localStorage에 전적으로 의존하여 사용자와 세션을 식별할 수 있습니다. |
+| 모든 페이지 추적 | **Classic Destination Web Device-Mode (유지 관리) 전용**<br><br>Segment는 이 설정을 [매핑을 통해 활성화](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping)할 수 있는 Web Actions 프레임워크 대상으로 마이그레이션하는 것을 권장합니다.<br><br>모든 [페이지 호출](https://segment.com/docs/spec/page/)을 "Loaded/Viewed a Page" 이벤트로 Braze에 전송합니다. |
+| 이름이 지정된 페이지만 추적 | **Classic Destination Web Device-Mode (유지 관리) 전용**<br><br>Segment는 이 설정을 [매핑을 통해 활성화](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping)할 수 있는 Web Actions 프레임워크 대상으로 마이그레이션하는 것을 권장합니다.<br><br>이름이 연결된 페이지 호출만 Braze에 전송합니다. |
+| 매출이 있을 때 구매 기록 | **Classic Destination Web Device-Mode (유지 관리) 전용**<br><br>Segment는 이 설정을 [매핑을 통해 활성화](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping)할 수 있는 Web Actions 프레임워크 대상으로 마이그레이션하는 것을 권장합니다.<br><br>이 옵션이 활성화되면 매출 속성이 있는 모든 Track 호출이 구매 이벤트를 트리거합니다. |
+| 알려진 사용자만 추적 | **Classic Destination Web Device-Mode (유지 관리) 전용**<br><br>Segment는 매핑을 통해 이 설정을 활성화할 수 있는 Web Actions Framework 대상으로 마이그레이션하는 것을 권장합니다.<br><br>활성화하면 유효한 `userId`가 있을 때까지 `window.braze.initialize` 호출을 지연시킵니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Settings" }
 
 {% endtab %}
-{% tab Cloud-Mode %}
+{% tab 클라우드 모드 %}
 
-| Setting | Description |
+| 설정 | 설명 |
 | ------- | ----------- |
-| App identifier | The app identifier used to reference the specific app. This can be found in the Braze dashboard under **Manage Settings** | 
-| REST API key | This can be found in your Braze dashboard under **Settings** > **API Keys**. | 
-| Custom REST API endpoint | Your Braze REST endpoint that corresponds to your instance (such as rest.iad-01.braze.com). | 
-| Update existing users only | **Classic Destination Cloud-Mode (Maintenance) Only**<br><br>Segment recommends migrating to the Cloud Actions Framework destination where this setting can be [enabled through mappings](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping).<br><br>Determines whether to update existing users only. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 앱 식별자 | 특정 앱을 참조하는 데 사용되는 앱 식별자입니다. Braze 대시보드의 **설정 관리**에서 찾을 수 있습니다. |
+| REST API 키 | Braze 대시보드의 **설정** > **API 키**에서 찾을 수 있습니다. |
+| 커스텀 REST API 엔드포인트 | 인스턴스에 해당하는 Braze REST 엔드포인트입니다(예: rest.iad-01.braze.com). |
+| 기존 사용자만 업데이트 | **Classic Destination Cloud-Mode (유지 관리) 전용**<br><br>Segment는 이 설정을 [매핑을 통해 활성화](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping)할 수 있는 Cloud Actions Framework 대상으로 마이그레이션하는 것을 권장합니다.<br><br>기존 사용자만 업데이트할지 여부를 결정합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Settings" }
 
 {% endtab %}
 {% endtabs %}
 
-### Step 4: Map methods {#methods}
+### 4단계: 메서드 매핑 {#methods}
 
-Braze supports the [Page](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/#page), [Identify](https://segment.com/docs/spec/identify/), and [Track](https://segment.com/docs/spec/track/) Segment methods. The types of identifiers used within these methods will depend on whether the data is being sent through a server-to-server (cloud-mode) or side-by-side (device-mode) integration. In the Braze Web Mode Actions and Cloud Mode Actions destinations, you can also choose to set up a mapping for a [Segment alias call](https://segment.com/docs/connections/spec/alias/). 
+Braze는 [Page](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/#page), [Identify](https://segment.com/docs/spec/identify/) 및 [Track](https://segment.com/docs/spec/track/) Segment 메서드를 지원합니다. 이러한 메서드 내에서 사용되는 식별자 유형은 데이터가 서버 간(클라우드 모드) 또는 병렬(디바이스 모드) 통합을 통해 전송되는지에 따라 달라집니다. Braze Web Mode Actions 및 Cloud Mode Actions 대상에서는 [Segment alias 호출](https://segment.com/docs/connections/spec/alias/)에 대한 매핑도 설정할 수 있습니다.
 
 {% alert note %}
-Although user aliases are supported as an identifier in the Braze Cloud Mode (Actions) destination, it should be noted that Segment's alias call is not directly related to Braze user aliases.
+사용자 별칭은 Braze Cloud Mode (Actions) 대상에서 식별자로 지원되지만, Segment의 alias 호출은 Braze 사용자 별칭과 직접적인 관련이 없다는 점에 유의하세요.
 {% endalert %}
 
-| Identifier type | Supported destination |
+| 식별자 유형 | 지원되는 대상 |
 | --------------- | --------------------- |
-| `userId` (`external_id`) | All |
-| Anonymous user | Device mode destinations |
-| User alias | Cloud mode destinations |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `userId` (`external_id`) | 전체 |
+| 익명 사용자 | 디바이스 모드 대상 |
+| 사용자 별칭 | 클라우드 모드 대상 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Map methods #methods" }
 
-The Cloud Mode (Actions) Destination offers a [Create Alias action](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#create-alias) that can be used to create an alias-only user or add an alias to an existing `external_id` profile. The [Identify User action](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#identify-user) can be used alongside the Create Alias action to merge an alias-only user with an `external_id` after one becomes available for the user. 
+Cloud Mode (Actions) 대상은 별칭 전용 사용자를 생성하거나 기존 `external_id` 프로필에 별칭을 추가하는 데 사용할 수 있는 [Create Alias 동작](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#create-alias)을 제공합니다. [Identify User 동작](https://segment.com/docs/connections/destinations/catalog/actions-braze-cloud/#identify-user)은 Create Alias 동작과 함께 사용하여 사용자에게 `external_id`가 사용 가능해진 후 별칭 전용 사용자를 `external_id`와 병합할 수 있습니다.
 
-It is also possible to engineer a workaround and use `braze_id` to send anonymous user data in cloud-mode. This requires manually including the user's `braze_id` in all your Segment API calls. You can learn more about how to set up this workaround in [Segment's documentation](https://segment.com/docs/connections/destinations/catalog/braze/#capture-the-braze_id-of-anonymous-users).
+또한 `braze_id`를 사용하여 클라우드 모드에서 익명 사용자 데이터를 전송하는 우회 방법을 구현할 수도 있습니다. 이를 위해서는 모든 Segment API 호출에 사용자의 `braze_id`를 수동으로 포함해야 합니다. 이 우회 방법을 설정하는 방법에 대해 자세히 알아보려면 [Segment 문서](https://segment.com/docs/connections/destinations/catalog/braze/#capture-the-braze_id-of-anonymous-users)를 참조하세요.
 
-Destinations data sent to Braze can be batched within Cloud Mode Actions. Batch sizes are capped at 75 events, and these batches will accumulate over a 30-second period before being flushed. Request batching is done per-action. For example, Identify Calls (attributes) will be batched in a request and Track Calls (custom events) will be batched in a second request. Braze recommends enabling this feature as it will reduce the number of requests being sent from Segment to Braze. In turn, this will reduce the risk of the destination hitting Braze rate limits and retrying requests. 
+Braze로 전송되는 대상 데이터는 Cloud Mode Actions 내에서 배치 처리할 수 있습니다. 배치 크기는 75개 이벤트로 제한되며, 이러한 배치는 플러시되기 전에 30초 동안 누적됩니다. 요청 배치 처리는 동작별로 수행됩니다. 예를 들어, Identify 호출(속성)은 하나의 요청으로 배치 처리되고 Track 호출(커스텀 이벤트)은 두 번째 요청으로 배치 처리됩니다. Braze는 이 기능을 활성화하는 것을 권장합니다. 이렇게 하면 Segment에서 Braze로 전송되는 요청 수가 줄어듭니다. 결과적으로 대상이 Braze 사용량 제한에 도달하여 요청을 재시도하는 위험이 줄어듭니다.
 
-You can turn on batching for an action by navigating to your Braze Destination > **Mappings**. From there, click the 3-dot icon to the right of the mapping and select **Edit Mapping**. Scroll to the bottom of the **Select mappings** section and make sure that **Batch Data to Braze** is set to **Yes**.
+Braze 대상 > **Mappings**로 이동하여 동작에 대한 배치 처리를 활성화할 수 있습니다. 거기에서 매핑 오른쪽의 점 3개 아이콘을 클릭하고 **Edit Mapping**을 선택합니다. **Select mappings** 섹션 하단으로 스크롤하여 **Batch Data to Braze**가 **Yes**로 설정되어 있는지 확인합니다.
 
 
 {% tabs local %}
 {% tab Identify %}
 #### Identify
 
-The [Identify](https://segment.com/docs/spec/identify/) call lets you tie a user to their actions and record attributes about them. 
+[Identify](https://segment.com/docs/spec/identify/) 호출을 사용하면 사용자를 해당 동작에 연결하고 사용자에 대한 속성을 기록할 수 있습니다.
 
-Certain Segment special traits map to standard attribute profile fields in Braze:
+특정 Segment 특수 트레이트는 Braze의 표준 속성 프로필 필드에 매핑됩니다:
 
-| Special Segment traits | Braze standard attributes |
+| Segment 특수 트레이트 | Braze 표준 속성 |
 | ------------- | ----------- |
 | `userId` | `external_id` |
 | `firstName` | `first_name` |
@@ -256,18 +264,18 @@ Certain Segment special traits map to standard attribute profile fields in Braze
 | `address.country` | `country` |
 | `address.city` | `home_city` |
 | `gender` | `gender` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identify" }
 
-Other reserved Braze profile fields such as `email_subscribe` and `push_subscribe` can be sent by using the Braze naming convention for these fields and passing them as traits within an identify call.
+`email_subscribe` 및 `push_subscribe`와 같은 기타 예약된 Braze 프로필 필드는 이러한 필드에 대한 Braze 명명 규칙을 사용하고 identify 호출 내에서 트레이트로 전달하여 전송할 수 있습니다.
 
-##### Adding a user to a subscription group
+##### 구독 그룹에 사용자 추가 {#adding-a-user-to-a-subscription-group}
 
-You can also subscribe or unsubscribe a user from a given subscription group using the following fields in the traits parameter.
+트레이트 매개변수에서 다음 필드를 사용하여 지정된 구독 그룹에서 사용자를 구독하거나 구독 취소할 수도 있습니다.
 
-Use the reserved Braze profile field called `braze_subscription_groups`, which can be associated with an array of objects. Each object in the array should have two reserved keys:
+오브젝트 배열과 연결할 수 있는 `braze_subscription_groups`라는 예약된 Braze 프로필 필드를 사용합니다. 배열의 각 오브젝트에는 두 개의 예약된 키가 있어야 합니다:
 
-1. `subscription_group_state`: Indicates whether the user is `"subscribed"` or `"unsubscribed"` to a specific subscription group.
-2. `subscription_group_id`: Represents the unique ID of the subscription group. You can find this ID in the Braze dashboard under **Subscription Group Management**.
+1. `subscription_group_state`: 사용자가 특정 구독 그룹에 `"subscribed"` 또는 `"unsubscribed"` 상태인지를 나타냅니다.
+2. `subscription_group_id`: 구독 그룹의 고유 ID를 나타냅니다. 이 ID는 Braze 대시보드의 **구독 그룹 관리**에서 찾을 수 있습니다.
 
 {% subtabs %}
 {% subtab Swift %}
@@ -334,22 +342,22 @@ analytics.identify(
 {% endsubtab %}
 {% endsubtabs %}
 
-##### Custom attributes
+##### 커스텀 속성 {#custom-attributes}
 
-All other traits will be recorded as [custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/).
+다른 모든 트레이트는 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)으로 기록됩니다.
 
-| Segment method | Braze method | Example |
+| Segment 메서드 | Braze 메서드 | 예시 |
 |---|---|---|
-| Identify with user ID | Set external ID | Segment:  `analytics.identify("dawei");`<br>Braze: `Braze.changeUser("dawei")` |
-| Identify with reserved traits | Set user attributes | Segment: `analytics.identify({email: "dawei@braze.com"});`<br> Braze: `Braze.getUser().setEmail("dawei@braze.com");`
-| Identify with custom traits | Set custom attributes | Segment: `analytics.identify({fav_cartoon: "Naruto"});`<br>Braze: `Braze.getUser().setCustomAttribute("fav_cartoon": "Naruto")`;
-| Identify with user ID and traits | Segment: Set External ID and Attribute | Combine preceding methods. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 사용자 ID로 Identify | 외부 ID 설정 | Segment: `analytics.identify("dawei");`<br>Braze: `Braze.changeUser("dawei")` |
+| 예약된 트레이트로 Identify | 사용자 속성 설정 | Segment: `analytics.identify({email: "dawei@braze.com"});`<br> Braze: `Braze.getUser().setEmail("dawei@braze.com");`
+| 커스텀 트레이트로 Identify | 커스텀 속성 설정 | Segment: `analytics.identify({fav_cartoon: "Naruto"});`<br>Braze: `Braze.getUser().setCustomAttribute("fav_cartoon": "Naruto")`;
+| 사용자 ID 및 트레이트로 Identify | Segment: 외부 ID 및 속성 설정 | 위의 메서드를 결합합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
 
-In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) destinations, the above mappings can be set using the Update User Profile Action.
+[Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) 및 [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) 대상에서 위의 매핑은 Update User Profile 동작을 사용하여 설정할 수 있습니다.
 
 {% alert important %}
-When passing user attribute data, check that you only pass values for attributes that have changed since the last update. 이렇게 하면 불필요하게 데이터 포인트를 기록하지 않게 됩니다. For client-side sources, use Segment's open-source [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) tool to optimize your integration and limit data point usage by debouncing duplicate `identify()` calls from Segment. 
+사용자 속성 데이터를 전달할 때 마지막 업데이트 이후 변경된 속성 값만 전달하는지 확인하세요. 이렇게 하면 불필요하게 데이터 포인트를 소비하지 않습니다. 클라이언트 측 소스의 경우 Segment의 오픈 소스 [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) 도구를 사용하여 Segment에서 중복 `identify()` 호출을 디바운싱하여 통합을 최적화하고 데이터 포인트 사용량을 제한하세요.
 
 {% endalert %}
 {% endtab %}
@@ -357,127 +365,143 @@ When passing user attribute data, check that you only pass values for attributes
 {% tab Track %}
 #### Track
 
-When you track an event, we will record that event as a [custom event]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) using the name provided. 
+이벤트를 추적하면 제공된 이름을 사용하여 해당 이벤트를 [커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events)로 기록합니다.
 
-Metadata sent within the properties object of the track call will be logged in Braze as the custom event properties for the associated event. All [custom event property data types]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties) are supported.
+Track 호출의 속성 오브젝트 내에서 전송된 메타데이터는 연결된 이벤트의 커스텀 이벤트 속성정보로 Braze에 기록됩니다. 모든 [커스텀 이벤트 속성정보 데이터 유형]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)이 지원됩니다.
 
-In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-event) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-event) destinations, the above mappings can be set using the Track Event Action.
+[Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-event) 및 [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-event) 대상에서 위의 매핑은 Track Event 동작을 사용하여 설정할 수 있습니다.
 
-| Segment method | Braze method | Example |
+| Segment 메서드 | Braze 메서드 | 예시 |
 |---|---|---|
-| [Track](https://segment.com/docs/spec/track/) | Logged as a [Custom Event]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events). | Segment: `analytics.track("played_game");` <br>Braze: `Braze.logCustomEvent("played_game");`|
-| [Track with properties](https://segment.com/docs/spec/track/) | Logged as [Event Property]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties). | Segment: `analytics.track("played_game", {name: "BotW", weapon: "boomerang"});` <br>Braze: `Braze.logCustomEvent("played_game", { "name": "BotW", "weapon": "boomerang"});` |
-| [Track with product](https://segment.com/docs/spec/track/) | Logged as a [Purchase Event]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web). | Segment: `analytics.track("Order Completed", {products: [product_id: "ab12", price: 19]});` <br>Braze: `Braze.logPurchase("ab12", 19);` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| [Track](https://segment.com/docs/spec/track/) | [커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events)로 기록됩니다. | Segment: `analytics.track("played_game");` <br>Braze: `Braze.logCustomEvent("played_game");`|
+| [속성과 함께 Track](https://segment.com/docs/spec/track/) | [이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)로 기록됩니다. | Segment: `analytics.track("played_game", {name: "BotW", weapon: "boomerang"});` <br>Braze: `Braze.logCustomEvent("played_game", { "name": "BotW", "weapon": "boomerang"});` |
+| [제품과 함께 Track](https://segment.com/docs/spec/track/) | [구매 이벤트]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web)로 기록됩니다. | Segment: `analytics.track("Order Completed", {products: [product_id: "ab12", price: 19]});` <br>Braze: `Braze.logPurchase("ab12", 19);` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Track" }
 
-##### Order completed {#order-completed}
+##### 주문 완료 {#order-completed}
 
-When you track an event with the name `Order Completed` using the format described in Segment's [eCommerce API](https://segment.com/docs/spec/ecommerce/v2/), we will record the products you've listed as [purchases]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+Segment의 [eCommerce API](https://segment.com/docs/spec/ecommerce/v2/)에 설명된 형식을 사용하여 `Order Completed`라는 이름의 이벤트를 추적하면 나열한 제품을 [구매]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data)로 기록합니다.
 
-In the [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-purchase) and [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-purchase) destinations, the default mapping can be customized through the Track Purchase Action.
+[Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#track-purchase) 및 [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#track-purchase) 대상에서 기본 매핑은 Track Purchase 동작을 통해 커스터마이즈할 수 있습니다.
 
 {% endtab %}
 
 {% tab Page %}
 #### Page {#page}
 
-The [Page](https://segment.com/docs/spec/page/) call lets you record whenever a user sees a page of your website, along with any optional properties about the page.
+[Page](https://segment.com/docs/spec/page/) 호출을 사용하면 사용자가 웹사이트의 페이지를 볼 때마다 페이지에 대한 선택적 속성과 함께 기록할 수 있습니다.
 
-This event type can be used as a trigger in the Web Mode Actions and Cloud Actions destinations to log a custom event to Braze.
+이 이벤트 유형은 Web Mode Actions 및 Cloud Actions 대상에서 Braze에 커스텀 이벤트를 기록하는 트리거로 사용할 수 있습니다.
 {% endtab %}
 
 {% endtabs %}
 
-### Step 5: Test your integration
+### 5단계: 통합 테스트 {#step-5-test-your-integration}
 
-When using the side-by-side (device-mode) integration, your [overview]({{site.baseurl}}/user_guide/data_and_analytics/analytics/understanding_your_app_usage_data/) metrics (lifetime sessions, MAU, DAU, stickiness, daily sessions, and daily sessions per MAU) can be used to ensure that Braze is receiving data from Segment.
+병렬(디바이스 모드) 통합을 사용할 때 [개요]({{site.baseurl}}/user_guide/analytics/dashboards/home/) 측정기준(전체 세션, MAU, DAU, 사용자 고착도, 일일 세션 및 MAU당 일일 세션)을 사용하여 Braze가 Segment에서 데이터를 수신하고 있는지 확인할 수 있습니다.
 
-You can view your data in the [custom events]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data/#custom-event-data) or [revenue]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data) pages, or by [creating a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment). The dashboard's **Custom Events** page lets you view custom event counts over time. Note that you will not be able to use [formulas]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula/#creating-a-formula) that include MAU and DAU statistics when using a server-to-server (cloud mode) integration.
+[커스텀 이벤트]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data/#custom-event-data) 또는 [매출]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data) 페이지에서 데이터를 확인하거나 [Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment)하여 확인할 수 있습니다. 대시보드의 **커스텀 이벤트** 페이지에서 시간에 따른 커스텀 이벤트 수를 확인할 수 있습니다. 서버 간(클라우드 모드) 통합을 사용할 때는 MAU 및 DAU 통계를 포함하는 [수식]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula/#creating-a-formula)을 사용할 수 없습니다.
 
-If you're sending purchase data to Braze (see order completed in the **Track** tab of [Step 3](#methods)), the [revenue]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data) page allows you to view data on revenue or purchases over specific periods or your app's total revenue.
+구매 데이터를 Braze로 전송하는 경우([4단계](#methods)의 **Track** 탭에서 주문 완료 참조), [매출]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data) 페이지에서 특정 기간의 매출 또는 구매 데이터 또는 앱의 총 매출을 확인할 수 있습니다.
 
-[Creating a segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) allows you to filter your users based on the custom event and attribute data.
-
-{% alert important %}
-If you use a server-to-server integration (cloud-mode), filters related to automatically collected session data (such as "first used app" and "last used app") will not work. Use a side-by-side integration (device-mode) if you want to use these in your Segment and Braze integration.
-{% endalert %}
-
-## User deletion and suppression 
-
-If you need to delete or suppress users, note that [Segment's user delete feature](https://segment.com/docs/privacy/user-deletion-and-suppression/#which-destinations-can-i-send-deletion-requests-to) **is** mapped to the Braze [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). Note that verification of these deletions could take up to 30 days.
-
-You must ensure that you select a common user identifier between Braze and Segment (as in `external_id`). After you've initiated a deletion request with Segment, you can view the status within the deletion requests tab in your Segment dashboard.
-
-## Segment replays
-
-Segment provides a service to clients to "replay" all historical data to a new technology partner. New Braze customers who want to import all relevant historical data can do so through Segment. Talk to your Segment rep if this is something you are interested in.
-
-Segment will connect to our [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to import user data into Braze on your behalf.
+[Segment를 생성]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment)하면 커스텀 이벤트 및 속성 데이터를 기반으로 사용자를 필터링할 수 있습니다.
 
 {% alert important %}
-All identifiers supported in the Cloud Mode Actions destination are supported as part of Segment Replays.
+서버 간 통합(클라우드 모드)을 사용하는 경우 자동으로 수집된 세션 데이터와 관련된 필터(예: "앱 처음 사용" 및 "앱 마지막 사용")가 작동하지 않습니다. Segment와 Braze 통합에서 이를 사용하려면 병렬 통합(디바이스 모드)을 사용하세요.
 {% endalert %}
 
-## Best practices
+## 사용자 삭제 및 억제 {#user-deletion-and-suppression}
 
-{% details Review use cases to avoid data overages. %}
+사용자를 삭제하거나 억제해야 하는 경우, [Segment의 사용자 삭제 기능](https://segment.com/docs/privacy/user-deletion-and-suppression/#which-destinations-can-i-send-deletion-requests-to)이 Braze [`/users/delete` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)에 매핑**되어 있다**는 점에 유의하세요. 이러한 삭제의 확인에는 최대 30일이 소요될 수 있습니다.
 
-Segment **does not** limit the number of data elements clients send to them. Segment allows you to send all or decide which events you will send to Braze. Rather than sending all of your events using Segment, we suggest you review use cases with your marketing and editorial teams to determine which events you will send to Braze to avoid data overages.
+Braze와 Segment 간에 공통 사용자 식별자(예: `external_id`)를 선택해야 합니다. Segment에서 삭제 요청을 시작한 후 Segment 대시보드의 삭제 요청 탭에서 상태를 확인할 수 있습니다.
+
+## Segment 리플레이 {#segment-replays}
+
+Segment는 모든 과거 데이터를 새로운 기술 파트너에게 "리플레이"하는 서비스를 고객에게 제공합니다. 모든 관련 과거 데이터를 가져오려는 새로운 Braze 고객은 Segment를 통해 이를 수행할 수 있습니다. 관심이 있으시면 Segment 담당자에게 문의하세요.
+
+Segment는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 연결하여 사용자를 대신하여 Braze로 사용자 데이터를 가져옵니다.
+
+{% alert important %}
+Cloud Mode Actions 대상에서 지원되는 모든 식별자는 Segment 리플레이의 일부로 지원됩니다.
+{% endalert %}
+
+## 모범 사례 {#best-practices}
+
+{% details 데이터 초과를 방지하기 위해 사용 사례를 검토하세요. %}
+
+Segment는 고객이 전송하는 데이터 요소의 수를 제한하지 **않습니다**. Segment를 사용하면 모든 이벤트를 전송하거나 Braze에 전송할 이벤트를 결정할 수 있습니다. Segment를 사용하여 모든 이벤트를 전송하는 대신, 마케팅 및 편집 팀과 함께 사용 사례를 검토하여 데이터 초과를 방지하기 위해 Braze에 전송할 이벤트를 결정하는 것이 좋습니다.
 
 {% enddetails %}
 
-{% details Understand the difference between the custom API endpoint and the custom REST API endpoint in the Mobile Device Mode destination settings. %}
+{% details 모바일 디바이스 모드 대상 설정에서 커스텀 API 엔드포인트와 커스텀 REST API 엔드포인트의 차이점을 이해하세요. %}
 
-| Braze terminology | Segment equivalent |
+| Braze 용어 | Segment 동등 항목 |
 | ----------------- | ------------------ |
-| Braze SDK endpoint | Custom API endpoint |
-| Braze REST endpoint | Custom REST API endpoint |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze SDK 엔드포인트 | 커스텀 API 엔드포인트 |
+| Braze REST 엔드포인트 | 커스텀 REST API 엔드포인트 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best practices" }
 
-Your Braze API endpoint (called the "Custom API Endpoint" in Segment) is the SDK endpoint that Braze sets up for your SDK (for example, `sdk.iad-03.braze.com`). Your Braze REST API endpoint (called the "Custom REST API Endpoint" in Segment) is the REST API endpoint (for example, `https://rest.iad-03.braze.com`)
+Braze API 엔드포인트(Segment에서 "커스텀 API 엔드포인트"라고 함)는 Braze가 SDK에 대해 설정하는 SDK 엔드포인트입니다(예: `sdk.iad-03.braze.com`). Braze REST API 엔드포인트(Segment에서 "커스텀 REST API 엔드포인트"라고 함)는 REST API 엔드포인트입니다(예: `https://rest.iad-03.braze.com`).
 {% enddetails %}
 
-{% details Ensure your custom API endpoint is correctly input into the mobile device mode destination settings. %}
+{% details 커스텀 API 엔드포인트가 모바일 디바이스 모드 대상 설정에 올바르게 입력되었는지 확인하세요. %}
 
-| Braze terminology | Segment equivalent |
+| Braze 용어 | Segment 동등 항목 |
 | ----------------- | ------------------ |
-| Braze SDK endpoint | Custom API endpoint |
-| Braze REST endpoint | Custom REST API endpoint |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze SDK 엔드포인트 | 커스텀 API 엔드포인트 |
+| Braze REST 엔드포인트 | 커스텀 REST API 엔드포인트 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best practices" }
 
-The proper format must be followed to ensure that you input your Braze SDK endpoint correctly. Your Braze SDK endpoint must not include `https://` (for example, `sdk.iad-03.braze.com`), or else the Braze integration will break. This is required because Segment automatically prepends your endpoint with `https://`, resulting in Braze initializing with an invalid endpoint `https://https://sdk.iad-03.braze.com`.
+Braze SDK 엔드포인트를 올바르게 입력하려면 적절한 형식을 따라야 합니다. Braze SDK 엔드포인트에는 `https://`가 포함되어서는 안 됩니다(예: `sdk.iad-03.braze.com`). 그렇지 않으면 Braze 통합이 중단됩니다. 이는 Segment가 자동으로 엔드포인트 앞에 `https://`를 추가하여 Braze가 잘못된 엔드포인트 `https://https://sdk.iad-03.braze.com`으로 초기화되기 때문입니다.
 
 {% enddetails %}
 
-{% details Data mapping nuances. %}
+{% details 데이터 매핑 뉘앙스. %}
 
-Scenarios where data will not pass as expected:
+데이터가 예상대로 전달되지 않는 시나리오:
 
-1. Nested custom attributes
-  - Although [nested custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/) can technically be sent to Braze through Segment, the **entire payload** will be sent each time. This will incur [data points]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support/#data-points) per key passed in the nested object each time the payload is sent.<br><br> To spend only a subset of data points when the payload sends, you can use the custom [destination functions](https://segment.com/docs/connections/functions/destination-functions/) feature owned by Segment. This feature in the Segment platform allows you to customize how data is sent to downstream destinations.
+1. 중첩 커스텀 속성
+  - [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/)은 기술적으로 Segment를 통해 Braze로 전송할 수 있지만, 매번 **전체 페이로드**가 전송됩니다. 이로 인해 페이로드가 전송될 때마다 중첩 오브젝트에 전달된 키당 [데이터 포인트]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support/#data-points)가 발생합니다.<br><br> 페이로드 전송 시 데이터 포인트의 일부만 사용하려면 Segment가 소유한 커스텀 [대상 함수](https://segment.com/docs/connections/functions/destination-functions/) 기능을 사용할 수 있습니다. Segment 플랫폼의 이 기능을 사용하면 다운스트림 대상으로 데이터가 전송되는 방식을 커스터마이즈할 수 있습니다.
 
   {% alert note %}
-  Custom destination functions are controlled within Segment, and Braze has limited insight into functions that have been configured externally.
+  커스텀 대상 함수는 Segment 내에서 제어되며, Braze는 외부에서 구성된 함수에 대한 가시성이 제한적입니다.
   {% endalert %}
 
 {: start="2"}
-2\. Passing anonymous data server-to-server.
-  - Customers may use Segment's server-to-server libraries to funnel anonymous data to other systems. See the map methods section to learn more about sending users without an `external_id` to Braze via a server-to-server (cloud-mode) integration.
+2. 서버 간 익명 데이터 전달.
+  - 고객은 Segment의 서버 간 라이브러리를 사용하여 익명 데이터를 다른 시스템으로 전달할 수 있습니다. 서버 간(클라우드 모드) 통합을 통해 `external_id` 없이 사용자를 Braze로 전송하는 방법에 대해 자세히 알아보려면 메서드 매핑 섹션을 참조하세요.
 
 {% enddetails %}
 
-{% details Customization of Braze initialization. %}
+{% details Braze 초기화 커스터마이즈. %}
 
-There are several different ways that Braze can be customized: push, in-app messages, Content Cards, and initialization. With a side-by-side integration, you can still customize push, in-app messages, and Content Cards as you would with a direct Braze integration.
+Braze를 커스터마이즈할 수 있는 여러 가지 방법이 있습니다: 푸시, 인앱 메시지, Content Cards 및 초기화. 병렬 통합을 사용하면 직접 Braze 통합과 마찬가지로 푸시, 인앱 메시지 및 Content Cards를 커스터마이즈할 수 있습니다.
 
-However, customizing when the Braze SDK is integrated or specifying initialization configurations may be difficult and sometimes not possible. This is because Segment will initialize the Braze SDK for you when the Segment initialization occurs.
-
-{% enddetails %}
-
-{% details Sending deltas to Braze. %}
-
-When passing user attribute data, check that you only pass values for attributes that have changed since the last update. 이렇게 하면 불필요한 데이터 포인트가 기록되는 것을 방지할 수 있습니다. For client-side sources, use Segment's open-source [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) tool to optimize your integration and limit data point usage by debouncing duplicate `identify()` calls from Segment.
+그러나 Braze SDK가 통합되는 시점을 커스터마이즈하거나 초기화 구성을 지정하는 것은 어렵고 때로는 불가능할 수 있습니다. 이는 Segment 초기화가 발생할 때 Segment가 Braze SDK를 초기화하기 때문입니다.
 
 {% enddetails %}
 
+{% details Braze로 델타 전송. %}
 
+사용자 속성 데이터를 전달할 때 마지막 업데이트 이후 변경된 속성 값만 전달하는지 확인하세요. 이렇게 하면 불필요한 데이터 포인트가 기록되는 것을 방지할 수 있습니다. 클라이언트 측 소스의 경우 Segment의 오픈 소스 [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) 도구를 사용하여 Segment에서 중복 `identify()` 호출을 디바운싱하여 통합을 최적화하고 데이터 포인트 사용량을 제한하세요.
+
+{% enddetails %}
+
+{% details 올바른 Braze 데이터 센터를 사용하세요. %}
+
+Segment는 Braze 데이터 센터를 사용하여 서버 간 호출을 위한 적절한 Braze REST 엔드포인트(예: `https://rest.iad-01.braze.com`)를 가져옵니다.
+
+{% enddetails %}
+
+{% details Segment의 이벤트 테스터를 사용할 때 커스텀 REST API 엔드포인트를 제거하세요. %}
+
+Segment의 이벤트 테스터는 Braze `/users/track` REST API 엔드포인트로 이벤트를 전송하며, Braze 대상 설정에 커스텀 REST API 엔드포인트가 설정되어 있으면 해당 엔드포인트가 올바르더라도 `401 Invalid API Key` 오류를 발생시킵니다. 이벤트 테스터가 올바르게 작동하도록 하려면 Segment에서 커스텀 REST API 엔드포인트 값을 제거하세요.
+
+{% enddetails %}
+
+{% details 새 소스를 구성한 후 업데이트에 시간을 허용하세요. %}
+
+Segment는 구성 설정을 오랫동안 캐시에 보관하므로 새 소스를 구성할 때(예: 클라우드에서 디바이스 모드로 전환) 캐시가 갱신될 때까지 앱에 새로운 동작이나 데이터가 표시되지 않을 수 있습니다. 소스를 추가할 때 이 지연을 염두에 두세요.
+
+{% enddetails %}

@@ -533,7 +533,7 @@ Visit the [following section](#logging-impressions-clicks-and-dismissals) to get
 
 ### Interactive Content Cards
 <br>
-Content Cards can be leveraged to create dynamic and interactive experiences for your users. In the example to the right, we have a Content Card pop-up appear at checkout providing users last-minute promotions. 
+Content Cards can be used to create dynamic and interactive experiences for your users. In the example to the right, we have a Content Card pop-up appear at checkout providing users last-minute promotions. 
 
 Well-placed cards like this are a great way to give users a "nudge" toward specific user actions. 
 <br><br><br>

@@ -10,137 +10,137 @@ channel:
   - email
 ---
 
-# Leitfaden für Deeplinking unter iOS
+# Leitfaden für Deeplinking unter iOS {#ios-deep-linking-guide}
 
-> Dieser Leitfaden unterstützt Sie bei der Auswahl der geeigneten Deeplinking-Strategie für Ihre iOS-App, abhängig davon, welche Messaging-Kanäle Sie verwenden und ob Sie einen Drittanbieter für Links wie Branch nutzen.
+> Dieser Leitfaden unterstützt Sie bei der Auswahl der geeigneten Deeplinking-Strategie für Ihre iOS-App – abhängig davon, welchen Messaging-Kanal Sie verwenden und ob Sie einen Drittanbieter für Links wie Branch nutzen.
 
-Für Details zur Implementierung, siehe [Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift). Informationen zur Fehlerbehebung finden Sie unter [Fehlerbehebung bei Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+Für Details zur Implementierung siehe [Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift). Informationen zur Fehlerbehebung finden Sie unter [Fehlerbehebung bei Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
 
-## Auswahl eines Link-Typs
+## Auswahl eines Link-Typs {#choosing-a-link-type}
 
-Es gibt drei Möglichkeiten, Links aus Braze-Nachrichten in Ihrer iOS-App zu verarbeiten. Jedes funktioniert anders und eignet sich für unterschiedliche Kanäle und Anwendungsfälle.
+Es gibt drei Möglichkeiten, Links aus Braze-Nachrichten in Ihrer iOS-App zu verarbeiten. Jede funktioniert anders und eignet sich für unterschiedliche Kanäle und Anwendungsfälle.
 
-| Verbindungstyp | Beispiel | Am besten für | Öffnung ohne installierte App? |
+| Link-Typ | Beispiel | Am besten geeignet für | Öffnet ohne installierte App? |
 |---|---|---|---|
-| **Angepasstes Schema** | `myapp://products/123` | Push-Benachrichtigungen, In-App-Nachrichten, Content-Cards | Nein – Link funktioniert nicht |
-| **Universeller Link** | `https://myapp.com/products/123` | E-Mail, SMS, Kanäle mit Klick-Tracking | Ja – weicht auf das Internet aus |
-| **Web-URL in App öffnen** | Jede`https://`URL | Anzeige von Internet-Inhalten in einem Modal-WebView | Nicht zutreffend – wird in WebView angezeigt |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| **Angepasstes Schema** | `myapp://products/123` | Push-Benachrichtigungen, In-App-Nachrichten, Content Cards | Nein – Link funktioniert nicht |
+| **Universeller Link** | `https://myapp.com/products/123` | E-Mail, SMS, Kanäle mit Klick-Tracking | Ja – Fallback auf das Internet |
+| **Web-URL in der App öffnen** | Jede `https://`-URL | Anzeige von Webinhalten in einem modalen WebView | Nicht zutreffend – wird im WebView angezeigt |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Choosing a link type" }
 
-### Angepasste Deeplinks für das Schema
+### Deeplinks mit angepasstem Schema {#custom-scheme-deep-links}
 
-Benutzerdefinierte Deeplinks (zum Beispiel )`myapp://products/123` öffnen Ihre App direkt auf einem bestimmten Bildschirm. Sie stellen die einfachste Option für Kanäle dar, bei denen Links nicht von Dritten geändert werden.
+Deeplinks mit angepasstem Schema (zum Beispiel `myapp://products/123`) öffnen Ihre App direkt auf einem bestimmten Bildschirm. Sie stellen die einfachste Option für Kanäle dar, bei denen Links nicht von Dritten verändert werden.
 
-**Verwenden Sie benutzerdefinierte Deeplinks, wenn:**
-- Versenden von Push-Benachrichtigungen, In-App-Nachrichten oder Content-Cards
-- Der Link ist nicht erforderlich, wenn die App nicht installiert ist.
-- Sie benötigen kein Tracking (E-Mail-ESP-Link-Wrapping).
+**Verwenden Sie Deeplinks mit angepasstem Schema, wenn:**
+- Sie Push-Benachrichtigungen, In-App-Nachrichten oder Content Cards versenden
+- Der Link nicht funktionieren muss, falls die App nicht installiert ist
+- Sie kein Klick-Tracking benötigen (E-Mail-ESP-Link-Wrapping)
 
-**Verwenden Sie keine benutzerdefinierten Deeplinks, wenn:**
-- Versenden von E-Mails – ESPs verpacken Links für das Tracking der Klicks, wodurch benutzerdefinierte Schemata unterbrochen werden.
-- Sie benötigen den Link, um auf eine Webseite zurückzugreifen, falls die App nicht installiert ist.
+**Verwenden Sie keine Deeplinks mit angepasstem Schema, wenn:**
+- Sie E-Mails versenden – ESPs verpacken Links für das Klick-Tracking, wodurch angepasste Schemata nicht mehr funktionieren
+- Sie den Link als Fallback auf eine Webseite benötigen, falls die App nicht installiert ist
 
-### Universelle Links
+### Universelle Links {#universal-links}
 
-Universelle Links (zum Beispiel ) sind `https://myapp.com/products/123`Standard-HTTPS-URLs, die iOS an Ihre App weiterleiten kann, anstatt eine Öffnung in einem Browser durchzuführen. Sie erfordern eine serverseitige Konfiguration (eine AASA-Datei) und eine appseitige Einrichtung (Berechtigung für zugehörige Domains).
+Universelle Links (zum Beispiel `https://myapp.com/products/123`) sind Standard-HTTPS-URLs, die iOS an Ihre App weiterleiten kann, anstatt sie im Browser zu öffnen. Sie erfordern eine serverseitige Konfiguration (eine AASA-Datei) und eine appseitige Einrichtung (Berechtigung für zugehörige Domains).
 
 **Verwenden Sie universelle Links, wenn:**
-- Versenden von E-Mails. Ihr ESP verpackt Links für das Klick-Tracking, daher müssen die Links HTTPS-Links sein.
-- Versenden von SMS oder über andere Kanäle, bei denen Links umgebrochen oder gekürzt werden.
-- Sie benötigen den Link, um auf eine Webseite zurückzugreifen, wenn die App nicht installiert ist.
-- Sie nutzen einen Drittanbieter für Verlinkungen wie Branch oder Appsflyer.
+- Sie E-Mails versenden. Ihr ESP verpackt Links für das Klick-Tracking, daher müssen die Links HTTPS sein.
+- Sie SMS oder andere Kanäle nutzen, bei denen Links umgebrochen oder gekürzt werden.
+- Sie den Link als Fallback auf eine Webseite benötigen, wenn die App nicht installiert ist.
+- Sie einen Drittanbieter für Verlinkungen wie Branch oder AppsFlyer nutzen.
 
-**Bitte verwenden Sie keine Universal-Links, wenn:**
-- Sie benötigen lediglich Deeplinks aus Push-Benachrichtigungen, In-App-Nachrichten oder Content-Cards. Angepasste Schemata sind einfacher.
+**Verwenden Sie keine universellen Links, wenn:**
+- Sie lediglich Deeplinks aus Push-Benachrichtigungen, In-App-Nachrichten oder Content Cards benötigen. Angepasste Schemata sind einfacher.
 
-### „Web-URL innerhalb der App öffnen“
+### „Web-URL in der App öffnen“ {#open-web-url-inside-app}
 
-Diese Option führt zur Öffnung einer Webseite in einem Modal-WebView innerhalb Ihrer App. Dies wird vollständig vom Braze SDK mithilfe von  `Braze.WebViewController`abgewickelt – Sie müssen keinen Code für die URL-Verarbeitung schreiben.
+Diese Option öffnet eine Webseite in einem modalen WebView innerhalb Ihrer App. Dies wird vollständig vom Braze SDK mithilfe von `Braze.WebViewController` abgewickelt – Sie müssen keinen Code für die URL-Verarbeitung schreiben.
 
-**Verwenden Sie „Öffnung der Internet-URL innerhalb der App“, wenn:**
-- Sie möchten eine Webseite (z. B. eine Aktion oder einen Artikel) anzeigen, ohne Ihre App zu verlassen.
-- Die URL ist eine Standard-HTTPS-Webseite und kein Deeplink zu einem bestimmten App-Bildschirm.
+**Verwenden Sie „Web-URL in der App öffnen“, wenn:**
+- Sie eine Webseite (z. B. eine Aktion oder einen Artikel) anzeigen möchten, ohne Ihre App zu verlassen.
+- Die URL eine Standard-HTTPS-Webseite ist und kein Deeplink zu einem bestimmten App-Bildschirm.
 
-**Bitte verwenden Sie die Option „Öffnung der Internet-URL innerhalb der App“ nicht, wenn:**
-- Sie müssen zu einer bestimmten Ansicht in Ihrer App navigieren. Bitte verwenden Sie stattdessen ein angepasstes Schema oder einen universellen Link.
-- Die Webseite erfordert eine Authentifizierung oder verfügt über Content Security Policy-Header, die die Einbettung verhindern.
+**Verwenden Sie „Web-URL in der App öffnen“ nicht, wenn:**
+- Sie zu einer bestimmten Ansicht in Ihrer App navigieren müssen. Verwenden Sie stattdessen ein angepasstes Schema oder einen universellen Link.
+- Die Webseite eine Authentifizierung erfordert oder über Content-Security-Policy-Header verfügt, die die Einbettung verhindern.
 
-## Was Sie für jeden Link-Typ benötigen
+## Was Sie für jeden Link-Typ benötigen {#what-you-need-for-each-link-type}
 
-### Angepasste Deeplinks für das Schema
+### Deeplinks mit angepasstem Schema
 
 | Anforderung | Details |
 |---|---|
 | AASA-Datei | Nicht erforderlich |
-| `Info.plist` | Bitte registrieren Sie Ihr Programm unter`CFBundleURLTypes`und fügen Sie es hinzu. `LSApplicationQueriesSchemes` |
-| App-Delegate-Methode | Implementieren`application(_:open:options:)`Sie die Analyse der URL und die Navigation. |
-| Konfiguration des Braze SDK | Keine – das SDK öffnet standardmäßig benutzerdefinierte Schema-URLs. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Info.plist` | Registrieren Sie Ihr Schema unter `CFBundleURLTypes` und fügen Sie es zu `LSApplicationQueriesSchemes` hinzu |
+| App-Delegate-Methode | Implementieren Sie `application(_:open:options:)`, um die URL zu parsen und die Navigation durchzuführen |
+| Konfiguration des Braze SDK | Keine – das SDK öffnet standardmäßig URLs mit angepasstem Schema |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom scheme deep links" }
 
 ### Universelle Links
 
 | Anforderung | Details |
 |---|---|
-| AASA-Datei | Erforderlich — Gastgeber bei `https://yourdomain.com/.well-known/apple-app-site-association` |
-| Zugehörige Domains | Fügen Sie`applinks:yourdomain.com`in Xcode unter **„Signing&Capabilities“** hinzu: |
-| App-Delegate-Methode | Implementieren, `application(_:continue:restorationHandler:)`um zu verarbeiten `NSUserActivity` |
-| Konfiguration des Braze SDK | Set `configuration.forwardUniversalLinks = true` |
-| BrazeDelegate (optional) | Implementierung`braze(_:shouldOpenURL:)`für angepasstes Routing (z. B. Branch) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| AASA-Datei | Erforderlich – hosten Sie sie unter `https://yourdomain.com/.well-known/apple-app-site-association` |
+| Zugehörige Domains | Fügen Sie `applinks:yourdomain.com` in Xcode unter **Signing & Capabilities** hinzu |
+| App-Delegate-Methode | Implementieren Sie `application(_:continue:restorationHandler:)`, um `NSUserActivity` zu verarbeiten |
+| Konfiguration des Braze SDK | Setzen Sie `configuration.forwardUniversalLinks = true` |
+| BrazeDelegate (optional) | Implementieren Sie `braze(_:shouldOpenURL:)` für angepasstes Routing (z. B. Branch) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
 
 {% alert important %}
-Wenn Sie E-Mails über Braze versenden, verpackt Ihr ESP (SendGrid, SparkPost oder Amazon SES) Links in eine Domain für Klick-Tracking. Bitte beachten Sie, dass Sie die AASA-Datei nicht nur auf Ihrer primären Domain, sondern auch auf Ihrer Domain für Klick-Tracking hosten müssen. Für die vollständige Einrichtung, sehen Sie [bitte unter „Universelle Links“ und „App-Links“]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links/) nach.
+Wenn Sie E-Mails über Braze versenden, verpackt Ihr ESP (SendGrid, SparkPost oder Amazon SES) Links in eine Klick-Tracking-Domain. Sie müssen die AASA-Datei auch auf Ihrer Klick-Tracking-Domain hosten, nicht nur auf Ihrer primären Domain. Für die vollständige Einrichtung siehe [Universelle Links und App-Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
 {% endalert %}
 
-### „Web-URL innerhalb der App öffnen“
+### „Web-URL in der App öffnen“
 
 | Anforderung | Details |
 |---|---|
 | AASA-Datei | Nicht erforderlich |
-| App-Delegate-Methode | Nicht erforderlich – das SDK übernimmt dies automatisch. |
-| Konfiguration des Braze SDK | Keine – wählen Sie **„Web-URL innerhalb der App auswählen“** im Editor der Kampagne. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| App-Delegate-Methode | Nicht erforderlich – das SDK übernimmt dies automatisch |
+| Konfiguration des Braze SDK | Keine – wählen Sie **Open Web URL Inside App** im Campaign-Composer aus |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Open Web URL Inside App" }
 
-## Wenn Sie eine AASA-Datei benötigen {#when-aasa}
+## Wann Sie eine AASA-Datei benötigen {#when-aasa}
 
-Eine Apple App Site Association (AASA)-Datei ist nur erforderlich, wenn Sie **Universal Links** verwenden. Es teilt iOS mit, welche URLs Ihre App verarbeiten kann.
+Eine Apple App Site Association (AASA)-Datei ist nur erforderlich, wenn Sie **universelle Links** verwenden. Sie teilt iOS mit, welche URLs Ihre App verarbeiten kann.
 
 Sie benötigen eine AASA-Datei, wenn:
 
-- Sie setzen Deeplinks in E-Mail-Kampagnen ein (da ESPs Links in HTTPS-Klick-Tracking-URLs einbinden).
-- Sie setzen Deeplinks in SMS-Kampagnen ein (da Links möglicherweise zu HTTPS-URLs verkürzt werden).
-- Sie verwenden Branch, Appsflyer oder einen anderen Linking-Anbieter (da diese ihre eigenen HTTPS-Domains verwenden).
-- Sie können universelle Links aus Push-Benachrichtigungen, In-App-Nachrichten oder Content-Cards verwenden (weniger verbreitet, jedoch möglich mit `forwardUniversalLinks = true`).
+- Sie Deeplinks in E-Mail-Campaigns versenden (da ESPs Links in HTTPS-Klick-Tracking-URLs einbinden).
+- Sie Deeplinks in SMS-Campaigns versenden (da Links möglicherweise zu HTTPS-URLs gekürzt werden).
+- Sie Branch, AppsFlyer oder einen anderen Linking-Anbieter verwenden (da diese ihre eigenen HTTPS-Domains nutzen).
+- Sie universelle Links aus Push-Benachrichtigungen, In-App-Nachrichten oder Content Cards verwenden (weniger verbreitet, aber möglich mit `forwardUniversalLinks = true`).
 
 Sie benötigen keine AASA-Datei, wenn:
 
-- Bitte setzen Sie benutzerdefinierte Deeplinks (z. B. `myapp://`) ausschließlich in Push-Benachrichtigungen, In-App-Nachrichten oder Content-Cards ein.
-- Bitte verwenden Sie die Option **„Öffnung der Internet-URL innerhalb der App**“.
+- Sie ausschließlich Deeplinks mit angepasstem Schema (z. B. `myapp://`) aus Push-Benachrichtigungen, In-App-Nachrichten oder Content Cards verwenden.
+- Sie die Option **Web-URL in der App öffnen** nutzen.
 
-Anweisungen zur Einrichtung von AASA finden Sie unter [„Universelle Links“ und „App-Links]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links/#setting-up-universal-links-and-app-links)“.
+Anweisungen zur AASA-Einrichtung finden Sie unter [Universelle Links und App-Links]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links/#setting-up-universal-links-and-app-links).
 
-## Wenn Sie App-Code zur Verarbeitung von Links benötigen {#when-app-code}
+## Wann Sie App-Code zur Verarbeitung von Links benötigen {#when-app-code}
 
-Welche Delegate-Methode Sie implementieren, hängt von der Art der verwendeten Verknüpfung ab:
+Welche Delegate-Methode Sie implementieren, hängt von der Art des verwendeten Links ab:
 
-| Delegierte Methode | Griffe | Wann sollte die Implementierung erfolgen? |
+| Delegate-Methode | Verarbeitet | Wann implementieren |
 |---|---|---|
-| `application(_:open:options:)` | Angepasste Deeplinks (`myapp://`) | Sie können benutzerdefinierte Deeplinks von jedem Kanal verwenden. |
-| `application(_:continue:restorationHandler:)` | Universelle Links (`https://`) | Sie verwenden universelle Links aus E-Mails, SMS oder mit `forwardUniversalLinks = true` |
-| `BrazeDelegate.braze(_:shouldOpenURL:)` | Alle URLs, die vom SDK geöffnet werden | Sie benötigen eine angepasste Routing-Logik (z. B. Branch, bedingte Verarbeitung, Analytics). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `application(_:open:options:)` | Deeplinks mit angepasstem Schema (`myapp://`) | Sie verwenden Deeplinks mit angepasstem Schema aus einem beliebigen Kanal |
+| `application(_:continue:restorationHandler:)` | Universelle Links (`https://`) | Sie verwenden universelle Links aus E-Mail, SMS oder mit `forwardUniversalLinks = true` |
+| `BrazeDelegate.braze(_:shouldOpenURL:)` | Alle vom SDK geöffneten URLs | Sie benötigen eine angepasste Routing-Logik (z. B. Branch, bedingte Verarbeitung, Analytics) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When you need app code to handle links" }
 
 {% alert tip %}
-Wenn Sie einen Drittanbieter für Verknüpfungen wie Branch verwenden, implementieren Sie bitte die`BrazeDelegate.braze(_:shouldOpenURL:)` Funktion, um URLs abzufangen und an das SDK des Anbieters weiterzuleiten. Ein vollständiges Beispiel finden Sie unter [„Branch für Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)“.
+Wenn Sie einen Drittanbieter für Verlinkungen wie Branch verwenden, implementieren Sie `BrazeDelegate.braze(_:shouldOpenURL:)`, um URLs abzufangen und an das SDK des Anbieters weiterzuleiten. Ein vollständiges Beispiel finden Sie unter [Branch für Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).
 {% endalert %}
 
 ## Verwendung von Branch mit Braze {#branch}
 
-Wenn Sie [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) als Ihren Linking-Anbieter verwenden, sind für Ihre Einrichtung einige zusätzliche Schritte erforderlich, die über die Standardkonfiguration für Universal Links hinausgehen:
+Wenn Sie [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) als Ihren Linking-Anbieter verwenden, sind für Ihre Einrichtung einige zusätzliche Schritte erforderlich, die über die Standardkonfiguration für universelle Links hinausgehen:
 
-1. **Branch SDK**: Integrieren Sie das Branch SDK gemäß [der Dokumentation von Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview).
-2. **Verbundene Domains**: Fügen Sie Ihre Branch-Domain (z. B. `applinks:yourapp.app.link`) in Xcode unter **„Signing&Capabilities“** hinzu.
-3. **BrazeDelegate**: Implementieren Sie`braze(_:shouldOpenURL:)`die Weiterleitung von Branch-Links an das Branch SDK, anstatt sie direkt von Braze verarbeiten zu lassen.
-4. **Universelle Links weiterleiten**: Bitte stellen Sie dies`configuration.forwardUniversalLinks = true` in Ihrer Braze SDK-Konfiguration ein.
+1. **Branch SDK**: Integrieren Sie das Branch SDK gemäß der [Dokumentation von Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview).
+2. **Zugehörige Domains**: Fügen Sie Ihre Branch-Domain (z. B. `applinks:yourapp.app.link`) in Xcode unter **Signing & Capabilities** hinzu.
+3. **BrazeDelegate**: Implementieren Sie `braze(_:shouldOpenURL:)`, um Branch-Links an das Branch SDK weiterzuleiten, anstatt sie direkt von Braze verarbeiten zu lassen.
+4. **Universelle Links weiterleiten**: Setzen Sie `configuration.forwardUniversalLinks = true` in Ihrer Braze-SDK-Konfiguration.
 
-Implementierungsdetails und Anleitungen zur Fehlerbehebung finden Sie unter [„Branch für Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)“.
+Implementierungsdetails und Anleitungen zur Fehlerbehebung finden Sie unter [Branch für Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).

@@ -21,11 +21,13 @@ To create a delay, add a step to your Canvas. Drag and drop the Delay component 
 
 #### Extended delays
 
-You can now extend Delay steps up to two years. For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
+You can extend Delay steps up to two years (730 days). For example, if you're onboarding new users for your app, you can add an extended delay for two months before sending a Message step to nudge the users who haven't started a session.
 
 ## Time delay types
 
 You can choose the type of delay before the next message in your Canvas. You can either set a delay for your users to last until after a designated time period, or delay your users until a specific date and time.
+
+If there is a time delay, it's expected that some users will only proceed to the next step of the Canvas after the delay. Users who are in the delay won't be added to the _Proceeded to Next Step_ metric. For more information, see [Delay analytics](#delay-analytics).
 
 {% tabs %}
 {% tab Duration %}
@@ -137,7 +139,7 @@ Delay components have the following metrics available in the analytics view of a
 | _Proceeded to Next Step_ | Reflects the number of entries that proceeded to the next step in the Canvas. |
 | _Exited Canvas_ | Reflects the number of entries that exited the Canvas and did not proceed to the next step. |
 | _Personalization Failed_ | Reflects the number of times a personalized message or content intended for a user couldn't be delivered due to the following:<br> {::nomarkdown}<ul><li>Delay value is in the past</li><li>Delay value is over 2 years into the future</li><li><b>After a duration</b> value isn't a number</li><li><b>Until a specific day</b> value isn't a date or date-formatted string</li></ul>{:/} <br>See [Personalization failed errors](#personaliztion-failed-errors) for more details. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Delay analytics" }
 
 Time series for these analytics are available in the expanded component view.
 

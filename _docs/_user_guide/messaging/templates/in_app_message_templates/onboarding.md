@@ -2,7 +2,7 @@
 nav_title: "Onboarding flow"
 article_title: Onboarding Flow
 alias: "/onboarding_flow/"
-page_order: 0
+page_order: 1
 description: "This page covers how to welcome new users, guide them through benefits, and drive action using a compelling call to action."
 ---
 

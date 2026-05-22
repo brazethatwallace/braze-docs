@@ -84,7 +84,7 @@ By default, for your user to receive your messages through push, their push subs
 |Subscribed| Default push subscription state when a user profile is created in Braze. |
 |Opted-In| A user has explicitly expressed a preference to receive push notifications. Braze will automatically move a user's opt-in state to `Opted-In` if a user accepts an OS-level push prompt.<br><br>This does not apply to users on Android 12 or below.|
 |Unsubscribed| A user explicitly unsubscribed from push through your application or other methods your brand provides. By default, Braze push campaigns only target users that are `Subscribed` or `Opted-in` for push.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
 
 {% endapi %}
 {% api %}
@@ -218,7 +218,7 @@ Finally, after you've created an extension, you can use it as a filter when crea
 Campaigns
 {% endapitags %}
 
-To create a multichannel campaign, go to the **Campaigns** page, select **Create Campaign**, then select **Multichannel Campaign**. When inside a multichannel campaign, select **Add Messaging Channel** from the compose tab to add your desired channels. Click the channel icons that appear to toggle through different messaging composers as you build your campaign copy for the different channels.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Create a campaign** for setup steps, supported channels, and how to switch composers.
 
 {% endapi %}
 {% api %}
@@ -370,17 +370,19 @@ Make sure to re-adjust campaign schedule times to allow for time zone sending.
 Campaigns
 {% endapitags %}
 
-For local time zone delivery, Braze evaluates users for their entry eligibility during these two instances:
+Braze evaluates users for their entry eligibility at:
 
-- At Samoa time (UTC+13) of the scheduled day
-- At local time of the scheduled day
+- Samoa time (UTC+13) on the scheduled day
+- The user's local time on the scheduled day
 
 For a user to be eligible for entry, they must be eligible for both checks. For example, if a Canvas is scheduled to launch on August 7, 2021 at 2 pm local time zone, then targeting a user located in New York would require the following checks for eligibility:
 
 - New York on August 6, 2021 at 9 pm
 - New York on August 7, 2021 at 2 pm
 
-The user needs to be in the segment for 24 hours prior to the launch. If the user is not eligible in the first check, then Braze will not attempt the second check.
+To enter, a user must match your audience and filters at both evaluation times. If the user is not eligible at the first check, Braze does not run the second check. There is no minimum length of time that a user must have been in the segment before launch—only eligibility at each check matters.
+
+This evaluation behavior is separate from [how far in advance you schedule the campaign in the dashboard]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign). For the full explanation, examples, and scheduling guidance, see [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery) and [How do I schedule a local time zone campaign?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#how-do-i-schedule-a-local-time-zone-campaign) in the Campaigns FAQ.
 
 {% endapi %}
 {% api %}

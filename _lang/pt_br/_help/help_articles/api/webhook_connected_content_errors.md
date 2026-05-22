@@ -7,13 +7,13 @@ channel:
 description: "Este artigo aborda como solucionar problemas de códigos de erro do webhook e do Conteúdo conectado, incluindo quais são os erros e as etapas para resolvê-los."
 ---
 
-# Solução de problemas de solicitações de webhook e Conteúdo conectado
+# Solução de problemas de solicitações de webhook e Conteúdo conectado {#troubleshoot-webhook-and-connected-content-requests}
 
 > Este artigo aborda como solucionar problemas de códigos de erro comuns para webhooks e Conteúdo conectado e fornece explicações adicionais sobre como esses erros podem ocorrer em suas solicitações.
 
-## Erros 4XX
+## Erros 4XX {#4xx-errors}
 
-Os erros `4XX` indicam que há um problema com a solicitação enviada ao endpoint. Esses erros geralmente são causados por solicitações errôneas, incluindo parâmetros malformados, cabeçalhos de autenticação ausentes ou URLs incorretos. Observe que esses erros também se aplicam ao [Report Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
+Os erros `4XX` indicam que há um problema com a solicitação enviada ao endpoint. Esses erros geralmente são causados por solicitações errôneas, incluindo parâmetros malformados, cabeçalhos de autenticação ausentes ou URLs incorretos. Observe que esses erros também se aplicam ao [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
 
 Consulte a tabela a seguir para obter detalhes sobre o código de erro e as etapas de resolução:
 
@@ -23,7 +23,8 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="Erros 4XX">
+  <caption>Erros 4XX</caption>
   <thead>
     <tr>
       <th>Código de erro</th>
@@ -109,36 +110,36 @@ table td {
       <td>Há um número excessivo de solicitações enviadas em um determinado período de tempo.</td>
       <td>
         <ul>
-          <li>Reduza o limite de taxa na sua campanha ou etapa do canva.</li>
+          <li>Reduza o limite de taxa na sua Campaign ou etapa do Canvas.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Erros 5XX
+## Erros 5XX {#5xx-errors}
 
 Os erros `5XX` indicam que há um problema com o endpoint. Esses erros geralmente são causados por problemas no lado do servidor.
 
-| Código de erro                    | O que significa                                                                                                                                         |
+| Código de erro | O que significa |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **500 Internal Server Error** | O endpoint encontrou uma condição inesperada que o impediu de concluir a solicitação.                                                       |
-| **502 Bad Gateway**           | O endpoint recebeu uma resposta inválida do servidor upstream.                                                                                   |
-| **503 Service Unavailable**   | O endpoint não está conseguindo processar a solicitação devido a uma sobrecarga temporária ou manutenção.                                                    |
-| **504 Gateway Timeout**       | O endpoint não recebeu uma resposta oportuna do servidor upstream.                                                                               |
-| **529 Host Overloaded**       | O host do endpoint está sobrecarregado e não pôde responder. |
-| **598 Host Unhealthy**        | A Braze simulou a resposta porque o host do endpoint está temporariamente marcado como não íntegro. Consulte [Detecção de host não íntegro](#unhealthy-host-detection) para saber mais. |
-| **599 Connection Error**      | A Braze apresentou um erro de tempo limite de conexão de rede ao tentar estabelecer uma conexão com o endpoint, o que significa que o endpoint pode estar instável ou fora do ar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **500 Internal Server Error** | O endpoint encontrou uma condição inesperada que o impediu de concluir a solicitação. |
+| **502 Bad Gateway** | O endpoint recebeu uma resposta inválida do servidor upstream. |
+| **503 Service Unavailable** | O endpoint não está conseguindo processar a solicitação devido a uma sobrecarga temporária ou manutenção. |
+| **504 Gateway Timeout** | O endpoint não recebeu uma resposta oportuna do servidor upstream. |
+| **529 Host Overloaded** | O host do endpoint está sobrecarregado e não pôde responder. |
+| **598 Host Unhealthy** | A Braze simulou a resposta porque o host do endpoint está temporariamente marcado como não íntegro. Consulte [Detecção de host não íntegro](#unhealthy-host-detection) para saber mais. |
+| **599 Connection Error** | A Braze apresentou um erro de tempo limite de conexão de rede ao tentar estabelecer uma conexão com o endpoint, o que significa que o endpoint pode estar instável ou fora do ar. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Erros 5XX" }
 
-### Resolução de erros 5XX
+### Resolução de erros 5XX {#resolving-5xx-errors}
 
 Aqui estão algumas dicas para solucionar erros comuns `5XX`:
 
-- Revise a mensagem de erro para obter detalhes específicos disponíveis no **Registro de atividades de mensagens**. Para webhooks, acesse a seção **Performance ao longo do tempo** na página inicial da Braze e selecione as estatísticas para webhooks. Lá, você pode encontrar o registro de data e hora que indica quando os erros ocorreram.
+- Revise a mensagem de erro para obter detalhes específicos disponíveis no **Registro de atividades de envio de mensagem**. Para webhooks, acesse a seção **Performance Over Time** na página inicial da Braze e selecione as estatísticas para webhooks. Lá, você pode encontrar o registro de data e hora que indica quando os erros ocorreram.
 - Certifique-se de que não esteja enviando muitas solicitações que sobrecarreguem o endpoint. Você pode enviar em lotes ou ajustar o limite de taxa para verificar se isso reduz os erros.
 
-## Detecção de host não íntegro
+## Detecção de host não íntegro {#unhealthy-host-detection}
 
 Os webhooks da Braze e o Conteúdo conectado empregam um mecanismo de detecção de host não íntegro para identificar quando o host de destino apresenta uma alta taxa de lentidão significativa ou sobrecarga, resultando em tempos limite, excesso de solicitações ou outros resultados que impedem a Braze de se comunicar com sucesso com o endpoint de destino. Ele atua como uma salvaguarda para reduzir a carga desnecessária que pode estar causando dificuldades ao host de destino. Também serve para estabilizar a infraestrutura da Braze e manter velocidades rápidas de envio de mensagens.
 
@@ -150,24 +151,24 @@ Quando as solicitações são interrompidas, a Braze simula respostas com um có
 
 Os códigos de erro a seguir contribuem para a contagem de falhas do detector de host não íntegro: `408`, `429`, `502`, `503`, `504`, `529`.
 
-Para webhooks, a Braze repetirá automaticamente as solicitações HTTP que foram interrompidas pelo detector de host não íntegro. Essa nova tentativa automática usa backoff exponencial e tentará apenas algumas vezes antes de falhar. Para saber mais sobre erros de webhook, consulte [Erros, lógica de repetição e tempos limite]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#errors-retry-logic-and-timeouts).
+Para webhooks, a Braze repetirá automaticamente as solicitações HTTP que foram interrompidas pelo detector de host não íntegro. Essa nova tentativa automática usa backoff exponencial e tentará apenas algumas vezes antes de falhar. Para saber mais sobre erros de webhook, consulte [Erros, lógica de repetição e tempos limite]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#errors-retry-logic-and-timeouts).
 
-Para o Conteúdo conectado, se as solicitações ao host de destino forem interrompidas pelo detector de host não íntegro, a Braze continuará a renderizar mensagens e a seguir sua lógica Liquid como se tivesse recebido um código de resposta de erro. Se você quiser garantir que essas solicitações de Conteúdo conectado sejam repetidas quando forem interrompidas pelo detector de host não íntegro, use a opção `:retry`. Para saber mais sobre a opção `:retry`, consulte [Novas tentativas de Conteúdo conectado]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/connected_content_retries).
+Para o Conteúdo conectado, se as solicitações ao host de destino forem interrompidas pelo detector de host não íntegro, a Braze continuará a renderizar mensagens e a seguir sua lógica Liquid como se tivesse recebido um código de resposta de erro. Se você quiser garantir que essas solicitações de Conteúdo conectado sejam repetidas quando forem interrompidas pelo detector de host não íntegro, use a opção `:retry`. Para saber mais sobre a opção `:retry`, consulte [Novas tentativas de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/).
 
 Se achar que a detecção de host não íntegro pode estar causando problemas, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
 
-## E-mails automatizados e entradas do registro de atividade de mensagens
+## E-mails automatizados e entradas do registro de atividade de mensagens {#automated-emails-and-message-activity-log-entries}
 
-### Configuração de e-mails automatizados
+### Configuração de e-mails automatizados {#setting-up-automated-emails}
 
 Se ocorrerem mais de 100.000 erros de webhook ou de endpoint de Conteúdo conectado (incluindo novas tentativas) em um espaço de trabalho em um período de 24 horas, você receberá um e-mail com as seguintes informações sobre como resolver os erros.
 
 - Nome do espaço de trabalho
-- Um link para o canva ou a campanha
+- Um link para o Canvas ou a Campaign
 - URL do endpoint
 - Código de erro
 - Hora em que o erro foi observado pela última vez
-- Links para o registro de atividades de mensagens e documentação relacionada
+- Links para o registro de atividades de envio de mensagem e documentação relacionada
 
 {% alert note %}
 Você pode configurar o limite de erro por espaço de trabalho. Para ajustar esse limite, entre em contato com o [suporte da Braze]({{site.baseurl}}/support_contact/).
@@ -182,19 +183,19 @@ Esses e-mails são enviados apenas uma vez por dia no nível do espaço de traba
 
 Para se inscrever para receber esses e-mails, faça o seguinte:
 
-1. Acesse **Configurações** > **Configurações administrativas** > **Preferências de notificação**.
-2. Selecione **Erros de Conteúdo conectado** e **Erros de webhook** na seção **Canvas & Campaigns**.
+1. Acesse **Settings** > **Admin Settings** > **Notification Preferences**.
+2. Selecione **Connected Content Errors** e **Webhook Errors** na seção **Canvas & Campaigns**.
 
-### Entradas do registro de atividade de mensagens
+### Entradas do registro de atividade de mensagens {#message-activity-log-entries}
 
-Se ocorrer uma falha, haverá pelo menos uma entrada no [Registro de atividades de mensagens]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab) relacionada a ela. Se a solicitação for repetida e eventualmente bem-sucedida, esses detalhes estarão disponíveis no Currents e no Snowflake Data Share. Observe que, mesmo que uma solicitação eventualmente seja bem-sucedida após uma nova tentativa, os erros ainda podem disparar o e-mail automatizado.
+Se ocorrer uma falha, haverá pelo menos uma entrada no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) relacionada a ela. Se a solicitação for repetida e eventualmente bem-sucedida, esses detalhes estarão disponíveis no Currents e no Compartilhamento de dados do Snowflake. Observe que, mesmo que uma solicitação eventualmente seja bem-sucedida após uma nova tentativa, os erros ainda podem disparar o e-mail automatizado.
 
-### Insights adicionais sobre falhas no Braze Currents
+### Insights adicionais sobre falhas no Braze Currents {#additional-failure-insights-in-braze-currents}
 
-Para aumentar a transparência dos problemas relacionados a webhooks, a Braze envia dados detalhados de eventos de falha de webhook para o Currents e o Snowflake Data Sharing. Esses eventos incluem solicitações de webhook com falha (como respostas HTTP `4xx` ou `5xx`), proporcionando mais observabilidade sobre como os problemas de webhook podem afetar a entrega de mensagens. Observe que os eventos de falha incluem erros terminais, bem como erros que estão sendo tentados novamente.
+Para aumentar a transparência dos problemas relacionados a webhooks, a Braze envia dados detalhados de eventos de falha de webhook para o Currents e o Compartilhamento de dados do Snowflake. Esses eventos incluem solicitações de webhook com falha (como respostas HTTP `4xx` ou `5xx`), proporcionando mais observabilidade sobre como os problemas de webhook podem afetar a entrega de mensagens. Observe que os eventos de falha incluem erros terminais, bem como erros que estão sendo tentados novamente.
 
 {% alert note %}
 As solicitações de Conteúdo conectado não estão incluídas nesses eventos de falha do webhook.
 {% endalert %}
 
-Para saber mais, consulte o [glossário de eventos de engajamento com mensagens]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/).
+Para saber mais, consulte o [glossário de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/).

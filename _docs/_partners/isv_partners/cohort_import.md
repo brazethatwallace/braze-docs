@@ -10,7 +10,7 @@ hidden: true
 
 ## Cluster URLs
 
-Braze hosts our application on multiple clusters throughout the US and EU. The URL for the import endpoints will be different depending on the cluster the client's company instance is hosted on:
+Braze hosts our application on multiple clusters throughout the world. The URL for the import endpoints depends on the cluster the client's company instance is hosted on:
 
 | INSTANCE | REST ENDPOINT |
 | ----- | ------------------------------- |
@@ -27,7 +27,8 @@ Braze hosts our application on multiple clusters throughout the US and EU. The U
 | AU-01 | `https://rest.au-01.braze.com`  |
 | JP-01 | `https://rest.jp-01.braze.com` |
 | ID-01 | `https://rest.id-01.braze.com`  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| KR-01 | `https://rest.kr-01.braze.com` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cluster URLs" }
 
 ## Endpoint URLs
 
@@ -64,7 +65,7 @@ The Cohort name endpoint can be used to specify the name of a cohort based on it
 | `cohort_id` | String | Yes | Identifier for the cohort. This identifier should be unique for the specified client. |
 | `name` | String | Yes | Client-specified name for the cohort |
 | `created_at` | String | Yes | Timestamp in ISO-8601 format |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Cohort name endpoint" }
 
 #### Example request:
 
@@ -89,7 +90,7 @@ The User cohort endpoint allows for specifying which users have been added to or
 | `client_secret` | String | Yes | Data Import Key for the client whose cohort this belongs to. |
 | `cohort_id` | String | Yes | Identifier for the cohort. The identifier should be unique for the specified client. |
 | `cohort_changes` | Array of objects | Yes | Objects can have two fields. One, `user_ids`, is required and can be an array of `external_ids`, `device_ids`, and `aliases`. Each element is an ID for a user whose status in the cohort has changed. The second field, `should_remove`, is an optional boolean indicating whether the users in this object should be removed from the cohort instead of added. The default is false. The maximum combined length of the user IDs in a single request is 1,000.<br/><br/>Identified users can be matched by either their `external_id` or `alias`. Anonymous users can be matched by their `device_id`. If you pass in a device ID for an identified user, Braze will not add or remove that user. You must use external IDs or aliases for identified users. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="User cohort endpoint" }
 
 #### Example request:
 
@@ -129,6 +130,6 @@ Refer to the following table for errors codes specific to the Cohort Import endp
 |  | Partner not enabled for client with client secret: **&#60;client secret&#62;** |
 |  | Unauthorized access |
 | `423` | Resource locked |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 For additional troubleshooting, refer to [Errors & Responses]({{site.baseurl}}/api/errors/), which covers the various errors and server responses that can come up while using the Braze API.

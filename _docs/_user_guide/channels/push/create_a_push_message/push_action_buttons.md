@@ -11,9 +11,9 @@ channel:
 
 # Push action buttons
 
-![An iOS push notification with two push action buttons: Accept and Decline.]({% image_buster /assets/img_archive/push_action_example.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
-
 > Push action buttons allow you to set content and actions for buttons when using Braze iOS and Android push notifications. With action buttons, your users can interact directly with your app from a notification without needing to click into an app experience.
+
+![An iOS push notification with two push action buttons: Accept and Decline.]({% image_buster /assets/img_archive/push_action_example.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
 ## Creating action buttons
 
@@ -41,6 +41,8 @@ To use action buttons in your iOS push messages, do the following:
 {% alert note %}
 Due to iOS's handling of buttons, you need to perform additional integration steps when setting up push action buttons, which are outlined in our [developer documentation]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories). In particular, you need to either configure iOS Categories or select from certain default button options. For Android integrations, these buttons will work automatically.
 {% endalert %}
+
+Preset pairs such as **Yes** / **No** map the second button to a dismissive (**CLOSE**) action by default, so it doesn't open the app the same way as the first button. **_Direct Opens_** doesn't include that kind of tap, but **Push Notification Open** data in Currents or Snowflake may still log it with `button_action_type` and `button_string`. For more information, see [Push action buttons and reporting]({{site.baseurl}}/user_guide/channels/push/reporting/#push-action-buttons-and-reporting).
 {% endtab %}
 {% tab Android %}
 ### Android {#android}
@@ -70,7 +72,7 @@ The following table outlines how many characters you can add before your button 
 | 1 | 46 characters |
 | 2 | 20 characters |
 | 3 | 11 characters |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Android character limits" }
 {% endtab %}
 {% endtabs %}
 

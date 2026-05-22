@@ -1,46 +1,46 @@
 ---
-nav_title: APIパートナー統合
+nav_title: APIパートナー連携
 alias: /api_partner_integration/
 hidden: true
 ---
 
-# APIパートナーとの統合
+# APIパートナー連携 {#api-partner-integration}
 
-> `User-Agent` ヘッダーの構文など、パートナー API 連携の要件についてご紹介します。
+> `User-エージェント` ヘッダーの構文など、パートナーAPI連携の要件について説明します。
 
 {% alert important %}
-これまで、パートナーは API リクエストのパートナーフィールドに名前を追加する必要がありました。このフォーマットはサポートされなくなり、`User-Agent` ヘッダーが必要となった。
+以前は、パートナーがAPIリクエストのパートナーフィールドに自社名を追加する必要がありました。この形式は現在サポートされておらず、`User-エージェント` ヘッダーが必須となっています。
 {% endalert %}
 
-## ユーザーエージェント
+## ユーザーエージェント {#user-agents}
 
-トラフィックの送信元を明確に識別する `User-Agent` ヘッダーを含める必要があります。これにより、共有顧客は Braze の API 使用状況レポートでパートナーのトラフィックを確認ができ、Braze のエンジニアはベストプラクティスに従っていないパートナー統合を特定することができます。一般に、使用するユーザーエージェントは、すべてのトラフィックで 1 つのみにする必要があります。
+トラフィックのソースを明確に識別する `User-エージェント` ヘッダーを含める必要があります。これにより、共有顧客はBrazeのAPI使用状況レポートでパートナーのトラフィックを確認でき、Brazeのエンジニアはベストプラクティスに従っていない連携を特定できます。一般的に、すべてのトラフィックに対して単一のユーザーエージェントのみを使用してください。
 
-### 構文
+### 構文 {#syntax}
 
-`User-Agent` ヘッダーは以下のフォーマット ([RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#page-46) 標準と同様) に従う必要があります。
+`User-エージェント` ヘッダーは以下の形式（[RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#page-46) 標準と同様）に従う必要があります。
 
 ```bash
 User-Agent: partner-OrganizationName
 ```
 
-以下を置き換えます。
+以下を置き換えてください。
 
-| placeholder | 説明 |
+| プレースホルダー | 説明 |
 |-------------|-------------|
-| `OrganizationName` | Pascal ケースでフォーマットされた組織名。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `OrganizationName` | Pascalケースでフォーマットされた組織名。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Syntax" }
 
-### 例
+### 例 {#examples}
 
-たとえば、Snowflake のクラウドデータ取り込みの場合、以下が正しいユーザーエージェントとされます。
+たとえば、Snowflakeのクラウドデータ取り込みの場合、以下が正しいユーザーエージェントです。
 
-```bash
+`````````bash
 User-Agent: partner-Snowflake
 ```
 
-しかし、以下の場合はトラフィックの送信元が明確に特定されないため、正しくないとされます。
+一方、以下はトラフィックのソースを明確に識別できないため、正しくありません。
 
-```bash
+`````````bash
 User-Agent: axios/1.4.0
-``` 
+```

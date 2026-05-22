@@ -3,54 +3,52 @@ nav_title: Vínculos profundos de navegación
 article_title: Vínculos profundos de navegación en Braze Pilot
 page_order: 4
 page_type: reference
-description: "Este artículo de referencia cubre brevemente los pasos de integración que deben seguir sus ingenieros o desarrolladores."
+description: "Este artículo de referencia cubre brevemente los pasos de integración requeridos por tus ingenieros o desarrolladores."
 ---
 
-# Vínculos profundos de navegación en Braze Pilot
+# Vínculos profundos de navegación en Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot admite vinculación en profundidad desde la mensajería de Braze a partes concretas de la aplicación Pilot. Esto te permite crear casos de uso de interacción, dirigiendo a los usuarios a diversas partes de la aplicación Pilot. También puedes utilizar parámetros de vínculos profundos opcionales para personalizar el contenido de páginas concretas de la aplicación para el usuario. Para obtener más información sobre la vinculación en profundidad, consulta [Vínculos profundos a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/deep_linking_to_in-app_content/#what-is-deep-linking).
+> Braze Pilot admite vinculación en profundidad desde la mensajería de Braze a partes concretas de la aplicación Pilot. Esto te permite crear casos de uso de interacción, dirigiendo a los usuarios a diversas partes de la aplicación Pilot. También puedes utilizar parámetros opcionales de vínculos profundos para personalizar el contenido de páginas concretas de la aplicación para el usuario. Para obtener más información sobre la vinculación en profundidad, consulta [Vínculo profundo a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
-## General
-
-Estos son los vínculos profundos para las páginas de navegación principales de la aplicación Pilot. 
+## General {#general}
+Estos son los vínculos profundos para las páginas de navegación principales de la aplicación Pilot.
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Proyectos | `braze-pilot://navigation/projects` |
-| Datos de registro | `braze-pilot://navigation/logdata` |
-| Configuración | `braze-pilot://navigation/setup` |
-| Cambiar idioma | `braze-pilot://navigation/selectlanguage` |
-| Cámara | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Projects | `braze-pilot://navigation/projects` |
+| Log Data | `braze-pilot://navigation/logdata` |
+| Setup | `braze-pilot://navigation/setup` |
+| Change Language | `braze-pilot://navigation/selectlanguage` |
+| Camera | `braze-pilot://navigation/camera` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 ## Steppington
-
 Estos son los vínculos profundos para la aplicación de la marca ficticia Steppington en Pilot.
 
-### Ejemplo de vínculo profundo
+### Ejemplo de vínculo profundo {#steppington-example-deep-link}
 
 `braze-pilot://navigation/steppington/workout?title=Running&icon=HEART_DETAILS&image=https://picsum.photos/400&info=This%20workout%20is%20awesome%21&workout=5k%20Run&calories=600&length=25&workout_info_left_text=Road%20Run&workout_info_left_icon=RUNNING_HOME&workout_info_center_text=120%20BPM&workout_info_center_icon=HEART_DETAILS&workout_info_right_text=25%3A00&workout_info_right_icon=TIMER_DETAILS`
 
-### Vínculos profundos sin parámetros
+### Vínculos profundos sin parámetros {#steppington-deep-links-without-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Pantalla de inicio | `braze-pilot://navigation/steppington/splash` |
-| Inicio | `braze-pilot://navigation/steppington/home` |
+| Home | `braze-pilot://navigation/steppington/home` |
 | Página de Steppington+ | `braze-pilot://navigation/steppington/plus` |
 | Pantalla de objetivos | `braze-pilot://navigation/steppington/goals` |
-| Cambiar pantalla de objetivos | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Pantalla de cambiar objetivos | `braze-pilot://navigation/steppington/changegoals` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
-### Vínculos profundos con parámetros
+### Vínculos profundos con parámetros {#steppington-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Entrenamiento | `braze-pilot://navigation/steppington/workout` |
 | Entrenamiento activo | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
-#### Parámetros aceptados
+#### Parámetros aceptados {#steppington-accepted-parameters}
 
 <style>
 table td {
@@ -76,12 +74,13 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
+  <caption>Parámetros aceptados</caption>
     <thead>
         <tr>
             <th>Parámetro</th>
             <th>Descripción</th>
-            <th>Obligatoria</th>
+            <th>Obligatorio</th>
             <th>Predeterminado (si no se especifica)</th>
             <th>Tipo</th>
             <th>Ejemplo</th>
@@ -94,7 +93,7 @@ th:nth-child(6), td:nth-child(6) {
             <td>Sí</td>
             <td></td>
             <td>Cadena</td>
-            <td>En ejecución</td>
+            <td>Running</td>
         </tr>
         <tr>
             <td><code>icon</code></td>
@@ -106,7 +105,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>image</code></td>
-            <td>La URL de la imagen del artículo.</td>
+            <td>La URL de la imagen del elemento.</td>
             <td>Sí</td>
             <td></td>
             <td>Cadena</td>
@@ -118,27 +117,27 @@ th:nth-child(6), td:nth-child(6) {
             <td>Sí</td>
             <td></td>
             <td>Cadena</td>
-            <td>¡Este entrenamiento es increíble!</td>
+            <td>This%20workout%20is%20awesome%21</td>
         </tr>
         <tr>
             <td><code>workout</code></td>
-            <td>El nombre del entrenamiento. Enviado en el <code>st_completed_class</code> evento.</td>
+            <td>El nombre del entrenamiento. Se envía en el evento <code>st_completed_class</code>.</td>
             <td>Sí</td>
             <td></td>
             <td>Número</td>
-            <td>Carrera de 5 km</td>
+            <td>5k%20Run</td>
         </tr>
         <tr>
             <td><code>calories</code></td>
-            <td>El número de calorías que se mostrarán en la pantalla de entrenamiento activo. Enviado en el <code>st_completed_class</code> evento.</td>
+            <td>El número de calorías que se mostrarán en la pantalla de entrenamiento activo. Se envía en el evento <code>st_completed_class</code>.</td>
             <td>No</td>
-            <td>Número aleatorio entre 500 y 1250.</td>
+            <td>Número aleatorio entre 500 y 1250</td>
             <td>Número</td>
             <td>600</td>
         </tr>
         <tr>
             <td><code>length</code></td>
-            <td>La duración del entrenamiento. Enviado en el <code>st_completed_class</code> evento.</td>
+            <td>La duración del entrenamiento. Se envía en el evento <code>st_completed_class</code>.</td>
             <td>No</td>
             <td></td>
             <td>Número</td>
@@ -150,7 +149,7 @@ th:nth-child(6), td:nth-child(6) {
             <td>No</td>
             <td></td>
             <td>Cadena</td>
-            <td>Carretera%20Correr</td>
+            <td>Road%20Run</td>
         </tr>
         <tr>
             <td><code>workout_info_left_icon</code></td>
@@ -166,7 +165,7 @@ th:nth-child(6), td:nth-child(6) {
             <td>No</td>
             <td></td>
             <td>Cadena</td>
-            <td>120 % 20 BPM</td>
+            <td>120%20BPM</td>
         </tr>
         <tr>
             <td><code>workout_info_center_icon</code></td>
@@ -182,7 +181,7 @@ th:nth-child(6), td:nth-child(6) {
             <td>No</td>
             <td></td>
             <td>Cadena</td>
-            <td>25 %: 00</td>
+            <td>25%3A00</td>
         </tr>
         <tr>
             <td><code>workout_info_right_icon</code></td>
@@ -195,45 +194,44 @@ th:nth-child(6), td:nth-child(6) {
     </tbody>
 </table>
 
-##### Opciones de iconos
+##### Opciones de iconos {#icon-options}
 
-| Ícono | Imagen |
+| Icono | Imagen |
 | --- | --- |
-| `RUNNING_HOME` | ![Un icono del calzado deportivo.]({% image_buster /assets/img/braze_pilot/running_home_icon.png %}){:style="max-width:30%"} |
-| `HEART_DETAILS` | ![Un icono con forma de corazón.]({% image_buster /assets/img/braze_pilot/heart_details_icon.png %}){:style="max-width:30%"} |
-| `TIMER_DETAILS` | ![Un icono de cronómetro.]({% image_buster /assets/img/braze_pilot/timer_details_icon.png %}){:style="max-width:30%"} |
-| `YOGA_HOME` | ![Icono de una persona en una postura de yoga.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
-| `BICYCLE_HOME` | ![Un icono del ciclismo.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
-| `DUMBBELL_HOME` | ![Un icono de mancuerna.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `RUNNING_HOME` | ![Icono de una zapatilla deportiva.]({% image_buster /assets/img/braze_pilot/running_home_icon.png %}){:style="max-width:30%"} |
+| `HEART_DETAILS` | ![Icono de un corazón.]({% image_buster /assets/img/braze_pilot/heart_details_icon.png %}){:style="max-width:30%"} |
+| `TIMER_DETAILS` | ![Icono de un cronómetro.]({% image_buster /assets/img/braze_pilot/timer_details_icon.png %}){:style="max-width:30%"} |
+| `YOGA_HOME` | ![Icono de una persona en postura de yoga.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
+| `BICYCLE_HOME` | ![Icono de una bicicleta.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
+| `DUMBBELL_HOME` | ![Icono de una mancuerna.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 
 ## PantsLabyrinth
-
 Estos son los vínculos profundos para la aplicación de la marca ficticia PantsLabyrinth en Pilot.
 
-### Ejemplo de vínculo profundo
+### Ejemplo de vínculo profundo {#pantslabyrinth-example-deep-link}
 
 `braze-pilot://navigation/pantslabyrinth/itemdetails?name=Jeans&price=85&image=https://picsum.photos/400&description=This%20item%20is%20awesome%21&quantity=2&size=Large&colors=%230000FF,%23FF0000&color_strings=White,Blue&selected_color=1`
 
-### Vínculos profundos sin parámetros
+### Vínculos profundos sin parámetros {#pantslabyrinth-deep-links-without-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de inicio | `braze-pilot://navigation/pantslabyrinth/splash` |
+| Pantalla de presentación | `braze-pilot://navigation/pantslabyrinth/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/pantslabyrinth/welcome` |
 | Pantalla de listado | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Página del carrito | `braze-pilot://navigation/pantslabyrinth/cart` |
-| Página de la lista de deseos | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Página de lista de deseos | `braze-pilot://navigation/pantslabyrinth/wishlist` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
-### Vínculos profundos con parámetros
+### Vínculos profundos con parámetros {#pantslabyrinth-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Página de detalles del artículo | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
-#### Parámetros aceptados
+#### Parámetros aceptados {#pantslabyrinth-accepted-parameters}
 
 <style>
 table td {
@@ -259,12 +257,13 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
+  <caption>Parámetros aceptados</caption>
     <thead>
         <tr>
             <th>Parámetro</th>
             <th>Descripción</th>
-            <th>Obligatoria</th>
+            <th>Obligatorio</th>
             <th>Predeterminado (si no se especifica)</th>
             <th>Tipo</th>
             <th>Ejemplo</th>
@@ -277,7 +276,7 @@ th:nth-child(6), td:nth-child(6) {
             <td>Sí</td>
             <td></td>
             <td>Cadena</td>
-            <td>Vaqueros</td>
+            <td>Jeans</td>
         </tr>
         <tr>
             <td><code>price</code></td>
@@ -301,7 +300,7 @@ th:nth-child(6), td:nth-child(6) {
             <td>Sí</td>
             <td></td>
             <td>Cadena</td>
-            <td>¡Este artículo es increíble!</td>
+            <td>This%20item%20is%20awesome%21</td>
         </tr>
         <tr>
             <td><code>quantity</code></td>
@@ -313,11 +312,11 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>size</code></td>
-            <td>Una cadena que representa el tamaño del elemento.</td>
+            <td>Una cadena que representa el tamaño del artículo.</td>
             <td>No</td>
             <td>M</td>
             <td>Cadena</td>
-            <td>Grande</td>
+            <td>Large</td>
         </tr>
         <tr>
             <td><code>colors</code></td>
@@ -329,15 +328,15 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>color_strings</code></td>
-            <td>Una lista de cadenas de colores separadas por comas. Representa los colores en el texto.</td>
+            <td>Una lista de cadenas de colores separadas por comas. Representa los colores en texto.</td>
             <td>No</td>
-            <td>Negro</td>
+            <td>Black</td>
             <td>Cadena</td>
-            <td>Azul, Rojo</td>
+            <td>Blue, Red</td>
         </tr>
         <tr>
             <td><code>selected_color</code></td>
-            <td>El índice seleccionado del color que se elegirá en el SELECTOR de color cuando llegues a la pantalla. Si no se utiliza ningún valor, se selecciona el primer color.</td>
+            <td>El índice seleccionado del color que se elegirá en el selector de color cuando el usuario llegue a la pantalla. Si no se utiliza ningún valor, se selecciona el primer color.</td>
             <td>No</td>
             <td>0</td>
             <td>Número</td>
@@ -347,36 +346,35 @@ th:nth-child(6), td:nth-child(6) {
 </table>
 
 ## MovieCanon
+Estos son los vínculos profundos para la aplicación de la marca ficticia MovieCanon en Pilot.
 
-Estos son los vínculos profundos para la aplicación de la marca ficticia Steppington en Pilot.
-
-### Ejemplo de vínculo profundo
+### Ejemplo de vínculo profundo {#moviecanon-example-deep-link}
 
 `braze-pilot://navigation/moviecannon/moviedetails?id=1&title=Jaws&thumbnail=https://picsum.photos/400&video=0&description=This%20video%20is%20awesome%21`
 
-### Vínculos profundos sin parámetros
+### Vínculos profundos sin parámetros {#moviecanon-deep-links-without-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
-| Pantalla de inicio | `braze-pilot://navigation/moviecannon/splash` |
+| Pantalla de presentación | `braze-pilot://navigation/moviecannon/splash` |
 | Pantalla de bienvenida | `braze-pilot://navigation/moviecannon/welcome` |
 | Página de listado de películas | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
-### Vínculos profundos con parámetros
+### Vínculos profundos con parámetros {#moviecanon-deep-links-with-parameters}
 
 | Pantalla | Vínculo profundo |
 | --- | --- |
 | Página de detalles de la película | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
-#### Parámetros aceptados
+#### Parámetros aceptados {#moviecanon-accepted-parameters}
 
-| Parámetro | Descripción | Obligatoria | Tipo | Ejemplo |
+| Parámetro | Descripción | Obligatorio | Tipo | Ejemplo |
 | --- | --- | --- | --- | --- |
 | `id` | El ID de la película. | Sí | Número | 1 |
-| `title` | El título de la película. | Sí | Cadena | Tiburón |
-| `thumbnail` | La URL Web de la miniatura que se mostrará antes de la película. | Sí | Cadena | `https://picsum.photos/400` |
+| `title` | El título de la película. | Sí | Cadena | Jaws |
+| `thumbnail` | La URL web de la miniatura que se mostrará antes de la película. | Sí | Cadena | `https://picsum.photos/400` |
 | `video` | El índice en la lista de videos que se mostrarán. | No | Número | 0 |
 | `description` | La descripción del video. | Sí | Cadena | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Accepted parameters" }

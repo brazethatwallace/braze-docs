@@ -30,7 +30,7 @@ To use this endpoint, you must generate an API key with the `cdi.integration_syn
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `integration_id` | Required | String | Integration ID. This is found in the URL when viewing an integration in the Braze dashboard. The URL format is `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Example request
 
@@ -61,7 +61,7 @@ The following table lists possible returned errors and their associated troubles
 | `400 Invalid integration ID` | Check that your `integration_id` is valid. |
 | `404 Integration not found` | No integration exists for the given integration ID. Make sure that your integration ID is valid. |
 | `429 Another job is in progress` | There is a sync currently running for this integration. Try again after the sync has completed. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 For additional status codes and associated error messages, refer to [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors).
 

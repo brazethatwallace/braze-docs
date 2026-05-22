@@ -163,7 +163,9 @@ An email bounce for customers using SendGrid consists of hard bounces, spam (`sp
 Count
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Hard Bounce' %} 
+{% multi_lang_include analytics/metrics.md metric='Hard Bounce' %}
+
+When an email hard bounces or is marked as spam, Braze marks the email address as invalid but does not update the user's [subscription status]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/). Braze stops any future sends to that email address. To remove an email address from your hard bounce list, use the [Remove hard bounced emails endpoint]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces).
 
 <span class="calculation-line">Calculation: Count </span>
 
@@ -237,7 +239,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. Similar to unique opens, a user who clicks the same link again after 7 days counts as a new unique click. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured by <a href='/docs/help/help_articles/data/dispatch_id/'>dispatch_id</a>. This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -259,6 +261,8 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
+_Unsubscribes_ reflect the standard unsubscribe link for Braze. Custom unsubscribe pages won't increment this metric unless you update users using the API. **Subscription Group Timeseries** still reflects API-driven changes.
+
 {% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
 
 {::nomarkdown}
@@ -270,6 +274,15 @@ Count, Percentage
     </ul>
 </span>
 {:/}
+
+#### Why *Unsubscribes* and unsubscribe-link clicks can differ
+
+On the **Analytics** page for an email campaign or Canvas, compare the *Unsubscribes* count to clicks on the Braze unsubscribe URL in the per-link breakdown when you expand **Total Clicks** or **Unique Clicks**. The two often match but can differ:
+
+- **More *Unsubscribes* than clicks on the body unsubscribe URL:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) is an additional unsubscribe path in the email header (not the link in your message body). When a user unsubscribes that way, it counts toward *Unsubscribes* but does not count as a click on the tracked unsubscribe URL in the body.
+- **More clicks on the body unsubscribe URL than *Unsubscribes*:** A user may select that link more than once. If they unsubscribe, resubscribe, and unsubscribe again, email analytics can record multiple clicks (for example, two) in the click breakdown.
+
+For more information, see [Why am I seeing a different number of unsubscribes than clicks on my unsubscribe link?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 {% endapi %}
 

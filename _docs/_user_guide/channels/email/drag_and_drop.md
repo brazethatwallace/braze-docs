@@ -18,7 +18,8 @@ tool:
 
 The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two key components to simplify your workflow, without additional use of HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
+    <caption>Content and Rows editor components</caption>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
@@ -32,7 +33,7 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="About the editor" }
 
 ### Content
 
@@ -74,6 +75,10 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 ## Using the drag-and-drop editor
 
 Not sure whether your email message should be sent using a campaign or a Canvas? Campaigns are better for single, targeted messaging campaigns, while Canvases are better for multi-step user journeys.
+
+{% alert note %}
+You can't save a drag-and-drop email from a campaign or Canvas directly to **Templates** > **Email Templates** as an email template. Build under **Templates** first, or see [Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) for recreating a drag-and-drop template or exporting HTML with **Download file**.
+{% endalert %}
 
 After you've selected where to build your message, let's dive into the steps to create a drag-and-drop email.
 
@@ -141,9 +146,23 @@ Under **Sending Settings**, you can add personalization for email headers and em
 Advanced functionality will appear in the campaign or Canvas composer. In advanced functionality, you can modify your inline CSS setting and enter a header or extra key-value pairs (if configured).
 {% endalert %}
 
+#### Adding email attachments
+
+In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word docs, Excel files, and PowerPoint presentations are all supported. 
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
+
 ### Step 4: Test your email
 
-After adding your sending information, it's time to finally test your email. 
+After adding your sending information, it's time to finally test your email.
+
+{% alert tip %}
+If the email looks different in the editor than in preview or test send, confirm that all tags are closed, image attributes have values, and background images aren't blurred at edges.
+{% endalert %}
 
 Go to the **Preview and Test** section. Here, you have the option of previewing your email as a user or sending a test message. This section also includes [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/), which allows you to check that your email has rendered correctly across different mobile and web clients.
 
@@ -175,9 +194,7 @@ Note that any edits made to an email template won't reflect in a previously gene
 
 Inbox Vision allows you to view your email campaigns from the perspective of email clients and mobile devices. To test your email message using Inbox Vision, select **Inbox Vision** in the **Preview & Test** section and select **Run Inbox Vision**.
 
-{% alert tip %}
-Background images in email messaging may sometimes cause white lines or disconnects to appear between images, so it's important to test and check the finer details of your email message.
-{% endalert %}
+It's important to test and check the finer details of your email message. For example, background images in email messaging may sometimes cause white lines or disconnects to appear between images, or clients such as Windows Outlook may not show background images. Using Inbox Vision can help identify these discrepancies between clients. In this scenario, set a fallback background color so that these images can render as expected.
 
 For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
 
@@ -189,8 +206,9 @@ The underlying engine that produces HTML from the drag-and-drop editor has been 
 Our average exported HTML data footprint size has been reduced, leading to faster loading and rendering, reduced mobile clipping, and reduced bandwidth consumption.
 
 HTML rendering has improved based on the following updates that minimize the number of conditional comments and CSS media queries. As a result, HTML files are smaller and more efficiently coded.
-- Migration from a `<div>` element-based design to a standard `<table>` formatted codebase
-- [Editor blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) have been re-coded for conciseness
+- Migration from a `<div>` element-based design to a standard `<table aria-label="Use Inbox Vision">` formatted codebase
+  <caption>Use Inbox Vision</caption>
+- [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) have been re-coded for conciseness
 - The final HTML code is compressed to remove whitespace between tags
 - Transparent dividers are automatically converted into content padding
 {% enddetails %}
@@ -299,7 +317,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `meta` | Provides metadata such as page description or keywords. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Embeds internal CSS styles. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Sets the title of the document shown in browser tabs. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Tag | Attribute | Description | Example |
 | --- | --- | --- | --- |
@@ -317,7 +335,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `style` | `type` | MIME type of the style content. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Specifies the media or device for which styles apply. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | No attributes | The `title` tag doesn't accept any attributes. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Link names can be up to 63 bytes and are automatically truncated if they exceed the limit.

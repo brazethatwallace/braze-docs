@@ -19,7 +19,7 @@ Setting up RCS is as straightforward as setting up SMS. Keep reading to learn ho
 
 To be eligible for sending RCS with Braze, your business must meet three criteria upfront:
 
-1. Your current Braze contract must include Message Credits. 
+1. Your current Braze contract must include Message or Action Credits. 
 2. You must send your RCS messages to one of the following Braze-supported countries:
 - United States
 - United Kingdom
@@ -32,7 +32,7 @@ To be eligible for sending RCS with Braze, your business must meet three criteri
 - France
 - Italy
 - Colombia
-3. You must procure a $0 RCS SKU(s) in your contract.
+3. You must procure an RCS SKU(s) in your contract.
 
 ## Step 2: Register an RCS-verified sender
 
@@ -78,7 +78,7 @@ Define your audience using one of the following methods. Next, go to the **Send 
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Create a segment**         | Build a segment that includes all users in a subscription group or a subset using segmentation filters (such as a random 5-10%). Segments update before each send to reflect your current user base.        |
 | **Apply campaign or Canvas filters** | Refine the audience in the **Target Audience** step of your campaign or Canvas. Adjust targeting options without leaving the page for added flexibility.                                         |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Define your audience" }
 
 ### Step 3: Configure a User Update step
 
