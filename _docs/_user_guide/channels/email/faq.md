@@ -204,8 +204,8 @@ Use the following tables to narrow down the cause.
 | The user wasn't eligible for the campaign or Canvas | Check the **Target Audiences** (for campaigns) or **Target Audience** (for Canvas) [settings]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/) to confirm the user met all audience filters, segment criteria, and delivery rules at the time of send. |
 | The message was aborted | Check the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for abort reasons, such as Liquid errors or missing required fields. |
 | The user's email address was invalid or missing | In **User Search**, check the user's profile to verify that a valid email address was on file at the time of send. |
-| The user's email address previously hard bounced | A hard bounce marks the email address as invalid and prevents future sends to that address. Similarly, if a recipient marks your email as spam, Braze sends only transactional emails to that user, not standard marketing campaigns. Check the user's **Engagement** tab in their profile. For more information, see [Unsubscribed email addresses]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) and [Bounces and invalid emails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
-| The user is unsubscribed from email | Check the user's subscription status under **Contact Settings** on the **Engagement** tab. Braze won't send marketing emails to users who are unsubscribed. |
+| The user's email address previously hard bounced | A hard bounce marks the email address as invalid and prevents future sends to that address. Similarly, if a recipient marks your email as spam, Braze sends only transactional emails to that user, not standard campaigns. Check the user's **Engagement** tab in their profile. For more information, see [Unsubscribed email addresses]({{site.baseurl}}/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses) and [Bounces and invalid emails]({{site.baseurl}}/user_guide/channels/email/subscriptions/#bounces-and-invalid-emails). |
+| The user is unsubscribed from email | Check the user's subscription status under **Contact Settings** on the **Engagement** tab. Braze does not send emails to users who are unsubscribed. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not sent" }
 
 #### The email was sent, but didn't arrive in their inbox
@@ -213,10 +213,10 @@ Use the following tables to narrow down the cause.
 | Possible cause | What to check |
 |---|---|
 | The mailbox provider (MBP) was unreachable | A temporary issue prevented the email from reaching the recipient's MBP. This typically resolves itself with retries. Email service providers retry soft bounces for up to 72 hours. |
-| The MBP bounced the email | The recipient's mail server rejected the email. Review the [Message Activity Log]({{site.baseurl}}/user_guide//user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for bounce details. |
+| The MBP bounced the email | The recipient's mail server rejected the email. Review the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/) for bounce details. |
 | The MBP silently dropped the email | The MBP accepted the email but didn't display it to the user and didn't return a bounce. This is outside of Braze's control and cannot be detected in Braze logs. |
 | The email went to the spam folder | The MBP identified the message as spam and routed it to the user's spam or junk folder. Ask the user to check their spam folder. |
-| The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. Ask the user to check with their mailbox administrator or IT team. |
+| The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not in inbox" }
 
 ### How can I optimize images in Outlook?
