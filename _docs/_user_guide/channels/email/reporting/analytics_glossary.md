@@ -148,7 +148,7 @@ For email, *Bounce %* or *Bounce Rate* is the percentage of messages that were u
 An email bounce for customers using SendGrid consists of hard bounces, spam (`spam_report_drops`), and emails sent to invalid addresses (`invalid_emails`).
 
 {% alert note %}
-**Currents vs. deliverability reporting:** In [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), temporary ESP *deferrals* are often represented as *soft bounces*. Deliverability tools (for example, native SendGrid reporting or Looker models) may use *deferral* for the same situation. Deferrals are usually temporary, and mail often delivers after retries. After extended retries (up to roughly 72 hours for soft bounces in campaign analytics), a message may be treated as undeliverable depending on your ESP. Currents email events are append-only—a logged soft bounce is not removed later if the message eventually delivers.
+In [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), temporary ESP deferrals are often represented as soft bounces. Deliverability tools (for example, native SendGrid reporting or Looker models) may use deferrals for the same situation. Deferrals are usually temporary, and mail is often delivered after retries. After extended retries (up to roughly 72 hours for soft bounces in campaign analytics), a message may be treated as undeliverable depending on your ESP. Currents email events are append-only—a logged soft bounce is not removed later if the message eventually delivers.
 {% endalert %}
 
 {::nomarkdown}
