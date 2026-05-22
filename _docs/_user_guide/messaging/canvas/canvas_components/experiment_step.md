@@ -90,6 +90,7 @@ The winning metric and the analytics shown in Experiment Paths can differ:
 - The conversion event you configure for **Winning Path** or **Personalized Paths** determines how Braze compares paths and selects a winner during the experiment window.
 - Experiment Path analytics still follows the same Canvas [conversion events]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/) framework as the rest of the Canvas, including your [primary conversion event]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events/#primary-conversion-event). As a result, the metrics emphasized in the dashboard might not match the winning metric.
 - For push, *Direct Opens* and *Total Opens* differ. For more information, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
+
 ### Additional settings
 
 Experiment Paths record users who enter each step and convert while in the assigned path. This tracks all conversion events specified in the Canvas setup. On the **Additional Settings** tab, enter how many days (between 1 and 30) you want this experiment to track conversions. The time window you specify here determines how long conversion events (chosen in the Canvas setup) are tracked for the experiment. The per-event conversion windows specified in the Canvas setup don't apply to this step's tracking and are replaced by this conversion window.
@@ -108,4 +109,4 @@ Downstream _Sends_ depend on each path’s steps, delays, channel eligibility, a
 
 ### How long does the experiment conversion window last?
 
-The **Additional Settings** conversion window (1–30 days) starts when the user enters the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) for details.
+The **Additional Settings** conversion window (1–30 days) starts when the user enters the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) for more details.
