@@ -247,7 +247,7 @@ Count, Percentage
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over a seven-day period for email and measured per [`dispatch_id`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) (a single send attempt). This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. Dashboard email engagement metrics, including unique clicks, are calculated in Braze and are not reconciled from ESP aggregate reports. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
+{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %} This is tracked over seven days for email and measured per [`dispatch_id`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) (a single send attempt). This includes clicks on Braze-provided unsubscribe links. After seven days, another unique click can count for the same user if they click again. Dashboard email engagement metrics, including _Unique Clicks_, are calculated in Braze and are not reconciled from ESP aggregate reports. To match dashboard counts from Currents, filter for events where `is_unique` is `true`.
 
 {::nomarkdown}
 <span class="calculation-line">
