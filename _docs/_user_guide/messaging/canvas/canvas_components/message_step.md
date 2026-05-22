@@ -48,9 +48,9 @@ Select **Using Intelligent Timing** in the **Delivery Settings** tab. Here, you 
 
 #### Delivery validations
 
-Delivery validations provide an additional check to confirm your audience meets the delivery criteria at message send. This setting is recommended if Quiet Hours, Intelligent Timing, or rate limiting are activated. 
+Delivery validations provide an additional check at message send to confirm your audience still meets your criteria—recommended when Quiet Hours, Intelligent Timing, or rate limiting are enabled. Select **Validate audience at message send**, then add a segment or additional filters. If a user doesn't meet the validations, choose whether they exit the Canvas or advance to the next step. 
 
-Select **Validate audience at message send**, then add a segment or additional filters to validate when the message is sent. If a user does not meet the set delivery validations for a Message step, choose whether they exit the Canvas or advance to the next step.
+For workspaces with multiple apps, add a segment that targets **Users from specific apps** on each Message step that should be app-specific so messages don't send to the wrong app—especially [in-app messages]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/), which display only when the user opens the targeted app. For more information, see [Targeting a single app in your workspace]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/#singular-app).
 
 ![Delivery Validations are enabled to validate the audience at message send. Delivery validations advancement behavior is set to progress the user to the next step in the Canvas if delivery validations are not met.]({% image_buster /assets/img/canvas_components/message_step5.png %}){: style="max-width:90%;"}
 

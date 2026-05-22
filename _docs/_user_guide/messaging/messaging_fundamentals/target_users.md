@@ -55,15 +55,13 @@ Let's say you want to send an in-app message only to Android apps.
 ![A segment targeting users from a specific app, "Test_Android".]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. In your campaign or Canvas, go to the **Target Audiences** step and confirm that your segment is added in the **Target Users By Segment** section. 
+2. In the **Target Audiences** step, confirm that your segment is added in the **Target Users By Segment** section. 
 
 ![The "Target Audiences" step with an example segment selected.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
 {% alert note %}
 This won't work if you add your segment in the **Additional Filters** section through a segment membership filter. You must directly reference your segment in **Target Users By Segment** to deliver your message only to that app.
 {% endalert %}
-
-For **Canvas** steps, confirm **Delivery validations** and channel settings still match the app you intend—especially for in-app messages, where eligibility depends on the user opening the targeted app.
 
 {% endtab %}
 {% endtabs %}
