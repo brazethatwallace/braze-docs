@@ -25,10 +25,6 @@ Any criteria you'd typically use to trigger a message (push, email, SMS, or webh
 
 This feature allows brands to control what specific first-party data is shared with Facebook. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
-{% alert note %}
-The **Number of Facebook Friends** and **Connected Facebook** segmentation filters in Braze are **deprecated**. Facebook and the Braze SDKs no longer collect the underlying data those filters relied on. Use other supported segmentation criteria instead of these filters when building audiences.
-{% endalert %}
-
 ## User syncing and rate limit considerations
  
 As users reach the Audience Sync step, Braze syncs them in near real time while respecting Facebook's Marketing API rate limits. Braze batches and processes as many users as possible every 5 seconds before sending them to Facebook. 
@@ -219,6 +215,14 @@ After you have accepted your Facebook custom audience terms of service, do the f
 2. Re-enable your Facebook Audience Sync step by editing and updating your Canvas.
 
 Then, Braze can sync users as soon as they reach the Facebook Audience Sync step.
+
+### What happened to the **Connected Facebook** and **Number of Facebook Friends Using App** filters?
+
+The **Number of Facebook Friends Using App** and **Connected Facebook** Braze segmentation filters are deprecated. Facebook and the Braze SDKs no longer collect the underlying data those filters relied on.
+
+Replace the deprecated filters with custom attributes, custom events, or engagement-based segments—for example, Facebook login or social linking instead of **Connected Facebook**, or referrals, invites, and shares instead of **Number of Facebook Friends Using App**.
+
+For Canvas retargeting, match users with email, phone, first name, and last name, as demonstrated in [Step 4: Sync setup](#step-4-sync-setup). To expand reach, sync a high-value segment to Facebook and create a lookalike audience in Meta Ads Manager.
 
 ## Troubleshooting
 
