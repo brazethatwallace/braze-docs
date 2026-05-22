@@ -76,7 +76,9 @@ This means users who received the campaign on February 15 are not eligible for t
 
 ## Content Cards
 
-When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive **another** card while an earlier card from the same campaign is still in their feed, which can look like **duplicate** cards. To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
+When re-eligibility is enabled for Content Card campaigns or Canvas steps, a user can receive another card while an earlier card from the same campaign is still in their feed, which can look like duplicate cards. 
+
+To reduce duplicates, turn off re-eligibility, or lengthen the re-eligibility window so the first card [expires from the feed]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#the-30-day-expiration-and-re-eligibility) before the user qualifies for another send.
 
 ## Multivariate testing
 

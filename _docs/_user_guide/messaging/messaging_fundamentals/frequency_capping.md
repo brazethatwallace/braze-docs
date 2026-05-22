@@ -343,7 +343,7 @@ This usually means the campaign's [delivery speed rate limit](#delivery-speed-ra
 
 ### What does "Sent" mean for frequency capping?
 
-In analytics and frequency capping, **Sent** refers to when Braze **dispatches** the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
+In analytics and frequency capping, "sent" refers to when Braze dispatches the message (the send is recorded), not guaranteed final delivery to the device or inbox. Frequency capping and send counts use these recorded send events, which can differ from downstream "delivered" metrics.
 
 ### Why am I seeing email bounces such as `554 5.4.7` / "too many connections"?
 

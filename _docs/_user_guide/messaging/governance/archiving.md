@@ -49,4 +49,4 @@ To resume the campaign or Canvas and begin sending messages, select the <i class
 
 ### Are campaigns and Canvases deleted when I archive them?
 
-No. **Archive** stops delivery and hides the message from day-to-day lists, but Braze retains the campaign or Canvas for reporting and workspace history. There is no separate customer-facing "delete" in this flow—use **Archive** for lifecycle cleanup when a message should no longer send.
+No. Selecting **Archive** stops delivery and hides the message from day-to-day lists, but Braze retains the campaign or Canvas for reporting and workspace history. Archive your messages for lifecycle cleanup when a message should no longer be sent.

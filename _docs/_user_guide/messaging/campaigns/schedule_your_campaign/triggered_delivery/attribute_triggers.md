@@ -21,7 +21,7 @@ Attribute triggers are available for the following scenarios:
 - Boolean, integer, or string custom attribute values change to a specific value.
 
 {% alert important %}
-**Date-type custom attributes** are not available as attribute trigger options in the dashboard (they do not appear in the attribute trigger picker). Use a different delivery trigger or channel workflow if you need to react to date changes.
+Date-type custom attributes are not available as attribute trigger options in the dashboard. Use a different delivery trigger or channel workflow if you need to react to date changes.
 {% endalert %}
 
 To start using attribute triggers, create a campaign or Canvas component and select **Action-Based Delivery** as your delivery method. Then, select the attribute trigger that you'd like to use.
