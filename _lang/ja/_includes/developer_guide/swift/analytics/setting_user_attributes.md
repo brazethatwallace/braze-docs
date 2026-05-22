@@ -30,7 +30,7 @@ AppDelegate.braze?.user.set(firstName: "Alex")
 {% endtab %}
 {% tab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze.user setFirstName:@"Alex"];
 ```
 
@@ -44,14 +44,14 @@ AppDelegate.braze?.user.set(firstName: "Alex")
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.set(firstName: nil)
 ```
 
 {% endtab %}
 {% tab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze.user setFirstName:nil];
 ```
 
@@ -74,13 +74,13 @@ AppDelegate.braze?.user.set(firstName: nil)
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: "your_attribute_value")
 ```
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze.user setCustomAttributeWithKey:@"your_attribute_key" stringValue:"your_attribute_value"];
 ```
 {% endsubtab %}
@@ -92,13 +92,13 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: "yo
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: yourIntegerValue)
 ```
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze.user setCustomAttributeWithKey:@"your_attribute_key" andIntegerValue:yourIntegerValue];
 ```
 {% endsubtab %}
@@ -110,13 +110,13 @@ Brazeでは、データベース内での `float` 値と `double` 値の扱い�
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: yourDoubleValue)
 ```
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze.user setCustomAttributeWithKey:@"your_attribute_key" andDoubleValue:yourDoubleValue];
 ```
 {% endsubtab %}
@@ -128,13 +128,13 @@ AppDelegate.braze?.user.setCustomAttribute(key: "your_attribute_key", value: you
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", value: yourBoolValue)
 ```
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze.user setCustomAttributeWithKey:@"your_attribute_key" andBOOLValue:yourBOOLValue];
 ```
 {% endsubtab %}
@@ -146,13 +146,13 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", value: yourBool
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", dateValue:yourDateValue)
 ```
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 [AppDelegate.braze.user setCustomAttributeWithKey:@"your_attribute_key" andDateValue:yourDateValue];
 ```
 {% endsubtab %}
@@ -166,7 +166,7 @@ AppDelegate.braze?.user.setCustomAttribute("your_attribute_key", dateValue:yourD
 
 {% subtabs %}
 {% subtab swift %}
-```swift
+`````````swift
 // Setting a custom attribute with an array value
 AppDelegate.braze?.user.setCustomAttributeArray(key: "array_name", array: ["value1",  "value2"])
 // Adding to a custom attribute with an array value
@@ -177,7 +177,7 @@ AppDelegate.braze?.user.removeFromCustomAttributeArray(key: "array_name", value:
 {% endsubtab %}
 
 {% subtab objective-c %}
-```objc
+`````````objc
 // Setting a custom attribute with an array value
 [AppDelegate.braze.user setCustomAttributeArrayWithKey:@"array_name" array:@[@"value1",  @"value2"]];
 // Adding to a custom attribute with an array value
@@ -199,14 +199,14 @@ AppDelegate.braze?.user.removeFromCustomAttributeArray(key: "array_name", value:
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.incrementCustomUserAttribute(key: "your_attribute_key", by: incrementIntegerValue)
 ```
 
 {% endtab %}
 {% tab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze.user incrementCustomUserAttribute:@"your_attribute_key" by:incrementIntegerValue];
 ```
 
@@ -219,7 +219,7 @@ AppDelegate.braze?.user.incrementCustomUserAttribute(key: "your_attribute_key", 
 {% tab swift %}
 カスタム属性を解除するには、該当する属性キーを `unsetCustomAttribute` メソッドに渡します。
 
-```swift
+`````````swift
 AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
 ```
 
@@ -227,7 +227,7 @@ AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
 {% tab objective-c %}
 カスタム属性を解除するには、該当する属性キーを `unsetCustomAttributeWithKey` メソッドに渡します。
 
-```objc
+`````````objc
 [AppDelegate.braze.user unsetCustomAttributeWithKey:@"your_attribute_key"];
 ```
 
@@ -240,7 +240,7 @@ AppDelegate.braze?.user.unsetCustomAttribute(key: "your_attribute_key")
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 let favoriteBook: [String: Any?] = [
   "title": "The Hobbit",
   "author": "J.R.R. Tolkien",
@@ -252,7 +252,7 @@ braze.user.setCustomAttribute(key: "favorite_book", dictionary: favoriteBook)
 {% endtab %}
 
 {% tab objective-c %}
-```objc
+`````````objc
 NSDictionary *favoriteBook = @{
   @"title": @"The Hobbit",
   @"author": @"J.R.R. Tolkien",
@@ -288,14 +288,14 @@ NSDictionary *favoriteBook = @{
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.set(emailSubscriptionState: Braze.User.SubscriptionState)
 ```
 
 {% endtab %}
 {% tab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze.user setEmailSubscriptionState: BRZUserSubscriptionState]
 ```
 
@@ -307,14 +307,14 @@ AppDelegate.braze?.user.set(emailSubscriptionState: Braze.User.SubscriptionState
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 AppDelegate.braze?.user.set(pushNotificationSubscriptionState: Braze.User.SubscriptionState)
 ```
 
 {% endtab %}
 {% tab objective-c %}
 
-```objc
+`````````objc
 [AppDelegate.braze.user setPushNotificationSubscriptionState: BRZUserSubscriptionState]
 ```
 

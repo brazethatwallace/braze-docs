@@ -82,6 +82,12 @@ Ve a tu [dashboard de Comm.One](https://ums.cjmplace.com/) y reúne la siguiente
 
 ![Dashboard de Comm.One mostrando una clave de remitente censurada.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
+{% alert important %}
+Solo puedes integrar una clave de remitente de KakaoTalk en un espacio de trabajo a la vez. Para usar la misma clave de remitente en un espacio de trabajo diferente, primero debes archivar el grupo de suscripción de KakaoTalk en el espacio de trabajo original y luego ponerte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support/) para eliminar la integración. Después de que Braze elimine la integración, puedes configurar la integración en el nuevo espacio de trabajo.
+{% endalert %}
+
+![Credenciales para un canal de KakaoTalk en Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
@@ -95,13 +101,11 @@ Ve a tu [dashboard de Comm.One](https://ums.cjmplace.com/) y reúne la siguiente
 {% endtab %}
 {% endtabs %}
 
-![Campos en la página de Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Credenciales para un canal de KakaoTalk en Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Solo se pueden registrar los canales asignados a un único ID común.
 {% endalert %}
+
+![Campos en la página de Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

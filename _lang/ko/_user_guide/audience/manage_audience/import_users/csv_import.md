@@ -148,6 +148,10 @@ CSV 파일 작성을 시작할 준비가 되면 다음 정보를 참조합니다
 기본 속성을 가져올 때 사용하는 열 헤더는 기본 사용자 속성의 철자와 대소문자가 정확히 일치해야 합니다. 그렇지 않으면 Braze는 이를 [커스텀 속성](#custom-attributes)으로 감지합니다.
 {% endalert %}
 
+{% alert tip %}
+Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV, 클라우드 데이터 수집 포함)은 [표준 속성]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/)을 참조합니다. 다음 표는 CSV 가져오기를 통해 설정할 수 있는 하위 집합만 다룹니다.
+{% endalert %}
+
 다음 기본 속성을 사용자 가져오기에 사용할 수 있습니다.
 
 | 사용자 프로필 필드 | 데이터 유형 | 설명 | 필수 여부 |

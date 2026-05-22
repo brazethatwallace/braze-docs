@@ -20,19 +20,17 @@ Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigun
 
 {% details Berechtigungen für das Blocklisting angepasster Daten %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 - Kampagnen anzeigen
 - Kampagnen bearbeiten
 - Kampagnen archivieren
-- Canvase anzeigen
-- Canvase bearbeiten
-- Canvase archivieren
+- Canvases anzeigen
+- Canvases bearbeiten
+- Canvases archivieren
 - Frequency-Capping-Regeln anzeigen
 - Frequency-Capping-Regeln bearbeiten
 - Priorisierung von Nachrichten anzeigen
 - Priorisierung von Nachrichten bearbeiten
-- Content-Blöcke anzeigen
+- Content Blocks anzeigen
 - Feature-Flags anzeigen
 - Feature-Flags bearbeiten
 - Feature-Flags archivieren
@@ -48,9 +46,9 @@ Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Berechtigun
 - Webhook-Templates bearbeiten
 - Link-Templates anzeigen
 - Link-Templates bearbeiten
-- Mediathek-Assets anzeigen
-- Mediathek-Assets bearbeiten
-- Mediathek-Assets löschen
+- Medienbibliothek-Assets anzeigen
+- Medienbibliothek-Assets bearbeiten
+- Medienbibliothek-Assets löschen
 - Standorte anzeigen
 - Standorte bearbeiten
 - Standorte archivieren
@@ -74,7 +72,7 @@ Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segment
 
 Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu stoppen, gehen Sie wie folgt vor:
 
-1. Suchen Sie es auf den Seiten **Angepasste Attribute**, **Angepasste Events** oder **Produkte**.
+1. Suchen Sie es auf den Seiten **Custom Attributes**, **Custom Events** oder **Products**.
 2. Wählen Sie das angepasste Attribut, Event oder Produkt aus. Bei angepassten Attributen und Events können Sie bis zu 100 gleichzeitig für die Blocklist auswählen.
 3. Wählen Sie **Blocklist**.
 
@@ -112,9 +110,9 @@ Sie müssen [Braze-Admin]({{site.baseurl}}/user_guide/administer/global/user_man
 
 Um ein angepasstes Event oder angepasstes Attribut zu löschen, gehen Sie wie folgt vor:
 
-1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute** oder **Angepasste Events**, je nachdem, welchen Datentyp Sie löschen möchten.
-2. Gehen Sie zu den angepassten Daten und wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Aktionen** > **Blocklist**.
-3. Nachdem Ihre angepassten Daten 7 Tage lang auf der Blocklist waren, wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Aktionen** > **Löschen**.
+1. Gehen Sie zu **Data Settings** > **Custom Attributes** oder **Custom Events**, je nachdem, welchen Datentyp Sie löschen möchten.
+2. Gehen Sie zu den angepassten Daten und wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Blocklist**.
+3. Nachdem Ihre angepassten Daten 7 Tage lang auf der Blocklist waren, wählen Sie <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;**Actions** > **Delete**.
 
 ### Wie die Löschung funktioniert {#how-deletion-works}
 

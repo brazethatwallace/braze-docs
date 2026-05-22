@@ -9,6 +9,8 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
 {% alert important %}
 User profile events are in beta. Contact your customer success manager or account manager for access.
 {% endalert %}
@@ -33,6 +35,9 @@ Currents drops events with payloads larger than 900 KB.
 
 {% enddetails %}
 
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## User Profile Update events {#user-profile-update-events}

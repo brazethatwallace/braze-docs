@@ -114,7 +114,7 @@ return brazecall;
 
 {% endtab %}
 {% tab User Activity Event Template %}
-```javascript
+`````````javascript
 let brazecall = {
 "events": [
    {
@@ -134,7 +134,7 @@ return brazecall;
 ```
 {% endtab %}
 {% tab Redemption Event Template %}
-```javascript
+`````````javascript
 let brazecall = {
  "attributes": [
    {
@@ -152,7 +152,7 @@ return brazecall;
 ```
 {%endtab%}
 {% tab Master Template %}
-```javascript
+`````````javascript
 //The master template uses JavaScript's conditional operators to determine the output of the Data Transformation. This example shows how to apply JavaScript to your transformation to allow for a dynamic range of sources or inputs.
 
  // We open the transformation with a simple "if" function. We're checking if the value "payload.tierInfo" is present. "tierInfo" is a value that is always populated in the User Profile Live Push object, but is not present in the others.

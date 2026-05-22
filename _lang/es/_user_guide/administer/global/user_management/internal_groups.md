@@ -17,7 +17,7 @@ También te recomendamos consultar nuestro curso de Braze Learning [Pruebas y so
 
 ## Requisitos previos {#prerequisites}
 
-Para crear y administrar grupos internos, necesitas el [permiso heredado de acceso a la consola de desarrollador]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=legacy%20permissions) o estos [permisos granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions):
+Para crear y administrar grupos internos, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
 
 - Ver claves de API
 - Editar claves de API
@@ -32,8 +32,6 @@ Para crear y administrar grupos internos, necesitas el [permiso heredado de acce
 - Editar alertas de uso de API
 - Editar Depurador de SDK
 - Ver Depurador de SDK
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ## Crear un grupo interno {#creating-an-internal-group}
 
@@ -91,9 +89,9 @@ Si usas un grupo de IP para enviar un correo electrónico, selecciona desde qué
 
 Los grupos semilla solo son compatibles con el canal de correo electrónico. Añade usuarios a un grupo semilla para enviar copias de cada variante de mensaje de correo electrónico a todos los miembros del grupo.
 
-Los grupos semilla no están disponibles para campañas de API, pero puedes incluir grupos semilla usando una entrada activada por API en la campaña. Úsalos para medir métricas de capacidad de entrega y para mantener un registro del contenido de tus correos electrónicos con fines históricos y de archivo.
+Los grupos semilla no están disponibles para Campaigns de API, pero puedes incluir grupos semilla usando una entrada activada por API en la Campaign. Úsalos para medir métricas de capacidad de entrega y para mantener un registro del contenido de tus correos electrónicos con fines históricos y de archivo.
 
-Después de crear un grupo interno y etiquetarlo para usarlo como grupo semilla, selecciónalo en el paso **Target Audiences** del editor de campañas, o en el paso **Send Settings** en un Canvas.
+Después de crear un grupo interno y etiquetarlo para usarlo como grupo semilla, selecciónalo en el paso **Target Audiences** del editor de Campaigns, o en el paso **Send Settings** en un Canvas.
 
 Los correos electrónicos semilla tienen `[SEED]` antepuesto a la línea del asunto. Ten en cuenta que los correos electrónicos semilla **no**:
 
@@ -115,24 +113,24 @@ Si el correo electrónico usa [Liquid `abort_message()`]({{site.baseurl}}/user_g
 
 #### Para Campaigns {#for-campaigns}
 
-Al redactar una campaña de correo electrónico, edita tus grupos semilla en la sección **Target Audiences** del editor.
+Al redactar una Campaign de correo electrónico, edita tus grupos semilla en la sección **Target Audiences** del editor.
 
 {% alert important %}
-Si configuras un grupo semilla para que se adjunte automáticamente a todas las campañas, esto solo se aplica a las campañas nuevas. No se aplica cuando copias campañas existentes. Debes aplicar manualmente los grupos semilla deseados a la campaña copiada en la sección **Target Audiences**.
+Si configuras un grupo semilla para que se adjunte automáticamente a todas las Campaigns, esto solo se aplica a las Campaigns nuevas. No se aplica cuando copias Campaigns existentes. Debes aplicar manualmente los grupos semilla deseados a la Campaign copiada en la sección **Target Audiences**.
 {% endalert %}
 
-Los grupos semilla envían a cada variante de correo electrónico una vez y se entregan la primera vez que tu usuario recibe esa variante en particular. Para mensajes planificados, esto suele ser la primera vez que se lanza la campaña. Para campañas basadas en acciones o activadas por API, es el momento en que se envía un mensaje al primer usuario.
+Los grupos semilla envían a cada variante de correo electrónico una vez y se entregan la primera vez que tu usuario recibe esa variante en particular. Para mensajes planificados, esto suele ser la primera vez que se lanza la Campaign. Para Campaigns basadas en acciones o activadas por API, es el momento en que se envía un mensaje al primer usuario.
 
-Si tu campaña es multivariante y tu variante tiene un porcentaje de envío del 0 %, no se envía a los grupos semilla. Además, si la variante ya se envió y no se actualizó para reenviar en **Editar grupos semilla** en el paso **Target**, no se envía de nuevo de forma predeterminada.
+Si tu Campaign es multivariante y tu variante tiene un porcentaje de envío del 0 %, no se envía a los grupos semilla. Además, si la variante ya se envió y no se actualizó para reenviar en **Editar grupos semilla** en el paso **Target**, no se envía de nuevo de forma predeterminada.
 
 {% alert note %}
-Si tienes una campaña recurrente y alguna de las variantes se actualiza, puedes elegir enviar de nuevo solo a las variantes actualizadas o a todas las variantes, o desactivar el envío del grupo semilla tras la actualización.
+Si tienes una Campaign recurrente y alguna de las variantes se actualiza, puedes elegir enviar de nuevo solo a las variantes actualizadas o a todas las variantes, o desactivar el envío del grupo semilla tras la actualización.
 {% endalert %}
 
-![El grupo semilla "Email seed test" seleccionado para recibir la campaña de correo electrónico de la variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
+![El grupo semilla "Email seed test" seleccionado para recibir la Campaign de correo electrónico de la variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
 
 #### Para Canvas {#for-canvas}
 
-Los grupos semilla en Canvas funcionan de manera similar a cualquier campaña activada. Braze detecta automáticamente todos los pasos que contienen un mensaje de correo electrónico y los envía cuando tu usuario llega por primera vez a ese paso de correo electrónico en particular.
+Los grupos semilla en Canvas funcionan de manera similar a cualquier Campaign activada. Braze detecta automáticamente todos los pasos que contienen un mensaje de correo electrónico y los envía cuando tu usuario llega por primera vez a ese paso de correo electrónico en particular.
 
 Si un paso de correo electrónico se actualizó después de que se envió al grupo semilla, Braze presenta la opción de enviar solo a los pasos actualizados, a todos los pasos o desactivar los envíos semilla.

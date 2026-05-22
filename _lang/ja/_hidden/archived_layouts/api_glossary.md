@@ -12,9 +12,9 @@ page_type: glossary
 tool:
   - Dashboard
   - Docs
-  - Canvas
-  - Campaigns
-  - Segments
+  - キャンバス
+  - キャンペーン
+  - セグメント
   - Templates
   - Media
   - Location
@@ -146,7 +146,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 
 {% api %}
-## 3 Campaignsトリガー送信 {#3-campaigns-trigger-send}
+## 3 キャンペーントリガー送信 {#3-campaigns-trigger-send}
 {% apimethod post %}campaigns/trigger/send{% endapimethod %}
 {% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
@@ -214,7 +214,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 
 {% api %}
-## 4 Campaignsトリガー送信 {#4-campaigns-trigger-send}
+## 4 キャンペーントリガー送信 {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
 {% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 

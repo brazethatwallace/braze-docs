@@ -91,40 +91,38 @@ Vous pouvez choisir l'une des trois façons dont les utilisateurs peuvent entrer
 #### Types de planification d'entrée {#entry-schedule-types}
 
 {% tabs local %}
-  {% tab Scheduled Delivery %}
-    Avec la livraison planifiée, les utilisateurs entreront selon un calendrier défini, de manière similaire à la planification d'une Campaign. Vous pouvez inscrire des utilisateurs dans un Canvas dès son lancement, les faire entrer dans votre parcours à un moment futur, ou de manière récurrente (quotidienne, hebdomadaire ou mensuelle).
+{% tab Scheduled Delivery %}
+Avec la livraison planifiée, les utilisateurs entreront selon un calendrier défini, de manière similaire à la planification d'une Campaign. Vous pouvez inscrire des utilisateurs dans un Canvas dès son lancement, les faire entrer dans votre parcours à un moment futur, ou de manière récurrente (quotidienne, hebdomadaire ou mensuelle).
 
-    Si vous sélectionnez une planification mensuelle récurrente, notez que certains mois peuvent ne pas contenir le jour sélectionné. Par exemple, supposons que vous configurez un Canvas pour un envoi mensuel le 31. Dans ce scénario, Braze envoie le dernier jour du mois, comme le 30 avril, car le 31 avril n'existe pas.
+Si vous sélectionnez une planification mensuelle récurrente, notez que certains mois peuvent ne pas contenir le jour sélectionné. Par exemple, supposons que vous configurez un Canvas pour un envoi mensuel le 31. Dans ce scénario, Braze envoie le dernier jour du mois, comme le 30 avril, car le 31 avril n'existe pas.
 
-    Dans cet exemple, en fonction des options basées sur le temps, les utilisateurs entrent dans ce Canvas chaque mardi à 12 h dans leur fuseau horaire local, chaque semaine, à partir du 14 novembre 2025 jusqu'au 31 décembre 2025.
+Dans cet exemple, en fonction des options basées sur le temps, les utilisateurs entrent dans ce Canvas chaque mardi à 12 h dans leur fuseau horaire local, chaque semaine, à partir du 14 novembre 2025 jusqu'au 31 décembre 2025.
 
-    ![La page « Planification d'entrée » avec le type défini sur « Planifié ». En raison de la sélection, des options basées sur le temps sont affichées, notamment la fréquence, l'heure de début, la récurrence, les jours, et plus encore.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
+![La page « Planification d'entrée » avec le type défini sur « Planifié ». En raison de la sélection, des options basées sur le temps sont affichées, notamment la fréquence, l'heure de début, la récurrence, les jours, et plus encore.]({% image_buster /assets/img_archive/Canvas_Scheduled_Delivery.png %})
 
-    Lors de l'utilisation de la livraison en fuseau horaire local, Braze évalue l'éligibilité à l'entrée deux fois : d'abord à l'heure de Samoa (UTC+13) le jour planifié, puis à l'heure locale de l'utilisateur. Un utilisateur doit être éligible aux deux vérifications pour entrer dans le Canvas. Si vos filtres d'entrée utilisent des fenêtres de temps relatives (par exemple, « il y a plus de 2 jours »), la période de 24 heures peut ne pas s'être écoulée au moment de la première vérification, ce qui fait que les utilisateurs entrent un jour en retard. Pour éviter cela, utilisez une fenêtre de temps plus large, par exemple au moins deux jours. Pour plus de détails, consultez [Quand Braze évalue-t-il les utilisateurs pour la livraison en fuseau horaire local ?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
-  {% endtab %}
-  {% tab Action-Based Delivery %}
-    Avec la livraison par événement, les utilisateurs entreront dans le Canvas et commenceront à recevoir des messages lorsqu'ils effectueront des actions particulières, comme ouvrir votre application, effectuer un achat ou déclencher un événement personnalisé.
+Lors de l'utilisation de la livraison en fuseau horaire local, Braze évalue l'éligibilité à l'entrée deux fois : d'abord à l'heure de Samoa (UTC+13) le jour planifié, puis à l'heure locale de l'utilisateur. Un utilisateur doit être éligible aux deux vérifications pour entrer dans le Canvas. Si vos filtres d'entrée utilisent des fenêtres de temps relatives (par exemple, « il y a plus de 2 jours »), la période de 24 heures peut ne pas s'être écoulée au moment de la première vérification, ce qui fait que les utilisateurs entrent un jour en retard. Pour éviter cela, utilisez une fenêtre de temps plus large, par exemple au moins deux jours. Pour plus de détails, consultez [Quand Braze évalue-t-il les utilisateurs pour la livraison en fuseau horaire local ?]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#when-does-braze-evaluate-users-for-local-time-zone-delivery)
+{% endtab %}
+{% tab Action-Based Delivery %}
+Avec la livraison par événement, les utilisateurs entreront dans le Canvas et commenceront à recevoir des messages lorsqu'ils effectueront des actions particulières, comme ouvrir votre application, effectuer un achat ou déclencher un événement personnalisé.
 
-    Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fenêtre **Entry Audience**, y compris les règles de rééligibilité et les paramètres de limite de fréquence. Notez que la livraison par événement n'est pas disponible pour les composants Canvas contenant des In-App Messages.
+Vous pouvez contrôler d'autres aspects du comportement du Canvas depuis la fenêtre **Entry Audience**, y compris les règles de rééligibilité et les paramètres de limite de fréquence. Notez que la livraison par événement n'est pas disponible pour les composants Canvas contenant des In-App Messages.
 
-    ![Un exemple de livraison par événement. Les utilisateurs entreront dans le Canvas s'ils effectuent un achat, avec une fenêtre d'entrée commençant à 13 h 30 le 10 juin 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
+![Un exemple de livraison par événement. Les utilisateurs entreront dans le Canvas s'ils effectuent un achat, avec une fenêtre d'entrée commençant à 13 h 30 le 10 juin 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
-  {% alert important %}
-  Si votre Canvas par événement envoie des messages plus tôt que prévu, vérifiez que l'horodatage de votre événement personnalisé est envoyé avec l'heure actuelle plutôt qu'une heure antérieure. Par exemple, si un Canvas par événement a un délai de trois heures après qu'un utilisateur effectue un événement personnalisé, Braze utilise l'horodatage envoyé avec l'événement personnalisé pour évaluer ce délai. Si l'horodatage est antérieur de plus de trois heures, Braze considère que le délai est déjà écoulé et envoie le message immédiatement.
-  {% endalert %}
+{% alert important %}
+Si votre Canvas par événement envoie des messages plus tôt que prévu, vérifiez que l'horodatage de votre événement personnalisé est envoyé avec l'heure actuelle plutôt qu'une heure antérieure. Par exemple, si un Canvas par événement a un délai de trois heures après qu'un utilisateur effectue un événement personnalisé, Braze utilise l'horodatage envoyé avec l'événement personnalisé pour évaluer ce délai. Si l'horodatage est antérieur de plus de trois heures, Braze considère que le délai est déjà écoulé et envoie le message immédiatement.
+{% endalert %}
+{% endtab %}
+{% tab API-Triggered Delivery %}
+Avec la livraison déclenchée par API, les utilisateurs entreront dans votre Canvas et commenceront à recevoir des messages après avoir été ajoutés via l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) par l'API. Dans le tableau de bord, vous pouvez trouver un exemple de requête cURL qui effectue cette opération, ainsi qu'assigner un [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) optionnel à l'aide de l'[objet context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/).
 
-  {% endtab %}
-  {% tab API-Triggered Delivery %}
-    Avec la livraison déclenchée par API, les utilisateurs entreront dans votre Canvas et commenceront à recevoir des messages après avoir été ajoutés via l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) par l'API. Dans le tableau de bord, vous pouvez trouver un exemple de requête cURL qui effectue cette opération, ainsi qu'assigner un [`context`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) optionnel à l'aide de l'[objet context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/).
+![Un exemple de livraison déclenchée par API avec un ID Canvas et un exemple de requête cURL.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
 
-    ![Un exemple de livraison déclenchée par API avec un ID Canvas et un exemple de requête cURL.]({% image_buster /assets/img_archive/Canvas_API_Triggered_Delivery.png %})
-
-    Vous pouvez utiliser les endpoints suivants pour la livraison déclenchée par API :
-    - [POST : Envoyer des messages Canvas via une livraison déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
-    - [POST : Planifier des Canvas déclenchés par API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
-    - [POST : Mettre à jour des Canvas planifiés déclenchés par API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
-
-  {% endtab %}
+Vous pouvez utiliser les endpoints suivants pour la livraison déclenchée par API :
+- [POST : Envoyer des messages Canvas via une livraison déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)
+- [POST : Planifier des Canvas déclenchés par API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/)
+- [POST : Mettre à jour des Canvas planifiés déclenchés par API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/)
+{% endtab %}
 {% endtabs %}
 
 Après avoir sélectionné votre méthode de livraison, ajustez les paramètres en fonction de votre cas d'utilisation, puis passez à la définition de votre audience cible.
@@ -189,7 +187,7 @@ Pour afficher des statistiques supplémentaires, comme le chiffre d'affaires moy
 
 ### Étape 1.4 : Sélectionner vos paramètres d'envoi {#step-14-select-your-send-settings}
 
-Sélectionnez **Send Settings** pour modifier vos paramètres d'abonnement, activer la limite de débit et activer les heures calmes. En activant la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) ou la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), vous pouvez alléger la pression marketing exercée sur vos utilisateurs et vous assurer de ne pas les sur-solliciter.
+Sélectionnez **Send Settings** pour modifier vos paramètres d'abonnement, activer la limite de débit et activer les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/). En activant la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) ou la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), vous pouvez alléger la pression marketing exercée sur vos utilisateurs et vous assurer de ne pas les sur-solliciter.
 
 Pour les Canvas ciblant les canaux e-mail et push, vous pouvez souhaiter limiter votre Canvas aux seuls utilisateurs ayant explicitement donné leur accord (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
@@ -205,7 +203,7 @@ Ces paramètres d'abonnement sont appliqués étape par étape, ce qui signifie 
 Avec cette configuration, n'incluez aucun filtre dans l'étape **Target Audience** qui limite l'audience à un seul canal (par exemple, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).
 {% endalert %}
 
-Si vous le souhaitez, spécifiez des heures calmes (la période pendant laquelle vos messages ne seront pas envoyés) pour votre Canvas. Cochez **Enable Quiet Hours** dans vos **Send Settings**. Sélectionnez ensuite vos heures calmes dans le fuseau horaire local de l'utilisateur et l'action qui suivra si le message se déclenche pendant ces heures calmes.
+Si vous le souhaitez, spécifiez des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) (la période pendant laquelle vos messages ne seront pas envoyés) pour votre Canvas. Cochez **Enable Quiet Hours** dans vos **Send Settings**. Sélectionnez ensuite vos heures calmes dans le fuseau horaire local de l'utilisateur et l'action qui suivra si le message se déclenche pendant ces heures calmes.
 
 ![La page « Heures calmes » affichant une case à cocher pour activer les heures calmes. Si activé, l'heure de début, l'heure de fin et le comportement de repli peuvent être définis.]({% image_buster /assets/img/quiet_hours.png %})
 

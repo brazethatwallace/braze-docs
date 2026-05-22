@@ -3,7 +3,7 @@ nav_title: カタログを作成する
 article_title: カタログを作成する
 alias: "/catalogs/"
 page_order: 1
-description: "この参考記事では、Liquidを通してBrazeのCampaignでユーザー以外のデータを参照するカタログを作成する方法について説明します。"
+description: "この参考記事では、Liquidを通してBrazeのキャンペーンでユーザー以外のデータを参照するカタログを作成する方法について説明します。"
 ---
 
 # カタログを作成する {#create-a-catalog}
@@ -55,7 +55,7 @@ CSVファイルを保存するためにより多くのスペースが必要な�
 
 ### ステップ 2:CSVをアップロードする {#step-2-upload-csv}
 
-ファイルをアップロードゾーンにドラッグ＆ドロップするか、**CSVをアップロード**を選択してファイルを選択します。
+ファイルをアップロードゾーンにドラッグ＆ドロップするか、**Upload CSV**を選択してファイルを選択します。
 
 ![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
@@ -74,12 +74,12 @@ CSVファイルを保存するためにより多くのスペースが必要な�
   - 数字、アルファベット、ハイフン、アンダースコアのみを含めることができます
 
 {% alert tip %}
-[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やCampaignなどの変数に基づいてカタログ名をダイナミックに生成できます。
+[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やキャンペーンなどの変数に基づいてカタログ名をダイナミックに生成できます。
 {% endalert %}
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-**カタログを処理**を選択してカタログを作成します。
+**Process Catalog**を選択してカタログを作成します。
 
 {% alert important %}
 [ティア](#tiers)を超えた場合、CSVファイルが拒否される可能性があります。
@@ -128,13 +128,13 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ![4つのカタログ列名:「id」、「title」、「price」、「image_link」。]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-次に、このカタログに「games_catalog」と名前を付け、**カタログを処理**ボタンを選択します。その後、Brazeはカタログを作成する前に、カタログにエラーがないかチェックします。
+次に、このカタログに「games_catalog」と名前を付け、**Process Catalog**ボタンを選択します。その後、Brazeはカタログを作成する前に、カタログにエラーがないかチェックします。
 
 ![「games_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 カタログが作成された後は、この名前を編集することはできません。カタログを削除してから、同じカタログ名を使用して更新後のバージョンを再びアップロードできます。
 
-カタログを作成したら、[Campaignでのカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)の参照を開始できます。
+カタログを作成したら、[キャンペーンでのカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/use/)の参照を開始できます。
 {% endtab %}
 
 {% tab ブラウザで作成 %}
@@ -147,8 +147,6 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 - カタログをエクスポート
 - カタログを削除
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ### ステップ 1:カタログの詳細を入力する {#step-1-enter-catalog-details}
 
 カタログの名前と任意の説明を入力します。カタログに名前を付ける際には、以下の要件に留意してください。
@@ -158,18 +156,18 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 - 数字、アルファベット、ハイフン、アンダースコアのみを含めることができます
 
 {% alert tip %}
-[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やCampaignなどの変数に基づいてカタログ名をダイナミックに生成できます。
+[カタログ名にテンプレートを使用](#template-catalog-names)することもできます。これにより、言語やキャンペーンなどの変数に基づいてカタログ名をダイナミックに生成できます。
 {% endalert %}
 
 ![「my_catalog」という名前のカタログ。]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 ### ステップ 2:カタログを作成する {#step-2-create-your-catalog}
 
-リストからカタログを選択し、次に**カタログを更新** > **フィールドを追加**を選択します。**フィールド名**を入力し、ドロップダウンからデータタイプを選択します。必要に応じて繰り返します。
+リストからカタログを選択し、次に**Update Catalog** > **Add fields**を選択します。**Field name**を入力し、ドロップダウンからデータタイプを選択します。必要に応じて繰り返します。
 
 ![「rating」と「name」という2つのフィールドの例。]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-**カタログを更新** > **項目を追加**を選択し、以前に追加したフィールドに基づいて情報を入力して、カタログに項目を追加します。次に、**項目を保存**または**保存して追加**を選択して、項目の追加を続けます。
+**Update Catalog** > **Add items**を選択し、以前に追加したフィールドに基づいて情報を入力して、カタログに項目を追加します。次に、**Save Item**または**Save and Add Another**を選択して、項目の追加を続けます。
 
 ![カタログ項目を追加する。]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
@@ -183,7 +181,7 @@ Brazeは、ダッシュボードのタイムスタンプに基づいて時間値
 
 ## カタログ名でのテンプレートの使用 {#template-catalog-names}
 
-カタログに名前を付ける際、カタログ名にテンプレートを使用することもできます。これにより、言語やCampaignなどの変数に基づいてカタログ名をダイナミックに生成できます。例えば、次のように使用できます。
+カタログに名前を付ける際、カタログ名にテンプレートを使用することもできます。これにより、言語やキャンペーンなどの変数に基づいてカタログ名をダイナミックに生成できます。例えば、次のように使用できます。
 
 {% raw %}
 ```liquid
@@ -198,7 +196,7 @@ Brazeは、ダッシュボードのタイムスタンプに基づいて時間値
 
 ### ダッシュボードで {#in-the-dashboard}
 
-CSVをアップロードした後やブラウザでカタログを作成した後にカタログを更新するには、**カタログを更新** > **CSVをアップロード**を選択し、カタログ内のアイテムを更新するか、追加するか、削除するかを選択します。
+CSVをアップロードした後やブラウザでカタログを作成した後にカタログを更新するには、**Update Catalog** > **Upload CSV**を選択し、カタログ内のアイテムを更新するか、追加するか、削除するかを選択します。
 
 ### REST APIの使用 {#using-the-rest-api}
 

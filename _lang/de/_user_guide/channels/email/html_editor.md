@@ -262,7 +262,7 @@ Liefern Sie E-Mails basierend auf einem geplanten Zeitpunkt, einer Aktion oder e
 Bei API-getriggerten Campaigns, bei denen die Trigger-Aktion auf **Mit Campaign interagieren** eingestellt ist, führt die Auswahl einer **Empfangen**-Option als Interaktion dazu, dass Ihre neue Campaign ausgelöst wird, sobald Braze die ausgewählte Campaign als gesendet markiert, selbst wenn diese Nachricht bounct oder nicht zugestellt werden kann.
 {% endalert %}
 
-Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) angeben und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln einrichten.
+Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) angeben und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln einrichten.
 
 #### Zielnutzer:innen auswählen {#choose-users-to-target}
 

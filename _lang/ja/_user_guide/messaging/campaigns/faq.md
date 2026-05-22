@@ -22,7 +22,7 @@ tool: Campaigns
 
 ### キャンペーンのテストと最適化を始めるにはどのような方法がありますか？ {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-多変量キャンペーンや複数のバリアントを持つCanvasの実行は、始めるのに最適な方法です。例えば、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/)を実行して、異なるコピーや件名を持つ1つのメッセージをテストできます。複数のバリアントを持つCanvasは、ワークフロー全体のテストに役立ちます。
+多変量キャンペーンや複数のバリアントを持つCanvasesの実行は、始めるのに最適な方法です。例えば、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/)を実行して、異なるコピーや件名を持つ1つのメッセージをテストできます。複数のバリアントを持つCanvasesは、ワークフロー全体のテストに役立ちます。
 
 ### キャンペーンの開封率が低下したのはなぜですか？ {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -174,21 +174,29 @@ Campaignのトラブルシューティングについてさらにサポートが
 
 ### API識別子でCampaignを検索できますか？ {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-はい、**Campaigns**ページでフィルター `api_id:YOUR_API_ID` を使用して、API識別子でCampaignを検索できます。詳しくは[Campaignの検索]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/)を参照してください。
+はい、**Campaigns**ページでフィルター`api_id:YOUR_API_ID`を使用して、API識別子でCampaignを検索できます。詳しくは[Campaignの検索]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/)を参照してください。
 
 ### 入力フィールドと表示テキストで空白の表示が異なるのはなぜですか？ {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
-入力フィールドと表示テキストコンポーネントでは、CSSスタイリングにより空白の処理が異なります。デフォルトの `white-space: normal` CSSを持つテキストコンポーネントでは、連続する複数のスペースは表示時に1つのスペースに折りたたまれます。これはレンダリングされたテキストの標準的なHTMLの動作です。
+入力フィールドと表示テキストコンポーネントでは、CSSスタイリングにより空白の処理が異なります。デフォルトの`white-space: normal` CSSを持つテキストコンポーネントでは、連続する複数のスペースは表示時に1つのスペースに折りたたまれます。これはレンダリングされたテキストの標準的なHTMLの動作です。
 
 入力フィールドでは、正確なデータ入力のために正確なスペースを確認・編集する必要があるため、入力したとおりに複数のスペースが保持されます。つまり、複数のスペースを含むテキストは、入力フィールド（すべてのスペースが保持される）で表示した場合と、ダッシュボードの他の部分（CSSにより複数のスペースが折りたたまれる場合がある）で表示した場合とで、異なって見える可能性があります。
 
 例えば、Campaign名やUTMパラメーターに複数のスペースを入力した場合、入力フィールドではすべてのスペースが保持されて表示されます。しかし、同じテキストが検索結果、Campaignリスト、その他のテキストコンポーネントに表示される場合、CSSの空白処理により複数のスペースが1つのスペースとして表示されることがあります。
 
-### API CampaignとAPIトリガーCampaignの違いは何ですか？ {#what-is-the-difference-between-api-campaigns-and-api-triggered-campaigns}
+### APIキャンペーンとAPIトリガーキャンペーンの違いは何ですか？ {#what-is-the-difference-between-api-campaigns-and-api-triggered-campaigns}
 
-APIトリガーCampaignでは、Campaignのコピー、多変量テスト、再エントリルールをBrazeダッシュボード内で管理しながら、自社のサーバーやシステムからそのコンテンツの配信をトリガーできます。これらのメッセージには、リアルタイムでメッセージにテンプレート化される追加データを含めることもできます。
+APIトリガーキャンペーンでは、Campaignのコピー、多変量テスト、再エントリルールをBrazeダッシュボード内で管理しながら、自社のサーバーやシステムからそのコンテンツの配信をトリガーできます。これらのメッセージには、リアルタイムでメッセージにテンプレート化される追加データを含めることもできます。
 
-API Campaignは、APIを使用して送信されたメッセージを追跡するために使用されます。ほとんどのCampaignとは異なり、メッセージ、受信者、スケジュールを指定するのではなく、識別子をAPIコールに渡します。
+APIキャンペーンは、APIを使用して送信されたメッセージを追跡するために使用されます。ほとんどのCampaignとは異なり、メッセージ、受信者、スケジュールを指定するのではなく、識別子をAPIコールに渡します。
+
+### APIトリガーCampaignをユーザーが受信したことを確認するにはどうすればよいですか？ {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+**Campaignを受信した**フィルターを使用して[Segmentを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)し、確認したい特定のAPIトリガーCampaignを選択します。Segmentを保存した後、[`/users/export/segment`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)を使用して、そのSegmentのユーザーをエクスポートできます。
+
+### Campaignを削除できますか？ {#can-i-delete-a-campaign}
+
+いいえ。ただし、[Campaignをアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving/)することは可能です。
 
 ### アクションベースのCampaignとAPIトリガーCampaignの違いは何ですか？ {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -203,7 +211,7 @@ table th:nth-child(3) {
 
 #### アクションベース {#action-based}
 
-アクションベースの配信Campaignまたはイベントトリガーキャンペーンは、トランザクションメッセージや達成ベースのメッセージに非常に効果的で、ユーザーが特定のイベントを完了した後に送信をトリガーできます。
+アクションベースの配信CampaignまたはイベントトリガーCampaignは、トランザクションメッセージや達成ベースのメッセージに非常に効果的で、ユーザーが特定のイベントを完了した後に送信をトリガーできます。
 
 | メリット | デメリット |
 | ---- | ---- |

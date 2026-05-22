@@ -6,7 +6,7 @@ layout: partner_page
 search_tag: Partner
 
 partner_top_header: "기술 파트너"
-partner_top_text: "Braze의 기술 파트너인 Alloys 목록에 오신 것을 환영합니다. 이 페이지를 활용하여 Braze SDK에 기술 파트너를 구현하세요. Braze에서 <b>파트너 통합</b> > <b>기술 파트너</b>로 이동하면 이 페이지에 나열된 파트너와 연결할 수 있습니다. <br> <br> Braze를 활용하여 고객 경험과 마케팅을 혁신하는 Firebrands 커뮤니티에 참여하고 싶다면 <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a>을 확인하세요."
+partner_top_text: "Braze의 기술 파트너인 Alloys 목록에 오신 것을 환영합니다. 이 페이지를 활용하여 Braze SDK에 기술 파트너를 구현하세요. Braze에서 <b>파트너 통합</b> > <b>기술 파트너</b>로 이동하면 이 페이지에 나열된 파트너와 연결할 수 있습니다. <br> <br> Braze에서 파트너에 대해 <b>잘못된 자격 증명</b>이 표시되지만 해당 파트너의 대시보드에서는 통합이 올바르게 보이는 경우, 기술 파트너 페이지에서 통합을 연결 해제한 후 다시 연결하고 파트너 측에서 API 키, OAuth 토큰 및 권한을 확인하세요. <br> <br> 일부 외부 대시보드(예: 전달 가능성 또는 받은편지함 모니터링 도구)는 Braze 기술 파트너 페이지와 다른 연결 또는 인증 상태를 표시할 수 있습니다. Braze가 동기화 및 발송에 사용하는 연결 상태는 Braze의 파트너 타일을 기준으로 확인하세요. <br> <br> Braze를 활용하여 고객 경험과 마케팅을 혁신하는 Firebrands 커뮤니티에 참여하고 싶다면 <a href='https://brazefirebrands.splashthat.com/'>Customer Champions Program</a> 을 확인하세요."
 description: "이 랜딩 페이지에는 모든 Braze 파트너가 포함되어 있습니다. 기술 파트너를 Braze SDK에 구현하는 데 도움이 되는 기술 설명서를 살펴보세요."
 
 valid_partner_list:
@@ -284,6 +284,8 @@ valid_partner_list:
   url: /docs/partners/typeform/
 - name: Celebrus
   url: /docs/partners/celebrus/
+- name: Chord
+  url: /docs/partners/chord/
 - name: Friendbuy
   url: /docs/partners/friendbuy/
 - name: GRAVTY by Loyalty Juggernaut

@@ -50,7 +50,7 @@ edited docs content or in the PR description. Anonymize or omit it.
 ### 1. Read the ticket and all linked resources
 
 Prerequisite: The Atlassian MCP must be enabled for Cloud Agent runs
-in this repo. If it is not configured, Step 1, Step 6, and all edge cases that
+in this repo. If it is not configured, Step 1 and all edge cases that
 require leaving comments will fail. Confirm this is set up before
 running the workflow in production.
 
@@ -286,39 +286,10 @@ or reasons this might need a closer look.>
 > or made edits beyond the intended scope.
 ---
 
-### 6. Post completion comment on Jira
-
-After the draft PR is created in Step 5, use the Atlassian MCP tool
-`addCommentToJiraIssue` to post a comment on the original Jira ticket
-(the same issue key from Step 1).
-
-- If you have the PR URL (for example from `gh pr create` output,
-  `gh pr view`, or the GitHub web UI), post a comment whose body is
-  exactly this text, with `<PR URL>` replaced by the real URL (two
-  sentences as shown):
-
-  ```text
-  🤖 Cursor Agent: Draft PR is ready for your review: <PR URL>
-  Please review the proposed changes and merge or request edits as needed.
-  ```
-
-- If the PR URL is not available, post a comment whose body is
-  exactly this line, with the branch name matching `jira-<ticket_id>`
-  from Step 5 (for example `jira-BD-1234`):
-
-  ```text
-  🤖 Cursor Agent: A draft PR has been opened for this ticket. Search GitHub for branch `jira-BD-1234` to find it.
-  ```
-
-  Replace `jira-BD-1234` with your actual branch name (`jira-` plus the
-  Jira issue key).
-
-**If Jira comment fails:** If the `addCommentToJiraIssue` tool is
-unavailable, returns an error, or the comment request otherwise fails,
-**log the failure** (include any error message or tool output you
-received) and **continue**. Do not abort the run, do not revert the
-PR, and do not treat a failed Jira comment as a blocker — the draft PR
-and documentation fix remain the primary outcome.
+When the draft PR is opened on a `jira-<ticket_id>` branch, the
+**Jira — PR ready comment** GitHub Actions workflow
+(`.github/workflows/jira-pr-comment.yml`) posts the "PR ready" comment on
+the Jira ticket automatically. Do not post that comment via the Atlassian MCP.
 
 ---
 

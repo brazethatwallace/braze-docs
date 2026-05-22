@@ -20,7 +20,7 @@ channel:
 
 ### Paso 1: Ve a las plantillas de WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Ve a **Plantillas** > **Plantillas de WhatsApp** y selecciona **Crear nueva plantilla**.
+Ve a **Contenido** > **Plantillas de WhatsApp** y selecciona **Crear nueva plantilla**.
 
 ![Página de plantillas de WhatsApp con botón para crear una nueva plantilla.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

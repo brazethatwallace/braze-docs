@@ -76,6 +76,10 @@ Las **filas** son unidades estructurales que definen la composición horizontal 
 
 ¿No tienes claro si tu mensaje de correo electrónico debe enviarse mediante una campaña o un Canvas? Las campañas son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
+{% alert note %}
+No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas directamente en **Plantillas** > **Plantillas de correo electrónico** como una plantilla de correo electrónico. Primero construye en **Plantillas**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de construirlo dentro de mi campaña o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
+{% endalert %}
+
 Una vez que hayas seleccionado dónde construir tu mensaje, veamos los pasos para crear un correo electrónico con arrastrar y soltar.
 
 ### Paso 1: Selecciona tu plantilla {#step-1-select-your-template}
@@ -141,6 +145,16 @@ En **Sending Settings**, puedes añadir personalización para los encabezados de
 {% alert note %}
 La funcionalidad avanzada aparecerá en el compositor de la campaña o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e introducir un encabezado o pares clave-valor adicionales (si están configurados).
 {% endalert %}
+
+#### Añadir archivos adjuntos al correo electrónico {#adding-email-attachments}
+
+En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al correo electrónico mediante los siguientes métodos:
+
+- **Cargar un archivo:** Arrastra y suelta o examina para cargar un archivo directamente desde tu computadora al correo electrónico. Braze valida el tipo y tamaño del archivo (hasta 2&nbsp;MB de forma predeterminada) antes de cargarlo, y luego estos archivos se cargan en la biblioteca de medios. Los archivos que superen el límite de 2&nbsp;MB no se pueden cargar.
+- **Usar la biblioteca de medios:** Examina y selecciona entre los activos ya almacenados en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Se admiten archivos PDF, documentos de Word, archivos de Excel y presentaciones de PowerPoint.
+- **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URL arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
+
+Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para conocer las mejores prácticas específicas a considerar.
 
 ### Paso 4: Prueba tu correo electrónico {#step-4-test-your-email}
 
@@ -303,7 +317,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `meta` | Proporciona metadatos como la descripción de la página o palabras clave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Establece el título del documento que se muestra en las pestañas del navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etiquetas y atributos permitidos por etiqueta" }
 
 | Etiqueta | Atributo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
@@ -321,7 +335,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `style` | `type` | Tipo MIME del contenido de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica el medio o dispositivo para el que se aplican los estilos. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sin atributos | La etiqueta `title` no acepta ningún atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Etiquetas y atributos permitidos por etiqueta" }
 
 {% alert note %}
 Los nombres de los enlaces pueden tener hasta 63 bytes y se truncan automáticamente si exceden el límite.

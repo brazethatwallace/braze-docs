@@ -13,13 +13,13 @@ tool: Campaigns
 guide_featured_title: "Tipos de entrega"
 guide_featured_list:
   - name: Entrega planificada
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/scheduled_delivery
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery
     image: /assets/img/braze_icons/line-chart-up-01.svg
   - name: Entrega basada en acciones
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/triggered_delivery
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery
     image: /assets/img/braze_icons/table.svg
   - name: Entrega desencadenada por API
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/api_triggered_delivery
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery
     image: /assets/img/braze_icons/annotation-alert.svg
 
 guide_menu_title: "Más artículos"
@@ -27,7 +27,7 @@ guide_menu_list:
   - name: Reelegibilidad para campañas
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/clock.svg
-  - name: Calendario de campañas
+  - name: Calendario de contenido
     link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/campaign_calendar
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---

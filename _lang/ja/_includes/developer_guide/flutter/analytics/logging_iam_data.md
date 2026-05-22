@@ -29,7 +29,7 @@ Flutter アプリでアプリ内メッセージデータにアクセスするた
 
 Dart レイヤーでアプリ内メッセージデータを受信するには、以下のコードを使用して `StreamSubscription` を作成し、`braze.subscribeToInAppMessages()` を呼び出します。不要になったストリームサブスクリプションは忘れずに `cancel()` してください。
 
-```dart
+`````````dart
 // Create stream subscription
 StreamSubscription inAppMessageStreamSubscription;
 
@@ -66,7 +66,7 @@ Flutter SDK 17.1.0 以前を使用している場合、iOS ネイティブレイ
 
 カスタムプレゼンターの [`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/present(message:)-f2ra) 実装から `BrazePlugin.processInAppMessage(message)` の呼び出しを削除してください。
 
-```swift
+`````````swift
 class CustomInAppMessagePresenter: BrazeInAppMessageUI {
   override func present(message: Braze.InAppMessage) {
     // Pass in-app message data to the Dart layer.
@@ -87,6 +87,6 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 ### アプリ内メッセージのコールバックを再実行する（オプション）
 
 コールバックが利用可能になる前にトリガーされたアプリ内メッセージを保存し、設定後に再生するには、`BrazePlugin` の初期化時に次のエントリを `customConfigs` マップに追加します。
-```dart
+`````````dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
 ```

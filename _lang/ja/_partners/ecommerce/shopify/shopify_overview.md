@@ -1,7 +1,7 @@
 ---
 nav_title: Shopify概要
 article_title: Shopify概要
-description: "このリファレンス記事では、BrazeとShopifyのパートナーシップについて説明します。Shopifyはグローバルなコマース企業であり、ShopifyストアをBrazeとシームレスに接続して、選択したShopify webhookをBrazeに渡すことができます。Brazeのクロスチャネル戦略とCanvasを活用して、顧客が購入を完了するように促し、購入履歴に基づいてユーザーをリターゲティングできます。"
+description: "このリファレンス記事では、BrazeとShopifyのパートナーシップについて説明します。Shopifyはグローバルなコマース企業であり、ShopifyストアをBrazeとシームレスに接続して、選択したShopify webhookをBrazeに渡すことができます。Brazeのクロスチャネル戦略とキャンバスを活用して、顧客が購入を完了するように促し、購入履歴に基づいてユーザーをリターゲティングできます。"
 page_type: partner
 search_tag: Partner
 alias: /shopify_overview/
@@ -37,7 +37,7 @@ Brazeは、Shopify加盟店向けに、eコマースビジネスの多様なニ�
 最初のデータ同期後、BrazeはShopifyとBraze SDKから直接、新しいデータと更新を継続的に追跡します。
 
 {% alert note %}
-既存のBrazeユーザーで、アクティブなCampaignsやCanvasesをご利用の場合は、[Shopifyの履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)で重要な情報を確認してください。具体的にどのような顧客データがバックフィルされているかについては、[Shopifyの機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/)を参照してください。
+既存のBrazeユーザーで、アクティブなキャンペーンやキャンバスをご利用の場合は、[Shopifyの履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)で重要な情報を確認してください。具体的にどのような顧客データがバックフィルされているかについては、[Shopifyの機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/)を参照してください。
 {% endalert %}
 
 ### ユーザーとデータの同期 {#user-and-data-syncing}
@@ -85,7 +85,7 @@ Brazeは、Shopify統合を使用して、ユーザーがゲストとしてシ�
 - **チェックアウトプロセス:** ユーザーがチェックアウト中にオプトインステータスを更新した場合。
 
 {% alert note %}
-Shopifyからのメールマーケティングオプトインステータスによって、Brazeのユーザーの[グローバルメールサブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)が変更されることはありません。ユーザープロファイルが作成されたときのデフォルトのサブスクリプションステータスは「購読中」です。CampaignまたはCanvasのエントリ基準の一部として、サブスクリプショングループを必ず使用してください。
+Shopifyからのメールマーケティングオプトインステータスによって、Brazeのユーザーの[グローバルメールサブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions/)が変更されることはありません。ユーザープロファイルが作成されたときのデフォルトのサブスクリプションステータスは「購読中」です。キャンペーンまたはキャンバスのエントリ基準の一部として、サブスクリプショングループを必ず使用してください。
 {% endalert %}
 
 この表は、Shopifyマーケティングのオプトインステータスと、Brazeサブスクリプショングループ内のステータスとの対応関係を示しています。
@@ -129,7 +129,7 @@ Brazeは2種類の登録フォームテンプレートを提供しています�
 これらの登録フォームテンプレートを使用すると、Brazeは自動的にユーザープロファイルのグローバルメールサブスクリプションステータスを更新します。グローバルメールサブスクリプションステータスの処理方法についての詳細（メールの検証に関する情報を含む）については、各フォームテンプレートタイプのドキュメントを参照してください。
 
 {% alert note %}
-- CampaignまたはCanvasに、グローバルメールサブスクリプションステータスと、Shopifyストアに接続されているサブスクリプショングループの両方を含むエントリ基準を必ず含めてください。これにより、適切なオーディエンスをターゲットにしていることを確認できます。
+- キャンペーンまたはキャンバスに、グローバルメールサブスクリプションステータスと、Shopifyストアに接続されているサブスクリプショングループの両方を含むエントリ基準を必ず含めてください。これにより、適切なオーディエンスをターゲットにしていることを確認できます。
 - Brazeは、ブラウザー内メッセージを通じて、メールアドレスや電話番号などの訪問者情報を収集します。この情報はShopify Visitor APIに送信されますが、Shopifyでは顧客プロファイルは作成されません。詳細については、[Visitor API](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api)を参照してください。
 {% endalert %}
 

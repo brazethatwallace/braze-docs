@@ -148,6 +148,10 @@ Les tableaux, les jetons de notification push et les types de données d'événe
 Lors de l'importation d'attributs par défaut, les en-têtes de colonne que vous utilisez doivent correspondre exactement à l'orthographe et à la casse des attributs utilisateur par défaut. Sinon, Braze les détecte comme des [attributs personnalisés](#custom-attributes).
 {% endalert %}
 
+{% alert tip %}
+Pour la liste complète des attributs standard reconnus par Braze (via le SDK, l'API, le CSV et l'Ingestion de données cloud), consultez [Attributs standard]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). Le tableau suivant ne couvre que le sous-ensemble pouvant être défini via l'importation CSV.
+{% endalert %}
+
 Les attributs par défaut suivants sont disponibles pour l'importation d'utilisateurs.
 
 | Champ du profil utilisateur | Type de données | Description | Requis ? |

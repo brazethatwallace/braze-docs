@@ -143,6 +143,10 @@ Para exemplos de API que usam `add`, `remove` e `update`, veja [Exemplo de API d
 Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas, portanto, certifique-se de referenciar esses campos em minúsculas.
 {% endalert %}
 
+{% alert tip %}
+Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e Ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
+{% endalert %}
+
 | Campo de perfil do usuário | Especificação do tipo de dados |
 | ---| --- |
 | alias_name | (string) |

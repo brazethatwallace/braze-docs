@@ -38,7 +38,7 @@ braze.setFirstName('Name');
 {% tab String %}
 `string` 、カスタム属性を設定する：
 
-```dart
+`````````dart
 braze.setStringCustomUserAttribute("custom string attribute", "string custom attribute");
 ```
 
@@ -46,7 +46,7 @@ braze.setStringCustomUserAttribute("custom string attribute", "string custom att
 {% tab Integer %}
 `integer` 、カスタム属性を設定する：
 
-```dart
+`````````dart
 // Set Integer Attribute
 braze.setIntCustomUserAttribute("custom int attribute key", integer);
 // Increment Integer Attribute
@@ -57,7 +57,7 @@ braze.incrementCustomUserAttribute("key", integer);
 {% tab Double %}
 `double` 、カスタム属性を設定する：
 
-```dart
+`````````dart
 braze.setDoubleCustomUserAttribute("custom double attribute key", double);
 ```
 
@@ -65,7 +65,7 @@ braze.setDoubleCustomUserAttribute("custom double attribute key", double);
 {% tab Boolean %}
 `boolean` 、カスタム属性を設定する：
 
-```dart
+`````````dart
 braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
 ```
 {% endtab %}
@@ -73,14 +73,14 @@ braze.setBoolCustomUserAttribute("custom boolean attribute key", boolean);
 {% tab Date %}
 `date` 、カスタム属性を設定する：
 
-```dart
+`````````dart
 braze.setDateCustomUserAttribute("custom date attribute key", date);
 ```
 {% endtab %}
 {% tab Array %}
 `array` 、カスタム属性を設定する：
 
-```dart
+`````````dart
 // Adding to an Array
 braze.addToCustomAttributeArray("key", "attribute");
 // Removing an item from an Array
@@ -97,6 +97,6 @@ braze.removeFromCustomAttributeArray("key", "attribute");
 
 カスタム属性を解除するには、`unsetCustomUserAttribute` メソッドに関連する属性キーを渡す。
 
-```dart
+`````````dart
 braze.unsetCustomUserAttribute('attribute_key');
 ```

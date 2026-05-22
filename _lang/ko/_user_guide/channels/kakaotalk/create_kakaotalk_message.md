@@ -14,13 +14,13 @@ channel:
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-KakaoTalk은 Campaign과 Canvas 모두에서 지원됩니다. Campaign은 단일 메시징 캠페인에 가장 적합하며, Canvas를 사용하면 다단계, 다채널 사용자 여정을 오케스트레이션할 수 있습니다.
+KakaoTalk은 Campaigns과 Canvas 모두에서 지원됩니다. Campaigns은 단일 메시징 캠페인에 가장 적합하며, Canvases를 사용하면 다단계, 다채널 사용자 여정을 오케스트레이션할 수 있습니다.
 
 {% tabs local %}
 {% tab Campaign %}
 
 1. **메시징** > **Campaigns**로 이동하여 **캠페인 생성**을 선택합니다.
-2. 단일 채널 캠페인의 경우 **KakaoTalk**을, 다중 채널 캠페인의 경우 **멀티채널 Campaign**을 선택합니다.
+2. 단일 채널 캠페인의 경우 **KakaoTalk**을, 다중 채널 캠페인의 경우 **Multichannel Campaign**을 선택합니다.
 
 ![메시징 채널을 선택하는 옵션이 있는 패널.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
@@ -174,13 +174,13 @@ KakaoTalk 클릭 추적이 켜져 있으면 Braze가 자동으로 URL을 단축�
 다음 세분화 필터 및 트리거를 사용하여 KakaoTalk 메시지에서 URL을 클릭한 사용자를 리타겟팅할 수 있습니다:
 
 - 실행 기반 트리거
-    - Campaign과 상호작용
-    - 단계와 상호작용
+    - Interact with Campaign
+    - Interact with Step
 
 - 세분화 필터
-    - Campaign 클릭/열기
-    - 태그가 있는 Campaign 또는 Canvas 클릭/열기
-    - 단계 클릭/열기
+    - Clicked/Opened Campaign
+    - Clicked/Opened Campaign or Canvas with Tag
+    - Clicked/Opened Step
 
 ## 4단계: KakaoTalk 메시지 미리보기 및 테스트 {#step-4-preview-and-test-your-kakaotalk-message}
 
@@ -204,7 +204,7 @@ KakaoTalk 메시지를 작성하기 위해 도구를 가장 잘 활용하는 방
 
 KakaoTalk 메시지는 예약된 시간, 실행 또는 API 트리거를 기반으로 전달할 수 있습니다. 스케줄 및 트리거 옵션에 대한 자세한 내용은 [캠페인 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) 또는 [진입 스케줄 유형]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)(Canvas의 경우)을 참조하세요.
 
-사용자가 캠페인을 다시 받을 수 있도록 허용하거나 최대 게재빈도 설정 규칙을 켜는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 캠페인 기간과 방해금지 시간도 설정할 수 있습니다.
+사용자가 캠페인을 다시 받을 수 있도록 허용하거나 최대 게재빈도 설정 규칙을 켜는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)도 설정할 수 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 
@@ -214,7 +214,7 @@ Segments 또는 필터를 선택하여 오디언스를 좁혀 사용자를 타�
 
 Braze를 사용하면 캠페인을 받은 후 사용자가 특정 동작인 전환 이벤트를 수행하는 빈도를 추적할 수 있습니다. 사용자가 지정된 동작을 수행하면 전환으로 집계되는 최대 30일의 기간을 허용할 수 있습니다.
 
-전환 이벤트는 캠페인의 성공을 측정하는 데 도움이 됩니다. 예를 들어, 사용자가 앱을 사용하도록 유도하려면 전환 이벤트를 **세션 시작**으로 설정합니다.
+전환 이벤트는 캠페인의 성공을 측정하는 데 도움이 됩니다. 예를 들어, 사용자가 앱을 사용하도록 유도하려면 전환 이벤트를 **Starts Session**으로 설정합니다.
 
 특정 사용 사례에 맞는 커스텀 전환 이벤트를 설정할 수도 있습니다. 창의적으로 생각하여 캠페인의 성공을 어떻게 측정할지 고민해 보세요.
 

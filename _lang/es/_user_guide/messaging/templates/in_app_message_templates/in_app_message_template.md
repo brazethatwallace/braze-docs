@@ -24,7 +24,7 @@ La forma de añadir una plantilla depende de tu objetivo:
 
 | Objetivo | Qué hacer |
 |----------|-----------|
-| Guardar un diseño de arrastrar y soltar para reutilizarlo | En el [creador de mensajes dentro de la aplicación de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), selecciona **Guardar como plantilla** después de salir del editor (primero debes lanzar la campaña O guardarla como borrador). La plantilla aparecerá en **Plantillas** > **Plantillas de mensajes dentro de la aplicación** para tu próximo mensaje. |
+| Guardar un diseño de arrastrar y soltar para reutilizarlo | En el [creador de mensajes dentro de la aplicación de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/), selecciona **Guardar como plantilla** después de salir del editor (primero debes lanzar la Campaign O guardarla como borrador). La plantilla aparecerá en **Plantillas** > **Plantillas de mensajes dentro de la aplicación** para tu próximo mensaje. |
 | Crear un perfil de color o una plantilla CSS (editor tradicional) | En la página **Plantillas de mensajes dentro de la aplicación**, selecciona **+ Crear** y luego elige **Perfil de color** o **Plantilla CSS**. Para más detalles, consulta [Perfiles de color y plantillas CSS](#reusable-color-profiles). |
 | Personalizar una plantilla de Braze | [Crea un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) en el editor de arrastrar y soltar, elige una plantilla de Braze, realiza tus personalizaciones y selecciona **Guardar como plantilla**. Para descripciones de cada plantilla de Braze, consulta [Plantillas de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Elige cómo crear una plantilla" }
@@ -37,7 +37,7 @@ Los perfiles de color y las plantillas CSS se aplican al editor tradicional. Si 
 
 En **Plantillas** > **Plantillas de mensajes dentro de la aplicación**, filtra, busca o abre una plantilla para editarla. Puedes [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) y [archivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates) plantillas como cualquier otro tipo de plantilla. Para un resumen de los flujos de trabajo de plantillas y medios, consulta [Plantillas]({{site.baseurl}}/user_guide/messaging/templates/).
 
-Necesitas permiso para acceder a las plantillas. Por ejemplo, otorga "Acceso a Campaigns, Canvas, tarjetas, Content Blocks, conmutadores de características, Segments, biblioteca de medios, ubicaciones, códigos promocionales y centros de preferencias" o el permiso granular equivalente para ver o editar plantillas de mensajes dentro de la aplicación. Para más detalles, consulta [Permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Para acceder a las plantillas de mensajes dentro de la aplicación, necesitas [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para ver o editar plantillas de mensajes dentro de la aplicación.
 
 ### Crear perfiles de color y plantillas CSS {#reusable-color-profiles}
 

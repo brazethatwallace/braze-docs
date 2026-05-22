@@ -45,12 +45,14 @@ channel:
 V2エンドポイントは[V1エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)と以下の点で異なります。
 
 - **複数のサブスクリプショングループ**：V2では、単一のAPIリクエストで複数のサブスクリプショングループを更新できます。一方、V1ではリクエストごとに1つのサブスクリプショングループしかサポートしていません。
-- **1回の呼び出しでメールとSMSの両方を更新**：`external_ids` を使用する場合、同じユーザーに対してメールとSMSの両方のサブスクリプショングループを、単一のAPI呼び出しで更新できます。V1では、メールとSMSのサブスクリプショングループに対して、別々のAPI呼び出しを行う必要があります。
-- **メールや電話の識別子を使用する場合**：`external_ids` の代わりに `emails` または `phones` を使用する場合、同じリクエストでメールとSMSのサブスクリプショングループの両方を更新することはできません。別々のAPI呼び出しを行う必要があります。メールサブスクリプショングループ用とSMSサブスクリプショングループ用でそれぞれ別々の呼び出しが必要です。
+- **1回の呼び出しでメールとSMSの両方を更新**：`external_ids`を使用する場合、同じユーザーに対してメールとSMSの両方のサブスクリプショングループを、単一のAPI呼び出しで更新できます。V1では、メールとSMSのサブスクリプショングループに対して、別々のAPI呼び出しを行う必要があります。
+- **メールや電話の識別子を使用する場合**：`external_ids`の代わりに `emails` または `phones` を使用する場合、同じリクエストでメールとSMSのサブスクリプショングループの両方を更新することはできません。別々のAPI呼び出しを行う必要があります。メールサブスクリプショングループ用とSMSサブスクリプショングループ用でそれぞれ別々の呼び出しが必要です。
 
 {% alert important %}
 **電話番号の形式**：電話番号は[E.164形式](https://en.wikipedia.org/wiki/E.164)でなければなりません（例：`+12223334444`）。E.164形式に合わない電話番号は拒否されます。
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## レート制限 {#rate-limit}
 
@@ -97,13 +99,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% alert important %}
 **識別子の選択**：
 - メールとSMSのサブスクリプショングループを単一のAPI呼び出しで更新するには、`external_ids` を使用してください。同じリクエストに `emails` と `phones` の両方を含めることはできません。
-- `external_ids` の代わりに `emails` や `phones` を使用する場合、API呼び出しを分けて行ってください。メールサブスクリプショングループ用とSMSサブスクリプショングループ用で別々の呼び出しが必要です。
+- `external_ids`の代わりに `emails` や `phones` を使用する場合、API呼び出しを分けて行ってください。メールサブスクリプショングループ用とSMSサブスクリプショングループ用で別々の呼び出しが必要です。
 - `emails`、`phones`、`external_ids` はそれぞれ個別に送信できます。
 {% endalert %}
 
 ### リクエスト例 {#example-requests}
 
-次の例では、`external_ids` を使用して単一のAPI呼び出しでメールとSMSのサブスクリプショングループの両方を更新します。これは `external_ids` を使用する場合にのみ可能です。`emails` または `phones` を使用している場合、1回の呼び出しでメールとSMSのサブスクリプショングループの両方を更新することはできません。
+次の例では、`external_ids`を使用して単一のAPI呼び出しでメールとSMSのサブスクリプショングループの両方を更新します。これは `external_ids` を使用する場合にのみ可能です。`emails` または `phones` を使用している場合、1回の呼び出しでメールとSMSのサブスクリプショングループの両方を更新することはできません。
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \

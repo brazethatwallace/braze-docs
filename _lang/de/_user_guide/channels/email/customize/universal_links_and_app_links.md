@@ -33,7 +33,7 @@ Diese Tabelle zeigt die wichtigsten Unterschiede zwischen Universal Links und he
 | Zweck                | Nahtlose Verknüpfung von Web- und App-Inhalten auf iOS- und Android-Geräten | Verlinkt auf bestimmte App-Inhalte |
 | Funktion               | Leitet je nach Kontext zu Webseiten oder App-Inhalten weiter           | Öffnet bestimmte App-Bildschirme   |
 | App-Installation       | Öffnet die App, wenn sie installiert ist, andernfalls werden Web-Inhalte geöffnet | Erfordert eine installierte App |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How universal links and App Links work" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -358,3 +358,11 @@ Stellen Sie sicher, dass Sie die korrekten Definitionen für Domains haben, die 
 
 - **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 - **Android:** Öffnen Sie die App-Infoseite (langes Drücken auf das App-Symbol und Klick auf ⓘ). Suchen Sie im App-Info-Menü nach **Standardmäßig öffnen** und tippen Sie darauf. Es sollte ein Bildschirm mit allen verifizierten Links angezeigt werden, die die App öffnen darf. Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
+
+#### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}
+
+In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von ESP-Einschränkungen oder Infrastrukturbeschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
+
+- **Kontaktieren Sie Ihren ESP, um die Dateien auf seiner Tracking-Domain zu hosten:** Ihre Klick-Tracking-Subdomain ist in der Regel ein CNAME, der auf Ihren ESP (SendGrid, SparkPost oder Amazon SES) verweist. Da der ESP den Datenverkehr für diese Domain terminiert, kann er die `.well-known`-Dateien für Sie hosten. Sowohl SendGrid als auch SparkPost unterstützen dies. Wenden Sie sich direkt an Ihren ESP, um dies anzufordern.
+- **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Wenn Ihr ESP die Dateien nicht hosten kann, können Sie das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
+- **CDN vor die Tracking-Subdomain schalten:** Wenn Sie vollständige Klick-Tracking-Abdeckung und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über Klick-Tracking und Universal Links.

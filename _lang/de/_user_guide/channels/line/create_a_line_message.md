@@ -97,13 +97,13 @@ Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie w
 
 LINE-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen zu Zeitplan- und Trigger-Optionen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) für den Empfang der Campaign ermöglichen oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen.
+Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) für den Empfang der Campaign ermöglichen oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
 [Stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach der Ebene oder Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
-Definieren Sie die Zielgruppe über Braze **Segments** und verfeinern Sie Ihre **Segments**-Auswahl mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) optional weiter. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
+Wählen Sie die größere Zielgruppe aus Ihren Segmenten aus und grenzen Sie dieses Segment optional mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
 
 ### Konversions-Events wählen {#choose-conversion-events}
 

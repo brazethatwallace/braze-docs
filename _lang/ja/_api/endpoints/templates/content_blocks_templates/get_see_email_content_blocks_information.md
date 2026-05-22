@@ -30,7 +30,7 @@ description: "この記事では、Content Blocksの情報を見るBrazeエン�
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `content_block_id`  | 必須 | 文字列 | コンテンツブロックの識別子。<br><br>これは、APIコールでコンテンツブロックの情報をリストアップするか、[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページに移動し、一番下までスクロールしてコンテンツブロックのAPI識別子を検索することで見つけることができます。|
-| `include_inclusion_data`  | オプション | ブール値 | `true` に設定された場合、APIはこのコンテンツブロックが含まれるCampaignsおよびCanvasesのメッセージバリエーションAPI識別子を返し、以降の呼び出しで使用できるようにします。結果には、アーカイブまたは削除されたCampaignsやCanvasesは含まれません。 |
+| `include_inclusion_data`  | オプション | ブール値 | `true` に設定された場合、APIはこのコンテンツブロックが含まれるキャンペーンおよびキャンバスのメッセージバリエーションAPI識別子を返し、以降の呼び出しで使用できるようにします。結果には、アーカイブまたは削除されたキャンペーンやキャンバスは含まれません。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}

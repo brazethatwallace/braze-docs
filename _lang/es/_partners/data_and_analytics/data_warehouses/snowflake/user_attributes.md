@@ -11,15 +11,11 @@ toc_headers: h2
 
 > Esta página sirve de referencia para las vistas de atributos predeterminados y personalizados en Snowflake. Hay tres vistas para atributos predeterminados y tres vistas para atributos personalizados, cada una diseñada para un caso de uso específico con sus propias consideraciones de rendimiento.
 
-{% alert important %}
-Los atributos de perfil de usuario están actualmente en fase beta para los clientes de Snowflake Data Sharing. Si utilizas Snowflake Data Sharing y deseas acceder a esta versión beta, ponte en contacto con tu administrador del éxito del cliente o con el soporte de Braze.
-{% endalert %}
-
 ## Paridad de datos con el dashboard {#data-parity-with-the-dashboard}
 
 En circunstancias excepcionales, los valores de atributos predeterminados y personalizados en las vistas de Snowflake de esta página pueden no coincidir con lo que ves en el perfil de un usuario en el panel de Braze.
 
-Durante la fase beta, pueden producirse discrepancias. Por ejemplo, un atributo puede aparecer como `NULL` en Snowflake mientras que el dashboard muestra un valor para ese usuario.
+Por ejemplo, un atributo puede aparecer como `NULL` en Snowflake mientras que el dashboard muestra un valor para ese usuario.
 
 Si observas discrepancias generalizadas, ponte en contacto con tu administrador del éxito del cliente o con el soporte de Braze.
 
@@ -80,7 +76,7 @@ Estas vistas proporcionan instantáneas periódicas de los atributos del perfil 
 * **Limitación:** Los datos no están actualizados en tiempo real.
 
 {% alert note %}
-El campo `TIME` representa la hora de la actualización del perfil de usuario. Para los datos rellenados retroactivamente, `TIME` es la hora del relleno retroactivo.
+El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
 {% endalert %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_default_attributes_view_shared-schema}
@@ -91,16 +87,17 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -115,6 +112,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
@@ -137,7 +135,7 @@ Estas vistas proporcionan actualizaciones casi en tiempo real de los atributos d
     * Las consultas en un gran conjunto de datos (como más de 100 millones de usuarios) pueden tardar muchos minutos.
 
 {% alert note %}
-El campo `TIME` representa la hora de la actualización del perfil de usuario. Para los datos rellenados retroactivamente, `TIME` es la hora del relleno retroactivo.
+El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
 {% endalert %}
 
 ### Esquema de `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` {#user_latest_state_default_attributes_view_shared-schema}
@@ -148,19 +146,20 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 | `APP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 ### Esquema de `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` {#user_latest_state_custom_attribute_view_shared-schema}
@@ -170,6 +169,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 | `APP_GROUP_ID` | VARCHAR |
 | `USER_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
@@ -190,7 +190,7 @@ Estas vistas almacenan registros de cambios históricos de los atributos de los 
 * `EFF_DT` y `END_DT` marcan el inicio y el final del estado de atributo de un usuario.
 
 {% alert note %}
-El campo `TIME` representa la hora de la actualización del perfil de usuario. Para los datos rellenados retroactivamente, `TIME` es la hora del relleno retroactivo.
+El campo `TIME` representa la hora en segundos de la actualización del perfil de usuario; el campo `TIME_MS` indica lo mismo con precisión de milisegundos. Para los datos rellenados retroactivamente, los valores de `TIME` y `TIME_MS` corresponden a la hora del relleno retroactivo.
 {% endalert %}
 
 ### Esquema de `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` {#user_default_attributes_history_view_shared-schema}
@@ -201,16 +201,17 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
-| `EXTERNAL_ID` | VARCHAR |
+| `EXTERNAL_USER_ID` | VARCHAR |
 | `FIRST_NAME` | VARCHAR |
 | `LAST_NAME` | VARCHAR |
-| `EMAIL` | VARCHAR |
+| `EMAIL_ADDRESS` | VARCHAR |
 | `GENDER` | VARCHAR |
-| `PHONE` | VARCHAR |
+| `PHONE_NUMBER` | VARCHAR |
 | `DOB` | VARCHAR |
-| `TIME_ZONE` | VARCHAR |
+| `TIMEZONE` | VARCHAR |
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
@@ -226,6 +227,7 @@ El campo `TIME` representa la hora de la actualización del perfil de usuario. P
 | `USER_ID` | VARCHAR |
 | `APP_ID` | VARCHAR |
 | `TIME` | NUMBER |
+| `TIME_MS` | NUMBER |
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |

@@ -38,7 +38,7 @@ MyPostcardと統合するには、[ログインまたはサインアップ](http
 
 ### ステップ1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動し、今後のCampaignsやCanvasesで使用するMyPostcard Webhookテンプレートを作成します。
+Brazeプラットフォームで**テンプレート** > **Webhookテンプレート**に移動し、今後のキャンペーンやキャンバスで使用するMyPostcard Webhookテンプレートを作成します。
 
 {% alert note %}
 [古いナビゲーション]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)を使用している場合は、**エンゲージメント** > **テンプレートとメディア** > **Webhookテンプレート**に移動してください。

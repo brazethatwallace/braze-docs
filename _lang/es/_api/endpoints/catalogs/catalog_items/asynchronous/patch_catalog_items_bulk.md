@@ -56,9 +56,10 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": {
         "$add": [
@@ -85,7 +86,8 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 ```
 
 {% alert note %}
-Los operadores `$add` y `$remove` solo son aplicables a campos de tipo matriz y solo son compatibles con los puntos de conexión PATCH.
+- El campo `Location` utiliza el tipo de datos `geo`, que espera una matriz con el formato `[longitude, latitude]`.
+- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo matriz y solo son compatibles con los puntos de conexión PATCH.
 {% endalert %}
 
 ## Respuesta {#response}
@@ -135,7 +137,7 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `ids-not-strings` | Los ID de los elementos deben ser de tipo cadena. |
 | `ids-not-unique` | Los ID de los elementos deben ser únicos en la solicitud. |
 | `invalid-ids` | Los ID de los elementos solo pueden incluir letras, números, guiones y guiones bajos. |
-| `invalid-fields` | Confirma que todos los campos que estás enviando en la solicitud de API ya existen en el catálogo. Esto no está relacionado con el campo ID mencionado en el error. |
+| `invalid-fields` | Confirma que todos los campos que envías en la solicitud de API ya existen en el catálogo. Esto no está relacionado con el campo ID mencionado en el error. |
 | `invalid-keys-in-value-object` | Las claves de objeto de elemento no pueden incluir `.` ni `$`. |
 | `items-missing-ids` | Algunos elementos no tienen ID de elemento. Comprueba que cada elemento tiene un ID de elemento. |
 | `item-array-invalid` | `items` debe ser una matriz de objetos. |
