@@ -77,7 +77,7 @@ Saisissez un nom et une description facultative pour votre catalogue. Tenez comp
 Vous pouvez également [utiliser des modèles dans un nom de catalogue](#template-catalog-names), ce qui vous permet de générer dynamiquement des noms de catalogue en fonction de variables telles que la langue ou la campagne.
 {% endalert %}
 
-![A catalog named "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![Un catalogue nommé « my_catalog ».]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 Sélectionnez **Process Catalog** pour créer le catalogue.
 
@@ -126,11 +126,11 @@ Nous allons créer le catalogue en téléchargeant un fichier CSV. Les types de 
 Ce type de données ne peut pas être modifié après la configuration de votre catalogue.
 {% endalert %}
 
-![Four catalog column names: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
+![Quatre noms de colonnes de catalogue : « id », « title », « price », « image_link ».]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
 Ensuite, nous nommerons ce catalogue « games_catalog » et sélectionnerons le bouton **Process Catalog**. Braze vérifie alors que le catalogue ne contient pas d'erreurs avant de le créer.
 
-![A catalog named "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
+![Un catalogue nommé « games_catalog ».]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 Notez que vous ne pourrez pas modifier ce nom après la création du catalogue. Vous pouvez toutefois supprimer un catalogue et en télécharger une version mise à jour en utilisant le même nom.
 
@@ -147,8 +147,6 @@ Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous deve
 - Exporter les catalogues
 - Supprimer les catalogues
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ### Étape 1 : Saisissez les détails du catalogue {#step-1-enter-catalog-details}
 
 Saisissez un nom et une description facultative pour votre catalogue. Tenez compte des exigences suivantes lorsque vous nommez votre catalogue :
@@ -161,17 +159,17 @@ Saisissez un nom et une description facultative pour votre catalogue. Tenez comp
 Vous pouvez également [utiliser des modèles dans un nom de catalogue](#template-catalog-names), ce qui vous permet de générer dynamiquement des noms de catalogue en fonction de variables telles que la langue ou la campagne.
 {% endalert %}
 
-![A catalog named "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
+![Un catalogue nommé « my_catalog ».]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
 ### Étape 2 : Créez votre catalogue {#step-2-create-your-catalog}
 
 Sélectionnez votre catalogue dans la liste, puis choisissez **Update Catalog** > **Add fields**. Saisissez le **Field name** et utilisez le menu déroulant pour sélectionner le type de données. Répétez l'opération autant de fois que nécessaire.
 
-![Two example fields "rating" and "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
+![Deux exemples de champs « rating » et « name ».]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
 Sélectionnez **Update Catalog** > **Add items** pour ajouter un élément à votre catalogue en saisissant les informations dans les champs que vous avez précédemment ajoutés. Ensuite, sélectionnez **Save Item** ou **Save and Add Another** pour continuer à ajouter vos éléments.
 
-![Add a catalog item.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![Ajout d'un élément de catalogue.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 Braze traite les valeurs temporelles sur la base de l'horodatage du tableau de bord. Par exemple, si une colonne a pour valeur « 03/13/2024 » et que votre fuseau horaire est celui du Pacifique, cette heure sera importée dans Braze sous la forme « 12 mars 2024, 17 h 00 ».

@@ -16,7 +16,7 @@ description: "この記事では、「送信分析をエクスポートする」
 
 > このエンドポイントを使用して、APIキャンペーンに関して追跡された `send_id` のさまざまな統計の日次情報を取得します。
 
-Brazeは送信後14日間、送信分析を保存します。Campaignのコンバージョンは、特定のユーザーがCampaignから受け取った直近の `send_id` に帰属します。
+Brazeは送信後14日間、送信分析を保存します。キャンペーンのコンバージョンは、特定のユーザーがキャンペーンから受け取った直近の `send_id` に帰属します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 

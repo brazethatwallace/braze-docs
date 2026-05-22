@@ -130,7 +130,7 @@ return brazecall;
 
 1. 新規の変換では、**Transformation Code** セクションに次のデフォルトテンプレートがあります。
 
-```java
+`````````java
 // This is a default template that you can use as a starting point
 // Feel free to delete this entirely to start from scratch, or to edit specific components
 

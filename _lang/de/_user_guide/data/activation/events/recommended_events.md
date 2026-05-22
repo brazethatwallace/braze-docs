@@ -47,7 +47,7 @@ Sie können Events nicht anpassen oder umbenennen.
 
 Die sechs empfohlenen E-Commerce-Events bilden Phasen der Kauf-Journey ab. Lösen Sie jedes Event in dem Moment aus, in dem die Nutzer:in die entsprechende Aktion abschließt.
 
-![Diagramm der Nutzer-Journey durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagramm der Nutzer-Journey durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}

@@ -134,7 +134,7 @@ Unityプロジェクトにgradleの依存関係を追加するには、まず公
 
 次の依存関係が必要です。
 
-```groovy
+`````````groovy
 implementation 'com.google.firebase:firebase-messaging:22.0.0'
 implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -181,14 +181,14 @@ Brazeは、Unity iOS統合を自動化するためのネイティブUnityソリ�
 
 {% tabs local %}
 {% tab MacOS %}
-```bash
+`````````bash
 git clone git@github.com:braze-inc/braze-unity-sdk.git
 cd ~/PATH/TO/DIRECTORY/braze-unity-sdk
 ```
 {% endtab %}
 
 {% tab Windows Powershell %}
-```powershell
+`````````powershell
 git clone git@github.com:braze-inc/braze-unity-sdk.git
 cd C:\PATH\TO\DIRECTORY\braze-unity-sdk
 ```
@@ -201,13 +201,13 @@ cd C:\PATH\TO\DIRECTORY\braze-unity-sdk
 
 {% tabs local %}
 {% tab MacOS %}
-```bash
+`````````bash
 /Applications/Unity/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath "$(pwd)" -executeMethod Appboy.Editor.Build.ExportAllPackages -quit
 ```
 {% endtab %}
 
 {% tab Windows Powershell %}
-```powershell
+`````````powershell
 "%UNITY_PATH%" -batchmode -nographics -projectPath "%PROJECT_ROOT%" -executeMethod Appboy.Editor.Build.ExportAllPackages -quit
 ```
 {% endtab %}

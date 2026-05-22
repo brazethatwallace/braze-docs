@@ -20,7 +20,7 @@ channel:
 
 ### Étape 1 : Accéder aux modèles WhatsApp {#step-1-go-to-whatsapp-templates}
 
-Accédez à **Modèles** > **Modèles WhatsApp**, puis sélectionnez **Créer un nouveau modèle**.
+Accédez à **Contenu** > **Modèles WhatsApp**, puis sélectionnez **Créer un nouveau modèle**.
 
 ![Page des modèles WhatsApp avec un bouton pour créer un nouveau modèle.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 

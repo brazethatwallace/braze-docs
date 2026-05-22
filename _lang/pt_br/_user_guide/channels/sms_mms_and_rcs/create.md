@@ -96,7 +96,7 @@ Você pode adicionar um cartão de contato à sua mensagem SMS para que os clien
 
 Para enviar uma mensagem MMS, seu grupo de inscrições deve ter pelo menos um número de telefone habilitado para MMS. Isso é indicado por uma tag **MMS** ao lado do grupo de inscrições no criador.
 
-Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
+Insira o corpo da sua mensagem e, em seguida, faça upload de uma imagem PNG, JPEG ou GIF da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) ou especifique uma URL de imagem. Apenas uma imagem é suportada por mensagem.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -163,7 +163,7 @@ Mensagens RCS de mídia permitem usar formatos de mídia envolventes que não s�
 **Recursos:**
 
 - Suporta tudo disponível nos tipos de mensagem de texto, incluindo texto, respostas sugeridas e ações sugeridas.
-- Arquivos de imagem (JPEG, PNG) enviados da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+- Arquivos de imagem (JPEG, PNG) enviados da [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
 - Arquivos de vídeo (MP4, MPEG, MV4) adicionados por URL no criador de mensagens.
 - Arquivos de documento (PDF) adicionados por URL no criador de mensagens.
 
@@ -240,18 +240,18 @@ Fluxos de mensagens conversacionais permitem responder dinamicamente aos usuári
 
 A Braze sempre recomenda pré-visualizar e testar sua mensagem antes de enviá-la. Alterne para a guia **Teste** para enviar um SMS, MMS ou RCS de teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
 
-![Pré-visualização do texto SMS na guia Teste do criador. Na seção de perfil, o campo Nome está definido como "James". Na seção de pré-visualização, o SMS agora diz "Olá James, agradecemos seu apoio!"]({% image_buster /assets/img/sms_campaign_test.png %})
-
 {% alert tip %}
 Se você quiser testar em quantos segmentos seu SMS pode ser dividido, teste o comprimento do seu texto com a [calculadora de segmentos SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
 {% endalert %}
+
+![Pré-visualização do texto SMS na guia Teste do criador. Na seção de perfil, o campo Nome está definido como "James". Na seção de pré-visualização, o SMS agora diz "Olá James, agradecemos seu apoio!"]({% image_buster /assets/img/sms_campaign_test.png %})
 
 {% alert note %}
 Para MMS, a ordenação dos ativos (imagem e corpo da mensagem) não pode ser personalizada. A ordenação depende do telefone que recebe a mensagem.
 {% endalert %}
 
 {% alert note %}
-Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível.
+Como a renderização do RCS é controlada pelo sistema operacional do usuário, fabricante do dispositivo, operadora e app de mensagens (por exemplo, Google Messages vs. Apple Messages), a aparência da mensagem pode variar. A pré-visualização mostrada na Braze pode não corresponder exatamente ao que o usuário final recebe. Valide a renderização final em dispositivos reais sempre que possível. Para saber mais sobre a renderização do RCS em dispositivos iOS, consulte [Por que minha mensagem RCS não é renderizada corretamente em dispositivos iOS?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/#why-doesnt-my-rcs-message-render-accurately-on-ios-devices).
 {% endalert %}
 
 Para mais informações, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=sms%2Fmms%20and%20rcs).
@@ -267,7 +267,7 @@ Em seguida, construa o restante da sua campanha. Consulte as seções a seguir p
 
 As mensagens podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) para receber a campanha, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 

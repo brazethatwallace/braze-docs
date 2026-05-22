@@ -47,7 +47,7 @@ Você não pode personalizar ou renomear eventos.
 
 Os seis eventos recomendados de eCommerce mapeiam as etapas da jornada de compra. Dispare cada evento no momento em que o usuário conclui a ação correspondente.
 
-![Diagrama da jornada do usuário através dos seis eventos recomendados de eCommerce: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled e order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagrama da jornada do usuário através dos seis eventos recomendados de eCommerce: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled e order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}

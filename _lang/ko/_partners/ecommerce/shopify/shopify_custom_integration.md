@@ -576,7 +576,7 @@ function CartLineUpdateButton({children, lines}) {
 
 Shopify 파트너 페이지로 이동하여 설정을 시작합니다. 먼저 **설정 시작**을 선택하여 Shopify App Store에서 Braze 애플리케이션을 설치합니다. 안내된 단계를 따라 설치 프로세스를 완료합니다.
 
-![Braze 대시보드의 Shopify 통합 설정 페이지.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Braze 대시보드의 Shopify 통합 설정 페이지.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
 ### 2단계: Braze SDK 활성화 {#step-2-enable-braze-sdks}
 
@@ -584,13 +584,13 @@ Shopify Hydrogen 또는 헤드리스 스토어의 경우 **커스텀 설정** �
 
 온보딩 프로세스를 계속하기 전에 Shopify 웹사이트에서 Braze SDK를 활성화했는지 확인합니다.
 
-![Braze SDK 활성화 설정 단계.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Braze SDK 활성화 설정 단계.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
 ### 3단계: Shopify 데이터 추적 {#step-3-track-shopify-data}
 
 Shopify 웹훅을 통해 제공되는 더 많은 Shopify 이벤트와 속성을 추가하여 통합을 강화합니다. 이 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
 
-![Shopify 데이터 추적 설정 단계.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Shopify 데이터 추적 설정 단계.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
 ### 4단계: 과거 데이터 백필(선택 사항) {#step-4-historical-backfill-optional}
 
@@ -598,7 +598,7 @@ Shopify 웹훅을 통해 제공되는 더 많은 Shopify 이벤트와 속성을 
 
 나중에 백필을 수행하려면 지금 초기 설정을 완료하고 나중에 이 단계로 돌아올 수 있습니다.
 
-![과거 데이터 백필 설정 섹션.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![과거 데이터 백필 설정 섹션.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
 초기 로드에 포함되는 전체 데이터 목록, 매출 보고 동작 및 동기화 모니터링에 대해서는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
 
@@ -646,7 +646,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 
-!["가입자 수집" 섹션.]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+!["가입자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 이메일 주소 또는 해시된 이메일 주소를 Braze 외부 ID로 사용하면 데이터 소스 전반에서 ID 관리를 간소화할 수 있습니다. 그러나 사용자 개인정보 보호 및 데이터 보안에 대한 잠재적 위험을 고려하는 것이 중요합니다.<br><br>
@@ -734,7 +734,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 
 이메일 또는 SMS 채널을 사용하는 경우 이메일 및 SMS 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 생성해야 합니다.
 
-![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 [Shopify 개요]({{site.baseurl}}/shopify_overview/)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
@@ -746,7 +746,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 
 Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 항상 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/shopify_catalogs/)를 확인하세요.
 
-![Braze에 제품 데이터를 동기화하는 설정 단계.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Braze에 제품 데이터를 동기화하는 설정 단계.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
 ### 8단계: 채널 활성화 {#step-8-activate-channels}
 
@@ -760,7 +760,7 @@ Shopify 직접 통합을 사용하여 인앱 메시지, Content Cards 및 피처
 
 모든 단계를 완료한 후 **설정 완료**를 선택하여 파트너 페이지로 돌아갑니다. 그런 다음 표시되는 배너에 안내된 대로 Shopify 관리자 페이지에서 Braze 앱 임베드를 활성화합니다.
 
-![통합 설정을 완료하기 위해 Shopify에서 Braze 앱 임베드를 활성화하라는 배너.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![통합 설정을 완료하기 위해 Shopify에서 Braze 앱 임베드를 활성화하라는 배너.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### 코드 예제 {#example-code}
 

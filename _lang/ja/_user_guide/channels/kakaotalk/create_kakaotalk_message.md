@@ -10,7 +10,7 @@ channel:
 
 # KakaoTalk メッセージの作成 {#create-a-kakaotalk-message}
 
-> [KakaoTalk メッセージングチャネル]({{site.baseurl}}/kakaotalk/)を使用して、KakaoTalk プラットフォームを通じてユーザーに直接リーチできます。Liquidやその他のダイナミックなコンテンツを使用してパーソナライズされたユーザー体験を作成し、ブランドとの豊かなユーザー体験を促進・強化する環境を構築しましょう。<br><br>KakaoTalk メッセージングチャネルの設定については、[KakaoTalk のセットアップ]({{site.baseurl}}/kakaotalk_setup/)を参照してください。
+> [KakaoTalk メッセージングチャネル]({{site.baseurl}}/kakaotalk/)を使用して、KakaoTalkプラットフォームを通じてユーザーに直接リーチできます。Liquidやその他のダイナミックなコンテンツを使用してパーソナライズされたユーザー体験を作成し、ブランドとの豊かなユーザー体験を促進・強化する環境を構築しましょう。<br><br>KakaoTalk メッセージングチャネルの設定については、[KakaoTalk のセットアップ]({{site.baseurl}}/kakaotalk_setup/)を参照してください。
 
 ## ステップ 1:メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
@@ -39,7 +39,7 @@ KakaoTalkはCampaignsとCanvasの両方でサポートされています。Campa
 
 ## ステップ 2:KakaoTalk メッセージを作成する {#step-2-compose-your-kakaotalk-message}
 
-1. **KakaoTalk チャネル**ドロップダウンを選択すると、テクノロジーパートナーページで設定した KakaoTalk チャネルのリストが表示されます。メッセージの送信に使用する KakaoTalk チャネルを選択します。
+1. **KakaoTalk チャネル**ドロップダウンを選択すると、テクノロジーパートナーページで設定したKakaoTalkチャネルのリストが表示されます。メッセージの送信に使用するKakaoTalkチャネルを選択します。
 2. 送信するメッセージタイプを選択します:
 - テキスト
 - 画像
@@ -47,12 +47,12 @@ KakaoTalkはCampaignsとCanvasの両方でサポートされています。Campa
     - ナロー
     - ワイド
 
-![3種類のメッセージから選択できる KakaoTalk バリアントセクション。]({% image_buster /assets/img/kakaotalk/kakaotalk_variants.png %})
+![3種類のメッセージから選択できるKakaoTalkバリアントセクション。]({% image_buster /assets/img/kakaotalk/kakaotalk_variants.png %})
 
 {% tabs local %}
 {% tab テキスト %}
 
-KakaoTalk テキストメッセージは、最もシンプルなコミュニケーション形式で、標準的なテキストメッセージです。
+KakaoTalkテキストメッセージは、最もシンプルなコミュニケーション形式で、標準的なテキストメッセージです。
 
 ### 仕様 {#specifications}
 
@@ -63,19 +63,19 @@ KakaoTalk テキストメッセージは、最もシンプルなコミュニケ�
 | ボタン | 最大5つのオプションボタン。現在、クリック時にURLを開く用途にのみ使用できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
-![コンポーザーでの KakaoTalk テキストメッセージ。]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
+![コンポーザーでのKakaoTalkテキストメッセージ。]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
 {% endtab %}
 {% tab 画像 %}
 
-画像メッセージは、ビジュアル要素とサポートテキストを組み合わせたメッセージです。Brazeは KakaoTalk サーバーへの画像アップロードを自動的に処理します。
+画像メッセージは、ビジュアル要素とサポートテキストを組み合わせたメッセージです。BrazeはKakaoTalkサーバーへの画像アップロードを自動的に処理します。
 
 ### 一般仕様 {#general-specifications}
 
 | 項目 | 仕様 |
 | --- | --- |
 | コンテンツ | 1つの画像とサポートテキスト |
-| 対応ファイル形式 | JPEG または PNG |
+| 対応ファイル形式 | JPEGまたはPNG |
 | 推奨幅 | 500px |
 | ファイルサイズ | 最大500kb |
 | アスペクト比 | 2:1（ワイド）から3:4（トール）の間 |
@@ -101,7 +101,7 @@ KakaoTalk テキストメッセージは、最もシンプルなコミュニケ�
 | カスタマイズ | 画像のクリック時の動作を指定できます |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
-![KakaoTalk ナローメッセージ。]({% image_buster /assets/img/kakaotalk/narrow_image.png %})
+![KakaoTalkナローメッセージ。]({% image_buster /assets/img/kakaotalk/narrow_image.png %})
 
 {% endsubtab %}
 {% subtab ワイド画像 %}
@@ -121,7 +121,7 @@ KakaoTalk テキストメッセージは、最もシンプルなコミュニケ�
 | カスタマイズ | 画像のクリック時の動作を指定できます |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
-![KakaoTalk ワイドメッセージ。]({% image_buster /assets/img/kakaotalk/wide_image.png %})
+![KakaoTalkワイドメッセージ。]({% image_buster /assets/img/kakaotalk/wide_image.png %})
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -138,7 +138,7 @@ BrazeはKakaoTalkの画像アップロード要件をすべて自動的に処理
 {% tab リストアイテム %}
 
 
-KakaoTalk アイテムリストメッセージは、コンテンツアイテムのリストを明確な縦型フォーマットで表示するように設計されています。
+KakaoTalkアイテムリストメッセージは、コンテンツアイテムのリストを明確な縦型フォーマットで表示するように設計されています。
 
 リストアイテムメッセージは、ヘッダー、アイテムリストセクション、およびオプションのボタンエリアで構成されます。
 
@@ -153,7 +153,7 @@ KakaoTalk アイテムリストメッセージは、コンテンツアイテム�
 | WebサイトURL（アイテムごと）| 最大250文字 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Specifications" }
 
-![KakaoTalk リストアイテムメッセージ。]({% image_buster /assets/img/kakaotalk/item_list.png %})
+![KakaoTalkリストアイテムメッセージ。]({% image_buster /assets/img/kakaotalk/item_list.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -167,7 +167,7 @@ KakaoTalkクリックトラッキングをオンにすると、Brazeは自動的
 
 クリックトラッキングを有効にするには、コンポーザーの**Link options**セクションで**Click Tracking**にチェックを入れます。URLはデフォルトのBrazeドメイン（`https://brz.ai`）またはサブスクリプショングループに指定されたカスタムドメインを使用して短縮され、ユーザーごとにパーソナライズされます。
 
-クリックトラッキング、カスタムドメイン、URLでのLiquidパーソナライゼーション、レポート、リターゲティングの詳細については、[KakaoTalk クリックトラッキング]({{site.baseurl}}/kakaotalk_click_tracking/)を参照してください。
+クリックトラッキング、カスタムドメイン、URLでのLiquidパーソナライゼーション、レポート、リターゲティングの詳細については、[KakaoTalkクリックトラッキング]({{site.baseurl}}/kakaotalk_click_tracking/)を参照してください。
 
 ### ユーザーのリターゲティング {#retargeting-users}
 
@@ -186,9 +186,9 @@ KakaoTalkクリックトラッキングをオンにすると、Brazeは自動的
 
 KakaoTalkメッセージを作成すると、メッセージプレビューが自動的に更新されます。テストの準備ができたら、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにテストメッセージを送信するか、Braze内で既存のユーザーまたはカスタムユーザーとしてメッセージをプレビューします。
 
-テストユーザーを選択した後、**Send Test**を選択します。テスト送信の結果を示す通知が表示されます。CJ OliveNetworksの場合、「C100」レスポンスが返されます。別のエラーが表示された場合は、[CJ KakaoTalk ユーザードキュメント](https://developers.kakao.com/docs/latest/en/index)を参照してください。
+テストユーザーを選択した後、**Send Test**を選択します。テスト送信の結果を示す通知が表示されます。CJ OliveNetworksの場合、「C100」レスポンスが返されます。別のエラーが表示された場合は、[CJ KakaoTalkユーザードキュメント](https://developers.kakao.com/docs/latest/en/index)を参照してください。
 
-![KakaoTalk メッセージのプレビューウィンドウ。]({% image_buster /assets/img/kakaotalk/preview_message.png %})
+![KakaoTalkメッセージのプレビューウィンドウ。]({% image_buster /assets/img/kakaotalk/preview_message.png %})
 
 {% alert note %}
 既存のユーザーにテストメッセージをプレビューおよび送信するには、「View PII」権限が必要です。カスタムユーザーへのテストメッセージのプレビューと送信には、この権限は不要です。
@@ -202,9 +202,9 @@ KakaoTalkメッセージを構築するためのツールの最適な使用方�
 
 ### 配信スケジュールまたはトリガーを選択する {#choose-delivery-schedule-or-trigger}
 
-KakaoTalkメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)または[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)（Canvasの場合）を参照してください。
+KakaoTalkメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[Campaignのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)または[エントリスケジュールタイプ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types)（Canvasの場合）を参照してください。
 
-ユーザーがキャンペーンを再度受信できるようにしたり、フリークエンシーキャップルールをオンにしたりするなど、配信コントロールを指定できます。アクションベースの配信では、キャンペーンの期間とサイレント時間も設定できます。
+ユーザーがCampaignを再度受信できるようにしたり、フリークエンシーキャップルールをオンにしたりするなど、配信コントロールを指定できます。アクションベースの配信では、Campaignの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)も設定できます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -212,11 +212,11 @@ Segmentsやフィルターを選択してオーディエンスを絞り込み、
 
 ### コンバージョンイベントを選択する {#choose-conversion-events}
 
-Brazeでは、キャンペーンを受信した後にユーザーが特定のアクション（コンバージョンイベント）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンとしてカウントされる最大30日間の時間枠を設定するオプションがあります。
+Brazeでは、Campaignを受信した後にユーザーが特定のアクション（コンバージョンイベント）を実行する頻度をトラッキングできます。ユーザーが指定されたアクションを実行した場合にコンバージョンとしてカウントされる最大30日間の時間枠を設定するオプションがあります。
 
-コンバージョンイベントは、キャンペーンの成功を測定するのに役立ちます。たとえば、ユーザーにアプリの使用を促進しようとしている場合、コンバージョンイベントを**Starts Session**に設定します。
+コンバージョンイベントは、Campaignの成功を測定するのに役立ちます。たとえば、ユーザーにアプリの使用を促進しようとしている場合、コンバージョンイベントを**Starts Session**に設定します。
 
-特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。クリエイティブに考えて、キャンペーンの成功をどのように測定したいかを検討してください。
+特定のユースケースに基づいてカスタムコンバージョンイベントを設定することもできます。クリエイティブに考えて、Campaignの成功をどのように測定したいかを検討してください。
 
 ## ステップ 6:確認してデプロイする {#step-6-review-and-deploy}
 

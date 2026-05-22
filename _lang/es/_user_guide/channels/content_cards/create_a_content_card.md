@@ -133,7 +133,7 @@ Construye el resto de tu Campaign. Continúa con las siguientes secciones para o
 
 Las Content Cards pueden entregarse según un horario planificado, una acción o un desencadenante de API. Para más información, consulta [Planificar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-También puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours), y determinar la expiración de la Content Card. Establece una fecha de expiración específica o los días hasta que una tarjeta expire, hasta 30 días. Todas las variantes tienen fechas de expiración idénticas.
+También puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/), y determinar la expiración de la Content Card. Establece una fecha de expiración específica o los días hasta que una tarjeta expire, hasta 30 días. Todas las variantes tienen fechas de expiración idénticas.
 
 Si eliges que una tarjeta expire después de un período establecido (por ejemplo, después de dos semanas), la expiración se calcula desde el momento de envío de la tarjeta. Para Campaigns planificadas, este es el horario de lanzamiento planificado. Para Campaigns basadas en acciones, este es el momento en que el usuario realiza la acción desencadenante. Por ejemplo, si una tarjeta basada en acciones se envía a las 2 pm de hoy con una expiración de 1 día, expira a las 2 pm del día siguiente.
 
@@ -294,7 +294,7 @@ Digamos que tienes una Campaign que se desencadena al inicio de sesión y tiene 
 
 Puedes eliminar manualmente las tarjetas de los feeds de todos los usuarios en cualquier momento deteniendo la Campaign.
 
-1. Abre la Campaign de Content Card y selecciona Detener Campaign.
+1. Abre la Campaign de Content Card y selecciona **Detener Campaign**.
 2. Cuando se te solicite, selecciona **Remove card after the next sync**. La tarjeta se elimina en la próxima actualización del feed.
 
 ##### Eliminación automatizada de tarjetas {#action-based-card-removal}

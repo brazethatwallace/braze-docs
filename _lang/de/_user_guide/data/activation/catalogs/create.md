@@ -94,7 +94,7 @@ In dieser Anleitung verwenden wir einen Katalog, der zwei Spiele mit Preisangabe
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table aria-label="Anleitung: Erstellen eines Katalogs aus einer CSV-Datei" class="tg">
+<table aria-label="Tutorial: Creating a catalog from a CSV file" class="tg">
   <caption>Anleitung: Erstellen eines Katalogs aus einer CSV-Datei</caption>
 <thead>
   <tr>
@@ -146,8 +146,6 @@ Bevor Sie Kataloge im Browser bearbeiten oder erstellen können, benötigen Sie 
 - Kataloge bearbeiten
 - Kataloge exportieren
 - Kataloge löschen
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ### 1. Schritt: Katalogdetails eingeben {#step-1-enter-catalog-details}
 

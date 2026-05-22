@@ -28,10 +28,9 @@ Amplitude에서 **Sources & Destinations** > **[프로젝트 이름]** > **Desti
 
 ### 3단계: Amplitude 코호트를 Braze로 내보내기 {#step-3-export-an-amplitude-cohort-to-braze}
 
-먼저 Amplitude에서 Braze로 사용자를 내보내려면 내보내려는 사용자의 [코호트](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts)를 생성합니다. Amplitude는 다음 식별자를 사용하여 코호트를 Braze에 동기화할 수 있습니다:
-- 사용자 별칭
-- 기기 ID
+먼저 Amplitude에서 Braze로 사용자를 내보내려면 내보내려는 사용자의 [코호트](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts)를 생성합니다. 그런 다음 식별된 사용자와 익명 사용자를 모두 캡처하려면 다음 식별자 매핑 속성을 사용하여 해당 코호트에 대해 두 개의 동기화를 설정합니다:
 - 사용자 ID(외부 ID)
+- 기기 ID
 
 Amplitude 계정에서 여러 Braze 연결을 설정할 수 있습니다. 이를 통해 알려진 사용자에 대해 사용자 ID를 동기화하는 연결과 익명 사용자에 대해 기기 ID를 동기화하는 연결을 각각 구성할 수 있습니다.
 
@@ -47,7 +46,7 @@ Braze에 이미 존재하는 사용자만 코호트에 추가되거나 제거됩
 
 설정하는 모든 통합은 데이터 포인트를 기록합니다. Braze 데이터 포인트의 세부 사항에 대해 궁금한 점이 있으면 Braze 계정 매니저에게 문의하세요.
 
-### 4단계: Braze에서 사용자 세그먼트 만들기 {#step-4-segment-users-in-braze}
+### 4단계: Braze에서 사용자 Segment 만들기 {#step-4-segment-users-in-braze}
 
 Braze에서 해당 사용자의 Segment를 생성하려면 **참여** 아래의 **Segments**로 이동하여 Segment 이름을 지정하고 필터로 **Amplitude Cohorts**를 선택합니다. 그런 다음 "포함" 옵션을 사용하여 Amplitude에서 생성한 코호트를 선택합니다.
 

@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -68,6 +69,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
   ]
 }'
 ```
+
+{% alert note %}
+El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el formato `[longitude, latitude]`.
+{% endalert %}
 
 ## Respuesta {#response}
 

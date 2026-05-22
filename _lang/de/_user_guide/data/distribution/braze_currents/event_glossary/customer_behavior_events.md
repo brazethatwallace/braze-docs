@@ -1,5 +1,6 @@
 ---
 nav_title: Kundenverhalten und Nutzer-Events
+article_title: Kundenverhalten und Nutzer-Events
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
@@ -9,11 +10,19 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Schemabereich und zugehörige Ressourcen %}
+
+Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Einige der hier aufgeführten Kombinationen von Events und Zielen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.
+
 {% alert tip %}
 Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}
 
 Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) oder unsere [Beispieldaten von Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+
+{% enddetails %}
 
 {% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
 
@@ -43,14 +52,16 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 
 {% enddetails %}
 
-{% alert important %}
-Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehouse-Speicherpartner (wie Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Einige der hier aufgeführten Kombinationen von Events und Zielen sind noch nicht allgemein verfügbar. Informationen darüber, welche Events von verschiedenen Partnern unterstützt werden, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.<br><br>Beachten Sie außerdem, dass Currents Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB verwirft.
-{% endalert %}
+{% details Hinweise zu Kundenverhaltens- und Nutzer-Events %}
 
-{% alert note %}
-Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für den/die Nutzer:in gesetzt sind, können diese Felder `null` sein.
-{% endalert %}
+- Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
+- Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (beispielsweise als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder nicht für den/die Nutzer:in gesetzt sind, können diese Felder `null` sein.
 
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Update-Events für zufällige Bucket-Nummern {#random-bucket-number-update-events}
@@ -148,7 +159,7 @@ Dieses Event tritt ein, wenn ein bestimmtes angepasstes Event getriggert wird. V
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -287,7 +298,7 @@ Dieses Event wird ausgelöst, wenn eine App-Installation einer Quelle zugeordnet
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.InstallAttribution
 
@@ -424,7 +435,7 @@ Dieses Event wird getriggert, wenn ein:e Nutzer:in einen bestimmten Standort bes
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Location
 
@@ -600,7 +611,7 @@ Käufe sind spezielle angepasste Events und werden mit einem JSON-kodierten Stri
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Purchase
 
@@ -763,7 +774,7 @@ Wenn ein:e Nutzer:in die erste Sitzung startet, werden sowohl ein `FirstSession`
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.FirstSession
 
@@ -899,7 +910,7 @@ Dieses Event tritt ein, wenn ein:e Nutzer:in Ihre Anwendung verlässt und damit 
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionEnd
 
@@ -1039,7 +1050,7 @@ Wenn ein:e Nutzer:in die erste Sitzung startet, werden sowohl ein `FirstSession`
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionStart
 
@@ -1173,7 +1184,7 @@ Dieses Event tritt ein, wenn Braze das Live-Activity-Push-to-Start-Token mit dem
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
@@ -1307,7 +1318,7 @@ Dieses Event tritt ein, wenn Braze das Live-Activity-Update-Token mit dem/der Nu
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
@@ -1457,7 +1468,7 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
 ```
 {% endtab %}
 
-{% tab Benutzerdefinierter HTTP-Konnektor %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.pushnotification.TokenStateChange
 

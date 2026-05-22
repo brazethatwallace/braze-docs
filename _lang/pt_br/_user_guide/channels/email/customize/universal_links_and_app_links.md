@@ -37,7 +37,7 @@ Esta tabela descreve as principais diferenças entre links universais e deep lin
 
 ## Casos de uso {#use-cases}
 
-Os links universais e App Links são mais comumente usados em Campaigns de e-mail, já que os e-mails podem ser abertos e clicados tanto em dispositivos desktop quanto móveis.
+Os links universais e App Links são mais comumente usados em campanhas de e-mail, já que os e-mails podem ser abertos e clicados tanto em dispositivos desktop quanto móveis.
 
 Alguns canais não funcionam bem com esses links. Por exemplo, notificações por push, mensagens no app e Content Cards devem usar deep links baseados em esquema (`mydomain://`).
 
@@ -358,3 +358,11 @@ Certifique-se de que você tem as definições corretas para os domínios que se
 
 - **iOS:** Revise os Associated Domains configurados no Xcode para o seu app ([etapa 1c]({{site.baseurl}}/help/help_articles/email/universal_links/?tab=ios#step-1c)). Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
 - **Android:** Abra a página de informações do app (pressione e segure o ícone do app e clique em ⓘ). No menu de informações do app, localize **Abrir por padrão** e toque nessa opção. Isso deve mostrar uma tela com todos os links verificados que o app pode abrir. Verifique se o domínio de rastreamento de cliques está incluído nessa lista.
+
+#### O domínio de rastreamento não consegue servir arquivos .well-known {#tracking-domain-cant-serve-well-known-files}
+
+Em alguns casos, o seu domínio de rastreamento de cliques pode não conseguir hospedar os arquivos `.well-known` necessários devido a limitações do ESP ou restrições de infraestrutura. Se você não conseguir hospedar o arquivo AASA ou Digital Asset Links no seu domínio de rastreamento, considere as seguintes opções:
+
+- **Entre em contato com o seu ESP para hospedar os arquivos no domínio de rastreamento:** Seu subdomínio de rastreamento de cliques normalmente é um CNAME apontando para o seu ESP (SendGrid, SparkPost ou Amazon SES). Como o ESP encerra o tráfego para esse domínio, ele pode hospedar os arquivos `.well-known` para você. Tanto o SendGrid quanto o SparkPost oferecem suporte a isso. Entre em contato diretamente com o seu ESP para solicitar.
+- **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Se o seu ESP não puder hospedar os arquivos, você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
+- **Coloque um CDN na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar um CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure o CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu ESP. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.

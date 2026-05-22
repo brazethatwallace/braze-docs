@@ -9,7 +9,7 @@ page_order: 10
 
 > 이 문서에서는 Braze 에이전트에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
-## 일반 {#general}
+## 기본설정 {#general}
 
 ### Canvas 에이전트와 카탈로그 에이전트의 차이점은 무엇인가요? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
 
@@ -40,7 +40,7 @@ Braze Auto 모델을 사용하면 다음과 같은 이점이 있습니다:
 
 [Operator]({{site.baseurl}}/user_guide/brazeai/operator/)를 사용하여 에이전트가 지침을 따르지 않는 이유를 문제 해결해 보세요. Operator는 단계별 지침과 자세한 설명을 제공할 수 있습니다.
 
-### 에이전트가 복잡한 작업을 처리하는 데 어려움을 겪고 있습니다. 성과를 어떻게 개선할 수 있나요? {#subagent-approach}
+### 에이전트가 복잡한 작업을 처리하는 데 어려움을 겪고 있습니다. 성능을 어떻게 개선할 수 있나요? {#subagent-approach}
 
 에이전트가 요청한 작업을 처리하는 데 어려움을 겪고 있다면 하위 에이전트 접근 방식을 고려해 보세요. 예를 들어, 세 개의 에이전트를 사용하여 다음을 수행할 수 있습니다:
 

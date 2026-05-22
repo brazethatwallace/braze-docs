@@ -1,6 +1,6 @@
 ---
-nav_title: Glosario de Email Analytics
-article_title: Glosario de Email Analytics
+nav_title: Glosario de análisis de correo electrónico
+article_title: Glosario de análisis de correo electrónico
 layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
@@ -19,7 +19,7 @@ channel:
 
 {% api %}
 
-### Variación
+### Variación {#variation}
 
 {% apitags %}
 Count
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### Envío por correo electrónico
+### Envío por correo electrónico {#emailable}
 
 {% apitags %}
 Count
@@ -47,7 +47,7 @@ Count
 
 {% api %}
 
-### % de audiencia
+### % de audiencia {#audience}
 
 {% apitags %}
 Percentage
@@ -61,7 +61,7 @@ Percentage
 
 {% api %}
 
-### Destinatarios únicos
+### Destinatarios únicos {#unique-recipients}
 
 {% apitags %}
 Count
@@ -75,7 +75,7 @@ Count
 
 {% api %}
 
-### Envíos
+### Envíos {#sends}
 
 {% apitags %}
 Count
@@ -89,7 +89,7 @@ Count
 
 {% api %}
 
-### Mensajes enviados
+### Mensajes enviados {#messages-sent}
 
 {% apitags %}
 Count
@@ -103,7 +103,7 @@ Count
 
 {% api %}
 
-### Entregas
+### Entregas {#deliveries}
 
 {% apitags %}
 Count
@@ -131,7 +131,7 @@ Percentage
 
 {% api %}
 
-### Rebotes
+### Rebotes {#bounces}
 
 {% apitags %}
 Count, Percentage
@@ -157,7 +157,7 @@ Un rebote de correo electrónico para clientes que usan SendGrid consiste en reb
 
 {% api %}
 
-### Rebote duro
+### Rebote duro {#hard-bounce}
 
 {% apitags %}
 Count
@@ -173,7 +173,7 @@ Cuando un correo electrónico tiene un rebote duro o se marca como correo no des
 
 {% api %}
 
-### Rebote blando
+### Rebote blando {#soft-bounce}
 
 {% apitags %}
 Count
@@ -189,7 +189,7 @@ Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puede
 
 {% api %}
 
-### Correo no deseado
+### Correo no deseado {#spam}
 
 {% apitags %}
 Count, Percentage
@@ -211,7 +211,7 @@ Count, Percentage
 
 {% api %}
 
-### Aperturas únicas
+### Aperturas únicas {#unique-opens}
 
 {% apitags %}
 Count, Percentage
@@ -233,7 +233,7 @@ Count, Percentage
 
 {% api %}
 
-### Clics únicos
+### Clics únicos {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
@@ -255,7 +255,7 @@ Count, Percentage
 
 {% api %}
 
-### Cancelaciones de suscripción
+### Cancelaciones de suscripción {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -275,11 +275,20 @@ Las *cancelaciones de suscripción* reflejan el enlace estándar de cancelación
 </span>
 {:/}
 
+#### Por qué las *cancelaciones de suscripción* y los clics en el enlace de cancelación de suscripción pueden diferir {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
+
+En la página de **Analytics** de una campaña de correo electrónico o Canvas, compara el recuento de *Cancelaciones de suscripción* con los clics en la URL de cancelación de suscripción de Braze en el desglose por enlace cuando expandes **Total Clicks** o **Unique Clicks**. Ambos suelen coincidir, pero pueden diferir:
+
+- **Más *cancelaciones de suscripción* que clics en la URL de cancelación de suscripción del cuerpo:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) es una vía adicional de cancelación de suscripción en el encabezado del correo electrónico (no el enlace en el cuerpo de tu mensaje). Cuando un usuario cancela su suscripción de esta forma, se contabiliza en *Cancelaciones de suscripción*, pero no como un clic en la URL de cancelación de suscripción rastreada en el cuerpo.
+- **Más clics en la URL de cancelación de suscripción del cuerpo que *cancelaciones de suscripción*:** Un usuario puede seleccionar ese enlace más de una vez. Si cancela su suscripción, se vuelve a suscribir y cancela de nuevo, los análisis de correo electrónico pueden registrar múltiples clics (por ejemplo, dos) en el desglose de clics.
+
+Para más información, consulta [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+
 {% endapi %}
 
 {% api %}
 
-### Ingresos
+### Ingresos {#revenue}
 
 {% apitags %}
 Count
@@ -293,7 +302,7 @@ Count
 
 {% api %}
 
-### Conversiones primarias (A) o evento de conversión primaria
+### Conversiones primarias (A) o evento de conversión primaria {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
@@ -315,7 +324,7 @@ Count, Percentage
 
 {% api %}
 
-### Confianza
+### Confianza {#confidence}
 
 {% apitags %}
 Count
@@ -327,7 +336,7 @@ Count
 
 {% api %}
 
-### Aperturas automáticas
+### Aperturas automáticas {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Esta métrica se rastrea desde el 11 de noviembre de 2021 para SendGrid y desde el 2 de diciembre de 2021 para SparkPost.
 
@@ -337,7 +346,7 @@ Count
 
 {% api %}
 
-### Otras aperturas
+### Otras aperturas {#other-opens}
 
 {% apitags %}
 Count
@@ -351,7 +360,7 @@ Count
 
 {% api %}
 
-### Tasa de clic a apertura
+### Tasa de clic a apertura {#click-to-open-rate}
 
 {% apitags %}
 Percentage

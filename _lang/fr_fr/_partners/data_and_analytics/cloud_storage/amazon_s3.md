@@ -28,7 +28,7 @@ L'intégration de Braze et d'Amazon S3 propose deux stratégies d'intégration :
 | Compte Amazon S3 | Vous devez disposer d'un compte Amazon S3 pour profiter de ce partenariat. |
 | Compartiment S3 dédié | Avant d'intégrer Amazon S3, vous devez créer un compartiment S3 pour votre application.<br><br>Si vous disposez déjà d'un compartiment S3, nous vous recommandons tout de même d'en créer un nouveau spécifiquement pour Braze afin de pouvoir limiter les autorisations. Reportez-vous aux instructions suivantes pour savoir comment créer un nouveau compartiment. |
 | Currents | Pour réexporter des données vers Amazon S3, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. Currents n'est pas nécessaire si vous ne configurez que l'archivage des messages. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 #### Création d'un nouveau compartiment S3 {#creating-a-new-s3-bucket}
 
@@ -142,7 +142,7 @@ Si vous ne configurez que l'archivage des messages, suivez les étapes de l'ongl
 {% tabs %}
 {% tab Braze Currents %}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Currents**.
+Dans Braze, accédez à **Partner Integrations** > **Currents**.
 
 Ensuite, sélectionnez **Create New Current** puis **Amazon S3 Data Export**.
 
@@ -166,7 +166,7 @@ Une notification vous indique si vos identifiants ont été validés avec succè
 {% endtab %}
 {% tab Dashboard Data Export %}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Amazon S3**.
+Dans Braze, accédez à **Partner Integrations** > **Technology Partners** et sélectionnez **Amazon S3**.
 
 Sur la page **AWS Credentials**, assurez-vous que l'option **AWS Secret Access Key** est sélectionnée, puis saisissez votre ID d'accès AWS, votre clé d'accès secrète AWS et le nom du compartiment S3 AWS dans les champs désignés. Lorsque vous saisissez votre clé secrète, sélectionnez d'abord **Test Credentials** pour vous assurer que vos identifiants fonctionnent, puis sélectionnez **Save** en cas de succès.
 
@@ -260,8 +260,8 @@ Dans la même section IAM de la console, sélectionnez **Roles** > **Create Role
 
 Récupérez votre ID de compte Braze et votre ID externe à partir de votre compte Braze :
 
-- **Currents :** Dans Braze, accédez à **Intégrations partenaires** > **Currents**. Ensuite, sélectionnez **Create New Current** puis **Amazon S3 Data Export**. Vous trouverez ici les identifiants nécessaires à la création de votre rôle.
-- **Exportation de données du tableau de bord :** Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Amazon S3**. Vous trouverez ici les identifiants nécessaires à la création de votre rôle. (Créez vos rôles ici si vous ne configurez que l'archivage des messages.)
+- **Currents :** Dans Braze, accédez à **Partner Integrations** > **Currents**. Ensuite, sélectionnez **Create New Current** puis **Amazon S3 Data Export**. Vous trouverez ici les identifiants nécessaires à la création de votre rôle.
+- **Exportation de données du tableau de bord :** Dans Braze, accédez à **Partner Integrations** > **Technology Partners** et sélectionnez **Amazon S3**. Vous trouverez ici les identifiants nécessaires à la création de votre rôle. (Créez vos rôles ici si vous ne configurez que l'archivage des messages.)
 
 De retour sur la console AWS, sélectionnez **Another AWS Account** comme type de sélecteur d'entité de confiance. Indiquez votre ID de compte Braze, cochez la case **Require external ID** et saisissez l'ID externe de Braze. Sélectionnez **Next** lorsque vous avez terminé.
 
@@ -298,7 +298,7 @@ Si vous ne configurez que l'archivage des messages, suivez les étapes de l'ongl
 {% tabs %}
 {% tab Braze Currents %}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Currents**. Ensuite, sélectionnez **Create New Current** puis **Amazon S3 Data Export**.
+Dans Braze, accédez à **Partner Integrations** > **Currents**. Ensuite, sélectionnez **Create New Current** puis **Amazon S3 Data Export**.
 
 ![]({{site.baseurl}}/assets/img/currents-role-arn.png)
 
@@ -318,7 +318,7 @@ Si vous recevez une erreur « S3 credentials are invalid », cela peut être dû
 {% endtab %}
 {% tab Dashboard Data Export %}
 
-Dans Braze, accédez à la page **Partenaires technologiques** sous **Intégrations** et sélectionnez **Amazon S3**.
+Dans Braze, accédez à la page **Technology Partners** sous **Integrations** et sélectionnez **Amazon S3**.
 
 ![]({{site.baseurl}}/assets/img/data-export-role-arn.png)
 
@@ -333,6 +333,14 @@ Une notification vous indique si vos identifiants ont été validés avec succè
 {% endtab %}
 {% endtabs %}
 
+## Mise à jour des identifiants Amazon S3 pour Currents {#updating-currents-credentials}
+
+Vous pouvez mettre à jour les identifiants Amazon S3 sur un connecteur Braze Currents existant sans interrompre l'intégration ni perdre les données déjà exportées vers votre compartiment.
+
+Pour actualiser les identifiants — ou pour basculer entre **AWS Secret Access Key** et **AWS Role ARN** — terminez les étapes IAM et AWS décrites plus haut dans cet article pour la méthode choisie (politiques, utilisateur ou rôle, et identifiants selon les besoins).
+
+Lorsque vous avez terminé de préparer les identifiants dans AWS, accédez à **Partner Integrations** > **Currents** dans Braze, localisez votre connecteur Amazon S3 dans la liste, sélectionnez **Edit**, mettez à jour les **Credentials**, puis sélectionnez **Update Current**. Braze valide les identifiants que vous saisissez ; votre connecteur continue de fonctionner et les données déjà présentes dans votre compartiment restent disponibles. Pour en savoir plus, consultez la section [Mise à jour de Currents dans Configurer Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
+
 ## Comportement à l'exportation {#export-behavior}
 
 Les utilisateurs qui ont intégré une solution de stockage de données cloud et qui exportent via des API, des rapports de tableau de bord ou des rapports CSV constatent le comportement suivant :
@@ -342,7 +350,7 @@ Les utilisateurs qui ont intégré une solution de stockage de données cloud et
 
 ### Erreur `Unable to connect to S3, please validate that your credentials are correct` {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
 
-Si vous voyez cette erreur lors du téléchargement d'une exportation CSV, ouvrez l'intégration [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) sur la page **Partenaires technologiques** et sélectionnez **Test Credentials**. Le résultat explique ce qui a échoué lors de la validation — par exemple, la clé peut ne pas disposer de l'autorisation `GetObject`, ce qui empêche Braze de générer des liens de téléchargement.
+Si vous voyez cette erreur lors du téléchargement d'une exportation CSV, ouvrez l'intégration [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3/) sur la page **Technology Partners** et sélectionnez **Test Credentials**. Le résultat explique ce qui a échoué lors de la validation — par exemple, la clé peut ne pas disposer de l'autorisation `GetObject`, ce qui empêche Braze de générer des liens de téléchargement.
 
 Mettez à jour votre politique IAM afin que l'utilisateur ou le rôle d'intégration puisse appeler `s3:GetObject` sur le compartiment S3 et le chemin d'objet configurés dans votre intégration Braze. Pour d'autres problèmes d'exportation, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 

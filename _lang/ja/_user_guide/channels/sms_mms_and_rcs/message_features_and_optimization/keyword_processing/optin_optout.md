@@ -41,4 +41,4 @@ Brazeは以下のキーワードを自動的に処理し、すべての受信リ
 
 ## 自然言語によるオプトアウトの処理 {#handle-natural-language-opt-outs}
 
-[Braze Agent]({{site.baseurl}}/user_guide/brazeai/agents/)を作成して、標準キーワードやカスタムキーワードに該当しないオプトアウトの意図（「もうテキストを送らないでください」など）を感情分析によってキャプチャすることができます。手順については、[エージェントコンソールで自然言語によるオプトアウトを処理する]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console)を参照してください。
+[Braze エージェント]({{site.baseurl}}/user_guide/brazeai/agents/)を作成して、標準キーワードやカスタムキーワードに該当しないオプトアウトの意図（「もうテキストを送らないでください」など）を感情分析によってキャプチャすることができます。手順については、[エージェントコンソールで自然言語によるオプトアウトを処理する]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/#handle-natural-language-opt-outs-in-the-agent-console)を参照してください。

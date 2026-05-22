@@ -60,7 +60,7 @@ Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen
 | [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
 | [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
 | [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Geben Sie Ihre Nachrichtentypen an" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Geben Sie Ihre Nachrichtentypen an" }
 
 ## 3. Schritt: Content-Card verfassen {#step-3-compose-a-content-card}
 
@@ -133,7 +133,7 @@ Erstellen Sie den Rest Ihrer Kampagne. In den folgenden Abschnitten finden Sie w
 
 Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
+Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
 
 Wenn Sie festlegen, dass eine Karte nach einer bestimmten Dauer abläuft (z. B. nach zwei Wochen), wird die Ablaufzeit ab dem Sendezeitpunkt der Karte berechnet. Bei geplanten Kampagnen ist dies der geplante Startzeitpunkt. Bei aktionsbasierten Kampagnen ist dies der Zeitpunkt, zu dem die Nutzerin oder der Nutzer die auslösende Aktion ausführt. Wenn beispielsweise eine aktionsbasierte Karte heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
 

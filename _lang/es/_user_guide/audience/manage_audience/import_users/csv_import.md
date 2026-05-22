@@ -148,6 +148,10 @@ Los arrays, tokens de notificaciones push y tipos de datos de eventos personaliz
 Al importar atributos predeterminados, los encabezados de columna que utilices deben coincidir exactamente con la ortografía y las mayúsculas de los atributos de usuario predeterminados. De lo contrario, Braze los detectará como [atributos personalizados](#custom-attributes).
 {% endalert %}
 
+{% alert tip %}
+Para la lista completa de atributos estándar que Braze reconoce (a través de SDK, API, CSV e Ingesta de datos de Cloud), consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/). La siguiente tabla cubre solo el subconjunto que puede establecerse a través de la importación CSV.
+{% endalert %}
+
 Los siguientes atributos predeterminados están disponibles para la importación de usuarios.
 
 | Campo del perfil de usuario | Tipo de datos | Descripción | ¿Obligatorio? |

@@ -4,7 +4,7 @@ article_title: メッセージパーソナライゼーションパートナー
 page_order: 1
 
 page_type: landing
-description: "このランディングページには、BrazeのCampaignsやCanvasesに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
+description: "このランディングページには、Brazeのキャンペーンやキャンバスに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）がリストされています。"
 layout: partner_page
 search_tag: Partner
 

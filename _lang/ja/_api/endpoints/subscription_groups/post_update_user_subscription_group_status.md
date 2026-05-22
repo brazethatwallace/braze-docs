@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "この記事では、「ユーザーのサブスクリプショングループステータスの更新」Brazeエンドポイントの詳細について説明します。"
 ---
+
 {% api %}
 # ユーザーのサブスクリプショングループステータスの更新 {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ description: "この記事では、「ユーザーのサブスクリプション
 {% alert note %}
 このエンドポイントを[LINEサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)で使用することに興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## レート制限 {#rate-limit}
 

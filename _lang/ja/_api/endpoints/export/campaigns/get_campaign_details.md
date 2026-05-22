@@ -16,7 +16,7 @@ description: "この記事では、「キャンペーンの詳細のエクスポ
 
 > このエンドポイントを使用して、`campaign_id` で識別できる、指定されたキャンペーンの関連情報を取得します。
 
-Canvasデータを取得する場合は、[Canvasの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)エンドポイントを参照してください。
+キャンバスデータを取得する場合は、[キャンバスの詳細のエクスポート]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)エンドポイントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 

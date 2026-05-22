@@ -19,7 +19,7 @@ channel:
 
 {% api %}
 
-### Variação
+### Variante {#variation}
 
 {% apitags %}
 Count
@@ -33,7 +33,7 @@ Count
 
 {% api %}
 
-### Envio de e-mail
+### Envio de e-mail {#emailable}
 
 {% apitags %}
 Count
@@ -47,7 +47,7 @@ Count
 
 {% api %}
 
-### % de público
+### % de público {#audience}
 
 {% apitags %}
 Percentage
@@ -61,7 +61,7 @@ Percentage
 
 {% api %}
 
-### Destinatários únicos
+### Destinatários únicos {#unique-recipients}
 
 {% apitags %}
 Count
@@ -75,7 +75,7 @@ Count
 
 {% api %}
 
-### Envios
+### Envios {#sends}
 
 {% apitags %}
 Count
@@ -89,7 +89,7 @@ Count
 
 {% api %}
 
-### Mensagens enviadas
+### Mensagens enviadas {#messages-sent}
 
 {% apitags %}
 Count
@@ -103,7 +103,7 @@ Count
 
 {% api %}
 
-### Entregas
+### Entregas {#deliveries}
 
 {% apitags %}
 Count
@@ -131,7 +131,7 @@ Percentage
 
 {% api %}
 
-### Bounces
+### Bounces {#bounces}
 
 {% apitags %}
 Count, Percentage
@@ -157,7 +157,7 @@ Um bounce de e-mail para clientes que usam SendGrid consiste em hard bounces, sp
 
 {% api %}
 
-### Hard Bounce
+### Hard Bounce {#hard-bounce}
 
 {% apitags %}
 Count
@@ -173,7 +173,7 @@ Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o ende
 
 {% api %}
 
-### Soft Bounce
+### Soft Bounce {#soft-bounce}
 
 {% apitags %}
 Count
@@ -189,7 +189,7 @@ Embora os soft bounces não sejam rastreados na análise de dados da sua campanh
 
 {% api %}
 
-### Spam
+### Spam {#spam}
 
 {% apitags %}
 Count, Percentage
@@ -211,7 +211,7 @@ Count, Percentage
 
 {% api %}
 
-### Aberturas únicas
+### Aberturas únicas {#unique-opens}
 
 {% apitags %}
 Count, Percentage
@@ -233,7 +233,7 @@ Count, Percentage
 
 {% api %}
 
-### Cliques únicos
+### Cliques únicos {#unique-clicks}
 
 {% apitags %}
 Count, Percentage
@@ -255,7 +255,7 @@ Count, Percentage
 
 {% api %}
 
-### Cancelamentos de inscrição
+### Cancelamentos de inscrição {#unsubscribers-or-unsub}
 
 {% apitags %}
 Count, Percentage
@@ -275,11 +275,20 @@ _Cancelamentos de inscrição_ refletem o link padrão de cancelamento de inscri
 </span>
 {:/}
 
+#### Por que *Cancelamentos de inscrição* e cliques no link de cancelamento de inscrição podem ser diferentes {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
+
+Na página **Analytics** de uma campanha de e-mail ou Canvas, compare a contagem de *Cancelamentos de inscrição* com os cliques na URL de cancelamento de inscrição da Braze no detalhamento por link ao expandir **Total Clicks** ou **Unique Clicks**. Os dois valores geralmente coincidem, mas podem ser diferentes:
+
+- **Mais *Cancelamentos de inscrição* do que cliques na URL de cancelamento de inscrição no corpo:** O [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) é um caminho adicional de cancelamento de inscrição no cabeçalho do e-mail (não o link no corpo da mensagem). Quando um usuário cancela a inscrição dessa forma, isso conta para *Cancelamentos de inscrição*, mas não conta como um clique na URL de cancelamento de inscrição rastreada no corpo.
+- **Mais cliques na URL de cancelamento de inscrição no corpo do que *Cancelamentos de inscrição*:** Um usuário pode clicar nesse link mais de uma vez. Se ele cancelar a inscrição, se inscrever novamente e cancelar a inscrição outra vez, a análise de dados de e-mail pode registrar múltiplos cliques (por exemplo, dois) no detalhamento de cliques.
+
+Para saber mais, consulte [Por que estou vendo um número diferente de cancelamentos de inscrição em relação aos cliques no meu link de cancelamento de inscrição?]({{site.baseurl}}/user_guide/channels/email/faq/#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+
 {% endapi %}
 
 {% api %}
 
-### Receita
+### Receita {#revenue}
 
 {% apitags %}
 Count
@@ -293,7 +302,7 @@ Count
 
 {% api %}
 
-### Conversões primárias (A) ou evento de conversão primária
+### Conversões primárias (A) ou evento de conversão primária {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
 Count, Percentage
@@ -315,7 +324,7 @@ Count, Percentage
 
 {% api %}
 
-### Intervalo de confiança
+### Intervalo de confiança {#confidence}
 
 {% apitags %}
 Count
@@ -327,7 +336,7 @@ Count
 
 {% api %}
 
-### Aberturas por máquina
+### Aberturas por máquina {#machine-opens}
 
 {% multi_lang_include analytics/metrics.md metric='Machine Opens' %} Essa métrica é rastreada a partir de 11 de novembro de 2021 para SendGrid e 2 de dezembro de 2021 para SparkPost.
 
@@ -337,7 +346,7 @@ Count
 
 {% api %}
 
-### Outras aberturas
+### Outras aberturas {#other-opens}
 
 {% apitags %}
 Count
@@ -351,7 +360,7 @@ Count
 
 {% api %}
 
-### Taxa de clique por abertura
+### Taxa de clique por abertura {#click-to-open-rate}
 
 {% apitags %}
 Percentage

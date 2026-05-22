@@ -15,21 +15,29 @@ channel: email
 
 If multiple users with matching email addresses are in a segment to receive a campaign, a random user profile with that email address is selected at send time. This way, the email is sent only once and deduplicated, ensuring it doesn't reach the same email address multiple times.
 
+**Unique email addresses:** Braze doesn't enforce unique email addresses across profiles. If you rely on a one-to-one relationship between an email address and a profile, monitor for duplicates internally when creating users.
+
+**Deduplication before Liquid:** For sends where Braze deduplicates by email address within one dispatch (for example, scheduled campaigns where multiple segment members with the same address are processed together), that deduplication happens before Liquid runs for the profile chosen to represent that address. If Liquid aborts for that profile (for example with [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), that address does not receive the message on that dispatch—including profiles already skipped by deduplication. Triggered sends do not apply that same in-dispatch address deduplication; multiple profiles who share an address can all remain eligible in one batch, so this abort behavior does not apply the same way (see the next paragraph).
+
 If multiple profiles share an email address and one profile unsubscribes, Braze updates other profiles (up to 100) with that address to the same subscription state. This applies to unsubscribes and other changes such as global subscription state and individual subscription group statuses.
+
+**Seed Groups:** For campaigns with [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), Braze selects one profile for primary delivery when several profiles share an address. That primary recipient might not be in your Seed Group, even when another profile with the same address is.
 
 The following scenarios can make it seem like a user received an email twice:
 
-- **An error occurred during campaign or Canvas creation:** The user may not receive the literal same send twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, check email configuration details such as images or subject lines. You can also refer to changelogs to see if the campaign or Canvas was modified after launch—a duplicate may share the same subject line as the original when the user received it.
+- **An error occurred during campaign or Canvas creation:** The user may not receive the same send twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, check email configuration details such as images or subject lines. You can also refer to changelogs to see if the campaign or Canvas was modified after launch—a duplicate may share the same subject line as the original when the user received it.
 - **Multiple user profiles have email forwarding:** If a user has multiple accounts in a given app but one account forwards mail, the user receives the campaign once per inbox; mail can appear twice in the inbox where messages are forwarded. Only some providers indicate when an email was forwarded from another account.
 - **Email configuration at the recipient:** Some clients merge inboxes ("universal inbox"). If the same campaign targets multiple accounts that share one inbox, it can look like one person got the campaign twice when two distinct profiles were actually messaged. The recipient can confirm whether multiple accounts are combined in one inbox.
 
-Note that this deduplication occurs when the targeted users are included in the same dispatch. Triggered campaigns (excluding API-triggered campaigns) and Canvases may result in multiple sends to the same email address (even within a period when users could be excluded due to re-eligibility) if different users with matching email addresses log the trigger event at different times. For example, if user A and user B share the email `johndoe@example.com` but their profiles are in different time zones, when the campaign trigger event includes sending in a user's time zone, the email `johndoe@example.com` receives two emails.
+This deduplication applies when targeted users are in the same dispatch. Re-eligibility is evaluated per profile, not per email address. 
+
+Email campaign and Canvas step re-eligibility uses each user's profile—not the inbox—so multiple profiles can qualify for separate sends while that logic is satisfied. Combined with triggers, this can deliver more than one message to the same inbox even when you're trying to honor a single ineligibility period at the address level. Triggered campaigns (excluding API-triggered campaigns) and Canvases can also send twice to one address when different profiles with matching email addresses meet the trigger at different times—for example if user A and user B share `johndoe@example.com` but sit in different time zones while the delivery uses local time zones.
 
 Users are not deduped by email on Canvas entry, so they may not be deduped beyond the first step of a Canvas if they progress at slightly different times due to rate-limited entry. When a user associated with a given email address opens or clicks an email, all user profiles that share that email address are marked as having opened or clicked the campaign.
 
 #### Exception: API-triggered campaigns
 
-API-triggered campaigns will deduplicate or send deduplicates depending on where the audience is defined. Duplicate emails must be targeted separately in the API call using distinct `user_ids` to receive multiple details. Here are three possible scenarios for API-triggered campaigns:
+API-triggered campaigns will deduplicate or send deduplicates depending on where the audience is defined. Duplicate emails must be targeted separately in the API call using distinct `user_ids` to receive multiple deliveries. Here are three possible scenarios for API-triggered campaigns:
 
 - **Scenario 1: Duplicate emails in target segment:** If the same email appears in multiple user profiles that are grouped in the dashboard's audience filters for an API-triggered campaign, only one of the profiles receives the email.
 - **Scenario 2: Duplicate emails in different `user_ids` within recipients object:** If the same email appears within multiple `external_user_id` values referenced by the `recipients` object, the email is sent twice.
@@ -61,7 +69,7 @@ Finally, your business and the types of emails you send may also affect delivery
 
 Email delivery metrics (deliveries, bounces, and spam rate) may not add up to 100% because of emails that are soft bounced and then not delivered after the retry period of up to 72 hours.
 
-Soft bounces are emails that bounce due to a temporary or transient issue, such as "mailbox full," "server temporarily not available," and more. If a soft bounced email is still not delivered after 72 hours, this email will not be accounted for in the campaign delivery metrics.
+Soft bounces are emails that bounce due to a temporary or transient issue, such as "mailbox full," "server temporarily not available," and more. If a soft-bounced email is still not delivered after 72 hours, this email will not be accounted for in the campaign delivery metrics.
 
 ### What is an email feedback loop?
 
@@ -154,12 +162,12 @@ Gmail strips all non-HTTP/HTTPS links from email messages. If your deep link use
 To work around this:
 
 - **Use Universal Links (iOS) or App Links (Android).** These use standard `https://` URLs that open your app when installed and fall back to a web page otherwise. Refer to [Universal Links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/) for setup instructions.
-- **Use a deep linking provider.** Services like [Branch](https://www.branch.io/) generate HTTP-formatted deep links that are compatible with email clients including Gmail.
+- **Use a deep linking provider.** Services like [Branch](https://www.branch.io/) generate HTTP-formatted deep links that are compatible with email clients, including Gmail.
 - **Set up a redirect endpoint.** Host an `https://` endpoint on your server that redirects to your app's custom-scheme URL. Email clients will preserve the `https://` link, and the redirect handles opening the app.
 
 ### Does the *Unique Opens* metric include *Machine Opens*?
 
-No. *Unique Opens* count only [Other Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#other-opens), which excludes emails identified as machine opens. *Machine Opens* are tracked separately. In the **Campaign Analytics** view and **Report Builder**, you can view both metrics independently.
+Yes. *Unique Opens* include *Machine Opens*. You can view both metrics in the **Campaign Analytics** view and **Report Builder**.
 
 ### Why does my email delivery volume not match my send volume?
 

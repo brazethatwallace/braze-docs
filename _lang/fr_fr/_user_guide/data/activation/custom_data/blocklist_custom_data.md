@@ -20,11 +20,9 @@ Pour bloquer des données personnalisées, vous devez disposer des [autorisation
 
 {% details Autorisations utilisateur pour le blocage de données personnalisées %}
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
-- Afficher les Campaigns
-- Modifier les Campaigns
-- Archiver les Campaigns
+- Afficher les campagnes
+- Modifier les campagnes
+- Archiver les campagnes
 - Afficher les Canvas
 - Modifier les Canvas
 - Archiver les Canvas
@@ -36,8 +34,8 @@ Pour bloquer des données personnalisées, vous devez disposer des [autorisation
 - Afficher les indicateurs de fonctionnalité
 - Modifier les indicateurs de fonctionnalité
 - Archiver les indicateurs de fonctionnalité
-- Afficher les Segments
-- Modifier les Segments
+- Afficher les segments
+- Modifier les segments
 - Afficher les modèles IAM
 - Modifier les modèles IAM
 - Archiver les modèles IAM
@@ -69,7 +67,7 @@ Les données bloquées ne sont pas envoyées par le SDK, et le tableau de bord d
 ### Bloquer des attributs personnalisés, des événements personnalisés et des produits {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-Lorsqu'un événement ou un attribut est bloqué, tout Segment, toute Campaign ou tout Canvas utilisant cet événement ou attribut est archivé.
+Lorsqu'un événement ou un attribut est bloqué, tout segment, toute Campaign ou tout Canvas utilisant cet événement ou attribut est archivé.
 {% endalert %}
 
 Pour arrêter le suivi d'un attribut personnalisé, d'un événement ou d'un produit spécifique, suivez ces étapes :
@@ -104,7 +102,7 @@ Jusqu'à 300 éléments sont envoyés au SDK pour le blocage. Si vous bloquez pl
 
 ## Supprimer des données personnalisées {#deleting-custom-data}
 
-Lorsque vous créez des Campaigns et des Segments ciblés, il se peut que vous n'ayez plus besoin d'un événement personnalisé ou d'un attribut personnalisé. Par exemple, si vous avez utilisé un attribut personnalisé spécifique dans le cadre d'une Campaign ponctuelle, vous pouvez supprimer ces données après les avoir [bloquées](#blocklisting-custom-attributes-custom-events-and-products) et avoir retiré leurs références de votre application. Vous pouvez supprimer tous les types de données (tels que les chaînes de caractères, les nombres et les attributs personnalisés imbriqués).
+Lorsque vous créez des Campaigns et des segments ciblés, il se peut que vous n'ayez plus besoin d'un événement personnalisé ou d'un attribut personnalisé. Par exemple, si vous avez utilisé un attribut personnalisé spécifique dans le cadre d'une Campaign ponctuelle, vous pouvez supprimer ces données après les avoir [bloquées](#blocklisting-custom-attributes-custom-events-and-products) et avoir retiré leurs références de votre application. Vous pouvez supprimer tous les types de données (tels que les chaînes de caractères, les nombres et les attributs personnalisés imbriqués).
 
 {% alert important %}
 Vous devez être [administrateur Braze]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) pour supprimer des données personnalisées.

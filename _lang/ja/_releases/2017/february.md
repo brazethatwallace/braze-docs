@@ -8,13 +8,13 @@ description: "この記事には2017年2月のリリースノートが含まれ�
 
 # 2017年2月 {#february-2017}
 
-## 起動後にCanvasステップを追加する {#add-canvas-steps-after-launch}
+## 起動後にキャンバスステップを追加する {#add-canvas-steps-after-launch}
 
-Canvasの起動後でも、既存のステップに[Canvasステップを追加]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#creating-a-canvas)できるようになりました。
+キャンバスの起動後でも、既存のステップに[キャンバスステップを追加]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#creating-a-canvas)できるようになりました。
 
 ## エンゲージメントレポートの一括CSV {#bulk-csv-for-engagement-reports}
 
-[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)を使用して、CampaignデータのCSVを一括でエクスポートできるようになりました。Canvasデータもエンゲージメントレポートからエクスポートできます。
+[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)を使用して、キャンペーンデータのCSVを一括でエクスポートできるようになりました。キャンバスデータもエンゲージメントレポートからエクスポートできます。
 
 ## 最後に受信したアプリ内メッセージでフィルタリングする {#filter-by-last-received-in-app-message}
 

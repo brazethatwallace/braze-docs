@@ -23,7 +23,7 @@ search_tag: Partner
 
 ## ユースケース {#use-cases}
 
-KameleoonはカスタムイベントをBrazeに送信し、実験やパーソナライゼーションCampaignsに参加しているユーザーを特定することで、より正確なターゲティングとパーソナライズされたメッセージングを可能にします。
+KameleoonはカスタムイベントをBrazeに送信し、実験やパーソナライゼーションキャンペーンに参加しているユーザーを特定することで、より正確なターゲティングとパーソナライズされたメッセージングを可能にします。
 
 ## Kameleoonの統合 {#integrating-kameleoon}
 
@@ -51,7 +51,7 @@ Brazeツールを有効にするプロジェクトを選択し、Kameleoonデー
 この機能はベータ版です。[Kameleoonベータプログラム](https://help.kameleoon.com/account-and-team-management/join-beta-program/)に参加して、この統合の使用を開始してください。
 {% endalert %}
 
-### ステップ 3: BrazeをKameleoon Campaignsに関連付ける {#step-3-associate-braze-with-kameleoon-campaigns}
+### ステップ 3: BrazeをKameleoon キャンペーンに関連付ける {#step-3-associate-braze-with-kameleoon-campaigns}
 
 #### グラフィック/コードエディターで {#in-the-graphiccode-editor}
 
@@ -91,7 +91,7 @@ Brazeを実験のレポートツールとして設定した後、**Experiment co
 
 ![Brazeのカスタムイベントユーザーログ。KameleoonからBrazeが受信したイベントのペイロード例が表示されています。]({% image_buster /assets/img/kameleoon/img_9.png %})
 
-このデータをカスタムイベントで表示し、カスタムイベントレポートを作成してKameleoon Campaignへの露出を特定し、イベントプロパティに基づくセグメンテーションを有効にできます。カスタムイベントは、[アクションパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups)、[アクションベースのトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)、または[Segmentsの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)を通じて、後続またはリンクされたCampaignsやCanvasesを作成する際に使用できます。
+このデータをカスタムイベントで表示し、カスタムイベントレポートを作成してKameleoon キャンペーンへの露出を特定し、イベントプロパティに基づくセグメンテーションを有効にできます。カスタムイベントは、[アクションパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups)、[アクションベースのトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)、または[セグメントの作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)を通じて、後続またはリンクされたキャンペーンやキャンバスを作成する際に使用できます。
 
 さらに、これらのイベントは[Currentsカスタムイベントオブジェクト]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)を介してアクセスでき、包括的なレポートと分析が可能になります。
 
@@ -112,7 +112,7 @@ Brazeを実験のレポートツールとして設定した後、**Experiment co
    <tbody>
       <tr>
          <td><strong>件名</strong></td>
-         <td>Request to Enable Event Property Segmentation for Kameleoon Integration</td>
+         <td>Request to Enable Event Property セグメントation for Kameleoon Integration</td>
       </tr>
       <tr>
          <td><strong>本文</strong></td>
