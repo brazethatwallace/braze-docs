@@ -106,7 +106,7 @@ Con los SDK de Braze, puedes hacer un seguimiento de eventos personalizados o at
         <ul>
           <li>Marcas o productos favoritos</li>
           <li>Categorías de compra preferidas</li>
-          <li>Membresía o estado de fidelización</li>
+          <li>Estado de membresía o fidelización</li>
         </ul>
       </td>
     </tr>

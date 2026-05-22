@@ -2631,7 +2631,7 @@ Dieses Ereignis tritt ein, wenn Nutzer:innen einen Schritt in einem Canvas mit e
 
 {% api %}
 
-## Banner-Abbruchereignisse {#banner-abort-events}
+## Banner-Abbruch-Ereignisse {#banner-abort-events}
 
 {% apitags %}
 Banner, Abort
@@ -7766,10 +7766,10 @@ Dieses Ereignis tritt ein, wenn ein Internet-Provider einen Soft Bounce zurückg
 Email, Subscription
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn die Endnutzer:in in der E-Mail auf „Abmelden“ geklickt hat.
+Dieses Ereignis tritt ein, wenn Endnutzer:innen in der E-Mail auf „Abmelden“ geklickt haben.
 
 {% alert important %}
-Das `Unsubscribe`-Ereignis wird als spezielles Klickereignis betrachtet, das ausgelöst wird, wenn die Nutzer:in auf den Abmeldelink in der E-Mail klickt (entweder einen normalen Abmeldelink im E-Mail-Text oder in der Fußzeile oder über den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), nicht jedoch, wenn die Nutzer:in ihren Status auf „abgemeldet“ ändert. Wenn eine Änderung des Abo-Status über die API oder über einen benutzerdefinierten (nicht von Braze stammenden) Abmeldelink gesendet wird, löst dies kein E-Mail-Abmeldeereignis in Currents aus.
+Das `Unsubscribe`-Ereignis wird als spezielles Klickereignis betrachtet, das ausgelöst wird, wenn Nutzer:innen auf den Abmeldelink in der E-Mail klicken (entweder einen normalen Abmeldelink im E-Mail-Text oder in der Fußzeile oder über den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), nicht jedoch, wenn Nutzer:innen ihren Status auf „abgemeldet“ ändern. Wenn eine Änderung des Abo-Status über die API oder über einen benutzerdefinierten (nicht von Braze stammenden) Abmeldelink gesendet wird, löst dies kein E-Mail-Abmeldeereignis in Currents aus.
 {% endalert %}
 
 {% tabs %}
@@ -14777,7 +14777,7 @@ Dieses Ereignis tritt ein, wenn eine Ihrer Nutzer:innen eine SMS an eine Telefon
 
 Wenn Braze eine eingehende SMS empfängt, wird diese eingehende Nachricht allen Nutzer:innen zugeordnet, die diese Telefonnummer teilen. Daher erhalten Sie möglicherweise mehrere Ereignisse pro eingehender Nachricht, wenn mehrere Nutzer:innen in Ihrer Braze-Instanz dieselbe Telefonnummer haben. Wenn Sie eine Attribution bestimmter Nutzer-IDs auf der Grundlage früherer Nachrichten an diese Nutzer:innen benötigen, können Sie das SMS-Zustellungsereignis verwenden, um eingehende Empfangsereignisse der Nutzer-ID zuzuordnen, die zuletzt eine Nachricht von Ihrer Braze-Nummer erhalten hat.
 
-Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgehende Campaign oder Canvas-Komponente ist, die über Braze gesendet wurde, werden dem Ereignis auch die Metadaten der Campaign oder des Canvas beigefügt. Braze definiert eine Antwort als eine eingehende Nachricht, die innerhalb von vier Stunden nach einer ausgehenden Nachricht eingeht. Allerdings gibt es einen einminütigen Cache für die zugeordneten Campaign-Informationen der zuletzt gesendeten ausgehenden SMS-Nachricht von Ihrer Braze-Nummer.
+Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgehende Campaign oder Canvas-Komponente ist, die über Braze gesendet wurde, werden dem Ereignis auch die Metadaten der Campaign oder des Canvas beigefügt. Braze definiert eine Antwort als eine eingehende Nachricht, die innerhalb von vier Stunden nach einer ausgehenden Nachricht eingeht. Allerdings gibt es einen einminütigen Cache für die zugeordneten Campaign-Informationen der zuletzt gesendeten ausgehenden SMS.
 
 
 {% tabs %}
@@ -15265,7 +15265,6 @@ Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenf
 {% endapi %}
 
 {% api %}
-
 ## SMS-Wiederholungsereignisse {#sms-retry-events}
 
 {% apitags %}
@@ -15479,7 +15478,6 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 {% endapi %}
 
 {% api %}
-
 ## SMS-Versandereignisse {#sms-send-events}
 
 {% apitags %}

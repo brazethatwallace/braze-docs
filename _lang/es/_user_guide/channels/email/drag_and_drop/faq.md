@@ -46,7 +46,11 @@ El editor de arrastrar y soltar actualmente admite dos capas. Puedes establecer 
 
 ### ¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de crearlo dentro de mi campaña o Canvas? {#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-No, debes recrear el correo electrónico en **Plantillas de correo electrónico** para guardarlo.
+No. No puedes guardar un correo electrónico de arrastrar y soltar desde una campaña o Canvas como una **plantilla de correo electrónico** de arrastrar y soltar en **Templates** > **Email Templates**. Recrea el diseño en **Templates** > **Email Templates**, o la próxima vez comienza desde una plantilla guardada. Para obtener instrucciones, consulta [Crear una plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/).
+
+Si necesitas una plantilla HTML reutilizable, selecciona **Download file** mientras editas el cuerpo de arrastrar y soltar, abre el HTML del archivo ZIP y pega el código en una [plantilla de correo electrónico HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/) usando el editor de código HTML. Vuelve a verificar el Liquid, los enlaces y los activos alojados después.
+
+Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates/).
 
 ### ¿Puedo agregar archivos adjuntos de correo electrónico en el editor de arrastrar y soltar? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 

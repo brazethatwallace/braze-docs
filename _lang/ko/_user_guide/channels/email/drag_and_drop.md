@@ -76,6 +76,10 @@ tool:
 
 이메일 메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟 메시징 캠페인에 적합하고, Canvases는 다단계 사용자 여정에 적합합니다.
 
+{% alert note %}
+드래그 앤 드롭 이메일을 Campaign 또는 Canvas에서 직접 **템플릿** > **이메일 템플릿**에 이메일 템플릿으로 저장할 수 없습니다. 먼저 **템플릿**에서 작성하거나, [Campaign 또는 Canvas에서 작성한 드래그 앤 드롭 이메일을 템플릿으로 저장할 수 있나요?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas)를 참조하여 드래그 앤 드롭 템플릿을 다시 만들거나 **파일 다운로드**로 HTML을 내보내세요.
+{% endalert %}
+
 메시지를 작성할 위치를 선택한 후, 드래그 앤 드롭 이메일을 만드는 단계를 살펴보겠습니다.
 
 ### 1단계: 템플릿 선택 {#step-1-select-your-template}

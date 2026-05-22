@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs' \
 ```
 
 {% alert note %}
-El tipo de datos `geo` almacena una coordenada geográfica como una matriz con el formato `[longitude, latitude]`.
+El tipo de datos `geo` almacena una coordenada geográfica como una matriz con el formato `[longitude, latitude]`. Por ejemplo, `[-73.988103, 40.779109]`.
 {% endalert %}
 
 ## Respuesta {#response}

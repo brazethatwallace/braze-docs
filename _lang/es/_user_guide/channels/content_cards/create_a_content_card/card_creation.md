@@ -131,6 +131,10 @@ Esta sección describe las principales diferencias entre la creación de tarjeta
 
 ## Consideraciones {#considerations}
 
+### Campañas multicanal {#multichannel-campaigns}
+
+Las campañas multicanal no admiten tarjetas en la primera impresión, por lo que todas las Content Cards se envían en el lanzamiento de la campaña.
+
 ### Uso de propiedades de contexto de Canvas {#using-canvas-context-properties}
 
 Al personalizar Content Cards con [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), usa la sintaxis `${...}` (por ejemplo, {%raw%}`{{context.${property_name}}}`{%endraw%}). La notación de punto sin la sintaxis (por ejemplo, {%raw%}`{{context.property_name}}`{%endraw%}) puede no resolverse correctamente en las Content Cards, aunque funcione en otros canales como push y correo electrónico.
@@ -143,7 +147,7 @@ Braze recomienda no cambiar cómo se crean las tarjetas después de que se haya 
 
 Para audiencias grandes, selecciona la opción de crear tarjetas en la primera impresión para que las tarjetas estén disponibles rápidamente después del lanzamiento. Las campañas desencadenadas al inicio de sesión también pueden beneficiarse de cambiar a la creación en la primera impresión (disponible a través de la entrega planificada) para mejorar el rendimiento.
 
-Cuando las tarjetas se crean en la primera impresión, puede tardar 1-2 segundos en procesarse. La duración de este tiempo de procesamiento depende de varios factores, como el tamaño de la tarjeta y la complejidad de las opciones de plantilla del mensaje. Por ejemplo, el tiempo de procesamiento para tarjetas que usan contenido conectado será al menos tan largo como el tiempo de respuesta del contenido conectado.
+Cuando las tarjetas se crean en la primera impresión, puede tardar unos segundos en procesarse. La duración de este tiempo de procesamiento depende de varios factores, como el tamaño de la tarjeta y la complejidad de las opciones de plantilla del mensaje. Por ejemplo, el tiempo de procesamiento para tarjetas que usan contenido conectado es al menos tan largo como el tiempo de respuesta del contenido conectado.
 
 ### Versiones anteriores del SDK {#previous-sdk-versions}
 

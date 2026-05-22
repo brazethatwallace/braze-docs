@@ -599,7 +599,7 @@ El webhook de pago completado de Shopify no contiene URL de productos ni URL de 
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -650,7 +650,7 @@ El webhook de pago completado de Shopify no contiene URL de productos ni URL de 
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -684,7 +684,7 @@ El webhook de pago completado de Shopify no contiene URL de productos ni URL de 
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -721,7 +721,7 @@ El webhook de pago completado de Shopify no contiene URL de productos ni URL de 
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
@@ -746,7 +746,7 @@ El webhook de pago completado de Shopify no contiene URL de productos ni URL de 
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ El webhook de pago completado de Shopify no contiene URL de productos ni URL de 
 | Variable | Plantilla Liquid |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert note %}

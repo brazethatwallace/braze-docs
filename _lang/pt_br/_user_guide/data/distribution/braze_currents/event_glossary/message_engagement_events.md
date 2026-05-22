@@ -2428,7 +2428,7 @@ Esse evento ocorre quando um usuário entra em um caminho de etapa de experiment
 Canvas, Progression
 {% endapitags %}
 
-Esse evento ocorre quando um usuário avança em uma etapa do Canvas com algum resultado. Note que esse evento não ocorre quando as etapas são inseridas ou encerradas. Atualmente, apenas as etapas divididas (Jornadas do público, Divisão de decisão, Jornadas de ação, Experimento) e os resultados avançados geram eventos de progressão de etapas.
+Esse evento ocorre quando um usuário avança em uma etapa do Canvas com algum resultado. Note que esse evento não ocorre quando as etapas são inseridas ou encerradas. Atualmente, apenas as etapas de divisão (Jornadas do público, Divisão de decisão, Jornadas de ação, Experimento) e os resultados de avanço geram eventos de progressão de etapas.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7769,7 +7769,7 @@ Email, Subscription
 Esse evento ocorre quando o usuário final clica em "cancelar inscrição" no e-mail.
 
 {% alert important %}
-O evento `Unsubscribe` é considerado um evento de clique especializado que é acionado quando o usuário clica no link de cancelamento de inscrição no e-mail (seja um link de cancelamento de inscrição normal dentro do corpo ou rodapé do e-mail, ou usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), e não quando o usuário muda o estado para cancelado. Se a mudança de estado de inscrição for enviada pela API, ou com um link de cancelamento de inscrição personalizado (não-Braze), isso não aciona um evento de cancelamento de inscrição de e-mail no Currents.
+O evento `Unsubscribe` é considerado um evento de clique especializado que é acionado quando o usuário clica no link de cancelamento de inscrição no e-mail (seja um link de cancelamento de inscrição normal dentro do corpo ou rodapé do e-mail, ou usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), e não quando o usuário muda o estado para cancelado. Se a mudança de estado de inscrição for enviada pela API, ou com um link de cancelamento de inscrição personalizado (não-Braze), isso não aciona um evento de cancelamento de inscrição de e-mail no Currents.
 {% endalert %}
 
 {% tabs %}
@@ -12880,7 +12880,7 @@ Este evento é criado quando uma mensagem RCS é entregue com sucesso ao disposi
 
 #### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como envio, bounce e abertura).
 
 {% endapi %}
 
@@ -14777,7 +14777,7 @@ Esse evento ocorre quando um dos seus usuários envia um SMS para um número de 
 
 Quando a Braze recebe um SMS de entrada, ela atribui essa mensagem a qualquer usuário que compartilhe esse número de telefone. Como resultado, você poderá receber vários eventos por mensagem de entrada se vários usuários na sua instância da Braze compartilharem o mesmo número de telefone. Se for necessária a atribuição de IDs de usuários específicos com base em mensagens anteriores enviadas a esse usuário, é possível usar o evento SMS Delivered para atribuir eventos Inbound Received ao ID do usuário que recebeu mais recentemente uma mensagem do seu número Braze.
 
-Se a Braze detectar que essa mensagem de entrada é uma resposta a uma Campaign ou componente do Canvas de saída enviado pela Braze, ela também incluirá os metadados da Campaign ou do Canvas no evento. A Braze define uma resposta como uma mensagem de entrada recebida dentro de quatro horas após uma mensagem de saída. No entanto, há um cache de um minuto para as informações de atribuição da Campaign referentes à última mensagem SMS de saída enviada pelo seu número Braze.
+Se a Braze detectar que essa mensagem de entrada é uma resposta a uma Campaign ou componente do Canvas de saída enviado pela Braze, ela também incluirá os metadados da Campaign ou do Canvas no evento. A Braze define uma resposta como uma mensagem de entrada recebida dentro de quatro horas após uma mensagem de saída. No entanto, há um cache de um minuto para as informações de atribuição da Campaign referentes ao último SMS de saída recebido.
 
 
 {% tabs %}
@@ -15265,6 +15265,7 @@ A Braze emite `users.messages.sms.Rejection` para Currents, Compartilhamento de 
 {% endapi %}
 
 {% api %}
+
 ## Eventos de retry de SMS {#sms-retry-events}
 
 {% apitags %}
@@ -15478,6 +15479,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 {% endapi %}
 
 {% api %}
+
 ## Eventos de envio de SMS {#sms-send-events}
 
 {% apitags %}

@@ -9,11 +9,11 @@ platform: API
 
 ---
 
-# Distribution déclenchée par API
+# Distribution déclenchée par API {#api-triggered-delivery}
 
 > Les campagnes déclenchées par API, ou campagnes déclenchées par le serveur, sont idéales pour les cas d'utilisation transactionnels plus avancés. Les campagnes Braze déclenchées par API permettent aux marketeurs de gérer le contenu des campagnes, les tests multivariés et les règles de rééligibilité depuis le tableau de bord de Braze, tout en déclenchant la distribution de ce contenu depuis leurs propres serveurs et systèmes. La requête API qui déclenche le message peut également inclure des données supplémentaires à intégrer dynamiquement dans le message en temps réel.
 
-## Configurer une campagne déclenchée par API
+## Configurer une campagne déclenchée par API {#setting-up-an-api-triggered-campaign}
 
 La configuration d'une campagne déclenchée par API se fait en quelques étapes. Commencez par créer une nouvelle campagne multicanale ou monocanale (avec test multivarié).
 
@@ -25,14 +25,15 @@ Ensuite, configurez votre contenu et vos notifications de la même manière que 
 
 ![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
-## Utiliser le contenu modélisé inclus dans une requête API
+## Utiliser le contenu modélisé inclus dans une requête API {#using-the-templated-content-included-with-an-api-request}
 
-En plus de déclencher le message, vous pouvez également inclure du contenu dans la requête API pour qu'il soit intégré au message via l'objet `trigger_properties`. Ce contenu peut être référencé dans le corps du message. Par exemple, vous pouvez inclure :
-``{% raw %} {{ api_trigger_properties.${ some_value_included_with_request }}} {% endraw %}``. Consultez l'exemple de notification sociale ci-dessous pour plus de contexte :
+En plus de déclencher le message, vous pouvez également inclure du contenu dans la requête API pour qu'il soit intégré au message via l'objet `trigger_properties`. Ce contenu peut être référencé dans le corps du message. Utilisez exactement deux accolades par étiquette Liquid dans `trigger_properties` et dans le contenu du message. Par exemple : {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Une accolade `{` ou `}` en trop est une cause fréquente d'[échecs de personnalisation déclenchée par API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+
+Consultez l'exemple de notification sociale ci-dessous pour plus de contexte.
 
 ![La propriété de déclenchement mentionnée ci-dessus, incluse dans le message pour remplir automatiquement le nom de l'utilisateur, suivie du texte : « liked your photo! Click here to see what they've been up to. ».]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
 
-## Rééligibilité pour les campagnes déclenchées par API
+## Rééligibilité pour les campagnes déclenchées par API {#re-eligibility-with-api-triggered-campaigns}
 
 Le nombre de fois qu'un utilisateur reçoit une campagne déclenchée par API peut être limité grâce aux paramètres de rééligibilité. Cela signifie que l'utilisateur ne recevra la campagne qu'une seule fois, ou une seule fois dans une période donnée, quel que soit le nombre de fois où le déclencheur API est activé.
 

@@ -175,7 +175,7 @@ Você deve criar um endpoint público que a Braze possa chamar para recuperar o 
 
 A Braze envia os seguintes parâmetros para seu endpoint:
 
-| Parâmetro            | Obrigatória | Tipo de dados | Descrição                                                      |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |----------------------|----------|-----------|------------------------------------------------------------------|
 | shopify_customer_id  | Sim      | String    | O ID do cliente da Shopify.                                         |
 | shopify_storefront   | Sim      | String    | O nome da loja para a solicitação. Ex: `<storefront_name>.myshopify.com` |

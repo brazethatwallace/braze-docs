@@ -190,6 +190,14 @@ Las campañas activadas por API te permiten gestionar el texto de la campaña, l
 
 Las campañas de API se usan para rastrear los mensajes enviados usando la API. A diferencia de la mayoría de las campañas, no especificas el mensaje, los destinatarios ni la programación, sino que pasas los identificadores en tus llamadas a la API.
 
+### ¿Cómo puedo confirmar si mis usuarios recibieron una campaña activada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Puedes [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando el filtro **Received Campaign** y luego seleccionar la campaña activada por API específica que deseas verificar. Después de guardar el segmento, usa el [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar los usuarios en ese segmento.
+
+### ¿Puedo eliminar una campaña? {#can-i-delete-a-campaign}
+
+No, pero puedes [archivar una campaña]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### ¿Cuál es la diferencia entre campañas basadas en acciones y campañas activadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
