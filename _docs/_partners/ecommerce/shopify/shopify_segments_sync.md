@@ -76,4 +76,4 @@ For details on how the Shopify integration identifies and aliases users, see [Sh
 
 - **One-way sync.** Segment membership flows from Shopify to Braze only. Changes to cohort membership made directly in Braze are not pushed back to Shopify.
 - **No profile creation.** Only Shopify customers who already have a Braze user profile are added to the cohort.
-- **No unsync.** When a Shopify segment is synced, it cannot be unsynced.
+- **No undoing syncs.** When a Shopify segment is synced, it cannot be undone.
