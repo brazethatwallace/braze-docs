@@ -315,18 +315,6 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 	#nav_top > .nav-item {
 		padding-top: 4px;
 		width: 100%;
-		div {
-			width: fit-content;
-		}
-		div.nav_item_row,
-		div.nav_reg,
-		div.nav_block,
-		div.nav {
-			width: 100%;
-		}
-		div.nav-item {
-			width: 100%;
-		}
 		a.nav_toggle i {
 			width: 15px;
 			text-align: center;
@@ -574,18 +562,6 @@ $nav-focus-offset-rail: 0; // main rail toggle â€” ring hugs 40px target (less â
 					}
 				}
 
-			div {
-				width: fit-content;
-			}
-			div.nav_item_row,
-			div.nav_reg,
-			div.nav_block,
-			div.nav {
-				width: 100%;
-			}
-			div.nav-item {
-				width: 100%;
-			}
 			&.active_parent {
 					a {
 						font-family: $braze-regular;
