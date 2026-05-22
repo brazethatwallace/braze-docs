@@ -1574,7 +1574,10 @@ Push, Token State Change
 - `push_token_foreground_push_disabled` 필드는 푸시 토큰이 포그라운드 또는 백그라운드 푸시를 받을 수 있는지를 나타냅니다.
   - 사용자가 기기에서 푸시 알림 권한을 명시적으로 허용한 경우, 이 값은 `false`이며 토큰은 포그라운드 푸시 알림을 받을 수 있습니다.
   - 사용자가 기기에서 푸시 알림 권한을 명시적으로 거부한 경우, 이 값은 `true`이며 토큰은 백그라운드 푸시 알림만 허용됩니다.
-  - 푸시 권한이 알려지지 않은 경우, 이 값은 비어 있습니다. 기본적으로 Braze는 토큰에 포그라운드 푸시 알림을 보내려고 시도합니다.
+  - 푸시 권한이 아직 결정되지 않은 경우(예: 사용자가 OS 프롬프트에 응답하지 않은 경우), 이 값은 `true`이며 토큰은 백그라운드 푸시 알림만 허용됩니다.
+  - 이 필드는 아직 권한 상태를 보고하지 않은 이전 SDK 토큰 등록 및 웹 푸시 토큰의 경우 `null`(또는 대상 형식에 따라 비어 있음)일 수 있습니다. `null`은 `false`(포그라운드 푸시 가능)와 동일하게 처리하세요. Braze는 여전히 해당 토큰에 포그라운드 푸시 알림을 전송하려고 시도하기 때문입니다.
+  - 푸시 전송 시도는 이 필드를 업데이트하지 않습니다. 전송이 성공하면 `TokenStateChange` 이벤트가 발생하지 않습니다. 토큰이 유효하지 않아 전송이 반송되면, Braze는 "remove" 이벤트를 발생시키고 토큰을 삭제합니다.
+  - 이 필드는 SDK에서 토큰 상태 업데이트를 수집할 때만 변경됩니다(예: 푸시 권한 상태를 보고하는 이후 세션 동기화).
 - `push_token_provisionally_opted_in` 필드는 iOS 푸시 토큰에만 적용됩니다.
   - [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)이 설정되어 있으면, 임시 토큰은 이 필드가 `true`로 설정됩니다. 다른 모든 푸시 토큰은 `false`가 됩니다.
 - `sdk_version` 필드는 토큰 상태 변경이 SDK에 의해 시작된 경우에만 채워집니다.
@@ -1588,9 +1591,15 @@ Push, Token State Change
 
 새 토큰이 등록될 때 "add" 이벤트가 수집됩니다. 사용자가 새 기기에서 앱을 처음 열거나, 이전에 토큰이 없었던 사용자에 대해 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 통해 `push_tokens`로 설정될 때 발생합니다.
 
+{% alert note %}
+iOS Swift SDK 13.3.0 이상 및 Android SDK 40.0.0 이상에서는 푸시 권한 상태와 푸시 토큰이 함께 전송됩니다. 이러한 SDK의 새 등록에서는 "add" 이벤트에 `push_token_foreground_push_disabled`가 채워집니다(일반적으로 알림이 활성화된 경우 `false`).<br><br>
+
+이전 토큰 등록에서는 SDK가 나중에 푸시 권한 상태를 보고할 때까지 이 필드가 `null`일 수 있습니다. 웹 푸시 토큰도 설계상 이 필드가 `null`일 수 있습니다.
+{% endalert %}
+
 ##### 업데이트 {#update}
 
-기존 토큰의 등록정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`.
+기존 토큰의 등록정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`. 이러한 업데이트는 토큰 상태 동기화 이벤트(예: SDK가 새 권한 상태를 보고할 때)에서 발생하며, 푸시 전송 결과에서 발생하지 않습니다.
 
 {% alert note %}
 대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 Campaign 전송을 통해 나중에 정리됩니다.<br><br>
@@ -1605,6 +1614,8 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 - 푸시 반송(APNs, FCM 또는 HMS가 토큰을 유효하지 않거나 만료된 것으로 보고함)
 - 사일런트 푸시를 통한 제거 감지
 - REST API 또는 APNs 피드백 서비스를 통해 토큰이 제거됨
+
+푸시 반송으로 인해 토큰이 제거되면, Braze는 해당 토큰에 대해 `push_token_state_change_type = "remove"`를 발생시킵니다. `push_token_foreground_push_disabled`를 변경하는 "update" 이벤트는 발생시키지 않습니다.
 
 ##### 추가 및 제거 쌍 {#add-and-remove-pairs}
 

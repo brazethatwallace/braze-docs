@@ -17,7 +17,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Endpunkt „Live-Aktivit�
 
 > Verwenden Sie diesen Endpunkt, um [Live-Aktivitäten]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift), die in Ihrer iOS-App angezeigt werden, aus der Ferne zu starten. Dieser Endpunkt erfordert eine zusätzliche Einrichtung.
 
-Nachdem Sie eine Live-Aktivität erstellt haben, können Sie eine POST-Anfrage senden, um Ihre Aktivität für ein bestimmtes Segment aus der Ferne zu starten. Weitere Informationen über die Live-Aktivitäten von Apple finden Sie unter [Starten und Aktualisieren von Live-Aktivitäten mit Push-Benachrichtigungen von ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
+Nachdem Sie eine Live-Aktivität erstellt haben, können Sie eine POST-Anfrage senden, um Ihre Aktivität für ein Segment, eine verbundene Zielgruppe oder bestimmte externe Nutzer-IDs aus der Ferne zu starten. Weitere Informationen über die Live-Aktivitäten von Apple finden Sie unter [Starten und Aktualisieren von Live-Aktivitäten mit Push-Benachrichtigungen von ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
 Wenn `content-available` nicht festgelegt ist, beträgt die Standardpriorität des Apple-Push-Benachrichtigungs-Dienstes (APNs) 10. Wenn `content-available` gesetzt ist, beträgt diese Priorität 5. Weitere Details finden Sie unter [Apple-Push-Objekt]({{site.baseurl}}/api/objects_filters/messaging/apple_object/).
 
@@ -79,10 +79,12 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 | `content_state` | Erforderlich | Objekt | Sie definieren die `ContentState`-Parameter, wenn Sie Ihre Live-Aktivität erstellen. Übergeben Sie die aktualisierten Werte für Ihren `ContentState` mit diesem Objekt.<br><br>Das Format dieser Anfrage muss mit der Struktur übereinstimmen, die Sie ursprünglich definiert haben. |
 | `stale_date` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Dieser Parameter teilt dem System mit, wann der Inhalt der Live-Aktivität in der UI der Nutzer:innen als veraltet markiert wird. |
 | `notification` | Erforderlich | Objekt | Fügen Sie ein [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)-Objekt ein, um eine Push-Benachrichtigung zu definieren. Das Verhalten dieser Push-Benachrichtigung hängt davon ab, ob die Nutzer:innen aktiv sind oder ein Proxy-Gerät verwenden. {::nomarkdown}<ul><li>Wenn eine <code>notification</code> enthalten ist und die Nutzer:innen auf ihrem iPhone aktiv sind, wenn das Update zugestellt wird, wird die aktualisierte Live-Aktivitäts-UI nach unten geschoben und wie eine Push-Benachrichtigung angezeigt.</li><li>Wenn eine <code>notification</code> enthalten ist und die Nutzer:innen auf ihrem iPhone nicht aktiv sind, leuchtet der Bildschirm auf und zeigt die aktualisierte Live-Aktivitäts-UI auf dem Sperrbildschirm an.</li><li>Der <code>notification alert</code> wird nicht als normale Push-Benachrichtigung angezeigt. Wenn Nutzer:innen ein Proxy-Gerät wie eine Apple Watch besitzen, wird der <code>alert</code> dort angezeigt.</li></ul>{:/} |
-| `external_user_ids` | Optional, wenn `segment_id` oder `audience` bereitgestellt wird | String-Array | Siehe [externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximal 50 externe Nutzer-IDs. |
-| `segment_id ` | Optional, wenn `external_user_ids` oder `audience` bereitgestellt wird | String | Siehe [Segment-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `external_user_ids` | Optional, wenn `segment_id` oder `custom_audience` bereitgestellt wird | String-Array | Siehe [externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields). Maximal 50 externe Nutzer-IDs. |
+| `segment_id` | Optional, wenn `external_user_ids` oder `custom_audience` bereitgestellt wird | String | Siehe [Segment-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
 | `custom_audience` | Optional, wenn `external_user_ids` oder `segment_id` bereitgestellt wird | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+
+Bei diesem Endpunkt übergeben Sie verbundene Zielgruppen-Filter in `custom_audience`.
 
 ## Beispielanfrage {#example-request}
 

@@ -228,8 +228,8 @@ Content Cards 페이로드 크기를 관리하기 위한 모범 사례는 다음
 
 재자격을 활성화하면, 사용자가 Campaign에 "재진입"할 수 있는 시점의 카운트다운은 메시지가 전송된 후 시작됩니다. 이 카운트다운이 시작되는 구체적인 시점은 카드 생성 설정에 따라 달라집니다:
 
-* [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
-* Campaign 시작 또는 캔버스 단계 진입 시 생성된 Content Cards는 전송 시간 또는 노출 시간 중 더 늦은 시간을 기준으로 합니다.
+- [첫 노출 시]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)를 사용하는 Content Cards는 노출 시간을 기준으로 재자격을 계산합니다.
+- Campaign 시작 시, 멀티채널 Campaign에서, 또는 캔버스 단계 진입 시 생성된 Content Cards는 전송 시간 또는 노출 시간 중 더 늦은 시간을 기준으로 합니다.
 
 #### 30일 만료와 재자격 {#the-30-day-expiration-and-re-eligibility}
 

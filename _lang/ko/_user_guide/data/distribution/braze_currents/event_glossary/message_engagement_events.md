@@ -31,7 +31,7 @@ lazy_partner_tabs: true
 
 이 이벤트 분석은 일반적으로 메시지 참여 이벤트에 어떤 유형의 정보가 포함되는지 보여줍니다. 구성요소에 대한 확실한 이해를 바탕으로 개발자와 비즈니스 인텔리전스 전략 팀은 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 다른 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, Campaign 또는 캔버스 추적 속성, 이벤트별 속성으로 그룹화된 나열된 등록정보가 포함된 이메일 탈퇴 이벤트를 보여주는 메시지 참여 이벤트의 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![사용자별 속성, Campaign 또는 캔버스 추적 속성, 이벤트별 속성으로 그룹화된 등록정보가 포함된 이메일 탈퇴 이벤트를 보여주는 메시지 참여 이벤트의 분석]({% image_buster /assets/img/message_engagement_event.png %})
 
 메시지 참여 이벤트는 **사용자별** 속성, **Campaign/캔버스 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 
@@ -7769,7 +7769,7 @@ Email, Subscription
 이 이벤트는 최종 사용자가 이메일에서 "수신 거부"를 클릭했을 때 발생합니다.
 
 {% alert important %}
-`Unsubscribe` 이벤트는 사용자가 이메일의 수신 거부 링크(이메일 본문 또는 바닥글 내의 일반 수신 거부 링크 또는 [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header) 사용)를 클릭할 때 발생하는 특수 클릭 이벤트로 간주되며, 사용자가 수신 거부 상태로 변경될 때 발생하는 것이 아닙니다. 구독 상태 변경이 API를 통해 전송되거나 커스텀(비-Braze) 수신 거부 링크로 전송되는 경우 Currents에서 이메일 수신 거부 이벤트가 트리거되지 않습니다.
+`Unsubscribe` 이벤트는 사용자가 이메일의 수신 거부 링크(이메일 본문 또는 바닥글 내의 일반 수신 거부 링크 또는 [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) 사용)를 클릭할 때 발생하는 특수 클릭 이벤트로 간주되며, 사용자가 수신 거부 상태로 변경될 때 발생하는 것이 아닙니다. 구독 상태 변경이 API를 통해 전송되거나 커스텀(비-Braze) 수신 거부 링크로 전송되는 경우 Currents에서 이메일 수신 거부 이벤트가 트리거되지 않습니다.
 {% endalert %}
 
 {% tabs %}
@@ -14777,7 +14777,7 @@ SMS, Inbound Received
 
 Braze가 인바운드 SMS를 수신하면, 해당 전화번호를 공유하는 모든 사용자에게 인바운드 메시지를 기여합니다. 따라서 Braze 인스턴스에서 여러 사용자가 동일한 전화번호를 공유하는 경우 인바운드 메시지당 여러 이벤트를 수신할 수 있습니다. 해당 사용자에게 이전에 전송된 메시지를 기반으로 특정 사용자 ID에 기여해야 하는 경우, SMS 전달 이벤트를 사용하여 가장 최근에 Braze 번호로부터 메시지를 수신한 사용자 ID에 인바운드 수신 이벤트를 기여할 수 있습니다.
 
-Braze가 이 인바운드 메시지가 Braze에서 전송된 아웃바운드 Campaign 또는 Canvas 구성요소에 대한 답장임을 감지하면, Campaign 또는 Canvas 메타데이터도 이벤트에 포함됩니다. Braze는 아웃바운드 메시지 이후 4시간 이내에 수신된 인바운드 메시지를 답장으로 정의합니다. 다만, 마지막으로 전송된 아웃바운드 SMS 메시지의 기여 Campaign 정보에는 1분의 캐시가 적용됩니다.
+Braze가 이 인바운드 메시지가 Braze에서 전송된 아웃바운드 Campaign 또는 Canvas 구성요소에 대한 답장임을 감지하면, Campaign 또는 Canvas 메타데이터도 이벤트에 포함됩니다. Braze는 아웃바운드 메시지 이후 4시간 이내에 수신된 인바운드 메시지를 답장으로 정의합니다. 다만, 마지막으로 전송된 아웃바운드 SMS의 기여 Campaign 정보에는 1분의 캐시가 적용됩니다.
 
 
 {% tabs %}

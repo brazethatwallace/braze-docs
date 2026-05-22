@@ -7769,7 +7769,7 @@ Email, Subscription
 Este evento se produce cuando el usuario final ha hecho clic en "cancelar suscripción" en el correo electrónico.
 
 {% alert important %}
-El evento `Unsubscribe` se considera un evento de clic especializado que se activa cuando el usuario hace clic en el enlace para cancelar la suscripción en el correo electrónico (ya sea un enlace normal para cancelar la suscripción dentro del cuerpo o el pie de página del correo electrónico, o utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#include-a-list-unsubscribe-header)), y no cuando el usuario cambia su estado a cancelado. Si el cambio de estado de la suscripción se envía a través de la API o con un enlace de cancelación de suscripción personalizado (que no sea de Braze), no se desencadena un evento de cancelación de suscripción por correo electrónico en Currents.
+El evento `Unsubscribe` se considera un evento de clic especializado que se activa cuando el usuario hace clic en el enlace para cancelar la suscripción en el correo electrónico (ya sea un enlace normal para cancelar la suscripción dentro del cuerpo o el pie de página del correo electrónico, o utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)), y no cuando el usuario cambia su estado a cancelado. Si el cambio de estado de la suscripción se envía a través de la API o con un enlace de cancelación de suscripción personalizado (que no sea de Braze), no se desencadena un evento de cancelación de suscripción por correo electrónico en Currents.
 {% endalert %}
 
 {% tabs %}
@@ -14777,7 +14777,7 @@ Este evento se produce cuando uno de tus usuarios envía un SMS a un número de 
 
 Cuando Braze recibe un SMS entrante, atribuye ese mensaje entrante a cualquier usuario que comparta ese número de teléfono. Como resultado, puedes recibir varios eventos por mensaje entrante si varios usuarios de tu instancia de Braze comparten el mismo número de teléfono. Si necesitas atribuir ID de usuario específicos en función de mensajes anteriores enviados a ese usuario, puedes utilizar el evento SMS Delivered para atribuir eventos Inbound Received al ID de usuario que haya recibido más recientemente un mensaje de tu número de Braze.
 
-Si Braze detecta que este mensaje entrante es una respuesta a una campaña o componente Canvas saliente enviado desde Braze, Braze también incluye los metadatos de la campaña o Canvas con el evento. Braze define una respuesta como un mensaje entrante que llega en un plazo de cuatro horas desde un mensaje saliente. Sin embargo, existe una caché de un minuto para la información de atribución de la campaña del último mensaje SMS saliente enviado desde tu número de Braze.
+Si Braze detecta que este mensaje entrante es una respuesta a una campaña o componente Canvas saliente enviado desde Braze, también incluirá los metadatos de la campaña o Canvas con el evento. Braze define una respuesta como un mensaje entrante que llega en un plazo de cuatro horas desde un mensaje saliente. Sin embargo, existe una caché de un minuto para la información de atribución de la campaña del último SMS saliente recibido.
 
 
 {% tabs %}

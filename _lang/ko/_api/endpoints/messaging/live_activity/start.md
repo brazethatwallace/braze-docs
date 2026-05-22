@@ -17,7 +17,7 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 
 > 이 엔드포인트를 사용하여 iOS 앱에 표시되는 [라이브 활동]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)을 원격으로 시작할 수 있습니다. 이 엔드포인트에는 추가 설정이 필요합니다.
 
-라이브 활동을 생성한 후에는 특정 세그먼트에 대해 원격으로 활동을 시작하도록 POST 요청을 할 수 있습니다. Apple의 라이브 활동에 대한 자세한 내용은 [ActivityKit 푸시 알림으로 라이브 활동 시작 및 업데이트](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications)를 참조하세요.
+라이브 활동을 생성한 후에는 Segment, 연결된 오디언스 또는 특정 외부 사용자 ID에 대해 원격으로 활동을 시작하도록 POST 요청을 할 수 있습니다. Apple의 라이브 활동에 대한 자세한 내용은 [ActivityKit 푸시 알림으로 라이브 활동 시작 및 업데이트](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications)를 참조하세요.
 
 `content-available`이 설정되지 않은 경우 기본 Apple 푸시 알림 서비스(APNs) 우선순위는 10입니다. `content-available`이 설정된 경우 이 우선순위는 5입니다. 자세한 내용은 [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)를 참조하세요.
 
@@ -79,10 +79,12 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 | `content_state` | 필수 | 오브젝트 | 라이브 활동을 생성할 때 `ContentState` 매개변수를 정의합니다. 이 오브젝트를 사용하여 `ContentState`의 업데이트된 값을 전달합니다.<br><br>이 요청의 형식은 처음에 정의한 형태와 일치해야 합니다. |
 | `stale_date` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 이 매개변수는 라이브 활동 콘텐츠가 사용자 UI에서 오래된 것으로 표시되는 시점을 시스템에 알려줍니다. |
 | `notification` | 필수 | 오브젝트 | [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) 오브젝트를 포함하여 푸시 알림을 정의합니다. 이 푸시 알림의 동작은 사용자가 활성 상태인지 또는 프록시 기기를 사용 중인지에 따라 다릅니다. {::nomarkdown}<ul><li><code>notification</code>이 포함되어 있고 업데이트가 전달될 때 사용자가 iPhone에서 활성 상태이면, 업데이트된 라이브 활동 UI가 아래로 슬라이드되어 푸시 알림처럼 표시됩니다.</li><li><code>notification</code>이 포함되어 있고 사용자가 iPhone에서 활성 상태가 아니면, 잠금 화면에 업데이트된 라이브 활동 UI가 표시되도록 화면이 켜집니다.</li><li><code>notification alert</code>는 표준 푸시 알림으로 표시되지 않습니다. 또한 사용자에게 Apple Watch와 같은 프록시 기기가 있는 경우에는 <code>alert</code>가 해당 기기에 표시됩니다.</li></ul>{:/} |
-| `external_user_ids` | `segment_id` 또는 `audience` 제공 시 선택 사항 | 문자열 배열 | [외부 사용자 ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)를 참조하세요. 최대 50개의 외부 사용자 ID. |
-| `segment_id ` | `external_user_ids` 또는 `audience` 제공 시 선택 사항 | 문자열 | [Segment 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `external_user_ids` | `segment_id` 또는 `custom_audience` 제공 시 선택 사항 | 문자열 배열 | [외부 사용자 ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields)를 참조하세요. 최대 50개의 외부 사용자 ID. |
+| `segment_id` | `external_user_ids` 또는 `custom_audience` 제공 시 선택 사항 | 문자열 | [Segment 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
 | `custom_audience` | `external_user_ids` 또는 `segment_id` 제공 시 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience/)를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+
+이 엔드포인트에서는 `custom_audience`에 연결된 오디언스 필터를 전달합니다.
 
 ## 예시 요청 {#example-request}
 
