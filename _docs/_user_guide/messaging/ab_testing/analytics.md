@@ -138,7 +138,7 @@ In general, a confidence of at least 95% is necessary to show that your results 
 
 Confidence does not describe whether one variant is better than the others. It is purely a measure of how sure we are that the two (or more) conversion rates are actually different than each other. This is only a function of the sample size and the differences between the apparent conversion rates. Whether the overall rates are high or low does not affect the strength of the confidence measure. It's possible for one variant to have a very different conversion rate from another and yet not have a 95% or higher confidence. It's also possible for two sets of variants to have similar conversion/uplift rates, and yet different confidence.
 
-As more data arrives, confidence can **fall** if variant and control conversion rates move **closer together**—the difference you are measuring is getting smaller, which can outweigh the effect of a larger sample.
+As more data arrives, confidence can decline if variant and control conversion rates move closer together—the difference you are measuring is getting smaller, which can outweigh the effect of a larger sample.
 
 ### Statistically insignificant results
 
