@@ -13,6 +13,10 @@ hidden: true
 
 > Databricks [Delta Sharing](https://docs.databricks.com/en/delta-sharing/index.html) allows you to securely share live Braze engagement and campaign data into your Databricks environment. This article describes how sharing works from Braze as the data provider to your Databricks account as the recipient, and how to query shared tables.
 
+{% alert important %}
+Databricks Delta Sharing with Braze is in **closed beta**. Availability, supported regions, and product behavior can change. Contact your Braze customer success manager to participate or to confirm whether this feature is enabled for your workspace.
+{% endalert %}
+
 Databricks Delta Sharing is part of Braze Data Distribution. For a full overview of Data Distribution options, see [Data Distribution]({{site.baseurl}}/user_guide/data/distribution/).
 
 ## Set up Delta Sharing
