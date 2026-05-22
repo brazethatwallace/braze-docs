@@ -63,7 +63,7 @@ The cache age is up to five minutes (300 seconds). You can update this by adding
 ```
 {% endraw %}
 
-You can also use the `:cache` parameter to enable caching with Braze’s default cache window (still subject to the same five-minute minimum and four-hour maximum as `:cache_max_age`). When you need an explicit duration, prefer `:cache_max_age` (seconds).
+You can also use the `:cache` parameter to enable caching with Braze’s default cache window (still subject to the same five-minute minimum and four-hour maximum as `:cache_max_age`). When you need an explicit duration, use `:cache_max_age` (seconds).
 
 GET requests are cached. You can configure this by adding the `:no_cache` parameter to the Connected Content call.
 
