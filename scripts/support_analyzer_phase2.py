@@ -341,12 +341,11 @@ def _validate_edits_anchors(
                 problems.append(f"{rel}: target file missing")
             continue
         content = path.read_text(encoding="utf-8")
-        fp = (edit.get("fingerprint") or "").strip()
-        anchor = (edit.get("anchor_substring") or "").strip()
-        if fp and fp in content:
+        if _edit_already_applied(content, edit):
             continue
+        anchor = (edit.get("anchor_substring") or "").strip()
         if anchor and anchor not in content:
-            problems.append(f"{rel}: anchor not found (fingerprint not present)")
+            problems.append(f"{rel}: anchor not found (edit not already applied)")
 
     if not problems:
         return
