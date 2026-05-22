@@ -35,7 +35,7 @@ Sending the Winning Variant is similar to a standard A/B test. Users in this gro
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Winning Variant" }
 
 {% alert note %}
-For **Winning Variant** and **Personalized Variant**, Braze runs an eligibility check again on the **second send**. Users who were not in the target segment (or otherwise not reachable) at the first send can enter later; users who left the segment may no longer receive the follow-up. Plan your segment and scheduling so the audience you intend to include is eligible at both sends.
+For Winning Variants and Personalized Variants, Braze runs an eligibility check again on the second send. Users who were not in the target segment (or otherwise not reachable) at the first send can enter later; users who left the segment may no longer receive the follow-up. Plan your segment and scheduling so the audience you intend to include is eligible at both sends.
 {% endalert %}
 
 ## Personalized Variant
