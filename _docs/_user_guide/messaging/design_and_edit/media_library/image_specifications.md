@@ -2,7 +2,6 @@
 nav_title: Image specifications
 article_title: Image specifications
 page_order: 1
-
 page_type: reference
 description: "This reference article describes the recommended image sizes and specifications for each channel type."
 tool:
@@ -27,7 +26,9 @@ Videos uploaded to the media library can only be used in WhatsApp messages. For 
 
 ## GIFs
 
-GIFs are supported in iOS push, in-app messages, email, Content Cards, and MMS or RCS messages. **Android push notifications do not support GIFs** in the notification payload (platform limitation); for format details, see [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/). GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more frames may fail to upload, even if the total file size is small.
+GIFs are supported in iOS push, in-app messages, email, Content Cards, and MMS or RCS messages. GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more frames may fail to upload, even if the total file size is small.
+
+{% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## Channel guidance
 
