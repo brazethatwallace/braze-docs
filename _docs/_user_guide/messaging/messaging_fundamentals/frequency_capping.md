@@ -223,7 +223,7 @@ Frequency capping applies per dispatch: each time Braze sends a campaign or Canv
 
 ##### Multichannel sends
 
-When a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, if you create a multichannel campaign that sends email, iOS push, and Android push in one delivery and your workspace has rules for push, email, and a channel-agnostic limit, that delivery counts once toward the push rule, once toward the email rule, and once toward the channel-agnostic rule—it does not count once per push platform or per message inside the send. If users are capped to one push and one email campaign per day and they receive this multichannel campaign, they aren't eligible for additional push or email campaigns for the rest of the day unless a campaign ignores frequency capping rules.
+When a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, if you create a multichannel campaign that sends email, iOS push, and Android push in one delivery and your workspace has rules for push, email, and a rule that applies to all channels, that delivery counts once toward the push rule, once toward the email rule, and once toward the all-channel rule—it does not count once per push platform or per message inside the send. If users are capped to one push and one email campaign per day and they receive this multichannel campaign, they aren't eligible for additional push or email campaigns for the rest of the day unless a campaign ignores frequency capping rules.
 
 In-app messages and Content Cards are not counted as or toward caps on campaigns or Canvas components of any type.
 
