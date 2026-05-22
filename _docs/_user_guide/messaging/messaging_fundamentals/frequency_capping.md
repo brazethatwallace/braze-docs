@@ -217,7 +217,13 @@ This behavior changes the default behavior when you turn off frequency capping f
 
 ![Delivery Controls section with Frequency Capping turned on.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"} 
 
-Different channels within a multichannel campaign individually count toward the frequency cap. For instance, if you create a multichannel campaign with both push and email and have frequency capping set up for both of those channels, then the push counts toward one push campaign, and the email message counts toward one email message campaign. The campaign also counts toward one "campaign of any type." If users are capped to one push and one email campaign per day, and a user receives this multichannel campaign, then they are no longer eligible for push or email campaigns for the rest of the day (unless a campaign ignores frequency capping rules).
+#### How sends count toward caps
+
+Frequency capping applies per dispatch: each time Braze sends a campaign or Canvas component to a user counts toward your caps—not each message variant or platform inside that send. For example, if users are capped at five push campaigns per week, they won't receive any push campaigns after the fifth dispatch until the cap resets.
+
+##### Multichannel sends
+
+When a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, if you create a multichannel campaign that sends email, iOS push, and Android push in one delivery and your workspace has rules for push, email, and a channel-agnostic limit, that delivery counts once toward the push rule, once toward the email rule, and once toward the channel-agnostic rule—it does not count once per push platform or per message inside the send. If users are capped to one push and one email campaign per day and they receive this multichannel campaign, they aren't eligible for additional push or email campaigns for the rest of the day unless a campaign ignores frequency capping rules.
 
 In-app messages and Content Cards are not counted as or toward caps on campaigns or Canvas components of any type.
 

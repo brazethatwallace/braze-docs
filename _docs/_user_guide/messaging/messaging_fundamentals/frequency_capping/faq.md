@@ -34,9 +34,7 @@ No, global frequency capping only applies to push, email, SMS, webhook, WhatsApp
 
 ### Does frequency capping limit campaigns received or individual messages inside a send?
 
-Frequency capping applies per dispatch, meaning each time Braze sends a campaign or Canvas step to a user counts toward your caps—not each message variant or platform inside that send. For example, if users are capped at five push campaigns per week, they won't receive any push campaigns after the fifth one until the cap resets.
-
-However, when a single dispatch uses multiple channels, that dispatch counts at most once per frequency capping rule that applies. For example, let's say a campaign sends email, iOS push, and Android push in one delivery, and your workspace has rules for push, email, and a channel-agnostic limit. Each recurrence of that campaign counts once toward the push rule, once toward the email rule, and once toward the channel-agnostic rule. It does not count once per push platform or per message inside the send. For more on multichannel campaigns, see [Delivery rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules).
+Frequency capping applies per dispatch—each campaign or Canvas step send counts toward your caps, not each variant or platform inside a send. For more information, see [Delivery rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules).
 
 ### If several messages are eligible at the same time and only some fit under the cap, which messages send?
 
