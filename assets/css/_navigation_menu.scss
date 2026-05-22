@@ -388,17 +388,16 @@ $nav-focus-offset-rail: 0; // main rail toggle — ring hugs 40px target (less �
 		.nav_title[data-toggle="collapse"] {
 			cursor: pointer;
 		}
-		// Shrink-wrap the label so :focus-visible doesn’t span the gap to the caret (see .nav_link + .nav_title flex rule above)
+		// Section-label button: wraps long titles, fills the row width up to the caret
 		button.nav_title {
 			background: none;
 			border: none;
-			flex: 0 1 auto;
+			flex: 1 1 auto;
 			min-width: 0;
 			width: auto;
 			max-width: calc(100% - 36px);
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			overflow-wrap: break-word;
+			word-break: break-word;
 			padding: 6px 6px 6px 8px;
 			margin: 0;
 			font: inherit;
