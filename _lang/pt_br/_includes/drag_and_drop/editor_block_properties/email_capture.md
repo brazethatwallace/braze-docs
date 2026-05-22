@@ -8,4 +8,4 @@
 | Espaçamento entre letras | Modifica a distância entre cada caractere. |
 | Alinhamento do texto | Move o texto para ficar alinhado à esquerda, ao centro, à direita ou justificado. |
 | Texto de placeholder | Um endereço de e-mail de placeholder para exibição. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

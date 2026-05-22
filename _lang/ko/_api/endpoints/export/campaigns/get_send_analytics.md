@@ -36,7 +36,7 @@ Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전�
 | `send_id` | 필수 | 문자열 | [발송 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
 | `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수입니다. 1에서 100 사이(포함)여야 합니다. |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜입니다. 기본값은 요청 시점입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 

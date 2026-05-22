@@ -133,7 +133,7 @@ Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs 
 Für beste Ergebnisse zeigen Sie den Standort-Primer, wenn Nutzer:innen engagiert sind und wahrscheinlich einen Mehrwert in der Standortfreigabe sehen.
 
 - **Sprechen Sie Nutzer:innen an, die noch keinen Standortzugriff gewährt haben.** Arbeiten Sie mit Ihrem Entwicklungsteam zusammen, um die beste Methode zu bestimmen, Nutzer:innen basierend auf ihrem Standortberechtigungsstatus zu tracken und zu segmentieren.
-- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Ereignissen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
+- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Veranstaltungen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
 - **Vermeiden Sie es, den Primer beim ersten Start zu zeigen.** Warten Sie, bis Nutzer:innen genug Mehrwert aus der App erfahren haben, um ein personalisierteres Erlebnis zu wünschen.
 
 ### 4. Schritt: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}

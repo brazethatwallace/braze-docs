@@ -24,12 +24,12 @@ OtherLevelsのAIを活用した体験で、ユーザーにより良いエクス�
 
 開始する前に、以下が必要です。
 
-| 前提条件          | 説明                                                                                                                                |
+| 前提条件 | 説明 |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| OtherLevelsアカウント   | このパートナーシップを利用するには、OtherLevelsアカウントが必要です。                                                                     |
-| Braze REST APIキー  | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| OtherLevelsアカウント | このパートナーシップを利用するには、OtherLevelsアカウントが必要です。 |
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 この統合では、Brazeからユーザーにメッセージを送信する前に、動画生成プロセスの一部としてOtherLevels Experience Platform APIを呼び出す必要があります。このドキュメントではcURLの例を提供していますが、APIコールを自動化するためにPostmanのようなAPIクライアントの使用を推奨します。
 
@@ -124,27 +124,27 @@ curl --request POST \
 
 以下を置き換えてください。
 
-| プレースホルダー          | 説明                                                                                                                                |
+| プレースホルダー | 説明 |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `OTHERLEVELS_PROJECT_KEY`   | OtherLevelsプロジェクトキーは、OtherLevelsアカウントのプロビジョニング時に提供されます。                                                                     |
-| `BACKGROUND_IMAGE_URL`  | 動画の背景用のHTTPS URL。 |
-| `INSERT_TITLE` | 動画のタイトル。これは内部参照用であり、動画には表示されません。                                                 |
-| `TALENT_TEMPLATE` | タレントテンプレートID。OtherLevelsは、アカウントのプロビジョニング中にお客様と協力してタレント（アバター）を作成します。使用可能な1つまたは複数のタレントIDが提供されます。                                                 |
-| `TALENT_MODEL` | タレントモデルID。OtherLevelsは、アカウントのプロビジョニング中にお客様と協力してタレント（アバター）を作成します。使用可能な1つまたは複数のタレントモデルが提供されます。                                                 |
-| `INSERT_SCRIPT` | 動画の中でタレントに話させたい正確なスクリプト。                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `OTHERLEVELS_PROJECT_KEY` | OtherLevelsプロジェクトキーは、OtherLevelsアカウントのプロビジョニング時に提供されます。 |
+| `BACKGROUND_IMAGE_URL` | 動画の背景用のHTTPS URL。 |
+| `INSERT_TITLE` | 動画のタイトル。これは内部参照用であり、動画には表示されません。 |
+| `TALENT_TEMPLATE` | タレントテンプレートID。OtherLevelsは、アカウントのプロビジョニング中にお客様と協力してタレント（アバター）を作成します。使用可能な1つまたは複数のタレントIDが提供されます。 |
+| `TALENT_MODEL` | タレントモデルID。OtherLevelsは、アカウントのプロビジョニング中にお客様と協力してタレント（アバター）を作成します。使用可能な1つまたは複数のタレントモデルが提供されます。 |
+| `INSERT_SCRIPT` | 動画の中でタレントに話させたい正確なスクリプト。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1：OtherLevels Experience Platform APIを呼び出して動画を生成する" }
 
 APIレスポンスの一部として、OtherLevelsはAPIコールが成功したことを示すJSONペイロードを返します。JSONには、生成された動画を識別するための一意の`recipe_id`が含まれます。`recipe_id`は次のステップで必要になります。
 
 以下はAPIからのレスポンスの例です。
 
 {% raw %}
-```bash
+`````````bash
 {"$schema":"https://exp-platform-api.prod.awsotherlevels.com/schemas/GenerateMediaResBody.json","message":"success","recipe_id":"LMINHWXV2BBD6JGV5VF3ZNZV7BDDRR7FH5FJH6MMX4BVLTPRKTWQ","media_short_id":"LMINHWX","status":"triggered"}
 ```
 {% endraw %}
 
-### ステップ2：`recipe_id`をカスタム属性として設定する {#step-2}
+### ステップ2：`recipe_id`をカスタム属性として設定する {#step-2-setting-the-recipe_id-as-a-custom-attribute}
 
 [ステップ1](#step-1)で受け取った`recipe_id`を、動画を送信したいユーザーのBrazeカスタム属性として設定します。
 
@@ -155,7 +155,7 @@ APIレスポンスの一部として、OtherLevelsはAPIコールが成功した
 {% endalert %}
 
 {% raw %}
-```bash
+`````````bash
 curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer BRAZE_API_KEY' \
@@ -172,20 +172,20 @@ curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 
 以下を置き換えてください。
 
-| プレースホルダー             | 説明                                                                                                                                                                                     |
+| プレースホルダー | 説明 |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | 現在のBrazeインスタンスのBraze RESTエンドポイントURL。詳細については、[REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)を参照してください。 |
-| `BRAZE_API_KEY`         | `users.track`権限を持つBraze REST APIキー。                                                                                                                                      |
-| `USER_ID`              | この動画を受信するユーザーID。使用できる識別子の例については、[/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users)を参照してください。                                                                                                                                                  |
-| `RECIPE_ID`       | [ステップ1](#step-1)でOtherLevels APIレスポンスから受け取った`recipe_id`。                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `BRAZE_API_ENDPOINT` | 現在のBrazeインスタンスのBraze RESTエンドポイントURL。詳細については、[REST APIキー]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)を参照してください。 |
+| `BRAZE_API_KEY` | `users.track`権限を持つBraze REST APIキー。 |
+| `USER_ID` | この動画を受信するユーザーID。使用できる識別子の例については、[/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users)を参照してください。 |
+| `RECIPE_ID` | [ステップ1](#step-1)でOtherLevels APIレスポンスから受け取った`recipe_id`。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ2：recipe_idをカスタム属性として設定する" }
 
-### ステップ3：Brazeコネクテッドコンテンツで送信する {#step-3}
+### ステップ3：Brazeコネクテッドコンテンツで送信する {#step-3-sending-through-braze-connected-content}
 
 GenAI動画をiOSプッシュメッセージとしてユーザーに送信するには、以下の手順に従います。
 
-1. Braze iOSプッシュ通知Campaignを作成します。
-2. Campaignの作成中に、**アセット**セクションに移動し、以下のコネクテッドコンテンツ構文を**URLから追加**フィールドに貼り付けます。
+1. Braze iOSプッシュ通知キャンペーンを作成します。
+2. キャンペーンの作成中に、**アセット**セクションに移動し、以下のコネクテッドコンテンツ構文を**URLから追加**フィールドに貼り付けます。
 
 {% raw %}
 ```
@@ -197,9 +197,9 @@ GenAI動画をiOSプッシュメッセージとしてユーザーに送信する
 
 {: start="3"}
 3. **URLファイル形式**のドロップダウンで、**MP4**を選択します。
-4. Campaignの残りの部分（メッセージ内容、送信スケジュール、ターゲットオーディエンスなど）を、希望する設定に基づいて構成します。
+4. キャンペーンの残りの部分（メッセージ内容、送信スケジュール、ターゲットオーディエンスなど）を、希望する設定に基づいて構成します。
 
-![コネクテッドコンテンツのアセットフィールドの例]({% image_buster /assets/img/otherlevels/1.png %})
+![コネクテッドコンテンツのアセットフィールドの例。]({% image_buster /assets/img/otherlevels/1.png %})
 
 ## GenAI動画のカスタマイズ {#customizing-the-genai-video}
 
@@ -207,29 +207,29 @@ GenAI動画をiOSプッシュメッセージとしてユーザーに送信する
 
 動画の背景は、`bg_image`キー内で指定できます。
 
-| パラメーター             | 説明                  |
+| パラメーター | 説明 |
 |-------------------------|----------------------------|
-| `url`    | 背景画像のHTTPS URL。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `url` | 背景画像のHTTPS URL。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="動画サイズと属性" }
 
 動画背景のサイズは、`resize_image`キー内で指定できます。背景画像は、ここで設定したものと同じサイズにすることを推奨します。
 
-| パラメーター             | 説明                  |
+| パラメーター | 説明 |
 |-------------------------|----------------------------|
-| `width`    | 背景画像の幅。縦向きと横向きの両方のオプションがあります。 |
-| `height`     | 背景画像の高さ。縦向きと横向きの両方のオプションがあります。                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `width` | 背景画像の幅。縦向きと横向きの両方のオプションがあります。 |
+| `height` | 背景画像の高さ。縦向きと横向きの両方のオプションがあります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="動画サイズと属性" }
 
 動画オーバーレイオプションは、`image_video_overlay`キー内で指定できます。
 
-| パラメーター             | 説明                  |
+| パラメーター | 説明 |
 |-------------------------|----------------------------|
-| `width`    | オーバーレイの幅。縦向きと横向きの両方のオプションがあります。 |
-| `height`         | オーバーレイの高さ。縦向きと横向きの両方のオプションがあります。                                              |
-| `color`              | RGBで指定されたオーバーレイの色と透明度。                                                                   |
-| `y_pos`       | 中心からのY軸オフセット。                                                              |
-| `x_pos`    | 中心からのX軸オフセット。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `width` | オーバーレイの幅。縦向きと横向きの両方のオプションがあります。 |
+| `height` | オーバーレイの高さ。縦向きと横向きの両方のオプションがあります。 |
+| `color` | RGBで指定されたオーバーレイの色と透明度。 |
+| `y_pos` | 中心からのY軸オフセット。 |
+| `x_pos` | 中心からのX軸オフセット。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="動画サイズと属性" }
 
 ### タレントとスクリプト {#talent-and-script}
 
@@ -239,10 +239,10 @@ GenAI動画をiOSプッシュメッセージとしてユーザーに送信する
 
 入力スクリプトを処理するために使用される音声モデルは、人間が読むような自然なスクリプトを提供した場合に最も効果的に機能します。ほとんどの場合、手動でスクリプトを誘導するための追加の句読点は必要ありません。ただし、実際のオーディエンスに送信する前に、すべてのスクリプトをテストすることを推奨します。タレントがスクリプトを読む速度は、`talking_talent_speed`キー内で指定できます。
 
-| パラメーター             | 説明                  |
+| パラメーター | 説明 |
 |-------------------------|----------------------------|
-| `speed`    | タレントがスクリプトを読む速度を指定します。例：`1.5`。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `speed` | タレントがスクリプトを読む速度を指定します。例：`1.5`。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="タレントとスクリプト" }
 
 ## その他の考慮事項 {#additional-considerations}
 

@@ -118,7 +118,7 @@ Os seguintes tipos de dados podem ser armazenados como um atributo personalizado
 | Inteiros | Você pode incrementar atributos personalizados inteiros atribuindo um objeto com o campo "inc" e a quantidade a ser adicionada. <br><br>Exemplo: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Atributos personalizados aninhados | Os atributos personalizados aninhados definem um conjunto de atributos como uma propriedade de outro atributo. Quando você define um objeto de atributo personalizado, você adiciona um conjunto de atributos a esse objeto. Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Strings | Os atributos personalizados de string são sequências de caracteres usadas para armazenar dados de texto. Por exemplo, é possível usar strings para armazenar nomes e sobrenomes, endereços de e-mail ou preferências. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de dados de atributos personalizados" }
 
 {% alert tip %}
 Para orientações sobre quando usar um evento personalizado versus um atributo personalizado, veja [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) e [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -141,6 +141,10 @@ Para exemplos de API que usam `add`, `remove` e `update`, veja [Exemplo de API d
 
 {% alert important %}
 Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas, portanto, certifique-se de referenciar esses campos em minúsculas.
+{% endalert %}
+
+{% alert tip %}
+Para uma referência de atributos padrão voltada ao cliente, organizada por categoria e com orientações para SDK, API, CSV e Ingestão de dados na nuvem, consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
 {% endalert %}
 
 | Campo de perfil do usuário | Especificação do tipo de dados |
@@ -171,7 +175,7 @@ Os seguintes campos de perfil de usuário diferenciam maiúsculas de minúsculas
 | subscription_groups | Vetor de objetos com as strings `subscription_group_id` e `subscription_state`, por exemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Os valores disponíveis para `subscription_state` são "subscribed" e "unsubscribed".|
 | time_zone | (string) Do nome do fuso horário do [Banco de Dados de Fuso Horário IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por exemplo, "America/New_York" ou "Eastern Time (US & Canada)"). Apenas valores de fuso horário válidos são definidos. |
 | twitter | Hash contendo qualquer um dos seguintes itens: `id` (inteiro), `screen_name` (string, identificador do X (antigo Twitter)), `followers_count` (inteiro), `friends_count` (inteiro), `statuses_count` (inteiro). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de perfil de usuário da Braze" }
 
 Os valores de idioma que são definidos explicitamente através desta API têm precedência sobre as informações de localidade que a Braze recebe automaticamente do dispositivo.
 
@@ -230,7 +234,7 @@ Devido à natureza dos tokens por push da web, certifique-se de considerar o seg
 |----------------------|------------|
 | **Service workers**  | Por padrão, o SDK da Web procura um service worker em `./service-worker` a menos que outra opção seja especificada, como `manageServiceWorkerExternally` ou `serviceWorkerLocation`. Se o seu service worker não estiver configurado corretamente, isso pode levar a tokens por push expirados para seus usuários. |
 | **Tokens expirados**   | Se um usuário não iniciou uma sessão na web dentro de 60 dias, seu token por push expira. Como a Braze não pode migrar tokens por push expirados, você deve enviar um [primer de push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para reengajá-los. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações sobre tokens da web" }
 
 ### Migração manual através da API {#manual-migration-through-api}
 

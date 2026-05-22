@@ -113,7 +113,7 @@ Les tableaux suivants sont donnés à titre d'exemple. Pour connaître les conve
 | Twitter | Abonnements |
 | Twitter | Nombre de tweets |
 | Facebook | Mentions J'aime |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Points de données non facturables (par défaut)" }
 
 {% endtab %}
 {% tab Facturables %}
@@ -167,7 +167,7 @@ table td {
 | Affectation de cohorte Appsflyer | Toutes les affectations | |
 | Localisation la plus récente | Toutes les localisations les plus récentes | Entrer ou sortir d'un géorepérage n'enregistre pas de points de données, car les données de géorepérage ne sont pas stockées dans le profil utilisateur. Les géorepérages sont surveillés par les services de localisation d'Apple et de Google ; Braze n'est notifié que lorsqu'un utilisateur déclenche un géorepérage. |
 | Twitter | Nom d'utilisateur | |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Points de données facturables" }
 
 {% endtab %}
 {% endtabs %}

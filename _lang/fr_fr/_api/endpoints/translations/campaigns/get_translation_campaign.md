@@ -15,7 +15,7 @@ description: "Cet article présente les détails de l'endpoint Voir toutes les t
 /campaigns/translations
 {% endapimethod %}
 
-> Utilisez cet endpoint pour voir toutes les traductions de chaque variante de message dans une Campaign. Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour en savoir plus sur les fonctionnalités de traduction.
+> Utilisez cet endpoint pour voir toutes les traductions de chaque variante de message dans une campagne. Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour en savoir plus sur les fonctionnalités de traduction.
 
 {% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
 
@@ -31,7 +31,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Requis | Chaîne de caractères | L'ID de votre Campaign. |
+| `campaign_id` | Requis | Chaîne de caractères | L'ID de votre campagne. |
 | `message_variation_id` | Requis | Chaîne de caractères | L'ID de votre variante de message. |
 | `locale_id` | Facultatif | Chaîne de caractères | Un UUID de locale pour filtrer les réponses. |
 | `post_launch_draft_version` | Facultatif | Valeur booléenne | Lorsque la valeur est `true`, renvoie la dernière version brouillon au lieu de la dernière version publiée en production. La valeur par défaut est `false`, ce qui renvoie la dernière version en production. |

@@ -18,7 +18,7 @@ tool:
 
 Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als die beiden Schlüsselkomponenten, um Ihren Workflow zu vereinfachen – ohne zusätzliche Verwendung von HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="Über den Editor" style="width: 100%; table-layout: fixed;">
     <caption>Inhalt und Zeilen als Editor-Komponenten</caption>
     <tr>
         <th style="width: 50%;">Inhalt</th>
@@ -33,11 +33,11 @@ Der Drag-and-Drop-Editor verwendet [Inhalt](#content) und [Zeilen](#rows) als di
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Über den Editor" }
 
 ### Inhalt {#content}
 
-**Inhalt** umfasst eine Reihe von Kacheln, die verschiedene Inhaltstypen darstellen, die Sie in Ihrer Nachricht verwenden können. Diese sind in drei Kategorien unterteilt: Grundlegend, Medien und Erweitert.
+**Inhalt** umfasst eine Reihe von Kacheln, die verschiedene Inhaltstypen darstellen, die Sie in Ihrer Nachricht verwenden können. Diese sind in drei Kategorien unterteilt: grundlegend, Medien und erweitert.
 
 {% tabs %}
 {% tab Grundlegend %}
@@ -142,6 +142,16 @@ Unter **Sendeeinstellungen** können Sie Personalisierung für E-Mail-Header und
 Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
 {% endalert %}
 
+#### E-Mail-Anhänge hinzufügen {#adding-email-attachments}
+
+Unter **Sendeeinstellungen** > **Erweitert** können Sie E-Mail-Anhänge mit den folgenden Methoden hinzufügen:
+
+- **Datei hochladen:** Ziehen Sie eine Datei per Drag-and-Drop oder durchsuchen Sie Ihren Computer, um eine Datei direkt hochzuladen. Braze validiert den Dateityp und die Größe (standardmäßig bis zu 2&nbsp;MB) vor dem Hochladen, und die Dateien werden dann in die Medienbibliothek hochgeladen. Dateien, die das Limit von 2&nbsp;MB überschreiten, können nicht hochgeladen werden.
+- **Medienbibliothek verwenden:** Durchsuchen und wählen Sie aus bereits in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) gespeicherten Assets. PDFs, Word-Dokumente, Excel-Dateien und PowerPoint-Präsentationen werden unterstützt.
+- **Von URL hinzufügen:** Geben Sie eine URL ein, die auf die Datei verweist, und geben Sie einen Anzeige-Dateinamen an. Da Braze beliebige URLs während der E-Mail-Erstellung nicht auf ihre Größe prüfen kann, wird die Dateigröße zum Sendezeitpunkt überprüft. Beachten Sie, dass Liquid in diesem Feld nicht unterstützt wird.
+
+Spezifische Best Practices finden Sie unter [E-Mail-Richtlinien]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/).
+
 ### 4. Schritt: E-Mail testen {#step-4-test-your-email}
 
 Nachdem Sie Ihre Sendeinformationen hinzugefügt haben, ist es an der Zeit, Ihre E-Mail zu testen.
@@ -192,7 +202,7 @@ Die zugrunde liegende Engine, die HTML aus dem Drag-and-Drop-Editor erzeugt, wur
 Unser durchschnittlicher exportierter HTML-Daten-Footprint wurde reduziert, was zu schnellerem Laden und Rendering, weniger mobilem Clipping und geringerem Bandbreitenverbrauch führt.
 
 Das HTML-Rendering wurde durch die folgenden Updates verbessert, die die Anzahl der bedingten Kommentare und CSS-Media-Queries minimieren. Dadurch sind HTML-Dateien kleiner und effizienter codiert.
-- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table>`-formatierten Codebasis
+- Migration von einem `<div>`-Element-basierten Design zu einer standardmäßigen `<table aria-label="Inbox Vision verwenden">`-formatierten Codebasis
   <caption>Inbox Vision verwenden</caption>
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) wurden für Kompaktheit neu codiert
 - Der finale HTML-Code wird komprimiert, um Leerzeichen zwischen Tags zu entfernen
@@ -303,7 +313,7 @@ Alles, was außerhalb von `<head>`-Tags hinzugefügt wird, wird nach dem `<body>
 | `meta` | Stellt Metadaten wie Seitenbeschreibung oder Schlüsselwörter bereit. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Bettet interne CSS-Stile ein. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Legt den Titel des Dokuments fest, der in Browser-Tabs angezeigt wird. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zulässige Tags und Attribute nach Tag" }
 
 | Tag | Attribut | Beschreibung | Beispiel |
 | --- | --- | --- | --- |
@@ -321,7 +331,7 @@ Alles, was außerhalb von `<head>`-Tags hinzugefügt wird, wird nach dem `<body>
 | `style` | `type` | MIME-Typ des Stilinhalts. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Gibt das Medium oder Gerät an, für das Stile gelten. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Keine Attribute | Das `title`-Tag akzeptiert keine Attribute. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Zulässige Tags und Attribute nach Tag" }
 
 {% alert note %}
 Link-Namen können bis zu 63 Bytes lang sein und werden automatisch abgeschnitten, wenn sie das Limit überschreiten.

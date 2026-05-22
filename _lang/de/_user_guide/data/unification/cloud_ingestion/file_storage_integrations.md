@@ -39,7 +39,7 @@ Zunächst eine Übersicht der Begriffe, die bei dieser Aufgabe verwendet werden.
 | Amazon Resource Name (ARN) | Der ARN ist ein eindeutiger Bezeichner für AWS-Ressourcen. |
 | Identity and Access Management (IAM) | IAM ist ein Webdienst, mit dem Sie den Zugriff auf AWS-Ressourcen sicher kontrollieren können. In dieser Anleitung erstellen Sie eine IAM-Richtlinie und weisen sie einer IAM-Rolle zu, um Ihren S3-Bucket mit Braze Cloud Data Ingestion zu integrieren. |
 | Amazon Simple Queue Service (SQS) | SQS ist eine gehostete Warteschlange, mit der Sie verteilte Softwaresysteme und Komponenten integrieren können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
 
 ## Cloud-Datenaufnahme in AWS einrichten {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -174,7 +174,7 @@ Um die Einrichtung in AWS abzuschließen, erstellen Sie eine IAM-Rolle und häng
 ![Die S3-Seite „Create Role“. Diese Seite enthält Felder für den Rollennamen, die Rollenbeschreibung, vertrauenswürdige Entitäten, Richtlinien und die Berechtigungsgrenze.]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
 
 {: start="7"}
-6. Hängen Sie die in Schritt 5 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
+6. Hängen Sie die in Schritt 4 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
 
 ![Rollen-ARN mit der ausgewählten Richtlinie „new-policy-name“.]({% image_buster /assets/img/create_role_3_attach.png %})
 
@@ -243,7 +243,7 @@ Für Nutzerdaten-Synchronisierungen (Attribute, angepasste Events, Kauf-Events) 
 | `BRAZE_ID` | Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht mit einer Braze-ID über Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen anzulegen, geben Sie eine externe Nutzer-ID oder einen Nutzer-Alias an. |
 | `EMAIL` | Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse vorhanden sind, wird das zuletzt aktualisierte Profil bei Updates bevorzugt. Wenn Sie sowohl E-Mail als auch Telefonnummer angeben, verwendet Braze die E-Mail als primären Bezeichner. |
 | `PHONE` | Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer vorhanden sind, wird das zuletzt aktualisierte Profil bei Updates bevorzugt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
 
 Zusätzlich zu einem Bezeichner muss jede Zeile eine `PAYLOAD`-Spalte enthalten, die einen JSON-String mit den Feldern enthält, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
 
@@ -260,7 +260,7 @@ Für Katalog-Synchronisierungen muss Ihre Quelldatei die folgenden Spalten entha
 | `ID` | Ja | Der eindeutige Bezeichner für den Katalogartikel. Wird verwendet, um den Artikel in Braze zu erstellen, zu aktualisieren oder zu löschen. |
 | `PAYLOAD` | Ja | Ein JSON-String mit den Katalogfeldern und -werten, die synchronisiert werden sollen. Muss dem Schema Ihres Katalogs in Braze entsprechen. |
 | `DELETED` | Nein | Wenn `true`, wird der Katalogartikel mit der entsprechenden `ID` aus dem Katalog in Braze entfernt. Lassen Sie diese Spalte weg oder setzen Sie sie auf `false` für Erstell- oder Aktualisierungsvorgänge. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
 
 ### Beispiele {#examples}
 

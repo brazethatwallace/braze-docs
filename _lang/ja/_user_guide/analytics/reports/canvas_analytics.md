@@ -1,5 +1,5 @@
 ---
-nav_title: Canvasの分析
+nav_title: キャンバスの分析
 page_order: 2
 noindex: true
 layout: redirect

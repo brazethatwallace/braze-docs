@@ -1,15 +1,15 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## HTMLメッセージについて
+## HTMLメッセージについて {#about-html-messages}
 
-BrazeのJavaScriptインターフェイスを使えば、アプリ内のカスタムWebView内でBrazeを活用できる。の責任[`InAppMessageJavascriptInterface`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.jsinterface/-in-app-message-javascript-interface/index.html)は次の通りである：
+Braze JavaScriptインターフェイスを使用すると、アプリ内のカスタムWebViewでBrazeを活用できます。[`InAppMessageJavascriptInterface`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.jsinterface/-in-app-message-javascript-interface/index.html)は以下の役割を担います。
 
-1. ユーザー[ガイドに記載されているように、WebViewにBraze JavaScriptブリッジを注入する。アプリ内HTMLメッセージ]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages)。
-2. WebViewから受け取ったブリッジメソッドを[Braze Android SDK](https://github.com/braze-inc/braze-android-sdk)に渡す。
+1. [ユーザーガイド：HTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages)に記載されているように、WebViewにBraze JavaScriptブリッジを挿入します。
+2. WebViewから受け取ったブリッジメソッドを[Braze Android SDK](https://github.com/braze-inc/braze-android-sdk)に渡します。
 
-## WebView へのインターフェースの追加
+## WebViewへのインターフェイスの追加 {#adding-the-interface-to-a-webview}
 
-アプリの WebView から Braze 機能を使用するには、WebView に Braze JavaScript インターフェイスを追加します。インターフェイスが追加された後、ユーザー[ガイドで利用可能な同じAPIが利用可能となる。HTML形式のアプリ内メッセージは、カスタムWebView]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages)内で利用可能となる。
+アプリのWebViewからBraze機能を使用するには、WebViewにBraze JavaScriptインターフェイスを追加します。インターフェイスが追加されると、[ユーザーガイド：HTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#custom-html-messages)で利用可能な同じAPIがカスタムWebView内でも利用できるようになります。
 
 {% tabs %}
 {% tab JAVA %}
@@ -25,7 +25,7 @@ myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge");
 {% endtab %}
 {% tab KOTLIN %}
 
-```kotlin
+`````````kotlin
 val javascriptString = context.assets.getAssetFileStringContents("braze-html-bridge.js")
 myWebView.loadUrl("javascript:" + javascriptString!!)
 
@@ -36,32 +36,32 @@ myWebView.addJavascriptInterface(javascriptInterface, "brazeInternalBridge")
 {% endtab %}
 {% endtabs %}
 
-## YouTubeコンテンツの埋め込み
+## YouTubeコンテンツの埋め込み {#embedding-youtube-content}
 
-YouTube やその他の HTML5コンテンツは、HTML アプリ内メッセージで再生できます。これには、アプリ内メッセージが表示されるアクティビティでハードウェアアクセラレーションが有効になっている必要があります。詳細については、[Android 開発者ガイド](https://developer.android.com/guide/topics/graphics/hardware-accel.html#controlling)を参照してください。ハードウェアアクセラレーションは、Android API バージョン11以降でのみ利用できます。
+YouTubeやその他のHTML5コンテンツは、HTMLアプリ内メッセージで再生できます。これには、アプリ内メッセージが表示されるアクティビティでハードウェアアクセラレーションが有効になっている必要があります。詳細については、[Android開発者ガイド](https://developer.android.com/guide/topics/graphics/hardware-accel.html#controlling)を参照してください。ハードウェアアクセラレーションは、Android APIバージョン11以降でのみ利用できます。
 
-以下は、HTML スニペットに YouTube 動画を埋め込んだ例です。
+以下は、HTMLスニペットにYouTube動画を埋め込んだ例です。
 
-```html
+`````````html
 <body>
     <div class="box">
         <div class="relativeTopRight">
             <a href="appboy://close">X</a>
         </div>
-        <iframe width="60%" height="50%" src="https://www.youtube.com/embed/_x45EB3BWqI">
+        <iframe width="60%" height="50%" src="https://www.youtube.com/embed/_x45EB3BWqI" title="YouTube video player">
         </iframe>
     </div>
 </body>
 ```
 
-## ディープリンクを使う
+## ディープリンクの使用 {#using-deep-links}
 
-AndroidのHTMLアプリ内メッセージでディープリンクや外部リンクを使用する場合、JavaScript内で\``brazeBridge.closeMessage()``を呼び出して**はならない**。SDKの内部ロジックは、リンクにリダイレクトする際にアプリ内メッセージを自動的に閉じる。呼び出しはこの`brazeBridge.closeMessage()`プロセスを妨げ、ユーザーがアプリに戻った際にメッセージが応答しなくなる可能性がある。 
+AndroidのHTMLアプリ内メッセージでディープリンクや外部リンクを使用する場合、JavaScriptで`brazeBridge.closeMessage()`を呼び出さ**ないでください**。SDKの内部ロジックは、リンクにリダイレクトする際にアプリ内メッセージを自動的に閉じます。`brazeBridge.closeMessage()`を呼び出すとこのプロセスが妨げられ、ユーザーがアプリに戻った際にメッセージが応答しなくなる可能性があります。
 
-以下はコードスニペットにおけるディープリンクの例だ：
+以下は、コードスニペットにおけるディープリンクの例です。
 
 {% raw %}
-```javascript
+`````````javascript
 <script>
 document.querySelectorAll('[data-button-id]').forEach(function (node)
 Unknown macro: { node.addEventListener('click', function () { brazeBridge.logClick(node.dataset.buttonId); brazeBridge.closeMessage(); }); }

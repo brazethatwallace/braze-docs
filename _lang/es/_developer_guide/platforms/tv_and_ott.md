@@ -28,7 +28,7 @@ A continuación se enumeran las características y los canales de mensajería ad
 }
 
 </style>
-<table id="tv-feature-table">
+<table aria-label="Plataformas y características" id="tv-feature-table">
   <caption>Plataformas y características</caption>
     <thead>
         <tr>

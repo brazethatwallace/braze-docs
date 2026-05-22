@@ -23,7 +23,7 @@ Decisioning Studio prend en charge plusieurs modèles d'intégration pour connec
 | **Ingestion de données cloud Braze (CDI)** | Connecter des entrepôts de données externes | Moyenne |
 | **Stockage cloud (GCS, AWS, Azure)** | Exports de données directs depuis d'autres plateformes | Moyenne |
 | **Intégrations CEP** | Extensions de données SFMC, Klaviyo | Moyenne |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles d'intégration pris en charge" }
 
 ## Types de données clients {#customer-data-types}
 
@@ -35,7 +35,7 @@ Les ressources de données clients suivantes aident les agents à personnaliser 
 | **Comportement client** | Activité et schémas d'engagement | Connexions au compte, type d'appareil, interactions avec le service client, utilisation du produit |
 | **Historique des transactions** | Données d'achat et de conversion | Produits achetés, montants des transactions, méthodes de paiement, canaux d'achat |
 | **Engagement marketing** | Réponses aux communications | Ouvertures/clics d'e-mails, engagement SMS, activité web et mobile, réponses aux enquêtes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types de données clients" }
 
 {% alert tip %}
 Plus les agents disposent d'informations sur vos clients, meilleures seront leurs performances. Pensez à inclure des données sur les informations particulièrement importantes pour votre activité (par exemple, souhaitez-vous voir comment l'IA traite différemment vos clients fidèles ? Assurez-vous que le statut de fidélité figure dans les données clients).

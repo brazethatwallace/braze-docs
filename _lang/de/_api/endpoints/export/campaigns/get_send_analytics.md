@@ -36,7 +36,7 @@ Dieser Endpunkt ist nur für API-Kampagnen gedacht. Um diesen Endpunkt zu verwen
 | `send_id` | Erforderlich | String | Siehe [Versand-API-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
 | `length` | Erforderlich | Integer | Maximale Anzahl der Tage vor `ending_at`, die in der zurückgegebenen Reihe enthalten sein sollen. Muss zwischen 1 und 100 (einschließlich) liegen. |
 | `ending_at` | Optional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-String) | Datum, an dem die Datenreihe enden soll. Standardmäßig wird der Zeitpunkt der Anfrage verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 

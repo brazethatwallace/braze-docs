@@ -36,7 +36,7 @@ Vous pouvez consulter les statistiques de segment suivantes, qui se mettent à j
     }
 </style>
 
-<table>
+<table aria-label="Statistiques de segment">
   <caption>Statistiques de segment</caption>
     <thead>
         <tr>

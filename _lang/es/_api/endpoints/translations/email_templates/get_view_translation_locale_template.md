@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: Ver la traducción y la configuración regional específicas para la plantilla de correo electrónico"
 article_title: "GET: Ver traducción específica y configuración regional para la plantilla de correo electrónico"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -33,7 +33,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | Obligatorio | Cadena    | El ID de tu plantilla de correo electrónico. |
 | `locale_id`   | Opcional | Cadena    | El ID (UUID) de la configuración regional.           |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

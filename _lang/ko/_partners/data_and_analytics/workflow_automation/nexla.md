@@ -19,8 +19,8 @@ Braze와 Nexla 통합을 통해 [Currents]({{site.baseurl}}/user_guide/data/dist
 | 요구 사항 | 설명 |
 |---|---|
 | Nexla 계정 | 이 파트너십을 활용하려면 [Nexla 계정](https://www.nexla.com/get-demo)이 필요합니다. |
-| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트  | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints))에 따라 달라집니다. |
+| Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **Settings** > **API Keys**에서 생성할 수 있습니다. |
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints))에 따라 달라집니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 활용 사례 {#use-cases}

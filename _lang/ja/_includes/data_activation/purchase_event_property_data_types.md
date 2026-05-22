@@ -5,11 +5,11 @@
 | データタイプ | 説明 |
 | --- | --- |
 | 数値 | 整数または浮動小数点数 |
-| ブール値 | 値`true`または`false` |
-| 日時 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)または`yyyy-MM-dd'T'HH:mm:ss:SSSZ`形式の文字列。配列内ではサポートされていません。 |
+| ブール値 | 値 `true` または `false` |
+| 日時 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)または `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 形式の文字列。配列内ではサポートされていません。 |
 | 文字列 | 255文字以下 |
 | 配列 | サポートされています。配列内では日時はサポートされていません。 |
 | オブジェクト | 文字列として取り込まれます（ネストされたオブジェクトではありません）。ネストされたデータの場合は、文字列値（例: JSONシリアライズ）を使用してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 以下のキーは予約されており、プロパティ名として使用できません: `time`、`product_id`、`quantity`、`event_name`、`price`、`currency`。`properties`オブジェクトで予約キーを使用すると、エラー「Invalid 'properties' field」が返されます。

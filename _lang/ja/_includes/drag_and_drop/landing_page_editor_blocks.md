@@ -65,7 +65,7 @@
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | HTML、CSS、JavaScriptの追加、編集、削除ができます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
@@ -113,7 +113,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 長文テキスト {#long-text}
 
-調査スタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。
+調査スタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support/)またはBrazeカスタマーサクセスマネージャーにお問い合わせください。このブロックは標準のランディングページでは使用できません。
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 

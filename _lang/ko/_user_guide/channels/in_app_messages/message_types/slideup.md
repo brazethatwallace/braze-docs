@@ -31,7 +31,7 @@ description: "이 참조 문서에서는 슬라이드업 인앱 메시지의 메
 | 레이아웃 | 자산 크기 | 참고 |
 |--- | --- | --- |
 | 이미지 + 텍스트 | 1:1 종횡비<br>고해상도 150 x 150&nbsp;px<br> 최소 50 x 50&nbsp;px | 다양한 종횡비의 이미지가 잘리지 않고 정사각형 이미지 컨테이너에 맞게 조정됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
 
 이미지와 메시지의 가장 중요한 영역이 예상대로 표시되는지 확인하려면 항상 다양한 기기에서 [메시지를 미리보기하고 테스트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message)해야 합니다. 작성기에서 메시지를 미리볼 때 실제 기기에서의 렌더링은 다를 수 있습니다.
 

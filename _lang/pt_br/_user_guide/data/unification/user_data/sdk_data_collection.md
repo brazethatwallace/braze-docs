@@ -25,20 +25,20 @@ A seguir, listamos os dados estritamente necessários gerados e recebidos pela B
 | Atributo | Descrição | Por que é coletado |
 | --------- | ----------- | ------------------ |
 | App-Version-Name /<br> App-Version-Code | A versão mais recente do app | Esse atributo é usado para enviar mensagens relacionadas à compatibilidade da versão do app para os dispositivos corretos. Ele pode ser usado para notificar os usuários sobre interrupções ou bugs no serviço. |
-| País | País identificado pela geolocalização do endereço IP. Se a geolocalização do endereço IP não estiver disponível, isso é identificado pelo [local do dispositivo](#optional-data-collected-by-default). O valor pode ser alternativamente o que os SDKs definem diretamente com `setCountry`, mas note que passar um valor de atributo por SDK ou API registrará pontos de dados. **Depois que o país for definido manualmente (pelo método do SDK, REST API ou upload de CSV), o SDK não atualizará mais esse valor automaticamente.**| Esse atributo é usado para direcionar mensagens com base na localização. |
+| País | País identificado pela geolocalização do endereço IP. Se a geolocalização do endereço IP não estiver disponível, isso é identificado pelo [local do dispositivo](#optional-data-collected-by-default). O valor pode ser alternativamente o que os SDKs definem diretamente com `setCountry`, mas note que passar um valor de atributo por SDK ou API registrará pontos de dados. **Depois que o país for definido manualmente (pelo método do SDK, REST API ou upload de CSV), o SDK não atualizará mais esse valor automaticamente.** | Esse atributo é usado para direcionar mensagens com base na localização. |
 | ID do dispositivo | Identificador do dispositivo, uma string gerada aleatoriamente | Esse atributo é usado para diferenciar os dispositivos dos usuários e enviar mensagens para o dispositivo correto. |
 | Sistema operacional e versão do sistema operacional | Dispositivo ou navegador relatado atualmente e versão do dispositivo ou navegador | Esse atributo é usado para enviar mensagens apenas para dispositivos compatíveis. Também pode ser usado dentro da segmentação para direcionar os usuários a fazer upgrade das versões do app. |
-| Início da sessão e fim da sessão | Quando o usuário começa a usar seu app ou site integrado | O SDK da Braze relata dados de sessão usados pelo dashboard da Braze para calcular o engajamento do usuário e outras análises de dados essenciais para entender seus usuários. O momento exato em que o início e o fim da sessão são chamados pelo seu app ou site é configurável por um desenvolvedor ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web). |
+| Início da sessão e fim da sessão | Quando o usuário começa a usar seu app ou site integrado | O SDK da Braze relata dados de sessão usados pelo dashboard da Braze para calcular o engajamento do usuário e outras análises de dados essenciais para entender seus usuários. O momento exato em que o início e o fim da sessão são chamados pelo seu app ou site é configurável por um desenvolvedor ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)). |
 | Dados de interação de mensagem do SDK | Aberturas diretas de push, interações de mensagem no app, interações de Content Cards | Esse atributo é usado para fins de controle de qualidade, como verificar se uma mensagem foi recebida e se o envio não está duplicado. |
 | Versão do SDK | Versão atual do SDK | Esse atributo é usado para enviar mensagens apenas para dispositivos compatíveis e evitar a interrupção do serviço. |
 | ID da sessão e timestamp da sessão | Identificador da sessão, uma string gerada aleatoriamente e timestamp da sessão | Usado para determinar se o usuário está iniciando uma nova sessão ou uma sessão existente e para determinar a reelegibilidade das mensagens destinadas a este usuário.<br><br>Certos canais de envio de mensagens, como mensagens no app e Content Cards, são sincronizados com o dispositivo ao iniciar a sessão. Nosso backend usará então dados relacionados a quando ele contatou os servidores da Braze pela última vez (que o dispositivo armazena e envia de volta) para saber se o usuário é elegível para novas mensagens.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Minimum integration" }
 
 ### Métricas calculadas {#calculated-metrics}
 
 A Braze gera métricas calculadas com base em dados do SDK, dados de interação de mensagens relacionados a mensagens que não são do SDK e informações derivadas. Para maior clareza, esses dados calculados não são rastreados pelo SDK, mas gerados pelos serviços da Braze, e um perfil de usuário exibirá tanto os dados rastreados quanto os dados gerados.
 
-As métricas calculadas incluem métricas baseadas em canal (listadas no [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) e os seguintes atributos.
+As métricas calculadas incluem métricas baseadas em canal (listadas no [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)) e os seguintes atributos.
 
 | Atributo                                      | Descrição                                                          |
 |-----------------------------------------------|----------------------------------------------------------------------|
@@ -55,7 +55,7 @@ As métricas calculadas incluem métricas baseadas em canal (listadas no [Gloss�
 | Mensagem recebida da Campaign com tag        | Booleano. Esse filtro direciona os usuários com base no fato de terem recebido uma Campaign que atualmente tem uma tag. |
 | Redirecionar Campaign                              | Booleano. Esse filtro direciona os usuários com base no fato de terem aberto ou clicado em um e-mail, push ou mensagem no app específico no passado. |
 | Desinstalou                                    | Booleano e tempo                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Calculated metrics" }
 
 {% alert important %}
 Se estiver interessado apenas na integração mínima e fizer a integração com mParticle, Segment, Tealium ou GTM, observe o seguinte:
@@ -80,7 +80,7 @@ Além dos dados mínimos de integração, os seguintes atributos são capturados
 | Resolução              | Android, iOS, Web | Resolução do dispositivo ou do navegador                                                          | Opcionalmente usado para direcionamento de mensagens baseado em dispositivo. O formato deste valor é "`<width>`x`<height>`".                                                                 |
 | Fuso horário               | Android, iOS, Web | Fuso horário do dispositivo ou do navegador                                                           | Esse atributo é usado para enviar mensagens no horário apropriado, de acordo com o horário local de cada usuário.                                                   |
 | Agente do usuário              | Web               | [Agente do usuário](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) | Esse atributo é usado para enviar mensagens apenas para dispositivos compatíveis. Também pode ser usado dentro da segmentação.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Optional data collected by default" }
 
 Para saber mais sobre o rastreamento de propriedades em nível de dispositivo (como operadora sem fio do dispositivo, fuso horário, resolução e outros), consulte a documentação específica da plataforma: [Android]({{site.baseurl}}/developer_guide/storage/?tab=android), [iOS]({{site.baseurl}}/developer_guide/storage/?tab=swift), [Web]({{site.baseurl}}/developer_guide/storage/#cookies).
 
@@ -94,7 +94,7 @@ Por padrão, os seguintes atributos não são coletados. Cada atributo precisa s
 | IDFA do dispositivo                | iOS          | Identificador de dispositivo para anunciantes                                                                                                                                                                                                                                                                                         | Isso requer o framework de Transparência de Rastreamento de Anúncios, que disparará uma revisão adicional de privacidade da App Store. Para mais detalhes, veja [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)) |
 | ID de publicidade do Google      | Android      | Identificador para publicidade em apps do Google Play                                                                                                                                                                                                                                                                        | Isso requer que o app recupere o GAID e o passe para a Braze. Para mais detalhes, consulte [ID de publicidade opcional do Google]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration/#google-advertising-id).                                         |
 | Local mais recente | Android, iOS | Esta é a última localização GPS conhecida do dispositivo do usuário. Isso é atualizado no início da sessão e é armazenado no perfil do usuário. | Isso requer que o usuário conceda permissão de localização ao seu app. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Data not collected by default" }
 
 {% alert note %}
 O SDK da Braze não armazena endereços IP localmente.

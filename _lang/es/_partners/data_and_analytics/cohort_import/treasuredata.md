@@ -23,7 +23,7 @@ Esta función está actualmente en fase beta. Para más información, ponte en c
 | Clave de importación de datos de Braze | Se puede obtener en el panel de Braze desde **Integraciones de socios** > **Socios tecnológicos** y luego seleccionando **Treasure Data**. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Dirección IP estática de Treasure Data | La dirección IP estática de Treasure Data es el punto de acceso y la fuente del enlace para esta integración. Para determinar la dirección IP estática, ponte en contacto con tu representante de éxito del cliente de Treasure Data o con el soporte técnico de Treasure Data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración de la importación de datos {#data-import-integration}
 

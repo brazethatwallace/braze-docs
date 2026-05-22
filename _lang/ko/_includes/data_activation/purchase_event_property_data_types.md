@@ -10,6 +10,6 @@
 | 문자열 | 255자 이하 |
 | 배열 | 지원됨. 배열 내에서 날짜/시간은 지원되지 않습니다. |
 | 오브젝트 | 문자열로 수집됩니다(중첩 오브젝트가 아님). 중첩 데이터의 경우 문자열 값을 사용하세요(예: JSON 직렬화). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 다음 키는 예약되어 있으며 등록정보 이름으로 사용할 수 없습니다: `time`, `product_id`, `quantity`, `event_name`, `price`, `currency`. `properties` 오브젝트에서 예약된 키를 사용하면 "Invalid 'properties' field" 오류가 반환됩니다.

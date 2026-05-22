@@ -1,80 +1,79 @@
 ---
 nav_title: トレジャーデータ
 article_title: トレジャーデータ
-description: "このリファレンス記事では、Braze とトレジャーデータのパートナーシップについて説明します。トレジャーデータはエンタープライズ顧客データプラットフォームであり、Braze に直接ジョブの結果を書き込むことができます。"
+description: "このリファレンス記事では、Brazeとトレジャーデータのパートナーシップについて説明します。トレジャーデータはエンタープライズ顧客データプラットフォームであり、Brazeに直接ジョブの結果を書き込むことができます。"
 alias: /partners/treasure_data/
 page_type: partner
 search_tag: Partner
 
 ---
 
-# トレジャーデータ
+# トレジャーデータ {#treasure-data}
 
-> [トレジャーデータ](https://www.treasuredata.com/)は、複数のソースから情報を収集し、マーケティングスタックの他のさまざまな場所に情報をルーティングする顧客データプラットフォーム (CDP) です。
+> [トレジャーデータ](https://www.treasuredata.com/)は、複数のソースから情報を収集し、マーケティングスタックの他のさまざまな場所に情報をルーティングする顧客データプラットフォーム（CDP）です。
 
-Braze とトレジャーデータの統合により、トレジャーデータのジョブ結果を Braze に直接書き込むことができます。
-* **external ID をマッピングする**:CRMシステムからBrazeユーザーアカウントにIDをマッピングします。 
-* **オプトアウトを管理する**:エンドユーザーが参加しないことを選択して同意を更新する場合。
-* **イベント、購入、またはカスタムプロファイル属性のトラッキングをアップロードする**。この情報は、正確な顧客セグメントの作成に役立ちます。正確な顧客セグメントにより、キャンペーンのユーザーエクスペリエンスが向上します。
+Brazeとトレジャーデータの統合により、トレジャーデータのジョブ結果をBrazeに直接書き込むことができます。これにより、以下のことが可能になります。
+* **external IDをマッピングする**：CRMシステムからBrazeユーザーアカウントにIDをマッピングします。
+* **オプトアウトを管理する**：エンドユーザーが参加しないことを選択して同意を更新した場合に対応します。
+* **イベント、購入、またはカスタムプロファイル属性のトラッキングをアップロードする**。この情報は、正確な顧客セグメントの作成に役立ち、キャンペーンのユーザーエクスペリエンスを向上させます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
 | トレジャーデータのアカウント | このパートナーシップを活用するには、[トレジャーデータのアカウント](https://www.treasuredata.com/custom-demo/)が必要です。 |
-| Braze REST API キー | `users.track`、`users.delete`、`users.alias.new`、`users.identify`の権限を持つBraze REST APIキー。<br><br>これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント  | RESTエンドポイントのURL。エンドポイントは、[インスタンスの Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) によって異なります。| |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| Braze REST APIキー | `users.track`、`users.delete`、`users.alias.new`、`users.identify`の権限を持つBraze REST APIキー。<br><br>これはBrazeのダッシュボードで**Settings** > **API Keys**から作成できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[インスタンスのBraze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)によって異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## ユースケース
+## ユースケース {#use-cases}
 
-ターゲットセグメントを編成するために、統合された顧客プロファイルをトレジャーデータから Braze に同期できます。トレジャーデータは、ファーストパーティの Cookie データ、モバイル ID、CRM などのサードパーティシステムなどをサポートしています。
+ターゲットセグメントを構築するために、統合された顧客プロファイルをトレジャーデータからBrazeに同期できます。トレジャーデータは、ファーストパーティのCookieデータ、モバイルID、CRMなどのサードパーティシステムなどをサポートしています。
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1:新しい接続を作成する
+### ステップ1：新しい接続を作成する {#step-1-create-a-new-connection}
 
-トレジャーデータで、[**Catalog**] の下にある [**Integrations Hub**] に移動し、[**Braze**] を検索して選択します。 
+トレジャーデータで、**Integrations Hub**の下にある**Catalog**に移動し、**Braze**を検索して選択します。
 
-**新しい認証**プロンプトが表示されたら、接続に名前を付け、Braze REST APIキーとRESTエンドポイントを提供します。完了したら**完了**を選択します。
+**New Authentication**プロンプトが表示されたら、接続に名前を付け、Braze REST APIキーとRESTエンドポイントを入力します。完了したら**Done**を選択します。
 
 ![]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
-### ステップ 2:クエリを定義する
+### ステップ2：クエリを定義する {#step-2-define-your-query}
 
-トレジャーデータで、**クエリ**の下にある**データワークベンチ**に移動し、データをエクスポートしたいクエリを選択します。このクエリを実行して結果セットを検証します。
+トレジャーデータで、**Data Workbench**の下にある**Queries**に移動し、データをエクスポートしたいクエリを選択します。このクエリを実行して結果セットを検証します。
 
 {% alert note %}
 HIVEを使用してクエリを作成するユーザーの場合、HIVEではアンダースコアで始まる列またはテーブルをバッククォートで囲む必要があります。たとえば `_merge_objects` です。
 {% endalert %}
 
-次に、**結果をエクスポート**を選択し、既存の統合認証を選択します。
+次に、**Export Results**を選択し、既存の統合認証を選択します。
 
 ![]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
 
 次の[カスタマイズセクション](#customization)に概説されているように、追加のエクスポート結果パラメータを定義します。エクスポート統合コンテンツで、統合パラメータを確認してください。
 
-![「Export Results」ページ。このページには、「Mode」、「Traffic Record Type」、および「Pre-formatted Fields」フィールドがある。この例では、それぞれのフィールドに「User-Track」と「Custome Event」が設定されている。]({% image_buster /assets/img/treasure_data/braze_export_configuration.png %}){: style="max-width:80%;"}
+![「Export Results」ページ。このページには「mode」、「track record type」、および「pre-formatted fields」のフィールドがあります。この例では、それぞれのフィールドに「User-Track」と「Custom Events」が設定されています。]({% image_buster /assets/img/treasure_data/braze_export_configuration.png %}){: style="max-width:80%;"}
 
-最後に、**完了**を選択し、クエリを実行して、データがBrazeに移動したことを確認します。
+最後に、**Done**を選択し、クエリを実行して、データがBrazeに移動したことを確認します。
 
-### カスタマイズ
+### カスタマイズ {#customization}
 
-エクスポート結果のパラメータは次の表に含まれています：
+エクスポート結果のパラメータは次の表に含まれています。
 
-| パラメータ                 | 値 | 説明 |
+| パラメータ | 値 | 説明 |
 |---------------------------|---|---|
-| `mode`                    | User - New Alias<br>ユーザー - 識別<br>ユーザー - トラック<br>ユーザー - 削除 | コネクターモード |
-| `pre_formatted_fields`    | String | 配列またはJSON列に使用してフォーマットを保持します。 |
-| `track_record_type`       | カスタムイベント<br>購入<br>ユーザープロファイル属性| **User - Track** モードのレコードタイプ |
+| `mode` | User - New Alias<br>User - Identifying<br>User - Track<br>User - Delete | コネクターモード |
+| `pre_formatted_fields` | 文字列 | 配列またはJSON列に使用してフォーマットを保持します。 |
+| `track_record_type` | Custom Events<br>Purchases<br>User Profile Attributes | **User - Track**モードのレコードタイプ |
 | `skip_on_invalid_records` | ブール値 | 有効にした場合、続行してJSON列の無効なレコードを無視します。<br> それ以外の場合は、ジョブが停止します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customization" }
 
 {% alert note %}
-詳細については、[トレジャーデータ](https://docs.treasuredata.com/display/public/INT/Braze+Export+Integration)を訪問してください。事前にフォーマットされたフィールド、サンプルクエリ、パラメータの詳細、およびクエリエクスポートジョブのスケジューリングについて説明します。
+事前にフォーマットされたフィールド、サンプルクエリ、パラメータの詳細、およびクエリエクスポートジョブのスケジューリングについては、[トレジャーデータ](https://docs.treasuredata.com/display/public/INT/Braze+Export+Integration)を参照してください。
 {% endalert %}
 
-## Webhook
+## Webhook {#webhooks}
 
-トレジャーデータのユーザーは、パブリック REST API を介してデータを取り込むことができます。トレジャーデータを使用して、データにカスタム Webhook を作成できます。詳細については、[トレジャーデータ](https://docs.treasuredata.com/display/public/PD/Postback+API)を参照してください。
-
+トレジャーデータのユーザーは、パブリックREST APIを介してデータを取り込むことができます。トレジャーデータを使用して、データにカスタムWebhookを作成できます。詳細については、[トレジャーデータ](https://docs.treasuredata.com/display/public/PD/Postback+API)を参照してください。

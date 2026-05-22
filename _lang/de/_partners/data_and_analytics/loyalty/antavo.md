@@ -25,7 +25,7 @@ Die Integration von Antavo und Braze ermöglicht es Ihnen, Daten aus Kundenbindu
 | Braze REST-API-Schlüssel   | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `events.list`, `events.data_series` und `events.get`.<br><br>Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden.  |
 | Braze REST-Endpunkt  | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                |
 | Braze-App-Bezeichner | Ihr App-Bezeichner-Schlüssel. <br><br>Um diesen Schlüssel im Braze-Dashboard zu finden, gehen Sie zu **Settings** > **API Keys** und suchen Sie den Abschnitt **Identification**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 

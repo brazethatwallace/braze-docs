@@ -147,8 +147,6 @@ Before you can edit or create catalogs in the browser, you need the following [u
 - Export Catalogs
 - Delete Catalogs
 
-{% multi_lang_include deprecations/user_permissions.md %}
-
 ### Step 1: Enter catalog details
 
 Enter a name and optional description for your catalog. Keep the following requirements in mind when naming your catalog:
@@ -217,6 +215,8 @@ In addition to managing your catalogs, you can also use asynchronous and synchro
 For example, if you want to edit an individual catalog item, you can use the [`/catalogs/catalog_name/items/item_id` endpoint]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
 
 ## Catalog storage {#tiers}
+
+For a quick overview of storage limits by plan, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations).
 
 The free version of catalogs supports CSV file sizes of up to 100 MB for all CSV files combined across your company, whereas the Catalogs Pro version supports CSV file sizes of up to 2 GB for a single CSV file.
 

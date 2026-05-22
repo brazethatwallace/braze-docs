@@ -5,4 +5,4 @@
 | Couleur d'arrière-plan | Modifie la couleur de l'arrière-plan de l'image. |
 | Style de bordure | Détermine le style de la bordure de l'image. |
 | Rayon de bordure | Détermine l'arrondi des coins de l'image. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

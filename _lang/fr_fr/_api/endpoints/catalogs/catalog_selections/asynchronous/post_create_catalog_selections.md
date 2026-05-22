@@ -1,6 +1,6 @@
 ---
 nav_title: "POST : Créer une sélection dans le catalogue"
-article_title: "POST : Créer une sélection de catalogue"
+article_title: "POST : Créer une sélection dans le catalogue"
 search_tag: Endpoint
 page_order: 2
 
@@ -30,14 +30,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | Paramètre      | Requis | Type de données | Description          |
 | -------------- | -------- | --------- | -------------------- |
 | `catalog_name` | Requis | Chaîne de caractères    | Nom du catalogue. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Paramètres de requête {#request-parameters}
 
 | Paramètre   | Requis | Type de données | Description                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `selection` | Requis | Objet    | Un objet contenant les critères de sélection. Consultez l'[objet de sélection de catalogue]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) pour une description complète de l'objet et de ses champs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Paramètres de l'objet de sélection {#selection-object-parameters}
 
@@ -48,10 +48,10 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `external_id`    | Requis | Chaîne de caractères    | Un identifiant unique pour la sélection. |
 | `source`         | Facultatif | Chaîne de caractères    | La source des données du catalogue. Pour les catalogues Shopify, utilisez `"Shopify"`. Les valeurs acceptées sont `"Shopify"` et `"Braze"`. |
 | `filters`        | Facultatif | Tableau    | Un tableau d'objets filtres à appliquer aux éléments du catalogue. Vous pouvez spécifier jusqu'à quatre filtres par requête. Si aucun filtre n'est fourni, tous les éléments du catalogue sont inclus. |
-| `results_limit`  | Facultatif | Entier   | Le nombre maximal de résultats à renvoyer. Ce nombre doit être compris entre 1 et 50. |
+| `results_limit`  | Facultatif | Nombre entier   | Le nombre maximal de résultats à renvoyer. Ce nombre doit être compris entre 1 et 50. |
 | `sort_field`     | Facultatif | Chaîne de caractères    | Le champ selon lequel trier les résultats. Ce paramètre doit être associé à `sort_order`. Si `sort_field` et `sort_order` ne sont pas présents, les résultats sont renvoyés dans un ordre aléatoire. |
 | `sort_order`     | Facultatif | Chaîne de caractères    | L'ordre de tri des résultats. Les valeurs acceptées sont `"asc"` (ascendant) ou `"desc"` (descendant). Ce paramètre doit être associé à `sort_field`. Si `sort_field` et `sort_order` ne sont pas présents, les résultats sont renvoyés dans un ordre aléatoire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Selection object parameters" }
 
 {% alert note %}
 Les paramètres `sort_field` et `sort_order` doivent être utilisés conjointement. Si vous fournissez l'un sans l'autre, ou si vous omettez les deux paramètres, les résultats de la sélection sont renvoyés dans un ordre aléatoire.
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter operators" }
 
 {% alert note %}
 L'API prend en charge un maximum de quatre filtres par requête de sélection. Dans le tableau de bord de Braze, vous pouvez ajouter jusqu'à 10 filtres par sélection. Les filtres sont appliqués dans l'ordre dans lequel ils apparaissent dans le tableau.
@@ -118,7 +118,7 @@ Le code de statut `202` pourrait renvoyer le corps de réponse suivant.
 
 ### Exemple de réponse échouée {#example-error-response}
 
-Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la [résolution des problèmes](#troubleshooting) pour plus d'informations sur les erreurs que vous pourriez rencontrer.
+Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consultez la section [Résolution des problèmes](#troubleshooting) pour plus d'informations sur les erreurs que vous pourriez rencontrer.
 
 ```json
 {
@@ -142,7 +142,7 @@ Le code de statut `400` pourrait renvoyer le corps de réponse suivant. Consulte
 
 Le tableau suivant répertorie les erreurs possibles et les étapes de résolution associées.
 
-| Erreur                                | Résolution des problèmes                                                                               |
+| Erreur                                | Résolution                                                                               |
 |--------------------------------------|-----------------------------------------------------------------------------------------------|
 | `catalog-not-found`                  | Vérifiez que le nom du catalogue est valide.                                                         |
 | `company-size-limit-already-reached` | La limite de taille de stockage du catalogue est atteinte.                                                    |
@@ -156,6 +156,6 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | `invalid-sort-field`                 | Vérifiez que le champ de tri de la sélection est valide.                                                   |
 | `invalid-sort-order`                 | Vérifiez que l'ordre de tri de la sélection est valide.                                                   |
 | `selection-contains-too-many-arrays` | Vérifiez si la sélection contient plus d'un champ de type `array`. Un seul est pris en charge. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

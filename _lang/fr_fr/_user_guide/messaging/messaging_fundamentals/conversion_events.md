@@ -38,13 +38,15 @@ Pour en savoir plus sur les conversions, consultez notre [cours Braze Learning](
 
 ### Règles de suivi des conversions {#conversion-tracking-rules}
 
-Les événements de conversion attribuent les actions des utilisateurs à un point d'engagement. Notez les points suivants concernant la manière dont Braze gère les conversions multiples :
+Les événements de conversion attribuent les actions des utilisateurs à un point d'engagement. De manière générale, tant qu'une fenêtre de conversion est ouverte, un utilisateur ne convertit qu'une seule fois au maximum par événement de conversion pour cette campagne ou ce Canvas. S'il effectue la même action de conversion plus d'une fois avant la date limite (par exemple, deux achats), Braze ne comptabilise qu'une seule conversion pour cet événement. Les campagnes multicanal peuvent enregistrer une opportunité de conversion distincte pour chaque canal de communication, ce qui peut produire des taux de conversion supérieurs à 100 % lorsque vous comparez le nombre de conversions avec les destinataires uniques (voir ci-dessous).
+
+Notez les points suivants concernant la manière dont Braze gère les conversions multiples :
 
 - **Campagnes monocanal** : les conversions sont comptabilisées par utilisateur, et non par appareil. Au sein d'un même canal, un utilisateur ne convertit qu'une seule fois par événement de conversion, même si un message est envoyé à plusieurs appareils. Par exemple, si une campagne n'a qu'un seul événement de conversion défini sur « Effectue un achat quelconque » et qu'un utilisateur effectue deux achats distincts avant la date limite de conversion, Braze ne comptabilise qu'une seule conversion.
 - **Campagnes multicanal** : pour les campagnes multicanal, chaque canal dispose de sa propre opportunité de conversion. Un utilisateur peut convertir une fois par canal après avoir reçu un message sur ce canal. Cela signifie que si un utilisateur reçoit des messages sur plusieurs canaux (par exemple, e-mail et push) et effectue l'action de conversion, Braze comptabilise une conversion pour chaque canal, ce qui peut entraîner des taux de conversion supérieurs à 100 %.
+- **Étapes de message Canvas** : Braze attribue les conversions survenues dans le délai de conversion à la dernière étape de message Canvas que l'utilisateur a reçue. Après réception de l'étape de message suivante, l'attribution passe à cette étape. Braze mesure cette fenêtre à partir du moment où l'utilisateur entre dans le Canvas, et non à partir de chaque message individuellement. Braze comptabilise tout de même les conversions pendant les périodes de délai entre les étapes.
 - Si un utilisateur effectue un événement de conversion dans les délais de conversion de deux campagnes ou Canvas distincts qu'il a reçus, la conversion est enregistrée pour les deux.
 - Un utilisateur est considéré comme converti s'il a effectué l'événement de conversion spécifique dans la fenêtre définie, même s'il n'a pas ouvert ou cliqué sur le message.
-- Pour les Canvas, le suivi des conversions fonctionne en fonction de la date limite de conversion finale qui commence lorsqu'un utilisateur entre dans le Canvas, et non en fonction du timing de chaque message individuel. Braze comptabilise les conversions même pendant les périodes de délai entre les messages dans un Canvas.
 
 ### Événement de conversion principal {#primary-conversion-event}
 
@@ -81,7 +83,7 @@ Commencez par sélectionner le type général d'événement que vous souhaitez u
 | **Mettre à jour l'application** | Un utilisateur est considéré comme converti lorsqu'il met à jour la version de l'application sur l'une des applications que vous spécifiez (par défaut, toutes les applications de l'espace de travail). Braze effectue une comparaison numérique au mieux pour déterminer si le changement constitue une mise à jour. Les versions non numériques sont comptabilisées comme des conversions si la version change. |
 | **Ouvrir un e-mail** | Un utilisateur est considéré comme converti lorsqu'il ouvre l'e-mail (uniquement pour les campagnes par e-mail). |
 | **Cliquer dans un e-mail** | Un utilisateur est considéré comme converti lorsqu'il clique sur un lien dans l'e-mail (uniquement pour les campagnes par e-mail). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Add the conversion events" }
 
 {% alert important %}
 **Les propriétés imbriquées ne sont pas prises en charge dans les événements de conversion**. Vous ne pouvez pas utiliser de propriétés imbriquées dans les événements de conversion. Par exemple, si `product_code` ou `product_name` sont des propriétés imbriquées dans un tableau `products` (comme `products[].product_code`), vous ne pouvez pas les utiliser pour vérifier si un achat de produit spécifique a été effectué dans un événement de conversion.

@@ -7,7 +7,7 @@ description: "Cet article décrit les événements et propriétés personnalisé
 search_rank: 2
 ---
 
-# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Événements personnalisés {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
+# [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"} Événements personnalisés {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
 > Cet article décrit les événements et propriétés personnalisés, les filtres de segmentation associés, les propriétés d'entrée dans Canvas, les analyses pertinentes, etc. Pour en savoir plus sur les événements de Braze en général, consultez la rubrique [Événements]({{site.baseurl}}/user_guide/data/activation/events/).
 
@@ -103,7 +103,7 @@ Le tableau suivant présente les filtres disponibles pour segmenter les utilisat
 | Vérifier si l'événement personnalisé s'est produit **plus de X fois (max = 50)** | **MORE THAN** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
 | Vérifier si l'événement personnalisé s'est produit **moins de X fois (max = 50)** | **LESS THAN** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
 | Vérifier si l'événement personnalisé s'est produit **exactement X fois (max = 50)** | **EXACTLY** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres de segmentation" }
 
 ## Analyses {#analytics}
 

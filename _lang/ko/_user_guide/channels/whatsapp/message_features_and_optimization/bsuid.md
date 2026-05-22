@@ -13,7 +13,7 @@ noindex: true
 
 # WhatsApp 사용자 이름 및 비즈니스 범위 사용자 ID {#whatsapp-usernames-and-business-scoped-user-ids}
 
-> 2026년 6월, WhatsApp은 사용자 이름 기능을 도입할 예정입니다. 이 기능은 비즈니스와 메시지를 주고받을 때 사용자의 전화번호를 숨기는 선택적 개인정보 보호 기능입니다. Braze는 이 변경 사항을 완벽하게 처리할 준비가 되어 있으며, 대부분의 고객은 Campaigns나 Canvases에서 아무것도 변경할 필요가 없습니다.
+> 2026년 6월, WhatsApp은 사용자 이름 기능을 도입할 예정입니다. 이 기능은 비즈니스와 메시지를 주고받을 때 사용자의 전화번호를 숨기는 선택적 개인정보 보호 기능입니다. Braze는 이 변경 사항을 완벽하게 처리할 준비가 되어 있으며, 대부분의 고객은 Campaign이나 Canvas에서 아무것도 변경할 필요가 없습니다.
 
 {% alert important %}
 WhatsApp 사용자 이름 및 비즈니스 범위 사용자 ID(BSUID)는 2026년 6월에 출시될 예정이며, Braze 업데이트도 이 출시에 맞춰 제공됩니다. 이 문서에 설명된 Braze 업데이트는 아직 **출시되지 않았습니다**.
@@ -34,7 +34,7 @@ BSUID에는 세 가지 주요 특성이 있습니다:
 | 고유성 | 비즈니스 포트폴리오 내에서 두 사용자가 동일한 BSUID를 공유하지 않습니다. |
 | 비즈니스 범위 | 동일한 사용자가 메시지를 보내는 각 비즈니스마다 다른 BSUID를 갖게 됩니다. BSUID는 서로 다른 비즈니스 포트폴리오 간에 공유하거나 비교할 수 없습니다. |
 | 웹훅에서 사용 가능 | BSUID는 현재 사용자의 전화번호를 포함하는 모든 동일한 웹훅 페이로드에 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
 
 ## WhatsApp 사용자 유형 변경 사항 {#changes-to-whatsapp-user-types}
 
@@ -44,7 +44,7 @@ WhatsApp 사용자 이름이 출시된 후에는 두 가지 유형의 WhatsApp �
 | ----- | ----- | ----- |
 | 사용자 이름이 없는 사용자 | 전화번호(변경 없음) | 전화번호(변경 없음) |
 | 사용자 이름이 있는 사용자 | 사용자 이름(표시됨), BSUID(백엔드) | BSUID, 비즈니스와 기존 대화가 있는 사용자의 전화번호 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
 
 핵심적인 차이점은 사용자 이름을 채택한 사용자가 이전에 대화한 적이 있거나 WhatsApp 연락처 목록에 있는 경우에만 비즈니스에 전화번호를 공유한다는 것입니다.
 
@@ -144,7 +144,7 @@ Meta가 비즈니스 포트폴리오 연결 프로세스를 관리합니다. 시
 | 단일 비즈니스 포트폴리오 | 일반 BSUID |
 | 여러 연결된 포트폴리오 | 상위 BSUID(우선). 상위 BSUID가 없으면 일반 BSUID 사용 |
 | 여러 연결되지 않은 포트폴리오 | 일반 BSUID(포트폴리오별로 중복 고객 프로필이 생성될 수 있음) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

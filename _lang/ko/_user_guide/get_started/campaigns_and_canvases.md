@@ -24,7 +24,7 @@ Campaigns는 채널에 따라 고유하게 구축될 수 있지만, Braze에서 
 | A/B 테스트 | 단일 채널을 타겟팅하는 Campaigns의 경우, 동일한 Campaign의 여러 버전을 보내고 어떤 버전이 가장 좋은 성과를 내는지 확인할 수 있습니다. [다변량 Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/)을 통해 최대 8개의 다른 버전으로 카피, 개인화 등을 테스트할 수 있습니다. |
 | API | [API Campaigns]({{site.baseurl}}/api/api_campaigns/)를 사용하면 가능한 한 빠르게 시기적절한 메시지를 보낼 수 있습니다. 다른 Campaign 유형과 달리, Braze 대시보드에서 메시지, 수신자 또는 스케줄을 지정하지 않습니다. 대신 이러한 식별자를 API 호출에 전달합니다. 일반적으로 실시간 트랜잭션 메시징이나 속보에 사용됩니다. |
 | 트랜잭션 이메일 | Braze [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/email/)은 귀하와 고객 간의 합의된 거래를 촉진하기 위해 자동화된 비프로모션 이메일 메시지를 보내도록 설계되었습니다. 속도가 가장 중요한 단일 사용자에게 비즈니스에 중요한 알림을 보냅니다. *일부 패키지에서만 사용할 수 있습니다.* |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaigns" }
 
 {% alert note %}
 정규 및 A/B 테스트 Campaigns는 스케줄에 따라 발송하거나(예: 다가오는 이벤트에 대해 사용자 목록에 알림) 사용자의 행동에 대한 응답으로 자동 발송할 수 있습니다(예: 누군가가 뉴스레터를 구독할 때 이메일 발송). [Campaigns 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)에 대해 자세히 알아보세요.
@@ -77,7 +77,7 @@ Canvas에 대해 더 알아보려면 다음 추가 리소스를 확인하세요:
 | [커넥티드 TV]({{site.baseurl}}/developer_guide/platforms/tv_and_ott/) | 커넥티드 TV 플랫폼에서 사용자와 소통하세요. |
 | [웹훅]({{site.baseurl}}/user_guide/channels/webhooks/) | 커스텀 HTTP 콜백을 통해 외부 시스템과의 실시간 통신 및 통합을 활성화합니다. |
 | [LINE]({{site.baseurl}}/user_guide/channels/line/) | 일본에서 가장 인기 있는 메시징 앱인 LINE에서 사용자와 소통하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging channels" }
 
 <sup>*추가 기능으로 사용할 수 있습니다.*</sup>
 

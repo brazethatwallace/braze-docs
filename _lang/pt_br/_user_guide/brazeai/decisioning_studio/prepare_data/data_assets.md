@@ -57,7 +57,7 @@ Os dados de conversão descrevem o que aconteceu com o cliente após uma recomen
 | Cada registro tem um timestamp de quando o evento de conversão ocorreu | A precisão do timing é essencial para a atribuição. O modelo precisa saber a qual recomendação uma conversão pode ser atribuída. |
 | Se estiver usando uma métrica de sucesso não binária (por exemplo, receita em vez de convertido ou não convertido), o valor da métrica deve ser incluído em cada registro de conversão | O Decisioning Studio usa o valor da métrica para gerar experiências de treinamento. Sem o valor, o modelo só consegue aprender que uma conversão aconteceu, não o quão valiosa ela foi. |
 | Se as conversões podem ser atribuídas diretamente a uma comunicação específica (por exemplo, resgate de cupom), inclua os campos necessários para associar a conversão ao registro de ativação | A atribuição direta fornece ao modelo o sinal de aprendizado mais claro. Se a atribuição direta não for possível, o Decisioning Studio usa atribuição baseada em proximidade como fallback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Ativos opcionais {#optional-assets}
 

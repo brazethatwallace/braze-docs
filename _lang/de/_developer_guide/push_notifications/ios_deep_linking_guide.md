@@ -25,7 +25,7 @@ Es gibt drei Möglichkeiten, Links aus Braze-Nachrichten in Ihrer iOS-App zu ver
 | **Angepasstes Schema** | `myapp://products/123` | Push-Benachrichtigungen, In-App-Nachrichten, Content Cards | Nein – Link funktioniert nicht |
 | **Universeller Link** | `https://myapp.com/products/123` | E-Mail, SMS, Kanäle mit Klick-Tracking | Ja – Fallback auf das Internet |
 | **Web-URL in der App öffnen** | Jede `https://`-URL | Anzeige von Webinhalten in einem modalen WebView | Nicht zutreffend – wird im WebView angezeigt |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Choosing a link type" }
 
 ### Deeplinks mit angepasstem Schema {#custom-scheme-deep-links}
 
@@ -67,7 +67,7 @@ Diese Option öffnet eine Webseite in einem modalen WebView innerhalb Ihrer App.
 
 ## Was Sie für jeden Link-Typ benötigen {#what-you-need-for-each-link-type}
 
-### Deeplinks mit angepasstem Schema {#custom-scheme-deep-links}
+### Deeplinks mit angepasstem Schema
 
 | Anforderung | Details |
 |---|---|
@@ -75,9 +75,9 @@ Diese Option öffnet eine Webseite in einem modalen WebView innerhalb Ihrer App.
 | `Info.plist` | Registrieren Sie Ihr Schema unter `CFBundleURLTypes` und fügen Sie es zu `LSApplicationQueriesSchemes` hinzu |
 | App-Delegate-Methode | Implementieren Sie `application(_:open:options:)`, um die URL zu parsen und die Navigation durchzuführen |
 | Konfiguration des Braze SDK | Keine – das SDK öffnet standardmäßig URLs mit angepasstem Schema |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom scheme deep links" }
 
-### Universelle Links {#universal-links}
+### Universelle Links
 
 | Anforderung | Details |
 |---|---|
@@ -86,20 +86,20 @@ Diese Option öffnet eine Webseite in einem modalen WebView innerhalb Ihrer App.
 | App-Delegate-Methode | Implementieren Sie `application(_:continue:restorationHandler:)`, um `NSUserActivity` zu verarbeiten |
 | Konfiguration des Braze SDK | Setzen Sie `configuration.forwardUniversalLinks = true` |
 | BrazeDelegate (optional) | Implementieren Sie `braze(_:shouldOpenURL:)` für angepasstes Routing (z. B. Branch) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
 
 {% alert important %}
 Wenn Sie E-Mails über Braze versenden, verpackt Ihr ESP (SendGrid, SparkPost oder Amazon SES) Links in eine Klick-Tracking-Domain. Sie müssen die AASA-Datei auch auf Ihrer Klick-Tracking-Domain hosten, nicht nur auf Ihrer primären Domain. Für die vollständige Einrichtung siehe [Universelle Links und App-Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
 {% endalert %}
 
-### „Web-URL in der App öffnen“ {#open-web-url-inside-app}
+### „Web-URL in der App öffnen“
 
 | Anforderung | Details |
 |---|---|
 | AASA-Datei | Nicht erforderlich |
 | App-Delegate-Methode | Nicht erforderlich – das SDK übernimmt dies automatisch |
 | Konfiguration des Braze SDK | Keine – wählen Sie **Open Web URL Inside App** im Campaign-Composer aus |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Open Web URL Inside App" }
 
 ## Wann Sie eine AASA-Datei benötigen {#when-aasa}
 
@@ -128,7 +128,7 @@ Welche Delegate-Methode Sie implementieren, hängt von der Art des verwendeten L
 | `application(_:open:options:)` | Deeplinks mit angepasstem Schema (`myapp://`) | Sie verwenden Deeplinks mit angepasstem Schema aus einem beliebigen Kanal |
 | `application(_:continue:restorationHandler:)` | Universelle Links (`https://`) | Sie verwenden universelle Links aus E-Mail, SMS oder mit `forwardUniversalLinks = true` |
 | `BrazeDelegate.braze(_:shouldOpenURL:)` | Alle vom SDK geöffneten URLs | Sie benötigen eine angepasste Routing-Logik (z. B. Branch, bedingte Verarbeitung, Analytics) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When you need app code to handle links" }
 
 {% alert tip %}
 Wenn Sie einen Drittanbieter für Verlinkungen wie Branch verwenden, implementieren Sie `BrazeDelegate.braze(_:shouldOpenURL:)`, um URLs abzufangen und an das SDK des Anbieters weiterzuleiten. Ein vollständiges Beispiel finden Sie unter [Branch für Deeplinking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).

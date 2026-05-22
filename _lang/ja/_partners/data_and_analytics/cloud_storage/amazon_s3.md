@@ -271,11 +271,11 @@ AWSコンソールに戻り、信頼できるエンティティセレクター�
 
 次に、以前に作成したポリシーをロールにアタッチします。検索バーでポリシーを検索し、ポリシーの横にチェックマークを付けてアタッチします。完了したら**Next**を選択します。
 
-![ロールARN]({{site.baseurl}}/assets/img/create_role_3_attach.png)
+![Role ARN]({{site.baseurl}}/assets/img/create_role_3_attach.png)
 
 ロールに名前と説明を指定し、**Create Role**を選択します。
 
-![ロールARN]({{site.baseurl}}/assets/img/create_role_4_name.png)
+![Role ARN]({{site.baseurl}}/assets/img/create_role_4_name.png)
 
 新しく作成したロールがリストに表示されます。
 
@@ -333,9 +333,17 @@ Brazeで、**統合**の**テクノロジーパートナー**ページに移動�
 {% endtab %}
 {% endtabs %}
 
+## Currents用のAmazon S3認証情報の更新 {#updating-currents-credentials}
+
+既存のBraze Currentsコネクタで、統合を停止したり、すでにバケットにエクスポートされたデータを失ったりすることなく、Amazon S3認証情報を更新できます。
+
+認証情報を更新する場合、または**AWS Secret Access Key**と**AWS Role ARN**を切り替える場合は、この記事の前半で説明した選択した方式のIAMおよびAWS側のステップ（ポリシー、ユーザーまたはロール、必要に応じて識別子）を完了してください。
+
+AWSで認証情報の準備が完了したら、Brazeで**パートナー連携** > **Currents**に移動し、リストからAmazon S3コネクタを見つけて**Edit**を選択し、**Credentials**を更新して**Update Current**を選択します。Brazeは入力された認証情報を検証します。コネクタは引き続き実行され、バケット内のデータは引き続き利用可能です。詳細については、[Currentsの設定でのCurrentsの更新]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents)を参照してください。
+
 ## エクスポートの動作 {#export-behavior}
 
-クラウドデータストレージソリューションを統合し、API、ダッシュボードレポート、またはCSVレポートをエクスポートしているユーザーは、以下のような動作を経験します。
+クラウドデータストレージソリューションを統合し、API、ダッシュボードレポート、またはCSVレポートをエクスポートしているユーザーは、以下のような動作になります。
 
 - すべてのAPIエクスポートは、レスポンスボディにダウンロードURLを返さず、データストレージを通じて取得する必要があります。
 - すべてのダッシュボードレポートとCSVレポートは、ユーザーのメールに送信されてダウンロードされ（ストレージ権限不要）、データストレージにバックアップされます。

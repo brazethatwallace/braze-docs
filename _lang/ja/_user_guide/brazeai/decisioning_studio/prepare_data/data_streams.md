@@ -22,7 +22,7 @@ description: "このリファレンス記事では、スナップショットデ
 |-------|---------|
 | 顧客識別子 | このレコードが誰を記述しているか |
 | スナップショット日付 | このスナップショットがいつ取得されたか |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 
 ### スナップショットの更新方法 {#how-snapshots-should-be-updated}
 
@@ -53,7 +53,7 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 | イベントタイムスタンプ | イベントが実際に発生した日時 |
 | 作成タイムスタンプ | このレコードがシステムに作成された日時（以下の注記を参照） |
 | イベントプロパティ | イベントに関する追加メタデータ。これが豊富であるほど、Decisioning Studioはカスタマージャーニー全体でイベントをより適切にリンクできます |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 
 {% alert important %}
 イベントタイムスタンプと作成タイムスタンプは異なるフィールドであり、両方とも必須です。イベントタイムスタンプは、アクションが実際に発生した日時を記録します。作成タイムスタンプは、データエントリがシステムに書き込まれた日時を記録しますが、処理の遅延により後になる場合があります。この2つを混同しないでください。
@@ -69,14 +69,14 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 
 日次エクスポートのスライスには、`event_timestamp`ではなく`create_timestamp`を使用してください。イベントは発生後にシステムに書き込まれることがあります（遅延到着）。`event_timestamp`でスライスすると、遅延到着したレコードが永久に欠落します。
 
-```sql
+`````````sql
 -- Correct: use create_timestamp to ensure late-arriving events are captured
 SELECT *
 FROM events_data
 WHERE DATE(create_timestamp) = {t-1} -- on run date t, export all records created yesterday
 ```
 
-```sql
+`````````sql
 -- Incorrect: slicing on event_timestamp will permanently lose late-arriving events
 SELECT *
 FROM events_data

@@ -25,7 +25,7 @@ toc_headers: h2
 
 ## 사용 가능한 뷰 {#available-views}
 
-<table>
+<table aria-label="Available views">
   <caption>사용 가능한 뷰</caption>
   <thead>
     <tr>
@@ -63,7 +63,7 @@ toc_headers: h2
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available views" }
 
 ## 고객 프로필 스냅샷 {#user-profile-snapshots}
 
@@ -83,7 +83,7 @@ toc_headers: h2
 `TIME` 필드는 고객 프로필 업데이트 시간을 나타냅니다. 백필된 데이터의 경우 `TIME`은 백필 시간입니다.
 {% endalert %}
 
-### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#userdefaultattributesviewshared-schema}
+### `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_default_attributes_view_shared-schema}
 
 | 컬럼 이름     | 데이터 유형     |
 |-----------------|---------------|
@@ -104,10 +104,10 @@ toc_headers: h2
 | `HOME_CITY` | VARCHAR |
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED schema" }
 
 
-### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` 스키마 {#usercustomattributesviewshared-schema}
+### `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_custom_attributes_view_shared-schema}
 
 | 컬럼 이름     | 데이터 유형     |
 |-----------------|---------------|
@@ -118,7 +118,7 @@ toc_headers: h2
 | `UPDATE_SOURCE` | VARCHAR |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `CUSTOM_ATTRIBUTES` | VARIANT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED schema" }
 
 ## 실시간 고객 프로필 뷰 {#real-time-user-profile-views}
 
@@ -140,7 +140,7 @@ toc_headers: h2
 `TIME` 필드는 고객 프로필 업데이트 시간을 나타냅니다. 백필된 데이터의 경우 `TIME`은 백필 시간입니다.
 {% endalert %}
 
-### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#userlateststatedefaultattributesviewshared-schema}
+### `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 스키마 {#user_latest_state_default_attributes_view_shared-schema}
 
 | 컬럼 이름     | 데이터 유형     |
 |-----------------|---------------|
@@ -161,9 +161,9 @@ toc_headers: h2
 | `COUNTRY` | VARCHAR |
 | `LANGUAGE` | VARCHAR |
 | `TIME_ZONE` | VARCHAR |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED schema" }
 
-### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` 스키마 {#userlateststatecustomattributeviewshared-schema}
+### `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` 스키마 {#user_latest_state_custom_attribute_view_shared-schema}
 
 | 컬럼 이름     | 데이터 유형     |
 |-----------------|---------------|
@@ -174,7 +174,7 @@ toc_headers: h2
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ |
 | `APP_ID` | VARCHAR |
 | `CUSTOM_ATTRIBUTES` | OBJECT |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERLATESTSTATECUSTOMATTRIBUTEVIEWSHARED schema" }
 
 ## 이력 변경 로그 {#historical-change-logs}
 
@@ -193,7 +193,7 @@ toc_headers: h2
 `TIME` 필드는 고객 프로필 업데이트 시간을 나타냅니다. 백필된 데이터의 경우 `TIME`은 백필 시간입니다.
 {% endalert %}
 
-### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 스키마 {#userdefaultattributeshistoryviewshared-schema}
+### `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 스키마 {#user_default_attributes_history_view_shared-schema}
 
 | 컬럼 이름     | 데이터 유형     |
 |-----------------|---------------|
@@ -216,9 +216,9 @@ toc_headers: h2
 | `LANGUAGE` | VARCHAR |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED schema" }
 
-### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` 스키마 {#usercustomattributeshistoryviewshared-schema}
+### `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED` 스키마 {#user_custom_attributes_history_view_shared-schema}
 
 | 컬럼 이름     | 데이터 유형     |
 |-----------------|---------------|
@@ -231,7 +231,7 @@ toc_headers: h2
 | `CUSTOM_ATTRIBUTES` | VARIANT |
 | `EFF_DT` | TIMESTAMP_NTZ |
 | `END_DT` | TIMESTAMP_NTZ |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="USERCUSTOMATTRIBUTESHISTORYVIEWSHARED schema" }
 
 ## 모범 사례 {#best-practices}
 
@@ -242,7 +242,7 @@ toc_headers: h2
 | 최근 업데이트가 필요하지 않은 **일반 쿼리** | `USER_DEFAULT_ATTRIBUTES_VIEW_SHARED` 및 `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`               | 빠른 실행, 최대 12시간 전 데이터.                          |
 | **최신 사용자 속성**이 필요한 쿼리       | `USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED` 및 `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED` | 거의 실시간 업데이트를 제공하지만 대규모 데이터셋에서는 느릴 수 있습니다. |
 | 속성 변경의 **이력 추적**           | `USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED` 및 `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`      | 12시간 단위로 속성 변경 사항을 저장합니다.                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recommended query usage" }
 
 ### 성능 고려 사항 {#performance-considerations}
 

@@ -4,4 +4,4 @@
 | カスタム属性名 | チェック時に `true`、未チェック時に `false` を受け取るブール値カスタム属性を選択します。 |
 | アクセントカラー | チェックボックスコントロールのスタイリングに使用される色です。 |
 | パディング | ブロック周囲のスペースです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

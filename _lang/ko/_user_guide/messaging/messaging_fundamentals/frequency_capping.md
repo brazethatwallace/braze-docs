@@ -144,7 +144,7 @@ Braze는 멀티채널 Campaign 및 Canvases에 사용량 제한이 어떻게 적
     - SMS 자동 응답
     - SLA 지원 메시지([트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/) 등)
     - 인앱 메시지
-    - 피처 플래그
+    - 기능 플래그
     - 배너
 
 #### 사용량 제한과 연결된 콘텐츠 재시도 {#rate-limiting-and-connected-content-retries}
@@ -217,7 +217,7 @@ Canvas 사용자가 글로벌 최대 게재빈도 설정으로 인해 빈도 제
 
 멀티채널 Campaign 내의 서로 다른 채널은 개별적으로 최대 게재빈도에 포함됩니다. 예를 들어, 푸시와 이메일이 모두 포함된 멀티채널 Campaign을 만들고 두 채널 모두에 대해 최대 게재빈도 설정이 되어 있는 경우, 푸시는 하나의 푸시 Campaign으로, 이메일 메시지는 하나의 이메일 메시지 Campaign으로 계산됩니다. Campaign은 또한 "모든 유형의 Campaign" 하나로 계산됩니다. 사용자가 하루에 하나의 푸시와 하나의 이메일 Campaign으로 제한되어 있고 이 멀티채널 Campaign을 받으면, 나머지 하루 동안 푸시 또는 이메일 Campaign을 받을 자격이 없습니다(Campaign이 최대 게재빈도 설정 규칙을 무시하지 않는 한).
 
-인앱 메시지와 Content Cards는 모든 유형의 Campaign 또는 Canvas 구성요소에 대한 제한으로 계산되거나 포함되지 않습니다.
+In-App Messages와 Content Cards는 모든 유형의 Campaign 또는 Canvas 구성요소에 대한 제한으로 계산되거나 포함되지 않습니다.
 
 {% alert important %}
 글로벌 최대 게재빈도 설정은 사용자의 시간대를 기준으로 스케줄되며, 24시간 단위가 아닌 달력 일 기준으로 계산됩니다. 예를 들어, 하루에 1개 이하의 Campaign을 발송하는 최대 게재빈도 설정 규칙을 설정한 경우, 사용자가 현지 시간대로 오후 11시에 메시지를 받을 수 있으며, 1시간 후에 다른 메시지를 받을 자격이 있습니다.

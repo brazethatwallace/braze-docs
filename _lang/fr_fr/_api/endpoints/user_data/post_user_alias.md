@@ -56,7 +56,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `user_aliases` | Requis | Tableau d'objets nouvel alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Corps de requête de l'endpoint avec spécification de l'objet nouvel alias d'utilisateur {#endpoint-request-body-with-new-user-alias-object-specification}
 

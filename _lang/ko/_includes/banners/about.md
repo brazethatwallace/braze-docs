@@ -22,7 +22,7 @@
 | 오퍼 개인화 | 각 사용자의 탐색 기록, 장바구니 내용, 구독 등급 및 로열티 상태에 따라 개인화된 프로모션 및 인센티브를 표시합니다. |
 | 신규 사용자 참여 타겟팅 | 신규 사용자를 온보딩 흐름 및 계정 설정으로 안내합니다. |
 | 세일 및 프로모션 | 사용자 경험을 방해하지 않으면서 홈페이지에서 지속적이고 직접적으로 추천 콘텐츠, 인기 제품 및 진행 중인 브랜드 Campaign을 강조합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
 
 ## 기능 {#features}
 
@@ -66,9 +66,9 @@ iframe은 코드베이스 변경 없이 동적이고 개인화된 콘텐츠 업�
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}
 
-### 크기 및 위치 {#dimensions-and-sizing}
+### 크기 및 사이징 {#dimensions-and-sizing}
 
-배너 크기 및 크기 조정에 대해 알아야 할 사항은 다음과 같습니다:
+배너 크기 및 사이징에 대해 알아야 할 사항은 다음과 같습니다:
 
 - 컴포저를 사용하면 배너를 다양한 크기로 미리보기할 수 있지만, 해당 정보는 SDK에 저장되거나 전송되지 않습니다.
 - HTML은 렌더링되는 컨테이너의 전체 너비를 차지합니다.

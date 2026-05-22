@@ -5,4 +5,4 @@
 | 배경색 | 이미지의 배경색을 변경합니다. |
 | 테두리 스타일 | 이미지 테두리의 스타일을 결정합니다. |
 | 테두리 반경 | 이미지 모서리의 둥근 정도를 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

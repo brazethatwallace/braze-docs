@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "この記事では、「ユーザーのサブスクリプショングループステータスの更新」Brazeエンドポイントの詳細について説明します。"
 ---
+
 {% api %}
 # ユーザーのサブスクリプショングループステータスの更新 {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ description: "この記事では、「ユーザーのサブスクリプション
 {% alert note %}
 このエンドポイントを[LINEサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)で使用することに興味がある場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## レート制限 {#rate-limit}
 
@@ -97,7 +100,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email` | 必須* | 文字列または文字列の配列 | ユーザーのメールアドレス。文字列の配列として渡すことができます。少なくとも1件のメールアドレス（最大50件）を含める必要があります。<br><br>同じワークスペース内の複数のユーザー（`external_id`）が同じメールアドレスを共有している場合、Brazeはそのメールアドレスを共有しているすべてのユーザーのサブスクリプショングループを更新します。 |
 | `phone` | 必須* | [E.164](https://en.wikipedia.org/wiki/E.164)形式の文字列 | ユーザーの電話番号。文字列の配列として渡すことができます。少なくとも1件の電話番号（最大50件）を含める必要があります。<br><br>同じワークスペース内の複数のユーザー（`external_id`）が同じ電話番号を共有している場合、Brazeはその電話番号を共有しているすべてのユーザーを同じサブスクリプショングループの変更で更新します。 |
 | `use_double_opt_in_logic` | オプション | ブール値 | SMSサブスクリプショングループにのみ適用されます。メールやその他のサブスクリプショングループタイプでは無視されます。省略した場合のデフォルトは`false`です。SMSサブスクリプショングループの場合、サブスクリプションステータスが`subscribed`に設定されたときにユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)ワークフローに入れるには`true`に設定します。この方法でダブルオプトインワークフローに入ったユーザーは、ワークフローに入った回数に関係なく、1日あたり最大1回のオプトインプロンプト返信メッセージを受信します。このパラメーターが省略されるか`false`に設定された場合、ユーザーはダブルオプトインワークフローを経ずに購読されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-requests}
 

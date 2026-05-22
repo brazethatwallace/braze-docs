@@ -68,6 +68,10 @@ En la configuración de **Expiration (Time in Feed)**, puedes seleccionar **Pers
 
 ![Configuración de expiración mostrando Personalize duration configurada con una variable de contexto para la expiración de la Content Card.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Las Content Cards tienen una expiración máxima de 30 días, incluso cuando se usa la duración personalizada con variables de contexto. Cualquier valor establecido más allá de 30 días se limita a 30 días. Para más detalles, consulta [Expiración de la tarjeta]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -85,7 +89,7 @@ Esta sección describe las principales diferencias entre la creación de tarjeta
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Differences between creating cards at launch or entry versus at first impression #differences" class="tg">
   <caption>Diferencias entre crear tarjetas en el lanzamiento o entrada frente a la primera impresión</caption>
 <thead>
   <tr>

@@ -27,16 +27,16 @@ Sehen Sie sich das folgende Video an, um einen optionalen Überblick über die E
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> {::nomarkdown}Granulare Berechtigungen: <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul> Legacy-Berechtigungen: <ul><li>Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> <ul><li>Campaigns bearbeiten</li><li>Canvases bearbeiten</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen"}
 
 {% endtab %}
 {% tab Templates %}
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> {::nomarkdown}Granulare Berechtigungen: <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul> Legacy-Berechtigungen: <ul><li>Zugriff auf Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segments, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Templates | Sie benötigen diese Berechtigungen für den Template-Typ, dem Sie Locales und Übersetzungen hinzufügen möchten:<br><br> <ul><li>E-Mail-Templates bearbeiten</li><li>IAM-Templates bearbeiten</li><li>Content-Block-Templates bearbeiten</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
 {% endtabs %}
@@ -69,7 +69,7 @@ Statische URLs werden manuell im Editor eingegeben (z. B. `https://example.com`)
 | --- | --- |
 | Belassen Sie das Protokoll (`https://`) außerhalb der Übersetzungs-Tags. Umschließen Sie nur die Domain und den Pfad (z. B. `example.com/en`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
 | Fügen Sie keine Query-Parameter in Übersetzungs-Tags ein (z. B. `?utm_source=promo`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-URLs (statisch)" }
 
 Eine Standard-URL, die beide Empfehlungen befolgt, sieht so aus:
 
@@ -87,7 +87,7 @@ Wenn Ihre URL mit Liquid generiert wird (z. B. {% raw %}`{% landing_page_url %}`
 | --- | --- |
 | Umschließen Sie die Liquid-generierte URL nur dann mit Übersetzungs-Tags, wenn sie lokalisiert werden muss. | Die Liquid-Syntax muss sorgfältig beibehalten werden, damit sie korrekt gerendert wird. |
 | Fügen Sie keine Query-Parameter (z. B. `?utm_source=promo`) in Übersetzungs-Tags ein. | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-generierte URLs" }
 
 Eine Liquid-generierte URL, die beide Empfehlungen befolgt, sieht so aus:
 
@@ -227,7 +227,7 @@ URLs verwenden zwei Sonderzeichen, um dies zu steuern:
 | Standard-URL | Ja | Verwenden Sie `&` am Ende der URL (nach dem schließenden Übersetzungs-Tag), wenn sie bereits `?` enthält. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid-generiert | Nein | Verwenden Sie `?` nach den schließenden Übersetzungs-Tags, wenn die generierte URL noch keines enthält. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid-generiert | Ja | Verwenden Sie `&` nach dem schließenden Übersetzungs-Tag, wenn die generierte URL bereits ein `?` enthält. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="E-Mail-Link-Tracking" }
 
 ### Spracheinstellungen und Barrierefreiheit {#language-settings-and-accessibility}
 
@@ -296,4 +296,4 @@ Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Änderung in der Da
 | Übersetzungs-Tags enthalten vollständige URLs oder Liquid-generierte URLs. | Übersetzungs-Tags mit URLs werden identifiziert, falls Probleme mit fehlerhaften Links oder Link-Tracking auftreten. |
 | Übersetzungs-Tags enthalten Query-Parameter. | Übersetzungs-Tags mit Query-Parametern werden identifiziert, falls Probleme mit fehlerhaften Links oder Link-Tracking auftreten. |
 | Übersetzungs-Tags enthalten HTML-Attribute oder -Strukturen. | Übersetzungs-Tags mit HTML-Attributen oder -Strukturen werden identifiziert, falls Probleme mit Styles und Formatierung auftreten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch?" }

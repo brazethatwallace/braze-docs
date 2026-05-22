@@ -24,6 +24,22 @@ Depois de criar um catálogo, você pode fazer referência adicional aos dados d
 - Você pode adicionar até 10 filtros por seleção.
 - As seleções são ótimas para refinar as recomendações dos dados do catálogo da Braze. Se estiver procurando inspiração, consulte [Sobre recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) para ver exemplos de casos de uso.
 
+## Operadores compatíveis {#supported-operators}
+
+Ao criar um filtro de seleção, os operadores disponíveis dependem do tipo de campo selecionado.
+
+| Tipo de campo | Operadores disponíveis |
+| --- | --- |
+| String | `equals`, `does not equal`, `is any of`, `is none of` |
+| Número | `equals`, `does not equal`, `greater than`, `less than` |
+| booleano | `is` |
+| Time | `before`, `after` |
+| Array | `includes value`, `does not include value` |
+| Geo | `geo within`, `geo outside` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported operators" }
+
+Os operadores `is any of` e `is none of` estão disponíveis para campos de string e cada um suporta até 10 valores.
+
 ## Criando uma seleção {#creating-a-selection}
 
 Para criar uma seleção, faça o seguinte.
@@ -32,7 +48,7 @@ Para criar uma seleção, faça o seguinte.
 2. Selecione a guia **Seleção** e clique em **Criar seleção**.
 3. Dê um nome e uma descrição opcional à sua seleção.
 4. Em **Campo de filtro**, selecione a coluna do catálogo pela qual você deseja filtrar. Campos de string com mais de 1.000 caracteres não podem ser selecionados para filtros.
-5. Termine de definir seus critérios de filtro selecionando o operador relevante (por exemplo, "igual" ou "não igual") e o atributo.
+5. Termine de definir seus critérios de filtro selecionando o operador e o atributo relevantes. Para ver a lista completa de operadores por tipo de campo, consulte [Operadores compatíveis](#supported-operators).
 6. Na seção **Tipo de classificação**, determine como os resultados são classificados. Por padrão, os resultados são retornados sem uma ordem específica. Para especificar a classificação por um campo específico, desative a opção **Randomizar ordem de classificação** e especifique o **Campo de classificação** e a **Ordem de classificação** (ascendente ou descendente).
 7. Na seção **Limite de resultados**, insira os resultados (até 50).
 8. Selecione **Criar seleção**.

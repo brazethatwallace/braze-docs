@@ -2,7 +2,7 @@
 nav_title: Remerge
 article_title: Remerge
 alias: /partners/remerge/
-description: "このリファレンス記事では、Braze と Remerge のパートナーシップについて説明します。Remerge は、大規模なリターゲティングのための専用アプリであり、アプリのオーディエンスを効率的にセグメント化し、ユーザーをリターゲティングするツールを備えています。"
+description: "このリファレンス記事では、BrazeとRemergeのパートナーシップについて説明します。Remergeは、大規模なリターゲティングのための専用アプリであり、アプリのオーディエンスを効率的にセグメント化し、ユーザーをリターゲティングするツールを備えています。"
 page_type: partner
 search_tag: Partner
 
@@ -16,7 +16,7 @@ _この統合はRemergeによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとRemergeの統合により、ユーザーデータをWebhookイベント経由でRemergeに送信し、モバイルデマンドサイドプラットフォームでユーザーのリターゲティングを支援することで、堅牢なクロスチャネルのライフサイクルマーケティングCampaignsを開発できます。
+BrazeとRemergeの統合により、ユーザーデータをWebhookイベント経由でRemergeに送信し、モバイルデマンドサイドプラットフォームでユーザーのリターゲティングを支援することで、堅牢なクロスチャネルのライフサイクルマーケティングキャンペーンを開発できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -27,15 +27,15 @@ BrazeとRemergeの統合により、ユーザーデータをWebhookイベント�
 | AndroidアプリID | Android用のBrazeアプリケーション固有の識別子（「com.example」など）。 |
 | iOSアプリID | iOS用のBrazeアプリケーション固有の識別子（「012345678」など）。 |
 | Braze SDKでIDFA収集を有効にする | IDFA収集はBraze SDK内ではオプションであり、デフォルトでは無効になっています。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 
 ### ステップ 1: Braze Webhookテンプレートを作成する {#step-1-create-your-braze-webhook-template}
 
-今後のCampaignsまたはCanvases用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの **テンプレート** > **Webhookテンプレート** に移動します。
+今後のキャンペーンまたはキャンバス用のRemerge Webhookテンプレートを作成するには、Brazeプラットフォームの**テンプレート** > **Webhookテンプレート**に移動します。
 
-単発のRemerge Webhook Campaignを作成したい場合、または既存のテンプレートを使用したい場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
+単発のRemerge Webhook キャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 新しいWebhookテンプレートで、以下のフィールドに記入してください:
 - **リクエスト本文**: Raw Text
@@ -87,5 +87,5 @@ Remerge WebhookにはHTTPメソッドとリクエストヘッダーが必要で�
 メッセージをプレビューして、リクエストがさまざまなユーザーに対して正しくレンダリングされていることを確認します。AndroidとiOSの両方のユーザーに対して、プレビューとテストリクエストの送信を推奨します。リクエストが成功すると、APIは `HTTP 204` で応答します。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい [Webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) を作成するときに、**保存済み Webhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい [Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) を作成するときに、**保存済み Webhookテンプレート**リストで見つけることができます。
 {% endalert %}

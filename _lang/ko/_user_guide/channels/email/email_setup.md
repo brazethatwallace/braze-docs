@@ -32,7 +32,7 @@ guide_featured_list:
 - name: "동의 및 주소 수집"
   link: /docs/user_guide/channels/email/email_setup/consent_and_address_collection
   image: /assets/img/braze_icons/book-closed.svg
-- name: "전달 가능성 함정 및 스팸 트랩"
+- name: "전달 가능성의 함정 및 스팸 트랩"
   link: /docs/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps
   image: /assets/img/braze_icons/alert-triangle.svg
 - name: "오픈 픽셀 및 클릭 추적"
@@ -40,19 +40,19 @@ guide_featured_list:
   image: /assets/img/braze_icons/cursor-click-02.svg
 ---
 
-## 요구 사항
+## 요구 사항 {#requirements}
 
 이메일 발송을 시작하기 전에 준비해야 할 사항이 있습니다. 다음 표를 참고하여 이러한 요구 사항에 대해 자세히 알아보세요.
 
 | 요구 사항 | 설명 | 소스 |
 |---|---|---|
-| 전용 IP(인터넷 프로토콜) | 전용 IP는 단일 호스팅 계정에만 제공되는 고유한 인터넷 주소입니다. | Braze는 이메일 발신자 평판을 제어할 수 있도록 전용 IP를 제공합니다. Braze 온보딩에서 이를 설정할 수 있습니다.|
-| 화이트라벨 도메인 | 도메인과 하위 도메인으로 구성됩니다. 화이트라벨링을 사용하면 DKIM 및 SPF에 대한 이메일 인증 검사를 통과할 수 있습니다. | Braze 온보딩 팀에서 이러한 도메인을 생성해 주지만, 도메인의 이름은 직접 선택해야 합니다. |
-| 하위 도메인 | 이메일 주소 내 도메인의 하위 구분(예: "@news.company.com")입니다. 하위 도메인이 있으면 회사의 공식 이메일 평판을 손상시킬 수 있는 오류를 방지할 수 있습니다. | 온보딩 팀에서 생성해 주지만 하위 도메인의 이름은 직접 정해야 합니다. 현재 Braze 외부에서 사용 중인 하위 도메인은 사용할 수 없습니다. |
+| 전용 IP(인터넷 프로토콜) | 전용 IP는 단일 호스팅 계정에만 제공되는 고유한 인터넷 주소입니다. | Braze는 이메일 발신자 평판을 제어할 수 있도록 전용 IP를 제공합니다. Braze 온보딩에서 이를 설정해 드립니다.|
+| 화이트라벨 도메인 | 도메인과 하위 도메인으로 구성됩니다. 화이트라벨링을 사용하면 DKIM 및 SPF에 대한 이메일 인증 검사를 통과할 수 있습니다. | Braze 온보딩 팀에서 이러한 도메인을 생성해 드리지만, 도메인의 이름은 직접 선택해야 합니다. |
+| 하위 도메인 | 이메일 주소 내 도메인의 하위 구분(예: "@news.company.com")입니다. 하위 도메인이 있으면 회사의 공식 이메일 평판을 손상시킬 수 있는 오류를 방지할 수 있습니다. | 온보딩 팀에서 생성해 드리지만 하위 도메인의 이름은 직접 정해야 합니다. 현재 Braze 외부에서 사용 중인 하위 도메인은 사용할 수 없습니다. |
 | IP 풀 | 서로 다른 유형의 이메일(예: "프로모션"과 "트랜잭션")의 평판을 분리하여 한쪽의 평판이 다른 쪽에 영향을 미치지 않도록 하고 더 높은 전달 가능성을 지원하는 데 사용되는 선택적 구성입니다. | 온보딩 팀에서 풀을 설정해 드립니다. 그런 다음 이메일을 작성할 때 **타겟 오디언스** 단계에서 이메일의 IP 풀을 확인할 수 있습니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requirements" }
 
-## IP 워밍
+## IP 워밍 {#ip-warming}
 
 {% alert important %}
 IP 워밍은 이메일 설정 과정에서 **가장 중요한 단계**입니다. 첫 번째 단계는 아니지만(실제로는 마지막 단계입니다), 여기서 미리 안내드리는 이유는 IP 주소를 반드시 워밍해야 하기 때문입니다. 그렇지 않으면 발송하는 이메일이 스팸으로 분류되거나 기타 발송 장벽에 부딪힐 수 있습니다.
@@ -64,7 +64,7 @@ IP 워밍은 이메일 설정 과정에서 **가장 중요한 단계**입니다.
 
 IP 워밍이 완료되면 [이메일 작성 및 발송을 시작]({{site.baseurl}}/user_guide/channels/email/html_editor/)할 수 있습니다!
 
-## 법적으로 필수인 트랜잭션 이메일
+## 법적으로 필수인 트랜잭션 이메일 {#legally-required-transactional-emails}
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 

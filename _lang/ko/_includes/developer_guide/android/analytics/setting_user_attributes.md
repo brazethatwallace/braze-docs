@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## 기본 사용자 속성
+## 기본 사용자 속성 {#default-user-attributes}
 
-### 미리 정의된 메서드
+### 미리 정의된 메서드 {#predefined-methods}
 
 Braze는 [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html) 클래스 내에서 다음 사용자 속성을 설정하기 위한 미리 정의된 메서드를 제공합니다. 메서드 사양은 [KDoc](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/index.html)을 참조하세요.
 
@@ -20,7 +20,7 @@ Braze는 [`BrazeUser`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-
 이름, 성, 국가, 거주 도시와 같은 모든 문자열 값은 255자로 제한됩니다.
 {% endalert %}
 
-### 기본 속성 설정
+### 기본 속성 설정 {#setting-default-attributes}
 
 사용자의 기본 속성을 설정하려면 Braze 인스턴스에서 `getCurrentUser()` 메서드를 호출하여 앱의 현재 사용자에 대한 참조를 가져옵니다. 그런 다음 메서드를 호출하여 사용자 속성을 설정할 수 있습니다.
 
@@ -48,7 +48,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 기본 속성 해제
+### 기본 속성 해제 {#unsetting-default-attributes}
 
 사용자 속성을 해제하려면 관련 메서드에 `null`을 전달하세요.
 
@@ -76,11 +76,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## 커스텀 사용자 속성
+## 커스텀 사용자 속성 {#custom-user-attributes}
 
-기본 사용자 속성 외에도 Braze는 여러 다른 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있도록 지원합니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics)을 참조하세요.
+기본 사용자 속성 외에도 Braze는 여러 다른 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있도록 지원합니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics/)을 참조하세요.
 
-### 커스텀 속성 설정
+### 커스텀 속성 설정 {#setting-custom-attributes}
 
 {% tabs local %}
 {% tab String %}
@@ -121,7 +121,7 @@ Braze.getInstance(context).getCurrentUser(new IValueCallback<BrazeUser>() {
   @Override
   public void onSuccess(BrazeUser brazeUser) {
     brazeUser.setCustomUserAttribute("your_attribute_key", YOUR_INT_VALUE);
-    
+
     // Integer attributes may also be incremented using code like the following:
     brazeUser.incrementCustomUserAttribute("your_attribute_key", YOUR_INCREMENT_VALUE);
   }
@@ -328,7 +328,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 커스텀 속성 해제
+### 커스텀 속성 해제 {#unsetting-custom-attributes}
 
 커스텀 속성을 해제하려면 관련 속성 키를 `unsetCustomUserAttribute` 메서드에 전달하세요.
 
@@ -356,9 +356,9 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 커스텀 속성 중첩
+### 커스텀 속성 중첩 {#nesting-custom-attributes}
 
-커스텀 속성 내에 등록정보를 중첩할 수도 있습니다. 다음 예제에서는 중첩 등록정보가 있는 `favorite_book` 오브젝트가 고객 프로필의 커스텀 속성으로 설정됩니다. 자세한 내용은 [중첩 고객 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)을 참조하세요.
+커스텀 속성 내에 등록정보를 중첩할 수도 있습니다. 다음 예제에서는 중첩 등록정보가 있는 `favorite_book` 오브젝트가 고객 프로필의 커스텀 속성으로 설정됩니다. 자세한 내용은 [중첩 고객 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)을 참조하세요.
 
 {% tabs %}
 {% tab JAVA %}
@@ -393,11 +393,11 @@ braze.getCurrentUser { user ->
 {% endtab %}
 {% endtabs %}
 
-### REST API 사용
+### REST API 사용 {#using-the-rest-api}
 
 REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
 
-## 사용자 구독 설정
+## 사용자 구독 설정 {#setting-user-subscriptions}
 
 사용자에 대한 구독(이메일 또는 푸시)을 설정하려면 각각 `setEmailNotificationSubscriptionType()` 또는 `setPushNotificationSubscriptionType()` 함수를 호출합니다. 이 두 함수 모두 열거형 `NotificationSubscriptionType`을 인수로 받습니다. 이 유형에는 세 가지 상태가 있습니다.
 
@@ -412,7 +412,7 @@ REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 �
 Android에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 옵트인이 필요하지 않습니다. 사용자가 푸시에 등록되면 기본적으로 `OPTED_IN`이 아닌 `SUBSCRIBED`로 설정됩니다. 구독 및 명시적 옵트인 구현에 대한 자세한 내용은 [사용자 구독 관리]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)를 참조하세요.
 {% endalert %}
 
-### 이메일 구독 설정
+### 이메일 구독 설정 {#setting-email-subscriptions}
 
 {% tabs %}
 {% tab JAVA %}
@@ -438,7 +438,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-### 푸시 알림 구독 설정
+### 푸시 알림 구독 설정 {#setting-push-notification-subscription}
 
 {% tabs %}
 {% tab JAVA %}

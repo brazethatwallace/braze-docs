@@ -164,7 +164,7 @@ En lugar de intentar compensar el retraso y enviar los 6000 mensajes restantes e
 | 7      | 10 000     | 10 000                    |
 | 8      | 5000      | 10 000                    |
 | 9      | 0          | 6000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Límite de velocidad y reintentos de contenido conectado" }
 
 Las solicitudes de contenido conectado no tienen un límite de velocidad independiente y seguirán el límite de velocidad del webhook. Esto significa que si hay una llamada de contenido conectado a un punto de conexión único por webhook, esperarías 5000 webhooks y también 5000 llamadas de contenido conectado por minuto. Ten en cuenta que el almacenamiento en caché puede afectar esto y reducir el número de llamadas de contenido conectado. Además, los reintentos pueden aumentar las llamadas de contenido conectado, por lo que recomendamos verificar que el punto de conexión de contenido conectado pueda manejar cierta fluctuación aquí.
 
@@ -303,7 +303,7 @@ Considera las siguientes campañas y la regla de limitación de frecuencia por e
 |---|---|
 | La etiqueta `promotional` se elimina de **Campaign A** después de que tu usuario recibió el mensaje, pero antes de que **Campaign B se haya enviado.** | Tu usuario recibe **Campaign B**. |
 | La etiqueta `promotional` se elimina por error de **Campaign A** después de que tu usuario recibió el mensaje. <br> La etiqueta se vuelve a añadir a **Campaign A** el martes, antes de que se envíe **Campaign B**. | Tu usuario no recibe **Campaign B**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Caso de uso" }
 
 #### Envío a gran escala {#sending-at-large-scales}
 

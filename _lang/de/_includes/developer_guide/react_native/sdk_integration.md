@@ -85,7 +85,7 @@ Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Der API-Schlüssel u
 | `iosPushStoryAppGroup`                        | string  | Nur iOS. Die App-Gruppe, die für iOS Push Stories verwendet wird.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | Nur iOS. Ob die Geräte-ID eine zufällig generierte UUID verwenden soll.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | Nur iOS. Legt fest, ob das SDK Universal Links automatisch erkennen und an die Systemmethoden weiterleiten soll (Standard: `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 Das folgende Code-Snippet zeigt eine Beispielkonfiguration für `app.json`:
 
@@ -444,7 +444,7 @@ Fügen Sie in Ihrer `app.json` das Braze Expo-Plugin hinzu. Sie können die folg
 | `iosPushStoryAppGroup`                        | string  | Nur iOS. Die App-Gruppe, die für iOS Push Stories verwendet wird.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | Nur iOS. Ob die Geräte-ID eine zufällig generierte UUID verwenden soll.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | Nur iOS. Legt fest, ob das SDK Universal Links automatisch erkennen und an die Systemmethoden weiterleiten soll (Standard: `false`). Wenn aktiviert, leitet das SDK Universal Links automatisch an die Systemmethoden weiter, die unter [Unterstützung von Universal Links in Ihrer App](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/) definiert sind. Eingeführt in React Native SDK v11.1.0 und Expo Plugin v3.2.0. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 Das folgende Code-Snippet zeigt eine Beispielkonfiguration für `app.json`:
 
@@ -550,7 +550,7 @@ Führen Sie Ihre Anwendung wie in der [Expo-Dokumentation](https://docs.expo.dev
 
 #### Methode 2: Verwendung der React Native CLI {#method-2-using-react-native-cli}
 
-##### Android einrichten {#set-up-android-1}
+##### Android einrichten
 
 **Schritt 2.1: Kotlin-Gradle-Plugin hinzufügen**
 
@@ -646,7 +646,7 @@ override fun onNewIntent(intent: Intent) {
 {% endsubtab %}
 {% endsubtabs %}
 
-##### iOS einrichten {#set-up-ios-1}
+##### iOS einrichten
 
 **Schritt 2.5: (Optional) Podfile für dynamische XCFrameworks konfigurieren**
 
@@ -846,7 +846,7 @@ Alle SDK-Methodenaufrufe, die vor `Braze.initialize()` erfolgen, werden unter iO
 {% endtab %}
 {% tab React Native SDK 19.1.0 und früher %}
 
-Für React Native SDK 19.1.0 und früher erfolgt die native Initialisierung in [Schritt 2](#step-2-complete-native-setup). Importieren Sie die Bibliothek in Ihrem React Native-Code, um Braze-Methoden aufzurufen. Weitere Details finden Sie in unserem [Beispielprojekt](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject).
+Für React Native SDK 19.1.0 und früher erfolgt die native Initialisierung in Schritt 2. Importieren Sie die Bibliothek in Ihrem React Native-Code, um Braze-Methoden aufzurufen. Weitere Details finden Sie in unserem [Beispielprojekt](https://github.com/braze-inc/braze-react-native-sdk/tree/master/BrazeProject).
 
 ```javascript
 import Braze from "@braze/react-native-sdk";

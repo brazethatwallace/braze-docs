@@ -118,7 +118,7 @@ Les types de données suivants peuvent être stockés en tant qu'attribut person
 | Entiers | Vous pouvez incrémenter des attributs personnalisés de type entier en assignant un objet avec le champ « inc » et la valeur à ajouter. <br><br>Exemple : `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Attributs personnalisés imbriqués | Les attributs personnalisés imbriqués définissent un ensemble d'attributs en tant que propriété d'un autre attribut. Lorsque vous définissez un objet d'attribut personnalisé, vous ajoutez un ensemble d'attributs à cet objet. Pour plus d'informations, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Chaînes de caractères | Les attributs personnalisés de type chaîne sont des séquences de caractères utilisées pour stocker des données textuelles. Par exemple, vous pouvez utiliser des chaînes de caractères pour stocker les noms et prénoms, les adresses e-mail ou les préférences. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types de données des attributs personnalisés" }
 
 {% alert tip %}
 Pour savoir quand utiliser un événement personnalisé plutôt qu'un attribut personnalisé, consultez les sections [Événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) et [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -141,6 +141,10 @@ Pour des exemples d'API utilisant `add`, `remove` et `update`, consultez l'[exem
 
 {% alert important %}
 Les champs de profil utilisateur suivants sont sensibles à la casse. Veillez à les référencer en minuscules.
+{% endalert %}
+
+{% alert tip %}
+Pour une référence des attributs standard destinée aux utilisateurs, organisée par catégorie et incluant des conseils pour le SDK, l'API, le CSV et l'Ingestion de données cloud, consultez la section [Attributs standard]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
 {% endalert %}
 
 | Champ de profil utilisateur | Spécification du type de données |
@@ -171,7 +175,7 @@ Les champs de profil utilisateur suivants sont sensibles à la casse. Veillez à
 | subscription_groups| Tableau d'objets avec les chaînes de caractères `subscription_group_id` et `subscription_state`, par exemple, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Les valeurs disponibles pour `subscription_state` sont « subscribed » et « unsubscribed ».|
 | time_zone | (chaîne de caractères) Nom du fuseau horaire provenant de la [base de données des fuseaux horaires de l'IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (par exemple, « America/New_York » ou « Eastern Time (US & Canada) »). Seules les valeurs de fuseau horaire valides sont définies. |
 | twitter | Hachage contenant l'un des éléments suivants : `id` (integer), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (integer), `friends_count` (integer), `statuses_count` (integer). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs de profil utilisateur Braze" }
 
 Les paramètres linguistiques explicitement définis via cette API ont priorité sur les informations régionales que Braze reçoit automatiquement de l'appareil.
 
@@ -230,7 +234,7 @@ En raison de la nature des jetons de notification push pour le Web, tenez compte
 |----------------------|------------|
 | **Service de traitement**  | Par défaut, le SDK Web recherche un service de traitement à l'adresse `./service-worker`, à moins qu'une autre option ne soit spécifiée, telle que `manageServiceWorkerExternally` ou `serviceWorkerLocation`. Si votre service de traitement n'est pas configuré correctement, les jetons de notification push de vos utilisateurs risquent d'expirer. |
 | **Jetons expirés**   | Si un utilisateur n'a pas démarré de session Web dans les 60 jours, son jeton de notification push expire. Étant donné que Braze ne peut pas migrer les jetons expirés, vous devez envoyer un [message push d'amorce]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) pour les réengager. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considérations relatives aux jetons Web" }
 
 ### Migration manuelle via l'API {#manual-migration-through-api}
 

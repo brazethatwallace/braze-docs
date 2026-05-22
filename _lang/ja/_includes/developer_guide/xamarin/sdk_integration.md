@@ -86,7 +86,7 @@ Braze ダッシュボードの**Settings**> **API キーs**にあるAPI キー�
 
 API キーを追加したので、次の権限を `AndroidManifest.xml` ファイルに追加する必要があります。
 
-```xml
+`````````xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 `AndroidManifest.xml` の例については、[Android MAUI](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/appboy-component/samples/android-net-maui/BrazeAndroidMauiSampleApp/BrazeAndroidMauiSampleApp/AndroidManifest.xml) サンプルアプリケーションを参照してください。
@@ -95,7 +95,7 @@ API キーを追加したので、次の権限を `AndroidManifest.xml` ファ�
 
 ユーザーセッショントラッキングを有効にし、アプリ内メッセージ用にアプリを登録するには、アプリの `Application` クラスの `OnCreate()` ライフサイクルメソッドに次の呼び出しを追加します。
 
-```kotlin
+`````````kotlin
 RegisterActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener());
 ```
 {% endtab %}
@@ -109,7 +109,7 @@ Braze ダッシュボードの**Settings**> **API キーs**にあるAPI キー�
 [古いナビゲーション]({{site.baseurl}}/user_guide/administrative/access_braze/navigation/) を使用している場合は、**デベロッパコンソール**> **API 設定**.にAPI キーがあります。
 {% endalert %}
 
-```csharp
+`````````csharp
 var configuration = new BRZConfiguration("YOUR_API_KEY", "YOUR_ENDPOINT");
 configuration.Api.AddSDKMetadata(new[] { BRZSDKMetadata.Xamarin });
 braze = new Braze(configuration);

@@ -18,7 +18,7 @@ tool:
 
 El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como los dos componentes clave para simplificar tu flujo de trabajo, sin necesidad de usar HTML adicional.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="Acerca del editor" style="width: 100%; table-layout: fixed;">
     <caption>Componentes del editor: contenido y filas</caption>
     <tr>
         <th style="width: 50%;">Contenido</th>
@@ -33,7 +33,7 @@ El editor de arrastrar y soltar usa [Contenido](#content) y [Filas](#rows) como 
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Acerca del editor" }
 
 ### Contenido {#content}
 
@@ -113,7 +113,7 @@ Cuando estés listo, usa los bloques de contenido de arrastrar y soltar para con
 
 Consulta [Otras personalizaciones](#other-customizations) para conocer otras formas de personalizar aún más tu correo electrónico de arrastrar y soltar.
 
-A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea receptivo, y puedes hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea responsivo, y puedes hacer los ajustes necesarios sobre la marcha.
 
 {% alert tip %}
 ¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Introduce un nombre o descripción de producto, y la IA generará textos de marketing similares a los escritos por humanos para usar en tu mensajería.
@@ -141,6 +141,16 @@ En **Sending Settings**, puedes añadir personalización para los encabezados de
 {% alert note %}
 La funcionalidad avanzada aparecerá en el compositor de la campaña o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e introducir un encabezado o pares clave-valor adicionales (si están configurados).
 {% endalert %}
+
+#### Añadir archivos adjuntos al correo electrónico {#adding-email-attachments}
+
+En **Sending Settings** > **Advanced**, puedes añadir archivos adjuntos al correo electrónico mediante los siguientes métodos:
+
+- **Cargar un archivo:** Arrastra y suelta o examina para cargar un archivo directamente desde tu computadora al correo electrónico. Braze valida el tipo y tamaño del archivo (hasta 2&nbsp;MB de forma predeterminada) antes de cargarlo, y luego estos archivos se cargan en la biblioteca de medios. Los archivos que superen el límite de 2&nbsp;MB no se pueden cargar.
+- **Usar la biblioteca de medios:** Examina y selecciona entre los activos ya almacenados en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Se admiten archivos PDF, documentos de Word, archivos de Excel y presentaciones de PowerPoint.
+- **Añadir desde URL:** Introduce una URL que apunte al archivo y proporciona un nombre de archivo para mostrar. Dado que Braze no puede verificar el tamaño de URL arbitrarias durante la composición del correo electrónico, el tamaño del archivo se aplica en el momento del envío. Ten en cuenta que Liquid no es compatible en este campo.
+
+Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) para conocer las mejores prácticas específicas a considerar.
 
 ### Paso 4: Prueba tu correo electrónico {#step-4-test-your-email}
 
@@ -192,8 +202,8 @@ El motor subyacente que produce HTML a partir del editor de arrastrar y soltar h
 El tamaño promedio de los datos HTML exportados se ha reducido, lo que lleva a una carga y renderizado más rápidos, menor recorte en dispositivos móviles y menor consumo de ancho de banda.
 
 El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan el número de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
-- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table>`
-  <caption>Usar Inbox Vision</caption>
+- Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Use Inbox Vision">`
+  <caption>Use Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) han sido recodificados para mayor concisión
 - El código HTML final se comprime para eliminar espacios en blanco entre etiquetas
 - Los divisores transparentes se convierten automáticamente en relleno de contenido
@@ -303,7 +313,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `meta` | Proporciona metadatos como la descripción de la página o palabras clave. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Incorpora estilos CSS internos. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Establece el título del documento que se muestra en las pestañas del navegador. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Etiqueta | Atributo | Descripción | Ejemplo |
 | --- | --- | --- | --- |
@@ -321,7 +331,7 @@ Todo lo que se añada fuera de las etiquetas `<head>` se añadirá después de l
 | `style` | `type` | Tipo MIME del contenido de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Especifica el medio o dispositivo para el que se aplican los estilos. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sin atributos | La etiqueta `title` no acepta ningún atributo. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Los nombres de los enlaces pueden tener hasta 63 bytes y se truncan automáticamente si exceden el límite.

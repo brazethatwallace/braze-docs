@@ -21,7 +21,7 @@ La integración de Braze y Adobe te permite controlar fácilmente el flujo de in
 | Currents | Para volver a exportar datos a Adobe, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) para tu cuenta. |
 | Cuenta de Adobe Experience Platform | Se necesita una [cuenta de Adobe Experience Platform](https://experience.adobe.com/#/platform/home) para aprovechar esta asociación. |
 | Permiso para crear un conector | Necesitas permisos para crear una conexión de fuente de streaming para utilizar esta integración. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -61,7 +61,7 @@ Las marcas de tiempo de Braze se expresan en segundos. Para reflejar con precisi
 
 Recoge las siguientes credenciales para introducirlas en Braze, lo que permitirá a Braze enviar datos a Adobe Experience Platform.
 
-| Campo         |Descripción                          |
+| Campo         | Descripción                          |
 |---------------|-------------------------------------|
 | Client ID     | El ID de cliente asociado a tu fuente de Adobe Experience Platform. |
 | Client Secret | El secreto de cliente asociado a tu fuente de Adobe Experience Platform. |
@@ -69,7 +69,7 @@ Recoge las siguientes credenciales para introducirlas en Braze, lo que permitir�
 | Sandbox Name  | El sandbox asociado a tu fuente de Adobe Experience Platform.   |
 | Dataflow ID   | El ID de flujo de datos asociado a tu fuente de Adobe Experience Platform.   |
 | Streaming Endpoint  | El punto de conexión de streaming asociado a tu fuente de Adobe Experience Platform. Braze lo convierte automáticamente en el punto de conexión de streaming por lotes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Reunir credenciales" }
 
 ### Paso 4: Configurar Currents para transmitir datos a tu origen de datos {#step-4-configure-currents-to-stream-data-to-your-data-source}
 

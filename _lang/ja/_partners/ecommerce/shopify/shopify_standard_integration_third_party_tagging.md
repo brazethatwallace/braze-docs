@@ -31,7 +31,7 @@ Braze SDKとサードパーティ製ツールの間でコンフリクトが発�
 
 1. [Shopify標準の統合セットアップで]({{site.baseurl}}/shopify_standard_integration/)提供されているステップに従う。[Braze Web SDKをイネーブルメント]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-2-enable-braze-web-sdks)する際、サードパーティツールを使用してShopifyサイトにBraze Web SDKを追加していることを示すボックスにチェックを入れる。
 
-!["Braze SDK設定 "セクションに、サードパーティツールを使用してBraze Web SDKを追加することを示すチェックボックスを追加する。]({% image_buster /assets/img/Shopify/third_party_enable.png %}){: style="max-width:80%;"}
+!["Braze SDK設定 "セクションに、サードパーティツールを使用してBraze Web SDKを追加することを示すチェックボックスを追加する。]({% image_buster /assets/img/shopify/third_party_enable.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2\.**設定**＞**アプリ設定に**進み、**Shopify**Webアプリを選択し、**Shopify on WebのAPIキーを**コピーする。

@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | ----------|-----------| ---------|------ |
 | `phone_number` | Obrigatória | Matriz de strings no formato e.164 | Uma matriz de até 50 números de telefone para modificar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 

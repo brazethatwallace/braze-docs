@@ -19,7 +19,7 @@ A integração entre a Braze e a Nexla permite que os clientes que usam o [Curre
 | Requisito | Descrição |
 |---|---|
 | Conta Nexla | É necessário ter uma [conta Nexla](https://www.nexla.com/get-demo) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

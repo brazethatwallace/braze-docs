@@ -13,4 +13,4 @@
 | Cor | Cor do texto digitado no campo. |
 | Alinhamento do texto | Alinhamento horizontal do texto de entrada dentro do campo. |
 | Preenchimento | Espaçamento ao redor do bloco. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

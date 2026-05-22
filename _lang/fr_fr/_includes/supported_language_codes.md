@@ -1,24 +1,24 @@
-## Codes des langues prises en charge
+## Codes de langues pris en charge {#supported-language-codes}
 
-Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), à quelques exceptions près. Vous trouverez la liste complète dans le tableau suivant.
+Braze prend en charge la plupart des codes de langues de la norme [ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), à quelques exceptions près. Consultez le tableau suivant pour la liste complète.
 
-| Langue | Code | 
+| Langue | Code |
 | -------- | ---- |
 | ANGLAIS | `en` |
-| Afrikaans | `af` |
-| Aghem | `agq` |
+| AFRIKAANS | `af` |
+| AGHEM | `agq` |
 | AKAN | `ak` |
-| Albanais | `sq` |
-| AMHARIC | `am` |
+| ALBANAIS | `sq` |
+| AMHARIQUE | `am` |
 | ARABE | `ar` |
-| ARMENIEN | `hy` |
-| ASSAMESE | `as` |
+| ARMÉNIEN | `hy` |
+| ASSAMAIS | `as` |
 | AYMARA | `ay` |
-| AZERBAIJANI | `az` |
+| AZERBAÏDJANAIS | `az` |
 | BAFIA | `ksf` |
 | BASA | `bas` |
 | BASQUE | `eu` |
-| BELARUSSE | `be` |
+| BIÉLORUSSE | `be` |
 | BEMBA | `bem` |
 | BENGALI | `bn` |
 | BENA | `bez` |
@@ -28,12 +28,12 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | BIRMAN | `my` |
 | CAMBODGIEN | `km` |
 | CATALAN | `ca` |
-| TAMAZIGHT DU MAROC CENTRAL | `tzm` |
+| TAMAZIGHT DE L'ATLAS CENTRAL | `tzm` |
 | CHEROKEE | `chr` |
 | CHIGA | `cgg` |
 | CHINOIS | `zh` |
-| CONGO SWAHILI | `swc` |
-| BENA | `kw` |
+| SWAHILI DU CONGO | `swc` |
+| CORNIQUE | `kw` |
 | CROATE | `hr` |
 | TCHÈQUE | `cs` |
 | DANOIS | `da` |
@@ -43,27 +43,27 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | DZONGKHA | `dz` |
 | EKUGUSII | `guz` |
 | ESTONIEN | `et` |
-| Esperanto | `eo` |
+| ESPÉRANTO | `eo` |
 | EWONDO | `ewo` |
-| EWE | `ee` |
+| ÉWÉ | `ee` |
 | FÉROÏEN | `fo` |
-| Farsi | `fa` |
-| Filipino | `fil` |
-| FINLANDAIS | `fi` |
+| FARSI | `fa` |
+| FILIPINO | `fil` |
+| FINNOIS | `fi` |
 | FRANÇAIS | `fr` |
 | GALICIEN | `gl` |
-| Ganda | `lg` |
-| Géorgien | `ka` |
+| GANDA | `lg` |
+| GÉORGIEN | `ka` |
 | ALLEMAND | `de` |
 | SUISSE ALLEMAND | `gsw` |
 | GREC | `el` |
 | GROENLANDAIS | `kl` |
 | GUARANI | `gn` |
 | GUJARATI | `gu` |
-| HAUSA | `ha` |
+| HAOUSSA | `ha` |
 | HAWAÏEN | `haw` |
 | HÉBREU | `he` |
-| Hindi | `hi` |
+| HINDI | `hi` |
 | HONGROIS | `hu` |
 | ISLANDAIS | `is` |
 | IGBO | `ig` |
@@ -73,12 +73,12 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | ITALIEN | `it` |
 | JAVANAIS | `jv` |
 | JAPONAIS | `ja` |
-| JOLA_FONYI | `dyo` |
+| JOLA-FONYI | `dyo` |
 | KABYLE | `kab` |
 | KALENJIN | `kln` |
 | KAMBA | `kam` |
 | KANNADA | `kn` |
-| KASHMIRI | `ks` |
+| CACHEMIRI | `ks` |
 | KAZAKH | `kk` |
 | KIEMBU | `ebu` |
 | KIKUYU | `ki` |
@@ -91,8 +91,8 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | LETTON | `lv` |
 | LINGALA | `ln` |
 | LITUANIEN | `lt` |
-| LUBA KATANGA | `lu` |
-| LUXEMBOURGOIS | `lb` |
+| LUBA-KATANGA | `lu` |
+| LUXEMBOURGEOIS | `lb` |
 | LUO | `luo` |
 | LUYIA | `luy` |
 | MACHAME | `jmc` |
@@ -101,29 +101,29 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | MALAIS | `ms` |
 | MALAYALAM | `ml` |
 | MALTAIS | `mt` |
-| MANX | `gv` |
+| MANNOIS | `gv` |
 | MARATHI | `mr` |
-| MASAI | `mas` |
+| MASSAÏ | `mas` |
 | MERU | `mer` |
-| MOLDAVIEN | `mo` |
-| Mongol | `mn` |
+| MOLDAVE | `mo` |
+| MONGOL | `mn` |
 | MORISYEN | `mfe` |
 | MUNDANG | `mua` |
-| NAM | `naq` |
-| Nepalais | `ne` |
-| North Debele | `nd` |
+| NAMA | `naq` |
+| NÉPALAIS | `ne` |
+| NDÉBÉLÉ DU NORD | `nd` |
 | NORVÉGIEN | `nb` |
-| Nuer | `nus` |
-| Nyankole | `nyn` |
+| NUER | `nus` |
+| NYANKOLE | `nyn` |
 | NYNORSK | `nn` |
 | OROMO | `om` |
-| PACHTOU | `ps` |
+| PACHTO | `ps` |
 | PEUL | `ff` |
 | POLONAIS | `pl` |
 | PORTUGAIS | `pt` |
-| Punjabi | `pa` |
+| PENDJABI | `pa` |
 | QUECHUA | `qu` |
-| RAETO ROMANCE | `rm` |
+| ROMANCHE | `rm` |
 | ROUMAIN | `ro` |
 | ROMBO | `rof` |
 | RUSSE | `ru` |
@@ -133,26 +133,26 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | SANGU | `sbp` |
 | SANSKRIT | `sa` |
 | ÉCOSSAIS | `gd` |
-| Serbe | `sr` |
+| SERBE | `sr` |
 | SENA | `seh` |
 | SHAMBALA | `ksb` |
 | SHONA | `sn` |
-| SICHUAN YI | `ii` |
-| Sindhi | `sd` |
+| YI DU SICHUAN | `ii` |
+| SINDHI | `sd` |
 | CINGHALAIS | `si` |
 | SLOVAQUE | `sk` |
 | SLOVÈNE | `sl` |
-| Somalien | `so` |
+| SOMALI | `so` |
 | ESPAGNOL | `es` |
 | SWAHILI | `sw` |
 | SUÉDOIS | `sv` |
 | TACHELHIT | `shi` |
 | TAGALOG | `tl` |
-| TAJIKI | `tg` |
-| TAMIL | `ta` |
+| TADJIK | `tg` |
+| TAMOUL | `ta` |
 | TASAWAQ | `twq` |
 | TATAR | `tt` |
-| TELUGU | `te` |
+| TÉLOUGOU | `te` |
 | TESO | `teo` |
 | THAÏ | `th` |
 | TIBÉTAIN | `bo` |
@@ -160,11 +160,11 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | TONGIEN | `to` |
 | TURC | `tr` |
 | TURKMÈNE | `tk` |
-| UIGHUR | `ug` |
+| OUÏGHOUR | `ug` |
 | UKRAINIEN | `uk` |
-| URDU | `ur` |
+| OURDOU | `ur` |
 | OUZBEK | `uz` |
-| VAI | `vai` |
+| VAÏ | `vai` |
 | VIETNAMIEN | `vi` |
 | VUNJO | `vun` |
 | GALLOIS | `cy` |
@@ -173,5 +173,5 @@ Braze prend en charge la plupart des codes linguistiques de la norme [ISO-639-1]
 | YIDDISH | `yi` |
 | YORUBA | `yo` |
 | ZARMA | `dje` |
-| ZULU | `zu` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| ZOULOU | `zu` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Codes de langues pris en charge" }

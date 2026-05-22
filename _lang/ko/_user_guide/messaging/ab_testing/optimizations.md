@@ -17,22 +17,22 @@ description: "다변량 및 A/B 테스트를 만들 때 위닝 배리언트 또�
 두 옵션 모두 타겟 Segment의 일정 비율에게 초기 테스트를 발송하는 방식으로 작동합니다. 테스트가 종료된 후, 나머지 오디언스에게는 가장 성과가 좋은 배리언트(위닝 배리언트) 또는 각 사용자가 가장 참여할 가능성이 높은 배리언트(개인화된 배리언트)가 발송됩니다.
 
 {% alert tip %}
-최적화는 Campaign 생성의 **타겟 오디언스** 단계에서 **A/B 테스트** 아래에 있습니다.
+최적화는 Campaign 생성의 **타겟 오디언스** 단계에서 **A/B Testing** 아래에 있습니다.
 {% endalert %}
 
 ## 위닝 배리언트 {#winning-variant}
 
 위닝 배리언트 발송은 표준 A/B 테스트와 유사합니다. 이 그룹의 사용자는 초기 테스트가 완료되면 위닝 배리언트를 수신합니다.
 
-1. **위닝 배리언트**를 선택한 다음, Campaign 오디언스 중 위닝 배리언트 그룹에 할당할 비율을 지정합니다.
+1. **Winning Variant**를 선택한 다음, Campaign 오디언스 중 위닝 배리언트 그룹에 할당할 비율을 지정합니다.
 2. 다음 추가 설정을 구성합니다.
 
 | 필드 | 설명 |
 | --- | --- |
-| 위닝 배리언트 결정 | 최적화할 측정기준입니다. 이메일의 경우 *고유 열람* 또는 *클릭 수*, 푸시의 경우 *열람*, 모든 채널의 경우 *기본 전환율* 중에서 선택합니다. *열람* 또는 *클릭 수*를 선택하여 우승자를 결정하더라도 Campaign의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)에 대한 선택에는 영향을 미치지 않습니다. <br><br>대조군을 사용하는 경우, 대조군의 사용자는 *열람* 또는 *클릭 수*를 수행할 수 없으므로 대조군의 성과는 `0`이 됩니다. 따라서 대조군은 A/B 테스트에서 이길 수 없습니다. 그러나 메시지를 수신하지 않는 사용자에 대한 다른 측정기준을 추적하기 위해 대조군을 사용할 수도 있습니다. |
-| 위닝 배리언트 발송 시간 | 위닝 배리언트가 발송되는 날짜와 시간입니다. |
-| 위닝 배리언트를 결정할 수 없는 경우 | 통계적으로 유의미한 차이로 이기는 배리언트가 없을 때 어떻게 할지 결정합니다. 가장 성과가 좋은 배리언트를 그대로 발송하거나, 테스트를 종료하고 추가 메시지를 발송하지 않는 것 중에서 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Determine Winning Variant | 최적화할 측정기준입니다. 이메일의 경우 *Unique Opens* 또는 *Clicks*, 푸시의 경우 *Opens*, 모든 채널의 경우 *Primary Conversion Rate* 중에서 선택합니다. *Opens* 또는 *Clicks*를 선택하여 우승자를 결정하더라도 Campaign의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)에 대한 선택에는 영향을 미치지 않습니다. <br><br>대조군을 사용하는 경우, 대조군의 사용자는 *Opens* 또는 *Clicks*를 수행할 수 없으므로 대조군의 성과는 `0`이 됩니다. 따라서 대조군은 A/B 테스트에서 이길 수 없습니다. 그러나 메시지를 수신하지 않는 사용자에 대한 다른 측정기준을 추적하기 위해 대조군을 사용할 수도 있습니다. |
+| Winning Variant Send Time | 위닝 배리언트가 발송되는 날짜와 시간입니다. |
+| If No Winning Variant Can Be Determined | 통계적으로 유의미한 차이로 이기는 배리언트가 없을 때 어떻게 할지 결정합니다. 가장 성과가 좋은 배리언트를 그대로 발송하거나, 테스트를 종료하고 추가 메시지를 발송하지 않는 것 중에서 선택합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Winning Variant" }
 
 ## 개인화된 배리언트 {#personalized-variant}
 
@@ -40,15 +40,15 @@ description: "다변량 및 A/B 테스트를 만들 때 위닝 배리언트 또�
 
 각 사용자에게 가장 적합한 배리언트를 결정하기 위해, Braze는 타겟 오디언스의 일부에게 초기 테스트를 발송하여 사용자 특성과 메시지 선호도 간의 연관성을 파악합니다. 초기 테스트에서 사용자가 각 배리언트에 어떻게 반응하는지를 기반으로, 이러한 특성을 사용하여 나머지 사용자가 어떤 배리언트를 수신할지 결정합니다. 연관성이 발견되지 않아 개인화를 수행할 수 없는 경우, 위닝 배리언트가 나머지 사용자에게 자동으로 발송됩니다. 개인화된 배리언트가 결정되는 방식에 대해 자세히 알아보려면 [다변량 및 A/B 테스트 분석]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#personalized-variant)을 참조하세요.
 
-1. **개인화된 배리언트**를 선택한 다음, Campaign 오디언스 중 개인화된 배리언트 그룹에 할당할 비율을 지정합니다.
+1. **Personalized Variant**를 선택한 다음, Campaign 오디언스 중 개인화된 배리언트 그룹에 할당할 비율을 지정합니다.
 2. 다음 추가 설정을 구성합니다.
 
 | 필드 | 설명 |
 | --- | --- |
-| 개인화된 배리언트 결정 | 최적화할 측정기준입니다. 이메일의 경우 *고유 열람* 또는 *클릭 수*, 푸시의 경우 *열람*, 모든 채널의 경우 *기본 전환율* 중에서 선택합니다. *열람* 또는 *클릭 수*를 선택하여 우승자를 결정하더라도 Campaign의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)에 대한 선택에는 영향을 미치지 않습니다. <br><br>대조군을 사용하는 경우, 대조군의 사용자는 *열람* 또는 *클릭 수*를 수행할 수 없으므로 대조군의 성과는 `0`이 됩니다. 따라서 대조군은 A/B 테스트에서 이길 수 없습니다. 그러나 메시지를 수신하지 않는 사용자에 대한 다른 측정기준을 추적하기 위해 대조군을 사용할 수도 있습니다. |
-| 개인화된 배리언트 발송 시간 | 개인화된 배리언트가 발송되는 날짜와 시간입니다. |
-| 개인화된 배리언트를 결정할 수 없는 경우 | 개인화된 배리언트를 찾을 수 없을 때 어떻게 할지 결정합니다. 대신 위닝 배리언트를 발송하거나, 테스트를 종료하고 추가 메시지를 발송하지 않는 것 중에서 선택합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Determine Personalized Variant | 최적화할 측정기준입니다. 이메일의 경우 *Unique Opens* 또는 *Clicks*, 푸시의 경우 *Opens*, 모든 채널의 경우 *Primary Conversion Rate* 중에서 선택합니다. *Opens* 또는 *Clicks*를 선택하여 우승자를 결정하더라도 Campaign의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)에 대한 선택에는 영향을 미치지 않습니다. <br><br>대조군을 사용하는 경우, 대조군의 사용자는 *Opens* 또는 *Clicks*를 수행할 수 없으므로 대조군의 성과는 `0`이 됩니다. 따라서 대조군은 A/B 테스트에서 이길 수 없습니다. 그러나 메시지를 수신하지 않는 사용자에 대한 다른 측정기준을 추적하기 위해 대조군을 사용할 수도 있습니다. |
+| Personalized Variant Send Time | 개인화된 배리언트가 발송되는 날짜와 시간입니다. |
+| If No Personalized Variant Can Be Determined | 개인화된 배리언트를 찾을 수 없을 때 어떻게 할지 결정합니다. 대신 위닝 배리언트를 발송하거나, 테스트를 종료하고 추가 메시지를 발송하지 않는 것 중에서 선택합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personalized Variant" }
 
 ## 분석 {#analytics}
 

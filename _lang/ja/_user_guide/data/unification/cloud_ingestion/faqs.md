@@ -190,7 +190,7 @@ WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
   AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
 ```
 
-```sql
+`````````sql
 SELECT
   UPDATED_AT,
   COUNT(*) AS rows_at_timestamp

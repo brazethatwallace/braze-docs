@@ -16,12 +16,18 @@ Da E-Commerce-Events einem vorhersehbaren Schema folgen, kann Braze zuverlässig
 E-Commerce-Events von Braze und ihre segmentierbaren Event-Eigenschaften zählen nicht als [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Tab „Transaktionen“ {#transactions-tab}
+<a id="transactions-tab" aria-hidden="true"></a>
 
-Der Tab **Transaktionen** in jedem Nutzerprofil bietet eine Live-Ansicht der kommerziellen Aktivität einer Nutzer:in, indem drei berechnete Metriken angezeigt werden, die sich in Echtzeit aktualisieren, sobald Events verarbeitet werden. Das Modell auf Bestellebene dieser Berechnungen trennt Produktpreise sauber vom Gesamtbestellwert.
+## Tab „Commerce“ {#commerce-tab}
+
+Der Tab **Commerce** in jedem Nutzerprofil kombiniert zwei Module: **Order activity** (berechnete Umsatz- und Bestellmetriken) und **Active cart** (der neueste Warenkorb aus `ecommerce.cart_updated`-Events).
+
+### Bestellaktivität {#order-activity}
+
+Das Modul **Order activity** zeigt drei berechnete Metriken an, die sich in Echtzeit aktualisieren, sobald Events verarbeitet werden. Das Modell auf Bestellebene dieser Berechnungen trennt Produktpreise sauber vom Gesamtbestellwert.
 
 {% alert note %}
-Empfohlene E-Commerce-Events werden nicht im Abschnitt **Kaufhistorie** des Tabs **Transaktionen** angezeigt. Die Kaufhistorie wird durch Legacy-Kauf-Events befüllt. Verwenden Sie die Metriken in der folgenden Tabelle für Umsatz und Bestellaktivität aus empfohlenen Events.
+Empfohlene E-Commerce-Events werden nicht im Abschnitt **Purchase history** des Tabs **Commerce** angezeigt. Die Kaufhistorie wird durch Legacy-Kauf-Events befüllt. Verwenden Sie die Metriken in der folgenden Tabelle für Umsatz und Bestellaktivität aus empfohlenen Events.
 {% endalert %}
 
 | Metrik | Formel |
@@ -29,9 +35,18 @@ Empfohlene E-Commerce-Events werden nicht im Abschnitt **Kaufhistorie** des Tabs
 | Gesamtumsatz | Summe (`order_placed.total_value`) − Summe (`order_refunded.total_value`) |
 | Gesamtbestellungen | Anzahl (eindeutige `order_placed`) − Anzahl (eindeutige `order_cancelled`) |
 | Gesamter Erstattungswert | Summe (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Metriken der Bestellaktivität" }
 
-![Abschnitt „Bestellaktivität“ mit Gesamtumsatz, Gesamtbestellungen und gesamtem Erstattungswert.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Aktiver Warenkorb {#active-cart}
+
+Das Modul **Active cart** zeigt den neuesten Warenkorb im Nutzerprofil an. Diese Ansicht ist besonders hilfreich beim Testen. Sie können damit Warenkorb-Inhalte bestätigen, warenkorbbasierte Journeys validieren oder überprüfen, ob `ecommerce.cart_updated`-Events das Profil wie erwartet aktualisieren.
+
+**Active cart** umfasst Folgendes:
+
+- **Cart ID** – Bezeichner für den Warenkorb, der zuletzt ein `ecommerce.cart_updated`-Event erhalten hat.
+- **Last updated** – Zeitstempel der letzten Warenkorb-Aktualisierung.
+- **Total cart value** – Gesamtwert der Positionen im aktuellen Warenkorb.
+- **View products** – Ein Link zum Öffnen der Produktliste im Warenkorb (bis zu 50 Produkte).
 
 ## E-Commerce-Orchestrierung {#ecommerce-orchestration}
 
@@ -55,7 +70,7 @@ Darüber hinaus bietet Braze einen dedizierten Trigger **Places Order**, mit dem
 
 ### Liquid-Personalisierung {#liquid-personalization}
 
-E-Commerce-Events unterstützen [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) auf die gleiche Weise wie angepasste Events; Sie können Event-Eigenschaften direkt in Ihrem Messaging referenzieren. Um Produktbilder, Preise oder andere Katalogdaten in Ihre Nachrichten einzubinden, verknüpfen Sie Ihren Katalog mit dem Event über `product_id` oder `variant_id` als verbindenden Bezeichner. Der {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag ermöglicht es Ihnen, den aktuellen Warenkorbinhalt einer Nutzer:in für Warenkorb-Abbruch-Erinnerungen, Checkout-Hinweise oder Bestellbestätigungen zu durchlaufen. Fertige Code-Beispiele finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases/).
+E-Commerce-Events unterstützen [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) auf die gleiche Weise wie angepasste Events; Sie können Event-Eigenschaften direkt in Ihrem Messaging referenzieren. Um Produktbilder, Preise oder andere Katalogdaten in Ihre Nachrichten einzubinden, verknüpfen Sie Ihren Katalog mit dem Event über `product_id` oder `variant_id` als verbindenden Bezeichner. Der {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag ermöglicht es Ihnen, den aktuellen Warenkorbinhalt eines Nutzers bzw. einer Nutzerin für Warenkorb-Abbruch-Erinnerungen, Checkout-Hinweise oder Bestellbestätigungen zu durchlaufen. Fertige Code-Beispiele finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases/).
 
 Für eine No-Code-Alternative stehen [Drag-and-Drop-Produktblöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/) im Early-Access-Programm zur Verfügung.
 
@@ -77,7 +92,7 @@ Verwenden Sie dieses Template, wenn Sie Besucher:innen dazu bringen möchten, Pr
 | Eintritts-Event | `ecommerce.product_viewed` |
 | Austritts-Events | `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Konversions-Event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce Canvas-Templates" }
 
 {% endtab %}
 {% tab Warenkorb-Abbruch %}
@@ -91,10 +106,10 @@ Verwenden Sie dieses Template, wenn Sie Nutzer:innen an Artikel in ihrem Warenko
 | Eintritts-Event | `ecommerce.cart_updated` |
 | Austritts-Events | `ecommerce.cart_updated`, `ecommerce.checkout_started`, Placed Order |
 | Konversions-Event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce Canvas-Templates" }
 
 {% alert tip %}
-Das `ecommerce.cart_updated`-Event verwendet ein Ersetzungsmodell. Jedes gesendete Event überschreibt den Warenkorbstatus der Nutzer:in. Verwenden Sie den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag in Ihrer Nachricht, um den aktuellen Warenkorbinhalt zum Sendezeitpunkt dynamisch anzuzeigen.
+Das `ecommerce.cart_updated`-Event unterstützt sowohl vollständige Warenkorbersetzung (jedes Event kann den gesamten Warenkorb beschreiben) als auch inkrementelle Aktualisierungen mit den Werten `add` und `remove` für die optionale Eigenschaft `action`. Wählen Sie einen Ansatz pro Warenkorb und vermeiden Sie es, Ersetzungs- und inkrementelle Warenkorb-Aktualisierungen für dieselbe `cart_id` zu mischen. Verwenden Sie den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag in Ihrer Nachricht, um den aktuellen Warenkorbinhalt zum Sendezeitpunkt dynamisch anzuzeigen.
 {% endalert %}
 
 {% endtab %}
@@ -109,7 +124,7 @@ Verwenden Sie dieses Template, wenn Sie Käufe in der Phase mit der höchsten Ka
 | Eintritts-Event | `ecommerce.checkout_started` |
 | Austritts-Event | Placed Order |
 | Konversions-Event | Placed Order |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce Canvas-Templates" }
 
 {% endtab %}
 {% tab Bestellbestätigung und Umfrage %}
@@ -122,7 +137,7 @@ Verwenden Sie dieses Template, wenn Sie die Kommunikation nach dem Kauf optimier
 | --- | --- |
 | Eintritts-Event | `ecommerce.order_placed` |
 | Konversions-Event | Start Session oder `ecommerce.product_viewed` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce Canvas-Templates" }
 
 {% endtab %}
 {% endtabs %}
@@ -151,7 +166,7 @@ Empfohlene E-Commerce-Events speisen dieselben Umsatzoberflächen, die Kund:inne
 | Segment-Insights | Umsatzvergleiche über Segmente hinweg im Segment-Insights-Dashboard. |
 | Berichts-Builder | Umsatzmetriken in individuellen Berichten, die im Berichts-Builder erstellt wurden. |
 | Dashboard-Builder | Umsatzmetriken in individuellen Dashboards, die im Dashboard-Builder erstellt wurden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce-Reporting" }
 
 Für nicht nutzerbezogene berechnete Felder (z. B. Campaign- oder Canvas-Umsatz) wird der Umsatz in allen Berichten gleich berechnet: `price` multipliziert mit `quantity` pro Produkt in der Bestellung, summiert über die Produkte in jedem `order_placed`-Event.
 
@@ -174,7 +189,7 @@ Braze bietet mehrere Möglichkeiten, E-Commerce-Event-Daten für die Verwendung 
 | [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) | E-Commerce-Events werden als angepasste Events geteilt; suchen Sie im `ecommerce.*`-Namespace, um sie zu finden. Produkte aus jeder Bestellung sind in der Käufe-Tabelle verfügbar. |
 | [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/) | CSV-Export von Segmentmitgliedern. Um E-Commerce-Events einzubeziehen, wählen Sie sie namentlich aus dem Dropdown für angepasste Events aus. |
 | [Nutzerprofil nach Segment exportieren (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#prerequisites) | Nutzerprofildaten für Segmentmitglieder, die über die API zurückgegeben werden. E-Commerce-Events sind als angepasste Events enthalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Daten exportieren" }
 
 ### Wie segmentiere ich Nutzer:innen nach einem bestimmten Produkt? {#how-do-i-segment-users-by-a-specific-product}
 

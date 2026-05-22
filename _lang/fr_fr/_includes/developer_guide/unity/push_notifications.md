@@ -1,47 +1,47 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## Mise en place de la notification push
+## Configuration des notifications push {#setting-up-push-notification}
 
-### Étape 1 : Mise en place de la plate-forme
+### Étape 1 : Configurer la plateforme {#step-1-set-up-the-platform}
 
 {% tabs %}
 {% tab Android %}
-#### Étape 1.1 : Activer Firebase
+#### Étape 1.1 : Activer Firebase {#step-11-enable-firebase}
 
 Pour commencer, suivez la [documentation de configuration de Firebase Unity](https://firebase.google.com/docs/unity/setup).
 
 {% alert note %}
-L’intégration du SDK Firebase Unity peut entraîner le remplacement de votre `AndroidManifest.xml`. Si cela se produit, assurez-vous de revenir à l’original.
+L'intégration du SDK Firebase Unity peut entraîner le remplacement de votre `AndroidManifest.xml`. Si cela se produit, assurez-vous de revenir à l'original.
 {% endalert %}
 
-#### Étape 1.2 : Définir vos informations d’identification Firebase
+#### Étape 1.2 : Définir vos identifiants Firebase {#step-12-set-your-firebase-credentials}
 
-Vous devez saisir votre clé de serveur Firebase et votre ID d’expéditeur dans le tableau de bord de Braze : Pour ce faire, connectez-vous à la [Firebase Developers Console](https://console.firebase.google.com/) et sélectionnez votre projet Firebase. Ensuite, sélectionnez l'option **Cloud Messaging** sous **Settings** et copiez la clé du serveur et l'ID de l'expéditeur :<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+Vous devez saisir votre clé de serveur Firebase et votre ID d'expéditeur dans le tableau de bord de Braze. Pour ce faire, connectez-vous à la [Firebase Developers Console](https://console.firebase.google.com/) et sélectionnez votre projet Firebase. Ensuite, sélectionnez **Cloud Messaging** sous **Settings** et copiez la clé du serveur et l'ID de l'expéditeur :<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
-Dans Braze, sélectionnez votre application Android sur la page **Paramètres de l'application**, sous **Gérer les paramètres**. Saisissez ensuite votre clé de serveur Firebase dans le champ **Clé du serveur Firebase Cloud Messaging** et ID d’expéditeur Firebase dans le champ ID **Expéditeur de Firebase Cloud Messaging**.
+Dans Braze, sélectionnez votre application Android sur la page **Paramètres des applications**, sous **Gérer les paramètres**. Saisissez ensuite votre clé de serveur Firebase dans le champ **Firebase Cloud Messaging Server Key** et l'ID d'expéditeur Firebase dans le champ **Firebase Cloud Messaging Sender ID**.
 
 ![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
-#### Étape 1.1 : Vérifier la méthode d'intégration
+#### Étape 1.1 : Vérifier la méthode d'intégration {#step-11-verify-integration-method}
 
-Braze fournit une solution Unity native pour l’automatisation des intégrations de notifications push iOS. Si vous souhaitez plutôt configurer et gérer votre intégration manuellement, consultez [Swift : Notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
+Braze fournit une solution Unity native pour automatiser les intégrations de notifications push iOS. Si vous préférez configurer et gérer votre intégration manuellement, consultez [Swift : Notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
 Sinon, passez à l'étape suivante.
 
 {% alert note %}
-Notre solution de notification push automatique tire parti de la fonctionnalité d’autorisation provisoire d’iOS 12 et n’est pas disponible pour utiliser avec la fenêtre contextuelle d’invite de notification push native.
+Notre solution de notification push automatique tire parti de la fonctionnalité d'autorisation provisoire d'iOS 12 et n'est pas disponible avec la fenêtre contextuelle d'invite de notification push native.
 {% endalert %}
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Étape 1.1 : Activer ADM
+#### Étape 1.1 : Activer ADM {#step-11-enable-adm}
 
 1. Créez un compte sur le [portail des développeurs Amazon Apps & Games](https://developer.amazon.com/public) si vous ne l'avez pas encore fait.
 2. Obtenez les [identifiants OAuth (ID client et secret client) et une clé API ADM](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials).
-3. Activez **Enregistrement ADM automatique activé** dans la fenêtre de configuration de Braze Unity. 
-  - Vous pouvez également ajouter la ligne suivante à votre `res/values/braze.xml` pour activer l’enregistrement ADM :
+3. Activez **Automatic ADM Registration Enabled** dans la fenêtre de configuration de Braze Unity.
+  - Vous pouvez également ajouter la ligne suivante à votre fichier `res/values/braze.xml` pour activer l'enregistrement ADM :
 
   ```xml
   <bool name="com_braze_push_adm_messaging_registration_enabled">true</bool>
@@ -49,54 +49,59 @@ Notre solution de notification push automatique tire parti de la fonctionnalité
 {% endtab %}
 {% endtabs %}
 
-### Étape 2 : Configurer les notifications push
+### Étape 2 : Configurer les notifications push {#step-2-configure-push-notifications}
 
 {% tabs %}
 {% tab Android %}
-#### Étape 2.1 : Configurer les paramètres de poussée
+#### Étape 2.1 : Configurer les paramètres push {#unity_step-21-configure-push-settings}
 
-Le SDK Braze peut gérer automatiquement l’enregistrement des notifications push avec les serveurs Firebase Cloud Messaging pour que les appareils reçoivent des notifications push. Dans Unity, activez **Automate Unity Android Integration**, puis configurez les paramètres de **notification push** suivants.
+Le SDK Braze peut gérer automatiquement l'enregistrement push auprès des serveurs Firebase Cloud Messaging pour que les appareils reçoivent des notifications push. Dans Unity, activez **Automate Unity Android Integration**, puis configurez les paramètres de **Push Notification** suivants.
 
-| Réglage                                | Description                                                                                                                                              |
+| Paramètre | Description |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Activation de l'enregistrement automatique de l'envoi de messages dans le nuage Firebase | Donne l’ordre au SDK Braze de récupérer et d’envoyer automatiquement un jeton de notification push FCM pour un appareil.                                                                |
-| ID de l’expéditeur de Firebase Cloud Messaging     | L’identifiant de l’expéditeur provenant de votre console Firebase.                                                                                                                |
-| Manipulez automatiquement les liens profonds (Push Deeplinks)    | Si le SDK doit traiter des liens profonds ou ouvrir l’application lorsque des notifications push sont cliquées.                                                  |
-| Petite icône de notification dessinable       | Le drawable doit être affiché comme petite icône chaque fois qu’une notification push est reçue. La notification utilisera l’icône de l’application comme petite icône si aucune icône n’est fournie. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Automatic Firebase Cloud Messaging Registration Enabled | Indique au SDK Braze de récupérer et d'envoyer automatiquement un jeton de notification push FCM pour un appareil. |
+| Firebase Cloud Messaging Sender ID | L'ID de l'expéditeur provenant de votre console Firebase. |
+| Handle Push Deeplinks Automatically | Indique si le SDK doit gérer l'ouverture des liens profonds ou de l'application lorsque des notifications push sont cliquées. |
+| Small Notification Icon Drawable | Référence de ressource drawable Android pour la petite icône affichée lorsqu'une notification push arrive. Saisissez la référence complète incluant le préfixe `@drawable/` (par exemple, `@drawable/hourglass_icon`). L'intégration automatique écrit cette valeur dans `braze.xml` telle que saisie. Si vous laissez ce champ vide, la notification utilise l'icône de l'application comme petite icône. |
+| Large Notification Icon Drawable | Grande icône facultative pour les notifications. Utilisez le même format `@drawable/` que pour la petite icône (par exemple, `@drawable/my_large_icon`). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** et **Large Notification Icon Drawable** apparaissent sous **Push Configuration** dans **Braze > Braze Configuration**. Les deux valeurs sont écrites dans `braze.xml` telles que vous les saisissez. Incluez le préfixe `@drawable/` vous-même — l'intégration Braze Unity ne l'ajoute pas pour vous (par exemple, `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
-#### Étape 2.1 : Téléchargez votre jeton APN
+#### Étape 2.1 : Télécharger votre jeton APNs {#step-21-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
-#### Étape 2.2 : Activer la poussée automatique
+#### Étape 2.2 : Activer le push automatique {#step-22-enable-automatic-push}
 
-Ouvrez les paramètres de configuration de Braze dans l'éditeur Unity en sélectionnant **Braze > Configuration Braze**.
+Ouvrez les paramètres de configuration de Braze dans l'éditeur Unity en accédant à **Braze > Braze Configuration**.
 
-Cochez **Intégrer Push avec Braze** pour inscrire automatiquement les utilisateurs aux notifications push, transmettre les jetons push à Braze, suivre l'analyse/analytique des ouvertures de push et tirer parti de notre gestion par défaut des notifications push.
+Cochez **Integrate Push With Braze** pour inscrire automatiquement les utilisateurs aux notifications push, transmettre les jetons push à Braze, suivre l'analytique des ouvertures de push et tirer parti de notre gestion par défaut des notifications push.
 
-#### Étape 2.3 : Activer la poussée en arrière-plan (facultatif)
+#### Étape 2.3 : Activer le push en arrière-plan (facultatif) {#step-23-enable-background-push-optional}
 
-Cochez **Enable Background Push** si vous souhaitez activer `background mode` pour les notifications push. Cela permet au système de réveiller votre application à partir de l’état `suspended` lorsqu’une notification push est reçue, permettant à votre application de télécharger le contenu en réponse aux notifications push. Le fait de cocher cette option est nécessaire pour notre fonctionnalité de suivi de la désinstallation.
+Cochez **Enable Background Push** si vous souhaitez activer le `background mode` pour les notifications push. Cela permet au système de réveiller votre application depuis l'état `suspended` lorsqu'une notification push est reçue, permettant à votre application de télécharger du contenu en réponse aux notifications push. Cocher cette option est nécessaire pour notre fonctionnalité de suivi de la désinstallation.
 
-![L’éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, « Automate Unity iOS integration » (Automatiser l’intégration d’Unity iOS », « Integrate push with Braze » (Intégrer les notifications push avec Braze), et « Enable background push » (Activer les notifications push en arrière-plan) sont activés.]({% image_buster /assets/img/unity/ios/unity_ios_enable_background.png %})
+![L'éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, les options « Automate Unity iOS integration », « Integrate push with Braze » et « Enable background push » sont activées.]({% image_buster /assets/img/unity/ios/unity_ios_enable_background.png %})
 
-#### Étape 2.4 : Désactiver l'enregistrement automatique (optionnel)
+#### Étape 2.4 : Désactiver l'enregistrement automatique (facultatif) {#step-24-disable-automatic-registration-optional}
 
-Les utilisateurs qui n’ont pas encore opté pour des notifications push seront automatiquement autorisés aux notifications push lors de l’ouverture de votre application. Pour désactiver cette fonctionnalité et enregistrer manuellement les utilisateurs pour le push, cochez **Désactiver l'enregistrement push automatique.**
+Les utilisateurs qui n'ont pas encore accepté les notifications push seront automatiquement autorisés à recevoir des notifications push lors de l'ouverture de votre application. Pour désactiver cette fonctionnalité et enregistrer manuellement les utilisateurs pour le push, cochez **Disable Automatic Push Registration**.
 
-- Si la case **Désactiver l'autorisation provisoire** n'est pas cochée sous iOS 12 ou une version ultérieure, l'utilisateur sera provisoirement (silencieusement) autorisé à recevoir le push silencieux. Si cette option est cochée, l’utilisateur affiche l’invite de notification push native.
-- Si vous devez configurer exactement quand l’invite est affichée lors de l’exécution, désactivez l’enregistrement automatique de l’éditeur de configuration Braze et utilisez `AppboyBinding.PromptUserForPushPermissions()` à la place.
+- Si la case **Disable Provisional Authorization** n'est pas cochée sous iOS 12 ou une version ultérieure, l'utilisateur sera provisoirement (silencieusement) autorisé à recevoir des notifications push silencieuses. Si cette option est cochée, l'utilisateur verra l'invite de notification push native.
+- Si vous devez configurer exactement quand l'invite est affichée lors de l'exécution, désactivez l'enregistrement automatique depuis l'éditeur de configuration Braze et utilisez `AppboyBinding.PromptUserForPushPermissions()` à la place.
 
-![L’éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, « Automate Unity iOS integration » (Automatiser l’intégration d’Unity iOS), « integrate push with braze » (Intégrer les notifications push avec Braze), et « disable automatic push registration » (Désactiver l’enregistrement automatique des notifications push) sont activés.]({% image_buster /assets/img/unity/ios/unity_ios_disable_auto_push.png %})
+![L'éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, les options « Automate Unity iOS integration », « Integrate push with Braze » et « Disable automatic push registration » sont activées.]({% image_buster /assets/img/unity/ios/unity_ios_disable_auto_push.png %})
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-#### Étape 2.1 : Mise à jour `AndroidManifest.xml`
+#### Étape 2.1 : Mettre à jour `AndroidManifest.xml` {#unity_step-21-update-androidmanifestxml}
 
-Si votre application n’a pas de `AndroidManifest.xml`, vous pouvez utiliser ce qui suit comme modèle. Sinon, si vous avez déjà un `AndroidManifest.xml`, assurez-vous que l’une des sections manquantes suivantes est ajoutée à votre `AndroidManifest.xml` existant.
+Si votre application n'a pas de `AndroidManifest.xml`, vous pouvez utiliser le modèle suivant. Sinon, si vous avez déjà un `AndroidManifest.xml`, assurez-vous que toutes les sections manquantes suivantes sont ajoutées à votre `AndroidManifest.xml` existant.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -111,13 +116,13 @@ Si votre application n’a pas de `AndroidManifest.xml`, vous pouvez utiliser ce
   <uses-permission android:name="REPLACE_WITH_YOUR_PACKAGE_NAME.permission.RECEIVE_ADM_MESSAGE" />
   <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
-  <application android:icon="@drawable/app_icon" 
+  <application android:icon="@drawable/app_icon"
                android:label="@string/app_name">
 
     <!-- Calls the necessary Braze methods to ensure that analytics are collected and that push notifications are properly forwarded to the Unity application. -->
-    <activity android:name="com.braze.unity.BrazeUnityPlayerActivity" 
-      android:label="@string/app_name" 
-      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" 
+    <activity android:name="com.braze.unity.BrazeUnityPlayerActivity"
+      android:label="@string/app_name"
+      android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
       android:screenOrientation="sensor">
       <meta-data android:name="android.app.lib_name" android:value="unity" />
       <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
@@ -138,12 +143,12 @@ Si votre application n’a pas de `AndroidManifest.xml`, vous pouvez utiliser ce
 </manifest>
 ```
 
-#### Étape 2.2 : Stocker votre clé API ADM
+#### Étape 2.2 : Stocker votre clé API ADM {#step-22-store-your-adm-api-key}
 
 Tout d'abord, [générez une clé API ADM pour votre application](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials), puis enregistrez la clé dans un fichier nommé `api_key.txt` et ajoutez-le dans le répertoire [`Assets/`](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) de votre projet.
 
 {% alert important %}
-Amazon ne reconnaîtra pas votre clé si `api_key.txt` contient des caractères blancs, comme un saut de ligne.
+Amazon ne reconnaîtra pas votre clé si `api_key.txt` contient des caractères d'espacement, comme un saut de ligne en fin de fichier.
 {% endalert %}
 
 Ensuite, dans votre fichier `mainTemplate.gradle`, ajoutez ce qui suit :
@@ -158,39 +163,39 @@ task copyAmazon(type: Copy) {
 preBuild.dependsOn(copyAmazon)
 ```
 
-#### Étape 2.3 : Ajouter un Jar ADM
+#### Étape 2.3 : Ajouter le Jar ADM {#step-23-add-adm-jar}
 
 Le fichier Jar ADM requis peut être placé n'importe où dans votre projet, conformément à la [documentation JAR d'Unity](https://docs.unity3d.com/Manual/AndroidJARPlugins.html).
 
-#### Étape 2.4 : Ajouter un identifiant secret client et un identifiant client à votre tableau de bord de Braze
+#### Étape 2.4 : Ajouter le secret client et l'ID client à votre tableau de bord de Braze {#step-24-add-client-secret-and-client-id-to-your-braze-dashboard}
 
-Enfin, vous devez ajouter le Secret Client et l'ID Client que vous avez obtenus dans [l'Étape 1](#unity_step-1-enable-adm) à la page **Gérer les paramètres** du tableau de bord de Braze.
+Enfin, vous devez ajouter le secret client et l'ID client que vous avez obtenus à l'[étape 1](#unity_step-1-enable-adm) à la page **Gérer les paramètres** du tableau de bord de Braze.
 
 ![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
-### Étape 3 : Définir les auditeurs de notifications push
+### Étape 3 : Définir les écouteurs push {#step-3-set-push-listeners}
 
 {% tabs %}
 {% tab Android %}
-#### Étape 3.1 : Activer l'écoute des messages reçus par push
+#### Étape 3.1 : Activer l'écouteur de réception push {#step-31-enable-push-received-listener}
 
-L’auditeur de notification push reçu est déclenché lorsqu’un utilisateur reçoit une notification push. Pour envoyer la charge utile push à Unity, définissez le nom de votre objet de jeu et poussez la méthode de rappel de l'auditeur reçu sous la rubrique **Définir l'auditeur reçu des notifications push**.
+L'écouteur de réception push est déclenché lorsqu'un utilisateur reçoit une notification push. Pour envoyer le payload push à Unity, définissez le nom de votre objet de jeu et la méthode de rappel de l'écouteur de réception push sous **Set Push Received Listener**.
 
-#### Étape 3.2 : Activation de l'auditeur push ouvert
+#### Étape 3.2 : Activer l'écouteur d'ouverture push {#step-32-enable-push-opened-listener}
 
-L’auditeur ouvert est déclenché lorsqu’un utilisateur lance l’application en cliquant sur une notification push. Pour envoyer la charge utile de notification push à Unity, définissez le nom de votre objet de jeu et appuyez sur la méthode de rappel de l’écoute ouverte dans **Définir l’auditeur ouvert de notifications push**.
+L'écouteur d'ouverture push est déclenché lorsqu'un utilisateur lance l'application en cliquant sur une notification push. Pour envoyer le payload push à Unity, définissez le nom de votre objet de jeu et la méthode de rappel de l'écouteur d'ouverture push sous **Set Push Opened Listener**.
 
-#### Étape 3.3 : Activation de l'auditeur "push deleted
+#### Étape 3.3 : Activer l'écouteur de suppression push {#step-33-enable-push-deleted-listener}
 
-L’auditeur push supprimé est déclenché lorsqu’un utilisateur balaye ou rejette une notification push. Pour envoyer la charge utile push à Unity, définissez le nom de votre objet de jeu et la méthode de rappel push deleted listener sous la rubrique **Définir l’auditeur supprimé des notifications push**.
+L'écouteur de suppression push est déclenché lorsqu'un utilisateur balaie ou rejette une notification push. Pour envoyer le payload push à Unity, définissez le nom de votre objet de jeu et la méthode de rappel de l'écouteur de suppression push sous **Set Push Deleted Listener**.
 
-#### Exemple d'écoute push
+#### Exemple d'écouteur push {#push-listener-example}
 
-L’exemple suivant implémente l’objet de jeu `BrazeCallback` utilisant respectivement un nom de méthode de rappel de `PushNotificationReceivedCallback`, `PushNotificationOpenedCallback`, et `PushNotificationDeletedCallback`.
+L'exemple suivant implémente l'objet de jeu `BrazeCallback` en utilisant respectivement les noms de méthode de rappel `PushNotificationReceivedCallback`, `PushNotificationOpenedCallback` et `PushNotificationDeletedCallback`.
 
-![Ce graphique d’exemple d’implémentation montre les options de configuration Braze mentionnées dans les sections précédentes et un extrait de code C#.]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
+![Ce graphique d'exemple d'implémentation montre les options de configuration Braze mentionnées dans les sections précédentes et un extrait de code C#.]({% image_buster /assets/img/unity/android/unity_android_full_push_listener.png %} "Android Full Listener Example")
 
 ```csharp
 public class MainMenu : MonoBehaviour {
@@ -198,29 +203,29 @@ public class MainMenu : MonoBehaviour {
 #if UNITY_ANDROID
     Debug.Log("PushNotificationReceivedCallback message: " + message);
     PushNotification pushNotification = new PushNotification(message);
-    Debug.Log("Push Notification received: " + pushNotification);   
+    Debug.Log("Push Notification received: " + pushNotification);
 #elif UNITY_IOS
     ApplePushNotification pushNotification = new ApplePushNotification(message);
-    Debug.Log("Push received Notification event: " + pushNotification);   
-#endif  
+    Debug.Log("Push received Notification event: " + pushNotification);
+#endif
   }
 
   void PushNotificationOpenedCallback(string message) {
 #if UNITY_ANDROID
     Debug.Log("PushNotificationOpenedCallback message: " + message);
     PushNotification pushNotification = new PushNotification(message);
-    Debug.Log("Push Notification opened: " + pushNotification);  
+    Debug.Log("Push Notification opened: " + pushNotification);
 #elif UNITY_IOS
     ApplePushNotification pushNotification = new ApplePushNotification(message);
-    Debug.Log("Push opened Notification event: " + pushNotification);   
-#endif  
+    Debug.Log("Push opened Notification event: " + pushNotification);
+#endif
   }
 
   void PushNotificationDeletedCallback(string message) {
 #if UNITY_ANDROID
     Debug.Log("PushNotificationDeletedCallback message: " + message);
     PushNotification pushNotification = new PushNotification(message);
-    Debug.Log("Push Notification dismissed: " + pushNotification);  
+    Debug.Log("Push Notification dismissed: " + pushNotification);
 #endif
   }
 }
@@ -228,25 +233,25 @@ public class MainMenu : MonoBehaviour {
 {% endtab %}
 
 {% tab Swift %}
-#### Étape 3.1 : Activer l'écoute des messages reçus par push
+#### Étape 3.1 : Activer l'écouteur de réception push
 
-Le récepteur push reçu est déclenché lorsqu'un utilisateur reçoit une notification push alors qu'il utilise activement l'application (par exemple, lorsque l'application est au premier plan). Définissez l’auditeur de notification push reçu dans l’éditeur de configuration Braze. Si vous devez configurer votre auditeur d’objet de jeu lors de l’exécution, utilisez `AppboyBinding.ConfigureListener()` et spécifiez `BrazeUnityMessageType.PUSH_RECEIVED`.
+L'écouteur de réception push est déclenché lorsqu'un utilisateur reçoit une notification push alors qu'il utilise activement l'application (par exemple, lorsque l'application est au premier plan). Définissez l'écouteur de réception push dans l'éditeur de configuration Braze. Si vous devez configurer votre écouteur d'objet de jeu lors de l'exécution, utilisez `AppboyBinding.ConfigureListener()` et spécifiez `BrazeUnityMessageType.PUSH_RECEIVED`.
 
-![L’éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, l’option « Set Push Received Listener » (Définir l’écoute reçue par le push) est étendue, et le « Game Object Name » (Nom de l’objet de jeu) et « Callback Method Name » (Nom de la méthode de rappel) (PushNotificationAdministredCallback) sont fournis.]({% image_buster /assets/img/unity/ios/unity_ios_push_received.png %})
+![L'éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, l'option « Set Push Received Listener » est développée, et le « Game Object Name » (AppBoyCallback) et le « Callback Method Name » (PushNotificationReceivedCallback) sont fournis.]({% image_buster /assets/img/unity/ios/unity_ios_push_received.png %})
 
-#### Étape 3.2 : Activation de l'auditeur push ouvert
+#### Étape 3.2 : Activer l'écouteur d'ouverture push
 
-L’auditeur ouvert est déclenché lorsqu’un utilisateur lance l’application en cliquant sur une notification push. Pour envoyer la charge utile de notifications push à Unity, définissez le nom de votre objet de jeu et de la méthode de rappel d’écoute ouverte des notifications push sous l’option **Définir l’auditeur ouvert de notifications push** :
+L'écouteur d'ouverture push est déclenché lorsqu'un utilisateur lance l'application en cliquant sur une notification push. Pour envoyer le payload push à Unity, définissez le nom de votre objet de jeu et la méthode de rappel de l'écouteur d'ouverture push sous l'option **Set Push Opened Listener** :
 
-![L’éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, l’option « Set Push Received Listener » (Définir l’écoute reçue par le push) est étendue, et le « Game Object Name » (Nom de l’objet de jeu) et « Callback Method Name » (Nom de la méthode de rappel) (PushNotificationOpenedCallback) sont fournis.]({% image_buster /assets/img/unity/ios/unity_ios_push_opened.png %})
+![L'éditeur Unity affiche les options de configuration Braze. Dans cet éditeur, l'option « Set Push Opened Listener » est développée, et le « Game Object Name » (AppBoyCallback) et le « Callback Method Name » (PushNotificationOpenedCallback) sont fournis.]({% image_buster /assets/img/unity/ios/unity_ios_push_opened.png %})
 
-Si vous devez configurer votre auditeur d’objet de jeu lors de l’exécution, utilisez `AppboyBinding.ConfigureListener()` et spécifiez `BrazeUnityMessageType.PUSH_OPENED`.
+Si vous devez configurer votre écouteur d'objet de jeu lors de l'exécution, utilisez `AppboyBinding.ConfigureListener()` et spécifiez `BrazeUnityMessageType.PUSH_OPENED`.
 
-#### Exemple d'écoute push
+#### Exemple d'écouteur push
 
-L’exemple suivant implémente l’objet de jeu `AppboyCallback` utilisant respectivement un nom de méthode de rappel de `PushNotificationReceivedCallback` et `PushNotificationOpenedCallback`.
+L'exemple suivant implémente l'objet de jeu `AppboyCallback` en utilisant respectivement les noms de méthode de rappel `PushNotificationReceivedCallback` et `PushNotificationOpenedCallback`.
 
-![Ce graphique d’exemple d’implémentation montre les options de configuration Braze mentionnées dans les sections précédentes et un extrait de code C#.]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
+![Ce graphique d'exemple d'implémentation montre les options de configuration Braze mentionnées dans les sections précédentes et un extrait de code C#.]({% image_buster /assets/img/unity/ios/unity_ios_appboy_callback.png %})
 
 ```csharp
 public class MainMenu : MonoBehaviour {
@@ -254,29 +259,29 @@ public class MainMenu : MonoBehaviour {
 #if UNITY_ANDROID
     Debug.Log("PushNotificationReceivedCallback message: " + message);
     PushNotification pushNotification = new PushNotification(message);
-    Debug.Log("Push Notification received: " + pushNotification);   
+    Debug.Log("Push Notification received: " + pushNotification);
 #elif UNITY_IOS
     ApplePushNotification pushNotification = new ApplePushNotification(message);
-    Debug.Log("Push received Notification event: " + pushNotification);   
-#endif  
+    Debug.Log("Push received Notification event: " + pushNotification);
+#endif
   }
 
   void PushNotificationOpenedCallback(string message) {
 #if UNITY_ANDROID
     Debug.Log("PushNotificationOpenedCallback message: " + message);
     PushNotification pushNotification = new PushNotification(message);
-    Debug.Log("Push Notification opened: " + pushNotification);  
+    Debug.Log("Push Notification opened: " + pushNotification);
 #elif UNITY_IOS
     ApplePushNotification pushNotification = new ApplePushNotification(message);
-    Debug.Log("Push opened Notification event: " + pushNotification);   
-#endif  
+    Debug.Log("Push opened Notification event: " + pushNotification);
+#endif
   }
 }
 ```
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-En mettant à jour votre site `AndroidManifest.xml` à l'[étape précédente](#unity_step-21-update-androidmanifestxml), des "push listeners" ont été automatiquement mis en place lorsque vous avez ajouté les lignes suivantes. Aucune autre configuration n'est donc nécessaire.
+En mettant à jour votre `AndroidManifest.xml` à l'[étape précédente](#unity_step-21-update-androidmanifestxml), les écouteurs push ont été automatiquement configurés lorsque vous avez ajouté les lignes suivantes. Aucune configuration supplémentaire n'est donc nécessaire.
 
 ```xml
 <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
@@ -284,33 +289,39 @@ En mettant à jour votre site `AndroidManifest.xml` à l'[étape précédente](#
 ```
 
 {% alert note %}
-Pour en savoir plus sur les "push listeners" d'ADM, consultez le site [Amazon : Intégrer l'envoi de messages des appareils Amazon](https://developer.amazon.com/docs/video-skills-fire-tv-apps/integrate-adm.html).
+Pour en savoir plus sur les écouteurs push ADM, consultez [Amazon : Intégrer Amazon Device Messaging](https://developer.amazon.com/docs/video-skills-fire-tv-apps/integrate-adm.html).
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
-## Configurations optionnelles
+## Configurations facultatives {#optional-configurations}
 
 {% tabs %}
 {% tab Android %}
-#### Ressources liens profonds vers in-app
+#### Liens profonds vers des ressources in-app {#deep-linking-to-in-app-resources}
 
-Bien que Braze puisse gérer des liens profonds standard par défaut (tels que les URL de sites Internet, les URI Android, etc.), la création de liens profonds personnalisés nécessite une configuration du Manifeste supplémentaire.
+Bien que Braze puisse gérer les liens profonds standard par défaut (tels que les URL de sites web, les URI Android, etc.), la création de liens profonds personnalisés nécessite une configuration supplémentaire du Manifeste.
 
-Pour obtenir des conseils sur la configuration, consultez la page [Création de liens profonds vers des ressources In-App](https://developer.android.com/training/app-links/deep-linking).
+Pour obtenir des conseils sur la configuration, consultez [Liens profonds vers des ressources in-app](https://developer.android.com/training/app-links/deep-linking).
 
-#### Ajout d'icônes de notification push Braze
+#### Ajout d'icônes de notification push Braze {#adding-braze-push-notification-icons}
 
-Pour ajouter des icônes push à votre projet, créez un plug-in Android Archive (AAR) ou une bibliothèque Android contenant les fichiers d'image des icônes. Pour connaître les étapes et les informations, reportez-vous à la documentation d'Unity : [Projets de bibliothèques Android et plug-ins Android Archive](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+N'ajoutez pas d'images d'icônes de notification sous `Assets/Plugins/Android/res`. Unity [a déprécié la fourniture de ressources Android dans ce chemin](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), ce qui peut générer des avertissements de build ou des erreurs de validation. Empaquetez vos drawables d'icônes dans un [plug-in Android Archive (AAR)](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) ou un projet de bibliothèque Android afin qu'ils soient fusionnés dans les ressources de l'application compilée comme tout autre drawable.
+{% endalert %}
+
+Pour ajouter des icônes push à votre projet, créez un plug-in AAR ou une bibliothèque Android contenant les fichiers d'image des icônes sous `res/drawable*` (ou des dossiers spécifiques à la densité), puis référencez chaque icône dans **Braze > Braze Configuration** en utilisant le nom complet de la ressource `@drawable/` (voir [Étape 2.1 : Configurer les paramètres push](#unity_step-21-configure-push-settings)). Pour les étapes d'empaquetage et d'importation dans Unity, consultez [Projets de bibliothèques Android et plug-ins Android Archive](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+
+Pour les règles de conception des petites icônes (alpha uniquement, sans couleur), consultez [Notifications push Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), Étape 2 : Conformer les petites icônes aux directives de conception.
 {% endtab %}
 
 {% tab Swift %}
-#### Fonction de rappel de jeton de notification push
+#### Rappel de jeton push {#push-token-callback}
 
-Pour recevoir une copie des jetons d'appareil de Braze à partir du système d'exploitation, définissez un délégué à l'aide de `AppboyBinding.SetPushTokenReceivedFromSystemDelegate()`.
+Pour recevoir une copie des jetons d'appareil Braze depuis le système d'exploitation, définissez un délégué à l'aide de `AppboyBinding.SetPushTokenReceivedFromSystemDelegate()`.
 {% endtab %}
 
 {% tab Amazon Device Messaging %}
-Il n'y a pas de configurations optionnelles pour ADM à l'heure actuelle.
+Il n'y a pas de configurations facultatives pour ADM à l'heure actuelle.
 {% endtab %}
 {% endtabs %}

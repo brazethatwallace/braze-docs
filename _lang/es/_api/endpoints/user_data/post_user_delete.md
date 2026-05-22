@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids`       | Opcional | Matriz de cadenas           | Identificadores de usuario de Braze a eliminar.                                                  |
 | `email_addresses` | Opcional | Matriz de cadenas           | Correos electrónicos de usuarios que deben eliminarse. Consulta [Eliminar usuarios por correo electrónico](#deleting-users-by-email) para más información.                                                             |
 | `phone_numbers` | Opcional | Matriz de cadenas | Números de teléfono de usuario que hay que eliminar. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Eliminar usuarios por direcciones de correo electrónico y números de teléfono {#deleting-users-by-email-addresses-and-phone-numbers}
 

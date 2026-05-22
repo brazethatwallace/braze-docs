@@ -54,7 +54,7 @@ tool: Catalogs
 | `results_limit` | オプション | 整数 | 返す結果の最大数。1から50までの数値である必要があります。 |
 | `sort_field` | オプション | 文字列 | 結果を並べ替えるフィールド。`sort_order`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
 | `sort_order` | オプション | 文字列 | 結果を並べ替える順序。使用可能な値は`"asc"`（昇順）または`"desc"`（降順）です。`sort_field`と組み合わせて使用する必要があります。`sort_field`と`sort_order`の両方が指定されていない場合、結果はランダムな順序で返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
 
 ### フィルターオブジェクト {#filter-object}
 
@@ -65,7 +65,7 @@ tool: Catalogs
 | `field`    | 必須 | 文字列                                      | フィルタリング対象のカタログフィールド。 |
 | `operator` | 必須 | 文字列                                      | フィルタリングに使用する比較演算子。例として`"includes value"`や`"does not include value"`があります。 |
 | `value`    | 必須 | 可変（文字列、数値、ブール値、時刻）     | 比較対象となる値。基となるカタログフィールドのデータタイプ（例：文字列、数値、ブール値、時刻）と一致する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
 APIは、1回のセレクションリクエストにつき最大4つのフィルターをサポートしています。Brazeダッシュボードでは、各セレクションにつき最大10個のフィルターを追加できます。フィルターは配列内に記述された順序で適用されます。

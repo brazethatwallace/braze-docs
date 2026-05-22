@@ -36,7 +36,7 @@ Puedes personalizar tus mensajes de correo electrónico de varias maneras, entre
 | Contenido multimedia | Facilidad para incluir contenido multimedia que atraiga a los usuarios, como videos e imágenes. |
 | Boletines informativos | Envía cómodamente boletines mensuales o semanales para mantener la interacción de los usuarios. |
 | Transacciones | Notifica a los usuarios sobre compras recientes y entrega información importante sobre productos y envíos con [correos electrónicos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Servicios de correo electrónico {#email-services}
 

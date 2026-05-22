@@ -11,7 +11,7 @@ search_rank: 2
 
 # メール {#email}
 
-> Brazeのメール機能を使えば、CampaignsやCanvasで完全にカスタマイズされたパーソナライズ済みメールメッセージを作成し、アプリやWebサイトの外でユーザーの注目を集めることができます。オーディエンスの管理から目を引くマルチメディアコンテンツの挿入まで、メールメッセージを自由にカスタマイズできます。メールキャンペーンの例については、Brazeの[ケーススタディ](https://www.braze.com/customers/)を参照してください。
+> Brazeのメール機能を使えば、キャンペーンやキャンバスで完全にカスタマイズされたパーソナライズ済みメールメッセージを作成し、アプリやWebサイトの外でユーザーの注目を集めることができます。オーディエンスの管理から目を引くマルチメディアコンテンツの挿入まで、メールメッセージを自由にカスタマイズできます。メールキャンペーンの例については、Brazeの[ケーススタディ](https://www.braze.com/customers/)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -35,8 +35,8 @@ Brazeでメールを送信する前に、専用IP、ドメイン、メール認�
 | リッチメッセージ | リッチでダイナミックなHTMLメッセージを作成できます。 |
 | マルチメディアコンテンツ | 動画や画像など、ユーザーのエンゲージメントを高めるマルチメディアコンテンツを簡単に配置できます。 |
 | ニュースレター | 月刊または週刊のニュースレターを手軽に送信し、ユーザーエンゲージメントを維持します。 |
-| トランザクション | 最近の購入をユーザーに通知し、重要な製品情報や配送情報を[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)で届けます。
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| トランザクション | 最近の購入をユーザーに通知し、重要な製品情報や配送情報を[トランザクションメール]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)で届けます。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## メールサービス {#email-services}
 

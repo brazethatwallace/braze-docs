@@ -34,7 +34,7 @@ _이 통합은 Worthy에서 유지 관리합니다._
 | --- | --- |
 | [Worthy](https://worthy.ai/) 계정 | 이 파트너십을 활용하려면 Worthy 계정이 필요합니다. |
 | Braze SDK | 풍부한 인앱 메시지를 전송하려면 모바일 애플리케이션에 Braze SDK를 구성해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

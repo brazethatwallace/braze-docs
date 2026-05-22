@@ -143,6 +143,6 @@ Abra o link da Branch pelo app Notas em um dispositivo iOS físico. Se ele não 
 | O link funciona via push, mas não por e-mail | Domínio de rastreamento de cliques sem AASA | Hospede o AASA no domínio de rastreamento de cliques do seu ESP; consulte [Configuração de e-mail](#deep-linking-in-email) |
 | `shouldOpenURL` nunca é acionado para links da Branch | `forwardUniversalLinks` não ativado | Defina `configuration.forwardUniversalLinks = true` |
 | O link da Branch funciona pelo Notas, mas não pela Braze | `BrazeDelegate` retornando `true` para URLs da Branch | Verifique a correspondência de domínio em `shouldOpenURL` com o domínio da Branch |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common issues" }
 
 Para mais cenários de solução de problemas com deep linking, consulte [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).

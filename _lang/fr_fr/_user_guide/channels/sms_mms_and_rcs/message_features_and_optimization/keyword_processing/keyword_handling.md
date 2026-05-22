@@ -24,7 +24,7 @@ L'envoi de messages bidirectionnel vous permet d'envoyer des messages et de trai
 Les SMS, MMS et RCS avec Braze vous offrent la possibilité de créer des déclencheurs de mots-clés, des réponses personnalisées, de définir des ensembles de mots-clés pour plusieurs langues et d'établir des catégories de mots-clés personnalisées.
 
 {% alert note %}
-Braze utilise l'ensemble complet de vos mots-clés de désabonnement ([mots-clés par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) et [mots-clés personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) pour la gestion exacte des désabonnements et le [désabonnement approximatif]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+Braze utilise l'ensemble complet de vos mots-clés de désabonnement ([mots-clés par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) et [mots-clés personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) pour la gestion exacte des désabonnements et le [désabonnement approximatif]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
 {% endalert %}
 
 {% tabs %}
@@ -45,10 +45,10 @@ Les règles suivantes s'appliquent aux mots-clés et aux réponses de mots-clés
 | Mots-clés | Réponses de mots-clés |
 | -------- | ----------------- |
 | - Caractères encodés en UTF-8 valides<br>- Maximum de 20 mots-clés par catégorie au total<br>- Longueur maximale de 34 caractères<br>- Longueur minimale de 1 caractère<br>- Ne peuvent pas contenir d'espaces<br>- Doivent être insensibles à la casse et uniques dans le groupe d'abonnement | - Ne peuvent pas être vides<br>- Longueur maximale de 300 caractères<br>- Caractères UTF-8 valides |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ajouter des déclencheurs de mots-clés" }
 
 {% alert tip %}
-Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos Campaigns et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) pour plus d'informations.
+Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos campagnes et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) pour plus d'informations.
 {% endalert %}
 {% endtab %}
 
@@ -68,7 +68,7 @@ Vous pouvez gérer vos propres réponses envoyées aux utilisateurs après qu'il
 | Mots-clés | Réponses de mots-clés |
 | -------- | ----------------- |
 | - Caractères encodés en UTF-8 valides<br>- Maximum de 20 mots-clés par catégorie au total<br>- Longueur maximale de 34 caractères<br>- Longueur minimale de 1 caractère<br>- Ne peuvent pas contenir d'espaces<br>- Doivent être insensibles à la casse et uniques dans le groupe d'abonnement | - Ne peuvent pas être vides<br>- Longueur maximale de 300 caractères<br>- Caractères UTF-8 valides |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considérations" }
 
 {% endtab %}
 {% endtabs %}

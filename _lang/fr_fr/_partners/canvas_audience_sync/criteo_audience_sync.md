@@ -92,7 +92,7 @@ Sélectionnez **Criteo** comme partenaire de synchronisation d'audience souhait�
 Sélectionnez ensuite le compte publicitaire Criteo souhaité. Dans la liste déroulante **Choose a New or Existing Audience**, saisissez le nom d'une audience nouvelle ou existante.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 **Créer une nouvelle audience**<br>
 Saisissez un nom pour la nouvelle audience, sélectionnez **Add Users to Audience** et sélectionnez les champs que vous souhaitez synchroniser avec Criteo. Ensuite, enregistrez votre audience en cliquant sur le bouton **Create Audience** en bas de l'éditeur d'étape.
 
@@ -104,7 +104,7 @@ Braze affiche une notification en haut de l'éditeur d'étape si l'audience est 
 
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les utilisateurs quasiment en temps réel lorsqu'ils entrent dans le composant de synchronisation d'audience.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Synchroniser avec une audience existante %}
 **Synchroniser avec une audience existante**<br>
 Braze offre également la possibilité d'ajouter des utilisateurs aux audiences Criteo existantes afin de s'assurer que ces audiences sont à jour. Pour effectuer une synchronisation avec une audience existante, saisissez le nom de l'audience existante dans le menu déroulant et sélectionnez **Add to the Audience**. Braze ajoutera ensuite des utilisateurs en temps quasi réel au fur et à mesure qu'ils entreront dans le composant de synchronisation d'audience.
 
@@ -117,7 +117,7 @@ Braze offre également la possibilité d'ajouter des utilisateurs aux audiences 
 
 Une fois que vous avez configuré la synchronisation d'audience avec Criteo, lancez simplement le Canvas ! La nouvelle audience sera créée, et les utilisateurs qui passeront par l'étape de synchronisation d'audience seront intégrés à cette audience sur Criteo. Si votre Canvas contient des composants ultérieurs, vos utilisateurs passeront ensuite à l'étape suivante de leur parcours utilisateur.
 
-Vous pouvez voir l'audience dans Criteo en accédant à votre compte gestionnaire de publicités, puis en sélectionnant Segments dans la **Audience Library** de la navigation. Sur la page **Segments**, vous pouvez voir la taille de chaque audience après qu'elle a atteint ~1 000.
+Vous pouvez voir l'audience dans Criteo en accédant à votre compte gestionnaire de publicités, puis en sélectionnant Segments dans la **Audience Library** de la navigation. Sur la page **Segments**, vous pouvez voir la taille de chaque audience après qu'elle a atteint environ 1 000.
 
 ![La bibliothèque d'audiences affichant le segment, l'ID, la source, le type, la taille, l'utilisation actuelle et la dernière mise à jour.]({% image_buster /assets/img/criteo/criteo.png %})
 

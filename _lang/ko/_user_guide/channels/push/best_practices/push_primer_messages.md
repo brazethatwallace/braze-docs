@@ -26,11 +26,11 @@ Braze에서 푸시 프라이머 인앱 메시지를 생성하려면, iOS, Androi
 
 {% tabs local %}
 {% tab android %}
-|OS 버전|추가 정보|
+| OS 버전 | 추가 정보 |
 |----------|----------------------|
 | **Android 12 이하** | 푸시가 기본적으로 옵트인되어 있으므로 푸시 프라이머 구현은 권장되지 않습니다. |
 | **Android 13+** | 사용자가 푸시 권한 프롬프트를 두 번 거부하면, Android는 Braze 푸시 프라이머 메시지를 포함한 추가 프롬프트를 차단합니다. 이후 권한을 부여하려면 사용자가 기기 설정에서 앱의 푸시를 수동으로 활성화해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 {% endtab %}
 
 {% tab swift %}

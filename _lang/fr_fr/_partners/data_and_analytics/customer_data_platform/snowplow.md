@@ -28,13 +28,13 @@ Exploitez les riches données comportementales de Snowplow pour favoriser de pui
 
 ## Conditions préalables {#prerequisites}
 
-| Condition             | Description                                                                                                                                                                                                                                                                              |
+| Condition | Description |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pipeline Snowplow       | Vous devez disposer d'un pipeline Snowplow opérationnel.                                                                                                                                                                                                                                          |
-| Accès à la console Snowplow | Vous devez avoir accès à la console Snowplow pour configurer les transferts d'événements.                                                                                                                                                                                                                                |
-| Clé API REST Braze      | Une clé API REST Braze avec les autorisations suivantes : `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` et `users.alias.update`. <br><br> Vous pouvez la créer dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Endpoint REST Braze     | [L'URL de votre endpoint REST.]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) Votre endpoint dépend de l'URL Braze de votre instance.                                                                                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Pipeline Snowplow | Vous devez disposer d'un pipeline Snowplow opérationnel. |
+| Accès à la console Snowplow | Vous devez avoir accès à la console Snowplow pour configurer les transferts d'événements. |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations suivantes : `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` et `users.alias.update`. <br><br> Vous pouvez la créer dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 

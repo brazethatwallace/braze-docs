@@ -161,7 +161,7 @@ Usa esta tabla para comparar canales. Los valores predeterminados pueden diferir
 | Banners | Mismo comportamiento que los mensajes dentro de la aplicación. |
 | Páginas de inicio | Puedes establecer el idioma en la página publicada. Elige un idioma o usa Liquid si tu cuenta permite Liquid en las páginas de inicio. Los valores predeterminados también difieren de los mensajes dentro de la aplicación y los banners: verifica la página publicada. |
 | Content Cards | Las tarjetas usan un campo **Idioma** para las aplicaciones en lugar de un idioma de accesibilidad explícito. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compatibilidad de canales y editores" }
 
 Cuando escribes HTML tú mismo, puedes añadir una etiqueta de idioma en parte del mensaje (por ejemplo, una frase en otro idioma). Para más patrones, consulta [HTML personalizado](#custom-html).
 
@@ -240,7 +240,7 @@ Por ejemplo, considera cómo escribirías un enlace para ver un informe meteorol
 | Malo | Mejor | Óptimo |
 | --- | --- | --- |
 | Haz clic aquí | Haz clic aquí para acceder al clima de hoy | El clima de hoy |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Escribe texto de enlace descriptivo" }
 
 Como con todo el contenido, mantenlo directo con la menor cantidad de palabras extra posible.
 

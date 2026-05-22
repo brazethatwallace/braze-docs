@@ -26,7 +26,7 @@ A SalesWings permite que as equipes de marketing e os gerentes de operações de
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.export.ids` (e `users.track` se estiver usando o recurso de push de insights da SalesWings). <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Conta Segment.com (opcional) | Se você é um usuário do Segment.com, é possível enviar todos os dados de engajamento e perfis de leads e identificar eventos via Segment.com para a criação de perfis de leads. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -70,9 +70,9 @@ _Exemplo de alerta de vendas via canal do Slack_
 {% tab Reporting in Salesforce CRM %}
 Por meio da integração nativa da SalesWings com o Salesforce, é possível criar relatórios automatizados com leads, contatos, contas e oportunidades com base nos dados de engajamento na web e em qualquer engajamento de Campaigns da Braze com uma integração nativa do Braze Currents. Por exemplo, é possível exibir uma lista de leads quentes para uma equipe de vendas, com todos que clicaram em uma campanha de e-mail específica ou realizaram uma ação específica em seu app ou site.
 
-![Exemplo de dashboard vinculado ao e-mail da Braze e engajamento de marketing no Salesforce, analisando o impacto de Campaigns da Braze nos resultados de vendas]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
+![Exemplo de dashboard vinculado ao engajamento de e-mail e marketing da Braze no Salesforce, analisando o impacto de Campaigns da Braze nos resultados de vendas]({% image_buster /assets/img/saleswings/saleswings_email_campaign_attribution_dashboard.png %})
 
-_Exemplo de dashboard vinculado ao e-mail da Braze e engajamento de marketing no Salesforce, analisando o impacto de Campaigns da Braze nos resultados de vendas_
+_Exemplo de dashboard vinculado ao engajamento de e-mail e marketing da Braze no Salesforce, analisando o impacto de Campaigns da Braze nos resultados de vendas_
 {% endtab %}
 {% endtabs %}
 
@@ -162,7 +162,7 @@ Se você ativar o push de insights da SalesWings para a Braze, a SalesWings atua
 | `sw_session_count` | inteiro | O número de sessões rastreadas em seu site para esse lead |
 | `sw_tags` | array de string | As necessidades e os interesses que a SalesWings identificou, representados como "tags". Os nomes das tags da SalesWings configuradas no [Rule Engine](https://helium.saleswings.pro/falcon) da SalesWings que se aplicam a esse lead |
 | Atributos adicionais de pontuação de leads | float | Um atributo personalizado para cada pontuação de lead adicional configurada no [Rule Engine](https://helium.saleswings.pro/falcon) da SalesWings. O nome do atributo é derivado do nome da pontuação da SalesWings; por exemplo, uma pontuação chamada `Likeliness to meet` é enviada como atributo personalizado `sw_likeliness_to_meet`. Se você renomear uma pontuação depois que o sistema a criar, a SalesWings continuará sincronizando com o nome inicial do atributo personalizado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Enviando insights da SalesWings para a Braze" }
 
 Quando o push é ativado, a SalesWings começa imediatamente a enviar atributos personalizados para a Braze assim que os pontos de dados subjacentes mudam nos perfis de leads da SalesWings e sincroniza progressivamente todos os leads existentes, mesmo que eles não tenham novas atualizações.
 
@@ -195,7 +195,7 @@ A tabela a seguir mostra os tipos de eventos da Braze suportados pela SalesWings
 | Eventos de mensagem | Leitura de WhatsApp | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | Inscrições | Alteração de estado de inscrição global | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | Inscrições | Alteração de estado do grupo de inscrições | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Usando eventos Braze Currents em seu CRM" }
 
 Em seguida, você pode configurar as condições de **Custom Event** > **Event Name** e **Custom Event** > **Event Property** para as tags e pontuações da SalesWings em relação aos nomes de eventos da SalesWings da tabela acima. A lista de propriedades de eventos disponíveis para condições é pré-preenchida com algumas das entradas mais usadas, e você sempre pode adicionar novas na seção **Event Property** da [página de configuração do Rule Engine](https://helium.saleswings.pro/falcon).
 

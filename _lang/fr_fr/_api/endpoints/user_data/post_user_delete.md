@@ -1,6 +1,6 @@
 ---
 nav_title: "POST : Supprimer les utilisateurs"
-article_title: "POST : Supprimer des utilisateurs"
+article_title: "POST : Supprimer les utilisateurs"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | Facultatif | Tableau de chaînes de caractères | Identifiants utilisateur Braze à supprimer. |
 | `email_addresses` | Facultatif | Tableau de chaînes de caractères | Adresses e-mail des utilisateurs à supprimer. Pour plus d'informations, reportez-vous à la section [Suppression d'utilisateurs par e-mail](#deleting-users-by-email). |
 | `phone_numbers` | Facultatif | Tableau de chaînes de caractères | Numéros de téléphone des utilisateurs à supprimer. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Suppression d'utilisateurs par adresses e-mail et numéros de téléphone {#deleting-users-by-email-addresses-and-phone-numbers}
 

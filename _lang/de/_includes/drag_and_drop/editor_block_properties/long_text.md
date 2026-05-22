@@ -12,4 +12,4 @@
 | Zeilenhöhe | Vertikaler Abstand zwischen den Textzeilen. |
 | Textfarbe | Farbe des Textes. |
 | Zeichenabstand | Horizontaler Abstand zwischen den Zeichen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

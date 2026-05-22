@@ -22,7 +22,7 @@ MyPostcard와 Braze 통합을 사용하여 고객에게 인쇄 우편물을 손�
 | MyPostcard B2B 계정 | 이 통합을 활용하려면 MyPostcard에 등록해야 합니다. |
 | B2B API 키 및 자격 증명 | MyPostcard B2B 관리 도구에서 API 키와 자격 증명을 확인할 수 있습니다. |
 | 승인된 MyPostcard B2B 캠페인 | 이 통합을 활용하려면 MyPostcard B2B 도구에서 인쇄 우편 캠페인을 설정해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -48,16 +48,16 @@ MyPostcard와 통합하려면 [로그인하거나 가입](https://www.mypostcard
 
 | 필드 | 설명 |
 |---|---|
-| **웹훅 URL** | B2B 관리 도구에 표시된 웹훅 URL입니다. |
-| **요청 본문** | 원시 텍스트(B2B 관리 도구에서 확인할 수 있는 JSON 형식)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Webhook URL** | B2B 관리 도구에 표시된 웹훅 URL입니다. |
+| **Request Body** | 원시 텍스트(B2B 관리 도구에서 확인할 수 있는 JSON 형식)입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### 요청 메서드 및 헤더 {#request-method-and-headers}
 
 MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함해야 합니다.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
   <caption>요청 메서드 및 헤더</caption>
   <thead>
     <tr>
@@ -67,15 +67,15 @@ MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함
   </thead>
   <tbody>
     <tr>
-      <td><strong>HTTP 메서드</strong></td>
+      <td><strong>HTTP Method</strong></td>
       <td><code>POST</code></td>
     </tr>
     <tr>
-      <td><strong>사용자 이름</strong></td>
+      <td><strong>Username</strong></td>
       <td><code>{{ '&lt;username&gt;' }}</code></td>
     </tr>
     <tr>
-      <td><strong>비밀번호</strong></td>
+      <td><strong>Password</strong></td>
       <td><code>{{ '&lt;password&gt;' }}</code></td>
     </tr>
     <tr>
@@ -85,7 +85,7 @@ MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### 요청 본문 {#request-body}
 
@@ -95,7 +95,7 @@ B2B 관리 도구에 표시되는 요청 본문을 복사한 다음 Liquid 개�
 
 ### 2단계: 요청 미리보기 {#step-2-preview-your-request}
 
-다음으로, **미리보기** 패널에서 요청을 미리 보거나 **테스트** 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 커스텀 사용자를 생성하여 웹훅을 테스트할 수 있습니다. 페이지를 떠나기 전에 템플릿을 저장하는 것을 잊지 마세요!
+다음으로, **Preview** 패널에서 요청을 미리 보거나 **Test** 탭으로 이동하여 무작위 사용자, 기존 사용자를 선택하거나 커스텀 사용자를 생성하여 웹훅을 테스트할 수 있습니다. 페이지를 떠나기 전에 템플릿을 저장하는 것을 잊지 마세요!
 
 ![구현을 검증하기 위한 다양한 필드가 있는 웹훅 테스트 탭.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 

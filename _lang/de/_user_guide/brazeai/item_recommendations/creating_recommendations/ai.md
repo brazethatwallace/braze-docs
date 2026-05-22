@@ -130,7 +130,7 @@ Die folgenden Beispielzuordnungen beziehen sich beide auf diesen Beispielkatalog
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table aria-label="Beispielzuordnungen" class="tg">
   <caption>Beispielzuordnungen</caption>
 <thead>
   <tr>

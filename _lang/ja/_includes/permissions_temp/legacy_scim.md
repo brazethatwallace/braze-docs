@@ -1,13 +1,13 @@
 {% alert important %}
-Brazeは、ユーザーアクセスをより柔軟に管理する手段として、[きめ細かい権限設定]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions)を導入する。移行プロセスについては「[細粒度権限への移行]({{site.baseurl}}/granular_permissions_migration/)」を参照し、細粒度SCIM APIオブジェクトと付録を確認するには「[細粒度SCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/)」タブを参照せよ。
+Brazeは、ユーザーアクセスをより柔軟に管理する手段として、[きめ細かい権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions)を導入しています。移行プロセスについては[きめ細かい権限への移行]({{site.baseurl}}/granular_permissions_migration/)を参照してください。また、きめ細かいSCIM APIオブジェクトと付録については[きめ細かいSCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/)タブを参照してください。
 {% endalert %}
 
-## 許可オブジェクト
+## 権限オブジェクト {#permissions-object}
 
-permissionsオブジェクトは、SCIM IDパーミッションを通してユーザーリソースとインターフェースするときに、リクエストとレスポンスの一部に見られるフィールドである。
+権限オブジェクトは、SCIM ID権限を通じてユーザーリソースとやり取りする際に、一部のリクエストとレスポンスに含まれるフィールドです。
 
 {% alert note %}
-Braze では、アプリグループはワークスペースに改名されましたが、このページのキーはまだ古い用語を参照しています (例えば、`appGroup`、`appGroupName`)。
+Brazeではアプリグループはワークスペースに改名されましたが、このページのキーはまだ古い用語を参照しています（例: `appGroup`、`appGroupName`）。
 {% endalert %}
 
 ```
@@ -19,126 +19,126 @@ Braze では、アプリグループはワークスペースに改名されま�
 }
 ```
 
-有効なパーミッション・オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトである：
+有効な権限オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
-| キー | required | データタイプ | 説明 |
+| キー | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `companyPermissions` | オプション | 配列 | [会社許可文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company) テーブルからの会社レベルの許可文字列の配列。文字列の存在は、対応する許可を持つユーザに対応します。 |
+| `companyPermissions` | オプション | 配列 | [会社権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company)テーブルからの会社レベルの権限文字列の配列。文字列が存在する場合、そのユーザーが対応する権限を持っていることを示します。 |
 | `roles` | オプション | 配列 | [ロールオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_role-object)の配列。 |
-| `appGroup` | 必須かどうか | 配列 | [ワークスペース許可オブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object)の配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `appGroup` | 必須 | 配列 | [ワークスペース権限オブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object)の配列。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
 
-### ワークスペース許可オブジェクト {#workspace-permission-object}
+### ワークスペース権限オブジェクト {#workspace-permission-object}
 
-有効なアプリグループ許可オブジェクトは、以下のキーと値のペアを持つ JSON オブジェクトです。
+有効なアプリグループ権限オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
-| キー | required | データタイプ | 説明 |
+| キー | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `appGroupName`| オプション | string | ワークスペースの名前。このオブジェクトに含まれるパーミッションがどのワークスペースに対するものかを指定するために使用される。 | 
-| `appGroupId` | `appGroupName` がない場合は必須 | string | ワークスペースの ID。ワークスペースを指定する別の方法として機能します。 |
-| `appGroupPermissionSets` | オプション | 配列 | 単一の[ワークスペース許可セットオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object)を持つ配列。 |
-| `appGroupPermissions` | 必須かどうか | 配列 | [ワークスペース許可文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings)テーブルからのワークスペースレベルの許可文字列の配列。文字列の存在は、指定されたワークスペースに対する対応する許可を持つユーザーに対応します。 |
-| `team` | オプション | 配列 | [チーム許可オブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object)の配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `appGroupName` | オプション | 文字列 | ワークスペースの名前。このオブジェクトに含まれる権限がどのワークスペースに対するものかを指定するために使用します。 |
+| `appGroupId` | `appGroupName`がない場合は必須 | 文字列 | ワークスペースのID。ワークスペースを指定する代替方法として機能します。 |
+| `appGroupPermissionSets` | オプション | 配列 | 単一の[ワークスペース権限セットオブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object)を持つ配列。 |
+| `appGroupPermissions` | 必須 | 配列 | [ワークスペース権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings)テーブルからのワークスペースレベルの権限文字列の配列。文字列が存在する場合、そのユーザーが指定されたワークスペースに対する対応する権限を持っていることを示します。 |
+| `team` | オプション | 配列 | [チーム権限オブジェクト]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object)の配列。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object #workspace-permission-object" }
 
-### ワークスペース権限設定オブジェクト {#workspace-permissions-set-object}
+### ワークスペース権限セットオブジェクト {#workspace-permissions-set-object}
 
-有効なワークスペース権限セットオブジェクトは、以下のキーと値のペアを持つJSONオブジェクトである：
+有効なワークスペース権限セットオブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
-| キー | required | データタイプ | 説明 |
+| キー | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `appGroupPermissionSetName` | オプション | string | このワークスペースのユーザーに割り当てられているワークスペース権限セットの名前。 |
-| `appGroupPermissionSetID` | `appGroupPermissionSetName` がない場合は必須 | string | ワークスペースの ID。このワークスペースに対してユーザーに割り当てられたワークスペース許可セットを指定する代替方法として機能します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `appGroupPermissionSetName` | オプション | 文字列 | このワークスペースでユーザーに割り当てられるワークスペース権限セットの名前。 |
+| `appGroupPermissionSetID` | `appGroupPermissionSetName`がない場合は必須 | 文字列 | ワークスペースのID。このワークスペースでユーザーに割り当てられたワークスペース権限セットを指定する代替方法として機能します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
-### チーム許可オブジェクト
+### チーム権限オブジェクト {#team-permissions-object}
 
-有効なチーム・パーミッション・オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトである：
+有効なチーム権限オブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
-| キー | required | データタイプ | 説明 |
+| キー | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `teamName` | オプション | string | チーム名。このオブジェクト内のパーミッションがどのチームのものかを指定するために使用できる。 |
-| `teamId` | `teamName` がない場合は必須 | string | チームのIDで、チームを指定する代替方法となる。 |
-| `teamPermissions` | 必須かどうか | 配列 | [チーム許可文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team) テーブルからのチームレベルの許可文字列の配列。文字列の存在は、指定されたチームに対する対応する許可を持つユーザーに対応します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `teamName` | オプション | 文字列 | チームの名前。このオブジェクト内の権限がどのチームに対するものかを指定するために使用できます。 |
+| `teamId` | `teamName`がない場合は必須 | 文字列 | チームのID。チームを指定する代替方法として機能します。 |
+| `teamPermissions` | 必須 | 配列 | [チーム権限文字列]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team)テーブルからのチームレベルの権限文字列の配列。文字列が存在する場合、そのユーザーが指定されたチームに対する対応する権限を持っていることを示します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
 
-## 役割オブジェクト
+## ロールオブジェクト {#role-object}
 
-有効なロールオブジェクトは、以下のキーと値のペアを持つJSONオブジェクトである：
+有効なロールオブジェクトは、以下のキーと値のペアを持つJSONオブジェクトです。
 
-| キー | required | データタイプ | 説明 |
+| キー | 必須 | データタイプ | 説明 |
 | --- | --- | --- | --- |
-| `roleName` | オプション | string | ユーザーに割り当てられているロールの名前。 |
-| `roleId` | `roleName` がない場合は必須 | string | ロールの ID。ロールを指定する代替方法として機能します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `roleName` | オプション | 文字列 | ユーザーに割り当てられるロールの名前。 |
+| `roleId` | `roleName`がない場合は必須 | 文字列 | ロールのID。ロールを指定する代替方法として機能します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
 
-## 付録
+## 付録 {#appendix}
 
-### 会社の許可文字列 {#company}
+### 会社権限文字列 {#company}
 
-| UI に表示 | SCIM API 文字列 |
+| UIでの表示 | SCIM API文字列 |
 | --- | --- |
-| 管理者 | `admin` |
-| 会社の設定を管理できる | `manage_company_settings` |
-| ワークスペースを追加／削除できる| `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Administrator | `admin` |
+| Can Manage Company Settings | `manage_company_settings` |
+| Can Add/Remove Workspaces | `add_remove_app_groups` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
 ### ワークスペース権限文字列 {#workspace-strings}
 
-| 許可名 | SCIM API 文字列 |
+| 権限名 | SCIM API文字列 |
 | --- | --- |
-| 管理者 | `admin` |
-| アクセスキャンペーン、キャンバス、カード、セグメント、メディアライブラリー | `basic_access` |
-| キャンバスの承認と拒否 | `approve_deny_campaigns` |
-| キャンペーン、キャンバスの送信 | `send_campaigns_canvases` |
-| カードの発行 | `publish_cards` |
-| セグメントの編集 | `edit_segments` |
-| ユーザーデータのエクスポート | `export_user_data` |
-| PIIを見る | `view_pii` |
-| PII 準拠のユーザープロファイル表示 | `view_user_profile` |
-| ダッシュボードユーザーの管理 | `manage_dashboard_users` |
-| メディアライブラリアセットの管理 | `manage_media_library` |
-| 利用データを見る | `view_usage_data` |
-| ユーザーデータのインポートと更新 | `import_update_user_data` |
-| 請求の詳細を見る | `view_billing_details` |
-| 開発コンソールにアクセス | `dev_console` |
-| コンテンツブロックを開始 | `launch_content_blocks` |
-| 外部統合を管理する | `manage_external_integrations` |
-| アプリを管理する | `manage_apps` |
-| チームを管理 | `manage_teams` |
-| イベント、属性、購入を管理する | `manage_events_attributes_purchases` |
-| タグを管理する | `manage_tags` |
-| メール設定を管理 | `manage_email_settings` |
-| サブスクリプショングループを管理 | `manage_subscription_groups` |
-| 承認設定を管理する | `manage_approval_settings` |
-| カタログ・ダッシュボードの権限を管理する | `manage_catalogs_dashboard_permission` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Admin | `admin` |
+| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
+| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Edit セグメント | `edit_segments` |
+| Export User Data | `export_user_data` |
+| View PII | `view_pii` |
+| View User Profiles PII Compliant | `view_user_profile` |
+| Manage Dashboard Users | `manage_dashboard_users` |
+| Manage Media Library Assets | `manage_media_library` |
+| View Usage Data | `view_usage_data` |
+| Import and Update User Data | `import_update_user_data` |
+| View Billing Details | `view_billing_details` |
+| Access Dev Console | `dev_console` |
+| Launch Content Blocks | `launch_content_blocks` |
+| Manage External Integrations | `manage_external_integrations` |
+| Manage Apps | `manage_apps` |
+| Manage Teams | `manage_teams` |
+| Manage Events, Attributes, Purchases | `manage_events_attributes_purchases` |
+| Manage Tags | `manage_tags` |
+| Manage Email Settings | `manage_email_settings` |
+| Manage Subscription Groups | `manage_subscription_groups` |
+| Manage Approval Settings | `manage_approval_settings` |
+| Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
-### チームの許可文字列 {#team}
+### チーム権限文字列 {#team}
 
-| 許可名 | SCIM API 文字列 |
+| 権限名 | SCIM API文字列 |
 | --- | --- |
-| 管理者 | `admin` |
-| アクセスキャンペーン、キャンバス、カード、セグメント、メディアライブラリー | `basic_access` |
-| キャンバスの承認と拒否 | `approve_deny_campaigns` |
-| キャンペーン、キャンバスの送信 | `send_campaigns_canvases` |
-| カードの発行 | `publish_cards` |
-| セグメントの編集 | `edit_segments` |
-| ユーザーデータのエクスポート | `export_user_data` |
-| ユーザープロフィールを見る | `view_user_profile` |
-| ダッシュボードユーザーの管理 | `manage_dashboard_users` |
-| メディアライブラリアセットの管理 | `manage_media_library` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Admin | `admin` |
+| Access キャンペーン, キャンバス, Cards, セグメント, Media Library | `basic_access` |
+| Approve and Deny キャンバス | `approve_deny_campaigns` |
+| Send キャンペーン, キャンバス | `send_campaigns_canvases` |
+| Publish Cards | `publish_cards` |
+| Edit セグメント | `edit_segments` |
+| Export User Data | `export_user_data` |
+| View User Profile | `view_user_profile` |
+| Manage Dashboard Users | `manage_dashboard_users` |
+| Manage Media Library Assets | `manage_media_library` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
 
-### 部門の文字列
+### 部門文字列 {#department-strings}
 
-| UI に表示 | SCIM API 文字列 |
+| UIでの表示 | SCIM API文字列 |
 | --- | --- |
-| 代理店 / サードパーティ | `agency` |
-| BI / アナリティクス | `bi` |
-| 経営幹部 | `c_suite` |
-| エンジニアリング | `engineering` |
-| ファイナンス | `finance` |
-| マーケティング / 編集 | `marketing` |
-| 製品管理 | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Agency / Third Party | `agency` |
+| BI / Analytics | `bi` |
+| C-Suite | `c_suite` |
+| Engineering | `engineering` |
+| Finance | `finance` |
+| Marketing / Editorial | `marketing` |
+| Product Management | `pm` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }

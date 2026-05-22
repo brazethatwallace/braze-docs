@@ -68,6 +68,10 @@ In den Einstellungen **Ablauf (Verweildauer im Feed)** können Sie **Dauer perso
 
 ![Ablaufeinstellungen mit „Dauer personalisieren“, konfiguriert mit einer Kontextvariable für den Content-Card-Ablauf.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
+{% alert important %}
+Content Cards haben eine maximale Ablaufzeit von 30 Tagen, auch bei Verwendung personalisierter Dauer mit Kontextvariablen. Jeder Wert über 30 Tage wird auf 30 Tage begrenzt. Weitere Informationen finden Sie unter [Kartenablauf]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -85,7 +89,7 @@ Dieser Abschnitt beschreibt die wesentlichen Unterschiede zwischen der Karteners
 .leftHeader{font-size: 12px; font-weight: bold; background-color: #f4f4f7; text-transform: uppercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
-<table class="tg">
+<table aria-label="Unterschiede zwischen der Kartenerstellung beim Start oder Eintritt und bei der ersten Impression" class="tg">
   <caption>Unterschiede zwischen der Kartenerstellung beim Start oder Eintritt und bei der ersten Impression</caption>
 <thead>
   <tr>

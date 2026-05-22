@@ -5,7 +5,7 @@ page_order: 4
 description: "BrazeAI Decisioning Studioでタイムラインレポートを使用して、パフォーマンス指標と共に主要なイベントを表示する方法を説明します。"
 ---
 
-# タイムラインレポート
+# タイムラインレポート {#timeline-report}
 
 > タイムラインレポートは、パフォーマンス指標と共に主要なイベントの視覚的な記録を提供します。これらのイベントには、エージェントの実行、設定の変更、ガードレールの更新などが含まれます。
 
@@ -22,4 +22,4 @@ description: "BrazeAI Decisioning Studioでタイムラインレポートを使�
 | ラベル | イベントに付けられた名前または識別子です。 |
 | 詳細 | イベントを説明する追加情報です。 |
 | チャートでの表示 | イベントが関連するチャートに表示されるかどうかを示します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Timeline report" }

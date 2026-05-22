@@ -35,10 +35,10 @@ Ein Einzelhändler nutzt die spielerischen Erlebnisse von Odicci, um E-Mail-Adre
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-| Voraussetzung             | Beschreibung                                                               |
+| Voraussetzung | Beschreibung |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Ein Odicci-Konto            | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Odicci-Konto mit Zugriff auf den Bereich **Integrations**.|
-| Braze REST-API-Schlüssel        | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `campaigns.list`. |
+| Ein Odicci-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Odicci-Konto mit Zugriff auf den Bereich **Integrations**. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `campaigns.list`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration von Odicci {#integrating-odicci}

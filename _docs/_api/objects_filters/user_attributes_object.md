@@ -143,6 +143,10 @@ For API examples that use `add`, `remove`, and `update`, see [Array of objects A
 The following user profile fields are case sensitive, so be sure to reference these fields in lower case.
 {% endalert %}
 
+{% alert tip %}
+For a customer-facing reference of standard attributes that's organized by category and includes guidance for SDK, API, CSV, and Cloud Data Ingestion, see [Standard attributes]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
+{% endalert %}
+
 | User Profile Field | Data Type Specification |
 | ---| --- |
 | alias_name | (string) |

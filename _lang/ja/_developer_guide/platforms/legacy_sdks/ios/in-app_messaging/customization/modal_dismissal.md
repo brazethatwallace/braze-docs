@@ -13,7 +13,7 @@ noindex: true
 
 # 外側のタップでモーダルを閉じる {#dismiss-modal-on-outside-tap}
 
-デフォルト値は `NO` です。ユーザーが **In-App Messages** の外側をタップしたときに、モーダルタイプの **In-App Messages** が閉じられるかどうかが決まります。
+デフォルト値は `NO` です。ユーザーがアプリ内メッセージの外側をタップしたときに、モーダルタイプのアプリ内メッセージが閉じられるかどうかを決定します。
 
 外側タップによる閉じる操作を有効にするには、`Braze` という名前のディクショナリを `Info.plist` ファイルに追加します。次のコードスニペットに示すように、`Braze` ディクショナリ内にブール値サブエントリ `DismissModalOnOutsideTap` を追加し、値を `YES` に設定します。なお、Braze iOS SDK v4.0.2 より前のバージョンでは、`Braze` の代わりにディクショナリキー `Appboy` を使用する必要があります。
 
@@ -29,6 +29,6 @@ noindex: true
 
 | `DismissModalOnOutsideTap` | 説明 |
 |----------|-------------|
-| `YES`       | モーダル **In-App Messages** は、外側タップで閉じられます。     |
-| `NO`        | デフォルトでは、モーダル **In-App Messages** は外側タップでは閉じられません。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `YES`       | モーダルアプリ内メッセージは、外側タップで閉じられます。     |
+| `NO`        | デフォルトでは、モーダルアプリ内メッセージは外側タップでは閉じられません。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="外側のタップでモーダルを閉じる" }

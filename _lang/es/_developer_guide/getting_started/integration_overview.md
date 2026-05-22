@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Primeros pasos: Resumen de la integración {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"} Primeros pasos: Resumen de la integración {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > En este artículo se ofrece un resumen básico del proceso de incorporación.
 
@@ -51,7 +51,7 @@ Durante el periodo de incorporación de tu empresa, Braze organizará sesiones d
 Tu equipo de CRM planificará los casos de uso de la mensajería que lanzarás en un futuro próximo. Esto incluye lo siguiente:
 * [Canal]({{site.baseurl}}/user_guide/channels/) (por ejemplo, notificaciones push o mensajes dentro de la aplicación)
 * [Método de entrega]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) (por ejemplo, entrega programada o entrega basada en acciones)
-* [Audiencia objetivo]({{site.baseurl}}/user_guide/audience/segments/)
+* [Público objetivo]({{site.baseurl}}/user_guide/audience/segments/)
 * [Métricas de éxito]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)
 
 Por ejemplo, una campaña para nuevos clientes podría ser: un correo electrónico enviado diariamente a las 10 de la mañana a un segmento de clientes que iniciaron ayer su primera sesión. El evento de conversión (la métrica del éxito) es registrar una sesión.
@@ -199,7 +199,7 @@ Asegúrate de que tus entornos de producción y pruebas están configurados ante
 |                           | Comprueba que se entregan las Content Cards y se registran las métricas. |
 |                           | Facilita contenido conectado (por ejemplo, AccuWeather). |
 |                           | Confirma que todas las integraciones del canal de mensajería funcionan correctamente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quality assurance #qa" }
 
 {% alert note %}
 Mientras realizas el control de calidad de la integración del SDK, utiliza el [Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) para solucionar problemas sin activar el registro detallado de tu aplicación.

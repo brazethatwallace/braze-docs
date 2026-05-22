@@ -28,7 +28,7 @@ A seguir estão listados os recursos e os canais de envio de mensagens suportado
 }
 
 </style>
-<table id="tv-feature-table">
+<table aria-label="Plataformas e recursos" id="tv-feature-table">
   <caption>Plataformas e recursos</caption>
     <thead>
         <tr>

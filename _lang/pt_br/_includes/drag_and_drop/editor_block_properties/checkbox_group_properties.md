@@ -15,4 +15,4 @@
 | Alinhamento | Alinhamento horizontal do grupo (início ou centro). |
 | Cor de destaque | Cor dos controles de checkbox. |
 | Preenchimento | Espaçamento ao redor do bloco. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

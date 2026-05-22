@@ -22,7 +22,7 @@ description: "この記事では、「新しいユーザーエイリアスの作
 
 **エイリアスのみの新規ユーザーを作成する**には、新しいユーザーエイリアスオブジェクトから`external_id`を省略する必要があります。ユーザーが作成されたら、`/users/track`エンドポイントを使用してエイリアスのみのユーザーに属性、イベント、購入を関連付け、`/users/identify`エンドポイントを使用して`external_id`でユーザーを識別します。
 
-## `alias_label`と`alias_name`が既に存在する場合 {#when-the-alias-label-and-name-already-exist}
+## `alias_label`と`alias_name`が既に存在する場合 {#when-alias_label-and-alias_name-already-exist}
 
 `alias_label`と`alias_name`の組み合わせは、ユーザー群全体で一意である必要があります。詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases)を参照してください。
 
@@ -86,7 +86,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 
 ## 応答 {#response}
 
-同じ`alias_label`と`alias_name`が既にユーザーに存在するためにエイリアスがスキップされた場合でも、レスポンス本文は成功を示すことがあります。詳細については、[`alias_label`と`alias_name`が既に存在する場合](#when-the-alias-label-and-name-already-exist)を参照してください。
+同じ`alias_label`と`alias_name`が既にユーザーに存在するためにエイリアスがスキップされた場合でも、レスポンス本文は成功を示すことがあります。詳細については、[エイリアスラベルと名前が既に存在する場合](#when-the-alias-label-and-name-already-exist)を参照してください。
 
 ```json
 {

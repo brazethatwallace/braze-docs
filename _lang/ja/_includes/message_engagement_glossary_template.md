@@ -24,9 +24,9 @@ search_rank: 6
 
 このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報のタイプを示しています。構成要素をしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやグラフを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、CampaignまたはCanvasトラッキングプロパティ、イベント固有のプロパティごとにグループ化されています。]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの内訳。メール配信停止イベントを示し、リストされたプロパティはユーザー固有のプロパティ、キャンペーンまたはキャンバストラッキングプロパティ、イベント固有のプロパティごとにグループ化されています。]({% image_buster /assets/img/message_engagement_event.png %})
 
-メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**Campaign/Canvasトラッキング**のプロパティ、および**イベント固有**のプロパティで構成されます。
+メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン/キャンバストラッキング**のプロパティ、および**イベント固有**のプロパティで構成されます。
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -36,7 +36,7 @@ search_rank: 6
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニークな識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客によって設定されたユーザープロファイルのユニークな識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### プラットフォームの値 {#platform-values}
 
@@ -52,7 +52,7 @@ search_rank: 6
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
@@ -61,11 +61,11 @@ Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つ�
 {% endalert %}
 
 {% alert note %}
-キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[Canvasの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を通じて人間が読める名前に変換できます。
+キャンバスフローに関連するオブジェクトには、グループ化に使用できるIDがあり、[キャンバスの詳細をエクスポートするエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/)を通じて人間が読める名前に変換できます。
 {% endalert %}
 
 {% alert note %}
-CampaignやCanvasの更新後、特定のフィールドが最新の状態を表示するまでに時間がかかる場合があります。対象のフィールドは以下のとおりです。
+キャンペーンやキャンバスの更新後、特定のフィールドが最新の状態を表示するまでに時間がかかる場合があります。対象のフィールドは以下のとおりです。
 <ul>
   <li>"campaign_name"</li>
   <li>"canvas_name"</li>

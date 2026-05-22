@@ -61,14 +61,14 @@ Plusieurs messages d'erreur peuvent s'afficher lors du téléchargement d'un fic
 
 | Erreur | Correction |
 |------|---|
-|`.zip over 5&nbsp;MB`| Réduisez la taille de votre fichier et réessayez le téléchargement.|
-|`.zip corrupt`| Inspectez votre fichier et réessayez le téléchargement. |
-|`Missing HTML`| Ajoutez le fichier HTML à votre fichier ZIP et réessayez le téléchargement.|
-|`Multiple HTML`| Supprimez l'un des fichiers HTML et réessayez le téléchargement.|
-|`Images over 5&nbsp;MB`| Réduisez le nombre d'images et réessayez le téléchargement. |
-|`Extra Images`| Il se peut que des images supplémentaires dans votre fichier ne soient pas référencées dans votre fichier HTML. Cela ne provoque pas d'erreur bloquante, mais les images supplémentaires sont ignorées. Si ces images étaient censées être référencées dans le fichier HTML, vérifiez le contenu, corrigez les erreurs éventuelles et réessayez le téléchargement.|
-|`Missing Images`| Si des images sont référencées dans votre fichier HTML mais ne sont pas incluses dans le dossier d'images du fichier ZIP, vous recevez une erreur de fichier. Inspectez votre fichier et corrigez les erreurs éventuelles (comme les fautes de frappe), ou ajoutez les images manquantes à votre fichier ZIP et réessayez le téléchargement.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.zip over 5&nbsp;MB` | Réduisez la taille de votre fichier et réessayez le téléchargement. |
+| `.zip corrupt` | Inspectez votre fichier et réessayez le téléchargement. |
+| `Missing HTML` | Ajoutez le fichier HTML à votre fichier ZIP et réessayez le téléchargement. |
+| `Multiple HTML` | Supprimez l'un des fichiers HTML et réessayez le téléchargement. |
+| `Images over 5&nbsp;MB` | Réduisez le nombre d'images et réessayez le téléchargement. |
+| `Extra Images` | Il se peut que des images supplémentaires dans votre fichier ne soient pas référencées dans votre fichier HTML. Cela ne provoque pas d'erreur bloquante, mais les images supplémentaires sont ignorées. Si ces images étaient censées être référencées dans le fichier HTML, vérifiez le contenu, corrigez les erreurs éventuelles et réessayez le téléchargement. |
+| `Missing Images` | Si des images sont référencées dans votre fichier HTML mais ne sont pas incluses dans le dossier d'images du fichier ZIP, vous recevez une erreur de fichier. Inspectez votre fichier et corrigez les erreurs éventuelles (comme les fautes de frappe), ou ajoutez les images manquantes à votre fichier ZIP et réessayez le téléchargement. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 Notez que lors du téléchargement des fichiers pour des campagnes HTML, des étapes Canvas avec des messages e-mail ou des modèles sur une machine Windows, le caractère `|` (barre verticale) n'est pas pris en charge. Vous devrez peut-être utiliser une autre application pour extraire le contenu téléchargé du fichier ZIP.
 

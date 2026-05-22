@@ -26,7 +26,7 @@ Les workflows suivants ont chacun des surfaces de reporting différentes.
 | --- | --- | --- |
 | Analytique push native | Indicateurs push tels que les ouvertures et les ouvertures influencées, liés aux Campaigns push de Braze | Analytique des Campaigns push, événements d'engagement lié aux messages Currents, Générateur de rapports |
 | Événements personnalisés et attributs | Données analytiques que vous définissez et journalisez via les méthodes du SDK ou l'endpoint `/users/track` | Profils utilisateur, segmentation, Campaigns et Canvas basés sur des actions, analytique des événements personnalisés |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Analytique push native vs. journalisation d'événements personnalisés" }
 
 {% alert important %}
 Journaliser un événement personnalisé (tel que `push_notification_opened`) n'est pas la même chose que le suivi natif des ouvertures push de Braze. Les événements personnalisés ne renseignent pas les indicateurs natifs d'ouverture des Campaigns push ni l'attribution push.
@@ -563,7 +563,7 @@ func logPendingUserAttributesIfNecessary() {
 {% endsubtabs %}
 
 {% endtab %}
-{% tab Helper files %}
+{% tab Fichiers utilitaires %}
 
 #### Fichier utilitaire RemoteStorage {#remotestorage-helper-file}
 
@@ -803,7 +803,7 @@ Utilisez la surface de reporting correspondant à la catégorie d'analytique :
 | --- | --- |
 | Analytique push native | Pour consulter les indicateurs d'ouverture push au niveau de la Campaign, accédez à la page **Campaign Analytics** de votre Campaign push. Pour les définitions des indicateurs, consultez [Ouvertures influencées]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/). Pour créer des vues analytiques personnalisées, accédez à **Analytics** > **Report Builder (New)**. Pour les étapes de navigation, consultez [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/). Pour les schémas d'événements au niveau de l'entrepôt de données, consultez [Événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). |
 | Événements personnalisés et attributs | Pour consulter les tendances des événements personnalisés, accédez à **Analytics** > **Custom Events Report**. Pour plus de détails, consultez [Événements personnalisés]({{site.baseurl}}/user_guide/data/activation/events/custom_events/). Pour inspecter les valeurs au niveau utilisateur, accédez à la page **Search Users** et ouvrez un profil. Pour les étapes, consultez [Profils utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/). Pour filtrer les audiences par ces valeurs, accédez à **Audience** > **Segments**. Pour les étapes de navigation, consultez [Créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) et les options de filtre dans [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyser les résultats" }
 
 Pour la création de rapports personnalisés, consultez [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
 

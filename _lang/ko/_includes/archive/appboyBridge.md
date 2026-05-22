@@ -28,4 +28,4 @@
 | `brazeBridge.web.registerAppboyPushMessages(successCallback, deniedCallback)`              | 웹 푸시에 등록합니다(웹 전용). 이 메서드는 웹이 아닌 환경에서 호출하면 아무 동작도 하지 않습니다. [JS 문서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission)                                        |
 | `brazeBridge.requestPushPermission(successCallback, deniedCallback)` | 웹, iOS, Android에서 푸시에 등록합니다. 참고: 이 메서드의 콜백은 웹에서만 지원됩니다. 이 메서드는 Web SDK v4.0.0, Android SDK v21.0.0 및 Swift SDK v5.4.0부터 도입되었습니다. [JS 문서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission) |
 | `brazeBridge.changeUser(id, sdkAuthSignature?)`                                            | 고유 ID로 사용자를 식별합니다. [JS 문서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)<br><br>이 메서드는 Web SDK v4.3.0에 도입되었습니다. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

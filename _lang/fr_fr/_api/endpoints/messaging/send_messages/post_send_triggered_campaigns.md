@@ -9,7 +9,7 @@ description: "Cet article présente les détails de l'endpoint Braze permettant 
 
 ---
 {% api %}
-# Envoyer des messages de campagne via une distribution déclenchée par API {#send-campaign-messages-using-api-triggered-delivery}
+# Envoyer des messages de Campaign via une distribution déclenchée par API {#send-campaign-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
@@ -18,7 +18,7 @@ description: "Cet article présente les détails de l'endpoint Braze permettant 
 
 La distribution déclenchée par API vous permet d'héberger le contenu des messages dans le tableau de bord de Braze tout en contrôlant, via votre API, quand un message est envoyé et à qui.
 
-Si vous ciblez un segment, un enregistrement de votre requête est conservé dans la [console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID de campagne]({{site.baseurl}}/api/identifier_types/) créé lors de la création d'une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+Si vous ciblez un segment, un enregistrement de votre requête est conservé dans la [console de développement](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID de Campaign]({{site.baseurl}}/api/identifier_types/) créé lors de la création d'une [Campaign déclenchée par API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -72,7 +72,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de campagne]({{site.baseurl}}/api/identifier_types/). |
+| `campaign_id` | Requis | Chaîne de caractères | Voir [identifiant de Campaign]({{site.baseurl}}/api/identifier_types/). |
 | `send_id` | Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types/). |
 | `trigger_properties` | Facultatif | Objet | Voir [propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object/). Les paires clé-valeur de personnalisation s'appliquent à tous les utilisateurs de cette requête. |
 | `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à l'ensemble du segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur true, une liste `recipients` ne peut pas être incluse. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |

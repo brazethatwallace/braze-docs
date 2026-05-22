@@ -5,7 +5,7 @@ description: "이 온보딩 참조 문서에서는 Braze SDK 개발자를 위한
 page_order: 0
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}개발자용 SDK 개요 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}개발자용 SDK 개요 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Braze SDK 통합을 시작하기 전에 정확히 무엇을 구축하고 통합하는지 궁금할 수 있습니다. 요구 사항에 맞게 SDK를 추가로 커스터마이즈하는 방법도 궁금할 수 있습니다. 이 문서는 모든 SDK 관련 질문에 대한 답을 찾는 데 도움을 줄 수 있습니다.
 
@@ -45,12 +45,12 @@ Braze SDK는 앱에 있는 다른 SDK를 방해하지 않으면서 매우 원활
 
 Braze SDK는 데이터(세션, 커스텀 이벤트 등)를 캐시하고 주기적으로 업로드합니다. 데이터가 업로드된 후에만 대시보드에서 값이 업데이트됩니다. 업로드 간격은 기기의 상태를 고려하며 네트워크 연결 품질에 따라 결정됩니다.
 
-|네트워크 연결 품질 |    데이터 플러시 간격|
+| 네트워크 연결 품질 |    데이터 플러시 간격|
 |---|---|
-|매우 양호    |10초|
-|양호    |30초|
-|미흡    |60초|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 매우 양호    |10초|
+| 양호    |30초|
+| 미흡    |60초|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data upload and download" }
 
 네트워크 연결이 없으면 네트워크 연결이 다시 설정될 때까지 데이터가 기기에 로컬로 캐시됩니다. 연결이 다시 설정되면 데이터가 Braze에 업로드됩니다.
 

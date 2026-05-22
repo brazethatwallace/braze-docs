@@ -21,7 +21,7 @@ noindex: true
 
 <!--
 This is the description of the endpoint. API descriptions usually start with "Use this endpoint to..."-->
-このエンドポイントを使用して、Brazeの無効リストから「無効な」電話番号を削除できます。電話番号が無効とマークされた後に再検証する場合に使用します。
+このエンドポイントを使用して、Brazeの無効リストから「無効な」電話番号を削除できます。電話番号が無効とマークされた後に再検証する場合に使用できます。
 
 <!-- Your postman link. Once you have published the endpoint to postman, you will be able get a direct link to the information in the postman docs to share here-->
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1614a82f-510a-4c37-95a6-8207a125e487 {% endapiref %}
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------|-----------| ---------|------ |
 | `phone_number` | 必須 | e.164 形式の文字列の配列 | 変更する最大50件の電話番号の配列。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 

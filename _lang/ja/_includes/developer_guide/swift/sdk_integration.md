@@ -35,6 +35,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | `BrazeKit` | 分析とプッシュ通知をサポートするメインSDKライブラリー。 |
 | `BrazeLocation` | 位置情報分析とジオフェンス監視をサポートする位置情報ライブラリー。 |
 | `BrazeUI` | アプリ内メッセージ、Content Cards、バナー用のBraze提供ユーザーインターフェイスライブラリー。デフォルトのUIコンポーネントを使用する場合は、このライブラリーをインポートしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -48,6 +49,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | リッチプッシュ通知をサポートする通知サービス拡張ライブラリー。 |
 | `BrazePushStory` | Push Storiesをサポートする通知コンテンツ拡張ライブラリー。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -95,6 +97,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | 位置情報分析とジオフェンス監視をサポートする位置情報ライブラリー。 |
 | `pod 'BrazeUI'` | アプリ内メッセージ、Content Cards、バナー用のBraze提供ユーザーインターフェイスライブラリー。デフォルトのUIコンポーネントを使用する場合は、このライブラリーをインポートしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | リッチプッシュ通知をサポートする通知サービス拡張ライブラリー。 |
 | `pod 'BrazePushStory'` | Push Storiesをサポートする通知コンテンツ拡張ライブラリー。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -134,7 +138,7 @@ pod update
 
 [GitHubのBraze SDKリリースページ](https://github.com/braze-inc/braze-swift-sdk/releases)に移動し、`braze-swift-sdk-prebuilt.zip`をダウンロードします。
 
-![GitHub上のBraze SDKリリースページ。]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
+!["GitHub上のBraze SDKリリースページ。"]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
 
 #### ステップ1.2：フレームワークを選択する {#step-12-choose-your-frameworks}
 
@@ -150,8 +154,9 @@ Braze Swift SDKにはさまざまなスタンドアロンのXCFrameworkが含ま
 | `BrazeKitCompat` | いいえ | `Appboy-iOS-SDK`バージョン4.X.Xで使用可能だったすべての`Appboy`および`ABK*`クラスとメソッドを含む互換性ライブラリー。使用の詳細については、[移行ガイド](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)の最小限の移行シナリオを参照してください。 |
 | `BrazeUICompat` | いいえ | `Appboy-iOS-SDK`バージョン4.X.Xの`AppboyUI`ライブラリーで使用可能だったすべての`ABK*`クラスとメソッドを含む互換性ライブラリー。使用の詳細については、[移行ガイド](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/)の最小限の移行シナリオを参照してください。 |
 | `SDWebImage` | いいえ | 最小限の移行シナリオで`BrazeUICompat`によってのみ使用される依存関係。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### ステップ1.3：ファイルを準備する {#step-13-prepare-your-files}
 
@@ -178,7 +183,7 @@ Braze Swift SDKにはさまざまなスタンドアロンのXCFrameworkが含ま
 
 Xcodeプロジェクトでビルドターゲットを選択し、次に**General**を選択します。**Frameworks, Libraries, and Embedded Content**の下に、[以前に準備したファイル](#swift_step-3-prepare-your-files)をドラッグ＆ドロップします。
 
-![各Brazeライブラリーが「Embed & Sign」に設定されたXcodeプロジェクトの例。]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
+!["各Brazeライブラリーが「Embed & Sign」に設定されたXcodeプロジェクトの例。"]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
 
 {% alert note %}
 Swift SDK 12.0.0以降では、静的および動的の両方のバリアントにおいて、Braze XCFrameworksに対して常に**Embed & Sign**を選択してください。これにより、フレームワークのリソースがアプリバンドルに適切に組み込まれます。
@@ -192,13 +197,13 @@ GIFサポートを有効にするには、`braze-swift-sdk-prebuilt/static`ま�
 
 XcodeプロジェクトにObjective-Cファイルのみが含まれている場合、プロジェクトのビルドを試みると「missing symbol」エラーが発生することがあります。これらのエラーを修正するには、プロジェクトを開き、ファイルツリーに空のSwiftファイルを追加します。これにより、ビルドツールチェーンが[Swiftランタイム](https://support.apple.com/kb/dl1998)を埋め込み、ビルド時に適切なフレームワークにリンクするようになります。
 
-```bash
+`````````bash
 FILE_NAME.swift
 ```
 
 `FILE_NAME`を任意のスペースのない文字列に置き換えます。ファイルは次のようになります：
 
-```bash
+`````````bash
 empty_swift_file.swift
 ```
 {% endtab %}
@@ -223,7 +228,7 @@ Braze Swift SDKの初期化を遅らせることができます。これは、�
 {% tab Swift %}
 {% subtabs local %}
 {% subtab UIKit %}
-```swift
+`````````swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
   // Prepare the SDK for delayed initialization
   Braze.prepareForDelayedInitialization()
@@ -236,7 +241,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 {% endsubtab %}
 
 {% subtab SwiftUI %}
-```swift
+`````````swift
 @main
 struct MyApp: App {
   @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
@@ -264,7 +269,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 {% endtab %}
 
 {% tab Objective-C %}
-```objc
+`````````objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Prepare the SDK for delayed initialization
   [Braze prepareForDelayedInitialization];
@@ -289,12 +294,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 {% tabs local %}
 {% tab Swift %}
-```swift
+`````````swift
 Braze.prepareForDelayedInitialization(analyticsBehavior: .queue)
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [Braze prepareForDelayedInitializationWithAnalyticsBehavior:BRZPushEnqueueBehaviorQueue];
 ```
 {% endtab %}
@@ -306,12 +311,12 @@ SDK初期化前に受信したプッシュ分析を破棄するには、`analyti
 
 {% tabs local %}
 {% tab Swift %}
-```swift
+`````````swift
 Braze.prepareForDelayedInitialization(analyticsBehavior: .drop)
 ```
 {% endtab %}
 {% tab Objective-C %}
-```objc
+`````````objc
 [Braze prepareForDelayedInitializationWithAnalyticsBehavior:BRZPushEnqueueBehaviorDrop];
 ```
 {% endtab %}
@@ -323,7 +328,7 @@ Braze.prepareForDelayedInitialization(analyticsBehavior: .drop)
 
 {% tabs local %}
 {% tab SWIFT %}
-```swift
+`````````swift
 // Enable all push automation
 featuresBraze.prepareForDelayedInitialization(pushAutomation: true)
 
@@ -336,7 +341,7 @@ Braze.prepareForDelayedInitialization(pushAutomation: automation)
 {% endtab %}
 
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 // Enable all push automation features
 [Braze prepareForDelayedInitializationWithPushAutomation:[[BRZConfigurationPushAutomation alloc] initWithAutomationEnabled:YES]];
 
@@ -355,7 +360,7 @@ automation.requestAuthorizationAtLaunch = NO;
 
 {% tabs local %}
 {% tab SWIFT %}
-```swift
+`````````swift
 func initializeBraze() {
   let configuration = Braze.Configuration(apiKey: "YOUR-API-KEY", endpoint: "YOUR-ENDPOINT")
 
@@ -369,7 +374,7 @@ func initializeBraze() {
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 - (void)initializeBraze {
   BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"YOUR-API-KEY" endpoint:@"YOUR-ENDPOINT"];
 
@@ -398,13 +403,13 @@ SDKが初期化されると、キューに蓄積されたプッシュ通知、�
 {% subtab swift %}
 `AppDelegate.swift`ファイルに以下のコード行を追加して、Braze Swift SDKに含まれる機能をインポートします：
 
-```swift
+`````````swift
 import BrazeKit
 ```
 
 次に、`AppDelegate`クラスにstaticプロパティを追加し、アプリケーションのライフタイムを通してBrazeインスタンスへの強い参照を保持します：
 
-```swift
+`````````swift
 class AppDelegate: UIResponder, UIApplicationDelegate {
   static var braze: Braze? = nil
 }
@@ -414,7 +419,7 @@ SDKでは、アプリケーションが使用期間を通してBrazeインスタ
 
 最後に、`AppDelegate.swift`で、`application:didFinishLaunchingWithOptions:`メソッドに次のスニペットを追加します：
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
     apiKey: "YOUR-APP-IDENTIFIER-API-KEY",
     endpoint: "YOUR-BRAZE-ENDPOINT"
@@ -430,13 +435,13 @@ AppDelegate.braze = braze
 
 次のコード行を`AppDelegate.m`ファイルに追加します：
 
-```objc
+`````````objc
 @import BrazeKit;
 ```
 
 次に、`AppDelegate.m`ファイルに静的変数を追加して、アプリケーションのライフタイムを通してBrazeインスタンスへの参照を保持します：
 
-```objc
+`````````objc
 static Braze *_braze;
 
 @implementation AppDelegate
@@ -454,7 +459,7 @@ SDKでは、アプリケーションが使用期間を通してBrazeインスタ
 
 最後に、`AppDelegate.m`ファイル内で、`application:didFinishLaunchingWithOptions:`メソッド内に以下のスニペットを追加します：
 
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:"YOUR-APP-IDENTIFIER-API-KEY"
                                                                   endpoint:"YOUR-BRAZE-ENDPOINT"];
 Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
@@ -482,8 +487,9 @@ Braze Swift SDKのデフォルトのログレベルは`.error`です。これは
 | `.info` | `BRZLoggerLevelInfo` | 一般的なSDK情報（ユーザーの変更など）+ `.error`を記録します。 |
 | `.error` | `BRZLoggerLevelError` | エラーを記録します。 |
 | `.disabled` | `BRZLoggerLevelDisabled` | ロギングは行われません。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### ログレベルの設定 {#setting-the-log-level}
 
@@ -492,7 +498,7 @@ Braze Swift SDKのデフォルトのログレベルは`.error`です。これは
 {% tabs %}
 {% tab swift %}
 
-```swift
+`````````swift
 let configuration = Braze.Configuration(
   apiKey: "<BRAZE_API_KEY>",
   endpoint: "<BRAZE_ENDPOINT>"
@@ -505,7 +511,7 @@ let braze = Braze(configuration: configuration)
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:self.APIKey
                                                                   endpoint:self.apiEndpoint];
 // Enable logging of general SDK information (such as user changes, etc.)

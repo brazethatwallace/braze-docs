@@ -23,7 +23,7 @@ SalesWings를 사용하면 마케팅 팀과 마케팅 운영 매니저가 영업
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | SalesWings 계정 | 이 파트너십을 활용하려면 [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) 계정이 필요합니다. |
-| Braze REST API 키 | `users.export.ids` 권한이 있는 Braze REST API 키(SalesWings 인사이트 푸시 기능을 사용하는 경우 `users.track` 도 필요). <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+| Braze REST API 키 | `users.export.ids` 권한이 있는 Braze REST API 키(SalesWings 인사이트 푸시 기능을 사용하는 경우 `users.track`도 필요). <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 | Segment.com 계정(선택 사항) | Segment.com 사용자인 경우 리드 프로파일링을 위해 Segment.com을 통해 모든 리드 참여 및 프로필 데이터와 식별 이벤트를 전송할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

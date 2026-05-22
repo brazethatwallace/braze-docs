@@ -32,7 +32,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -85,6 +85,6 @@ In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehle
 | Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

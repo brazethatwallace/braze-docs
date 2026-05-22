@@ -24,7 +24,7 @@ Für optimale Ergebnisse beachten Sie die folgenden Richtlinien zu Bildgrößen 
 (iOS) 2:1 *Empfohlen* | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG, GIF
 (Android) Push-Symbol | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
 (Android) Erweiterte Benachrichtigung | 500&nbsp;KB | 5&nbsp;MB | PNG, JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
 
 {% alert note %}
 GIFs werden in Android-Push-Benachrichtigungen nicht unterstützt. Dies ist eine Einschränkung der Android-Plattform, keine Einschränkung von Braze.
@@ -44,7 +44,7 @@ Auf iOS unterstützen Push-Benachrichtigungen GIFs. In-App-Nachrichten und Conte
 (iOS) Banner-Hinweis | 80 Zeichen | 65 Zeichen
 (Android) Sperrbildschirm | 49 Zeichen | N/A
 (Android) Benachrichtigungsleiste | 597 Zeichen | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
 
 Sie fragen sich, wie viele Zeichen Sie in einer iOS-Push-Benachrichtigung verwenden können, ohne dass sie abgeschnitten wird? Sehen Sie sich unsere [iOS-Zeichenanzahl-Richtlinien]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count) an.
 
@@ -56,7 +56,7 @@ Sie fragen sich, wie viele Zeichen Sie in einer iOS-Push-Benachrichtigung verwen
 vor iOS 8 | 0,256 KB
 ab iOS 8 | 2 KB
 Android (FCM) | 4 KB
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS and Android push" }
 
 {% endtab %}
 {% tab Bildbeispiel %}
@@ -103,8 +103,8 @@ Benachrichtigungen mit großen Bildern werden am besten mit einem Bild von minde
 Chrome | 192 x 192 ≥
 Firefox | 192 x 192 ≥
 Safari | 192 x 192 ≥ (Symbole sind pro Campaign konfigurierbar mit Safari 16+ auf macOS 13+)
-Opera | 192 x 192 ≥
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+Opera | 192x192 ≥
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
 
 | **Browser** | **Plattform** | **Große Bildgröße**
 | --- | --- | ---
@@ -119,7 +119,7 @@ Safari | macOS | N/A
 Chrome | macOS | N/A
 Firefox | macOS | N/A
 Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
 
 {% endtab %}
 {% tab Text %}
@@ -137,7 +137,7 @@ Chrome | macOS | 35 | 50
 Safari | macOS | 38 | 84
 Firefox | macOS | 38 | 42
 Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
 
 {% endtab %}
 {% endtabs %}

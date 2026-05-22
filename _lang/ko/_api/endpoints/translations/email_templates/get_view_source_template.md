@@ -29,9 +29,9 @@ description: "이 문서에서는 이메일 템플릿 엔드포인트에 대한 
 
 ## 쿼리 매개변수 {#query-parameters}
 
-| 매개변수     | 필수 | 데이터 유형 | 설명                     |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | 필수 | 문자열    | 이메일 템플릿의 ID입니다. |
+| `template_id` | 필수 | 문자열 | 이메일 템플릿의 ID입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ## 예시 요청 {#example-request}

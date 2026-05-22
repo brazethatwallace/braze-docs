@@ -26,7 +26,7 @@ Braze와 PassKit 통합을 통해 커스텀 Apple Wallet 및 Google Pay 패스�
 | `userDefinedID` | PassKit과 Braze 간에 커스텀 이벤트 및 커스텀 속성을 사용자에게 적절하게 업데이트하려면 Braze 외부 ID를 `userDefinedID`로 설정해야 합니다. 이 `userDefinedID`는 PassKit 엔드포인트에 API 호출을 할 때 사용됩니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#endpoints)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
@@ -66,9 +66,9 @@ Braze 내에서 SmartPass 링크를 설정하여 고객이 Android 또는 iOS에
 
 | 구성요소 | 필수 | 유형 | 설명 |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | 필수 | 문자열 | Braze 외부 ID로 설정되며, PassKit에서 Braze로의 콜백이 작동하는 데 중요합니다. 이를 통해 회사 사용자가 하나의 Campaign에서 여러 오퍼에 대한 쿠폰을 가질 수 있습니다. 고유성이 강제되지 않습니다. |
-| `members.member.externalId` | 선택 사항 | 문자열 | Braze 외부 ID로 설정되며, 외부 ID를 사용하여 멤버십 패스를 업데이트할 수 있습니다. 이 필드를 설정하면 멤버십 프로그램 내에서 사용자가 고유하게 적용됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `person.externalId` | 필수 | 문자열 | Braze 외부 ID로 설정되며, PassKit에서 Braze로의 콜백이 작동하는 데 중요합니다. 이를 통해 회사 사용자가 하나의 Campaign에서 여러 오퍼에 대한 쿠폰을 가질 수 있습니다. 고유성이 강제되지 않습니다. |
+| `members.member.externalId` | 선택 사항 | 문자열 | Braze 외부 ID로 설정되며, 외부 ID를 사용하여 멤버십 패스를 업데이트할 수 있습니다. 이 필드를 설정하면 멤버십 프로그램 내에서 사용자가 고유하게 적용됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Define your pass data payload #passkit-integrations" }
 
 사용 가능한 필드, 유형 및 유용한 설명의 전체 목록은 [PassKit GitHub 설명서](https://github.com/PassKit/smart-pass-link-from-csv-generator)를 참조하세요.
 
@@ -220,11 +220,11 @@ Braze 내에서 웹훅 Campaign 또는 Canvas 내 웹훅을 설정하여 사용�
 | `campaignId` (쿠폰) <br><br> `programId` (멤버십) | 문자열 | PassKit에서 생성한 Campaign 또는 프로그램 템플릿의 ID입니다. 이를 찾으려면 PassKit 패스 프로젝트의 **Settings** 탭으로 이동하세요. |
 | `expiryDate` | IO8601 datetime | 패스 만료 날짜입니다. 만료 날짜 이후 패스는 자동으로 무효화됩니다(`isVoided` 참조). 이 값은 템플릿 및 Campaign 종료 날짜 값을 재정의합니다. |
 | `status` | 문자열 | 쿠폰의 현재 상태(예: `REDEEMED` 또는 `UNREDEEMED`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Payload parameters" }
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 Campaign이나 Canvas에서 사용할 PassKit 웹훅 템플릿을 만들려면 Braze 대시보드의 **Templates & Media** 섹션으로 이동하세요. 일회성 PassKit 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **Webhook**을 선택하세요.
+향후 Campaign이나 Canvas에서 사용할 PassKit 웹훅 템플릿을 만들려면 Braze 대시보드의 **템플릿 및 미디어** 섹션으로 이동하세요. 일회성 PassKit 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 만들 때 Braze에서 **Webhook**을 선택하세요.
 
 PassKit 웹훅 템플릿을 선택하면 다음이 표시됩니다:
 - **Webhook URL**: `https://api-pub1.passkit.io/coupon/singleUse/coupon`

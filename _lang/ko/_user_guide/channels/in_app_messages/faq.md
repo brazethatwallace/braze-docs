@@ -13,7 +13,7 @@ tool: in-app messages
 
 ### 인브라우저 메시지란 무엇이며 인앱 메시지와 어떻게 다른가요? {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
 
-인브라우저 메시지는 웹 브라우저로 전송되는 인앱 메시지입니다. 인브라우저 메시지를 만들려면 인앱 메시지 Campaign 또는 Canvas를 생성할 때 **발송 대상** 필드에서 **웹 브라우저**를 선택하세요.
+인브라우저 메시지는 웹 브라우저로 전송되는 인앱 메시지입니다. 인브라우저 메시지를 만들려면 인앱 메시지 Campaign 또는 Canvas를 생성할 때 **Send To** 필드에서 **Web Browser**를 선택하세요.
 
 ### 기기가 오프라인일 때 인앱 메시지가 표시되나요? {#will-an-in-app-message-display-if-a-device-is-offline}
 
@@ -47,7 +47,7 @@ MESSAGE HERE
 
 재적격성이 꺼져 있으면, 사용자가 Campaign을 수신한 후에는 일반적으로 자격 기준만으로는 동일한 Campaign을 다시 수신하지 않습니다.
 
-#### Canvases
+#### Canvases {#canvases}
 
 Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다시 볼 수 있는지 여부는 Campaign 전달 제어뿐만 아니라 Canvas 진입 제어(예: 사용자가 Canvas에 다시 진입할 수 있도록 허용)와 단계 구성에 따라 달라집니다.
 
@@ -61,7 +61,7 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 이는 인앱 메시지 Campaign이 활성 상태일 때 Segment 기준을 충족한 사용자에게 발생할 수 있습니다.
 
-이를 방지하려면 Campaign 설정 중에 **표시 전 Campaign 적격성 재평가**를 선택하세요.
+이를 방지하려면 Campaign 설정 중에 **Re-evaluate campaign eligibility before displaying**을 선택하세요.
 
 ### 동일한 세션에서 여러 인앱 메시지가 표시될 수 있나요? {#can-multiple-in-app-messages-display-in-the-same-session}
 
@@ -69,7 +69,7 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 여러 메시지가 동일한 우선순위 수준을 공유하는 경우, 가장 최근에 생성된 메시지가 먼저 표시됩니다. 세션 시작 트리거의 경우, 다음으로 최근에 생성된 메시지가 후속 세션에서 표시됩니다. 다른 트리거 유형의 경우, 다음으로 최근에 생성된 메시지가 해당 트리거 이벤트가 다음에 발생할 때 표시되며, 이는 동일한 세션 내이거나 이후 세션일 수 있습니다.
 
-우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **상세 우선순위 지정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)을 참조하세요.
+우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **Set Exact Priority**를 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)을 참조하세요.
 
 ### Braze는 "1일 후" 만료로 설정된 인앱 메시지 만료를 어떻게 계산하나요? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -77,7 +77,7 @@ Braze는 1일의 만료 시간을 사용자가 메시지를 수신할 자격을 
 
 ### 템플릿 인앱 메시지란 무엇인가요? {#what-are-templated-in-app-messages}
 
-인앱 메시지는 **표시 전 Campaign 적격성 재평가**가 선택되었거나 메시지에 다음 Liquid 태그가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
+인앱 메시지는 **Re-evaluate campaign eligibility before displaying**이 선택되었거나 메시지에 다음 Liquid 태그가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
 
 - `canvas_entry_properties`
 - `connected_content`

@@ -5,7 +5,7 @@ page_order: 0.5
 page_type: tutorial
 description: "このハウツー記事では、Brazeダッシュボードにおけるアクティブユーザーキャンペーンのメリットと、その作成・設定手順について説明します。"
 tool: 
-  - Campaigns
+  - キャンペーン
 
 ---
 

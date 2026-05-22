@@ -104,13 +104,13 @@ A Braze aconselha que, ao criar novos usuários por meio do endpoint `/users/tra
 {% endalert %}
 
 {% details Detailed /subscription/status/set request %}
-#### Cabeçalhos da solicitação {#request-headers}
+#### Cabeçalhos da solicitação
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-#### Corpo da solicitação {#request-body}
+#### Corpo da solicitação
 ```
 {
   "subscription_group_id": "the-id-of-the-subscription-group",
@@ -135,9 +135,9 @@ Use webhooks para disparar incentivos para eventos específicos na jornada do cl
 
 ### Criar um webhook da Quikly na Braze {#create-a-quikly-webhook-in-braze}
 
-Para criar um modelo de webhook da Quikly para futuras campanhas ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
+Para criar um modelo de webhook da Quikly para futuras Campaigns ou Canvas, navegue até **Modelos** > **Modelos de webhook** na plataforma Braze.
 
-Se quiser criar uma campanha única de webhook da Quikly ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha.
+Se quiser criar uma Campaign única de webhook da Quikly ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova Campaign.
 
 Selecione **Blank Template** e insira o seguinte para a URL do webhook e o corpo da solicitação:
 - **Webhook URL**: https://api.quikly.com/webhook/braze
@@ -152,7 +152,7 @@ A Quikly exige um `HTTP Header` para autorização.
   - **Authorization**: Bearer [PARTNER_AUTHORIZATION_HEADER]
   - **Content-Type**: application/json
 
-#### Corpo da solicitação {#request-body}
+#### Corpo da solicitação
 
 Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 {% raw %}
@@ -168,7 +168,7 @@ Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 Pré-visualize a solicitação no painel **Preview** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
-Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
 
 {% endtab %}

@@ -21,7 +21,7 @@ Durante la configuración, se te pedirá que proporciones una URL de inicio de s
 | URL de Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> Para dominios de la Unión Europea, la URL de ACS es `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> Para algunos IdP, también puede denominarse URL de respuesta, URL de inicio de sesión, URL de audiencia o URI de audiencia. |
 | ID de entidad | `braze_dashboard` |
 | Clave de API de RelayState | Ve a **Configuración** > **Claves de API** y crea una clave de API con permisos `sso.saml.login`, luego introduce la clave de API generada como parámetro `RelayState` en tu IdP. Para conocer los pasos detallados, consulta [Configurar tu RelayState](#setting-up-your-relaystate). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configurar SAML SSO {#setting-up-saml-sso}
 
@@ -57,7 +57,7 @@ En la misma página, introduce lo siguiente:
 | Nombre SAML | Aparecerá como el texto del botón en la pantalla de inicio de sesión.<br>Normalmente es el nombre de tu proveedor de identidad, como "Okta". |
 | URL de destino | Se proporciona después de configurar Braze en tu IdP.<br> Algunos IdP lo denominan URL de SSO o punto de conexión SAML 2.0. |
 | Certificado | El certificado `x.509` proporcionado por tu proveedor de identidad.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configura Braze" }
 
 Asegúrate de que tu certificado `x.509` siga este formato cuando lo añadas al dashboard:
 
@@ -166,6 +166,12 @@ Pide al usuario afectado que [borre la caché y las cookies de su navegador](htt
 ### ¿Configuraste tu RelayState? {#did-you-set-your-relaystate}
 
 Si recibes el error `ERROR_CODE_SSO_INVALID_RELAY_STATE`, tu RelayState podría estar mal configurado o no existir. Si aún no lo has hecho, necesitas configurar tu RelayState en tu sistema de administración de IdP. Para conocer los pasos, consulta [Configurar tu RelayState](#setting-up-your-relaystate).
+
+### ¿El inicio de sesión SSO exitoso te devuelve a la página de inicio de sesión de Braze? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+
+Esto puede ocurrir cuando RelayState no está configurado correctamente. Confirma que creaste una clave de API (en **Configuración** > **Claves de API**) para el inicio de sesión del IdP y que configuraste esa clave de API como el parámetro `RelayState` en tu IdP. RelayState identifica en qué cuenta de empresa estás iniciando sesión. Para instrucciones paso a paso, consulta [Configurar tu RelayState](#setting-up-your-relaystate).
+
+Si aún no puedes iniciar sesión, [ponte en contacto con soporte de Braze]({{site.baseurl}}/braze_support/) con un rastreo SAML si es posible. Para obtener ayuda capturando un rastreo, consulta [Obtener un rastreo SAML](#obtaining-a-saml-trace).
 
 ### ¿El usuario está atrapado en un bucle de inicio de sesión entre Okta y Braze? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) es una plataforma de análisis de productos e inteligencia empresarial.
 
@@ -22,7 +22,7 @@ La integración bidireccional de Braze y Amplitude te permite [importar tus coho
 |---|---|
 | Cuenta de Amplitude | Se necesita una [cuenta de Amplitude](https://amplitude.com/) para beneficiarse de esta asociación. |
 | Currents | Para poder exportar los datos a Amplitude, debes tener configurado [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) en tu cuenta. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Elige una integración {#choose-an-integration}
 

@@ -123,7 +123,7 @@ Vous pouvez trouver ces données sur la page [Rapport sur les revenus]({{site.ba
     }
 </style>
 
-<table>
+<table aria-label="Calculs du chiffre d'affaires">
   <caption>Calculs du chiffre d'affaires</caption>
     <thead>
         <tr>

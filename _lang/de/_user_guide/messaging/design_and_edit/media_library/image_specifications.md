@@ -31,7 +31,7 @@ GIFs werden in iOS-Push-Benachrichtigungen, In-App-Nachrichten, E-Mails, Content
 
 ## Kanalrichtlinien {#channel-guidance}
 
-### Content Cards {#content-cards}
+### Content Cards
 
 {% multi_lang_include image_specs.md variable_name='content cards' %}
 
@@ -83,7 +83,7 @@ Weitere Informationen zu iOS-Zeichenanzahlen finden Sie unter [iOS-Richtlinien z
 | Firefox | 192 x 192 px oder größer |
 | Safari | 192 x 192 px oder größer (pro Campaign konfigurierbar mit Safari 16 auf macOS 13+) |
 | Opera | 192 x 192 px oder größer |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Web-Push" }
 
 | Browser | Plattform | Große Bildgröße |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Weitere Informationen zu iOS-Zeichenanzahlen finden Sie unter [iOS-Richtlinien z
 | Safari | macOS | N/A |
 | Firefox | macOS | N/A |
 | Opera | macOS | N/A |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web-Push" }
 
 {% endtab %}
 {% tab Text %}
@@ -114,7 +114,7 @@ Weitere Informationen zu iOS-Zeichenanzahlen finden Sie unter [iOS-Richtlinien z
 | Safari | macOS | 38 | 84 |
 | Firefox | macOS | 38 | 42 |
 | Opera | macOS | 38 | 42 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web-Push" }
 
 {% endtab %}
 {% endtabs %}

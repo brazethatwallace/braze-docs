@@ -107,7 +107,7 @@ Puedes crear un mensaje de producto usando una plantilla de mensaje de WhatsApp 
 
 1. En tu Meta Business Manager, ve a **Message Templates**.
 2. Selecciona **Catalog** como formato y luego elige entre **Catalog message** (muestra el catálogo completo) y **Multi-product catalog message** (destaca artículos específicos).
-3. En Braze, crea una campaña de WhatsApp o un paso de mensaje en Canvas.
+3. En Braze, crea una Campaign de WhatsApp o un paso de mensaje en Canvas.
 4. Selecciona el grupo de suscripción que coincida con donde enviaste la plantilla.
 5. Selecciona **WhatsApp Template Message**.
 6. Selecciona la plantilla que deseas usar.
@@ -123,7 +123,7 @@ Puedes crear un mensaje de producto usando una plantilla de mensaje de WhatsApp 
 {% endtab %}
 {% tab Mensaje de respuesta %}
 
-1. En Braze, crea una campaña de WhatsApp o un paso de mensaje en Canvas.
+1. En Braze, crea una Campaign de WhatsApp o un paso de mensaje en Canvas.
 2. Selecciona un grupo de suscripción.
 3. Selecciona **Response Message**.
 4. Selecciona **Meta Product Messages**.

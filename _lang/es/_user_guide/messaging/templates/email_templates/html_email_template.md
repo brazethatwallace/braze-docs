@@ -61,16 +61,16 @@ Hay varios mensajes de error de correo electrónico que puedes recibir al cargar
 
 | Error | Corrección |
 |------|---|
-|`.zip over 5&nbsp;MB`| Reduce el tamaño de tu archivo e intenta cargarlo de nuevo.|
-|`.zip corrupt`| Inspecciona tu archivo e intenta cargarlo de nuevo. |
-|`Missing HTML`| Agrega el archivo HTML a tu archivo ZIP e intenta cargarlo de nuevo.|
-|`Multiple HTML`| Elimina uno de los archivos HTML e intenta cargarlo de nuevo.|
-|`Images over 5&nbsp;MB`| Reduce el número de imágenes e intenta cargarlo de nuevo. |
-|`Extra Images`| Puede haber imágenes adicionales en tu archivo que no están referenciadas en tu archivo HTML. Esto no causa un error de fallo, pero las imágenes adicionales se descartan. Si esas imágenes debían estar referenciadas en el archivo HTML, revisa el contenido, corrige cualquier error e intenta cargarlo de nuevo.|
-|`Missing Images`| Si hay imágenes referenciadas en tu archivo HTML, pero esas imágenes no están incluidas en la carpeta de imágenes del archivo ZIP, recibirás un error de archivo. Inspecciona tu archivo y corrige cualquier error (como errores ortográficos), o agrega las imágenes faltantes a tu archivo ZIP e intenta cargarlo de nuevo.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `.zip over 5&nbsp;MB` | Reduce el tamaño de tu archivo e intenta cargarlo de nuevo.|
+| `.zip corrupt` | Inspecciona tu archivo e intenta cargarlo de nuevo. |
+| `Missing HTML` | Agrega el archivo HTML a tu archivo ZIP e intenta cargarlo de nuevo.|
+| `Multiple HTML` | Elimina uno de los archivos HTML e intenta cargarlo de nuevo.|
+| `Images over 5&nbsp;MB` | Reduce el número de imágenes e intenta cargarlo de nuevo. |
+| `Extra Images` | Puede haber imágenes adicionales en tu archivo que no están referenciadas en tu archivo HTML. Esto no causa un error de fallo, pero las imágenes adicionales se descartan. Si esas imágenes debían estar referenciadas en el archivo HTML, revisa el contenido, corrige cualquier error e intenta cargarlo de nuevo.|
+| `Missing Images` | Si hay imágenes referenciadas en tu archivo HTML, pero esas imágenes no están incluidas en la carpeta de imágenes del archivo ZIP, recibirás un error de archivo. Inspecciona tu archivo y corrige cualquier error (como errores ortográficos), o agrega las imágenes faltantes a tu archivo ZIP e intenta cargarlo de nuevo.|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
-Ten en cuenta que al descargar los archivos de campañas HTML, pasos de Canvas con mensajes de correo electrónico o plantillas en una máquina Windows, el carácter `|` (barra vertical) no es compatible, por lo que es posible que necesites usar una aplicación diferente para extraer el contenido descargado del archivo ZIP.
+Ten en cuenta que al descargar los archivos de campañas HTML, pasos en Canvas con mensajes de correo electrónico o plantillas en una máquina Windows, el carácter `|` (barra vertical) no es compatible, por lo que es posible que necesites usar una aplicación diferente para extraer el contenido descargado del archivo ZIP.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

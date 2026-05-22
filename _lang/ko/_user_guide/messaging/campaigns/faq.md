@@ -38,7 +38,7 @@ tool: Campaigns
 
 예를 들어, iOS와 웹 푸시 알림이 모두 포함된 Canvas가 있는 경우, 모바일과 데스크탑 기기를 모두 가진 사용자는 두 개 이상의 메시지를 받을 수 있습니다.
 
-### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *고유 수신자*는 Braze가 보고를 위해 일별 고유 수신자를 추적하기 때문에 예상한 오디언스보다 높을 수 있습니다. 이를 통해 Braze는 사용자가 메시지를 받을 때마다 전환 기간 내의 전환을 귀속시킬 수 있으며, 여러 수신을 하나의 평생 카운트로 축소하지 않습니다(그렇게 하면 전환 계산이 왜곡됩니다).
 

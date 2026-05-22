@@ -13,39 +13,39 @@ channel: email
 
 ### Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben? {#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address}
 
-Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Kampagne erhalten soll, wird zum Sendezeitpunkt ein zufälliges Nutzerprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
+Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Campaign erhalten soll, wird zum Sendezeitpunkt ein zufälliges Nutzerprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
 
 Wenn mehrere Profile eine E-Mail-Adresse teilen und ein Profil sich abmeldet, aktualisiert Braze andere Profile (bis zu 100) mit dieser Adresse auf denselben Abo-Status. Dies gilt für Abmeldungen und andere Änderungen wie den globalen Abo-Status und einzelne Abo-Gruppenstatus.
 
 Die folgenden Szenarien können den Eindruck erwecken, dass ein:e Nutzer:in eine E-Mail zweimal erhalten hat:
 
-- **Bei der Erstellung der Kampagne oder des Canvas ist ein Fehler aufgetreten:** Die/der Nutzer:in erhält möglicherweise nicht buchstäblich denselben Versand zweimal, kann aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Kampagne oder ein Canvas dupliziert wird, überprüfen Sie die E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch die Changelogs einsehen, um festzustellen, ob die Kampagne oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die/der Nutzer:in es erhalten hat.
-- **Mehrere Nutzerprofile haben E-Mail-Weiterleitung:** Wenn ein:e Nutzer:in mehrere Konten in einer bestimmten App hat, aber ein Konto E-Mails weiterleitet, erhält die/der Nutzer:in die Kampagne einmal pro Posteingang; E-Mails können im Posteingang, an den Nachrichten weitergeleitet werden, doppelt erscheinen. Nur einige Anbieter zeigen an, wenn eine E-Mail von einem anderen Konto weitergeleitet wurde.
-- **E-Mail-Konfiguration bei der/dem Empfänger:in:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Kampagne mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Kampagne zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die/der Empfänger:in kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
+- **Bei der Erstellung der Campaign oder des Canvas ist ein Fehler aufgetreten:** Die/der Nutzer:in erhält möglicherweise nicht buchstäblich denselben Versand zweimal, kann aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, überprüfen Sie die E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch die Changelogs einsehen, um festzustellen, ob die Campaign oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die/der Nutzer:in es erhalten hat.
+- **Mehrere Nutzerprofile haben E-Mail-Weiterleitung:** Wenn ein:e Nutzer:in mehrere Konten in einer bestimmten App hat, aber ein Konto E-Mails weiterleitet, erhält die/der Nutzer:in die Campaign einmal pro Posteingang; E-Mails können im Posteingang, an den Nachrichten weitergeleitet werden, doppelt erscheinen. Nur einige Anbieter zeigen an, wenn eine E-Mail von einem anderen Konto weitergeleitet wurde.
+- **E-Mail-Konfiguration bei der/dem Empfänger:in:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Campaign mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Campaign zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die/der Empfänger:in kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
 
-Beachten Sie, dass diese Deduplizierung erfolgt, wenn die angesprochenen Nutzer:innen im selben Versand enthalten sind. Getriggerte Kampagnen (mit Ausnahme von API-getriggerten Kampagnen) und Canvases können zu mehreren Sendungen an dieselbe E-Mail-Adresse führen (auch innerhalb eines Zeitraums, in dem Nutzer:innen aufgrund der Wiederberechtigung ausgeschlossen werden könnten), wenn verschiedene Nutzer:innen mit übereinstimmenden E-Mail-Adressen das Trigger-Ereignis zu unterschiedlichen Zeiten auslösen. Wenn beispielsweise Nutzer:in A und Nutzer:in B die E-Mail-Adresse `johndoe@example.com` teilen, sich ihre Profile aber in unterschiedlichen Zeitzonen befinden, und das Kampagnen-Trigger-Ereignis den Versand in der Zeitzone der/des Nutzers:in vorsieht, erhält die E-Mail-Adresse `johndoe@example.com` zwei E-Mails.
+Beachten Sie, dass diese Deduplizierung erfolgt, wenn die angesprochenen Nutzer:innen im selben Versand enthalten sind. Getriggerte Campaigns (mit Ausnahme von API-getriggerten Campaigns) und Canvases können zu mehreren Sendungen an dieselbe E-Mail-Adresse führen (auch innerhalb eines Zeitraums, in dem Nutzer:innen aufgrund der Wiederberechtigung ausgeschlossen werden könnten), wenn verschiedene Nutzer:innen mit übereinstimmenden E-Mail-Adressen das Trigger-Ereignis zu unterschiedlichen Zeiten auslösen. Wenn beispielsweise Nutzer:in A und Nutzer:in B die E-Mail-Adresse `johndoe@example.com` teilen, sich ihre Profile aber in unterschiedlichen Zeitzonen befinden, und das Campaign-Trigger-Ereignis den Versand in der Zeitzone der/des Nutzers:in vorsieht, erhält die E-Mail-Adresse `johndoe@example.com` zwei E-Mails.
 
 Nutzer:innen werden beim Canvas-Eintritt nicht nach E-Mail dedupliziert, sodass sie über den ersten Schritt eines Canvas hinaus möglicherweise nicht dedupliziert werden, wenn sie aufgrund eines ratenbegrenzten Eintritts zu leicht unterschiedlichen Zeiten fortschreiten. Wenn ein:e Nutzer:in, die/der mit einer bestimmten E-Mail-Adresse verknüpft ist, eine E-Mail öffnet oder anklickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet oder angeklickt markiert.
 
-#### Ausnahme: API-getriggerte Kampagnen {#exception-api-triggered-campaigns}
+#### Ausnahme: API-getriggerte Campaigns {#exception-api-triggered-campaigns}
 
-API-getriggerte Kampagnen deduplizieren oder senden Duplikate, je nachdem, wo die Zielgruppe definiert ist. Doppelte E-Mails müssen im API-Aufruf separat mit unterschiedlichen `user_ids` angesprochen werden, um mehrere Details zu erhalten. Hier sind drei mögliche Szenarien für API-getriggerte Kampagnen:
+API-getriggerte Campaigns deduplizieren oder senden Duplikate, je nachdem, wo die Zielgruppe definiert ist. Doppelte E-Mails müssen im API-Aufruf separat mit unterschiedlichen `user_ids` angesprochen werden, um mehrere Details zu erhalten. Hier sind drei mögliche Szenarien für API-getriggerte Campaigns:
 
-- **Szenario 1: Doppelte E-Mails im Zielsegment:** Wenn dieselbe E-Mail in mehreren Nutzerprofilen erscheint, die in den Zielgruppen-Filtern des Dashboards für eine API-getriggerte Kampagne gruppiert sind, erhält nur eines der Profile die E-Mail.
+- **Szenario 1: Doppelte E-Mails im Zielsegment:** Wenn dieselbe E-Mail in mehreren Nutzerprofilen erscheint, die in den Zielgruppen-Filtern des Dashboards für eine API-getriggerte Campaign gruppiert sind, erhält nur eines der Profile die E-Mail.
 - **Szenario 2: Doppelte E-Mails in verschiedenen `user_ids` innerhalb des Empfängerobjekts:** Wenn dieselbe E-Mail in mehreren `external_user_id`-Werten erscheint, die vom `recipients`-Objekt referenziert werden, wird die E-Mail zweimal gesendet.
 - **Szenario 3: Doppelte E-Mails aufgrund doppelter `user_ids` innerhalb des Empfängerobjekts:** Wenn Sie versuchen, dasselbe Nutzerprofil zweimal hinzuzufügen, erhält nur eines der Profile die E-Mail.
 
 {% alert important %}
-Wenn Sie eine API-Kampagne über einen API-Aufruf senden (mit Ausnahme von API-getriggerten Kampagnen) und mehrere Nutzer:innen in der Segment-Zielgruppe mit derselben E-Mail-Adresse angegeben sind, wird an diese Adresse so oft gesendet, wie sie im Aufruf aufgeführt ist. Dies liegt daran, dass API-Aufrufe als absichtlich konstruiert angenommen werden.
+Wenn Sie eine API-Campaign über einen API-Aufruf senden (mit Ausnahme von API-getriggerten Campaigns) und mehrere Nutzer:innen in der Segment-Zielgruppe mit derselben E-Mail-Adresse angegeben sind, wird an diese Adresse so oft gesendet, wie sie im Aufruf aufgeführt ist. Dies liegt daran, dass API-Aufrufe als absichtlich konstruiert angenommen werden.
 {% endalert %}
 
 ### Was passiert mit dem Abo-Status, wenn die E-Mail-Adresse einer/eines Nutzers:in auf eine geändert wird, die von einer/einem anderen Nutzer:in geteilt wird? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
-Wenn Sie die E-Mail-Adresse für Nutzer:in A auf eine andere E-Mail-Adresse setzen oder aktualisieren, die von einer/einem bestehenden Nutzer:in B geteilt wird, übernimmt Nutzer:in A den Abo-Status, der bereits von Nutzer:in B existiert, es sei denn, die Einstellung **Nutzer:innen bei Aktualisierung ihrer E-Mail erneut abonnieren** ist aktiviert.
+Wenn Sie die E-Mail-Adresse für Nutzer:in A auf eine andere E-Mail-Adresse setzen oder aktualisieren, die von einer/einem bestehenden Nutzer:in B geteilt wird, übernimmt Nutzer:in A den Abo-Status, der bereits von Nutzer:in B existiert, es sei denn, die Einstellung **Resubscribe users when they update their email** ist aktiviert.
 
 ### Werden Aktualisierungen meiner ausgehenden E-Mail-Einstellungen rückwirkend angewendet? {#will-updates-to-my-outbound-email-settings-apply-retroactively}
 
-Nein. Aktualisierungen der ausgehenden E-Mail-Einstellungen wirken sich nicht rückwirkend auf bestehende Sendungen aus. Wenn Sie beispielsweise Ihren Standard-Anzeigenamen in den E-Mail-Einstellungen ändern, wird der bestehende Standard-Anzeigename in Ihren aktiven Kampagnen oder Canvases nicht automatisch ersetzt.
+Nein. Aktualisierungen der ausgehenden E-Mail-Einstellungen wirken sich nicht rückwirkend auf bestehende Sendungen aus. Wenn Sie beispielsweise Ihren Standard-Anzeigenamen in den E-Mail-Einstellungen ändern, wird der bestehende Standard-Anzeigename in Ihren aktiven Campaigns oder Canvases nicht automatisch ersetzt.
 
 ### Was ist eine „gute“ E-Mail-Zustellrate? {#what-is-a-good-email-delivery-rate}
 
@@ -61,27 +61,27 @@ Schließlich können auch Ihr Geschäft und die Art der E-Mails, die Sie senden,
 
 E-Mail-Zustellmetriken (Zustellungen, Bounces und Spam-Rate) ergeben möglicherweise nicht 100 %, da E-Mails, die einen Soft Bounce hatten und nach der Wiederholungsperiode von bis zu 72 Stunden nicht zugestellt wurden, nicht berücksichtigt werden.
 
-Soft Bounces sind E-Mails, die aufgrund eines temporären oder vorübergehenden Problems zurückgewiesen werden, wie z. B. „Postfach voll“, „Server vorübergehend nicht verfügbar“ und mehr. Wenn eine E-Mail mit Soft Bounce nach 72 Stunden immer noch nicht zugestellt wurde, wird diese E-Mail nicht in den Zustellmetriken der Kampagne berücksichtigt.
+Soft Bounces sind E-Mails, die aufgrund eines temporären oder vorübergehenden Problems zurückgewiesen werden, wie z. B. „Postfach voll“, „Server vorübergehend nicht verfügbar“ und mehr. Wenn eine E-Mail mit Soft Bounce nach 72 Stunden immer noch nicht zugestellt wurde, wird diese E-Mail nicht in den Zustellmetriken der Campaign berücksichtigt.
 
 ### Was ist eine E-Mail-Feedback-Schleife? {#what-is-an-email-feedback-loop}
 
-Eine E-Mail-Feedback-Schleife (FBL) ermöglicht es Absendern, ihre Reputation zu überwachen, indem Kampagnen identifiziert werden, die ein hohes Beschwerdeaufkommen erhalten. Schritte zur Implementierung einer Gmail-Feedback-Schleife finden Sie im Artikel [Google's Feedback Loop](https://support.google.com/a/answer/6254652).
+Eine E-Mail-Feedback-Schleife (FBL) ermöglicht es Absendern, ihre Reputation zu überwachen, indem Campaigns identifiziert werden, die ein hohes Beschwerdeaufkommen erhalten. Schritte zur Implementierung einer Gmail-Feedback-Schleife finden Sie im Artikel [Google's Feedback Loop](https://support.google.com/a/answer/6254652).
 
 ### Was sind Open-Tracking-Pixel? {#what-are-open-tracking-pixels}
 
 [Open-Tracking-Pixel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#changing-location-of-tracking-pixel) nutzen die E-Mail-Klick-Tracking-Domain eines Absenders, um E-Mail-Öffnungsereignisse zu verfolgen. Das Pixel ist ein Bild-Tag, das an das HTML der E-Mail angehängt wird. Es ist üblicherweise das letzte HTML-Element innerhalb des Body-Tags. Wenn ein:e Nutzer:in die E-Mail lädt, wird eine Anfrage gestellt, um das Bild von der gebrandeten Tracking-Domain zu laden, was ein Öffnungsereignis protokolliert.
 
-### Was passiert, wenn eine E-Mail-Kampagne oder ein Canvas gestoppt wird? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
+### Was passiert, wenn eine E-Mail-Campaign oder ein Canvas gestoppt wird? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
 Nutzer:innen werden daran gehindert, das Canvas zu betreten, und es werden keine weiteren Nachrichten gesendet.
 
-Bei E-Mail-Kampagnen und Canvases stoppt der Stopp-Button den Versand nicht sofort. Wenn die Sendeanfragen bereits gesendet wurden, können sie nicht mehr daran gehindert werden, an die/den Nutzer:in zugestellt zu werden, was mit einer gewissen Verzögerung geschehen kann.
+Bei E-Mail-Campaigns und Canvases stoppt der Stopp-Button den Versand nicht sofort. Wenn die Sendeanfragen bereits gesendet wurden, können sie nicht mehr daran gehindert werden, an die/den Nutzer:in zugestellt zu werden, was mit einer gewissen Verzögerung geschehen kann.
 
-Obwohl Braze keine weiteren Anfragen sendet, sobald die Kampagne oder das Canvas gestoppt wurde, können die Analytics noch steigen, während der ESP bereits laufende Anfragen weiter verarbeitet.
+Obwohl Braze keine weiteren Anfragen sendet, sobald die Campaign oder das Canvas gestoppt wurde, können die Analytics noch steigen, während der ESP bereits laufende Anfragen weiter verarbeitet.
 
-### Warum sehe ich mehr _Gesamtklicks_ als _Gesamtöffnungen_ in meinen E-Mail-Analytics? {#why-am-i-seeing-more-total-clicks-than-total-opens-in-my-email-analytics}
+### Warum sehe ich mehr *Gesamtklicks* als *Gesamtöffnungen* in meinen E-Mail-Analytics? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
-_Gesamtöffnungen_ ist die Anzahl, wie oft die E-Mail von Nutzer:innen geöffnet wurde, während _Gesamtklicks_ die Anzahl ist, wie oft Nutzer:innen innerhalb der zugestellten E-Mail geklickt haben, einschließlich aller Arten von Klicks wie Link-Klicks. Sie sehen möglicherweise mehr Klicks als Öffnungen aus einem der folgenden Gründe:
+*Gesamtöffnungen* ist die Anzahl, wie oft die E-Mail von Nutzer:innen geöffnet wurde, während *Gesamtklicks* die Anzahl ist, wie oft Nutzer:innen innerhalb der zugestellten E-Mail geklickt haben, einschließlich aller Arten von Klicks wie Link-Klicks. Sie sehen möglicherweise mehr Klicks als Öffnungen aus einem der folgenden Gründe:
 
 - Nutzer:innen führen innerhalb einer einzelnen Öffnung mehrere Klicks im E-Mail-Text durch.
 - Nutzer:innen klicken auf einige E-Mail-Links im Vorschaubereich ihres Telefons. In diesem Fall protokolliert Braze diese E-Mail als angeklickt, aber nicht als geöffnet.
@@ -105,9 +105,9 @@ Braze verfolgt Abmeldelinks, wenn das folgende Liquid in E-Mails verwendet wird:
 
 ### Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-Wenn es mehr _Abmeldungen_ gibt als Nutzer:innen, die auf den Abmeldelink im E-Mail-Text geklickt haben, erklären List-Unsubscribe-Header-Aktionen oft die Differenz – ein Klick auf den List-Unsubscribe-Header zählt als _Abmeldung_, aber nicht als _Klick_ auf den Body-Link.
+Wenn es mehr *Abmeldungen* gibt als Nutzer:innen, die auf den Abmeldelink im E-Mail-Text geklickt haben, erklärt [**List-Unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) oft die Differenz. List-Unsubscribe ist ein zusätzlicher Abmeldepfad im E-Mail-Header (nicht der Link in Ihrem Nachrichtentext). Wenn sich ein:e Nutzer:in auf diesem Weg abmeldet, zählt dies als *Abmeldung*, aber nicht als Klick auf die getrackte Abmelde-URL im Text.
 
-Wenn die Gesamtzahl der Klicks auf den Body-Abmeldelink größer ist als die Anzahl der _Abmeldungen_, haben Nutzer:innen möglicherweise mehr als einmal auf den Link geklickt.
+Wenn die Gesamtzahl der Klicks auf den Body-Abmeldelink größer ist als die Anzahl der *Abmeldungen*, haben Nutzer:innen möglicherweise mehr als einmal auf den Link geklickt – zum Beispiel, wenn sie sich abgemeldet, erneut abonniert und dann wieder abgemeldet haben, können die E-Mail-Analytics mehrere Klicks in der Klick-Aufschlüsselung erfassen.
 
 Wenn ein:e Nutzer:in den Abmeldelink zweimal anklickt (z. B. wenn sie/er sich abgemeldet, erneut abonniert und dann wieder abgemeldet hat), wird dies in den E-Mail-Analytics zweimal gezählt.
 
@@ -115,7 +115,7 @@ Wenn ein:e Nutzer:in den Abmeldelink zweimal anklickt (z. B. wenn sie/er sich ab
 
 Nein. Braze bietet diese Funktionalität nicht an. Dies liegt daran, dass eine wachsende Mehrheit der E-Mails auf Mobilgeräten und in modernen E-Mail-Clients geöffnet wird, die Bilder und Inhalte problemlos rendern.
 
-**Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page (z. B. Ihrer Website) hosten, die dann über das **Link**-Tool beim Bearbeiten des E-Mail-Textes aus der E-Mail-Kampagne heraus verlinkt werden kann.
+**Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page (z. B. Ihrer Website) hosten, die dann über das **Link**-Tool beim Bearbeiten des E-Mail-Textes aus der E-Mail-Campaign heraus verlinkt werden kann.
 
 ### Wandelt Braze automatisch Klartext-URLs oder „www.“-Text in Links um? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
@@ -159,24 +159,24 @@ Um dies zu umgehen:
 
 ### Enthält die Metrik *Eindeutige Öffnungen* auch *Machine Opens*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Nein. *Eindeutige Öffnungen* zählen nur [Andere Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), was E-Mails ausschließt, die als Machine Opens identifiziert wurden. *Machine Opens* werden separat erfasst. In der Ansicht **Campaign Analytics** und im **Berichts-Builder** können Sie beide Metriken unabhängig voneinander einsehen.
+Ja. *Eindeutige Öffnungen* enthalten *Machine Opens*. Sie können beide Metriken in der Ansicht **Campaign Analytics** und im **Berichts-Builder** einsehen.
 
 ### Warum stimmt mein E-Mail-Zustellvolumen nicht mit meinem Sendevolumen überein? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
 Nachdem eine E-Mail gesendet wurde, entscheidet der Posteingang der/des Empfängers:in, wann sie zugestellt wird. Nachrichten können aufgrund eines vollen Postfachs, ESP-Drosselung von einer bestimmten IP und ähnlichen Gründen um Stunden oder Tage verzögert werden.
 
-Wenn verzögerte Nachrichten an einem anderen Kalendertag als dem Sendetag zugestellt werden, können _Zustellungen_ die _Sendungen_ für denselben Zeitraum übersteigen. Wenn viele Verzögerungen an einem Tag landen, können _Sendungen_ die _Zustellungen_ für diesen Zeitraum übersteigen.
+Wenn verzögerte Nachrichten an einem anderen Kalendertag als dem Sendetag zugestellt werden, können *Zustellungen* die *Sendungen* für denselben Zeitraum übersteigen. Wenn viele Verzögerungen an einem Tag landen, können *Sendungen* die *Zustellungen* für diesen Zeitraum übersteigen.
 
 ### Warum sehe ich eine Warnung, einen Abmeldelink einzufügen, obwohl meine E-Mail bereits einen hat? {#why-am-i-seeing-a-warning-to-include-an-unsubscribe-link-when-my-email-already-has-one}
 
-Diese Warnung kann bei Kampagnen bestehen bleiben, die von einer Kampagne dupliziert wurden, die keinen Abmeldelink hatte. Um sie zu beheben:
+Diese Warnung kann bei Campaigns bestehen bleiben, die von einer Campaign dupliziert wurden, die keinen Abmeldelink hatte. Um sie zu beheben:
 
 - Gehen Sie bei HTML-E-Mails zum Tab **Plaintext** und wählen Sie dann **Regenerate from HTML**.
 - Duplizieren Sie nach dem Duplizieren die Variante und entfernen Sie dann die ursprüngliche Variante. Wählen Sie **nicht** die ursprüngliche Variante aus, da die Warnung sonst übernommen werden kann.
 
-### Was sind Gründe, warum mein:e Nutzer:in keine E-Mail-Kampagne erhalten hat? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
+### Was sind Gründe, warum mein:e Nutzer:in keine E-Mail-Campaign erhalten hat? {#what-are-reasons-why-my-user-hasnt-received-an-email-campaign}
 
-Gründe, warum ein:e Nutzer:in keine E-Mail-Kampagne erhalten hat, sind unter anderem:
+Gründe, warum ein:e Nutzer:in keine E-Mail-Campaign erhalten hat, sind unter anderem:
 
 - Sie/er war nicht berechtigt, die E-Mail zu erhalten.
 - Die E-Mail-Adresse ist ungültig oder existiert nicht.

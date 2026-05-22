@@ -68,7 +68,7 @@ Braze에서 SessionM 프로모션 및 오퍼로 타겟팅할 사용자 세그먼
 
 ![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
-**설정** 탭에서 각 요청 헤더 필드에 대한 키-값 페어를 추가합니다:
+**Settings** 탭에서 각 요청 헤더 필드에 대한 키-값 페어를 추가합니다:
     - 키 `Content-Type`을 생성하고 해당 값을 `application/json`으로 설정합니다.
     - 키 `Authorization`을 생성하고 해당 값을 `Basic YOUR-ENCODED-STRING-KEY`로 설정합니다. 엔드포인트의 인코딩된 문자열 키는 SessionM 팀에 문의하세요.
 

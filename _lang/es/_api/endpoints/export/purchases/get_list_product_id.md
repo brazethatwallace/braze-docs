@@ -28,10 +28,10 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `page` | Opcional | Cadena | La página de tu lista de productos que deseas ver. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Ejemplo de solicitud {#example-request}
 

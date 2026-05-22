@@ -80,9 +80,9 @@ Utilisez ce tableau pour identifier les types de données disponibles pour les a
 
 ### Considérations importantes {#important-considerations}
 
-- **Tableau :** Les attributs personnalisés et les propriétés d'événement ont des limites de taille. Les dates ne sont pas prises en charge dans les tableaux des propriétés d'événement. Les catalogues ne prennent en charge que les tableaux de chaînes de caractères, avec un maximum de 100 éléments.
-- **Objet :** Dans Braze, ce type apparaît sous le nom « attributs personnalisés imbriqués » pour les attributs personnalisés, « objets imbriqués » pour les propriétés d'événement et « objet JSON » pour les catalogues.
-- **Heure :** Dans les propriétés d'événement, ce type est intitulé « Datetime ».
+- **Tableau :** les attributs personnalisés et les propriétés d'événement ont des limites de taille. Les dates ne sont pas prises en charge dans les tableaux des propriétés d'événement. Les catalogues ne prennent en charge que les tableaux de chaînes de caractères, avec un maximum de 100 éléments.
+- **Objet :** dans Braze, ce type apparaît sous le nom « attributs personnalisés imbriqués » pour les attributs personnalisés, « objets imbriqués » pour les propriétés d'événement et « objet JSON » pour les catalogues.
+- **Heure :** dans les propriétés d'événement, ce type est intitulé « Datetime ».
 
 ## Types de données des attributs personnalisés {#custom-attribute-data-types}
 
@@ -159,7 +159,7 @@ Voici les méthodes utilisées sur les différentes plateformes pour définir de
 
 Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
 
-## Types de données des attributs personnalisés {#custom-attribute-data-types}
+## Types de données des attributs personnalisés
 
 Les attributs personnalisés sont des outils extrêmement flexibles qui permettent un ciblage précis.
 
@@ -184,7 +184,7 @@ Pour les attributs de type **valeur booléenne**, les options de segmentation su
 | Vérifier si la valeur booléenne **est** soit vraie, fausse, vraie ou non définie, ou fausse ou non définie | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** ou **FALSE OR NOT SET** | Si ce filtre spécifie `coffee_drinker`, un utilisateur correspondra à ce filtre dans les circonstances suivantes : <br> {::nomarkdown}<ul><li>Si ce filtre est <code>true</code> et que l'utilisateur a la valeur <code>coffee_drinker</code></li><li>Si ce filtre est <code>false</code> et que l'utilisateur n'a pas la valeur <code>coffee_drinker</code></li><li>Si ce filtre est <code>true or not set</code> et que l'utilisateur a la valeur <code>coffee_drinker</code> ou aucune valeur</li><li>Si ce filtre est <code>false or not set</code> et que l'utilisateur n'a pas <code>coffee_drinker</code> ou aucune valeur</li></ul>{:/} |
 | Vérifier si la valeur booléenne **existe** dans le profil d'un utilisateur et n'est pas nulle | **IS NOT BLANK**  | **N/A** | Si ce filtre spécifie `coffee_drinker` et qu'un utilisateur a une valeur pour l'attribut `coffee_drinker`, l'utilisateur correspondra à ce filtre. |
 | Vérifier si la valeur booléenne **n'existe pas** dans le profil d'un utilisateur ou est nulle | **IS BLANK**  | **N/A** | Si ce filtre spécifie `coffee_drinker` et qu'un utilisateur n'a pas l'attribut `coffee_drinker` ou que la valeur de `coffee_drinker` est nulle, l'utilisateur correspondra à ce filtre.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab Nombres %}
@@ -203,7 +203,7 @@ Pour les attributs de type **nombre**, les options de segmentation suivantes son
 | Vérifier si l'attribut numérique **est inférieur à** un **nombre**| **LESS THAN** | **NUMBER** | Si ce filtre spécifie `10` et qu'un profil utilisateur a une valeur inférieure à `10`, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut numérique **existe** dans le profil d'un utilisateur et n'est pas nul | **IS NOT BLANK** | **N/A** | Si un profil utilisateur contient l'attribut numérique spécifié, quelle que soit la valeur, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut numérique **n'existe pas** dans le profil d'un utilisateur ou est nul | **IS BLANK** | **N/A** | Si un profil utilisateur ne contient pas l'attribut numérique spécifié ou si la valeur de l'attribut est nulle, l'utilisateur correspondra à ce filtre.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Détails des attributs numériques {#number-attribute-details}
 
@@ -227,7 +227,7 @@ Pour les attributs de type **chaîne de caractères**, les options de segmentati
 | Vérifier si l'attribut de chaîne **ne correspond exactement à aucune** des chaînes saisies | **IS NONE OF** |**STRING**<br>Sensible à la casse ; plusieurs chaînes autorisées (256 maximum) | Si ce filtre spécifie `book`, `bookmark` et `reading light`, et qu'un profil utilisateur ne contient aucune de ces chaînes, l'utilisateur correspondra au filtre.|
 | Vérifier si l'attribut de chaîne **correspond partiellement à l'une** des chaînes saisies | **CONTAINS ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs chaînes autorisées (256 maximum) | Si ce filtre spécifie `gold` et qu'un profil utilisateur contient `gold` dans n'importe quelle chaîne, comme `gold_tier` ou `former_gold_tier`, l'utilisateur correspondra au filtre. |
 | Vérifier si l'attribut de chaîne **ne correspond partiellement à aucune** des chaînes saisies | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs chaînes autorisées (256 maximum) | Si ce filtre spécifie `gold` et qu'un profil utilisateur ne contient `gold` dans aucune chaîne, l'utilisateur correspondra à ce filtre.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -261,7 +261,7 @@ Pour les attributs de type **tableau**, les options de segmentation suivantes so
 | Vérifier si l'attribut de tableau **ne contient pas une valeur qui correspond partiellement à l'une** des valeurs saisies | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `gold` et qu'un tableau de profil utilisateur ne contient `gold` dans aucune chaîne, l'utilisateur correspondra à ce filtre. Cela signifie que les utilisateurs avec des valeurs de chaîne comme `gold_tier` et `former_gold_tier` ne correspondront pas à ce filtre.|
 | Vérifier si l'attribut de tableau **inclut toutes** les valeurs saisies | **IS ALL OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum) | Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur possède toutes ces valeurs, l'utilisateur correspondra à ce filtre. L'utilisateur peut également avoir `horror` ou d'autres valeurs et correspondre à ce filtre.|
 | Vérifier si l'attribut de tableau **n'inclut pas toutes** les valeurs saisies | **ISN'T ALL OF** | **STRING**<br>Sensible à la casse ; plusieurs valeurs autorisées (256 maximum)|  Si ce filtre spécifie `sci-fi, fantasy, romance` et qu'un profil utilisateur ne possède pas toutes ces valeurs, l'utilisateur correspondra à ce filtre.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 Pour en savoir plus sur l'utilisation des expressions régulières (regex), consultez ces ressources :
@@ -296,7 +296,7 @@ Pour les attributs de type **heure**, les options de segmentation suivantes sont
 | Vérifier si l'attribut de type heure est **dans moins de X** **jours dans le futur** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date dans moins de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'attribut de type heure **existe** dans le profil d'un utilisateur et n'est pas nul | **IS NOT BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure présent dans un profil utilisateur, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'attribut de type heure **n'existe pas** dans le profil d'un utilisateur ou est nul | **IS BLANK** | **N/A** | Si ce filtre spécifie un attribut de type heure absent du profil utilisateur, l'utilisateur correspondra à ce filtre. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### Détails des attributs de type heure {#time-attribute-details}
 
@@ -331,7 +331,7 @@ Nous avons consolidé la liste des opérateurs disponibles pour les filtres d'at
 | Chaîne de caractères | does not equal | is none of | Au moins 1 valeur |
 | Tableau | includes value | includes any of | Au moins 1 valeur |
 | Tableau | doesn't include value | includes none of | Au moins 1 valeur |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## Types de données des propriétés d'événement {#event-property-data-types}
 
@@ -401,7 +401,7 @@ Les catalogues prennent en charge les types répertoriés dans le tableau [Défi
 | Heure | Date et heure au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou horodatage Unix en secondes. | ✅ Oui | ✅ Oui |
 | Objet JSON (Objet) | Objet imbriqué avec des paires clé-valeur. Affiché dans la plateforme mais ne peut être créé ou mis à jour que via l'API ou CDI. | ❌ Non | ✅ Oui |
 | Tableau de chaînes (Tableau) | Une liste de chaînes de caractères. Affiché dans la plateforme mais ne peut être créé ou mis à jour que via l'API ou CDI. Maximum de 100 éléments. | ❌ Non | ✅ Oui |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### Format et exemples {#format-and-examples}
 
@@ -413,6 +413,6 @@ Les catalogues prennent en charge les types répertoriés dans le tableau [Défi
 | Nombre | Entier ou décimal | <code>42</code> ou <code>19.99</code> |
 | Objet | Objet JSON | <code>{"key": "value", "price": 10}</code> |
 | Tableau | Tableau de chaînes de caractères | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
 Pour la création et la mise à jour des catalogues, consultez [Créer un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).

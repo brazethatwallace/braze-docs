@@ -72,6 +72,6 @@ La siguiente tabla describe cuántos caracteres puedes añadir antes de que el t
 | 1 | 46 caracteres |
 | 2 | 20 caracteres |
 | 3 | 11 caracteres |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Límites de caracteres en Android" }
 {% endtab %}
 {% endtabs %}

@@ -57,7 +57,7 @@ Los datos de conversiones describen lo que le sucedió al cliente después de qu
 | Cada registro tiene una marca de tiempo del momento en que ocurrió el evento de conversión | La precisión temporal es esencial para la atribución. El modelo necesita saber a qué recomendación se puede atribuir una conversión. |
 | Si se utiliza una métrica de éxito no binaria (por ejemplo, ingresos en lugar de convertido o no convertido), el valor de la métrica debe incluirse con cada registro de conversión | Decisioning Studio utiliza el valor de la métrica para generar experiencias de entrenamiento. Sin el valor, el modelo solo puede aprender que ocurrió una conversión, no cuán valiosa fue. |
 | Si las conversiones pueden atribuirse directamente a una comunicación específica (por ejemplo, canje de cupón), incluye los campos necesarios para vincular la conversión con el registro de activación | La atribución directa proporciona al modelo la señal de aprendizaje más clara. Si la atribución directa no es posible, Decisioning Studio utiliza la atribución basada en proximidad como alternativa. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datos de conversiones" }
 
 ## Activos opcionales {#optional-assets}
 

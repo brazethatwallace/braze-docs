@@ -59,9 +59,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `braze_ids` | オプション | 文字列の配列 | 削除するBrazeユーザー識別子。 |
 | `email_addresses` | オプション | 文字列の配列 | 削除するユーザーのメール。詳細については、[メールによるユーザーの削除](#deleting-users-by-email)を参照してください。 |
 | `phone_numbers` | オプション | 文字列の配列 | 削除するユーザーの電話番号。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-### メールアドレスと電話番号によるユーザーの削除 {#deleting-users-by-email}
+### メールアドレスと電話番号によるユーザーの削除 {#deleting-users-by-email-addresses-and-phone-numbers}
 
 メールアドレスまたは電話番号が識別子として指定されている場合、識別子に追加の`prioritization`値が必要です。`prioritization`は順序付けされた配列である必要があり、複数のユーザーが一致する場合に削除するユーザーを指定します。つまり、優先順位に一致するユーザーが複数いる場合、ユーザーの削除は実行されません。
 
@@ -119,8 +119,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 数分経ってもユーザーがまだ存在する場合は、リクエスト内の識別子がユーザーの実際のプロファイルと一致しているか確認してください。
 
 - **`external_ids`配列:** 各値がユーザーのexternal IDと正確に一致していることを確認してください。
-- **`braze_id`:** ユーザーの`braze_id`は、[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)でデータをエクスポートするか、SegmentをCSVにエクスポートすることで確認できます（`braze_id`は「Appboy ID」として表示されます）。
-- **エイリアスのみまたはメールのみのプロファイル:** プロファイルに`external_id`がない場合は、**External User IDが空白**でフィルターし、既知のメールまたは電話番号と組み合わせたSegmentを作成してから、CSVにエクスポートして`braze_id`を取得してください。
+- **`braze_id`:** ユーザーの`braze_id`は、[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)でデータをエクスポートするか、セグメントをCSVにエクスポートすることで確認できます（`braze_id`は「Appboy ID」として表示されます）。
+- **エイリアスのみまたはメールのみのプロファイル:** プロファイルに`external_id`がない場合は、**External User IDが空白**でフィルターし、既知のメールまたは電話番号と組み合わせたセグメントを作成してから、CSVにエクスポートして`braze_id`を取得してください。
 
 ユーザーが削除されたかどうかを確認するには、削除リクエストで使用したのと同じ識別子タイプを使用して[`/users/export/ids`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を呼び出します（例えば、`external_ids`、`braze_id`、または`user_aliases`に値を含めます）。ユーザーが存在しなくなった場合、応答には`"users": []`が含まれ、その識別子をリストする`"invalid_user_ids"`が含まれる場合があります。
 

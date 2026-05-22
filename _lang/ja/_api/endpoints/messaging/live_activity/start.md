@@ -17,7 +17,7 @@ description: "この記事では、「ライブアクティビティを開始」
 
 > このエンドポイントを使用して、iOS アプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)をリモートで開始します。このエンドポイントには追加のセットアップが必要です。
 
-ライブアクティビティを作成した後、任意のSegmentのアクティビティをリモートで開始するために POST リクエストを送信できます。Apple のライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
+ライブアクティビティを作成した後、任意のセグメントのアクティビティをリモートで開始するために POST リクエストを送信できます。Apple のライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
 
 `content-available` が設定されていない場合、Apple プッシュ通知サービス（APNs）のデフォルトの優先度は 10 です。`content-available` が設定されている場合、この優先度は 5 です。詳細については、[Apple プッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object/)を参照してください。
 
@@ -82,11 +82,11 @@ description: "この記事では、「ライブアクティビティを開始」
 | `external_user_ids` | `segment_id` または `audience` が提供されている場合はオプション | 文字列の配列 | [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) を参照してください。最大 50 の外部ユーザー ID。 |
 | `segment_id ` | `external_user_ids` または `audience` が提供されている場合はオプション | 文字列 | [Segment識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
 | `custom_audience` | `external_user_ids` または `segment_id` が提供されている場合はオプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {YOUR-REST-API-KEY}' \

@@ -9,7 +9,7 @@ tool:
 description: "이 사용 방법 문서에서는 세그먼트 인사이트를 사용하고, 해석하고, 공유하는 방법을 안내합니다."
 ---
 
-# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}세그먼트 인사이트 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
+# [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/segmentation-course){: style="float:right;width:120px;border:0;" class="noimgborder"}세그먼트 인사이트 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsegmentation-course-stylefloatrightwidth120pxborder0-classnoimgbordersegment-insights}
 
 > 세그먼트 인사이트를 사용하고, 해석하고, 공유하는 방법을 알아보세요.
 
@@ -17,7 +17,7 @@ description: "이 사용 방법 문서에서는 세그먼트 인사이트를 사
 
 ## 세그먼트 인사이트 보기 {#viewing-segment-insights}
 
-대시보드의 **분석** 아래에 있는 **세그먼트 인사이트** 페이지로 이동하여 기준선과 비교할 최대 10개의 서로 다른 Segment를 확인하세요.
+대시보드의 **Analytics** 아래에 있는 **세그먼트 인사이트** 페이지로 이동하여 기준선과 비교할 최대 10개의 서로 다른 Segment를 확인하세요.
 
 ![기준선 Segment인 '모든 사용자'와 비교하여 'UK Users', 'FR Users', 'CA Users' 세 개의 Segment를 비교하는 세그먼트 인사이트 대시보드.]({% image_buster /assets/img_archive/segment_insights.png %})
 
@@ -31,7 +31,7 @@ description: "이 사용 방법 문서에서는 세그먼트 인사이트를 사
 | 생애 매출(달러) | Segment 사용자의 평균 생애 매출(달러) | 사용자 생애 지출 |
 | 첫 구매까지의 일수 | Segment 사용자의 첫 세션과 첫 구매 사이의 평균 일수 | 첫 구매 날짜 – 첫 세션 날짜 |
 | 마지막 구매 이후 일수 | Segment 사용자의 마지막 구매와 현재 사이의 평균 일수 | 오늘 – 마지막 구매 날짜 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Viewing Segment Insights" }
 
 페이지의 고유 URL을 사용하여 특정 비교를 팀원과 쉽게 공유할 수 있으며, 각 Segment 옆의 눈 아이콘을 선택하여 해당 Segment에 대한 자세한 정보를 확인할 수도 있습니다. 이러한 비교는 워크스페이스를 전환하면 초기화됩니다.
 

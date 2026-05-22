@@ -19,10 +19,10 @@ Después de [configurar el servidor MCP de Braze]{% if include.section == "user"
 - Ingenieros de CRM que crean flujos de trabajo de agentes de varios pasos.
 - Especialistas en marketing técnicos que experimentan con consultas en lenguaje natural.
 
-El servidor MCP de Braze admite 39 puntos finales que no devuelven datos de los perfiles de usuario de Braze. Puedes elegir qué puntos finales asignar a tu clave de API de Braze para controlar a qué puede acceder o modificar un agente.
+El servidor MCP de Braze incluye puntos finales de solo lectura y de escritura. No devuelven datos de los perfiles de usuario de Braze. Tú eliges qué puntos finales asignar a tu clave de API de Braze, y esa elección controla lo que un agente puede leer, crear o actualizar. Para ver la lista completa de puntos finales disponibles y sus permisos requeridos, consulta [Funciones de API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
-Asigna solo los permisos de clave de API que quieras que tenga tu agente. Si no quieres que tu agente realice cambios en Braze, asegúrate de dejar desactivados los permisos de escritura. Los agentes pueden intentar escribir datos a través de cualquier permiso que concedas.
+Asigna solo los permisos de clave de API que quieras que tenga tu agente. Si no quieres que tu agente realice cambios en Braze, asegúrate de dejar desactivados los permisos de escritura cuando crees tu clave de API. Los agentes pueden intentar escribir datos a través de cualquier permiso de escritura que concedas.
 {% endalert %}
 
 ## Ejemplo de uso {#usage-example}
@@ -51,7 +51,7 @@ Los clientes MCP pueden acceder a puntos finales que no devuelven PII. Tú contr
 
 ### ¿Mi cliente MCP puede modificar datos de Braze? {#can-my-mcp-client-change-braze-data}
 
-El servidor solo expone el punto de conexión de escritura `/media_library/create`, que te permite cargar activos de medios en tu biblioteca de medios. Si no quieres que tu agente realice esos cambios en Braze, deja sin marcar el permiso `media_library.create` cuando crees tu clave de API.
+Sí. El servidor expone un conjunto específico de puntos finales de escritura que permiten a los agentes crear o actualizar contenido en tu espacio de trabajo, como activos de la Biblioteca de medios, plantillas de correo electrónico y Content Blocks. Cada punto final de escritura requiere su propio permiso de clave de API. Si no quieres que tu agente realice un cambio determinado en Braze, deja sin marcar ese permiso cuando crees tu clave de API. Para ver la lista completa de funciones de escritura y sus permisos requeridos, consulta [Funciones de API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 ### ¿Puedo utilizar un servidor MCP de terceros para Braze? {#can-i-use-a-third-party-mcp-server-for-braze}
 

@@ -1,7 +1,7 @@
 ---
 nav_title: Contentful
 article_title: Contentful
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Contentful, einem Content-Management-System, das es Ihnen erlaubt, dynamisch Connected-Content zu nutzen, um Inhalte aus Contentful in Ihre Braze-Campaigns zu ziehen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Contentful, einem Content-Management-System, das es Ihnen erlaubt, dynamisch Connected-Content zu nutzen, um Inhalte aus Contentful in Ihre Braze-Kampagnen zu ziehen."
 alias: /partners/contentful/
 page_type: partner
 search_tag: Partner
@@ -11,13 +11,13 @@ search_tag: Partner
 
 >[Contentful](https://www.contentful.com/) ist ein Headless-Content-Management-System, mit dem Sie Inhalte erstellen, verwalten und auf jeder Plattform verbreiten können. Im Gegensatz zu einem Content-Management-System (CMS) ermöglicht Contentful Ihnen, Ihr eigenes Inhaltsmodell zu erstellen, sodass Sie entscheiden können, welche Inhalte Sie verwalten möchten.<br><br>Auf dieser Seite finden Sie eine schrittweise Anleitung zur Konfiguration von Braze Connected-Content, um Daten von der Contentful Content Delivery API abzurufen.
 
-Nach der Integration können Sie die RESTful APIs von Contentful nutzen, um Ihre Inhalte über verschiedene Kanäle wie Websites, mobile Apps (iOS, Android und Windows) oder viele andere Plattformen zuzustellen. Sie können auch dynamisch Inhalte von Contentful abrufen, um sie in Ihren Braze-Campaigns zu verwenden.
+Nach der Integration können Sie die RESTful APIs von Contentful nutzen, um Ihre Inhalte über verschiedene Kanäle wie Websites, mobile Apps (iOS, Android und Windows) oder viele andere Plattformen zuzustellen. Sie können auch dynamisch Inhalte von Contentful abrufen, um sie in Ihren Braze-Kampagnen zu verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-| Voraussetzung          | Beschreibung                        |
+| Voraussetzung | Beschreibung |
 |-----------------------|------------------------------------|
 | Ein Contentful-Konto | Sie benötigen ein Contentful-Konto mit Zugriff auf die Content Delivery API. |
 | Ein Braze-Konto | Sie benötigen ein Braze-Konto mit Zugriff auf das Connected-Content-Feature. |
@@ -62,11 +62,11 @@ Verschiedene Endpunkte können neue Variablen erfordern. Zum Beispiel erfordert 
 5. Wählen Sie **Done**, um Ihren Content-Block zu speichern.
 6. Geben Sie Ihrem Content-Block einen beschreibenden Namen, z. B. „Contentful API“, und wählen Sie dann **Launch Content Block**.
 
-### 3. Schritt: Connected-Content in Campaigns und Canvases verwenden {#step-3-use-connected-content-in-campaigns-and-canvasses}
+### 3. Schritt: Connected-Content in Kampagnen und Canvases verwenden {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
-1. Erstellen Sie in Braze eine neue Campaign oder bearbeiten Sie eine bestehende.
-2. Verwenden Sie den Connected-Content-Block, um von Contentful abgerufene Daten einzufügen. Nutzen Sie die Datenpfade, die Sie bei der Konfiguration festgelegt haben, um den Inhalt der Campaign dynamisch zu füllen.<br><br>
-- **Antwortpfad:** Nachdem Sie den Content-Block in eine Braze-Campaign oder ein Canvas eingebunden haben, wird die Antwort verfügbar, wenn Sie die Variable `{response}` in Ihre Nachricht einfügen.<br><br>Mit der JSON-Punktnotation können Sie angeben, welchen Teil des Antwortkörpers von Contentful Sie in Ihre Nachricht aufnehmen möchten. Dies hängt von Ihrem Anwendungsfall ab. Sie können zum Beispiel den Titelwert ({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %}) vom Entry-Endpunkt von Contentful verwenden und eine Antwort wie diese erhalten:
+1. Erstellen Sie in Braze eine neue Kampagne oder bearbeiten Sie eine bestehende.
+2. Verwenden Sie den Connected-Content-Block, um von Contentful abgerufene Daten einzufügen. Nutzen Sie die Datenpfade, die Sie bei der Konfiguration festgelegt haben, um den Inhalt der Kampagne dynamisch zu füllen.<br><br>
+- **Antwortpfad:** Nachdem Sie den Content-Block in eine Braze-Kampagne oder ein Canvas eingebunden haben, wird die Antwort verfügbar, wenn Sie die Variable `{response}` in Ihre Nachricht einfügen.<br><br>Mit der JSON-Punktnotation können Sie angeben, welchen Teil des Antwortkörpers von Contentful Sie in Ihre Nachricht aufnehmen möchten. Dies hängt von Ihrem Anwendungsfall ab. Sie können zum Beispiel den Titelwert ({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %}) vom Entry-Endpunkt von Contentful verwenden und eine Antwort wie diese erhalten:
 
 {% raw %}
 ```json
@@ -117,8 +117,8 @@ Verschiedene Endpunkte können neue Variablen erfordern. Zum Beispiel erfordert 
 {% endraw %}
 
 {: start="3" }
-3. Erstellen Sie eine Vorschau und testen Sie Ihre Campaign, um sicherzustellen, dass die Connected-Content-Daten korrekt angezeigt werden.
-4. Wenn Sie mit der Einrichtung zufrieden sind, starten Sie Ihre Campaign.
+3. Erstellen Sie eine Vorschau und testen Sie Ihre Kampagne, um sicherzustellen, dass die Connected-Content-Daten korrekt angezeigt werden.
+4. Wenn Sie mit der Einrichtung zufrieden sind, starten Sie Ihre Kampagne.
 
 ## Fehlerbehebung {#troubleshooting}
 

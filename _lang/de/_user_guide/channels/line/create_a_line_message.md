@@ -23,7 +23,7 @@ Bevor Sie eine LINE-Nachricht erstellen, gehen Sie wie folgt vor:
 2. Machen Sie sich mit den Richtlinien, Limits und Inhaltsregeln vertraut.
 3. [Richten Sie Ihre LINE-Verbindung ein]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-Das Senden von LINE-Nachrichten über Braze wird von den Message Credits Ihres Kontos abgezogen.
+Das Senden von LINE-Nachrichten über Braze wird von den Message oder Action Credits Ihres Kontos abgezogen.
 
 ## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
@@ -97,13 +97,13 @@ Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie w
 
 LINE-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen zu Zeitplan- und Trigger-Optionen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) für den Empfang der Campaign ermöglichen oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) festlegen.
+Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) für den Empfang der Campaign ermöglichen oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping)-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
 [Stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach der Ebene oder Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
-Wählen Sie die größere Zielgruppe aus Ihren Segmenten und grenzen Sie dieses Segment optional mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
+Wählen Sie die größere Zielgruppe aus Ihren Segmenten aus und grenzen Sie dieses Segment optional mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
 
 ### Konversions-Events wählen {#choose-conversion-events}
 

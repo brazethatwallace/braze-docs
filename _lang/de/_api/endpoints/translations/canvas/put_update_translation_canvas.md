@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Übersetzung in einem Canvas aktualisieren"
 article_title: "PUT: Übersetzung in einem Canvas aktualisieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -42,7 +42,7 @@ Für diesen Endpunkt gibt es keine Pfadparameter.
 | `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
 | `locale_id` | Erforderlich | String | Die ID (UUID) der Locale. |
 | `translation_map` | Erforderlich | Objekt | Objekt, das die neuen Übersetzungen enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.
