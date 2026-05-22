@@ -269,12 +269,23 @@ def _insert_point_before_line(content: str, anchor: str) -> int | None:
     return idx
 
 
+def _edit_already_applied(content: str, edit: dict[str, Any]) -> bool:
+    """True when this edit is already on develop (fingerprint or equivalent prose)."""
+    fp = (edit.get("fingerprint") or "").strip()
+    if fp and (fp in content or f"<!-- {fp} -->" in content):
+        return True
+    for phrase in edit.get("skip_if_contains") or []:
+        text = (phrase or "").strip()
+        if text and text in content:
+            return True
+    return False
+
+
 def _apply_edit(content: str, edit: dict[str, Any]) -> tuple[str, bool]:
     """
-    Return (new_content, changed). Skip if fingerprint already present.
+    Return (new_content, changed). Skip if fingerprint or skip_if_contains matches.
     """
-    fp = edit.get("fingerprint") or ""
-    if fp and fp in content:
+    if _edit_already_applied(content, edit):
         return content, False
 
     anchor = edit.get("anchor_substring") or ""
@@ -667,7 +678,10 @@ def _phase2_process_rules(
             original = path.read_text(encoding="utf-8")
             updated, changed = _apply_edit(original, edit)
             if not changed:
-                print(f"rule {rid}: no change for {rel} (anchor or fingerprint)", file=sys.stderr)
+                print(
+                    f"rule {rid}: no change for {rel} (anchor, fingerprint, or skip_if_contains)",
+                    file=sys.stderr,
+                )
                 continue
             pending_files[path] = updated
 
