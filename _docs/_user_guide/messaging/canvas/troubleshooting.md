@@ -103,9 +103,11 @@ This means that even though we specified 90% of users to enter the variant, not 
 
 ## Action-based steps and custom event properties
 
-If an **action-based** Canvas or Action Path does not send when you expect, confirm the custom event in the user profile matches the trigger configuration, including **property filters**. Braze evaluates the exact properties sent with the event; if a property is missing or the value does not match the filter, the user will not advance.
+If an action-based Canvas or Action Path does not send when you expect, check the following:
 
-Also check the **timestamp** of the event relative to Canvas launch, [entry schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types), and any scheduled delay before the step—events that occur too early or before the user qualifies for the audience will not trigger the step.
+- The custom event in the user profile matches the trigger configuration, including property filters. Braze evaluates the exact properties sent with the event; if a property is missing or the value does not match the filter, the user does not advance.
+
+- Events that occur too early or before the user qualifies for the audience do not trigger the step, so check the timestamp of the event relative to Canvas launch, [entry schedule]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types), and any scheduled delay before the step.
 
 {% alert note %}
 In-app messages in Canvas can only be triggered by events from the SDK, not the REST API. See [Why did a user not receive a triggered Canvas step?](#why-did-a-user-not-receive-a-triggered-canvas-step)
