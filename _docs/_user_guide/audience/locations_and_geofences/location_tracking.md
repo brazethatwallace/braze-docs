@@ -12,10 +12,6 @@ search_rank: 2
 
 > Location collection captures a user's most recent location when the app was opened using GPS location data. You can use this information to segment data based on users who were in a defined location.
 
-## Geofences compared to location tracking
-
-**Location tracking** stores each user's most recent location for filters such as **Most Recent Location** (backward-looking segmentation). **Geofences** define virtual boundaries and can trigger messaging when users enter or exit an area, including in the background when permitted. For a fuller comparison, see [What's the difference between geofences and location tracking?]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#whats-the-difference-between-geofences-and-location-tracking).
-
 ## Enabling location tracking
 
 To enable location collection on your app, refer to the developer guide for the platform you're using:
@@ -71,6 +67,10 @@ Combining existing beacon or geofence support with our targeting and messaging f
 - [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
 - [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
 - [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+
+## Differences between geofences and location tracking
+
+{% multi_lang_include locations_and_geofences/geofences_vs_location_tracking.md %}
 
 ## Frequently asked questions
 
