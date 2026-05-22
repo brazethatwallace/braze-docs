@@ -104,8 +104,8 @@ If you're using Intelligent Timing on a Message step within an experiment path, 
 
 ### Why do sends differ across paths when the experiment split looks even?
 
-Downstream **Sends** depend on each path’s steps, delays, channel eligibility, and content—not only the percentage split at the Experiment Path. For example, different delays, intelligent send times, or subscription status can change how many users receive a message even when path assignment was balanced. To compare path outcomes, use [Experiment Path analytics](#tracking-performance), which measures conversions from a common entry point.
+Downstream _Sends_ depend on each path’s steps, delays, channel eligibility, and content, not only the percentage split at the Experiment Path. For example, different delays, intelligent send times, or subscription status can change how many users receive a message even when the path assignment was balanced. To compare path outcomes, use [Experiment Path analytics](#tracking-performance), which measures conversions from a common entry point.
 
 ### How long does the experiment conversion window last?
 
-The **Additional Settings** conversion window (1–30 days) starts when the user **enters** the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) and the alert on Intelligent Timing above.
+The **Additional Settings** conversion window (1–30 days) starts when the user enters the Experiment Path step. Time spent in downstream Delay steps or waiting for Intelligent Timing counts against that window. See [Tracking performance](#tracking-performance) for details.
