@@ -8,6 +8,8 @@ page_order: 4
 
 # Quick push messages
 
+> This article describes what to know when you create a push campaign or Canvas using the quick push editing experience to target multiple platforms and devices from one composer.
+
 When creating a push campaign or Canvas in Braze, you can select multiple platforms and devices to craft one message for all platforms in a single editing experience called quick push.
 
 ## Use cases

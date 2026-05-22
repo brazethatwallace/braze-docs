@@ -1,48 +1,48 @@
 ---
 nav_title: Dynamische Code-Generierung
-article_title: Punchh Dynamische Code-Generierung
+article_title: Dynamische Code-Generierung mit Punchh
 page_order: 2
-description: "Dieser referenzierte Artikel beschreibt, wie Sie die dynamische Code-Generierung von Punchh in Braze verwenden."
+description: "Dieser Referenzartikel beschreibt, wie Sie die dynamische Code-Generierung von Punchh in Braze verwenden."
 page_type: partner
 search_tag: Partner
 ---
 
-# Dynamische Code-Erstellung mit Punchh
+# Dynamische Code-Generierung mit Punchh {#dynamic-code-generation-with-punchh}
 
-> Ein Gutscheincode ist ein eindeutiger Code, der von einem einzelnen Nutzer:innen verwendet werden kann (entweder einmalig oder mehrfach). Das Punchh-Framework generiert Coupon Codes, die in einer mobilen App oder am Point-of-Sale (POS) System verarbeitet werden können.
+> Ein Gutscheincode ist ein eindeutiger Code, der von einer einzelnen Nutzer:in verwendet werden kann (entweder einmalig oder mehrfach). Das Punchh-Framework generiert Gutscheincodes, die in einer mobilen App oder am Point-of-Sale (POS)-System verarbeitet werden können.
 
 _Diese Integration wird von Punchh gepflegt._
 
-## Über die Integration
+## Über die Integration {#about-the-integration}
 
-Mit dem Punchh Coupon Framework und Braze können Sie die folgenden Szenarien realisieren:
+Mit dem Punchh-Coupon-Framework und Braze können Sie die folgenden Szenarien realisieren:
 
-- Generieren Sie einen Code, wenn der Gast in einer E-Mail auf einen Link zur Generierung eines Gutscheins klickt: Der Gutschein-Code wird dynamisch generiert und auf einer Internetseite angezeigt.
-- Generieren Sie einen Gutscheincode, wenn der Gast eine E-Mail öffnet: Der Gutschein-Code wird dynamisch generiert und als Bild in der E-Mail angezeigt.
+- Generieren Sie einen Gutscheincode, wenn der Gast in einer E-Mail auf einen Link zur Gutscheingenerierung klickt: Der Gutscheincode wird dynamisch generiert und auf einer Webseite angezeigt.
+- Generieren Sie einen Gutscheincode, wenn der Gast eine E-Mail öffnet: Der Gutscheincode wird dynamisch generiert und als Bild in der E-Mail angezeigt.
 
-## Integration dynamischer Code-Generierung für Gutscheine
+## Integration der dynamischen Gutscheincode-Generierung {#integrating-dynamic-coupon-code-generation}
 
-### Schritt 1: Erstellen Sie eine Kampagne mit Coupons
+### 1. Schritt: Gutscheinkampagne erstellen {#step-1-create-a-coupon-campaign}
 
 1. Erstellen Sie mit einer Punchh-Gutscheinkampagne eine dynamische Generierungs-Gutscheinkampagne, wie in der folgenden Abbildung gezeigt.
-2. Das Punchh Coupon Framework generiert die folgenden Parameter, um die dynamische Generierung von Coupons zu ermöglichen:
-    - Token zur dynamischen Generierung von Coupons: Dies ist ein vom System generiertes Token für die Verschlüsselung.
-    - Dynamische URL für die Erstellung von Coupons: Diese URL wird als Link oder Bild in die E-Mail eingebettet, je nach Bedarf des Unternehmens.
+2. Das Punchh-Coupon-Framework generiert die folgenden Parameter, um die dynamische Gutscheingenerierung zu ermöglichen:
+    - Token zur dynamischen Gutscheingenerierung: Dies ist ein vom System generiertes Sicherheits-Token für die Verschlüsselung.
+    - URL zur dynamischen Gutscheingenerierung: Diese URL wird als Link oder Bild in die E-Mail eingebettet, je nach Bedarf des Unternehmens.
 
 ![Das Formular für die Erstellung einer Gutscheinkampagne in Punchh.]({% image_buster /assets/img/punchh/punchh8.png %}){: style="max-width:60%;"}
 
-### Schritt 2: Signatur generieren und URL konstruieren
+### 2. Schritt: Signatur generieren und URL konstruieren {#step-2-generate-signature-and-construct-url}
 
-Die Bibliothek JWT.IO dekodiert, überprüft und generiert JSON-Web-Tokens, eine offene, dem Industriestandard RFC 7519 entsprechende Methode zur sicheren Darstellung von Ansprüchen zwischen zwei Parteien. 
+Die Bibliothek JWT.IO dekodiert, überprüft und generiert JSON-Web-Tokens, eine offene, dem Industriestandard RFC 7519 entsprechende Methode zur sicheren Darstellung von Claims zwischen zwei Parteien.
 
-Die folgenden `ClaimType` Namen können verwendet werden, um die Eindeutigkeit von Gästen und Gutscheinen zu gewährleisten:
+Die folgenden `ClaimType`-Namen können verwendet werden, um die Eindeutigkeit von Gästen und Gutscheinen zu gewährleisten:
 
-- `campaign_id`ID: steht für die vom System generierte ID der Punchh-Kampagne.
-- `email`: steht für die E-Mail Adresse des Nutzers:innen. 
-- `first_name`Nutzer:in: erfasst den Vornamen des Nutzers:innen. 
-- `last_name`: erfasst den Nachnamen des Nutzers:in.
+- `campaign_id`: steht für die vom System generierte Punchh-Campaign-ID.
+- `email`: steht für die E-Mail-Adresse der Nutzer:in.
+- `first_name`: erfasst den Vornamen der Nutzer:in.
+- `last_name`: erfasst den Nachnamen der Nutzer:in.
 
-Um die dynamische Code API von Punchh zu nutzen, muss ein JWT Token erstellt werden. Fügen Sie die folgende Liquid-Vorlage zu Ihrem Braze-Dashboard in den Nachrichtentext des Kanals ein, den Sie verwenden möchten:
+Um die dynamische Gutscheincode-API von Punchh zu nutzen, muss ein JWT-Token erstellt werden. Fügen Sie die folgende Liquid-Vorlage in Ihrem Braze-Dashboard in den Nachrichtentext des Kanals ein, den Sie verwenden möchten:
 
 {% raw %}
 ```liquid
@@ -77,16 +77,17 @@ Um die dynamische Code API von Punchh zu nutzen, muss ein JWT Token erstellt wer
 
 Ersetzen Sie Folgendes:
 
-| Platzhalter        | Beschreibung                                          |
+| Platzhalter | Beschreibung |
 |--------------------|------------------------------------------------------|
-| `DYNAMIC_COUPON_GENERATION_TOKEN` | Ihr dynamischer Token für die Generierung von Coupons. |
-| `CAMPAIGN_ID`                     | Ihre Kampagne ID.                     |
+| `DYNAMIC_COUPON_GENERATION_TOKEN` | Ihr Token zur dynamischen Gutscheingenerierung. |
+| `CAMPAIGN_ID` | Ihre Campaign-ID. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Signatur generieren und URL konstruieren" }
 
-### Schritt 3: Coupon Code an Nachricht anhängen
+### 3. Schritt: Gutscheincode an den Nachrichtentext anhängen {#step-3-append-coupon-code-to-message-body}
 
-#### Verlinkung zur Punchh-Webseite
+#### Verlinkung zur Punchh-Webseite {#linking-to-punchh-web-page}
 
-Um einen Link zu einer von Punchh gehosteten Internetseite zu erstellen, fügen Sie der dynamischen Generierungs-URL [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh) `{% raw %}{{jwt}}{% endraw %}` hinzu. Ihr Link sollte ähnlich wie der folgende aussehen: 
+Um einen Link zu einer von Punchh gehosteten Webseite zu erstellen, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh). Ihr Link sollte ähnlich wie der folgende aussehen:
 
 {% raw %}
 ```
@@ -94,13 +95,13 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 ```
 {% endraw %}
 
-Wenn ein Nutzer:innen auf die Gutschein-URL klickt, wird er auf eine von Punchh gehostete Internetseite weitergeleitet, auf der der generierte Gutschein angezeigt wird.
+Wenn Nutzer:innen auf die Gutschein-URL klicken, werden sie auf eine von Punchh gehostete Webseite weitergeleitet, auf der der generierte Gutschein angezeigt wird.
 
-![Beispiel für eine Bestätigungsnachricht, nachdem ein Nutzer:innen erfolgreich einen Coupon Code generiert hat.]({% image_buster /assets/img/punchh/punchh7.png %})
+![Beispiel für eine Bestätigungsnachricht, nachdem Nutzer:innen erfolgreich einen Gutscheincode generiert haben.]({% image_buster /assets/img/punchh/punchh7.png %})
 
-#### Code über JSON als reinen Text extrahieren
+#### Code über JSON als reinen Text extrahieren {#extracting-code-via-json-as-plain-text}
 
-Um eine JSON-Antwort zurückzugeben, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh), und fügen dann `.json` nach dem Token in den URL-String ein. Ihr Link sollte ähnlich wie der folgende aussehen:
+Um eine JSON-Antwort zurückzugeben, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh), und fügen Sie dann `.json` nach dem Token in den URL-String ein. Ihr Link sollte ähnlich wie der folgende aussehen:
 
 {% raw %}
 ```liquid
@@ -108,7 +109,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 ```
 {% endraw %}
 
-Sie könnten dann [Connected-Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) nutzen, um den Code als reinen Text in jede Nachricht einzufügen. Zum Beispiel:
+Sie könnten dann [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) nutzen, um den Code als reinen Text in jeden Nachrichtentext einzufügen. Zum Beispiel:
 
 {% raw %}
 ```liquid
@@ -117,16 +118,16 @@ Sie könnten dann [Connected-Content]({{site.baseurl}}/user_guide/personalizatio
 ````
 {% endraw %}
 
-#### Ein Bild mit dem Inhalt einer E-Mail verknüpfen
+#### Gutscheincode als Bild in E-Mail-Inhalte einbinden {#linking-an-image-inside-email-content}
 
-So verknüpfen Sie den Code mit einem Bild:
+So verknüpfen Sie den Gutscheincode mit einem Bild:
 
-1. Fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an [, die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh).
-2. Fügen Sie `.png` nach dem Token in den URL String ein.
-3. Betten Sie Ihren Link in einen HTML {% raw %}`<img>`{% endraw %} Tag ein.
+1. Fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh).
+2. Fügen Sie `.png` nach dem Token in den URL-String ein.
+3. Betten Sie Ihren Link in einen HTML-{% raw %}`<img>`{% endraw %}-Tag ein.
 
 {% tabs local %}
-{% tab example input %}
+{% tab Beispiel-Eingabe %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,21 +135,20 @@ So verknüpfen Sie den Code mit einem Bild:
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
-![Gerenderte Ausgabe des Tags für den Code des Gutscheins.]({% image_buster /assets/img/punchh/punchh9.png %})
+{% tab Beispiel-Ausgabe %}
+![Gerenderte Ausgabe des Gutscheincode-Bild-Tags.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
 
-## Fehlermeldungen
+## Fehlermeldungen {#error-messages}
 
 | Fehlercode | Fehlermeldung | Beschreibung |
 | --- | --- | --- |
-| `coupon_code_expired` | Dieser Promo Code ist abgelaufen | Der Code wird nach dem konfigurierten Verfallsdatum verwendet. |
-| `coupon_code_success` | Herzlichen Glückwunsch, der Promo Code wurde erfolgreich angewendet. | Der Code wird erfolgreich verwendet. |
-| `coupon_code_error` | Bitte geben Sie einen gültigen Promo Code ein | Der verwendete Code ist ungültig. |
-| `coupon_code_type_error` | Falscher Coupon-Typ. Dieser Coupon kann nur auf `%{coupon_type}` eingelöst werden. | Wenn ein Code, der am POS verwendet werden soll, in der Mobile App verwendet wird, tritt dieser Fehler auf. |
-| `usage_exceeded` | Die Kampagne für diesen Code ist voll. Bitte versuchen Sie es beim nächsten Mal. | Die Nutzung des Codes übersteigt die Anzahl der Nutzer:innen, die ihn verwenden dürfen. Wenn die Dashboard-Konfiguration beispielsweise die Verwendung eines Codes durch 3.000 Nutzer:innen zulässt und die Anzahl der Nutzer:innen 3.000 übersteigt, wird dieser Fehler angezeigt. |
-| `usage_exceeded_by_guest` | Dieser Promo Code wurde bereits verarbeitet. | Die Nutzung des Codes durch einen Nutzer:in übersteigt die Anzahl der möglichen Nutzungen. Die Dashboard-Konfiguration erlaubt es beispielsweise, dass ein einziger Code dreimal von einem Nutzer:innen verwendet werden kann. Wenn es mehr als das verwendet wird, tritt dieser Fehler auf. |
-| `already_used_by_other_guest` | Dieser Promo-Code wurde bereits von einem anderen Gast verwendet. | Ein anderer Nutzer:innen hat den Code bereits verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
+| `coupon_code_expired` | This promo code has expired | Der Code wird nach dem konfigurierten Verfallsdatum verwendet. |
+| `coupon_code_success` | Congratulations, Promo Code Applied Successfully. | Der Code wurde erfolgreich verwendet. |
+| `coupon_code_error` | Please enter a valid promo code | Der verwendete Code ist ungültig. |
+| `coupon_code_type_error` | Incorrect coupon type. This coupon can only be redeemed at `%{coupon_type}`. | Wenn ein Code, der am POS verwendet werden soll, in der mobilen App verwendet wird, tritt dieser Fehler auf. |
+| `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | Die Nutzung des Codes übersteigt die Anzahl der Nutzer:innen, die ihn verwenden dürfen. Wenn die Dashboard-Konfiguration beispielsweise die Verwendung eines Codes durch 3.000 Nutzer:innen zulässt und die Anzahl der Nutzer:innen 3.000 übersteigt, wird dieser Fehler angezeigt. |
+| `usage_exceeded_by_guest` | This promo code has already been processed. | Die Nutzung des Codes durch eine Nutzer:in übersteigt die Anzahl der möglichen Nutzungen. Die Dashboard-Konfiguration erlaubt es beispielsweise, dass ein einzelner Code dreimal von einer Nutzer:in verwendet werden kann. Wird er häufiger verwendet, tritt dieser Fehler auf. |
+| `already_used_by_other_guest` | This promo code has already been used by some other guest. | Eine andere Nutzer:in hat den Code bereits verwendet. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehlermeldungen" }

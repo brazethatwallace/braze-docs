@@ -184,7 +184,7 @@ For **Boolean** attributes, the following segmentation options are available.
 | Check if the boolean value **is** either true, false, true or not set, or false or not set | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET**, or **FALSE OR NOT SET** | If this filter specifies `coffee_drinker`, a user will match this filter in the following circumstances: <br> {::nomarkdown}<ul><li>If this filter is <code>true</code> and the user has the value <code>coffee_drinker</code></li><li>If this filter is <code>false</code> and the user doesn't have the value <code>coffee_drinker</code></li><li>If this filter is <code>true or not set</code> and the user has the value <code>coffee_drinker</code> or no value</li><li>If this filter is <code>false or not set</code> and the user doesn't have <code>coffee_drinker</code> or any value</li></ul>{:/} |
 | Check if the boolean value **exists** on a user's profile and is not null | **IS NOT BLANK**  | **N/A** | If this filter specifies `coffee_drinker` and a user has a value for the attribute `coffee_drinker`, the user will match this filter. |
 | Check if the boolean value **does not exist** on a user's profile or is null | **IS BLANK**  | **N/A** | If this filter specifies `coffee_drinker` and a user either doesn't have the attribute `coffee_drinker` or the value for `coffee_drinker` is null, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab Numbers %}
@@ -203,7 +203,7 @@ For **Number** attributes, the following segmentation options are available.
 | Check if the numeric attribute **is less than** a **number**| **LESS THAN** | **NUMBER** | If this filter specifies `10` and a user profile has a value lesser than `10`, the user will match this filter. |
 | Check if the numeric attribute **exists** on a user's profile and is not null | **IS NOT BLANK** | **N/A** | If a user profile contains the specified numeric attribute, regardless of value, the user will match this filter. |
 | Check if the numeric attribute **does not exist** on a user's profile or is null | **IS BLANK** | **N/A** | If a user profile doesn't contain the specified numeric attribute or the attribute's value is null, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Number attribute details
 
@@ -227,7 +227,7 @@ For **String** attributes, the following segmentation options are available.
 | Check if the string attribute **does not exactly match any** of the inputted strings | **IS NONE OF** |**STRING**<br>Case sensitive; multiple strings allowed (256 maximum) | If this filter specifies `book`, `bookmark`, and `reading light`, and a user profile doesn't contain any of those strings, the user will match the filter.|
 | Check if the string attribute **partially matches any** of the inputted strings | **CONTAINS ANY OF** | **STRING**<br>Case sensitive; multiple strings allowed (256 maximum) | If this filter specifies `gold` and a user profile contains `gold` in any string, such as `gold_tier` or `former_gold_tier`, the user will match the filter. |
 | Check if the string attribute **does not partially match any** of the inputted strings | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Case sensitive; multiple strings allowed (256 maximum) | If this filter specifies `gold` and a user profile doesn't contain `gold` in any string, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -239,6 +239,8 @@ When segmenting using the **DOES NOT MATCH REGEX** filter, you must already have
 {% tab Arrays %}
 
 Arrays have a maximum size of 100&nbsp;KB. The default length for an attribute is up to 500 items (for example, if you're sending an attribute such as "Movies Watched" set to 500, when a user watches a 501st movie, the first movie is removed and the most recent is added). Note that if you input any values with spaces in between, before, or after words, Braze will also check for the same spaces.
+
+Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/). To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
 
 {% alert note %}
 The option to increase the maximum length will not be available if the attribute is set to automatically detect the data type; the data type must be set to array.
@@ -259,7 +261,7 @@ For **Array** attributes, the following segmentation options are available.
 | Check if the array attribute **does not include a value which partially match any** of the inputted values | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Case sensitive; multiple values allowed (256 maximum) | If this filter specifies `gold` and a user profile array doesn't contain `gold` in any strings, the user will match this filter. This means users with string values like `gold_tier` and `former_gold_tier` won't match this filter.|
 | Check if the array attribute **includes all** of the inputted values | **IS ALL OF** | **STRING**<br>Case sensitive; multiple values allowed (256 maximum) | If this filter specifies `sci-fi, fantasy, romance` and a user profile has all of those values, the user will match this filter. The user can also have `horror` or other values and match this filter.|
 | Check if the array attribute **does not include all of** the inputted values | **ISN'T ALL OF** | **STRING**<br>Case sensitive; multiple values allowed (256 maximum)|  If this filter specifies `sci-fi, fantasy, romance` and a user profile doesn't have all of those values, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 For more on how to use regular expressions (regex), check out these resources:
@@ -294,7 +296,7 @@ For **Time** attributes, the following segmentation options are available.
 | Check if the time attribute is **less than X number** of **days in the future** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | If this filter specifies `7` and a user profile has a date that is less than seven days in the future, the user will match this filter.|
 | Check if the time attribute **exists** on a user's profile and is not null | **IS NOT BLANK** | **N/A** | If this filter specifies a time attribute that is on a user profile, the user will match this filter.|
 | Check if the time attribute **does not exist** on a user's profile or is null | **IS BLANK** | **N/A** | If this filter specifies a time attribute that isn't on a user profile, the user will match this filter. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### Time attribute details
 
@@ -329,7 +331,7 @@ We've consolidated the list of operators available to use in attribute filters, 
 | String | does not equal | is none of | At least 1 value |
 | Array | includes value | includes any of | At least 1 value |
 | Array | doesn't include value | includes none of | At least 1 value |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## Event property data types {#event-property-data-types}
 
@@ -344,7 +346,7 @@ Event-property-specific rules:
 - **Time (Datetime):** Use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) or `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. Not supported within arrays.
 - **Array:** Datetimes are not supported within arrays.
 - **Nested object:** See [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
-- **Payload:** Event property objects that contain array or object values can be up to 100&nbsp;KB.
+- **Payload:** Event property objects that contain array or object values can be up to 102,400 bytes (100&nbsp;KiB).
 
 You can change the data type of your custom event property, but be aware of the impacts of [changing data types](#changing-custom-attribute-or-event-data-type) after data has been collected.
 
@@ -399,7 +401,7 @@ Catalogs support the types listed in the [Definitions](#definitions) table. The 
 | Time | Date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format or Unix timestamp in seconds. | ✅ Yes | ✅ Yes |
 | JSON object (Object) | Nested object with key-value pairs. Displayed in the platform but can only be created or updated through the API or CDI. | ❌ No | ✅ Yes |
 | String array (Array) | A list of strings. Displayed in the platform but can only be created or updated through the API or CDI. Maximum of 100 elements. | ❌ No | ✅ Yes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### Format and examples
 
@@ -411,6 +413,6 @@ Catalogs support the types listed in the [Definitions](#definitions) table. The 
 | Number | Integer or decimal | <code>42</code> or <code>19.99</code> |
 | Object | JSON object | <code>{"key": "value", "price": 10}</code> |
 | Array | Array of strings | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
 For creating and updating catalogs, see [Create a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).

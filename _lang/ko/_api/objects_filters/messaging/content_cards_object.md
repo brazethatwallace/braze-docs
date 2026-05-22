@@ -1,22 +1,22 @@
 ---
-nav_title: "콘텐츠 카드 개체"
-article_title: 콘텐츠 카드 메시징 개체
+nav_title: "콘텐츠 카드 오브젝트"
+article_title: 콘텐츠 카드 메시징 오브젝트
 page_order: 4
 page_type: reference
 channel: content cards
-description: "이 참조 문서에서는 브레이즈 콘텐츠 카드 객체의 다양한 구성 요소에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze 콘텐츠 카드 오브젝트의 다양한 구성요소에 대해 설명합니다."
 
 ---
 
-# 콘텐츠 카드 객체
+# 콘텐츠 카드 오브젝트 {#content-card-object}
 
-> `content_card` 객체를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 콘텐츠 카드를 만들 수 있습니다.
+> `content_card` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 Content Cards를 생성할 수 있습니다.
 
 ```json
 {
   "type": (required, string) one of "CLASSIC", "CAPTIONED_IMAGE", or "BANNER",
-  "title": (required, string) the card's title,
-  "description": (required, string) the card's description,
+  "title": (required, string) the card's title. Not applicable for "BANNER". Accepts an empty string,
+  "description": (required, string) the card's description. Not applicable for "BANNER",
   "message_variation_id": (optional, string) used when providing a campaign_id to specify which message variation this message should be tracked under (must be a Content Card Message),
   "pinned": (optional, boolean) whether the card is pinned. Defaults to false,
   "image_url": (optional, string) the card's image URL. Required for "CAPTIONED_IMAGE" and "BANNER",

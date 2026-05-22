@@ -5,19 +5,19 @@ hide_toc: true
 ---
 
 <fieldset style="margin-top: 60px;">
-<legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">Dokumentation Feedback</legend>
+<legend style="font-size: 2.5rem;color: #212123;font-weight:bold;">Feedback zur Dokumentation</legend>
 <div id="feedback">
     <div id="feedback_section">
-    Haben Sie Ideen zur Verbesserung unserer Dokumente oder haben Sie einen Fehler bemerkt? Wir würden uns freuen, von Ihnen zu hören! Unser Team prüft jede Einsendung, um die Dinge weiter zu verbessern.<br /><br />
+    Haben Sie Ideen zur Verbesserung unserer Dokumentation oder etwas Fehlerhaftes bemerkt? Wir würden uns freuen, von Ihnen zu hören! Unser Team prüft jede Einsendung, um die Dinge weiter zu verbessern.<br /><br />
 
-    <b>How useful do you find Braze docs, on average?</b><br />
+    <b>Wie nützlich finden Sie die Braze-Dokumentation im Durchschnitt?</b><br />
 
     <div id="feedback_answer_star">
       <div class="rating-list">
         <div class="feedback-star">
           <input type="radio" id="rating_1" name="feedback_rating" value="Very Unhelpful" tabindex="-1">
           <label for="rating_1" class="star-label" tabindex="0" aria-label="Very Unhelpful">
-            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />Not Useful</label>
+            <i class="fas fa-star" data-value="Very Unhelpful" title="Very Unhelpful"></i><br />1<br />Nicht nützlich</label>
         </div>
         <div class="feedback-star">
           <input type="radio" id="rating_2" name="feedback_rating" value="Unhelpful" tabindex="-1">
@@ -28,7 +28,7 @@ hide_toc: true
         <div class="feedback-star">
           <input type="radio" id="rating_3" name="feedback_rating" value="Somewhat Helpful" tabindex="-1">
           <label for="rating_3" class="star-label" tabindex="0" aria-label="Somewhat helpful">
-            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />Somewhat Useful</label>
+            <i class="fas fa-star" data-value="Somewhat Helpful" title="Somewhat Helpful"></i><br />3<br />Etwas nützlich</label>
         </div>
 
         <div class="feedback-star">
@@ -41,29 +41,21 @@ hide_toc: true
         <div class="feedback-star">
           <input type="radio" id="rating_5" name="feedback_rating" value="Very Helpful" tabindex="-1">
           <label for="rating_5" class="star-label" tabindex="0" aria-label="Very Helpful">
-            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />Very Useful
+            <i class="fas fa-star" data-value="Very Helpful" title="Very Helpful"></i><br />5<br />Sehr nützlich
           </label>
         </div>
 
       </div>
     </div>
     <div style="margin-top: 15px;">
-      <b>Share your feedback</b> <br />
-      <textarea id="feedback_comment" placeholder="&quot;I couldn’t find any information about this error message&quot;"></textarea><br />
-        Have questions? Contact our support team for assistance.
+      <b>Teilen Sie Ihr Feedback</b> <br />
+      <textarea id="feedback_comment" placeholder="&quot;Ich konnte keine Informationen zu dieser Fehlermeldung finden&quot;"></textarea><br />
+        Haben Sie Fragen? Kontaktieren Sie unser Support-Team für Unterstützung.
     </div>
-    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> Submit feedback </button>
+    <button type="submit" name="submit_feedback" value="Submit feedback" class="btn btn-black" id="feedback_submit" role="button" style="margin-top:15px;"> Feedback senden </button>
   </div>
   <div id="feedback_msg">
   </div>
-
-  <hr style="border: 1px solid #CDCDCF;margin-top:48px;"/>
-
-  <h3> Helfen Sie uns, diese Dokus großartig zu machen</h3>
-
-  Braze Docs ist ein Open-Source-Projekt, zu dem jeder beitragen kann. Schließen Sie sich 288+ Mitwirkenden an und reichen Sie noch heute Ihre erste Pull-Anfrage ein. <br /><br />
-
-  <button type="submit" onclick="location.href='{{site.baseurl}}/contributing/home'" value="Beitragen" class="btn btn-white">Starten Sie Ihren Beitrag</button>
 
 </div>
 </fieldset>
@@ -233,7 +225,7 @@ hide_toc: true
     if (!feedback_helpful || !comment){
       feedback_div.fadeIn();
       feedback_div.addClass('error');
-      feedback_div.html('Please provide a rating and feedback');
+      feedback_div.html('Bitte geben Sie eine Bewertung und Feedback ab.');
       feedback_div.fadeOut(2000).removeClass('error');
       return;
     }
@@ -261,11 +253,11 @@ hide_toc: true
         feedback_div.html('');
         if (dt['result'] == 'success'){
           $('#feedback_section').hide();
-          feedback_div.html('We truly value every piece of feedback. Thank you for your response.');
+          feedback_div.html('Wir schätzen jedes Feedback sehr. Vielen Dank für Ihre Rückmeldung.');
           feedback_div.fadeIn("slow");
         }
         else {
-          feedback_div.html('Error. Please try again at a later time.');
+          feedback_div.html('Fehler. Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.');
           $('#feedback_submit').show();
         }
         feedback_div.fadeIn("slow");

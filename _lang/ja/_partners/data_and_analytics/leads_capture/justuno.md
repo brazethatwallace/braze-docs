@@ -1,7 +1,7 @@
 ---
 nav_title: Justuno
 article_title: Justuno
-description: "Justuno と Braze を統合して、両方のプラットフォームで顧客データを活用し、すべてのオーディエンスにパーソナライズされたエクスペリエンスを提供する方法について説明します。"
+description: "JustunoとBrazeを統合して、両方のプラットフォームで顧客データを活用し、すべてのオーディエンスにパーソナライズされたエクスペリエンスを提供する方法について説明します。"
 
 alias: /partners/justuno
 page_type: partner
@@ -10,91 +10,91 @@ search_tag: Partner
 
 # Justuno
 
-> [Justuno](https://www.justuno.com/) では、ダイナミックなセグメントにより、すべてのオーディエンスに対して完全に最適化されたビジター体験を作成することができ、サイトの速度に影響を及ぼしたり、開発作業を増やすことなく、最も高度なターゲティングを利用できます。作成されたプロファイル数、再訪者の影響率、セッションあたりのページ数などのカスタム分析を表示して、コンバージョン率を分析し、業界でのマーケティングの優位性を維持できるようにします。Justuno は、訪問者当たりの売上を増やし、有意義なカスタマーエンゲージメントを確立し、ビジネスを成長させることができます。接続されたプラットフォームで、オーディエンスジャーニー全体をエンドツーエンドで最適化します。
+> [Justuno](https://www.justuno.com/)では、ダイナミックなセグメントにより、すべてのオーディエンスに対して完全に最適化されたビジター体験を作成することができ、サイトの速度に影響を及ぼしたり、開発作業を増やすことなく、最も高度なターゲティングを利用できます。作成されたプロファイル数、再訪者の影響率、セッションあたりのページ数などのカスタム分析を表示して、コンバージョン率を分析し、業界でのマーケティングの優位性を維持できます。Justunoを使用すると、訪問者あたりの収益を増やし、有意義なカスタマーエンゲージメントを確立し、ビジネスを成長させることができます。接続されたプラットフォームで、オーディエンスジャーニー全体をエンドツーエンドで最適化しましょう。
 
-## ユースケース
+## ユースケース {#use-cases}
 
-Braze では、あらゆるマーケターがあらゆるデータソースからあらゆる量のデータを収集し、対処することができるため、1 つのプラットフォームから様々なチャネルでリアルタイムでクリエイティブに顧客とのエンゲージメントを進めることができます。
+Brazeでは、あらゆるマーケターがあらゆるデータソースからあらゆる量のデータを収集し、アクションを実行できるため、1つのプラットフォームからさまざまなチャネルでリアルタイムにクリエイティブに顧客とエンゲージメントを進めることができます。
 
-Justuno と Braze を統合することで、両方の長所を生かすことができます。Braze に保存されたカスタマーデータと Justuno に保存されたビジターデータや顧客データを組み合わせることで、すべてのオーディエンスに対してよりパーソナライズされたエクスペリエンスを提供することができます。これにより、マーケティングキャンペーンやカスタマーエンゲージメントの効果を上げることができます。
+JustunoとBrazeを統合することで、両方の長所を生かすことができます。Brazeに保存された顧客データとJustunoに保存されたビジターデータや顧客データを組み合わせることで、すべてのオーディエンスに対してよりパーソナライズされたエクスペリエンスを提供できます。これにより、マーケティングキャンペーンやカスタマーエンゲージメントの効果を高めることができます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-| Braze Rest APIキー｜`users.track` および`custom_attributes.get` の権限がある Braze REST API キー。<br><br>これは Braze のダッシュボードで [**設定**] > [**API キー**] から作成できます。
-| Braze RESTエンドポイント｜利用する REST エンドポイントの URL。エンドポイントは、[インスタンスの Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) によって異なります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST APIキー | `users.track`および`custom_attributes.get`の権限があるBraze REST APIキー。<br><br>これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | 利用するRESTエンドポイントのURL。エンドポイントは、[インスタンスのBraze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)によって異なります。|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## Justuno と Braze の統合
+## JustunoとBrazeの統合 {#integrating-justuno-with-braze}
 
-### ステップ 1: Braze でカスタム属性を作成する
+### ステップ1:Brazeでカスタム属性を作成する {#step-1-create-custom-attributes-in-braze}
 
-Justuno から Braze にユーザー属性を同期させるには、Braze で作成されていないユーザー属性を作成する必要があります。[**データ設定**] > [**カスタム属性**] と移動し、カスタム属性を作成することで、これを行うことができます。詳細なチュートリアルについては、[Braze のカスタム属性の管理]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/)を参照してください。
+JustunoからBrazeにユーザー属性を同期するには、まだ作成していない場合はBrazeでそれらの属性を作成する必要があります。**データ設定** > **カスタム属性**に移動し、カスタム属性を作成してください。詳細なチュートリアルについては、[Brazeのカスタム属性の管理]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
 
-### ステップ2: Braze アプリを Justuno に追加する
+### ステップ2:BrazeアプリをJustunoに追加する {#step-2-add-the-braze-app-to-justuno}
 
-#### ステップ 2.1: アカウントに追加する
+#### ステップ2.1:アカウントに追加する {#step-21-add-it-to-your-account}
 
-Justuno アカウントに Braze アプリを追加するには、[**Account Settings**] > [**Apps**] と移動し、Braze アプリを検索して選択します。
+JustunoアカウントにBrazeアプリを追加するには、**Account Settings** > **Apps**に移動し、Brazeアプリを検索して選択します。
 
 ![Brazeアプリが検索結果のリストに表示されたJustunoの「Connect Apps」ページ。]({% image_buster /assets/img/justuno/search-for-braze.png %})
 
-[すでに作成済みの](#prerequisites) API キーとベース URL を入力し、[**Connect**] を選択します。
+[すでに作成済みの](#prerequisites)APIキーとベースURLを入力し、**Connect**を選択します。
 
 ![Braze APIキーとベースURLを求めるBraze認証ポップアップウィンドウ。]({% image_buster /assets/img/justuno/authenticate-braze.png %}){: style="max-width:75%;"}
 
-#### ステップ 2.2:ワークフローに追加する
+#### ステップ2.2:ワークフローに追加する {#step-22-add-it-to-your-workflow}
 
-Braze アプリを [Justuno ワークフロー](https://hub.justuno.com/knowledge/workflows-overview) に追加するには、**Sync to App** アクションをワークフローにドラッグ＆ドロップし、[**Select App**] > [**Braze**] の順に選択します。
+Brazeアプリを[Justunoワークフロー](https://hub.justuno.com/knowledge/workflows-overview)に追加するには、**Sync to App**アクションをワークフローにドラッグ＆ドロップし、**Select App** > **Braze**の順に選択します。
 
-![アプリに同期 "アクションにある "アプリを選択 "オプション。]({% image_buster /assets/img/justuno/select-app.png %}){: style="max-width:45%;"}
+![「Sync to App」アクションにある「Select App」オプション。]({% image_buster /assets/img/justuno/select-app.png %}){: style="max-width:45%;"}
 
-### ステップ 3:Braze 購読グループを接続する
+### ステップ3:Braze購読グループを接続する {#step-3-connect-your-braze-subscription-groups}
 
-Justuno から特定の Braze メールまたは SMS 購読グループにプロファイルデータを送信するには、Justuno ワークフローで Braze アプリにその ID を追加する必要があります。
+Justunoから特定のBrazeメールまたはSMS購読グループにプロファイルデータを送信するには、Justunoワークフロー内のBrazeアプリにそのIDを追加する必要があります。
 
-| ID タイプ                          | 必要か？ | 説明                                                                                                   |
+| IDタイプ                          | 必須？ | 説明                                                                                                   |
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
-| Braze SMS 購読グループ ID  | はい       | このID は、ユーザープロファイルからの SMS の同意の収集に使用されます。Justuno に ID が入力されていない場合、Justuno がそのプロファイルを Braze にプッシュしたときにプロファイルへの同意がないことになります。 |
-| Braze のメール購読グループ ID | いいえ        | Justuno にこの ID が入力されていない場合、購読グループの関連付けがないユーザーとして Justuno から Braze にプロファイルデータが送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Braze SMS購読グループID  | はい       | このIDは、ユーザープロファイルからのSMS同意の収集に使用されます。JustunoにIDが入力されていない場合、JustunoがそのプロファイルをBrazeにプッシュしたときにプロファイルへの同意がないことになります。 |
+| Brazeメール購読グループID | いいえ        | JustunoにこのIDが入力されていない場合、購読グループの関連付けがないユーザーとしてJustunoからBrazeにプロファイルデータが送信されます。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3: Connect your Braze subscription groups" }
 
-#### ステップ 3.1: Braze で ID を見つける
+#### ステップ3.1:BrazeでIDを見つける {#step-31-locate-the-ids-in-braze}
 
-Braze ダッシュボードで必要な ID を見つけます。
+BrazeダッシュボードでこれらのIDを見つけるには:
 
-1. [**オーディエンス**] > [**購読**] に移動します。
-2. ID 列にある各購読グループの ID を書き留めておきますます。
+1. **オーディエンス** > **購読**に移動します。
+2. 各購読グループについて、ID列にあるIDを書き留めます。
 
-#### ステップ 3.2: Braze アプリに ID を追加する
+#### ステップ3.2:BrazeアプリにIDを追加する {#step-32-add-the-ids-to-the-braze-app}
 
-Justuno ワークフローで Braze アプリを開き、各購読グループの ID を入力します。
+Justunoワークフローで Brazeアプリを開き、各購読グループのIDを入力します。
 
-![BrazeアプリはJustunoワークフローで開封され、メールとSMSサブスクリプショングループIDを追加するオプションがある。]({% image_buster /assets/img/justuno/enter-subscription-groups.png %}){: style="max-width:55%;"}
+![BrazeアプリがJustunoワークフローで開かれ、メールとSMS購読グループIDを追加するオプションが表示されている。]({% image_buster /assets/img/justuno/enter-subscription-groups.png %}){: style="max-width:55%;"}
 
-### ステップ 4: 属性の設定
+### ステップ4:属性を設定する {#step-4-configure-your-attributes}
 
-以下の属性は、自動的に Justuno から Braze への同期が行われます。
+以下の属性は、JustunoからBrazeへ自動的に同期されます。
 
-- メール  
-- 電話  
-- 名  
-- 姓  
-- 言語  
-- 性別  
+- メール
+- 電話
+- 名
+- 姓
+- 言語
+- 性別
 - 国
 
-同期する属性を追加する
+追加の属性を同期するには:
 
-1. ワークフロー内の Braze アプリで、[**Sync Another Property**] を選択します。
-    ![BrazeアプリがJustunoワークフローで開封され、「別のプロパティを同期」オプションが表示された。]({% image_buster /assets/img/justuno/sync-another-property.png %}){: style="max-width:55%;"}
-2. 同期する Braze の属性を選択します。
-3. Justuno のプロパティと相当する Braze のプロパティをマッチングします (ソーシャルハンドル、誕生日、ショッピングの好み、アンケートの回答など）。これらのプロパティは、0 パーティデータまたはファーストパーティデータと見なされます。詳細については、[Justuno: Visitor data collection](https://www.justuno.com/guides/zero-first-party-data/) を参照してください。
-4. ワークフロービルダーで、ワークフローの [**Save**]、[**Preview**]、[**Publish**] を選択します。
-    ![Publish」メニューが開封され、保存、プレビュー、バージョン履歴の表示のオプションが表示された。]({% image_buster /assets/img/justuno/publish-workflow.png %}){: style="max-width:45%;"}
+1. ワークフロー内のBrazeアプリで、**Sync Another Property**を選択します。
+    ![BrazeアプリがJustunoワークフローで開かれ、「Sync Another Property」オプションが表示されている。]({% image_buster /assets/img/justuno/sync-another-property.png %}){: style="max-width:55%;"}
+2. 同期するBrazeの属性を選択します。
+3. Justunoのプロパティと対応するBrazeのプロパティをマッチングします（ソーシャルハンドル、誕生日、ショッピングの好み、調査の回答など）。これらのプロパティは、ゼロパーティデータまたはファーストパーティデータと見なされます。詳細については、[Justuno: Visitor data collection](https://www.justuno.com/guides/zero-first-party-data/)を参照してください。
+4. ワークフロービルダーで、ワークフローの**Save**、**Preview**、または**Publish**を選択します。
+    ![「Publish」メニューが開かれ、保存、プレビュー、バージョン履歴の表示のオプションが表示されている。]({% image_buster /assets/img/justuno/publish-workflow.png %}){: style="max-width:45%;"}
 
-## 知っておくべきこと
+## 知っておくべきこと {#things-to-know}
 
-- アプリ設定で購読グループ ID を手動で入力する必要があります。  
-- 次の Braze データ型には**対応していません**。オブジェクト、オブジェクト配列。  
-- Justuno の SMS 同意フィールドが使用されていない場合、SMSの同意が暗黙的に提供されます。  
-- Justuno のデザインに同意フィールドが含まれている場合は、明示的な SMS 同意が考慮されます。
+- アプリ設定で購読グループIDを手動で入力する必要があります。
+- 次のBrazeデータタイプには**対応していません**: オブジェクト、オブジェクト配列。
+- JustunoのSMS同意フィールドが使用されていない場合、SMS同意は暗黙的に提供されます。
+- Justunoのデザインに同意フィールドが含まれている場合は、明示的なSMS同意が尊重されます。

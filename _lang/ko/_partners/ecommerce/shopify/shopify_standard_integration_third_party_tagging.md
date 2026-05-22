@@ -31,7 +31,7 @@ Shopify 온라인 스토어의 경우 Braze의 표준 통합 방법을 사용하
 
 1. [Shopify 표준 통합 설정에서]({{site.baseurl}}/shopify_standard_integration/) 제공된 단계를 따릅니다. Braze [웹 SDK를 인에이블먼트하는]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-2-enable-braze-web-sdks) 동안 타사 도구를 사용하여 Shopify 사이트에 Braze 웹 SDK를 추가하고 있음을 나타내는 확인란을 선택합니다.
 
-!["Braze SDK 설정" 섹션에서 타사 도구를 사용하여 Braze 웹 SDK를 추가할 것임을 나타내는 확인란을 선택합니다.]({% image_buster /assets/img/Shopify/third_party_enable.png %}){: style="max-width:80%;"}
+!["Braze SDK 설정" 섹션에서 타사 도구를 사용하여 Braze 웹 SDK를 추가할 것임을 나타내는 확인란을 선택합니다.]({% image_buster /assets/img/shopify/third_party_enable.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2\. **설정** > **앱 설정으로** 이동하여 **Shopify** 웹 앱을 선택한 다음 **웹용 Shopify의 API 키를** 복사합니다.

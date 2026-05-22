@@ -20,20 +20,20 @@ This feature doesn't support Shopify Markets or Markets Pro. If you would like t
 | ----------- | ----------- |
 | Set up a Shopify store | Be sure that you've already [set up at least one Shopify store with Braze]({{site.baseurl}}/shopify_overview/). |
 | Unique Shopify storefront domains for each region | Multiple store support is intended for use with unique Shopify store domains for different regional storefronts. <br><br>If you want to connect multiple sub-brands to Braze, we recommend creating separate workspaces for each sub-brand. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Connecting an additional store
 After you install the Braze app to your Shopify store and install your first store, select **+ Connect New Store**.
 
-![The "+ Connect New Store" button on the Shopify integration page.]({% image_buster /assets/img/Shopify/begin_setup_button.png %}){: style="max-width:80%;"}
+![The "+ Connect New Store" button on the Shopify integration page.]({% image_buster /assets/img/shopify/begin_setup_button.png %}){: style="max-width:80%;"}
 
 For your additional Shopify regional store, select **Begin setup**.
 
-![The "Integration settings" section with a button to "Begin setup".]({% image_buster /assets/img/Shopify/multiple_stores.png %}){: style="max-width:80%;"}
+![The "Integration settings" section with a button to "Begin setup".]({% image_buster /assets/img/shopify/multiple_stores.png %}){: style="max-width:80%;"}
 
 Like your first Shopify store integration, you can choose either between a standard or custom setup.
 
-!["Enable the Braze SDKs" section with options to implement the Braze Web SDK with the standard or custom setup.]({% image_buster /assets/img/Shopify/standard_or_custom.png %}){: style="max-width:80%;"}
+!["Enable the Braze SDKs" section with options to implement the Braze Web SDK with the standard or custom setup.]({% image_buster /assets/img/shopify/standard_or_custom.png %}){: style="max-width:80%;"}
 
 Choose the option that best fits your needs:
 
@@ -41,7 +41,7 @@ Choose the option that best fits your needs:
 
 To view each store integration and configure advanced settings, select a store in the dropdown menu.
 
-!["Integration settings" with a dropdown menu to select a Shopify store.]({% image_buster /assets/img/Shopify/store_dropdown_menu.png %})
+!["Integration settings" with a dropdown menu to select a Shopify store.]({% image_buster /assets/img/shopify/store_dropdown_menu.png %})
 
 ## Syncing users across stores
 
@@ -57,7 +57,7 @@ You can choose from the following options for your Braze external ID:
 |------|-----------|
 |Shopify Customer ID|If you use Shopify's customer ID as your Braze external ID, each store will generate a unique customer ID for each user. This means that if a user interacts with multiple stores, they will have separate profiles in Braze.|
 |Email, Hashed Email, or Custom External ID|If you use the email, hashed email, or custom external ID types, users who engage with multiple stores will have their profiles merged into a single consolidated profile when they log in or place an order.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze external ID" }
 
 ### Merged fields
 
@@ -93,7 +93,7 @@ Alternatively, you can sync email and SMS marketing opt-in information directly 
 |------|---------|
 |API |- [Subscription group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups/) to directly replace what is supported by the integration<br>- [`Users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#set-subscription-groups) to set subscription group data or the [global email subscription state]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-states)<br>- [Braze preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions/) for more customized marketing opt-in collection options|
 |SDKs |- [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype)|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Collecting subscribers (optional)" }
 {% endtab %}
 {% endtabs %}
 
@@ -122,7 +122,7 @@ When you connect more than one store, the following attributes will be synced wi
 
 When you connect multiple stores, incoming eCommerce recommended events will include a source event property. This property identifies which storefront URL the event originated from, allowing you to use this information for segmentation or triggering specific use cases.
 
-![An action-based Canvas with a trigger to enter users who perform the `ecommerce.order_placed` custom event.]({% image_buster /assets/img/Shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
+![An action-based Canvas with a trigger to enter users who perform the `ecommerce.order_placed` custom event.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
 The supported eCommerce recommended events within the Shopify integration are:
 
@@ -137,7 +137,7 @@ The supported eCommerce recommended events within the Shopify integration are:
 
 Incoming Shopify custom events include an event property called `shopify_storefront`. This property indicates which storefront URL the event came from, allowing you to leverage it for segmentation or triggering use cases.
 
-![An action-based Canvas with a trigger to enter users who perform the `shopify_paid_order` custom event.]({% image_buster /assets/img/Shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
+![An action-based Canvas with a trigger to enter users who perform the `shopify_paid_order` custom event.]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 
 Supported Shopify custom events include:
 
@@ -154,5 +154,5 @@ When you connect and configure each Shopify store in Braze, you can optionally e
 
 If you activate the product sync for each store, Braze includes the name of your Shopify store in the catalog name. This distinguishes products from different stores.
 
-![Shopify catalogs with their Shopify store in their name.]({% image_buster /assets/img/Shopify/catalog_store_name.png %})
+![Shopify catalogs with their Shopify store in their name.]({% image_buster /assets/img/shopify/catalog_store_name.png %})
 

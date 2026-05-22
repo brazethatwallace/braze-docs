@@ -1,6 +1,6 @@
 ---
 nav_title: Speicher
-article_title: Speicher für iOS
+article_title: Speicher
 page_order: 3.60
 page_type: reference
 description: "Erfahren Sie mehr über die verschiedenen Eigenschaften auf Geräteebene, die vom Braze SDK gespeichert werden."
@@ -11,11 +11,11 @@ platform:
   - Web
 ---
 
-# Speicher
+# Speicher {#storage}
 
 > Erfahren Sie mehr über die verschiedenen Eigenschaften auf Geräteebene, die vom Braze SDK gespeichert werden.
 
-## Geräteeigenschaften
+## Geräteeigenschaften {#device-properties}
 
 Standardmäßig erfasst Braze die folgenden Eigenschaften auf Geräteebene, um die Personalisierung von Nachrichten auf der Grundlage von Gerät, Sprache und Zeitzone zu ermöglichen:
 
@@ -82,7 +82,7 @@ braze.initialize("API-KEY", {
 {% endtab %}
 
 {% tab android %}
-Sie können zum Beispiel die Android-Betriebssystemversion und das Gebietsschema des Geräts angeben, die auf die Allowlist gesetzt werden sollen. Weitere Informationen finden Sie in den Methoden [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) und [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html). 
+Sie können zum Beispiel die Android-Betriebssystemversion und das Gebietsschema des Geräts angeben, die auf die Allowlist gesetzt werden sollen. Weitere Informationen finden Sie in den Methoden [`setDeviceObjectAllowlistEnabled()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html) und [`setDeviceObjectAllowlist()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html).
 
 ```java
 new BrazeConfig.Builder()
@@ -117,7 +117,7 @@ configuration.devicePropertyAllowList = @[
 {% endtabs %}
 
 {% alert tip %}
-Wenn Sie mehr über automatisch erfasste Geräteeigenschaften erfahren möchten, lesen Sie den Abschnitt [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection/).
+Wenn Sie mehr über automatisch erfasste Geräteeigenschaften erfahren möchten, lesen Sie den Abschnitt [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
 {% endalert %}
 
 ## Speichern von Cookies (nur Internet) {#cookies}
@@ -126,14 +126,14 @@ Nach der [Initialisierung des Internet Braze SDK](https://js.appboycdn.com/web-s
 
 Die folgenden Cookies werden gespeichert:
 
-|Cookie|Beschreibung|Größe|
-|---|----|---|---|
-|`ab.storage.userId.[your-api-key]`|Wird verwendet, um festzustellen, ob sich die aktuell angemeldete Nutzer:in geändert hat, und um Ereignisse mit der aktuellen Nutzer:in zu verknüpfen.|Basierend auf der Größe des Werts, der an `changeUser` übergeben wird|
-|`ab.storage.sessionId.[your-api-key]`|Zufällig generierter String, der verwendet wird, um festzustellen, ob die Nutzer:in eine neue oder bestehende Sitzung startet, um Nachrichten zu synchronisieren und Sitzungs-Analytics zu berechnen.|~200 Bytes|
-|`ab.storage.deviceId.[your-api-key]`|Zufällig generierter String zur Identifizierung anonymer Nutzer:innen und zur Unterscheidung der Geräte der Nutzer:innen, der gerätebasiertes Messaging ermöglicht.|~200 Bytes|
-|`ab.optOut`|Wird verwendet, um die Opt-out-Präferenz einer Nutzer:in zu speichern, wenn `disableSDK` aufgerufen wird.|~40 Bytes|
-|`ab._gd`|Wird vorübergehend erstellt (und dann gelöscht), um die Root-Level-Cookie-Domain zu bestimmen, damit das SDK über Sub-Domains hinweg korrekt funktioniert.|k.A.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Cookie | Beschreibung | Größe |
+| --- | ---- | --- |
+| `ab.storage.userId.[your-api-key]` | Wird verwendet, um festzustellen, ob sich die aktuell angemeldete Nutzer:in geändert hat, und um Ereignisse mit der aktuellen Nutzer:in zu verknüpfen. | Basierend auf der Größe des Werts, der an `changeUser` übergeben wird |
+| `ab.storage.sessionId.[your-api-key]` | Zufällig generierter String, der verwendet wird, um festzustellen, ob die Nutzer:in eine neue oder bestehende Sitzung startet, um Nachrichten zu synchronisieren und Sitzungs-Analytics zu berechnen. | ~200 Bytes |
+| `ab.storage.deviceId.[your-api-key]` | Zufällig generierter String zur Identifizierung anonymer Nutzer:innen und zur Unterscheidung der Geräte der Nutzer:innen, der gerätebasiertes Messaging ermöglicht. | ~200 Bytes |
+| `ab.optOut` | Wird verwendet, um die Opt-out-Präferenz einer Nutzer:in zu speichern, wenn `disableSDK` aufgerufen wird. | ~40 Bytes |
+| `ab._gd` | Wird vorübergehend erstellt (und dann gelöscht), um die Root-Level-Cookie-Domain zu bestimmen, damit das SDK über Sub-Domains hinweg korrekt funktioniert. | k. A. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Store cookies (web only) #cookies" }
 
 ### Ablauf von Cookies ändern {#cookie-expiry}
 

@@ -7,6 +7,8 @@ page_order: 10
 
 # Agents frequently asked questions
 
+> This article answers frequently asked questions about Braze Agents.
+
 ## General
 
 ### What is the difference between Canvas agents and catalog agents?
@@ -52,7 +54,7 @@ A custom agent may time out if:
 
 - The agent instructions has incomplete or contradictory instructions
 - The agent instructions do not cover off on all scenarios or include a fallback condition (such as “If all inputs are blank, output “Could not personalize”)
-- The agent instructions ask the agent to output a different output format than the one specified in the **Output** tab (for example, if Agent Instructions ask for a string, but in **Output** tab the output is defined as a number)
+- The agent instructions ask the agent to output a different output format than the one specified in the **Output** tab (for example, if the agent instructions ask for a string, but in **Output** tab the output is defined as a number)
 - The agent's task is too complex and would benefit from a [sub-agent approach](#subagent-approach) instead
 
 ## Compliance

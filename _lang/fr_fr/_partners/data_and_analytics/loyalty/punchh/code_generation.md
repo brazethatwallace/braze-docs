@@ -7,42 +7,42 @@ page_type: partner
 search_tag: Partner
 ---
 
-# Génération de code dynamique avec Punchh
+# Génération de code dynamique avec Punchh {#dynamic-code-generation-with-punchh}
 
-> Un code de coupon est un code unique qui peut être utilisé par un seul utilisateur (soit une seule fois, soit plusieurs fois). Le cadre Punchh génère des codes de coupon, qui peuvent être traités dans une application mobile ou au système de point de vente (POS).
+> Un code de coupon est un code unique qui peut être utilisé par un seul utilisateur (une seule fois ou plusieurs fois). Le framework Punchh génère des codes de coupon, qui peuvent être traités dans une application mobile ou au point de vente (POS).
 
 _Cette intégration est maintenue par Punchh._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
-En utilisant le cadre de coupon Punchh et Braze, vous pouvez réaliser les scénarios suivants :
+En combinant le framework de coupons Punchh et Braze, vous pouvez réaliser les scénarios suivants :
 
-- Générez un code de coupon lorsque l'invité clique sur un lien de génération de coupon dans un e-mail: Le code du coupon sera généré dynamiquement et affiché sur une page web.
-- Générez un code de coupon lorsque l'invité ouvre un e-mail: Le code de coupon sera généré dynamiquement et affiché comme une image dans l'e-mail.
+- Générer un code de coupon lorsque l'invité clique sur un lien de génération de coupon dans un e-mail : le code de coupon sera généré dynamiquement et affiché sur une page web.
+- Générer un code de coupon lorsque l'invité ouvre un e-mail : le code de coupon sera généré dynamiquement et affiché sous forme d'image dans l'e-mail.
 
-## Intégration de la génération de code de coupon dynamique
+## Intégration de la génération dynamique de codes de coupon {#integrating-dynamic-coupon-code-generation}
 
-### Étape 1 : Créer une campagne de coupons
+### Étape 1 : Créer une campagne de coupons {#step-1-create-a-coupon-campaign}
 
 1. À l'aide d'une campagne de coupons Punchh, créez une campagne de génération dynamique de coupons comme indiqué dans l'image suivante.
-2. Le cadre de coupon Punchh générera les paramètres suivants pour permettre la génération dynamique de coupons :
-    - Génération dynamique de jeton de coupon : Il s’agit d’un jeton de sécurité généré par le système pour le cryptage.
-    - URL de génération de coupon dynamique : Cette URL sera intégrée dans l'e-mail sous forme de lien ou d'image, selon les besoins de l'entreprise.
+2. Le framework de coupons Punchh générera les paramètres suivants pour permettre la génération dynamique de coupons :
+    - Jeton de génération dynamique de coupon : il s'agit d'un jeton de sécurité généré par le système pour le chiffrement.
+    - URL de génération dynamique de coupon : cette URL sera intégrée dans l'e-mail sous forme de lien ou d'image, selon les besoins de l'entreprise.
 
 ![Le formulaire de création d'une campagne de coupons dans Punchh.]({% image_buster /assets/img/punchh/punchh8.png %}){: style="max-width:60%;"}
 
-### Étape 2 : Générer une signature et construire une URL
+### Étape 2 : Générer une signature et construire une URL {#step-2-generate-signature-and-construct-url}
 
-La bibliothèque JWT.IO décode, vérifie et génère des jetons web JSON, une méthode ouverte et standard de l'industrie RFC 7519 pour représenter des revendications de manière sécurisée entre deux parties. 
+La bibliothèque JWT.IO décode, vérifie et génère des jetons web JSON, une méthode ouverte et standard de l'industrie RFC 7519 pour représenter des revendications de manière sécurisée entre deux parties.
 
-Les noms `ClaimType` suivants peuvent être utilisés pour garantir l'unicité des invités et des coupons :
+Les noms `ClaimType` suivants peuvent être utilisés pour garantir l'unicité des invités et des coupons :
 
-- `campaign_id` : représente l'ID de campagne Punchh généré par le système.
-- `email` : représente l'adresse e-mail de l'utilisateur. 
-- `first_name`: capture le prénom de l'utilisateur. 
-- `last_name` : capture le nom de famille de l'utilisateur.
+- `campaign_id` : représente l'ID de campagne Punchh généré par le système.
+- `email` : représente l'adresse e-mail de l'utilisateur.
+- `first_name` : capture le prénom de l'utilisateur.
+- `last_name` : capture le nom de famille de l'utilisateur.
 
-Pour utiliser l'API de code de coupon dynamique Punchh, un jeton JWT doit être créé. Ajoutez le modèle liquid suivant à votre tableau de bord de Braze dans le corps du message du canal que vous souhaitez utiliser :
+Pour utiliser l'API de code de coupon dynamique Punchh, un jeton JWT doit être créé. Ajoutez le modèle Liquid suivant à votre tableau de bord de Braze dans le corps du message du canal que vous souhaitez utiliser :
 
 {% raw %}
 ```liquid
@@ -75,18 +75,19 @@ Pour utiliser l'API de code de coupon dynamique Punchh, un jeton JWT doit être 
 {% endraw %}
 
 
-Remplacez les éléments suivants :
+Remplacez les éléments suivants :
 
-| Marque substitutive        | Description                                          |
+| Marque substitutive | Description |
 |--------------------|------------------------------------------------------|
-| `DYNAMIC_COUPON_GENERATION_TOKEN` | Votre jeton de génération de coupon dynamique. |
+| `DYNAMIC_COUPON_GENERATION_TOKEN` | Votre jeton de génération dynamique de coupon. |
 | `CAMPAIGN_ID`                     | Votre ID de campagne.                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Générer une signature et construire une URL" }
 
-### Étape 3 : Ajouter le code du coupon au corps du message
+### Étape 3 : Ajouter le code de coupon au corps du message {#step-3-append-coupon-code-to-message-body}
 
-#### Lien vers la page Web Punchh
+#### Lien vers la page web Punchh {#linking-to-punchh-web-page}
 
-Pour créer un lien vers une page web hébergée par Punchh, ajoutez `{% raw %}{{jwt}}{% endraw %}` à l'URL de génération dynamique [que vous avez créée précédemment](#step-1-create-a-coupon-campaign-in-punchh). Votre lien doit être similaire à ce qui suit : 
+Pour créer un lien vers une page web hébergée par Punchh, ajoutez `{% raw %}{{jwt}}{% endraw %}` à l'URL de génération dynamique [que vous avez créée précédemment](#step-1-create-a-coupon-campaign-in-punchh). Votre lien doit ressembler à ce qui suit :
 
 {% raw %}
 ```
@@ -94,13 +95,13 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 ```
 {% endraw %}
 
-Lorsqu'un utilisateur clique sur l'URL du coupon, il sera redirigé vers une page web hébergée par Punchh, où son coupon généré sera affiché.
+Lorsqu'un utilisateur clique sur l'URL du coupon, il est redirigé vers une page web hébergée par Punchh, où son coupon généré sera affiché.
 
 ![Exemple de message de confirmation après qu'un utilisateur a généré avec succès un code de coupon.]({% image_buster /assets/img/punchh/punchh7.png %})
 
-#### Extraction de code via JSON en tant que texte brut
+#### Extraction du code via JSON en texte brut {#extracting-code-via-json-as-plain-text}
 
-Pour renvoyer une réponse JSON, ajoutez `{% raw %}{{jwt}}{% endraw %}` à l'URL de génération dynamique [que vous avez créée plus tôt](#step-1-create-a-coupon-campaign-in-punchh), puis ajoutez `.json` après le jeton dans la chaîne de caractères de l'URL. Votre lien doit être similaire à ce qui suit :
+Pour renvoyer une réponse JSON, ajoutez `{% raw %}{{jwt}}{% endraw %}` à l'URL de génération dynamique [que vous avez créée précédemment](#step-1-create-a-coupon-campaign-in-punchh), puis ajoutez `.json` après le jeton dans la chaîne de caractères de l'URL. Votre lien doit ressembler à ce qui suit :
 
 {% raw %}
 ```liquid
@@ -108,7 +109,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 ```
 {% endraw %}
 
-Vous pourriez alors tirer parti du [contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) pour insérer le code en tant que texte brut dans le corps de tout message. Par exemple:
+Vous pouvez ensuite tirer parti du [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) pour insérer le code en texte brut dans le corps de n'importe quel message. Par exemple :
 
 {% raw %}
 ```liquid
@@ -117,16 +118,16 @@ Vous pourriez alors tirer parti du [contenu connecté]({{site.baseurl}}/user_gui
 ````
 {% endraw %}
 
-#### Liaison d'une image dans le contenu de l'e-mail
+#### Intégration d'une image dans le contenu de l'e-mail {#linking-an-image-inside-email-content}
 
-Pour lier le code de coupon à l'intérieur d'une image :
+Pour intégrer le code de coupon dans une image :
 
-1. Ajoutez `{% raw %}{{jwt}}{% endraw %}` à l'URL de génération dynamique [que vous avez créée plus tôt](#step-1-create-a-coupon-campaign-in-punchh).
+1. Ajoutez `{% raw %}{{jwt}}{% endraw %}` à l'URL de génération dynamique [que vous avez créée précédemment](#step-1-create-a-coupon-campaign-in-punchh).
 2. Ajoutez `.png` après le jeton dans la chaîne de caractères de l'URL.
-3. Intégrez votre lien dans une étiquette HTML {% raw %}`<img>`{% endraw %}.
+3. Intégrez votre lien dans une balise HTML {% raw %}`<img>`{% endraw %}.
 
 {% tabs local %}
-{% tab example input %}
+{% tab exemple d'entrée %}
 {% raw %}
 ```liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
@@ -134,21 +135,20 @@ Pour lier le code de coupon à l'intérieur d'une image :
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
-![Résultat du rendu de l'étiquette de l'image du code du coupon.]({% image_buster /assets/img/punchh/punchh9.png %})
+{% tab exemple de sortie %}
+![Résultat du rendu de la balise image du code de coupon.]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
 
-## Messages d'erreur
+## Messages d'erreur {#error-messages}
 
-| code d'erreur | Message d'erreur | Description |
+| Code d'erreur | Message d'erreur | Description |
 | --- | --- | --- |
 | `coupon_code_expired` | Ce code promo a expiré | Le code est utilisé après sa date d'expiration configurée. |
-| `coupon_code_success` | Félicitations, Code promo appliqué avec succès. | Le code est utilisé avec succès. |
+| `coupon_code_success` | Félicitations, code promo appliqué avec succès. | Le code est utilisé avec succès. |
 | `coupon_code_error` | Veuillez entrer un code promo valide | Le code utilisé est invalide. |
 | `coupon_code_type_error` | Type de coupon incorrect. Ce coupon ne peut être utilisé qu'à `%{coupon_type}`. | Lorsqu'un code censé être utilisé au point de vente est utilisé dans l'application mobile, cette erreur est générée. |
-| `usage_exceeded` | L'utilisation de cette campagne de code de coupon est complète. Veuillez essayer la prochaine fois. | L'utilisation du code dépasse le nombre d'utilisateurs autorisés à l'utiliser. Par exemple, si la configuration du tableau de bord permet à un code d'être utilisé par 3 000 utilisateurs et que le nombre d'utilisateurs dépasse 3 000, cette erreur sera générée. |
+| `usage_exceeded` | L'utilisation de la campagne de ce code de coupon est complète. Veuillez réessayer ultérieurement. | L'utilisation du code dépasse le nombre d'utilisateurs autorisés à l'utiliser. Par exemple, si la configuration du tableau de bord permet à un code d'être utilisé par 3 000 utilisateurs et que le nombre d'utilisateurs dépasse 3 000, cette erreur sera générée. |
 | `usage_exceeded_by_guest` | Ce code promo a déjà été traité. | L'utilisation du code par un utilisateur dépasse le nombre de fois qu'un utilisateur peut l'utiliser. Par exemple, la configuration du tableau de bord permet à un seul code d'être utilisé trois fois par un utilisateur. Si le code est utilisé plus fréquemment, cette erreur est générée. |
 | `already_used_by_other_guest` | Ce code promo a déjà été utilisé par un autre invité. | Un autre utilisateur a déjà utilisé le code. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages d'erreur" }

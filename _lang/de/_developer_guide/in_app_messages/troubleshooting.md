@@ -1,6 +1,6 @@
 ---
-nav_title: Fehlersuche
-article_title: Fehlerbehebung bei In-App-Nachrichten für das Braze SDK
+nav_title: Fehlerbehebung
+article_title: Fehlerbehebung für In-App-Nachrichten im Braze SDK
 page_order: 50
 description: "Benötigen Sie Hilfe bei der Fehlerbehebung von In-App-Nachrichten für das Braze SDK? Beginnen Sie hier!"
 channel:
@@ -8,7 +8,7 @@ channel:
 
 ---
 
-# Fehlersuche
+# Fehlerbehebung {#troubleshooting}
 
 > Benötigen Sie Hilfe bei der Fehlerbehebung von In-App-Nachrichten für das Braze SDK? Beginnen Sie hier!
 

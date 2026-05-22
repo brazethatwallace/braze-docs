@@ -30,7 +30,7 @@ The [base card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android
 |`isClicked()` | Returns a boolean that reflects the clicked state of this card.|
 |`isDismissed` | Returns a boolean that reflects whether the card has been dismissed. Set to `true` to mark the card as dismissed. If a card is already marked as dismissed, it cannot be marked as dismissed again.|
 |`isControl()` | Returns a boolean if this card is a control card and should not be rendered.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model #base-card-for-android" }
 
 ### Image only {#banner-image-card-for-android}
 
@@ -41,7 +41,7 @@ The [base card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android
 |`getImageUrl()` | Returns the URL of the card's image.|
 |`getUrl()` | Returns the URL that will be opened after the card is clicked. It can be a HTTP(s) URL or a protocol URL.|
 |`getDomain()` | Returns link text for the property URL.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only #banner-image-card-for-android" }
 
 ### Captioned image {#captioned-image-card-for-android}
 
@@ -54,7 +54,7 @@ The [base card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android
 |`getDescription()` | Returns the body text for the card.|
 |`getUrl()` | Returns the URL that will be opened after the card is clicked. It can be a HTTP(s) URL or a protocol URL.|
 |`getDomain()` | Returns the link text for the property URL. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image #captioned-image-card-for-android" }
 
 ### Classic {#text-Announcement-card-for-android}
 
@@ -68,7 +68,7 @@ A classic card without an image included will result in a [text announcement car
 |`getDomain()` | Returns the link text for the property URL. |
 |`getImageUrl()` | Returns the URL of the card's image, applies only to the classic Short News Card. |
 |`isDismissed` | Returns a boolean that reflects whether the card has been dismissed. Set to `true` to mark the card as dismissed. If a card is already marked as dismissed, it cannot be marked as dismissed again. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic #text-Announcement-card-for-android" }
 
 ## Card methods
 
@@ -78,4 +78,4 @@ All [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sd
 |---|---|
 |`logImpression()` | Manually log an impression to Braze for a particular card. |
 |`logClick()` | Manually log a click to Braze for a particular card. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }

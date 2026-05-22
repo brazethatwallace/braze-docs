@@ -1,41 +1,41 @@
 ---
-nav_title: "GET: Análisis de segmentos de exportación"
-article_title: "GET: Análisis de segmentos de exportación"
+nav_title: "GET: Exportar análisis de segmentos"
+article_title: "GET: Exportar análisis de segmentos"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar análisis de segmentos de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar análisis de segmentos de Braze."
 
 ---
 {% api %}
-# Análisis de segmentos de exportación
+# Exportar análisis de segmentos {#export-segment-analytics}
 {% apimethod get %}
 /segments/data_series
 {% endapimethod %}
 
-> Utilice este punto final para recuperar una serie diaria del tamaño estimado de un segmento a lo largo del tiempo.
+> Usa este punto de conexión para recuperar una serie diaria del tamaño estimado de un segmento a lo largo del tiempo. <br><br>Si necesitas el tamaño exacto de un segmento, exporta sus usuarios con el [punto de conexión `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) y cuenta los perfiles exportados.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#62d9d142-cdec-4aea-a287-c13efea7415e {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.data_series`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.data_series`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `segment_id` | Obligatoria | Cadena | Ver [Identificador API de segmento]({{site.baseurl}}/api/identifier_types/).<br><br> La dirección `segment_id` para un segmento determinado se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) dentro de su cuenta Braze o puede utilizar el [punto final Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
-| `length` | Obligatoria | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
-| `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, la hora de la solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | Obligatorio | Cadena | Ver [Identificador de API del segmento]({{site.baseurl}}/api/identifier_types/).<br><br> El `segment_id` de un segmento determinado se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) dentro de tu cuenta de Braze, o puedes usar el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
+| `length` | Obligatorio | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
+| `ending_at` | Opcional | Fecha y hora <br>(cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la serie de datos. De forma predeterminada, corresponde a la hora de la solicitud. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/data_series?segment_id={{segment_identifier}}&length=14&ending_at=2018-06-27T23:59:59-5:00' \
@@ -43,7 +43,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/data_se
 ```
 {% endraw %}
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -59,7 +59,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/data_se
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

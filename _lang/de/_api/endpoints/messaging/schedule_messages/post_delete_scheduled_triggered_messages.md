@@ -1,26 +1,26 @@
 ---
-nav_title: "POST: Löschen Sie geplante, durch APIs getriggerte Kampagnen"
-article_title: "POST: Geplante, API-getriggerte Kampagnen löschen"
+nav_title: "POST: Geplante, API-getriggerte Campaigns löschen"
+article_title: "POST: Geplante, API-getriggerte Campaigns löschen"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Endpunkt von Braze für geplante, durch APIs getriggerte Kampagnen löschen."
+description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Löschen geplanter, API-getriggerter Campaigns."
 
 ---
 {% api %}
-# Löschen Sie geplante, durch APIs getriggerte Kampagnen
+# Geplante, API-getriggerte Campaigns löschen {#delete-scheduled-api-triggered-campaigns}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
-/kampagnen/triggern/zeitplan/loeschen
+/campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Canvas Nachricht zu stornieren, die Sie zuvor per API-getriggert geplant haben, bevor sie gesendet wurde.
+> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger geplante Canvas-Nachricht zu stornieren, bevor sie gesendet wurde.
 
-Geplante Nachrichten oder Trigger, die kurz vor oder während der Zeit, zu der sie gesendet werden sollten, gelöscht werden, werden nach bestem Wissen und Gewissen aktualisiert, so dass Braze möglicherweise in letzter Sekunde alle, einige oder keinen Ihrer Targeting Nutzer:innen löscht.
+Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen Sendezeitpunkts gelöscht werden, werden nach bestem Bemühen aktualisiert. Das bedeutet, dass Braze Löschungen in letzter Sekunde möglicherweise auf alle, einige oder keine Ihrer Zielnutzer:innen anwendet.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7d34037f-4bf2-4fab-bc9c-c972988051a7 {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `campaigns.trigger.schedule.delete`.
 
@@ -28,7 +28,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,16 +42,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `campaign_id`| Erforderlich | String | Siehe [Bezeichner der Kampagne]({{site.baseurl}}/api/identifier_types/). |
-| `schedule_id` | Erforderlich | String | Die `schedule_id` zum Löschen (erhalten aus der Antwort auf den Zeitplan erstellen). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `campaign_id` | Erforderlich | String | Siehe [Campaign-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
+| `schedule_id` | Erforderlich | String | Die zu löschende `schedule_id` (aus der Antwort beim Erstellen des Zeitplans erhalten). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/schedule/delete' \
 --header 'Content-Type: application/json' \

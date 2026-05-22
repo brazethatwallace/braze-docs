@@ -1,30 +1,30 @@
 ---
-nav_title: "POST:SDK認証キーを作成する"
-article_title: "POST:SDK 認証キーを作成"
-search_tag: エンドポイント
+nav_title: "POST: SDK認証キーを作成する"
+article_title: "POST: SDK認証キーを作成"
+search_tag: Endpoint
 page_order: 0
 layout: api_page
 page_type: reference
-description: "この記事では、「SDK 認証キーを作成」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「SDK認証キーを作成」Brazeエンドポイントの詳細について説明します。"
 ---
 
 {% api %}
-# SDK 認証キーを作成
+# SDK認証キーを作成 {#create-sdk-authentication-key}
 {% apimethod post %}
 /app_group/sdk_authentication/create
 {% endapimethod %}
 
-> このエンドポイントを使用して、アプリ用の新しい SDK 認証キーを作成します。
+> このエンドポイントを使用して、アプリ用の新しいSDK認証キーを作成します。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`sdk_authentication.create`の権限が必要です。
+このエンドポイントを使用するには、`sdk_authentication.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -38,19 +38,19 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | 必須かどうか | string | アプリの API 識別子。 |
-| `rsa_public_key_str` | 必須かどうか | string | RSA 公開キーの文字列。有効な RSA 公開キーでなければならず、そうでない場合はエラーを返します。 |
-| `description` | 必須かどうか | string | SDK 認証キーの説明。 |
-| `make_primary` | オプション | ブール値 | `true` に設定すると、作成時にこのキーをプライマリ SDK 認証キーとします。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | 必須 | 文字列 | アプリのAPI識別子。 |
+| `rsa_public_key_str` | 必須 | 文字列 | RSA公開キーの文字列。有効なRSA公開キーでなければならず、そうでない場合はエラーを返します。 |
+| `description` | 必須 | 文字列 | SDK認証キーの説明。 |
+| `make_primary` | オプション | ブール値 | `true` に設定すると、作成時にこのキーがプライマリSDK認証キーになります。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
-```bash
+`````````bash
 curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_authentication/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
@@ -62,27 +62,27 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 }'
 ```
 
-## 応答
+## 応答 {#response}
 ```json
 {
   "id": "key id"
 }
 ```
 
-## 応答パラメーター
+## 応答パラメーター {#response-parameters}
 
-| パラメータ | データタイプ | 説明 |
+| パラメーター | データタイプ | 説明 |
 | --------- | --------- | ----------- |
-| `id` | string | 新しく作成された SDK 認証キーの ID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `id` | 文字列 | 新しく作成されたSDK認証キーのID。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
-### 検証ルール
+### バリデーションルール {#validation-rules}
 
-このエンドポイントには以下の検証ルールがあります。
+このエンドポイントには以下のバリデーションルールがあります。
 
-- 1 つのアプリにつき SDK 認証キーを 3 つまで持つことができる。
-- RSA 公開キー文字列は、適切な形式の有効な RSA 公開キーでなければならない。
-- `app_id` は有効なアプリ API 識別子でなければならない。
-- 説明文を空にすることはできない。
+- 1つのアプリにつきSDK認証キーは最大3つまで保持できます。
+- RSA公開キー文字列は、適切な形式の有効なRSA公開キーでなければなりません。
+- `app_id` は有効なアプリAPI識別子でなければなりません。
+- 説明を空にすることはできません。
 
 {% endapi %}

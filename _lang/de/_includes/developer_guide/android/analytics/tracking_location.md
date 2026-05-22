@@ -1,6 +1,6 @@
-## Aufzeichnung des aktuellen Standorts
+## Aufzeichnung des aktuellen Standorts {#logging-the-current-location}
 
-Auch wenn das kontinuierliche Tracking deaktiviert ist, können Sie den aktuellen Standort des Nutzers:innen manuell mit der [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html) Methode.
+Auch wenn das kontinuierliche Tracking deaktiviert ist, können Sie den aktuellen Standort der Nutzer:innen manuell mit der Methode [`setLastKnownLocation()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/set-last-known-location.html) aufzeichnen.
 
 {% tabs %}
 {% tab JAVA %}
@@ -26,21 +26,21 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 {% endtab %}
 {% endtabs %}
 
-## Kontinuierliches Tracking des Standorts
+## Kontinuierliches Standort-Tracking {#continuously-tracking-the-location}
 
 {% alert important %}
-[Ab Android Marshmallow](https://developer.android.com/training/permissions/index.html) müssen Sie Ihre Nutzer:innen auffordern, dem Standort-Tracking ausdrücklich zuzustimmen. Sobald sie dies tun, kann Braze zu Beginn der nächsten Sitzung mit dem Tracking ihres Standorts beginnen. Dies unterscheidet sich von früheren Android-Versionen, bei denen nur die Angabe von Standort-Berechtigungen in Ihrem `AndroidManifest.xml` erforderlich war.
+[Ab Android Marshmallow](https://developer.android.com/training/permissions/index.html) müssen Sie Ihre Nutzer:innen auffordern, dem Standort-Tracking ausdrücklich per Opt-in zuzustimmen. Sobald dies geschehen ist, kann Braze zu Beginn der nächsten Sitzung mit dem Tracking ihres Standorts beginnen. Dies unterscheidet sich von früheren Android-Versionen, bei denen lediglich die Angabe von Standortberechtigungen in Ihrer `AndroidManifest.xml` erforderlich war.
 {% endalert %}
 
-Um den Standort eines Nutzers kontinuierlich zu verfolgen, müssen Sie die Absicht Ihrer App, Standortdaten zu sammeln, erklären, indem Sie mindestens eine der folgenden Berechtigungen in Ihrer `AndroidManifest.xml` Datei hinzufügen.
+Um den Standort von Nutzer:innen kontinuierlich zu tracken, müssen Sie die Absicht Ihrer App, Standortdaten zu erfassen, deklarieren, indem Sie mindestens eine der folgenden Berechtigungen zu Ihrer `AndroidManifest.xml`-Datei hinzufügen.
 
-|Berechtigung|Beschreibung|
+| Berechtigung | Beschreibung |
 |---|---|
-| `ACCESS_COARSE_LOCATION` | Verwendet den batterieeffizientesten, nicht-GPS-Anbieter (z.B. ein Heimnetzwerk). In der Regel reicht dies für die meisten Anforderungen an Standortdaten aus. Im Rahmen des Laufzeit-Berechtigungsmodells wird durch die Erteilung der Standort-Berechtigung implizit die Sammlung von Feinstandort-Daten genehmigt. |
-| `ACCESS_FINE_LOCATION`   | Enthält GPS-Daten für einen genaueren Standort. Im Rahmen des Laufzeit-Berechtigungsmodells umfasst die Erteilung von Standort-Berechtigungen auch den Feinzugriff auf Standorte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `ACCESS_COARSE_LOCATION` | Verwendet den batterieeffizientesten, nicht-GPS-basierten Anbieter (z. B. ein Heimnetzwerk). In der Regel reicht dies für die meisten Anforderungen an Standortdaten aus. Im Rahmen des Laufzeit-Berechtigungsmodells wird durch die Erteilung der Standortberechtigung implizit auch die Erfassung präziser Standortdaten genehmigt. |
+| `ACCESS_FINE_LOCATION`   | Enthält GPS-Daten für eine genauere Standortbestimmung. Im Rahmen des Laufzeit-Berechtigungsmodells umfasst die Erteilung der Standortberechtigung auch den Zugriff auf präzise Standortdaten. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
-Ihre `AndroidManifest.xml` sollte in etwa so aussehen wie die folgende:
+Ihre `AndroidManifest.xml` sollte in etwa so aussehen:
 
 ```xml
 <manifest ... >
@@ -53,14 +53,14 @@ Ihre `AndroidManifest.xml` sollte in etwa so aussehen wie die folgende:
 </manifest>
 ```
 
-## Deaktivieren des kontinuierlichen Trackings
+## Deaktivieren des kontinuierlichen Trackings {#disabling-continuous-tracking}
 
-Sie können das kontinuierliche Tracking während der Kompilierung oder zur Laufzeit deaktivieren.
+Sie können das kontinuierliche Tracking zur Kompilierungszeit oder zur Laufzeit deaktivieren.
 
 {% tabs local %}
 {% tab compile time %}
 
-Um das kontinuierliche Standort-Tracking zur Kompilierungszeit zu deaktivieren, setzen Sie `com_braze_enable_location_collection` auf `false` in `braze.xml`:
+Um das kontinuierliche Standort-Tracking zur Kompilierungszeit zu deaktivieren, setzen Sie `com_braze_enable_location_collection` in `braze.xml` auf `false`:
 
 ```xml
 <bool name="com_braze_enable_location_collection">false</bool>
@@ -76,17 +76,17 @@ Um das kontinuierliche Standort-Tracking zur Laufzeit selektiv zu deaktivieren, 
 
 ```java
 BrazeConfig brazeConfig = new BrazeConfig.Builder()
-  .setIsLocationCollectionEnabled(false)
+  .setIsAutomaticLocationCollectionEnabled(false)
   .build();
 Braze.configure(this, brazeConfig);
 ```
- 
+
 {% endsubtab %}
 {% subtab KOTLIN %}
 
 ```kotlin
 val brazeConfig = BrazeConfig.Builder()
-    .setIsLocationCollectionEnabled(false)
+    .setIsAutomaticLocationCollectionEnabled(false)
     .build()
 Braze.configure(this, brazeConfig)
 ```

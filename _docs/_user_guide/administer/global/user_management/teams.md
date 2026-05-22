@@ -52,11 +52,6 @@ Then perform the following steps:
 
 The following are all available permissions you can assign at the Team level. Any permissions not listed here are only granted on the workspace level, and these permissions will appear as "--" in the **Teams** permissions column.
 
-{% tabs %}
-{% tab Granular permissions %}
-
-{% multi_lang_include alerts/important_alerts.md alert="granular permissions ea" %}
-
 - View Campaigns
 - Edit Campaigns
 - Archive Campaigns
@@ -99,30 +94,7 @@ The following are all available permissions you can assign at the Team level. An
 - Edit Dashboard Reports
 - Delete Dashboard Reports
 
-{% endtab %}
-{% tab Legacy permissions %}
-
-- Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Centers
-- Send Campaigns, Canvases
-- Launch and Manage Content Cards
-- Edit Segments
-- Export User Data
-- View User Profiles PII Compliant
-- Manage Dashboard Users
-- Manage Media Library Assets
-- Approve and Deny Campaigns
-- Approve and Deny Canvases
-- Create and Edit Canvas Templates
-- View Canvas Templates
-- Archive Canvas Templates
-- Edit Landing Page Templates
-- View Landing Page Templates
-- Archive Landing Page Templates
-
-{% endtab %}
-{% endtabs %}
-
-To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#editing-user-permissions) section.
+To see descriptions of what each user permission includes and how to use them, check out our [User Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) section.
 
 ## Assign Team tags {#tags-and-filters}
 

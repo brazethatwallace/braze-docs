@@ -126,14 +126,14 @@ This functionality is in early access.
 ### Currents
 
 Currents are a near real-time message engagement analytics streaming tool in Braze. This will stream user-level data on all sends, deliveries, opens, clicks, etc., for campaigns and Canvases sent from the customer's workspace. A couple of things to note: Currents are priced per connector for the customer, so all-new Currents Partners must go through an EA process. We ask that our Partners have five customers as part of the EA before we build the custom-branded UI and publicly make the connector available. 
-- [Partner documentation]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Partner documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - all customers who purchase a Currents connector will have access to these events.
 - [User Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) - not all customers who purchase a Current connector will purchase an "all events" connector that will include these events. 
 
 ### Snowflake Data Share
 
 Customers who purchase a Snowflake Data Share connector will automatically have access to both message engagement and user behavior events. When Snowflake Data Share is used as a partner integration, Braze will provision a share to the Partner’s Snowflake instance on behalf of the customer. As a note, cross-region data share is a higher price-point for our customers, so we ask that Partners who want to integrate with Snowflake the guidance that they need an account in `US-EAST-1` and/or `EU-CENTRAL-1`
-- [Partner documentation]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Partner documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
 ## Building and triggering campaigns and Canvases
 

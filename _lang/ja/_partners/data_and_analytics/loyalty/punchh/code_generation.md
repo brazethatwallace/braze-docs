@@ -2,47 +2,47 @@
 nav_title: 動的コード生成
 article_title: Punchh 動的コード生成
 page_order: 2
-description: "このリファレンス記事では、BrazeにおけるPunchh動的コード生成の使い方を概説している。"
+description: "このリファレンス記事では、BrazeにおけるPunchh動的コード生成の使い方を説明します。"
 page_type: partner
 search_tag: Partner
 ---
 
-# Punchhによる動的コード生成
+# Punchhによる動的コード生成 {#dynamic-code-generation-with-punchh}
 
-> クーポンコードとは、一人のユーザーが使用できるユニークなコードである（一回使用でも複数回使用でも）。Punchhフレームワークはクーポンコードを生成し、モバイルアプリ内やPOSシステムで処理することができる。
+> クーポンコードとは、一人のユーザーが使用できるユニークなコードです（1回使用でも複数回使用でも可）。Punchhフレームワークはクーポンコードを生成し、モバイルアプリ内やPOSシステムで処理できます。
 
-_この統合は Punchh によって管理されます。_
+_この統合はPunchhによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Punchhクーポン・フレームワークとBrazeを使えば、以下のようなシナリオが実現できる：
+PunchhクーポンフレームワークとBrazeを使用すると、以下のシナリオを実現できます。
 
-- ゲストがメール内のクーポン生成リンクをクリックすると、クーポンコードを生成する：クーポンコードは動的に生成され、ウェブページに表示される。
-- ゲストがメールを開いたときにクーポンコードを生成する：クーポンコードは動的に生成され、メール内に画像として表示される。
+- ゲストがメール内のクーポン生成リンクをクリックしたときにクーポンコードを生成する：クーポンコードは動的に生成され、Webページに表示されます。
+- ゲストがメールを開封したときにクーポンコードを生成する：クーポンコードは動的に生成され、メール内に画像として表示されます。
 
-## 動的なクーポンコード生成を統合する
+## 動的クーポンコード生成の統合 {#integrating-dynamic-coupon-code-generation}
 
-### ステップ1:クーポン・キャンペーンを作成する
+### ステップ1：クーポンキャンペーンを作成する {#step-1-create-a-coupon-campaign}
 
-1. Punchh クーポン・キャンペーンを使って、以下の画像のようにダイナミック・ジェネレーション・クーポン・キャンペーンを作成する。
-2. Punchhクーポン・フレームワークは、ダイナミックなクーポン生成を可能にするために、以下のパラメーターを生成する：
-    - 動的クーポン生成トークン：これは、暗号化のためにシステムが生成したセキュリティ・トークンである。
-    - 動的クーポン生成URL：このURLは、ビジネスの要求に応じて、リンクまたは画像としてメールに埋め込まれる。
+1. Punchhクーポンキャンペーンを使用して、以下の画像のように動的生成クーポンキャンペーンを作成します。
+2. Punchhクーポンフレームワークは、動的クーポン生成を可能にするために以下のパラメーターを生成します。
+    - 動的クーポン生成トークン：暗号化のためにシステムが生成するセキュリティトークンです。
+    - 動的クーポン生成URL：このURLは、ビジネスの要件に応じてリンクまたは画像としてメールに埋め込まれます。
 
 ![Punchhでクーポンキャンペーンを作成するためのフォーム。]({% image_buster /assets/img/punchh/punchh8.png %}){: style="max-width:60%;"}
 
-### ステップ 2:署名を生成し、URLを構築する
+### ステップ2：署名を生成しURLを構築する {#step-2-generate-signature-and-construct-url}
 
-JWT.IO ライブラリは、JSONウェブトークンをデコード、検証、生成する。これは、2つの当事者間でクレームを安全に表現するための、オープンで業界標準のRFC 7519方式である。 
+JWT.IOライブラリーは、JSONウェブトークンをデコード、検証、生成します。これは、2つの当事者間でクレームを安全に表現するための、オープンで業界標準のRFC 7519方式です。
 
-次の`ClaimType` の名前を使用して、ゲストとクーポンの一意性を確保できます。
+次の`ClaimType`名を使用して、ゲストとクーポンの一意性を確保できます。
 
-- `campaign_id`: システム生成の Punchh キャンペーン ID を表します。
-- `email`: ユーザーのメールアドレスを表します。 
-- `first_name`:ユーザーの名を取得します。 
-- `last_name`: ユーザーの姓を取得します。
+- `campaign_id`：システム生成のPunchh Campaign IDを表します。
+- `email`：ユーザーのメールアドレスを表します。
+- `first_name`：ユーザーの名を取得します。
+- `last_name`：ユーザーの姓を取得します。
 
-Punchhのダイナミック・クーポン・コードAPIを使用するには、JWTトークンを構築する必要がある。Brazeダッシュボードの使用したいチャンネルのメッセージ本文に、以下のLiquidテンプレートを追加する：
+Punchhの動的クーポンコードAPIを使用するには、JWTトークンを構築する必要があります。Brazeダッシュボードで使用したいチャネルのメッセージ本文に、以下のLiquidテンプレートを追加してください。
 
 {% raw %}
 ```liquid
@@ -75,18 +75,19 @@ Punchhのダイナミック・クーポン・コードAPIを使用するには�
 {% endraw %}
 
 
-次のように置き換えます。
+以下を置き換えてください。
 
-| placeholder        | 説明                                          |
+| プレースホルダー | 説明 |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | 動的クーポン生成トークン。 |
-| `CAMPAIGN_ID`                     | キャンペーンID                     |
+| `CAMPAIGN_ID` | キャンペーン ID。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
-### ステップ 3:クーポンコードをメッセージ本文に追加する
+### ステップ3：クーポンコードをメッセージ本文に追加する {#step-3-append-coupon-code-to-message-body}
 
-#### Punchh Web ページへのリンク
+#### Punchh Webページへのリンク {#linking-to-punchh-web-page}
 
-Punchh がホストする Web ページにリンクするには、[以前に作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成 URLに `{% raw %}{{jwt}}{% endraw %}` を追加します。リンクは以下のようなものであるべきだ： 
+PunchhがホストするWebページにリンクするには、[先ほど作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成URLに`{% raw %}{{jwt}}{% endraw %}`を追加します。リンクは以下のようになります。
 
 {% raw %}
 ```
@@ -94,61 +95,60 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 ```
 {% endraw %}
 
-ユーザーがクーポンのURLをクリックすると、Punchがホストするウェブページにリダイレクトされ、そこで生成されたクーポンが表示される。
+ユーザーがクーポンURLをクリックすると、PunchhがホストするWebページにリダイレクトされ、生成されたクーポンが表示されます。
 
 ![ユーザーがクーポンコードの生成に成功した後の確認メッセージの例。]({% image_buster /assets/img/punchh/punchh7.png %})
 
-#### JSON経由でコードをプレーンテキストとして抽出する
+#### JSON経由でコードをプレーンテキストとして抽出する {#extracting-code-via-json-as-plain-text}
 
-JSON 応答を返すには、[以前に作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成 URL に`{% raw %}{{jwt}}{% endraw %}` を追加し、URL 文字列のトークンの後に `.json` を追加します。リンクは以下のようなものであるべきだ：
+JSON応答を返すには、[先ほど作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成URLに`{% raw %}{{jwt}}{% endraw %}`を追加し、URL文字列のトークンの後に`.json`を追加します。リンクは以下のようになります。
 
 {% raw %}
-```liquid
+`````````liquid
 https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json?sign={{jwt}}
 ```
 {% endraw %}
 
-その後、[Connected Contentを]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)活用して、コードをプレーンテキストとしてメッセージ本文に挿入することができる。以下に例を示します。
+その後、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を活用して、コードをプレーンテキストとして任意のメッセージ本文に挿入できます。例：
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json?sign={{jwt}} :save punchh_coupon %}
 {{punchh_coupon.coupon}}
-````
+```
 {% endraw %}
 
-#### メールコンテンツ内に画像をリンクする
+#### メールコンテンツ内の画像にリンクする {#linking-an-image-inside-email-content}
 
-クーポンコードを画像内にリンクする：
+クーポンコードを画像内にリンクするには：
 
-1. [以前に作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成 URL に `{% raw %}{{jwt}}{% endraw %}` を追します。
-2. URL 文字列のトークンの後に`.png` を追加します。
-3. リンクをHTML{% raw %}`<img>`{% endraw %} タグに埋め込む。
+1. [先ほど作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成URLに`{% raw %}{{jwt}}{% endraw %}`を追加します。
+2. URL文字列のトークンの後に`.png`を追加します。
+3. リンクをHTML{% raw %}`<img>`{% endraw %}タグに埋め込みます。
 
 {% tabs local %}
-{% tab example input %}
+{% tab 入力例 %}
 {% raw %}
-```liquid
+`````````liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
-````
+```
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab 出力例 %}
 ![クーポンコード画像タグのレンダリング出力。]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
 
-## エラーメッセージ
+## エラーメッセージ {#error-messages}
 
 | エラーコード | エラーメッセージ | 説明 |
 | --- | --- | --- |
-| `coupon_code_expired` | このプロモーションコードの有効期限は切れている | このコードが、設定された有効期限日よりも後に使用されています。 |
-| `coupon_code_success` | おめでとう、プロモコードは正常に適用された。 | コードは正常に使用されている。 |
-| `coupon_code_error` | 有効なプロモーションコードを入力する | 使用されたコードは無効である。 |
-| `coupon_code_type_error` | Incorrect coupon type.このクーポンは`%{coupon_type}` でのみ利用できる。 | POSで使用するはずのコードをモバイルアプリで使用すると、このエラーが発生する。 |
-| `usage_exceeded` | 本クーポンコードのキャンペーンは終了した。Please try next time. | コードの使用量が、使用を許可されたユーザー数を超えている。例えば、ダッシュボードのコンフィギュレーションが3,000人のユーザーによるコードの使用を許可しており、ユーザー数が3,000人を超えた場合、このエラーが発生する。 |
-| `usage_exceeded_by_guest` | このプロモコードはすでに処理されている。 | ユーザーによるコードの使用は、ユーザーが使用できる回数を超えている。たとえば、ダッシュボード設定ではユーザーが1つのコードを3回使用できます。それ以上使用すると、このエラーが発生します。 |
-| `already_used_by_other_guest` | このプロモコードはすでに他のゲストが使用している。 | 別のユーザーがすでにこのコードを使用している。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
-
+| `coupon_code_expired` | This promo code has expired | 設定された有効期限日を過ぎた後にコードが使用されています。 |
+| `coupon_code_success` | Congratulations, Promo Code Applied Successfully. | コードが正常に使用されました。 |
+| `coupon_code_error` | Please enter a valid promo code | 使用されたコードが無効です。 |
+| `coupon_code_type_error` | Incorrect coupon type. This coupon can only be redeemed at `%{coupon_type}`. | POSで使用するはずのコードがモバイルアプリで使用された場合、このエラーが発生します。 |
+| `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | コードの使用数が、使用を許可されたユーザー数を超えています。例えば、ダッシュボード設定で3,000人のユーザーによるコード使用を許可しており、ユーザー数が3,000人を超えた場合、このエラーが発生します。 |
+| `usage_exceeded_by_guest` | This promo code has already been processed. | ユーザーによるコードの使用回数が、許可された回数を超えています。例えば、ダッシュボード設定で1つのコードをユーザーが3回使用できるようにしている場合、それ以上使用するとこのエラーが発生します。 |
+| `already_used_by_other_guest` | This promo code has already been used by some other guest. | 別のユーザーがすでにこのコードを使用しています。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error messages" }

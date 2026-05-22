@@ -56,12 +56,12 @@ You can find more Canvas-specific information in [In-app messages in Canvas]({{s
 
 Start by choosing which platforms should receive the message. Use this selection to limit the delivery of a campaign to a specific set of apps. For example, you might choose **Web Browsers** for an in-browser message encouraging users to download your mobile app to ensure they do not receive the message after already getting your app. Because platform selections are specific to each variant, you could try testing message engagement per platform.
 
-| Platform                        | Message Delivery        |
-|---------------------------------|-------------------------|
-| Mobile Apps                     | iOS & Android SDKs      |
-| Web Browsers                    | Web SDK                 |
-| Both Mobile Apps & Web Browsers | iOS, Android & Web SDKs |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Platform                        | Message delivery             |
+|---------------------------------|------------------------------|
+| Mobile Apps                     | iOS, Android, and Vega SDKs |
+| Web Browsers                    | Web SDK                      |
+| Both Mobile Apps & Web Browsers | iOS, Android, Vega, and Web SDKs |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Specify delivery platforms" }
 
 ## Step 3: Specify your message types
 
@@ -84,7 +84,8 @@ These in-app messages are accepted by both mobile apps and web applications.
 .tg th{word-break:normal;}
 </style>
 
-<table class="tg">
+<table aria-label="Message types" class="tg">
+  <caption>Message types</caption>
 <thead>
   <tr>
     <th>Message Type</th>
@@ -133,7 +134,8 @@ These in-app messages are accepted by both mobile apps and web applications.
 
 These in-app messages are customizable to your needs.
 
-<table class="tg">
+<table aria-label="Advanced message types" class="tg">
+  <caption>Advanced message types</caption>
 <thead>
   <tr>
     <th>Message Type</th>
@@ -239,7 +241,7 @@ When your customer clicks on a button in your in-app message, the following acti
 | Log Custom Event | Choose a [custom event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) to trigger. Can be used to display another in-app message or trigger additional messaging. |
 | Log Custom Attribute | Choose a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) to set for the current user. |
 | Request Push Permission | Shows the native push permission. Read more about [push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/), as well as [best practices]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#best-practices) for priming users for push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior #button-actions" }
 
 Note: the __Request Push Permission__, __Log Custom Event__, and __Log Custom Attribute__ options require the following SDK minimum versions:
 
@@ -268,7 +270,7 @@ This setting only applies to the Custom code message type. Copy and paste HTML i
 
 This setting only applies to the email capture form message type. Enter custom copy that will appear as the placeholder text for the email input field. This defaults to "Enter your email address".
 
-## Step 5: Style your in-app message
+## Step 5: Style your in-app message {#step-5-style-your-in-app-message}
 
 The **Style** tab allows you to adjust all visual aspects of your message. Upload an image or badge, or pick a pre-designed badge icon. Change the colors of the header and body text, buttons, and background by selecting from a palette or entering a hex, RGB, or HSB code.
 
@@ -276,7 +278,7 @@ The content of the **Style** tab varies based on your chosen message options in 
 
 | Formatting | Input | Description |
 |---|---|---|
-|[Color Profile]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates) | Apply from in-app message templates gallery. | Select **Apply Template** and choose from the gallery. Then, select **Save**. |
+|[Color Profile]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles) | Apply from in-app message templates gallery. | Select **Apply Template** and choose from the gallery. Then, select **Save**. |
 |Text Alignment | Left, Center, or Right.  | Only available for newer Braze SDK versions. |
 |Header | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color.  |
 |Text | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color. |
@@ -285,7 +287,7 @@ The content of the **Style** tab varies based on your chosen message options in 
 |Background Color | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color. This is the background of the entire message and will clearly display behind your text body. |
 |Screen Overlay | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color. Only available for newer Braze SDK versions. This is the frame around the entire message. |
 |Chevron or other Close Message Option | HEX color code. | Your desired HEX color will display. You will also be able to choose the opacity of the color. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Style your in-app message #step-5-style-your-in-app-message" }
 
 Always [preview and test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) your message before sending.
 
@@ -318,8 +320,8 @@ Note that if you intend to trigger your in-app message based off a custom event,
 
 In-app message delivery is entirely based on the following action triggers:
 
-- Making a purchase
-- Opening the app/webpage
+- Placing an order
+- Opening the app or webpage
 - Performing a custom event (only works with events sent using the SDK)
 - Opening a specific push message
 - Automatically schedule campaigns to send at a certain time with respect to the local time of each of your users.

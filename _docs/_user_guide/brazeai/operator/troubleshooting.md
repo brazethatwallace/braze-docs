@@ -17,7 +17,7 @@ description: "Common issues and solutions for BrazeAI Operator<sup>TM</sup>."
 | Off-topic answers | Reframe the question more specifically. Mention the feature or workflow being asked about. |
 | Error messages | If Operator can't stream content, a "Try again" prompt may appear. Operator may be temporarily unavailable or the connection was interrupted. Retry after a few minutes. |
 | Daily usage limit exceeded | The company-wide usage limit has been reached. Wait for the limit to reset (resets every 24 hours). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Common issues" }
 
 ## Limitations
 

@@ -24,7 +24,7 @@ AppDelegate.braze?.inAppMessagePresenter = BrazeInAppMessageUI()
 {% endtab %}
 {% tab OBJECTIVE-C %}
 
-```objc
+`````````objc
 AppDelegate.braze.inAppMessagePresenter = [[BrazeInAppMessageUI alloc] init];
 ```
 {% endtab %}

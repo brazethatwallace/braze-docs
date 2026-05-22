@@ -43,7 +43,7 @@ public class MainApplication : Application() {
 }
 ```
 
-```kotlin file=MainActivity.kt
+`````````kotlin file=MainActivity.kt
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 
@@ -62,7 +62,7 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
-```xml file=banners.xml
+`````````xml file=banners.xml
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

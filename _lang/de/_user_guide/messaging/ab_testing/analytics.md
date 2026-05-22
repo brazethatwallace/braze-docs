@@ -1,0 +1,200 @@
+---
+nav_title: Analytics
+article_title: A/B-Test-Analytics
+page_order: 10
+page_type: reference
+description: "Dieser Artikel erklärt, wie Sie die Ergebnisse einer multivariaten oder A/B-Kampagne anzeigen und interpretieren."
+---
+
+# Multivariate und A/B-Test-Analytics {#multivariate-and-ab-test-analytics}
+
+> Dieser Artikel erklärt, wie Sie die Ergebnisse eines multivariaten oder A/B-Tests anzeigen. Wenn Sie Ihren Test noch nicht eingerichtet haben, lesen Sie [Multivariate und A/B-Tests erstellen]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/) für die einzelnen Schritte.
+
+Nachdem Ihre Campaign gestartet wurde, können Sie die Performance jeder Variante überprüfen, indem Sie Ihre Campaign im Bereich **Campaigns** des Dashboards auswählen.
+
+## Analytics nach Optimierungsoption {#analytics-by-optimization-option}
+
+Ihre Analytics-Ansicht variiert je nachdem, welche [Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) Sie bei der Ersteinrichtung ausgewählt haben.
+
+### Keine Optimierung {#no-optimization}
+
+Wenn Sie bei der Einrichtung Ihrer Campaign **No optimization** ausgewählt haben, bleibt Ihre Analytics-Ansicht unverändert. Die Seite **Campaign Analytics** Ihrer Campaign zeigt die Performance Ihrer Varianten im Vergleich zu Ihrer Kontrollgruppe, sofern Sie eine eingerichtet haben.
+
+![Performance-Bereich der Campaign Analytics für eine E-Mail-Campaign mit mehreren Varianten. Die Tabelle listet verschiedene Performance-Metriken für jede Variante auf, wie Empfänger:innen, Bounces, Klicks und Conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
+
+Weitere Details finden Sie im Artikel [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) für Ihren Messaging-Kanal.
+
+### Winning Variant {#winning-variant}
+
+Wenn Sie bei der Einrichtung Ihrer Campaign **Winning Variant** als Optimierung ausgewählt haben, haben Sie Zugriff auf einen zusätzlichen Tab in Ihren Campaign-Analytics namens **A/B Test Result**. Nachdem die Winning Variant an die verbleibenden Nutzer:innen in Ihrem Test gesendet wurde, zeigt dieser Tab die Ergebnisse dieses Versands.
+
+Das **A/B Test Result** ist in zwei Tabs unterteilt: **Initial Test** und **Winning Variant**.
+
+{% tabs local %}
+{% tab Initial Test %}
+
+Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde. Sie können eine Zusammenfassung sehen, wie alle Varianten abgeschnitten haben und ob es während des Tests eine Gewinnervariante gab.
+
+Wenn eine Variante alle anderen mit einer [Konfidenz]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics/#understanding-confidence) von mehr als 95 % übertroffen hat, kennzeichnet Braze diese Variante mit dem Label „Winner“.
+
+Wenn keine Variante alle anderen mit 95 % Konfidenz übertrifft und Sie sich entschieden haben, die am besten performende Variante trotzdem zu senden, wird die am besten performende Variante dennoch versendet und mit dem Label „Winner“ gekennzeichnet.
+
+![Ergebnisse eines anfänglichen Tests zur Bestimmung der Winning Variant, bei dem keine Variante besser als die anderen mit ausreichender Konfidenz abgeschnitten hat, um die 95-Prozent-Konfidenzschwelle für statistische Signifikanz zu erreichen.]({% image_buster /assets/img_archive/ab_analytics_wv_insufficient_confidence.png %})
+
+#### Wie die Winning Variant ausgewählt wird {#how-the-winning-variant-is-selected}
+
+Braze testet alle Varianten gegeneinander mit [Pearsons Chi-Quadrat-Tests](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test). Dabei wird gemessen, ob eine Variante alle anderen statistisch auf einem Signifikanzniveau von p < 0,05 übertrifft, was wir als 95 % Signifikanz bezeichnen. Wenn ja, wird die Winning Variant mit dem Label „Winner“ gekennzeichnet.
+
+Dies ist ein separater Test vom Konfidenzwert, der nur die Performance einer Variante im Vergleich zur Kontrollgruppe mit einem numerischen Wert zwischen 0 und 100 % beschreibt.
+
+Eine Variante kann besser als die Kontrollgruppe abschneiden, aber der Chi-Quadrat-Test prüft, ob eine Variante besser als alle anderen ist. [Folgetests](#recommended-follow-ups) können weitere Details liefern.
+
+{% endtab %}
+{% tab Winning Variant %}
+
+Der Tab **Winning Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die am besten performende Variante aus dem anfänglichen Test erhalten hat. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Winning-Variant-Gruppe reserviert haben.
+
+![Ergebnisse der Winning Variant, die an die Winning-Variant-Gruppe gesendet wurde.]({% image_buster /assets/img_archive/ab_analytics_wv_1.png %})
+
+{% endtab %}
+{% endtabs %}
+
+Wenn Sie die Performance der Winning Variant über die gesamte Campaign hinweg sehen möchten, einschließlich der A/B-Test-Versendungen, schauen Sie auf die Seite **Campaign Analytics**.
+
+### Personalized Variant {#personalized-variant}
+
+Wenn Sie bei der Einrichtung Ihrer Campaign **Personalized Variant** als Optimierung ausgewählt haben, ist das **A/B Test Result** in zwei Tabs unterteilt: **Initial Test** und **Personalized Variant**.
+
+{% tabs local %}
+{% tab Initial Test %}
+
+Der Tab **Initial Test** zeigt die Metriken für jede Variante aus dem anfänglichen A/B-Test, der an einen Teil Ihres Zielsegments gesendet wurde.
+
+![Ergebnisse eines anfänglichen Tests zur Bestimmung der am besten performenden Variante für jede:n Nutzer:in. Eine Tabelle zeigt die Performance jeder Variante basierend auf verschiedenen Metriken für den Zielkanal.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_1.png %})
+
+Standardmäßig sucht der Test nach Zusammenhängen zwischen den angepassten Events der Nutzer:innen und ihren Nachrichtenvarianten-Präferenzen. Diese Analyse erkennt, ob angepasste Events die Wahrscheinlichkeit erhöhen oder verringern, auf eine bestimmte Nachrichtenvariante zu reagieren. Diese Zusammenhänge werden dann verwendet, um zu bestimmen, welche Nutzer:innen welche Nachrichtenvariante im finalen Versand erhalten.
+
+Die Zusammenhänge zwischen angepassten Events und Nachrichtenpräferenzen werden in der Tabelle auf dem Tab **Initial Send** angezeigt.
+
+![]({% image_buster /assets/img_archive/ab_analytics_pv_3.png %})
+
+Wenn der Test keinen aussagekräftigen Zusammenhang zwischen angepassten Events und Pfadpräferenzen finden kann, greift der Test auf eine sitzungsbasierte Analysemethode zurück, und es werden keine Tabellen mit angepassten Event-Daten angezeigt.
+
+{% details Fallback-Analysemethode %}
+
+**Sitzungsbasierte Analysemethode**<br>
+Wenn die Fallback-Methode zur Bestimmung der Personalized Variants verwendet wird, zeigt der Tab **Initial Test** eine Aufschlüsselung der bevorzugten Varianten der Nutzer:innen basierend auf einer Kombination bestimmter Merkmale.
+
+Diese Merkmale sind:
+
+- **Aktualität:** Wann sie zuletzt eine Sitzung hatten
+- **Häufigkeit:** Wie oft sie Sitzungen haben
+- **Zugehörigkeitsdauer:** Wie lange sie bereits Nutzer:in sind
+
+Zum Beispiel könnte der Test feststellen, dass die meisten Nutzer:innen Variante A bevorzugen, aber Nutzer:innen, die vor etwa 3–12 Tagen eine Sitzung hatten, zwischen 1–12 Tage zwischen Sitzungen haben und in den letzten 67–577 Tagen erstellt wurden, tendenziell Variante B bevorzugen. Daher erhielten Nutzer:innen in dieser Untergruppe Variante B im zweiten Versand, während der Rest Variante A erhielt.
+
+![Die Tabelle „User Characteristics“, die zeigt, welche Nutzer:innen voraussichtlich Variante A und Variante B bevorzugen, basierend auf den drei Buckets, in die sie für Aktualität, Häufigkeit und Zugehörigkeitsdauer fallen.]({% image_buster /assets/img_archive/ab_analytics_pv_initial_test_2.png %})
+
+**Wie Personalized Variants ausgewählt werden**<br>
+Bei dieser Methode ist die empfohlene Nachricht für eine:n einzelne:n Nutzer:in die Summe der Effekte ihrer spezifischen Aktualität, Häufigkeit und Zugehörigkeitsdauer. Aktualität, Häufigkeit und Zugehörigkeitsdauer werden in Buckets aufgeteilt, wie in der Tabelle **User Characteristics** dargestellt. Der Zeitbereich jedes Buckets wird durch die Daten der Nutzer:innen in jeder einzelnen Campaign bestimmt und variiert von Campaign zu Campaign.
+
+Jeder Bucket kann einen unterschiedlichen Beitrag oder „Push“ in Richtung jeder Nachrichtenvariante haben. Die Stärke des Pushs für jeden Bucket wird aus den Reaktionen der Nutzer:innen im anfänglichen Versand mittels [logistischer Regression](https://en.wikipedia.org/wiki/Logistic_regression) bestimmt. Diese Tabelle fasst die Ergebnisse nur zusammen, indem sie zeigt, mit welcher Variante Nutzer:innen in jedem Bucket tendenziell interagiert haben. Die tatsächliche Personalized Variant einer/eines einzelnen Nutzer:in hängt von der Summe der Effekte der drei Buckets ab, in denen sie sich befinden – einer für jedes Merkmal.
+
+{% enddetails %}
+
+{% endtab %}
+{% tab Personalized Variant %}
+
+Der Tab **Personalized Variant** zeigt die Ergebnisse des zweiten Versands, bei dem jede:r verbleibende Nutzer:in die Variante erhalten hat, mit der sie am wahrscheinlichsten interagieren würden.
+
+Die drei Karten auf dieser Seite zeigen Ihren prognostizierten Lift, die Gesamtergebnisse und die prognostizierten Ergebnisse, wenn Sie stattdessen nur die Winning Variant gesendet hätten. Selbst wenn es keinen Lift gibt, was manchmal vorkommen kann, ist das Ergebnis dasselbe wie beim Senden nur der Winning Variant (ein traditioneller A/B-Test).
+
+- **Prognostizierter Lift:** Die Verbesserung Ihrer ausgewählten Optimierungsmetrik für diesen Versand durch die Verwendung von Personalized Variants anstelle eines Standard-A/B-Tests (wenn die verbleibenden Nutzer:innen nur die Winning Variant erhalten hätten).
+- **Gesamtergebnisse:** Die Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik (*Unique Opens*, *Unique Clicks* oder *Primary Conversion Event*).
+- **Prognostizierte Ergebnisse:** Die prognostizierten Ergebnisse des zweiten Versands basierend auf Ihrer gewählten Optimierungsmetrik, wenn Sie stattdessen nur die Winning Variant gesendet hätten.
+
+![Tab „Personalized Variant“ für eine Campaign, die für eindeutige Öffnungen optimiert wurde. Die Karten zeigen den prognostizierten Lift, die gesamten eindeutigen Öffnungen (mit Personalized Variant) und die prognostizierten eindeutigen Öffnungen (mit Winning Variant).]({% image_buster /assets/img_archive/ab_analytics_pv_1.png %})
+
+Die Tabelle auf dieser Seite zeigt die Metriken für jede Variante aus dem Personalized-Variant-Versand. Ihr **Audience %** summiert sich auf den Prozentsatz des Zielsegments, den Sie für die Personalized-Variant-Gruppe reserviert haben.
+
+![]({% image_buster /assets/img_archive/ab_analytics_pv_2.png %})
+
+{% endtab %}
+{% endtabs %}
+
+## Konfidenz verstehen {#understanding-confidence}
+
+Konfidenz ist das statistische Maß dafür, wie sicher wir sind, dass ein Unterschied in den Daten, wie z. B. Konversionsraten, real ist und nicht nur auf zufällige Schwankungen zurückzuführen ist.
+
+{% alert note %}
+Sehen Sie keine Konfidenz in Ihren Ergebnissen? Konfidenz wird nur angezeigt, wenn Sie eine Kontrollgruppe haben.
+{% endalert %}
+
+Ein wichtiger Teil Ihrer Ergebnisse ist die Konfidenz. Was wäre zum Beispiel, wenn die Kontrollgruppe eine Konversionsrate von 20 % und Variante A eine Konversionsrate von 25 % hätte? Das scheint darauf hinzudeuten, dass das Senden von Variante A effektiver ist als das Senden keiner Nachricht. Eine Konfidenz von 95 % bedeutet, dass der Unterschied zwischen den beiden Konversionsraten wahrscheinlich auf einen tatsächlichen Unterschied in den Reaktionen der Nutzer:innen zurückzuführen ist und dass es nur eine 5-prozentige Wahrscheinlichkeit gibt, dass der Unterschied zufällig entstanden ist.
+
+Braze vergleicht die Konversionsrate jeder Variante mit der Konversionsrate der Kontrollgruppe mithilfe eines statistischen Verfahrens namens [Z-Test](https://en.wikipedia.org/wiki/Z-test). Ein Ergebnis von 95 % oder höherer Konfidenz, wie im vorherigen Beispiel, zeigt an, dass der Unterschied statistisch bedeutsam ist. Dies gilt überall dort, wo Sie im Braze-Dashboard eine Konfidenzmetrik sehen, die den Unterschied zwischen zwei Nachrichten oder Nutzer:innen-Populationen beschreibt.
+
+Im Allgemeinen ist eine Konfidenz von mindestens 95 % erforderlich, um zu zeigen, dass Ihre Ergebnisse die tatsächlichen Präferenzen der Nutzer:innen widerspiegeln und nicht auf Zufall beruhen. In strengen wissenschaftlichen Tests ist 95 % Konfidenz (oder anders ausgedrückt: ein „p“-Wert von weniger als 0,05) der gängige Maßstab zur Bestimmung statistischer Signifikanz. Wenn Sie wiederholt keine 95 % Konfidenz erreichen, versuchen Sie, Ihre Stichprobengröße zu erhöhen oder die Anzahl der Varianten zu reduzieren.
+
+Konfidenz beschreibt nicht, ob eine Variante besser als die anderen ist. Sie ist rein ein Maß dafür, wie sicher wir sind, dass die zwei (oder mehr) Konversionsraten tatsächlich voneinander verschieden sind. Dies ist ausschließlich eine Funktion der Stichprobengröße und der Unterschiede zwischen den scheinbaren Konversionsraten. Ob die Gesamtraten hoch oder niedrig sind, beeinflusst die Stärke des Konfidenzmaßes nicht. Es ist möglich, dass eine Variante eine sehr unterschiedliche Konversionsrate im Vergleich zu einer anderen hat und dennoch keine Konfidenz von 95 % oder höher erreicht. Es ist auch möglich, dass zwei Gruppen von Varianten ähnliche Konversions-/Uplift-Raten haben und dennoch unterschiedliche Konfidenz aufweisen.
+
+### Statistisch nicht signifikante Ergebnisse {#statistically-insignificant-results}
+
+Ein Test, der keine Konfidenz von 95 % erreicht, kann dennoch wichtige Erkenntnisse liefern. Hier sind einige Dinge, die Sie aus einem Test mit statistisch nicht signifikanten Ergebnissen lernen können:
+
+- Es ist möglich, dass alle Ihre Varianten ungefähr den gleichen Effekt hatten. Das zu wissen, spart Ihnen die Zeit, die Sie für diese Änderungen aufgewendet hätten. Manchmal stellen Sie fest, dass konventionelle Marketing-Taktiken, wie das Wiederholen Ihres Call-to-Action, nicht unbedingt für Ihre Zielgruppe funktionieren.
+- Obwohl Ihre Ergebnisse möglicherweise auf Zufall beruhen, können sie die Hypothese für Ihren nächsten Test informieren. Wenn mehrere Varianten ungefähr die gleichen Ergebnisse zu haben scheinen, führen Sie einige davon erneut zusammen mit neuen Varianten durch, um zu sehen, ob Sie eine effektivere Alternative finden können. Wenn eine Variante besser abschneidet, aber nicht signifikant, können Sie einen weiteren Test durchführen, bei dem der Unterschied dieser Variante stärker ausgeprägt ist.
+- Testen Sie weiter! Ein Test mit nicht signifikanten Ergebnissen sollte zu bestimmten Fragen führen. Gab es wirklich keinen Unterschied zwischen Ihren Varianten? Hätten Sie Ihren Test anders strukturieren sollen? Sie können diese Fragen beantworten, indem Sie Folgetests durchführen.
+- Obwohl Tests nützlich sind, um herauszufinden, welche Art von Messaging die meiste Resonanz bei Ihrer Zielgruppe erzeugt, ist es auch wichtig zu verstehen, welche Änderungen im Messaging nur einen vernachlässigbaren Effekt haben. So können Sie entweder weiter nach einer effektiveren Alternative testen oder die Zeit sparen, die für die Entscheidung zwischen zwei alternativen Nachrichten aufgewendet worden wäre.
+
+Unabhängig davon, ob Ihr Test einen klaren Gewinner hat, kann es hilfreich sein, einen [Folgetest](#recommended-follow-ups) durchzuführen, um Ihre Ergebnisse zu bestätigen oder Ihre Erkenntnisse auf ein leicht anderes Szenario anzuwenden.
+
+## Diskrepanzen zwischen Kontrollgruppe und Variante {#discrepancies-between-the-control-group-and-variant}
+
+Bei In-App-Nachrichten-Campaigns kann die Art und Weise, wie Nutzer:innen getrackt werden und wie Impressionen protokolliert werden, zu Diskrepanzen in der erwarteten Aufteilung zwischen Kontrollgruppe und Variante führen. Das liegt daran, dass die tatsächlich protokollierten Impressionen diese Aufteilung möglicherweise nicht widerspiegeln und Braze letztlich keine Kontrolle über das individuelle Verhalten der Nutzer:innen hat, die den Trigger auslösen.
+
+Nehmen wir zum Beispiel an, eine Campaign hat beim Start eine Zielgruppe von 200 Nutzer:innen, mit 100 Nutzer:innen in der Kontrollgruppe und 100 Nutzer:innen in der Variante.
+
+Die 100 Nutzer:innen in der Variante erhalten die In-App-Nachrichten-Payload, und 50 von ihnen führen die Trigger-Aktion aus und sehen die In-App-Nachricht. Die 100 Nutzer:innen in der Kontrollgruppe werden nur getrackt, wenn sie die Trigger-Aktion der Campaign ausführen, und 75 von ihnen führen die Trigger-Aktion aus und protokollieren eine Impression, sehen aber die In-App-Nachricht nicht.
+
+Trotz der anfänglichen 50/50-Aufteilung sind die protokollierten eindeutigen Impressionen nicht ausgeglichen. Die Variantengruppe hat 50 Impressionen, während die Kontrollgruppe 75 Impressionen hat.
+
+### Verzögerungen bei In-App-Nachrichten {#in-app-message-delays}
+
+Bei getriggerten In-App-Nachrichten-Campaigns mit verzögerter Anzeige werden Kontrollgruppen-Impressionen zu dem Zeitpunkt erfasst, zu dem die Nutzer:innen die In-App-Nachricht ursprünglich erhalten hätten. Wenn eine Campaign beispielsweise so eingestellt ist, dass die Anzeige um eine Stunde verzögert wird, werden Kontrollgruppen-Impressionen erst nach Ablauf der einstündigen Verzögerung protokolliert. Dies hilft beim genauen Tracking von Impressionen in Bezug auf den beabsichtigten Zeitpunkt der Nachrichtenzustellung.
+
+## Empfohlene Folgeaktionen {#recommended-follow-ups}
+
+Ein multivariater und A/B-Test kann (und sollte!) Ideen für zukünftige Tests inspirieren und Sie zu Änderungen in Ihrer Messaging-Strategie anleiten. Mögliche Folgeaktionen umfassen:
+
+#### Ändern Sie Ihre Messaging-Strategie basierend auf Testergebnissen {#change-your-messaging-strategy-based-on-test-results}
+
+Ihre multivariaten Ergebnisse können Sie dazu veranlassen, die Art und Weise zu ändern, wie Sie Ihre Nachrichten formulieren oder formatieren.
+
+#### Ändern Sie die Art, wie Sie Ihre Nutzer:innen verstehen {#change-the-way-you-understand-your-users}
+
+Jeder Test beleuchtet das Verhalten Ihrer Nutzer:innen, wie Nutzer:innen auf verschiedene Messaging-Kanäle reagieren und die Unterschiede (und Gemeinsamkeiten) zwischen Ihren Segmenten.
+
+#### Verbessern Sie die Strukturierung zukünftiger Tests {#improve-the-way-you-structure-future-tests}
+
+War Ihre Stichprobengröße zu klein? Waren die Unterschiede zwischen Ihren Varianten zu subtil? Jeder Test bietet die Möglichkeit zu lernen, wie zukünftige Tests verbessert werden können. Wenn Ihre Konfidenz niedrig ist, ist Ihre Stichprobengröße zu klein und sollte für zukünftige Tests vergrößert werden. Wenn Sie keinen klaren Unterschied in der Performance Ihrer Varianten feststellen, ist es möglich, dass die Unterschiede zu subtil waren, um einen erkennbaren Effekt auf die Reaktionen der Nutzer:innen zu haben.
+
+#### Führen Sie einen Folgetest mit einer größeren Stichprobengröße durch {#run-a-follow-up-test-with-a-larger-sample-size}
+
+Größere Stichproben erhöhen die Chancen, kleine Unterschiede zwischen Varianten zu erkennen.
+
+#### Führen Sie einen Folgetest über einen anderen Messaging-Kanal durch {#run-a-follow-up-test-using-a-different-messaging-channel}
+
+Wenn Sie feststellen, dass eine bestimmte Strategie in einem Kanal sehr effektiv ist, möchten Sie diese Strategie möglicherweise in anderen Kanälen testen. Wenn eine Art von Nachricht in einem Kanal effektiv ist, aber nicht in einem anderen, können Sie möglicherweise schlussfolgern, dass bestimmte Kanäle für bestimmte Arten von Nachrichten besser geeignet sind. Oder vielleicht gibt es einen Unterschied zwischen Nutzer:innen, die eher Push-Benachrichtigungen aktivieren, und solchen, die eher auf In-App-Nachrichten achten. Letztendlich hilft Ihnen die Durchführung dieser Art von Test zu verstehen, wie Ihre Zielgruppe mit Ihren verschiedenen Kommunikationskanälen interagiert.
+
+#### Führen Sie einen Folgetest mit einem anderen Segment von Nutzer:innen durch {#run-a-follow-up-test-on-a-different-segment-of-users}
+
+Erstellen Sie dazu einen weiteren Test mit demselben Messaging-Kanal und denselben Varianten, wählen Sie aber ein anderes Segment von Nutzer:innen. Wenn beispielsweise eine Art von Messaging bei engagierten Nutzer:innen äußerst effektiv war, kann es nützlich sein, die Wirkung auf inaktive Nutzer:innen zu untersuchen. Es ist möglich, dass die inaktiven Nutzer:innen ähnlich reagieren, oder sie bevorzugen möglicherweise eine der anderen Varianten. Dieser Test hilft Ihnen, mehr über Ihre verschiedenen Segmente zu erfahren und wie sie auf verschiedene Arten von Nachrichten reagieren. Warum Annahmen über Ihre Segmente treffen, wenn Sie Ihre Strategie auf Daten basieren können?
+
+#### Führen Sie einen Folgetest basierend auf Erkenntnissen aus einem früheren Test durch {#run-a-follow-up-test-based-on-insights-from-a-previous-test}
+
+Nutzen Sie die Erkenntnisse, die Sie aus vergangenen Tests gewonnen haben, um Ihre zukünftigen Tests zu leiten. Deutet ein früherer Test darauf hin, dass eine Messaging-Technik effektiver ist? Sind Sie unsicher, welcher spezifische Aspekt einer Variante sie besser gemacht hat? Die Durchführung von Folgetests basierend auf diesen Fragen hilft Ihnen, aufschlussreiche Erkenntnisse über Ihre Nutzer:innen zu gewinnen.
+
+#### Vergleichen Sie die langfristige Wirkung verschiedener Varianten {#compare-the-long-term-impact-of-different-variants}
+
+Wenn Sie A/B-Tests für Nachrichten zur erneuten Interaktion durchführen, vergessen Sie nicht, die langfristige Wirkung verschiedener Varianten mithilfe von [Retention Reports]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/) zu vergleichen. Sie können Retention Reports verwenden, um zu analysieren, wie jede Variante jedes gewünschte Nutzer:innen-Verhalten Tage, Wochen oder einen Monat nach Nachrichtenempfang beeinflusst hat, und um festzustellen, ob es einen Uplift gibt.

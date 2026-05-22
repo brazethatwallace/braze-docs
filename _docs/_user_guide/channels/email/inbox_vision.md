@@ -28,6 +28,10 @@ Your company has a limit on how many emails you can preview with Inbox Vision. Y
 
 Include a subject line and a valid sending domain to view previews. Be mindful of desktop versus mobile rendering differences. Use the previews to confirm the email appears as intended.
 
+{% alert note %}
+If previewing a campaign shows a permission error, clear your cache and cookies, or try an incognito window. Browser extensions sometimes block the preview.
+{% endalert %}
+
 To test your email message in Inbox Vision:
 
 1. Go to your drag-and-drop editor or HTML email editor.
@@ -65,7 +69,13 @@ Code analysis can appear faster than the preview for a particular client because
 
 ## Spam testing
 
-Spam testing predicts whether your email lands in spam folders or inboxes. Braze runs tests across major spam filters (IronPort, SpamAssassin, Barracuda) and major ISP filters (Gmail.com, Outlook.com).
+Spam testing estimates whether mail might be filtered as spam. Tests run across filters such as IronPort, SpamAssassin, and Barracuda, and ISP filters such as Gmail and Outlook, using static seed inboxes that don't open or click by default.
+
+{% alert important %}
+Inbox placement is driven mainly by live recipient engagement. Spam test results may not match what you see from real campaigns.
+{% endalert %}
+
+For a clearer read on deliverability, test content with small live cohorts—strong opens and clicks are the most reliable signal. Use spam tests as one input alongside engagement monitoring.
 
 ### Viewing spam test results
 
@@ -101,7 +111,7 @@ Inbox Vision categorizes issues under the four foundational [POUR principles](ht
 | Operable | User interface components and navigation must be operable.<br><br>Users must be able to operate the interface (the interface cannot require interaction that a user cannot perform). |
 | Understandable | Information and the operation of the user interface must be understandable.<br><br>Users must be able to understand the information as well as the operation of the user interface (the content or operation cannot be beyond their understanding). |
 | Robust | Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.<br><br>Users must be able to access the content as technologies advance (as technologies and user agents evolve, the content should remain accessible). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR categories" }
 
 #### Severity levels
 
@@ -115,7 +125,7 @@ Inbox Vision classifies accessibility issues by severity to help you prioritize 
 | Minor | Issues that have a relatively low impact on accessibility and may cause only minor inconvenience. |
 | Needs review | Unable to detect if there might be an issue or not. This can occur when we are unable to determine the contrast ratio as the text is placed on a background image. You must manually review because it cannot be automatically determined. |
 | Passed | Passed WCAG A, AA, or accessibility best practice. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
 
 {% alert important %}
 The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. If this affects your workflows or your users, [share your feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) so we can prioritize impactful fixes.
@@ -146,3 +156,7 @@ We suggest running Inbox Vision when the email message is production-ready or cl
 Running Inbox Vision every time you make a single edit or change can quickly consume previews. We suggest making all the necessary changes to the email first, and then running Inbox Vision to preview how all your changes can affect the rendering of your email across environments.
 
 Braze runs tests through actual email clients and works to ensure renderings are accurate. If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support/).
+
+### Test accuracy versus live inboxes
+
+A sent message can look different from the editor preview because providers interpret the same HTML differently. Download a copy of the sent HTML to compare, and use CSS inlining where clients strip `<style>` blocks.

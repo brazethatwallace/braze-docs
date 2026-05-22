@@ -11,7 +11,11 @@ tool:
 
 # Archive campaigns and Canvases
 
-> Archiving your campaigns and Canvases can be a simple and effective way of organizing your workspace. As you continue building more messages, archiving can help make sure your focus is on active and relevant messaging efforts.
+> Archiving your campaigns and Canvases is an effective way to organize your workspace. As you continue building more messages, archiving can help make sure your focus is on active and relevant messaging efforts.
+
+{% alert important %}
+You can't delete campaigns and Canvases from the dashboard, but but you can archive them.
+{% endalert %}
 
 ## Archiving
 

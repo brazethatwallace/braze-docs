@@ -3,37 +3,37 @@ nav_title: 9月
 page_order: 3
 noindex: true
 page_type: update
-description: "この記事には2021年9月のリリースノートが含まれている。"
+description: "この記事には2021年9月のリリースノートが含まれています。"
 ---
 
-# 2021年9月
+# 2021年9月 {#september-2021}
 
 ## iOS 15
 
-### Apple Mail のプライバシー保護 
+### Apple Mailのプライバシー保護 {#apple-mail-privacy-protection}
 
-Apple のメールプライバシー保護 (MPP) は、9月中旬にリリースされた iOS 15、iPadOS 15、macOS Monterey、watchOS 8の Apple Mail アプリのユーザーに提供されるプライバシーアップデートです。MPP にオプトインしたユーザーの場合、メールはプロキシサーバーを使用してプリロードされ、画像がキャッシュされ、[開封の追跡]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/#open-tracking-pixel)などの指標のトラッキングピクセルをトラッキングできなくなります。MPP およびメール配信可能性メトリクスに関する問題、およびこれらのメトリクスに基づいてトリガーされる既存のキャンペーンとキャンバスに関する問題については、[ドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/email/apple_mail/mpp/) を参照してください。
+Appleのメールプライバシー保護 (MPP) は、9月中旬にリリースされたiOS 15、iPadOS 15、macOS Monterey、watchOS 8のApple Mailアプリのユーザーに提供されるプライバシーアップデートです。MPPにオプトインしたユーザーの場合、メールはプロキシサーバーを使用してプリロードされ、画像がキャッシュされ、[開封トラッキング]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/#open-tracking-pixel)などの指標のトラッキングピクセルを活用する機能が制限されます。MPPおよびメール到達率の指標に関する問題、またこれらの指標に基づいてトリガーされる既存のキャンペーンやキャンバスに関する問題については、[ドキュメント]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp/)を参照してください。
 
-### プッシュ機能
+### プッシュ機能 {#push-features}
 
-iOS 15では新しい通知機能が導入され、ユーザーは1日を通して集中力を保ち、頻繁な作業の中断を避けることができます。[中断レベルや関連性スコアなど]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/)、これらの新機能のサポートを提供できることをうれしく思う。
+iOS 15では新しい通知機能が導入され、ユーザーが1日を通して集中力を保ち、頻繁な中断を避けられるようになりました。[中断レベルや関連性スコア]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/)など、これらの新機能のサポートを提供できることをうれしく思います。
 
-## 連絡先カード
+## 連絡先カード {#contact-cards}
 
-連絡先カードは、アドレス帳や連絡先一覧に簡単にインポートできるビジネス情報や連絡先情報を送信するための標準化されたファイル形式です。SMSやMMSメッセージに連絡先カードをアップロードして作成できるようになった。組み込みの連絡先カードジェネレーターで連絡先カードを構築する方法の詳細については、[こちら]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/mms/contact_card/)のドキュメントを参照してください。
+連絡先カードは、アドレス帳や連絡先一覧に簡単にインポートできるビジネス情報や連絡先情報を送信するための標準化されたファイル形式です。SMSやMMSメッセージ用の連絡先カードをアップロードして作成できるようになりました。組み込みの連絡先カードジェネレーターで連絡先カードを作成する方法の詳細については、[ドキュメント]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card/)を参照してください。
 
-## デフォルト・コンテンツ・カードのカスタマイズ
+## デフォルトContent Cardsのカスタマイズ {#default-content-cards-customization}
 
-`ABKContentCardsTableViewController` を拡張してすべての UI 要素とコンテンツカードの動作をカスタマイズすることで、独自のコンテンツカードインターフェイスを作成できます。コンテンツカードフィードのカスタマイズ方法の詳細については、[ドキュメント]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/) をご覧ください。 
+`ABKContentCardsTableViewController` を拡張してすべてのUI要素とContent Cardsの動作をカスタマイズすることで、独自のContent Cardsインターフェイスを作成できます。Content Cardsフィードのカスタマイズ方法の詳細については、[ドキュメント]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)をご覧ください。
 
-## API レート制限
+## APIレート制限 {#api-rate-limits}
 
-[料金制限は]({{site.baseurl}}/api/basics/#api-limits/)2021年9月16日以降に搭乗するすべての顧客に適用される。 
+[レート制限]({{site.baseurl}}/api/basics/#api-limits/)は、2021年9月16日以降にオンボーディングされたすべてのお客様に適用されます。
 
-## AndroidとFireOSの開発者向けガイドを更新
+## AndroidおよびFireOS開発者ガイドの更新 {#updates-to-android-and-fireos-developer-guides}
 
-AndroidとFireOSの開発者ガイドは1つの場所に統合された。この[新しいAndroidセクション]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) では、専用のFireOS アーティクルを使用できます。
+AndroidとFireOSの開発者ガイドが1つの場所に統合されました。専用のFireOS記事は、この[新しいAndroidセクション]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)でご利用いただけます。
 
-## ファネルとリテンションレポートの更新
+## ファネルレポートとリテンションレポートの更新 {#updates-to-funnel-and-retention-reports}
 
-[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports/)と[保持レポート]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/)がSMSキャンペーンで利用可能になりました。
+[ファネルレポート]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)と[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)がSMS キャンペーンで利用可能になりました。

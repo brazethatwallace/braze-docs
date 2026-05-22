@@ -19,7 +19,7 @@ Braze allows you to control marketing pressure by rate limiting your campaigns, 
 1. [User-centric rate limiting:](#user-centric-rate-limiting) Focuses on providing the best experience for the user.
 2. [Delivery speed rate limiting:](#delivery-speed-rate-limiting) Takes into consideration the bandwidth of your servers.
 
-Braze will try to evenly distribute the message sends throughout the minute, but can't guarantee this. For example, if you have a campaign with a rate limit of 5,000 messages per minute, we'll try to distribute the 5,000 requests evenly through the minute (about 84 messages per second), but there may be some variation in the per-second rate.
+Braze does not support a per-second rate limit. Braze tries to evenly distribute the message sends throughout the minute, but cannot guarantee this. For example, if you have a campaign with a rate limit of 5,000 messages per minute, we try to distribute the 5,000 requests evenly through the minute (about 84 messages per second), but there may be some variation in the per-second rate.
 
 ### User-centric rate limiting
 
@@ -51,7 +51,7 @@ In the **Target Audiences** step of your campaign composer, you can also limit t
 
 ![Audience Summary with a selected checkbox for limiting the number of people who receive the campaign.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"} 
 
-By selecting the maximum user limit, you can limit the volume of messages sent on a per-channel basis or globally across all message types.
+By selecting the maximum user limit, you can limit the volume of messages sent on a per-channel basis or globally across all message types. Braze does not dispatch messages to users assigned to control groups, so they do not count toward the limit.
 
 {% alert note %}
 The maximum user cap limits the number of users dispatched, not the number of messages successfully sent. Because aborted messages count toward this cap, the actual number of messages sent may be lower than the configured limit. For example, if you set a cap of 10,000 and 2,000 messages are aborted due to Liquid logic or other conditions, only 8,000 messages are sent.
@@ -164,7 +164,7 @@ Instead of trying to make up for the delay and send the remaining 6,000 messages
 | 7      | 10,000     | 10,000                    |
 | 8      | 5,000      | 10,000                    |
 | 9      | 0          | 6,000                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rate limiting and Connected Content retries" }
 
 Connected Content requests are not rate-limited independently and will follow the webhook rate limit. This means if there is one Connected Content call to a unique endpoint per webhook, you would expect 5,000 webhooks and also 5,000 Connected Content calls per minute. Note that caching may affect this and reduce the number of Connected Content calls. Additionally, retries may increase the Connected Content calls, so we recommend checking that the Connected Content endpoint can handle some fluctuation here.
 
@@ -303,7 +303,7 @@ Consider the following campaigns and frequency capping by tag rule:
 |---|---|
 | The `promotional` tag is removed from **Campaign A** after your user received the message, but before **Campaign B has sent.** | Your user receives **Campaign B**.|
 | The `promotional` tag is mistakenly removed from **Campaign A** after your user received the message. <br> The tag is added back to **Campaign A** on Tuesday, before **Campaign B** is sent. | Your user does not receive **Campaign B**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use case" }
 
 #### Sending at large scales {#sending-at-large-scales}
 

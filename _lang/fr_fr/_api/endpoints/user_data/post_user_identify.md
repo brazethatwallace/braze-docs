@@ -10,7 +10,7 @@ description: "Cet article présente en détail l'endpoint Braze Identifier les u
 
 ---
 {% api %}
-# Identifier les utilisateurs
+# Identifier les utilisateurs {#identify-users}
 {% apimethod post %}
 /users/identify
 {% endapimethod %}
@@ -19,7 +19,7 @@ description: "Cet article présente en détail l'endpoint Braze Identifier les u
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f74e0f7-0620-4c7b-b0a2-f5f38fdbff58 {% endapiref %}
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 L'appel à `/users/identify` combine un profil utilisateur identifié par un alias (profil alias seul), une adresse e-mail (profil e-mail seul) ou un numéro de téléphone (profil numéro de téléphone seul) avec un profil utilisateur possédant un `external_id` (profil identifié), puis supprime le profil alias seul.
 
@@ -35,7 +35,7 @@ S'il n'existe aucun utilisateur avec cet `external_id`, celui-ci est ajouté à 
 Pour éviter toute perte inattendue de données lors de l'identification des utilisateurs, nous vous recommandons vivement de consulter d'abord les [bonnes pratiques de collecte de données]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) pour savoir comment capturer les données des utilisateurs lorsque des informations d'alias uniquement sont déjà présentes.
 {% endalert %}
 
-### Comportement de fusion
+### Comportement de fusion {#merging-behavior}
 
 Par défaut, cet endpoint fusionne la liste suivante de champs trouvés **exclusivement** sur l'utilisateur anonyme avec l'utilisateur identifié.
 
@@ -66,7 +66,7 @@ Par défaut, cet endpoint fusionne la liste suivante de champs trouvés **exclus
 - Date du dernier achat (Braze sélectionne la date la plus récente des deux)
 - Résumés des applications
 - Champs Last_X_at (Braze met à jour les champs si ceux du profil orphelin sont plus récents)
-- Résumés de campagne (Braze sélectionne les champs de date les plus récents)
+- Résumés de Campaign (Braze sélectionne les champs de date les plus récents)
 - Résumés du flux de travail (Braze sélectionne les champs de date les plus récents)
 - Message et historique d'engagement des messages
 - Nombre d'événements personnalisés et d'événements d'achat, ainsi que les horodatages de première et dernière date
@@ -75,15 +75,15 @@ Par défaut, cet endpoint fusionne la liste suivante de champs trouvés **exclus
   - Par exemple, si l'utilisateur cible ne dispose pas d'un résumé d'application pour « ABCApp », mais que l'utilisateur d'origine en possède un, l'utilisateur cible aura le résumé d'application « ABCApp » sur son profil après la fusion.
 {% enddetails %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.identify`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='users identify' %}
 
-## Corps de la requête
+## Corps de la requête {#request-body}
 
 ```
 Content-Type: application/json
@@ -98,7 +98,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 },
 ```
 
-### Paramètres de requête
+### Paramètres de requête {#request-parameters}
 
 Vous pouvez ajouter jusqu'à 50 alias utilisateur par requête. Vous pouvez associer plusieurs alias utilisateur supplémentaires à un seul `external_id`.
 
@@ -106,14 +106,14 @@ Vous pouvez ajouter jusqu'à 50 alias utilisateur par requête. Vous pouvez asso
 L'un des éléments suivants est requis par requête : `aliases_to_identify`, `emails_to_identify` ou `phone_numbers_to_identify`. Par exemple, vous pouvez utiliser cet endpoint pour identifier les utilisateurs par e-mail en utilisant `emails_to_identify` dans votre requête.
 {% endalert %}
 
-| Paramètre                   | Requis | Type de données                           | Description                                                                                                                                                                 |
+| Paramètre | Requis | Type de données | Description |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify`       | Requis | Tableau d'objets alias à identifier | Voir [objet alias à identifier]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) et [objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
-| `emails_to_identify`        | Requis | Tableau d'objets alias à identifier | Requis si `email` est spécifié comme identifiant. Adresses e-mail pour identifier les utilisateurs. Voir [Identification des utilisateurs par e-mail](#identifying-users-by-email).                                                                                                              |
-| `phone_numbers_to_identify` | Requis | Tableau d'objets alias à identifier | Numéros de téléphone pour identifier les utilisateurs.                                                                                                                                            |
+| `aliases_to_identify` | Requis | Tableau d'objets alias à identifier | Voir [objet alias à identifier]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) et [objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
+| `emails_to_identify` | Requis | Tableau d'objets alias à identifier | Requis si `email` est spécifié comme identifiant. Adresses e-mail pour identifier les utilisateurs. Voir [Identification des utilisateurs par e-mail](#identifying-users-by-email). |
+| `phone_numbers_to_identify` | Requis | Tableau d'objets alias à identifier | Numéros de téléphone pour identifier les utilisateurs. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
-### Identification des utilisateurs par adresses e-mail et numéros de téléphone
+### Identification des utilisateurs par adresses e-mail et numéros de téléphone {#identifying-users-by-email-addresses-and-phone-numbers}
 
 Si une adresse e-mail ou un numéro de téléphone est spécifié comme identifiant, vous devez également inclure `prioritization` dans l'identifiant.
 
@@ -135,7 +135,7 @@ Une seule des options suivantes peut figurer à la fois dans le tableau de prior
 La fusion n'a pas lieu si l'adresse e-mail ou le numéro de téléphone correspond à plusieurs utilisateurs. Cela inclut les cas où l'un de ces utilisateurs possède le même `external_id` que celui spécifié dans la requête. Dans ces cas, l'endpoint renvoie `"message": "success"`, mais les profils utilisateur ne sont pas combinés. Pour éviter cela, vérifiez que l'adresse e-mail ou le numéro de téléphone est associé uniquement à des utilisateurs non identifiés avant d'appeler cet endpoint.
 {% endalert %}
 
-## Exemple de requête
+## Exemple de requête {#request-example}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
@@ -161,7 +161,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 }'
 ```
 
-### Sensibilité à la casse
+### Sensibilité à la casse {#case-sensitivity}
 
 Le champ `alias_name` est sensible à la casse. Une requête qui renvoie un code d'état `201` confirme uniquement que la syntaxe de la requête est valide — elle ne confirme pas que l'alias a été trouvé. Si la casse de `alias_name` dans votre requête ne correspond pas exactement à l'alias stocké sur le profil utilisateur, l'opération échouera silencieusement et l'`external_id` ne sera pas attribué. Par exemple, si l'alias stocké est `JimJones@example.com`, une requête avec `jimjones@example.com` renverra un succès mais ne produira aucun résultat.
 
@@ -169,7 +169,7 @@ Le champ `alias_name` est sensible à la casse. Une requête qui renvoie un code
 Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases).
 {% endalert %}
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {

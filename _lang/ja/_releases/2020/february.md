@@ -3,21 +3,20 @@ nav_title: 2月
 page_order: 11
 noindex: true
 page_type: update
-description: "この記事には2020年2月のリリースノートが含まれている。"
+description: "この記事には2020年2月のリリースノートが含まれています。"
 ---
-# 2020年2月
+# 2020年2月 {#february-2020}
 
-## リテンションレポート
+## リテンションレポート {#retention-reports}
 
-Brazeは、キャンペーンの[リテンションレポートを]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports/)提供できることを誇りに思う。この機能は、特定のキャンペーンで何らかのメッセージを受け取ったユーザーのリテンションを測定するのに役立つ。リテンションレポートは、ダッシュボード内の [**キャンペーン分析**] ページで簡単に見つけることができます。 
+Brazeは、キャンペーンの[リテンションレポート]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)を提供できることを誇りに思います。この機能は、特定のキャンペーンで何らかのメッセージを受け取ったユーザーのリテンションを測定するのに役立ちます。リテンションレポートは、ダッシュボード内の**キャンペーン Analytics**ページで簡単に見つけることができます。
 
 ![フルレポート]({% image_buster /assets/img/retention_report_full_report.png %})
 
 {% alert important %}
-2020年1月13日現在、この機能は、EU地域またはHIPAA準拠クラスターに展開されている当社のクライアントではまだ使用できません。プラットフォーム全体への機能配備を進めながら、これらの地域でもこのレポートを利用できるようにする予定だ。
+2020年1月13日現在、この機能は、EU地域またはHIPAA準拠クラスターにデプロイされているクライアントではまだ使用できません。プラットフォーム全体への機能デプロイを進めながら、これらの地域でもこのレポートを利用できるようにする予定です。
 {% endalert %}
 
-## 新しいEメール・コンテンツ・ブロックAPIエンドポイント
+## 新しいメールContent Blocks APIエンドポイント {#new-email-content-block-api-endpoint}
 
-API経由でメールコンテンツブロックを[更新]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)できるようになった！
-
+API経由でメールのContent Blocksを[更新]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)できるようになりました！

@@ -1,54 +1,67 @@
 ---
 nav_title: BrazeAI
 article_title: BrazeAI
-description: "BrazeAI<sup>TM</sup> は、お客様のエンゲージメント戦略のために、創造性、パーソナライゼーション、および最適化の面で参入障壁を低くする、利用可能で使いやすいツールセットを強化するものです。"
-page_order: 6.5
+description: "BrazeAI<sup>TM</sup>は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのハードルを下げる、利用しやすく使いやすいツールのコレクションを提供します。"
+page_order: 8
 layout: dev_guide
 search_rank: 12
-Tool:
+tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup> は、お客様のエンゲージメント戦略のために、創造性、パーソナライゼーション、および最適化の面で参入障壁を低くする、利用可能で使いやすいツールセットを強化するものです。BrazeAI<sup>TM</sup> の信頼できるアドバイザー機能を使用して、自分の創造性を伸ばし、より良い決定を行い、顧客のユーザーエクスペリエンスを最適化することができます。"
+guide_top_text: "BrazeAI<sup>TM</sup>は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのハードルを下げる、利用しやすく使いやすいツールのコレクションを提供します。BrazeAI<sup>TM</sup>の機能を活用すれば、信頼できるアドバイザーとして創造性を導き、より良い意思決定を行い、顧客のユーザーエクスペリエンスを最適化できます。"
 
 guide_featured_title: "機能"
 guide_featured_list:
   - name: エージェント
-    link: /docs/user_guide/brazeai/agents/
+    link: /docs/user_guide/brazeai/agents
     image: /assets/img/braze_icons/star-06.svg
-  - name: Braze MCP サーバー
-    link: /docs/user_guide/brazeai/mcp_server/
+  - name: Braze MCPサーバー
+    link: /docs/user_guide/brazeai/mcp_server
     image: /assets/img/braze_icons/dataflow-01.svg
   - name: コンテンツオプティマイザー
-    link: /docs/user_guide/brazeai/content_optimizer/
+    link: /docs/user_guide/brazeai/content_optimizer
     image: /assets/img/braze_icons/image-user-check.svg
   - name: Decisioning Studio
-    link: /docs/user_guide/brazeai/decisioning_studio/
+    link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/stars-03.svg
   - name: 生成 AI
-    link: /docs/user_guide/brazeai/generative_ai/
+    link: /docs/user_guide/brazeai/generative_ai
     image: /assets/img/braze_icons/lightbulb-02.svg
-  - name: Intelligence Suite
-    link: /docs/user_guide/brazeai/intelligence_suite/
+  - name: インテリジェントスイート
+    link: /docs/user_guide/brazeai/intelligence_suite
     image: /assets/img/braze_icons/clock.svg
-  - name: 項目のレコメンデーション
-    link: /docs/user_guide/brazeai/item_recommendations/
+  - name: アイテムのおすすめ
+    link: /docs/user_guide/brazeai/item_recommendations
     image: /assets/img/braze_icons/hearts.svg
-  - name: オペレータ
-    link: /docs/user_guide/brazeai/operator/
+  - name: オペレーター
+    link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Predictive Suite
-    link: /docs/user_guide/brazeai/predictive_suite/
+  - name: 予測スイート
+    link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
-  - name: パーソナライズされたパス
-    link: /docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths/
+  - name: パーソナライズ済みパス
+    link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
     image: /assets/img/braze_icons/chevron-up-double.svg
   - name: 勝者パス
-    link: /docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/winning_path/
+    link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path
     image: /assets/img/braze_icons/dataflow-03.svg
-  - name: 勝者バリアントとパーソナライズされたバリアント
-    link: /docs/user_guide/engagement_tools/testing/multivariant_testing/optimizations/
+  - name: 勝者バリアントとパーソナライズ済みバリアント
+    link: /docs/user_guide/messaging/ab_testing/optimizations
     image: /assets/img/braze_icons/trophy-01.svg
 ---
 
 <br>
+
+## 機能の概要 {#feature-overview}
+
+| 目標 | おすすめの機能 |
+| --- | --- |
+| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | Brazeエージェント（キャンバスまたはカタログ）、単発の下書きコピーには生成 AI |
+| どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | コンテンツオプティマイザー（メール、プッシュ通知、またはSMS/MMS/RCS）または勝者バリアント |
+| オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | Decisioning Studio |
+| チャーンする可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | Predictive ChurnまたはPredictive Events |
+| メッセージ内でカタログから特定の製品をおすすめする | アイテムのおすすめ |
+| ユーザーごとに最適な時間や最適なチャネルで送信する | インテリジェントタイミング、インテリジェントチャネル |
+| ダッシュボードで直接コピーやクリエイティブを作成・改善する | 生成 AI（コピーライティング、画像、QA）、サポートにはオペレーター |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }

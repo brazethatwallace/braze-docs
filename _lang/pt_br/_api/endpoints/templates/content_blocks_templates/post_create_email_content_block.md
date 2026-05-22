@@ -9,23 +9,27 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar bl
 
 ---
 {% api %}
-# Criar bloco de conteúdo
+# Criar bloco de conteúdo {#create-content-block}
 {% apimethod post %}
 /content_blocks/create
 {% endapimethod %}
 
-> Use esse endpoint para criar um [bloco de conteúdo]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/).
+> Use esse endpoint para criar um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+
+{% alert tip %}
+Você também pode chamar esse endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) usando a função [`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Isso permite que ferramentas de IA como Claude e Cursor criem blocos de conteúdo por meio de prompts em linguagem natural.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `content_blocks.create`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 
 ```
 Content-Type: application/json
@@ -42,7 +46,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
@@ -50,10 +54,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | Opcional | String | Descrição do bloco de conteúdo. Deve ter menos de 250 caracteres. |
 | `content` | Obrigatória | String | Conteúdo HTML ou de texto no bloco de conteúdo. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
-| `tags` | Opcional | Matriz de strings | [As tags]({{site.baseurl}}/user_guide/administrative/app_settings/tags/) já devem existir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `tags` | Opcional | Matriz de strings | As [tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) já devem existir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/create' \
 --header 'Content-Type: application/json' \
@@ -67,7 +71,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 }'
 ```
 
-## Resposta
+## Resposta {#response}
 
 ```json
 {
@@ -78,7 +82,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/cre
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
@@ -94,13 +98,13 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `Content Block description must be shorter than 250 characters` | |
 | `Content Block name cannot be blank` | |
 | `Content Block name must be shorter than 100 characters` | |
-| `Content Block name can only contain alphanumeric characters` | Os nomes dos blocos de conteúdo podem incluir qualquer um dos seguintes caracteres: as letras (maiúsculas ou minúsculas) `A` a `Z`, os números `0` a `9`, os traços `-` e os sublinhados `_`. Não pode conter caracteres não alfanuméricos, como emojis, `!`, `@`, `~`, `&`, e outros caracteres "especiais". |
+| `Content Block name can only contain alphanumeric characters` | Os nomes dos blocos de conteúdo podem incluir qualquer um dos seguintes caracteres: as letras (maiúsculas ou minúsculas) `A` a `Z`, os números `0` a `9`, os traços `-` e os sublinhados `_`. Não pode conter caracteres não alfanuméricos, como emojis, `!`, `@`, `~`, `&` e outros caracteres "especiais". |
 | `Content Block with this name already exists` | Tente um nome diferente. |
 | `Content Block state must be either active or draft` | |
 | `Tags must be an array` | As tags devem ser formatadas como uma matriz de strings, por exemplo, `["marketing", "promotional", "transactional"]`. | |
 | `All tags must be strings` | Confira se as tags estão entre aspas (`""`). |
 | `Some tags could not be found` | Para adicionar uma tag ao criar um bloco de conteúdo, a tag já deve existir na Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 
 {% endapi %}

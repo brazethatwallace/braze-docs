@@ -1,18 +1,18 @@
 ---
-nav_title: "웹 개체"
-article_title: 웹 메시징 개체
+nav_title: "웹 오브젝트"
+article_title: 웹 메시징 오브젝트
 page_order: 12
 page_type: reference
 channel: push
 platform: Web
-description: "이 참조 문서에서는 Braze에서 사용되는 다양한 웹 객체를 나열하고 설명합니다."
+description: "이 참조 문서에서는 Braze에서 사용되는 다양한 웹 오브젝트를 나열하고 설명합니다."
 
 ---
-# 웹 푸시 개체
+# 웹 푸시 오브젝트 {#web-push-object}
 
-> `web_push` 개체를 사용하면 [메시징 엔드포인트를]({{site.baseurl}}/api/endpoints/messaging) 통해 웹 푸시 및 웹 푸시 알림 콘텐츠와 관련된 정보를 정의하거나 요청할 수 있습니다.
+> `web_push` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 웹 푸시 및 웹 푸시 알림 콘텐츠와 관련된 정보를 정의하거나 요청할 수 있습니다.
 
-## 웹 푸시 개체
+## 웹 푸시 오브젝트
 
 ```json
 {
@@ -30,9 +30,9 @@ description: "이 참조 문서에서는 Braze에서 사용되는 다양한 웹 
 }
 ```
 
-`image_url` 값은 이미지가 호스팅되는 위치로 연결되는 URL이어야 합니다. 이미지는 1:1 화면 비율로 잘라야 합니다.
+`image_url` 값은 이미지가 호스팅되는 위치로 연결되는 URL이어야 합니다. 이미지는 1:1 종횡비로 잘라야 합니다.
 
-## 웹 푸시 액션 버튼 개체
+## 웹 푸시 실행 버튼 오브젝트 {#web-push-action-button-object}
 
 ```json
 {

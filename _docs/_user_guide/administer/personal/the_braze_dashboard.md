@@ -110,7 +110,7 @@ You can move through search results using your keyboard.
 table th:nth-child(1),
 table th:nth-child(2),
 table td:nth-child(1),
-table td:nth-child(2), {
+table td:nth-child(2) {
     width:20%;
 }
 table td {
@@ -126,7 +126,7 @@ table td {
 | Move between search results | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Select a search result      | <kbd>Enter</kbd>    |
 | Close the search menu       | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
 
 ## Productivity features
 

@@ -1,39 +1,39 @@
 ---
-nav_title: "GET: Detalles del segmento de exportación"
-article_title: "GET: Detalles del segmento de exportación"
+nav_title: "GET: Exportar detalles del segmento"
+article_title: "GET: Exportar detalles del segmento"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Exportar detalles del segmento de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Exportar detalles del segmento de Braze."
 
 ---
 {% api %}
-# Detalles del segmento de exportación
+# Exportar detalles del segmento {#export-segment-details}
 {% apimethod get %}
 /segments/details
 {% endapimethod %}
 
-> Utiliza este punto final para recuperar información relevante sobre un segmento, que puede identificarse mediante la dirección `segment_id`.
+> Utiliza este punto de conexión para recuperar información relevante sobre un segmento, que puede identificarse mediante el `segment_id`.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aab56ed9-0a28-476a-8b57-b79786dbb9c1 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.details`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `segments.details`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro    | Obligatoria | Tipo de datos | Descripción            |
+| Parámetro    | Obligatorio | Tipo de datos | Descripción            |
 | ------------ | -------- | --------- | ---------------------- |
-| `segment_id` | Obligatoria | Cadena | Ver [Identificador API de segmento]({{site.baseurl}}/api/identifier_types/).<br><br> La dirección `segment_id` para un segmento determinado se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/) dentro de su cuenta Braze o puede utilizar el [punto final Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | Obligatorio | Cadena | Ver [Identificador de API del segmento]({{site.baseurl}}/api/identifier_types/).<br><br> El `segment_id` de un segmento determinado se puede encontrar en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) dentro de tu cuenta de Braze, o puedes utilizar el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/).  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details?segment_id={{segment_identifier}}' \
@@ -41,7 +41,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 ```
 {% endraw %}
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {
@@ -57,7 +57,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endapi %}

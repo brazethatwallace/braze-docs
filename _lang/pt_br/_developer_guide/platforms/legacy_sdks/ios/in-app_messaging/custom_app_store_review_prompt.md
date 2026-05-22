@@ -12,15 +12,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Solicitação de revisão personalizada da App Store
+# Solicitação de revisão personalizada da App Store {#custom-app-store-review-prompt}
 
 {% alert note %}
-Depois de implementar esse prompt, o Braze deixará de rastrear automaticamente as impressões e você deverá registrar sua própria [análise de dados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
+Depois de implementar esse prompt, a Braze deixará de rastrear automaticamente as impressões e você deverá registrar sua própria [análise de dados]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/customization/handing_in_app_display/#logging-impressions-and-clicks).
 {% endalert %}
 
 Criar uma campanha para pedir aos usuários uma avaliação da App Store é um uso popular de mensagens no app.
 
-Comece definindo o [delegado de mensagens no app](#in-app-message-controller-delegate) em seu aplicativo. Em seguida, implemente o seguinte método delegado para desativar a mensagem padrão de avaliação da App Store.
+Comece definindo o [delegado de mensagens no app](#in-app-message-controller-delegate) em seu aplicativo. Em seguida, implemente o seguinte método delegado para desativar a mensagem padrão de avaliação da App Store:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -88,14 +88,13 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 {% raw %}
 
-Em seguida, crie uma campanha de envio de mensagens no app com o seguinte:
+Em seguida, crie uma campanha de mensagem no app com o seguinte:
 
 - O par chave-valor `"Appstore Review" : "true"`
-- O comportamento ao clicar está definido como "Deep Link Into App", utilizando o deep link `{YOUR-APP-SCHEME}:appstore-review`.
+- O comportamento ao clicar definido como "Deep Link Into App", utilizando o deep link `{YOUR-APP-SCHEME}:appstore-review`.
 
 {% endraw %}
 
 {% alert tip %}
-A Apple limita as solicitações de revisão da App Store a um máximo de três (3) vezes por ano para cada usuário, portanto, sua campanha deve ser [limitada de frequência]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) a três vezes por ano por usuário.<br><br>Os usuários podem desativar os avisos de revisão da App Store. Como resultado, seu prompt de avaliação personalizado não deve prometer que um prompt de avaliação nativo da App Store aparecerá ou solicitar diretamente uma avaliação.
+A Apple limita as solicitações de revisão da App Store a um máximo de três (3) vezes por ano para cada usuário, portanto, sua campanha deve ter [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de três vezes por ano por usuário.<br><br>Os usuários podem desativar os avisos de revisão da App Store. Como resultado, seu prompt de avaliação personalizado não deve prometer que um prompt de avaliação nativo da App Store aparecerá ou solicitar diretamente uma avaliação.
 {% endalert %}
-

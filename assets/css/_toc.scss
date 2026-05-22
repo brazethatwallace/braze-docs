@@ -34,6 +34,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
     padding-left: 0px;
     overflow-y: auto;
     overflow-x: hidden;
+    align-self: flex-start;
     font-size: $toc_font_size;
     line-height: 1.6;
     position: -webkit-sticky;
@@ -50,7 +51,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
       }
       // box-shadow: inset 2px 0px 0px #88888866;
       //padding-left: 1rem;
-      padding-top: 15px;
+      padding-top: 8px;
       min-height: 25vh;
       @media print {
         display: none !important;
@@ -91,7 +92,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
           -moz-transition:  all ease $toc_transition_time;
 
           &.active {
-            font-family: $braze-medium;
+            font-family: $braze-bold;
             color: $black-shark;
             width: fit-content;
             border-bottom-width: 2px;
@@ -112,7 +113,7 @@ $toc_color: rgba($braze-purple-dark,0.6);
     }
     .toc_header {
       // border-bottom: 2px solid $toc_color;
-      font-family: $braze-medium;
+      font-family: $braze-bold;
       font-size: $toc_font_size + 1;
       margin-bottom: 6px;
     }
