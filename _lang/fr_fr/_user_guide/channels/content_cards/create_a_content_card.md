@@ -228,8 +228,8 @@ Vous souhaitez que votre contenu dure plus de 30 jours ? Essayez les [bannières
 
 Si vous activez la rééligibilité, le compte à rebours pour qu'un utilisateur puisse « réintégrer » une Campaign commence après l'envoi du message. Le moment précis où ce compte à rebours démarre dépend de vos paramètres de création de carte :
 
-* Les Content Cards utilisant [la première impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) utilisent le moment de l'impression pour calculer la rééligibilité.
-* Les Content Cards créées au lancement de la Campaign ou à l'entrée de l'étape du Canvas utilisent le moment d'envoi ou d'impression le plus récent.
+- Les Content Cards utilisant [la première impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) utilisent le moment de l'impression pour calculer la rééligibilité.
+- Les Content Cards créées au lancement de la Campaign, dans les Campaigns multicanaux ou à l'entrée de l'étape du Canvas utilisent le moment d'envoi ou d'impression le plus récent.
 
 #### L'expiration de 30 jours et la rééligibilité {#the-30-day-expiration-and-re-eligibility}
 

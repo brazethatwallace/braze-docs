@@ -93,7 +93,7 @@ Brazeは以下のメタフィールドオブジェクトとそれぞれのタイ
 | `number_integer`                                 | 整数                                                   |
 | `single_line_text_field`, `list.single_line_text_field` | 文字列、文字列の配列                              |
 | `url`, `list.url`                                | 文字列（URL）、文字列の配列（URL）                      |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション） #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
 
 {% endsubtab %}
 {% subtab サポートされていないメタフィールド %}
@@ -159,7 +159,7 @@ Shopifyパートナーページから、商品タグ、コレクション、商�
 ![アクティブな商品カタログ同期が表示されたインテグレーション設定ページ。]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
 {% alert important %}
-同期するセレクションを変更すると、それらを参照しているアクティブなキャンペーン、キャンバス、またはカタログセレクションに影響する可能性があります。変更を適用する際は、アクティブなコンテンツが正しく動作するように更新してください。
+同期するセレクションを変更すると、それらを参照しているアクティブなCampaigns、Canvases、またはカタログセレクションに影響する可能性があります。変更を適用する際は、アクティブなコンテンツが正しく動作するように更新してください。
 {% endalert %}
 
 ## サポートされているShopifyカタログデータ {#supported-shopify-catalog-data}
@@ -206,7 +206,7 @@ Brazeは各Shopify商品につき最大250のバリアントをカタログに�
 {% tabs %}
 {% tab 商品タグ %}
 
-商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections/)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのセグメントを構築したりできます。
+商品タグを使用して、Shopifyでの商品のカテゴリ分けに基づいてメッセージをパーソナライズできます。例えば、[カタログセレクション]({{site.baseurl}}/catalog_selections/)を通じて「Summer Sale」タグが付いたすべての商品を紹介するプロモーションを送信したり、「Premium」タグが付いた商品を購入したユーザーのSegmentを構築したりできます。
 
 商品タグは、各カタログアイテムの配列フィールドとして保存されます。商品タグの同期を設定するには、[Shopify商品タグ](#shopify-product-tags)を参照してください。
 
@@ -278,7 +278,7 @@ Brazeは各Shopify商品につき最大250のバリアントをカタログに�
 または、「Women's」タグが付いた特定の商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
 
 {% raw %}
-`````````liquid
+```liquid
 Checkout the latest women's clothing:
     {% catalog_selection_items se-team-ecommerce_shopify_catalog womens_clothing %}
     {{ items[0].product_title}}{{items[0].price}}
@@ -291,10 +291,10 @@ Checkout the latest women's clothing:
 
 ### カタログセグメンテーション（SQL） {#catalog-segmentation-sql}
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品タグとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品タグとインタラクションしたユーザーに基づいてSegmentを構築します。例えば、特定の商品タグを含むカタログアイテムとエンゲージしたユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
-`````````liquid
+```liquid
 -- Description:
 -- This query fetches users who have engaged with catalog items that contain a specific product tag. It joins the catalog
 -- to custom events by matching any element in an array within events.properties.products (e.g. any product
@@ -349,7 +349,7 @@ WHERE
 2. メッセージ作成画面で、商品メタフィールドをテンプレートに挿入したい場所にセレクションを追加します。例えば、次のようなHTML商品ブロックを使用できます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
 
 {% if items[0] == blank %}
@@ -396,7 +396,7 @@ WHERE
 または、特定のメタフィールド値を持つ商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
 
 {% raw %}
-`````````liquid
+```liquid
 Check out the latest summer products:
     {% catalog_selection_items se-team-ecommerce_shopify_catalog seasonal_summer %}
     {{ items[0].product_title}}{{items[0].price}}
@@ -409,10 +409,10 @@ Check out the latest summer products:
 
 ### カタログセグメンテーション（SQL）
 
-[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてセグメントを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
+[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、商品メタフィールドとインタラクションしたユーザーに基づいてSegmentを構築します。例えば、メタフィールド配列に特定の値を含む商品でeコマースイベントをトリガーしたユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
-`````````sql
+```sql
 -- -----------------------------------------------------------------------------
 -- When the metafield is stored as a JSON array in catalog field_value (for example,
 -- '["winter","summer"]' or a list-type Shopify metafield serialized to JSON),
@@ -451,9 +451,9 @@ WHERE
 特定の商品メタフィールドを持つ注文を行った顧客をセグメント化したい場合は、以下のSQLセグメントエクステンションテンプレート（全期間、特定の期間、最初または最後にイベントをトリガー）のいずれかを使用してください。
 
 {% raw %}
-`````````sql
+```sql
 -- =============================================================================
--- セグメント Extension: Metafields × Ecommerce Events — Example SQL Templates
+-- Segment Extension: Metafields × Ecommerce Events — Example SQL Templates
 -- =============================================================================
 -- Metafield column names in CATALOGS_ITEMS_SHARED follow:
 --   field_name = 'metafield_<namespace>_<key>'
@@ -499,7 +499,7 @@ WHERE
 -- Template 2: Map metafields to event triggers (for a specific period)
 -- -----------------------------------------------------------------------------
 -- Same as Template 1, restricted to events within a time window. Use
--- $start_date and $end_date (セグメント Extension parameters) or literal
+-- $start_date and $end_date (Segment Extension parameters) or literal
 -- Unix timestamps.
 -- -----------------------------------------------------------------------------
 
@@ -579,7 +579,7 @@ WHERE
 {% endtab %}
 {% tab コレクション %}
 
-Shopifyコレクションを使用して、Shopifyサイトやアプリ体験でも使用されているキュレートされた商品グループをメッセージに取り込みます。例えば、プロモーションメールで「New Arrivals」を紹介したり、カート放棄キャンバスで「Best Sellers」をクロスセルしたり、季節限定コレクションを閲覧したユーザーをターゲットにしたりできます。
+Shopifyコレクションを使用して、Shopifyサイトやアプリ体験でも使用されているキュレートされた商品グループをメッセージに取り込みます。例えば、プロモーションメールで「New Arrivals」を紹介したり、カート放棄Canvasで「Best Sellers」をクロスセルしたり、季節限定コレクションを閲覧したユーザーをターゲットにしたりできます。
 
 ### カタログセレクション
 
@@ -607,7 +607,7 @@ Shopifyコレクションの場合、コレクションを表示したときのU
 2. メッセージで、作成したセレクションを使用するか、コレクションを直接参照してテンプレートに挿入します。例えば、次のようなHTML商品ブロックを使用できます。
 
 {% raw %}
-`````````liquid
+```liquid
 {% catalog_selection_items se-team-ecommerce_shopify_catalog shopify_collection_womens_instock %}
 
 {% if items[0] == blank %}
@@ -654,7 +654,7 @@ Shopifyコレクションの場合、コレクションを表示したときのU
 または、特定の新商品をプッシュ通知で紹介したい場合は、**パーソナライゼーションを追加**ツールを使用してカタログアイテムを指定できます。
 
 {% raw %}
-`````````liquid
+```liquid
 Checkout the latest women's clothing:
     {% catalog_selection_items se-team-ecommerce_shopify_catalog shopify_collection_womens_instock %}
     {{ items[0].product_title}}{{items[0].price}}
@@ -667,7 +667,7 @@ Checkout the latest women's clothing:
 
 ### カタログセグメンテーション（SQL）
 
-コレクションとインタラクションしたユーザーのセグメントを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてセグメントを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
+コレクションとインタラクションしたユーザーのSegmentを作成します。[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)を使用して、コレクションメンバーシップに基づいてSegmentを構築します。例えば、過去1年間に特定のコレクションの商品を購入したユーザーを見つけるには、次のクエリを使用します。
 
 {% raw %}
 ```json
@@ -706,7 +706,7 @@ WHERE
 
 ## 商品同期を非アクティブにする {#deactivate}
 
-Shopify商品同期機能を非アクティブにすると、カタログと商品がすべて削除されます。この操作は、このカタログの商品データをアクティブに使用しているメッセージにも影響する可能性があります。商品詳細のないメッセージが送信される可能性があるため、非アクティブ化する前にキャンペーンまたはキャンバスを更新または一時停止していることを確認してください。カタログページでShopifyカタログを直接削除しないでください。
+Shopify商品同期機能を非アクティブにすると、カタログと商品がすべて削除されます。この操作は、このカタログの商品データをアクティブに使用しているメッセージにも影響する可能性があります。商品詳細のないメッセージが送信される可能性があるため、非アクティブ化する前にCampaignsまたはCanvasesを更新または一時停止していることを確認してください。カタログページでShopifyカタログを直接削除しないでください。
 
 ## トラブルシューティング {#troubleshooting}
 

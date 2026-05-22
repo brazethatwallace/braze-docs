@@ -109,7 +109,7 @@ Canvas-spezifische Faktoren gelten ebenfalls:
 - **Maximale Eintritts- oder Zielgruppen-Caps:** Eintritts- oder Send-Caps stoppen zusätzliche Nutzer:innen, selbst wenn das zugrunde liegende Segment größer ist.
 - **Berichtszeitraum:** Der Analytics-Bereich umfasst möglicherweise nicht jeden Send, den Sie mit der Schätzung vergleichen.
 
-### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _Eindeutige Empfänger:innen_ kann höher sein als die erwartete Zielgruppe, da Braze **eindeutige tägliche Empfänger:innen** für Canvas- und Campaign-Berichte trackt. Dies unterstützt eine genaue Conversion-Attribution jedes Mal, wenn ein:e Nutzer:in eine Nachricht in der Journey erhält.
 
@@ -161,6 +161,16 @@ Es gibt ein einstufiges Canvas mit aktivierten Ruhezeiten:
 ### Warum ist meine Canvas-Schritt-Konversionsrate nicht gleich meiner Canvas-Varianten-Gesamtkonversionsrate? {#why-is-my-canvas-step-conversion-rate-not-equal-to-my-canvas-variant-total-conversion-rate}
 
 Es ist üblich, dass die Conversions-Gesamtzahl einer Canvas-Variante größer ist als die Summe ihrer Schritt-Gesamtzahlen. Dies liegt daran, dass ein:e Nutzer:in ein Konversions-Event für eine Variante ausführen kann, sobald er/sie die Variante betritt. Dasselbe Konversions-Event zählt jedoch nicht für einen Canvas-Schritt. Jede:r Nutzer:in, der/die das Canvas betritt und das Konversions-Event vor dem Empfang des ersten Canvas-Schritts ausführt, wird zur Varianten-Conversions-Gesamtzahl gezählt, aber nicht zur Schritt-Gesamtzahl. Dasselbe gilt für Nutzer:innen, die das Canvas betreten, aber das Canvas verlassen, bevor sie einen Schritt erhalten.
+
+Beachten Sie, dass es auch möglich ist, dass ein:e Nutzer:in eine Variante betritt, keine Nachricht von einem Schritt erhält und dann konvertiert. In diesem Fall wird keine Conversion auf Schrittebene protokolliert. Da der/die Nutzer:in jedoch technisch gesehen konvertiert hat, wird eine Conversion auf Canvas-Ebene protokolliert.
+
+### Wie kann ich bestätigen, ob meine Nutzer:innen ein API-getriggertes Canvas erhalten haben? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), indem Sie einen Canvas-Filter verwenden, um zu bestätigen, ob Nutzer:innen das Canvas betreten oder einen bestimmten Canvas-Schritt erhalten haben. Verwenden Sie beispielsweise einen Canvas-Eintrittsfilter, wenn Sie bestätigen möchten, dass Nutzer:innen das API-getriggerte Canvas betreten haben, oder einen Filter für empfangene Schritte, wenn Sie bestätigen möchten, dass sie eine Nachricht aus dem Canvas erhalten haben. Verwenden Sie dann den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), um die Nutzer:innen in diesem Segment zu exportieren.
+
+### Kann ich ein Canvas löschen? {#can-i-delete-a-canvas}
+
+Nein, aber Sie können [ein Canvas archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### Wie kann ich die Analytics für jede meiner Canvas-Komponenten anzeigen? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 

@@ -11,7 +11,11 @@ tool:
 
 # Campaigns und Canvases archivieren {#archive-campaigns-and-canvases}
 
-> Das Archivieren Ihrer Campaigns und Canvases kann eine einfache und effektive Möglichkeit sein, Ihren Workspace zu organisieren. Wenn Sie immer mehr Nachrichten erstellen, kann das Archivieren dazu beitragen, dass Sie sich auf aktive und relevante Messaging-Aktivitäten konzentrieren.
+> Das Archivieren Ihrer Campaigns und Canvases ist eine effektive Möglichkeit, Ihren Workspace zu organisieren. Wenn Sie immer mehr Nachrichten erstellen, kann das Archivieren dazu beitragen, dass Sie sich auf aktive und relevante Messaging-Aktivitäten konzentrieren.
+
+{% alert important %}
+Sie können Campaigns und Canvases nicht aus dem Dashboard löschen, aber Sie können sie archivieren.
+{% endalert %}
 
 ## Archivieren {#archiving}
 

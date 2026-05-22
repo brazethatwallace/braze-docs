@@ -190,6 +190,14 @@ API 트리거 캠페인을 사용하면 Braze 대시보드 내에서 캠페인 �
 
 API 캠페인은 API를 사용하여 보낸 메시지를 추적하는 데 사용됩니다. 대부분의 캠페인과 달리 메시지, 수신자 또는 스케줄을 지정하지 않고 대신 API 호출에 식별자를 전달합니다.
 
+### API 트리거 캠페인을 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+**Campaign 수신** 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)한 다음 확인하려는 특정 API 트리거 캠페인을 선택할 수 있습니다. Segment를 저장한 후 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+
+### 캠페인을 삭제할 수 있나요? {#can-i-delete-a-campaign}
+
+아니요, 하지만 [캠페인을 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
+
 ### 실행 기반 캠페인과 API 트리거 캠페인의 차이점은 무엇인가요? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>

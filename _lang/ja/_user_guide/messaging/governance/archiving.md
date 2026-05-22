@@ -3,40 +3,44 @@ nav_title: アーカイブ
 article_title: アーカイブ
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、キャンペーンやキャンバスをアーカイブする方法について説明しています。"
+description: "このリファレンス記事では、CampaignsやCanvasesをアーカイブする方法について説明しています。"
 tool:
-    - キャンペーン
-    - キャンバス
+    - Campaigns
+    - Canvas
 ---
 
-# キャンペーンとキャンバスのアーカイブ {#archive-campaigns-and-canvases}
+# CampaignsとCanvasesのアーカイブ {#archive-campaigns-and-canvases}
 
-> キャンペーンやキャンバスをアーカイブすることは、ワークスペースを整理するためのシンプルで効果的な方法です。メッセージの作成を続けていく中で、アーカイブを活用することで、アクティブで関連性の高いメッセージング活動に集中できるようになります。
+> CampaignsやCanvasesをアーカイブすることは、ワークスペースを整理するための効果的な方法です。メッセージの作成を続けていく中で、アーカイブを活用することで、アクティブで関連性の高いメッセージング活動に集中できるようになります。
+
+{% alert important %}
+ダッシュボードからCampaignsやCanvasesを削除することはできませんが、アーカイブすることは可能です。
+{% endalert %}
 
 ## アーカイブ {#archiving}
 
-キャンペーンやキャンバスをアーカイブすると、メッセージは配信されなくなり、アプリ内メッセージも表示されなくなります。アーカイブ後も結果を確認することはできますが、キャンペーンやキャンバスを編集することはできません。編集するには、まず[アーカイブを解除](#unarchiving-campaigns-and-canvases)する必要があります。
+CampaignやCanvasをアーカイブすると、メッセージは配信されなくなり、アプリ内メッセージも表示されなくなります。アーカイブ後も結果を確認することはできますが、CampaignやCanvasを編集することはできません。編集するには、まず[アーカイブを解除](#unarchiving-campaigns-and-canvases)する必要があります。
 
 {% tabs local %}
 {% tab campaign %}
-キャンペーンをアーカイブするには:
+Campaignをアーカイブするには:
 
-1. **Messaging** > **キャンペーン** に移動します。
-2. キャンペーンの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
+1. **Messaging** > **Campaigns** に移動します。
+2. Campaignの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
 3. **Archive** を選択します。
 {% endtab %}
 
 {% tab canvas %}
-キャンバスをアーカイブするには:
+Canvasをアーカイブするには:
 
-1. **Messaging** > **キャンバス** に移動します。
-2. キャンバスの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
+1. **Messaging** > **Canvas** に移動します。
+2. Canvasの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i> メニューを選択します。
 3. **Archive** を選択します。
 {% endtab %}
 {% endtabs %}
 
 ## アーカイブの解除 {#unarchiving}
 
-キャンペーンやキャンバスのアーカイブを解除しても、すぐに配信が開始されるわけではありません。ステータスが**Active**に変更されるだけです。アーカイブ解除後は、メッセージが送信されることなく、メッセージの設定を編集・確認できます。
+CampaignやCanvasのアーカイブを解除しても、すぐに配信が開始されるわけではありません。ステータスが**Active**に変更されるだけです。アーカイブ解除後は、メッセージが送信されることなく、メッセージの設定を編集・確認できます。
 
-キャンペーンやキャンバスを再開してメッセージの送信を開始するには、該当する行の<i class="fas fa-ellipsis-vertical"></i> メニューを選択し、**Resume** を選択します。
+CampaignやCanvasを再開してメッセージの送信を開始するには、該当する行の<i class="fas fa-ellipsis-vertical"></i> メニューを選択し、**Resume** を選択します。
