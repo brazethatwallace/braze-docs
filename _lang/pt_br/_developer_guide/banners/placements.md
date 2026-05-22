@@ -160,36 +160,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+O ouvinte de atualização de banner reflete o estado do banner na memória do SDK. Uma única atualização pode incluir posicionamentos que já estavam em cache (por exemplo, de uma atualização anterior, outra tela ou trabalho automático do SDK), não apenas os IDs de posicionamento da sua chamada `requestRefresh` mais recente. Se você se importa apenas com determinados posicionamentos, verifique o ID de posicionamento de cada banner no seu ouvinte e ignore o restante. Quando tiver registrado seu ouvinte, chame `requestRefresh` para os posicionamentos que deseja sincronizar da Braze.
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+O ouvinte de atualização de banner reflete o estado do banner na memória do SDK. Uma única atualização pode incluir posicionamentos que já estavam em cache (por exemplo, de uma atualização anterior, outra tela ou trabalho automático do SDK), não apenas os IDs de posicionamento da sua chamada `requestBannersRefresh` mais recente. Se você se importa apenas com determinados posicionamentos, verifique o ID de posicionamento de cada banner no seu ouvinte e ignore o restante. Quando tiver registrado seu ouvinte, chame `requestBannersRefresh` para os posicionamentos que deseja sincronizar da Braze.
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -410,10 +430,45 @@ Se estiver usando Android Views, use este XML:
     app:placementId="global_banner" />
 ```
 
-Se estiver usando Jetpack Compose, você pode usar isto:
+Para usar Jetpack Compose, adicione o artefato `com.braze:android-sdk-jetpack-compose` ao módulo do seu app. Use a mesma versão das suas outras dependências do SDK Android da Braze. Esse módulo é separado do `android-sdk-ui` e inclui o composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) em `com.braze.jetpackcompose.banners`.
+
+{% alert note %}
+Algumas bibliotecas de UI do Compose definem seu próprio composable `Banner`. Importe `com.braze.jetpackcompose.banners.Banner` explicitamente para garantir que você está chamando a API da Braze.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+Opcionalmente, passe `heightCallback` para receber a altura renderizada em dp quando o tamanho do banner mudar. Para referência, consulte a [documentação KDoc do `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+
+Se você não adicionar o módulo Jetpack Compose, envolva [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) em [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView):
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Para obter o Banner em Kotlin, use:
@@ -500,7 +555,7 @@ This feature is not currently supported on Roku.
 
 ### Etapa 5: Envie um Banner de teste (opcional) {#handling-test-cards}
 
-Antes de lançar uma Campaign de Banner, você pode [enviar um Banner de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) para verificar sua integração. Banners de teste serão armazenados em um cache separado na memória e não persistirão entre reinicializações do app. Embora nenhuma configuração extra seja necessária, seu dispositivo de teste deve ser capaz de receber notificações por push em primeiro plano para que possa exibir o teste.
+Antes de lançar uma Campaign de Banner, você pode [enviar um Banner de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) para verificar sua integração. Banners de teste são armazenados em um cache separado na memória e não persistem entre reinicializações do app. Embora nenhuma configuração extra seja necessária, seu dispositivo de teste deve ser capaz de receber notificações por push em primeiro plano para que possa exibir o teste.
 
 {% alert note %}
 Banners de teste são como qualquer outro banner, exceto que são removidos na próxima sessão do app.

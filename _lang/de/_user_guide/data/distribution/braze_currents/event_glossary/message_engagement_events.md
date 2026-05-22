@@ -8,7 +8,12 @@ page_type: glossary
 description: "Dieses Glossar listet die verschiedenen Nachrichtenengagement-Events auf, die Braze mit Currents verfolgen und an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Schemabereich und zugehörige Ressourcen %}
 
 Speicherschemata gelten für die Flat-File-Eventdaten, die wir an Data-Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Schemata, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den entsprechenden Seiten.
 
@@ -17,6 +22,8 @@ Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/us
 {% endalert %}
 
 Wenden Sie sich an Ihren Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie brauchen, sehen Sie sich unsere [Bibliothek für Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+
+{% enddetails %}
 
 {% details Erläuterung der Nachrichtenengagement-Event-Struktur und Plattformwerte %}
 
@@ -56,27 +63,25 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 
 {% enddetails %}
 
-{% alert important %}
-Currents verwirft Events mit übermäßig großen Nutzdaten von mehr als 900&nbsp;KB.
-{% endalert %}
+{% details Hinweise zu Nachrichtenengagement-Events %}
 
-{% alert note %}
-Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
-{% endalert %}
+- Currents verwirft Events mit Nutzdaten von mehr als 900&nbsp;KB.
+- Objekte, die sich auf Canvas Flow beziehen, haben IDs, die zur Gruppierung verwendet und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) in menschenlesbare Namen übersetzt werden können.
+- Bei bestimmten Feldern wird der neueste Stand möglicherweise nicht sofort angezeigt, nachdem Sie eine Campaign oder ein Canvas aktualisiert haben:
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- Wenn Sie vollständige Konsistenz für diese Felder benötigen, warten Sie nach der letzten Aktualisierung eine Stunde, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
 
-{% alert note %}
-Bei bestimmten Feldern kann es länger dauern, bis der neueste Stand angezeigt wird, nachdem eine Campaign oder ein Canvas aktualisiert wurde. Diese Felder sind:
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-Wenn vollständige Konsistenz erforderlich ist, empfehlen wir, nach dem letzten Update dieser Felder eine Stunde zu warten, bevor Sie Ihre Nachrichten an Ihre Nutzer:innen versenden.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 
@@ -2033,7 +2038,7 @@ Dieses Ereignis tritt ein, wenn ein Nutzer einen Canvas durch die Ausführung ei
 ## Experiment-Schritt-Konversions-Events {#experiment-step-conversion-events}
 
 {% apitags %}
-Canvas
+Canvas, Conversion
 {% endapitags %}
 
 Dieses Ereignis tritt ein, wenn ein Nutzer bei einem Canvas-Experiment-Schritt konvertiert.
@@ -2232,7 +2237,7 @@ Dieses Ereignis tritt ein, wenn ein Nutzer bei einem Canvas-Experiment-Schritt k
 ## Experiment-Split-Entry-Events {#experiment-split-entry-events}
 
 {% apitags %}
-Canvas
+Canvas, Entry
 {% endapitags %}
 
 Dieses Ereignis tritt ein, wenn ein Nutzer einen Canvas-Experiment-Schritt-Pfad betritt.
@@ -2912,7 +2917,7 @@ Dieses Ereignis tritt ein, wenn eine ursprünglich geplante Banner-Nachricht aus
 
 - Das Feld `abort_type` beschreibt den Grund, warum die Nachricht abgebrochen wurde. Eine vollständige Liste der Werte finden Sie unter [Abbruchtypen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#abort-types).
 - `abort_type` hat den Wert `frequency_capped`, wenn die Nachricht aufgrund einer globalen Frequenzbegrenzungsregel abgebrochen wurde.
-- `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch getriggert hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 Banner messages every 1 week`
+- `abort_log` enthält Informationen über die spezifische Regel, die den Abbruch ausgelöst hat. Ein Beispiel hierfür ist: `Frequency cap rule: 5 Banner messages every 1 week`
 
 {% endapi %}
 
@@ -3198,6 +3203,10 @@ Dieses Ereignis tritt ein, wenn Nutzer:innen auf ein Banner klicken.
 {% api %}
 
 ## Banner-Schließen-Ereignisse {#banner-dismissal-events}
+
+{% apitags %}
+Banner, Dismissal
+{% endapitags %}
 
 Dieses Ereignis tritt ein, wenn Nutzer:innen ein Banner schließen.
 
@@ -10899,7 +10908,7 @@ Dieses Ereignis tritt ein, wenn eine Push-Benachrichtigung aufgrund von Liquid-A
 ## Push-Benachrichtigung: Bounce-Ereignisse {#push-notification-bounce-events}
 
 {% apitags %}
-Push, Sends, Bounce
+Push, Bounce
 {% endapitags %}
 
 Dieses Ereignis tritt ein, wenn ein Fehler vom Apple Push Notification Service oder von Fire Cloud Messaging empfangen wird. Das bedeutet, dass die Push-Nachricht einen Bounce verursacht hat und daher nicht an das Gerät der Nutzerin oder des Nutzers zugestellt werden konnte.
@@ -11160,7 +11169,7 @@ Dieses Ereignis tritt ein, wenn ein Fehler vom Apple Push Notification Service o
 ## Push-Benachrichtigung: iOS-Vordergrund-Öffnungsereignisse {#push-notification-ios-foreground-open-events}
 
 {% apitags %}
-Push, iOS, Sends
+Push, iOS, Opens
 {% endapitags %}
 
 Dieses Ereignis wird von unserem [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist mit unserem [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) veraltet.
@@ -12160,7 +12169,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für eine Nutzerin ode
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_google-advertising-id).
 - Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
-- `message_extras` ermöglicht es Ihnen, Ihre Sende-Ereignisse mit dynamischen Daten aus Connected Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Eingangs-Eigenschaften zu versehen. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag/).
+- `message_extras` ermöglicht es Ihnen, Ihre Sende-Ereignisse mit dynamischen Daten aus Connected-Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Eingangs-Eigenschaften zu versehen. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag/).
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12649,7 +12658,7 @@ Ein Ereignis, das ausgelöst wird, wenn Nutzer:innen mit einer RCS-Nachricht int
 RCS, Delivery
 {% endapitags %}
 
-Dieses Ereignis wird ausgelöst, wenn eine RCS-Nachricht erfolgreich an das Mobilgerät einer Nutzer:in zugestellt wurde.
+Dieses Ereignis wird ausgelöst, wenn eine RCS-Nachricht erfolgreich an das Mobilgerät von Nutzer:innen zugestellt wurde.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14510,7 +14519,7 @@ Dieses Ereignis tritt ein, wenn eine SMS erfolgreich an das Mobiltelefon der Nut
 ## Ereignisse bei fehlgeschlagener SMS-Zustellung {#sms-delivery-failure-events}
 
 {% apitags %}
-SMS, Delivery
+SMS, Delivery, Failure
 {% endapitags %}
 
 Dieses Ereignis tritt ein, wenn bei einer SMS die Zustellung fehlschlägt. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
@@ -15256,6 +15265,7 @@ Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenf
 {% endapi %}
 
 {% api %}
+
 ## SMS-Wiederholungsereignisse {#sms-retry-events}
 
 {% apitags %}
@@ -15469,6 +15479,7 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 {% endapi %}
 
 {% api %}
+
 ## SMS-Versandereignisse {#sms-send-events}
 
 {% apitags %}
@@ -15728,7 +15739,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine SMS sendet.
 
 #### Eigenschaftsdetails
 
-- Mit `message_extras` können Sie Ihre Versand-Events mit dynamischen Daten aus Connected-Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Eingangs-Eigenschaften annotieren. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag/).
+- Mit `message_extras` können Sie Ihre Versand-Ereignisse mit dynamischen Daten aus Connected-Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Eingangs-Eigenschaften annotieren. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag/).
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}

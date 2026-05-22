@@ -187,7 +187,7 @@ Para ver estadísticas adicionales, como los ingresos promedio de por vida de lo
 
 ### Paso 1.4: Selecciona tus ajustes de envío {#step-14-select-your-send-settings}
 
-Selecciona **Ajustes de envío** para editar tu configuración de suscripción, activar la limitación de velocidad y activar las horas tranquilas. Al activar la [limitación de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) o la [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), puedes aliviar la presión de marketing sobre tus usuarios y asegurarte de no enviarles demasiados mensajes.
+Selecciona **Send Settings** para editar tu configuración de suscripción, activar la limitación de velocidad y activar las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/). Al activar la [limitación de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting-and-canvas-components) o la [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping), puedes aliviar la presión de marketing sobre tus usuarios y asegurarte de no enviarles demasiados mensajes.
 
 Para Canvas dirigidos a canales de correo electrónico y push, es posible que quieras limitar tu Canvas para que solo los usuarios que hayan optado explícitamente por recibir mensajes los reciban (excluyendo a los usuarios suscritos o que cancelaron su suscripción). Por ejemplo, supongamos que tienes tres usuarios con diferentes estados de adhesión voluntaria:
 
@@ -195,15 +195,15 @@ Para Canvas dirigidos a canales de correo electrónico y push, es posible que qu
 - **Usuario B** ha optado por recibir correo electrónico pero no tiene push habilitado. Este usuario recibirá el correo electrónico pero no recibe el push.
 - **Usuario C** ha optado por recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.
 
-Para hacerlo, configura los **Ajustes de suscripción** para enviar este Canvas a "solo usuarios con adhesión voluntaria". Esta opción asegurará que solo los usuarios con adhesión voluntaria reciban tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
+Para hacerlo, configura los **Subscription Settings** para enviar este Canvas a "solo usuarios con adhesión voluntaria". Esta opción asegurará que solo los usuarios con adhesión voluntaria reciban tu correo electrónico, y Braze solo enviará tu push a los usuarios que tengan push habilitado de forma predeterminada.
 
 Estos ajustes de suscripción se aplican por paso, lo que significa que no tienen efecto en la audiencia de entrada. Por lo tanto, esta configuración se usa para evaluar la elegibilidad de un usuario para recibir cada paso en Canvas.
 
 {% alert important %}
-Con esta configuración, no incluyas ningún filtro en el paso **Audiencia objetivo** que limite la audiencia a un solo canal (por ejemplo, `Foreground Push Enabled = True` o `Email Subscription = Opted-In`).
+Con esta configuración, no incluyas ningún filtro en el paso **Target Audience** que limite la audiencia a un solo canal (por ejemplo, `Foreground Push Enabled = True` o `Email Subscription = Opted-In`).
 {% endalert %}
 
-Si lo deseas, especifica las horas tranquilas (el tiempo durante el cual tus mensajes no se enviarán) para tu Canvas. Marca **Habilitar horas tranquilas** en tus **Ajustes de envío**. Luego, selecciona tus horas tranquilas en la zona horaria local de tu usuario y qué acción seguirá si el mensaje se desencadena dentro de esas horas tranquilas.
+Si lo deseas, especifica las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) (el tiempo durante el cual tus mensajes no se enviarán) para tu Canvas. Marca **Enable Quiet Hours** en tus **Send Settings**. Luego, selecciona tus horas tranquilas en la zona horaria local de tu usuario y qué acción seguirá si el mensaje se desencadena dentro de esas horas tranquilas.
 
 ![La página "Horas tranquilas" que muestra una casilla de verificación para habilitar las horas tranquilas. Si se habilita, se pueden configurar la hora de inicio, la hora de fin y el comportamiento alternativo.]({% image_buster /assets/img/quiet_hours.png %})
 
@@ -217,7 +217,7 @@ Si lo deseas, especifica las horas tranquilas (el tiempo durante el cual tus men
 
 ![El botón "Añadir variante" seleccionado para mostrar un menú contextual con la opción de "Añadir variante".]({% image_buster /assets/img_archive/canvas_add_variant.gif %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
-Selecciona **Añadir variante** y luego añade una nueva variante a tu Canvas. Las variantes representan un recorrido que tus usuarios seguirán y pueden contener múltiples pasos y ramificaciones.
+Selecciona **Add Variant** y luego añade una nueva variante a tu Canvas. Las variantes representan un recorrido que tus usuarios seguirán y pueden contener múltiples pasos y ramificaciones.
 
 Puedes añadir variantes adicionales seleccionando el botón <i class="fas fa-plus-circle"></i> de suma. Cuando añadas nuevas variantes, podrás ajustar cómo se distribuirán tus usuarios entre ellas para que puedas comparar y analizar la eficacia de diferentes estrategias de interacción.
 
@@ -263,9 +263,9 @@ Puedes editar cualquier paso en tu flujo de trabajo del Canvas seleccionando cua
 
 ![Un ejemplo de paso "Retraso" con el retraso configurado como "Hasta un día específico".]({% image_buster /assets/img_archive/edit_delay_flow.png %})
 
-O puedes editar y ajustar rápidamente la **Configuración de acción** de tu paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) para mantener a los usuarios durante una ventana de tiempo. Esto prioriza su siguiente ruta basándose en las acciones durante este período de evaluación.
+O puedes editar y ajustar rápidamente la **Action Settings** de tu paso de [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) para mantener a los usuarios durante una ventana de tiempo. Esto prioriza su siguiente ruta basándose en las acciones durante este período de evaluación.
 
-![El segundo paso en el Canvas, "Configuración de acción", con una ventana de evaluación configurada a 1 día.]({% image_buster /assets/img_archive/action_paths_flow.png %})
+![El segundo paso en el Canvas, "Action Settings", con una ventana de evaluación configurada a 1 día.]({% image_buster /assets/img_archive/action_paths_flow.png %})
 
 Los componentes ligeros en Canvas permiten una experiencia de edición simple, por lo que ajustar los detalles más finos de tu Canvas es más fácil.
 
@@ -278,7 +278,7 @@ Edita los mensajes en un componente de Canvas para controlar los mensajes que un
 Usa la etiqueta de Liquid `campaign.${name}` en Canvas para mostrar el nombre del componente actual del Canvas.
 {% endalert %}
 
-El componente de mensaje gestiona los mensajes enviados a los usuarios. Puedes seleccionar tus **Canales de mensajería** y ajustar los **Ajustes de entrega** para optimizar la mensajería de tu Canvas. Para más detalles sobre este componente, consulta [Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+El componente de mensaje gestiona los mensajes enviados a los usuarios. Puedes seleccionar tus **Messaging Channels** y ajustar los **Delivery Settings** para optimizar la mensajería de tu Canvas. Para más detalles sobre este componente, consulta [Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
 
 ![El paso "Configurar mensajes", con "Canales de mensajería" seleccionado que muestra la lista de canales de mensajería disponibles, como push de Android, Content Cards, correo electrónico y más.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
@@ -317,7 +317,7 @@ Puedes añadir un grupo de control a tu Canvas seleccionando el botón <i class=
 
 Braze rastreará las conversiones de los usuarios que se coloquen en el grupo de control, aunque no recibirán ningún mensaje. Para preservar una prueba precisa, rastrearemos el número de conversiones para tus variantes y el grupo de control durante exactamente la misma cantidad de tiempo, como se muestra en la pantalla de selección de eventos de conversión.
 
-Puedes ajustar la distribución entre tus mensajes haciendo doble clic en los encabezados de **Nombre de variante**.
+Puedes ajustar la distribución entre tus mensajes haciendo doble clic en los encabezados de **Variant Name**.
 
 En este ejemplo, tenemos nuestro Canvas dividido en dos variantes. La variante 1 tiene el 70 % de los usuarios. La segunda variante es un grupo de control con el 30 % restante de los usuarios.
 

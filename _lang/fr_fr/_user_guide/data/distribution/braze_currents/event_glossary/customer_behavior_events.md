@@ -1,5 +1,6 @@
 ---
 nav_title: Comportement des clients et événements utilisateurs
+article_title: Comportement des clients et événements utilisateurs
 layout: customer_behavior_events_glossary
 page_order: 4
 excerpt_separator: ""
@@ -9,11 +10,19 @@ tool: Currents
 search_rank: 7
 ---
 
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Portée du schéma et ressources associées %}
+
+Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons à des partenaires de stockage d'entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations énumérées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.
+
 {% alert tip %}
 Ces événements sont également disponibles sous forme de tables SQL dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/).
 {% endalert %}
 
 Contactez votre conseiller Braze ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin sur cette page, consultez notre [bibliothèque des événements d'engagement lié aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) ou nos [exemples d'échantillons de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+
+{% enddetails %}
 
 {% details Explication de la structure des comportements des clients et des événements utilisateur, et des valeurs de plateforme %}
 
@@ -43,14 +52,16 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% alert important %}
-Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons à des partenaires de stockage d'entrepôt de données (tels que Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Certaines combinaisons d'événements et de destinations énumérées ici ne sont pas encore disponibles de manière générale. Pour savoir quels événements sont pris en charge par les différents partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) et leurs pages respectives.<br><br>Notez également que Currents abandonnera les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
-{% endalert %}
+{% details Considérations relatives aux comportements des clients et aux événements utilisateur %}
 
-{% alert note %}
-De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
-{% endalert %}
+- Currents abandonne les événements dont le payload est excessivement volumineux (plus de 900&nbsp;Ko).
+- De nombreux événements de ce glossaire sont initiés par le SDK. Certains événements, tels que `token_state_change`, peuvent être initiés par le SDK ou par le backend (par exemple, en réponse à un rebond de notification push). Les champs `sdk_version`, `gender`, `language` et `country` ne sont définis que pour les événements initiés par le SDK ; pour les événements initiés par le backend, ou lorsque ces informations ne sont pas disponibles ou non définies pour l'utilisateur, ces champs peuvent être `null`.
 
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->
 
 {% api %}
 ## Événements de mise à jour du numéro de compartiment aléatoire {#random-bucket-number-update-events}
@@ -148,7 +159,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.CustomEvent
 
@@ -287,7 +298,7 @@ Cet événement se produit lorsqu'une installation d'application est attribuée 
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.InstallAttribution
 
@@ -424,7 +435,7 @@ Cet événement est déclenché lorsqu'un utilisateur se rend à un emplacement 
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Location
 
@@ -600,7 +611,7 @@ Les achats sont des événements personnalisés spéciaux et sont accompagnés d
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.Purchase
 
@@ -763,7 +774,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.FirstSession
 
@@ -899,7 +910,7 @@ Cet événement se produit lorsqu'un utilisateur quitte votre application, metta
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionEnd
 
@@ -1039,7 +1050,7 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.app.SessionStart
 
@@ -1173,7 +1184,7 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.PushToStartTokenChange
 
@@ -1307,7 +1318,7 @@ Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.liveactivity.UpdateTokenChange
 
@@ -1457,7 +1468,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 ```
 {% endtab %}
 
-{% tab Connecteur HTTP personnalisé %}
+{% tab Custom HTTP Connector %}
 ```json
 // users.behaviors.pushnotification.TokenStateChange
 
@@ -1582,7 +1593,7 @@ Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. C
 Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`.
 
 {% alert note %}
-Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de Campaigns.<br><br>
+Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de campagnes.<br><br>
 
 Il serait extrêmement rare que seul le `device_id` change sans que le `push_token` ne change (cela nécessiterait que le système d'exploitation renvoie la même chaîne de caractères après la réinstallation).
 {% endalert %}

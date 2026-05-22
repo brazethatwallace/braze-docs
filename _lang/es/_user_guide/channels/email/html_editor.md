@@ -262,7 +262,7 @@ Entrega correos electrónicos basándote en un horario planificado, una acción 
 Para campañas desencadenadas por API, cuando la acción desencadenante se establece en **Interact With Campaign**, seleccionar una opción de **Receive** como la interacción hará que tu nueva campaña se desencadene tan pronto como Braze marque la campaña seleccionada como enviada, incluso si ese mensaje rebota o no se entrega.
 {% endalert %}
 
-También puedes establecer la duración de la campaña, especificar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours) y configurar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
+También puedes establecer la duración de la campaña, especificar [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) y configurar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping).
 
 #### Elige los usuarios objetivo {#choose-users-to-target}
 

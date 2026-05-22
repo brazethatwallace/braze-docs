@@ -52,12 +52,14 @@ The **Active cart** module shows the latest cart on the user profile. That view 
 
 ### Segmentation
 
-eCommerce events behave like custom events, so all existing custom event filters work immediately. For example, you could filter by "Has performed custom event `ecommerce.order_placed` more than X times."
+Braze provides three ways to segment users based on eCommerce data:
 
-For targeting based on nested product data (such as specific product IDs, variant names, or price thresholds), use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) with nested event property filtering. This lets you build audiences like "users who purchased product SKU-123 in the last 90 days" or combine criteria across different properties of the same order.
+- **eCommerce filters:** Use the **eCommerce** category in the segmenter, which contains filters powered by eCommerce recommended events (such as **Last Order Placed**, **Total Revenue**, and **Average Order Value**). For a complete list of available filters, see [Segment filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Custom event filters:** Because eCommerce events behave like custom events, all existing custom event filters work immediately. For example, you can filter by "Has performed custom event `ecommerce.order_placed` more than X times" or "First performed custom event `ecommerce.order_placed`".
+- **Segment Extensions:** For segmenting off nested event properties including the nested products array or the metadata objects properties, use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) with nested event property filtering. This lets you build audiences like "users who purchased product SKU-123 in the last 90 days" or combine criteria across different properties of the same order.
 
 {% alert important %}
-Segment Extensions are a paid feature. Confirm your plan includes access before recommending nested property segmentation to your team.
+Segment Extensions for eCommerce recommended events are a paid feature and in early access. If you're interested in participating in the early access, contact your customer success manager. Confirm your plan includes access before recommending nested property segmentation to your team.
 {% endalert %}
 
 ### Triggering

@@ -159,7 +159,7 @@ Para solucionar esto:
 
 ### ¿La métrica *Aperturas únicas* incluye las *Aperturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-No. *Aperturas únicas* cuenta solo las [Otras aperturas]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), que excluyen los correos electrónicos identificados como aperturas por máquina. Las *Aperturas por máquina* se rastrean por separado. En la vista de **Campaign Analytics** y el **Generador de informes**, puedes ver ambas métricas de forma independiente.
+Sí. *Aperturas únicas* incluye las *Aperturas por máquina*. Puedes ver ambas métricas en la vista de **Campaign Analytics** y en el **Generador de informes**.
 
 ### ¿Por qué mi volumen de entrega de correo electrónico no coincide con mi volumen de envío? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 

@@ -159,7 +159,7 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 
 ### *고유 열람* 측정기준에 *머신 열람*이 포함되나요? {#does-the-unique-opens-metric-include-machine-opens}
 
-아니요. *고유 열람*은 머신 열람으로 식별된 이메일을 제외한 [기타 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens)만 집계합니다. *머신 열람*은 별도로 추적됩니다. **Campaign Analytics** 보기와 **보고서 빌더**에서 두 측정기준을 독립적으로 확인할 수 있습니다.
+네. *고유 열람*에는 *머신 열람*이 포함됩니다. **Campaign Analytics** 보기와 **보고서 빌더**에서 두 측정기준을 모두 확인할 수 있습니다.
 
 ### 이메일 전달량이 발송량과 일치하지 않는 이유는 무엇인가요? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 

@@ -47,7 +47,7 @@ No puedes personalizar ni renombrar eventos.
 
 Los seis eventos recomendados de comercio electrónico se corresponden con etapas del recorrido de compra. Dispara cada evento en el momento en que el usuario completa la acción correspondiente.
 
-![Diagrama del recorrido del usuario a través de los seis eventos recomendados de comercio electrónico: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled y order_refunded.]({% image_buster /assets/img/Shopify/event_schemas.png %})
+![Diagrama del recorrido del usuario a través de los seis eventos recomendados de comercio electrónico: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled y order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
