@@ -17,12 +17,12 @@ BrazeでのCSVインポート、サーバーレスS3 Lambda CSVインポート�
 
 CSVインポートを使用して、以下のユーザー属性やカスタムイベントを記録・更新できます。開始するには、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)を参照してください。
 
-|タイプ|定義|例|最大ファイルサイズ|
+| タイプ | 定義 | 例 | 最大ファイルサイズ |
 |---|---|---|---|
-|デフォルト属性|Brazeが認識する予約済みのユーザー属性。| `first_name`、`email`|500 MB|
-|カスタム属性|ビジネスに固有のユーザー属性。| `last_destination_searched`|500 MB|
-|カスタムイベント|ユーザーアクションを表す、ビジネスに固有のイベント。| `trip_booked`|50 MB|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| デフォルト属性 | Brazeが認識する予約済みのユーザー属性。 | `first_name`、`email` | 500 MB |
+| カスタム属性 | ビジネス固有のユーザー属性。 | `last_destination_searched` | 500 MB |
+| カスタムイベント | ユーザーのアクションを表すビジネス固有のイベント。 | `trip_booked` | 50 MB |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
 
 #### CSVの構成 {#constructing-your-csv}
 
@@ -66,7 +66,7 @@ Webブラウザでのパーソナライゼーション用途を目的とした�
 {% endtab %}
 {% tab 出力 %}
 {% raw %}
-```liquid
+`````````liquid
 Have you read Ulysses?
 ```
 {% endraw %}

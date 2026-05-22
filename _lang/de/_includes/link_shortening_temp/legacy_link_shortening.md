@@ -55,6 +55,8 @@ https://example.com/{{url_var}}
 
 ### Von Liquid-Variablen gerenderte URLs verkürzen {#shorten-urls-rendered-by-liquid-variables}
 
+**Unterstützte Kanäle:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+
 Wir verkürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, verkürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
 
 ### URLs im `/messages/send`-Endpunkt verkürzen {#shorten-urls-in-messagessend-endpoint}
@@ -63,9 +65,9 @@ Die Linkverkürzung ist auch für reine API-Nachrichten über den [`/messages/se
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-|`link_shortening_enabled`| Optional | Boolescher Wert | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkverkürzung und das Click-Tracking auf Campaign-Ebene zu aktivieren. Für die Nutzung des Trackings müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein.|
-|`user_click_tracking_enabled`| Optional | Boolescher Wert | Setzen Sie `user_click_tracking_enabled` auf `true`, um die Linkverkürzung sowie das Click-Tracking auf Campaign- und Nutzer:innen-Ebene zu aktivieren. Sie können die getrackten Daten verwenden, um Segmente von Nutzer:innen zu erstellen, die auf URLs geklickt haben.<br><br> Um diesen Parameter zu verwenden, muss `link_shortening_enabled` auf `true` gesetzt sein, und eine `campaign_id` sowie eine `message_variation_id` müssen vorhanden sein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `link_shortening_enabled` | Optional | Boolescher Wert | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkverkürzung und das Click-Tracking auf Campaign-Ebene zu aktivieren. Für die Nutzung des Trackings müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein. |
+| `user_click_tracking_enabled` | Optional | Boolescher Wert | Setzen Sie `user_click_tracking_enabled` auf `true`, um die Linkverkürzung sowie das Click-Tracking auf Campaign- und Nutzer:innen-Ebene zu aktivieren. Sie können die getrackten Daten verwenden, um Segmente von Nutzer:innen zu erstellen, die auf URLs geklickt haben.<br><br> Um diesen Parameter zu verwenden, muss `link_shortening_enabled` auf `true` gesetzt sein, und eine `campaign_id` sowie eine `message_variation_id` müssen vorhanden sein. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
 
 Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
 
@@ -89,7 +91,7 @@ Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkü
 Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Auswahl einer:eines Nutzer:in gerendert. Stellen Sie sicher, dass eine:ein Nutzer:in ausgewählt ist, um eine genaue Zeichenanzahl zu erhalten.
 {% endalert %}
 
-## Click-Tracking {#click-tracking}
+## Click-Tracking
 
 Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
 
@@ -117,7 +119,7 @@ Die Linkverkürzung funktioniert nicht mit Deeplinks. Alternativ können Sie Uni
 Testen Sie die Nutzererfahrung, bevor Sie die Linkverkürzung mit Universal Links implementieren, um sicherzustellen, dass sie Ihren Erwartungen entspricht.
 {% endalert %}
 
-### Sind `send_ids` mit SMS-Klick-Ereignissen verknüpft? {#are-sendids-associated-with-sms-click-events}
+### Sind `send_ids` mit SMS-Klick-Ereignissen verknüpft? {#are-send_ids-associated-with-sms-click-events}
 
 Nein. Wenn Sie jedoch erweitertes Tracking aktiviert haben, können Sie `send_ids` in der Regel mit Klick-Ereignissen verknüpfen, indem Sie den [Abfrage-Builder]({{site.baseurl}}/query_builder/) verwenden, um Currents-Daten mit dieser Abfrage abzufragen:
 

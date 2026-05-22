@@ -34,14 +34,14 @@ description: "이 문서에서는 여러 카탈로그 항목 만들기 Braze 엔
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `items` | 필수 | 배열 | 항목 오브젝트가 포함된 배열입니다. 항목 오브젝트에는 카탈로그의 모든 필드가 포함되어야 합니다. 요청당 최대 50개의 항목 오브젝트가 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## 예시 요청 {#example-request}
 
@@ -58,9 +58,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 5,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -75,9 +76,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 10,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 40.7413,
-        "Longitude": -73.9764
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hot Dog",
@@ -92,9 +94,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 3,
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 40.7489,
-        "Longitude": -73.9972
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Buffalo Wings",
@@ -105,6 +108,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
   ]
 }'
 ```
+
+{% alert note %}
+`Location` 필드는 `geo` 데이터 유형을 사용하며, `[longitude, latitude]` 형식의 배열을 기대합니다.
+{% endalert %}
 
 ## 응답 {#response}
 
@@ -161,6 +168,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `request-includes-too-many-items` | 요청에 항목이 너무 많습니다. 요청당 항목 한도는 50개입니다. |
 | `too-deep-nesting-in-value-object` | 항목 오브젝트는 50단계 이상의 중첩을 가질 수 없습니다. |
 | `unable-to-coerce-value` | 항목 유형은 변환할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

@@ -22,7 +22,7 @@ A integração entre a Braze e o RudderStack oferece uma integração de SDK nat
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `users.identify`, `users.delete` e `users.alias.new`.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Chave do app da Braze | Para obter sua chave do app no dashboard da Braze, acesse **Configurações** > **Configurações do app** > **Identificação** e encontre o nome do seu app. Salve a string de identificador associada.
 | Data center | Seu data center se alinha com sua [instância]({{site.baseurl}}/api/basics/#endpoints) do dashboard da Braze.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 

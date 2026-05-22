@@ -28,10 +28,10 @@ tool: Segments
 | 변수 필드 | 설명 |
 | --- | --- |
 | `Catalog` | 사용자를 타겟팅하는 데 사용하는 카탈로그의 이름입니다. |
-| `Catalog field`| `Custom event property`와 동일한 값을 포함하는 카탈로그의 필드입니다. 일반적으로 ID 유형입니다. 이커머스 사용 사례에서는 `shopify_id`가 됩니다. |
+| `Catalog field` | `Custom event property`와 동일한 값을 포함하는 카탈로그의 필드입니다. 일반적으로 ID 유형입니다. 이커머스 사용 사례에서는 `shopify_id`가 됩니다. |
 | `Custom event` | `Catalog field`와 일치하는 값을 가진 속성정보가 포함된 커스텀 이벤트의 이름입니다. 이커머스 사용 사례에서는 `Made Order`가 됩니다. |
-| `Custom event property` | `Catalog field`와 값이 일치하는 커스텀 이벤트 속성정보의 이름입니다. 이커머스 예시 사용 사례에서는 `Shopify_ID`가 됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Custom event property` | `Catalog field`와 값이 일치하는 커스텀 이벤트 속성정보의 이름입니다. 이커머스 예시 사용 사례에서는 `Shopify_ID`가 됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
 
 {: start="4"}
 4. 필요한 경우, 카탈로그 내 특정 필드 값으로 세그먼트하기 위해 사용 사례에 맞는 추가 선택 필드를 입력합니다:
@@ -91,13 +91,13 @@ LIMIT 10
 
 | 변수 | 속성정보 |
 | --- | --- |
-| `Catalog`| Doctors |
+| `Catalog` | Doctors |
 | `Catalog field` | doctor ID |
-| `Custom event`| Booked Visit|
+| `Custom event` | Booked Visit |
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
-| `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `(Under Filter SQL Results) Value` | Dental |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -115,12 +115,12 @@ B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼�
 | 변수 | 속성정보 |
 | --- | --- |
 | `Catalog` | Accounts |
-| `Catalog field `| account ID |
+| `Catalog field ` | account ID |
 | `Custom event` | Event Attendance |
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
 
 {% endtab %}
 {% endtabs %}

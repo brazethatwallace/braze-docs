@@ -15,7 +15,13 @@ channel: email
 
 Si varios usuarios con direcciones de correo electrónico coincidentes están en un segmento que va a recibir una campaña, se selecciona un perfil de usuario aleatorio con esa dirección de correo electrónico en el momento del envío. De esta forma, el correo electrónico se envía solo una vez y se deduplica, lo que garantiza que no llegue a la misma dirección de correo electrónico varias veces.
 
+**Direcciones de correo electrónico únicas:** Braze no exige que las direcciones de correo electrónico sean únicas entre perfiles. Si dependes de una relación uno a uno entre una dirección de correo electrónico y un perfil, monitorea internamente los duplicados al crear usuarios.
+
+**Deduplicación antes de Liquid:** Para envíos en los que Braze deduplica por dirección de correo electrónico dentro de un mismo despacho (por ejemplo, campañas planificadas donde varios miembros del segmento con la misma dirección se procesan juntos), esa deduplicación ocurre antes de que Liquid se ejecute para el perfil elegido para representar esa dirección. Si Liquid aborta para ese perfil (por ejemplo, con [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)), esa dirección no recibe el mensaje en ese despacho, incluidos los perfiles que ya fueron omitidos por la deduplicación. Los envíos desencadenados no aplican esa misma deduplicación de direcciones dentro del despacho; varios perfiles que comparten una dirección pueden seguir siendo elegibles en un mismo lote, por lo que este comportamiento de aborto no se aplica de la misma manera (consulta el siguiente párrafo).
+
 Si varios perfiles comparten una dirección de correo electrónico y uno de ellos cancela la suscripción, Braze actualiza otros perfiles (hasta 100) con esa dirección al mismo estado de suscripción. Esto se aplica a las cancelaciones de suscripción y a otros cambios, como el estado de suscripción global y los estados individuales de los grupos de suscripción.
+
+**Grupos semilla:** Para campañas con [Grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups), Braze selecciona un perfil para la entrega principal cuando varios perfiles comparten una dirección. Ese destinatario principal podría no estar en tu grupo semilla, incluso cuando otro perfil con la misma dirección sí lo está.
 
 Los siguientes escenarios pueden hacer que parezca que un usuario recibió un correo electrónico dos veces:
 
@@ -23,13 +29,15 @@ Los siguientes escenarios pueden hacer que parezca que un usuario recibió un co
 - **Varios perfiles de usuario tienen reenvío de correo electrónico:** Si un usuario tiene varias cuentas en una aplicación determinada pero una cuenta reenvía el correo, el usuario recibe la campaña una vez por buzón de entrada; el correo puede aparecer dos veces en el buzón de entrada donde se reenvían los mensajes. Solo algunos proveedores indican cuándo un correo electrónico fue reenviado desde otra cuenta.
 - **Configuración del correo electrónico en el destinatario:** Algunos clientes fusionan buzones de entrada ("buzón de entrada universal"). Si la misma campaña se dirige a varias cuentas que comparten un buzón de entrada, puede parecer que una persona recibió la campaña dos veces cuando en realidad se enviaron mensajes a dos perfiles distintos. El destinatario puede confirmar si varias cuentas están combinadas en un solo buzón de entrada.
 
-Ten en cuenta que esta deduplicación ocurre cuando los usuarios objetivo están incluidos en el mismo envío. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas pueden resultar en múltiples envíos a la misma dirección de correo electrónico (incluso dentro de un período en el que los usuarios podrían ser excluidos debido a la reelegibilidad) si diferentes usuarios con direcciones de correo electrónico coincidentes registran el evento desencadenante en momentos diferentes. Por ejemplo, si el usuario A y el usuario B comparten el correo electrónico `johndoe@example.com` pero sus perfiles están en zonas horarias diferentes, cuando el evento desencadenante de la campaña incluye el envío en la zona horaria del usuario, el correo electrónico `johndoe@example.com` recibe dos correos electrónicos.
+Esta deduplicación se aplica cuando los usuarios objetivo están incluidos en el mismo despacho. La reelegibilidad se evalúa por perfil, no por dirección de correo electrónico.
+
+La reelegibilidad de campañas de correo electrónico y pasos en Canvas utiliza el perfil de cada usuario, no el buzón de entrada, por lo que varios perfiles pueden calificar para envíos separados mientras se cumpla esa lógica. Combinado con desencadenantes, esto puede entregar más de un mensaje al mismo buzón de entrada incluso cuando intentas respetar un único período de inelegibilidad a nivel de dirección. Las campañas desencadenadas (excluyendo las campañas desencadenadas por API) y los Canvas también pueden enviar dos veces a una misma dirección cuando diferentes perfiles con direcciones de correo electrónico coincidentes cumplen el desencadenante en momentos diferentes; por ejemplo, si el usuario A y el usuario B comparten `johndoe@example.com` pero están en zonas horarias diferentes mientras la entrega usa zonas horarias locales.
 
 Los usuarios no se deduplican por correo electrónico en la entrada al Canvas, por lo que es posible que no se dedupliquen más allá del primer paso de un Canvas si avanzan en momentos ligeramente diferentes debido a la entrada con límite de velocidad. Cuando un usuario asociado a una dirección de correo electrónico determinada abre o hace clic en un correo electrónico, todos los perfiles de usuario que comparten esa dirección de correo electrónico se marcan como que abrieron o hicieron clic en la campaña.
 
 #### Excepción: campañas desencadenadas por API {#exception-api-triggered-campaigns}
 
-Las campañas desencadenadas por API deduplicarán o enviarán duplicados dependiendo de dónde se defina la audiencia. Los correos electrónicos duplicados deben dirigirse por separado en la llamada a la API utilizando `user_ids` distintos para recibir múltiples detalles. Estos son tres posibles escenarios para las campañas desencadenadas por API:
+Las campañas desencadenadas por API deduplicarán o enviarán duplicados dependiendo de dónde se defina la audiencia. Los correos electrónicos duplicados deben dirigirse por separado en la llamada a la API utilizando `user_ids` distintos para recibir múltiples entregas. Estos son tres posibles escenarios para las campañas desencadenadas por API:
 
 - **Escenario 1: Correos electrónicos duplicados en el segmento objetivo:** Si el mismo correo electrónico aparece en varios perfiles de usuario que están agrupados en los filtros de audiencia del dashboard para una campaña desencadenada por API, solo uno de los perfiles recibe el correo electrónico.
 - **Escenario 2: Correos electrónicos duplicados en diferentes `user_ids` dentro del objeto de destinatarios:** Si el mismo correo electrónico aparece dentro de múltiples valores de `external_user_id` referenciados por el objeto `recipients`, el correo electrónico se envía dos veces.
@@ -79,7 +87,7 @@ Para las campañas de correo electrónico y los Canvas, el botón de detener no 
 
 Aunque Braze no enviará más solicitudes una vez que la campaña o el Canvas se haya detenido, los análisis aún pueden aumentar mientras el ESP termina de procesar las solicitudes que ya están en curso.
 
-### ¿Por qué veo más *Clics totales* que *Aperturas totales* en mis análisis de correo electrónico? {#why-am-i-seeing-more-total-clicks-than-total-opens-in-my-email-analytics}
+### ¿Por qué veo más *Clics totales* que *Aperturas totales* en mis análisis de correo electrónico? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
 *Aperturas totales* es el recuento de cuántas veces los usuarios abrieron el correo electrónico, mientras que *Clics totales* es el recuento de cuántas veces los usuarios hicieron clic dentro del correo electrónico entregado, incluyendo cualquier tipo de clics como clics en enlaces. Puedes estar viendo más clics que aperturas por cualquiera de las siguientes razones:
 
@@ -105,9 +113,9 @@ Braze rastrea los enlaces de cancelación de suscripción si se utiliza el sigui
 
 ### ¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-Si hay más *Cancelaciones de suscripción* que usuarios que hicieron clic en el enlace de cancelación de suscripción en el cuerpo del correo electrónico, las acciones del encabezado list-unsubscribe a menudo explican la diferencia: un clic en el encabezado list-unsubscribe cuenta como una *Cancelación de suscripción* pero no como un *Clic* en el enlace del cuerpo.
+Si hay más *Cancelaciones de suscripción* que usuarios que hicieron clic en el enlace de cancelación de suscripción en el cuerpo del correo electrónico, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe) a menudo explica la diferencia. List-unsubscribe es una ruta adicional de cancelación de suscripción en el encabezado del correo electrónico (no el enlace en el cuerpo de tu mensaje). Cuando un usuario cancela la suscripción de esa forma, cuenta como una *Cancelación de suscripción* pero no como un clic en la URL de cancelación de suscripción rastreada en el cuerpo.
 
-Si el número total de clics en el enlace de cancelación de suscripción del cuerpo es mayor que el número de *Cancelaciones de suscripción*, es posible que los usuarios hayan hecho clic en el enlace más de una vez.
+Si el número total de clics en el enlace de cancelación de suscripción del cuerpo es mayor que el número de *Cancelaciones de suscripción*, es posible que los usuarios hayan hecho clic en el enlace más de una vez; por ejemplo, si cancelaron la suscripción, se suscribieron de nuevo y luego cancelaron la suscripción otra vez, los análisis de correo electrónico pueden registrar múltiples clics en el desglose de clics.
 
 Si un usuario hace clic en el enlace de cancelación de suscripción dos veces (por ejemplo, si canceló la suscripción, se suscribió de nuevo y luego canceló la suscripción otra vez), esto cuenta dos veces en los análisis de correo electrónico.
 
@@ -159,7 +167,7 @@ Para solucionar esto:
 
 ### ¿La métrica *Aperturas únicas* incluye las *Aperturas por máquina*? {#does-the-unique-opens-metric-include-machine-opens}
 
-No. *Aperturas únicas* cuenta solo las [Otras aperturas]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#other-opens), que excluyen los correos electrónicos identificados como aperturas por máquina. Las *Aperturas por máquina* se rastrean por separado. En la vista de **Campaign Analytics** y el **Generador de informes**, puedes ver ambas métricas de forma independiente.
+Sí. *Aperturas únicas* incluye las *Aperturas por máquina*. Puedes ver ambas métricas en la vista de **Campaign Analytics** y en el **Generador de informes**.
 
 ### ¿Por qué mi volumen de entrega de correo electrónico no coincide con mi volumen de envío? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 

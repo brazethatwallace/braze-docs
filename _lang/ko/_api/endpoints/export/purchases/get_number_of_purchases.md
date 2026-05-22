@@ -35,7 +35,7 @@ description: "이 문서에서는 구매 횟수 내보내기 Braze 엔드포인�
 | `unit` | 선택 사항 | 문자열 | 데이터 포인트 간의 시간 단위입니다. 일 또는 시간일 수 있으며 기본값은 일입니다. |
 | `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 검색한 앱 API 식별자입니다. 제외하면 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
 | `product` | 선택 사항 | 문자열 | 응답을 필터링할 제품 이름입니다. 제외하면 모든 앱에 대한 결과가 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 

@@ -32,7 +32,7 @@ Con el rico nivel de contenido que ofrecen los mensajes dentro de la aplicación
 | Ventas y promociones | Usa mensajes modales dentro de la aplicación para recibir a los clientes con contenido multimedia visualmente atractivo que contenga códigos promocionales estáticos u ofertas. Incentívalos a realizar compras o conversiones cuando de otro modo no lo habrían hecho. |
 | Fomentar la adopción de características | Anima a los clientes a usar otras partes de tu aplicación o a aprovechar un servicio. |
 | Campañas altamente personalizadas | Coloca mensajes dentro de la aplicación como lo primero que tus clientes ven cuando entran en tu aplicación o sitio. Añade algunas características de personalización de Braze, como [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), para impulsar a los usuarios a tomar acción y así hacer que tu alcance sea más efectivo.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 Otros casos de uso a considerar incluyen los siguientes:
 
@@ -70,7 +70,7 @@ Los mensajes a pantalla completa son exactamente lo que esperarías: ocupan toda
 {% endtab %}
 {% endtabs %}
 
-Además de estas plantillas de mensaje predeterminadas, también puedes personalizar aún más tu mensajería utilizando mensajes dentro de la aplicación con HTML personalizado, modales web con CSS o formularios de captura de correo electrónico web. Para más información, consulta [Personalización]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Además de estas plantillas de mensaje predeterminadas, también puedes personalizar aún más tu mensajería utilizando mensajes dentro de la aplicación con HTML personalizado, modales web con CSS o formularios de captura de correo electrónico web. Para más información, consulta [Personalizar]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
 
 Para saber cómo la entrega con plantilla en el momento de la visualización afecta el registro de **cancelación**, consulta [Preguntas frecuentes sobre mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
 

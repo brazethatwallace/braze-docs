@@ -35,7 +35,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `unit` | Optional | String | Zeiteinheit zwischen Datenpunkten. Kann Tag oder Stunde sein, Standardeinstellung ist Tag. |
 | `app_id` | Optional | String | App-API-Bezeichner, der auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) abgerufen wird. Wenn nicht angegeben, werden die Ergebnisse für alle Apps in einem Workspace zurückgegeben. |
 | `product` | Optional | String | Name des Produkts, nach dem die Antwort gefiltert werden soll. Wenn nicht angegeben, werden die Ergebnisse für alle Apps zurückgegeben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 

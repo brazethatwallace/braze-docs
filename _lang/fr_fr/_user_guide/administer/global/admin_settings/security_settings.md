@@ -4,13 +4,13 @@ article_title: Paramètres de sécurité
 page_order: 2
 toc_headers: h2
 page_type: reference
-description: "Cet article de référence traite des paramètres génériques de sécurité inter-entreprises, y compris des règles d'authentification, de la liste des adresses IP autorisées, des données d'identification et de l'authentification à deux facteurs (2FA)."
+description: "Cet article de référence traite des paramètres génériques de sécurité interentreprises, y compris des règles d'authentification, de la liste d'adresses IP autorisées, des données d'identification personnelle et de l'authentification à deux facteurs (2FA)."
 
 ---
 
 # Paramètres de sécurité {#security-settings}
 
-> En tant qu'administrateur, la sécurité est une priorité absolue dans votre liste de préoccupations. La page **Paramètres de sécurité** vous permet de gérer les paramètres de sécurité génériques et interentreprises, notamment les règles d'authentification, la liste blanche d'adresses IP et l'authentification à deux facteurs.
+> En tant qu'administrateur, la sécurité est une priorité absolue. La page **Paramètres de sécurité** vous permet de gérer les paramètres de sécurité génériques et interentreprises, notamment les règles d'authentification, la liste d'adresses IP autorisées et l'authentification à deux facteurs.
 
 Pour accéder à cette page, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité**.
 
@@ -46,7 +46,7 @@ Vous pouvez restreindre la connexion de vos utilisateurs à un mot de passe ou �
 
 Pour l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), les clients doivent configurer leurs paramètres SAML avant d'appliquer cette restriction. Si les clients utilisent Google SSO, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
 
-## Liste blanche d'adresses IP du tableau de bord {#dashboard-ip-allowlisting}
+## Liste d'adresses IP autorisées du tableau de bord {#dashboard-ip-allowlisting}
 
 Utilisez le champ affiché pour autoriser des adresses IP et des sous-réseaux spécifiques à partir desquels les utilisateurs peuvent se connecter à votre compte (par exemple, depuis un réseau d'entreprise ou un VPN). Spécifiez les adresses IP et les sous-réseaux sous forme de plages CIDR dans une liste séparée par des virgules. Si aucune adresse n'est spécifiée, les utilisateurs peuvent se connecter depuis n'importe quelle adresse IP.
 
@@ -148,7 +148,7 @@ Ce téléchargement manuel de rapport contient uniquement les 10 000 événement
 Pour exporter les événements de sécurité vers Amazon S3 sans cette limite de lignes, consultez [Exportation d'événements de sécurité avec Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
 
 {% details Événements de sécurité signalés %}
-### Connexion et compte
+### Connexion et compte {#login-and-account}
 - Signed In
 - Failed Login
 - Two-Factor Auth Setup Completed
@@ -188,16 +188,16 @@ Canvas
 - Segment Users Deleted
 - Cleared Cohort
 
-### Clé REST API
+### Clé REST API {#rest-api-key}
 - Added REST API key
 - Removed REST API key
 
-### Identifiant d'authentification basique
+### Identifiant d'authentification basique {#basic-authentication-credential}
 - Added Basic Auth credential
 - Updated Basic Auth credential
 - Removed Basic Auth credential
 
-### Autorisation
+### Autorisation {#permission}
 - Cleared Developer 2FA
 - Updated Account Permission
 - Added Team
@@ -211,7 +211,7 @@ Canvas
 - Updated Custom Role
 - Deleted Custom Role
 
-### Paramètres de l'entreprise
+### Paramètres de l'entreprise {#company-settings}
 - Added App Group
 - Added App
 - Company Settings Changed
@@ -226,19 +226,19 @@ Canvas
 - Updated Global Control Exclusions
 - Updated Subscription Group SMS Allow List
 
-### Modèle d'e-mail
+### Modèle d'e-mail {#email-template}
 - Added Email Template
 - Updated Email Template
 
-### Identifiant push
+### Identifiant push {#push-credential}
 Updated Push Credential
 Removed Push Credential
 
-### Outil de débogage du SDK
+### Outil de débogage du SDK {#sdk-debugger}
 - Started SDK Debugger Session
 - Exported SDK Debugger Log
 
-### Utilisateurs
+### Utilisateurs {#users}
 - Users Deleted
 - Users Viewed
 - User Import Started
@@ -247,7 +247,7 @@ Removed Push Credential
 - Single User Deletion Cancelled
 - Bulk User Deletion Cancelled
 
-### Catalogues
+### Catalogues {#catalogs}
 - Catalog Created
 - Catalog Deleted
 
@@ -285,7 +285,7 @@ Les attributs suivants peuvent être désignés comme PII et masqués aux utilis
 | Attributs standard | Attributs personnalisés |
 | ------------------- | ----------------- |
 | {::nomarkdown} <ul> <li>Adresse e-mail </li> <li> Numéro de téléphone </li> <li> Prénom </li> <li> Nom </li> <li> Genre </li> <li> Date de naissance </li> <li> ID d'appareil </li> <li> Emplacement le plus récent </li> </ul> {:/} | {::nomarkdown} <ul> <li> Tous les attributs personnalisés<ul><li>Les attributs personnalisés individuels peuvent être marqués comme PII si vous n'avez pas besoin de masquer tous les attributs.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs PII potentiels" }
 
 ### Zones restreintes {#limited-areas}
 
@@ -298,7 +298,7 @@ Ce qui suit suppose que tous les champs sont définis comme PII et que les utili
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | Dans le menu déroulant **Données utilisateur** : {::nomarkdown} <ul> <li> L'utilisateur n'aura pas l'option <b>Exporter les adresses e-mail en CSV</b>. </li> <li> L'utilisateur ne recevra pas les attributs standard et personnalisés précédents dans le fichier CSV lors de la sélection de <b>Exporter les données utilisateur en CSV</b>. </li> </ul> {:/} | |
 | Groupe de test interne | L'utilisateur n'aura pas accès aux attributs standard précédents de tout utilisateur ajouté au groupe de test interne. | |
 | Journal d'activité des messages | L'utilisateur n'aura pas accès aux attributs standard précédents pour tout utilisateur identifié dans le journal d'activité des messages. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zones restreintes" }
 
 {% alert note %}
 Lors de la prévisualisation d'un message, l'autorisation **Voir les PII** n'est pas appliquée, de sorte que les utilisateurs peuvent voir les [attributs standard précédents](#potential-pii-attributes) s'ils ont été référencés dans le message via Liquid.
@@ -319,7 +319,7 @@ Vous êtes responsable de la détermination des préférences correctes pour vot
 | Événement personnalisé | properties |  |
 | Événement d'achat | properties |  |
 | Envoi de message | message_extras | Plusieurs types d'événements contiennent un champ `message_extras`. La préférence s'applique à tous les types d'événements d'envoi de message qui prennent en charge `message_extras`, y compris les types d'événements ajoutés à l'avenir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Champs concernés" }
 
 {% alert warning %}
 **La suppression est permanente !** Si vous choisissez de supprimer des champs de Snowflake pour les utilisateurs supprimés, le paramètre s'applique à toutes les données historiques de vos espaces de travail et à tous les événements pour les utilisateurs supprimés à l'avenir. Une fois que Braze a exécuté le processus pour appliquer les paramètres aux données d'événements historiques des utilisateurs supprimés, vous **ne pouvez pas restaurer** les données.

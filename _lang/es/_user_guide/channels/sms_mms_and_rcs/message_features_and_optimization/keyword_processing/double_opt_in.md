@@ -48,7 +48,7 @@ Para activar la doble adhesión voluntaria, ve a la tabla **Global Keywords** en
 | | Mensaje de respuesta | Esta es la respuesta inicial que un usuario recibirá después de enviar una palabra clave de adhesión voluntaria (por ejemplo, "Responde Y para confirmar que deseas recibir mensajes de este número. Pueden aplicarse tarifas de mensajes y datos.")
 | Confirmación de doble adhesión voluntaria | Palabras clave | Estas son las palabras clave con las que un usuario puede responder para confirmar su intención de adhesión voluntaria. Se requiere al menos una palabra clave. Estas palabras clave deben especificarse en el campo **Mensaje de respuesta del mensaje de adhesión voluntaria**.
 | | Mensaje de respuesta | Esta es la respuesta de confirmación que un usuario recibirá después de haber confirmado explícitamente su adhesión voluntaria y ahora puede recibir mensajes. El estado del grupo de suscripción del usuario se establecerá como `Subscribed`.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurable fields #configurable-fields" }
 
 Cuando un usuario recibe un mensaje de adhesión voluntaria, tiene 30 días para confirmar su intención de adhesión voluntaria. Si un usuario desea suscribirse después de la ventana de 30 días, necesita enviar una palabra clave de adhesión voluntaria para iniciar el flujo de trabajo de doble adhesión voluntaria nuevamente.
 
@@ -78,7 +78,7 @@ Shopify | Los usuarios no ingresarán al flujo de trabajo de doble adhesión vol
 Importación de usuarios | Los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción sea establecido por la importación de usuarios.
 [Centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | Los usuarios ingresarán automáticamente al flujo de trabajo de doble adhesión voluntaria cuando se suscriban a través de un centro de preferencias.
 Paso de actualización de usuario | Los usuarios pueden ingresar al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción se establece a través del paso de actualización de usuario y se pasa el parámetro opcional `use_double_opt_in_logic` como `true`. Si se omite este parámetro, los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription sources #subscription-sources" }
 
 ## Asistencia en varios idiomas {#multi-language-support}
 Para mensajes de entrada, la doble adhesión voluntaria es compatible con todos los idiomas definidos en el grupo de suscripción. Esto significa que puedes definir tus respuestas automáticas en diferentes idiomas y Braze enviará la respuesta automática asociada con un idioma específico cuando se reciba una palabra clave coincidente.

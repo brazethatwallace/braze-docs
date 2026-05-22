@@ -32,6 +32,7 @@ channel:
   - SMS
   - Webhooks
 
+
 noindex: true
 #ATTENTION: remove noindex and this alert from template
 ---
@@ -77,7 +78,7 @@ Stellen Sie sicher, dass Sie Parameter oder Elemente definieren, die Nutzer:inne
 | -------- | ----------- |
 | Page Title | Sie können Ihre Seite beliebig betiteln. Dies ist erforderlich. |
 | My First Heading | Wir empfehlen, dies in Großbuchstaben zu schreiben. Dies ist optional. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Code Sample" }
 
 ## 2. Schritt: Erledigen Sie die nächste Aufgabe {#step-2-do-the-next-thing}
 

@@ -23,7 +23,7 @@ O Decisioning Studio Go é uma plataforma self-service com recursos simplificado
 | **Dados de cliente** | Apenas engajamento | Todos os dados 1P |
 | **Configuração** | Autoatendimento | Suporte dos serviços de tomada de decisões por IA |
 | **Grupos experimentais** | Go + Controle aleatório + BAU opcional | Totalmente personalizável |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recursos Go versus Pro" }
 
 ## Projetando seu agente Go {#design-your-go-agent}
 
@@ -62,7 +62,7 @@ Considere criar um segmento dedicado para o seu experimentador do Decisioning St
 As dimensões são as "alavancas" que o agente pode acionar para personalizar a experiência do cliente. Isso inclui dimensões criativas, como linha de assunto e imagem principal, bem como dimensões relacionadas ao tipo de envio, como a frequência dos e-mails ou a hora do dia.
 
 {% alert note %}
-As dimensões específicas disponíveis dependem do seu CEP e de como suas Campaigns estão configuradas. Trabalhe com os modelos e o conteúdo que você configurou no seu CEP.
+As dimensões específicas disponíveis dependem do seu CEP e de como suas campanhas estão configuradas. Trabalhe com os modelos e o conteúdo que você configurou no seu CEP.
 {% endalert %}
 
 ### Etapa 3: Configure seu banco de ações {#step-3-configure-your-action-bank}
@@ -82,7 +82,7 @@ O Decisioning Studio Go cria automaticamente grupos de experimentos para medir o
 | **Decisioning Studio Go** | Clientes que recebem recomendações otimizadas por IA |
 | **Controle aleatório** | Clientes que recebem opções selecionadas aleatoriamente (comparação com a linha de base) |
 | **Business as Usual (opcional)** | Clientes que recebem sua Campaign atual (se comparando com o desempenho atual) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Configure os grupos experimentais" }
 
 {% alert important %}
 Para uma comparação precisa, certifique-se de que nenhum cliente possa pertencer a mais de um grupo experimental e que os clientes sejam atribuídos aleatoriamente aos grupos, sem viés.

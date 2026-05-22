@@ -31,7 +31,7 @@ Certifique-se de que os seguintes itens tenham sido criados, concluídos ou acei
 | --- | --- | --- |
 | Conta de anúncios do LinkedIn | [LinkedIn](https://www.linkedin.com/campaignmanager) | Uma conta ativa de anúncios do LinkedIn vinculada à sua marca.<br><br>Certifique-se de que aceitou todos os termos e condições relevantes do LinkedIn para acessar e usar essa conta e que seu administrador do LinkedIn lhe concedeu as permissões apropriadas para gerenciar públicos. |
 | Termos e políticas do LinkedIn | LinkedIn | Concorde em cumprir todos os termos, políticas, diretrizes e documentação exigidos pelo LinkedIn relacionados ao seu uso do LinkedIn Audience Sync, incluindo quaisquer termos, políticas, diretrizes e documentação incorporados por referência, que podem incluir os do LinkedIn: Termos de Serviços, Contrato de Anúncios, Contrato de Processamento de Dados e Diretrizes da Comunidade Profissional. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -45,7 +45,7 @@ No dashboard da Braze, acesse **Parceiros de tecnologia** e selecione **LinkedIn
 
 ![Página de tecnologia do LinkedIn na Braze com uma seção de Visão Geral e uma seção de LinkedIn Audience Sync com o botão Connected LinkedIn.]({% image_buster /assets/img/linkedin/linkedin3.png %}){: style="max-width:75%;"}
 
-Em seguida, você será redirecionado para a página do LinkedIn OAuth para autorizar a Braze a conceder as permissões relacionadas à integração do Audience Sync. Depois de selecionar **Confirm**, você será redirecionado de volta à Braze para selecionar com quais contas de anúncios do LinkedIn você deseja sincronizar.
+Em seguida, você será redirecionado para a página do LinkedIn OAuth para autorizar a Braze a obter as permissões relacionadas à integração do Audience Sync. Depois de selecionar **Confirm**, você será redirecionado de volta à Braze para selecionar com quais contas de anúncios do LinkedIn você deseja sincronizar.
 
 !["Braze Self Service" selecionado como a conta de anúncio para conectar.]({% image_buster /assets/img/linkedin/linkedin7.png %}){: style="max-width:75%;"}
 
@@ -86,7 +86,7 @@ Em seguida, selecione a conta de anúncios do LinkedIn desejada. No menu suspens
 ![Audience Sync com LinkedIn com Braze selecionado como a conta de anúncio.]({% image_buster /assets/img/linkedin/linkedin20.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Criar um novo público %}
 
 **Criar um novo público**<br>
 Digite um nome para o novo público, selecione **Add Users to Audience** e selecione os campos que deseja sincronizar com o LinkedIn. Para essa integração, no momento oferecemos suporte aos seguintes itens:
@@ -105,7 +105,7 @@ A Braze exibe uma notificação na parte superior do editor de etapas se o públ
 Ao lançar um Canvas com um novo público, a Braze sincroniza os usuários quase em tempo real quando eles entram no componente do Audience Sync.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar com um público existente %}
 
 **Sincronizar com um público existente**<br>
 A Braze também oferece a capacidade de adicionar usuários a públicos existentes no LinkedIn para confirmar que esses públicos estão atualizados. Para sincronizar com um público existente, digite o nome do público existente no menu suspenso e selecione **Add to the Audience**. A Braze adicionará usuários quase em tempo real quando eles entrarem no componente do Audience Sync.
@@ -142,7 +142,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários atualmente sendo processados pela Braze para sincronização no LinkedIn. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o LinkedIn devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do LinkedIn ou se o público foi excluído no LinkedIn. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é um componente de Audience Sync. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Lembre-se de que haverá um atraso nos relatórios das métricas de usuários sincronizados e usuários com erro devido ao envio em massa e à nova tentativa de 13 horas, respectivamente.

@@ -38,7 +38,7 @@ Una posible explicación podría ser que la campaña o Canvas tiene la reelegibi
 
 Por ejemplo, si tienes un Canvas que tiene notificaciones push tanto para iOS como para web, un usuario determinado con dispositivos móviles y de escritorio podría recibir más de un mensaje.
 
-### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### ¿Por qué *Destinatarios únicos* es mayor que el número de usuarios a los que me dirigí? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatarios únicos* puede ser mayor que la audiencia que esperabas porque Braze rastrea destinatarios únicos diarios para los informes. Esto permite que Braze atribuya conversiones dentro de la ventana de conversión cada vez que un usuario recibe el mensaje, en lugar de colapsar múltiples recepciones en un solo recuento de por vida (lo que distorsionaría las matemáticas de conversión).
 
@@ -162,7 +162,7 @@ Para evitar esto, asegúrate de que las actualizaciones de atributos personaliza
 
 ### ¿Por qué el número de usuarios que entran a una campaña no coincide con el número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
+El número de usuarios que entran a una campaña puede diferir de tu número esperado debido a cómo se evalúan las audiencias y los desencadenantes. En Braze, una audiencia se evalúa antes del desencadenante (a menos que se use un desencadenante de [cambio en atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Esto hará que los usuarios salgan de la campaña si no son inicialmente parte de tu audiencia seleccionada antes de que se evalúen las acciones desencadenantes.
 
 {% alert tip %}
 Para obtener más ayuda con la solución de problemas de campañas, asegúrate de contactar a soporte de Braze dentro de los 30 días posteriores a la ocurrencia de tu problema, ya que solo tenemos los últimos 30 días de registros de diagnóstico.
@@ -189,6 +189,14 @@ Por ejemplo, si introduces un nombre de campaña o un parámetro UTM con múltip
 Las campañas activadas por API te permiten gestionar el texto de la campaña, las pruebas multivariantes y las reglas de reelegibilidad dentro del panel de Braze mientras activas la entrega de ese contenido desde tus propios servidores y sistemas. Estos mensajes también pueden incluir datos adicionales para ser plantillados en los mensajes en tiempo real.
 
 Las campañas de API se usan para rastrear los mensajes enviados usando la API. A diferencia de la mayoría de las campañas, no especificas el mensaje, los destinatarios ni la programación, sino que pasas los identificadores en tus llamadas a la API.
+
+### ¿Cómo puedo confirmar si mis usuarios recibieron una campaña activada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Puedes [crear un segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) usando el filtro **Received Campaign** y luego seleccionar la campaña activada por API específica que deseas verificar. Después de guardar el segmento, usa el [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) para exportar los usuarios en ese segmento.
+
+### ¿Puedo eliminar una campaña? {#can-i-delete-a-campaign}
+
+No, pero puedes [archivar una campaña]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### ¿Cuál es la diferencia entre campañas basadas en acciones y campañas activadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 

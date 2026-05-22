@@ -4,7 +4,7 @@ article_title: Remerge
 alias: /partners/remerge/
 description: "이 참조 문서에서는 대규모 앱 리타겟팅을 위해 특별히 설계된 Remerge와 Braze 간의 파트너십을 설명하며, 앱 오디언스를 효율적으로 세분화하고 사용자를 리타겟팅할 수 있는 도구를 제공합니다."
 page_type: partner
-search_tag: 파트너
+search_tag: Partner
 
 ---
 
@@ -27,7 +27,7 @@ Braze와 Remerge 통합은 웹훅 이벤트를 통해 사용자 데이터를 Rem
 | Android 앱 ID | Android용 고유 Braze 애플리케이션 식별자(예: "com.example"). |
 | iOS 앱 ID | iOS용 고유 Braze 애플리케이션 식별자(예: "012345678"). |
 | Braze SDK에서 IDFA 수집 활성화 | IDFA 수집은 Braze SDK 내에서 선택 사항이며 기본적으로 비활성화되어 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

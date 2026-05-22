@@ -83,7 +83,7 @@ Wenn Sie Änderungen an einem bestehenden Template vornehmen, werden diese Ände
 
 ### Ihre Templates verwalten {#manage-your-templates}
 
-Sie können E-Mail-Templates unter **Templates** > **Email Templates** anzeigen und nach Status, Typ, Tags, der erstellenden Person filtern oder nach Template-Name suchen. Sie benötigen die Berechtigung **Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers** (oder die entsprechende granulare Berechtigung, wie z. B. **View Email Templates**), um diese Templates anzuzeigen. Weitere Details finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Sie können E-Mail-Templates unter **Templates** > **Email Templates** anzeigen und nach Status, Typ, Tags, der erstellenden Person filtern oder nach Template-Name suchen. Sie benötigen die entsprechenden Nutzer:innenberechtigungen, wie z. B. **View Email Templates**, um diese Templates anzuzeigen. Weitere Details finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
 
 Wenn Sie mehr E-Mail-Templates erstellen, können Sie E-Mail-Templates [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates). Erfahren Sie mehr über das Erstellen und Verwalten Ihrer Template- und Kreativinhalte-Bibliothek unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates/).
 
@@ -98,7 +98,7 @@ Um Ihre E-Mail für eine API-Campaign zu verwenden, benötigen Sie eine `email_t
 Sie können im Drag-and-drop-Editor an E-Mail-Templates zusammenarbeiten und diese kommentieren.
 
 1. Wählen Sie den Content-Block oder die Zeile im E-Mail-Textkörper aus, die Sie kommentieren möchten.
-2. Wählen Sie das <i class="fas fa-comment"></i> Kommentarsymbol aus.
+2. Wählen Sie das <i class="fas fa-comment" aria-label="Kommentar"></i> Kommentarsymbol aus.
 3. Geben Sie Ihren Kommentar in der Seitenleiste ein und wählen Sie dann **Submit** aus.
 4. Nachdem Sie Ihre Kommentare eingegeben haben, wählen Sie **Done** aus.
 5. Wählen Sie **Save Template** aus, um Ihre Kommentare zu speichern.

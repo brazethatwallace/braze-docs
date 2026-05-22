@@ -109,7 +109,7 @@ Des facteurs spécifiques à Canvas s'appliquent également :
 - **Limites d'entrée ou d'audience maximales :** les limites d'entrée ou d'envoi empêchent des utilisateurs supplémentaires même lorsque le Segment sous-jacent est plus large.
 - **Fenêtre de reporting :** la plage d'analyse peut ne pas inclure tous les envois que vous comparez à l'estimation.
 
-### Pourquoi les _Destinataires uniques_ sont-ils supérieurs au nombre d'utilisateurs ciblés ? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Pourquoi les _Destinataires uniques_ sont-ils supérieurs au nombre d'utilisateurs ciblés ? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Les _Destinataires uniques_ peuvent être supérieurs à l'audience attendue car Braze suit les **destinataires uniques quotidiens** pour les rapports Canvas et Campaign. Cela permet une attribution de conversion précise chaque fois qu'un utilisateur reçoit un message dans le parcours.
 
@@ -162,6 +162,16 @@ Il y a un Canvas à une seule étape avec les heures calmes activées :
 
 Il est courant que le total des conversions d'une variante Canvas soit supérieur à la somme des totaux de ses étapes. Cela se produit parce qu'un utilisateur peut effectuer un événement de conversion pour une variante dès qu'il entre dans la variante. Cependant, ce même événement de conversion ne compte pas pour une étape Canvas. Ainsi, tout utilisateur qui entre dans le Canvas et effectue l'événement de conversion avant de recevoir la première étape Canvas sera comptabilisé dans le total de conversion de la variante, mais pas dans le total de l'étape. Il en va de même pour un utilisateur qui entre dans le Canvas mais en sort avant de recevoir une étape.
 
+Notez qu'il est également possible qu'un utilisateur entre dans une variante, ne reçoive aucun message d'une étape, puis convertisse. Dans ce cas, aucune conversion n'est enregistrée au niveau de l'étape. Cependant, comme l'utilisateur a techniquement converti, une conversion est enregistrée au niveau du Canvas.
+
+### Comment puis-je confirmer si mes utilisateurs ont reçu un Canvas déclenché par API ? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Vous pouvez [créer un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) en utilisant un filtre Canvas pour confirmer si les utilisateurs sont entrés dans le Canvas ou ont reçu une étape Canvas spécifique. Par exemple, utilisez un filtre d'entrée Canvas si vous souhaitez confirmer que les utilisateurs sont entrés dans le Canvas déclenché par API, ou un filtre d'étape reçue si vous souhaitez confirmer qu'ils ont reçu un message du Canvas. Ensuite, utilisez l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) pour exporter les utilisateurs de ce Segment.
+
+### Puis-je supprimer un Canvas ? {#can-i-delete-a-canvas}
+
+Non, mais vous pouvez [archiver un Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Comment puis-je consulter les analyses de chacun de mes composants Canvas ? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Pour consulter les analyses d'un composant Canvas, accédez à votre Canvas et faites défiler la page **Canvas Details**. Vous pouvez y voir les analyses de chaque composant. Consultez [Analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) pour plus de détails.
@@ -172,7 +182,7 @@ Le segmenteur fournit une statistique plus précise pour les données d'utilisat
 
 ### Pourquoi le nombre d'utilisateurs entrant dans un Canvas ne correspond-il pas au nombre attendu ? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
-Le nombre d'utilisateurs entrant dans un Canvas peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Cela entraînera la sortie des utilisateurs du Canvas s'ils ne font pas partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans un Canvas peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Cela entraînera la sortie des utilisateurs du Canvas s'ils ne font pas partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
 
 ### Que se passe-t-il pour les utilisateurs anonymes pendant leur parcours Canvas ? {#what-happens-to-anonymous-users-during-their-canvas-journey}
 

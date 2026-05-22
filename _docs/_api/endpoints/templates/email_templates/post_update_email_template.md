@@ -20,6 +20,10 @@ You can access an email template's `email_template_id` by navigating to it on th
 
 All fields other than the `email_template_id` are optional, but you must specify at least one field to update.
 
+{% alert tip %}
+You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) using the [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates) function. This lets AI tools like Claude and Cursor update email templates through natural language prompts.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Prerequisites

@@ -38,7 +38,7 @@ Le tableau suivant décrit les termes courants liés aux géorepérages :
 | Latitude et longitude | Le centre géographique du géorepérage. |
 | Rayon | Le rayon du géorepérage en mètres, mesuré à partir du centre géographique. Définissez un rayon minimum de 100 à 150 mètres pour tous les géorepérages. |
 | Période de refroidissement | Les utilisateurs reçoivent des notifications déclenchées par géorepérage après avoir effectué des transitions d'entrée ou de sortie sur des géorepérages individuels. Après une transition, il existe une période prédéfinie pendant laquelle cet utilisateur ne peut pas effectuer la même transition sur ce géorepérage individuel. Cette « période de refroidissement » est prédéfinie par Braze et son objectif principal est d'éviter les requêtes réseau inutiles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
 
 ## Conditions préalables {#prerequisites}
 
@@ -74,7 +74,7 @@ iOS et Android offrent tous deux plusieurs niveaux d'accès à la localisation. 
 | **Autoriser pendant l'utilisation de l'app** | Accorde l'accès à la localisation chaque fois que l'application est au premier plan. Une fois cette autorisation accordée, iOS peut présenter une invite de suivi demandant à l'utilisateur de passer à « Toujours autoriser ». | Oui. iOS active la surveillance de la localisation en arrière-plan, y compris les transitions de géorepérage, pour les applications disposant de cette autorisation. |
 | **Toujours autoriser** | Accorde un accès continu à la localisation, y compris en arrière-plan et lorsque l'application est fermée. | Oui. Cela fournit la surveillance de géorepérage la plus fiable. |
 | **Ne pas autoriser** | Refuse tout accès à la localisation. | Non. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% tab Android %}
@@ -84,7 +84,7 @@ iOS et Android offrent tous deux plusieurs niveaux d'accès à la localisation. 
 | **Pendant l'utilisation de l'app** | Accorde l'accès à la localisation lorsque l'application est au premier plan. | Non. Sur Android, l'accès à la localisation en arrière-plan est requis pour la surveillance des géorepérages. |
 | **Toujours autoriser** | Accorde un accès continu à la localisation, y compris en arrière-plan. Sur Android 10 et versions ultérieures, cela nécessite une invite séparée après l'octroi initial de l'autorisation « Pendant l'utilisation de l'app ». | Oui. Cela est requis pour le géorepérage sur Android. |
 | **Ne pas autoriser** | Refuse tout accès à la localisation. Sur Android 13 et versions ultérieures, si un utilisateur refuse l'invite de localisation deux fois, le système d'exploitation bloque les invites ultérieures dans l'application. | Non. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
 
 {% endtab %}
 {% endtabs %}
@@ -97,7 +97,7 @@ Sur iOS 14+ et Android 12+, les utilisateurs peuvent choisir entre la localisati
 |---|---|---|
 | **Localisation précise (activée)** | Précision de l'ordre de 5 à 50 mètres, utilisant le GPS, le Wi-Fi et la triangulation cellulaire. | Les géorepérages fonctionnent comme prévu. Recommandé pour tous les cas d'utilisation basés sur le géorepérage. |
 | **Localisation approximative (désactivée)** | Précision d'environ 3 kilomètres carrés (environ 1 mile carré). L'appareil renvoie une zone générale plutôt que des coordonnées exactes. | Les géorepérages ne se déclenchent pas de manière fiable. L'appareil ne peut pas déterminer avec précision si un utilisateur se trouve à l'intérieur ou à l'extérieur d'une limite de géorepérage. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
 
 {% alert important %}
 Pour que le géorepérage fonctionne de manière fiable, les utilisateurs doivent activer la localisation précise. Incluez cette recommandation dans votre message d'amorçage des autorisations de localisation afin que les utilisateurs comprennent pourquoi la localisation précise est importante.

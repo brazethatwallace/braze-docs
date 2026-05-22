@@ -33,7 +33,7 @@ Mit dem Punchh-Coupon-Framework und Braze können Sie die folgenden Szenarien re
 
 ### 2. Schritt: Signatur generieren und URL konstruieren {#step-2-generate-signature-and-construct-url}
 
-Die Bibliothek JWT.IO dekodiert, überprüft und generiert JSON-Web-Tokens, eine offene, dem Industriestandard RFC 7519 entsprechende Methode zur sicheren Darstellung von Ansprüchen zwischen zwei Parteien.
+Die Bibliothek JWT.IO dekodiert, überprüft und generiert JSON-Web-Tokens, eine offene, dem Industriestandard RFC 7519 entsprechende Methode zur sicheren Darstellung von Claims zwischen zwei Parteien.
 
 Die folgenden `ClaimType`-Namen können verwendet werden, um die Eindeutigkeit von Gästen und Gutscheinen zu gewährleisten:
 
@@ -151,4 +151,4 @@ So verknüpfen Sie den Gutscheincode mit einem Bild:
 | `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | Die Nutzung des Codes übersteigt die Anzahl der Nutzer:innen, die ihn verwenden dürfen. Wenn die Dashboard-Konfiguration beispielsweise die Verwendung eines Codes durch 3.000 Nutzer:innen zulässt und die Anzahl der Nutzer:innen 3.000 übersteigt, wird dieser Fehler angezeigt. |
 | `usage_exceeded_by_guest` | This promo code has already been processed. | Die Nutzung des Codes durch eine Nutzer:in übersteigt die Anzahl der möglichen Nutzungen. Die Dashboard-Konfiguration erlaubt es beispielsweise, dass ein einzelner Code dreimal von einer Nutzer:in verwendet werden kann. Wird er häufiger verwendet, tritt dieser Fehler auf. |
 | `already_used_by_other_guest` | This promo code has already been used by some other guest. | Eine andere Nutzer:in hat den Code bereits verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehlermeldungen" }

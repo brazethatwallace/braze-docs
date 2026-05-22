@@ -19,7 +19,7 @@ Expo를 푸시 알림에 사용하려면 먼저 [Braze Expo 플러그인을 설�
 
 #### 1.2단계: Google 발신자 ID 추가 {#step-12-add-your-google-sender-id}
 
-먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음, <i class="fa-solid fa-gear" aria-label="설정"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
+먼저 Firebase 콘솔로 이동하여 프로젝트를 연 다음, <i class="fa-solid fa-gear"></i>&nbsp;**Settings** > **Project settings**를 선택합니다.
 
 !["Settings" 메뉴가 열려 있는 Firebase 프로젝트.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
@@ -132,7 +132,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 | `braze_properties` | 오브젝트 | Campaign과 관련된 Braze 등록정보(키-값 페어)를 나타냅니다. |
 | `ios` | 오브젝트 | iOS 전용 필드를 나타냅니다. |
 | `android` | 오브젝트 | Android 전용 필드를 나타냅니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### 3단계: 딥링킹 활성화(선택 사항) {#step-3-enable-deep-linking-optional}
 

@@ -48,7 +48,7 @@ Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이
 | ----------- | ----------- |
 | Braze 접근 권한 | Braze에서 이 기능에 접근하려면 Braze 계정 매니저 또는 고객 성공 매니저에게 문의해야 합니다. |
 | Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
@@ -99,7 +99,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정하는 고객 프로필의 고유 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 
@@ -124,7 +124,7 @@ Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 �
 
 ### Snowflake 리전 {#snowflake-regions}
 
-Braze는 현재 Snowflake AWS US East-1, EU-Central (프랑크푸르트), AP-Northeast-1(도쿄), AP-Southeast-2(시드니), AP-Southeast-3(자카르타) 리전에서 모든 사용자 수준 데이터를 호스팅하고 있습니다. 해당 리전 외부의 사용자에 대해서는, Braze가 AWS, Azure 또는 GCP 리전에서 Snowflake 인프라를 호스팅하는 공동 고객에게 데이터 공유를 제공할 수 있습니다.
+Braze는 현재 Snowflake AWS US East-1, EU-Central(프랑크푸르트), AP-Northeast-1(도쿄), AP-Southeast-2(시드니), AP-Southeast-3(자카르타) 리전에서 모든 사용자 수준 데이터를 호스팅하고 있습니다. 해당 리전 외부의 사용자에 대해서는, Braze가 AWS, Azure 또는 GCP 리전에서 Snowflake 인프라를 호스팅하는 공동 고객에게 데이터 공유를 제공할 수 있습니다.
 
 ### 데이터 보존 {#data-retention}
 
@@ -150,7 +150,7 @@ Snowflake의 과거 이벤트 데이터 아카이브는 2019년 4월까지 거�
 | ----- | ------- |
 | `TIME` | 이벤트가 발생한 Unix 타임스탬프입니다. 발생 시점 기준으로 필터링할 때 이 필드를 사용하세요. |
 | `SF_CREATED_AT` | 행이 Snowflake에 로드된 타임스탬프(수집 시간)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Querying shared data: TIME and query performance" }
 
 ### 쿼리 속도, 성능, 비용 {#speed-performance-cost-of-queries}
 

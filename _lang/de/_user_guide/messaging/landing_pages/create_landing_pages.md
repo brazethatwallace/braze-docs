@@ -41,7 +41,7 @@ Wir empfehlen die folgenden Best Practices:
 | Meta-Beschreibung | Ein Textausschnitt, der in Suchergebnissen angezeigt wird. | Verwenden Sie zwischen 140 und 160 Zeichen. |
 | Favicon | Das Symbol, das neben dem Website-Titel im Browser-Tab erscheint. | Verwenden Sie ein Seitenverhältnis von 1:1 und einen unterstützten Dateityp wie PNG, JPEG oder ICO. |
 | Seiten-URL | Dies ist der URL-Pfad zu Ihrer Landing-Page. Dieser Wert wird auch referenziert, wenn Sie [Landing-Page-Liquid-Tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) verwenden, die Sie in eine Nachricht einbetten können, um automatisch zu erkennen, wenn Nutzer:innen Ihr Formular absenden. | Dieser Wert muss innerhalb Ihres Workspace eindeutig sein. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Website-Details" }
 
 ### 3. Schritt: Die Seite anpassen {#step-3-customize-the-page}
 
@@ -68,7 +68,7 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
 | Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Die Seite anpassen" }
 
 ##### Span-Text {#span-text}
 
@@ -89,7 +89,7 @@ Mit diesen Blöcken können Sie ein Formular erstellen, das von Nutzer:innen üb
 | Dropdown | Nutzer:innen können einen Eintrag aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen aktivieren, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht aktiviert wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
 
 {% alert important %}
 Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.

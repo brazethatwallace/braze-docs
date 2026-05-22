@@ -30,12 +30,12 @@ Selecciona el icono del lápiz para abrir el menú desplegable **Tag Configurati
 
 Introduce la información mínima requerida:
 
-| Campo         | Descripción |
+| Campo | Descripción |
 | ------------- | ----------- |
-| **API Key**   | Tu [clave de API de Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), que se encuentra en el panel de Braze en **Settings** > **App Settings**. |
+| **API Key** | Tu [clave de API de Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), que se encuentra en el panel de Braze en **Settings** > **App Settings**. |
 | **API Endpoint** | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
-| **SDK Version**  | La versión `MAJOR.MINOR` más reciente del SDK Web de Braze que aparece en el [registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por ejemplo, si la última versión es `4.1.2`, introduce `4.1`. Para más información, consulta [Acerca de la gestión de versiones del SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **SDK Version** | La versión `MAJOR.MINOR` más reciente del SDK Web de Braze que aparece en el [registro de cambios]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por ejemplo, si la última versión es `4.1.2`, introduce `4.1`. Para más información, consulta [Acerca de la gestión de versiones del SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configura la etiqueta" }
 
 Para configuraciones de inicialización adicionales, selecciona **Braze Initialization Options** y elige las opciones que necesites.
 
@@ -61,6 +61,7 @@ La etiqueta de inicialización de Braze expone las siguientes opciones. La mayor
 | **Open Cards in New Tab** | `openCardsInNewTab` | Abre los enlaces de las tarjetas de contenido en una nueva pestaña cuando se utiliza la interfaz de usuario predeterminada de la fuente. |
 | **Service Worker Location** | `serviceWorkerLocation` | Ruta personalizada para el archivo del prestador de servicios (predeterminado: `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | Tiempo de espera de la sesión en segundos (predeterminado: 1800). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 4: Elige las opciones de inicialización" }
 
 {% alert note %}
 Para habilitar los [mensajes HTML personalizados dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) cuando utilices la etiqueta de inicialización de Braze de Google Tag Manager, selecciona **Allow HTML In-App Messages** en **Braze Initialization Options**. Esta casilla de verificación se mapea con la opción de inicialización `allowUserSuppliedJavascript` en `braze.initialize()` y la establece en `true`. La etiqueta de inicialización de Braze de Google Tag Manager utiliza esta etiqueta en lugar del nombre de la opción.

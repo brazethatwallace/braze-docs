@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Actualizar traducción en un Canvas"
 article_title: "PUT: Actualizar traducción en un Canvas"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -42,7 +42,7 @@ No hay parámetros de ruta para este punto de conexión.
 | `message_variation_id` | Obligatorio | Cadena | El ID de tu variación de mensaje. |
 | `locale_id` | Obligatorio | Cadena | El ID (UUID) de la configuración regional. |
 | `translation_map` | Obligatorio | Objeto | Objeto que contiene las nuevas traducciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

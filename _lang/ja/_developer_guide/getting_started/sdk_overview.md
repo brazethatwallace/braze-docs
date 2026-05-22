@@ -5,7 +5,7 @@ description: "このオンボーディングリファレンス記事には、Bra
 page_order: 0
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}開発者向けSDKの概要 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}開発者向けSDKの概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Braze SDKの統合を開始する前に、正確に何を構築および統合するのかを疑問に思うかもしれません。また、ニーズに応じてSDKをより詳細にカスタマイズする方法に興味があるかもしれません。この記事は、SDKに関するすべての疑問を解決するのに役立ちます。
 
@@ -15,7 +15,7 @@ Braze SDKを簡単に説明すると、次のとおりです。
 * ユーザーデータを収集し、統合ユーザープロファイルに同期します
 * セッションデータ、デバイス情報、プッシュトークンを自動的に収集します
 * マーケティングエンゲージメントデータとビジネスに固有のカスタムデータを取得します
-* プッシュ通知、アプリ内メッセージ、コンテンツカードメッセージングチャネルを強化します
+* プッシュ通知、**In-App Messages**、コンテンツカードメッセージングチャネルを強化します
 
 以下の動画で、Braze SDKの統合の基本とコア機能について簡単に紹介しています。
 
@@ -45,16 +45,16 @@ Braze SDKは非常に円滑に動作し、アプリ内に存在する他のSDK�
 
 Braze SDKでは、データ（セッション、カスタムイベントなど）がキャッシュされ、定期的にアップロードされます。データがアップロードされた後でのみ、ダッシュボード上で値が更新されます。アップロード間隔は、デバイスの状態を考慮し、ネットワーク接続の品質に基づいて決定されます。
 
-|ネットワーク接続品質 |    データフラッシュ間隔|
+| ネットワーク接続品質 | データフラッシュ間隔 |
 |---|---|
-|素晴らしい    |10秒|
-|良好    |30秒|
-|不良    |60秒|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 素晴らしい | 10秒 |
+| 良好 | 30秒 |
+| 不良 | 60秒 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data upload and download" }
 
 ネットワーク接続がない場合、ネットワーク接続が再確立されるまで、データはデバイスのローカルにキャッシュされます。接続が再確立されると、データがBrazeにアップロードされます。
 
-セッションの時点でユーザーが属するSegmentsに基づいて、セッションの開始時にBrazeからSDKにデータが送信されます。新しいアプリ内メッセージはセッション中に更新されません。ただし、セッション中のユーザーデータは、クライアントから送信されると継続的に処理されます。たとえば、離脱ユーザー（アプリを最後に使用してから7日以上経過）には、アプリに戻ってから最初のセッションで、離脱ユーザーをターゲットにしたコンテンツが提供されます。
+セッションの時点でユーザーが属するセグメントに基づいて、セッションの開始時にBrazeからSDKにデータが送信されます。新しいアプリ内メッセージはセッション中に更新されません。ただし、セッション中のユーザーデータは、クライアントから送信されると継続的に処理されます。たとえば、離脱ユーザー（アプリを最後に使用してから7日以上経過）には、アプリに戻ってから最初のセッションで、離脱ユーザーをターゲットにしたコンテンツが提供されます。
 
 ## データ収集のブロック {#blocking-data-collection}
 
@@ -91,14 +91,14 @@ SDKの特定の部分を統合しないことも、ユーザーに対して[`dis
 デフォルトでは、Braze Swift SDKですべてのフィールドが収集されます。一部のデバイスプロパティを削除すると、SDK機能が無効になる場合があります。
 {% endalert %}
 
-使用の詳細については、Swift SDKドキュメントの「[ストレージ]({{site.baseurl}}/developer_guide/storage/?tab=swift)」を参照してください。
+使用の詳細については、Swift SDKドキュメントの[ストレージ]({{site.baseurl}}/developer_guide/storage/?tab=swift)を参照してください。
 
 {% endtab %}
 {% endtabs %}
 
 ## 使用しているSDKバージョンの確認 {#what-version-of-the-sdk-am-i-on}
 
-ダッシュボードを使用して、**[設定] > [アプリ設定]** から特定のアプリのSDKバージョンを確認できます。**[ライブSDKバージョン]** には、ユーザーの5%以上を対象とする最新のライブアプリケーションで使用されている最上位のBraze SDKバージョンが表示されます。
+ダッシュボードを使用して、**設定** > **アプリ設定**から特定のアプリのSDKバージョンを確認できます。**ライブSDKバージョン**には、ユーザーの5%以上を対象とする最新のライブアプリケーションで使用されている最上位のBraze SDKバージョンが表示されます。
 
 ![ワークスペースのSwiftyという名前のアプリ。ライブSDKバージョンは6.6.0です。]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 

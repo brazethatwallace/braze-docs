@@ -17,7 +17,7 @@ description: "この記事では、同期処理のユーザー追跡 Braze エ�
 > このエンドポイントを使用して、カスタムイベントと購入を記録し、ユーザープロファイル属性を同期的に更新します。このエンドポイントは、ユーザープロファイルを非同期に更新する[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)と同様に機能します。
 
 {% alert important %}
-このエンドポイントは現在、**限定ベータ版**です。現在ベータ版への新規顧客の追加は行っていませんが、この機能がBrazeとの連携に有用だと思われる場合は、担当のアカウントマネージャーにお知らせください。
+このエンドポイントは現在、**限定ベータ版**です。現在ベータ版への新規顧客の追加は行っていませんが、この機能がBrazeとの連携に有用だと思われる場合は、担当のBrazeアカウントマネージャーにお知らせください。
 {% endalert %}
 
 ## 同期APIコールと非同期APIコール {#synchronous-and-asynchronous-api-calls}
@@ -68,7 +68,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `attributes` | オプション | 1つの属性オブジェクト | [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)を参照してください |
 | `events` | オプション | 1つのイベントオブジェクト | [イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)を参照してください |
 | `purchases` | オプション | 1つの購入オブジェクト | [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)を参照してください |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 応答 {#responses}
 

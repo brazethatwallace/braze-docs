@@ -49,10 +49,10 @@ Brazeにはユーザーと連絡を取るための多くのオプションがあ
 | Content Cards | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)の利用を開始するには、Brazeのカスタマーサクセスマネージャーに連絡してください。 |
 | SMS & MMS | 統合の詳細については、[SMSセットアップ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending/)セクションを参照してください。 |
 | Webhook | SDKの実装とチャネル固有のステップが必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: They implement your desired messaging channels" }
 
 {% alert tip %}
-Brazeを使えば、各チャネルでアクセスしやすい**Campaigns**を作成できます。開発者と協力して、実装においてアクセシビリティ基準を満たすようにしてください。
+Brazeを使えば、各チャネルでアクセスしやすいメッセージングキャンペーンを作成できます。開発者と協力して、実装においてアクセシビリティ基準を満たすようにしてください。
 {% endalert %}
 
 ### ステップ 3: データを設定する {#step-3-they-set-up-your-data}
@@ -61,7 +61,7 @@ Brazeは1つの機能しかないツールではありません。これは、�
 
 では、開発者にこの情報を提供するにはどうすればいいのでしょうか？
 
-1. マーケティングチームと協力して、**Campaigns**、目標、属性、追跡が必要なイベントを定義します。それらのユースケースを定義し、チームと共有します。
+1. マーケティングチームと協力して、キャンペーン、目標、属性、追跡が必要なイベントを定義します。それらのユースケースを定義し、チームと共有します。
 2. カスタムデータ要件（[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)など）を定義します。
 3. そこから、そのデータがどのように追跡されるべきか（SDKを通じてトリガーされるなど）について議論します。
 4. 必要な[ワークスペース]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)の数を定義します。エンジニアは、これらのワークスペースを[テストおよび設定する]({{site.baseurl}}/user_guide/get_started/workspaces/)方法を知っておく必要があります。
@@ -84,4 +84,4 @@ APIトリガーによる起動やコネクテッドコンテンツなどが必�
 
 ![]({% image_buster/assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 
-Brazeを使い慣れたら、Braze Firebrandになることを検討しましょう！Brazeのカスタマーエンゲージメントコミュニティである Braze Firebrands では、カスタマーエクスペリエンスとマーケティングを近代化するためにBrazeを使用している有力者のコミュニティを構築しています。もっと詳しく知りたいですか？[今すぐ参加しましょう](https://brazefirebrands.splashthat.com/)。
+Brazeを使い慣れたら、Braze Firebrandになることを検討しましょう！BrazeのカスタマーエンゲージメントコミュニティであるBraze Firebrandsでは、カスタマーエクスペリエンスとマーケティングを近代化するためにBrazeを使用している有力者のコミュニティを構築しています。もっと詳しく知りたいですか？[今すぐ参加しましょう](https://brazefirebrands.splashthat.com/)。

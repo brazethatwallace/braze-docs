@@ -18,7 +18,7 @@ tool:
 
 L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#rows) comme deux composants clés pour simplifier votre flux de travail, sans recourir au HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="À propos de l'éditeur" style="width: 100%; table-layout: fixed;">
     <caption>Composants de l'éditeur : Contenu et Lignes</caption>
     <tr>
         <th style="width: 50%;">Contenu</th>
@@ -33,7 +33,7 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
         </td>
     </tr>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="À propos de l'éditeur" }
 
 ### Contenu {#content}
 
@@ -75,6 +75,10 @@ Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un es
 ## Utiliser l'éditeur par glisser-déposer {#using-the-drag-and-drop-editor}
 
 Vous ne savez pas si votre e-mail doit être envoyé via une Campaign ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés ponctuels, tandis que les Canvas conviennent mieux aux parcours utilisateur en plusieurs étapes.
+
+{% alert note %}
+Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une Campaign ou un Canvas directement dans **Templates** > **Email Templates** en tant que modèle d'e-mail. Créez d'abord votre modèle sous **Templates**, ou consultez [Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) pour recréer un modèle par glisser-déposer ou exporter le HTML avec **Download file**.
+{% endalert %}
 
 Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
 
@@ -142,6 +146,16 @@ Sous **Sending Settings**, vous pouvez ajouter de la personnalisation pour les e
 Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou de Canvas. Dans les fonctionnalités avancées, vous pouvez modifier votre paramètre CSS en ligne et saisir des paires clé-valeur d'en-tête ou supplémentaires (si configurées).
 {% endalert %}
 
+#### Ajouter des pièces jointes à l'e-mail {#adding-email-attachments}
+
+Dans **Sending Settings** > **Advanced**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
+
+- **Télécharger un fichier :** Glissez-déposez ou parcourez pour télécharger un fichier directement depuis votre ordinateur vers l'e-mail. Braze valide le type et la taille du fichier (jusqu'à 2&nbsp;Mo par défaut) avant le téléchargement, puis ces fichiers sont téléchargés dans la bibliothèque multimédia. Les fichiers dépassant la limite de 2&nbsp;Mo ne peuvent pas être téléchargés.
+- **Utiliser la bibliothèque multimédia :** Parcourez et sélectionnez parmi les ressources déjà stockées dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Les PDF, documents Word, fichiers Excel et présentations PowerPoint sont tous pris en charge.
+- **Ajouter depuis une URL :** Saisissez une URL pointant vers le fichier et fournissez un nom de fichier d'affichage. Comme Braze ne peut pas vérifier la taille des URL arbitraires lors de la composition de l'e-mail, la taille du fichier est vérifiée au moment de l'envoi. Notez que Liquid n'est pas pris en charge dans ce champ.
+
+Consultez les [Bonnes pratiques pour les e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines/) pour les recommandations spécifiques à prendre en compte.
+
 ### Étape 4 : Tester votre e-mail {#step-4-test-your-email}
 
 Après avoir ajouté vos informations d'envoi, il est enfin temps de tester votre e-mail.
@@ -192,8 +206,8 @@ Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-d�
 La taille moyenne de nos données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés plus efficacement.
-- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table>` standard
-  <caption>Utiliser Inbox Vision</caption>
+- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Use Inbox Vision">` standard
+  <caption>Use Inbox Vision</caption>
 - Les [blocs éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=email) ont été recodés pour plus de concision
 - Le code HTML final est compressé pour supprimer les espaces entre les balises
 - Les séparateurs transparents sont automatiquement convertis en remplissage de contenu
@@ -303,25 +317,25 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | `meta` | Fournit des métadonnées telles que la description de la page ou les mots-clés. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Intègre des styles CSS internes. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Définit le titre du document affiché dans les onglets du navigateur. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Balise | Attribut | Description | Exemple |
 | --- | --- | --- | --- |
 | `base` | `href` | URL de base à utiliser pour les URL relatives. | ```<base href="https://braze.com">``` |
 | `base` | `target`| Cible par défaut pour tous les hyperliens et formulaires. | ```<base target="_blank">``` |
 | `link` | `href` | URL vers la ressource externe. | ```<link href="style.css">``` |
-| `link` | `rel` | Définit les relations entre le message actuel et le message lié. | ```<link rel="stylesheet">``` |
+| `link` | `rel` | Définit les relations entre le document actuel et la ressource liée. | ```<link rel="stylesheet">``` |
 | `link` | `type` | Type de la ressource liée. | ```<link type="text/css">``` |
 | `link` | `sizes` | Spécifie les tailles des icônes. | ```<link rel="icon" sizes="32x32" href="favicon-32.png">``` |
 | `link` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
-| `meta` | `name` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
-| `meta` | `content` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta name="description" content="Page about our newest products">``` |
+| `meta` | `name` | Définit le nom de la métadonnée. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
+| `meta` | `content` | Définit la valeur de la métadonnée. | ```<meta name="description" content="Page about our newest products">``` |
 | `meta` | `charset` | Déclare l'encodage des caractères. | ```<meta charset="UTF-8">``` |
-| `meta` | `property` | Définit le titre du document affiché dans les onglets du navigateur. | ```<meta property="og:title" content="Website title">``` |
+| `meta` | `property` | Définit une propriété de métadonnée (par exemple Open Graph). | ```<meta property="og:title" content="Website title">``` |
 | `style` | `type` | Type MIME du contenu de style. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Spécifie le média ou l'appareil pour lequel les styles s'appliquent. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Aucun attribut | La balise `title` n'accepte aucun attribut. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Les noms de liens peuvent contenir jusqu'à 63 octets et sont automatiquement tronqués s'ils dépassent cette limite.

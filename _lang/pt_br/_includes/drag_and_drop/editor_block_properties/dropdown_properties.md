@@ -12,4 +12,4 @@
 | Espaçamento entre letras | Espaçamento horizontal entre caracteres. |
 | Alinhamento | Alinhamento horizontal do dropdown (esquerda ou centro). |
 | Preenchimento | Espaçamento ao redor do bloco. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

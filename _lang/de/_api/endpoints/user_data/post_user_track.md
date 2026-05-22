@@ -62,7 +62,7 @@ Für jede in der folgenden Tabelle aufgeführte Anfragekomponente müssen Sie ei
 | `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Optional | Array von Event-Objekten | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Optional | Array von Kauf-Objekten | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Bezeichner-Auflösung {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Jedes Anfrageobjekt muss mindestens einen Bezeichner enthalten. Die folgende Tab
 | --------------- | ----------- | -------- |
 | Primär | `external_id`, `user_alias`, `braze_id` | Wird für die Suche nach dem Nutzerprofil verwendet. Pro Anfrageobjekt ist nur ein primärer Bezeichner zulässig – die Angabe von mehr als einem führt dazu, dass das Objekt abgelehnt wird. |
 | Sekundär | `email`, `phone` | Wird für die Suche nach dem Nutzerprofil **nur** verwendet, wenn kein primärer Bezeichner vorhanden ist. Wenn sowohl `email` als auch `phone` ohne primären Bezeichner angegeben werden, hat `email` Vorrang. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 Wenn ein primärer Bezeichner vorhanden ist, werden alle `email`- oder `phone`-Werte im selben Anfrageobjekt als Profilattribute behandelt – nicht als Bezeichner für die Nutzersuche. Wenn eine Anfrage beispielsweise sowohl eine `external_id` als auch eine `email` enthält:
 
@@ -325,7 +325,7 @@ Die folgenden Fehler sind spezifisch für den Endpunkt `/users/track` und werden
 | `EMAIL_BAD_FORMAT` | Der für `email` angegebene Wert ist keine gültige E-Mail-Adresse. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | Die `external_id` überschreitet die maximal zulässige Länge von 987 Bytes. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` ist kein gültiges Attribut. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -379,7 +379,7 @@ Alle Antworten ohne Rate-Limit (z. B. nicht `429`) enthalten die folgenden HTTP-
 | `X-RateLimit-Limit`     | Die Anzahl der zulässigen Anfragen pro Zeitraum                                              |
 | `X-RateLimit-Remaining` | Die ungefähre Anzahl der verbleibenden Anfragen innerhalb eines Fensters                                |
 | `X-RateLimit-Reset`     | Die Anzahl der verbleibenden Sekunden, bevor das aktuelle Fenster zurückgesetzt wird                                    |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 Beachten Sie, dass die Header `RateLimit-Limit`, `RateLimit-Remaining` und `RateLimit-Reset` nicht zurückgegeben werden, wenn ein HTTP-`429`-Fehler auftritt. In diesem Fall werden diese Header durch einen `X-Ratelimit-Retry-After`-Header ersetzt, der eine Ganzzahl zurückgibt, die die Anzahl der Sekunden angibt, bevor Sie wieder Anfragen stellen können.
 

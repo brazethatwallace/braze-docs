@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Canvasデータシリーズ分析のエクスポート"
-article_title: "GET: Canvasデータシリーズ分析のエクスポート"
+nav_title: "GET: キャンバスデータシリーズ分析のエクスポート"
+article_title: "GET: キャンバスデータシリーズ分析のエクスポート"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、Canvasデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
+description: "この記事では、キャンバスデータシリーズ分析のエクスポートBrazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# Canvasデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
+# キャンバスデータシリーズ分析のエクスポート {#export-canvas-data-series-analytics}
 {% apimethod get %}
 /canvas/data_series
 {% endapimethod %}
 
-> このエンドポイントを使用して、Canvasの時系列データをエクスポートします。
+> このエンドポイントを使用して、キャンバスの時系列データをエクスポートします。
 
 {% multi_lang_include export_data_series_analytics_dashboard_note.md type='canvas' %}
 
@@ -39,7 +39,7 @@ description: "この記事では、Canvasデータシリーズ分析のエクス
 | `include_variant_breakdown` | オプション | ブール値 | バリアント統計を含めるかどうか（デフォルトは `false`）。  |
 | `include_step_breakdown` | オプション | ブール値 | ステップ統計を含めるかどうか（デフォルトは `false`）。 |
 | `include_deleted_step_data` | オプション | ブール値 | 削除されたステップのステップ統計を含めるかどうか（デフォルトは `false`）。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 

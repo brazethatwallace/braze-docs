@@ -23,7 +23,7 @@ alias: /query_builder/
 
 1. **Analytics** > **クエリビルダー**に移動します。
 2. **Create SQL Query**を選択します。クエリの作成にインスピレーションやヘルプが必要な場合は、**Query Template**を選択し、リストからテンプレートを選択します。それ以外の場合は、**SQL Editor**を選択してエディターに直接移動します。
-3. レポートには現在の日時で自動的に名前が付けられます。名前にカーソルを合わせ、<i class="fas fa-pencil" alt="Edit"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
+3. レポートには現在の日時で自動的に名前が付けられます。名前にカーソルを合わせ、<i class="fas fa-pencil" alt="編集"></i>を選択して、SQLクエリにわかりやすい名前を付けます。
 4. エディターでSQLクエリを記述するか、**AI Query Builder**タブから[AIのヘルプを利用](#ai-query-builder)します。独自のSQLを記述する場合は、要件とリソースについて[カスタムSQLクエリの記述](#custom-sql)を参照してください。
 5. **Run Query**を選択します。
 6. クエリを保存します。
@@ -76,13 +76,13 @@ send_date_sydney;
 
 より長い期間のクエリ使用状況を監査したり、7日を超えてレコードを維持したりする必要がある場合は、有効期限が切れる前に重要なクエリ結果をエクスポートまたは保存することをお勧めします。
 
-## AI Query Builderを使用してSQLを生成する {#generating-sql-with-the-ai-query-builder}
+## AIクエリビルダーを使用してSQLを生成する {#generating-sql-with-the-ai-query-builder}
 
-AI Query Builderは、OpenAIを搭載した[GPT](https://openai.com/gpt-4)を活用して、クエリ用のSQLを推奨します。
+AIクエリビルダーは、OpenAIを搭載した[GPT](https://openai.com/gpt-4)を活用して、クエリ用のSQLを推奨します。
 
-![SQL AI Query Builder。]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![SQL AIクエリビルダー。]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-AI Query BuilderでSQLを生成するには:
+AIクエリビルダーでSQLを生成するには:
 
 1. クエリビルダーでレポートを作成した後、**AI Query Builder**タブを選択します。
 2. プロンプトを入力するか、サンプルプロンプトを選択し、**Generate**を選択してプロンプトをSQLに変換します。
@@ -92,7 +92,7 @@ AI Query BuilderでSQLを生成するには:
 
 - [SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)で利用可能なテーブルとカラムを確認してください。これらのテーブルに存在しないデータを要求すると、ChatGPTが架空のテーブルを作成する可能性があります。
 - この機能の[SQL記述ルール]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql)を確認してください。これらのルールに従わないとエラーが発生します。
-- AI Query Builderでは、1分あたり最大20件のプロンプトを送信できます。
+- AIクエリビルダーでは、1分あたり最大20件のプロンプトを送信できます。
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -104,13 +104,13 @@ AI Query BuilderでSQLを生成するには:
 
 1. **クエリビルダー**ページから、**Reference**パネルを開き、**Available Data Tables**を選択して、利用可能なデータテーブルとその名前を表示します。
 3. <i class="fas fa-chevron-down" alt=""></i> **See Details**を選択して、テーブルの説明やデータタイプなどのテーブルカラムに関する情報を表示します。
-4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="Copy table name to SQL editor"></i>を選択します。
+4. SQLにテーブル名を挿入するには、<i class="fas fa-copy" title="テーブル名をSQLエディターにコピー"></i>を選択します。
 
 Brazeが提供するビルド済みクエリを使用するには、クエリビルダーでレポートを最初に作成するときに**Query Template**を選択します。
 
 クエリを特定の期間に制限すると、結果をより速く生成できます。以下は、過去1時間の購入数と生成された収益を取得するクエリの例です。
 
-```sql
+`````````sql
 SELECT COUNT(*) as Purchases, SUM(price) as Revenue
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CURRENT_DATE()));
@@ -118,7 +118,7 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('hour', -1, date_trunc('day',CU
 
 このクエリは、過去1か月間のメール送信数を取得します:
 
-```sql
+`````````sql
 SELECT COUNT(*) as Sends
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',CURRENT_DATE()));
@@ -128,24 +128,24 @@ WHERE to_date(to_timestamp_ntz(time)) >= DATEADD('month', -1, date_trunc('day',C
 
 | ID名 | 関連する名前カラム |
 | --- | --- |
-| `CANVAS_ID` | Canvas名 |
-| `CANVAS_VARIATION_API_ID` | Canvasバリアント名 |
-| `CAMPAIGN_ID` | Campaign名 |
+| `CANVAS_ID` | キャンバス名 |
+| `CANVAS_VARIATION_API_ID` | キャンバスバリアント名 |
+| `CAMPAIGN_ID` | キャンペーン名 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Writing custom SQL queries" }
 
 このクエリは、3つのIDすべてとそれに関連する名前カラムを最大100行で取得します:
 
-```sql
+`````````sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
 ```
 
-### Campaignバリアント名を自動入力する {#automatically-populate-the-campaign-variant-name}
+### キャンペーンバリアント名を自動入力する {#automatically-populate-the-campaign-variant-name}
 
-Campaignバリアント名を自動入力するには、次の例のようにクエリにカラム名`MESSAGE_VARIATION_API_ID`を含めます:
+キャンペーンバリアント名を自動入力するには、次の例のようにクエリにカラム名`MESSAGE_VARIATION_API_ID`を含めます:
 
-```sql
+`````````sql
 SELECT CANVAS_ID, CANVAS_VARIATION_API_ID, CAMPAIGN_ID, MESSAGE_VARIATION_API_ID
 FROM USERS_MESSAGES_EMAIL_SEND_SHARED
 LIMIT 100
@@ -162,11 +162,11 @@ LIMIT 100
 
 ## 変数の使用 {#using-variables}
 
-変数を使用すると、SQLで事前定義された変数タイプを使用して、値を手動でコピーすることなく参照できます。たとえば、CampaignのIDをSQLエディターに手動でコピーする代わりに、{% raw %}`{{campaign.${My campaign}}}`{% endraw %}を使用して、**Variables**タブのドロップダウンからCampaignを直接選択できます。
+変数を使用すると、SQLで事前定義された変数タイプを使用して、値を手動でコピーすることなく参照できます。たとえば、キャンペーンのIDをSQLエディターに手動でコピーする代わりに、{% raw %}`{{campaign.${My campaign}}}`{% endraw %}を使用して、**Variables**タブのドロップダウンからキャンペーンを直接選択できます。
 
 変数を作成すると、クエリビルダーレポートの**Variables**タブに表示されます。SQL変数を使用する利点は次のとおりです:
 
-- Campaign変数を作成してレポート作成時にリストから選択することで、Campaign IDを貼り付ける代わりに時間を節約できます。
+- キャンペーン変数を作成してレポート作成時にリストから選択することで、キャンペーン IDを貼り付ける代わりに時間を節約できます。
 - 変数を追加して値を入れ替えることで、将来わずかに異なるユースケース（異なるカスタムイベントなど）でレポートを再利用できます。
 - 各レポートに必要な編集量を減らすことで、SQLの編集時のユーザーエラーを削減できます。SQLに慣れているチームメイトがレポートを作成し、技術的な知識が少ないチームメイトがそれを使用できます。
 
@@ -190,7 +190,7 @@ LIMIT 100
 - [カタログ](#catalogs)
 - [カタログフィールド](#catalog-fields)
 - [オプション](#options)
-- [Segments](#segments)
+- [セグメント](#segments)
 - [文字列](#string)
 - [タグ](#tags)
 
@@ -215,7 +215,7 @@ LIMIT 100
 | 開始日 | 開始日を指定します | `start_date`が必要 |
 | 終了日 | 終了日を指定します | `end_date`が必要 |
 | 日付範囲 | 開始日と終了日の両方を指定します | `start_date`と`end_date`の両方が必要 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Example values" }
 
 - **置換値:** `start_date`と`end_date`を、UTCで指定された日付のUnixタイムスタンプ（秒単位）に置き換えます（`1696517353`など）。
 - **使用例:** 相対、開始日、終了日、日付範囲のすべての変数について:
@@ -226,58 +226,58 @@ LIMIT 100
 
 すべてのメッセージング変数は、1つのグループ内で状態を関連付ける場合、同じ識別子を共有する必要があります。
 
-##### Canvas
+##### キャンバス
 
-1つのCanvasを選択する場合に使用します。Campaignと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+1つのキャンバスを選択する場合に使用します。キャンペーンと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Canvas BSON ID
+- **置換値:** キャンバス BSON ID
 - **使用例:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases
+##### キャンバス
 
-複数のCanvasesを選択する場合に使用します。Campaignと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+複数のキャンバスを選択する場合に使用します。キャンペーンと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Canvases BSON ID
+- **置換値:** キャンバス BSON ID
 - **使用例:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
-##### Campaign
+##### キャンペーン
 
-1つのCampaignを選択する場合に使用します。Canvasと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+1つのキャンペーンを選択する場合に使用します。キャンバスと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Campaign BSON ID
+- **置換値:** キャンペーン BSON ID
 - **使用例:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### キャンペーン
 
-複数のCampaignsを選択する場合に使用します。Canvasと同じ名前を共有すると、**Variables**タブ内にCanvasまたはCampaignのいずれかを選択するラジオボタンが表示されます。
+複数のキャンペーンを選択する場合に使用します。キャンバスと同じ名前を共有すると、**Variables**タブ内にキャンバスまたはキャンペーンのいずれかを選択するラジオボタンが表示されます。
 
-- **置換値:** Campaigns BSON ID
+- **置換値:** キャンペーン BSON ID
 - **使用例:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Campaignバリアント {#campaign-variants}
+##### キャンペーンバリアント {#campaign-variants}
 
-選択したCampaignに属するCampaignバリアントを選択する場合に使用します。CampaignまたはCampaigns変数と組み合わせて使用する必要があります。
+選択したキャンペーンに属するキャンペーンバリアントを選択する場合に使用します。キャンペーンまたはキャンペーン変数と組み合わせて使用する必要があります。
 
-- **置換値:** CampaignバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
+- **置換値:** キャンペーンバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
 - **使用例:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
-##### Canvasバリアント {#canvas-variants}
+##### キャンバスバリアント {#canvas-variants}
 
-選択したCanvasに属するCanvasバリアントを選択する場合に使用します。CanvasまたはCanvases変数と組み合わせて使用する必要があります。
+選択したキャンバスに属するキャンバスバリアントを選択する場合に使用します。キャンバスまたはキャンバス変数と組み合わせて使用する必要があります。
 
-- **置換値:** CanvasバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
+- **置換値:** キャンバスバリアントAPI ID（カンマ区切りの文字列、`api-id1, api-id2`など）。
 - **使用例:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### キャンバスステップ {#canvas-step}
 
-選択したCanvasに属するキャンバスステップを選択する場合に使用します。Canvas変数と組み合わせて使用する必要があります。
+選択したキャンバスに属するキャンバスステップを選択する場合に使用します。キャンバス変数と組み合わせて使用する必要があります。
 
 - **置換値:** キャンバスステップAPI ID
 - **使用例:** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### キャンバスステップ（複数） {#canvas-steps}
 
-選択したCanvasesに属するキャンバスステップを選択する場合に使用します。CanvasまたはCanvases変数と組み合わせて使用する必要があります。
+選択したキャンバスに属するキャンバスステップを選択する場合に使用します。キャンバスまたはキャンバス変数と組み合わせて使用する必要があります。
 
 - **置換値:** キャンバスステップAPI ID
 - **使用例:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

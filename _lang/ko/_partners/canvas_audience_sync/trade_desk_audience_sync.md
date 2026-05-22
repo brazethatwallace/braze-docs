@@ -14,9 +14,9 @@ page_order: 7
 
 **오디언스 동기화의 일반적인 활용 사례는 다음과 같습니다:**
 
-- The Trade Desk에서 기존 사용자를 개인화된 캠페인으로 리타겟팅합니다.
+- The Trade Desk에서 기존 사용자를 개인화된 Campaign으로 리타겟팅합니다.
 - 제외 타겟팅을 위해 퍼스트파티 데이터를 The Trade Desk로 전송합니다.
-- 사용자를 신규 또는 기존 오디언스 또는 CRM 데이터 세그먼트에 동기화합니다.
+- 사용자를 신규 또는 기존 오디언스 또는 CRM 데이터 Segments에 동기화합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -89,7 +89,7 @@ The Trade Desk의 CRM 오디언스에는 최소 오디언스 크기가 없습니
 
 ### The Trade Desk로 사용자를 전달한 후 사용자가 매칭되었는지 어떻게 알 수 있나요? {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 
-The Trade Desk에서 수신된 ID가 세그먼트 옆에 표시됩니다.
+The Trade Desk에서 수신된 ID가 Segment 옆에 표시됩니다.
 
 - 수신된 ID는 지난 30일 동안 수신한 ID 수입니다.
 - 활성 ID는 지난 7일 동안 입찰에서 확인된 ID 수입니다.

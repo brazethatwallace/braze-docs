@@ -14,7 +14,7 @@ description: "이 문서에서는 일일 활성 사용자 내보내기 Braze 엔
 /kpi/dau/data_series
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 각 날짜의 총 고유 활성 사용자 수에 대한 일일 시계열을 검색합니다.
+> 이 엔드포인트를 사용하여 각 날짜의 총 고유 활성 사용자 수에 대한 일일 시계열을 검색할 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#90a64560-65aa-4f71-a8ef-1edf49321986 {% endapiref %}
 
@@ -33,7 +33,7 @@ description: "이 문서에서는 일일 활성 사용자 내보내기 Braze 엔
 | `length` | 필수 | 정수 | 반환된 시리즈에 포함할 `ending_at` 이전 최대 일수. 1에서 100 사이여야 합니다(포함). |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜. 기본값은 요청 시점입니다. |
 | `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 가져온 앱 API 식별자. 제외하면 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 {% raw %}

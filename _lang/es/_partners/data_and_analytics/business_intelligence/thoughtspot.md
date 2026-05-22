@@ -22,7 +22,7 @@ Para empezar a utilizar ThoughtSpot con Braze, tus datos deben enviarse a un alm
 | ----------- | ----------- |
 | Cuenta de ThoughtSpot | Se necesita una cuenta de ThoughtSpot para aprovechar esta asociación. |
 | Almacén de datos en la nube | Los datos de Braze se almacenan en un almacén de datos en la nube mediante Braze Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Bloques TML {#tml-blocks}
 

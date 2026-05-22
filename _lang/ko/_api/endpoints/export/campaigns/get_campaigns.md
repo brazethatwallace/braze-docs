@@ -36,7 +36,7 @@ description: "이 문서에서는 캠페인 목록 내보내기 Braze 엔드포�
 | `include_archived` | 선택 사항 | 부울 | 아카이브된 캠페인을 포함할지 여부이며, 기본값은 false입니다. |
 | `sort_direction` | 선택 사항 | 문자열 | - 생성 시간을 최신에서 오래된 순으로 정렬: `desc` 값을 전달합니다.<br> - 생성 시간을 오래된 것부터 최신 순으로 정렬: `asc` 값을 전달합니다. <br><br>`sort_direction`이 포함되지 않은 경우 기본 순서는 오래된 것부터 최신 순입니다. |
 | `last_edit.time[gt]` | 선택 사항 | 시간 | 결과를 필터링하여 지정된 시간 이후에 편집된 캠페인만 반환합니다. 형식은 `yyyy-MM-DDTHH:mm:ss`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 예시 요청 {#example-request}
 

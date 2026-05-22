@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Crear selección de catálogo"
 article_title: "POST: Crear selección de catálogo"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -27,31 +27,31 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de ruta {#path-parameters}
 
-| Parámetro      | Obligatoria | Tipo de datos | Descripción          |
+| Parámetro      | Obligatorio | Tipo de datos | Descripción          |
 | -------------- | -------- | --------- | -------------------- |
-| `catalog_name` | Obligatoria | Cadena    | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena    | Nombre del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Parámetros de solicitud {#request-parameters}
 
-| Parámetro   | Obligatoria | Tipo de datos | Descripción                                                                                                                                                        |
+| Parámetro   | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Obligatoria | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) para obtener un desglose completo del objeto y sus campos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) para obtener un desglose completo del objeto y sus campos. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ### Parámetros del objeto de selección {#selection-object-parameters}
 
-| Parámetro        | Obligatoria | Tipo de datos | Descripción                                                                                                                                                        |
+| Parámetro        | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`           | Obligatoria | Cadena    | El nombre de la selección del catálogo. |
+| `name`           | Obligatorio | Cadena    | El nombre de la selección del catálogo. |
 | `description`    | Opcional | Cadena    | Una descripción de la selección del catálogo. |
-| `external_id`    | Obligatoria | Cadena    | Un identificador único para la selección. |
+| `external_id`    | Obligatorio | Cadena    | Un identificador único para la selección. |
 | `source`         | Opcional | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, utiliza `"Shopify"`. Los valores aceptados son `"Shopify"` y `"Braze"`. |
 | `filters`        | Opcional | Matriz    | Una matriz de objetos de filtro para aplicar a los elementos del catálogo. Puedes especificar hasta cuatro filtros por solicitud. Si no se proporcionan filtros, se incluyen todos los elementos del catálogo. |
 | `results_limit`  | Opcional | Entero   | El número máximo de resultados que se devolverán. Debe ser un número entre 1 y 50. |
 | `sort_field`     | Opcional | Cadena    | El campo por el que ordenar los resultados. Debe combinarse con `sort_order`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
 | `sort_order`     | Opcional | Cadena    | El orden para clasificar los resultados. Los valores aceptados son `"asc"` (ascendente) o `"desc"` (descendente). Debe combinarse con `sort_field`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Selection object parameters" }
 
 {% alert note %}
 Los parámetros `sort_field` y `sort_order` deben utilizarse juntos. Si proporcionas uno sin el otro, u omites ambos parámetros, los resultados de la selección se devuelven en orden aleatorio.
@@ -96,7 +96,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Filter operators" }
 
 {% alert note %}
 La API admite un máximo de cuatro filtros por solicitud de selección. En el panel de Braze, puedes añadir hasta 10 filtros por selección. Los filtros se aplican en el orden en que aparecen en la matriz.
@@ -156,6 +156,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | `invalid-sort-field`                 | Comprueba si el campo de ordenación de la selección es válido.                                                   |
 | `invalid-sort-order`                 | Comprueba si el orden de clasificación de la selección es válido.                                                   |
 | `selection-contains-too-many-arrays` | Comprueba si la selección contiene más de un campo con el tipo `array`. Solo se admite uno. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

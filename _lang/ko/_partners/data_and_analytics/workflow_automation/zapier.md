@@ -19,7 +19,7 @@ Braze와 Zapier 파트너십은 Braze API 및 Braze [웹훅]({{site.baseurl}}/us
 |---|---|
 | Zapier 계정 | 이 파트너십을 활용하려면 Zapier 계정이 필요합니다. |
 | Braze REST 엔드포인트 | REST 엔드포인트 URL입니다. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/api/basics/#api-definitions)에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

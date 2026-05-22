@@ -29,7 +29,7 @@ La versión mínima del SDK que cumple con WCAG 2.1 es cercana a la v3.4.0. Sin 
 | **3.1.2** | Menor | Texto alternativo predeterminado para imágenes |
 | **2.4.1** | **Mayor** | HTML semántico (`h1` o `button`), atributos ARIA, navegación con el teclado, gestión del foco |
 | **2.0.5** | Menor | Gestión del foco, navegación con el teclado, etiquetas |
-{: .reset-td-br-1, .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
 
 ## Características de accesibilidad compatibles {#supported-accessibility-features}
 
@@ -82,7 +82,7 @@ Para las Content Cards que se muestran en línea, ten en cuenta las restriccione
 ```
 {% endraw %}
 
-### In-App Messages
+### Mensajes dentro de la aplicación {#in-app-messages}
 
 {% alert warning %}
 No incluyas información importante en los mensajes dentro de la aplicación de tipo deslizable, ya que no son accesibles para los lectores de pantalla.

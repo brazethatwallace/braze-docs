@@ -110,7 +110,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 );
 ```
 
-| 필드 이름 | TYPE | 모드 |
+| 필드 이름 | 유형 | 모드 |
 | --- | --- | --- |
 | UPDATED_AT | TIMESTAMP | 필수 |
 | PAYLOAD | JSON | 필수 |
@@ -149,7 +149,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 );
 ```
 
-| 필드 이름 | TYPE | 모드 |
+| 필드 이름 | 유형 | 모드 |
 | --- | --- | --- |
 | UPDATED_AT | TIMESTAMP | 필수 |
 | PAYLOAD | STRING, STRUCT, or MAP | 필수 |
@@ -204,7 +204,7 @@ JSON 또는 CSV 형식을 사용하여 S3에 소스 파일을 생성합니다. �
 | `PAYLOAD` | 예 | Braze의 카탈로그 항목에 동기화할 필드의 JSON 문자열입니다. |
 | `DELETED` | 선택 사항 | `true`로 설정하면 해당 카탈로그 항목이 카탈로그에서 제거됩니다. |
 | `UPDATED_AT` | *지원되지 않음* | 파일 스토리지는 `UPDATED_AT` 열을 지원하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Integrate Cloud Data Ingestion with catalog data" }
 
 {% alert note %}
 파일 이름은 AWS 규칙을 따라야 하며 고유해야 합니다. 고유성을 보장하기 위해 타임스탬프를 추가하세요.

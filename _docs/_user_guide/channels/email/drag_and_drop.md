@@ -80,6 +80,10 @@ You cannot nest an image inside a paragraph or other text block in the drag-and-
 
 Not sure whether your email message should be sent using a campaign or a Canvas? Campaigns are better for single, targeted messaging campaigns, while Canvases are better for multi-step user journeys.
 
+{% alert note %}
+You can't save a drag-and-drop email from a campaign or Canvas directly to **Templates** > **Email Templates** as an email template. Build under **Templates** first, or see [Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) for recreating a drag-and-drop template or exporting HTML with **Download file**.
+{% endalert %}
+
 After you've selected where to build your message, let's dive into the steps to create a drag-and-drop email.
 
 ### Step 1: Select your template
@@ -145,6 +149,16 @@ Under **Sending Settings**, you can add personalization for email headers and em
 {% alert note %}
 Advanced functionality will appear in the campaign or Canvas composer. In advanced functionality, you can modify your inline CSS setting and enter a header or extra key-value pairs (if configured).
 {% endalert %}
+
+#### Adding email attachments
+
+In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word docs, Excel files, and PowerPoint presentations are all supported. 
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
 ### Step 4: Test your email
 

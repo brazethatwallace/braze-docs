@@ -21,7 +21,7 @@ Les recommandations basées sur des règles reposent sur une logique fixe que vo
 
 Pour choisir le moteur de recommandation adapté à vos ressources disponibles et à vos cas d'utilisation, reportez-vous à ce tableau :
 
-<table style="text-align: center;">
+<table aria-label="Options du moteur de recommandation" style="text-align: center;">
   <caption>Options du moteur de recommandation</caption>
   <thead>
     <tr>
@@ -73,7 +73,7 @@ Pour choisir le moteur de recommandation adapté à vos ressources disponibles e
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 .reset-td-br-7 aria-label="Options du moteur de recommandation" }
 
 ## Créer un moteur de recommandation {#creating-a-recommendation-engine}
 
@@ -100,7 +100,7 @@ Imaginons que vous ayez une application de produits diététiques et que vous so
 | **title** | Le titre de la carte de contenu qui sera envoyée pour chaque ID, par exemple « Préparer le déjeuner de cette semaine » ou « Taco, parlons-en ». |
 | **link** | Le lien vers l'article de la recette. |
 | **image_url** | L'image qui correspond à la recette. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
 Une fois le catalogue chargé dans Braze, vérifiez l'aperçu d'une série de produits du catalogue pour confirmer que les informations importées sont exactes. Les éléments peuvent apparaître dans un ordre aléatoire dans l'aperçu, mais cela n'affectera pas le résultat du moteur de recommandation.
 
@@ -187,7 +187,7 @@ Pour créer votre moteur de recommandation à l'aide du Contenu connecté, comme
 | **Convertir une feuille de calcul** | Convertissez une feuille de calcul en un endpoint API JSON en utilisant un service comme SheetDP, et prenez note de l'URL API ainsi générée. |
 | **Créer un endpoint personnalisé** | Créez, hébergez et maintenez un endpoint interne personnalisé. |
 | **Utiliser un moteur tiers** | Utilisez un moteur de recommandation tiers, tel que l'un de nos [partenaires Alloy]({{site.baseurl}}/partners/message_personalization/), notamment [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize/), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona/), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield/), et d'autres. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
 Ensuite, utilisez Liquid dans votre message pour appeler votre endpoint, faire correspondre une valeur d'attribut personnalisé avec le profil d'un utilisateur et obtenir la recommandation correspondante.
 
@@ -211,7 +211,7 @@ Remplacez les éléments suivants :
 | `YOUR_API_URL` | Remplacez par l'URL réelle de votre API. |
 | `RECOMMENDED_ITEM_IDS` | Remplacez par le nom réel de votre attribut personnalisé qui contient les ID des éléments recommandés. Cet attribut est censé être une chaîne de caractères d'ID séparés par des points-virgules. |
 | `ITEM_ID` | Remplacez par le nom réel de l'attribut dans votre réponse API qui correspond à l'ID de l'élément. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
 {% alert note %}
 Il s'agit d'un exemple de base que vous devrez peut-être modifier en fonction de vos besoins spécifiques et de la structure de vos données. Pour obtenir des conseils plus détaillés, reportez-vous à la [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) ou consultez un développeur.

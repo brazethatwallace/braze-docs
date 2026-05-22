@@ -34,7 +34,7 @@ SDK에서 로케일을 수집하는 방법에 대한 기술적 세부 사항은 
 | --- | --- |
 | - 중앙 집중식 접근 방식<br>- 이메일 제작 시간 단축, 이메일을 여러 번 만들 필요 없음 | - 수동 보고서 작성 필요<br>- Campaign 보고서에 국가별 측정기준이 아닌 집계된 측정기준이 표시됨<br>- Liquid이 예상대로 채워지는지 철저히 테스트해야 함<br>- 국가 값을 가져오는 방식이나 설정된 국가 수에 따라 각 국가를 테스트하기 어려울 수 있음<br>- 시간대별 특정 시간에 발송을 예약하기 어려움<br>- 국가별로 다른 콘텐츠를 보내려는 경우 사용하기 어려움 |
 | --- | --- | --- |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template for all" }
 
 ### 국가별 하나의 템플릿 {#one-template-per-country}
 
@@ -47,7 +47,7 @@ SDK에서 로케일을 수집하는 방법에 대한 기술적 세부 사항은 
 | 장점 | 고려 사항 |
 | --- | --- |
 | - 여러 지역으로 확장 가능<br>- Braze 내에서 국가별 매출 보고(예: Campaign별)<br>- 국가별로 콘텐츠가 크게 다른 경우 유연성 확보 | - 전략적 구조화 필요<br>- 더 많은 구축 노력 필요(예: 각 국가별 별도 Campaign) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One template per country" }
 {% endtab %}
 
 {% tab canvas %}
@@ -60,7 +60,7 @@ Canvas가 발송된 후 대시보드에서 집계된 [Canvas 분석]({{site.base
 | 장점 | 고려 사항 |
 | --- | --- |
 | - 중앙 집중식 접근 방식<br>- 이메일 제작 시간 단축 - 이메일을 여러 번 만들 필요 없음 | - 수동 보고서 작성 필요<br>- Canvas 보고서에 국가별 측정기준이 아닌 집계된 측정기준이 표시됨<br>- Liquid이 예상대로 채워지는지 철저히 테스트해야 함<br>- 국가 값을 가져오는 방식이나 설정된 국가 수에 따라 각 국가를 테스트하기 어려울 수 있음<br>- 시간대별 특정 시간에 발송을 예약하기 어려움<br>- 국가별로 다른 콘텐츠를 보내려는 경우 사용하기 어려움 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey for all" }
 
 ### 국가별 하나의 여정 {#one-journey-per-country}
 
@@ -76,7 +76,7 @@ Canvas가 발송된 후 대시보드에서 집계된 [Canvas 분석]({{site.base
 | 장점 | 고려 사항 |
 | --- | --- |
 | - Braze 내에서 국가별 매출 보고(예: Canvas, 배리언트 또는 단계별)<br>- 국가별로 콘텐츠가 크게 다른 경우 유연성 확보<br>- 향후 여정의 일부로 다른 채널 추가 가능 | - 전략적 구조화 필요<br>- 더 많은 구축 노력 필요(예: 각 국가별 별도 메시지 단계)<br>- 단일 Canvas에서 각 국가별로 커스텀 복잡한 여정을 구성하면 Canvas가 커지고 읽기 어려워질 수 있음 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="One journey per country" }
 {% endtab %}
 {% endtabs %}
 
@@ -93,7 +93,7 @@ Braze는 {% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% end
 ### 대안적 접근 방식 {#alternative-approaches}
 
 {% tabs local %}
-{% tab Custom Liquid %}
+{% tab 커스텀 Liquid %}
 콘텐츠를 메시지 본문에 직접 붙여넣고 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)을 사용하여 수신자에게 올바른 언어를 [조건부로]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) 표시할 수 있습니다. 이를 위해:
 
 1. 메시지를 작성한 다음 **언어**를 선택하여 선택한 각 언어에 대한 Liquid 조건 로직을 생성합니다.
@@ -134,7 +134,7 @@ Content Blocks는 번역 관리 프로세스로도 활용할 수 있습니다. �
 5. 서비스가 [`/content_block/update` 엔드포인트]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)를 호출하여 번역된 콘텐츠를 업데이트하고 태그를 "Translation Complete"로 변경합니다.
 {% endtab %}
 
-{% tab Catalogs %}
+{% tab 카탈로그 %}
 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 사용하면 API 및 CSV 파일을 통해 가져온 JSON 오브젝트의 데이터에 액세스하여 커스텀 속성이나 커스텀 이벤트 등록정보와 유사하게 Liquid을 통해 메시지를 보강할 수 있습니다. 예를 들어:
 
 {% subtabs local %}
@@ -226,7 +226,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 | 10 | 3 | es | Hola |
 | 11 | 3 | pt | Oi |
 | 12 | 3 | de | Hallo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Alternative approaches" }
 {% endsubtab %}
 {% endsubtabs %}
 
@@ -241,13 +241,13 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endraw %}
 {% endtab %}
 
-{% tab Braze partners %}
+{% tab Braze 파트너 %}
 많은 Braze 파트너가 [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex/#about-transifex) 및 [Crowdin](https://crowdin.com/)을 포함한 현지화 솔루션을 제공합니다. 일반적으로 사용자는 내부 팀 및 번역 에이전시와 함께 플랫폼을 사용합니다. 이러한 번역은 업로드된 후 REST API를 통해 액세스할 수 있습니다. 이러한 서비스는 종종 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 활용하여 사용자가 API를 통해 번역을 가져올 수 있도록 합니다.
 
 예를 들어, 다음 연결된 콘텐츠 호출은 Transifex와 Crowdin을 호출하여 번역을 가져오며, {% raw %}`{{${language}}}`{% endraw %}를 활용하여 특정 사용자에 대한 올바른 번역을 식별합니다. 이 번역은 JSON 블록 "strings"에 저장되고 참조됩니다.
 
 {% subtabs local %}
-{% subtab Transifex example %}
+{% subtab Transifex 예시 %}
 {% raw %}
 ```liquid
 {% connected_content https://www.transifex.com/api/2/project/example/resource/example/translation/{{${language}}}/strings :basic_auth semc :save strings %}
@@ -255,7 +255,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 ```
 {% endraw %}
 {% endsubtab %}
-{% subtab Crowdin example %}
+{% subtab Crowdin 예시 %}
 {% raw %}
 ```liquid
 {% connected_content https://api.crowdin.com/api/project/braze-test/export-file?key=you_api_key&language={{${language}}}&file=test.json&export_translated_only=1 :save response %}
@@ -266,11 +266,11 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Spreadsheets %}
+{% tab 스프레드시트 %}
 스프레드시트에 번역을 호스팅한 다음, 다음 방법 중 하나를 사용하여 해당 언어로 메시지를 발송합니다.
 
 {% subtabs local %}
-{% subtab Connected Content %}
+{% subtab 연결된 콘텐츠 %}
 번역 에이전시와 협력하여 Google 스프레드시트에 번역을 저장하고, [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 이 콘텐츠를 쿼리할 수 있습니다. 메시지를 발송하면 각 사용자의 선택된 언어에 따라 해당 번역이 Campaign 본문에 가져와집니다.
 
 {% alert note %}
@@ -278,7 +278,7 @@ Google Sheets API는 프로젝트당 100초에 500건의 요청 제한이 있습
 {% endalert %}
 {% endsubtab %}
 
-{% subtab JSON API via SheetDB %}
+{% subtab SheetDB를 통한 JSON API %}
 이 옵션은 Google Sheets를 연결된 콘텐츠를 통해 쿼리되는 JSON 오브젝트로 변환하는 대안적 방법을 제공합니다. 스프레드시트를 SheetDB를 통해 JSON API로 변환하면 API 호출 빈도에 따라 [여러 구독 티어](https://sheetdb.io/pricing)에서 선택할 수 있습니다.
 
 스프레드시트 구조는 옵션 4의 단계를 따르지만, SheetDB는 오브젝트를 쿼리하기 위한 [추가 필터](https://docs.sheetdb.io/#sheetdb-api)도 제공합니다.
@@ -294,7 +294,7 @@ Google Sheets API는 프로젝트당 100초에 500건의 요청 제한이 있습
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Step 1: Format the Google sheet" }
 
 #### 2단계: 연결된 콘텐츠 호출에서 언어 Liquid 태그 사용 {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 

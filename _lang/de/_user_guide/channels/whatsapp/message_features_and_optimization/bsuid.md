@@ -34,7 +34,7 @@ BSUIDs haben drei wesentliche Eigenschaften:
 | Eindeutig | Keine zwei Nutzer:innen teilen sich dieselbe BSUID innerhalb Ihres Unternehmensportfolios. |
 | Geschäftsbezogen | Dieselbe Person hat bei jedem Unternehmen, dem sie eine Nachricht sendet, eine andere BSUID. BSUIDs können nicht über verschiedene Unternehmensportfolios hinweg geteilt oder verglichen werden. |
 | In Webhooks verfügbar | BSUIDs sind in allen Webhook-Payloads enthalten, die derzeit die Telefonnummer der Nutzer:innen übermitteln. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Geschäftsbezogene Nutzer-ID (BSUID)" }
 
 ## Änderungen bei WhatsApp-Nutzertypen {#changes-to-whatsapp-user-types}
 
@@ -44,7 +44,7 @@ Nach der Einführung von WhatsApp-Nutzernamen wird es zwei Typen von WhatsApp-Nu
 | ----- | ----- | ----- |
 | Nutzer:innen ohne Nutzernamen | Telefonnummer (keine Änderung) | Telefonnummer (keine Änderung) |
 | Nutzer:innen mit Nutzernamen | Nutzername (angezeigt), BSUID (Backend) | BSUID, Telefonnummer für Nutzer:innen, die bereits eine Konversation mit Ihrem Unternehmen hatten |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Änderungen bei WhatsApp-Nutzertypen" }
 
 Der wesentliche Unterschied besteht darin, dass Nutzer:innen, die einen Nutzernamen einrichten, ihre Telefonnummer nur dann mit Ihrem Unternehmen teilen, wenn Sie zuvor eine Konversation mit ihnen hatten oder wenn sie in Ihrem WhatsApp-Kontaktbuch erscheinen.
 
@@ -144,7 +144,7 @@ Meta verwaltet den Prozess der Verknüpfung von Unternehmensportfolios. Kontakti
 | Einzelnes Unternehmensportfolio | Reguläre BSUID |
 | Mehrere verknüpfte Portfolios | Übergeordnete BSUID (bevorzugt). Falls keine übergeordnete BSUID vorhanden ist, wird die reguläre BSUID verwendet |
 | Mehrere nicht verknüpfte Portfolios | Reguläre BSUID (kann zu doppelten Nutzerprofilen pro Portfolio führen) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wie Braze übergeordnete BSUIDs verwendet" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

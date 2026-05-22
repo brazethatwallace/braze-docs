@@ -62,7 +62,7 @@ Para cada componente de la solicitud que aparece en la tabla siguiente, debes in
 | `attributes` | Opcional | Matriz de objetos de atributos | Ver [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
 | `events` | Opcional | Matriz de objetos de eventos | Ver [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object/) |
 | `purchases` | Opcional | Matriz de objetos de compra | Ver [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Resolución de identificadores {#identifier-resolution}
 
@@ -72,7 +72,7 @@ Cada objeto de solicitud debe incluir al menos un identificador. La siguiente ta
 | --------------- | ----------- | -------- |
 | Primario | `external_id`, `user_alias`, `braze_id` | Se utiliza para la búsqueda del perfil de usuario. Solo se permite un identificador primario por objeto de solicitud; incluir más de uno provoca que ese objeto sea rechazado. |
 | Secundario | `email`, `phone` | Se utiliza para la búsqueda del perfil de usuario **solo** cuando no hay un identificador primario presente. Si se incluyen tanto `email` como `phone` sin un identificador primario, `email` tiene prioridad. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identifier resolution" }
 
 Cuando hay un identificador primario presente, cualquier valor de `email` o `phone` en el mismo objeto de solicitud se trata como atributo del perfil, no como identificador para la búsqueda de usuario. Por ejemplo, si una solicitud incluye tanto un `external_id` como un `email`:
 
@@ -325,7 +325,7 @@ Los siguientes errores son específicos del punto final `/users/track` y se devu
 | `EMAIL_BAD_FORMAT` | El valor proporcionado para `email` no es una dirección de correo electrónico válida. |
 | `EXTERNAL_USER_ID_TOO_LARGE` | El `external_id` supera la longitud máxima permitida de 987 bytes. |
 | `INVALID_ATTRIBUTE_EMAIL_SUBSCRIPTION_INFO` | `email_subscription_info` no es un atributo válido. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Endpoint-specific errors" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -379,7 +379,7 @@ Todas las respuestas sin límite de velocidad (como las que no son `429`) contie
 | `X-RateLimit-Limit`     | El número de solicitudes permitidas por periodo de tiempo |
 | `X-RateLimit-Remaining` | El número aproximado de solicitudes restantes dentro de una ventana |
 | `X-RateLimit-Reset`     | El número de segundos restantes antes de que se reinicie la ventana actual |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limit headers for Monthly Active Users CY 24-25, Universal MAU, Web MAU, and Mobile MAU" }
 
 Ten en cuenta que los encabezados `RateLimit-Limit`, `RateLimit-Remaining` y `RateLimit-Reset` no se devuelven cuando se produce un error HTTP `429`. Cuando se produce el error, esos encabezados se sustituyen por un encabezado `X-Ratelimit-Retry-After` que devuelve un número entero que indica el número de segundos que faltan para que puedas empezar a hacer solicitudes.
 

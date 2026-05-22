@@ -24,15 +24,15 @@ WhatsApp 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 상
 | --- | --- |
 | 가입됨 | 사용자가 특정 회사로부터 WhatsApp 메시지를 수신하겠다고 명시적으로 확인한 상태입니다. 사용자는 Braze 구독 API를 통해 구독 상태를 업데이트하거나 WhatsApp 가이드라인에 따라 옵트인 전략을 배포하여 구독할 수 있습니다. |
 | 가입 취소됨 | 사용자가 옵트인에 대한 명시적 동의를 하지 않았거나 옵트인 상태가 명시적으로 제거된 상태입니다. <br><br> WhatsApp 구독 그룹에서 가입 취소된 사용자는 해당 구독 그룹에 속한 발신 전화번호로부터 더 이상 WhatsApp 메시지를 수신하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="WhatsApp subscription states" }
 
-### 사용자의 WhatsApp 구독 그룹 설정 {#setting-users-whatsapp-subscription-groups}
+### 사용자의 WhatsApp 구독 그룹 설정하기 {#setting-users-whatsapp-subscription-groups}
 
 - **REST API:** 사용자 프로필은 Braze REST API를 사용하여 [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 통해 프로그래밍 방식으로 설정할 수 있습니다.
 - **Web SDK:** 사용자는 [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), 또는 [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)용 `addToSubscriptionGroup` 메서드를 사용하여 이메일, SMS 또는 WhatsApp 구독 그룹에 추가할 수 있습니다.
 - **사용자 가져오기**: 사용자는 **사용자 가져오기**를 통해 이메일 또는 SMS 구독 그룹에 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 개의 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#updating-subscription-group-status)를 참조하세요.
 
-### 사용자의 WhatsApp 구독 그룹 확인 {#checking-a-users-whatsapp-subscription-group}
+### 사용자의 WhatsApp 구독 그룹 확인하기 {#checking-a-users-whatsapp-subscription-group}
 
 - **사용자 프로필:** 개별 사용자 프로필은 Braze 대시보드에서 **오디언스** > **사용자 검색**을 통해 액세스할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 사용자 프로필을 검색할 수 있습니다. 사용자 프로필 내 **참여** 탭에서 사용자의 WhatsApp 구독 그룹과 상태를 확인할 수 있습니다.
 

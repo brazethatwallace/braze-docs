@@ -13,7 +13,7 @@ page_order: 8
 
 Grâce à Braze Audience Sync to TikTok, les marques peuvent ajouter les données utilisateurs de leur propre intégration Braze à TikTok Audiences pour diffuser des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore. Tout critère que vous utiliseriez normalement pour déclencher un message (push, e-mail, SMS, webhook, etc.) dans un Canvas Braze.
 
-**Les cas d'utilisation courants de la synchronisation de l'audience sont les suivants** :
+**Les cas d'utilisation courants de la synchronisation d'audience sont les suivants** :
 
 - Cibler des utilisateurs à forte valeur ajoutée via plusieurs canaux pour favoriser les achats ou l'engagement
 - Recibler des utilisateurs qui réagissent moins aux autres canaux marketing
@@ -46,11 +46,11 @@ Vous devez vous assurer que les éléments suivants sont créés, complétés et
 Vous devez disposer de l'[autorisation « Admin »]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) pour connecter TikTok à votre compte Braze.
 {% endalert %}
 
-Dans le tableau de bord de Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **TikTok**. Dans la section TikTok Audience Sync, sélectionnez **Connecter TikTok**.
+Dans le tableau de bord de Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **TikTok**. Dans la section TikTok Audience Sync, sélectionnez **Connect TikTok**.
 
-![La page de la technologie TikTok dans Braze comprend une section Aperçu et une section TikTok Audience Sync avec le bouton Connecter TikTok.]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
+![La page de la technologie TikTok dans Braze comprend une section Aperçu et une section TikTok Audience Sync avec le bouton Connect TikTok.]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
 
-Vous serez ensuite redirigé vers la page OAuth de TikTok afin d'autoriser Braze pour la gestion des comptes publicitaires et la gestion de l'audience. Après avoir sélectionné **Confirmer**, vous serez redirigé vers Braze pour sélectionner les comptes publicitaires TikTok que vous souhaitez synchroniser.
+Vous serez ensuite redirigé vers la page OAuth de TikTok afin d'autoriser Braze pour la gestion des comptes publicitaires et la gestion de l'audience. Après avoir sélectionné **Confirm**, vous serez redirigé vers Braze pour sélectionner les comptes publicitaires TikTok que vous souhaitez synchroniser.
 
 ![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
@@ -79,7 +79,7 @@ Sélectionnez ensuite le compte publicitaire TikTok souhaité. Dans la liste dé
 ![]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Créer une nouvelle audience %}
 
 **Créer une nouvelle audience**<br>
 Saisissez un nom pour la nouvelle audience, sélectionnez **Add Users to Audience** et choisissez les champs que vous souhaitez synchroniser avec TikTok. Ensuite, enregistrez votre audience en cliquant sur le bouton **Create Audience** en bas de l'éditeur d'étape.
@@ -93,7 +93,7 @@ Braze affiche une notification en haut de l'éditeur d'étape si l'audience est 
 Lorsque vous lancez un Canvas avec une nouvelle audience, Braze synchronise les utilisateurs quasiment en temps réel dès qu'ils atteignent l'étape de l'audience.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Synchroniser avec une audience existante %}
 
 **Synchronisation avec une audience existante**<br>
 Braze offre également la possibilité d'ajouter des utilisateurs à des audiences TikTok existantes afin de les maintenir à jour. Pour effectuer une synchronisation avec une audience existante, saisissez le nom de l'audience dans le menu déroulant et sélectionnez **Add to the Audience**. Braze ajoutera ensuite les utilisateurs quasiment en temps réel dès qu'ils entreront dans l'étape TikTok Audience.

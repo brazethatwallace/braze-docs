@@ -31,9 +31,9 @@ description: "이 문서에서는 사용자 지정 이벤트 목록 내보내기
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | -------- | -------- | --------- | ----------- |
 | `page` | 선택 사항 | 정수 | 반환할 이벤트 이름의 페이지이며, 기본값은 0입니다(최대 250개의 첫 번째 집합을 반환합니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'

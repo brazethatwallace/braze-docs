@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Zeitplan für API-getriggerte Canvases"
 article_title: "POST: Zeitplan für API-getriggerte Canvases"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -70,7 +70,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein ganzes Segment senden, auf das eine Kampagne oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann keine `recipients`-Liste angegeben werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Ihre Nachricht an eine größere Zielgruppe als erwartet gesendet wird. |
 | `context` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Canvas-Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
 | `schedule` | Erforderlich | Zeitplan-Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```

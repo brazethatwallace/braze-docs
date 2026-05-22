@@ -27,7 +27,7 @@ Wie Sie ein Template hinzufügen, hängt von Ihrem Ziel ab:
 | Ein Drag-and-Drop-Layout zur Wiederverwendung speichern | Wählen Sie im [Drag-and-Drop-In-App-Nachrichten-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) die Option **Save as template**, nachdem Sie den Editor verlassen haben (Sie müssen die Campaign zuerst starten ODER als Entwurf speichern). Das Template erscheint unter **Templates** > **In-App Message Templates** für Ihre nächste Nachricht. |
 | Ein Farbprofil oder CSS-Template erstellen (traditioneller Editor) | Wählen Sie auf der Seite **In-App Message Templates** die Option **+ Create** und dann **Color Profile** oder **CSS Template**. Weitere Informationen finden Sie unter [Farbprofile und CSS-Templates](#reusable-color-profiles). |
 | Ein Braze-Template anpassen | [Erstellen Sie eine In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) im Drag-and-Drop-Editor, wählen Sie ein Braze-Template aus, nehmen Sie Ihre Anpassungen vor und wählen Sie **Save as template**. Beschreibungen der einzelnen Braze-Templates finden Sie unter [In-App-Nachricht-Templates]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Erstellungsmethode wählen" }
 
 {% alert note %}
 Farbprofile und CSS-Templates gelten für den traditionellen Editor. Wenn Sie den Drag-and-Drop-Editor verwenden, nutzen Sie die [Stileinstellungen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/) für die Gestaltung auf Nachrichtenebene.
@@ -37,7 +37,7 @@ Farbprofile und CSS-Templates gelten für den traditionellen Editor. Wenn Sie de
 
 Unter **Templates** > **In-App Message Templates** können Sie Templates filtern, suchen oder öffnen, um sie zu bearbeiten. Sie können Templates wie andere Template-Typen [duplizieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates) und [archivieren]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates). Einen Überblick über Template- und Medien-Workflows finden Sie unter [Templates]({{site.baseurl}}/user_guide/messaging/templates/).
 
-Sie benötigen die entsprechenden Berechtigungen, um auf Templates zuzugreifen. Gewähren Sie beispielsweise die Berechtigung „Campaigns, Canvases, Cards, Content Blocks, Feature-Flags, Segmente, Medienbibliothek, Standorte, Aktionscodes und Präferenzzentren aufrufen“ oder die entsprechende granulare Berechtigung, um In-App-Nachricht-Templates anzuzeigen oder zu bearbeiten. Weitere Informationen finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/).
+Um auf In-App-Nachricht-Templates zuzugreifen, benötigen Sie [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) zum Anzeigen oder Bearbeiten von In-App-Nachricht-Templates.
 
 ### Farbprofile und CSS-Templates erstellen {#reusable-color-profiles}
 

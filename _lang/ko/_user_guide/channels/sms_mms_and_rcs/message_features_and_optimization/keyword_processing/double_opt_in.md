@@ -14,7 +14,7 @@ channel:
 
 > 이중 옵트인 기능은 사용자가 SMS, MMS 또는 RCS 메시지를 수신하기 전에 옵트인 의도를 명시적으로 확인하도록 요구합니다. 이를 통해 참여도가 높은 사용자에게 메시지를 집중하고 규정 준수 모범 사례를 지원합니다.
 
-이중 옵트인이 활성화되면, 사용자는 Campaign 또는 Canvas에서 메시지를 받기 전에 명시적 동의를 요청하는 메시지를 수신합니다.
+이중 옵트인이 활성화되면, 사용자는 Campaign(캠페인) 또는 Canvas를 통해 메시지를 받기 전에 명시적 동의를 요청하는 메시지를 수신합니다.
 
 1991년 전화 소비자 보호법(TCPA)의 명시적 요구 사항은 아니지만, Braze는 사용자가 SMS, MMS 또는 RCS 프로그램에 참여하는 것을 인지하고 동의하는지 확인하기 위해 이중 옵트인을 구성할 것을 권장합니다. 규정 준수에 대한 자세한 내용은 [SMS, MMS 및 RCS에 대한 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)를 참조하세요.
 
@@ -70,14 +70,14 @@ channel:
 
 각 구독 소스는 다음 표에 설명된 대로 서로 다른 등록 동작을 가집니다.
 
-소스 | 이중 옵트인 등록 동작
------------ | -----------
-SDK | 사용자가 Braze SDK를 통해 구독하면 자동으로 이중 옵트인 워크플로에 진입합니다.
-REST API | `/subscription/status/set`, `/v2/subscription/status/set` 또는 `/users/track`를 통해 구독 상태가 설정되고 선택적 매개변수 `use_double_opt_in_logic`이 `true`로 전달되면 사용자가 워크플로에 진입할 수 있습니다(예: [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). 이 매개변수가 생략되면 사용자는 이중 옵트인 워크플로에 진입하지 않습니다.
-Shopify | Shopify 통합에 의해 구독 상태가 설정된 경우 사용자는 이중 옵트인 워크플로에 진입하지 않습니다.
-사용자 가져오기 | 사용자 가져오기에 의해 구독 상태가 설정된 경우 사용자는 이중 옵트인 워크플로에 진입하지 않습니다.
-[환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | 사용자가 환경설정 센터를 통해 구독하면 자동으로 이중 옵트인 워크플로에 진입합니다.
-사용자 업데이트 단계 | 사용자 업데이트 단계를 통해 구독 상태가 설정되고 선택적 매개변수 `use_double_opt_in_logic`이 `true`로 전달되면 사용자가 이중 옵트인 워크플로에 진입할 수 있습니다. 이 매개변수가 생략되면 사용자는 이중 옵트인 워크플로에 진입하지 않습니다.
+| 소스 | 이중 옵트인 등록 동작 |
+| ----------- | ----------- |
+| SDK | 사용자가 Braze SDK를 통해 구독하면 자동으로 이중 옵트인 워크플로에 진입합니다. |
+| REST API | `/subscription/status/set`, `/v2/subscription/status/set` 또는 `/users/track`를 통해 구독 상태가 설정되고 선택적 매개변수 `use_double_opt_in_logic`이 `true`로 전달되면 사용자가 워크플로에 진입할 수 있습니다(예: [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). 이 매개변수가 생략되면 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
+| Shopify | Shopify 통합에 의해 구독 상태가 설정된 경우 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
+| 사용자 가져오기 | 사용자 가져오기에 의해 구독 상태가 설정된 경우 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
+| [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | 사용자가 환경설정 센터를 통해 구독하면 자동으로 이중 옵트인 워크플로에 진입합니다. |
+| 사용자 업데이트 단계 | 사용자 업데이트 단계를 통해 구독 상태가 설정되고 선택적 매개변수 `use_double_opt_in_logic`이 `true`로 전달되면 사용자가 이중 옵트인 워크플로에 진입할 수 있습니다. 이 매개변수가 생략되면 사용자는 이중 옵트인 워크플로에 진입하지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 다중 언어 지원 {#multi-language-support}

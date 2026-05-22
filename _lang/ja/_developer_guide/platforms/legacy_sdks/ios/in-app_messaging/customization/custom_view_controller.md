@@ -30,7 +30,7 @@ noindex: true
 {% endtab %}
 {% tab swift %}
 
-```swift
+`````````swift
 func inAppMessageViewControllerWithInAppMessage(inAppMessage: ABKInAppMessage!) -> ABKInAppMessageViewController!
 ```
 

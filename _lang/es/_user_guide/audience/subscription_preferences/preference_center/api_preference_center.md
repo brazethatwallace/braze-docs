@@ -33,7 +33,7 @@ Usar Liquid te permite recuperar los nombres de tus grupos de suscripción y el 
 | Espacio de trabajo válido con un grupo de suscripción de correo electrónico, SMS o WhatsApp | Un espacio de trabajo funcional con usuarios válidos y un grupo de suscripción de correo electrónico, SMS o WhatsApp. |
 | Usuario válido | Un usuario con una dirección de correo electrónico y un ID externo. |
 | Clave de API generada con permisos del centro de preferencias | En el dashboard de Braze, ve a **Configuración** > **Claves de API** para confirmar que tienes acceso a una clave de API con permisos del centro de preferencias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ### Paso 1: Usa el punto de conexión Crear centro de preferencias {#step-1-use-the-create-preference-center-endpoint}
 
@@ -143,7 +143,7 @@ Luego, a través de Currents, podrías identificar qué usuarios hablan español
 
 ### ¿Se requieren tanto los enlaces de cancelación de suscripción como los centros de preferencias de correo electrónico para el envío? {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
 
-No. Si ves el mensaje "Your Email Body does not include an unsubscribe link" al redactar una Campaign de correo electrónico, esta advertencia es esperada si tu enlace de cancelación de suscripción está en un bloque de contenido.
+No. Si ves el mensaje "Your Email Body does not include an unsubscribe link" al redactar una campaña de correo electrónico, esta advertencia es esperada si tu enlace de cancelación de suscripción está en un bloque de contenido.
 
 ### ¿Cómo actualizo el icono predeterminado del navegador? {#how-do-i-update-the-default-browser-icon}
 

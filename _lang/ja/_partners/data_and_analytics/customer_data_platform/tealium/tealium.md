@@ -16,7 +16,7 @@ search_tag: Partner
 ![さまざまなTealium製品とBrazeプラットフォームがどのように連携してクロスチャネルキャンペーンをリアルタイムでアクティブにするかを示すTealiumの概要図。]({% image_buster /assets/img/tealium/tealium_overview.png %}){: style="border:0;"}
 
 BrazeとTealiumの統合により、ユーザーを追跡し、さまざまなユーザー分析プロバイダーにデータをルーティングできます。Tealiumでは次の操作ができます。
-- [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)でTealiumオーディエンスをBrazeに同期し、BrazeのCampaignsやCanvasesのパーソナライズ、またはSegmentsの作成に使用できるようにします。
+- [AudienceStream]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream/)でTealiumオーディエンスをBrazeに同期し、Brazeのキャンペーンやキャンバスのパーソナライズ、またはセグメントの作成に使用できるようにします。
 - [プラットフォーム間でデータをインポートします](#choose-your-integration-type)。Brazeは、Android、iOS、およびWebアプリケーション向けの[サイドバイサイド](#side-by-side-sdk-integration)SDK統合と、イベントデータをレポートできる任意のプラットフォームで使用できる[サーバー間](#server-to-server-integration)統合の両方を提供します。<br><br>
 
 {% tabs %}
@@ -74,7 +74,7 @@ Tealiumは、デフォルトでは同意イベント（サブスクリプショ�
 
 ## サイドバイサイドSDK統合 {#side-by-side-sdk-integration}
 
-### リモートコマンド {#mobile-remote-commands}
+### リモートコマンド {#remote-commands}
 
 リモートコマンドは、Tealium iOSおよびAndroidライブラリの機能であり、Tealium SDKからBrazeサーバーを介してBrazeへの呼び出しを実行できるようにします。Brazeリモートコマンドモジュールは、必要なBrazeライブラリを自動的にインストールおよびビルドし、すべてのメッセージレンダリングと分析トラッキングを処理します。Brazeモバイルリモートコマンドを使用するには、アプリにTealiumライブラリがインストールされている必要があります。
 
@@ -190,7 +190,7 @@ Tealiumでは最初に、コネクターの取得元となる有効なデータ�
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab ユーザーの追跡 - バッチおよび非バッチ %}
 
 このアクションを使用すると、ユーザー、イベント、購入属性をすべて1回のアクションで追跡できます。
 
@@ -210,7 +210,7 @@ Tealiumでは最初に、コネクターの取得元となる有効なデータ�
 ![]({% image_buster /assets/img/tealium/track_user_example.png %})
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab ユーザーの削除 - 非バッチ %}
 
 このアクションでは、Brazeダッシュボードからユーザーを削除できます。
 
@@ -247,7 +247,7 @@ Tealiumのトレースツールの詳しい実装手順については、Tealium
 ## 統合デモ {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" title="Tealium統合デモ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## データポイントの潜在的な超過料金 {#potential-data-point-overages}

@@ -76,7 +76,7 @@ Lors de la création d'un pied de page personnalisé, Braze vous recommande d'ut
 | URL d'abonnement personnalisée de l'utilisateur | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | URL d'inscription personnalisée de l'utilisateur | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | URL du centre de préférences Braze personnalisé de l'utilisateur | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnaliser avec des attributs" }
 
 ### Inclure un lien de désabonnement et un lien d'abonnement {#including-an-unsubscribe-link-and-opt-in-link}
 

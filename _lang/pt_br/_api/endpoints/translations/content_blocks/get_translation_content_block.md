@@ -33,7 +33,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | --------- | ---------| --------- | ----------- |
 | `content_block_id` | Obrigatória | String | O ID do seu bloco de conteúdo. |
 | `locale_id` | Opcional | String | Um UUID de local para filtrar as respostas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Todos os IDs de tradução são considerados identificadores únicos universais (UUIDs), que podem ser encontrados na resposta do endpoint GET.

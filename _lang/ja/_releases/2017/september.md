@@ -10,10 +10,10 @@ description: "この記事には2017年9月のリリースノートが含まれ�
 
 ## エンゲージメントレポートの新機能 {#new-functionality-for-engagement-reports}
 
-特定の期間にわたってCampaignの指標を集計するために、[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)を使用できるようになりました。例えば、四半期の合計開封数や、CampaignまたはCanvasの全期間における合計クリック数をエクスポートできます。必要な操作は以下のとおりです。
+特定の期間にわたってキャンペーンの指標を集計するために、[エンゲージメントレポート]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports)を使用できるようになりました。例えば、四半期の合計開封数や、キャンペーンまたはキャンバスの全期間における合計クリック数をエクスポートできます。必要な操作は以下のとおりです。
 - データをエクスポートする期間を選択します。
 - 定期的に1人以上の受信者に送信されるエンゲージメントレポートをスケジュールします。
-- タグに基づいてCampaignsとCanvasesをレポートに追加します。
+- タグに基づいてキャンペーンとキャンバスをレポートに追加します。
 
 ## ユーザープロファイルページの更新 {#updates-to-user-profile-page}
 

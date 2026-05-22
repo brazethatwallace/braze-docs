@@ -13,7 +13,7 @@ alias: /line/create/
 
 # Créer un message LINE {#create-a-line-message}
 
-> Les Campaigns LINE peuvent atteindre directement vos clients et discuter avec eux de manière programmatique. Vous pouvez utiliser Liquid et d'autres contenus dynamiques pour créer une expérience personnalisée avec vos utilisateurs et favoriser une expérience utilisateur discrète avec votre marque.
+> Les campagnes LINE peuvent atteindre directement vos clients et discuter avec eux de manière programmatique. Vous pouvez utiliser Liquid et d'autres contenus dynamiques pour créer une expérience personnalisée avec vos utilisateurs et favoriser une expérience utilisateur discrète avec votre marque.
 
 ## Conditions préalables {#prerequisites}
 
@@ -23,11 +23,11 @@ Avant de créer un message LINE, procédez comme suit :
 2. Prenez connaissance des politiques, limites et règles de contenu.
 3. [Configurez votre connexion LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/).
 
-L'envoi de messages LINE depuis Braze consomme les crédits de messages de votre compte.
+L'envoi de messages LINE depuis Braze consomme les crédits de messages ou d'actions de votre compte.
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
-Vous ne savez pas si votre message doit être envoyé via une Campaign ou un Canvas ? Les Campaigns sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
+Vous ne savez pas si votre message doit être envoyé via une campagne ou un Canvas ? Les campagnes sont plus adaptées aux envois de messages ciblés uniques, tandis que les Canvas sont plus adaptés aux parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
@@ -35,14 +35,14 @@ Vous ne savez pas si votre message doit être envoyé via une Campaign ou un Can
 **Étapes :**
 
 1. Accédez à **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
-2. Sélectionnez **LINE** ou, pour les Campaigns ciblant plusieurs canaux, sélectionnez **Multichannel Campaign**.
-3. Donnez à votre Campaign un nom clair et significatif.
+2. Sélectionnez **LINE** ou, pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel Campaign**.
+3. Donnez à votre campagne un nom clair et significatif.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) si nécessaire.
-   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports.
-5. Ajoutez et nommez autant de variantes que nécessaire pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+   * Les étiquettes facilitent la recherche de vos campagnes et la création de rapports.
+5. Ajoutez et nommez autant de variantes que nécessaire pour votre campagne. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
 
 {% alert tip %}
-Si tous les messages de votre Campaign sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, rédigez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
 {% endalert %}
 
 {% endtab %}
@@ -62,7 +62,7 @@ Si tous les messages de votre Campaign sont similaires ou ont le même contenu, 
 
 ## Étape 2 : Rédiger votre message LINE {#step-2-compose-your-line-message}
 
-Rédigez votre message en utilisant la personnalisation (comme Liquid ou le contenu connecté) selon vos besoins. LINE autorise jusqu'à cinq bulles de message par message, qui peuvent utiliser n'importe quelle disposition disponible : texte, image, riche ou basée sur des cartes.
+Rédigez votre message en utilisant la personnalisation (comme Liquid ou le contenu connecté) selon vos besoins. LINE autorise jusqu'à cinq bulles de message par message, qui peuvent utiliser n'importe quelle disposition disponible : texte, image, enrichi ou basé sur des cartes.
 
 ![Compositeur LINE avec un message affiché dans la prévisualisation.]({% image_buster /assets/img/line/line_composer.png %})
 
@@ -86,18 +86,18 @@ Passez à l'onglet **Test** pour envoyer un message LINE de test à des groupes 
 
 Pour en savoir plus, consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=line).
 
-## Étape 4 : Construire le reste de votre Campaign ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Construisez le reste de votre Campaign. Consultez les sections suivantes pour plus de détails sur la meilleure façon d'utiliser nos outils pour créer des messages LINE.
+Construisez le reste de votre campagne. Consultez les sections suivantes pour plus de détails sur la meilleure façon d'utiliser nos outils pour créer des messages LINE.
 
 ### Choisir la planification ou le déclencheur de livraison {#choose-delivery-schedule-or-trigger}
 
-Les messages LINE peuvent être envoyés selon un horaire planifié, une action ou un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Les messages LINE peuvent être envoyés selon un horaire planifié, une action ou un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
 
-Vous pouvez spécifier des contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la Campaign, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping). Pour la livraison par événement, vous pouvez également définir la durée de la Campaign et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours).
+Vous pouvez spécifier des contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping). Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -107,14 +107,14 @@ Sélectionnez l'audience la plus large parmi vos segments, puis affinez éventue
 
 ### Choisir les événements de conversion {#choose-conversion-events}
 
-Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une Campaign. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
+Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuent des actions spécifiques, les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), après avoir reçu une campagne. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion sera comptabilisée si l'utilisateur effectue l'action spécifiée.
 
-Les événements de conversion vous aident à mesurer le succès de votre Campaign. Par exemple :
+Les événements de conversion vous aident à mesurer le succès de votre campagne. Par exemple :
 
 - Si vous utilisez le géociblage pour déclencher un message LINE dont l'objectif final est que l'utilisateur effectue un achat, définissez l'événement de conversion sur `Purchase`.
 - Si vous essayez d'inciter l'utilisateur à ouvrir votre application, définissez l'événement de conversion sur `Starts Session`.
 
-Vous pouvez également définir des événements de conversion personnalisés en fonction de votre cas d'utilisation spécifique. Soyez créatif et réfléchissez à la manière dont vous souhaitez mesurer le succès de cette Campaign.
+Vous pouvez également définir des événements de conversion personnalisés en fonction de votre cas d'utilisation spécifique. Soyez créatif et réfléchissez à la manière dont vous souhaitez mesurer le succès de cette campagne.
 
 {% endtab %}
 {% tab Canvas %}
@@ -126,6 +126,6 @@ Si ce n'est pas déjà fait, complétez les sections restantes de votre Canvas. 
 
 ## Étape 5 : Vérifier et déployer {#step-5-review-and-deploy}
 
-Après avoir terminé la construction de votre Campaign ou Canvas, vérifiez ses détails, testez-le, puis envoyez-le !
+Après avoir terminé la construction de votre campagne ou Canvas, vérifiez ses détails, testez-le, puis envoyez-le !
 
-Ensuite, consultez les [rapports LINE]({{site.baseurl}}/line/reporting/) pour découvrir comment accéder aux résultats de vos Campaigns LINE.
+Ensuite, consultez les [rapports LINE]({{site.baseurl}}/line/reporting/) pour découvrir comment accéder aux résultats de vos campagnes LINE.

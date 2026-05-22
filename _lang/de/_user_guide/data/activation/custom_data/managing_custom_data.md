@@ -20,7 +20,7 @@ Um angepasste Events und Attribute vorzubelegen, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu **Dateneinstellungen** > **Angepasste Events** oder **Angepasste Attribute** oder **Produkte**.
 
-![Navigieren Sie zu „Angepasste Attribute“ oder „Angepasste Events“ oder „Produkte“.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
+![Navigieren Sie zu „Angepasste Attribute“, „Angepasste Events“ oder „Produkte“.]({% image_buster /assets/img_archive/prepopulate_page.png %}){: style="max-width:90%;" }
 
 {: start="2"}
 2. Um ein angepasstes Attribut, Event oder Produkt hinzuzufügen, gehen Sie auf die entsprechende Seite und wählen Sie **Angepasste Attribute hinzufügen** oder **Angepasste Events hinzufügen** oder **Produkte hinzufügen**.<br><br>Für angepasste Attribute wählen Sie einen [Datentyp]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types) für dieses Attribut aus (z. B. Boolescher Wert oder String). Der Datentyp eines Attributs bestimmt die Segmentierungsfilter, die für dieses Attribut verfügbar sind. <br><br>![Neues Attribut oder Event hinzufügen]({% image_buster /assets/img_archive/prepopulate_add.png %}){: style="max-width:80%;" }
@@ -79,7 +79,7 @@ Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie 
 | Boolescher Wert | Eingaben von `1`, `true`, `t` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `true` gespeichert |
 | Boolescher Wert | Eingaben von `0`, `false`, `f` (Groß-/Kleinschreibung wird nicht berücksichtigt) werden als `false` gespeichert |
 | Zahl | Ganzzahlen oder Gleitkommazahlen (wie `1`, `1.5`) werden als Zahlen gespeichert |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datentypumwandlung" }
 
 Weitere Informationen zu den spezifischen Filteroptionen, die bei verschiedenen Datentypvergleichen zur Verfügung stehen, finden Sie unter [Berichte konfigurieren]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/). Weitere Informationen zu den verschiedenen verfügbaren Datentypen finden Sie unter [Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#custom-attribute-data-types).
 

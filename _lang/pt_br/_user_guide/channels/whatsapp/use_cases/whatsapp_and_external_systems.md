@@ -19,8 +19,8 @@ channel:
 | - | - |
 | Sistema externo | Um sistema de IA ou comunicação de terceiros capaz de criar e gerenciar chatbots, sistemas automatizados de atendimento ao cliente usando APIs, ou ambos. |
 | Integração da Braze com WhatsApp | Um número de WhatsApp gerenciado pela Braze |
-| Chave da API REST da Braze | Uma chave da API REST com permissões de `campaigns.trigger.send`. Ela pode ser criada no dashboard da Braze acessando **Configurações** > **Chaves de API**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Chave da API REST da Braze | Uma chave da API REST com permissões de `campaigns.trigger.send`. Ela pode ser criada no dashboard da Braze acessando **Settings** > **API Keys**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Como funciona {#how-it-works}
 
@@ -40,7 +40,7 @@ Para automatizar essa comunicação de forma eficiente, essa integração utiliz
 Primeiro, crie uma Campaign de webhook para estabelecer uma forma de enviar as mensagens de WhatsApp recebidas pela Braze para o seu sistema externo.
 
 1. Na Braze, crie uma Campaign de webhook.
-2. No criador de webhook, selecione **Redigir webhook**.
+2. No criador de webhook, selecione **Compose webhook**.
 3. No campo **Webhook URL**, insira o endpoint de API (URL) do sistema externo que receberá a mensagem.
 4. Selecione **Raw text** para o corpo da requisição e insira uma carga útil com personalização que contenha o `external_id` e o número de telefone do usuário, o conteúdo da mensagem e outras informações relevantes, como:
 
@@ -55,7 +55,7 @@ Primeiro, crie uma Campaign de webhook para estabelecer uma forma de enviar as m
 {% endraw %}
 
 {: start="5"}
-5. Na etapa **Programar entrega** do criador da Campaign, selecione **Baseada em ação** para o tipo de entrega e **Send a WhatsApp inbound message** para o gatilho da Campaign.
+5. Na etapa **Schedule Delivery** do criador da Campaign, selecione **Action-Based** para o tipo de entrega e **Send a WhatsApp inbound message** para o gatilho da Campaign.
 
 ![Entrega baseada em ação com um gatilho de envio de mensagem de entrada do WhatsApp.]({% image_buster /assets/img/whatsapp/inbound_message_trigger.png %})
 
@@ -77,10 +77,10 @@ Em seguida, crie uma Campaign disparada por API para estabelecer uma forma de o 
 ![Criador de mensagens com corpo da mensagem que contém propriedades de gatilho.]({% image_buster /assets/img/whatsapp/api_trigger_properties.png %})
 
 {: start="4"}
-4. Na etapa **Programar entrega** do criador da Campaign, selecione **Baseada em ação** para o tipo de entrega.
+4. Na etapa **Schedule Delivery** do criador da Campaign, selecione **Action-Based** para o tipo de entrega.
 5. Salve a Campaign e anote o `campaign_id` único que a Braze gera para essa Campaign. Você precisará do ID para a próxima etapa.
 
-### Etapa 3: Conectar o sistema externo à Campaign disparada por API {#step-3}
+### Etapa 3: Conectar o sistema externo à Campaign disparada por API {#step-3-connect-the-external-system-to-the-api-triggered-campaign}
 
 Por último, configure o seu sistema externo para chamar a Braze e enviar a resposta.
 

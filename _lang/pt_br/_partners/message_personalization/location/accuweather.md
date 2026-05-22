@@ -19,7 +19,7 @@ _Essa integração é mantida pela AccuWeather._
 | Requisito | Descrição |
 |---|---|
 | Chave de API da AccuWeather | Entre em contato com o gerente da sua conta AccuWeather para obter as chaves de API compatíveis a serem usadas nos URLs de solicitação.<br><br>Mais instruções podem ser encontradas na página da [API AccuWeather Enterprise](https://apidev.accuweather.com/developers/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## APIs AccuWeather disponíveis {#available-accuweather-apis}
 
@@ -36,7 +36,7 @@ A seguir, confira as APIs da AccuWeather que você pode consultar nas suas Campa
 | [Imagery](https://apidev.accuweather.com/developers/imageryAPIguide) | Obtenha imagens de radar e satélite. |
 | [Tropical](https://apidev.accuweather.com/developers/tropicalAPIGuide) | Obtenha a posição atual, as posições anteriores e as previsões de ciclones tropicais em todo o mundo. |
 | [Translations](https://apidev.accuweather.com/developers/translationsApiGuide) | Obtenha uma lista dos idiomas disponíveis. Obtenha traduções para grupos específicos de frases. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="APIs AccuWeather disponíveis" }
 
 ## Exemplo de Conteúdo conectado {#connected-content-example}
 
@@ -155,7 +155,7 @@ Aqui está um exemplo do que a AccuWeather retornará como objeto JSON:
 O ID "Key" é uma variável útil, pois é usada na segunda solicitação GET.
 Esse objeto JSON pode ser armazenado em uma variável local `location_info` especificando `:save location_info` após o URL.
 {% endtab %}
-{% tab Current conditions %}
+{% tab Condições atuais %}
 
 #### Exemplo de API de condições atuais {#current-conditions-api-example}
 

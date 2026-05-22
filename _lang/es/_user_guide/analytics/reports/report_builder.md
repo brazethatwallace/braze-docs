@@ -95,7 +95,7 @@ Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Can
 | Ingresos totales | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
 | Impresiones únicas | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. |
 | Destinatarios únicos | Disponibles para Campaigns, Canvas, Campaigns y Canvas, etiquetas. No disponible con desglose por **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ### Variantes de mensaje eliminadas {#deleted-message-variants}
 

@@ -23,7 +23,7 @@ Ce tableau répertorie les opérateurs pris en charge. Notez que les parenthèse
 | or | condition A ou condition B |
 | and | condition A et condition B |
 | contains | vérifie si une chaîne de caractères ou un tableau de chaînes contient une chaîne de caractères |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
 
 {% alert note %}
 Les opérateurs peuvent être utilisés dans les instructions conditionnelles (`if`, `elsif`, `unless`) mais pas dans les instructions `assign`, les boucles `for` ou les crochets d'accès aux tableaux. Dans les balises `case` et `when`, chaque branche compare l'expression `case` à une valeur `when` en utilisant l'égalité plutôt que des expressions d'opérateurs arbitraires. Pour des exemples, consultez [Logique conditionnelle de messagerie]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags). Pour une explication complète, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).

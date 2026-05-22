@@ -38,7 +38,7 @@ tool: Campaigns
 
 예를 들어, iOS와 웹 푸시 알림이 모두 포함된 Canvas가 있는 경우, 모바일과 데스크탑 기기를 모두 가진 사용자는 두 개 이상의 메시지를 받을 수 있습니다.
 
-### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### *고유 수신자*가 타겟팅한 사용자 수보다 높은 이유는 무엇인가요? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *고유 수신자*는 Braze가 보고를 위해 일별 고유 수신자를 추적하기 때문에 예상한 오디언스보다 높을 수 있습니다. 이를 통해 Braze는 사용자가 메시지를 받을 때마다 전환 기간 내의 전환을 귀속시킬 수 있으며, 여러 수신을 하나의 평생 카운트로 축소하지 않습니다(그렇게 하면 전환 계산이 왜곡됩니다).
 
@@ -189,6 +189,14 @@ CSS 스타일링 때문에 입력 필드와 표시된 텍스트 구성요소 간
 API 트리거 캠페인을 사용하면 Braze 대시보드 내에서 캠페인 문구, 다변량 테스트 및 재적격성 규칙을 관리하면서 자체 서버와 시스템에서 해당 콘텐츠의 전달을 트리거할 수 있습니다. 이러한 메시지에는 실시간으로 메시지에 템플릿화할 추가 데이터도 포함할 수 있습니다.
 
 API 캠페인은 API를 사용하여 보낸 메시지를 추적하는 데 사용됩니다. 대부분의 캠페인과 달리 메시지, 수신자 또는 스케줄을 지정하지 않고 대신 API 호출에 식별자를 전달합니다.
+
+### API 트리거 캠페인을 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+**Campaign 수신** 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)한 다음 확인하려는 특정 API 트리거 캠페인을 선택할 수 있습니다. Segment를 저장한 후 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+
+### 캠페인을 삭제할 수 있나요? {#can-i-delete-a-campaign}
+
+아니요, 하지만 [캠페인을 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
 
 ### 실행 기반 캠페인과 API 트리거 캠페인의 차이점은 무엇인가요? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 

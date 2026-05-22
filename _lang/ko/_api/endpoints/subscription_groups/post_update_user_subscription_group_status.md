@@ -7,6 +7,7 @@ layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 ---
+
 {% api %}
 # 사용자의 구독 그룹 상태 업데이트 {#update-users-subscription-group-status}
 {% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
@@ -32,6 +33,8 @@ description: "이 문서에서는 사용자의 구독 그룹 상태 업데이트
 {% alert note %}
 이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/)에 사용하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
+
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ## 사용량 제한 {#rate-limit}
 
@@ -79,7 +82,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endtab %}
 {% endtabs %}
 
-이 등록정보는 사용자의 프로필 정보를 업데이트하는 데 사용해서는 안 됩니다. 대신 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 등록정보를 사용하세요.
+이 속성은 사용자의 프로필 정보를 업데이트하는 데 사용해서는 안 됩니다. 대신 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 속성을 사용하세요.
 
 {% alert tip %}
 **기존 사용자를 구독 그룹에 추가하기:** 이 엔드포인트는 기존 사용자의 구독 그룹 멤버십을 백필하거나 일괄 업데이트하는 데 권장되는 방법입니다. 요청당 최대 50개의 `external_id`, 이메일 주소 또는 전화번호를 전달할 수 있습니다. 사용자는 [이메일 환경설정 센터]({{site.baseurl}}/user_guide/channels/email/subscriptions/) 링크를 통해 직접 구독 상태를 업데이트할 수도 있습니다.
@@ -97,7 +100,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `email` | 필수* | 문자열 또는 문자열 배열 | 사용자의 이메일 주소이며, 문자열 배열로 전달할 수 있습니다. 이메일 주소를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 이메일 주소를 공유하는 경우, Braze는 해당 이메일 주소를 공유하는 모든 사용자의 구독 그룹 변경 사항을 업데이트합니다. |
 | `phone` | 필수* | [E.164](https://en.wikipedia.org/wiki/E.164) 형식의 문자열 | 사용자의 전화번호이며, 문자열 배열로 전달할 수 있습니다. 전화번호를 하나 이상(최대 50개) 포함해야 합니다. <br><br>동일한 워크스페이스에서 여러 사용자(`external_id`)가 동일한 전화번호를 공유하는 경우, Braze는 해당 전화번호를 공유하는 모든 사용자에게 동일한 구독 그룹 변경 사항을 업데이트합니다. |
 | `use_double_opt_in_logic` | 선택 사항 | 부울 | SMS 구독 그룹에만 적용되며, 이메일 및 기타 구독 그룹 유형에서는 무시됩니다. 생략 시 기본값은 `false`입니다. SMS 구독 그룹의 경우, 구독 상태가 `subscribed`로 설정될 때 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 워크플로에 진입시키려면 `true`로 설정하세요. 이 방식으로 이중 옵트인 워크플로에 진입한 사용자는 워크플로에 진입한 횟수와 관계없이 하루에 최대 한 번의 옵트인 안내 응답 메시지를 받습니다. 이 매개변수가 생략되거나 `false`로 설정되면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-requests}
 

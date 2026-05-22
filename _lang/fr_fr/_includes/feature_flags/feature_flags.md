@@ -1,20 +1,20 @@
-# Indicateurs de fonctionnalité
+# Indicateurs de fonctionnalité {#feature-flags}
 
 > Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection spécifique ou aléatoire d'utilisateurs. Point essentiel : ils vous permettent d'activer et de désactiver une fonctionnalité en production sans déploiement de code supplémentaire ni mise à jour sur les app stores. Vous pouvez ainsi déployer de nouvelles fonctionnalités en toute sécurité et en toute confiance.
 
 {% alert tip %}
-Lorsque vous êtes prêt à créer vos propres indicateurs de fonctionnalité, consultez la rubrique [Création d'indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create/).
+Lorsque vous êtes prêt à créer vos propres indicateurs de fonctionnalité, consultez la rubrique [Créer des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create/).
 {% endalert %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 Voici les versions minimales du SDK nécessaires pour commencer à utiliser les indicateurs de fonctionnalité :
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
-## Cas d'utilisation
+## Cas d'utilisation {#use-cases}
 
-### Déploiements progressifs
+### Déploiements progressifs {#gradual-rollouts}
 
 Utilisez des indicateurs de fonctionnalité pour activer progressivement des fonctionnalités auprès d'un échantillon de population. Par exemple, vous pouvez lancer en douceur une nouvelle fonctionnalité auprès de vos utilisateurs VIP en priorité. Cette stratégie permet d'atténuer les risques liés au déploiement simultané de nouvelles fonctionnalités pour tout le monde et de détecter les bogues rapidement.
 
@@ -118,7 +118,7 @@ let featureFlag = braze.featureFlags.featureFlag(id: "enable_live_chat")
 var liveChatEnabled = featureFlag?.enabled ?? false
 
 // Listen for updates from the Braze SDK
-braze.featureFlags.subscribeToUpdates() { _ in  
+braze.featureFlags.subscribeToUpdates() { _ in
   let newValue = braze.featureFlags.featureFlag(id: "enable_live_chat")?.enabled ?? false
   liveChatEnabled = newValue
 }
@@ -130,7 +130,7 @@ liveChatView.isHidden = !liveChatEnabled
 {% endtab %}
 {% endtabs %}
 
-### Contrôle à distance des variables d'application
+### Contrôle à distance des variables d'application {#remotely-control-app-variables}
 
 Utilisez des indicateurs de fonctionnalité pour modifier le comportement de votre application en production. Cela peut s'avérer particulièrement important pour les applications mobiles, où les validations des app stores empêchent de déployer rapidement des modifications pour tous les utilisateurs.
 
@@ -223,7 +223,7 @@ La veille de Thanksgiving, il nous suffit de modifier ces valeurs de propriété
 
 Ainsi, la prochaine fois que quelqu'un ouvrira l'application, il verra les nouvelles offres de Thanksgiving.
 
-### Coordination des messages
+### Coordination des messages {#message-coordination}
 
 Utilisez des indicateurs de fonctionnalité pour synchroniser le déploiement d'une fonctionnalité et l'envoi de messages, et renforcer la collaboration entre les équipes produit et marketing. En coordonnant les sorties de fonctionnalités et les messages via les indicateurs de fonctionnalité, les deux équipes peuvent aligner leurs stratégies et créer des expériences utilisateur cohérentes.
 
@@ -239,7 +239,7 @@ Ensuite, dans Canvas, nous créerons une [étape Indicateur de fonctionnalité](
 
 Les utilisateurs de ce segment commenceront alors à voir le nouveau programme de fidélité. Une fois la fonctionnalité activée, un e-mail et une enquête seront envoyés automatiquement pour aider nos équipes à recueillir des retours.
 
-### Expérimentation des fonctionnalités
+### Expérimentation des fonctionnalités {#feature-experimentation}
 
 Utilisez des indicateurs de fonctionnalité pour expérimenter et valider vos hypothèses concernant une nouvelle fonctionnalité. En répartissant le trafic en deux groupes ou plus, vous pouvez comparer l'impact d'un indicateur de fonctionnalité entre les groupes et déterminer la meilleure marche à suivre en fonction des résultats.
 
@@ -260,7 +260,7 @@ import * as braze from "@braze/web-sdk";
 const featureFlag = braze.getFeatureFlag("enable_checkout_v2");
 braze.logFeatureFlagImpression("enable_checkout_v2");
 if (featureFlag?.enabled) {
-  return <NewCheckoutFlow />  
+  return <NewCheckoutFlow />
 } else {
   return <OldCheckoutFlow />
 }
@@ -328,7 +328,7 @@ Pour en savoir plus sur le filtrage des segments, consultez [Créer un segment](
 Pour éviter les segments récursifs, il n'est pas possible de créer un segment faisant référence à d'autres indicateurs de fonctionnalité.
 {% endalert %}
 
-## Limites selon le plan
+## Limites selon le plan {#plan-limitations}
 
 Voici les limites des indicateurs de fonctionnalité pour les plans gratuits et payants.
 
@@ -336,8 +336,8 @@ Voici les limites des indicateurs de fonctionnalité pour les plans gratuits et 
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | [Indicateurs de fonctionnalité actifs](#active-feature-flags)                                                                     | 10 par espace de travail | 110 par espace de travail |
 | [Expériences de campagnes actives]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | 1 par espace de travail  | 100 par espace de travail |
-| [Étapes du Canvas pour l'indicateur de fonctionnalité]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Illimité        | Illimité         |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| [Étapes Canvas pour l'indicateur de fonctionnalité]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Illimité        | Illimité         |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
 
 Un indicateur de fonctionnalité est considéré comme actif et sera comptabilisé dans votre limite si l'une des conditions suivantes est remplie :
 
@@ -348,5 +348,5 @@ Un indicateur de fonctionnalité est considéré comme actif et sera comptabilis
 Même si un indicateur de fonctionnalité répond à plusieurs critères (par exemple, s'il est utilisé dans un Canvas et que le déploiement est à 50 %), il ne comptera que pour un seul indicateur de fonctionnalité actif dans votre limite.
 
 {% alert note %}
-Pour acheter la version payante des indicateurs de fonctionnalité, contactez votre Account Manager Braze ou demandez une mise à niveau dans le tableau de bord de Braze.
+Pour acheter la version payante des indicateurs de fonctionnalité, contactez votre gestionnaire de compte Braze ou demandez une mise à niveau dans le tableau de bord de Braze.
 {% endalert %}

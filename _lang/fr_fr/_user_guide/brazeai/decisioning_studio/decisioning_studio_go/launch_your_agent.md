@@ -25,7 +25,7 @@ Une fois lancé, votre agent va :
 
 ## Configurer les rapports BAU {#set-up-bau-reporting}
 
-Par défaut, les rapports du portail Decisioning Studio Go comparent le groupe Decisioning Studio Go au groupe de contrôle aléatoire. Si vous disposez d'une Campaign Business as Usual (BAU) existante que vous souhaitez comparer, vous pouvez configurer les rapports BAU afin de visualiser les trois groupes en un seul endroit.
+Par défaut, les rapports du portail Decisioning Studio Go comparent le groupe Decisioning Studio Go au groupe de contrôle aléatoire. Si vous disposez d'une campagne Business as Usual (BAU) existante que vous souhaitez comparer, vous pouvez configurer les rapports BAU afin de visualiser les trois groupes en un seul endroit.
 
 ### Avantages des rapports BAU {#benefits-of-bau-reporting}
 
@@ -55,7 +55,7 @@ Après avoir validé la conception de votre expérience, rassemblez les informat
 |-----|---------------|
 | **Braze** | Campaigns et Canvas |
 | **Salesforce Marketing Cloud** | Parcours uniquement |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 **ID d'audience provenant de votre CEP :**
 
@@ -63,7 +63,7 @@ Après avoir validé la conception de votre expérience, rassemblez les informat
 |-----|---------------|
 | **Braze** | Segments uniquement |
 | **Salesforce Marketing Cloud** | Extensions de données uniquement |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Required information" }
 
 Si vous ne disposez pas d'une audience existante qui suit votre audience BAU, vous devez en créer une.
 
@@ -94,7 +94,7 @@ Prévoyez au moins deux à quatre semaines de collecte de données avant de tire
 
 Si votre agent ne fonctionne pas comme prévu :
 
-1. **Vérifiez l'orchestration :** confirmez que votre intégration CEP est active, que les Campaigns et les parcours sont en cours d'exécution et qu'aucune limite globale ou règle similaire n'interfère avec l'orchestration.
+1. **Vérifiez l'orchestration :** confirmez que votre intégration CEP est active, que les campagnes et les parcours sont en cours d'exécution et qu'aucune limite globale ou règle similaire n'interfère avec l'orchestration.
 2. **Vérifiez le flux de données :** confirmez que les données d'audience et d'engagement sont correctement enregistrées.
 3. **Examinez les groupes expérimentaux :** assurez-vous que la répartition aléatoire est correcte et qu'il n'y a pas de chevauchement entre les groupes.
 4. **Contactez l'assistance :** contactez l'assistance Braze pour obtenir de l'aide.

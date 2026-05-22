@@ -29,7 +29,7 @@ OtherLevels의 AI 기반 경험으로 사용자에게 더 나은 경험을 제�
 | OtherLevels 계정   | 이 파트너십을 이용하려면 OtherLevels 계정이 필요합니다.                                                                     |
 | Braze REST API 키  | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 이 통합을 위해서는 비디오 생성 프로세스의 일부로 OtherLevels Experience Platform API를 호출해야만 Braze에서 사용자에게 메시지를 보낼 수 있습니다. 이 설명서의 일부로 cURL 예제가 제공되지만, API 호출을 자동화하려면 Postman과 같은 API 클라이언트를 사용하는 것이 좋습니다.
 
@@ -132,7 +132,7 @@ curl --request POST \
 | `TALENT_TEMPLATE` | 탤런트 템플릿 ID입니다. OtherLevels는 계정 프로비저닝 중에 탤런트(아바타)를 생성하기 위해 사용자와 협력합니다. 사용할 수 있는 탤런트 ID가 하나 또는 여러 개 제공됩니다.                                                 |
 | `TALENT_MODEL` | 탤런트 모델 ID입니다. OtherLevels는 계정 프로비저닝 중에 탤런트(아바타)를 생성하기 위해 사용자와 협력합니다. 사용할 수 있는 탤런트 모델이 하나 또는 여러 개 제공됩니다.                                                 |
 | `INSERT_SCRIPT` | 비디오에서 탤런트가 말하길 원하는 정확한 스크립트입니다.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Call the OtherLevels Experience Platform API to generate a video" }
 
 API 응답의 일부로 OtherLevels는 성공적인 API 호출을 나타내는 JSON 페이로드를 반환합니다. JSON에는 생성된 비디오를 식별할 수 있는 고유한 `recipe_id`가 포함됩니다. 다음 단계에서 `recipe_id`가 필요합니다.
 
@@ -144,7 +144,7 @@ API 응답의 일부로 OtherLevels는 성공적인 API 호출을 나타내는 J
 ```
 {% endraw %}
 
-### 2단계: `recipe_id`를 커스텀 속성으로 설정하기 {#step-2}
+### 2단계: `recipe_id`를 커스텀 속성으로 설정하기 {#step-2-setting-the-recipe_id-as-a-custom-attribute}
 
 [1단계](#step-1)에서 받은 `recipe_id`를 비디오를 전송할 사용자의 Braze 커스텀 속성으로 설정합니다.
 
@@ -178,9 +178,9 @@ curl --location --request POST 'BRAZE_API_ENDPOINT/users/track' \
 | `BRAZE_API_KEY`         | `users.track` 권한이 있는 Braze REST API 키입니다.                                                                                                                                      |
 | `USER_ID`              | 이 특정 비디오를 수신할 사용자 ID입니다. 사용할 수 있는 식별자의 더 많은 예시는 [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users)을 참조하세요.                                                                                                                                                  |
 | `RECIPE_ID`       | [1단계](#step-1)의 OtherLevels API 응답에서 받은 `recipe_id`입니다.                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Setting the recipe_id as a custom attribute" }
 
-### 3단계: Braze 연결된 콘텐츠를 통해 전송하기 {#step-3}
+### 3단계: Braze 연결된 콘텐츠를 통해 전송하기 {#step-3-sending-through-braze-connected-content}
 
 GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다음 단계를 따르세요:
 
@@ -210,7 +210,7 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 | 매개변수             | 설명                  |
 |-------------------------|----------------------------|
 | `url`    | 배경 이미지의 HTTPS URL입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 비디오 배경 크기는 `resize_image` 키 내에서 지정할 수 있습니다. 배경 이미지의 크기는 여기에서 구성한 것과 동일한 크기를 사용하는 것이 좋습니다.
 
@@ -218,7 +218,7 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 |-------------------------|----------------------------|
 | `width`    | 배경 이미지의 너비로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다. |
 | `height`     | 배경 이미지의 높이로, 세로 및 가로 모드 모두에 대한 옵션이 있습니다.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 비디오 오버레이 옵션은 `image_video_overlay` 키 내에서 지정할 수 있습니다.
 
@@ -229,7 +229,7 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 | `color`              | 투명도와 함께 RGB로 지정된 오버레이의 색상입니다.                                                                   |
 | `y_pos`       | 중앙에서의 Y축 오프셋입니다.                                                              |
 | `x_pos`    | 중앙에서의 X축 오프셋입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 ### 탤런트 및 스크립트 {#talent-and-script}
 
@@ -242,7 +242,7 @@ GenAI 비디오를 iOS 푸시 메시지로 사용자에게 전송하려면 다�
 | 매개변수             | 설명                  |
 |-------------------------|----------------------------|
 | `speed`    | 탤런트가 스크립트를 읽는 속도를 지정합니다. 예: `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent and script" }
 
 ## 추가 고려 사항 {#additional-considerations}
 

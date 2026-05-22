@@ -92,7 +92,7 @@ Selecione **Criteo** como parceiro desejado do Audience Sync.
 Em seguida, selecione a conta de anúncios da Criteo desejada. No menu suspenso **Choose a New or Existing Audience**, digite o nome de um público novo ou existente.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Criar um novo público %}
 **Criar um novo público**<br>
 Digite um nome para o novo público, selecione **Add Users to Audience** e selecione os campos que deseja sincronizar com a Criteo. Em seguida, salve seu público clicando no botão **Create Audience** na parte inferior do editor de etapas.
 
@@ -104,7 +104,7 @@ A Braze exibe uma notificação na parte superior do editor de etapas se o públ
 
 Ao lançar um Canvas com um novo público, a Braze sincroniza os usuários quase em tempo real quando eles entram no componente do Audience Sync.
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar com um público existente %}
 **Sincronização com um público existente**<br>
 A Braze também oferece a capacidade de adicionar usuários aos públicos existentes da Criteo para garantir que esses públicos estejam atualizados. Para sincronizar com um público existente, digite o nome do público existente no menu suspenso e selecione **Add to the Audience**. A Braze adicionará usuários quase em tempo real quando eles entrarem no componente do Audience Sync.
 

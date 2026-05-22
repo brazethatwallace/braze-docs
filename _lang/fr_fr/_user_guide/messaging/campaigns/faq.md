@@ -38,7 +38,7 @@ Une explication possible est que la campagne ou le Canvas a la rééligibilité 
 
 Par exemple, si vous avez un Canvas qui comprend à la fois des notifications push iOS et web, un utilisateur donné possédant un appareil mobile et un ordinateur de bureau peut recevoir plus d'un message.
 
-### Pourquoi les *destinataires uniques* sont-ils supérieurs au nombre d'utilisateurs que j'ai ciblés ? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Pourquoi les *destinataires uniques* sont-ils supérieurs au nombre d'utilisateurs que j'ai ciblés ? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 Les *destinataires uniques* peuvent être supérieurs à l'audience attendue, car Braze comptabilise les destinataires uniques quotidiens à des fins de reporting. Cela permet à Braze d'attribuer les conversions dans la fenêtre de conversion chaque fois qu'un utilisateur reçoit le message, au lieu de regrouper plusieurs réceptions en un seul comptage à vie (ce qui fausserait le calcul des conversions).
 
@@ -162,7 +162,7 @@ Pour éviter cela, assurez-vous que vos mises à jour d'attributs personnalisés
 
 ### Pourquoi le nombre d'utilisateurs entrant dans une campagne ne correspond-il pas au nombre attendu ? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
+Le nombre d'utilisateurs entrant dans une campagne peut différer du nombre attendu en raison de la façon dont les audiences et les déclencheurs sont évalués. Dans Braze, une audience est évaluée avant le déclencheur (sauf lors de l'utilisation d'un déclencheur de [changement d'attribut]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Cela entraîne l'exclusion des utilisateurs de la campagne s'ils ne font pas initialement partie de votre audience sélectionnée avant l'évaluation des actions de déclenchement.
 
 {% alert tip %}
 Pour obtenir une assistance supplémentaire sur la résolution des problèmes de campagne, assurez-vous de contacter l'assistance Braze dans les 30 jours suivant la survenue de votre problème, car nous ne disposons que des 30 derniers jours de journaux de diagnostic.
@@ -190,6 +190,14 @@ Les campagnes déclenchées par API vous permettent de gérer le contenu de la c
 
 Les campagnes API sont utilisées pour suivre les messages envoyés via l'API. Contrairement à la plupart des campagnes, vous ne spécifiez pas le message, les destinataires ou la planification, mais vous transmettez les identifiants dans vos appels API.
 
+### Comment puis-je confirmer que mes utilisateurs ont reçu une campagne déclenchée par API ? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Vous pouvez [créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) en utilisant le filtre **Received Campaign**, puis sélectionner la campagne déclenchée par API que vous souhaitez vérifier. Après avoir enregistré le segment, utilisez l'[endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) pour exporter les utilisateurs de ce segment.
+
+### Puis-je supprimer une campagne ? {#can-i-delete-a-campaign}
+
+Non, mais vous pouvez [archiver une campagne]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+
 ### Quelle est la différence entre les campagnes à livraison par événement et les campagnes déclenchées par API ? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
 <style>
@@ -208,7 +216,7 @@ Les campagnes à livraison par événement ou déclenchées par événement sont
 | Avantages | Inconvénients |
 | ---- | ---- |
 | • Visibilité des payloads JSON entrants dans la plateforme (si l'événement est déclenché par un utilisateur test) via le **Journal d'activité des messages**<br><br>• Les éléments de personnalisation sont inclus dans les propriétés d'événement personnalisées<br><br>• L'événement personnalisé peut être utilisé pour créer des segments d'utilisateurs éligibles au message | • Consomme des points de donnée |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Livraison par événement" }
 
 #### Déclenchées par API {#api-triggered}
 
@@ -217,7 +225,7 @@ Les campagnes déclenchées par API et par serveur sont idéales pour gérer des
 | Avantages | Points à considérer |
 | ---- | ---- |
 | • Ne consomme pas de points de donnée<br><br>• Les éléments de personnalisation sont inclus dans les propriétés du payload JSON | • Ne permet pas de créer un segment d'utilisateurs éligibles au message dans les propriétés du payload JSON<br><br>• Impossible de voir les payloads JSON entrants avec le **Journal d'activité des messages** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Déclenchées par API" }
 
 ### Que dois-je inclure lors de la soumission d'un ticket d'assistance pour une erreur « Request Timed Out » ? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 

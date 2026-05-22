@@ -30,7 +30,7 @@ Braze Audience Sync to Snapchat es una integración de Audience Sync Pro. Para m
 
 ## Requisitos previos {#prerequisites}
 
-Debes asegurarte de que los siguientes elementos estén creados, completados y/o aceptados antes de configurar tu paso de audiencia de Snapchat en Canvas.
+Debes asegurarte de que los siguientes elementos estén creados, completados o aceptados antes de configurar tu paso de audiencia de Snapchat en Canvas.
 
 | Requisito | Origin | Descripción |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ Selecciona **Snapchat** como socio de Audience Sync deseado.
 A continuación, selecciona la cuenta de anuncios de Snapchat que desees. En el desplegable **Choose a New or Existing Audience**, escribe el nombre de una audiencia nueva o existente.
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Crear una nueva audiencia %}
 
 **Crear una nueva audiencia**<br>
 Introduce un nombre para la nueva audiencia, selecciona **Add Users to Audience** y selecciona los campos que deseas sincronizar con Snapchat. A continuación, guarda tu audiencia haciendo clic en el botón **Create Audience** en la parte inferior del editor de pasos.
@@ -94,7 +94,7 @@ Braze muestra una notificación en la parte superior del editor de pasos si la a
 Cuando lanzas un Canvas con una nueva audiencia, Braze sincroniza a los usuarios casi en tiempo real a medida que entran en el componente Audience Sync.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Sincronizar con una audiencia existente %}
 **Sincronizar con una audiencia existente**<br>
 Braze también ofrece la posibilidad de añadir usuarios a las audiencias de Snapchat existentes para garantizar que estas audiencias estén actualizadas. Para sincronizar con una audiencia existente, escribe el nombre de la audiencia existente en el desplegable y selecciona **Add to the Audience**. A continuación, Braze añadirá usuarios casi en tiempo real a medida que entren en el componente Audience Sync.
 
@@ -109,7 +109,7 @@ Una vez que hayas configurado tu Audience Sync to Snapchat, ¡lanza el Canvas! S
 
 Puedes ver la audiencia en Snapchat entrando en tu cuenta de administrador de anuncios y seleccionando **Audiences** en la sección de activos de la navegación. Desde la página **Audiences**, puedes ver el tamaño de cada audiencia cuando alcance ~1.000.
 
-![Detalles de una audiencia de Snapchat determinada que incluye el nombre de la audiencia, el tipo de audiencia, el tamaño de la audiencia y la retención de la audiencia en días.]({% image_buster /assets/img/snapchat/snapchat7.png %})
+![Detalles de una audiencia de Snapchat determinada que incluyen el nombre de la audiencia, el tipo de audiencia, el tamaño de la audiencia y la retención de la audiencia en días.]({% image_buster /assets/img/snapchat/snapchat7.png %})
 
 ## Consideraciones sobre la sincronización de usuarios y el límite de velocidad {#user-syncing-and-rate-limit-considerations}
 

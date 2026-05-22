@@ -62,7 +62,7 @@ Tealium bündelt standardmäßig keine Zustimmungs-Events (Abo-Einstellungen) od
 | Braze-App-Bezeichner-Schlüssel (nur bei Side-by-side) | Ihr App-Bezeichner-Schlüssel. <br><br>Diesen finden Sie unter **Braze Dashboard > Manage Settings > API Key**. |
 | Code-Version (nur bei Side-by-side) | Entspricht der SDK-Version und sollte im Format major.minor angegeben werden (zum Beispiel 3.2 und nicht 3.0.1). Die Code-Version sollte 3.0 oder höher sein. |
 | REST-API-Schlüssel (nur bei Server-zu-Server) | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track` und `users.delete`. <br><br>Dieser kann über **Braze Dashboard > Developer Console > REST API Key > Create New API Key** erstellt werden.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Wählen Sie Ihren Integrationstyp {#choose-your-integration-type}
 
@@ -70,7 +70,7 @@ Tealium bündelt standardmäßig keine Zustimmungs-Events (Abo-Einstellungen) od
 | ----------- | ------- |
 | [Side-by-side](#side-by-side-sdk-integration) | Verwendet das SDK von Tealium, um Events in die nativen Aufrufe von Braze zu übersetzen, was den Zugriff auf tiefere Features und eine umfassendere Nutzung von Braze ermöglicht als die Server-zu-Server-Integration.<br><br>Wenn Sie Braze Remote Commands verwenden möchten, beachten Sie, dass Tealium nicht alle Braze-Methoden (z. B. Content Cards) unterstützt. Um eine Braze-Methode zu verwenden, die nicht durch einen entsprechenden Remote Command abgebildet wird, müssen Sie die Methode durch Hinzufügen von nativem Braze-Code zu Ihrer Codebasis aufrufen.|
 | [Server-zu-Server](#server-to-server-integration) | Leitet Daten von Tealium an die REST-API-Endpunkte von Braze weiter.<br><br>Unterstützt keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen. Es gibt auch automatisch erfasste Daten, wie z. B. Felder auf Geräteebene, die mit dieser Methode nicht verfügbar sind.<br><br>Ziehen Sie eine Side-by-side-Integration in Betracht, wenn Sie diese Features nutzen möchten.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Choose your integration type" }
 
 ## Side-by-side-SDK-Integration {#side-by-side-sdk-integration}
 
@@ -84,7 +84,7 @@ Tealium bietet zwei Möglichkeiten zur Integration von Mobile Remote Commands. E
 | --- | --- | --- |
 | **Remote-Command-Tag** | Ändern Sie die Abbildungen und Daten, die an den Remote Command gesendet werden, ganz einfach über die Tealium iQ UI.<br><br>Dies erlaubt es, zusätzliche Daten oder Events an ein SDK eines Drittanbieters zu senden, nachdem die App bereits im App Store ist, ohne dass der Client die App aktualisieren muss. | Das Tag-Management-Modul in der App stützt sich auf eine ausgeblendete Webansicht, um JavaScript zu verarbeiten. |
 | **JSON-Konfigurationsdatei**<br>([Empfohlen](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#how-it-works)) | Die Verwendung der JSON-Methode macht eine ausgeblendete Webansicht in der App überflüssig und reduziert den Speicherverbrauch erheblich.<br><br>Die JSON-Datei kann per Fernzugriff oder lokal in der App der Kund:in gehostet werden. | Im Moment gibt es keine UI, um dies zu verwalten, so dass es ein wenig zusätzlichen Aufwand erfordert.<br><br>Hinweis: Tealium arbeitet an einer Verwaltungs-UI, die dieses Problem lösen und den JSON-Remote-Commands das gleiche Maß an Flexibilität verleihen wird, das sie mit der iQ-Tag-Management-Version haben. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Remote commands" }
 
 Verwenden Sie die Datenabbildungen von Braze Mobile Remote Commands, um Standard-Nutzerattribute und angepasste Attribute festzulegen und Käufe und angepasste Events zu verfolgen. Die entsprechenden Braze-Methoden finden Sie in der folgenden Tabelle.
 
@@ -105,7 +105,7 @@ Verwenden Sie die Datenabbildungen von Braze Mobile Remote Commands, um Standard
 | useralias | addAlias() |
 | userattribute | ABKUser() |
 | useridentifier | changeUser() |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Remote commands" }
 
 Weitere Einzelheiten zur Einrichtung von Braze Mobile Remote Commands und eine Übersicht über die unterstützten Methoden finden Sie in der Tealium-Entwicklerdokumentation:
 - [Remote Command](https://docs.tealium.com/platforms/remote-commands/integrations/braze/#json-template)
@@ -190,7 +190,7 @@ Nicht alle angebotenen Felder sind erforderlich.
 {% endalert %}
 
 {% tabs local %}
-{% tab Track User - Batch and Non-Batch %}
+{% tab Nutzer:in tracken – Batch und Non-Batch %}
 
 Mit dieser Aktion können Sie Nutzer-, Event- und Kaufattribute in einer einzigen Aktion tracken.
 
@@ -205,19 +205,19 @@ Mit dieser Aktion können Sie Nutzer-, Event- und Kaufattribute in einer einzige
 | Kauf | Verwenden Sie dieses Feld, um Nutzer-Kaufattribute zu verfolgen und abzubilden, wie sie im Braze-[Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/) enthalten sind.<br><br>- Die Kaufattribute `Product ID`, `Currency` und `Price` sind für jeden zugeordneten Kauf erforderlich.<br>- Das Kaufattribut `Time` wird automatisch auf „jetzt“ gesetzt, wenn es nicht explizit abgebildet wird.<br>- Standardmäßig werden neue Käufe angelegt, wenn noch keine vorhanden sind. Wenn Sie `Update Existing Only` auf `true` setzen, werden nur bestehende Käufe aktualisiert und es wird kein neuer Kauf angelegt.<br>- Bilden Sie Array-Typ-Attribute ab, um mehrere Kaufartikel hinzuzufügen. Array-Typ-Attribute müssen gleich lang sein.<br>- Einzelwert-Attribute können verwendet werden und gelten dann für jeden Artikel.|
 | Kauf-Template | Templates können verwendet werden, um Daten zu transformieren, bevor sie an Braze gesendet werden.<br>- Definieren Sie ein Kauf-Template, wenn Sie Unterstützung für verschachtelte Objekte benötigen.<br>- Wenn ein Kauf-Template definiert wird, wird die Konfiguration, die im Abschnitt „Käufe“ Ihrer Aktion eingerichtet wurde, ignoriert.<br>- Weitere Informationen finden Sie in der [Anleitung für Templates](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) von Tealium.|
 | Kauf-Template-Variable | Stellen Sie Produkt-Template-Variablen als Dateneingabe bereit. Lesen Sie den [Leitfaden für Template-Variablen](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) von Tealium, um mehr zu erfahren. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_example.png %})
 
 {% endtab %}
-{% tab Delete User - Non-Batch %}
+{% tab Nutzer:in löschen – Non-Batch %}
 
 Diese Aktion erlaubt es Ihnen, Nutzer:innen aus dem Braze-Dashboard zu löschen.
 
 | Parameter | Beschreibung |
 | ---------- | ----------- |
 | Nutzer-ID | Verwenden Sie dieses Feld, um das Tealium-Nutzer-ID-Feld auf das entsprechende Braze-Feld abzubilden. <br><br>- Bilden Sie ein oder mehrere Nutzer-ID-Attribute ab. Wenn mehrere IDs angegeben werden, wird der erste nicht leere Wert in der folgenden Reihenfolge ausgewählt: Externe ID, Braze ID, Alias-Name und Alias-Label.<br>- Wenn Sie einen Nutzer-Alias angeben, sollten sowohl Alias-Name als auch Alias-Label festgelegt werden.<br><br>Weitere Informationen finden Sie unter dem Braze-[Endpunkt `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![]({% image_buster /assets/img/tealium/track_user_delete.png %})
 
@@ -247,7 +247,7 @@ Ausführlichere Anweisungen zur Implementierung des Trace-Tools von Tealium find
 ## Demo zur Integration {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1mP84vVWifzNMN7eMYNORNy0y-WZurzBs/view?usp=sharing" title="Demo zur Tealium-Integration" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Mögliche Mehrkosten für Datenpunkte {#potential-data-point-overages}

@@ -36,7 +36,7 @@ description: "この記事では、「カスタムイベント分析のエクス
 | `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データ系列が終了する日付。デフォルトはリクエストの時刻です。 |
 | `app_id` | オプション | 文字列 | 特定のアプリに分析を限定するために、[API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) ページから取得したアプリ API 識別子。 |
 | `segment_id` | オプション | 文字列 | [セグメント API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。イベント分析を返す対象となる、分析が有効なSegmentを示すSegment ID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 
 ## リクエスト例 {#example-request}

@@ -6,7 +6,7 @@ description: "Este artículo de referencia ofrece un resumen de los casos de uso
 search_rank: 2
 ---
 
-# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Usar Liquid {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Curso de Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Usar Liquid {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > Este artículo muestra cómo puedes usar una variedad de atributos de usuario para insertar dinámicamente información personal en tu mensajería.
 
@@ -82,7 +82,7 @@ Los operadores (como `==`, `!=`, `>`, `and`, `or`) y los filtros (como `| size`,
 | `case`, `when` | Solo coincidencia de igualdad[^case_when_ops] | No compatible |
 | `for` | No compatible | No compatible |
 | Acceso a arrays (`[ ]`) | No compatible | No compatible |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
 
 [^case_when_ops]: En las etiquetas `case` y `when`, Liquid compara la expresión `case` con cada valor `when` usando igualdad (similar a encadenar `if` y `elsif` con `==`). No puedes usar operadores de comparación arbitrarios ni operadores lógicos dentro de una cláusula `when` como lo haces con `if` y `elsif`. Para ver ejemplos, consulta [Lógica de mensajería condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
 

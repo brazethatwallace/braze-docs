@@ -58,7 +58,7 @@ Als Nächstes erstellen Sie eine Datentabelle mit dem [erforderlichen Format](ht
 | Nur E-Mail | Die E-Mail-Adressen der Nutzer:innen, z. B. `alex-lee@email.com`. |
 | Gerät | Dazu gehören Cookies von Drittanbietern, Mobile Advertising IDs (MAIDs), Connected TV IDs (CTV IDs) und RampIDs (aufgelöst in eine Household RampID). |
 | CIDs | Dabei handelt es sich um Bezeichner eines Plattformpartners oder einer mit LiveRamp synchronisierten Identität, wie z. B. Ihre interne Kund:innen-ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Datentabelle erstellen" }
 
 #### Braze-Bezeichner {#braze-identifiers}
 
@@ -70,7 +70,7 @@ Die Ereignisprotokolle von Braze enthalten Bezeichner, die Sie in der nativen Li
 | `EMAIL_ADDRESS` | E-Mail-Adresse, die in Verbindung mit den Diensten von LiveRamp zur reinen E-Mail-Auflösung verwendet werden kann. |
 | `TO_PHONE_NUMBER` | Telefonnummer, die in Verbindung mit den Diensten zur PII-Auflösung von LiveRamp verwendet werden kann. |
 | `EXTERNAL_USER_ID` | Die einer Nutzer:in zugeordnete externe ID, die in Verbindung mit den Diensten von LiveRamp zur Geräteauflösung (CID) verwendet werden kann. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze-Bezeichner" }
 
 {% alert important %}
 Die Verwendung von client- oder markenspezifischen angepassten Bezeichnern innerhalb der LiveRamp-Anwendung erfordert eine [Identitätssynchronisierung mit LiveRamp](https://docs.liveramp.com/identity/en/getting-started-with-liveramp-identity.html).
@@ -136,7 +136,7 @@ Der Prozess wertet die Kombination aller Spaltenwerte pro Zeile auf eindeutige W
 
 Die historischen Daten in Snowflake reichen bis April 2019 zurück. Aufgrund von Produktänderungen kann es jedoch zu leichten Abweichungen bei den Daten vor August 2019 kommen.
 
-### Geschwindigkeit, Performance, Kosten {#speed-performance-cost}
+### Geschwindigkeit, Performance und Kosten {#speed-performance-cost}
 
 Die Geschwindigkeit und die Kosten der Abfragen hängen von der Größe des verwendeten Warehouses ab. Berücksichtigen Sie beim Auswählen der Warehouse-Größe Ihre Anforderungen an den Datenzugriff.
 

@@ -29,10 +29,10 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Paramètres de requête {#query-parameters}
 
-| Paramètre     | Requis | Type de données | Description                     |
+| Paramètre | Requis | Type de données | Description |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Requis | Chaîne de caractères    | L'ID de votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `template_id` | Requis | Chaîne de caractères | L'ID de votre modèle d'e-mail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Exemple de requête {#example-request}
 

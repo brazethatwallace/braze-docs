@@ -50,7 +50,7 @@ tool: Reports
     }
 </style>
 
-<table>
+<table aria-label="매출 계산 이해하기">
   <caption>매출 계산 이해하기</caption>
     <thead>
         <tr>

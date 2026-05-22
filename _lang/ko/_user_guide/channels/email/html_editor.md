@@ -152,7 +152,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 }
 </style>
 
-<table id="reserved-fields">
+<table aria-label="Email headers" id="reserved-fields">
   <caption>이메일 헤더</caption>
 <thead>
   <tr>
@@ -262,7 +262,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**으로 설정되어 있을 때 상호작용으로 **Receive** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
 {% endalert %}
 
-Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#quiet-hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
+Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#frequency-capping) 규칙을 설정할 수도 있습니다.
 
 #### 타겟 사용자 선택하기 {#choose-users-to-target}
 

@@ -21,7 +21,7 @@ Die RFM-Analyse ist eine Marketingtechnik, die Ihre besten Nutzer:innen identifi
 | Recency | Wie kürzlich ein:e Kund:in einen Kauf getätigt hat. Eine höhere Bewertung bedeutet aktuellere Käufe. |
 | Frequency | Wie häufig ein:e Kund:in einen Kauf getätigt hat. Eine höhere Bewertung bedeutet höhere Häufigkeit. |
 | Monetary | Gesamtbetrag, den ein:e Kund:in ausgegeben hat. Eine höhere Bewertung bedeutet höhere Ausgaben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="RFM-Kategorien" }
 
 {% alert note %}
 Kauf-Events müssen aktiviert sein, um RFM-SQL-Segmente verwenden zu können, da der Monetary-Wert Ihrer Nutzer:innen durch den Umsatz bestimmt wird, den sie über Braze-Kauf-Events generiert haben.
@@ -43,7 +43,7 @@ Kauf-Events müssen aktiviert sein, um RFM-SQL-Segmente verwenden zu können, da
 | Start date | Einen festen Startpunkt für Ihre Analyse angeben | Nutzeraktivität ab einem bestimmten Datum analysieren, z. B. nach dem Start einer Campaign. |
 | End date | Einen festen Endpunkt für Ihre Analyse angeben | Nutzeraktivität bis zu einem bestimmten Datum analysieren, z. B. vor einem Produkt-Update. |
 | Date range | Sowohl ein Start- als auch ein Enddatum für einen benutzerdefinierten Zeitraum angeben | Nutzerverhalten während eines definierten Zeitraums analysieren, z. B. während einer Aktion. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ein RFM-Segment erstellen" }
 
 {: start="4"}
 4. Wählen Sie die generierten [RFM-Gruppen](#rfm-groups) aus, die in Ihr Segment aufgenommen werden sollen. Wenn Sie mehrere Gruppen auswählen, umfasst Ihr Segment Nutzer:innen, die Teil einer der ausgewählten Gruppen sind.
@@ -73,4 +73,4 @@ RFM-Segmente werden in einer bestimmten Reihenfolge ausgewertet. Nutzer:innen we
 | At Risk | Nutzer:innen, die historisch moderate Frequency- und Monetary-Werte hatten, aber seit Langem nicht mehr gekauft haben. | 0–1 | 1–3 | 1–3 |
 | About to Sleep | Nutzer:innen mit niedrigen Werten in allen Metriken. | 1 | 0–3 | 0–3 |
 | Hibernating | Nutzer:innen mit moderater Frequency, die jedoch über einen längeren Zeitraum inaktiv waren. | 0 | 0–2 | 0–3 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="RFM-Gruppen" }

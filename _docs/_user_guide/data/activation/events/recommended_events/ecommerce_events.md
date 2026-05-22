@@ -16,12 +16,18 @@ Because eCommerce events follow a predictable schema, Braze can build reliable f
 Braze eCommerce events and their segmentable event properties don't count toward [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
 {% endalert %}
 
-## Transactions tab
+<a id="transactions-tab" aria-hidden="true"></a>
 
-The **Transactions** tab on each user profile provides a live view of a user's commercial activity by surfacing three calculated metrics that update in real time as events are processed. The order-level model of these calculations cleanly separates product prices from total order value.
+## Commerce tab {#commerce-tab}
+
+The **Commerce** tab on each user profile combines two modules: **Order activity** (calculated revenue and order metrics) and **Active cart** (the latest cart from `ecommerce.cart_updated` events).
+
+### Order activity
+
+The **Order activity** module surfaces three calculated metrics that update in real time as events are processed. The order-level model of these calculations cleanly separates product prices from total order value.
 
 {% alert note %}
-eCommerce recommended events do not populate within the **Purchase history** section of the **Transactions** tab. Purchase history is populated by legacy purchase events. Use the metrics in the following table for revenue, and order activity from recommended events. 
+eCommerce recommended events do not populate within the **Purchase history** section of the **Commerce** tab. Purchase history is populated by legacy purchase events. Use the metrics in the following table for revenue, and order activity from recommended events.
 {% endalert %}
 
 | Metric | Formula |
@@ -29,20 +35,31 @@ eCommerce recommended events do not populate within the **Purchase history** sec
 | Total Revenue | sum (`order_placed.total_value`) − sum (`order_refunded.total_value`) |
 | Total Orders | count (distinct `order_placed`) − count (distinct `order_cancelled`) |
 | Total Refund Value | sum (`order_refunded.total_value`) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Transactions tab" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Order activity metrics" }
 
-![Order Activity section with Total Revenue, Total Orders, and Total Refund Value.]({% image_buster /assets/img/recommended_events/order_activity.png %}){: style="max-width:60%"}
+### Active cart
+
+The **Active cart** module shows the latest cart on the user profile. That view is especially helpful while you test. You can use it to confirm cart contents, validate cart-based journeys, or verify that `ecommerce.cart_updated` events are updating the profile as you expect.
+
+**Active cart** includes the following:
+
+- **Cart ID** — Identifier for the cart that last received an `ecommerce.cart_updated` event.
+- **Last updated** — Timestamp of the most recent cart update.
+- **Total cart value** — Total value of the line items in the current cart.
+- **View products** — A link to open the list of products in the cart (up to 50 products).
 
 ## eCommerce orchestration
 
 ### Segmentation
 
-eCommerce events behave like custom events, so all existing custom event filters work immediately. For example, you could filter by "Has performed custom event `ecommerce.order_placed` more than X times."
+Braze provides three ways to segment users based on eCommerce data:
 
-For targeting based on nested product data (such as specific product IDs, variant names, or price thresholds), use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) with nested event property filtering. This lets you build audiences like "users who purchased product SKU-123 in the last 90 days" or combine criteria across different properties of the same order.
+- **eCommerce filters:** Use the **eCommerce** category in the segmenter, which contains filters powered by eCommerce recommended events (such as **Last Order Placed**, **Total Revenue**, and **Average Order Value**). For a complete list of available filters, see [Segment filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+- **Custom event filters:** Because eCommerce events behave like custom events, all existing custom event filters work immediately. For example, you can filter by "Has performed custom event `ecommerce.order_placed` more than X times" or "First performed custom event `ecommerce.order_placed`".
+- **Segment Extensions:** For segmenting off nested event properties including the nested products array or the metadata objects properties, use [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) with nested event property filtering. This lets you build audiences like "users who purchased product SKU-123 in the last 90 days" or combine criteria across different properties of the same order.
 
 {% alert important %}
-Segment Extensions are a paid feature. Confirm your plan includes access before recommending nested property segmentation to your team.
+Segment Extensions for eCommerce recommended events are a paid feature and in early access. If you're interested in participating in the early access, contact your customer success manager. Confirm your plan includes access before recommending nested property segmentation to your team.
 {% endalert %}
 
 ### Triggering
@@ -94,7 +111,7 @@ Use this template when you want to remind users about items in their cart and dr
 {: .reset-td-br-1 .reset-td-br-2 aria-label="eCommerce Canvas templates" }
 
 {% alert tip %}
-The `ecommerce.cart_updated` event uses a replace model. Every event sent overwrites the user's cart state. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
+The `ecommerce.cart_updated` event supports full cart replacement (each event can describe the entire cart) or incremental updates using the `add` and `remove` values for the optional `action` property. Pick one approach per cart and avoid mixing replacement and incremental cart updates for the same `cart_id`. Use the {% raw %}`{% shopping_cart %}`{% endraw %} Liquid tag in your message to dynamically display the current cart contents at send time.
 {% endalert %}
 
 {% endtab %}

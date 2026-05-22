@@ -24,7 +24,7 @@
 | 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
 | 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
 | 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages/) 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### 단락 {#paragraph}
 
@@ -42,7 +42,7 @@
 | 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
 | 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
 | 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages/) 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### 목록 {#list}
 
@@ -64,7 +64,7 @@
 | 줄 높이 | 텍스트 줄 사이의 거리를 수정합니다. |
 | 문자 간격 | 각 문자 사이의 거리를 수정합니다. |
 | 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만, [오른쪽에서 왼쪽으로]({{site.baseurl}}/right_to_left_messages/) 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### 버튼 {#button}
 
@@ -74,7 +74,7 @@
 |---|---|
 | 버튼 옵션 | 글꼴, 크기, 너비, 색상 및 패딩 등 다양한 버튼 옵션을 설정합니다. |
 | 버튼 호버 | 사용자가 마우스 또는 트랙패드로 버튼 위에 마우스를 올렸을 때의 스타일입니다. 버튼의 배경색, 글꼴 색상 및 테두리 스타일이 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### 클릭 시 동작 {#on-click-behavior}
 
@@ -85,7 +85,7 @@
 | 메일 수신자, 제목 및 본문 | **이메일 보내기** 링크 유형의 경우, 사용자가 버튼을 선택할 때 초안 이메일에 채워질 수신자 이메일 주소, 제목 및 내용을 설정합니다. |
 | 전화번호 | **전화 걸기** 및 **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택할 때 전화하거나 문자를 보낼 전화번호를 설정합니다. |
 | 메시지 | **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택할 때 초안 SMS 메시지에 채워질 내용을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### 구분선 {#divider}
 
@@ -97,7 +97,7 @@
 | 선 | 점선, 파선, 실선 등 다양한 선 형식을 지원합니다. 구분선의 두께와 색상도 수정할 수 있습니다. |
 | 너비 | 구분선의 범위를 5 단위로 조정합니다. |
 | 정렬 | 선을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### 공백 {#spacer}
 
@@ -106,7 +106,7 @@
 | 등록정보 | 설명 |
 |---|---|
 | 높이 | 공백 블록의 높이를 조정합니다. 기본값은 60px입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### 이미지 {#image}
 
@@ -124,7 +124,7 @@
 | 둥근 모서리 이미지 | 이미지를 둥근 모서리로 렌더링합니다. 기본적으로 이미지는 직각 모서리로 렌더링됩니다. |
 | 동작 | 사용자가 이미지를 클릭할 때 동작을 트리거합니다. |
 | 블록 옵션 | 이미지 블록 주위의 패딩을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 **자동 너비**의 경우, 자동 이미지 크기 조정은 이미지 너비와 레이아웃에서 사용 가능한 공간의 조합에 따라 이미지에 가장 적합한 크기를 선택합니다.
@@ -143,7 +143,7 @@
 | 재생 아이콘 스타일 | 동영상 이미지 상단에 위치한 재생 버튼에 대한 다양한 옵션을 포함합니다. |
 | 재생 아이콘 색상 | 재생 버튼에 **Light** 또는 **Dark**를 선택하는 옵션입니다. |
 | 재생 아이콘 크기 | 재생 버튼의 픽셀 크기를 선택합니다. 50&nbsp;px에서 80&nbsp;px까지 미리 정의된 범위입니다(5&nbsp;px씩 증가). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동합니다. Vimeo 내에서 사용할 수 있는 다른 모든 보안 설정(예: "Vimeo.com에서 숨기기")은 이 콘텐츠 블록에서 지원하지 않는 다른 링크 형식을 생성합니다. 이러한 유형의 링크는 빌더에 의해 변경되어 Braze에서 썸네일을 생성할 수 없습니다.
@@ -159,7 +159,7 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 아이콘 컬렉션 구성 | 각 소셜 아이콘의 URL을 설정합니다. 제목 및 대체 텍스트를 편집할 수 있는 **추가 옵션** 토글이 포함되어 있습니다. |
 | 정렬 | 소셜 아이콘을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
 | 아이콘 간격 | 각 소셜 아이콘 사이의 간격을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### 아이콘 {#icons}
 
@@ -177,7 +177,7 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 아이콘 크기 | 아이콘의 크기를 결정합니다. |
 | 아이콘 간격 | 아이콘의 간격을 수정합니다. |
 | 아이콘 패딩 | 아이콘의 패딩을 수정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -186,7 +186,7 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 등록정보 | 설명 |
 |---|---|
 | HTML | [Liquid]({{site.baseurl}}/liquid/)를 포함한 원시 HTML을 추가하거나 편집하여 개인화 또는 조건 로직을 적용합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### 메뉴 {#menu}
 
@@ -206,7 +206,7 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 모바일 메뉴 | 모바일 기기에 표시될 때 아이콘 크기, 색상 및 아이콘 유형을 수정하는 옵션이 포함되어 있습니다. |
 | 항목 패딩 | **+** 또는 **-** 버튼을 사용하거나 특정 숫자를 입력하여 패딩을 수정합니다. |
 | 모든 면 | 항목 패딩이 비활성화된 경우 일관된 패딩 값을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### 제품 {#product}
 
@@ -228,7 +228,7 @@ Vimeo에서 호스팅하는 동영상은 공개로 설정된 경우에만 작동
 | 행당 최대 제품 수 | 행당 표시할 제품 수를 설정합니다: **1**, **2** 또는 **3**(**3**은 방향이 **이미지 가운데**인 경우에만 사용 가능). |
 | 제품 간격 | 제품 간 간격을 설정합니다: **자동** 또는 **커스텀**. |
 | 커스텀 간격 | *(**커스텀** 선택 시)* 제품 간 간격을 픽셀 단위로 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## 개인화 {#personalization}
 

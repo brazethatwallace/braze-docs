@@ -60,7 +60,7 @@ Depois de concluir a integração no lado do app, você pode testá-la executand
 
 ### Etapa 1: crie uma campanha de mensagem no app com código personalizado {#step-1-create-a-custom-code-in-app-message-campaign}
 
-Na plataforma Braze, crie uma campanha de mensagem no app com o tipo de mensagem **Custom Code**. Em seguida, selecione **HTML Upload** como o tipo personalizado. Certifique-se de preencher o conteúdo da mensagem com os campos básicos de envio de mensagens no app; esse conteúdo não será mostrado ao usuário.
+Na plataforma Braze, crie uma campanha de mensagem no app da Braze com o tipo de mensagem **Custom Code**. Em seguida, selecione **HTML Upload** como o tipo personalizado. Certifique-se de preencher o conteúdo da mensagem com os campos básicos de envio de mensagens no app; esse conteúdo não será mostrado ao usuário.
 
 ![Uma imagem da aparência do dashboard ao selecionar o tipo de mensagem "Custom Code".]({% image_buster /assets/img/judo/braze-campaign-select-custom-type.png %})
 

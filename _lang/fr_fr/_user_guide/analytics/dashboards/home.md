@@ -4,12 +4,12 @@ article_title: Tableau de bord Accueil (anciennement Aperçu)
 page_order: 1
 page_type: reference
 description: "Cet article de référence décrit votre tableau de bord Accueil et fournit les définitions des statistiques disponibles sur cette page."
-tool: 
+tool:
   - Reports
 
 ---
 
-# Tableau de bord Accueil
+# Tableau de bord Accueil {#home-dashboard}
 
 > La page **Accueil** du tableau de bord fournit des indicateurs clés pour suivre et comprendre les performances de votre application ou site web, et vous offre une vue d'ensemble de votre base d'utilisateurs.
 
@@ -43,13 +43,13 @@ Par exemple, si vous définissez votre plage de dates sur **7 derniers jours** e
 
 ![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
-### Afficher le détail
+### Afficher le détail {#show-breakdown}
 
-Sélectionnez **Afficher le détail** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
+Sélectionnez **Show Breakdown** pour chaque ligne des statistiques de l'aperçu des performances afin de visualiser la valeur de chaque statistique par jour pour la plage de dates spécifiée.
 
 ![Développer]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
-### Performances dans le temps
+### Performances dans le temps {#performance-over-time}
 
 Le graphique **Performances dans le temps** affiche la valeur de chaque statistique sur la plage de dates spécifiée pour les applications sélectionnées.
 
@@ -57,13 +57,13 @@ Le graphique **Performances dans le temps** affiche la valeur de chaque statisti
 
 Vous pouvez tracer des statistiques pour :
 - Bannières
-- Cartes de contenu
+- Content Cards
 - Utilisateurs actifs quotidiens
   - (Facultatif) Répartition par segment
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
-  - Sélectionnez **Gérer les formules d'indicateurs clés de performance** pour créer une formule ou modifier une formule existante.
+  - Sélectionnez **Manage KPI Formulas** pour créer une formule ou modifier une formule existante.
 - LINE
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
@@ -81,22 +81,22 @@ Vous pouvez tracer des statistiques pour :
 - Webhooks
 - WhatsApp
 
-## Statistiques disponibles
+## Statistiques disponibles {#available-statistics}
 
 Voici les définitions des statistiques disponibles, leur mode de calcul et leur importance pour vous.
 
-### Utilisateurs
+### Utilisateurs {#users}
 
 *Utilisateurs* correspond au nombre total d'utilisateurs créés dans cet espace de travail. Cela inclut tous les utilisateurs ayant utilisé votre application ou site web à un moment donné, ainsi que ceux qui ne sont pas nécessairement associés à une application ou un site web spécifique. Ce nombre représente le pourcentage de vos utilisateurs à vie qui sont des *utilisateurs actifs par mois* (MAU), ce qui est utile pour observer la rétention des utilisateurs sur une longue période.
 
 Un faible ratio MAU/utilisateurs peut indiquer que vous devez diversifier vos canaux de communication ou intensifier vos efforts pour atteindre les utilisateurs en perte d'engagement. Consultez notre guide rapide sur la [reconquête des utilisateurs en perte d'engagement]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) pour en savoir plus. De manière générale, le ratio MAU/utilisateurs à vie diminuera inévitablement au fil du temps en raison de l'attrition, mais les outils de Braze peuvent vous aider à minimiser cet effet en maintenant l'engagement de vos utilisateurs plus longtemps.
 
-### Sessions à vie
+### Sessions à vie {#lifetime-sessions}
 
 *Sessions à vie* correspond au nombre total de sessions enregistrées par Braze depuis l'intégration. Une session correspond à chaque utilisation de l'application ou visite de votre site web par un utilisateur. Pour une définition plus précise de la manière dont les sessions sont définies par plateforme, consultez les articles développeur correspondants sur le suivi des sessions pour
 [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
 
-### Utilisateurs actifs par mois
+### Utilisateurs actifs par mois {#monthly-active-users}
 
 *Utilisateurs actifs par mois* (MAU) correspond au nombre d'utilisateurs ayant enregistré une session dans votre application ou site au cours des 30 derniers jours. Les MAU sont calculés chaque nuit avec une fenêtre glissante de 30 jours. Les MAU vous offrent une bonne compréhension de la santé d'une application ou d'un site sur une période prolongée, car ils lissent les incohérences entre les jours d'intensité d'utilisation variable.
 
@@ -104,7 +104,7 @@ Le pourcentage affiché à côté du nombre de MAU indique l'évolution des MAU 
 
 $$\text{Change in MAU} = \frac{\text{MAU of last date in range} - \text{MAU of day before start date}}{\text{MAU of day before start date}}$$
 
-#### Règles de calcul des MAU
+#### Règles de calcul des MAU {#mau-calculation-rules}
 
 Le calcul des MAU suit des règles spécifiques pour garantir une facturation précise et cohérente :
 
@@ -119,7 +119,7 @@ Le calcul des MAU suit des règles spécifiques pour garantir une facturation pr
 Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur.
 {% endalert %}
 
-#### Exemple de calcul des MAU
+#### Exemple de calcul des MAU {#mau-calculation-example}
 
 L'exemple suivant illustre le fonctionnement du calcul des MAU à travers différentes actions utilisateur :
 
@@ -129,15 +129,15 @@ L'exemple suivant illustre le fonctionnement du calcul des MAU à travers diffé
 | 2 | Identification de l'**Utilisateur anonyme 1** (le profil devient identifié) | 0 | 1 |
 | 3 | Création de l'**Utilisateur anonyme 2** et enregistrement d'une session | +1 | 2 |
 | 4 | Identification de l'**Utilisateur anonyme 2** comme étant la **même personne** que l'Utilisateur 1 (l'Utilisateur 2 devient orphelin) | –1 | 1 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Exemple de calcul des MAU" }
 
 Les instantanés de MAU sont calculés une fois par jour et ne changent jamais rétroactivement. Dans cet exemple, le nombre de MAU pour le jour suivant l'étape 3 reste définitivement à 2, même si l'Utilisateur 2 devient orphelin par la suite. Cependant, le nombre de MAU pour les jours suivants ne reflète que l'utilisateur non orphelin. Sur une fenêtre de 30 jours, ce flux consomme au final 1 MAU puisqu'il ne reste qu'un seul utilisateur distinct et non orphelin.
 
-### Utilisateurs actifs quotidiens
+### Utilisateurs actifs quotidiens {#daily-active-users}
 
 *Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes de communication pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
-### Nouveaux utilisateurs
+### Nouveaux utilisateurs {#new-users}
 
 *Nouveaux utilisateurs* indique le nombre d'utilisateurs qui n'avaient jamais enregistré de session auparavant et qui ont commencé à utiliser votre application ou site. Ce nombre correspond au total des nouveaux utilisateurs sur la période donnée. Cette statistique peut être très utile pour évaluer l'efficacité de vos efforts publicitaires.
 
@@ -149,7 +149,7 @@ Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront co
 Les utilisateurs associés à plusieurs applications sont comptabilisés séparément pour chaque application. Cela signifie qu'un même utilisateur peut contribuer plusieurs fois au nombre de *Nouveaux utilisateurs* s'il démarre des sessions dans différentes applications de votre espace de travail.
 {% endalert %}
 
-### Adhérence
+### Adhérence {#stickiness}
 
 La valeur d'*adhérence* est le ratio entre les DAU et les MAU pour une période donnée. Concrètement, l'adhérence mesure le pourcentage de vos MAU qui reviennent quotidiennement.
 
@@ -165,10 +165,10 @@ Les périodes « précédente » et « actuelle » sont déterminées par la pla
 La valeur des MAU est calculée chaque nuit et ne sera mise à jour que le lendemain.
 {% endalert %}
 
-### Sessions quotidiennes
+### Sessions quotidiennes {#daily-sessions}
 
 *Sessions quotidiennes* correspond au nombre de sessions enregistrées un jour donné. En comparant cette valeur à votre nombre de DAU, vous pouvez déterminer combien de fois vos utilisateurs ouvrent l'application ou visitent votre site web les jours où ils enregistrent au moins une session.
 
-### Sessions quotidiennes par MAU
+### Sessions quotidiennes par MAU {#daily-sessions-per-mau}
 
 *Sessions quotidiennes par MAU* est le ratio entre les *sessions quotidiennes* et les MAU pour un jour donné. Cette statistique vous indique combien de sessions par jour vous pouvez vous attendre à enregistrer par MAU. Une fois agrégée et moyennée, elle vous donne une idée de la fréquence relative à laquelle vos utilisateurs utilisent votre application ou site. Autrement dit, si vos *sessions quotidiennes par MAU* étaient en moyenne de 0,5, vous pourriez vous attendre à ce que chaque MAU enregistre une session environ tous les 2 jours.

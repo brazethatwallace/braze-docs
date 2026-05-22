@@ -29,14 +29,14 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Paramètres de requête {#query-parameters}
 
-| Paramètre              | Requis | Type de données | Description                        |
+| Paramètre | Requis | Type de données | Description |
 |------------------------|----------|-----------|------------------------------------|
-| `workflow_id`          | Requis | Chaîne de caractères    | L'ID du Canvas.              |
-| `step_id`              | Requis | Chaîne de caractères    | L'ID de votre étape du Canvas.        |
+| `workflow_id` | Requis | Chaîne de caractères | L'ID du Canvas. |
+| `step_id` | Requis | Chaîne de caractères | L'ID de votre étape du Canvas. |
 | `message_variation_id` | Requis | Chaîne de caractères | L'ID de la variation de votre message. |
-| `locale_id`            | Facultatif | Chaîne de caractères    | L'ID (UUID) de la locale.              |
+| `locale_id` | Facultatif | Chaîne de caractères | L'ID (UUID) de la locale. |
 | `post_launch_draft_version` | Facultatif | Valeur booléenne | Lorsque la valeur est `true`, renvoie la dernière version brouillon au lieu de la dernière version publiée en production. La valeur par défaut est `false`, ce qui renvoie la dernière version en production. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.

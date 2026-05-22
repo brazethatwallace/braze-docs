@@ -19,7 +19,7 @@ Backfilling ist der Prozess, einen Datensatz nachträglich mit historischen Date
 | **Neue Features** | Sie haben eine neue Metrik identifiziert, die für Ihr Modell wichtig ist, und verfügen über die historischen Rohdaten, um sie zu berechnen. | Sie fügen „Click-through-Rate“ als Feature hinzu und benötigen drei Monate an Verlaufsdaten, damit das Modell genügend Daten zum Lernen hat. |
 | **Datenwiederherstellung** | Ihre Datenpipeline ist an bestimmten Tagen ausgefallen und hat Lücken in den an Decisioning Studio gelieferten Daten verursacht. | Ein Pipeline-Ausfall am Dienstag hat eine Lücke hinterlassen. Nach der Bereitstellung des Fixes füllen Sie die fehlenden Datensätze aus dem Quellsystem nach. |
 | **Logikänderungen** | Sie haben die Formel für eine Feature-Berechnung aktualisiert oder eine Ereignisdefinition geändert. | Sie haben „aktive:r Nutzer:in“ neu definiert und müssen historische Daten erneut exportieren, damit das Modell auf der aktualisierten Definition trainiert. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When backfilling is needed" }
 
 ## Anforderungen {#requirements}
 
@@ -32,7 +32,7 @@ Bei der Durchführung eines historischen Backfills sind die folgenden Standards 
 
 ## Häufige Fallstricke {#common-pitfalls}
 
-### Data Leakage (Look-Ahead-Bias)
+### Data Leakage (Look-Ahead-Bias) {#data-leakage-look-ahead-bias}
 
 Data Leakage ist der kritischste Fehler beim Backfilling. Er tritt auf, wenn der Backfill-Prozess versehentlich Informationen einbezieht, die zum Zeitpunkt der Erstellung des historischen Datensatzes nicht verfügbar gewesen wären.
 

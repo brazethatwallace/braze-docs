@@ -110,7 +110,7 @@ Para cada propiedad que quieras añadir, completa lo siguiente:
 | Tipo de propiedad | El tipo de datos de la propiedad. Los tipos compatibles incluyen cadena, booleano, número, marca de tiempo, URL de imagen y objeto JSON. | Cadena |
 | Clave de propiedad | El identificador único de la propiedad. Esta clave se usa en el SDK para acceder a la propiedad. | `color` |
 | Valor | El valor asignado a la propiedad. Debe coincidir con el tipo de propiedad seleccionado. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 }
 
 Cuando hayas terminado, selecciona **Done**.
 

@@ -161,7 +161,7 @@ Utilisez ce tableau pour comparer les canaux. Les valeurs par défaut peuvent di
 | Bannières | Même comportement que les messages in-app. |
 | Pages d'accueil | Vous pouvez définir la langue sur la page en ligne. Choisissez une langue, ou utilisez Liquid si votre compte autorise Liquid sur les pages d'accueil. Les valeurs par défaut diffèrent également de celles des messages in-app et des bannières — vérifiez la page publiée. |
 | Content Cards | Les Content Cards utilisent un champ **Langue** pour les applications au lieu d'une langue d'accessibilité explicite. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prise en charge par canal et éditeur" }
 
 Lorsque vous écrivez du HTML vous-même, vous pouvez toujours ajouter une balise de langue sur une partie du message (par exemple, une phrase dans une autre langue). Pour plus de modèles, consultez [HTML personnalisé](#custom-html).
 
@@ -240,7 +240,7 @@ Par exemple, réfléchissez à la manière dont vous pourriez rédiger un lien v
 | Mauvais | Mieux | Idéal |
 | --- | --- | --- |
 | Cliquez ici | Cliquez ici pour accéder à la météo du jour | La météo du jour |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Rédigez un texte de lien descriptif" }
 
 Comme pour tout contenu, restez direct avec le moins de mots superflus possible.
 

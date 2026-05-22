@@ -49,7 +49,7 @@ BrazeとOracle Crowdtwistは、顧客がユーザープロファイル、ユー�
 
 ## ステップ2:テンプレートの更新とテスト {#step-2-update-and-test-template}
 
-以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track` 送信先に適用されるように設計されています。注釈は `//` 行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
+以下に、注釈付きテンプレートを掲載します。これらのテンプレートの本体は、`/users/track`送信先に適用されるように設計されています。注釈は `//` 行頭と緑色のテキストでマークされており、変換コードの動作に影響を与えることなく削除できます。
 
 この変換はJavaScriptを使い、「brazecall」と呼ばれるオブジェクトを構築します。このオブジェクトで、Braze REST APIエンドポイントに送信するリクエストボディを作成します。これらの送信先へのリクエストに必要な構造については、「送信先」セクションのリンクを参照してください。
 
@@ -114,7 +114,7 @@ return brazecall;
 
 {% endtab %}
 {% tab User Activity Event Template %}
-```javascript
+`````````javascript
 let brazecall = {
 "events": [
    {
@@ -134,7 +134,7 @@ return brazecall;
 ```
 {% endtab %}
 {% tab Redemption Event Template %}
-```javascript
+`````````javascript
 let brazecall = {
  "attributes": [
    {
@@ -152,7 +152,7 @@ return brazecall;
 ```
 {%endtab%}
 {% tab Master Template %}
-```javascript
+`````````javascript
 //The master template uses JavaScript's conditional operators to determine the output of the Data Transformation. This example shows how to apply JavaScript to your transformation to allow for a dynamic range of sources or inputs.
 
  // We open the transformation with a simple "if" function. We're checking if the value "payload.tierInfo" is present. "tierInfo" is a value that is always populated in the User Profile Live Push object, but is not present in the others.

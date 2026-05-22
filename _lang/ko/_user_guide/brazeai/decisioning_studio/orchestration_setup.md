@@ -31,7 +31,7 @@ toc_headers: h2
 | **Braze** | 네이티브 API 통합 (권장) | 낮음 |
 | **Salesforce Marketing Cloud** | API 이벤트 + Journey Builder | 중간 |
 | **기타 CEP** | 커스텀 (추천 파일) | 높음 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
 
 {% alert tip %}
 이미 Braze를 CEP로 사용하고 있다면, 가장 원활한 설정 경험을 위해 네이티브 Braze 통합을 사용하는 것을 권장합니다.
@@ -49,10 +49,10 @@ toc_headers: h2
 | **REST API 키** | 사용자 데이터, 메시지, Campaigns, Canvas, Segments, 템플릿에 대한 권한이 있는 새 API 키. |
 | **Braze 대시보드 URL** | Braze 인스턴스 URL (예: `https://dashboard-01.braze.com`). |
 | **앱 ID** | 추적하려는 앱과 연결된 API 키 (**설정** > **앱 설정**에서 확인). |
-| **이메일 표시 이름 및 주소** | Campaigns에 사용할 발신자 정보 (**설정** > **이메일 환경설정**에서 확인). |
+| **이메일 표시 이름 및 주소** | Campaign에 사용할 발신자 정보 (**설정** > **이메일 환경설정**에서 확인). |
 | **기본 템플릿** | 에이전트가 오케스트레이션에 사용할 메시지 템플릿. 각 템플릿에 대해 API 트리거 Campaign을 생성합니다. |
 | **테스트 사용자 ID** | 시작 전 통합을 테스트하기 위한 사용자 ID. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -64,7 +64,7 @@ toc_headers: h2
 | **데이터 확장** | 가입자 데이터, 참여 데이터, 추천을 위한 데이터 확장이 필요합니다. |
 | **이메일 템플릿** | Decisioning Studio에서 사용할 템플릿과 각 템플릿 ID. |
 | **Journey Builder 접근 권한** | API 이벤트 진입 소스를 사용하는 다단계 여정을 생성하고 활성화할 수 있는 접근 권한. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% tab 기타 CEP %}
@@ -74,9 +74,9 @@ Braze 또는 Salesforce Marketing Cloud 이외의 CEP를 사용하는 경우, De
 | 항목 | 설명 |
 |------|------|
 | **데이터 수집 기능** | CEP가 각 고객에 대한 개인화된 결정이 포함된 추천 파일(일반적으로 CSV 또는 JSON)을 수집할 수 있어야 합니다. |
-| **동적 콘텐츠 지원** | Campaigns가 추천 데이터를 기반으로 필드를 동적으로 채울 수 있어야 합니다. |
+| **동적 콘텐츠 지원** | Campaign이 추천 데이터를 기반으로 필드를 동적으로 채울 수 있어야 합니다. |
 | **커스텀 엔지니어링 리소스** | 팀에서 추천 파일을 읽고 커뮤니케이션을 트리거하는 통합을 구축해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% endtabs %}
@@ -114,7 +114,7 @@ Braze 통합의 경우, 에이전트가 최적화할 차원을 계획하세요. 
 | 행동 유도 문구 | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | 오퍼 | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | 할인 금액 | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API trigger properties" }
 
 ## 통합 설정 {#integration-setup}
 
@@ -125,7 +125,7 @@ Braze 통합의 경우, 에이전트가 최적화할 차원을 계획하세요. 
 
 ## Braze 통합 설정 {#set-up-braze-integration}
 
-다음 단계에 따라 Decisioning Studio 에이전트를 Braze의 오케스트레이션 기능과 통합하세요 (Braze 서비스 팀이 도움을 드릴 수 있습니다):
+다음 단계에 따라 Decisioning Studio 에이전트를 Braze의 오케스트레이션 기능과 통합하세요(Braze 서비스 팀이 도움을 드릴 수 있습니다):
 
 ### 1단계: API 키 생성 {#step-1-create-an-api-key}
 

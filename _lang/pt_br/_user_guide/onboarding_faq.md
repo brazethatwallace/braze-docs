@@ -45,7 +45,7 @@ Para importar usuários previamente identificados, você pode fazer upload de um
 
 #### CSV
 
-Você pode fazer upload e atualizar perfis de usuários via arquivos CSV em **Público** > **Importar Usuários**. Ao importar seus dados de cliente, você precisará especificar o identificador único de cada cliente, também conhecido como `external_id`.
+Você pode fazer upload e atualizar perfis de usuários via arquivos CSV em **Público** > **Importar usuários**. Ao importar seus dados de cliente, você precisará especificar o identificador único de cada cliente, também conhecido como `external_id`.
 
 Antes de iniciar sua importação de CSV, é importante entender com sua equipe de engenharia como os usuários serão identificados na Braze. Normalmente, isso seria um ID de banco de dados usado internamente. Isso deve estar alinhado com a forma como os usuários serão identificados pelo SDK da Braze em dispositivos móveis e web, para que cada cliente tenha um único perfil de usuário na Braze em todos os seus dispositivos. Saiba mais sobre o [ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) da Braze.
 
@@ -84,7 +84,7 @@ Por padrão, para que seu usuário receba suas mensagens por push, o estado de i
 | Subscribed | Estado de inscrição push padrão quando um perfil de usuário é criado na Braze. |
 | Opted-In | Um usuário expressou explicitamente a preferência por receber notificações por push. A Braze moverá automaticamente o estado de aceitação do usuário para `Opted-In` se ele aceitar um prompt de push no nível do sistema operacional.<br><br>Isso não se aplica a usuários no Android 12 ou inferior. |
 | Unsubscribed | Um usuário cancelou explicitamente a inscrição de push pelo seu aplicativo ou outros métodos fornecidos pela sua marca. Por padrão, as Campaigns de push da Braze direcionam apenas os usuários que são `Subscribed` ou `Opted-in` para push. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What's the difference between the push subscription statuses?" }
 
 {% endapi %}
 {% api %}
@@ -123,11 +123,11 @@ Alguns pontos adicionais a observar:
 Segments
 {% endapitags %}
 
-Para importar seu arquivo CSV, navegue até a página **Importação de Usuários** na seção Usuários. A tabela **Importações Recentes** lista até vinte das suas importações mais recentes, seus nomes de arquivo, número de linhas no arquivo, número de linhas importadas com sucesso, total de linhas em cada arquivo e o status de cada importação.
+Para importar seu arquivo CSV, navegue até a página **Importação de usuários** na seção Usuários. A tabela **Importações recentes** lista até vinte das suas importações mais recentes, seus nomes de arquivo, número de linhas no arquivo, número de linhas importadas com sucesso, total de linhas em cada arquivo e o status de cada importação.
 
-O painel **Importar CSV** contém instruções de importação e um botão para iniciar sua importação. Clique em **Selecionar arquivo CSV** e selecione seu arquivo de interesse. Em seguida, antes de clicar em **Iniciar Importação**, você tem a opção de informar à Braze o que fazer com esta lista em "O que você quer que façamos com os usuários neste CSV".
+O painel **Importar CSV** contém instruções de importação e um botão para iniciar sua importação. Clique em **Selecionar arquivo CSV** e selecione seu arquivo de interesse. Em seguida, antes de clicar em **Iniciar importação**, você tem a opção de informar à Braze o que fazer com esta lista em "O que você quer que façamos com os usuários neste CSV".
 
-Selecione **Importar Usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um segmento dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar Importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um segmento.
+Selecione **Importar usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um segmento dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um segmento.
 
 Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv).
 
@@ -140,7 +140,7 @@ Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl
 Segments
 {% endapitags %}
 
-O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direcionar seus usuários com base em recursos e atributos específicos. Você pode usar o glossário de [Filtros de Segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) para pesquisar ou restringir esses filtros por Categoria de Filtro (Dados Personalizados, Atividade do Usuário, Redirecionamento, Atividade de Marketing, Atributos do Usuário, Atribuição da Instalação, Atividade Social, Testes, Outros).
+O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direcionar seus usuários com base em recursos e atributos específicos. Você pode usar o glossário de [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) para pesquisar ou restringir esses filtros por Categoria de Filtro (Dados personalizados, Atividade do usuário, Redirecionamento, Atividade de marketing, Atributos do usuário, Atribuição da instalação, Atividade social, Testes, Outros).
 
 {% endapi %}
 {% api %}
@@ -151,7 +151,7 @@ O SDK da Braze fornece um arsenal poderoso de filtros para segmentar e direciona
 Segments
 {% endapitags %}
 
-Navegue até a página **Segments**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar Segmento** e dê um nome ao seu segmento.
+Navegue até a página **Segments**, em Engajamento, para ver todos os seus segmentos de usuários atuais. Nesta página, você pode criar e nomear novos segmentos. Para começar, clique em **Criar segmento** e dê um nome ao seu segmento.
 
 Depois de criar seu segmento, adicione um filtro `Most Recent Location` para segmentar os usuários pelo último lugar em que usaram seu app. Você pode destacar usuários em uma região circular padrão ou criar uma região poligonal personalizada.
 
@@ -171,41 +171,41 @@ Quer aproveitar o direcionamento por local com a ajuda de um parceiro da Braze? 
 Segments
 {% endapitags %}
 
-Você pode usar [Extensões de Segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! As Extensões de Segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
+Você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)! As extensões de segmento permitem que você segmente uma lista mais precisa de usuários do que seria possível com um segmento regular.
 
-Você pode criar até 10 Extensões de Segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
+Você pode criar até 10 extensões de segmento por espaço de trabalho. Depois que essas listas de extensões são geradas, elas podem ser incluídas ou excluídas como um filtro em seus segmentos. Ao criar uma extensão de segmento, você também pode especificar que a lista seja regenerada uma vez a cada 24 horas.
 
 1. Em Engajamentos, expanda **Segments** e clique em **Extensão de Segmento**.
-2. Na tabela de Extensões de Segmento, clique em **+ Criar Nova Extensão**.
+2. Na tabela de extensões de segmento, clique em **+ Criar nova extensão**.
 3. Nomeie sua extensão de segmento descrevendo o tipo de usuários que você pretende filtrar. Isso garantirá que esta extensão possa ser facilmente e precisamente encontrada ao aplicá-la como um filtro em seu segmento.
 4. Selecione entre um critério de compra ou evento personalizado para direcionamento.
 5. Escolha qual item comprado ou evento personalizado específico você gostaria de direcionar para sua lista de usuários.
 6. Escolha quantas vezes (mais que, menos que ou igual a) o usuário precisaria ter completado o evento, e quantos dias retroceder, até 365 dias.
 
-Para aumentar a precisão do direcionamento, você pode selecionar **Adicionar Filtros de Propriedade** e segmentar com base nas propriedades específicas da sua compra ou evento personalizado. A Braze suporta segmentação de propriedades de eventos com base em string, numéricos, booleanos e objetos de tempo.
+Para aumentar a precisão do direcionamento, você pode selecionar **Adicionar filtros de propriedade** e segmentar com base nas propriedades específicas da sua compra ou evento personalizado. A Braze suporta segmentação de propriedades de eventos com base em string, numéricos, booleanos e objetos de tempo.
 
 Também suportamos segmentação com base em [propriedades de eventos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
 
-As Extensões de Segmento dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
+As extensões de segmento dependem do armazenamento de longo prazo das propriedades de eventos e não têm o limite de armazenamento de propriedades de eventos personalizados de 30 dias. Isso significa que você pode consultar propriedades de eventos rastreadas no último ano, e o rastreamento não espera até que a extensão tenha sido configurada primeiro.
 
 {% alert note %}
-O uso de propriedades de eventos dentro de Extensões de Segmento não impacta o uso de pontos de dados.
+O uso de propriedades de eventos dentro de extensões de segmento não impacta o uso de pontos de dados.
 {% endalert %}
 
 {% endapi %}
 {% api %}
 
-#### Manter as Extensões de Segmento atualizadas {#keeping-segment-extensions-up-to-date}
+#### Manter as extensões de segmento atualizadas {#keeping-segment-extensions-up-to-date}
 
 {% apitags %}
 Segments
 {% endapitags %}
 
-Você pode especificar se deseja que esta extensão represente um momento específico no tempo ou se deseja que ela seja regenerada diariamente. Sua extensão sempre começará a ser processada após o salvamento inicial. Se você quiser que a extensão seja regenerada diariamente, selecione **Regenerate Extension Daily** e a regeneração começará a ser processada por volta da meia-noite de cada dia no fuso horário da sua empresa.
+Você pode especificar se deseja que esta extensão represente um momento específico no tempo ou se deseja que ela seja regenerada diariamente. Sua extensão sempre começará a ser processada após o salvamento inicial. Se você quiser que a extensão seja regenerada diariamente, selecione **Regenerar extensão diariamente** e a regeneração começará a ser processada por volta da meia-noite de cada dia no fuso horário da sua empresa.
 
-Quando terminar, clique em **Save**. Sua extensão começará a ser processada. O tempo necessário para gerar sua extensão depende de quantos usuários você tem, quantos eventos personalizados ou eventos de compra você está capturando e quantos dias está consultando no histórico.
+Quando terminar, clique em **Salvar**. Sua extensão começará a ser processada. O tempo necessário para gerar sua extensão depende de quantos usuários você tem, quantos eventos personalizados ou eventos de compra você está capturando e quantos dias está consultando no histórico.
 
-Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **User Attributes**. Na lista de filtros de Braze Segment Extension, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **View Extension Details**. Agora você pode continuar normalmente criando seu segmento.
+Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao criar um segmento ou definir um público para uma Campaign ou Canvas. Comece escolhendo `Braze Segment Extension` na lista de filtros na seção **User Attributes**. Na lista de filtros de Braze Segment Extension, escolha a extensão que deseja incluir ou excluir neste segmento. Para ver os critérios da extensão, clique em **Ver detalhes da extensão**. Agora você pode continuar normalmente criando seu segmento.
 
 {% endapi %}
 {% api %}
@@ -279,7 +279,7 @@ Você pode verificar o fuso horário da sua empresa nas [configurações da empr
 Campaigns
 {% endapitags %}
 
-Ao agendar uma Campaign, você precisa escolher enviá-la em um horário designado e então selecionar **Send campaign to users in their local time zone**.
+Ao agendar uma Campaign, você precisa escolher enviá-la em um horário designado e então selecionar **Enviar Campaign para os usuários no fuso local deles**.
 
 A Braze recomenda fortemente que todas as Campaigns no fuso local sejam agendadas com 24 horas de antecedência. Como essa Campaign precisa ser enviada ao longo de um dia inteiro, agendá-la com 24 horas de antecedência permite que sua mensagem alcance todo o seu segmento. No entanto, você pode agendar essas Campaigns com menos de 24 horas de antecedência, se necessário. Lembre-se de que a Braze não enviará mensagens para nenhum usuário que tenha perdido o horário de envio por mais de 1 hora.
 
@@ -393,7 +393,7 @@ Esse comportamento de avaliação é separado de [com quanta antecedência você
 Campaigns
 {% endapitags %}
 
-O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em uma Campaign pode diferir do número esperado por causa de como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um [gatilho de alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
@@ -517,7 +517,7 @@ O segmentador é uma estatística mais precisa para dados de usuários únicos e
 Canvases
 {% endapitags %}
 
-O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários que entram em um Canvas pode diferir do número esperado devido à forma como os públicos e gatilhos são avaliados. Na Braze, um público é avaliado antes do gatilho (a menos que se use um gatilho de [alteração de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)). Isso fará com que os usuários saiam do Canvas se não fizerem parte do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% endapi %}
 {% api %}
@@ -569,9 +569,9 @@ Analytics
 
 Para agendar um relatório de engajamento recorrente, faça o seguinte:
 
-1. No seu dashboard, navegue até **Engagement Reports**, em **Data**.
-2. Clique em **+ Create New Report**.
-3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) que você gostaria de compilar no seu relatório.
+1. No seu dashboard, navegue até **Relatórios de engajamento**, em **Data**.
+2. Clique em **+ Criar novo relatório**.
+3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases)) que você gostaria de compilar no seu relatório.
 4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#add-statistics-to-your-report) ao seu relatório.
 5. Selecione a compressão e o delimitador para o seu relatório.
 6. Insira os endereços de e-mail dos usuários da empresa que devem receber este relatório.
@@ -583,15 +583,15 @@ Para agendar um relatório de engajamento recorrente, faça o seguinte:
 {% endapi %}
 {% api %}
 
-### Qual é a diferença entre Relatórios de Engajamento e o Criador de Relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
+### Qual é a diferença entre Relatórios de engajamento e o Criador de relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
 
 {% apitags %}
 Analytics
 {% endapitags %}
 
-Os Relatórios de Engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
+Os Relatórios de engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
 
-O Criador de Relatórios permite que você compare os resultados de várias Campaigns ou Canvas em uma única visualização, para que você possa determinar facilmente quais estratégias de engajamento mais impactaram suas métricas principais. Para Campaigns e Canvas, você pode exportar seus dados e salvar seu relatório para visualizar no futuro.
+O Criador de relatórios permite que você compare os resultados de várias Campaigns ou Canvas em uma única visualização, para que você possa determinar facilmente quais estratégias de engajamento mais impactaram suas métricas principais. Para Campaigns e Canvas, você pode exportar seus dados e salvar seu relatório para visualizar no futuro.
 
 Para saber mais sobre os usos de relatórios e análise de dados na Braze, consulte a [visão geral dos relatórios]({{site.baseurl}}/user_guide/analytics/reports/).
 

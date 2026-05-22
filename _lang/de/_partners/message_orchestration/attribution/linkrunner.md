@@ -81,7 +81,7 @@ Gehen Sie in Ihrem Braze-Dashboard zu **Einstellungen** > **Einrichtung und Test
 
 1. Gehen Sie in Linkrunner im linken Panel zu **Integrationen**.
 2. Wählen Sie unter **Analytics** die Option **Konfigurieren** für Braze.
-3. Geben Sie den API-Schlüssel und den REST-Endpunkt ein, die Sie in [Schritt 2](#2-schritt-api-schlüssel-in-braze-erstellen) kopiert haben.
+3. Geben Sie den API-Schlüssel und den REST-Endpunkt ein, die Sie in [Schritt 2](#step-2-create-api-key-in-braze) kopiert haben.
 
 Weitere Informationen finden Sie in der [Linkrunner-Dokumentation](https://docs.linkrunner.io/analytics-integrations/braze).
 

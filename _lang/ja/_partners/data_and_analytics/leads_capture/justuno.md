@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Justuno
 
-> [Justuno](https://www.justuno.com/) では、ダイナミックなSegmentにより、すべてのオーディエンスに対して完全に最適化されたビジター体験を作成することができ、サイトの速度に影響を及ぼしたり、開発作業を増やすことなく、最も高度なターゲティングを利用できます。作成されたプロファイル数、再訪者の影響率、セッションあたりのページ数などのカスタム分析を表示して、コンバージョン率を分析し、業界でのマーケティングの優位性を維持できます。Justunoを使用すると、訪問者あたりの収益を増やし、有意義なカスタマーエンゲージメントを確立し、ビジネスを成長させることができます。接続されたプラットフォームで、オーディエンスジャーニー全体をエンドツーエンドで最適化しましょう。
+> [Justuno](https://www.justuno.com/)では、ダイナミックなセグメントにより、すべてのオーディエンスに対して完全に最適化されたビジター体験を作成することができ、サイトの速度に影響を及ぼしたり、開発作業を増やすことなく、最も高度なターゲティングを利用できます。作成されたプロファイル数、再訪者の影響率、セッションあたりのページ数などのカスタム分析を表示して、コンバージョン率を分析し、業界でのマーケティングの優位性を維持できます。Justunoを使用すると、訪問者あたりの収益を増やし、有意義なカスタマーエンゲージメントを確立し、ビジネスを成長させることができます。接続されたプラットフォームで、オーディエンスジャーニー全体をエンドツーエンドで最適化しましょう。
 
 ## ユースケース {#use-cases}
 
@@ -20,9 +20,9 @@ JustunoとBrazeを統合することで、両方の長所を生かすことが�
 
 ## 前提条件 {#prerequisites}
 
-| Braze REST APIキー | `users.track` および `custom_attributes.get` の権限があるBraze REST APIキー。<br><br>これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | `users.track`および`custom_attributes.get`の権限があるBraze REST APIキー。<br><br>これはBrazeのダッシュボードで**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | 利用するRESTエンドポイントのURL。エンドポイントは、[インスタンスのBraze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)によって異なります。|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## JustunoとBrazeの統合 {#integrating-justuno-with-braze}
 
@@ -56,7 +56,7 @@ Justunoから特定のBrazeメールまたはSMS購読グループにプロフ�
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
 | Braze SMS購読グループID  | はい       | このIDは、ユーザープロファイルからのSMS同意の収集に使用されます。JustunoにIDが入力されていない場合、JustunoがそのプロファイルをBrazeにプッシュしたときにプロファイルへの同意がないことになります。 |
 | Brazeメール購読グループID | いいえ        | JustunoにこのIDが入力されていない場合、購読グループの関連付けがないユーザーとしてJustunoからBrazeにプロファイルデータが送信されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3: Connect your Braze subscription groups" }
 
 #### ステップ3.1:BrazeでIDを見つける {#step-31-locate-the-ids-in-braze}
 

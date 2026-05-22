@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}Introdução: Visão geral da integração {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}Introdução: Visão geral da integração {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > Este artigo fornece uma visão geral básica do processo de integração.
 
@@ -199,7 +199,7 @@ Confira se os seus ambientes de produção e teste estão configurados antes de 
 |                           | Teste se os Content Cards são entregues e se as métricas são registradas. |
 |                           | Facilite o Conteúdo conectado (por exemplo, AccuWeather). |
 |                           | Confirme se todas as integrações de canais de envio de mensagens estão funcionando corretamente. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quality assurance #qa" }
 
 {% alert note %}
 Ao realizar o controle de qualidade na sua integração de SDK, use o [Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) para solucionar problemas sem ativar o registro detalhado para seu app.

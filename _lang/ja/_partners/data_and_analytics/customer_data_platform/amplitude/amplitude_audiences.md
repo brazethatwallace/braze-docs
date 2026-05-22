@@ -10,11 +10,11 @@ search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/amplitude-integration-with-braze){: style="float:right;width:120px;border:0;" class="noimgborder"}Amplitude {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomamplitude-integration-with-braze-stylefloatrightwidth120pxborder0-classnoimgborderamplitude}
 
 > [Amplitude](https://amplitude.com/) は製品分析およびビジネスインテリジェンスプラットフォームです。
 
-BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/)、ユーザー特性、およびイベントをBrazeにインポートし、将来のCampaignsやCanvasesでユーザーをターゲティングできるSegmentsを作成できます。また、Braze Currentsを利用して[BrazeイベントをAmplitudeにエクスポートし]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration)、製品データやマーケティングデータの詳細な分析を行うこともできます。
+BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import/)、ユーザー特性、およびイベントをBrazeにインポートし、将来のキャンペーンやキャンバスでユーザーをターゲティングできるセグメントを作成できます。また、Braze Currentsを利用して[BrazeイベントをAmplitudeにエクスポートし]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/#data-export-integration)、製品データやマーケティングデータの詳細な分析を行うこともできます。
 
 ## 前提条件 {#prerequisites}
 
@@ -22,7 +22,7 @@ BrazeとAmplitudeの双方向統合により、[Amplitudeコホート]({{site.ba
 |---|---|
 | Amplitudeアカウント | このパートナーシップを活用するには、[Amplitudeアカウント](https://amplitude.com/)が必要です。 |
 | Currents | Amplitudeにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合を選択する {#choose-an-integration}
 
@@ -40,7 +40,7 @@ AmplitudeとBrazeは2つの異なる統合方法を提供しています。以�
 | Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL][1]。エンドポイントはインスタンスのBraze URLに応じて異なります。 |
 | Brazeアプリ識別子 | Amplitudeイベントを受け取るアプリの識別子です。これは、**Brazeダッシュボード > 開発者コンソール > 設定**で確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitudeの設定 {#amplitude-setup}
 

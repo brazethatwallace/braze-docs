@@ -50,7 +50,7 @@ Sie können vordefinierte [Segmente]({{site.baseurl}}/user_guide/audience/segmen
 | Marketing-Aktivität | Segmentieren Sie Kund:innen basierend auf allgemeinem Verhalten wie letztem Engagement oder erhaltenen Kampagnen. |
 | Nutzerattribute | Segmentieren Sie Kund:innen nach ihren konstanten Attributen und Merkmalen. |
 | Install-Attribution | Segmentieren Sie Kund:innen nach ihrer ersten Quelle, Anzeigengruppe, Kampagne oder Anzeige. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Das „Wer“: Eine Entry-Zielgruppe auswählen" }
 
 ### Das „Warum“: Konversions-Events identifizieren {#the-why-identify-conversion-events}
 

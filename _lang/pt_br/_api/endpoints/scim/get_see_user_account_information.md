@@ -1,16 +1,16 @@
 ---
-nav_title: "OBTER: Procure uma conta de usuário de dashboard existente"
-article_title: "OBTER: Procurar uma Conta de Usuário de Dashboard Existente"
+nav_title: "GET: Procurar uma conta de usuário de dashboard existente"
+article_title: "GET: Procurar uma conta de usuário de dashboard existente"
 alias: /get_see_user_account_information/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint Braze para procurar o ID de recurso de uma conta de usuário existente no dashboard."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para procurar o ID de recurso de uma conta de usuário existente no dashboard."
 ---
 
 {% api %}
-# Pesquise uma conta de usuário existente no dashboard por ID de recurso
+# Procurar uma conta de usuário existente no dashboard por ID de recurso {#look-up-an-existing-dashboard-user-account-by-resource-id}
 {% apimethod get %}
 /scim/v2/Users/{id}
 {% endapimethod %}
@@ -19,29 +19,29 @@ description: "Este artigo descreve detalhes sobre o endpoint Braze para procurar
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem de seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning/).
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='look up dashboard user' %}
 
-## Parâmetros da jornada
+## Parâmetros de caminho {#path-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatória | String | A ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET` `/scim/v2/Users?filter=userName eq "user@test.com"`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `id` | Obrigatória | String | O ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET`  `/scim/v2/Users?filter=userName eq "user@test.com"`. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
-## Corpo da solicitação
+## Corpo da solicitação {#request-body}
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
 Authorization: Bearer YOUR-REST-API-KEY
 ```
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
@@ -49,7 +49,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 --header 'Authorization: Bearer YOUR-API-KEY-HERE' \
 ```
 
-## Resposta
+## Resposta {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],

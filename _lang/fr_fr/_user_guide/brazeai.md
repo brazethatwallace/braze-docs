@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## Aperçu des fonctionnalités {#feature-overview}
+
+| Votre objectif | Fonctionnalité recommandée |
+| --- | --- |
+| Personnaliser le texte des messages par utilisateur en fonction de son contexte | Agents Braze (Canvas ou catalogue) ; pour un brouillon ponctuel, IA générative |
+| Optimiser le contenu des messages (objet, CTA, etc.) qui fonctionne le mieux au fil du temps | Optimiseur de contenu (e-mail, notifications push ou SMS/MMS/RCS) ou variante gagnante |
+| Maximiser un indicateur métier (chiffre d'affaires, conversions) grâce à des décisions individualisées sur les offres, les canaux et le timing | Studio de prise de décision |
+| Identifier les utilisateurs susceptibles de se désengager ou d'effectuer un événement | Predictive Churn ou Predictive Events |
+| Recommander des produits spécifiques d'un catalogue dans les messages | Recommandations d'articles |
+| Envoyer au meilleur moment ou via le meilleur canal pour chaque utilisateur | Timing intelligent, canal intelligent |
+| Créer ou affiner le texte et les visuels directement dans le tableau de bord | IA générative (rédaction, images, QA), Operator pour vous accompagner |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }

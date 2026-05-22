@@ -31,8 +31,8 @@ No puedes usar claves reservadas como nombres de propiedades de eventos. Usar un
 | Propiedad | Clave reservada |
 | --- | --- |
 | Eventos personalizados | `time` y `event_name` |
-| Eventos de compra |`time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Eventos de compra | `time`, `product_id`, `quantity`, `event_name`, `price`, `currency` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Claves reservadas" }
 
 ## Uso de propiedades de eventos personalizados {#using-custom-event-properties}
 
@@ -40,7 +40,7 @@ Las propiedades de eventos personalizados pueden utilizarse para cualificar dese
 
 ### Desencadenar mensajes {#trigger-messages}
 
-Usa las propiedades de eventos personalizados para delimitar aún más tu audiencia para una campaña o Canvas en particular. Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario cuando abandona su carrito, puedes añadir una propiedad de evento personalizado de `price` para mejorar tu audiencia objetivo y permitir una mayor personalización de la campaña.
+Usa las propiedades de eventos personalizados para delimitar aún más tu audiencia para una Campaign o Canvas en particular. Por ejemplo, si tienes una aplicación de comercio electrónico y quieres enviar un mensaje a un usuario cuando abandona su carrito, puedes añadir una propiedad de evento personalizado de `price` para mejorar tu audiencia objetivo y permitir una mayor personalización de la campaña.
 
 ![Filtros de propiedades de eventos personalizados para un carrito abandonado. Dos filtros se combinan con un operador AND para enviar esta campaña a usuarios que abandonaron su carrito con un precio entre 100 y 200 dólares]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
@@ -86,8 +86,6 @@ Las propiedades de eventos para eventos personalizados se actualizan en tiempo r
 #### Añadir propiedades de eventos para segmentación {#adding-event-properties-for-segmentation}
 
 Necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/data/infrastructure/data_points/#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para crear segmentos basados en la recencia y frecuencia de propiedades de eventos.
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 De forma predeterminada, puedes tener 20 propiedades de eventos segmentables por espacio de trabajo. Ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 

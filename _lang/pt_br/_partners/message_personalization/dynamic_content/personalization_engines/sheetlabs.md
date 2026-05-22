@@ -21,7 +21,7 @@ A integração da Sheetlabs com a Braze permite que você use o [Conteúdo conec
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Sheetlabs | É necessário ter uma [conta Sheetlabs](https://sheetlabs.com/) para aproveitar essa parceria. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 

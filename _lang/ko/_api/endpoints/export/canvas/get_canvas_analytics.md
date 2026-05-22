@@ -39,7 +39,7 @@ description: "이 문서에서는 Canvas 데이터 시리즈 분석 내보내기
 | `include_variant_breakdown` | 선택 사항 | 부울 | 배리언트 통계를 포함할지 여부(기본값은 `false`).  |
 | `include_step_breakdown` | 선택 사항 | 부울 | 단계 통계를 포함할지 여부(기본값은 `false`). |
 | `include_deleted_step_data` | 선택 사항 | 부울 | 삭제된 단계에 대한 단계 통계를 포함할지 여부(기본값은 `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## 요청 예시 {#example-request}
 

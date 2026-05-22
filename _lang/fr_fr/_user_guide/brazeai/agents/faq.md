@@ -53,7 +53,7 @@ Si vous constatez que l'agent a du mal avec les tâches que vous lui demandez d'
 Un agent personnalisé peut expirer si :
 
 - Les instructions de l'agent sont incomplètes ou contradictoires
-- Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Impossible de personnaliser" »)
+- Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Could not personalize" »)
 - Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions de l'agent demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
 

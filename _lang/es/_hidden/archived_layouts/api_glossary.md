@@ -88,7 +88,7 @@ La respuesta de este punto de conexión incluye un campo para `email_template_id
 | `modified_before`  |  No | Cadena en ISO 8601 | Recupera solo las plantillas actualizadas a la hora indicada o antes. |
 | `limit` | No | Número positivo | Número máximo de plantillas a recuperar; predeterminado a 100 si no se proporciona, el valor máximo aceptable es 1000. |
 | `offset`  |  No | Número positivo | Número de plantillas que saltar antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `email_template_id`  | Sí | Cadena | El identificador de API de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `email_template_id`  | Sí | Cadena | El identificador de API de tu plantilla de correo electrónico. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 
@@ -278,7 +278,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | gender | (cadena) "M", "F", "O" (otro), "N" (no procede), "P" (prefiere no decirlo) o nil (desconocido). |
 | home_city | (cadena) |
 | image_url | (cadena) URL de la imagen que se asociará al perfil de usuario. |
-| language | (cadena) requerimos que el idioma se pase a Braze en la [norma ISO-639-1][24]. <br>[Lista de idiomas aceptados](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/)|
+| language | (cadena) requerimos que el idioma se pase a Braze en la [norma ISO-639-1][24]. <br>[Lista de idiomas aceptados](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
 | last_name | (cadena) |
 | marked_email_as_spam_at | (cadena) Fecha en la que el correo electrónico del usuario fue marcado como correo no deseado. Aparece en formato ISO 8601 o en formato yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
 | phone | (cadena) |
@@ -286,7 +286,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | push_tokens | Matriz de objetos con `app_id` y cadena `token`. Opcionalmente, puedes proporcionar un `device_id` para el dispositivo al que está asociado este token, por ejemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si no se proporciona un `device_id`, se generará uno aleatoriamente. |
 | time_zone | (cadena) Del nombre de la zona horaria de la [Base de datos de zonas horarias de IANA][26] (por ejemplo, "America/New_York" o "Eastern Time (US & Canada)"). Solo se establecerán los valores de zona horaria válidos. |
 | twitter | Hash que contiene cualquiera de `id` (entero), `screen_name` (cadena, identificador de X (antes Twitter)), `followers_count` (entero), `friends_count` (entero), `statuses_count` (entero). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
 
 {% endapi %}
 

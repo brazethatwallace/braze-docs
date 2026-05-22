@@ -16,7 +16,7 @@ RCS est un système d'envoi de messages moderne qui offre davantage de fonctionn
 | Composants visuels | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | - Nom de marque<br>- logo<br>- légende facultative<br> - badge vérifié | 4 à 6 semaines pour l'approbation de l'opérateur | Le débit et la distribution dépendent de la connexion de données active du destinataire (données mobiles ou Wi-Fi). Le RCS ne dépend pas des limites imposées par les réseaux fixes comme le font les SMS ; les messages RCS sont envoyés via des réseaux de données plutôt que via les canaux de signalisation cellulaire traditionnels utilisés par les SMS. | S.O. | Bidirectionnel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
 ##### Avantages et inconvénients {#pros-and-cons}
 
@@ -24,13 +24,13 @@ RCS est un système d'envoi de messages moderne qui offre davantage de fonctionn
 | ---- |
 | **Confiance et image de marque vérifiées**<br> Contrairement aux SMS traditionnels, où votre marque apparaît sous la forme d'un code court aléatoire à 5 chiffres ou d'un code long, le RCS permet de vérifier les profils des expéditeurs. Ces profils comprennent le logo et le nom de votre marque, ainsi qu'une coche « vérifié ». |
 | **Fonctionnalités d'envoi de messages enrichis**<br> RCS prend en charge les carrousels, les vidéos haute résolution et les boutons d'action suggérés (tels que « Réserver maintenant », « Suivre un colis » ou « Payer une facture »). Les utilisateurs peuvent accomplir des tâches complexes sans quitter leur application de messagerie, ce qui peut entraîner des taux de conversion plus élevés qu'un simple lien texte. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Inconvénients |
 | ---- |
 | **Prise en charge fragmentée**<br> Bien que Google ait fortement encouragé l'adoption du RCS pour Android et qu'Apple ait récemment introduit la prise en charge du RCS pour iOS, la mise en œuvre peut encore être inégale selon les opérateurs et les régions. Si le téléphone ou l'opérateur d'un utilisateur ne prend pas en charge le RCS, le message est généralement envoyé sous forme de SMS standard, perdant ainsi toutes les fonctionnalités avancées du RCS. |
 | **Incohérences entre plateformes**<br> L'expérience utilisateur RCS varie en fonction de l'opérateur du destinataire, du modèle d'appareil et de l'application de messagerie utilisée (par exemple, Google Messages ou iMessage). |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% tab SMS Short Codes %}
@@ -41,27 +41,27 @@ Un code court est un numéro à 5 ou 6 chiffres qui permet d'envoyer et de recev
 
 Certains pays vous permettent de choisir un numéro spécifique moyennant des frais supplémentaires. Ces codes courts sont appelés codes courts personnalisés. Si vous êtes intéressé par les codes courts personnalisés, contactez votre conseiller Braze pour plus de détails.
 
-##### Détails {#details}
+##### Détails
 
 | Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 5-6 chiffres | Demande de 4 à 12 semaines | 100 messages par seconde ou plus | Oui | Bidirectionnel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
-##### Avantages et inconvénients {#pros-and-cons}
+##### Avantages et inconvénients
 
 | Avantages |
 | ---- |
 | **Vitesse et évolutivité**<br> Les codes courts sont spécialement conçus pour les volumes de trafic élevés. Ils permettent d'envoyer des messages plus rapidement que les codes longs et, comme ils sont pré-vérifiés directement par les opérateurs, ils présentent le risque le plus faible d'être signalés par les filtres anti-spam automatisés. |
 | **Facilité de mémorisation pour les appels à l'action**<br> Pour les campagnes marketing (par exemple, « Envoyez WIN au 55555 »), un code court est beaucoup plus facile à mémoriser et à saisir pour les utilisateurs qu'un numéro à 10 chiffres. Cela fait des codes courts la référence absolue pour les publicités à la radio, à la télévision et sur les panneaux d'affichage, où l'utilisateur ne dispose que de quelques secondes pour voir ou entendre le numéro. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Inconvénients |
 | ---- |
 | **Les codes courts sont disponibles dans moins de pays**<br> Les codes courts ne sont pas disponibles dans tous les pays. Contactez votre équipe de compte Braze pour obtenir des informations sur les pays dans lesquels vous envisagez d'envoyer des messages. |
 | **Processus de demande plus long**<br> Contrairement aux codes longs et aux ID alphanumériques, qui peuvent parfois être provisionnés en 1 à 2 semaines, un code court peut nécessiter 4 à 12 semaines, voire plus, pour être mis à disposition. Chaque opérateur majeur doit approuver manuellement votre demande spécifique avant que le code ne soit activé sur son réseau. Si vous avez un lancement marketing prévu la semaine prochaine, un code court n'est pas une option envisageable. |
 | **Coût plus élevé**<br> Les codes courts sont généralement le type d'expéditeur le plus coûteux en raison des frais de configuration et de location annuels. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% tab SMS Long Codes %}
@@ -70,26 +70,26 @@ Certains pays vous permettent de choisir un numéro spécifique moyennant des fr
 
 Un code long est un numéro de téléphone standard utilisé pour envoyer et recevoir des messages SMS. Ces numéros de téléphone sont généralement appelés « codes longs » (numéros à 10 chiffres dans de nombreux pays) par opposition aux codes courts SMS (numéros à 5 ou 6 chiffres).
 
-##### Détails {#details}
+##### Détails
 
 | Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 10 chiffres | Demande de 4 à 6 semaines (peut être plus courte ou plus longue selon les pays) | Aux États-Unis, le débit des codes longs dépend de votre score de confiance 10DLC ; sur les marchés internationaux, le débit peut varier ou augmenter dans certaines circonstances, mais il commence généralement autour de 10 segments de message par seconde (MPS). | Oui | Bidirectionnel (en fonction de l'endroit où vous envoyez) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
-##### Avantages et inconvénients {#pros-and-cons}
+##### Avantages et inconvénients
 
 | Avantages |
 | ---- |
 | **Familiarité et confiance**<br> Les codes longs ressemblent à des numéros de téléphone personnels et comprennent souvent un indicatif régional. Pour les marques, cela représente un équilibre entre une présence professionnelle et une image personnelle et accessible. |
 | **Une plus grande disponibilité dans le monde entier**<br>Les codes longs sont disponibles dans plus de 100 grands pays à travers le monde. Contactez votre gestionnaire de la satisfaction client ou l'[assistance Braze]({{site.baseurl}}/braze_support/) pour obtenir la liste des pays disponibles.|
-{: .reset-td-br-1}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Inconvénients |
 | --- |
 | **Vitesses d'envoi réduites et limites quotidiennes d'envoi de messages**<br> Les codes longs ne sont pas conçus pour le marketing de masse comme le sont les codes courts. Si vous essayez d'envoyer une offre promotionnelle limitée dans le temps à 100 000 personnes à la fois à partir d'un code long, la distribution de tous les messages pourrait prendre plusieurs heures. Aux États-Unis, des opérateurs tels que T-Mobile peuvent également imposer des limites quotidiennes d'envoi pour les numéros 10DLC en fonction du score de confiance associé à votre marque. |
 | **Risque de filtrage plus strict**<br> Étant donné que les codes longs ressemblent à des numéros de téléphone personnels, les opérateurs les surveillent de près afin d'empêcher que les numéros « de personne à personne » ne soient utilisés à des fins de spam. Même avec une campagne 10DLC enregistrée, si le contenu de votre message est trop « spammeur » ou ne respecte pas un formatage strict, vous courez un risque beaucoup plus élevé d'être bloqué par les opérateurs qu'avec un code court préapprouvé. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% tab SMS Alphanumeric Sender ID %}
@@ -100,19 +100,19 @@ Un ID alphanumérique de l'expéditeur (souvent appelé « alpha ») est une cha
 
 Ils peuvent comporter jusqu'à 11 caractères et contenir des lettres majuscules (A-Z) et minuscules (a-z), des espaces et des chiffres (0-9). Ils **ne peuvent pas** contenir uniquement des chiffres.
 
-##### Détails {#details}
+##### Détails
 
 | Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | Jusqu'à 11 caractères | Disponible immédiatement si aucune préinscription n'est requise. Dans la plupart des pays où l'enregistrement est obligatoire, le délai est généralement de 1 à 4 semaines. | Varie selon le pays | Non | Unidirectionnel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
-##### Avantages et inconvénients {#pros-and-cons}
+##### Avantages et inconvénients
 
 | Avantages | Inconvénients |
 | ---- | ---- |
 | {::nomarkdown} <ul><li> Reconnaissance accrue de la marque </li><li> Sur de nombreux marchés internationaux, les opérateurs locaux préenregistrent et vérifient les expéditeurs alphanumériques afin que vos messages soient moins susceptibles d'être interceptés par les filtres anti-spam agressifs des opérateurs, qui pourraient autrement bloquer les codes longs aléatoires. </li><li> Disponible sous une semaine si aucune préinscription n'est requise. </li></ul> {:/} | {::nomarkdown} <ul><li> L'<a href='/docs/user_guide/message_building_by_channel/sms/keywords/#two-way-messaging-custom-keyword-responses/'>envoi de messages bidirectionnel</a> n'est pas pris en charge. </li><li> Cette fonctionnalité n'est pas disponible dans tous les pays. Par exemple, elle est prise en charge au Royaume-Uni, mais bloquée aux États-Unis. </li><li> Certains pays ont mis en place un processus de préinscription complexe qui nécessite la soumission de documents juridiques et des délais plus longs. </li></ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pros and cons" }
 
 Pour plus d'informations sur les ID alphanumériques de l'expéditeur, contactez votre gestionnaire de la satisfaction client.
 {% endtab %}
@@ -122,26 +122,26 @@ Pour plus d'informations sur les ID alphanumériques de l'expéditeur, contactez
 
 Les numéros gratuits ont des indicatifs régionaux distincts à trois chiffres (par exemple, 800, 888, 877 et 866), ce qui permet aux utilisateurs de joindre les entreprises sans frais. Largement utilisés pour le service client, ils peuvent également traiter tous les types d'envoi de messages A2P (application-to-person), y compris le marketing.
 
-##### Détails {#details}
+##### Détails
 
 | Longueur | Accès | Débit | MMS activé | Unidirectionnel ou bidirectionnel |
 | --- | --- | --- | --- | --- |
 | 10 chiffres	 | Demande de 2 à 4 semaines | Commence à 3 MPS (segments par seconde), possibilité d'augmentation moyennant des frais supplémentaires | Oui | Bidirectionnel |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Details" }
 
-##### Avantages et inconvénients {#pros-and-cons}
+##### Avantages et inconvénients
 
 | Avantages |
 | ---- |
 | **Image professionnelle**<br> Les numéros gratuits sont largement reconnus et appréciés en Amérique du Nord pour les communications professionnelles, conférant une image professionnelle et sérieuse. |
 | **Débit flexible ; aucune limite d'envoi par opérateur**<br> Contrairement aux codes longs standard, qui peuvent être soumis à des limites de débit ou d'envoi par opérateur selon le pays, les numéros gratuits peuvent bénéficier d'un débit accru pour prendre en charge des volumes plus importants et ne sont soumis à aucune limite quotidienne d'envoi par opérateur aux États-Unis.|
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Inconvénients |
 | --- |
 | **Caractère impersonnel et neutralité géographique**<br> Étant donné que les numéros gratuits ne comportent pas d'indicatif régional, ils peuvent paraître trop « corporate » ou anonymes. Pour une entreprise de services locale, un numéro gratuit peut être moins performant qu'un code long standard, car il manque de lien avec la communauté et peut parfois être confondu avec une ligne de télémarketing aléatoire. |
 | **Couche supplémentaire de filtrage STOP**<br> Les numéros gratuits comportent une couche de gestion des désabonnements en dehors de Braze qui ne peut être ni supprimée ni personnalisée. Lorsqu'un utilisateur envoie « STOP » par SMS à votre numéro gratuit, il est désabonné de tout envoi de messages ultérieur depuis votre numéro et reçoit une réponse automatique générée par le réseau. Il ne recevra plus de messages de votre numéro gratuit tant qu'il n'aura pas envoyé « START » pour être retiré de la liste de blocage du numéro gratuit. |
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="Pros and cons" }
 
 {% endtab %}
 {% endtabs %}
@@ -153,7 +153,7 @@ Les exigences de configuration et les délais varient selon le type d'expéditeu
 {% tabs local %}
 {% tab RCS-verified sender %}
 
-### Expéditeur vérifié RCS {#rcs-verified-sender}
+### Expéditeur vérifié RCS
 
 Les expéditeurs vérifiés RCS sont provisionnés pays par pays. Le processus de vérification et de configuration se concentre sur votre agent ou expéditeur, c'est-à-dire le personnage numérique qui interagit avec les utilisateurs. Vous fournirez les ressources de marque et les détails de vérification.
 
@@ -175,7 +175,7 @@ Les délais de mise en œuvre du RCS varient selon les pays et à mesure que de 
 {% endtab %}
 {% tab SMS short codes %}
 
-### Codes courts SMS {#sms-short-codes}
+### Codes courts SMS
 
 Les codes courts sont provisionnés pays par pays. Selon le pays, le processus de demande de code court est réputé pour son caractère imprévisible. Braze est là pour vous accompagner à chaque étape. Si vous souhaitez obtenir un code court, contactez votre gestionnaire d'onboarding ou un autre conseiller Braze.
 
@@ -187,7 +187,7 @@ Braze vous aidera à rassembler tous les documents et informations nécessaires 
 | Conditions générales | Les conditions générales complètes peuvent être présentées intégralement sous l'appel à l'action ou accessibles via un lien situé à proximité de l'appel à l'action. | {::nomarkdown}<ul><li>Nom du programme (marque)</li><li>Mention de la fréquence des messages</li><li>Description du produit</li><li>Coordonnées du service client</li><li>Informations relatives à la désinscription</li><li>Mention « Des frais de messages et de données peuvent s'appliquer ».</li></ul>{:/} |
 | Flux des messages | Les programmes d'envoi de messages récurrents doivent confirmer l'abonnement par un seul SMS indiquant explicitement le programme auquel l'utilisateur s'est inscrit et fournir des instructions claires pour se désabonner.<br><br> Braze traite les messages d'abonnement, de désinscription et d'aide, mettant automatiquement à jour le statut du groupe d'abonnement pour l'utilisateur et son numéro de téléphone associé sur toutes les demandes entrantes.<br><br> Notez que ces mots-clés et réponses par défaut sont également personnalisables. | {::nomarkdown}<ul><li>Confirmation d'abonnement :<ul><li>Nom du programme (marque) OU description du produit</li><li>Informations relatives à la désinscription</li><li>Coordonnées du service client</li><li>Mention de la fréquence des messages</li><li>Mention « Des frais de messages et de données peuvent s'appliquer ».</li></ul></li><li>Réponse HELP :<ul><li>Nom du programme (marque) OU description du produit</li><li>Coordonnées du service client (adresse e-mail ou numéro de téléphone).</li></ul></li><li>Réponse de désinscription (STOP) :<ul><li>Nom du programme (marque) OU description du produit</li><li>Confirmation qu'aucun autre message ne sera envoyé.</li></ul></li></ul>{:/} |
 | Messages du programme | Les messages du programme sont envoyés dans le cadre normal du programme de code court, après que l'utilisateur a reçu une confirmation d'abonnement. | {::nomarkdown}<ul><li>Les instructions relatives à la désinscription doivent être fournies à intervalles réguliers et au moins une fois par mois.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS short codes" }
 
 Une fois tous vos documents de candidature prêts, Braze soumet la demande à nos fournisseurs en votre nom. La demande est ensuite examinée et approuvée par les opérateurs locaux, qui peuvent fournir des commentaires supplémentaires ou demander des informations complémentaires. Une fois que tous les opérateurs ont donné leur accord, vous pouvez immédiatement configurer le code court pour l'utiliser dans Braze.
 
@@ -230,7 +230,7 @@ Tous les clients qui possèdent et/ou utilisent actuellement des codes longs am�
 {% endtab %}
 {% tab SMS alphanumeric sender ID %}
 
-### ID alphanumérique de l'expéditeur SMS {#sms-alphanumeric-sender-id}
+### ID alphanumérique de l'expéditeur SMS
 
 Les ID alphanumériques des expéditeurs sont soumis à une réglementation stricte, car ils peuvent être facilement usurpés à des fins d'hameçonnage. Bien que certains pays autorisent toute personne à créer et à envoyer des messages à partir d'un nom, dans de nombreux pays, vous devez d'abord prouver que vous êtes propriétaire de la marque.
 

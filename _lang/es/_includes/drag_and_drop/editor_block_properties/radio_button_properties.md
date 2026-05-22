@@ -11,4 +11,4 @@
 | Alineación | Alineación horizontal de las opciones dentro del bloque. |
 | Color de acento | Color utilizado para los controles de botón de opción (como el indicador de estado seleccionado). |
 | Relleno | Espaciado alrededor del bloque. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }

@@ -1,30 +1,30 @@
 ---
-nav_title: "POST:セグメンテーションによる輸出キャンセル"
-article_title: "POST:セグメンテーションによる輸出キャンセル"
+nav_title: "POST: セグメントによるエクスポートのキャンセル"
+article_title: "POST: セグメントによるエクスポートのキャンセル"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、セグメンテーション・エンドポイントによるキャンセル・エクスポートの詳細について概説する。"
+description: "この記事では、セグメントによるエクスポートのキャンセル Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# セグメンテーションによる輸出キャンセル
+# セグメントによるエクスポートのキャンセル {#cancel-exports-by-segment}
 {% apimethod post %}
-/輸出/セグメンテーション/キャンセル
+/export/segment/cancel
 {% endapimethod %}
 
-> このエンドポイントを使用して、指定されたセグメンテーションIDで進行中のすべてのエクスポートをキャンセルする。
+> このエンドポイントを使用して、指定されたセグメント IDで進行中のすべてのエクスポートをキャンセルします。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`segments.list`の権限が必要です。
+このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -37,14 +37,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `segment_id` | 必須 | string | `segment_id` 現在進行中の輸出をキャンセルする。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `segment_id` | 必須 | 文字列 | 進行中のエクスポートをキャンセルするための `segment_id`。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/cancel' \
 --header 'Content-Type: application/json' \
@@ -55,4 +55,3 @@ curl --location --request POST 'https://rest.iad-01.braze.com/export/segment/can
 ```
 
 {% endapi %}
-

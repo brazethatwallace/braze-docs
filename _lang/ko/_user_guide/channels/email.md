@@ -36,7 +36,7 @@ Braze로 이메일을 보내려면 먼저 전용 IP, 도메인, 이메일 인증
 | 멀티미디어 콘텐츠 | 동영상, 이미지 등 사용자의 참여를 유도하는 멀티미디어 콘텐츠를 쉽게 배치할 수 있습니다. |
 | 뉴스레터 | 월간 또는 주간 뉴스레터를 편리하게 전송하여 사용자 참여를 유지하세요. |
 | 트랜잭션 | [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)을 통해 최근 구매 내역을 사용자에게 알리고 중요한 제품 및 배송 정보를 전달하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Use cases" }
 
 ## 이메일 서비스 {#email-services}
 

@@ -53,13 +53,13 @@ Tabelle | Beschreibung
 [USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | Wenn ein:e Nutzer:in den News Feed aufruft
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | Wenn ein:e Nutzer:in eine Sitzung in einer App beendet
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | Wenn ein:e Nutzer:in eine Sitzung in einer App beginnt
-[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | Wenn ein:e Nutzer:in einen Geofence-Bereich auslöst – z. B. durch Betreten oder Verlassen eines Geofence. Dieses Ereignis wird mit anderen Ereignissen gebündelt und über den Standard-Ereignis-Endpunkt empfangen, sodass es möglicherweise nicht in Echtzeit erscheint.<br><br>Um Geofence-Aktivitäten in dieser Tabelle zu protokollieren, wählen Sie in den erweiterten Einstellungen jedes Geofence **Enable Analytics for Enter** und **Enable Analytics for Exit** aus. Weitere Informationen finden Sie in Schritt 3 unter [Geofences manuell erstellen]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences).
-[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | Wenn ein:e Nutzer:in einen Geofence-Bereich auslöst (z. B. beim Betreten oder Verlassen eines Geofence). Dieses Ereignis wurde über den dedizierten Geofence-Endpunkt empfangen und wird daher in Echtzeit erfasst, sobald das Gerät der/des Nutzer:in erkennt, dass ein Geofence ausgelöst wurde. <br><br>Aufgrund von Rate-Limiting am Geofence-Endpunkt ist es außerdem möglich, dass einige Geofence-Ereignisse nicht als RecordEvent abgebildet werden. Alle Geofence-Ereignisse werden jedoch durch DataEvent repräsentiert (allerdings möglicherweise mit einer gewissen Verzögerung durch Batching).
-[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Wenn sich ein Push-to-Start-Token einer Live Activity ändert
-[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Wenn sich ein Update-Token einer Live Activity ändert
+[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | Wenn ein:e Nutzer:in einen Geofence-Bereich auslöst – zum Beispiel durch Betreten oder Verlassen eines Geofence. Dieses Ereignis wird zusammen mit anderen Ereignissen gebündelt und über den Standard-Events-Endpunkt empfangen, sodass es möglicherweise nicht in Echtzeit erscheint.<br><br>Um Geofence-Aktivitäten in dieser Tabelle zu protokollieren, wählen Sie **Enable Analytics for Enter** und **Enable Analytics for Exit** in den erweiterten Einstellungen für jeden Geofence. Weitere Details finden Sie in Schritt 3 unter [Geofences manuell erstellen]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences).
+[USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | Wenn ein:e Nutzer:in einen Geofence-Bereich auslöst (zum Beispiel beim Betreten oder Verlassen eines Geofence). Dieses Ereignis wurde über den dedizierten Geofence-Endpunkt empfangen und wird daher in Echtzeit erfasst, sobald das Gerät der/des Nutzer:in erkennt, dass ein Geofence ausgelöst wurde. <br><br>Aufgrund von Rate-Limiting am Geofence-Endpunkt ist es außerdem möglich, dass einige Geofence-Ereignisse nicht als RecordEvent abgebildet werden. Alle Geofence-Ereignisse werden jedoch durch DataEvent repräsentiert (allerdings möglicherweise mit einer gewissen Verzögerung durch Bündelung).
+[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Wenn sich ein Live-Activity-Push-to-Start-Token ändert
+[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Wenn sich ein Live-Activity-Update-Token ändert
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | Wenn sich der Status eines Push-Benachrichtigungs-Tokens ändert
 [USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED) | Wenn ein:e Nutzer:in global für einen Kanal wie E-Mail abonniert oder abgemeldet wird
-[USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | Wenn ein:e Nutzer:in für eine Abo-Gruppe abonniert oder abgemeldet wird
+[USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | Wenn ein:e Nutzer:in eine Abo-Gruppe abonniert oder sich davon abmeldet
 [USERS_CAMPAIGNS_CONVERSION_SHARED](#USERS_CAMPAIGNS_CONVERSION_SHARED) | Wenn ein:e Nutzer:in für eine Campaign konvertiert
 [USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED](#USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED) | Wenn ein:e Nutzer:in in die Kontrollgruppe einer Campaign aufgenommen wird
 [USERS_CAMPAIGNS_FREQUENCYCAP_SHARED](#USERS_CAMPAIGNS_FREQUENCYCAP_SHARED) | Wenn ein:e Nutzer:in für eine Campaign ein Frequency Cap erreicht
@@ -101,18 +101,18 @@ Tabelle | Beschreibung
 [USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED) | Wenn eine LINE-Nachricht von einer/einem Nutzer:in empfangen wird
 [USERS_MESSAGES_LINE_SEND_SHARED](#USERS_MESSAGES_LINE_SEND_SHARED) | Wenn eine LINE-Nachricht an LINE gesendet wird
 [USERS_MESSAGES_LINE_RETRY_SHARED](#USERS_MESSAGES_LINE_RETRY_SHARED) | Wenn eine LINE-Nachricht nach Herabstufung der Priorität oder Frequency Capping erneut versucht wird (**nur Snowflake-Datenfreigabe**)
-[USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Wenn eine Live Activity ein Ergebnis-Ereignis hat
+[USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED](#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED) | Wenn eine Live Activity ein Ergebnis-Event hat
 [USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED](#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED) | Wenn eine Live-Activity-Nachricht gesendet wird
 [USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED) | Eine ursprünglich geplante Newsfeed-Karten-Nachricht wurde aus einem bestimmten Grund abgebrochen
-[USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | Wenn ein:e Nutzer:in auf eine News-Feed-Karte klickt
-[USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | Wenn ein:e Nutzer:in eine News-Feed-Karte sieht
+[USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED) | Wenn ein:e Nutzer:in auf eine Newsfeed-Karte klickt
+[USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED](#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED) | Wenn ein:e Nutzer:in eine Newsfeed-Karte sieht
 [USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED) | Eine ursprünglich geplante Push-Benachrichtigung wurde aus einem bestimmten Grund abgebrochen.
 [USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED) | Wenn eine Push-Benachrichtigung einen Bounce verursacht
 [USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED) | Wenn ein:e Nutzer:in die App öffnet, nachdem eine Benachrichtigung empfangen wurde, ohne auf die Benachrichtigung zu klicken
 [USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED) | Wenn ein:e Nutzer:in eine Push-Benachrichtigung erhält, während die App geöffnet ist. <br><br>Dieses Ereignis wird vom [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist im [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) veraltet.
-[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | Wenn ein:e Nutzer:in eine Push-Benachrichtigung öffnet oder auf einen Push-Benachrichtigungs-Button klickt (einschließlich eines CLOSE-Buttons, der die App NICHT öffnet). <br><br> Push-Button-Aktionen haben mehrere Ergebnisse. „No“-, „Decline“- und „Cancel“-Aktionen sind „Klicks“, und „Accept“-Aktionen sind „Öffnungen“. Beide werden in dieser Tabelle dargestellt, können aber über die Spalte **BUTTON_ACTION_TYPE** unterschieden werden. Beispielsweise kann eine Abfrage verwendet werden, um nach einem `BUTTON_ACTION_TYPE` zu gruppieren, der nicht „No“, „Decline“ oder „Cancel“ ist.
+[USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED) | Wenn ein:e Nutzer:in eine Push-Benachrichtigung öffnet oder auf einen Push-Benachrichtigungs-Button klickt (einschließlich eines CLOSE-Buttons, der die App NICHT öffnet). <br><br> Push-Button-Aktionen haben mehrere Ergebnisse. „No“-, „Decline“- und „Cancel“-Aktionen sind „Klicks“, und „Accept“-Aktionen sind „Öffnungen“. Beide werden in dieser Tabelle dargestellt, können aber über die Spalte **BUTTON_ACTION_TYPE** unterschieden werden. Zum Beispiel kann eine Abfrage verwendet werden, um nach einem `BUTTON_ACTION_TYPE` zu gruppieren, der nicht „No“, „Decline“ oder „Cancel“ ist.
 [USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED](#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED) | Wenn wir eine Push-Benachrichtigung an eine:n Nutzer:in senden
-[USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Wenn ein RCS-Versand aufgrund eines innerhalb von Braze erkannten Fehlers unterbrochen und die Nachricht verworfen wird
+[USERS_MESSAGES_RCS_ABORT_SHARED](#USERS_MESSAGES_RCS_ABORT_SHARED) | Wenn ein RCS-Versand aufgrund eines innerhalb von Braze erkannten Fehlers unterbrochen wird und die Nachricht verworfen wird
 [USERS_MESSAGES_RCS_CLICK_SHARED](#USERS_MESSAGES_RCS_CLICK_SHARED) | Wenn die/der Endnutzer:in mit einer RCS-Nachricht interagiert, indem auf ein UI-Element getippt oder geklickt wird
 [USERS_MESSAGES_RCS_DELIVERY_SHARED](#USERS_MESSAGES_RCS_DELIVERY_SHARED) | Wenn eine RCS-Nachricht erfolgreich an das Mobilgerät der/des Endnutzer:in zugestellt wird
 [USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED](#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED) | Wenn Braze eine RCS-Nachricht empfängt, die von der/dem Endnutzer:in stammt
@@ -189,7 +189,7 @@ Feld | Typ | Beschreibung
 `output` | `null,`&nbsp;`string` | [PII] Antwort vom LLM
 `invocation_source` | `null,`&nbsp;`string` | Welches Ruby-Objekt die LLM-Anfrage ausgelöst hat
 `sf_created_at` | `timestamp`,&nbsp;`null` | Wann dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLEAGENTEXECUTEDSHARED #AGENTCONSOLEAGENTEXECUTEDSHARED" }
 
 ### AGENTCONSOLE_RAWLLMREQUEST_SHARED {#AGENTCONSOLE_RAWLLMREQUEST_SHARED}
 
@@ -209,7 +209,7 @@ Feld | Typ | Beschreibung
 `http_status_code` | `int`,&nbsp;`null` | HTTP-Statuscode der Antwort
 `response_body` | `string`,&nbsp;`null` | [PII] Antwort vom LLM
 `sf_created_at` | `timestamp`,&nbsp;`null` | Wann dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLERAWLLMREQUESTSHARED #AGENTCONSOLERAWLLMREQUESTSHARED" }
 
 ### AGENTCONSOLE_TOOLINVOCATION_SHARED {#AGENTCONSOLE_TOOLINVOCATION_SHARED}
 
@@ -227,7 +227,7 @@ Feld | Typ | Beschreibung
 `tool_arguments` | `null,`&nbsp;`string` | [PII] JSON der Tool-Argumente
 `invocation_source` | `null,`&nbsp;`string` | Welches Ruby-Objekt die LLM-Anfrage ausgelöst hat
 `sf_created_at` | `timestamp`,&nbsp;`null` | Wann dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="AGENTCONSOLETOOLINVOCATIONSHARED #AGENTCONSOLETOOLINVOCATIONSHARED" }
 
 ## Nutzerprofil-Attributansichten {#user-profile-attribute-views}
 
@@ -238,11 +238,12 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID des Workspace
 `app_id` | `string` | BSON-ID der App
 `user_id` | `string` | [PII] Braze-Nutzer-ID
-`time` | `int` | UNIX-Zeitstempel der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time` | `int` | UNIX-Zeitstempel in Sekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time_ms` | `int` | UNIX-Zeitstempel in Millisekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
 `update_source` | `string` | Quelle der Profilaktualisierung
 `sf_updated_at` | `timestamp` | Wann diese Zeile in Snowflake aktualisiert wurde
 `custom_attributes` | `variant` | [PII] Angepasste Attribute als JSON-Objekt
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERCUSTOMATTRIBUTESVIEWSHARED #USERCUSTOMATTRIBUTESVIEWSHARED" }
 
 ### USER_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED}
 
@@ -251,21 +252,22 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID des Workspace
 `app_id` | `string` | BSON-ID der App
 `user_id` | `string` | [PII] Braze-Nutzer-ID
-`time` | `int` | UNIX-Zeitstempel der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time` | `int` | UNIX-Zeitstempel in Sekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time_ms` | `int` | UNIX-Zeitstempel in Millisekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
 `update_source` | `string` | Quelle der Profilaktualisierung
 `sf_updated_at` | `timestamp` | Wann diese Zeile in Snowflake aktualisiert wurde
-`external_id` | `string` | [PII] Externe ID der/des Nutzer:in
+`external_user_id` | `string` | [PII] Externe ID der/des Nutzer:in
 `first_name` | `string` | [PII] Vorname
 `last_name` | `string` | [PII] Nachname
-`email` | `string` | [PII] E-Mail-Adresse
+`email_address` | `string` | [PII] E-Mail-Adresse
 `gender` | `string` | [PII] Geschlecht
-`phone` | `string` | [PII] Telefonnummer
+`phone_number` | `string` | [PII] Telefonnummer
 `dob` | `string` | [PII] Geburtsdatum
-`time_zone` | `string` | [PII] Zeitzone
+`timezone` | `string` | [PII] Zeitzone
 `home_city` | `string` | [PII] Wohnort
 `country` | `string` | [PII] Land
 `language` | `string` | [PII] Sprache
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESVIEWSHARED #USERDEFAULTATTRIBUTESVIEWSHARED" }
 
 ### USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED}
 
@@ -274,23 +276,24 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID des Workspace
 `user_id` | `string` | [PII] Braze-Nutzer-ID
 `app_id` | `string` | BSON-ID der App
-`time` | `int` | UNIX-Zeitstempel der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time` | `int` | UNIX-Zeitstempel in Sekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time_ms` | `int` | UNIX-Zeitstempel in Millisekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
 `update_source` | `string` | Quelle der Profilaktualisierung
 `sf_updated_at` | `timestamp` | Wann diese Zeile in Snowflake aktualisiert wurde
-`external_id` | `string` | [PII] Externe ID der/des Nutzer:in
+`external_user_id` | `string` | [PII] Externe ID der/des Nutzer:in
 `first_name` | `string` | [PII] Vorname
 `last_name` | `string` | [PII] Nachname
-`email` | `string` | [PII] E-Mail-Adresse
+`email_address` | `string` | [PII] E-Mail-Adresse
 `gender` | `string` | [PII] Geschlecht
-`phone` | `string` | [PII] Telefonnummer
+`phone_number` | `string` | [PII] Telefonnummer
 `dob` | `string` | [PII] Geburtsdatum
-`time_zone` | `string` | [PII] Zeitzone
+`timezone` | `string` | [PII] Zeitzone
 `home_city` | `string` | [PII] Wohnort
 `country` | `string` | [PII] Land
 `language` | `string` | [PII] Sprache
 `eff_dt` | `timestamp` | Beginn des Intervalls, in dem dieser Attributstatus aktuell war
 `end_dt` | `timestamp` | Ende dieses Intervalls
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERDEFAULTATTRIBUTESHISTORYVIEWSHARED #USERDEFAULTATTRIBUTESHISTORYVIEWSHARED" }
 
 ### USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED {#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED}
 
@@ -299,21 +302,22 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID des Workspace
 `app_id` | `string` | BSON-ID der App
 `user_id` | `string` | [PII] Braze-Nutzer-ID
-`time` | `int` | UNIX-Zeitstempel der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time` | `int` | UNIX-Zeitstempel in Sekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
+`time_ms` | `int` | UNIX-Zeitstempel in Millisekunden der Profilaktualisierung (bei nachträglich aufgefüllten Zeilen der Zeitpunkt der Auffüllung)
 `update_source` | `string` | Quelle der Profilaktualisierung
 `sf_updated_at` | `timestamp` | Wann diese Zeile in Snowflake aktualisiert wurde
-`external_id` | `string` | [PII] Externe ID der/des Nutzer:in
+`external_user_id` | `string` | [PII] Externe ID der/des Nutzer:in
 `first_name` | `string` | [PII] Vorname
 `last_name` | `string` | [PII] Nachname
-`email` | `string` | [PII] E-Mail-Adresse
+`email_address` | `string` | [PII] E-Mail-Adresse
 `gender` | `string` | [PII] Geschlecht
-`phone` | `string` | [PII] Telefonnummer
+`phone_number` | `string` | [PII] Telefonnummer
 `dob` | `string` | [PII] Geburtsdatum
 `home_city` | `string` | [PII] Wohnort
 `country` | `string` | [PII] Land
 `language` | `string` | [PII] Sprache
-`time_zone` | `string` | [PII] Zeitzone
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`timezone` | `string` | [PII] Zeitzone
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ## Kataloge {#catalogs}
 
@@ -327,7 +331,7 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe
 `field_name` | `null,`&nbsp;`string` | Name des Feldes
 `field_value` | `null,`&nbsp;`string` | Wert des Feldes
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CATALOGSITEMSSHARED #CATALOGSITEMSSHARED" }
 
 ## Changelogs {#changelogs}
 
@@ -343,7 +347,7 @@ Feld | Typ | Beschreibung
 `global_control_group` | `null, boolean` | Mit dieser Änderung ist die Bucket-Nummer in der Globalen Kontrollgruppe enthalten
 `previous_global_control_group` | `null, boolean` | Vor dieser Änderung war die Bucket-Nummer in der Globalen Kontrollgruppe enthalten, ist es aber nicht mehr
 `sf_created_at` | `timestamp`,&nbsp;`null` | Wann dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSGLOBALCONTROLGROUPSHARED #CHANGELOGSGLOBALCONTROLGROUPSHARED" }
 
 ### CHANGELOGS_CAMPAIGN_SHARED {#CHANGELOGS_CAMPAIGN_SHARED}
 
@@ -360,7 +364,7 @@ Feld | Typ | Beschreibung
 `name` | `null,`&nbsp;`string` | Name der Campaign
 `conversion_behaviors` | `null,`&nbsp;`string` | Konversionsverhalten für die Campaign
 `actions` | `null,`&nbsp;`string` | Aktionen für die Campaign
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSCAMPAIGNSHARED #CHANGELOGSCAMPAIGNSHARED" }
 
 ### CHANGELOGS_CANVAS_SHARED {#CHANGELOGS_CANVAS_SHARED}
 
@@ -377,7 +381,7 @@ Feld | Typ | Beschreibung
 `name` | `null,`&nbsp;`string` | Name des Canvas
 `conversion_behaviors` | `null,`&nbsp;`string` | Konversionsverhalten für den Canvas
 `variations` | `null,`&nbsp;`string` | Varianten für den Canvas
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CHANGELOGSCANVASSHARED #CHANGELOGSCANVASSHARED" }
 
 ## Verhalten {#behaviors}
 
@@ -401,13 +405,13 @@ Feld | Typ | Beschreibung
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `name` | `string` | Name des angepassten Events
-`properties` | `string` | Angepasste Eigenschaften des Events, gespeichert als JSON-codierter String
+`properties` | `string` | Angepasste Eigenschaften des Ereignisses, gespeichert als JSON-codierter String
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von `ios_idfa`, `google_ad_id`, `windows_ad_id` ODER `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSCUSTOMEVENTSHARED #USERSBEHAVIORSCUSTOMEVENTSHARED" }
 
 ### USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED {#USERS_BEHAVIORS_INSTALLATTRIBUTION_SHARED}
 
@@ -422,25 +426,25 @@ Feld | Typ | Beschreibung
 `source` | `string` | Quelle der Attribution
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSINSTALLATTRIBUTIONSHARED #USERSBEHAVIORSINSTALLATTRIBUTIONSHARED" }
 
 ### USERS_BEHAVIORS_LOCATION_SHARED {#USERS_BEHAVIORS_LOCATION_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`user_id` | `string` | Braze-ID der Nutzer:in, die den Standort erfasst
+`user_id` | `string` | Braze-ID der Nutzer:in, die den Standort aufzeichnet
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzer:in
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzer:in gehört
-`app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieser Standort erfasst wurde
-`time` | `int` | Unix-Zeitstempel, zu dem der Standort erfasst wurde
-`latitude` | `float` | [PII] Breitengrad des erfassten Standorts
-`longitude` | `float` | [PII] Längengrad des erfassten Standorts
-`altitude` | `null, float` | [PII] Höhe des erfassten Standorts
-`ll_accuracy` | `null, float` | Genauigkeit von Breiten- und Längengrad des erfassten Standorts
-`alt_accuracy` | `null, float` | Höhengenauigkeit des erfassten Standorts
-`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem der Standort erfasst wurde
-`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die bei der Standorterfassung verwendet wurde
+`app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieser Standort aufgezeichnet wurde
+`time` | `int` | Unix-Zeitstempel, zu dem der Standort aufgezeichnet wurde
+`latitude` | `float` | [PII] Breitengrad des aufgezeichneten Standorts
+`longitude` | `float` | [PII] Längengrad des aufgezeichneten Standorts
+`altitude` | `null, float` | [PII] Höhe des aufgezeichneten Standorts
+`ll_accuracy` | `null, float` | Genauigkeit von Breiten- und Längengrad des aufgezeichneten Standorts
+`alt_accuracy` | `null, float` | Höhengenauigkeit des aufgezeichneten Standorts
+`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem der Standort aufgezeichnet wurde
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die bei der Standortaufzeichnung verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -449,7 +453,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSLOCATIONSHARED #USERSBEHAVIORSLOCATIONSHARED" }
 
 ### USERS_BEHAVIORS_PURCHASE_SHARED {#USERS_BEHAVIORS_PURCHASE_SHARED}
 
@@ -475,22 +479,22 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSPURCHASESHARED #USERSBEHAVIORSPURCHASESHARED" }
 
 ### USERS_BEHAVIORS_UNINSTALL_SHARED {#USERS_BEHAVIORS_UNINSTALL_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`user_id` | `string` | Braze-ID der Nutzer:in, die die Deinstallation durchgeführt hat
+`user_id` | `string` | Braze-ID der Nutzer:in, die die App deinstalliert hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzer:in
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzer:in verknüpft ist, wenn die Nutzer:in anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, die deinstalliert wurde
-`time` | `int` | Unix-Zeitstempel, zu dem die Nutzer:in die Deinstallation durchgeführt hat
+`time` | `int` | Unix-Zeitstempel, zu dem die Nutzer:in die App deinstalliert hat
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSUNINSTALLSHARED #USERSBEHAVIORSUNINSTALLSHARED" }
 
 ### USERS_BEHAVIORS_UPGRADEDAPP_SHARED {#USERS_BEHAVIORS_UPGRADEDAPP_SHARED}
 
@@ -503,7 +507,7 @@ Feld | Typ | Beschreibung
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, die die Nutzer:in aktualisiert hat
 `time` | `int` | Unix-Zeitstempel, zu dem die Nutzer:in die App aktualisiert hat
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem die Nutzer:in die App aktualisiert hat
-`sdk_version` | `null,`&nbsp;`string` | Version des verwendeten Braze SDK
+`sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, die verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -511,7 +515,7 @@ Feld | Typ | Beschreibung
 `new_app_version` | `null,`&nbsp;`string` | Neue Version der App
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSUPGRADEDAPPSHARED #USERSBEHAVIORSUPGRADEDAPPSHARED" }
 
 ### USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED {#USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED}
 
@@ -535,7 +539,7 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPFIRSTSESSIONSHARED #USERSBEHAVIORSAPPFIRSTSESSIONSHARED" }
 
 
 ### USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED {#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED}
@@ -555,7 +559,7 @@ Feld | Typ | Beschreibung
 `os_version` | `null,`&nbsp;`string` | Version des Betriebssystems des Geräts
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPNEWSFEEDIMPRESSIONSHARED #USERSBEHAVIORSAPPNEWSFEEDIMPRESSIONSHARED" }
 
 ### USERS_BEHAVIORS_APP_SESSIONEND_SHARED {#USERS_BEHAVIORS_APP_SESSIONEND_SHARED}
 
@@ -576,7 +580,7 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPSESSIONENDSHARED #USERSBEHAVIORSAPPSESSIONENDSHARED" }
 
 ### USERS_BEHAVIORS_APP_SESSIONSTART_SHARED {#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED}
 
@@ -596,7 +600,7 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSAPPSESSIONSTARTSHARED #USERSBEHAVIORSAPPSESSIONSTARTSHARED" }
 
 ### USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED {#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED}
 
@@ -618,7 +622,7 @@ Feld | Typ | Beschreibung
 `geofence_id` | `string` | ID des ausgelösten Geofence
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSGEOFENCEDATAEVENTSHARED #USERSBEHAVIORSGEOFENCEDATAEVENTSHARED" }
 
 ### USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED {#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED}
 
@@ -640,7 +644,7 @@ Feld | Typ | Beschreibung
 `geofence_id` | `string` | ID des ausgelösten Geofence
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSGEOFENCERECORDEVENTSHARED #USERSBEHAVIORSGEOFENCERECORDEVENTSHARED" }
 
 
 ### USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED {#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED}
@@ -661,7 +665,7 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSLIVEACTIVITYPUSHTOSTARTTOKENCHANGESHARED #USERSBEHAVIORSLIVEACTIVITYPUSHTOSTARTTOKENCHANGESHARED" }
 
 
 ### USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED {#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED}
@@ -682,7 +686,7 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSLIVEACTIVITYUPDATETOKENCHANGESHARED #USERSBEHAVIORSLIVEACTIVITYUPDATETOKENCHANGESHARED" }
 
 
 ### USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED {#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED}
@@ -711,7 +715,7 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSPUSHNOTIFICATIONTOKENSTATECHANGESHARED #USERSBEHAVIORSPUSHNOTIFICATIONTOKENSTATECHANGESHARED" }
 
 ### USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED {#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED}
 
@@ -739,7 +743,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `channel_identifier` | `null,`&nbsp;`string` | [PII] Bezeichner der Nutzer:in auf dem Kanal, für den das Ereignis gilt
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGLOBALSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGLOBALSTATECHANGESHARED" }
 
 ### USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED {#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED}
 
@@ -771,7 +775,7 @@ Feld | Typ | Beschreibung
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `channel_identifier` | `null,`&nbsp;`string` | [PII] Bezeichner der Nutzer:in auf dem Kanal, für den das Ereignis gilt
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED #USERSBEHAVIORSSUBSCRIPTIONGROUPSTATECHANGESHARED" }
 
 ## Campaigns
 
@@ -798,7 +802,7 @@ Feld | Typ | Beschreibung
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSCONVERSIONSHARED #USERSCAMPAIGNSCONVERSIONSHARED" }
 
 ### USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED {#USERS_CAMPAIGNS_ENROLLINCONTROL_SHARED}
 
@@ -822,7 +826,7 @@ Feld | Typ | Beschreibung
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSENROLLINCONTROLSHARED #USERSCAMPAIGNSENROLLINCONTROLSHARED" }
 
 ### USERS_CAMPAIGNS_FREQUENCYCAP_SHARED {#USERS_CAMPAIGNS_FREQUENCYCAP_SHARED}
 
@@ -846,7 +850,7 @@ Feld | Typ | Beschreibung
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzer:in
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSFREQUENCYCAPSHARED #USERSCAMPAIGNSFREQUENCYCAPSHARED" }
 
 ### USERS_CAMPAIGNS_REVENUE_SHARED {#USERS_CAMPAIGNS_REVENUE_SHARED}
 
@@ -871,58 +875,58 @@ Feld | Typ | Beschreibung
 `revenue` | `long` | Generierter Umsatz in USD (in Cent)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzer:in gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCAMPAIGNSREVENUESHARED #USERSCAMPAIGNSREVENUESHARED" }
 
 ## Canvas
 
 ### USERS_CANVASSTEP_PROGRESSION_SHARED {#USERS_CANVASSTEP_PROGRESSION_SHARED}
 
-| Feld                                   | Typ                      | Beschreibung                                                                                                    |
-| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| `id`                                   | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                                        |
-| `user_id`                              | `string`,&nbsp;`null`    | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat                                                      |
-| `external_user_id`                     | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der Nutzer:in                                                                           |
-| `device_id`                            | `string`,&nbsp;`null`    | ID des Geräts, das mit dieser Nutzer:in verknüpft ist, wenn die Nutzer:in anonym ist                            |
-| `app_group_id`                         | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese Nutzer:in gehört                                                           |
-| `app_group_api_id`                     | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese Nutzer:in gehört                                                             |
-| `time`                                 | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem das Ereignis stattfand                                                                 |
-| `canvas_id`                            | `string`,&nbsp;`null`    | (Nur für die interne Verwendung durch Braze) ID des Canvas, zu dem dieses Ereignis gehört                       |
-| `canvas_api_id`                        | `string`,&nbsp;`null`    | API-ID des Canvas, zu dem dieses Ereignis gehört                                                                |
-| `canvas_variation_api_id`              | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                                       |
-| `canvas_step_api_id`                   | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                                       |
-| `progression_type`                     | `string`,&nbsp;`null`    | Typ des Schritt-Fortschrittsereignisses                                                                         |
-| `is_canvas_entry`                      | `boolean`,&nbsp;`null`   | Ob es sich um den Eintritt in einen ersten Schritt in einem Canvas handelt                                      |
-| `exit_reason`                          | `string`,&nbsp;`null`    | Falls es sich um einen Austritt handelt, der Grund, warum die Nutzer:in den Canvas während des Schritts verlassen hat |
-| `canvas_entry_id`                      | `string`,&nbsp;`null`    | Eindeutiger Bezeichner für diese Instanz einer Nutzer:in in einem Canvas                                        |
-| `next_step_id`                         | `string`,&nbsp;`null`    | BSON-ID des nächsten Schritts im Canvas                                                                         |
-| `next_step_api_id`                     | `string`,&nbsp;`null`    | API-ID des nächsten Schritts im Canvas                                                                          |
-| `sf_created_at`                        | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Feld                                   | Typ                      | Beschreibung                                                                                                          |
+| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `id`                                   | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                                              |
+| `user_id`                              | `string`,&nbsp;`null`    | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat                                                            |
+| `external_user_id`                     | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der Nutzer:in                                                                                 |
+| `device_id`                            | `string`,&nbsp;`null`    | ID des Geräts, das mit dieser Nutzer:in verknüpft ist, wenn die Nutzer:in anonym ist                                  |
+| `app_group_id`                         | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese Nutzer:in gehört                                                                 |
+| `app_group_api_id`                     | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese Nutzer:in gehört                                                                   |
+| `time`                                 | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem das Ereignis stattfand                                                                       |
+| `canvas_id`                            | `string`,&nbsp;`null`    | (Nur für die interne Verwendung durch Braze) ID des Canvas, zu dem dieses Ereignis gehört                             |
+| `canvas_api_id`                        | `string`,&nbsp;`null`    | API-ID des Canvas, zu dem dieses Ereignis gehört                                                                      |
+| `canvas_variation_api_id`              | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                                             |
+| `canvas_step_api_id`                   | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                                             |
+| `progression_type`                     | `string`,&nbsp;`null`    | Typ des Schritt-Fortschrittsereignisses                                                                               |
+| `is_canvas_entry`                      | `boolean`,&nbsp;`null`   | Ob es sich um den Eintritt in einen ersten Schritt in einem Canvas handelt                                            |
+| `exit_reason`                          | `string`,&nbsp;`null`    | Falls es sich um einen Austritt handelt, der Grund, warum die Nutzer:in den Canvas während des Schritts verlassen hat  |
+| `canvas_entry_id`                      | `string`,&nbsp;`null`    | Eindeutiger Bezeichner für diese Instanz einer Nutzer:in in einem Canvas                                              |
+| `next_step_id`                         | `string`,&nbsp;`null`    | BSON-ID des nächsten Schritts im Canvas                                                                               |
+| `next_step_api_id`                     | `string`,&nbsp;`null`    | API-ID des nächsten Schritts im Canvas                                                                                |
+| `sf_created_at`                        | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                                      |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASSTEPPROGRESSIONSHARED #USERSCANVASSTEPPROGRESSIONSHARED" }
 
 ### USERS_CANVAS_CONVERSION_SHARED {#USERS_CANVAS_CONVERSION_SHARED}
 
-| Feld                                   | Typ                      | Beschreibung                                                                                                                                  |
-| -------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                   | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                                                                      |
-| `user_id`                              | `string`,&nbsp;`null`    | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat                                                                                    |
-| `external_user_id`                     | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der Nutzer:in                                                                                                         |
-| `device_id`                            | `string`,&nbsp;`null`    | ID des Geräts, das mit dieser Nutzer:in verknüpft ist, wenn die Nutzer:in anonym ist                                                          |
-| `app_group_id`                         | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese Nutzer:in gehört                                                                                         |
-| `app_group_api_id`                     | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese Nutzer:in gehört                                                                                           |
-| `time`                                 | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem das Ereignis stattfand                                                                                               |
-| `app_api_id`                           | `string`,&nbsp;`null`    | API-ID der App, in der dieses Ereignis aufgetreten ist                                                                                        |
-| `canvas_id`                            | `string`,&nbsp;`null`    | (Nur für die interne Verwendung durch Braze) ID des Canvas, zu dem dieses Ereignis gehört                                                     |
-| `canvas_api_id`                        | `string`,&nbsp;`null`    | API-ID des Canvas, zu dem dieses Ereignis gehört                                                                                              |
-| `canvas_variation_api_id`              | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                                                                     |
-| `canvas_step_api_id`                   | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                                                                     |
-| `canvas_step_message_variation_api_id` | `string`,&nbsp;`null`    | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzer:in erhalten hat                                                               |
-| `conversion_behavior_index`            | `int`,&nbsp;`null`       | Typ des Conversion-Ereignisses, das die Nutzer:in ausgeführt hat, wobei „0“ eine primäre Conversion und „1“ eine sekundäre Conversion ist     |
-| `gender`                               | `string`,&nbsp;`null`    | [PII] Geschlecht der Nutzer:in                                                                                                                |
-| `country`                              | `string`,&nbsp;`null`    | [PII] Land der Nutzer:in                                                                                                                      |
-| `timezone`                             | `string`,&nbsp;`null`    | Zeitzone der Nutzer:in                                                                                                                        |
-| `language`                             | `string`,&nbsp;`null`    | [PII] Sprache der Nutzer:in                                                                                                                   |
-| `sf_created_at`                        | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                                                              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Feld                                   | Typ                      | Beschreibung                                                                                                                              |
+| -------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                   | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                                                                  |
+| `user_id`                              | `string`,&nbsp;`null`    | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat                                                                                |
+| `external_user_id`                     | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der Nutzer:in                                                                                                     |
+| `device_id`                            | `string`,&nbsp;`null`    | ID des Geräts, das mit dieser Nutzer:in verknüpft ist, wenn die Nutzer:in anonym ist                                                      |
+| `app_group_id`                         | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese Nutzer:in gehört                                                                                     |
+| `app_group_api_id`                     | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese Nutzer:in gehört                                                                                       |
+| `time`                                 | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem das Ereignis stattfand                                                                                           |
+| `app_api_id`                           | `string`,&nbsp;`null`    | API-ID der App, in der dieses Ereignis aufgetreten ist                                                                                    |
+| `canvas_id`                            | `string`,&nbsp;`null`    | (Nur für die interne Verwendung durch Braze) ID des Canvas, zu dem dieses Ereignis gehört                                                 |
+| `canvas_api_id`                        | `string`,&nbsp;`null`    | API-ID des Canvas, zu dem dieses Ereignis gehört                                                                                          |
+| `canvas_variation_api_id`              | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                                                                 |
+| `canvas_step_api_id`                   | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                                                                 |
+| `canvas_step_message_variation_api_id` | `string`,&nbsp;`null`    | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzer:in erhalten hat                                                           |
+| `conversion_behavior_index`            | `int`,&nbsp;`null`       | Typ des Conversion-Ereignisses, das die Nutzer:in ausgeführt hat, wobei „0“ eine primäre Conversion und „1“ eine sekundäre Conversion ist |
+| `gender`                               | `string`,&nbsp;`null`    | [PII] Geschlecht der Nutzer:in                                                                                                            |
+| `country`                              | `string`,&nbsp;`null`    | [PII] Land der Nutzer:in                                                                                                                  |
+| `timezone`                             | `string`,&nbsp;`null`    | Zeitzone der Nutzer:in                                                                                                                    |
+| `language`                             | `string`,&nbsp;`null`    | [PII] Sprache der Nutzer:in                                                                                                               |
+| `sf_created_at`                        | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                                                          |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASCONVERSIONSHARED #USERSCANVASCONVERSIONSHARED" }
 
 ### USERS_CANVAS_ENTRY_SHARED {#USERS_CANVAS_ENTRY_SHARED}
 
@@ -945,7 +949,7 @@ Feld | Typ | Beschreibung
 | `language`                | `string`,&nbsp;`null`    | [PII] Sprache der Nutzer:in                                                               |
 | `in_control_group`        | `boolean`,&nbsp;`null`   | „True“, wenn die Nutzer:in in die Kontrollgruppe aufgenommen wurde                        |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASENTRYSHARED #USERSCANVASENTRYSHARED" }
 
 ### USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED {#USERS_CANVAS_EXIT_MATCHEDAUDIENCE_SHARED}
 
@@ -964,7 +968,7 @@ Feld | Typ | Beschreibung
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                          |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITMATCHEDAUDIENCESHARED #USERSCANVASEXITMATCHEDAUDIENCESHARED" }
 
 ### USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED {#USERS_CANVAS_EXIT_PERFORMEDEVENT_SHARED}
 
@@ -981,27 +985,27 @@ Feld | Typ | Beschreibung
 | `canvas_variation_api_id` | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                 |
 | `canvas_step_api_id`      | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                 |
 | `sf_created_at`           | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXITPERFORMEDEVENTSHARED #USERSCANVASEXITPERFORMEDEVENTSHARED" }
 
 ### USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED {#USERS_CANVAS_EXPERIMENTSTEP_CONVERSION_SHARED}
 
-| Feld                        | Typ                      | Beschreibung                                                                                                                                  |
-| --------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                        | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                                                                      |
-| `user_id`                   | `string`,&nbsp;`null`    | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat                                                                                    |
-| `external_user_id`          | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der Nutzer:in                                                                                                         |
-| `app_group_id`              | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese Nutzer:in gehört                                                                                         |
-| `time`                      | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem das Ereignis stattfand                                                                                               |
-| `app_api_id`                | `string`,&nbsp;`null`    | API-ID der App, in der dieses Ereignis aufgetreten ist                                                                                        |
-| `canvas_id`                 | `string`,&nbsp;`null`    | (Nur für die interne Verwendung durch Braze) ID des Canvas, zu dem dieses Ereignis gehört                                                     |
-| `canvas_api_id`             | `string`,&nbsp;`null`    | API-ID des Canvas, zu dem dieses Ereignis gehört                                                                                              |
-| `canvas_variation_api_id`   | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                                                                     |
-| `canvas_step_api_id`        | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                                                                     |
-| `experiment_step_api_id`    | `string`,&nbsp;`null`    | API-ID des Experiment-Schritts, zu dem dieses Ereignis gehört                                                                                 |
-| `conversion_behavior_index` | `int`,&nbsp;`null`       | Typ des Conversion-Ereignisses, das die Nutzer:in ausgeführt hat, wobei „0“ eine primäre Conversion und „1“ eine sekundäre Conversion ist     |
-| `sf_created_at`             | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                                                              |
-| `experiment_split_api_id`   | `string`,&nbsp;`null`    | API-ID des Experiment-Splits, in den die Nutzer:in aufgenommen wurde                                                                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Feld                        | Typ                      | Beschreibung                                                                                                                              |
+| --------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                        | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                                                                  |
+| `user_id`                   | `string`,&nbsp;`null`    | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat                                                                                |
+| `external_user_id`          | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der Nutzer:in                                                                                                     |
+| `app_group_id`              | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese Nutzer:in gehört                                                                                     |
+| `time`                      | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem das Ereignis stattfand                                                                                           |
+| `app_api_id`                | `string`,&nbsp;`null`    | API-ID der App, in der dieses Ereignis aufgetreten ist                                                                                    |
+| `canvas_id`                 | `string`,&nbsp;`null`    | (Nur für die interne Verwendung durch Braze) ID des Canvas, zu dem dieses Ereignis gehört                                                 |
+| `canvas_api_id`             | `string`,&nbsp;`null`    | API-ID des Canvas, zu dem dieses Ereignis gehört                                                                                          |
+| `canvas_variation_api_id`   | `string`,&nbsp;`null`    | API-ID der Canvas-Variante, zu der dieses Ereignis gehört                                                                                 |
+| `canvas_step_api_id`        | `string`,&nbsp;`null`    | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört                                                                                 |
+| `experiment_step_api_id`    | `string`,&nbsp;`null`    | API-ID des Experiment-Schritts, zu dem dieses Ereignis gehört                                                                             |
+| `conversion_behavior_index` | `int`,&nbsp;`null`       | Typ des Conversion-Ereignisses, das die Nutzer:in ausgeführt hat, wobei „0“ eine primäre Conversion und „1“ eine sekundäre Conversion ist |
+| `sf_created_at`             | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                                                          |
+| `experiment_split_api_id`   | `string`,&nbsp;`null`    | API-ID des Experiment-Splits, in den die Nutzer:in aufgenommen wurde                                                                      |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPCONVERSIONSHARED #USERSCANVASEXPERIMENTSTEPCONVERSIONSHARED" }
 
 ### USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED {#USERS_CANVAS_EXPERIMENTSTEP_SPLITENTRY_SHARED}
 
@@ -1022,7 +1026,7 @@ Feld | Typ | Beschreibung
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 | `experiment_split_api_id` | `string`,&nbsp;`null` | API-ID des Experiment-Splits, in den die Nutzer:in aufgenommen wurde |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED #USERSCANVASEXPERIMENTSTEPSPLITENTRYSHARED" }
 
 ### USERS_CANVAS_FREQUENCYCAP_SHARED {#USERS_CANVAS_FREQUENCYCAP_SHARED}
 
@@ -1046,7 +1050,7 @@ Feld | Typ | Beschreibung
 | `timezone`                             | `string`,&nbsp;`null`    | Zeitzone der Nutzer:in                                                                    |
 | `language`                             | `string`,&nbsp;`null`    | [PII] Sprache der Nutzer:in                                                               |
 | `sf_created_at`                        | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASFREQUENCYCAPSHARED #USERSCANVASFREQUENCYCAPSHARED" }
 
 ### USERS_CANVAS_REVENUE_SHARED {#USERS_CANVAS_REVENUE_SHARED}
 
@@ -1071,7 +1075,7 @@ Feld | Typ | Beschreibung
 | `revenue`                              | `int`,&nbsp;`null`       | Generierter Umsatz in USD (in Cent)                                                       |
 | `sf_created_at`                        | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                          |
 | `app_api_id`                           | `string`,&nbsp;`null`    | API-ID der App, in der dieses Ereignis aufgetreten ist                                    |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSCANVASREVENUESHARED #USERSCANVASREVENUESHARED" }
 
 ## Nachrichten {#messages}
 
@@ -1085,7 +1089,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
@@ -1101,7 +1105,7 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
@@ -1109,7 +1113,7 @@ Feld | Typ | Beschreibung
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (bis zu 128 Zeichen)
 `banner_placement_id` | `null,`&nbsp;`string` | Vom Kunden festgelegte Banner-Platzierungs-ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESBANNERABORTSHARED #USERSMESSAGESBANNERABORTSHARED" }
 
 
 ### USERS_MESSAGES_BANNER_CLICK_SHARED {#USERS_MESSAGES_BANNER_CLICK_SHARED}
@@ -1121,7 +1125,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
@@ -1137,14 +1141,14 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `button_id` | `null,`&nbsp;`string` | ID des angeklickten Buttons, falls dieser Klick einen Button-Klick darstellt
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `banner_placement_id` | `null,`&nbsp;`string` | Vom Kunden festgelegte Banner-Platzierungs-ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESBANNERCLICKSHARED #USERSMESSAGESBANNERCLICKSHARED" }
 
 
 ### USERS_MESSAGES_BANNER_IMPRESSION_SHARED {#USERS_MESSAGES_BANNER_IMPRESSION_SHARED}
@@ -1156,7 +1160,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
@@ -1172,13 +1176,13 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `banner_placement_id` | `null,`&nbsp;`string` | Vom Kunden festgelegte Banner-Platzierungs-ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESBANNERIMPRESSIONSHARED #USERSMESSAGESBANNERIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_ABORT_SHARED {#USERS_MESSAGES_CONTENTCARD_ABORT_SHARED}
 
@@ -1189,7 +1193,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1208,7 +1212,7 @@ Feld | Typ | Beschreibung
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDABORTSHARED #USERSMESSAGESCONTENTCARDABORTSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_CLICK_SHARED {#USERS_MESSAGES_CONTENTCARD_CLICK_SHARED}
 
@@ -1219,7 +1223,7 @@ Feld | Typ | Beschreibung
 `content_card_id` | `string` | ID der Karte, die dieses Ereignis erzeugt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -1248,7 +1252,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDCLICKSHARED #USERSMESSAGESCONTENTCARDCLICKSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED {#USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED}
 
@@ -1259,7 +1263,7 @@ Feld | Typ | Beschreibung
 `content_card_id` | `string` | ID der Karte, die dieses Ereignis erzeugt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -1288,7 +1292,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDDISMISSSHARED #USERSMESSAGESCONTENTCARDDISMISSSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED {#USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED}
 
@@ -1299,7 +1303,7 @@ Feld | Typ | Beschreibung
 `content_card_id` | `string` | ID der Karte, die dieses Ereignis erzeugt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -1328,7 +1332,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDIMPRESSIONSHARED #USERSMESSAGESCONTENTCARDIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_CONTENTCARD_SEND_SHARED {#USERS_MESSAGES_CONTENTCARD_SEND_SHARED}
 
@@ -1339,7 +1343,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1358,7 +1362,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESCONTENTCARDSENDSHARED #USERSMESSAGESCONTENTCARDSENDSHARED" }
 
 ### USERS_MESSAGES_EMAIL_ABORT_SHARED {#USERS_MESSAGES_EMAIL_ABORT_SHARED}
 
@@ -1369,7 +1373,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1390,7 +1394,7 @@ Feld | Typ | Beschreibung
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILABORTSHARED #USERSMESSAGESEMAILABORTSHARED" }
 
 ### USERS_MESSAGES_EMAIL_BOUNCE_SHARED {#USERS_MESSAGES_EMAIL_BOUNCE_SHARED}
 
@@ -1401,7 +1405,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1421,11 +1425,11 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Antwortcode und die benutzerfreundliche Nachricht, die für dieses Bounce-Ereignis empfangen wurden
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `is_drop` | `null, boolean` | Gibt an, dass dieses Ereignis als Drop-Ereignis zählt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILBOUNCESHARED #USERSMESSAGESEMAILBOUNCESHARED" }
 
 ### USERS_MESSAGES_EMAIL_CLICK_SHARED {#USERS_MESSAGES_EMAIL_CLICK_SHARED}
 
@@ -1436,7 +1440,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1458,13 +1462,13 @@ Feld | Typ | Beschreibung
 `link_id` | `null,`&nbsp;`string` | Eindeutige ID für den angeklickten Link, wie von Braze erstellt
 `link_alias` | `null,`&nbsp;`string` | Alias, der mit dieser Link-ID verknüpft ist
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `is_amp` | `null, boolean` | Gibt an, dass es sich um ein AMP-Ereignis handelt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `is_suspected_bot_click` | `null, boolean` | Ob dieses Ereignis als Bot-Ereignis verarbeitet wurde
 `suspected_bot_click_reason` | `null, object` | Warum dieses Ereignis als Bot klassifiziert wurde
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILCLICKSHARED #USERSMESSAGESEMAILCLICKSHARED" }
 
 
 ### USERS_MESSAGES_EMAIL_DEFERRAL_SHARED {#USERS_MESSAGES_EMAIL_DEFERRAL_SHARED}
@@ -1472,7 +1476,7 @@ Feld | Typ | Beschreibung
 Feld | Typ | Beschreibung
 ------|------|------------
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
@@ -1488,16 +1492,16 @@ Feld | Typ | Beschreibung
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Person erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `email_address` | `null,`&nbsp;`string` | [PII] E-Mail-Adresse der Person
-`recipient_domain` | `null,`&nbsp;`string` | E-Mail-Domain der Empfängerin bzw. des Empfängers
+`recipient_domain` | `null,`&nbsp;`string` | E-Mail-Domain der Empfänger:in
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (Sparkpost, Sendgrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der der E-Mail-Versand erfolgte
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Person
 `deferral_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Antwortcode und die benutzerfreundliche Nachricht, die für dieses Zurückstellungsereignis empfangen wurden
-`attempt_count` | `null, int` | Anzahl der Zustellversuche für die Nachricht
+`attempt_count` | `null, int` | Anzahl der Versuche, die Nachricht zu senden
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILDEFERRALSHARED #USERSMESSAGESEMAILDEFERRALSHARED" }
 
 ### USERS_MESSAGES_EMAIL_DELIVERY_SHARED {#USERS_MESSAGES_EMAIL_DELIVERY_SHARED}
 
@@ -1508,7 +1512,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1527,10 +1531,10 @@ Feld | Typ | Beschreibung
 `sending_ip` | `null,`&nbsp;`string` | IP-Adresse, von der die E-Mail gesendet wurde
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILDELIVERYSHARED #USERSMESSAGESEMAILDELIVERYSHARED" }
 
 ### USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED {#USERS_MESSAGES_EMAIL_MARKASSPAM_SHARED}
 
@@ -1541,7 +1545,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1560,10 +1564,10 @@ Feld | Typ | Beschreibung
 `user_agent` | `null,`&nbsp;`string` | User-Agent, auf dem der Spam-Bericht erfolgte
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILMARKASSPAMSHARED #USERSMESSAGESEMAILMARKASSPAMSHARED" }
 
 ### USERS_MESSAGES_EMAIL_OPEN_SHARED {#USERS_MESSAGES_EMAIL_OPEN_SHARED}
 
@@ -1574,7 +1578,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1594,11 +1598,11 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `machine_open` | `null,`&nbsp;`string` | Wird auf 'true' gesetzt, wenn das Öffnungsereignis ohne Nutzerinteraktion ausgelöst wird, z. B. durch ein Apple-Gerät mit aktiviertem E-Mail-Datenschutz. Der Wert kann sich im Laufe der Zeit ändern, um mehr Granularität zu bieten.
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `is_amp` | `null, boolean` | Gibt an, dass es sich um ein AMP-Ereignis handelt
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILOPENSHARED #USERSMESSAGESEMAILOPENSHARED" }
 
 ### USERS_MESSAGES_EMAIL_SEND_SHARED {#USERS_MESSAGES_EMAIL_SEND_SHARED}
 
@@ -1609,7 +1613,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1628,10 +1632,10 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILSENDSHARED #USERSMESSAGESEMAILSENDSHARED" }
 
 ### USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED {#USERS_MESSAGES_EMAIL_SOFTBOUNCE_SHARED}
 
@@ -1642,7 +1646,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1662,10 +1666,10 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `bounce_reason` | `null,`&nbsp;`string` | [PII] Der SMTP-Antwortcode und die benutzerfreundliche Nachricht, die für dieses Bounce-Ereignis empfangen wurden
 `esp` | `null,`&nbsp;`string` | ESP im Zusammenhang mit dem Ereignis (SparkPost, SendGrid oder Amazon SES)
-`from_domain` | `null,`&nbsp;`string` | Absender-Domain für die E-Mail
+`from_domain` | `null,`&nbsp;`string` | Absenderdomain für die E-Mail
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILSOFTBOUNCESHARED #USERSMESSAGESEMAILSOFTBOUNCESHARED" }
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
@@ -1676,7 +1680,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Person verknüpft ist, wenn die Person anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
@@ -1695,7 +1699,7 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILUNSUBSCRIBESHARED #USERSMESSAGESEMAILUNSUBSCRIBESHARED" }
 
 ### USERS_MESSAGES_EMAIL_RETRY_SHARED {#USERS_MESSAGES_EMAIL_RETRY_SHARED}
 
@@ -1712,7 +1716,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `retry_type` | `null,`&nbsp;`string` | Art der Wiederholung
 `retry_log` | `null,`&nbsp;`string` | Protokollnachricht mit Details zur Wiederholung
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -1733,7 +1737,7 @@ Feld | Typ | Beschreibung
 `ip_pool` | `null,`&nbsp;`string` | IP-Pool, über den der E-Mail-Versand erfolgte
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILRETRYSHARED #USERSMESSAGESEMAILRETRYSHARED" }
 
 ### USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED {#USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED}
 
@@ -1754,9 +1758,9 @@ Feld | Typ | Beschreibung
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Person erhalten hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Person
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
 `country` | `null,`&nbsp;`string` | [PII] Land der Person
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
@@ -1768,7 +1772,7 @@ Feld | Typ | Beschreibung
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Person
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESFEATUREFLAGIMPRESSIONSHARED #USERSMESSAGESFEATUREFLAGIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED {#USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED}
 
@@ -1778,7 +1782,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `card_api_id` | `null,`&nbsp;`string` | API-ID der Karte
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
@@ -1803,7 +1807,7 @@ Feld | Typ | Beschreibung
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
 `browser` | `null,`&nbsp;`string` | Browser des Geräts
-`version` | `string` | Version der In-App-Nachricht, Legacy oder getriggert
+`version` | `string` | Welche Version der In-App-Nachricht, Legacy oder getriggert
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von `ios_idfa`, `google_ad_id`, `windows_ad_id` ODER `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
@@ -1811,7 +1815,7 @@ Feld | Typ | Beschreibung
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGEABORTSHARED #USERSMESSAGESINAPPMESSAGEABORTSHARED" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED {#USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED}
 
@@ -1821,7 +1825,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `card_api_id` | `null,`&nbsp;`string` | API-ID der Karte
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -1845,14 +1849,14 @@ Feld | Typ | Beschreibung
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
 `browser` | `null,`&nbsp;`string` | Browser des Geräts
-`version` | `string` | Version der In-App-Nachricht, Legacy oder getriggert
+`version` | `string` | Welche Version der In-App-Nachricht, Legacy oder getriggert
 `button_id` | `null,`&nbsp;`string` | ID des angeklickten Buttons, falls dieser Klick einen Button-Klick darstellt
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von `ios_idfa`, `google_ad_id`, `windows_ad_id` ODER `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGECLICKSHARED #USERSMESSAGESINAPPMESSAGECLICKSHARED" }
 
 ### USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED {#USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED}
 
@@ -1862,7 +1866,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `card_api_id` | `null,`&nbsp;`string` | API-ID der Karte
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -1886,7 +1890,7 @@ Feld | Typ | Beschreibung
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
 `browser` | `null,`&nbsp;`string` | Browser des Geräts
-`version` | `string` | Version der In-App-Nachricht, Legacy oder getriggert
+`version` | `string` | Welche Version der In-App-Nachricht, Legacy oder getriggert
 `ad_id` | `null,`&nbsp;`string` | [PII] Werbe-Bezeichner
 `ad_id_type` | `null,`&nbsp;`string` | Einer von `ios_idfa`, `google_ad_id`, `windows_ad_id` ODER `roku_ad_id`
 `ad_tracking_enabled` | `null, boolean` | Ob Werbe-Tracking für das Gerät aktiviert ist
@@ -1894,7 +1898,7 @@ Feld | Typ | Beschreibung
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
 `locale_key` | `null,`&nbsp;`string` | [PII] Der Schlüssel, der den Übersetzungen entspricht (z. B. 'en-us'), die zum Erstellen dieser Nachricht verwendet wurden (null für Standard).
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESINAPPMESSAGEIMPRESSIONSHARED #USERSMESSAGESINAPPMESSAGEIMPRESSIONSHARED" }
 
 
 ### USERS_MESSAGES_LINE_ABORT_SHARED {#USERS_MESSAGES_LINE_ABORT_SHARED}
@@ -1905,7 +1909,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (bis zu 128 Zeichen)
 `abort_type` | `null,`&nbsp;`string` | Art des Abbruchs. Eine Liste der Werte finden Sie unter [Abbruchtypen](#abort-types).
@@ -1926,7 +1930,7 @@ Feld | Typ | Beschreibung
 `canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
 `canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINEABORTSHARED #USERSMESSAGESLINEABORTSHARED" }
 
 
 ### USERS_MESSAGES_LINE_CLICK_SHARED {#USERS_MESSAGES_LINE_CLICK_SHARED}
@@ -1937,7 +1941,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Person
 `native_line_id` | `null,`&nbsp;`string` | [PII] Die LINE-ID der Person, von der die Nachricht gesendet oder empfangen wurde
@@ -1960,7 +1964,7 @@ Feld | Typ | Beschreibung
 `url` | `null,`&nbsp;`string` | URL, auf die die Person geklickt hat
 `user_agent` | `null,`&nbsp;`string` | User-Agent, auf dem der Spam-Bericht erfolgte
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINECLICKSHARED #USERSMESSAGESLINECLICKSHARED" }
 
 
 ### USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_LINE_INBOUNDRECEIVE_SHARED}
@@ -1971,7 +1975,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
@@ -1992,7 +1996,7 @@ Feld | Typ | Beschreibung
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Person
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINEINBOUNDRECEIVESHARED #USERSMESSAGESLINEINBOUNDRECEIVESHARED" }
 
 
 ### USERS_MESSAGES_LINE_SEND_SHARED {#USERS_MESSAGES_LINE_SEND_SHARED}
@@ -2003,7 +2007,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
@@ -2023,7 +2027,7 @@ Feld | Typ | Beschreibung
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Person
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINESENDSHARED #USERSMESSAGESLINESENDSHARED" }
 
 ### USERS_MESSAGES_LINE_RETRY_SHARED {#USERS_MESSAGES_LINE_RETRY_SHARED}
 
@@ -2040,7 +2044,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `retry_type` | `null,`&nbsp;`string` | Art der Wiederholung
 `retry_log` | `null,`&nbsp;`string` | Protokollnachricht mit Details zur Wiederholung
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2060,7 +2064,7 @@ Feld | Typ | Beschreibung
 `subscription_group_api_id` | `null,`&nbsp;`string` | API-ID der Abo-Gruppe
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Person
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLINERETRYSHARED #USERSMESSAGESLINERETRYSHARED" }
 
 
 ### USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED {#USERS_MESSAGES_LIVEACTIVITY_OUTCOME_SHARED}
@@ -2070,7 +2074,7 @@ Feld | Typ | Beschreibung
 `id` | `string` | Global eindeutige ID für dieses Ereignis
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `activity_id` | `null,`&nbsp;`string` | Live-Activity-Bezeichner
 `activity_attributes_type` | `null,`&nbsp;`string` | Live-Activity-Attributtyp
@@ -2081,7 +2085,7 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLIVEACTIVITYOUTCOMESHARED #USERSMESSAGESLIVEACTIVITYOUTCOMESHARED" }
 
 
 ### USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED {#USERS_MESSAGES_LIVEACTIVITY_SEND_SHARED}
@@ -2091,7 +2095,7 @@ Feld | Typ | Beschreibung
 `id` | `string` | Global eindeutige ID für dieses Ereignis
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `activity_id` | `null,`&nbsp;`string` | Live-Activity-Bezeichner
 `activity_attributes_type` | `null,`&nbsp;`string` | Live-Activity-Attributtyp
@@ -2101,7 +2105,7 @@ Feld | Typ | Beschreibung
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESLIVEACTIVITYSENDSHARED #USERSMESSAGESLIVEACTIVITYSENDSHARED" }
 
 
 ### USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_ABORT_SHARED}
@@ -2113,7 +2117,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `card_api_id` | `null,`&nbsp;`string` | API-ID der Karte
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Person
@@ -2127,11 +2131,11 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `abort_type` | `null,`&nbsp;`string` | Art des Abbruchs. Eine Liste der Werte finden Sie unter [Abbruchtypen](#abort-types).
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (bis zu 128 Zeichen)
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDABORTSHARED #USERSMESSAGESNEWSFEEDCARDABORTSHARED" }
 
 
 ### USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_CLICK_SHARED}
@@ -2143,7 +2147,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `card_api_id` | `null,`&nbsp;`string` | API-ID der Karte
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Person
@@ -2157,9 +2161,9 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDCLICKSHARED #USERSMESSAGESNEWSFEEDCARDCLICKSHARED" }
 
 
 ### USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED {#USERS_MESSAGES_NEWSFEEDCARD_IMPRESSION_SHARED}
@@ -2171,7 +2175,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Person gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `card_api_id` | `null,`&nbsp;`string` | API-ID der Karte
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Person
@@ -2185,9 +2189,9 @@ Feld | Typ | Beschreibung
 `device_model` | `null,`&nbsp;`string` | Modell des Geräts
 `resolution` | `null,`&nbsp;`string` | Auflösung des Geräts
 `carrier` | `null,`&nbsp;`string` | Mobilfunkanbieter des Geräts
-`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus user_agent extrahiert –, in dem das Öffnen stattfand
+`browser` | `null,`&nbsp;`string` | Geräte-Browser – aus dem user_agent extrahiert –, in dem das Öffnen stattfand
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESNEWSFEEDCARDIMPRESSIONSHARED #USERSMESSAGESNEWSFEEDCARDIMPRESSIONSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_ABORT_SHARED}
 
@@ -2198,7 +2202,7 @@ Feld | Typ | Beschreibung
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `device_id` | `null,`&nbsp;`string` | `device_id`, an die ein Zustellversuch unternommen wurde
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2219,7 +2223,7 @@ Feld | Typ | Beschreibung
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONABORTSHARED #USERSMESSAGESPUSHNOTIFICATIONABORTSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_BOUNCE_SHARED}
 
@@ -2231,7 +2235,7 @@ Feld | Typ | Beschreibung
 `push_token` | `null,`&nbsp;`string` | Push-Token, das einen Bounce verursacht hat
 `device_id` | `null,`&nbsp;`string` | `device_id`, an die ein Zustellversuch unternommen wurde, der einen Bounce verursacht hat
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2253,7 +2257,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Tracking für Werbung aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONBOUNCESHARED #USERSMESSAGESPUSHNOTIFICATIONBOUNCESHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_INFLUENCEDOPEN_SHARED}
 
@@ -2263,7 +2267,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2289,7 +2293,7 @@ Feld | Typ | Beschreibung
 `browser` | `null,`&nbsp;`string` | Browser des Geräts
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONINFLUENCEDOPENSHARED #USERSMESSAGESPUSHNOTIFICATIONINFLUENCEDOPENSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_IOSFOREGROUND_SHARED}
 
@@ -2303,7 +2307,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2332,7 +2336,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Tracking für Werbung aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONIOSFOREGROUNDSHARED #USERSMESSAGESPUSHNOTIFICATIONIOSFOREGROUNDSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_OPEN_SHARED}
 
@@ -2342,7 +2346,7 @@ Feld | Typ | Beschreibung
 `user_id` | `string` | Braze-ID der Person, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Person
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2375,7 +2379,7 @@ Feld | Typ | Beschreibung
 `ad_tracking_enabled` | `null, boolean` | Ob Tracking für Werbung aktiviert ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONOPENSHARED #USERSMESSAGESPUSHNOTIFICATIONOPENSHARED" }
 
 ### USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED {#USERS_MESSAGES_PUSHNOTIFICATION_SEND_SHARED}
 
@@ -2387,7 +2391,7 @@ Feld | Typ | Beschreibung
 `push_token` | `null,`&nbsp;`string` | Push-Token, an das ein Zustellversuch unternommen wurde
 `device_id` | `null,`&nbsp;`string` | `device_id`, an die ein Zustellversuch unternommen wurde
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Person gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
@@ -2412,7 +2416,7 @@ Feld | Typ | Beschreibung
 `is_sampled` | `null,`&nbsp;`string` | Gibt an, ob der Push-Versand gesampelt wurde und ein Zustellereignis erwartet wurde
 `locale_key` | `null,`&nbsp;`string` | [PII] Der Schlüssel, der den Übersetzungen entspricht (z. B. 'en-us'), die zum Erstellen dieser Nachricht verwendet wurden (null für Standard).
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESPUSHNOTIFICATIONSENDSHARED #USERSMESSAGESPUSHNOTIFICATIONSENDSHARED" }
 
 
 ### USERS_MESSAGES_RCS_ABORT_SHARED {#USERS_MESSAGES_RCS_ABORT_SHARED}
@@ -2423,7 +2427,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (bis zu 128 Zeichen)
 `abort_type` | `null,`&nbsp;`string` | Art des Abbruchs. Eine Liste der Werte finden Sie unter [Abbruchtypen](#abort-types).
@@ -2440,7 +2444,7 @@ Feld | Typ | Beschreibung
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Person erhalten hat
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSABORTSHARED #USERSMESSAGESRCSABORTSHARED" }
 
 
 ### USERS_MESSAGES_RCS_CLICK_SHARED {#USERS_MESSAGES_RCS_CLICK_SHARED}
@@ -2451,7 +2455,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
@@ -2464,20 +2468,20 @@ Feld | Typ | Beschreibung
 `short_url` | `null,`&nbsp;`string` | Gekürzte URL, die angeklickt wurde
 `suspected_bot_click_reason` | `null,`&nbsp;`string` | Warum dieses Ereignis als Bot klassifiziert wurde
 `user_agent` | `null,`&nbsp;`string` | User-Agent, auf dem der Spam-Bericht erfolgte
-`user_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Person, von der die Nachricht empfangen wurde
+`user_phone_number` | `null,`&nbsp;`string` | [PII] Die Telefonnummer der Person, von der die Nachricht empfangen wurde
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Person erhalten hat
 `canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
 `canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Person erhalten hat
 `interaction_type` | `null,`&nbsp;`string` | Die Art der Interaktion, die den Klick ausgelöst hat. Beispielwerte: Text URL, Reply, OpenURL
 `element_label` | `null,`&nbsp;`string` | Optionale Details zum angeklickten Element, z. B. der Text einer vorgeschlagenen Antwort oder eines Buttons
-`element_type` | `null,`&nbsp;`string` | Gibt an, ob ein interaction_type, der sowohl für Vorschläge als auch für Buttons gilt, von einem Vorschlag oder Button stammt. Beispiele: Suggestion, Button
+`element_type` | `null,`&nbsp;`string` | Gibt an, ob ein interaction_type, der bei Vorschlägen und Buttons gleich ist, von einem Vorschlag oder Button stammt. Beispiele: Suggestion, Button
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `url` | `null,`&nbsp;`string` | URL, auf die die Person geklickt hat
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
 `canvas_variation_name` | `null,`&nbsp;`string` | Name der Canvas-Variante, die diese Person erhalten hat
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSCLICKSHARED #USERSMESSAGESRCSCLICKSHARED" }
 
 
 ### USERS_MESSAGES_RCS_DELIVERY_SHARED {#USERS_MESSAGES_RCS_DELIVERY_SHARED}
@@ -2488,7 +2492,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
@@ -2508,7 +2512,7 @@ Feld | Typ | Beschreibung
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `from_rcs_sender` | `null,`&nbsp;`string` | Die RCS-Absender-ID oder der Agentenname, der zum Senden der Nachricht verwendet wurde
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSDELIVERYSHARED #USERSMESSAGESRCSDELIVERYSHARED" }
 
 
 ### USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_RCS_INBOUNDRECEIVE_SHARED}
@@ -2519,7 +2523,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `action` | `null,`&nbsp;`string` | Als Reaktion auf diese Nachricht ausgeführte Aktion (z. B. Subscribed, Unsubscribed oder None).
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
@@ -2529,7 +2533,7 @@ Feld | Typ | Beschreibung
 `media_urls` | `null,`&nbsp;`string` | Medien-URLs der Person
 `message_variation_name` | `null,`&nbsp;`string` | Name der Nachrichtenvariante
 `send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
-`user_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Person, von der die Nachricht empfangen wurde
+`user_phone_number` | `null,`&nbsp;`string` | [PII] Die Telefonnummer der Person, von der die Nachricht empfangen wurde
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
 `message_body` | `null,`&nbsp;`string` | Getippte Antwort der Person
 `to_rcs_sender` | `null,`&nbsp;`string` | Der eingehende RCS-Absender, an den die Nachricht gesendet wurde
@@ -2540,7 +2544,7 @@ Feld | Typ | Beschreibung
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSINBOUNDRECEIVESHARED #USERSMESSAGESRCSINBOUNDRECEIVESHARED" }
 
 
 ### USERS_MESSAGES_RCS_READ_SHARED {#USERS_MESSAGES_RCS_READ_SHARED}
@@ -2551,7 +2555,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
@@ -2566,7 +2570,7 @@ Feld | Typ | Beschreibung
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Person erhalten hat
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSREADSHARED #USERSMESSAGESRCSREADSHARED" }
 
 
 ### USERS_MESSAGES_RCS_REJECTION_SHARED {#USERS_MESSAGES_RCS_REJECTION_SHARED}
@@ -2577,7 +2581,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
@@ -2600,7 +2604,7 @@ Feld | Typ | Beschreibung
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Person erhalten hat
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSREJECTIONSHARED #USERSMESSAGESRCSREJECTIONSHARED" }
 
 
 ### USERS_MESSAGES_RCS_SEND_SHARED {#USERS_MESSAGES_RCS_SEND_SHARED}
@@ -2611,14 +2615,14 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Person gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Person
 `id` | `string` | Global eindeutige ID für dieses Ereignis
-`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_id` | `string` | Braze-Nutzer-ID der Person, die dieses Ereignis ausgeführt hat
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
 `canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
 `canvas_name` | `null,`&nbsp;`string` | Name des Canvas
 `canvas_step_name` | `null,`&nbsp;`string` | Name des Canvas-Schritts
 `canvas_variation_name` | `null,`&nbsp;`string` | Name der Canvas-Variante, die diese Person erhalten hat
-`category` | `null,`&nbsp;`string` | Name der Keyword-Kategorie, nur für automatische Antwortnachrichten befüllt: 'opt-in', 'opt-out', 'help' oder benutzerdefinierter Wert
+`category` | `null,`&nbsp;`string` | Name der Keyword-Kategorie, nur bei automatischen Antwortnachrichten befüllt: 'opt-in', 'opt-out', 'help' oder benutzerdefinierter Wert
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `from_rcs_sender` | `null,`&nbsp;`string` | Die RCS-Absender-ID oder der Agentenname, der zum Senden der Nachricht verwendet wurde
@@ -2633,57 +2637,57 @@ Feld | Typ | Beschreibung
 `canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESRCSSENDSHARED #USERSMESSAGESRCSSENDSHARED" }
 
-## SMS-Nachrichten-Events und gelöschte Nutzerprofile {#sms-message-events-and-deleted-user-profiles}
+## SMS-Nachrichten-Ereignisse und gelöschte Nutzerprofile {#sms-message-events-and-deleted-user-profiles}
 
 {% alert note %}
-Für gemeinsam genutzte `USERS_MESSAGES_SMS_*`-Tabellen (einschließlich [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) und [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)) schreibt Braze nur dann eine Zeile, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Events für Snowflake Data Sharing und Currents noch im Workspace vorhanden ist. Wurde die Nutzerin oder der Nutzer vor Abschluss der Verarbeitung gelöscht, erscheint das Event weder in Snowflake noch in Ihrem Currents-Export – auch wenn die SMS-Workspace-Metriken im Dashboard weiterhin aggregierte Zähler aus dem Braze-Reporting-Pfad widerspiegeln. Informationen zum entsprechenden Currents-Verhalten finden Sie unter [SMS-Rejection-Events]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) und verwandte SMS-Event-Typen im selben Glossar.
+Für die gemeinsam genutzten `USERS_MESSAGES_SMS_*`-Tabellen (einschließlich [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED) und [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)) schreibt Braze nur dann eine Zeile, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für Snowflake Data Sharing und Currents noch im Workspace vorhanden ist. Wurde die Nutzerin oder der Nutzer vor Abschluss der Verarbeitung gelöscht, erscheint das Ereignis weder in Snowflake noch in Ihrem Currents-Export – auch wenn die SMS-Workspace-Metriken im Dashboard weiterhin aggregierte Zählwerte aus dem Braze-Reporting-Pfad widerspiegeln. Informationen zum entsprechenden Currents-Verhalten finden Sie unter [SMS-Rejection-Ereignisse]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) und verwandte SMS-Ereignistypen im selben Glossar.
 {% endalert %}
 
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `abort_type` | `null,`&nbsp;`string` | Art des Abbruchs. Eine Liste der Werte finden Sie unter [Abbruchtypen](#abort-types).
-`abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Details zum Abbruch (maximal 2.000 Zeichen)
+`abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSABORTSHARED #USERSMESSAGESSMSABORTSHARED" }
 
 ### USERS_MESSAGES_SMS_CARRIERSEND_SHARED {#USERS_MESSAGES_SMS_CARRIERSEND_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
@@ -2693,28 +2697,28 @@ Feld | Typ | Beschreibung
 `from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die SMS-Nachricht gesendet wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSCARRIERSENDSHARED #USERSMESSAGESSMSCARRIERSENDSHARED" }
 
 ### USERS_MESSAGES_SMS_DELIVERY_SHARED {#USERS_MESSAGES_SMS_DELIVERY_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
@@ -2724,29 +2728,29 @@ Feld | Typ | Beschreibung
 `from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die SMS-Nachricht gesendet wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Delivery-Event verknüpft/gepaart
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Zustellungsereignis verknüpft/gepaart
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYSHARED #USERSMESSAGESSMSDELIVERYSHARED" }
 
 ### USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED {#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
@@ -2755,21 +2759,21 @@ Feld | Typ | Beschreibung
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfängerin oder des Empfängers
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `error` | `null,`&nbsp;`string` | Fehlername
-`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des SMS-Dienstanbieters
+`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des SMS-Anbieters
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Delivery-Event verknüpft/gepaart
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Zustellungsereignis verknüpft/gepaart
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSDELIVERYFAILURESHARED #USERSMESSAGESSMSDELIVERYFAILURESHARED" }
 
 ### USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `null,`&nbsp;`string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `null,`&nbsp;`string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, der mit der eingehenden Telefonnummer verknüpft ist
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_phone_number` | `string` | [PII] Telefonnummer der Nutzerin oder des Nutzers, von der die Nachricht empfangen wurde
 `subscription_group_id` | `null,`&nbsp;`string` | ID der Abo-Gruppe, die für diese SMS-Nachricht angesprochen wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | API-ID der Abo-Gruppe, die für diese SMS-Nachricht angesprochen wurde
@@ -2777,37 +2781,37 @@ Feld | Typ | Beschreibung
 `action` | `string` | Als Reaktion auf diese Nachricht ausgeführte Aktion. Zum Beispiel `Subscribed`, `Unsubscribed` oder `None`.
 `message_body` | `string` | Antwort der Nutzerin oder des Nutzers
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | Medien-URLs der Nutzerin oder des Nutzers
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
-`message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, zu der dieses Event gehört
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
-`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
+`message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, zu der dieses Ereignis gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
+`canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, zu der dieses Ereignis gehört
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSINBOUNDRECEIVESHARED #USERSMESSAGESSMSINBOUNDRECEIVESHARED" }
 
 ### USERS_MESSAGES_SMS_REJECTION_SHARED {#USERS_MESSAGES_SMS_REJECTION_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
@@ -2817,31 +2821,31 @@ Feld | Typ | Beschreibung
 `from_phone_number` | `null,`&nbsp;`string` | Telefonnummer, von der die SMS-Nachricht gesendet wurde
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
 `error` | `null,`&nbsp;`string` | Fehlername
-`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des SMS-Dienstanbieters
+`provider_error_code` | `null,`&nbsp;`string` | Fehlercode des SMS-Anbieters
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Delivery-Event verknüpft/gepaart
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`is_sms_fallback` | `null, boolean` | Gibt an, ob ein SMS-Fallback für diese abgelehnte RCS-Nachricht versucht wurde. Ist mit dem SMS-Zustellungsereignis verknüpft/gepaart
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSREJECTIONSHARED #USERSMESSAGESSMSREJECTIONSHARED" }
 
 ### USERS_MESSAGES_SMS_SEND_SHARED {#USERS_MESSAGES_SMS_SEND_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
@@ -2849,17 +2853,17 @@ Feld | Typ | Beschreibung
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzerin oder des Nutzers
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfängerin oder des Empfängers
 `subscription_group_api_id` | `null,`&nbsp;`string` | Externe ID der Abo-Gruppe
-`category` | `null,`&nbsp;`string` | Name der Keyword-Kategorie, nur bei automatischen Antwortnachrichten befüllt: „Opt-in“, „Opt-out“, „Help“ oder ein benutzerdefinierter Wert
+`category` | `null,`&nbsp;`string` | Name der Keyword-Kategorie, nur bei automatischen Antwortnachrichten befüllt: 'Opt-in', 'Opt-out', 'Help' oder ein benutzerdefinierter Wert
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSSENDSHARED #USERSMESSAGESSMSSENDSHARED" }
 
 ### USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED {#USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
+`id` | `string` | Global eindeutige ID für dieses Ereignis
 `user_id` | `null,`&nbsp;`string` | Braze-ID der Nutzerin oder des Nutzers, die/der durch short_url angesprochen wurde; null, wenn short_url kein Nutzer-Klick-Tracking verwendet hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Nutzerin oder des Nutzers, die/der durch short_url angesprochen wurde (falls vorhanden); null, wenn short_url kein Nutzer-Klick-Tracking verwendet hat
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, der zur Generierung von short_url verwendet wurde
@@ -2877,12 +2881,12 @@ Feld | Typ | Beschreibung
 `short_url` | `string` | Gekürzte URL, die angeklickt wurde
 `user_agent` | `null,`&nbsp;`string` | User-Agent, der short_url angefordert hat
 `user_phone_number` | `string` | [PII] Telefonnummer der Nutzerin oder des Nutzers
-`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Event aufgetreten ist
+`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`is_suspected_bot_click` | `null, boolean` | Ob dieses Event als Bot-Event verarbeitet wurde
-`suspected_bot_click_reason` | `null, object` | Warum dieses Event als Bot klassifiziert wurde
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`is_suspected_bot_click` | `null, boolean` | Ob dieses Ereignis als Bot-Ereignis verarbeitet wurde
+`suspected_bot_click_reason` | `null, object` | Warum dieses Ereignis als Bot klassifiziert wurde
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSSHORTLINKCLICKSHARED #USERSMESSAGESSMSSHORTLINKCLICKSHARED" }
 
 ### USERS_MESSAGES_SMS_RETRY_SHARED {#USERS_MESSAGES_SMS_RETRY_SHARED}
 
@@ -2890,59 +2894,59 @@ Feld | Typ | Beschreibung
 Diese Tabelle ist nur in Snowflake Data Sharing verfügbar.
 {% endalert %}
 
-Dieses Event tritt auf, wenn eine Nachricht herabgestuft oder durch Frequency Capping begrenzt wurde und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird.
+Dieses Ereignis tritt auf, wenn eine Nachricht herabgestuft oder durch Frequency Capping begrenzt wurde und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird.
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | [PII] Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | [PII] Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Nutzerin oder des Nutzers
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Event aufgetreten ist
-`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
+`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `subscription_group_api_id` | `null,`&nbsp;`string` | API-ID der Abo-Gruppe
 `retry_type` | `null,`&nbsp;`string` | Art des Wiederholungsversuchs
 `retry_log` | `null,`&nbsp;`string` | Protokollnachricht mit Details zum Wiederholungsversuch
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESSMSRETRYSHARED #USERSMESSAGESSMSRETRYSHARED" }
 
 ### USERS_MESSAGES_WEBHOOK_ABORT_SHARED {#USERS_MESSAGES_WEBHOOK_ABORT_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzerin oder des Nutzers
 `abort_type` | `null,`&nbsp;`string` | Art des Abbruchs. Eine Liste der Werte finden Sie unter [Abbruchtypen](#abort-types).
-`abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Details zum Abbruch (maximal 2.000 Zeichen)
+`abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKABORTSHARED #USERSMESSAGESWEBHOOKABORTSHARED" }
 
 
 ### USERS_MESSAGES_WEBHOOK_FAILURE_SHARED {#USERS_MESSAGES_WEBHOOK_FAILURE_SHARED}
@@ -2953,50 +2957,50 @@ Feld | Typ | Beschreibung
 `endpoint_url` | `null,`&nbsp;`string` | Die angeforderte Endpunkt-URL
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
-`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
 `content_length` | `null, int` | Inhaltslänge der Antwort
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Nutzerin oder des Nutzers
 `host` | `null,`&nbsp;`string` | Der Host für die Anfrage
-`id` | `string` | Global eindeutige ID für dieses Event
+`id` | `string` | Global eindeutige ID für dieses Ereignis
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `raw_response` | `null,`&nbsp;`string` | Gekürzte Rohantwort vom Endpunkt
 `retry_count` | `null, int` | Anzahl der durchgeführten Wiederholungsversuche
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Event aufgetreten ist
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `url_path` | `null,`&nbsp;`string` | Der Pfad der angeforderten URL
-`user_id` | `string` | Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `webhook_duration` | `null, int` | Gesamtdauer dieser Anfrage in Millisekunden
-`webhook_failure_source` | `null,`&nbsp;`string` | Gibt an, ob ein Fehler von Braze oder vom Endpunkt selbst verursacht wurde. Das Quellfeld kann „External Endpoint“ oder „Treat no status code to host unreachable“ sein
-`is_terminal` | `null, boolean` | Ob dieses Event der letzte Versuch bei einem Versand war
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`webhook_failure_source` | `null,`&nbsp;`string` | Gibt an, ob ein Fehler von Braze oder vom Endpunkt selbst verursacht wurde. Das Quellfeld kann External Endpoint, Treat no status code to host unreachable sein
+`is_terminal` | `null, boolean` | Ob dieses Ereignis der letzte Versuch bei einem Versand war
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKFAILURESHARED #USERSMESSAGESWEBHOOKFAILURESHARED" }
 
 ### USERS_MESSAGES_WEBHOOK_SEND_SHARED {#USERS_MESSAGES_WEBHOOK_SEND_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `campaign_name` | `null,`&nbsp;`string` | Name der Campaign
 `message_variation_name` | `null,`&nbsp;`string` | Name der Nachrichtenvariante
@@ -3009,8 +3013,8 @@ Feld | Typ | Beschreibung
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzerin oder des Nutzers
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKSENDSHARED #USERSMESSAGESWEBHOOKSENDSHARED" }
 
 ### USERS_MESSAGES_WEBHOOK_RETRY_SHARED {#USERS_MESSAGES_WEBHOOK_RETRY_SHARED}
 
@@ -3018,26 +3022,26 @@ Feld | Typ | Beschreibung
 Diese Tabelle ist nur in Snowflake Data Sharing verfügbar.
 {% endalert %}
 
-Dieses Event tritt auf, wenn eine Nachricht herabgestuft oder durch Frequency Capping begrenzt wurde und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird.
+Dieses Ereignis tritt auf, wenn eine Nachricht herabgestuft oder durch Frequency Capping begrenzt wurde und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird.
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | [PII] Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | [PII] Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Nutzerin oder des Nutzers
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Event aufgetreten ist
-`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Event aufgetreten ist
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
+`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
-`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
+`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `gender` | `null,`&nbsp;`string` | [PII] Geschlecht der Nutzerin oder des Nutzers
 `country` | `null,`&nbsp;`string` | [PII] Land der Nutzerin oder des Nutzers
@@ -3045,73 +3049,73 @@ Feld | Typ | Beschreibung
 `language` | `null,`&nbsp;`string` | [PII] Sprache der Nutzerin oder des Nutzers
 `retry_type` | `null,`&nbsp;`string` | Art des Wiederholungsversuchs
 `retry_log` | `null,`&nbsp;`string` | Protokollnachricht mit Details zum Wiederholungsversuch
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWEBHOOKRETRYSHARED #USERSMESSAGESWEBHOOKRETRYSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_ABORT_SHARED {#USERS_MESSAGES_WHATSAPP_ABORT_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `to_phone_number` | 	`null,`&nbsp;`string` | [PII] Telefonnummer der Empfängerin oder des Empfängers
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
 `app_group_id` | `null,`&nbsp;`string` | ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `abort_type` | `null,`&nbsp;`string` | Art des Abbruchs. Eine Liste der Werte finden Sie unter [Abbruchtypen](#abort-types).
-`abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Details zum Abbruch (maximal 2.000 Zeichen)
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`abort_log` | `null,`&nbsp;`string` | [PII] Protokollnachricht mit Abbruchdetails (maximal 2.000 Zeichen)
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPABORTSHARED #USERSMESSAGESWHATSAPPABORTSHARED" }
 
 
 ### USERS_MESSAGES_WHATSAPP_CLICK_SHARED {#USERS_MESSAGES_WHATSAPP_CLICK_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Nutzerin oder des Nutzers
-`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Event aufgetreten ist
+`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
-`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `url` | `null,`&nbsp;`string` | URL, auf die die Nutzerin oder der Nutzer geklickt hat
 `short_url` | `null,`&nbsp;`string` | Gekürzte URL, die angeklickt wurde
 `user_agent` | `null,`&nbsp;`string` | User-Agent, bei dem der Spam-Bericht aufgetreten ist
 `user_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Nutzerin oder des Nutzers, von der die Nachricht empfangen wurde
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPCLICKSHARED #USERSMESSAGESWHATSAPPCLICKSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED {#USERS_MESSAGES_WHATSAPP_DELIVERY_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfängerin oder des Empfängers
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
@@ -3119,30 +3123,30 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzerin oder der Nutzer auf einen WhatsApp Flow antwortet.
 `template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_FAILURE_SHARED {#USERS_MESSAGES_WHATSAPP_FAILURE_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfängerin oder des Empfängers
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
@@ -3150,32 +3154,32 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `provider_error_code` | `null,`&nbsp;`string` | Fehlercode von WhatsApp
 `provider_error_title` | `null, `&nbsp;`string` | Fehlertitel von WhatsApp
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
 `template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzerin oder der Nutzer auf einen WhatsApp Flow antwortet.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `user_phone_number` | `string` | [PII] Telefonnummer der Nutzerin oder des Nutzers, von der die Nachricht empfangen wurde
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `inbound_phone_number` | `string` | Die eingehende Nummer, an die die Nachricht gesendet wurde
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
@@ -3183,35 +3187,35 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `message_body` | `string` | Antwort der Nutzerin oder des Nutzers
 `quick_reply_text` | `string` | Text des Buttons, den die Nutzerin oder der Nutzer gedrückt hat
 `media_urls` | `null, {"type"=>"array", "items"=>["null", "string"]}` | Medien-URLs der Nutzerin oder des Nutzers
 `action` | `string` | Als Reaktion auf diese Nachricht ausgeführte Aktion. Zum Beispiel `Subscribed`, `Unsubscribed` oder `None`.
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
 `catalog_id` | `null,`&nbsp;`string` | Katalog-ID eines Produkts, wenn in der eingehenden Nachricht auf ein Produkt verwiesen wird. Andernfalls leer.
 `product_id` | `null,`&nbsp;`string` | ID des gekauften Produkts
 `flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzerin oder der Nutzer auf einen WhatsApp Flow antwortet.
 `flow_response_json` | `null,`&nbsp;`string` | [PII] Die Formularwerte, mit denen die Nutzerin oder der Nutzer geantwortet hat. Vorhanden, wenn die Nutzerin oder der Nutzer auf einen WhatsApp Flow antwortet.
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
 `in_reply_to` | `null,`&nbsp;`string` | Die message_id der Nachricht, auf die diese Nachricht geantwortet hat
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPINBOUNDRECEIVESHARED #USERSMESSAGESWHATSAPPINBOUNDRECEIVESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_READ_SHARED {#USERS_MESSAGES_WHATSAPP_READ_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Empfängerin oder des Empfängers
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
@@ -3219,30 +3223,30 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
 `flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzerin oder der Nutzer auf einen WhatsApp Flow antwortet.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`time` | `int` | Unix-Zeitstempel, zu dem das Event aufgetreten ist
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `to_phone_number` | `null,`&nbsp;`string`	| [PII] Telefonnummer der Empfängerin oder des Empfängers
-`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`user_id` | `string` | Braze-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzerin oder des Nutzers
 `device_id` | `null,`&nbsp;`string` | `device_id`, die mit dieser Nutzerin oder diesem Nutzer verknüpft ist, wenn sie/er anonym ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
@@ -3250,22 +3254,22 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzerin oder dieser Nutzer gehört
 `subscription_group_api_id` | `string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | Interne Braze-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | Interne Braze-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `message_extras` | `null,`&nbsp;`string` | [PII] Ein JSON-String der getaggten Schlüssel-Wert-Paare während des Liquid-Renderings
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-`send_id` | `null,`&nbsp;`string` | Nachrichten-Sende-ID, zu der diese Nachricht gehört
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+`send_id` | `null,`&nbsp;`string` | Nachrichtenversand-ID, zu der diese Nachricht gehört
 `flow_id` | `null,`&nbsp;`string` | Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzerin oder der Nutzer auf einen WhatsApp Flow antwortet.
 `template_name` | `null,`&nbsp;`string` | [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird
 `message_id` | `null,`&nbsp;`string` | Die von Meta generierte eindeutige ID für diese Nachricht
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_RETRY_SHARED {#USERS_MESSAGES_WHATSAPP_RETRY_SHARED}
 
@@ -3273,33 +3277,33 @@ Feld | Typ | Beschreibung
 Diese Tabelle ist nur in Snowflake Data Sharing verfügbar.
 {% endalert %}
 
-Dieses Event tritt auf, wenn eine Nachricht herabgestuft oder durch Frequency Capping begrenzt wurde und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird.
+Dieses Ereignis tritt auf, wenn eine Nachricht herabgestuft oder durch Frequency Capping begrenzt wurde und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird.
 
 Feld | Typ | Beschreibung
 ------|------|------------
-`id` | `string` | Global eindeutige ID für dieses Event
-`user_id` | `string` | [PII] Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Event ausgelöst hat
+`id` | `string` | Global eindeutige ID für dieses Ereignis
+`user_id` | `string` | [PII] Braze-Nutzer-ID der Nutzerin oder des Nutzers, die/der dieses Ereignis ausgelöst hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe ID der Nutzerin oder des Nutzers
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese Nutzerin oder dieser Nutzer gehört
-`time` | `int` | UNIX-Zeitstempel, zu dem das Event aufgetreten ist
+`time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis aufgetreten ist
 `to_phone_number` | `null,`&nbsp;`string` | [PII] Telefonnummer der Nutzerin oder des Nutzers, die/der die Nachricht empfängt, im E.164-Format
-`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Event aufgetreten ist
+`device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis aufgetreten ist
 `timezone` | `null,`&nbsp;`string` | Zeitzone der Nutzerin oder des Nutzers
 `subscription_group_api_id` | `null,`&nbsp;`string` | API-ID der Abo-Gruppe
-`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Event gehört
-`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Event gehört
+`campaign_id` | `null,`&nbsp;`string` | BSON-ID der Campaign, zu der dieses Ereignis gehört
+`campaign_api_id` | `null,`&nbsp;`string` | API-ID der Campaign, zu der dieses Ereignis gehört
 `message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
-`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Event gehört
-`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Event gehört
-`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Event gehört
-`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Event gehört
+`canvas_id` | `null,`&nbsp;`string` | BSON-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_api_id` | `null,`&nbsp;`string` | API-ID des Canvas, zu dem dieses Ereignis gehört
+`canvas_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Variante, zu der dieses Ereignis gehört
+`canvas_step_api_id` | `null,`&nbsp;`string` | API-ID des Canvas-Schritts, zu dem dieses Ereignis gehört
 `canvas_step_message_variation_api_id` | `null,`&nbsp;`string` | API-ID der Canvas-Schritt-Nachrichtenvariante, die diese Nutzerin oder dieser Nutzer erhalten hat
 `dispatch_id` | `null,`&nbsp;`string` | ID des Versands, zu dem diese Nachricht gehört
 `retry_type` | `null,`&nbsp;`string` | Art des Wiederholungsversuchs
 `retry_log` | `null,`&nbsp;`string` | Protokollnachricht mit Details zum Wiederholungsversuch
-`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Event von der Snowpipe erfasst wurde
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+`sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPRETRYSHARED #USERSMESSAGESWHATSAPPRETRYSHARED" }
 
 ## Nutzer:innen {#users}
 
@@ -3316,35 +3320,35 @@ Feld | Typ | Beschreibung
 | `random_bucket_number`      | `int`,&nbsp;`null`       | Aktuelle zufällige Bucket-Nummer, die der/dem Nutzer:in zugewiesen ist |
 | `prev_random_bucket_number` | `int`,&nbsp;`null`       | Vorherige zufällige Bucket-Nummer, die der/dem Nutzer:in zugewiesen war |
 | `sf_created_at`             | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSRANDOMBUCKETNUMBERUPDATESHARED #USERSRANDOMBUCKETNUMBERUPDATESHARED" }
 
 ### USERS_USERDELETEREQUEST_SHARED {#USERS_USERDELETEREQUEST_SHARED}
 
-| Feld               | Typ                      | Beschreibung                                                                  |
-| ------------------ | ------------------------ | ----------------------------------------------------------------------------- |
-| `id`               | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                      |
-| `user_id`          | `string`,&nbsp;`null`    | Braze-ID der/des Nutzer:in, die/der gelöscht wurde                            |
-| `app_group_id`     | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese:r Nutzer:in gehört                       |
-| `app_group_api_id` | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese:r Nutzer:in gehört                         |
-| `time`             | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem die Löschanfrage verarbeitet wurde                   |
-| `sf_created_at`    | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Feld               | Typ                      | Beschreibung                                                                |
+| ------------------ | ------------------------ | --------------------------------------------------------------------------- |
+| `id`               | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                    |
+| `user_id`          | `string`,&nbsp;`null`    | Braze-ID der/des Nutzer:in, die/der gelöscht wurde                          |
+| `app_group_id`     | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese:r Nutzer:in gehört                     |
+| `app_group_api_id` | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese:r Nutzer:in gehört                       |
+| `time`             | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem die Löschanfrage verarbeitet wurde                 |
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde            |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSUSERDELETEREQUESTSHARED #USERSUSERDELETEREQUESTSHARED" }
 
 ### USERS_USERORPHAN_SHARED {#USERS_USERORPHAN_SHARED}
 
-| Feld               | Typ                      | Beschreibung                                                                                          |
-| ------------------ | ------------------------ | ----------------------------------------------------------------------------------------------------- |
-| `id`               | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                              |
-| `user_id`          | `string`,&nbsp;`null`    | Braze-ID der/des Nutzer:in, die/der verwaist wurde                                                    |
-| `external_user_id` | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der/des Nutzer:in                                                             |
-| `device_id`        | `string`,&nbsp;`null`    | ID des Geräts, das mit dieser/diesem Nutzer:in verknüpft ist, sofern die/der Nutzer:in anonym ist     |
-| `app_group_id`     | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese:r Nutzer:in gehört                                               |
-| `app_group_api_id` | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese:r Nutzer:in gehört                                                 |
-| `app_api_id`       | `string`,&nbsp;`null`    | API-ID der App, zu der die/der verwaiste Nutzer:in gehörte                                            |
-| `time`             | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem die/der Nutzer:in verwaist wurde                                             |
+| Feld               | Typ                      | Beschreibung                                                                                  |
+| ------------------ | ------------------------ | --------------------------------------------------------------------------------------------- |
+| `id`               | `string`,&nbsp;`null`    | Global eindeutige ID für dieses Ereignis                                                      |
+| `user_id`          | `string`,&nbsp;`null`    | Braze-ID der/des Nutzer:in, die/der verwaist wurde                                            |
+| `external_user_id` | `string`,&nbsp;`null`    | [PII] Externe Nutzer-ID der/des Nutzer:in                                                     |
+| `device_id`        | `string`,&nbsp;`null`    | ID des Geräts, das mit dieser/diesem Nutzer:in verknüpft ist, falls die/der Nutzer:in anonym ist |
+| `app_group_id`     | `string`,&nbsp;`null`    | Braze-ID des Workspace, zu dem diese:r Nutzer:in gehört                                       |
+| `app_group_api_id` | `string`,&nbsp;`null`    | API-ID des Workspace, zu dem diese:r Nutzer:in gehört                                         |
+| `app_api_id`       | `string`,&nbsp;`null`    | API-ID der App, zu der die/der verwaiste Nutzer:in gehörte                                    |
+| `time`             | `int`,&nbsp;`null`       | Unix-Zeitstempel, zu dem die/der Nutzer:in verwaist wurde                                     |
 | `orphaned_by_id`   | `string`,&nbsp;`null`    | Braze-ID der/des Nutzer:in, deren/dessen Profil mit dem Profil der/des verwaisten Nutzer:in zusammengeführt wurde |
-| `sf_created_at`    | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `sf_created_at`    | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde                              |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSUSERORPHANSHARED #USERSUSERORPHANSHARED" }
 
 ## Snapshots {#snapshots}
 
@@ -3361,7 +3365,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `api_id` | `string` | API-ID der App
 `name` | `null,`&nbsp;`string` | Name der App
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSAPPSHARED #SNAPSHOTSAPPSHARED" }
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED {#SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED}
 
@@ -3372,7 +3376,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `api_id` | `string` | API-ID der Campaign-Nachrichtenvariante
 `name` | `null,`&nbsp;`string` | Name der Campaign-Nachrichtenvariante
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCAMPAIGNMESSAGEVARIATIONSHARED #SNAPSHOTSCAMPAIGNMESSAGEVARIATIONSHARED" }
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED {#SNAPSHOTS_CANVAS_FLOW_STEP_SHARED}
 
@@ -3386,7 +3390,7 @@ Feld | Typ | Beschreibung
 `experiment_splits` | `null,`&nbsp;`string` | Experiment-Splits für den Schritt
 `conversion_behaviors` | `null,`&nbsp;`string` | Conversion-Verhalten für den Schritt
 `name` | `null,`&nbsp;`string` | Name des Canvas-Flow-Schritts
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASFLOWSTEPSHARED #SNAPSHOTSCANVASFLOWSTEPSHARED" }
 
 ### SNAPSHOTS_CANVAS_STEP_SHARED {#SNAPSHOTS_CANVAS_STEP_SHARED}
 
@@ -3398,7 +3402,7 @@ Feld | Typ | Beschreibung
 `api_id` | `string` | API-ID des Canvas-Schritts
 `name` | `null,`&nbsp;`string` | Name des Canvas-Schritts
 `actions` | `null,`&nbsp;`string` | Aktionen für den Canvas-Schritt
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASSTEPSHARED #SNAPSHOTSCANVASSTEPSHARED" }
 
 ### SNAPSHOTS_CANVAS_VARIATION_SHARED {#SNAPSHOTS_CANVAS_VARIATION_SHARED}
 
@@ -3409,7 +3413,7 @@ Feld | Typ | Beschreibung
 `app_group_id` | `string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `api_id` | `string` | API-ID der Canvas-Variante
 `name` | `null,`&nbsp;`string` | Name der Canvas-Variante
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSCANVASVARIATIONSHARED #SNAPSHOTSCANVASVARIATIONSHARED" }
 
 ### SNAPSHOTS_EXPERIMENT_STEP_SHARED {#SNAPSHOTS_EXPERIMENT_STEP_SHARED}
 
@@ -3423,7 +3427,7 @@ Feld | Typ | Beschreibung
 `experiment_splits` | `null,`&nbsp;`string` | Experiment-Splits für den Schritt
 `conversion_behaviors` | `null,`&nbsp;`string` | Conversion-Verhalten für den Schritt
 `name` | `null,`&nbsp;`string` | Name des Experiment-Schritts
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SNAPSHOTSEXPERIMENTSTEPSHARED #SNAPSHOTSEXPERIMENTSTEPSHARED" }
 
 ## Abbruchtypen {#abort-types}
 

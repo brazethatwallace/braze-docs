@@ -23,8 +23,9 @@ Die Integration von Braze und Playable ermöglicht es Ihnen, Ihre besten Inhalte
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Playable-Konto | Um diese Partnerschaft zu nutzen, ist ein Playable-Konto erforderlich. Wenn Sie noch kein Playable-Konto haben, registrieren Sie sich [hier](https://signup.playable.video). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 | Videoinhalte | Laden Sie Videodateien auf Playable hoch oder stellen Sie Video-URLs von Websites wie Facebook, Instagram, YouTube, X (ehemals Twitter), TikTok und weiteren bereit. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Implementierung {#implementation}
 

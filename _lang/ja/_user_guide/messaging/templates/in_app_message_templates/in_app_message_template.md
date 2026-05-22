@@ -24,10 +24,10 @@ Brazeダッシュボードで、**テンプレート** > **アプリ内メッセ
 
 | 目的 | 操作 |
 |------|------|
-| ドラッグ＆ドロップレイアウトを再利用のために保存する | [ドラッグ＆ドロップのアプリ内メッセージ作成画面]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)で、エディターを終了した後に**テンプレートとして保存**を選択します（先にCampaignを起動するか、下書きとして保存する必要があります）。テンプレートは**テンプレート** > **アプリ内メッセージテンプレート**に表示され、次のメッセージで使用できます。 |
+| ドラッグ＆ドロップレイアウトを再利用のために保存する | [ドラッグ＆ドロップのアプリ内メッセージ作成画面]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)で、エディターを終了した後に**テンプレートとして保存**を選択します（先にキャンペーンを起動するか、下書きとして保存する必要があります）。テンプレートは**テンプレート** > **アプリ内メッセージテンプレート**に表示され、次のメッセージで使用できます。 |
 | カラープロファイルまたはCSSテンプレートを作成する（従来のエディター） | **アプリ内メッセージテンプレート**ページで、**+ 作成**を選択し、**カラープロファイル**または**CSSテンプレート**を選択します。詳細については、[カラープロファイルとCSSテンプレート](#reusable-color-profiles)を参照してください。 |
 | Brazeテンプレートをカスタマイズする | ドラッグ＆ドロップエディターで[アプリ内メッセージを作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)し、Brazeテンプレートを選択してカスタマイズを行い、**テンプレートとして保存**を選択します。各Brazeテンプレートの説明については、[アプリ内メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Choose how to create a template" }
 
 {% alert note %}
 カラープロファイルとCSSテンプレートは従来のエディターに適用されます。ドラッグ＆ドロップエディターを使用している場合は、メッセージレベルのスタイリングに[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/)を使用してください。
@@ -37,7 +37,7 @@ Brazeダッシュボードで、**テンプレート** > **アプリ内メッセ
 
 **テンプレート** > **アプリ内メッセージテンプレート**で、テンプレートのフィルタリング、検索、または編集のために開くことができます。他のテンプレートタイプと同様に、テンプレートを[複製]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#duplicate-templates)したり[アーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/#archive-templates)したりできます。テンプレートとメディアのワークフローの概要については、[テンプレート]({{site.baseurl}}/user_guide/messaging/templates/)を参照してください。
 
-テンプレートにアクセスするには権限が必要です。たとえば、「Campaigns、Canvases、カード、Content Blocks、フィーチャーフラグ、Segments、メディアライブラリ、ロケーション、プロモーションコード、およびユーザー設定センターへのアクセス」またはそれに相当する詳細な権限を付与して、アプリ内メッセージテンプレートの表示や編集を行えるようにします。詳細については、[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)を参照してください。
+アプリ内メッセージテンプレートにアクセスするには、アプリ内メッセージテンプレートの表示または編集を行うための[ユーザー権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)が必要です。
 
 ### カラープロファイルとCSSテンプレートの作成 {#reusable-color-profiles}
 

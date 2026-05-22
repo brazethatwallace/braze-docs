@@ -9,7 +9,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 
 # オブジェクト配列 {#array-of-objects}
 
-> このページでは、オブジェクトの配列を使って関連する属性をグループ化する方法を説明します。例えば、1人のユーザーに属するペットオブジェクト、曲オブジェクト、アカウントオブジェクトをすべて含むグループがあるとします。これらのオブジェクト配列を使用して、Liquidでメッセージングをパーソナライズしたり、オブジェクト内のいずれかの要素が条件に一致する場合にオーディエンスSegmentを作成したりできます。
+> このページでは、オブジェクトの配列を使って関連する属性をグループ化する方法を説明します。例えば、1人のユーザーに属するペットオブジェクト、曲オブジェクト、アカウントオブジェクトをすべて含むグループがあるとします。これらのオブジェクト配列を使用して、Liquidでメッセージングをパーソナライズしたり、オブジェクト内のいずれかの要素が条件に一致する場合にオーディエンスセグメントを作成したりできます。
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
@@ -217,7 +217,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% tab Android SDK %}
 {% subtabs %}
 {% subtab 作成 %}
-```kotlin
+`````````kotlin
 val json = JSONArray()
     .put(JSONObject()
         .put("id", 1)
@@ -238,7 +238,7 @@ braze.getCurrentUser { user ->
 {% endsubtab %}
 
 {% subtab 追加 %}
-```kotlin
+`````````kotlin
 val json = JSONObject()
     .put("\$add", JSONArray()
         .put(JSONObject()
@@ -266,7 +266,7 @@ braze.getCurrentUser { user ->
 {% endsubtab %}
 
 {% subtab 更新 %}
-```kotlin
+`````````kotlin
 val json = JSONObject()
     .put("\$update", JSONArray()
         .put(JSONObject()
@@ -292,7 +292,7 @@ braze.getCurrentUser { user ->
 {% endsubtab %}
 
 {% subtab 削除 %}
-```kotlin
+`````````kotlin
 val json = JSONObject()
     .put("\$remove", JSONArray()
         .put(JSONObject()
@@ -320,7 +320,7 @@ braze.getCurrentUser { user ->
 {% tab Swift SDK %}
 {% subtabs %}
 {% subtab 作成 %}
-```swift
+`````````swift
 let json: [[String: Any?]] = [
   [
     "id": 1,
@@ -341,7 +341,7 @@ braze.user.setCustomAttribute(key: "pets", array: json)
 {% endsubtab %}
 
 {% subtab 追加 %}
-```swift
+`````````swift
 let json: [String: Any?] = [
   "$add": [
     [
@@ -370,7 +370,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 {% endsubtab %}
 
 {% subtab 更新 %}
-```swift
+`````````swift
 let json: [String: Any?] = [
   "$update": [
     [
@@ -395,7 +395,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 {% endsubtab %}
 
 {% subtab 削除 %}
-```swift
+`````````swift
 let json: [String: Any?] = [
   "$remove": [
     [
@@ -426,7 +426,7 @@ braze.user.setCustomAttribute(key: "pets", dictionary: json, merge: true)
 {% tab Web SDK %}
 {% subtabs local %}
 {% subtab 作成 %}
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 const json = [{
   "id": 1,
@@ -444,7 +444,7 @@ braze.getUser().setCustomUserAttribute("pets", json);
 {% endsubtab %}
 
 {% subtab 追加 %}
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "$add": [{
@@ -469,7 +469,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endsubtab %}
 
 {% subtab 更新 %}
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "$update": [
@@ -494,7 +494,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 {% endsubtab %}
 
 {% subtab 削除 %}
-```javascript
+`````````javascript
 import * as braze from "@braze/web-sdk";
 const json = {
   "$remove": [
@@ -524,7 +524,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 この`pets`配列を使用してメッセージをパーソナライズできます。以下のLiquidテンプレートの例は、前述のAPIリクエストから保存されたカスタム属性オブジェクトのプロパティを参照し、メッセージングで使用する方法を示しています。
 
 {% raw %}
-```liquid
+`````````liquid
 {% assign pets = {{custom_attribute.${pets}}} %}
 
 {% for pet in pets %}
@@ -537,9 +537,9 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 
 ## セグメンテーション {#segmentation}
 
-オブジェクトの配列に基づいてユーザーをセグメント化する場合、配列内のいずれかのオブジェクトが条件に一致すると、そのユーザーはSegmentの対象となります。
+オブジェクトの配列に基づいてユーザーをセグメント化する場合、配列内のいずれかのオブジェクトが条件に一致すると、そのユーザーはセグメントの対象となります。
 
-新しいSegmentを作成し、フィルターとして**階層化カスタム属性**を選択します。次に、オブジェクト配列の名前を検索して選択します。
+新しいセグメントを作成し、フィルターとして**階層化カスタム属性**を選択します。次に、オブジェクト配列の名前を検索して選択します。
 
 ![オブジェクト配列でフィルタリング。]({% image_buster /assets/img_archive/array_of_objects_segmenting_1.gif %})
 
@@ -550,7 +550,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 
 ### ネストのレベル {#levels-of-nesting}
 
-配列のネストは1レベルまで（配列内の配列）でSegmentを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Gus`が含まれるSegmentは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるSegmentは作成できません。
+配列のネストは1レベルまで（配列内の配列）でセグメントを作成できます。たとえば、以下の属性の場合、`pets[].name`に`Gus`が含まれるセグメントは作成できますが、`pets[].nicknames[]`に`Gugu`が含まれるセグメントは作成できません。
 
 {% raw %}
 ```json

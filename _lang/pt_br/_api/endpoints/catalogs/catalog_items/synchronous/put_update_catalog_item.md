@@ -35,14 +35,14 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 |---|---|---|---|
 | `catalog_name` | Obrigatória | String | Nome do catálogo. |
 | `item_id` | Obrigatória | String | O ID do item do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter campos que existem no catálogo, exceto o campo `id`. Somente um objeto de item é permitido por solicitação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
     {
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -68,6 +69,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
   ]
 }'
 ```
+
+{% alert note %}
+O campo `Location` usa o tipo de dados `geo`, que espera um vetor formatado como `[longitude, latitude]`.
+{% endalert %}
 
 ## Resposta {#response}
 
@@ -111,7 +116,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com o [suporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
 | `catalog-not-found` | Verifique se o nome do catálogo é válido. |
 | `filtered-set-field-too-long` | O valor do campo está sendo usado em um conjunto filtrado que excede o limite de caracteres de um item. |
 | `id-in-body` | Remova quaisquer IDs de item no corpo da solicitação. |
@@ -125,6 +130,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `request-includes-too-many-items` | Você só pode criar um item de catálogo por solicitação. |
 | `too-deep-nesting-in-value-object` | Os objetos de item não podem ter mais de 50 níveis de aninhamento. |
 | `unable-to-coerce-value` | Os tipos de itens não podem ser convertidos. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

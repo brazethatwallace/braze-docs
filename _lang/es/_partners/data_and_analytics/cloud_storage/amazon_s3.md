@@ -265,7 +265,7 @@ Recupera el ID de tu cuenta de Braze y el ID externo de tu cuenta de Braze:
 
 De vuelta en la consola de AWS, selecciona **Another AWS Account** como tipo de selector de entidad de confianza. Proporciona el ID de tu cuenta de Braze, marca la casilla **Require external ID** e introduce el ID externo de Braze. Selecciona **Next** cuando hayas terminado.
 
-![La página S3 "Create Role". Esta página tiene campos para el nombre del rol, la descripción del rol, las entidades de confianza, las políticas y el límite de permisos.]({{site.baseurl}}/assets/img/create_role_2_another.png)
+![La página "Create Role" de S3. Esta página tiene campos para el nombre del rol, la descripción del rol, las entidades de confianza, las políticas y el límite de permisos.]({{site.baseurl}}/assets/img/create_role_2_another.png)
 
 ### Paso 3: Adjuntar política {#role-arn-3}
 
@@ -332,6 +332,14 @@ Una notificación te informa de si tus credenciales se han validado correctament
 
 {% endtab %}
 {% endtabs %}
+
+## Actualización de credenciales de Amazon S3 para Currents {#updating-currents-credentials}
+
+Puedes actualizar las credenciales de Amazon S3 en un conector de Braze Currents existente sin detener la integración ni perder los datos ya exportados a tu contenedor.
+
+Para actualizar las credenciales, o para cambiar entre **AWS Secret Access Key** y **AWS Role ARN**, completa los pasos de IAM y AWS para el método elegido descritos anteriormente en este artículo (políticas, usuario o rol, e identificadores según sea necesario).
+
+Cuando hayas terminado de preparar las credenciales en AWS, ve a **Partner Integrations** > **Currents** en Braze, localiza tu conector de Amazon S3 en la lista, selecciona **Edit**, actualiza las **Credentials** y selecciona **Update Current**. Braze valida las credenciales que introduces; tu conector sigue funcionando y los datos que ya están en tu contenedor permanecen disponibles. Para más información, consulta [Actualización de Currents en Configurar Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#updating-currents).
 
 ## Comportamiento de la exportación {#export-behavior}
 

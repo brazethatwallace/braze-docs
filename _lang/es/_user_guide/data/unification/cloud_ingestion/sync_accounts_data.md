@@ -140,7 +140,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     | `ID` | String | Sí |
     | `NAME` | String | Sí |
     | `DELETED` | Boolean | Opcional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
 3. Crea un usuario y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas siempre que tengan acceso a la tabla de cuentas.
@@ -151,7 +151,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     | BigQuery User | Permite a Braze ejecutar consultas, leer metadatos y listar tablas. |
     | BigQuery Data Viewer | Permite a Braze ver conjuntos de datos y su contenido. |
     | BigQuery Job User | Permite a Braze ejecutar trabajos. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sync your account data" }
 
     Después de conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener instrucciones. La cargarás en el panel de Braze más adelante.
 
@@ -187,7 +187,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     | `ID` | String | Sí |
     | `NAME` | String | Sí |
     | `DELETED` | Boolean | Opcional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
 3. Crea un token de acceso personal en Databricks:
@@ -236,7 +236,7 @@ Para sincronizar datos de cuentas desde almacenamiento de archivos, crea un arch
 | `PAYLOAD` | Sí | Cadena JSON de los campos a sincronizar con la cuenta en Braze |
 | `DELETED` | Opcional | Booleano que indica si se debe eliminar la cuenta de Braze |
 | `UPDATED_AT` | _*No compatible_ | El almacenamiento de archivos no admite columnas `UPDATED_AT` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {% alert note %}
 Los nombres de archivo deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para ayudar a garantizar la unicidad. Para más información sobre la sincronización con Amazon S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).

@@ -31,7 +31,7 @@ As mensagens slideup podem conter até três linhas de texto antes de serem trun
 | Disposição | Tamanho do ativo | Notas |
 |--- | --- | --- |
 | Imagem + Texto | Proporção 1:1<br>Alta resolução 150 x 150&nbsp;px<br> Mínimo 50 x 50&nbsp;px | Imagens de diversas proporções se ajustarão a um contêiner de imagem quadrado, sem cortes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Image and copy behavior" }
 
 Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) em diversos dispositivos para garantir que as áreas mais importantes da sua imagem e mensagem apareçam conforme esperado. Observe que, ao pré-visualizar sua mensagem no criador, a renderização real nos dispositivos pode ser diferente.
 

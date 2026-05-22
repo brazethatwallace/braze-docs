@@ -11,7 +11,7 @@ description: "Envie e-mails de transação para notificações críticas e urgen
 
 # E-mail de transação {#transactional-email}
 
-> E-mails de transação são criados especificamente para o envio de mensagens automatizadas e não promocionais, facilitando uma transação acordada entre você e seus clientes. Use Campaigns de e-mail de transação na Braze para enviar notificações críticas e urgentes disparadas por chamadas de API, como confirmações de pedido, redefinições de senha e atualizações de envio.
+> E-mails de transação são criados especificamente para o envio de mensagens automatizadas e não promocionais, facilitando uma transação acordada entre você e seus clientes. Use campanhas de e-mail de transação na Braze para enviar notificações críticas e urgentes disparadas por chamadas de API, como confirmações de pedido, redefinições de senha e atualizações de envio.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -32,7 +32,7 @@ O e-mail de transação é projetado para o envio de mensagens não promocionais
 | Redefinições de senha | Entrega links seguros e urgentes para que os clientes redefinam suas credenciais de conta. |
 | Notificações de envio | Notifica os clientes quando o pedido foi enviado, incluindo informações de rastreamento e datas estimadas de entrega. |
 | Alertas de conta | Envia notificações críticas relacionadas à conta, como falhas de pagamento, alterações de inscrição ou alertas de segurança. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Como o e-mail de transação difere do e-mail de marketing {#how-transactional-email-differs-from-marketing-email}
 

@@ -31,7 +31,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 |---|---|---|---|
 | `content_block_id`  | Requis | Chaîne de caractères | L'identifiant du Content Block. <br><br>Vous pouvez le trouver soit en listant les informations du Content Block par le biais d'un appel API, soit en vous rendant sur la page des [clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/), puis en défilant vers le bas et en recherchant l'identifiant API de votre Content Block.|
 | `include_inclusion_data`  | Facultatif | Valeur booléenne | Lorsque ce paramètre est défini sur `true`, l'API renvoie l'identifiant API de la variation de message des Campaigns et des Canvas dans lesquels ce Content Block est inclus, afin qu'il puisse être utilisé dans les appels ultérieurs.  Les résultats excluent les Campaigns ou les Canvas archivés ou supprimés. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
 {% raw %}
@@ -66,10 +66,10 @@ Le tableau suivant répertorie les erreurs possibles et les étapes de résoluti
 | Erreur | Résolution des problèmes |
 | --- | --- |
 | `Content Block ID cannot be blank` | Assurez-vous qu'un Content Block est répertorié dans votre requête et compris entre des guillemets (`""`). |
-| `Content Block ID is invalid for this workspace` | Ce Content Block n'existe pas ou se trouve dans un compte d'entreprise ou un espace de travail différent. |
+| `Content Block ID is invalid for this workspace` | Ce Content Block n'existe pas ou se trouve dans un compte de société ou un espace de travail différent. |
 | `Content Block has been deleted—content not available` | Ce Content Block, bien qu'il ait pu exister auparavant, a été supprimé. |
 | `Include Inclusion Data—error` | Ce paramètre accepte uniquement les valeurs booléennes (true ou false). Assurez-vous que la valeur de `include_inclusion_data` n'est pas comprise entre des guillemets (`""`), sinon la valeur est envoyée comme chaîne de caractères. Consultez les [paramètres de requête](#request-parameters) pour plus de détails. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }
 
 
 {% endapi %}

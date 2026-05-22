@@ -118,7 +118,7 @@ Los siguientes tipos de datos pueden almacenarse como un atributo personalizado:
 | Enteros | Puedes incrementar los atributos personalizados enteros asignando un objeto con el campo "inc" y la cantidad que deseas añadir. <br><br>Ejemplo: `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Atributos personalizados anidados | Los atributos personalizados anidados definen un conjunto de atributos como propiedad de otro atributo. Cuando defines un objeto de atributo personalizado, añades un conjunto de atributos a ese objeto. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/). |
 | Cadenas | Los atributos personalizados de cadena son secuencias de caracteres que se utilizan para almacenar datos de texto. Por ejemplo, puedes utilizar cadenas para almacenar nombres y apellidos, direcciones de correo electrónico o preferencias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de datos de atributos personalizados" }
 
 {% alert tip %}
 Para obtener orientación sobre cuándo utilizar un evento personalizado frente a un atributo personalizado, consulta [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) y [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
@@ -141,6 +141,10 @@ Para ejemplos de API que utilizan `add`, `remove` y `update`, consulta [Ejemplo 
 
 {% alert important %}
 Los siguientes campos del perfil de usuario distinguen entre mayúsculas y minúsculas, así que asegúrate de hacer referencia a ellos en minúsculas.
+{% endalert %}
+
+{% alert tip %}
+Para una referencia orientada al cliente de los atributos estándar organizada por categoría y con orientación para SDK, API, CSV e Ingesta de datos de Cloud, consulta [Atributos estándar]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes/).
 {% endalert %}
 
 | Campo de perfil de usuario | Especificación del tipo de datos |
@@ -171,7 +175,7 @@ Los siguientes campos del perfil de usuario distinguen entre mayúsculas y minú
 | subscription_groups| Matriz de objetos con una cadena `subscription_group_id` y `subscription_state`, por ejemplo, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Los valores disponibles para `subscription_state` son "subscribed" y "unsubscribed".|
 | time_zone | (cadena) Nombre de la zona horaria de la [base de datos de zonas horarias de la IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por ejemplo, "America/New_York" o "Eastern Time (US & Canada)"). Solo se establecen valores de zona horaria válidos. |
 | twitter | Hash que contiene cualquiera de `id` (entero), `screen_name` (cadena, identificador de X (antes Twitter)), `followers_count` (entero), `friends_count` (entero), `statuses_count` (entero). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de perfil de usuario de Braze" }
 
 Los valores de idioma que se establecen explícitamente a través de esta API tienen prioridad sobre la información de configuración regional que Braze recibe automáticamente del dispositivo.
 
@@ -230,7 +234,7 @@ Debido a la naturaleza de los tokens de notificaciones push web, asegúrate de t
 |----------------------|------------|
 | **Prestadores de servicios**  | De forma predeterminada, el SDK Web busca un prestador de servicios en `./service-worker` a menos que se especifique otra opción, como `manageServiceWorkerExternally` o `serviceWorkerLocation`. Si tu prestador de servicios no está configurado correctamente, puede provocar que los tokens de notificaciones push de tus usuarios caduquen. |
 | **Tokens caducados**   | Si un usuario no ha iniciado una sesión web en un plazo de 60 días, su token de notificaciones push caduca. Dado que Braze no puede migrar los tokens de notificaciones push caducados, debes enviar un [push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para reactivar la interacción. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Consideraciones sobre los tokens web" }
 
 ### Migración manual a través de API {#manual-migration-through-api}
 
